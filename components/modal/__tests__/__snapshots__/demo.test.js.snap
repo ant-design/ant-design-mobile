@@ -6,7 +6,9 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
 >
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -18,7 +20,9 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -30,7 +34,9 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -42,7 +48,9 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -54,7 +62,9 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
 </div>
 `;
 
@@ -73,7 +83,9 @@ exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -85,7 +97,9 @@ exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
 </div>
 `;
 
@@ -95,7 +109,9 @@ exports[`renders ./components/modal/demo/operation.md correctly 1`] = `
 >
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -107,7 +123,9 @@ exports[`renders ./components/modal/demo/operation.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
 </div>
 `;
 
@@ -117,7 +135,9 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
 >
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -129,7 +149,9 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -141,7 +163,9 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -153,7 +177,9 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -165,7 +191,9 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <a
     aria-disabled="false"
     class="am-button"
@@ -177,6 +205,8 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
 </div>
 `;

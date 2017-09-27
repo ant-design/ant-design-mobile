@@ -5,7 +5,7 @@ exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
   class="actionSheetContainer"
 >
   <div
-    style="margin:7.5px 0;"
+    style="margin:7.5px 0"
   >
     <a
       aria-disabled="false"
@@ -18,7 +18,7 @@ exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
     </a>
   </div>
   <div
-    style="margin:7.5px 0;"
+    style="margin:7.5px 0"
   >
     <a
       aria-disabled="false"
@@ -31,7 +31,7 @@ exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
     </a>
   </div>
   <div
-    style="margin:7.5px 0;"
+    style="margin:7.5px 0"
   >
     <a
       aria-disabled="false"

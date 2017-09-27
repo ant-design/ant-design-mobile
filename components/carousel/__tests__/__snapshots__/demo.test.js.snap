@@ -11,63 +11,69 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="slider am-carousel my-carousel"
-    style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden;"
+    style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden"
   >
     <div
       class="slider-frame"
-      style="position:relative;display:block;overflow:hidden;height:auto;margin:0px;padding:0;transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);-ms-transform:translate(0, 0);box-sizing:border-box;-moz-box-sizing:border-box;"
+      style="position:relative;display:block;overflow:hidden;height:auto;margin:0px;padding:0;transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);-ms-transform:translate(0, 0);box-sizing:border-box;-moz-box-sizing:border-box"
     >
       <ul
         class="slider-list"
-        style="transform:translate3d(0px, 0px, 0);-webkit-transform:translate3d(0px, 0px, 0);-ms-transform:translate(0px, 0px);position:relative;display:block;margin:0px 0px;padding:0;height:0;width:0;cursor:inherit;box-sizing:border-box;-moz-box-sizing:border-box;"
+        style="transform:translate3d(0px, 0px, 0);-webkit-transform:translate3d(0px, 0px, 0);-ms-transform:translate(0px, 0px);position:relative;display:block;margin:0px 0px;padding:0;height:0;width:0;cursor:inherit;box-sizing:border-box;-moz-box-sizing:border-box"
       >
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
+          style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto"
         >
           <a
             href="http://www.baidu.com"
-            style="height:176px;"
+            style="height:176px"
           >
             <img
               alt=""
               src="https://zos.alipayobjects.com/rmsportal/.png"
-            />
+            >
+              
+            </img>
           </a>
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
+          style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto"
         >
           <a
             href="http://www.baidu.com"
-            style="height:176px;"
+            style="height:176px"
           >
             <img
               alt=""
               src="https://zos.alipayobjects.com/rmsportal/.png"
-            />
+            >
+              
+            </img>
           </a>
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto;"
+          style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto"
         >
           <a
             href="http://www.baidu.com"
-            style="height:176px;"
+            style="height:176px"
           >
             <img
               alt=""
               src="https://zos.alipayobjects.com/rmsportal/.png"
-            />
+            >
+              
+            </img>
           </a>
         </li>
       </ul>
     </div>
     <div
       class="slider-decorator-0"
-      style="position:absolute;bottom:0;width:100%;text-align:center;"
+      style="position:absolute;bottom:0;width:100%;text-align:center"
     >
       <div
         class="am-carousel-wrap"
@@ -75,24 +81,32 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         <div
           class="am-carousel-wrap-dot"
         >
-          <span />
+          <span>
+            
+          </span>
         </div>
         <div
           class="am-carousel-wrap-dot am-carousel-wrap-dot-active"
         >
-          <span />
+          <span>
+            
+          </span>
         </div>
         <div
           class="am-carousel-wrap-dot"
         >
-          <span />
+          <span>
+            
+          </span>
         </div>
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <div
     class="sub-title"
   >
@@ -100,19 +114,19 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="slider am-carousel my-carousel am-carousel-vertical"
-    style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden;"
+    style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden"
   >
     <div
       class="slider-frame"
-      style="position:relative;display:block;overflow:hidden;height:initial;margin:0px;padding:0;transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);-ms-transform:translate(0, 0);box-sizing:border-box;-moz-box-sizing:border-box;"
+      style="position:relative;display:block;overflow:hidden;height:initial;margin:0px;padding:0;transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);-ms-transform:translate(0, 0);box-sizing:border-box;-moz-box-sizing:border-box"
     >
       <ul
         class="slider-list"
-        style="transform:translate3d(0px, 0px, 0);-webkit-transform:translate3d(0px, 0px, 0);-ms-transform:translate(0px, 0px);position:relative;display:block;margin:0px 0px;padding:0;height:0;width:auto;cursor:inherit;box-sizing:border-box;-moz-box-sizing:border-box;"
+        style="transform:translate3d(0px, 0px, 0);-webkit-transform:translate3d(0px, 0px, 0);-ms-transform:translate(0px, 0px);position:relative;display:block;margin:0px 0px;padding:0;height:0;width:auto;cursor:inherit;box-sizing:border-box;-moz-box-sizing:border-box"
       >
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -122,7 +136,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -132,7 +146,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -145,7 +159,9 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <div
     class="sub-title"
   >
@@ -153,19 +169,19 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="slider am-carousel my-carousel am-carousel-vertical"
-    style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden;"
+    style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden"
   >
     <div
       class="slider-frame"
-      style="position:relative;display:block;overflow:hidden;height:initial;margin:0px;padding:0;transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);-ms-transform:translate(0, 0);box-sizing:border-box;-moz-box-sizing:border-box;"
+      style="position:relative;display:block;overflow:hidden;height:initial;margin:0px;padding:0;transform:translate3d(0, 0, 0);-webkit-transform:translate3d(0, 0, 0);-ms-transform:translate(0, 0);box-sizing:border-box;-moz-box-sizing:border-box"
     >
       <ul
         class="slider-list"
-        style="transform:translate3d(0px, 0px, 0);-webkit-transform:translate3d(0px, 0px, 0);-ms-transform:translate(0px, 0px);position:relative;display:block;margin:0px 0px;padding:0;height:0;width:auto;cursor:inherit;box-sizing:border-box;-moz-box-sizing:border-box;"
+        style="transform:translate3d(0px, 0px, 0);-webkit-transform:translate3d(0px, 0px, 0);-ms-transform:translate(0px, 0px);position:relative;display:block;margin:0px 0px;padding:0;height:0;width:auto;cursor:inherit;box-sizing:border-box;-moz-box-sizing:border-box"
       >
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -175,7 +191,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -185,7 +201,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -195,7 +211,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -205,7 +221,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -215,7 +231,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -225,7 +241,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -235,7 +251,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"
@@ -245,7 +261,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         </li>
         <li
           class="slider-slide"
-          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;"
+          style="position:absolute;left:0;top:0;display:block;list-style-type:none;vertical-align:top;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0"
         >
           <div
             class="v-item"

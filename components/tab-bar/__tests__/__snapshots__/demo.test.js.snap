@@ -9,22 +9,22 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-tabs-content-wrap"
-      style="touch-action:pan-y;transform:translate3d(-100%, 0px, 0px);-webkit-transform:translate3d(-100%, 0px, 0px);-moz-transform:translate3d(-100%, 0px, 0px);"
+      style="touch-action:pan-y;transform:translate3d(-100%, 0px, 0px);-webkit-transform:translate3d(-100%, 0px, 0px);-moz-transform:translate3d(-100%, 0px, 0px)"
     >
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
       >
         <div>
           <div
-            style="background-color:white;height:100%;text-align:center;"
+            style="background-color:white;height:100%;text-align:center"
           >
             <div
-              style="padding-top:60px;"
+              style="padding-top:60px"
             >
               clicked “Life” tab， show “Life” information
             </div>
             <a
-              style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
+              style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9"
             >
               click to show/hide tab-bar
             </a>
@@ -36,15 +36,15 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
       >
         <div>
           <div
-            style="background-color:white;height:100%;text-align:center;"
+            style="background-color:white;height:100%;text-align:center"
           >
             <div
-              style="padding-top:60px;"
+              style="padding-top:60px"
             >
               clicked “Koubei” tab， show “Koubei” information
             </div>
             <a
-              style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
+              style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9"
             >
               click to show/hide tab-bar
             </a>
@@ -56,15 +56,15 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
       >
         <div>
           <div
-            style="background-color:white;height:100%;text-align:center;"
+            style="background-color:white;height:100%;text-align:center"
           >
             <div
-              style="padding-top:60px;"
+              style="padding-top:60px"
             >
               clicked “Friend” tab， show “Friend” information
             </div>
             <a
-              style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9;"
+              style="display:block;margin-top:40px;margin-bottom:600px;color:#108ee9"
             >
               click to show/hide tab-bar
             </a>
@@ -73,29 +73,33 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-      />
+      >
+        
+      </div>
     </div>
     <div
       class="am-tabs-tab-bar-wrap"
     >
       <div
         class="am-tab-bar-bar"
-        style="background-color:white;"
+        style="background-color:white"
       >
         <div
           data-seed="logId"
         >
           <div
             class="am-tab-bar-tab-icon"
-            style="color:#949494;"
+            style="color:#949494"
           >
             <span
               class="am-badge am-tab-bar-tab-badge tab-badge"
             >
                
               <div
-                style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat;"
-              />
+                style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat"
+              >
+                
+              </div>
                
               <sup
                 class="am-badge-text"
@@ -106,7 +110,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           </div>
           <p
             class="am-tab-bar-tab-title"
-            style="color:#949494;"
+            style="color:#949494"
           >
             Life
           </p>
@@ -116,15 +120,17 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-tab-bar-tab-icon"
-            style="color:#33A3F4;"
+            style="color:#33A3F4"
           >
             <span
               class="am-badge am-tab-bar-tab-badge tab-badge"
             >
                
               <div
-                style="width:22px;height:22px;background:url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat;"
-              />
+                style="width:22px;height:22px;background:url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat"
+              >
+                
+              </div>
                
               <sup
                 class="am-badge-text"
@@ -135,7 +141,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           </div>
           <p
             class="am-tab-bar-tab-title"
-            style="color:#33A3F4;"
+            style="color:#33A3F4"
           >
             Koubei
           </p>
@@ -143,22 +149,26 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
         <div>
           <div
             class="am-tab-bar-tab-icon"
-            style="color:#949494;"
+            style="color:#949494"
           >
             <span
               class="am-badge am-tab-bar-tab-badge tab-dot"
             >
               <div
-                style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat;"
-              />
+                style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat"
+              >
+                
+              </div>
               <sup
                 class="am-badge-dot"
-              />
+              >
+                
+              </sup>
             </span>
           </div>
           <p
             class="am-tab-bar-tab-title"
-            style="color:#949494;"
+            style="color:#949494"
           >
             Friend
           </p>
@@ -166,17 +176,19 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
         <div>
           <div
             class="am-tab-bar-tab-icon"
-            style="color:#949494;"
+            style="color:#949494"
           >
             <img
               alt="My"
               class="am-tab-bar-tab-image"
               src="https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg"
-            />
+            >
+              
+            </img>
           </div>
           <p
             class="am-tab-bar-tab-title"
-            style="color:#949494;"
+            style="color:#949494"
           >
             My
           </p>

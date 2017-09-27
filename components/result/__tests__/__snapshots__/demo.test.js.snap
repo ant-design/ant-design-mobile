@@ -20,7 +20,9 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
         alt="icon"
         class="icon am-icon am-icon-md"
         src="https://gw.alipayobjects.com/zos/rmsportal/pdFARIqkrKEGVVEwotFe.svg"
-      />
+      >
+        
+      </img>
     </div>
     <div
       class="am-result-title"
@@ -40,7 +42,9 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <div
     class="sub-title"
   >
@@ -55,11 +59,13 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
     >
       <svg
         class="am-icon am-icon-check-circle am-icon-md icon"
-        style="fill:#1F90E6;"
+        style="fill:#1F90E6"
       >
         <use
-          xlink:href="#check-circle"
-        />
+          href="#check-circle"
+        >
+          
+        </use>
       </svg>
     </div>
     <div
@@ -75,7 +81,9 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <div
     class="sub-title"
   >
@@ -90,11 +98,13 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
     >
       <svg
         class="am-icon am-icon-cross-circle-o am-icon-md icon"
-        style="fill:#F13642;"
+        style="fill:#F13642"
       >
         <use
-          xlink:href="#cross-circle-o"
-        />
+          href="#cross-circle-o"
+        >
+          
+        </use>
       </svg>
     </div>
     <div
@@ -110,7 +120,9 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <div
     class="sub-title"
   >
@@ -127,7 +139,9 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
         alt="icon"
         class="icon am-icon am-icon-md"
         src="https://gw.alipayobjects.com/zos/rmsportal/HWuSTipkjJRfTWekgTUG.svg"
-      />
+      >
+        
+      </img>
     </div>
     <div
       class="am-result-title"
@@ -142,7 +156,9 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <div
     class="sub-title"
   >
@@ -159,7 +175,9 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
         alt="icon"
         class="icon am-icon am-icon-md"
         src="https://gw.alipayobjects.com/zos/rmsportal/GIyMDJnuqmcqPLpHCSkj.svg"
-      />
+      >
+        
+      </img>
     </div>
     <div
       class="am-result-title"

@@ -38,18 +38,24 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
                   checked=""
                   class="am-radio-input"
                   type="radio"
-                />
+                >
+                  
+                </input>
                 <span
                   class="am-radio-inner"
-                />
+                >
+                  
+                </span>
               </span>
             </label>
           </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-radio-item am-list-item-middle"
@@ -74,24 +80,32 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
                 <input
                   class="am-radio-input"
                   type="radio"
-                />
+                >
+                  
+                </input>
                 <span
                   class="am-radio-inner"
-                />
+                >
+                  
+                </span>
               </span>
             </label>
           </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <div
     class="am-list"
   >
@@ -128,18 +142,24 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
                   checked=""
                   class="am-radio-input"
                   type="radio"
-                />
+                >
+                  
+                </input>
                 <span
                   class="am-radio-inner"
-                />
+                >
+                  
+                </span>
               </span>
             </label>
           </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-radio-item am-list-item-middle"
@@ -169,18 +189,24 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
                 <input
                   class="am-radio-input"
                   type="radio"
-                />
+                >
+                  
+                </input>
                 <span
                   class="am-radio-inner"
-                />
+                >
+                  
+                </span>
               </span>
             </label>
           </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
@@ -221,18 +247,24 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
                   class="am-radio-input"
                   disabled=""
                   type="radio"
-                />
+                >
+                  
+                </input>
                 <span
                   class="am-radio-inner"
-                />
+                >
+                  
+                </span>
               </span>
             </label>
           </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-radio-item am-radio-item-disabled am-list-item-middle"
@@ -258,24 +290,32 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
                   class="am-radio-input"
                   disabled=""
                   type="radio"
-                />
+                >
+                  
+                </input>
                 <span
                   class="am-radio-inner"
-                />
+                >
+                  
+                </span>
               </span>
             </label>
           </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <div
     class="am-list"
   >
@@ -313,18 +353,24 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
                   class="am-radio-input"
                   disabled=""
                   type="radio"
-                />
+                >
+                  
+                </input>
                 <span
                   class="am-radio-inner"
-                />
+                >
+                  
+                </span>
               </span>
             </label>
           </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-radio-item am-radio-item-disabled am-list-item-middle"
@@ -355,28 +401,34 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
                   class="am-radio-input"
                   disabled=""
                   type="radio"
-                />
+                >
+                  
+                </input>
                 <span
                   class="am-radio-inner"
-                />
+                >
+                  
+                </span>
               </span>
             </label>
           </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
   <div
     class="am-flexbox am-flexbox-align-center"
-    style="padding:15px;"
+    style="padding:15px"
   >
     <div
       class="am-flexbox-item"
-      style="padding:15px 0;color:#888;flex:none;"
+      style="padding:15px 0;color:#888;flex:none"
     >
       Radio Demo(Customized style)
     </div>
@@ -392,10 +444,14 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <input
             class="am-radio-input"
             type="radio"
-          />
+          >
+            
+          </input>
           <span
             class="am-radio-inner"
-          />
+          >
+            
+          </span>
         </span>
         Agree
       </label>

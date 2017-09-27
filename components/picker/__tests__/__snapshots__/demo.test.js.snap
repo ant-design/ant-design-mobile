@@ -4,10 +4,12 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
 <div>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <div
     class="am-list picker-list"
-    style="background-color:white;"
+    style="background-color:white"
   >
     <div
       class="am-list-body"
@@ -32,12 +34,16 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
-            />
+            >
+              
+            </div>
           </div>
           <div
             class="am-list-ripple"
-            style="display:none;"
-          />
+            style="display:none"
+          >
+            
+          </div>
         </div>
       </div>
       <div>
@@ -60,12 +66,16 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
-            />
+            >
+              
+            </div>
           </div>
           <div
             class="am-list-ripple"
-            style="display:none;"
-          />
+            style="display:none"
+          >
+            
+          </div>
         </div>
       </div>
       <div>
@@ -88,12 +98,16 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
-            />
+            >
+              
+            </div>
           </div>
           <div
             class="am-list-ripple"
-            style="display:none;"
-          />
+            style="display:none"
+          >
+            
+          </div>
         </div>
       </div>
       <div>
@@ -116,29 +130,33 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               aria-hidden="true"
               class="am-list-arrow am-list-arrow-horizontal"
-            />
+            >
+              
+            </div>
           </div>
           <div
             class="am-list-ripple"
-            style="display:none;"
-          />
+            style="display:none"
+          >
+            
+          </div>
         </div>
       </div>
       <div>
         <div
-          style="background-color:#fff;padding-left:15px;"
+          style="background-color:#fff;padding-left:15px"
         >
           <div
             class="test"
-            style="display:flex;height:45px;line-height:45px;"
+            style="display:flex;height:45px;line-height:45px"
           >
             <div
-              style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
+              style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"
             >
               Customized Children
             </div>
             <div
-              style="text-align:right;color:#888;margin-right:15px;"
+              style="text-align:right;color:#888;margin-right:15px"
             >
               请选择(可选)
             </div>
@@ -167,8 +185,10 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
           </div>
           <div
             class="am-list-ripple"
-            style="display:none;"
-          />
+            style="display:none"
+          >
+            
+          </div>
         </div>
       </div>
     </div>

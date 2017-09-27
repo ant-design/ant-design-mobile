@@ -20,14 +20,18 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
             class="am-badge"
           >
             <span
-              style="width:26px;height:26px;background:#ddd;display:inline-block;"
-            />
+              style="width:26px;height:26px;background:#ddd;display:inline-block"
+            >
+              
+            </span>
             <sup
               class="am-badge-dot"
-            />
+            >
+              
+            </sup>
           </span>
           <span
-            style="margin-left:12px;"
+            style="margin-left:12px"
           >
             Dot Badge
           </span>
@@ -40,12 +44,16 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           aria-hidden="true"
           class="am-list-arrow am-list-arrow-horizontal"
-        />
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -55,7 +63,9 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       >
         <img
           src="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png"
-        />
+        >
+          
+        </img>
       </div>
       <div
         class="am-list-line"
@@ -81,12 +91,16 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           aria-hidden="true"
           class="am-list-arrow am-list-arrow-horizontal"
-        />
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -115,8 +129,10 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item special-badge am-list-item-middle"
@@ -145,8 +161,10 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -167,7 +185,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;"
+              style="margin-left:12px"
             >
               new
             </sup>
@@ -181,12 +199,16 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           aria-hidden="true"
           class="am-list-arrow am-list-arrow-horizontal"
-        />
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -203,7 +225,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;"
+              style="margin-left:12px"
             >
               减
             </sup>
@@ -213,7 +235,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;"
+              style="margin-left:12px"
             >
               惠
             </sup>
@@ -223,7 +245,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;"
+              style="margin-left:12px"
             >
               免
             </sup>
@@ -233,7 +255,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;"
+              style="margin-left:12px"
             >
               反
             </sup>
@@ -243,7 +265,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;"
+              style="margin-left:12px"
             >
               HOT
             </sup>
@@ -252,8 +274,10 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -270,7 +294,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;padding:0 3px;background-color:#f19736;border-radius:2px;"
+              style="margin-left:12px;padding:0 3px;background-color:#f19736;border-radius:2px"
             >
               券
             </sup>
@@ -280,7 +304,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;padding:0 3px;background-color:#21b68a;border-radius:2px;"
+              style="margin-left:12px;padding:0 3px;background-color:#21b68a;border-radius:2px"
             >
               NEW
             </sup>
@@ -290,7 +314,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <sup
               class="am-badge-text"
-              style="margin-left:12px;padding:0 3px;background-color:#fff;border-radius:2px;color:#f19736;border:1px solid #f19736;"
+              style="margin-left:12px;padding:0 3px;background-color:#fff;border-radius:2px;color:#f19736;border:1px solid #f19736"
             >
               自动缴费
             </sup>
@@ -299,8 +323,10 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
   </div>
 </div>

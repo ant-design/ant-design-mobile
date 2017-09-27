@@ -10,9 +10,13 @@ exports[`SegmentedControl renders correctly 1`] = `
     name=""
     type="checkbox"
     value="on"
-  />
+  >
+    
+  </input>
   <div
     class="checkbox"
-  />
+  >
+    
+  </div>
 </label>
 `;

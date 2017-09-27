@@ -9,7 +9,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -21,8 +21,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-check-circle am-icon-md"
           >
             <use
-              xlink:href="#check-circle"
-            />
+              href="#check-circle"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -34,7 +36,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -46,8 +48,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-check am-icon-md"
           >
             <use
-              xlink:href="#check"
-            />
+              href="#check"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -59,7 +63,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -71,8 +75,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-check-circle-o am-icon-md"
           >
             <use
-              xlink:href="#check-circle-o"
-            />
+              href="#check-circle-o"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -88,7 +94,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -100,8 +106,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-cross-circle am-icon-md"
           >
             <use
-              xlink:href="#cross-circle"
-            />
+              href="#cross-circle"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -113,7 +121,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -125,8 +133,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-cross am-icon-md"
           >
             <use
-              xlink:href="#cross"
-            />
+              href="#cross"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -138,7 +148,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -150,8 +160,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-cross-circle-o am-icon-md"
           >
             <use
-              xlink:href="#cross-circle-o"
-            />
+              href="#cross-circle-o"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -167,7 +179,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -179,8 +191,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-up am-icon-md"
           >
             <use
-              xlink:href="#up"
-            />
+              href="#up"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -192,7 +206,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -204,8 +218,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-down am-icon-md"
           >
             <use
-              xlink:href="#down"
-            />
+              href="#down"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -217,7 +233,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -229,8 +245,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-left am-icon-md"
           >
             <use
-              xlink:href="#left"
-            />
+              href="#left"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -246,7 +264,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -258,8 +276,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-right am-icon-md"
           >
             <use
-              xlink:href="#right"
-            />
+              href="#right"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -271,7 +291,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -283,8 +303,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-ellipsis am-icon-md"
           >
             <use
-              xlink:href="#ellipsis"
-            />
+              href="#ellipsis"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -296,7 +318,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:33.333333333333336%;"
+      style="width:33.333333333333336%"
     >
       <div
         class="am-grid-item-content"
@@ -308,8 +330,10 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
             class="am-icon am-icon-loading am-icon-md"
           >
             <use
-              xlink:href="#loading"
-            />
+              href="#loading"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -332,7 +356,7 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
   >
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:20%;"
+      style="width:20%"
     >
       <div
         class="am-grid-item-content"
@@ -344,8 +368,10 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
             class="am-icon am-icon-search am-icon-xxs"
           >
             <use
-              xlink:href="#search"
-            />
+              href="#search"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -357,7 +383,7 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:20%;"
+      style="width:20%"
     >
       <div
         class="am-grid-item-content"
@@ -369,8 +395,10 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
             class="am-icon am-icon-search am-icon-xs"
           >
             <use
-              xlink:href="#search"
-            />
+              href="#search"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -382,7 +410,7 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:20%;"
+      style="width:20%"
     >
       <div
         class="am-grid-item-content"
@@ -394,8 +422,10 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
             class="am-icon am-icon-search am-icon-sm"
           >
             <use
-              xlink:href="#search"
-            />
+              href="#search"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -407,7 +437,7 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:20%;"
+      style="width:20%"
     >
       <div
         class="am-grid-item-content"
@@ -419,8 +449,10 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
             class="am-icon am-icon-search am-icon-md"
           >
             <use
-              xlink:href="#search"
-            />
+              href="#search"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"
@@ -432,7 +464,7 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
     </div>
     <div
       class="am-flexbox-item am-grid-item"
-      style="width:20%;"
+      style="width:20%"
     >
       <div
         class="am-grid-item-content"
@@ -444,8 +476,10 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
             class="am-icon am-icon-search am-icon-lg"
           >
             <use
-              xlink:href="#search"
-            />
+              href="#search"
+            >
+              
+            </use>
           </svg>
           <div
             class="am-grid-text"

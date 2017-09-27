@@ -7,13 +7,15 @@ exports[`Calendar renders correctly 1`] = `
   <span>
     <div
       class="mask animate"
-      style="display:flex;"
-    />
+      style="display:flex"
+    >
+      
+    </div>
   </span>
   <span>
     <div
       class="content animate"
-      style="display:flex;"
+      style="display:flex"
     >
       <div
         class="header"
@@ -25,8 +27,10 @@ exports[`Calendar renders correctly 1`] = `
             class="am-icon am-icon-cross am-icon-md"
           >
             <use
-              xlink:href="#cross"
-            />
+              href="#cross"
+            >
+              
+            </use>
           </svg>
         </span>
         <span
@@ -79,7 +83,7 @@ exports[`Calendar renders correctly 1`] = `
         </div>
         <div
           class="wrapper"
-          style="overflow-x:hidden;overflow-y:hidden;"
+          style="overflow-x:hidden;overflow-y:hidden"
         >
           <div>
             <div
@@ -112,17 +116,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -132,17 +144,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -152,7 +172,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -160,11 +182,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -174,7 +200,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -182,11 +210,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -196,7 +228,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -204,11 +238,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -218,7 +256,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -226,11 +266,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -240,7 +284,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -248,11 +294,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -266,7 +316,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -274,11 +326,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -288,7 +344,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -296,11 +354,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -310,7 +372,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -318,11 +382,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -332,7 +400,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -340,11 +410,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -354,7 +428,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -362,11 +438,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -376,7 +456,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -384,11 +466,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -398,7 +484,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -406,11 +494,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -424,7 +516,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -432,11 +526,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -446,7 +544,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -454,11 +554,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -468,7 +572,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -476,11 +582,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -490,7 +600,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -498,11 +610,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -512,7 +628,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -520,11 +638,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -534,7 +656,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -542,11 +666,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -556,7 +684,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -564,11 +694,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -582,7 +716,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -590,11 +726,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -604,7 +744,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -612,11 +754,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -626,7 +772,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -634,11 +782,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -648,7 +800,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -656,11 +810,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -670,7 +828,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -678,11 +838,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -692,7 +856,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -700,11 +866,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -714,7 +884,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -722,11 +894,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -740,7 +916,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -748,11 +926,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -762,7 +944,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -770,11 +954,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -784,7 +972,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -792,11 +982,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -806,7 +1000,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -814,11 +1010,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -828,7 +1028,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -836,11 +1038,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -867,17 +1073,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -887,17 +1101,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -907,17 +1129,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -927,17 +1157,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -947,17 +1185,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -967,7 +1213,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -975,11 +1223,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -989,7 +1241,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -997,11 +1251,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1015,7 +1273,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1023,11 +1283,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1037,7 +1301,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1045,11 +1311,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1059,7 +1329,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1067,11 +1339,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1081,7 +1357,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1089,11 +1367,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1103,7 +1385,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1111,11 +1395,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1125,7 +1413,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1133,11 +1423,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1147,7 +1441,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1155,11 +1451,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1173,7 +1473,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1181,11 +1483,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1195,7 +1501,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1203,11 +1511,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1217,7 +1529,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1225,11 +1539,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1239,7 +1557,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1247,11 +1567,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1261,7 +1585,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1269,11 +1595,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1283,7 +1613,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1291,11 +1623,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1305,7 +1641,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1313,11 +1651,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1331,7 +1673,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1339,11 +1683,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1353,7 +1701,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1361,11 +1711,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1375,7 +1729,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1383,11 +1739,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1397,7 +1757,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1405,11 +1767,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1419,7 +1785,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1427,11 +1795,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1441,7 +1813,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1449,11 +1823,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1463,7 +1841,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1471,11 +1851,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1489,7 +1873,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1497,11 +1883,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1511,7 +1901,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1519,11 +1911,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1533,7 +1929,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1541,11 +1939,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1555,7 +1957,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1563,11 +1967,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1577,7 +1985,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1585,11 +1995,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1599,7 +2013,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1607,11 +2023,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1621,7 +2041,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1629,11 +2051,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1660,7 +2086,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1668,11 +2096,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1682,7 +2114,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1690,11 +2124,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1704,7 +2142,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1712,11 +2152,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1726,7 +2170,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1734,11 +2180,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1748,7 +2198,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1756,11 +2208,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1770,7 +2226,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1778,11 +2236,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1792,7 +2254,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1800,11 +2264,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1818,7 +2286,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1826,11 +2296,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1840,7 +2314,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1848,11 +2324,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1862,7 +2342,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1870,11 +2352,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1884,7 +2370,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1892,11 +2380,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1906,7 +2398,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1914,11 +2408,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1928,7 +2426,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -1936,11 +2436,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1950,7 +2454,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1958,11 +2464,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1976,7 +2486,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -1984,11 +2496,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -1998,7 +2514,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2006,11 +2524,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2020,7 +2542,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2028,11 +2552,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2042,7 +2570,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2050,11 +2580,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2064,7 +2598,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2072,11 +2608,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2086,7 +2626,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2094,11 +2636,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2108,7 +2654,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2116,11 +2664,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2134,7 +2686,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2142,11 +2696,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2156,7 +2714,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2164,11 +2724,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2178,7 +2742,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2186,11 +2752,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2200,7 +2770,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2208,11 +2780,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2222,7 +2798,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2230,11 +2808,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2244,7 +2826,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2252,11 +2836,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2266,7 +2854,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2274,11 +2864,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2292,7 +2886,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2300,11 +2896,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2314,7 +2914,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2322,11 +2924,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2336,7 +2942,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2344,11 +2952,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2375,17 +2987,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2395,17 +3015,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2415,17 +3043,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2435,7 +3071,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2443,11 +3081,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2457,7 +3099,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2465,11 +3109,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2479,7 +3127,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2487,11 +3137,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2501,7 +3155,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2509,11 +3165,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2527,7 +3187,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2535,11 +3197,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2549,7 +3215,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2557,11 +3225,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2571,7 +3243,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2579,11 +3253,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2593,7 +3271,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2601,11 +3281,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2615,7 +3299,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2623,11 +3309,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2637,7 +3327,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2645,11 +3337,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2659,7 +3355,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2667,11 +3365,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2685,7 +3387,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2693,11 +3397,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2707,7 +3415,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2715,11 +3425,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2729,7 +3443,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2737,11 +3453,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2751,7 +3471,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2759,11 +3481,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2773,7 +3499,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2781,11 +3509,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2795,7 +3527,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2803,11 +3537,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2817,7 +3555,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2825,11 +3565,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2843,7 +3587,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2851,11 +3597,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2865,7 +3615,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2873,11 +3625,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2887,7 +3643,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2895,11 +3653,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2909,7 +3671,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2917,11 +3681,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2931,7 +3699,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2939,11 +3709,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2953,7 +3727,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -2961,11 +3737,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -2975,7 +3755,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -2983,11 +3765,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -3001,7 +3787,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3009,11 +3797,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3023,7 +3815,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3031,11 +3825,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3045,7 +3843,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3053,11 +3853,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3067,7 +3871,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3075,11 +3881,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3089,7 +3899,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3097,11 +3909,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -3128,17 +3944,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3148,17 +3972,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3168,17 +4000,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3188,17 +4028,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3208,17 +4056,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3228,7 +4084,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3236,11 +4094,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3250,7 +4112,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3258,11 +4122,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -3276,7 +4144,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3284,11 +4154,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3298,7 +4172,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3306,11 +4182,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3320,7 +4200,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3328,11 +4210,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3342,7 +4228,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3350,11 +4238,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3364,7 +4256,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3372,11 +4266,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3386,7 +4284,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3394,11 +4294,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3408,7 +4312,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3416,11 +4322,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -3434,7 +4344,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3442,11 +4354,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3456,7 +4372,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3464,11 +4382,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3478,7 +4400,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3486,11 +4410,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3500,7 +4428,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3508,11 +4438,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3522,7 +4456,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3530,11 +4466,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3544,7 +4484,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3552,11 +4494,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3566,7 +4512,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3574,11 +4522,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -3592,7 +4544,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3600,11 +4554,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3614,7 +4572,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3622,11 +4582,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3636,7 +4600,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3644,11 +4610,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3658,7 +4628,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3666,11 +4638,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3680,7 +4656,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3688,11 +4666,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3702,7 +4684,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3710,11 +4694,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3724,7 +4712,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3732,11 +4722,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -3750,7 +4744,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3758,11 +4754,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3772,7 +4772,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3780,11 +4782,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3794,7 +4800,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3802,11 +4810,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3816,7 +4828,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3824,11 +4838,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3838,7 +4856,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3846,11 +4866,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3860,7 +4884,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3868,11 +4894,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3882,7 +4912,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3890,11 +4922,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -3908,7 +4944,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -3916,11 +4954,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -3947,17 +4989,25 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
-                        />
+                        >
+                          
+                        </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3967,7 +5017,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3975,11 +5027,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -3989,7 +5045,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -3997,11 +5055,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4011,7 +5073,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4019,11 +5083,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4033,7 +5101,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4041,11 +5111,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4055,7 +5129,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4063,11 +5139,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4077,7 +5157,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -4085,11 +5167,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -4103,7 +5189,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -4111,11 +5199,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4125,7 +5217,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4133,11 +5227,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4147,7 +5245,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4155,11 +5255,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4169,7 +5273,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4177,11 +5283,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4191,7 +5301,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4199,11 +5311,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4213,7 +5329,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4221,11 +5339,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4235,7 +5357,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -4243,11 +5367,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -4261,7 +5389,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -4269,11 +5399,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4283,7 +5417,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4291,11 +5427,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4305,7 +5445,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4313,11 +5455,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4327,7 +5473,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4335,11 +5483,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4349,7 +5501,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4357,11 +5511,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4371,7 +5529,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4379,11 +5539,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4393,7 +5557,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -4401,11 +5567,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -4419,7 +5589,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -4427,11 +5599,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4441,7 +5617,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4449,11 +5627,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4463,7 +5645,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4471,11 +5655,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4485,7 +5673,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4493,11 +5683,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4507,7 +5701,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4515,11 +5711,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4529,7 +5729,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4537,11 +5739,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4551,7 +5757,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -4559,11 +5767,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                   <div
@@ -4577,7 +5789,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date grey"
                         >
@@ -4585,11 +5799,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4599,7 +5817,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4607,11 +5827,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4621,7 +5845,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4629,11 +5855,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                     <div
                       class="cell "
@@ -4643,7 +5873,9 @@ exports[`Calendar renders correctly 1`] = `
                       >
                         <span
                           class="left"
-                        />
+                        >
+                          
+                        </span>
                         <div
                           class="date"
                         >
@@ -4651,11 +5883,15 @@ exports[`Calendar renders correctly 1`] = `
                         </div>
                         <span
                           class="right"
-                        />
+                        >
+                          
+                        </span>
                       </div>
                       <div
                         class="info"
-                      />
+                      >
+                        
+                      </div>
                     </div>
                   </div>
                 </div>

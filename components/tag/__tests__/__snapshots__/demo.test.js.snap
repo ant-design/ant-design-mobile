@@ -59,8 +59,10 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         class="am-icon am-icon-cross-circle am-icon-xs"
       >
         <use
-          xlink:href="#cross-circle"
-        />
+          href="#cross-circle"
+        >
+          
+        </use>
       </svg>
     </div>
   </div>

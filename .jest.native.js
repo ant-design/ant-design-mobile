@@ -12,7 +12,7 @@ const transformPackages = [
 module.exports = {
   preset: 'react-native',
   setupFiles: [
-    './tests/setup.js'
+    './tests/setup.native.js'
   ],
   moduleFileExtensions: [
     'native.ts',

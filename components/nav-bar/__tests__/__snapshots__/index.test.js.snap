@@ -16,8 +16,10 @@ exports[`NavBar renders correctly 1`] = `
         class="am-icon am-icon-left am-icon-md"
       >
         <use
-          xlink:href="#left"
-        />
+          href="#left"
+        >
+          
+        </use>
       </svg>
     </span>
     <span

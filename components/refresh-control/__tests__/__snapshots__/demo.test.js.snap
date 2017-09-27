@@ -3,11 +3,11 @@
 exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
 <div
   class="am-list-view-scrollview"
-  style="position:relative;overflow:hidden;flex:1;height:0;border:1px solid #ddd;margin:5px 0;"
+  style="position:relative;overflow:hidden;flex:1;height:0;border:1px solid #ddd;margin:5px 0"
 >
   <div
     class="am-list-view-scrollview-content am-list"
-    style="position:absolute;min-width:100%;"
+    style="position:absolute;min-width:100%"
   >
     <div
       class="am-refresh-control-ptr am-refresh-control-loading"
@@ -37,8 +37,10 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
           class="am-icon am-icon-loading am-icon-md"
         >
           <use
-            xlink:href="#loading"
-          />
+            href="#loading"
+          >
+            
+          </use>
         </svg>
       </div>
     </div>
@@ -51,12 +53,14 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-list-body"
-    />
+    >
+      
+    </div>
     <div
       class="am-list-footer"
     >
       <div
-        style="padding:30px;text-align:center;"
+        style="padding:30px;text-align:center"
       >
         Loaded
       </div>

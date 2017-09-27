@@ -35,17 +35,23 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               name=""
               type="checkbox"
               value="on"
-            />
+            >
+              
+            </input>
             <div
               class="checkbox"
-            />
+            >
+              
+            </div>
           </label>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -69,17 +75,23 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               name=""
               type="checkbox"
               value="off"
-            />
+            >
+              
+            </input>
             <div
               class="checkbox"
-            />
+            >
+              
+            </div>
           </label>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -104,17 +116,23 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               name=""
               type="checkbox"
               value="off"
-            />
+            >
+              
+            </input>
             <div
               class="checkbox checkbox-disabled"
-            />
+            >
+              
+            </div>
           </label>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -140,17 +158,23 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               name=""
               type="checkbox"
               value="on"
-            />
+            >
+              
+            </input>
             <div
               class="checkbox checkbox-disabled"
-            />
+            >
+              
+            </div>
           </label>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -175,17 +199,23 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               name=""
               type="checkbox"
               value="on"
-            />
+            >
+              
+            </input>
             <div
               class="checkbox"
-            />
+            >
+              
+            </div>
           </label>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -210,18 +240,24 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               name=""
               type="checkbox"
               value="on"
-            />
+            >
+              
+            </input>
             <div
               class="checkbox"
-              style="background-color:red;"
-            />
+              style="background-color:red"
+            >
+              
+            </div>
           </label>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -246,17 +282,23 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               name=""
               type="checkbox"
               value="on"
-            />
+            >
+              
+            </input>
             <div
               class="checkbox"
-            />
+            >
+              
+            </div>
           </label>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -281,18 +323,24 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
               name=""
               type="checkbox"
               value="on"
-            />
+            >
+              
+            </input>
             <div
               class="checkbox"
-              style="background-color:red;"
-            />
+              style="background-color:red"
+            >
+              
+            </div>
           </label>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
   </div>
 </div>

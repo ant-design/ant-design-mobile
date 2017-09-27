@@ -22,7 +22,9 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
           <span
             aria-label="loading"
             class="am-activity-indicator-spinner"
-          />
+          >
+            
+          </span>
         </div>
       </div>
       <p
@@ -39,7 +41,9 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
           <span
             aria-hidden="true"
             class="am-activity-indicator-spinner"
-          />
+          >
+            
+          </span>
           <span
             class="am-activity-indicator-tip"
           >
@@ -64,10 +68,12 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
             <span
               aria-label="loading"
               class="am-activity-indicator-spinner am-activity-indicator-spinner-lg"
-            />
+            >
+              
+            </span>
           </div>
           <span
-            style="margin-top:8px;"
+            style="margin-top:8px"
           >
             Loading...
           </span>
@@ -79,7 +85,9 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-whitespace am-whitespace-xl"
-      />
+      >
+        
+      </div>
       <a
         aria-disabled="false"
         class="am-button"
@@ -91,7 +99,9 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
       </a>
       <div
         class="toast-example"
-      />
+      >
+        
+      </div>
     </div>
   </div>
 </div>

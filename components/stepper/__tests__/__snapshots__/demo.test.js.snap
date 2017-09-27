@@ -28,7 +28,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-stepper showNumber"
-            style="width:100%;min-width:100px;"
+            style="width:100%;min-width:100px"
           >
             <div
               class="am-stepper-handler-wrap"
@@ -38,14 +38,15 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="am-stepper-handler am-stepper-handler-up "
                 role="button"
-                unselectable="true"
               >
                 <svg
                   class="am-icon am-icon-plus am-icon-xxs"
                 >
                   <use
-                    xlink:href="#plus"
-                  />
+                    href="#plus"
+                  >
+                    
+                  </use>
                 </svg>
               </span>
               <span
@@ -53,14 +54,15 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="am-stepper-handler am-stepper-handler-down "
                 role="button"
-                unselectable="true"
               >
                 <svg
                   class="am-icon am-icon-minus am-icon-xxs"
                 >
                   <use
-                    xlink:href="#minus"
-                  />
+                    href="#minus"
+                  >
+                    
+                  </use>
                 </svg>
               </span>
             </div>
@@ -78,15 +80,19 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 min="1"
                 step="1"
                 value="3"
-              />
+              >
+                
+              </input>
             </div>
           </div>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -104,7 +110,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-stepper showNumber"
-            style="width:100%;min-width:100px;"
+            style="width:100%;min-width:100px"
           >
             <div
               class="am-stepper-handler-wrap"
@@ -114,14 +120,15 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="am-stepper-handler am-stepper-handler-up "
                 role="button"
-                unselectable="true"
               >
                 <svg
                   class="am-icon am-icon-plus am-icon-xxs"
                 >
                   <use
-                    xlink:href="#plus"
-                  />
+                    href="#plus"
+                  >
+                    
+                  </use>
                 </svg>
               </span>
               <span
@@ -129,14 +136,15 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="am-stepper-handler am-stepper-handler-down "
                 role="button"
-                unselectable="true"
               >
                 <svg
                   class="am-icon am-icon-minus am-icon-xxs"
                 >
                   <use
-                    xlink:href="#minus"
-                  />
+                    href="#minus"
+                  >
+                    
+                  </use>
                 </svg>
               </span>
             </div>
@@ -154,15 +162,19 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 min="1"
                 step="1"
                 value="2"
-              />
+              >
+                
+              </input>
             </div>
           </div>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -180,7 +192,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         >
           <div
             class="am-stepper showNumber am-stepper-disabled"
-            style="width:100%;min-width:100px;"
+            style="width:100%;min-width:100px"
           >
             <div
               class="am-stepper-handler-wrap"
@@ -190,14 +202,15 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 aria-label="Increase Value"
                 class="am-stepper-handler am-stepper-handler-up "
                 role="button"
-                unselectable="true"
               >
                 <svg
                   class="am-icon am-icon-plus am-icon-xxs"
                 >
                   <use
-                    xlink:href="#plus"
-                  />
+                    href="#plus"
+                  >
+                    
+                  </use>
                 </svg>
               </span>
               <span
@@ -205,14 +218,15 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 aria-label="Decrease Value"
                 class="am-stepper-handler am-stepper-handler-down "
                 role="button"
-                unselectable="true"
               >
                 <svg
                   class="am-icon am-icon-minus am-icon-xxs"
                 >
                   <use
-                    xlink:href="#minus"
-                  />
+                    href="#minus"
+                  >
+                    
+                  </use>
                 </svg>
               </span>
             </div>
@@ -231,15 +245,19 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
                 min="1"
                 step="1"
                 value="3"
-              />
+              >
+                
+              </input>
             </div>
           </div>
         </div>
       </div>
       <div
         class="am-list-ripple"
-        style="display:none;"
-      />
+        style="display:none"
+      >
+        
+      </div>
     </div>
   </div>
 </div>

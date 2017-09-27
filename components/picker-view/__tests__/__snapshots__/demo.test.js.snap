@@ -3,18 +3,22 @@
 exports[`renders ./components/picker-view/demo/basic.md correctly 1`] = `
 <div
   class="am-picker"
-  style="flex-direction:row;"
+  style="flex-direction:row"
 >
   <div
     class="am-picker-col"
-    style="flex:1;"
+    style="flex:1"
   >
     <div
       class="am-picker-col-mask"
-    />
+    >
+      
+    </div>
     <div
       class="am-picker-col-indicator "
-    />
+    >
+      
+    </div>
     <div
       class="am-picker-col-content"
     >
@@ -32,14 +36,18 @@ exports[`renders ./components/picker-view/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-picker-col"
-    style="flex:1;"
+    style="flex:1"
   >
     <div
       class="am-picker-col-mask"
-    />
+    >
+      
+    </div>
     <div
       class="am-picker-col-indicator "
-    />
+    >
+      
+    </div>
     <div
       class="am-picker-col-content"
     >

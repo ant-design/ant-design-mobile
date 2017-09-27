@@ -26,10 +26,12 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
         >
           <i
             class="am-search-synthetic-ph-icon"
-          />
+          >
+            
+          </i>
           <span
             class="am-search-synthetic-ph-placeholder"
-            style="visibility:visible;"
+            style="visibility:visible"
           >
             Search
           </span>
@@ -41,10 +43,14 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
         placeholder="Search"
         type="search"
         value=""
-      />
+      >
+        
+      </input>
       <a
         class="am-search-clear"
-      />
+      >
+        
+      </a>
     </div>
     <div
       class="am-search-cancel"
@@ -54,7 +60,9 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
   </form>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <div
     class="am-wingblank am-wingblank-lg"
   >
@@ -79,10 +87,12 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
         >
           <i
             class="am-search-synthetic-ph-icon"
-          />
+          >
+            
+          </i>
           <span
             class="am-search-synthetic-ph-placeholder"
-            style="visibility:visible;"
+            style="visibility:visible"
           >
             自动获取光标，支付宝客户端有效
           </span>
@@ -93,10 +103,14 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
         placeholder="自动获取光标，支付宝客户端有效"
         type="search"
         value=""
-      />
+      >
+        
+      </input>
       <a
         class="am-search-clear"
-      />
+      >
+        
+      </a>
     </div>
     <div
       class="am-search-cancel"
@@ -106,7 +120,9 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
   </form>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <div
     class="am-wingblank am-wingblank-lg"
   >
@@ -131,10 +147,12 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
         >
           <i
             class="am-search-synthetic-ph-icon"
-          />
+          >
+            
+          </i>
           <span
             class="am-search-synthetic-ph-placeholder"
-            style="visibility:visible;"
+            style="visibility:visible"
           >
             手动获取获取光标
           </span>
@@ -145,10 +163,14 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
         placeholder="手动获取获取光标"
         type="search"
         value=""
-      />
+      >
+        
+      </input>
       <a
         class="am-search-clear"
-      />
+      >
+        
+      </a>
     </div>
     <div
       class="am-search-cancel"
@@ -158,7 +180,9 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
   </form>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <div
     class="am-wingblank am-wingblank-lg"
   >
@@ -174,7 +198,9 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  />
+  >
+    
+  </div>
   <div
     class="am-wingblank am-wingblank-lg"
   >
@@ -199,10 +225,12 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
         >
           <i
             class="am-search-synthetic-ph-icon"
-          />
+          >
+            
+          </i>
           <span
             class="am-search-synthetic-ph-placeholder"
-            style="visibility:hidden;"
+            style="visibility:hidden"
           >
             Search
           </span>
@@ -213,10 +241,14 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
         placeholder="Search"
         type="search"
         value="美食"
-      />
+      >
+        
+      </input>
       <a
         class="am-search-clear"
-      />
+      >
+        
+      </a>
     </div>
     <div
       class="am-search-cancel am-search-cancel-show"

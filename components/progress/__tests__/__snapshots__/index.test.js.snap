@@ -10,7 +10,9 @@ exports[`Progress renders correctly 1`] = `
 >
   <div
     class="am-progress-bar"
-    style="width:30%;height:0;"
-  />
+    style="width:30%;height:0"
+  >
+    
+  </div>
 </div>
 `;

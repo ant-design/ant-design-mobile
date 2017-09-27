@@ -12,10 +12,14 @@ exports[`renders ./components/popover/demo/basic.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="am-navbar-left-icon"
-      />
+      >
+        
+      </span>
       <span
         class="am-navbar-left-content"
-      />
+      >
+        
+      </span>
     </div>
     <div
       class="am-navbar-title"
@@ -26,14 +30,16 @@ exports[`renders ./components/popover/demo/basic.md correctly 1`] = `
       class="am-navbar-right"
     >
       <div
-        style="height:100%;padding:0 15px;margin-right:-15px;display:flex;align-items:center;"
+        style="height:100%;padding:0 15px;margin-right:-15px;display:flex;align-items:center"
       >
         <svg
           class="am-icon am-icon-ellipsis am-icon-md"
         >
           <use
-            xlink:href="#ellipsis"
-          />
+            href="#ellipsis"
+          >
+            
+          </use>
         </svg>
       </div>
     </div>

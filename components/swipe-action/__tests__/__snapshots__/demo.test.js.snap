@@ -8,21 +8,23 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
     class="am-list-body"
   >
     <div
-      style="background-color:gray;"
+      style="background-color:gray"
     >
       <div
         class="am-swipe"
       >
         <div
           class="am-swipe-cover"
-        />
+        >
+          
+        </div>
         <div
           class="am-swipe-actions am-swipe-actions-left"
         >
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#108ee9;color:white;"
+            style="background-color:#108ee9;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -33,7 +35,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#ddd;color:white;"
+            style="background-color:#ddd;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -48,7 +50,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#ddd;color:white;"
+            style="background-color:#ddd;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -59,7 +61,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#F4333C;color:white;"
+            style="background-color:#F4333C;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -70,7 +72,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-swipe-content"
-          style="touch-action:pan-y;"
+          style="touch-action:pan-y"
         >
           <div
             class="am-list-item am-list-item-middle"
@@ -91,32 +93,38 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
-              />
+              >
+                
+              </div>
             </div>
             <div
               class="am-list-ripple"
-              style="display:none;"
-            />
+              style="display:none"
+            >
+              
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      style="background-color:gray;"
+      style="background-color:gray"
     >
       <div
         class="am-swipe"
       >
         <div
           class="am-swipe-cover"
-        />
+        >
+          
+        </div>
         <div
           class="am-swipe-actions am-swipe-actions-left"
         >
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#108ee9;color:white;"
+            style="background-color:#108ee9;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -127,7 +135,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#ddd;color:white;"
+            style="background-color:#ddd;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -138,7 +146,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-swipe-content"
-          style="touch-action:pan-y;"
+          style="touch-action:pan-y"
         >
           <div
             class="am-list-item am-list-item-middle"
@@ -159,32 +167,38 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
-              />
+              >
+                
+              </div>
             </div>
             <div
               class="am-list-ripple"
-              style="display:none;"
-            />
+              style="display:none"
+            >
+              
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      style="background-color:gray;"
+      style="background-color:gray"
     >
       <div
         class="am-swipe"
       >
         <div
           class="am-swipe-cover"
-        />
+        >
+          
+        </div>
         <div
           class="am-swipe-actions am-swipe-actions-right"
         >
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#ddd;color:white;"
+            style="background-color:#ddd;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -195,7 +209,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#F4333C;color:white;"
+            style="background-color:#F4333C;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -206,7 +220,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-swipe-content"
-          style="touch-action:pan-y;"
+          style="touch-action:pan-y"
         >
           <div
             class="am-list-item am-list-item-middle"
@@ -227,32 +241,38 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
-              />
+              >
+                
+              </div>
             </div>
             <div
               class="am-list-ripple"
-              style="display:none;"
-            />
+              style="display:none"
+            >
+              
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      style="background-color:gray;"
+      style="background-color:gray"
     >
       <div
         class="am-swipe"
       >
         <div
           class="am-swipe-cover"
-        />
+        >
+          
+        </div>
         <div
           class="am-swipe-actions am-swipe-actions-right"
         >
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#ddd;color:white;"
+            style="background-color:#ddd;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -263,7 +283,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#F4333C;color:white;"
+            style="background-color:#F4333C;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -274,7 +294,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-swipe-content"
-          style="touch-action:pan-y;"
+          style="touch-action:pan-y"
         >
           <div
             class="am-list-item am-list-item-middle"
@@ -295,32 +315,38 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
-              />
+              >
+                
+              </div>
             </div>
             <div
               class="am-list-ripple"
-              style="display:none;"
-            />
+              style="display:none"
+            >
+              
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      style="background-color:gray;"
+      style="background-color:gray"
     >
       <div
         class="am-swipe"
       >
         <div
           class="am-swipe-cover"
-        />
+        >
+          
+        </div>
         <div
           class="am-swipe-actions am-swipe-actions-right"
         >
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#ddd;color:white;"
+            style="background-color:#ddd;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -331,7 +357,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
           <div
             class="am-swipe-btn "
             role="button"
-            style="background-color:#F4333C;color:white;"
+            style="background-color:#F4333C;color:white"
           >
             <div
               class="am-swipe-btn-text"
@@ -342,7 +368,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-swipe-content"
-          style="touch-action:pan-y;"
+          style="touch-action:pan-y"
         >
           <div
             class="am-list-item am-list-item-middle"
@@ -363,12 +389,16 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
-              />
+              >
+                
+              </div>
             </div>
             <div
               class="am-list-ripple"
-              style="display:none;"
-            />
+              style="display:none"
+            >
+              
+            </div>
           </div>
         </div>
       </div>

@@ -32,8 +32,10 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
@@ -67,12 +69,16 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          />
+          >
+            
+          </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -88,19 +94,25 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
               class="am-list-brief"
             >
               There may have water ripple effect of 
-              <br />
+              <br>
+                
+              </br>
                material if you set the click event.
             </div>
           </div>
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          />
+          >
+            
+          </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -110,7 +122,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         >
           <img
             src="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-          />
+          >
+            
+          </img>
         </div>
         <div
           class="am-list-line am-list-line-multiple"
@@ -128,12 +142,16 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          />
+          >
+            
+          </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
@@ -162,8 +180,10 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -179,12 +199,16 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          />
+          >
+            
+          </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -205,12 +229,16 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          />
+          >
+            
+          </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-top"
@@ -220,7 +248,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         >
           <img
             src="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-          />
+          >
+            
+          </img>
         </div>
         <div
           class="am-list-line am-list-line-multiple"
@@ -243,8 +273,10 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
@@ -283,8 +315,10 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
@@ -307,7 +341,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         >
           <img
             src="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-          />
+          >
+            
+          </img>
         </div>
         <div
           class="am-list-line"
@@ -320,12 +356,16 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          />
+          >
+            
+          </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -335,7 +375,9 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         >
           <img
             src="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
-          />
+          >
+            
+          </img>
         </div>
         <div
           class="am-list-line"
@@ -348,12 +390,16 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          />
+          >
+            
+          </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
@@ -383,8 +429,10 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -400,8 +448,10 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-top"
@@ -422,8 +472,10 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item spe am-list-item-middle"
@@ -444,12 +496,16 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow"
-          />
+          >
+            
+          </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
@@ -477,12 +533,16 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
           </div>
           <div
             class="am-list-extra"
-          />
+          >
+            
+          </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -516,8 +576,10 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
   </div>
@@ -552,7 +614,9 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             placeholder="Please input account"
             type="text"
             value=""
-          />
+          >
+            
+          </input>
         </div>
       </div>
       <div
@@ -570,7 +634,9 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             placeholder="Please input password"
             type="password"
             value=""
-          />
+          >
+            
+          </input>
         </div>
       </div>
       <div
@@ -596,17 +662,23 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                 name=""
                 type="checkbox"
                 value="on"
-              />
+              >
+                
+              </input>
               <div
                 class="checkbox"
-              />
+              >
+                
+              </div>
             </label>
           </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -618,7 +690,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             class="am-list-content"
           >
             <div
-              style="padding:7px;"
+              style="padding:7px"
             >
               <div
                 class="am-slider-wrapper"
@@ -628,14 +700,20 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                 >
                   <div
                     class="am-slider-rail"
-                  />
+                  >
+                    
+                  </div>
                   <div
                     class="am-slider-track am-slider-track-1"
-                    style="visibility:visible;left:20%;width:60%;"
-                  />
+                    style="visibility:visible;left:20%;width:60%"
+                  >
+                    
+                  </div>
                   <div
                     class="am-slider-step"
-                  />
+                  >
+                    
+                  </div>
                   <div
                     aria-disabled="false"
                     aria-valuemax="100"
@@ -643,8 +721,10 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                     aria-valuenow="20"
                     class="am-slider-handle am-slider-handle-1"
                     role="slider"
-                    style="left:20%;"
-                  />
+                    style="left:20%"
+                  >
+                    
+                  </div>
                   <div
                     aria-disabled="false"
                     aria-valuemax="100"
@@ -652,11 +732,15 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                     aria-valuenow="80"
                     class="am-slider-handle am-slider-handle-2"
                     role="slider"
-                    style="left:80%;"
-                  />
+                    style="left:80%"
+                  >
+                    
+                  </div>
                   <div
                     class="am-slider-mark"
-                  />
+                  >
+                    
+                  </div>
                 </div>
               </div>
             </div>
@@ -664,8 +748,10 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -683,7 +769,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
           >
             <div
               class="am-stepper showNumber"
-              style="width:100%;min-width:100px;"
+              style="width:100%;min-width:100px"
             >
               <div
                 class="am-stepper-handler-wrap"
@@ -693,14 +779,15 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                   aria-label="Increase Value"
                   class="am-stepper-handler am-stepper-handler-up "
                   role="button"
-                  unselectable="true"
                 >
                   <svg
                     class="am-icon am-icon-plus am-icon-xxs"
                   >
                     <use
-                      xlink:href="#plus"
-                    />
+                      href="#plus"
+                    >
+                      
+                    </use>
                   </svg>
                 </span>
                 <span
@@ -708,14 +795,15 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                   aria-label="Decrease Value"
                   class="am-stepper-handler am-stepper-handler-down "
                   role="button"
-                  unselectable="true"
                 >
                   <svg
                     class="am-icon am-icon-minus am-icon-xxs"
                   >
                     <use
-                      xlink:href="#minus"
-                    />
+                      href="#minus"
+                    >
+                      
+                    </use>
                   </svg>
                 </span>
               </div>
@@ -733,15 +821,19 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                   min="-9007199254740991"
                   step="1"
                   value="20"
-                />
+                >
+                  
+                </input>
               </div>
             </div>
           </div>
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -765,7 +857,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
               aria-disabled="false"
               class="am-button am-button-small am-button-inline"
               role="button"
-              style="margin-left:2.5px;"
+              style="margin-left:2.5px"
             >
               <span>
                 Reset
@@ -775,13 +867,17 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
         </div>
         <div
           class="am-list-ripple"
-          style="display:none;"
-        />
+          style="display:none"
+        >
+          
+        </div>
       </div>
     </div>
     <div
       class="am-list-footer"
-    />
+    >
+      
+    </div>
   </div>
 </form>
 `;

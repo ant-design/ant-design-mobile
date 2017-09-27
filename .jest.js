@@ -6,6 +6,9 @@ const transformIgnorePatterns = [
 ];
 
 module.exports = {
+  setupFiles: [
+    './tests/setup.js'
+  ],
   moduleFileExtensions: [
     'ts',
     'tsx',

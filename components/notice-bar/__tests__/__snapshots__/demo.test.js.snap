@@ -4,7 +4,9 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
 <div>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <div
     class="am-notice-bar"
     role="alert"
@@ -18,8 +20,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
         class="am-icon am-icon-voice am-icon-xxs"
       >
         <use
-          xlink:href="#voice"
-        />
+          href="#voice"
+        >
+          
+        </use>
       </svg>
        
     </div>
@@ -29,11 +33,11 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       <div
         class="am-notice-bar-marquee-wrap "
         role="marquee"
-        style="overflow:hidden;"
+        style="overflow:hidden"
       >
         <div
           class="am-notice-bar-marquee"
-          style="position:relative;right:0;white-space:nowrap;display:inline-block;padding:0 7.5px;"
+          style="position:relative;right:0;white-space:nowrap;display:inline-block;padding:0 7.5px"
         >
           Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day. 
         </div>
@@ -42,7 +46,9 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <div
     class="am-notice-bar"
     role="alert"
@@ -56,8 +62,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
         class="am-icon am-icon-voice am-icon-xxs"
       >
         <use
-          xlink:href="#voice"
-        />
+          href="#voice"
+        >
+          
+        </use>
       </svg>
        
     </div>
@@ -67,11 +75,11 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       <div
         class="am-notice-bar-marquee-wrap "
         role="marquee"
-        style="overflow:hidden;"
+        style="overflow:hidden"
       >
         <div
           class="am-notice-bar-marquee"
-          style="position:relative;right:0;white-space:nowrap;display:inline-block;"
+          style="position:relative;right:0;white-space:nowrap;display:inline-block"
         >
           Notice: The arrival time of incomes and transfers of Yu 'E Bao will be delayed during National Day. 
         </div>
@@ -86,14 +94,18 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
         class="am-icon am-icon-right am-icon-md"
       >
         <use
-          xlink:href="#right"
-        />
+          href="#right"
+        >
+          
+        </use>
       </svg>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <div
     class="am-notice-bar"
     role="alert"
@@ -104,11 +116,11 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       <div
         class="am-notice-bar-marquee-wrap "
         role="marquee"
-        style="overflow:hidden;"
+        style="overflow:hidden"
       >
         <div
           class="am-notice-bar-marquee"
-          style="position:relative;right:0;white-space:nowrap;display:inline-block;"
+          style="position:relative;right:0;white-space:nowrap;display:inline-block"
         >
           Remove the default icon. 
         </div>
@@ -123,14 +135,18 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
         class="am-icon am-icon-cross am-icon-md"
       >
         <use
-          xlink:href="#cross"
-        />
+          href="#cross"
+        >
+          
+        </use>
       </svg>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  />
+  >
+    
+  </div>
   <div
     class="am-notice-bar"
     role="alert"
@@ -144,8 +160,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
         class="am-icon am-icon-check-circle-o am-icon-xxs"
       >
         <use
-          xlink:href="#check-circle-o"
-        />
+          href="#check-circle-o"
+        >
+          
+        </use>
       </svg>
        
     </div>
@@ -155,11 +173,11 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       <div
         class="am-notice-bar-marquee-wrap "
         role="marquee"
-        style="overflow:hidden;"
+        style="overflow:hidden"
       >
         <div
           class="am-notice-bar-marquee"
-          style="position:relative;right:0;white-space:nowrap;display:inline-block;"
+          style="position:relative;right:0;white-space:nowrap;display:inline-block"
         >
           Customized icon. 
         </div>
@@ -174,8 +192,10 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
         class="am-icon am-icon-cross am-icon-md"
       >
         <use
-          xlink:href="#cross"
-        />
+          href="#cross"
+        >
+          
+        </use>
       </svg>
     </div>
   </div>

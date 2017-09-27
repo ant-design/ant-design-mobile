@@ -20,7 +20,9 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
             alt="icon"
             class="am-icon am-icon-md"
             src="https://gw.alipayobjects.com/zos/rmsportal/iXVHARNNlmdCGnwWxQPH.svg"
-          />
+          >
+            
+          </img>
         </span>
         <span
           class="am-navbar-left-content"
@@ -35,7 +37,9 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-navbar-right"
-      />
+      >
+        
+      </div>
     </div>
   </div>
 </div>

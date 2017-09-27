@@ -17,8 +17,10 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
           class="am-icon am-icon-left am-icon-md"
         >
           <use
-            xlink:href="#left"
-          />
+            href="#left"
+          >
+            
+          </use>
         </svg>
       </span>
       <span
@@ -37,18 +39,22 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
     >
       <svg
         class="am-icon am-icon-search am-icon-md"
-        style="margin-right:16px;"
+        style="margin-right:16px"
       >
         <use
-          xlink:href="#search"
-        />
+          href="#search"
+        >
+          
+        </use>
       </svg>
       <svg
         class="am-icon am-icon-ellipsis am-icon-md"
       >
         <use
-          xlink:href="#ellipsis"
-        />
+          href="#ellipsis"
+        >
+          
+        </use>
       </svg>
     </div>
   </div>
@@ -67,8 +73,10 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
           class="am-icon am-icon-left am-icon-md"
         >
           <use
-            xlink:href="#left"
-          />
+            href="#left"
+          >
+            
+          </use>
         </svg>
       </span>
       <span
@@ -87,18 +95,22 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
     >
       <svg
         class="am-icon am-icon-search am-icon-md"
-        style="margin-right:16px;"
+        style="margin-right:16px"
       >
         <use
-          xlink:href="#search"
-        />
+          href="#search"
+        >
+          
+        </use>
       </svg>
       <svg
         class="am-icon am-icon-ellipsis am-icon-md"
       >
         <use
-          xlink:href="#ellipsis"
-        />
+          href="#ellipsis"
+        >
+          
+        </use>
       </svg>
     </div>
   </div>
