@@ -2,9 +2,14 @@
 @import '../../style/mixins';
 
 @tabbar-prefix-cls: am-tab-bar;
+@tabs-prefix-cls: am-tabs;
 
 .@{tabbar-prefix-cls} {
   overflow: hidden;
+
+  .@{tabs-prefix-cls}-content-wrap {
+    margin-bottom: @tab-bar-height;
+  }
 
   &-bar {
     box-sizing: border-box;
@@ -18,10 +23,6 @@
     z-index: 100;
     justify-content: space-around;
     align-items: center;
-
-    &&-hidden {
-      bottom: -@tab-bar-height;
-    }
 
     .@{tabbar-prefix-cls}-tab {
       flex: 1;
@@ -62,32 +63,6 @@
             left: @icon-size-md;
           }
         }
-      }
-    }
-  }
-
-  &-content {
-    zoom: 1;
-
-    .@{tabbar-prefix-cls}-tabpane {
-      overflow: auto;
-    }
-
-    &-animated {
-      transition: transform .3s @ease-in-out-quint;
-      display: flex;
-      will-change: transform;
-
-      .@{tabbar-prefix-cls}-tabpane {
-        box-sizing: border-box;
-        width: 100%;
-        flex-shrink: 0;
-      }
-    }
-
-    &-no-animated {
-      .@{tabbar-prefix-cls}-tabpane-inactive {
-        display: none;
       }
     }
   }

@@ -31,8 +31,7 @@ class AntTabBar extends React.Component<TabBarProps, any> {
   }
 
   renderTabBar = () => {
-    const { barTintColor, hidden, prefixCls, tintColor, unselectedTintColor } = this.props;
-    const barCls = hidden ? `${prefixCls}-bar-hidden` : `${prefixCls}-bar`;
+    const { barTintColor, prefixCls, tintColor, unselectedTintColor } = this.props;
     const tabsData = this.getTabs();
 
     const content = tabsData.map((cProps, index) => {
@@ -51,13 +50,13 @@ class AntTabBar extends React.Component<TabBarProps, any> {
         onClick={() => cProps.onPress && cProps.onPress()}
       />;
     });
-    return <div className={barCls} style={{ backgroundColor: barTintColor }}>
+    return <div className={`${prefixCls}-bar`} style={{ backgroundColor: barTintColor }}>
       {content}
     </div>;
   }
 
   render() {
-    const { children } = this.props;
+    const { children, hidden } = this.props;
     const tabs = this.getTabs();
     let activeIndex = 0;
     tabs.forEach((tab, index) => {
@@ -70,7 +69,7 @@ class AntTabBar extends React.Component<TabBarProps, any> {
       <div className={this.props.prefixCls}>
         <Tabs
           tabs={tabs}
-          renderTabBar={this.renderTabBar}
+          renderTabBar={hidden ? false : this.renderTabBar}
           tabBarPosition="bottom"
           page={activeIndex < 0 ? undefined : activeIndex}
           animated={false}
