@@ -85,7 +85,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
         style="background-color:white"
       >
         <div
-          class="am-tab-bar-tab-tab"
+          class="am-tab-bar-tab"
           data-seed="logId"
         >
           <div
@@ -117,7 +117,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           </p>
         </div>
         <div
-          class="am-tab-bar-tab-tab"
+          class="am-tab-bar-tab"
           data-seed="logId1"
         >
           <div
@@ -149,7 +149,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           </p>
         </div>
         <div
-          class="am-tab-bar-tab-tab"
+          class="am-tab-bar-tab"
         >
           <div
             class="am-tab-bar-tab-icon"
@@ -178,7 +178,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           </p>
         </div>
         <div
-          class="am-tab-bar-tab-tab"
+          class="am-tab-bar-tab"
         >
           <div
             class="am-tab-bar-tab-icon"

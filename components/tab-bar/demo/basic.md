@@ -162,12 +162,6 @@ ReactDOM.render(<TabBarExample />, mountNode);
 #tab-bar .demoName {
   height: 40px;
 }
-#tab-bar .demo-preview-item,
-#tab-bar .demo-preview-item .am-tab-bar {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
 #tab-bar .demo-preview-item .am-tab-bar {
   background-color: white;
 }
