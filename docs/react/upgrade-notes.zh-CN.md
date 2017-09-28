@@ -149,7 +149,8 @@ const tabs = [
 - 删除 `Table` 组件，可以自行使用 [rc-table](https://github.com/react-component/table) 包装。
 - 各个组件的 `ref` 从 `string` 修改为 `function` (比如 `input` 组件 `this.refs.input` => `this.input`)
 - 部分 Web 版本组件原来会根据 UA 对 iOS 或 Android 平台应用不同的样式，现在修改为默认应用 iOS 平台样式。
-- `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` 等组件的 细节样式 或 API 都有部分微调
+- `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` / `RefreshControl` 等组件的 细节样式 或 API 都有部分微调。
+- `ListView` 的 sticky 特性从“内置”改为“外置”。
 
 更细节的信息，请查看 change logs
 

@@ -26,6 +26,7 @@ toc: false
   - [Web] `Grid` 新增 `square` api, 支持高度自适应模式
   - [Web] `Grid` 新增 `activeClassName`, `activeStyle` api, 支持自定义触摸反馈样式
   - [Web] `Modal.alert / Modal.prompt / Modal.opeartion` 新增可选参数 `platform`
+  - [Web] `ListView`(beta.3) 新增 pull-up 功能
   - [Web/RN] 新增 `DatePickerView` 组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
   - [Web/RN] 新增 `Calendar` 组件，支持跨日期的日期时间选择 ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
 
@@ -54,6 +55,12 @@ toc: false
   - [Web] `Slider` 去除默认的 margin & padding 样式
   - [Web] `Carousel` 的 `easing` 属性类型从 string 改为 Function
   - [Web] `Flex` 清理冗余 `align` 属性值 `top / middle / bottom`
+  - [Web] `ListView`(beta.3) 移除 `stickyHeader` 属性和 [react-sticky](https://github.com/captivationsoftware/react-sticky) 依赖，但是你仍然可以使用 react-sticky 和 `useBodyScroll` 属性来自己实现相应效果 (查看 demo)
+      > 因为 sticky 效果实际并不常用，而且不包含 UI，因此不适合集成在 ListView 里
+  - [Web] `RefreshControl`(beta.3) 修改内部的 dom className
+      - 从 `${prefixCls}-ptr` 改为 `${prefixCls}-indicator`
+      - 从 `${prefixCls}-ptr-icon` 改为 `${prefixCls}-indicator-icon-wrapper`
+      - 从 `${prefixCls}-ptr-loading` 改为 `${prefixCls}-indicator-loading-wrapper`
   - [RN] `ActionSheet.showShareActionSheetWithOptions` 利用 react native `Share` 进行重新实现
   - [RN] `Button` 组件 style 里 `disabledRaw` / `disabledRawText` 修改为 `defaultDisabledRaw` / `defaultDisabledRawText`
 

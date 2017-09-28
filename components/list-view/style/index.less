@@ -124,8 +124,14 @@
   }
 }
 
-.am-list-view-scrollview {
-  .sticky {
-    z-index: 999;
+.am-list-view-pull-up {
+  &-indicator {
+    color: grey;
+    text-align: center;
+    height: 25 * @hd;
+    margin-bottom: -25 * @hd;
+  }
+  &-dropped {
+    transition: transform 0.3s;
   }
 }

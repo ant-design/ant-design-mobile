@@ -2,7 +2,7 @@
 order: 2
 title:
   zh-CN: '标题吸顶（body 容器)'
-  en-US: 'Title positon top (use `<body>` container)'
+  en-US: 'Title sticky (use `<body>` container)'
 ---
 
 sticky block header to the top of the page
@@ -10,6 +10,7 @@ sticky block header to the top of the page
 ````jsx
 /* eslint no-dupe-keys: 0 */
 import { ListView } from 'antd-mobile';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 const data = [
   {
@@ -116,7 +117,8 @@ class Demo extends React.Component {
 
   render() {
     const separator = (sectionID, rowID) => (
-      <div key={`${sectionID}-${rowID}`}
+      <div
+        key={`${sectionID}-${rowID}`}
         style={{
           backgroundColor: '#F5F5F9',
           height: 8,
@@ -131,11 +133,18 @@ class Demo extends React.Component {
       }
       const obj = data[index--];
       return (
-        <div key={rowID} className="row">
-          <div className="row-title">{obj.title}</div>
+        <div key={rowID} style={{ padding: '0 15px' }}>
+          <div
+            style={{
+              lineHeight: '50px',
+              color: '#888',
+              fontSize: 18,
+              borderBottom: '1px solid #F6F6F6',
+            }}
+          >{obj.title}</div>
           <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
             <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="icon" />
-            <div className="row-text">
+            <div style={{ lineHeight: 1 }}>
               <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
               <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span>¥ {rowID}</div>
             </div>
@@ -148,30 +157,37 @@ class Demo extends React.Component {
       <ListView
         ref={el => this.lv = el}
         dataSource={this.state.dataSource}
+        className="am-list sticky-list"
+        useBodyScroll
+        renderSectionWrapper={sectionID => (
+          <StickyContainer
+            key={`s_${sectionID}_c`}
+            className="sticky-container"
+            style={{ zIndex: 4 }}
+          />
+        )}
+        renderSectionHeader={sectionData => (
+          <Sticky
+            className="sticky"
+            style={{
+              zIndex: 3,
+              backgroundColor: parseInt(sectionData.replace('Section ', ''), 10) % 2 ?
+                '#5890ff' : '#F8591A',
+              color: 'white',
+            }}
+          >{`Task ${sectionData.split(' ')[1]}`}</Sticky>
+        )}
         renderHeader={() => <span>header</span>}
         renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
           {this.state.isLoading ? 'Loading...' : 'Loaded'}
         </div>)}
-        renderSectionHeader={sectionData => (
-          <div>{`Task ${sectionData.split(' ')[1]}`}</div>
-        )}
         renderRow={row}
         renderSeparator={separator}
-        className="am-list"
         pageSize={4}
         onScroll={() => { console.log('scroll'); }}
         scrollEventThrottle={200}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
-        stickyHeader
-        stickyProps={{
-          stickyStyle: { zIndex: 999, WebkitTransform: 'none', transform: 'none' },
-          // topOffset: -43,
-          // isActive: false,
-        }}
-        stickyContainerProps={{
-          className: 'for-stickyContainer-demo',
-        }}
       />
     );
   }
@@ -180,20 +196,8 @@ class Demo extends React.Component {
 ReactDOM.render(<Demo />, mountNode);
 ````
 ````css
-.row {
-  padding: 0 15px;
-  background-color: white;
-}
-.row-title {
-  height: 50px;
-  line-height: 50px;
-  color: #888;
-  font-size: 18px;
-  border-bottom: 1px solid #F6F6F6;
-}
-.row-text {
-  display: inline-block;
-  font-size: 16px;
-  line-height: 1;
-}
+.sticky-list .sticky-container .am-list-item { padding-left: 0; }
+.sticky-list .sticky-container .am-list-line { padding-right: 0; }
+.sticky-list .sticky-container .am-list-line .am-list-content { padding-top: 0; padding-bottom: 0; }
+.sticky-list .sticky-container .sticky { padding: 7px 15px; transform: none; }
 ````

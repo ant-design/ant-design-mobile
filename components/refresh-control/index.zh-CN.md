@@ -20,8 +20,8 @@ subtitle: 下拉刷新
 ----|-----|------|------
 | icon | 刷新指示icon, 包含 `pull` and `release` 状态 | react node | - |
 | loading | 加载指示器 | react node | - |
-| distanceToRefresh | 刷新距离 | number | `25px` |
-| onRefresh | required, 刷新回调函数 | () => void | - |
+| distanceToRefresh | 刷新距离 | number | `25` |
+| onRefresh | 必选, 刷新回调函数 | () => void | - |
 | refreshing | 是否显示刷新状态 | bool | false |
 
 

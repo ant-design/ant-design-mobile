@@ -1,17 +1,17 @@
 ---
 order: 3
 title:
-  zh-CN: '索引列表'
-  en-US: 'Index List'
+  zh-CN: '索引列表（标题吸顶）'
+  en-US: 'Index List (Title sticky)'
 ---
 
-Index List
+sticky index List
 
 
 ````jsx
-/* eslint no-mixed-operators: 0 */
 import { province as provinceData } from 'antd-mobile-demo-data';
-import { ListView, List } from 'antd-mobile';
+import { StickyContainer, Sticky } from 'react-sticky';
+import { ListView, List, SearchBar } from 'antd-mobile';
 
 const { Item } = List;
 
@@ -46,6 +46,7 @@ class Demo extends React.Component {
     });
 
     this.state = {
+      inputValue: '',
       dataSource,
       isLoading: true,
     };
@@ -61,29 +62,67 @@ class Demo extends React.Component {
     }, 600);
   }
 
+  onSearch = (val) => {
+    const pd = { ...provinceData };
+    Object.keys(pd).forEach((item) => {
+      pd[item] = pd[item].filter(jj => jj.spell.toLocaleLowerCase().indexOf(val) > -1);
+    });
+    this.setState({
+      inputValue: val,
+      dataSource: genData(this.state.dataSource, pd),
+    });
+  }
+
   render() {
-    return (
+    return (<div style={{ paddingTop: '44px', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
+        <SearchBar
+          value={this.state.inputValue}
+          placeholder="Search"
+          onChange={this.onSearch}
+          onClear={() => { console.log('onClear'); }}
+          onCancel={() => { console.log('onCancel'); }}
+        />
+      </div>
       <ListView.IndexedList
         dataSource={this.state.dataSource}
+        className="am-list sticky-list"
+        useBodyScroll
+        renderSectionWrapper={sectionID => (
+          <StickyContainer
+            key={`s_${sectionID}_c`}
+            className="sticky-container"
+            style={{ zIndex: 4 }}
+          />
+        )}
+        renderSectionHeader={sectionData => (
+          <Sticky
+            className="sticky"
+            style={{
+              zIndex: 3,
+              backgroundColor: sectionData.charCodeAt(0) % 2 ? '#5890ff' : '#F8591A',
+              color: 'white',
+            }}
+          >{sectionData}</Sticky>
+        )}
         renderHeader={() => <span>custom header</span>}
         renderFooter={() => <span>custom footer</span>}
-        renderSectionHeader={sectionData => (<div className="ih">{sectionData}</div>)}
         renderRow={rowData => (<Item>{rowData}</Item>)}
-        className="fortest"
-        style={{
-          height: document.documentElement.clientHeight * 3 / 4,
-          overflow: 'auto',
-        }}
         quickSearchBarStyle={{
-          position: 'absolute',
-          top: 20,
+          top: 85,
         }}
         delayTime={10}
         delayActivityIndicator={<div style={{ padding: 25, textAlign: 'center' }}>rendering...</div>}
       />
-    );
+    </div>);
   }
 }
 
 ReactDOM.render(<Demo />, mountNode);
+````
+````css
+.sticky-list .sticky-container .am-list-item { padding-left: 0; }
+.sticky-list .sticky-container .am-list-line { padding-right: 0; }
+.sticky-list .sticky-container .am-list-line .am-list-content { padding-top: 0; padding-bottom: 0; }
+.sticky-list .sticky-container .sticky { padding: 7px 15px; transform: none; }
 ````

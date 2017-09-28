@@ -21,11 +21,12 @@ toc: false
 
 - **Feature**
 
-  - [Web] `DatePicker` Add `use12Hours`, support 12-hour am/pm format  ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
+  - [Web] `DatePicker` Add `use12Hours`, support 12-hour am/pm format ([#1578](https://github.com/ant-design/ant-design-mobile/issues/1578))
   - [Web] `Button` Support `disabled` style for diffrent `type`.
+  - [Web] `Grid` add `square` api, support both square mode and auto height mode.
+  - [Web] `Grid` add `activeClassName`, `activeStyle` api, support custom touch feedback style.
   - [Web] `Modal.alert / Modal.prompt / Modal.opeartion` add optional `platform` api, support switch between android and ios design.
-  - [Web]`Grid` add `square` api, support both square mode and auto height mode.
-  - [Web] `Grid` add `activeClassName`, `activeStyle` api, support custom touch feedback style
+  - [Web] `ListView`(beta.3) add pull-up feature.
   - Add `DatePickerView` ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
   - Add `Calendar` ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
 
@@ -54,6 +55,12 @@ toc: false
   - [Web] `Slider` remove default margin & padding style
   - [Web] `Carousel`'s `easing` prop type changed from string to Function
   - [Web] `Flex` remove redundancy `align` value `top / middle / bottom`
+  - [Web] `ListView`(beta.3) Remove `stickyHeader` prop and [react-sticky](https://github.com/captivationsoftware/react-sticky) dependency, but you can also use react-sticky and `useBodyScroll` in listview by your self. (see demo)
+      > Because this feature is not commonly used and does not contain UI, so it is not suitable for integration.
+  - [Web] `RefreshControl`(beta.3) Change inner dom className
+      - from `${prefixCls}-ptr` to `${prefixCls}-indicator`
+      - from `${prefixCls}-ptr-icon` to `${prefixCls}-indicator-icon-wrapper`
+      - from `${prefixCls}-ptr-loading` to `${prefixCls}-indicator-loading-wrapper`
   - [RN] `ActionSheet.showShareActionSheetWithOptions` rewrite with react native `Share`
   - [RN] `Button` api `style` attribute `disabledRaw` / `disabledRawText` rename to `defaultDisabledRaw` / `defaultDisabledRawText`
 

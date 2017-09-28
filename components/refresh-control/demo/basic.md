@@ -228,7 +228,7 @@ class App extends React.Component {
 ReactDOM.render(<App />, mountNode);
 ````
 ````css
-.am-refresh-control-deactive .am-refresh-control-ptr-icon {
+.am-refresh-control-deactive .am-refresh-control-indicator-icon {
   display: block;
 }
 ````

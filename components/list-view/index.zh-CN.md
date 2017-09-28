@@ -37,11 +37,17 @@ subtitle: 长列表
 | onLayout | 当组件挂载或者布局变化的时候调用 | ({nativeEvent:{ layout:{ width, height }}}) => {} | - |
 | ---- |
 | renderBodyComponent (`web only`) | 自定义 body 的包裹组件 | () => renderable | - |
-| renderSectionBodyWrapper (`web only`) | 渲染自定义的区块包裹组件 | (sectionID) => renderable | - |
+| renderSectionWrapper (`web only`) | 渲染自定义的区块包裹组件 | (sectionID) => renderable | - |
+| renderSectionBodyWrapper (`web only`) | 渲染自定义的区块 body 包裹组件 | (sectionID) => renderable | - |
 | useBodyScroll (`web only`) | 使用 html 的 `body` 作为滚动容器 | bool | false |
-| useZscroller (`web only`) | 使用 [zscroller](https://github.com/yiminghe/zscroller) 来模拟实现滚动容器 (可用于一些低端 Android 机上)，注意：开启后`useBodyScroll`和`stickyHeader`设置会自动被忽略 | bool | false |
+| useZscroller (`web only`) | 使用 [zscroller](https://github.com/yiminghe/zscroller) 来模拟实现滚动容器 (可用于一些低端 Android 机上)，注意：开启后`useBodyScroll`设置会自动被忽略 | bool | false |
 | scrollerOptions (`web only`) | [zscroller options](https://github.com/yiminghe/zscroller#options) | Object | - |
-| stickyHeader (`web only`) | 固定区块标题到页面顶部 (注意: 设置后会自动开启`useBodyScroll`)，启用后还可以设置 `stickyProps / stickyContainerProps` (详见 [react-sticky](https://github.com/captivationsoftware/react-sticky)) | bool | false |
+| ---- |
+| pullUpEnabled (`web only`) | 是否开启 pull-up (不能和 `useZscroller` 一起使用) | bool | false |
+| pullUpRefreshing (`web only`) | 是否显示刷新状态 | bool | false |
+| pullUpOnRefresh (`web only`) | 刷新回调函数 | () => void | - |
+| pullUpDistanceToRefresh (`web only`) | 刷新距离 | number | `25` |
+| pullUpRenderer (`web only`) | 自定义各个状态的文案，参数为 `activate` / `deactivate` / `release` / `finish` 中的一个 | (arg) => void | - |
 
 ### 方法
 
@@ -76,7 +82,7 @@ ListView 有三种类型的滚动容器：
 1. 局部 div 容器
     - 默认，注意：**需要手动给 ListView 设置高度**
 2. html 的 body 容器
-    - 设置`useBodyScroll`或`stickyHeader`后生效 (不需要设置高度)
+    - 设置`useBodyScroll`后生效 (不需要设置高度)
 3. 使用 [zscroller](https://github.com/yiminghe/zscroller) 的模拟滚动容器
     - 设置`useZscroller`后生效，然后可以设置`scrollerOptions` (需要手动给 ListView 设置高度)
 

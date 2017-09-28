@@ -41,7 +41,7 @@ See the following two examples, if you only need case 1, you are fine to delete 
 
 1. If you previously use Icon like this way： `<Icon type="loading" />`, no need to do any change. ( As for how many icon names are supported, see [Icon Doc](http://beta.mobile.ant.design/components/icon))。
 
-2.  If you previously use Icon like this way： `<Icon type={require('../foo.svg')} />`. Suggest you follow below solution:
+2. If you previously use Icon like this way： `<Icon type={require('../foo.svg')} />`. Suggest you follow below solution:
 
 ```jsx
 // your previously code
@@ -147,7 +147,8 @@ Example of implementing Popup using Modal components:
 - Delete the `Table` component, and you can use [rc-table](https://github.com/react-component/table) instead.
 - Each component's `ref` changed from `string` to `function` (e.g. `input` component: `this.refs.input` => `this.input`)
 - Part of the Web's components styles were differ from the UA of iOS or Android platform, but now all components use iOS platform styles as default.
-- For `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` components, Their detail styles or APIs have some fine tuning.
+- For `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` / `RefreshControl` components, Their detail styles or APIs have some fine tuning.
+- `ListView`'s sticky feature change from "built-in" to "external".
 
 For more details, please see change logs.
 

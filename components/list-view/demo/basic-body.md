@@ -97,7 +97,8 @@ class Demo extends React.Component {
 
   render() {
     const separator = (sectionID, rowID) => (
-      <div key={`${sectionID}-${rowID}`}
+      <div
+        key={`${sectionID}-${rowID}`}
         style={{
           backgroundColor: '#F5F5F9',
           height: 8,
@@ -112,11 +113,18 @@ class Demo extends React.Component {
       }
       const obj = data[index--];
       return (
-        <div key={rowID} className="row">
-          <div className="row-title">{obj.title}</div>
+        <div key={rowID} style={{ padding: '0 15px' }}>
+          <div
+            style={{
+              lineHeight: '50px',
+              color: '#888',
+              fontSize: 18,
+              borderBottom: '1px solid #F6F6F6',
+            }}
+          >{obj.title}</div>
           <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
             <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="icon" />
-            <div className="row-text">
+            <div style={{ lineHeight: 1 }}>
               <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
               <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>{rowID}</span>¥</div>
             </div>
@@ -148,22 +156,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
-````css
-.row {
-  padding: 0 15px;
-  background-color: white;
-}
-.row-title {
-  height: 50px;
-  line-height: 50px;
-  color: #888;
-  font-size: 18px;
-  border-bottom: 1px solid #F6F6F6;
-}
-.row-text {
-  display: inline-block;
-  font-size: 16px;
-  line-height: 1;
-}
 ````

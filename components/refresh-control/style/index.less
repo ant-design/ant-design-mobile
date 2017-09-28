@@ -2,38 +2,28 @@
 @pull-to-refresh: am-refresh-control;
 
 .@{pull-to-refresh} {
-  position: relative;
-  overflow: hidden;
-  user-select: none;
-
-  &-content {
-    transform-origin: left top;
-    transform: translateZ(0);
-  }
-
-  &-ptr {
+  &-indicator {
     color: grey;
     text-align: center;
     height: 25 * @hd;
     margin-top: -25 * @hd;
-    overflow: hidden;
 
-    &-icon {
+    &-icon-wrapper {
       display: block;
     }
 
-    &-loading {
+    &-loading-wrapper {
       display: none;
     }
   }
 
   &-loading {
-    .@{pull-to-refresh}-ptr {
-      &-icon {
+    .@{pull-to-refresh}-indicator {
+      &-icon-wrapper {
         display: none;
       }
 
-      &-loading {
+      &-loading-wrapper {
         display: block;
       }
     }
@@ -67,9 +57,9 @@
   }
 
   &-deactive {
-    .@{pull-to-refresh}-ptr {
-      &-icon,
-      &-loading {
+    .@{pull-to-refresh}-indicator {
+      &-icon-wrapper,
+      &-loading-wrapper {
         display: none;
       }
     }

@@ -36,12 +36,17 @@ Properties | Descrition | Type | Default
 | onLayout | Invoked on mount and layout changes with | ({nativeEvent:{ layout:{ width, height }}}) => {} | - |
 | ---- |
 | renderBodyComponent (`web only`) | render listview body wrapper component | () => renderable | - |
+| renderSectionWrapper (`web only`) | | render listview section wrapper component | (sectionID) => renderable | - |
 | renderSectionBodyWrapper (`web only`) | render listview section body wrapper component | (sectionID) => renderable | - |
 | useBodyScroll (`web only`) | use html `body`'s scroll | bool | false |
-| useZscroller (`web only`) | use [zscroller](https://github.com/yiminghe/zscroller) to simulate the implementation of rolling containers(can be used for some poor Android machine) (`useBodyScroll` and `stickyHeader` settings are automatically ignored), and can support RefreshControl well | bool | false |
+| useZscroller (`web only`) | use [zscroller](https://github.com/yiminghe/zscroller) to simulate the implementation of rolling containers(can be used for some poor Android machine) (`useBodyScroll` settings are automatically ignored), and can support RefreshControl well | bool | false |
 | scrollerOptions (`web only`) | [zscroller options](https://github.com/yiminghe/zscroller#options) | Object | - |
-| stickyHeader (`web only`) | if set it, automatically enable `useBodyScroll` and you can also set `stickyProps` / `stickyContainerProps` (see [react-sticky](https://github.com/captivationsoftware/react-sticky)) | bool | false |
-
+| ---- |
+| pullUpEnabled (`web only`) | Whether enable pull-up (It is not supported with `useZscroller`) | bool | false |
+| pullUpRefreshing (`web only`) | Whether the view should be indicating an active refresh | bool | false |
+| pullUpOnRefresh (`web only`) | Called when the view starts refreshing. | () => void | - |
+| pullUpDistanceToRefresh (`web only`) | distance to pull up | number | `25` |
+| pullUpRenderer (`web only`) | custom renderer text, the params are one of `activate` / `deactivate` / `release` / `finish` | (arg) => void | - |
 
 ### Methods
 
@@ -76,6 +81,6 @@ ListView has three types of scroll containers:
 1. Partial div container
     - default, note: **need to manually set the height of the ListView**
 2. html body container
-    - set `useBodyScroll` or `stickyHeader` to take effect (do not need to set height)
+    - set `useBodyScroll` to take effect (do not need to set height)
 3. Use [zscroller](https://github.com/yiminghe/zscroller) to simulate the rolling container
     - set `useZscroller` to take effect, then you can set `scrollerOptions` (need to manually set the height of the ListView)
