@@ -10,10 +10,10 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
     style="position:absolute;min-width:100%"
   >
     <div
-      class="am-refresh-control-ptr am-refresh-control-loading"
+      class="am-refresh-control-indicator am-refresh-control-loading"
     >
       <div
-        class="am-refresh-control-ptr-icon"
+        class="am-refresh-control-indicator-icon-wrapper"
       >
         <div
           class="am-refresh-control-pull"
@@ -31,7 +31,7 @@ exports[`renders ./components/refresh-control/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="am-refresh-control-ptr-loading"
+        class="am-refresh-control-indicator-loading-wrapper"
       >
         <svg
           class="am-icon am-icon-loading am-icon-md"
