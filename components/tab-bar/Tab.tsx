@@ -34,7 +34,7 @@ class Tab extends React.PureComponent<any, any> {
     } = this.props;
     const iconColor = selected ? tintColor : unselectedTintColor;
     return (
-      <div {...this.props.dataAttrs} onClick={this.onClick}>
+      <div {...this.props.dataAttrs} onClick={this.onClick} className={`${prefixCls}-tab`}>
         <div className={`${prefixCls}-icon`} style={{ color: iconColor }}>
           {this.renderIcon()}
         </div>
