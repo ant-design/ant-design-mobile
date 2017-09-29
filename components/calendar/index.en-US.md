@@ -7,7 +7,7 @@ title: Calendar
 Used to select a date range.
 
 ### Rules
-- 
+-
 
 ## API
 
@@ -29,7 +29,6 @@ type|select type. one: one-day range: date range|'one' \| 'range'| range|false
 visible|visiable|boolean| false|false
 defaultDate|the default date for show|Date| today|false
 getDateExtra|extra info|(date: Date) => Models.ExtraData||false
-infinite|infinite scroll|boolean| true|false
 infiniteOpt|infinite scroll optimize|boolean| false|false
 initalMonths|inital months|number| 6|false
 maxDate|max date|Date||false

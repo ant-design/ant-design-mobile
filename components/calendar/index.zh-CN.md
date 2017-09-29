@@ -31,7 +31,6 @@ type|选择类型 one: 单日 range: 日期区间|'one' \| 'range'| range|false
 visible|是否显示|boolean| false|false
 defaultDate|显示开始日期|Date| today|false
 getDateExtra|日期扩展数据|(date: Date) => Models.ExtraData||false
-infinite|无限滚动|boolean| true|false
 infiniteOpt|无限滚动优化（大范围选择）|boolean| false|false
 initalMonths|初始化月个数|number| 6|false
 maxDate|最大日期|Date||false
