@@ -114,6 +114,7 @@
     z-index: @tabs-pagination-zindex;
 
     &-tab {
+      position: relative;
       display: flex;
       flex-shrink: 0;
       justify-content: center;
@@ -163,7 +164,6 @@
           display: flex;
           width: 100%;
           flex-direction: row;
-          .hairline('bottom');
         }
 
         &-prevpage {
@@ -192,7 +192,7 @@
 
     &-top {
       .@{tabs-default-bar-prefix-cls} {
-        &-content {
+        &-tab {
           .hairline('bottom');
         }
       }
@@ -200,7 +200,7 @@
 
     &-bottom {
       .@{tabs-default-bar-prefix-cls} {
-        &-content {
+        &-tab {
           .hairline('top');
         }
       }
@@ -228,7 +228,7 @@
         &-underline {
           right: 0;
         }
-        &-content {
+        &-tab {
           .hairline('right');
         }
       }
@@ -239,7 +239,7 @@
         &-underline {
           left: 0;
         }
-        &-content {
+        &-tab {
           .hairline('left');
         }
       }
