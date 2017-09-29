@@ -7,9 +7,6 @@
 
 .@{listPrefixCls}-item {
   .@{inputPrefixCls}-control {
-    flex: 1;
-    .ellipsis();
-
     .fake-input-container {
       height: 30 * @hd;
       line-height: 30 * @hd;
@@ -26,6 +23,9 @@
         text-align: right;
         color: #000;
         font-size: 17 * @hd;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         &.fake-input-disabled {
           color: @color-text-disabled;
