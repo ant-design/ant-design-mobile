@@ -70,7 +70,6 @@ class Test extends React.Component {
       <List
         className="date-picker-list"
         style={{ backgroundColor: 'white' }}
-        renderHeader={() => `Form Validation, ${getFieldError('idp') ? getFieldError('idp').join(',') : ''}`}
         renderFooter={() => getFieldError('dp') && getFieldError('dp').join(',')}
       >
         <InputItem
