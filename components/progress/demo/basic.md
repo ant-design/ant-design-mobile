@@ -14,7 +14,7 @@ title:
 Basic demo of Progress.
 
 ````jsx
-import { Progress, Button } from 'antd-mobile';
+import { Progress, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 
 class MyProgress extends React.Component {
   state = {
@@ -38,7 +38,10 @@ class MyProgress extends React.Component {
           <div className="progress"><Progress percent={percent} position="normal" /></div>
           <div aria-hidden="true">{percent}%</div>
         </div>
-        <Button inline style={{ marginTop: 20, marginLeft: 30 }} onClick={this.add}>(+-)10</Button>
+        <WhiteSpace size="xl" />
+        <WingBlank>
+          <Button onClick={this.add}>(+-)10</Button>
+        </WingBlank>
       </div>
     );
   }

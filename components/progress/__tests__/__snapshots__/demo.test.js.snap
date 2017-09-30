@@ -64,15 +64,23 @@ exports[`renders ./components/progress/demo/basic.md correctly 1`] = `
       50%
     </div>
   </div>
-  <a
-    aria-disabled="false"
-    class="am-button am-button-inline"
-    role="button"
-    style="margin-top:20px;margin-left:30px"
+  <div
+    class="am-whitespace am-whitespace-xl"
   >
-    <span>
-      (+-)10
-    </span>
-  </a>
+    
+  </div>
+  <div
+    class="am-wingblank am-wingblank-lg"
+  >
+    <a
+      aria-disabled="false"
+      class="am-button"
+      role="button"
+    >
+      <span>
+        (+-)10
+      </span>
+    </a>
+  </div>
 </div>
 `;
