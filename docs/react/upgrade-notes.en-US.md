@@ -7,58 +7,38 @@ Here list some of main incompatible changes and recommended changes in the upgra
 
 ## 1.x => 2.0
 
-Very pleased to inform you, `antd-mobile@2.0` has entered a relatively stable beta version of the state. Relative to 1.x, `antd-mobile@2.0` is faster, more lightweight, easier to get started. welcome to start using!
-
-### 2.x Major changes overview
-
-- "Web page HD display" / "SVG Icon" optimization features, Changed from "built-in" to "external", significantly reducing the complexity of getting started.
-- Remove `moment.js` /` hammer.js` and other heavyweight dependencies.
-- Delete the not commonly used `Table` component and merge the `Popup` component into the `Modal`.
-- Refactor `Tabs` / `Modal` components to reduce size and optimize functionality.
-- Add the `Calendar` / `DatePickerView` components to meet more business scenario requirements.
-
 ### 2.x Breaking changes
 
 #### HD program
 
-In 1.x, we use the HD program [script](https://gw.alipayobjects.com/os/rmsportal/dVgyohpfmDMFFeDasFns.js) and the [pxtorem](https://github.com/cuth/postcss-pxtorem) tool, Use the physical pixels width of the iPhone6 as a benchmark (`750px`), use `rem` to make the page scale scaling, finally to the page display high-definition effects.
-
-In 2.0, we changed the "HD" scheme from "built-in" to "external", return to the most popular way, that is, all the defaults are changed to the logical pixels width of iPhone6 `375px` (ideal viewport width). And the default is no longer provided `rem` unit usage example.
+> If you do not use viewport scale in your code, you can skip this step.
 
 How to upgrade?
 
 1. make sure add a `data-scale` attibute in your `html` tag, eg: `<html data-scale="true"></html>`, or you can do it through js, eg: `document.documentElement.setAttribute('data-scale', true);`.
 
-2.Follow [Customize Theme Doc](https://ant.design/docs/react/customize-theme)  to modify antd-mobile theme variable `@hd` to be `@hd: '2px'`.
+2.Follow [Customize Theme Doc](https://beta.mobile.ant.design/docs/react/customize-theme)  to modify antd-mobile theme variable `@hd` to be `@hd: '2px'`.
 
 #### svg icon
 
-In 2.0, `Icon.props.type` no longer support require a locale svg file，only can accept a  `string` which represent icon name.
+How to upgrade, depend on which case you use:
 
-How to upgrade?
+1. If you previously only use antd-mobile built-in Icon like this： `<Icon type="loading" />`, no need to do any change.
+2. If you previously use your local svg file to do custom Icon like this way： `<Icon type={require('../foo.svg')} />`. Suggest you follow below solution:
 
-See the following two examples, if you only need case 1, you are fine to delete all `svg-sprite-loader` relative staff. If you still need support case 2, please leave the original configuration unchanged.
+```diff
+- import { Icon } from 'antd-mobile';
+- <Icon type={require('./foo.svg)'} />
 
-1. If you previously use Icon like this way： `<Icon type="loading" />`, no need to do any change. ( As for how many icon names are supported, see [Icon Doc](http://beta.mobile.ant.design/components/icon))。
-
-2. If you previously use Icon like this way： `<Icon type={require('../foo.svg')} />`. Suggest you follow below solution:
-
-```jsx
-// your previously code
-import { Icon } from 'antd-mobile';
-
-<Icon type={require('./foo.svg)'} />
-
-// need to modify to like below way
-const CustomIcon = ({ type, className = '', size = 'md', ...restProps }) => (
-    <svg
-      className={`am-icon am-icon-${type.substr(1)} am-icon-${size} ${className}`}
-      {...restProps}
-    >
-      <use xlinkHref={type} />
-    </svg>
-);
-<CustomIcon type={require('./foo.svg)'} />
++ const CustomIcon = ({ type, className = '', size = 'md', ...restProps }) => (
++     <svg
++       className={`am-icon am-icon-${type.substr(1)} am-icon-${size} ${className}`}
++       {...restProps}
++     >
++       <use xlinkHref={type} />
++     </svg>
++ );
++ <CustomIcon type={require('./foo.svg)'} />
 ```
 
 #### DatePicker
