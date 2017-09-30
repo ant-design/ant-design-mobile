@@ -25,6 +25,7 @@ let index = data.length - 1;
 const NUM_SECTIONS = 5;
 const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
+let loading = false;
 
 const dataBlobs = {};
 let sectionIDs: any = [];
@@ -33,7 +34,7 @@ function genData(pIndex = 0) {
   for (let i = 0; i < NUM_SECTIONS; i++) {
     const ii = (pIndex * NUM_SECTIONS) + i;
     const sectionName = `Section ${ii}`;
-    sectionIDs.push(sectionName);
+    sectionIDs[ii] = sectionName;
     dataBlobs[sectionName] = sectionName;
     rowIDs[ii] = [];
 
@@ -80,13 +81,16 @@ export default class BasicDemo extends React.Component<any, any> {
   onEndReached = (_event) => {
     // load new data
     // hasMore: from backend data, indicates whether it is the last page, here is false
-    if (this.state.isLoading && !this.state.hasMore) {
+
+    if (loading && !this.state.hasMore) {
       return;
     }
     // console.log('reach end', _event);
+    loading = true;
     this.setState({ isLoading: true });
     setTimeout(() => {
       genData(++pageIndex);
+      loading = false;
       this.setState({
         dataSource: this.state.dataSource.cloneWithRowsAndSections(dataBlobs, sectionIDs, rowIDs),
         isLoading: false,
@@ -144,8 +148,8 @@ export default class BasicDemo extends React.Component<any, any> {
         dataSource={this.state.dataSource}
         renderHeader={() => <Text style={[{ padding: 8 }]}>header</Text>}
         renderFooter={() => <Text style={[{ padding: 30, textAlign: 'center' }]}> {loadingTxt} </Text>}
-        renderSectionHeader={(sectionData, sectionID) => (
-          <Text style={[{ padding: 10, backgroundColor: 'rgba(255,255,255,0.8)' }]} key={sectionID}>
+        renderSectionHeader={sectionData => (
+          <Text style={[{ padding: 10, backgroundColor: 'rgba(255,255,255,0.8)' }]}>
             {`Task ${sectionData.split(' ')[1]}`}
           </Text>
         )}
