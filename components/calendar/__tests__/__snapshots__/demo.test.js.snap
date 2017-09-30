@@ -10,7 +10,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
       class="am-list-body"
     >
       <div
-        class="am-list-item am-list-item-middle"
+        class="am-list-item item am-list-item-middle"
       >
         <div
           class="am-list-line"
@@ -18,7 +18,11 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            中文 
+            中文
+          </div>
+          <div
+            class="am-list-extra"
+          >
             <label
               class="am-switch right"
             >

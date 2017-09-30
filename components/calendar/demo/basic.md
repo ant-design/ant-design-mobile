@@ -94,7 +94,7 @@ class Test extends React.Component {
       <div>
         <List className="calendar-list" style={{ backgroundColor: 'white' }}>
           <List.Item className="item" extra={<Switch className="right" checked={!this.state.en} onChange={this.changeLanguage} />}>
-              {this.state.en ? 'Chinese' : '中文'}
+            {this.state.en ? 'Chinese' : '中文'}
           </List.Item>
           {this.renderBtn('选择日期区间', 'Select Date Range')}
           {this.renderBtn('选择日期时间区间', 'Select DateTime Range', { pickTime: true })}
