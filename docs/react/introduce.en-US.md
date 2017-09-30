@@ -1,6 +1,6 @@
 ---
 order: 0
-english: Ant Design Mobile of React
+title: Ant Design Mobile of React
 ---
 
 `antd-mobile` is the React implementation of the [Ant Design](http://ant.design)'s mobile specification, serving the ant and koubei wireless service.
