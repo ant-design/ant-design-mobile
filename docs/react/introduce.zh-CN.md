@@ -136,7 +136,7 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
 
 #### 更多增强 (非必须):
 
-> 如何自定义主题？[见此文档](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.zh-CN.md)，
+> 如何自定义主题？[见此文档](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/theme-config.zh-CN.md)，
 > 基于 antd-mobile 的自定义 UI 库：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
 
