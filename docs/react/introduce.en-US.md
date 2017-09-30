@@ -134,7 +134,7 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
 
 #### More enhanced (optional):
 
-> [Custom theme](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/README.md).
+> [Custom theme](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/theme-config.en-US.md).
 > Your custom UI library based on antd-mobile: [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
 
