@@ -93,8 +93,8 @@ class Test extends React.Component {
     return (
       <div>
         <List className="calendar-list" style={{ backgroundColor: 'white' }}>
-          <List.Item>
-            {this.state.en ? 'Chinese' : '中文'} <Switch className="right" checked={!this.state.en} onChange={this.changeLanguage} />
+          <List.Item className="item" extra={<Switch className="right" checked={!this.state.en} onChange={this.changeLanguage} />}>
+              {this.state.en ? 'Chinese' : '中文'}
           </List.Item>
           {this.renderBtn('选择日期区间', 'Select Date Range')}
           {this.renderBtn('选择日期时间区间', 'Select DateTime Range', { pickTime: true })}
@@ -133,6 +133,9 @@ class Test extends React.Component {
 ReactDOM.render(<Test />, mountNode);
 ````
 ````css
+.am-list-item .am-list-line .am-list-content {
+  display: flex;
+}
 .calendar-list .right {
     float: right;
 }
