@@ -41,7 +41,8 @@ export default class App extends React.Component {
     }
     if (this.state.scrollTop) {
       setTimeout(() => {
-        window.document.documentElement.scrollTop = this.state.scrollTop;
+        document.documentElement.scrollTop = this.state.scrollTop;
+        document.body.scrollTop = this.state.scrollTop;
       }, 500);
     }
   }
@@ -83,6 +84,10 @@ export default class App extends React.Component {
 
   addSearch = () => {
     return window.location.search || '';
+  }
+
+  scrollTop = () => {
+    return document.documentElement.scrollTop || document.body.scrollTop;
   }
 
   render() {
@@ -156,7 +161,7 @@ export default class App extends React.Component {
                               key={`${j.filename}-${cate}`}
                               onClick={() => {
                                 this.setStateCache({
-                                  scrollTop: window.document.documentElement.scrollTop,
+                                  scrollTop: this.scrollTop(),
                                 });
                                 location.href = `${rootPath}/${paths[1]}${this.addSearch()}#${
                                   paths[1] + config.hashSpliter + j.order}`;
@@ -172,7 +177,7 @@ export default class App extends React.Component {
                             key={`${item.filename}-${cate}`}
                             onClick={() => {
                               this.setStateCache({
-                                scrollTop: window.document.documentElement.scrollTop,
+                                scrollTop: this.scrollTop(),
                               });
                               location.href = `${rootPath}/${paths[1]}${this.addSearch()}`;
                             }}
