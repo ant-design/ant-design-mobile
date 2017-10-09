@@ -26,7 +26,6 @@ export default class ComponentDoc extends React.Component {
 
     this.state = {
       currentIndex: this.getIndex(props),
-      toggle: false,
       inMultiDemoMode: getDemos(props).length >= 2,
       inFixedDemoMode: false,
     };
@@ -54,7 +53,6 @@ export default class ComponentDoc extends React.Component {
     const inMultiDemoMode = getDemos(nextProps).length >= 2;
     this.setState({
       currentIndex: 0,
-      toggle: false,
       inMultiDemoMode,
       inFixedDemoMode: false,
     });
@@ -63,7 +61,6 @@ export default class ComponentDoc extends React.Component {
   togglePreview = (e) => {
     this.setState({
       currentIndex: e.index,
-      toggle: true,
     });
   }
 
@@ -76,7 +73,7 @@ export default class ComponentDoc extends React.Component {
     }, 500);
   }
   render() {
-    const props = this.props;
+    const { props } = this;
     const { doc, location } = props;
     const { content, meta } = doc;
 
@@ -86,36 +83,40 @@ export default class ComponentDoc extends React.Component {
 
     const leftChildren = [];
 
-    const currentIndex = this.state.currentIndex;
+    const { currentIndex } = this.state;
 
     demos.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
-        leftChildren.push(
-          <Demo
-            togglePreview={this.togglePreview}
-            {...demoData}
-            className={currentIndex === index ? 'code-box-target' : ''}
-            key={index}
-            index={index}
-            currentIndex={currentIndex}
-            utils={props.utils}
-            pathname={location.pathname}
-          />,
-        );
+        leftChildren.push(<Demo
+          togglePreview={this.togglePreview}
+          {...demoData}
+          className={currentIndex === index ? 'code-box-target' : ''}
+          key={index}
+          index={index}
+          currentIndex={currentIndex}
+          utils={props.utils}
+          pathname={location.pathname}
+        />);
       });
 
-    const protocol = window.location.protocol;
+    const { protocol } = window.location;
     const path = doc.meta.filename.split('/')[1];
     const isLocalMode = window.location.port;
     const host = isLocalMode ? 'localhost:8002' : window.location.host;
     const demoUrl = `${protocol}//${host}/kitchen-sink/components/${path}`;
 
-    const PopoverContent = (<div>
-      <h4 style={{ margin: '8Px 0 12Px', textAlign: 'center' }}><FormattedMessage id="app.ComponentDoc.codeQrcode" /></h4>
-      <QRCode size={144} value={demoUrl} />
-    </div>);
+    const PopoverContent = (
+      <div>
+        <h4 style={{ margin: '8Px 0 12Px', textAlign: 'center' }}>
+          <FormattedMessage id="app.ComponentDoc.codeQrcode" />
+        </h4>
+        <QRCode size={144} value={demoUrl} />
+      </div>
+    );
 
-    const { title, subtitle, chinese, english } = meta;
+    const {
+      title, subtitle, chinese, english,
+    } = meta;
     const hash = `#${path}-demo-${currentIndex}`;
     const mainPath = isLocalMode ? 'components' : 'kitchen-sink/components';
     const search = this.context.intl.locale === 'zh-CN' ? '?lang=zh-CN' : '?lang=en-US';
@@ -138,8 +139,7 @@ export default class ComponentDoc extends React.Component {
             </h1>
             {
               props.utils.toReactComponent(['section', { className: 'markdown' }]
-                .concat(getChildren(content)),
-              )
+                .concat(getChildren(content)))
             }
 
             <section id="demoTitle" className="demo-title-wrapper">
@@ -188,15 +188,11 @@ export default class ComponentDoc extends React.Component {
               </Sticky>
             </div>
           </StickyContainer>
-
-
           {
-            props.utils.toReactComponent(
-              ['section', {
-                id: 'api',
-                className: 'markdown api-container',
-              }].concat(getChildren(doc.api || ['placeholder'])),
-            )
+            props.utils.toReactComponent(['section', {
+              id: 'api',
+              className: 'markdown api-container',
+            }].concat(getChildren(doc.api || ['placeholder'])))
           }
         </article>
       </DocumentTitle>

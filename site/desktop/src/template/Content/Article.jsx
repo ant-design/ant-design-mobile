@@ -6,7 +6,7 @@ import Tabs from 'antd/lib/tabs';
 
 import * as utils from '../../../../utils';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 export default class Article extends React.Component {
   componentDidMount() {
@@ -32,7 +32,7 @@ export default class Article extends React.Component {
     });
   }
   tryToRenderIntroducePageTab = (article) => {
-    if (location.href.indexOf('introduce') === -1) {
+    if (window.location.href.indexOf('introduce') === -1) {
       return article;
     }
     const allChildren = [].slice.call(article.props.children);
@@ -79,11 +79,13 @@ export default class Article extends React.Component {
     });
   }
   render() {
-    const props = this.props;
-    const content = props.content;
+    const { props } = this;
+    const { content } = props;
 
     const { meta, description } = content;
-    const { title, subtitle, chinese, english } = meta;
+    const {
+      title, subtitle, chinese, english,
+    } = meta;
     return (
       <DocumentTitle title={`${title || chinese || english} - Ant Design`}>
         <article className="markdown">
@@ -95,9 +97,7 @@ export default class Article extends React.Component {
           </h1>
           {
             !description ? null :
-              props.utils.toReactComponent(
-                ['section', { className: 'markdown' }].concat(getChildren(description)),
-              )
+              props.utils.toReactComponent(['section', { className: 'markdown' }].concat(getChildren(description)))
           }
           {
             (!content.toc || content.toc.length <= 1 || meta.toc === false) ?
@@ -105,9 +105,7 @@ export default class Article extends React.Component {
               <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
           }
           {
-            this.getArticle(props.utils.toReactComponent(
-              ['section', { className: 'markdown' }].concat(getChildren(content.content)),
-            ))
+            this.getArticle(props.utils.toReactComponent(['section', { className: 'markdown' }].concat(getChildren(content.content))))
           }
         </article>
       </DocumentTitle>

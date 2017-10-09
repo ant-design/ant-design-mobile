@@ -26,7 +26,7 @@ export default class Demo extends React.Component {
 
   componentDidMount() {
     const { meta } = this.props;
-    if (meta.id === location.hash.slice(1)) {
+    if (meta.id === window.location.hash.slice(1)) {
       this.anchor.click();
     }
     this.componentWillReceiveProps(this.props);
@@ -41,7 +41,9 @@ export default class Demo extends React.Component {
   }
 
   handleClick = (e) => {
-    const { togglePreview, index, currentIndex, meta } = this.props;
+    const {
+      togglePreview, index, currentIndex, meta,
+    } = this.props;
 
     if (index !== currentIndex && e.target.className !== 'collapse anticon anticon-circle-o-right' &&
       e.target.className !== 'fullscreen anticon anticon-arrow-salt') {
@@ -50,7 +52,7 @@ export default class Demo extends React.Component {
       });
     }
 
-    location.hash = meta.id;
+    window.location.hash = meta.id;
   }
 
   viewFullscreen = (e) => {
@@ -93,7 +95,7 @@ export default class Demo extends React.Component {
       style,
     } = this.props;
     const { lang, sourceCode } = this.state;
-    const locale = this.context.intl.locale;
+    const { locale } = this.context.intl;
     const localizedTitle = meta.title[locale] || meta.title;
     const prefillStyle = `@import 'antd-mobile@next/dist/antd-mobile.min.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
 

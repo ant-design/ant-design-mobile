@@ -46,6 +46,11 @@ const eslintrc = {
     'jsx-a11y/anchor-has-content': 0,
     'jsx-a11y/href-no-hash': 0,
     'jsx-a11y/no-static-element-interactions': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'prefer-destructuring': 0,
+    'jsx-a11y/anchor-is-valid': 0,
+    'react/jsx-no-comment-textnodes': 0,
+    'object-curly-newline': 0,
   }
 };
 

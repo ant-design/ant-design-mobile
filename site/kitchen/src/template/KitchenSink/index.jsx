@@ -28,7 +28,6 @@ export default class App extends React.Component {
     const appLocale = lang.toLowerCase() === 'zh-cn' ? cnLocale : enLocale;
     addLocaleData(appLocale.data);
     this.state = {
-      lastDate: +new Date(),
       appLocale,
       cateOpend: [false, false, false, false, false, false, false],
       ...this.getStateCache(),
@@ -97,7 +96,7 @@ export default class App extends React.Component {
     picked.components
       .filter(item => item.meta.filename.includes(appLocale.locale))
       .forEach((i) => {
-        const meta = i.meta;
+        const { meta } = i;
         if (!lists[meta.type]) {
           lists[meta.type] = [];
         }
@@ -163,7 +162,7 @@ export default class App extends React.Component {
                                 this.setStateCache({
                                   scrollTop: this.scrollTop(),
                                 });
-                                location.href = `${rootPath}/${paths[1]}${this.addSearch()}#${
+                                window.location.href = `${rootPath}/${paths[1]}${this.addSearch()}#${
                                   paths[1] + config.hashSpliter + j.order}`;
                               }}
                             >
@@ -179,7 +178,7 @@ export default class App extends React.Component {
                               this.setStateCache({
                                 scrollTop: this.scrollTop(),
                               });
-                              location.href = `${rootPath}/${paths[1]}${this.addSearch()}`;
+                              window.location.href = `${rootPath}/${paths[1]}${this.addSearch()}`;
                             }}
                           >
                             {`${item.title} `}

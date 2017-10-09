@@ -66,12 +66,8 @@ export default class MainContent extends React.Component {
       text = item.title || item.chinese || item.english;
     } else {
       text = [
-        (<span key="english">
-          {item.title || item.english}
-        </span>),
-        (<span className="chinese" key="chinese">
-          {item.subtitle || item.chinese}
-        </span>),
+        <span key="english">{item.title || item.english}</span>,
+        <span className="chinese" key="chinese">{item.subtitle || item.chinese}</span>,
       ];
     }
     const disabled = item.disabled;
@@ -79,13 +75,15 @@ export default class MainContent extends React.Component {
     if (item.filename.includes('zh-CN')) {
       url = `${url}-cn`;
     }
-    const child = !item.link ?
-      (<Link to={/^components/.test(url) ? `${url}/` : url} disabled={disabled}>
+    const child = !item.link ? (
+      <Link to={/^components/.test(url) ? `${url}/` : url} disabled={disabled}>
         {text}
-      </Link>) :
-      (<a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}>
+      </Link>
+    ) : (
+      <a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}>
         {text}
-      </a>);
+      </a>
+    );
 
     return (
       <Menu.Item key={key.toLowerCase()} disabled={disabled}>

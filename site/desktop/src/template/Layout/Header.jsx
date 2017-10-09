@@ -7,7 +7,7 @@ import { Select, Menu, Row, Col, Icon, Button, AutoComplete, Input, Popover } fr
 import { version as antdVersion } from 'antd-mobile/package.json';
 import * as utils from '../../../../utils';
 
-const Option = AutoComplete.Option;
+const { Option } = AutoComplete;
 const searchEngine = 'Google';
 const searchLink = 'https://www.google.com/#q=site:mobile.ant.design+';
 
@@ -24,7 +24,7 @@ export default class Header extends React.Component {
 
   componentDidMount() {
     this.context.router.listen(this.handleHideMenu);
-    const searchInput = this.searchInput;
+    const { searchInput } = this;
     /* eslint-disable global-require */
     require('enquire.js')
       .register('only screen and (min-width: 0) and (max-width: 992px)', {
@@ -76,16 +76,16 @@ export default class Header extends React.Component {
   }
 
   handleLangChange = () => {
-    const pathname = this.props.location.pathname;
-    const currentProtocol = `${location.protocol}//`;
-    const currentHref = location.href.substr(currentProtocol.length);
+    const { pathname } = this.props.location;
+    const currentProtocol = `${window.location.protocol}//`;
+    const currentHref = window.location.href.substr(currentProtocol.length);
 
     if (utils.isLocalStorageNameSupported()) {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
     }
 
-    location.href = currentProtocol + currentHref.replace(
-      location.pathname,
+    window.location.href = currentProtocol + currentHref.replace(
+      window.location.pathname,
       utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
     );
   }
@@ -97,11 +97,13 @@ export default class Header extends React.Component {
   }
   render() {
     const { inputValue, menuMode, menuVisible } = this.state;
-    const { location, picked, isFirstScreen, themeConfig } = this.props;
+    const {
+      location, picked, isFirstScreen, themeConfig,
+    } = this.props;
     const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
     const versionOptions = Object.keys(docVersions)
       .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
-    const components = picked.components;
+    const { components } = picked;
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
 
@@ -109,7 +111,7 @@ export default class Header extends React.Component {
       activeMenuItem = 'docs/react';
     }
 
-    const locale = this.context.intl.locale;
+    const { locale } = this.context.intl;
     const isZhCN = locale === 'zh-CN';
     const excludedSuffix = isZhCN ? 'en-US.md' : 'zh-CN.md';
     const options = components
@@ -117,7 +119,7 @@ export default class Header extends React.Component {
       .map(({ meta }) => {
         const pathSnippet = meta.filename.split('/')[1];
         const url = `/components/${pathSnippet}`;
-        const subtitle = meta.subtitle;
+        const { subtitle } = meta;
         return (
           <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
             <strong>{meta.title || meta.english}</strong>
@@ -173,21 +175,23 @@ export default class Header extends React.Component {
     const searchPlaceholder = locale === 'zh-CN' ? '搜索组件...' : 'Search Components...';
     return (
       <header id="header" className={headerClassName}>
-        {menuMode === 'inline' && <Popover
-          overlayClassName="popover-menu"
-          placement="bottomRight"
-          content={menu}
-          trigger="click"
-          visible={menuVisible}
-          arrowPointAtCenter
-          onVisibleChange={this.onMenuVisibleChange}
-        >
-          <Icon
-            className="nav-phone-icon"
-            type="menu"
-            onClick={this.handleShowMenu}
-          />
-        </Popover>}
+        {menuMode === 'inline' && (
+          <Popover
+            overlayClassName="popover-menu"
+            placement="bottomRight"
+            content={menu}
+            trigger="click"
+            visible={menuVisible}
+            arrowPointAtCenter
+            onVisibleChange={this.onMenuVisibleChange}
+          >
+            <Icon
+              className="nav-phone-icon"
+              type="menu"
+              onClick={this.handleShowMenu}
+            />
+          </Popover>
+        )}
         <Row>
           <Col lg={5} md={6} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
