@@ -83,9 +83,11 @@ exports[`Calendar renders correctly 1`] = `
         </div>
         <div
           class="wrapper"
-          style="overflow-x:hidden;overflow-y:hidden"
+          style="overflow-x:hidden;overflow-y:visible"
         >
-          <div>
+          <div
+            style="transform:"
+          >
             <div
               class="load-tip"
             >
