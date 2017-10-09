@@ -6,7 +6,7 @@ import collect from 'bisheng/collect';
 import { getQuery } from '../../../../utils';
 
 @collect(async (nextProps) => {
-  const pathname = nextProps.location.pathname;
+  const { pathname } = nextProps.location;
   const pageDataPath = pathname.replace('-cn', '').split('/');
   const pageData = nextProps.utils.get(nextProps.data, pageDataPath);
   if (!pageData) {
@@ -45,7 +45,7 @@ export default class Demo extends React.Component {
     let demoMeta;
     const name = this.props.params.component;
     picked.components.forEach((i) => {
-      const meta = i.meta;
+      const { meta } = i;
       if (meta.filename.split('/')[1] === name) {
         demoMeta = meta;
       }
@@ -69,7 +69,7 @@ export default class Demo extends React.Component {
     if (!location.hash && config.subListDemos.indexOf(name) > -1) {
       // 处理 config.subListDemos 的 demo，使其展示一个二级菜单
       demoContent = demoSort.map((item, index) => (
-        <div>
+        <div key={`sub${index}`}>
           <WhiteSpace />
           <WingBlank>
             <Button onClick={this.goToPage(name, index)}>{item.meta.title[locale === 'en-US' ? 'en-US' : 'zh-CN']}</Button>
