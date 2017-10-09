@@ -49,7 +49,7 @@ class NumberInput extends React.Component<any, any> {
     }
   }
 
-  getComponent = () => {
+  getComponent() {
     const { keyboardPrefixCls, confirmLabel } = this.props;
 
     return (<CustomKeyboard
@@ -71,9 +71,10 @@ class NumberInput extends React.Component<any, any> {
     return container;
   }
 
-  renderCustomKeyboard = () => {
+  renderCustomKeyboard() {
     if (!this.container) {
-      (window as any).antmCustomKeyboard = ReactDOM.render(
+      (window as any).antmCustomKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
+        this,
         this.getComponent(),
         this.getContainer(),
       );
