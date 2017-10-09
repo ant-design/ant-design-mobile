@@ -92,7 +92,9 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
   }
 
   fixOnOk = (cascader: any) => {
-    cascader.onOk = this.onOk;
+    if (cascader) {
+      cascader.onOk = this.onOk;
+    }
   }
 
   render() {

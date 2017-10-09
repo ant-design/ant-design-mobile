@@ -48,7 +48,9 @@ export default class DatePicker extends React.Component<PropsType, any> {
   }
 
   fixOnOk = (picker: any) => {
-    picker.onOk = this.onOk;
+    if (picker) {
+      picker.onOk = this.onOk;
+    }
   }
 
   render() {
