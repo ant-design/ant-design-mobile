@@ -10,6 +10,7 @@ const refCheckbox = 'checkbox';
 
 export interface ICheckboxItemNativeProps extends CheckboxItemProps {
   styles?: ICheckboxStyle;
+  checkboxStyle?: any;
 }
 
 const CheckboxItemStyles = StyleSheet.create<any>(CheckboxItemStyle);

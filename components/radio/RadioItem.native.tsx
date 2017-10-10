@@ -9,6 +9,7 @@ const ListItem = List.Item;
 const refRadio = 'radio';
 
 export interface IRadioItemNativeProps extends RadioItemProps {
+  radioStyle?: any;
   styles?: IRadioStyle;
 }
 

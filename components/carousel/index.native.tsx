@@ -9,7 +9,14 @@ import {
   StyleSheet,
 } from 'react-native';
 import CarouselStyle from './style';
-import CarouselProps from './PropsType';
+import BasePropsType from './PropsType';
+
+export interface CarouselProps extends BasePropsType {
+  bounces?: boolean;
+  onScrollBeginDrag?: Function;
+  onMomentumScrollEnd?: Function;
+  styles?: any;
+}
 
 const CarouselStyles = StyleSheet.create<any>(CarouselStyle);
 

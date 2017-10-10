@@ -8,6 +8,7 @@ const refCheckbox = 'checkbox';
 
 export interface IAgreeItemNativeProps extends AgreeItemPropsType {
   styles?: ICheckboxStyle;
+  checkboxStyle?: any;
 }
 
 const AgreeItemstyles = StyleSheet.create<any>(AgreeItemstyle);

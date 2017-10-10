@@ -9,7 +9,6 @@ export interface RadioProps {
 }
 
 export interface RadioItemProps extends RadioProps {
-  radioStyle?: any; // rn only
   radioProps?: Object;
   onClick?: () => any;
 }

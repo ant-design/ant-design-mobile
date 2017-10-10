@@ -9,14 +9,20 @@ interface DatePickerProps {
   onScrollChange?: (newValue: any, vals: any, index: number) => void;
   locale?: any;
   minuteStep?: number;
-  use12Hours?: boolean; // web only
+  /** web only */
+  use12Hours?: boolean;
   disabled?: boolean;
   format?: (x: any) => void;
-  triggerTypes?: string; // rn only
-  styles?: any; // rn only
-  prefixCls?: string; // web only
-  className?: string; // web only
-  pickerPrefixCls?: string; // web only
+  /** rn only */
+  triggerTypes?: string;
+  /** rn only */
+  styles?: any;
+  /** web only */
+  prefixCls?: string;
+  /** web only */
+  className?: string;
+  /** web only */
+  pickerPrefixCls?: string;
 }
 
 export default DatePickerProps;

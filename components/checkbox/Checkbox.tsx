@@ -1,7 +1,14 @@
 import React from 'react';
 import RcCheckbox from 'rc-checkbox';
-import { CheckboxProps } from './PropsType';
+import { CheckboxProps as BasePropsType } from './PropsType';
 import classnames from 'classnames';
+
+export interface CheckboxProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+  name?: string;
+  wrapLabel?: boolean;
+}
 
 export default class Checkbox extends React.Component<CheckboxProps, any> {
   static CheckboxItem: any;

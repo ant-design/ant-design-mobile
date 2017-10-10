@@ -14,8 +14,10 @@ interface DatePickerProps {
   format?: (x: any) => void;
   extra?: string;
   children?: any;
-  dismissText?: string | React.ReactElement<any>; // React.ReactElement only for web
-  okText?: string | React.ReactElement<any>; // React.ReactElement only for web
+  /** React.ReactElement only for web */
+  dismissText?: string | React.ReactElement<any>;
+  /** React.ReactElement only for web */
+  okText?: string | React.ReactElement<any>;
 }
 
 export default DatePickerProps;

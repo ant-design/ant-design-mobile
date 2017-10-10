@@ -10,16 +10,4 @@ export interface ButtonProps {
   delayPressIn?: number;
   delayPressOut?: number;
   style?: React.CSSProperties;
-  styles?: {
-    primaryRawText?: {},
-    warningRawText?: {},
-    ghostRawText?: {},
-    largeRawText?: {},
-    smallRawText?: {},
-    disabledRawText?: {},
-    wrapperStyle?: {},
-    disabledRaw?: {},
-    container?: {},
-    indicator?: {},
-  };
 }

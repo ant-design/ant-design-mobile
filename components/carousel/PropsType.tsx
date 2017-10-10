@@ -12,15 +12,7 @@ interface Props {
   style?: any;
   dotStyle?: any;
   dotActiveStyle?: any;
-  /** below web only */
-  className?: string;
-  prefixCls?: string;
   swipeSpeed?: number;
-  /** below rn only */
-  bounces?: boolean;
-  onScrollBeginDrag?: Function;
-  onMomentumScrollEnd?: Function;
-  styles?: any;
   pagination?: Function;
   initialSlideWidth?: number;
 }

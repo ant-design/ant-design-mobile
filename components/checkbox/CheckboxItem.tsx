@@ -2,7 +2,15 @@ import React from 'react';
 import classnames from 'classnames';
 import List from '../list';
 import Checkbox from './Checkbox';
-import { CheckboxItemProps } from './PropsType';
+import { CheckboxItemProps as BasePropsType } from './PropsType';
+
+export interface CheckboxItemProps extends BasePropsType {
+  listPrefixCls?: any;
+  prefixCls?: string;
+  className?: string;
+  name?: string;
+  wrapLabel?: boolean;
+}
 
 const ListItem = List.Item;
 function noop() { }

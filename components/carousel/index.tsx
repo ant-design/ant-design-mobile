@@ -1,7 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
 import ReactCarousel from 'rmc-nuka-carousel';
-import CarouselProps from './PropsType';
+import BasePropsType from './PropsType';
+
+export interface CarouselProps extends BasePropsType {
+  className?: string;
+  prefixCls?: string;
+}
 
 export default class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps = {

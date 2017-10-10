@@ -9,6 +9,7 @@ export interface ButtonProps extends BasePropsType {
   onPressOut?: (x?: any) => void;
   onShowUnderlay?: (x?: any) => void;
   onHideUnderlay?: (x?: any) => void;
+  styles?: typeof buttonStyle;
 }
 
 const buttonStyles = StyleSheet.create<any>(buttonStyle);

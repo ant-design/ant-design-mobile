@@ -1,9 +1,10 @@
 import variables from '../../style/themes/default.native';
+import { ViewStyle } from 'react-native';
 
 export default {
   container: {
     flexDirection: 'row',
-  },
+  } as ViewStyle,
   defaultHighlight: {
     backgroundColor: variables.fill_tap,
     borderColor: variables.border_color_base,

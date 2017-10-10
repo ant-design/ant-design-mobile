@@ -1,8 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
 import Checkbox from './Checkbox';
-import { AgreeItemPropsType } from './PropsType';
+import { AgreeItemPropsType as BasePropsType } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
+
+export interface AgreeItemPropsType extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+  name?: string;
+  wrapLabel?: boolean;
+}
 
 export default class AgreeItem extends React.Component<AgreeItemPropsType, any> {
   static defaultProps = {
