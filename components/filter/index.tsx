@@ -1,9 +1,11 @@
 import React from 'react';
 import Flex from '../flex';
+import FilterProps from './PropsType';
 
-class Filter extends React.Component<any, any> {
+class Filter extends React.Component<FilterProps, any> {
   static defaultProps = {
     prefixCls: 'am-filter',
+    data: [],
   };
 
   render() {
