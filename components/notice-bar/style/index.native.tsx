@@ -23,6 +23,7 @@ export default {
     flex: 1,
     marginRight: variables.h_spacing_lg,
     overflow: 'hidden',
+    width: 0, // ios bug: width size is wrong (usecase: with react-navigation).
   },
   content: {
     fontSize: variables.font_size_subhead,

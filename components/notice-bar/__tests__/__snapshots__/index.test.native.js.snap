@@ -57,6 +57,7 @@ exports[`NoticeBar renders correctly 1`] = `
           "flex": 1,
           "marginRight": 15,
           "overflow": "hidden",
+          "width": 0,
         },
         Object {
           "marginLeft": 5,
