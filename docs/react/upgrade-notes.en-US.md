@@ -35,7 +35,8 @@ How to upgrade, depend on which case you use:
 +       className={`am-icon am-icon-${type.substr(1)} am-icon-${size} ${className}`}
 +       {...restProps}
 +     >
-+       <use xlinkHref={type} />
++       <use xlinkHref={type} /> {/* svg-sprite-loader@0.3.x */}
++       {/* <use xlinkHref={#${type.default.id}} /> */} {/* svg-sprite-loader@lastest */}
 +     </svg>
 + );
 + <CustomIcon type={require('./foo.svg)'} />
