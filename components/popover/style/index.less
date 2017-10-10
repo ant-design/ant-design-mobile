@@ -12,6 +12,11 @@
   border-radius: @radius-sm;
   box-shadow: 0 0 4px @color-shadow;
   overflow: hidden; // for popover item active background color not overflow
+
+  &-wrapper {
+    position: relative;
+    background-color: @fill-base;
+  }
 }
 
 .@{popoverPrefixCls} .@{popoverPrefixCls}-item {
