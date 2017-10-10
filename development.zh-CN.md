@@ -15,6 +15,24 @@ TypeScript
 $ npm run lint
 ```
 
+### 目录结构
+```
+├── AUTHORS.txt             作者
+├── CHANGELOG.xxx.md        变更记录文档
+├── LICENSE                 许可证
+├── README.md               自述文档
+├── ant-design-analysis     包分析
+├── components              组件代码
+├── development.xxx.md      开发说明文档
+├── docs                    其他文档
+├── rn-kitchen-sink         RN示例工程代码
+├── scripts                 辅助脚本
+├── site                    官网代码
+├── tests                   通用测试代码
+├── tsconfig.json           TypeScript配置
+├── typings                 第三方缺失定义
+```
+
 ### API 规范
 
 设计原则

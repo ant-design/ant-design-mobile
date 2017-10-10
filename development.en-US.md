@@ -15,6 +15,24 @@ TypeScript
 $ npm run lint
 ```
 
+### Directory Structure
+```
+├── AUTHORS.txt             authors
+├── CHANGELOG.xxx.md        changelog document
+├── LICENSE                 license
+├── README.md               readme document
+├── ant-design-analysis     package analysis
+├── components              components source code
+├── development.xxx.md      development document
+├── docs                    other docs
+├── rn-kitchen-sink         RN demo project source code
+├── scripts                 scripts for development
+├── site                    offical web site source code
+├── tests                   test code
+├── tsconfig.json           TypeScript config
+├── typings                 mistake defined for TypeScript
+```
+
 ### API Design Philosophy
 
 Basic principles:
