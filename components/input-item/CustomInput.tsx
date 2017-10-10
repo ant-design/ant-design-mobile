@@ -5,6 +5,8 @@ import classnames from 'classnames';
 import CustomKeyboard from './CustomKeyboard';
 import { addClass, removeClass } from '../_util/class';
 
+const IS_REACT_16 = !!(ReactDOM as any).createPortal;
+
 class NumberInput extends React.Component<any, any> {
 
   static defaultProps = {
@@ -23,10 +25,11 @@ class NumberInput extends React.Component<any, any> {
     focus: false,
   };
 
+  private container: any;
   private inputRef: any;
 
   componentDidMount() {
-    if (!(window as any).antmCustomKeyboard) {
+    if (!IS_REACT_16 && !(window as any).antmCustomKeyboard) {
       this.renderCustomKeyboard();
     }
   }
@@ -40,26 +43,40 @@ class NumberInput extends React.Component<any, any> {
     this.unLinkInput();
   }
 
-  getComponent = () => {
+  saveRef = (el) => {
+    if (IS_REACT_16) {
+      (window as any).antmCustomKeyboard = el;
+    }
+  }
+
+  getComponent() {
     const { keyboardPrefixCls, confirmLabel } = this.props;
 
     return (<CustomKeyboard
+      ref={this.saveRef}
       onClick={this.onKeyboardClick}
       preixCls={keyboardPrefixCls}
       confirmLabel={confirmLabel}
     />);
   }
 
-  renderCustomKeyboard = () => {
+  getContainer() {
     let container = document.querySelector(`#${this.props.keyboardPrefixCls}-container`);
     if (!container) {
       container = document.createElement('div');
       container.setAttribute('id', `${this.props.keyboardPrefixCls}-container`);
       document.body.appendChild(container);
+    }
+    this.container = container;
+    return container;
+  }
+
+  renderCustomKeyboard() {
+    if (!this.container) {
       (window as any).antmCustomKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
         this,
         this.getComponent(),
-        container,
+        this.getContainer(),
       );
     }
   }
@@ -149,6 +166,7 @@ class NumberInput extends React.Component<any, any> {
   onFakeInputClick = () => {
     this.focus();
   }
+
   focus = () => {
     // this focus may invocked by users page button click, so this click may trigger blurEventListener at the same time
     this.removeBlurListen();
@@ -160,6 +178,7 @@ class NumberInput extends React.Component<any, any> {
       this.addBlurListener();
     }, 50);
   }
+
   render() {
     const { placeholder, value, disabled, editable, moneyKeyboardAlign } = this.props;
     const { focus } = this.state;
@@ -171,16 +190,20 @@ class NumberInput extends React.Component<any, any> {
     const fakeInputContainerCls = classnames('fake-input-container', {
       'fake-input-container-left': moneyKeyboardAlign === 'left',
     });
-    return (<div className={fakeInputContainerCls}>
-      {value === '' && <div className="fake-input-placeholder">{placeholder}</div>}
-      <div
-        className={fakeInputCls}
-        ref={el => this.inputRef = el}
-        onClick={preventKeyboard ? () => {} : this.onFakeInputClick}
-      >
-        {value}
+
+    return (
+      <div className={fakeInputContainerCls}>
+        {value === '' && <div className="fake-input-placeholder">{placeholder}</div>}
+        <div
+          className={fakeInputCls}
+          ref={el => this.inputRef = el}
+          onClick={preventKeyboard ? () => {} : this.onFakeInputClick}
+        >
+          {value}
+        </div>
+        {IS_REACT_16 && (ReactDOM as any).createPortal(this.getComponent(), this.getContainer())}
       </div>
-    </div>);
+    );
   }
 }
 
