@@ -38,6 +38,11 @@ export default class Popover extends React.Component<PopOverPropsType, any> {
       }
       return child;
     });
-    return <Tooltip {...restProps} overlay={overlayNode} />;
+    const wrapperNode = (
+      <div className={`${this.props.prefixCls}-inner-wrapper`}>
+        {overlayNode}
+      </div>
+    );
+    return <Tooltip {...restProps} overlay={wrapperNode} />;
   }
 }
