@@ -1,13 +1,12 @@
-interface FilterItem {
-  text: any;
-  selected: Boolean;
-  onClick: (FilterItem) => {};
-  icon?: string;
-  selectedIcon?: string;
-  className?: string;
-}
 interface Props {
-  data: Array<FilterItem>;
+  data: Array<{
+    text: any;
+    selected: Boolean;
+    onClick: (FilterItem) => {};
+    icon?: string;
+    selectedIcon?: string;
+    className?: string;
+  }>;
   /** below web only */
   prefixCls?: string;
 }

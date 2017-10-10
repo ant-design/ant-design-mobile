@@ -14,6 +14,7 @@ Array [
   "DatePicker",
   "DatePickerView",
   "Drawer",
+  "Filter",
   "Flex",
   "Grid",
   "Icon",

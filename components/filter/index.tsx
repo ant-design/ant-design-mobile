@@ -11,7 +11,7 @@ class Filter extends React.Component<FilterProps, any> {
   render() {
     const { prefixCls, data } = this.props;
     const FilterItemArr: any[] = [];
-    data.forEach((el) => {
+    data.forEach((el, index) => {
       let iconImg;
       if (el.selected) {
         if (el.selectedIcon) {
@@ -33,6 +33,7 @@ class Filter extends React.Component<FilterProps, any> {
       const flexItem = (<Flex.Item
         onClick={() => el.onClick && el.onClick(el)}
         className={itemCls}
+        key={`filter-item-${index}`}
       >
         <div className={`${prefixCls}-label`}>{el.text}</div>
         <div className={`${prefixCls}-icon`}>{iconImg}</div>
