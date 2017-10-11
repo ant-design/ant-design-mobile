@@ -18,7 +18,6 @@ const PickerStyles = StyleSheet.create<any>(PickerStyle);
 export default class DatePicker extends React.Component<IDatePickerNativeProps, any> {
   static defaultProps = {
     mode: 'datetime',
-    extra: '请选择',
     triggerType: 'onClick',
     styles: PickerStyles,
     minuteStep: 1,
@@ -30,9 +29,9 @@ export default class DatePicker extends React.Component<IDatePickerNativeProps, 
 
   render() {
     const { props, context } = this;
-    const { children, extra, value, styles } = props;
+    const { children, value, styles } = props;
     const locale = getComponentLocale(props, context, 'DatePicker', () => require('./locale/zh_CN'));
-    const { okText, dismissText, DatePickerLocale } = locale;
+    const { okText, dismissText, extra, DatePickerLocale } = locale;
 
     const dataPicker = (
       <RCDatePicker

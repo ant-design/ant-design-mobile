@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { SearchBarProps as BasePropsType, SearchBarState, defaultProps } from './PropsType';
 import getDataAttr from '../_util/getDataAttr';
 import TouchFeedback from 'rmc-feedback';
+import { getComponentLocale } from '../_util/getLocale';
 
 export interface SearchBarProps extends BasePropsType {
   prefixCls?: string;
@@ -188,9 +189,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
 
   render() {
     const {
-      prefixCls, showCancelButton, disabled, placeholder,
-      cancelText, className, style, maxLength,
+      prefixCls, showCancelButton, disabled, placeholder, className, style, maxLength,
     } = this.props;
+
+    const _locale = getComponentLocale(this.props, this.context, 'SearchBar', () => require('./locale/zh_CN'));
+    const { cancelText } = _locale;
 
     const { value, focus } = this.state;
 

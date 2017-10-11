@@ -9,7 +9,8 @@ Wrap your app with `LocaleProvider`, and apply the corresponding language packag
 
 ````jsx
 import {
-  Pagination, LocaleProvider, List, DatePicker, WhiteSpace, InputItem, WingBlank, SegmentedControl, Picker,
+  Pagination, LocaleProvider, List, DatePicker, WhiteSpace, InputItem, WingBlank,
+  SegmentedControl, Picker, SearchBar,
 } from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US';
 
@@ -50,7 +51,6 @@ const Page = () => (
       <DatePicker
         mode="date"
         title="Select date"
-        extra="Click to see i18n text"
         minDate={minDate}
         maxDate={maxDate}
       >
@@ -67,6 +67,8 @@ const Page = () => (
     </List>
     <WhiteSpace />
     <InputItem type="money" placeholder="money input" />
+    <WhiteSpace />
+    <SearchBar placeholder="Search" showCancelButton />
   </div>
 );
 
