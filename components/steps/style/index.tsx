@@ -79,7 +79,7 @@ export default StyleSheet.create<any>({
   },
   tail_default_l: {
     width: variables.border_width_lg,
-    height: 30,
+    flex: 1,
     marginLeft: 11,
   },
   icon_l: {
@@ -88,7 +88,7 @@ export default StyleSheet.create<any>({
   },
   tail_default_s: {
     width: variables.border_width_lg,
-    height: 30,
+    flex: 1,
     marginLeft: 2 * grid,
   },
   tail_gray: {
