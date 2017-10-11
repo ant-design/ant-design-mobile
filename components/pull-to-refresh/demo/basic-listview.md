@@ -1,11 +1,9 @@
 ---
 order: 1
 title:
-  zh-CN: 'ListView 下拉刷新'
-  en-US: 'ListView PullToRefresh'
+  zh-CN: 'ListView 下拉刷新 (仅支持手机查看效果)'
+  en-US: 'ListView PullToRefresh (see on phone)'
 ---
-
-下拉刷新
 
 
 ````jsx
