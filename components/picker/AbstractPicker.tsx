@@ -6,6 +6,7 @@ import RMCMultiPicker from 'rmc-picker/lib/MultiPicker';
 import RMCPicker from 'rmc-picker/lib/Picker';
 import treeFilter from 'array-tree-filter';
 import tsPropsType from './PropsType';
+import { getComponentLocale } from '../_util/getLocale';
 
 export interface PickerPropsType extends tsPropsType {
   pickerPrefixCls?: string;
@@ -99,9 +100,13 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
 
   render() {
     const {
-      children, value = [], extra, okText, dismissText, popupPrefixCls, itemStyle, indicatorStyle,
+      children, value = [], popupPrefixCls, itemStyle, indicatorStyle,
       cascade, prefixCls, pickerPrefixCls, data, cols, onPickerChange, onOk, ...restProps,
     } = this.props;
+
+    const _locale = getComponentLocale(this.props, this.context, 'Picker', () => require('./locale/zh_CN'));
+
+    const { okText, dismissText, extra } = _locale;
 
     let cascader;
     let popupMoreProps = {};

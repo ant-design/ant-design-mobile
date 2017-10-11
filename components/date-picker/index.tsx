@@ -17,7 +17,6 @@ export interface PropsType extends BasePropsType {
 export default class DatePicker extends React.Component<PropsType, any> {
   static defaultProps = {
     mode: 'datetime',
-    extra: '请选择',
     prefixCls: 'am-picker',
     pickerPrefixCls: 'am-picker-col',
     popupPrefixCls: 'am-picker-popup',
@@ -55,9 +54,9 @@ export default class DatePicker extends React.Component<PropsType, any> {
 
   render() {
     const { props, context } = this;
-    const { children, value, extra, popupPrefixCls } = props;
+    const { children, value, popupPrefixCls } = props;
     const locale = getComponentLocale(props, context, 'DatePicker', () => require('./locale/zh_CN'));
-    const { okText, dismissText, DatePickerLocale } = locale;
+    const { okText, dismissText, extra, DatePickerLocale } = locale;
 
     const dataPicker = (
       <RCDatePicker

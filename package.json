@@ -114,7 +114,7 @@
     "react-native": "~0.48.4",
     "react-native-code-push": "^5.1.1-beta",
     "react-native-mocker": "^0.0.12",
-    "react-navigation": "^1.0.0-beta.12",
+    "react-navigation": "1.0.0-beta.12",
     "react-sticky": "^5.0.8",
     "react-test-renderer": "^16.0.0",
     "stylelint": "^8.0.0",

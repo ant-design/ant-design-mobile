@@ -29,6 +29,7 @@ exports[`renders ./components/search-bar/demo/basic.native.tsx correctly 1`] = `
       }
     >
       <TextInput
+        cancelText="取消"
         clearButtonMode="always"
         defaultValue="初始值"
         editable={true}
@@ -99,6 +100,7 @@ exports[`renders ./components/search-bar/demo/basic.native.tsx correctly 1`] = `
       }
     >
       <TextInput
+        cancelText="取消"
         clearButtonMode="always"
         editable={true}
         onBlur={[Function]}
