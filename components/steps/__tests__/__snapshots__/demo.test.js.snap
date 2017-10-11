@@ -1,1338 +1,2031 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/steps/demo/basic.md correctly 1`] = `
-<div
-  class="am-wingblank am-wingblank-lg"
+exports[`renders ./components/steps/demo/basic.tsx correctly 1`] = `
+<RCTScrollView
+  automaticallyAdjustContentInsets={false}
+  showsHorizontalScrollIndicator={false}
+  showsVerticalScrollIndicator={false}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
 >
-  <div
-    class="sub-title"
-  >
-    Small size
-  </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
-  <div
-    class="am-steps am-steps-vertical am-steps-small"
-  >
-    <div
-      class="am-steps-item am-steps-item-finish am-steps-item-custom"
+  <View>
+    <View
+      style={
+        Object {
+          "marginTop": 60,
+        }
+      }
     >
-      <div
-        class="am-steps-item-tail"
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 15,
+              "marginRight": 15,
+            },
+            undefined,
+          ]
+        }
       >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
+        <View
+          onLayout={[Function]}
+          style={undefined}
         >
-          <svg
-            class="am-icon am-icon-check-circle-o am-icon-xs"
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <use
-              href="#check-circle-o"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              
-            </use>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Finished
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-process"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          2
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          In Progress
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-wait ellipsis-item am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-ellipsis am-icon-xs"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    title:
+                    Finished
+                  </Text>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    desc:
+                    This is description
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <use
-              href="#ellipsis"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              
-            </use>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="sub-title"
-  >
-    Small size, single line text
-  </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
-  <div
-    class="am-steps am-steps-vertical am-steps-small"
-  >
-    <div
-      class="am-steps-item am-steps-item-finish am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-check-circle-o am-icon-xs"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    title:
+                    In Progress
+                  </Text>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    desc:
+                    This is description
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <use
-              href="#check-circle-o"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              
-            </use>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#bbb",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    title:
+                    Waiting
+                  </Text>
+                </View>
+              </View>
+              <View>
+                <View>
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                  >
+                    desc:
+                    This is description
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 15,
+              "marginRight": 15,
+            },
+            undefined,
+          ]
+        }
       >
-        <div
-          class="am-steps-item-title"
+        <View
+          onLayout={[Function]}
+          style={undefined}
         >
-          Finished
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-process"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          2
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          In Progress
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-wait ellipsis-item am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-ellipsis am-icon-xs"
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <use
-              href="#ellipsis"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              
-            </use>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Waiting
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="sub-title"
-  >
-    Default size
-  </div>
-  <div
-    class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
-  <div
-    class="am-steps am-steps-vertical"
-  >
-    <div
-      class="am-steps-item am-steps-item-process error-tail"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          1
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Finished
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-error ellipsis-item am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-cross-circle-o am-icon-md"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Finished
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <use
-              href="#cross-circle-o"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              
-            </use>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Error
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-wait ellipsis-item am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-ellipsis am-icon-md"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#f4333c",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                In Progress
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <use
-              href="#ellipsis"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              
-            </use>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="sub-title"
-  >
-    Customized status 
-  </div>
-  <div
-    class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
-  <div
-    class="am-steps am-steps-vertical"
-  >
-    <div
-      class="am-steps-item am-steps-item-finish am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#f4333c",
+                    },
+                  ]
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
+              >
+                Waiting
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 18,
+                      "overflow": "hidden",
+                      "width": 18,
+                    },
+                    Object {
+                      "borderColor": "#bbb",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 14,
+                      "width": 14,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 8,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
+                Waiting
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 15,
+              "marginRight": 15,
+            },
+            undefined,
+          ]
+        }
       >
-        <div
-          class="am-steps-item-title"
+        <View
+          onLayout={[Function]}
+          style={undefined}
         >
-          Step 1
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-process error-tail am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Step 2
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-error am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
+                Finished
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Step 3
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="sub-title"
-  >
-    Customized icon 
-  </div>
-  <div
-    class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
-  <div
-    class="am-steps am-steps-vertical"
-  >
-    <div
-      class="am-steps-item am-steps-item-finish am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
+                In Progress
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                      "borderColor": "#bbb",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
+                Waiting
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 15,
+              "marginRight": 15,
+            },
+            undefined,
+          ]
+        }
       >
-        <div
-          class="am-steps-item-title"
+        <View
+          onLayout={[Function]}
+          style={undefined}
         >
-          Step 1
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-process am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Step 2
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-wait am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
+                Finished
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#f4333c",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Step 3
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="sub-title"
-  >
-    Multiple steps 
-  </div>
-  <div
-    class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
-  <div
-    class="am-steps am-steps-vertical"
-  >
-    <div
-      class="am-steps-item am-steps-item-finish am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
+                In Progress
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#f4333c",
+                      "borderColor": "#f4333c",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Step 1
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-process error-tail am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
+                Waiting
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                      "borderColor": "#bbb",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
+                Waiting
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 15,
+              "marginRight": 15,
+            },
+            undefined,
+          ]
+        }
       >
-        <div
-          class="am-steps-item-title"
+        <View
+          onLayout={[Function]}
+          style={undefined}
         >
-          Step 2
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-error am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Step 3
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-wait am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
+                Finished
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                      "borderColor": "#108ee9",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "height": 20,
+                      "width": 20,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#108ee9",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Step 4
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/steps/demo/horizontal.md correctly 1`] = `
-<div
-  class="am-wingblank am-wingblank-lg stepsExample"
->
-  <div
-    class="sub-title"
-  >
-    Horizontal small size
-  </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
-  <div
-    class="am-steps am-steps-horizontal am-steps-small am-steps-label-vertical"
-  >
-    <div
-      class="am-steps-item am-steps-item-finish am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-check-circle-o am-icon-xs"
+                Progress
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                This is description
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
           >
-            <use
-              href="#check-circle-o"
+            <View
+              style={
+                Object {
+                  "flexDirection": "column",
+                }
+              }
             >
-              
-            </use>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Finished
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-process"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          2
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          In Progress
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-wait ellipsis-item am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-ellipsis am-icon-xs"
-          >
-            <use
-              href="#ellipsis"
-            >
-              
-            </use>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="sub-title"
-  >
-    Horizontal default size
-  </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
-  <div
-    class="am-steps am-steps-horizontal am-steps-label-vertical"
-  >
-    <div
-      class="am-steps-item am-steps-item-finish am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-check-circle-o am-icon-md"
-          >
-            <use
-              href="#check-circle-o"
-            >
-              
-            </use>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Finished
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-process"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          2
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          In Progress
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-wait ellipsis-item am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-ellipsis am-icon-md"
-          >
-            <use
-              href="#ellipsis"
-            >
-              
-            </use>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Waiting
-        </div>
-        <div
-          class="am-steps-item-description"
-        >
-          This is description
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="sub-title"
-  >
-    Horizontal customized icon
-  </div>
-  <div
-    class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
-  <div
-    class="am-steps am-steps-horizontal am-steps-label-vertical"
-  >
-    <div
-      class="am-steps-item am-steps-item-process error-tail am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
-            >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "#108ee9",
+                      "borderRadius": 18,
+                      "borderStyle": "solid",
+                      "borderWidth": 2,
+                      "height": 24,
+                      "overflow": "hidden",
+                      "width": 24,
+                    },
+                    Object {
+                      "backgroundColor": "#bbb",
+                      "borderColor": "#bbb",
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
-              >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Step 1
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-error am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Object {
+                      "color": "white",
+                      "flexDirection": "row",
+                      "fontFamily": "anticon",
+                      "fontSize": 20,
+                    }
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flex": 1,
+                      "marginLeft": 11,
+                      "width": 2,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingLeft": 15,
+                }
+              }
             >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 17,
+                      "fontWeight": "bold",
+                      "paddingBottom": 9,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
+                Wait
+              </Text>
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
               >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Step 2
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-steps-item am-steps-item-wait am-steps-item-custom"
-    >
-      <div
-        class="am-steps-item-tail"
-      >
-        
-      </div>
-      <div
-        class="am-steps-item-icon"
-      >
-        <span
-          class="am-steps-icon"
-        >
-          <svg
-            class="am-icon am-icon-md"
-            viewBox="0 0 42 42"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill-rule="evenodd"
-              stroke="transparent"
-              stroke-width="4"
-            >
-              <path
-                d="M21 0C9.402 0 0 9.402 0 21c0 11.6 9.402 21 21 21s21-9.4 21-21C42 9.402 32.598 0 21 0z"
-              >
-                
-              </path>
-              <path
-                d="M29 18.73c0-.55-.447-1-1-1H23.36l4.428-5.05c.407-.46.407-1.208 0-1.668-.407-.46-1.068-.46-1.476 0l-5.21 5.89-5.21-5.89c-.406-.46-1.067-.46-1.475 0-.406.46-.406 1.207 0 1.667l4.43 5.05H14.23c-.55 0-.998.45-.998 1 0 .554.448.97 1 .97h5.9v3.942h-5.9c-.552 0-1 .448-1 1s.448.985 1 .985h5.9v4.896c0 .552.448 1 1 1 .55 0 .968-.284.968-.836v-5.06H28c.553 0 1-.433 1-.985s-.447-1-1-1h-5.9v-3.94H28c.553 0 1-.418 1-.97z"
-                fill="#FFF"
-              >
-                
-              </path>
-            </g>
-          </svg>
-        </span>
-      </div>
-      <div
-        class="am-steps-item-content"
-      >
-        <div
-          class="am-steps-item-title"
-        >
-          Step 3
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                This is description
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
 `;
