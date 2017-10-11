@@ -558,7 +558,7 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
                       ]
                     }
                   >
-                    点击查看国际化
+                    please select
                   </Text>
                 </View>
                 <Image
