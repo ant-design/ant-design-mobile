@@ -34,6 +34,8 @@ export default {
     fontSize: 18,
     textAlign: 'center',
   },
+  okText: {},
+  dismissText: {},
   title: {
     color: '#666',
     fontSize: 18,
