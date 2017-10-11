@@ -1,10 +1,12 @@
-interface Props {
+export interface DrawerProps {
   onOpenChange?: (isOpen: boolean) => void;
   sidebar?: any;
   open?: boolean;
-  position?: 'left'|'right'|'top'|'bottom';
+  position?: 'left' | 'right' | 'top' | 'bottom';
   children?: any;
-  /** below web only */
+}
+
+export interface DrawerWebProps extends DrawerProps {
   sidebarStyle?: Object;
   contentStyle?: Object;
   overlayStyle?: Object;
@@ -14,10 +16,10 @@ interface Props {
   touch?: boolean;
   dragToggleDistance?: number;
   prefixCls?: string;
-  /** below rn only */
+}
+
+export interface DrawerNativeProps extends DrawerProps {
   drawerRef?: (el: any) => any;
   drawerWidth?: number;
   drawerBackgroundColor?: string;
 }
-
-export default Props;

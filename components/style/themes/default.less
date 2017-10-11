@@ -1,3 +1,5 @@
+@hd: 1px; // 基本单位
+
 // 支付宝钱包默认主题
 // https://github.com/ant-design/ant-design-mobile/wiki/设计变量表及命名规范
 
@@ -13,18 +15,14 @@
 @color-text-paragraph: #333;             // 段落
 @color-link: @brand-primary;             // 链接
 
-// 阴影色
-@color-shadow: rgba(0, 0, 0, 0.21);  // 阴影色
-
 // 背景色
 @fill-base: #fff;                           // 组件默认背景
 @fill-body: #f5f5f9;                        // 页面背景
 @fill-tap: #ddd;                            // 组件默认背景 - 按下
 @fill-disabled: #ddd;                       // 通用失效背景
 @fill-mask: rgba(0, 0, 0, 0.4);              // 遮罩背景
-@fill-overlay-inverse: rgba(58, 58, 58, 0.9);// 浮层背景 - 反色，用于 toast // deprecated
 @color-icon-base: #ccc;                      // 许多小图标的背景，比如一些小圆点，加减号
-@toast-fill: @fill-overlay-inverse;
+@fill-grey: #f7f7f7;
 
 // 透明度
 @opacity-disabled: 0.3;   // switch checkbox radio 等组件禁用的透明度
@@ -33,73 +31,63 @@
 @brand-primary: #108ee9;
 @brand-primary-tap: #1284d6;
 @brand-success: #6abf47;
-@brand-warning: #fefcec;
+@brand-warning: #ffc600;
 @brand-error: #f4333c;
-@brand-hot: #f96268;        // 用于推荐/促销/折扣
 @brand-important: #ff5b05;  // 用于小红点
+@brand-wait: #108ee9;
 
 // 边框色
 @border-color-base: #ddd;
 
 // 字体尺寸
 // ---
-@font-size-icontext: 20px;
-@font-size-caption-sm: 24px;
-@font-size-base: 28px;
-@font-size-subhead: 30px;
-@font-size-caption: 32px;
-@font-size-heading: 34px;
-@font-size-display-sm: 36px;
-@font-size-display-md: 42px;
-@font-size-display-lg: 48px;
-@font-size-display-xl: 60px;
-
-// 字体家族
-// ---
-@font-family-base: -apple-system,"SF UI Text",Roboto,Noto,"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-@font-family-code: Consolas,Menlo,Courier,monospace;
+@font-size-icontext: 10 * @hd;
+@font-size-caption-sm: 12 * @hd;
+@font-size-base: 14 * @hd;
+@font-size-subhead: 15 * @hd;
+@font-size-caption: 16 * @hd;
+@font-size-heading: 17 * @hd;
 
 // 圆角
 // ---
-@radius-xs: 4px;
-@radius-sm: 6px;
-@radius-md: 10px;
-@radius-lg: 14px;
+@radius-xs: 2 * @hd;
+@radius-sm: 3 * @hd;
+@radius-md: 5 * @hd;
+@radius-lg: 7 * @hd;
 @radius-circle: 50%;
 
 // 边框尺寸
 // ---
 @border-width-sm: 1PX;
-@border-width-md: 2px;
-@border-width-lg: 4px;
+@border-width-md: 1PX;
+@border-width-lg: 2 * @hd;
 
 // 间距
 // ---
 // 水平间距
-@h-spacing-sm: 10px;
-@h-spacing-md: 16px;
-@h-spacing-lg: 30px;
+@h-spacing-sm: 5 * @hd;
+@h-spacing-md: 8 * @hd;
+@h-spacing-lg: 15 * @hd;
 
 // 垂直间距
-@v-spacing-xs: 6px;
-@v-spacing-sm: 12px;
-@v-spacing-md: 18px;
-@v-spacing-lg: 30px;
-@v-spacing-xl: 42px;
+@v-spacing-xs: 3 * @hd;
+@v-spacing-sm: 6 * @hd;
+@v-spacing-md: 9 * @hd;
+@v-spacing-lg: 15 * @hd;
+@v-spacing-xl: 21 * @hd;
 
 // 高度
 // ---
-@option-height: 84px;           // action-sheet、popover 等组件的选项高度
 @line-height-base: 1;           // 单行行高
 @line-height-paragraph: 1.5;    // 多行行高
 
 // 图标尺寸
 // ---
-@icon-size-xxs: 30px;
-@icon-size-xs: 36px;
-@icon-size-sm: 42px;
-@icon-size-md: 44px;       // 导航条上的图标、grid的图标大小
-@icon-size-lg: 72px;
+@icon-size-xxs: 15 * @hd;
+@icon-size-xs: 18 * @hd;
+@icon-size-sm: 21 * @hd;
+@icon-size-md: 22 * @hd;       // 导航条上的图标、grid的图标大小
+@icon-size-lg: 36 * @hd;
 
 // 动画缓动
 // ---
@@ -108,66 +96,72 @@
 // 组件变量
 // ---
 
-@actionsheet-item-height: 100px;
-@actionsheet-item-font-size: 36px;
+@actionsheet-item-height: 50 * @hd;
+@actionsheet-item-font-size: 18 * @hd;
 
 // button
-@button-height: 94px;
-@button-font-size: 36px;
+@button-height: 47 * @hd;
+@button-font-size: 18 * @hd;
 
-@button-height-sm: 60px;
-@button-font-size-sm: 26px;
-
-@across-button-height: 100px;   // 通栏按钮高度
+@button-height-sm: 30 * @hd;
+@button-font-size-sm: 13 * @hd;
 
 @primary-button-fill: @brand-primary;
-@primary-button-fill-tap: @brand-primary-tap;
+@primary-button-fill-tap: #0e80d2;
 
 @ghost-button-color: @brand-primary;    // 同时应用于背景、文字颜色、边框色
-@ghost-button-fill-tap: @brand-primary-tap;
+@ghost-button-fill-tap: fade(@brand-primary, 60%);
+
+@warning-button-fill: #e94f4f;
+@warning-button-fill-tap: #d24747;
 
 @link-button-fill-tap: #ddd;
-@link-button-font-size: 32px;
+@link-button-font-size: 16 * @hd;
 
 // modal
-@modal-font-size-heading: 36px;
+@modal-font-size-heading: 18 * @hd;
+@modal-button-font-size: 18 * @hd; // 按钮字号
+@modal-button-height: 50 * @hd; // 按钮高度
 
 // list
-@list-title-height: 60px;
-@list-item-height-sm: 70px;
-@list-item-height: 88px;
+@list-title-height: 30 * @hd;
+@list-item-height-sm: 35 * @hd;
+@list-item-height: 44 * @hd;
 
 // input
-@input-label-width: 34px;       // InputItem、TextareaItem 文字长度基础值
-@input-font-size: 34px;
+@input-label-width: 17 * @hd;       // InputItem、TextareaItem 文字长度基础值
+@input-font-size: 17 * @hd;
 @input-color-icon: #ccc; // input clear icon 的背景色
 @input-color-icon-tap: @brand-primary;
 
 // tabs
 @tabs-color: @brand-primary;
-@tabs-height: 87px;
-@tabs-font-size-heading: 30px;
+@tabs-height: 43.5 * @hd;
+@tabs-font-size-heading: 15 * @hd;
 @tabs-ink-bar-height: @border-width-lg;
 
 // segmented-control
 @segmented-control-color: @brand-primary;  // 同时应用于背景、文字颜色、边框色
-@segmented-control-height: 54px;
+@segmented-control-height: 27 * @hd;
 @segmented-control-fill-tap: fade(@brand-primary, 0.1);
 
 // tab-bar
 @tab-bar-fill: #ebeeef;
-@tab-bar-height: 100px;
+@tab-bar-height: 50 * @hd;
+
+// toast
+@toast-fill: rgba(58, 58, 58, 0.9); // toast, activity-indicator 的背景颜色
 
 // search-bar
 @search-bar-fill: #efeff4;
-@search-bar-height: 88px;
-@search-bar-input-height: 56px;
-@searchbar-font-size: 30px;
+@search-bar-height: 44 * @hd;
+@search-bar-input-height: 28 * @hd;
+@search-bar-font-size: 15 * @hd;
 @search-color-icon: #bbb; // input search icon 的背景色
 
 // notice-bar
 @notice-bar-fill: #fefcec;
-@notice-bar-height: 72px;
+@notice-bar-height: 36 * @hd;
 @notice-bar-color: #f76a24;
 
 // switch
@@ -175,16 +169,16 @@
 @switch-fill-android: @brand-primary;
 
 // tag
-@tag-height: 50px;
-@tag-height-sm: 30px;
+@tag-height: 25 * @hd;
+@tag-height-sm: 15 * @hd;
 @tag-color: @brand-primary;
 
 // keyboard
 @keyboard-confirm-color: @brand-primary;
 @keyboard-confirm-tap-color: @brand-primary-tap;
 
-// table
-@table-title-height: 60px;
+// picker
+@option-height: 42 * @hd;           // picker 标题的高度
 
 // z-index
 @progress-zindex: 2000;

@@ -44,7 +44,7 @@ const App = () => (
     <Pagination mode="number" total={5} current={3} />
 
     <p className="sub-title">Point Style</p>
-    <Pagination mode="pointer" total={5} current={2} style={{ marginBottom: '0.32rem' }} />
+    <Pagination mode="pointer" total={5} current={2} style={{ marginBottom: '16px' }} />
   </div>
 );
 
@@ -54,15 +54,15 @@ ReactDOM.render(<App />, mountNode);
 
 ````css
 .pagination-container {
-  margin: 0 0.3rem;
+  margin: 0 15px;
 }
 
 .custom-pagination-with-icon .am-pagination-wrap-btn-prev .am-button-inline{
   padding-left: 0;
-  padding-right: 0.2rem;
+  padding-right: 10px;
 }
 .custom-pagination-with-icon .am-pagination-wrap-btn-next .am-button-inline{
-  padding-left: 0.2rem;
+  padding-left: 10px;
   padding-right: 0;
 }
 .arrow-align {
@@ -71,7 +71,7 @@ ReactDOM.render(<App />, mountNode);
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: 14px;
   padding: 30px 0 18px 0;
 }
 ````

@@ -5,6 +5,167 @@ title: 升级指南
 
 此处着重列出升级中的不兼容变化和推荐改动。所有变动请见 [Changelog](/changelog)。
 
+## 1.x => 2.0
+
+### 2.0 不兼容改动
+
+> 建议从 1.x 升级时，直接升级到 2.x 的最新版本。
+> 建议在升级 antd 的过程中，每做完一次合理的修改并 review 和测试之后，就 git commit 一次，这样在误操作时能随时回滚到之前的版本
+
+#### 高清方案
+
+> 如果没有使用 `antd-mobile@1.x` 或者类似的 viewport 缩放方案则可以跳过这一步。
+
+如何升级？
+
+1. 确保在页面的 html 标签上tinJIe `data-scale` 属性， 如 `<html data-scale="true"></html>`, 或者通过脚本动态添加 `document.documentElement.setAttribute('data-scale', true);`。
+
+2. 参照 [自定义主题文档](https://beta.mobile.ant.design/docs/react/customize-theme-cn)  将 antd-mobile 提供的主题变量 `@hd` 赋值为 `@hd: '2px'`。
+
+
+#### Icon
+
+如何升级，分如下两种情况？
+
+
+1. 对于 `<Icon type="loading" />` 此类使用 antd-mobile 内置 Icon 的场景，无需任何修改。
+
+2. 对于 `<Icon type={require('../foo.svg')} />` 此类使用本地 svg 文件的场景，建议用保留 svg-sprite-loader 相关配置不变，然后使用自定义的 `CustomIcon` 组件替换 antd-mobile `Icon`，示例如下：
+
+```diff
+- import { Icon } from 'antd-mobile';
+- <Icon type={require('./foo.svg)'} />
+
++ const CustomIcon = ({ type, className = '', size = 'md', ...restProps }) => (
++     <svg
++       className={`am-icon am-icon-${type.substr(1)} am-icon-${size} ${className}`}
++       {...restProps}
++     >
++       <use xlinkHref={type} /> {/* svg-sprite-loader@0.3.x */}
++       {/* <use xlinkHref={#${type.default.id}} /> */} {/* svg-sprite-loader@lastest */}
++     </svg>
++ );
++ <CustomIcon type={require('./foo.svg)'} />
+```
+
+#### DatePicker
+
+去除 moment.js 依赖，相应地 `value` / `minDate` / `maxDate` / `format` / `onChange` 这些属性的数据类型，从 `moment` 对象变为 `Date` 对象。另外 moment 对象上有 format 等自定义方法，但 Date 对象上没有相应方法、需要自行实现。
+
+升级示例：
+
+  ```diff
+  <DatePicker
+  -  minDate={moment([2015, 8, 15, 10, 30, 0])}
+  +  minDate={new Date(2015, 8, 15, 10, 30, 0)}
+  -  maxDate={moment([2018, 1, 1, 23, 49, 59])}
+  +  maxDate={new Date(2018, 1, 1, 23, 49, 59)}
+  >
+    <List.Item arrow="horizontal">日期</List.Item>
+  </DatePicker>
+  ```
+
+#### Tabs
+
+旧版：
+
+```jsx
+<Tabs defaultActiveKey="2" onChange={callback} onTabClick={handleTabClick}>
+  <TabPane tab={<Badge text={'3'}>First Tab</Badge>} key="1">
+    <div>Content of First Tab</div>
+  </TabPane>
+  <TabPane tab={<Badge text={'今日(20)'}>Second Tab</Badge>} key="2">
+    <div>Content of Second Tab</div>
+  </TabPane>
+  <TabPane tab={<Badge dot>Third Tab</Badge>} key="3">
+    <div>Content of Third Tab</div>
+  </TabPane>
+</Tabs>
+```
+
+新版变化：
+
+- 每个 tab 的元数据由 `tabs=[{ key: string, title: Node, ... }, ...]` 属性传入
+- `defaultActiveKey` => `initialPage`、`activeKey` => `page`，支持字符串形式的 key 或者数字索引
+- 去掉 `TabPane` 元素, Tabs 的 children 根据 key 或索引顺序与 `tabs` 数据对应
+- 支持单内容节点、函数内容节点
+- 添加 `renderTab` / `renderTabBar` API 来支持更灵活的自定义内容
+
+```jsx
+const tabs = [
+  { title: <Badge text={'3'}>First Tab</Badge>, sub: 'subcontent' },
+  { title: <Badge text={'今日(20)'}>Second Tab</Badge>, sub: 'subcontent' },
+  { title: <Badge dot>Third Tab</Badge>, sub: 'subcontent' },
+];
+
+<Tabs tabs={tabs} initialPage={1}
+  onChange={(tab, index) => { console.log(index, tab); }}
+  renderTab={tab => <span>{tab.title}-{tab.sub}</span>}
+  renderTabBar={(props) => <Tabs.DefaultTabBar {...props} />}
+>
+  <div>Content of First Tab</div>
+  <div>Content of Second Tab</div>
+  <div>Content of Third Tab</div>
+</Tabs>
+```
+
+#### Popup
+
+由于 Popup 组件的底层依赖和大量样式都与 Modal 组件相同，并且 `Popup.show()` 的 API 调用方法在数据更新时遇到困难，因此我们删除了 Popup 组件，并且在 Modal 组件上增加 `popup` 属性、来实现 Popup 组件的功能。
+
+使用 Modal 组件实现 Popup 的示例：
+
+```diff
+- Popup.show(<div>Content</div>, { animationType: 'slide-up', maskClosable: false });
+- Popup.hide();
+
++ <Modal
++   popup
++   visible={this.state.vsible}
++   animationType="slide-up"
++   maskClosable={false}
++ >
++   Content
++ </Modal>
+```
+
+#### ListView & RefreshControl
+
+**注意: 从 `beta.6` 版本开始，他们有很大的优化**，如果你之前有使用 ListView 的 `useZscroller` 属性、或者 `RefreshControl` 组件，你需要按新的用法来升级。
+
+现在 `useZscroller` `scrollerOptions` `refreshControl` 这些属性不再起作用。**使用 web 的原生 scroller 来代替 zscroller，使用 `PullToRefresh` 组件来代替 `RefreshControl` 组件**。
+
+升级示例:
+
+  ```diff
+  - import { ListView, RefreshControl } from 'antd-mobile';
+  + import { ListView, PullToRefresh } from 'antd-mobile';
+  <ListView
+     dataSource={this.state.dataSource}
+  -  refreshControl={<RefreshControl
+  +  pullToRefresh={<PullToRefresh
+       refreshing={this.state.refreshing}
+       onRefresh={this.onRefresh}
+  -    icon={this.renderCustomIcon()}
+  +    indicator={{ deactivate: '下拉' }}
+     />}
+  />
+  ```
+
+> **注意：我们不推荐使用模拟 scroller**。如果你有特殊需求执意要用，请查看 [list-view zscroller](https://github.com/react-component/m-list-view/blob/master/HISTORY.md#zscroller) 这里的详细用法。
+
+
+#### Others
+
+- 删除 `Table` 组件，可以自行使用 [rc-table](https://github.com/react-component/table) 包装。
+- 各个组件的 `ref` 从 `string` 修改为 `function` (比如 `input` 组件 `this.refs.input` => `this.input`)
+- 部分 Web 版本组件原来会根据 UA 对 iOS 或 Android 平台应用不同的样式，现在修改为默认应用 iOS 平台样式。
+- `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` 等组件的 细节样式 或 API 都有部分微调。
+- `ListView` 的 sticky 特性从“内置”改为“外置”。
+
+更细节的信息，请查看 change logs
+
+
 ## 0.9.x => 1.0
 
 从 1.0 开始，`antd-mobile` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。

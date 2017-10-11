@@ -45,4 +45,19 @@ Display shareable action sheet. The `options` object must contain one or more of
 
 The `callback` function support returns Promise (`web only`)
 
+#### static showShareActionSheetWithOptions(options: Object, failureCallback: Function, successCallback: Function)
+
+`React-Native only, react-native@version >= 0.39`
+
+Display shareable action sheet.
+
+- **options:**
+  - message(`string`): a message to share
+  - title(`string`): title of the message
+  - url(`string`): an URL to share `iOS only`
+  - excludedActivityTypes(`array`): the activities to exclude from the ActionSheet `iOS only`
+- **Callback**: (`iOS only`, see [react-native/share](https://github.com/facebook/react-native/blob/master/Libraries/Share/Share.js#L80))
+  - failureCallback(error): callback is called if share failed;
+  - successCallback(completed, method): callback is called if share successed;
+
 #### static close() - (web、android only) programmatically close.

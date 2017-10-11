@@ -1,15 +1,9 @@
 interface ProgressProps {
   percent?: number;
   position?: 'fixed' | 'normal';
-  unfilled?: 'show' | 'hide';
+  unfilled?: boolean;
   style?: any;
-  wrapStyle?: any;
-  /** rn only */
-  wrapWidth?: number;
-  styles?: any;
-  /** web only */
-  prefixCls?: string;
-  className?: string;
+  barStyle?: any;
   appearTransition?: boolean;
 }
 

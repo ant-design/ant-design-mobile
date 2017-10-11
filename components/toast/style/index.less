@@ -24,7 +24,7 @@
   }
 
   &&-nomask {
-    position: absolute;
+    position: fixed;
     max-width: 50%;
     width: auto;
     left: 50%;
@@ -37,7 +37,7 @@
 
   &-notice-content {
     .@{toastPrefixCls}-text {
-      min-width: 1.2rem;
+      min-width: 60 * @hd;
       border-radius: @radius-sm;
       color: @color-text-base-inverse;
       background-color: @toast-fill;

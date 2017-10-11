@@ -1,32 +1,48 @@
 import React from 'react';
-import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
+import Tooltip from 'rmc-tooltip';
+import Item from './Item';
 import tsPropsType from './PropsType';
 
-export default class Popover extends React.Component<tsPropsType, any> {
+export interface PopOverPropsType extends tsPropsType {
+  prefixCls?: string;
+}
+
+function recursiveCloneChildren(children, cb = (ch: any, _i: number) => ch) {
+  return React.Children.map(children, (child, index) => {
+    const newChild = cb(child, index);
+    if (newChild && newChild.props && newChild.props.children) {
+      return React.cloneElement(newChild, {}, recursiveCloneChildren(newChild.props.children, cb));
+    }
+    return newChild;
+  });
+}
+
+export default class Popover extends React.Component<PopOverPropsType, any> {
   static defaultProps = {
-    onSelect: () => {},
+    prefixCls: 'am-popover',
+    placement: 'bottomRight',
+    align: { overflow: { adjustY: 0, adjustX: 0 } },
+    trigger: ['click'],
   };
-  static Item = MenuOption;
+  static Item = Item;
+
   render() {
-    const {
-      children, onSelect, overlay, disabled, contextStyle,
-      name, style, triggerStyle, overlayStyle, renderOverlayComponent,
-    } = this.props;
-    const menuOptionsProp = {
-      optionsContainerStyle: overlayStyle,
-      renderOptionsContainer: renderOverlayComponent,
-    };
-    return (
-      <MenuContext ref="menuContext" style={contextStyle}>
-        <Menu name={name} onSelect={onSelect} style={style}>
-          <MenuTrigger disabled={disabled} style={triggerStyle}>
-            {children}
-          </MenuTrigger>
-          <MenuOptions {...menuOptionsProp}>
-            {overlay}
-          </MenuOptions>
-        </Menu>
-      </MenuContext>
+    const { overlay, onSelect = () => { }, ...restProps } = this.props;
+
+    const overlayNode = recursiveCloneChildren(overlay, (child, index) => {
+      const extraProps: any = { firstItem: false };
+      if (child && child.type && child.type.myName === 'PopoverItem' && !child.props.disabled) {
+        extraProps.onClick = () => onSelect(child, index);
+        extraProps.firstItem = (index === 0);
+        return React.cloneElement(child, extraProps);
+      }
+      return child;
+    });
+    const wrapperNode = (
+      <div className={`${this.props.prefixCls}-inner-wrapper`}>
+        {overlayNode}
+      </div>
     );
+    return <Tooltip {...restProps} overlay={wrapperNode} />;
   }
 }

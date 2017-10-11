@@ -9,16 +9,10 @@ interface StepProps {
   defaultValue?: number;
   onChange?: (value) => void;
   style?: {};
-  /* react-native only */
-  styles?: any;
   upStyle?: {};
   downStyle?: {};
   inputStyle?: {};
-  /* web only */
-  prefixCls?: string;
   name?: string;
-  showNumber?: boolean;
-  className?: string;
 }
 
 export default StepProps;

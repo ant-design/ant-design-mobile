@@ -15,7 +15,7 @@ import { Carousel, WhiteSpace, WingBlank } from 'antd-mobile';
 class App extends React.Component {
   state = {
     data: ['', '', ''],
-    initialHeight: 200,
+    initialHeight: 176,
   }
   componentDidMount() {
     // simulate img loading
@@ -42,8 +42,8 @@ class App extends React.Component {
           {this.state.data.map(ii => (
             <a href="http://www.baidu.com" key={ii} style={hProp}>
               <img
-                src={`https://zos.alipayobjects.com/rmsportal/${ii || 'QcWDkUhvYIVEcvtosxMF'}.png`}
-                alt="icon"
+                src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`}
+                alt=""
                 onLoad={() => {
                   // fire window resize event to change height
                   window.dispatchEvent(new Event('resize'));
@@ -84,8 +84,8 @@ class App extends React.Component {
           autoplayInterval={300}
           resetAutoplay={false}
         >
-          {['ring', 'ruby', 'iPhone', 'iPod', 'sorry', 'tourism', 'coke', 'ticket', 'note'].map(it => (
-            <div className="v-item">{it}</div>
+          {['ring', 'ruby', 'iPhone', 'iPod', 'sorry', 'tourism', 'coke', 'ticket', 'note'].map(type => (
+            <div className="v-item" key={type}>{type}</div>
           ))}
         </Carousel>
       </WingBlank>
@@ -97,7 +97,6 @@ ReactDOM.render(<App />, mountNode);
 ````
 ````css
 .my-carousel {
-  background: #fff;
 }
 .my-carousel a {
   display: inline-block;
@@ -109,13 +108,13 @@ ReactDOM.render(<App />, mountNode);
   vertical-align: top;
 }
 .my-carousel .v-item {
-  height: 0.72rem;
-  line-height: 0.72rem;
-  padding-left: 0.2rem;
+  height: 36px;
+  line-height: 36px;
+  padding-left: 10px;
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: 14px;
   padding: 30px 0 18px 0;
 }
 ````

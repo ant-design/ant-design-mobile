@@ -1,4 +1,4 @@
-function noop() {}
+function noop() { }
 
 export interface SearchBarProps {
   style?: any;
@@ -16,10 +16,8 @@ export interface SearchBarProps {
   styles?: any;
   autoFocus?: boolean;
   focused?: boolean;
-  /** web only */
-  prefixCls?: string;
-  className?: string;
   onClear?: Function;
+  maxLength?: number;
 }
 
 export interface SearchBarState {

@@ -1,49 +1,52 @@
 import React from 'react';
+import classnames from 'classnames';
+import List from '../list';
 import Checkbox from './Checkbox';
-import List from '../list/index';
-import { CheckboxItemProps } from './PropsType';
-import CheckboxItemStyle, { ICheckboxStyle } from './style/index';
+import { CheckboxItemProps as BasePropsType } from './PropsType';
+
+export interface CheckboxItemProps extends BasePropsType {
+  listPrefixCls?: any;
+  prefixCls?: string;
+  className?: string;
+  name?: string;
+  wrapLabel?: boolean;
+}
 
 const ListItem = List.Item;
-const refCheckbox = 'checkbox';
+function noop() { }
 
-export interface ICheckboxItemNativeProps extends CheckboxItemProps {
-  styles?: ICheckboxStyle;
-}
-export default class CheckboxItem extends React.Component<ICheckboxItemNativeProps, any> {
+export default class CheckboxItem extends React.Component<CheckboxItemProps, any> {
   static defaultProps = {
-    styles: CheckboxItemStyle,
+    prefixCls: 'am-checkbox',
+    listPrefixCls: 'am-list',
+    checkboxProps: {},
   };
-  handleClick = () => {
-    let checkBox: Checkbox = this.refs[refCheckbox] as Checkbox;
-    checkBox.handleClick();
-    if (this.props.onClick) {
-      this.props.onClick();
-    }
-  }
 
   render() {
-    let {
-      style, checkboxStyle, defaultChecked, checked, disabled, children, extra, onChange, styles,
-    } = this.props;
-    styles = styles!;
+    const { listPrefixCls, onChange, disabled, checkboxProps, onClick, ...restProps } = this.props;
+    const { prefixCls, className, children } = restProps;
+    const wrapCls = classnames(`${prefixCls}-item`, className, {
+      [`${prefixCls}-item-disabled`]: disabled === true,
+    });
 
-    const thumbEl = (
-      <Checkbox
-        ref={refCheckbox}
-        style={[styles.checkboxItemCheckbox, checkboxStyle]}
-        defaultChecked={defaultChecked}
-        checked={checked}
-        onChange={onChange}
-        disabled={disabled}
-      />
-    );
+    // Note: if not omit `onChange`, it will trigger twice on check listitem
+    if (!disabled) {
+      (restProps as any).onClick = onClick || noop;
+    }
+
+    const extraProps: any = {};
+    ['name', 'defaultChecked', 'checked', 'onChange', 'disabled'].forEach(i => {
+      if (i in this.props) {
+        extraProps[i] = this.props[i];
+      }
+    });
+
     return (
       <ListItem
-        style={style}
-        onClick={disabled ? undefined : this.handleClick}
-        extra={extra}
-        thumb={thumbEl}
+        {...restProps}
+        prefixCls={listPrefixCls}
+        className={wrapCls}
+        thumb={<Checkbox {...checkboxProps} {...extraProps} />}
       >
         {children}
       </ListItem>

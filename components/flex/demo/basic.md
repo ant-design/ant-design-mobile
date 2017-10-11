@@ -23,8 +23,8 @@ const PlaceHolder = props => (
       backgroundColor: '#ebebef',
       color: '#bbb',
       textAlign: 'center',
-      height: '0.6rem',
-      lineHeight: '0.6rem',
+      height: '30px',
+      lineHeight: '30px',
       width: '100%',
     }}
     {...props}
@@ -33,7 +33,7 @@ const PlaceHolder = props => (
 
 const FlexExample = () => (
   <div className="flex-container">
-    <div className="sub-title">基本</div>
+    <div className="sub-title">Basic</div>
     <Flex>
       <Flex.Item><PlaceHolder /></Flex.Item>
       <Flex.Item><PlaceHolder /></Flex.Item>
@@ -53,7 +53,7 @@ const FlexExample = () => (
     </Flex>
     <WhiteSpace size="lg" />
 
-    <div className="sub-title">wrap 换行</div>
+    <div className="sub-title">wrap</div>
     <Flex wrap="wrap">
       <PlaceHolder className="inline" />
       <PlaceHolder className="inline" />
@@ -65,7 +65,7 @@ const FlexExample = () => (
     </Flex>
     <WhiteSpace size="lg" />
 
-    <div className="sub-title">轴对齐方式</div>
+    <div className="sub-title">Align</div>
     <Flex justify="center">
       <PlaceHolder className="inline" />
       <PlaceHolder className="inline" />
@@ -110,19 +110,19 @@ ReactDOM.render(<FlexExample />, mountNode);
 
 ````css
 .flex-container {
-  margin: 0 0.30rem;
+  margin: 0 15px;
 }
 .flex-container .inline {
-  width: 1.6rem!important;
-  margin: 0.18rem 0.18rem 0.18rem 0;
+  width: 80px!important;
+  margin: 9px 9px 9px 0;
 }
 .flex-container .small {
-  height: 0.4rem!important;
-  line-height: 0.4rem!important;
+  height: 20px!important;
+  line-height: 20px!important;
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: 14px;
   padding: 30px 0 18px 0;
 }
 ```

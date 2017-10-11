@@ -15,6 +15,24 @@ TypeScript
 $ npm run lint
 ```
 
+### 目录结构
+```
+├── AUTHORS.txt             作者
+├── CHANGELOG.xxx.md        变更记录文档
+├── LICENSE                 许可证
+├── README.md               自述文档
+├── ant-design-analysis     包分析
+├── components              组件代码
+├── development.xxx.md      开发说明文档
+├── docs                    其他文档
+├── rn-kitchen-sink         RN示例工程代码
+├── scripts                 辅助脚本
+├── site                    官网代码
+├── tests                   通用测试代码
+├── tsconfig.json           TypeScript配置
+├── typings                 第三方缺失定义
+```
+
 ### API 规范
 
 设计原则
@@ -152,7 +170,7 @@ $ npm run rn-start
 $ npm run ios / android
 ```
 
-demo app 代码地址：https://github.com/ant-design/ant-design-mobile/rn-kitchen-sink
+demo app 代码地址：https://github.com/ant-design/ant-design-mobile/tree/master/rn-kitchen-sink
 
 If you need to add a new component, then modify `rn-kitchen-sink/demoList.js` and `./index.js`.
 
@@ -223,8 +241,3 @@ $ npm run test:web -- components/button/__tests__/index.test.web.js -t 'pressIn'
 1. 运行测试 `node --debug-brk ./node_modules/.bin/jest -i -c .jest.json -i components/button/__tests/index.test.js` (web 组件用 .jest.web.json);
 1. 运行 `node-inspector`；
 1. 打开 `http://127.0.0.1:8080/?port=5858`，第一次会断点到 jest 的代码里，点继续运行，等一会后会到我们断点的地方。
-
-
-### How antd mobile deal with web and react native code ?
-
-see [Wiki](https://github.com/ant-design/ant-design-mobile/wiki/How-antd-mobile-deal-with-web-and-react-native-code-%3F)

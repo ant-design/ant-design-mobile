@@ -2,15 +2,8 @@ import React from 'react';
 
 interface TextAreaItemProps {
   style?: any;
-  /** web only */
-  prefixCls?: string;
-  /** web only */
-  prefixListCls?: string;
-  /** web only */
-  className?: string;
   title?: React.ReactNode;
   maxLength?: number;
-  /** web only */
   name?: string;
   value?: string;
   defaultValue?: string;
@@ -29,10 +22,7 @@ interface TextAreaItemProps {
   labelNumber?: number;
   autoFocus?: boolean;
   focused?: boolean;
-  /** rn only */
-  keyboardType?: string;
   last?: boolean;
-  styles?: any;
 }
 
 export default TextAreaItemProps;

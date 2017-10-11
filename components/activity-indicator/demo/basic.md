@@ -35,14 +35,12 @@ class App extends React.Component {
             <div className="loading-example">
               <ActivityIndicator animating />
             </div>
-            <WhiteSpace size="xl" />
             <p className="sub-title">icon with text</p>
             <div className="loading-example">
               <ActivityIndicator
                 text="Loading..."
               />
             </div>
-            <WhiteSpace size="xl" />
             <p className="sub-title">icon with large size and customized text style</p>
             <div className="loading-example">
               <div className="align">
@@ -82,7 +80,7 @@ ReactDOM.render(<App />, mountNode);
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: 14px;
   padding: 30px 0 18px 0;
 }
 ````

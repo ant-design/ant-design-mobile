@@ -3,8 +3,8 @@ import alert from './alert';
 import prompt from './prompt';
 import operation from './operation';
 
-(Modal as any).alert = alert;
-(Modal as any).operation = operation;
-(Modal as any).prompt = prompt;
+Modal.alert = alert;
+Modal.prompt = prompt;
+Modal.operation = operation;
 
 export default Modal;

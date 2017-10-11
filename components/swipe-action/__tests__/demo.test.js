@@ -1,3 +1,3 @@
-import { rnDemoTest } from '../../../tests/shared/demoTest';
+import { webDemoTest } from '../../../tests/shared/demoTest';
 
-rnDemoTest('swipe-action');
+webDemoTest('swipe-action');

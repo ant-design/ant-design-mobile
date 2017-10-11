@@ -1,3 +1,6 @@
-import { rnDemoTest } from '../../../tests/shared/demoTest';
+import ReactDOM from 'react-dom';
+import { webDemoTest } from '../../../tests/shared/demoTest';
 
-rnDemoTest('input-item');
+ReactDOM.createPortal = jest.fn().mockReturnValue(null);
+
+webDemoTest('input-item');

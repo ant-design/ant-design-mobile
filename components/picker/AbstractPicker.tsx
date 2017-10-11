@@ -1,9 +1,17 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import PopupCascader from 'rmc-cascader/lib/Popup';
-import Cascader from 'rmc-cascader/lib/Cascader';
-import MultiPicker from 'rmc-picker/lib/MultiPicker';
+import RMCPopupCascader from 'rmc-cascader/lib/Popup';
+import RMCCascader from 'rmc-cascader/lib/Cascader';
+import RMCMultiPicker from 'rmc-picker/lib/MultiPicker';
+import RMCPicker from 'rmc-picker/lib/Picker';
 import treeFilter from 'array-tree-filter';
 import tsPropsType from './PropsType';
+import { getComponentLocale } from '../_util/getLocale';
+
+export interface PickerPropsType extends tsPropsType {
+  pickerPrefixCls?: string;
+  popupPrefixCls?: string;
+}
 
 export function getDefaultProps() {
   const defaultFormat = (values) => {
@@ -24,8 +32,9 @@ export function getDefaultProps() {
   };
 }
 
-export default abstract class AbstractPicker extends React.Component<tsPropsType, any> {
+export default abstract class AbstractPicker extends React.Component<PickerPropsType, any> {
   protected abstract popupProps: {};
+  private scrollValue: any;
 
   getSel = () => {
     const value = this.props.value || [];
@@ -40,35 +49,89 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
       });
     }
     return this.props.format && this.props.format(treeChildren.map((v) => {
-        return v.label;
-      }));
+      return v.label;
+    }));
+  }
+
+  getPickerCol = () => {
+    const { data, pickerPrefixCls, itemStyle, indicatorStyle } = this.props;
+    return data.map((col, index) => {
+      return (
+        <RMCPicker
+          key={index}
+          prefixCls={pickerPrefixCls}
+          style={{ flex: 1 }}
+          itemStyle={itemStyle}
+          indicatorStyle={indicatorStyle}
+        >
+          {col.map(item => {
+            return (
+              <RMCPicker.Item key={item.value} value={item.value}>
+                {item.label}
+              </RMCPicker.Item>
+            );
+          })}
+        </RMCPicker>
+      );
+    });
+  }
+
+  onOk = (v: any) => {
+    if (this.scrollValue !== undefined) {
+      v = this.scrollValue;
+    }
+    if (this.props.onChange) {
+      this.props.onChange(v);
+    }
+    if (this.props.onOk) {
+      this.props.onOk(v);
+    }
+  }
+
+  setScrollValue = (v: any) => {
+    this.scrollValue = v;
+  }
+
+  fixOnOk = (cascader: any) => {
+    if (cascader) {
+      cascader.onOk = this.onOk;
+    }
   }
 
   render() {
-    const { props } = this;
-    const { children, value = [], extra, okText, itemStyle, dismissText, popupPrefixCls, cascade } = props;
+    const {
+      children, value = [], popupPrefixCls, itemStyle, indicatorStyle,
+      cascade, prefixCls, pickerPrefixCls, data, cols, onPickerChange, onOk, ...restProps,
+    } = this.props;
+
+    const _locale = getComponentLocale(this.props, this.context, 'Picker', () => require('./locale/zh_CN'));
+
+    const { okText, dismissText, extra } = _locale;
+
     let cascader;
     let popupMoreProps = {};
     if (cascade) {
       cascader = (
-        <Cascader
-          prefixCls={props.prefixCls}
-          pickerPrefixCls={props.pickerPrefixCls}
-          data={props.data}
-          cols={props.cols}
-          onChange={props.onPickerChange}
+        <RMCCascader
+          prefixCls={prefixCls}
+          pickerPrefixCls={pickerPrefixCls}
+          data={data}
+          cols={cols}
+          onChange={onPickerChange}
+          onScrollChange={this.setScrollValue}
           pickerItemStyle={itemStyle}
+          indicatorStyle={indicatorStyle}
         />
       );
     } else {
       cascader = (
-        <MultiPicker
-          prefixCls={props.prefixCls}
-          pickerPrefixCls={props.pickerPrefixCls}
-          pickerItemStyle={itemStyle}
+        <RMCMultiPicker
+          style={{ flexDirection: 'row', alignItems: 'center' }}
+          prefixCls={prefixCls}
+          onScrollChange={this.setScrollValue}
         >
-          {props.data.map(d => { return { props: { children: d } }; })}
-        </MultiPicker>
+          {this.getPickerCol()}
+        </RMCMultiPicker>
       );
       popupMoreProps = {
         pickerValueProp: 'selectedValue',
@@ -76,18 +139,19 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
       };
     }
     return (
-      <PopupCascader
+      <RMCPopupCascader
         cascader={cascader}
         {...this.popupProps}
-        {...props}
+        {...restProps}
         prefixCls={popupPrefixCls}
         value={value}
         dismissText={dismissText}
         okText={okText}
         {...popupMoreProps}
+        ref={this.fixOnOk}
       >
-        {React.cloneElement(children, { extra: this.getSel() || extra })}
-      </PopupCascader>
+        {children && React.cloneElement(children, { extra: this.getSel() || extra })}
+      </RMCPopupCascader>
     );
   }
 }

@@ -1,16 +1,8 @@
 import AbstractPicker, { getDefaultProps } from './AbstractPicker';
-import pickerStyles, { IPickerStyle } from './style';
-import tsPropsType from './PropsType';
-
-export interface IPickerNativeProps extends tsPropsType {
-  styles?: IPickerStyle;
-}
+import popupProps from './popupProps';
 
 export default class Picker extends AbstractPicker {
-  static defaultProps = {
-    ...getDefaultProps(),
-    styles: pickerStyles,
-  };
+  static defaultProps = getDefaultProps();
 
-  protected popupProps = {};
+  protected popupProps = popupProps;
 }

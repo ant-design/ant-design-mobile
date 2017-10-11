@@ -23,6 +23,7 @@ Properties | Descrition | Type | Default
 | onChange | selected callback function, can use [rc-form](https://github.com/react-component/form) | (val): void | - |
 | onPickerChange | trigger on each column of selected data is changed  | (val): void | - |
 | itemStyle | style to apply to each of the item labels | Object | -|
+| indicatorStyle  | style of indicator | Object | - |
 | children| usually `List.Item` | Object |  `List.Item`  |
 | okText  | ok text | String |  `确定`  |
 | dismissText  | dismiss text | String |  `取消`  |
@@ -31,3 +32,4 @@ Properties | Descrition | Type | Default
 | title  | title | String | - |
 | extra  | Picker's children is best to `List.Item`, if not, need to be a custom component (the `onClick`/`extra` props need to be handled in the component) | String |  `请选择`  |
 | disabled  | set disabled | Boolean | false |
+| cascade  | whether is cascade mode | Boolean | true |

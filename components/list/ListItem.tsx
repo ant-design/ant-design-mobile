@@ -1,169 +1,153 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { Image, View, TouchableHighlight, Text } from 'react-native';
-import { ListItemProps, BriefProps } from './PropsType';
-import listItemStyles from './style/index';
-import listStyles from './style/index';
+import classnames from 'classnames';
+import { ListItemProps as ListItemBasePropsType, BriefProps as BriefBasePropsType } from './PropsType';
+import TouchFeedback from 'rmc-feedback';
+
+export interface ListItemProps extends ListItemBasePropsType {
+  prefixCls?: string;
+  className?: string;
+  role?: string;
+}
+
+export interface BriefProps extends BriefBasePropsType {
+  prefixCls?: string;
+  className?: string;
+  role?: string;
+}
 
 export class Brief extends React.Component<BriefProps, any> {
   render() {
-    const { children, style, styles = listStyles, wrap } = this.props;
-
-    let numberOfLines = {};
-
-    if (wrap === false) {
-      numberOfLines = {
-        numberOfLines: 1,
-      };
-    }
     return (
-      <View style={[styles.Brief]}>
-        <Text style={[styles.BriefText, style]} {...numberOfLines}>{children}</Text>
-      </View>
+      <div className="am-list-brief" style={this.props.style}>{this.props.children}</div>
     );
   }
 }
 
-export default class Item extends React.Component<ListItemProps, any> {
+class ListItem extends React.Component<ListItemProps, any> {
   static defaultProps: Partial<ListItemProps> = {
+    prefixCls: 'am-list',
+    align: 'middle',
+    error: false,
     multipleLine: false,
     wrap: false,
-    styles: listItemStyles,
+    platform: 'ios',
   };
+
   static Brief = Brief;
-  render() {
-    const {
-      styles, children, multipleLine, thumb, extra, arrow, style, onClick,
-      onPressIn, onPressOut, onLongPress, wrap, disabled, align, ...restProps,
-    } = this.props;
-    const itemStyles = styles!; // assert none-null none-undefined
+  debounceTimeout: any;
 
-    let numberOfLines = {};
-    if (wrap === false) {
-      numberOfLines = {
-        numberOfLines: 1,
-      };
-    }
-
-    let underlayColor = {};
-
-    if (!disabled && onClick) {
-      underlayColor = {
-        underlayColor: itemStyles.underlayColor,
-        activeOpacity: 0.5,
-      };
-    } else {
-      underlayColor = {
-        activeOpacity: 1,
-      };
-    }
-
-    let alignStyle = {};
-
-    if (align === 'top') {
-      alignStyle = {
-        alignItems: 'flex-start',
-      };
-    } else if (align === 'bottom') {
-      alignStyle = {
-        alignItems: 'flex-end',
-      };
-    }
-
-    let contentDom;
-    if (Array.isArray(children)) {
-      const tempContentDom: any[] = [];
-      children.forEach((el, index) => {
-        if (React.isValidElement(el)) {
-          tempContentDom.push(el);
-        } else {
-          tempContentDom.push(
-            <Text style={[itemStyles.Content]} {...numberOfLines} key={`${index}-children`}>{el}</Text>,
-          );
-        }
-      });
-      contentDom = <View style={[itemStyles.column]}>{tempContentDom}</View>;
-    } else {
-      if (React.isValidElement(children as Object)) {
-        contentDom = <View style={[itemStyles.column]}>{children}</View>;
-      } else {
-        contentDom = (
-          <View style={[itemStyles.column]}>
-            <Text style={[itemStyles.Content]} {...numberOfLines}>{children}</Text>
-          </View>
-        );
-      }
-    }
-
-    let extraDom;
-    if (extra) {
-      extraDom = (
-        <View style={[itemStyles.column]}>
-          <Text style={[itemStyles.Extra]} {...numberOfLines}>{extra}</Text>
-        </View>
-      );
-      if (React.isValidElement(extra)) {
-        const extraChildren = (extra.props as any).children;
-        if (Array.isArray(extraChildren)) {
-          const tempExtraDom: any[] = [];
-          extraChildren.forEach((el, index) => {
-            if (typeof el === 'string') {
-              tempExtraDom.push(
-                <Text
-                  {...numberOfLines}
-                  style={[itemStyles.Extra]}
-                  key={`${index}-children`}
-                >
-                  {el}
-                </Text>,
-              );
-            } else {
-              tempExtraDom.push(el);
-            }
-          });
-          extraDom = (
-            <View style={[itemStyles.column]}>
-              {tempExtraDom}
-            </View>
-          );
-        } else {
-          extraDom = extra;
-        }
-      }
-    }
-
-    const arrEnum = {
-      horizontal: <Image source={require('../style/images/arrow.png')} style={itemStyles.Arrow} />,
-      down: <Image source={require('../style/images/arrow-down.png')} style={itemStyles.ArrowV} />,
-      up: <Image source={require('../style/images/arrow-up.png')} style={itemStyles.ArrowV} />,
+  constructor(props) {
+    super(props);
+    this.state = {
+      coverRippleStyle: { display: 'none' },
+      RippleClicked: false,
     };
+  }
 
-    const itemView = (
-      <View {...restProps} style={[itemStyles.Item, style]}>
-        {typeof thumb === 'string' ? (
-          <Image
-            source={{ uri: thumb }}
-            style={[itemStyles.Thumb, multipleLine && itemStyles.multipleThumb]}
-          />
-        ) : thumb}
-        <View style={[itemStyles.Line, multipleLine && itemStyles.multipleLine, multipleLine && alignStyle]}>
-          {contentDom}
-          {extraDom}
-          {arrow ? (arrEnum[arrow] || <View style={itemStyles.Arrow} />) : null}
-        </View>
-      </View>
-    );
+  componentWillUnmount() {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = null;
+    }
+  }
+
+  onClick = (ev) => {
+    const { onClick, platform } = this.props;
+    const isAndroid = platform === 'android';
+    if (!!onClick && isAndroid) {
+      if (this.debounceTimeout) {
+        clearTimeout(this.debounceTimeout);
+        this.debounceTimeout = null;
+      }
+      let Item = ev.currentTarget;
+      let RippleWidth = Math.max(Item.offsetHeight, Item.offsetWidth);
+      const ClientRect = ev.currentTarget.getBoundingClientRect();
+      let pointX = ev.clientX - ClientRect.left - Item.offsetWidth / 2;
+      let pointY = ev.clientY - ClientRect.top - Item.offsetWidth / 2;
+      const coverRippleStyle = {
+        width: `${RippleWidth}px`,
+        height: `${RippleWidth}px`,
+        left: `${pointX}px`,
+        top: `${pointY}px`,
+      };
+      this.setState({
+        coverRippleStyle,
+        RippleClicked: true,
+      }, () => {
+        this.debounceTimeout = setTimeout(() => {
+          this.setState({
+            coverRippleStyle: { display: 'none' },
+            RippleClicked: false,
+          });
+        }, 1000);
+      });
+    }
+
+    if (onClick) {
+      onClick(ev);
+    }
+  }
+
+  render() {
+
+    const {
+      prefixCls, className, activeStyle, error, align, wrap, disabled,
+      children, multipleLine, thumb, extra, arrow, onClick, ...restProps,
+    } = this.props;
+    const { platform, ...otherProps } = restProps;
+    const { coverRippleStyle, RippleClicked } = this.state;
+
+    const wrapCls = classnames(`${prefixCls}-item`, className, {
+      [`${prefixCls}-item-disabled`]: disabled,
+      [`${prefixCls}-item-error`]: error,
+      [`${prefixCls}-item-top`]: align === 'top',
+      [`${prefixCls}-item-middle`]: align === 'middle',
+      [`${prefixCls}-item-bottom`]: align === 'bottom',
+    });
+
+    const rippleCls = classnames(`${prefixCls}-ripple`, {
+      [`${prefixCls}-ripple-animate`]: RippleClicked,
+    });
+
+    const lineCls = classnames(`${prefixCls}-line`, {
+      [`${prefixCls}-line-multiple`]: multipleLine,
+      [`${prefixCls}-line-wrap`]: wrap,
+    });
+
+    const arrowCls = classnames(`${prefixCls}-arrow`, {
+      [`${prefixCls}-arrow-horizontal`]: arrow === 'horizontal',
+      [`${prefixCls}-arrow-vertical`]: arrow === 'down' || arrow === 'up',
+      [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
+    });
+    const content = <div
+      {...otherProps}
+      onClick={(ev) => {
+        this.onClick(ev);
+      }}
+      className={(wrapCls)}
+    >
+      {thumb ? <div className={`${prefixCls}-thumb`}>
+        {typeof thumb === 'string' ? <img src={thumb} /> : thumb}
+      </div> : null}
+      <div className={lineCls}>
+        {children !== undefined && <div className={`${prefixCls}-content`}>{children}</div>}
+        {extra !== undefined && <div className={`${prefixCls}-extra`}>{extra}</div>}
+        {arrow && <div className={arrowCls} aria-hidden="true" />}
+      </div>
+      <div style={coverRippleStyle} className={rippleCls} />
+    </div>;
 
     return (
-      <TouchableHighlight
-        {...underlayColor}
-        onPress={onClick ? onClick : undefined}
-        onPressIn={onPressIn}
-        onPressOut={onPressOut}
-        onLongPress={onLongPress}
+      <TouchFeedback
+        disabled={disabled || !onClick}
+        activeStyle={activeStyle}
+        activeClassName={`${prefixCls}-item-active`}
       >
-        {itemView}
-      </TouchableHighlight>
+        {content}
+      </TouchFeedback>
     );
   }
 }
+
+export default ListItem;

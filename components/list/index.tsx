@@ -1,42 +1,36 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Text, ViewStyle } from 'react-native';
 import Item from './ListItem';
-import { ListProps } from './PropsType';
-import listStyles from './style/index';
+import classnames from 'classnames';
+import { ListProps as BasePropsType } from './PropsType';
+
+export interface ListProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+  role?: string;
+}
 
 export default class List extends React.Component<ListProps, any> {
   static Item = Item;
 
+  static defaultProps: Partial<ListProps> = {
+    prefixCls: 'am-list',
+  };
+
   render() {
-    let {
-      children, style, renderHeader, renderFooter, styles = listStyles, ...restProps,
-    } = this.props;
+    let { prefixCls, children, className, style, renderHeader, renderFooter, ...restProps } = this.props;
+    const wrapCls = classnames(prefixCls, className);
 
-    let headerDom: React.ReactElement<any> | null = null;
-    let footerDom: React.ReactElement<any> | null = null;
-
-    if (renderHeader) {
-      let content = typeof renderHeader === 'function' ? renderHeader() : renderHeader;
-      if (typeof content === 'string') {
-        content = <Text style={styles.Header}>{content}</Text>;
-      }
-      headerDom = <View>{content}</View>;
-    }
-    if (renderFooter) {
-      let content = typeof renderFooter === 'function' ? renderFooter() : renderFooter;
-      if (typeof content === 'string') {
-        content = <Text style={styles.Footer}>{content}</Text>;
-      }
-      footerDom = <View>{content}</View>;
-    }
-
-    return (<View {...restProps as any} style={style}>
-      {headerDom}
-      <View style={styles.Body}>
-        {children}
-        <View style={[styles.BodyBottomLine as ViewStyle]}/>
-      </View>
-      {footerDom}
-    </View>);
+    return (
+      <div className={wrapCls} style={style} {...restProps}>
+        {renderHeader ? (<div className={`${prefixCls}-header`}>
+          {typeof renderHeader === 'function' ? renderHeader() : renderHeader}
+        </div>) : null}
+        {children ? (<div className={`${prefixCls}-body`}>{children}</div>) : null}
+        {renderFooter ? (<div className={`${prefixCls}-footer`}>
+          {typeof renderFooter === 'function' ? renderFooter() : renderFooter}
+        </div>) : null}
+      </div>
+    );
   }
 }

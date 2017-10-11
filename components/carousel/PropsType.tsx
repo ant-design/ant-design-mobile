@@ -6,20 +6,13 @@ interface Props {
   autoplay?: boolean;
   autoplayInterval?: number;
   infinite?: boolean;
-  easing?: string;
+  easing?: Function;
   beforeChange?: (from: number, to: number) => void;
   afterChange?: (current: number) => void;
   style?: any;
   dotStyle?: any;
   dotActiveStyle?: any;
-  /** below web only */
-  className?: string;
-  prefixCls?: string;
-  /** below rn only */
-  bounces?: boolean;
-  onScrollBeginDrag?: Function;
-  onMomentumScrollEnd?: Function;
-  styles?: any;
+  swipeSpeed?: number;
   pagination?: Function;
   initialSlideWidth?: number;
 }

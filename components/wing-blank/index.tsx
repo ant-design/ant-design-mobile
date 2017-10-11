@@ -1,24 +1,26 @@
 import React from 'react';
-import { View } from 'react-native';
-import varibles from '../style/themes/default';
+import classnames from 'classnames';
+import BasePropsType from './PropsType';
 
-import WingBlankProps from './PropsType';
+export interface WingBlankProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
 
-class WingBlank extends React.Component<WingBlankProps, any> {
-
+export default class WingBlank extends React.Component<WingBlankProps, any> {
   static defaultProps = {
+    prefixCls: 'am-wingblank',
     size: 'lg',
   };
 
   render() {
-    const { size, style, children } = this.props;
-    const margin = varibles[`h_spacing_${size}`];
+    const { prefixCls, size, className, children, style } = this.props;
+    let wrapCls = classnames(prefixCls, `${prefixCls}-${size}`, className);
+
     return (
-      <View style={[{ marginLeft: margin, marginRight: margin }, style]}>
+      <div className={wrapCls} style={style}>
         {children}
-      </View>
+      </div>
     );
   }
 }
-
-export default WingBlank;

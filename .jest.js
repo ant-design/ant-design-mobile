@@ -1,9 +1,11 @@
 const libDir = process.env.LIB_DIR;
 
-const transformIgnorePatterns = [];
+const transformIgnorePatterns = [
+  '/dist/',
+  'node_modules\/[^/]+?\/(?!(es|node_modules)\/)', // Ignore modules without es dir
+];
 
 module.exports = {
-  preset: 'react-native',
   setupFiles: [
     './tests/setup.js'
   ],
@@ -13,23 +15,24 @@ module.exports = {
     'js',
     'jsx',
     'json',
+    'md',
   ],
   testPathIgnorePatterns: [
     '/node_modules/',
     '_site',
-    'site',
+    'site'
   ],
   transform: {
-    '\\.tsx?$': './node_modules/antd-demo-jest/ts',
-    '\\.js$': './node_modules/babel-jest',
-    '\\.png': '<rootDir>/tests/imageStub.js',
+    '\\.tsx?$': './node_modules/antd-tools/lib/jest/codePreprocessor',
+    '\\.js$': './node_modules/antd-tools/lib/jest/codePreprocessor',
+    '\\.md$': './node_modules/antd-tools/lib/jest/demoPreprocessor',
   },
   testRegex: libDir === 'dist' ? 'demo\\.test\\.js$' : '.*\\.test\\.js$',
   collectCoverageFrom: [
     'components/**/*.{ts,tsx}',
-    '!components/**/demo/*.{ts,tsx}',
-    '!components/**/*.web.{ts,tsx}',
-    '!components/*/style/index.tsx',
+    '!components/**/*.native.{ts,tsx}',
+    '!components/*/style/*.{ts,tsx}',
   ],
   transformIgnorePatterns,
+  testEnvironment: 'jsdom',
 };

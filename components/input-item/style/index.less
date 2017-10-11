@@ -10,7 +10,7 @@
     height: @list-item-height;
     padding-left: @h-spacing-lg;
     padding-right: @h-spacing-lg;
-    .hairline-bottom(@border-color-base, @h-spacing-lg);
+    .hairline('bottom');
   }
 
   .@{inputPrefixCls}-label {
@@ -21,7 +21,7 @@
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
-    padding: 4px 0;
+    padding: 2 * @hd 0;
 
     &.@{inputPrefixCls}-label-2 {
       width: 2 * @input-label-width;
@@ -57,13 +57,13 @@
       font-size: @font-size-heading;
       appearance: none;
       width: 100%;
-      padding: 4px 0;
+      padding: 2 * @hd 0;
       border: 0;
       background-color: transparent;
       line-height: @line-height-base;
       box-sizing: border-box;
 
-      &::-webkit-input-placeholder {
+      &::placeholder {
         color: @color-text-placeholder;
         line-height: 1.2;
       }
@@ -88,9 +88,9 @@
     .encoded-svg-background('input_item_delete');
 
     background-size: @icon-size-sm auto;
-    background-position: 4px 4px;
+    background-position: 2 * @hd 2 * @hd;
 
-    &:active {
+    &-active {
       background-color: @input-color-icon-tap;
     }
   }
@@ -133,16 +133,6 @@
   &.@{inputPrefixCls}-disabled {
     .@{inputPrefixCls}-label {
       color: @color-text-disabled;
-    }
-  }
-}
-
-.@{listPrefixCls} {
-  &-body {
-    .@{listPrefixCls}-item {
-      &:last-child {
-        .hairline-remove-right-bottom();
-      }
     }
   }
 }

@@ -5,14 +5,11 @@ title:
   en-US: Basic
 ---
 
-Basic slider. When `disabled` is `true`, the slider will not be interactable, you can use `createTooltip` to encapsulate
-to simulate tooltip.
+Basic slider. When `disabled` is `true`, the slider will not be interactable
 
 ````jsx
-/* eslint arrow-body-style: 0*/
-import { Slider, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
-
-const SliderWithTooltip = createTooltip(Slider);
+/* eslint arrow-body-style: 0 */
+import { Slider, WingBlank, WhiteSpace } from 'antd-mobile';
 
 class App extends React.Component {
   log = (name) => {
@@ -25,39 +22,51 @@ class App extends React.Component {
       <div className="am-slider-example">
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="title">Slider</p>
-          <Slider defaultValue={26} min={0} max={30} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <p className="title">Slider with ToolTip</p>
-          <SliderWithTooltip defaultValue={26} min={0} max={30} onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
-        </WingBlank>
-        <WhiteSpace size="lg" />
-        <WingBlank size="lg">
-          <p className="title">Disabled Slider</p>
-          <Slider defaultValue={26} min={0} max={30} disabled onChange={this.log('change')} onAfterChange={this.log('afterChange')} />
-        </WingBlank>
-        <WingBlank size="lg">
-          <p className="title">Slider With Customized Color</p>
+          <p className="sub-title">Slider</p>
           <Slider
+            style={{ marginLeft: 30, marginRight: 30 }}
+            defaultValue={26}
+            min={0}
+            max={30}
+            onChange={this.log('change')}
+            onAfterChange={this.log('afterChange')}
+          />
+        </WingBlank>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
+          <p className="sub-title">Disabled Slider</p>
+          <Slider
+            style={{ marginLeft: 30, marginRight: 30 }}
+            defaultValue={26}
+            min={0}
+            max={30}
+            disabled
+            onChange={this.log('change')}
+            onAfterChange={this.log('afterChange')}
+          />
+        </WingBlank>
+        <WhiteSpace size="lg" />
+        <WingBlank size="lg">
+          <p className="sub-title">Slider With Customized Color</p>
+          <Slider
+            style={{ marginLeft: 30, marginRight: 30 }}
             defaultValue={26}
             min={0}
             max={30}
             trackStyle={{
               backgroundColor: 'red',
-              height: '0.1rem',
+              height: '5px',
             }}
             railStyle={{
               backgroundColor: 'blue',
-              height: '0.1rem',
+              height: '5px',
             }}
             handleStyle={{
               borderColor: 'blue',
-              height: '0.28rem',
-              width: '0.28rem',
-              marginLeft: '-0.14rem',
-              marginTop: '-0.09rem',
+              height: '14px',
+              width: '14px',
+              marginLeft: '-7px',
+              marginTop: '-4.5px',
               backgroundColor: 'blue',
             }}
           />
@@ -72,15 +81,21 @@ ReactDOM.render(<App />, mountNode);
 
 ````css
 .demo-preview-item .am-slider-wrapper {
-  margin-bottom: 0.3rem;
+  margin-bottom: 15px;
 }
 .demo-preview-item .am-slider-example {
   overflow: hidden;
 }
 .am-wingblank.am-wingblank-lg {
-  margin-bottom: 0.6rem;
+  margin-bottom: 30px;
 }
 .demo-preview-item .am-slider-wrapper:last-child {
-  margin-bottom: 0.2rem;
+  margin-bottom: 10px;
+}
+.sub-title {
+  color: #888;
+  font-size: 14px;
+  padding: 30px 0 18px 0;
+  margin: 0;
 }
 ````

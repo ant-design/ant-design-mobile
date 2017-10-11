@@ -1,46 +1,34 @@
 import React from 'react';
-import { TextInput, TextInputProperties } from 'react-native';
 
-export interface TextInputProps extends TextInputProperties {
-  ref?: any; // overwrite for no error
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   focused?: boolean;
 }
 
-class Input extends React.Component<TextInputProps, any> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      focused: props.focused || false,
-    };
-  }
+class Input extends React.Component<InputProps, any> {
+  inputRef: any;
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.focused !== this.state.focused) {
-      this.setState({
-        focused: nextProps.focused,
-      });
+  onInputBlur = (e) => {
+    const value = e.target.value;
+    if (this.props.onBlur) {
+      this.props.onBlur(value);
     }
   }
 
-  componentDidMount() {
-    if (this.props.autoFocus || this.props.focused) {
-      (this.refs as any).input.focus();
+  onInputFocus = (e) => {
+    const value = e.target.value;
+    if (this.props.onFocus) {
+      this.props.onFocus(value);
     }
   }
 
-  componentDidUpdate() {
-    if (this.props.focused) {
-      (this.refs as any).input.focus();
-    }
+  focus = () => {
+    this.inputRef.focus();
   }
 
   render() {
+    const { onBlur, onFocus, ...restProps } = this.props;
     return (
-      <TextInput
-        ref="input"
-        underlineColorAndroid="transparent"
-        {...this.props}
-      />
+      <input ref={el => this.inputRef = el} onBlur={this.onInputBlur} onFocus={this.onInputFocus} {...restProps} />
     );
   }
 }

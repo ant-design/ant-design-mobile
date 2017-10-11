@@ -1,26 +1,26 @@
 @import '../../style/mixins';
 @import '../../style/themes/default';
 
-@alertPrefixCls: am-card;
+@cardPrefixCls: am-card;
 
-.@{alertPrefixCls} {
-  border-radius: @radius-md;
-  border: @border-width-sm solid @border-color-base;
-  min-height: 1.92rem;
-  // position: relative;
+.@{cardPrefixCls} {
+  &:not(.@{cardPrefixCls}-full) {
+    .hairline('all', @border-color-base, @radius-md);
+  }
+
+  min-height: 96 * @hd;
   padding-bottom: @v-spacing-sm;
   display: flex;
   flex-direction: column;
   background-color: @fill-base;
 
   &&-full {
-    border-radius: 0;
-    border-left: 0;
-    border-right: 0;
+    position: relative;
+    .hairline('top');
+    .hairline('bottom');
   }
 
   &-header {
-    // position: relative;
     display: flex;
     align-items: center;
     font-size: @font-size-heading;
@@ -47,11 +47,12 @@
   }
 
   &-body {
-    border-top: @border-width-sm solid @border-color-base;
+    position: relative;
+    .hairline('top');
     padding: @v-spacing-lg @h-spacing-lg @v-spacing-sm;
     font-size: @font-size-subhead;
     color: @color-text-paragraph;
-    min-height: 0.8rem;
+    min-height: 40 * @hd;
     flex: 1;
   }
 

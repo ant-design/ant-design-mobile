@@ -1,326 +1,625 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-      "paddingTop": 20,
-    }
-  }
->
-  <View
-    onLayout={[Function]}
-    style={
-      Array [
-        Object {
-          "flex": 1,
-        },
-        undefined,
-      ]
-    }
+exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-tabs am-tabs-horizontal am-tabs-top"
   >
-    <View
-      style={
-        Array [
-          Object {
-            "borderColor": "#ccc",
-            "borderLeftWidth": 0,
-            "borderRightWidth": 0,
-            "borderTopWidth": 0,
-            "borderWidth": 1,
-            "flexDirection": "row",
-            "height": 50,
-            "justifyContent": "space-around",
-          },
-          Object {
-            "backgroundColor": null,
-          },
-          Array [
-            Object {
-              "borderBottomWidth": 1,
-              "borderTopWidth": 0,
-              "height": 42,
-            },
-            Object {
-              "borderColor": "#ddd",
-            },
-            null,
-          ],
-        ]
-      }
+    <div
+      class="am-tabs-tab-bar-wrap"
     >
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel="选项卡一"
-        accessibilityTraits="button"
-        accessible={true}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "flex": 1,
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
+      <div
+        class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
+        style="background-color:#fff"
       >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "justifyContent": "center",
-                "paddingBottom": 10,
-              },
-              Array [
-                Object {
-                  "paddingBottom": 0,
-                },
-              ],
-            ]
-          }
+        <div
+          class="am-tabs-default-bar-content"
+          style="touch-action:pan-y"
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#108ee9",
-                  "fontWeight": "bold",
-                },
-                Array [
-                  Object {
-                    "fontSize": 15,
-                  },
-                ],
-              ]
-            }
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:33.333333333333336%"
           >
-            选项卡一
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel="选项卡二"
-        accessibilityTraits="button"
-        accessible={true}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "flex": 1,
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "justifyContent": "center",
-                "paddingBottom": 10,
-              },
-              Array [
-                Object {
-                  "paddingBottom": 0,
-                },
-              ],
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontWeight": "normal",
-                },
-                Array [
-                  Object {
-                    "fontSize": 15,
-                  },
-                ],
-              ]
-            }
-          >
-            选项卡二
-          </Text>
-        </View>
-      </View>
-      <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel="选项卡三"
-        accessibilityTraits="button"
-        accessible={true}
-        hitSlop={undefined}
-        isTVSelectable={true}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "flex": 1,
-            "opacity": 1,
-          }
-        }
-        testID={undefined}
-        tvParallaxProperties={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "justifyContent": "center",
-                "paddingBottom": 10,
-              },
-              Array [
-                Object {
-                  "paddingBottom": 0,
-                },
-              ],
-            ]
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": "#000",
-                  "fontWeight": "normal",
-                },
-                Array [
-                  Object {
-                    "fontSize": 15,
-                  },
-                ],
-              ]
-            }
-          >
-            选项卡三
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          Object {
-            "backgroundColor": "#108ee9",
-            "bottom": -1,
-            "height": 2,
-            "left": 0,
-            "position": "absolute",
-            "width": 250,
-          }
-        }
-      />
-    </View>
-    <RCTScrollView
-      alwaysBounceVertical={false}
-      automaticallyAdjustContentInsets={false}
-      contentOffset={
-        Object {
-          "x": 0,
-        }
-      }
-      directionalLockEnabled={true}
-      horizontal={true}
-      keyboardDismissMode="on-drag"
-      onMomentumScrollBegin={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      pagingEnabled={true}
-      scrollEnabled={true}
-      scrollEventThrottle={16}
-      scrollsToTop={false}
-      showsHorizontalScrollIndicator={false}
-    >
-      <View>
-        <View
-          style={
-            Object {
-              "width": 750,
-            }
-          }
-        >
-          <View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "height": 100,
-                  "justifyContent": "center",
-                }
-              }
+            <span
+              class="am-badge"
             >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
+              First Tab
+              <sup
+                class="am-badge-text"
               >
-                选项卡一内容
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "width": 750,
-            }
-          }
+                3
+              </sup>
+            </span>
+          </div>
+          <div
+            class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            style="width:33.333333333333336%"
+          >
+            <span
+              class="am-badge"
+            >
+              Second Tab
+              <sup
+                class="am-badge-text"
+              >
+                今日(20)
+              </sup>
+            </span>
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:33.333333333333336%"
+          >
+            <span
+              class="am-badge"
+            >
+              Third Tab
+              <sup
+                class="am-badge-dot"
+              >
+                
+              </sup>
+            </span>
+          </div>
+          <div
+            class="am-tabs-default-bar-underline"
+            style="width:33.333333333333336%;left:33.333333333333336%"
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+      style="touch-action:pan-y;transform:translate3d(-100%, 0px, 0px);-webkit-transform:translate3d(-100%, 0px, 0px);-moz-transform:translate3d(-100%, 0px, 0px)"
+    >
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
         >
-          <View
-            tabLabel="选项卡二"
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "width": 750,
-            }
-          }
+          Content of First Tab
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
         >
-          <View
-            tabLabel="选项卡三"
-          />
-        </View>
-      </View>
-    </RCTScrollView>
-  </View>
-</View>
+          Content of Second Tab
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
+        >
+          Content of Third Tab
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+  <div
+    class="am-tabs am-tabs-horizontal am-tabs-bottom"
+  >
+    <div
+      class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+      style="touch-action:pan-y;transform:translate3d(-100%, 0px, 0px);-webkit-transform:translate3d(-100%, 0px, 0px);-moz-transform:translate3d(-100%, 0px, 0px)"
+    >
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
+        >
+          Content of First Tab
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
+        >
+          Content of Second Tab
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
+        >
+          Content of Third Tab
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-tabs-tab-bar-wrap"
+    >
+      <div
+        class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-bottom"
+        style="background-color:#fff"
+      >
+        <div
+          class="am-tabs-default-bar-content"
+          style="touch-action:pan-y"
+        >
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:33.333333333333336%"
+          >
+            <span>
+              First Tab-1
+            </span>
+          </div>
+          <div
+            class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            style="width:33.333333333333336%"
+          >
+            <span>
+              Second Tab-2
+            </span>
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:33.333333333333336%"
+          >
+            <span>
+              Third Tab-3
+            </span>
+          </div>
+          <div
+            class="am-tabs-default-bar-underline"
+            style="width:33.333333333333336%;left:33.333333333333336%"
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
+<div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+  <div
+    style="height:200px"
+  >
+    <div
+      class="am-tabs am-tabs-horizontal am-tabs-top"
+    >
+      <div
+        class="am-tabs-tab-bar-wrap"
+      >
+        <div
+          class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
+          style="background-color:#fff"
+        >
+          <div
+            class="am-tabs-default-bar-content"
+            style="touch-action:pan-y"
+          >
+            <div
+              class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+              style="width:33.333333333333336%"
+            >
+              First Tab
+            </div>
+            <div
+              class="am-tabs-default-bar-tab"
+              style="width:33.333333333333336%"
+            >
+              Second Tab
+            </div>
+            <div
+              class="am-tabs-default-bar-tab"
+              style="width:33.333333333333336%"
+            >
+              Third Tab
+            </div>
+            <div
+              class="am-tabs-default-bar-underline"
+              style="width:33.333333333333336%;left:0%"
+            >
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+        style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px)"
+      >
+        <div
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+        >
+          <div
+            style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+          >
+            Content of First Tab
+          </div>
+        </div>
+        <div
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        >
+          <div
+            style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+          >
+            Content of Second Tab
+          </div>
+        </div>
+        <div
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        >
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
+<div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+  <div
+    class="am-tabs am-tabs-horizontal am-tabs-top"
+  >
+    <div
+      class="am-tabs-tab-bar-wrap"
+    >
+      <div
+        class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
+        style="background-color:#fff"
+      >
+        <div
+          class="am-tabs-default-bar-content"
+          style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px)"
+        >
+          <div
+            class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            style="width:20%"
+          >
+            1st Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%"
+          >
+            2nd Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%"
+          >
+            3rd Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%"
+          >
+            4th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%"
+          >
+            5th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%"
+          >
+            6th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%"
+          >
+            7th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%"
+          >
+            8th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:20%"
+          >
+            9th Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-underline"
+            style="width:20%;left:0%"
+          >
+            
+          </div>
+        </div>
+        <div
+          class="am-tabs-default-bar-nextpage"
+        >
+          
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+      style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px)"
+    >
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
+        >
+          <p>
+            Content of 1st Tab
+          </p>
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
+        >
+          <p>
+            Content of 2nd Tab
+          </p>
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
+<div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+  <div
+    class="am-tabs am-tabs-horizontal am-tabs-top"
+  >
+    <div
+      class="am-tabs-tab-bar-wrap"
+    >
+      <div
+        class="am-tabs-default-bar am-tabs-default-bar-top"
+        style="background-color:#fff"
+      >
+        <div
+          class="am-tabs-default-bar-content"
+          style="touch-action:pan-y"
+        >
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:33.333333333333336%"
+          >
+            First Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="width:33.333333333333336%"
+          >
+            Second Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            style="width:33.333333333333336%"
+          >
+            Third Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-underline"
+            style="width:33.333333333333336%;left:66.66666666666667%"
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-tabs-content-wrap"
+      style="touch-action:pan-y;transform:translate3d(-200%, 0px, 0px);-webkit-transform:translate3d(-200%, 0px, 0px);-moz-transform:translate3d(-200%, 0px, 0px)"
+    >
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+        >
+          Content of Second Tab
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+        >
+          Content of Third Tab
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
+<div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+  <div>
+    <div
+      class="am-tabs am-tabs-horizontal am-tabs-top"
+    >
+      <div
+        class="am-tabs-tab-bar-wrap"
+      >
+        <div>
+          <div
+            style="padding-bottom:0"
+          >
+            
+          </div>
+          <div
+            class=""
+            style="transform:translateZ(0);z-index:1"
+          >
+            <div
+              class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
+              style="background-color:#fff"
+            >
+              <div
+                class="am-tabs-default-bar-content"
+                style="touch-action:pan-y"
+              >
+                <div
+                  class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+                  style="width:33.333333333333336%"
+                >
+                  First Tab
+                </div>
+                <div
+                  class="am-tabs-default-bar-tab"
+                  style="width:33.333333333333336%"
+                >
+                  Second Tab
+                </div>
+                <div
+                  class="am-tabs-default-bar-tab"
+                  style="width:33.333333333333336%"
+                >
+                  Third Tab
+                </div>
+                <div
+                  class="am-tabs-default-bar-underline"
+                  style="width:33.333333333333336%;left:0%"
+                >
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+        style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px)"
+      >
+        <div
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+        >
+          <div
+            style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+          >
+            Content of First Tab
+          </div>
+        </div>
+        <div
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        >
+          <div
+            style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+          >
+            Content of Second Tab
+          </div>
+        </div>
+        <div
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        >
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+</div>
 `;

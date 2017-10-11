@@ -14,15 +14,16 @@ title:
 Recommended use of [rc-form ](https://github.com/react-component/form) for controlled component.
 
 ````jsx
-import { List, InputItem } from 'antd-mobile';
+import { List, InputItem, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 class H5NumberInputExample extends React.Component {
   state = {
-    moneyfocused: false,
+    type: 'money',
   }
   render() {
     const { getFieldProps } = this.props.form;
+    const { type } = this.state;
     return (
       <div>
         <List renderHeader={() => 'Format'}>
@@ -30,11 +31,12 @@ class H5NumberInputExample extends React.Component {
             {...getFieldProps('money', {
               initialValue: '222',
             })}
-            type="money"
+            type={type}
             placeholder="money keyboard"
             clear
             maxLength={10}
             locale={{ confirmLabel: '计算' }}
+            onBlur={value => console.log(value)}
           />
           <InputItem placeholder="22">普通键盘</InputItem>
           <InputItem
@@ -49,23 +51,15 @@ class H5NumberInputExample extends React.Component {
                 return v;
               },
             })}
-            type="money"
+            type={type}
             placeholder="money format"
-            onFocus={() => {
-              this.setState({
-                moneyfocused: false,
-              });
-            }}
-            focused={this.state.moneyfocused}
+            ref={el => this.customFocusInst = el}
+            clear
           >数字键盘</InputItem>
           <List.Item>
             <div
               style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
-              onClick={() => {
-                this.setState({
-                  moneyfocused: true,
-                });
-              }}
+              onClick={() => this.customFocusInst.focus()}
             >
               click to focus
             </div>
@@ -79,10 +73,27 @@ class H5NumberInputExample extends React.Component {
                 return v;
               },
             })}
-            type="money"
+            type={type}
             placeholder="money format natural"
+            clear
           >正整数</InputItem>
+          <InputItem
+            {...getFieldProps('money4')}
+            type={type}
+            placeholder="start from left"
+            clear
+            moneyKeyboardAlign="left"
+          >光标在左</InputItem>
         </List>
+        <Button
+          onClick={() => {
+            this.setState({
+              type: 'text',
+            });
+          }}
+        >
+          重置为电话类型
+        </Button>
       </div>
     );
   }

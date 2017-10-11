@@ -14,13 +14,13 @@ title:
 Recommended use of [rc-form ](https://github.com/react-component/form) for controlled component.
 
 ````jsx
-import { List, TextareaItem, WhiteSpace } from 'antd-mobile';
+import { List, TextareaItem } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 class TextareaItemExample extends React.Component {
-  state = {
-    focused: false,
-  };
+  componentDidMount() {
+    this.autoFocusInst.focus();
+  }
   render() {
     const { getFieldProps } = this.props.form;
     return (
@@ -30,7 +30,7 @@ class TextareaItemExample extends React.Component {
             title="标题"
             placeholder="auto focus in Alipay client"
             data-seed="logId"
-            autoFocus
+            ref={el => this.autoFocusInst = el}
             autoHeight
           />
           <TextareaItem
@@ -38,27 +38,17 @@ class TextareaItemExample extends React.Component {
             placeholder="click the button below to focus"
             data-seed="logId"
             autoHeight
-            focused={this.state.focused}
-            onFocus={() => {
-              this.setState({
-                focused: false,
-              });
-            }}
+            ref={el => this.customFocusInst = el}
           />
           <List.Item>
             <div
               style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
-              onClick={() => {
-                this.setState({
-                  focused: true,
-                });
-              }}
+              onClick={() => this.customFocusInst.focus()}
             >
               click to focus
             </div>
           </List.Item>
         </List>
-        <WhiteSpace />
         <List renderHeader={() => 'Whether is controlled'}>
           <TextareaItem
             {...getFieldProps('control')}
@@ -83,7 +73,6 @@ class TextareaItemExample extends React.Component {
             placeholder="fixed number of lines"
           />
         </List>
-        <WhiteSpace />
         <List renderHeader={() => 'Show clear icon'}>
           <TextareaItem
             {...getFieldProps('clear1')}
@@ -92,15 +81,13 @@ class TextareaItemExample extends React.Component {
             placeholder="displayed clear icon while typing"
           />
         </List>
-        <WhiteSpace />
         <List renderHeader={() => 'Custom title（text / image / empty）'}>
           <TextareaItem
             {...getFieldProps('title3')}
-            title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" alt="icon" style={{ width: '0.56rem', height: '0.56rem' }} />}
+            title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" alt="icon" style={{ width: '28px', height: '28px' }} />}
             placeholder="title can be customized"
           />
         </List>
-        <WhiteSpace />
         <List renderHeader={() => 'Limited value length'}>
           <TextareaItem
             {...getFieldProps('note4')}
@@ -108,7 +95,6 @@ class TextareaItemExample extends React.Component {
             count={10}
           />
         </List>
-        <WhiteSpace />
         <List renderHeader={() => 'Count'}>
           <TextareaItem
             {...getFieldProps('count', {
@@ -118,7 +104,6 @@ class TextareaItemExample extends React.Component {
             count={100}
           />
         </List>
-        <WhiteSpace />
         <List renderHeader={() => 'Not editable / Disabled'}>
           <TextareaItem
             {...getFieldProps('note6', {

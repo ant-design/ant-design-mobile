@@ -58,7 +58,7 @@ let SwitchExample = (props) => {
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch5', {
-            initialValue: false,
+            initialValue: true,
             valuePropName: 'checked',
           })}
           platform="android"
@@ -70,9 +70,29 @@ let SwitchExample = (props) => {
             initialValue: true,
             valuePropName: 'checked',
           })}
+          platform="android"
+          color="red"
+        />}
+      >Color for Android</List.Item>
+      <List.Item
+        extra={<Switch
+          {...getFieldProps('Switch7', {
+            initialValue: true,
+            valuePropName: 'checked',
+          })}
           platform="ios"
         />}
       >Style for iOS</List.Item>
+      <List.Item
+        extra={<Switch
+          {...getFieldProps('Switch8', {
+            initialValue: true,
+            valuePropName: 'checked',
+          })}
+          platform="ios"
+          color="red"
+        />}
+      >Color for iOS</List.Item>
     </List>
   );
 };

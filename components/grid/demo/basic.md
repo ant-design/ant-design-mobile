@@ -20,11 +20,14 @@ const data1 = Array.from(new Array(9)).map(() => ({
 
 const GridExample = () => (
   <div>
-    <div className="sub-title">basic usage， columnNum=3 </div>
-    <Grid data={data} columnNum={3} />
-
-    <div className="sub-title">basic usage， columnNum=3 </div>
+    <div className="sub-title"> always square grid item </div>
     <Grid data={data} />
+
+    <div className="sub-title"> grid item adjust accroiding to img size </div>
+    <Grid data={data} square={false} className="not-square-grid" />
+
+    <div className="sub-title">columnNum=3 </div>
+    <Grid data={data} columnNum={3} />
 
     <div className="sub-title">no border</div>
     <Grid data={data} hasLine={false} />
@@ -36,10 +39,10 @@ const GridExample = () => (
     <Grid data={data1}
       columnNum={3}
       renderItem={dataItem => (
-        <div style={{ padding: '0.25rem' }}>
-          <img src={dataItem.icon} style={{ width: '1.5rem', height: '1.5rem' }} alt="icon" />
-          <div style={{ color: '#888', fontSize: '0.28rem', marginTop: '0.24rem' }}>
-            <span>我是标题..</span>
+        <div style={{ padding: '12.5px' }}>
+          <img src={dataItem.icon} style={{ width: '75px', height: '75px' }} alt="icon" />
+          <div style={{ color: '#888', fontSize: '14px', marginTop: '12px' }}>
+            <span>I am title..</span>
           </div>
         </div>
       )}
@@ -51,12 +54,13 @@ ReactDOM.render(<GridExample />, mountNode);
 ````
 
 ````css
-.am-grid {
-  border: 1px solid #ddd;
-}
 .sub-title {
   color: #888;
-  font-size: .28rem;
-  padding: 0.3rem 0 0.18rem 0.3rem;
+  font-size: 14px;
+  padding: 15px 0 9px 15px;
+}
+.not-square-grid .am-grid-icon {
+  width: 40px;
+  height: 60px;
 }
 ````

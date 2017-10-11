@@ -1,11 +1,15 @@
-@header-height: 80Px;
+@header-height: 80px;
+
+#logo span {
+  color: #fff;
+}
 
 #header {
   transition: opacity 0.5s;
-  background: #fff;
-  border-bottom: 1Px solid #eee;
+  background: linear-gradient(135deg, #06304B, #062D47);
+  // border-bottom: 1Px solid #eee;
   height: @header-height;
-  margin-bottom: 24Px;
+  // margin-bottom: 24Px;
   padding: 0 4%;
   width: 100%;
 
@@ -25,9 +29,9 @@
   float: left;
   display: flex;
   align-items: center;
-  height: 80px;
+  height: @header-height;
   img {
-    width: 30px;
+    width: 48px;
     margin-right: 8px;
   }
   span {
@@ -39,7 +43,7 @@
 }
 
 #search-box {
-  border-left: 1Px solid #EBEDEE;
+  border-left: 1Px solid rgba(255, 255, 255, 0.65);
   float: left;
   height: 22Px;
   line-height: 22Px;
@@ -56,12 +60,50 @@
 #search-box .ant-select-selection {
   border: 0;
   box-shadow: none;
+  background: transparent;
+
+  .ant-select-selection__placeholder {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .ant-select-search__field {
+    color: #fff;
+  }
 }
 
 #lang {
   float: right;
   margin-top: 29Px;
   margin-left: 12Px;
+}
+
+#search-box .ant-input {
+  border: 0;
+  box-shadow: none;
+}
+
+.lang,
+.version {
+  float: right;
+  margin-top: 29px;
+  margin-left: 10px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+}
+
+.lang {
+  border: 1px rgba(255, 255, 255, 0.65) solid;
+}
+
+.version {
+  width: 66px;
+  margin-left: 16px;
+  color: rgba(255, 255, 255, 0.65);
+
+  .ant-select-selection {
+    border: 1px rgba(255, 255, 255, 0.65) solid;
+    background: transparent;
+  }
 }
 
 #nav {
@@ -77,14 +119,22 @@
   text-align: center;
   border-bottom-width: 3Px;
 
+  &.ant-menu-item > a {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
   &.ant-menu-item-selected a {
     color: #108ee9;
     font-weight: bold;
   }
 }
 
-#nav .ant-menu-item-selected {
-  border-bottom: 3Px solid #108ee9;
+#nav {
+  background: transparent;
+}
+
+#nav .ant-menu-item {
+  border-bottom: 0;
   color: #108ee9;
 }
 

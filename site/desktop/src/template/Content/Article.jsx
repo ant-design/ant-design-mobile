@@ -2,11 +2,22 @@ import React, { Children, cloneElement } from 'react';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Timeline from 'antd/lib/timeline';
+import Tabs from 'antd/lib/tabs';
+
 import * as utils from '../../../../utils';
+
+const { TabPane } = Tabs;
 
 export default class Article extends React.Component {
   componentDidMount() {
     this.componentDidUpdate();
+
+    setTimeout(() => {
+      const linkTo = this.props.location.hash.replace('#', '');
+      if (linkTo) {
+        document.getElementById(linkTo).scrollIntoView();
+      }
+    }, 500);
   }
   componentDidUpdate() {
     const links = document.querySelectorAll('.outside-link.internal');
@@ -20,7 +31,35 @@ export default class Article extends React.Component {
       }
     });
   }
-  getArticle(article) {
+  tryToRenderIntroducePageTab = (article) => {
+    if (window.location.href.indexOf('introduce') === -1) {
+      return article;
+    }
+    const allChildren = [].slice.call(article.props.children);
+
+    const webIndex = allChildren.findIndex(item => item.type === 'h3' && item.props.id.includes('Web'));
+    const RnIndex = allChildren.findIndex(item => item.type === 'h3' && item.props.id.includes('React-Native'));
+    const endIndex = allChildren.findIndex((item, index) => item.type === 'h2' && index > RnIndex);
+
+    const newChildren = allChildren.slice(0, webIndex);
+    const webContent = allChildren.slice(webIndex, RnIndex);
+    const rnContent = allChildren.slice(RnIndex, endIndex);
+    const otherContent = allChildren.slice(endIndex, allChildren.length);
+
+    const IntroTabs = (
+      <Tabs defaultActiveKey="1" key="tabs">
+        <TabPane tab={allChildren[webIndex].props.id.replace(/-/g, ' ')} key="1">{webContent}</TabPane>
+        <TabPane tab={allChildren[RnIndex].props.id.replace(/-/g, ' ')} key="2">{rnContent}</TabPane>
+      </Tabs>
+    );
+    newChildren.push(IntroTabs);
+    newChildren.push(otherContent);
+    article = React.cloneElement(article, {}, newChildren);
+    return article;
+  }
+  getArticle = (article) => {
+    // Todo: right now just hack it, wait move to bisheng-plugin-antd
+    article = this.tryToRenderIntroducePageTab(article);
     const { content } = this.props;
     const { meta } = content;
     if (!meta.timeline) {
@@ -40,11 +79,13 @@ export default class Article extends React.Component {
     });
   }
   render() {
-    const props = this.props;
-    const content = props.content;
+    const { props } = this;
+    const { content } = props;
 
     const { meta, description } = content;
-    const { title, subtitle, chinese, english } = meta;
+    const {
+      title, subtitle, chinese, english,
+    } = meta;
     return (
       <DocumentTitle title={`${title || chinese || english} - Ant Design`}>
         <article className="markdown">
@@ -56,19 +97,15 @@ export default class Article extends React.Component {
           </h1>
           {
             !description ? null :
-              props.utils.toReactComponent(
-                ['section', { className: 'markdown' }].concat(getChildren(description)),
-              )
+              props.utils.toReactComponent(['section', { className: 'markdown' }].concat(getChildren(description)))
           }
           {
-            !(content.toc && meta.toc) ? null : <section className="toc">
-              {props.utils.toReactComponent(content.toc)}
-            </section>
+            (!content.toc || content.toc.length <= 1 || meta.toc === false) ?
+              null :
+              <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
           }
           {
-            this.getArticle(props.utils.toReactComponent(
-              ['section', { className: 'markdown' }].concat(getChildren(content.content)),
-            ))
+            this.getArticle(props.utils.toReactComponent(['section', { className: 'markdown' }].concat(getChildren(content.content))))
           }
         </article>
       </DocumentTitle>

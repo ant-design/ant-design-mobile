@@ -43,9 +43,7 @@
       height: @actionsheet-item-height;
       line-height: @actionsheet-item-height;
       box-sizing: border-box;
-      .hairline-top(@border-color-base);
-      // border-top: @border-width-sm solid @border-color-base;
-      // &:active {
+      .hairline('top');
       &&-active {
         background-color: @fill-tap;
       }
@@ -62,8 +60,8 @@
         width: 100%;
         height: @v-spacing-sm;
         background-color: #e7e7ed;
-        .hairline-top(@border-color-base);
-        .hairline-bottom(@border-color-base);
+        .hairline('top');
+        .hairline('bottom');
       }
     }
 
@@ -76,7 +74,7 @@
     &-list {
       display: flex;
       position: relative;
-      .hairline-top(@border-color-base);
+      .hairline('top');
 
       padding: @v-spacing-xl 0 @v-spacing-xl @h-spacing-lg;
       overflow-y: scroll;
@@ -84,21 +82,17 @@
 
       &-item {
         flex: none;
-        margin: 0 24px 0 0;
+        margin: 0 12 * @hd 0 0;
 
         &-icon {
           margin-bottom: @v-spacing-md;
-          width: 120px;
-          height: 120px;
+          width: 60 * @hd;
+          height: 60 * @hd;
           background-color: @fill-base;
           border-radius: @radius-sm;
           display: flex;
           justify-content: center;
           align-items: center;
-
-          .anticon {
-            font-size: @font-size-display-xl;
-          }
         }
 
         &-title {
@@ -117,10 +111,9 @@
       color: @color-text-base;
       font-size: @button-font-size;
       position: relative;
-      .hairline-top(@border-color-base);
+      .hairline('top');
       box-sizing: border-box;
 
-      // &:active {
       &&-active {
         background-color: @fill-tap;
       }

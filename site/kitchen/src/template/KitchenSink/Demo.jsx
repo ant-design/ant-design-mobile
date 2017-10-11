@@ -1,12 +1,12 @@
 /* eslint react/no-danger: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { WhiteSpace, Button, WingBlank } from 'antd-mobile';
+import { WhiteSpace, Button, WingBlank, NoticeBar } from 'antd-mobile';
 import collect from 'bisheng/collect';
 import { getQuery } from '../../../../utils';
 
 @collect(async (nextProps) => {
-  const pathname = nextProps.location.pathname;
+  const { pathname } = nextProps.location;
   const pageDataPath = pathname.replace('-cn', '').split('/');
   const pageData = nextProps.utils.get(nextProps.data, pageDataPath);
   if (!pageData) {
@@ -24,9 +24,10 @@ import { getQuery } from '../../../../utils';
 
   return { localizedPageData: await pageDataPromise, locale };
 })
+
 export default class Demo extends React.Component {
   goToPage = (name, index) => () => {
-    location.hash = `${name}-demo-${index}`;
+    window.location.hash = `${name}-demo-${index}`;
   }
   update = () => {
     this.forceUpdate();
@@ -34,15 +35,17 @@ export default class Demo extends React.Component {
   componentDidMount() {
     window.addEventListener('hashchange', this.update, false);
   }
-  componentWillUnMount() {
+  componentWillUnmount() {
     window.removeEventListener('hashChange', this.update, false);
   }
   render() {
-    const { demos, location, picked, themeConfig: config, locale } = this.props;
+    const {
+      demos, location, picked, themeConfig: config, locale,
+    } = this.props;
     let demoMeta;
     const name = this.props.params.component;
     picked.components.forEach((i) => {
-      const meta = i.meta;
+      const { meta } = i;
       if (meta.filename.split('/')[1] === name) {
         demoMeta = meta;
       }
@@ -66,10 +69,10 @@ export default class Demo extends React.Component {
     if (!location.hash && config.subListDemos.indexOf(name) > -1) {
       // 处理 config.subListDemos 的 demo，使其展示一个二级菜单
       demoContent = demoSort.map((item, index) => (
-        <div>
+        <div key={`sub${index}`}>
           <WhiteSpace />
           <WingBlank>
-            <Button onClick={this.goToPage(name, index)}>{ item.meta.title[locale === 'en-US' ? 'en-US' : 'zh-CN']}</Button>
+            <Button onClick={this.goToPage(name, index)}>{item.meta.title[locale === 'en-US' ? 'en-US' : 'zh-CN']}</Button>
           </WingBlank>
         </div>
       ));
@@ -85,8 +88,11 @@ export default class Demo extends React.Component {
     // document.documentElement.clientHeight to
     // remove height of toolbars, address bars and navigation (android)
     const style = {};
+    let touchNoticeText = '';
     if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
       style.minHeight = document.documentElement.clientHeight;
+    } else if (/(tabs|swipe-action)/i.test(window.location.hash.toLowerCase())) {
+      touchNoticeText = locale === 'en-US' ? 'This component only support Touch Events, USE mobile mode open this page please.' : '该组件只支持Touch事件，请使用移动模式/设备打开此页。';
     }
 
     const isLocalMode = window.location.port;
@@ -98,11 +104,15 @@ export default class Demo extends React.Component {
           <a className="icon" href={`/${linkUrl}${window.location.search}`} />
           {demoMeta.title}
           {
-            !demoMeta.subtitle || locale === 'en-US' ? null :
-            <span className="ch">{demoMeta.subtitle}</span>
+            (!demoMeta.subtitle || locale === 'en-US') ?
+              null : <span className="ch">{demoMeta.subtitle}</span>
           }
         </div>
-        { demoContent }
+        {
+          touchNoticeText &&
+          <NoticeBar mode="closable" marqueeProps={{ loop: true }} icon={null}>{touchNoticeText}</NoticeBar>
+        }
+        {demoContent}
       </div>
     );
   }

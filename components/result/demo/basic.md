@@ -9,10 +9,12 @@ title:
 /* eslint global-require: 0 */
 import { Result, Icon, WhiteSpace } from 'antd-mobile';
 
+const customIcon = src => <img src={src} className="icon am-icon am-icon-md" alt="icon" />;
+
 const ResultExample = () => (<div className="result-example">
   <div className="sub-title">支付成功</div>
   <Result
-    img={<Icon type={require('./alipay.svg')} className="icon" />}
+    img={customIcon('https://gw.alipayobjects.com/zos/rmsportal/pdFARIqkrKEGVVEwotFe.svg')}
     title="支付成功"
     message={<div>998.00元 <del>1098元</del></div>}
   />
@@ -33,14 +35,14 @@ const ResultExample = () => (<div className="result-example">
   <WhiteSpace />
   <div className="sub-title">等待处理</div>
   <Result
-    img={<Icon type={require('./waiting.svg')} className="icon" />}
+    img={customIcon('https://gw.alipayobjects.com/zos/rmsportal/HWuSTipkjJRfTWekgTUG.svg')}
     title="等待处理"
     message="已提交申请，等待银行处理"
   />
   <WhiteSpace />
   <div className="sub-title">操作失败</div>
   <Result
-    img={<Icon type={require('./notice.svg')} className="icon" />}
+    img={customIcon('https://gw.alipayobjects.com/zos/rmsportal/GIyMDJnuqmcqPLpHCSkj.svg')}
     title="无法完成操作"
     message="由于你的支付宝账户还未绑定淘宝账户请登请登录www.taobao.com"
   />
@@ -51,15 +53,15 @@ ReactDOM.render(<ResultExample />, mountNode);
 
 ````css
 .sub-title {
-  margin-left: 0.3rem;
+  margin-left: 15px;
 }
 .result-example .icon {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 60px;
+  height: 60px;
 }
 .sub-title {
   color: #888;
-  font-size: .28rem;
+  font-size: 14px;
   padding: 30px 0 18px 0;
 }
 ````

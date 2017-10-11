@@ -86,33 +86,33 @@ class Home extends React.Component {
     });
     const appVersion = AppInfo.getInfoShortVersion();
     fetch('https://raw.githubusercontent.com/ant-design/ant-design-mobile/master/rn-kitchen-sink/appInfo.json')
-    .then(response => response.json())
-    .then((responseJson) => {
-      const os = Platform.OS;
-      if (responseJson[os]) {
-        const newestVersion = responseJson[os].appversion;
-        const appUrl = responseJson[os].appurl;
-        if (appVersion.localeCompare(newestVersion) < 0) {
-          this.setState({
-            animating: false,
-          });
-          Alert.alert(
-            '',
-            '检测到 APP 有新版本，是否前往下载',
-            [
-              { text: '取消', style: 'cancel' },
-              { text: '下载', onPress: () => Linking.openURL(appUrl) },
-            ],
-          );
+      .then(response => response.json())
+      .then((responseJson) => {
+        const os = Platform.OS;
+        if (responseJson[os]) {
+          const newestVersion = responseJson[os].appversion;
+          const appUrl = responseJson[os].appurl;
+          if (appVersion.localeCompare(newestVersion) < 0) {
+            this.setState({
+              animating: false,
+            });
+            Alert.alert(
+              '',
+              '检测到 APP 有新版本，是否前往下载',
+              [
+                { text: '取消', style: 'cancel' },
+                { text: '下载', onPress: () => Linking.openURL(appUrl) },
+              ],
+            );
+          } else {
+            this.updateDemo();
+          }
         } else {
           this.updateDemo();
         }
-      } else {
+      }).catch(() => {
         this.updateDemo();
-      }
-    }).catch(() => {
-      this.updateDemo();
-    });
+      });
   }
 
   updateDemo() {
@@ -168,7 +168,7 @@ class Home extends React.Component {
           >React Native 组件</List.Item>
         </List>
         <View style={styles.footer}>
-          <Text style={styles.version}>App 版本: 1.0.0 / Demo 版本: 1.0.0</Text>
+          <Text style={styles.version}>App 版本: 1.6.3 / Demo 版本: 1.6.3</Text>
           <View style={styles.checkView}>
             <TouchableOpacity onPress={this.onCheckUpdate}>
               <Text style={styles.check}>检查更新</Text>

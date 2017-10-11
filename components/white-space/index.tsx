@@ -1,20 +1,25 @@
-// WhiteSpace
 import React from 'react';
-import { View } from 'react-native';
-import WhiteSpaceProps from './PropsType';
-import varibles from '../style/themes/default';
+import classnames from 'classnames';
+import BasePropsType from './PropsType';
 
-class WhiteSpace extends React.Component<WhiteSpaceProps, any> {
+export interface WhiteSpaceProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
+
+export default class WhiteSpace extends React.Component<WhiteSpaceProps, any> {
   static defaultProps = {
+    prefixCls: 'am-whitespace',
     size: 'md',
   };
 
   render() {
-    const { size, style } = this.props;
+    const { prefixCls, size, className, style, onClick } = this.props;
+
+    let wrapCls = classnames(prefixCls, `${prefixCls}-${size}`, className);
+
     return (
-      <View style={[{ height: varibles[`v_spacing_${size}`] }, style]} />
+      <div className={wrapCls} style={style} onClick={onClick} />
     );
   }
 }
-
-export default WhiteSpace;

@@ -1,59 +1,53 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import Radio from './Radio';
+import classnames from 'classnames';
 import List from '../list';
-import { RadioItemProps } from './PropsType';
-import RadioItemStyle, { IRadioStyle } from './style/index';
+import Radio from './Radio';
+import { RadioItemProps as BasePropsType } from './PropsType';
 
-const ListItem = List.Item;
-const refRadio = 'radio';
-
-export interface IRadioItemNativeProps extends RadioItemProps {
-  styles?: IRadioStyle;
+export interface RadioItemProps extends BasePropsType {
+  prefixCls?: string;
+  listPrefixCls?: string;
+  className?: string;
 }
 
-export default class RadioItem extends React.Component<IRadioItemNativeProps, any> {
+const ListItem = List.Item;
+function noop() { }
+
+export default class RadioItem extends React.Component<RadioItemProps, any> {
   static defaultProps = {
-    styles: RadioItemStyle,
+    prefixCls: 'am-radio',
+    listPrefixCls: 'am-list',
+    radioProps: {},
   };
 
-  handleClick = () => {
-    let radio: Radio = this.refs[refRadio] as Radio;
-    radio.handleClick();
-  }
-
   render() {
-    const { style, radioStyle, defaultChecked, checked, disabled, children, onChange } = this.props;
-    const styles = this.props.styles!;
+    const { listPrefixCls, onChange, disabled, radioProps, onClick, ...otherProps } = this.props;
+    const { prefixCls, className, children } = otherProps;
+    const wrapCls = classnames(`${prefixCls}-item`, className, {
+      [`${prefixCls}-item-disabled`]: disabled === true,
+    });
 
-    let contentDom: React.ReactElement<any> | null = null;
-    if (children && React.isValidElement(children)) {
-      contentDom = <View style={{ flex: 1 }}>{children}</View>;
-    } else {
-      let contentStyle = [styles.radioItemContent, disabled ? styles.radioItemContentDisable : {}];
-      contentDom = (<Text style={contentStyle} numberOfLines={1}>
-        {this.props.children}
-      </Text>);
+    // Note: if not omit `onChange`, it will trigger twice on check listitem
+
+    if (!disabled) {
+      (otherProps as any).onClick = onClick || noop;
     }
 
-    const radioEl = (
-      <Radio
-        ref={refRadio}
-        style={radioStyle}
-        defaultChecked={defaultChecked}
-        checked={checked}
-        onChange={onChange}
-        disabled={disabled}
-      />
-    );
+    const extraProps: any = {};
+    ['name', 'defaultChecked', 'checked', 'onChange', 'disabled'].forEach(i => {
+      if (i in this.props) {
+        extraProps[i] = this.props[i];
+      }
+    });
 
     return (
       <ListItem
-        style={style}
-        onClick={disabled ? undefined : this.handleClick}
-        extra={radioEl}
+        {...otherProps}
+        prefixCls={listPrefixCls}
+        className={wrapCls}
+        extra={<Radio {...radioProps} {...extraProps} />}
       >
-        {contentDom}
+        {children}
       </ListItem>
     );
   }

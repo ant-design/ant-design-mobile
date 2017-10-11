@@ -35,14 +35,3 @@ Properties | Descrition | Type | Default
 | handleStyle(`web`)    |  Object     |    | The style used for handle.  |
 | trackStyle(`web`)    | Object     |    | The style used for the track to the left of the button. |
 | railStyle(`web`)    |  Object     |   | The style used for the track to the right of the button. |
-
-## ToolTip(Web Only)
-
-> Note: In order to be used on demand, `Slider` has been split into `Slider`, `Range` and `creatToolTip` in version 1.0.x, eg: use `Slider` with `tooltip` like this:
-
-````jsx
-import { Slider, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
-
-const SliderWithTooltip = createTooltip(Slider); // High Order Component
-<SliderWithTooltip defaultValue={26} min={0} max={30} />
-````

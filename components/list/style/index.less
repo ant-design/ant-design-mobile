@@ -22,19 +22,12 @@
   &-body {
     position: relative;
     background-color: @fill-base;
-    .hairline-top(@border-color-base);
-    // 注意：如果元素的 overflow 有 scroll 出现，其伪元素 绝对定位 显示将出错，例如 bottom: 0
-    &:after {
-      display: block;
-      position: absolute;
-      content: '';
-      width: 100%;
-      border-bottom: @border-width-sm solid @border-color-base;
-    }
+    .hairline('top');
+    .hairline('bottom');
 
     div:not(:last-child) {
       .@{listPrefixCls}-line {
-        .hairline-bottom(@border-color-base);
+        .hairline('bottom');
       }
     }
   }
@@ -74,7 +67,7 @@
       align-items: flex-start;
 
       .@{listPrefixCls}-arrow {
-        margin-top: 4px;
+        margin-top: 2 * @hd;
       }
     }
   }
@@ -142,8 +135,6 @@
     min-height: @list-item-height;
     overflow: hidden;
 
-    // .hairline-bottom(@border-color-base);
-
     /* list左侧主内容*/
     .@{listPrefixCls}-content {
       flex: 1;
@@ -153,8 +144,8 @@
       text-align: left;
       .ellipsis();
 
-      padding-top: 14px;
-      padding-bottom: 14px;
+      padding-top: 7 * @hd;
+      padding-bottom: 7 * @hd;
     }
 
     /* list右补充内容*/
@@ -166,8 +157,8 @@
       text-align: right;
       .ellipsis();
 
-      padding-top: 14px;
-      padding-bottom: 14px;
+      padding-top: 7 * @hd;
+      padding-bottom: 7 * @hd;
     }
 
     .@{listPrefixCls}-title {
@@ -212,7 +203,7 @@
     }
 
     &-multiple {
-      padding: 25px @h-spacing-lg 25px 0;
+      padding: 12.5 * @hd @h-spacing-lg 12.5 * @hd 0;
 
       .@{listPrefixCls}-content {
         padding-top: 0;

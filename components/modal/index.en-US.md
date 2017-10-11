@@ -20,17 +20,18 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| prefixCls (web only)      | Class name prefix of elements |    String   | `am-modal`      |
 | visible      | Determine whether a modal dialog is visible or not | Boolean          | false           |
-| onClose      | Callback for clicking close icon x or mask        | (): void   | - |
-| title (only transparent)       | title           | React.Element    | -           |
 | closable    | Determine whether a close (x) button is visible or not | Boolean    | `false`       |
-| maskClosable (only transparent) | Determine whether to close the modal dialog when clicked mask of it | Boolean   | true       |
-| footer  (only not transparent)     | footer content       |  Array [{text, onPress}]    | [] |
+| maskClosable | Determine whether to close the modal dialog when clicked mask of it (only transparent) | Boolean   | true       |
+| onClose      | Callback for clicking close icon x or mask        | (): void   | - |
 | transparent | transparent mode or full screen mode       | Boolean   |  false |
-| animationType (`rn only`) | Options: 'slide-down/up'(only transparent) / 'fade' / 'slide'(only not tranparent) | String |   fade |
-| style (`web only`) |  style    | Object | transparent: {width: '286px', height: 'cross'}, <br />not transparent:  {width: '100%', height: '100%'} (web)|
-| platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios`， default to be `cross`， which means we will detect UA and change the component style | String | `'cross'`|
+| popup | popup mode, transparent will not work when in popup mode | Boolean   |  false |
+| animationType | Options: 'slide-down/up'(only transparent / `web version`) / 'fade' / 'slide'(only not tranparent) | String |   fade |
+| title       | title (only transparent)         | React.Element    | -           |
+| footer     | footer content (only not transparent)       |  Array [{text, onPress}]    | [] |
+| prefixCls (`web only`)      | Class name prefix of elements |    String   | `am-modal`      |
+| style (`web only`) |  style    | Object | {} |
+| platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios` | String | `'ios'`|
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )
 
@@ -51,8 +52,9 @@ Properties | Descrition | Type | Default
 | callbackOrActions  | button group [{text, onPress}] or callback      | Array or Function | -            |
 | type       | prompt style   | String (`default`, `secure-text`, `login-password`)|  `default`  |
 | defaultValue       | Default(input whick type is password is not supported)   | String |   -  |
+| placeholders       | ['', '']  | String[] |   -  |
 
-call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?).close()` can close prompt Modal outside anywhere as you wish.
+call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?).close()` can close prompt Modal outside anywhere as you wish.
 
 ### Modal.operation(actions?) ( Support Platform：WEB、React-Native )
 

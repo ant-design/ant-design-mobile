@@ -38,14 +38,3 @@ subtitle: 滑动输入条
 | handleStyle(`web`)    |  Object    |    | 滑块的样式  |
 | trackStyle(`web`)    | Object     |    | 选中部分滑动条的样式 |
 | railStyle(`web`)    |  Object     |   | 未选中部分 |
-
-## ToolTip(Web Only)
-
-注：1.0.x 之后将原先的`Slider`拆分成了`Slider`, `Range`, `creatToolTip`, 以便用户按需加载相应的功能使用, 例如带 `tooltip` 的 `slider` 使用方式如下:
-
-````jsx
-import { Slider, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
-
-const SliderWithTooltip = createTooltip(Slider); // High Order Component
-<SliderWithTooltip defaultValue={26} min={0} max={30} />
-````

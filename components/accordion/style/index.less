@@ -5,7 +5,7 @@
 
 .@{accordionPrefixCls} {
   position: relative;
-  .hairline-top(@border-color-base);
+  .hairline('top');
 
   &-anim-active {
     transition: all .2s ease-out;
@@ -23,7 +23,7 @@
       overflow: hidden;
       padding-left: @h-spacing-lg;
       padding-right: 2 * @h-spacing-lg;
-      .hairline-bottom(@border-color-base);
+      .hairline('bottom');
       .ellipsis();
 
       i {
@@ -34,11 +34,11 @@
         width: @icon-size-xxs;
         height: @icon-size-xxs;
         .encoded-svg-background('right');
-
         background-size: contain;
         background-repeat: no-repeat;
         background-position: 50% 50%;
         transform: rotate(90deg);
+        transition: transform .2s ease;
       }
 
       &[aria-expanded~="true"] {
@@ -56,7 +56,11 @@
         font-size: @font-size-subhead;
         color: @color-text-paragraph;
         position: relative;
-        .hairline-bottom(@border-color-base);
+        .hairline('bottom');
+
+        .am-list-body {
+          .hairline-remove('top');
+        }
       }
 
       &.@{accordionPrefixCls}-content-inactive {

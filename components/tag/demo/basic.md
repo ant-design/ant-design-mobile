@@ -38,17 +38,18 @@ ReactDOM.render(
     </Tag>
     <Tag small>Small and Readonly</Tag>
   </div>
-, mountNode);
+  , mountNode);
 ````
+
 ````css
 .tag-container{
   display: flex;
-  padding-top: 0.18rem;
+  padding-top: 9px;
   flex-direction: row;
   flex-wrap: wrap;
 }
 .tag-container > div {
-  margin-left: 0.18rem;
-  margin-bottom: 0.18rem;
+  margin-left: 9px;
+  margin-bottom: 9px;
 }
 ````

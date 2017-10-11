@@ -9,7 +9,7 @@ function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
   /* eslint-disable consistent-return */
   return (markdownData) => {
-    const filename = markdownData.meta.filename;
+    const { filename } = markdownData.meta;
     if (tester.test(filename)) {
       return {
         meta: markdownData.meta,
@@ -30,7 +30,7 @@ module.exports = {
   },
   pick: {
     components(markdownData) {
-      const filename = markdownData.meta.filename;
+      const { filename } = markdownData.meta;
       if (!/^components/.test(filename) ||
           /\/demo$/.test(path.dirname(filename))) return;
       /* eslint-disable consistent-return */

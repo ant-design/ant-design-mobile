@@ -7,22 +7,22 @@
   position: relative;
   text-align: center;
   width: 100%;
-  padding-top: 60px;
+  padding-top: 30 * @hd;
   padding-bottom: @v-spacing-xl;
   background-color: @fill-base;
-  .hairline-bottom(@border-color-base);
+  .hairline('bottom');
 
   & &-pic {
-    width: 120px;
-    height: 120px;
+    width: 60 * @hd;
+    height: 60 * @hd;
     margin: 0 auto;
-    line-height: 120px;
-    background-size: 120px 120px;
+    line-height: 60 * @hd;
+    background-size: 60 * @hd 60 * @hd;
   }
 
   & &-title,
   & &-message {
-    font-size: @font-size-display-md;
+    font-size: 21 * @hd;
     color: @color-text-base;
     padding-left: @h-spacing-lg;
     padding-right: @h-spacing-lg;

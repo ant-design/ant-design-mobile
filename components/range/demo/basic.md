@@ -6,15 +6,12 @@ title:
 ---
 
 
-Silder with range. When `disabled` is `true`, the slider will not be interactable, you can use `createTooltip` to encapsulate
-to simulate tooltip.
-
+Silder with range. When `disabled` is `true`, the slider will not be interactable
 
 ````jsx
-/* eslint arrow-body-style: 0*/
-import { Range, WingBlank, WhiteSpace, createTooltip } from 'antd-mobile';
+/* eslint arrow-body-style: 0 */
+import { Range, WingBlank, WhiteSpace } from 'antd-mobile';
 
-const RangeWithTooltip = createTooltip(Range);
 const App = () => {
   const log = (name) => {
     return (value) => {
@@ -25,8 +22,9 @@ const App = () => {
     <div className="am-slider-example">
       <WhiteSpace size="lg" />
       <WingBlank size="lg">
-        <p className="title">Basic Range</p>
+        <p className="sub-title">Basic Range</p>
         <Range
+          style={{ marginLeft: 30, marginRight: 30 }}
           min={0}
           max={20}
           defaultValue={[3, 10]}
@@ -36,19 +34,9 @@ const App = () => {
       </WingBlank>
       <WhiteSpace size="lg" />
       <WingBlank size="lg">
-        <p className="title">Range with Tooltip</p>
-        <RangeWithTooltip
-          min={0}
-          max={20}
-          defaultValue={[3, 10]}
-          onChange={log('change')}
-          onAfterChange={log('afterChange')}
-        />
-      </WingBlank>
-      <WhiteSpace size="lg" />
-      <WingBlank size="lg">
-        <p className="title">Disabled Range</p>
+        <p className="sub-title">Disabled Range</p>
         <Range
+          style={{ marginLeft: 30, marginRight: 30 }}
           min={0}
           max={20}
           defaultValue={[3, 10]}
@@ -57,9 +45,11 @@ const App = () => {
           disabled
         />
       </WingBlank>
+      <WhiteSpace size="lg" />
       <WingBlank size="lg">
-        <p className="title">Range with Customized Style</p>
+        <p className="sub-title">Range with Customized Style</p>
         <Range
+          style={{ marginLeft: 30, marginRight: 30 }}
           min={0}
           max={20}
           defaultValue={[3, 10]}
@@ -79,15 +69,21 @@ ReactDOM.render(<App />, mountNode);
 
 ````css
 .demo-preview-item .am-slider-wrapper {
-  margin-bottom: 0.3rem;
+  margin-bottom: 15px;
 }
 .demo-preview-item .am-slider-example {
   overflow: hidden;
 }
 .am-wingblank.am-wingblank-lg {
-  margin-bottom: 0.6rem;
+  margin-bottom: 30px;
 }
 .demo-preview-item .am-slider-wrapper:last-child {
-  margin-bottom: 0.2rem;
+  margin-bottom: 10px;
+}
+.sub-title {
+  color: #888;
+  font-size: 14px;
+  padding: 30px 0 18px 0;
+  margin: 0;
 }
 ````

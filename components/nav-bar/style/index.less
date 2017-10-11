@@ -1,7 +1,7 @@
 @import '../../style/mixins';
 @import '../../style/themes/default';
 
-@navbar-height: 90px;
+@navbar-height: 45 * @hd;
 @navbarPrefixCls: am-navbar;
 
 .@{navbarPrefixCls} {
@@ -32,7 +32,7 @@
 
   &-title {
     justify-content: center;
-    font-size: @font-size-display-sm;
+    font-size: 18 * @hd;
     white-space: nowrap;
   }
 
@@ -40,14 +40,6 @@
     justify-content: flex-end;
     font-size: @link-button-font-size;
     margin-right: @h-spacing-lg;
-
-    .anticon {
-      margin-right: @h-spacing-sm;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
 
     &-content {
       margin-right: @h-spacing-sm;

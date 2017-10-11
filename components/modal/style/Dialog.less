@@ -1,5 +1,9 @@
 .@{modalPrefixClass} {
   position: relative;
+  &:not(.@{modalPrefixClass}-transparent):not(.@{modalPrefixClass}-popup) {
+    width: 100%;
+    height: 100%;
+  }
 
   &-mask {
     position: fixed;
@@ -30,9 +34,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    &-popup {
+      display: block;
+    }
+  }
+
+  &-popup {
+    position: fixed;
+    left: 0;
+    width: 100%;
+
+    &-slide-down {
+      top: 0;
+    }
+
+    &-slide-up {
+      bottom: 0;
+    }
   }
 
   &&-transparent {
+    width: 270 * @hd;
     .@{modalPrefixClass}-content {
       border-radius: @radius-lg;
       height: auto;
@@ -79,8 +101,8 @@
 
     &-x {
       display: inline-block;
-      width: 30px;
-      height: 30px;
+      width: 15 * @hd;
+      height: 15 * @hd;
       background-repeat: no-repeat;
       background-size: cover;
       .encoded-svg-background('modal_delete');
@@ -88,27 +110,10 @@
   }
 
   &-body {
-    font-size: @font-size-base;
+    font-size: @font-size-subhead;
     color: @color-text-caption;
     height: 100%;
+    line-height: @line-height-paragraph;
     overflow: auto;
-  }
-
-  &&-operation {
-    .@{modalPrefixClass}-content {
-      border-radius: @radius-lg;
-      height: auto;
-      padding-top: 0;
-
-      .@{modalPrefixClass}-body {
-        padding: 0;
-      }
-
-      .@{modalPrefixClass}-button {
-        color: @color-text-base;
-        text-align: start;
-        padding-left: 30px;
-      }
-    }
   }
 }

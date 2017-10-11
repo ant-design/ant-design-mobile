@@ -21,17 +21,15 @@ Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | activeKey | current active Panel key | Array or String   | The first panel key on accordion mode|
 | defaultActiveKey | default active key | String   | null |
-| accordion (`web only`) | accordion mode | Boolean | false  |
 | onChange    | called when collapse Panel is changed | (key: string): void |  noop  |
+| accordion (`web only`) | accordion mode | Boolean | false  |
 | openAnimation (`web only`)  |  set the custom switch animation, disable the animation can be set to `{}` | Object | ref `rc-collapse/lib/openAnimationFactory.js` |
 
 ### Accordion.Panel
-
-Support WEB.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | key  | corresponding activeKey   | String   | -   |
 | header | header content of Panel | React.Element or String | -   |
 
-Note: RN Accordion Depends on the Icon component, and need to add the corresponding iconfont; currently do not support nested use.
+Note: Currently does not support nested use for RN.

@@ -34,163 +34,66 @@ $ yarn start
 - `Web 项目`：此时浏览器访问 http://localhost:3000/ ，看到 `Welcome to React` 的界面就算成功了。
 - `React Native 项目`：运行 `npm run ios` 能在模拟器中打开页面就算成功了。
 
-## 引入 antd-mobile
+## 使用 antd-mobile
 
-  首先从 yarn 或 npm 安装并引入 antd-mobile 和 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)（一个用于按需加载组件代码和样式的 babel 插件（[原理](https://github.com/ant-design/ant-design/blob/master/docs/react/getting-started#%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD)））
+- **基础运行：**
 
-    ```bash
-    $ yarn add antd-mobile
-    $ yarn add babel-plugin-import --dev
-    ```
+  配置入口 html （仅 Web 项目需要），参考 [入口页面 (html 或 模板) 相关设置](/docs/react/introduce-cn#Web-使用方式)
 
-  - ### Web 项目
+  > 注：antd-mobile@1.x 需要运行 `yarn run eject` 以生成自定义配置，可参考  [antd-mobile-samples/create-react-app](https://github.com/ant-design/antd-mobile-samples/tree/1.x/create-react-app)
 
-    1. 生成自定义配置
+- **按需加载：**
 
-      ```bash
-      npm run eject
-      ```
+  1. 引入 [react-app-rewired](https://github.com/timarney/react-app-rewired) 并修改 package.json 里的启动配置:
 
-    2. 安装开发依赖
+```bash
+$ yarn add react-app-rewired --dev
+```
 
-      ```bash
-      yarn add --dev babel-plugin-import svg-sprite-loader@0.3.1 less less-loader postcss-pxtorem
-      ```
+```diff
+/* package.json */
+"scripts": {
+-   "start": "react-scripts start",
++   "start": "react-app-rewired start",
+-   "build": "react-scripts build",
++   "build": "react-app-rewired build",
+-   "test": "react-scripts test --env=jsdom",
++   "test": "react-app-rewired test --env=jsdom",
+}
+```
 
-    3. 修改 `config/webpack.config.dev.js`
+  2. 然后在项目根目录创建一个 config-overrides.js 用于修改默认配置。
 
-      ```js
-      extensions: ['.web.js', '.js', '.json', '.jsx'],
-      ...
-      rules: [
-        {
-          exclude: [
-            ...
-            /\.less$/,
-            /\.svg$/,
-            ...
-          ]
-        },
-        ...
-        // Process JS with Babel.
-        {
-          test: /\.(js|jsx)$/,
-          ...
-          options: {
-            plugins: [
-              ['import', { libraryName: 'antd-mobile', style: true }],
-            ],
-            cacheDirectory: true,
-          }
-        },
-        ...
-        // It is generally necessary to use the Icon component, need to configure svg-sprite-loader
-        {
-          test: /\.(svg)$/i,
-          loader: 'svg-sprite-loader',
-          include: [
-            require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. svg files of antd-mobile
-            // path.resolve(__dirname, 'src/my-project-svg-foler'),  // folder of svg files in your project
-          ]
-        },
-        {
-          test: /\.less$/,
-          use: [
-            require.resolve('style-loader'),
-            require.resolve('css-loader'),
-            {
-              loader: require.resolve('postcss-loader'),
-              options: {
-                ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
-                plugins: () => [
-                  autoprefixer({
-                    browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
-                  }),
-                  pxtorem({ rootValue: 100, propWhiteList: [] })
-                ],
-              },
-            },
-            {
-              loader: require.resolve('less-loader'),
-              options: {
-                modifyVars: { "@primary-color": "#1DA57A" },
-              },
-            },
-          ],
-        }
-      ]
-      ```
-      > 注意，上述示例只修改了 webpack.config.dev.js，如果需要在生产环境生效，你需要同步修改 webpack.config.prod.js。
+```js
+module.exports = function override(config, env) {
+  // do stuff with the webpack config...
+  return config;
+};
+```
 
-    4. 入口页面必需的设置：
+  3. 使用 babel-plugin-import, [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](https://ant.design/docs/react/getting-started-cn#按需加载)），现在我们尝试安装它并修改 config-overrides.js 文件。
 
-      - 引入『高清方案』设置：具体方法见 wiki 里 [antd-mobile-0.8-以上版本「高清」方案设置](https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE)。
-      - 引入 [FastClick](https://github.com/ftlabs/fastclick), 关联 [#576](https://github.com/ant-design/ant-design-mobile/issues/576)
-      - 引入 Promise 的 fallback 支持 (部分安卓手机不支持 Promise)，示例代码如：
+```bash
+yarn add babel-plugin-import --dev
+```
 
-        ```js
-        if(!window.Promise) {
-          document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
-        }
-        ```
+```diff
++ const { injectBabelPlugin } = require('react-app-rewired');
+  module.exports = function override(config, env) {
++   config = injectBabelPlugin(['import', { libraryName: 'antd-mobile', style: 'css' }], config);
+    return config;
+  };
+```
 
-  - ### React-Native 项目
+  4. 更改引用方式
 
-    - 修改 `.babelrc` 配置，并重新启动服务
+```diff
+- import Button from 'antd/lib/button';
++ import { Button } from 'antd';
+```
 
-      ```json
-      {
-        "presets": ["babel-preset-expo"],
-        "plugins": [["import", { "libraryName": "antd-mobile" }]],
-        "env": {
-          ...
-        }
-      }
-      ```
-    - 修改 `App.js`, 引入 antd-mobile 按钮组件。
+## 完整的示例
 
-      ```js
-      ...
-      import { Button } from 'antd-mobile';
-
-      ...
-      render() {
-        return (
-          ...
-          <Button>antd-mobile button</Button>
-          ...
-        );
-      }
-      ```
-
-## 自定义主题
-
-- ### Web 项目
-
-  请查看  [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro) 项目
-
-- ### React-Native 项目：
-
-  1. 在项目根目录创建 `theme.js` 文件，并覆盖你要改写的变量值，eg：
-
-    ```js
-    module.exports = {
-      brand_primary: 'red',
-      color_link: 'red',
-      border_color_base: 'green',
-    };
-    ```
-  2. 项目根目录下创建 `scripts/custom-rn-theme.js` 文件，文件内容 copy [rn-custom-ui/scripts/custom-rn-theme.js](https://github.com/ant-design/antd-mobile-samples/blob/master/rn-custom-ui/scripts/custom-rn-theme.js) 该文件内容即可；
-
-  3. 改写 `package.json` 中 `start` 命令如下：
-
-    ```json
-    "scripts": {
-      ...
-      "start": "node scripts/custom-rn-theme && react-native-scripts start",
-      ...
-    }
-    ```
-    重新执行 `npm start`。
-
-  > Note: 单个组件改写部分样式的方法可以参考： [ant-design-mobile/issues/1174](https://github.com/ant-design/ant-design-mobile/issues/1174#issuecomment-295256831)， 目前 1.x 支持
+- Web 项目 [antd-mobile-sample/create-react-app](https://github.com/ant-design/antd-mobile-samples/tree/master/create-react-app)
+- React-Native 项目 [antd-mobile-sample/create-react-native-app](https://github.com/ant-design/antd-mobile-samples/tree/master/create-react-native-app)
+    - > Note: 单个组件改写部分样式的方法可以参考 (1.x)： [ant-design-mobile/issues/1174](https://github.com/ant-design/ant-design-mobile/issues/1174#issuecomment-295256831)，(2.x): [ant-design-mobile/pull/1629](https://github.com/ant-design/ant-design-mobile/pull/1629)

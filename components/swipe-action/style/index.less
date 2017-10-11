@@ -9,14 +9,15 @@
 
   &-content {
     position: relative;
-    z-index: 10;
+    background-color: #fff;
   }
 
   &-cover {
     position: absolute;
-    z-index: 11;
+    z-index: 2;
     background: transparent;
     height: 100%;
+    width: 100%;
     top: 0;
     display: none;
   }
@@ -25,39 +26,39 @@
   & .@{swipeout-prefix-cls}-actions {
     transition: all 250ms;
   }
-
+  &-swiping {
+    & .@{swipeout-prefix-cls}-content,
+    & .@{swipeout-prefix-cls}-actions {
+      transition: none;
+    }
+    .am-list-item-active {
+      background-color: #FFF;
+    }
+  }
   &-actions {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 0;
     display: flex;
     overflow: hidden;
     white-space: nowrap;
-    transition: all 250ms;
 
     &-left {
       left: 0;
-      width: 0;
     }
 
     &-right {
       right: 0;
-      width: 0;
     }
   }
 
   &-btn {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     overflow: hidden;
-    z-index: 99;
-
     &-text {
-      padding: 0 @h-spacing-sm;
+      padding: 0 @h-spacing-md;
     }
   }
 }

@@ -10,34 +10,29 @@
 
 .@{sliderPrefixCls} {
   position: relative;
-  margin: 32px 0;
 
   &-rail {
     position: absolute;
     width: 100%;
     background-color: @border-color-base;
-    height: 4px;
+    height: 2 * @hd;
     box-sizing: border-box;
-  }
-
-  &-wrapper {
-    padding: 0 32px;
   }
 
   &-track {
     position: absolute;
     left: 0;
-    height: 4px;
+    height: 2 * @hd;
     border-radius: @radius-xs;
     background-color: @brand-primary;
   }
 
   &-handle {
     position: absolute;
-    margin-left: -24px;
-    margin-top: -24px;
-    width: 44px;
-    height: 44px;
+    margin-left: -12 * @hd;
+    margin-top: -10 * @hd;
+    width: 22 * @hd;
+    height: 22 * @hd;
     cursor: pointer;
     border-radius: @radius-circle;
     border: @border-width-lg solid @brand-primary;
@@ -47,16 +42,11 @@
     &:focus {
       background-color: tint(@brand-primary, 20%);
     }
-
-    &:active {
-      background-color: tint(@brand-primary, 20%);
-      box-shadow: 0 0 5px tint(@brand-primary, 20%);
-    }
   }
 
   &-mark {
     position: absolute;
-    top: 40px;
+    top: 20 * @hd;
     left: 0;
     width: 100%;
     font-size: @font-size-caption-sm;
@@ -78,16 +68,16 @@
   &-step {
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: 4 * @hd;
     background: transparent;
   }
 
   &-dot {
     position: absolute;
-    bottom: -10px;
-    margin-left: -8px;
-    width: 24px;
-    height: 24px;
+    bottom: -5 * @hd;
+    margin-left: -4 * @hd;
+    width: 12 * @hd;
+    height: 12 * @hd;
     border: @border-width-lg solid @border-color-base;
     background-color: @fill-base;
     cursor: pointer;
@@ -95,11 +85,11 @@
     vertical-align: middle;
 
     &:first-child {
-      margin-left: -8px;
+      margin-left: -4 * @hd;
     }
 
     &:last-child {
-      margin-left: -8px;
+      margin-left: -4 * @hd;
     }
 
     &-active {
@@ -111,7 +101,7 @@
     opacity: @opacity-disabled;
 
     .@{sliderPrefixCls}-track {
-      height: 4px;
+      height: 2 * @hd;
     }
 
     .@{sliderPrefixCls}-handle,

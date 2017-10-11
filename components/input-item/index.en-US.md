@@ -16,6 +16,8 @@ A foundational component for inputting text into the app via a keyboard.
 
 Support WEB, React-Native.
 
+**`InputItem` must wrapped by a [List](https://mobile.ant.design/components/list)**
+
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | type    | the type of `InputItem` which is one of `bankCard`, `phone`(which the maxLength is 11 and setting will be ignored), `password`, `number`, （ antd-mobile will try to open the number keyboard, but web browser can not open number keyboard with decimal support we suggest one need decimal number support use text input and onChange to custom it.）, `money`(with decimal,`Web Only`),   `text`  | String |  `text`  |
@@ -34,11 +36,18 @@ Properties | Descrition | Type | Default
 | extra       | the right content of `InputItem`   | string or node |  ''  |
 | onExtraClick      | callback that is called when the extra content is clicked | (e: Object): void |  |
 | labelNumber  | number of label text, valid value is 2 to 7 | number | `5` |
-| autoFocus   | whether to focus the input on `componentDidMount`, each page has only one `Input` can be auto focused.（Note: It is no guarantee that all browsers are supported） | bool | false  |
-| focused   | whether the `InputItem` has been focused on `componentDidMount`, you need to change this property on `onFocus` or `onBlur` callback | bool | false  |
 | updatePlaceholder (`web only`) | whether to replace the placeholder with cleared content | bool | false|
 | prefixListCls (`web only`)    |   the class name prefix of list      | String |  `am-list`  |
 | name (`web only`)   | the name of input       | String |   |
+| moneyKeyboardAlign (`web only`)   | text align direction, only `type='money'` support this api， could be `'left'`, `'right'`       | String |  'right'  |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置,  when`type`is`money`，can cunstom the keyboard confirm item's label | Object: { confirmLabel } |  无 |
 
 > More available react-native `InputItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)
+
+> Note: `InputItem` does not support negative number if `type` is text, you can use `type=text` to do that.
+
+## InputItem methods
+
+Property | Description | Type | Default
+----|-----|------|------
+| focus (`Web Only`)    | Force focus back onto the input node  | - |  -  |

@@ -73,8 +73,8 @@ class Test extends React.Component {
           </RadioItem>
         ))}
       </List>
-      <Flex style={{ padding: '0.3rem' }}>
-        <Flex.Item style={{ padding: '0.3rem 0', color: '#888', flex: 'none' }}>Radio Demo(Customized style)</Flex.Item>
+      <Flex style={{ padding: '15px' }}>
+        <Flex.Item style={{ padding: '15px 0', color: '#888', flex: 'none' }}>Radio Demo(Customized style)</Flex.Item>
         <Flex.Item>
           <Radio className="my-radio" onChange={e => console.log('checkbox', e)}>Agree</Radio>
         </Flex.Item>
@@ -87,9 +87,9 @@ ReactDOM.render(<Test />, mountNode);
 ````
 ````css
 .my-radio .am-radio {
-  padding: 0.05rem;
+  padding: 2.5px;
   border: 1px solid #ccc;
   border-radius: 50%;
-  margin-right: 0.1rem;
+  margin-right: 5px;
 }
 ````

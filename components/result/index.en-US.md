@@ -24,4 +24,4 @@ title | title of result page | React.ReactNode | -
 message | message text of result page | React.ReactNode | -
 buttonText | text of built-in button | string | -
 buttonType | type of built-in button | string | -
-buttonClick | callback of clicking built-in button | (e: Object): void | -
+onButtonClick | callback of clicking built-in button | (e: Object): void | -

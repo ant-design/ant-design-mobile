@@ -32,5 +32,5 @@ ReactDOM.render(
       <Card.Footer content="footer content" extra={<div>extra footer content</div>} />
     </Card>
   </div>
-, mountNode);
+  , mountNode);
 ````

@@ -2,7 +2,7 @@
 order: 1
 title:
   zh-CN: 'body 容器'
-  en-US: 'use `<body>`  container'
+  en-US: 'use `<body>` container'
 ---
 
 use html `body` as a scroll container.
@@ -33,6 +33,15 @@ let index = data.length - 1;
 const NUM_ROWS = 20;
 let pageIndex = 0;
 
+function genData(pIndex = 0) {
+  const dataBlob = {};
+  for (let i = 0; i < NUM_ROWS; i++) {
+    const ii = (pIndex * NUM_ROWS) + i;
+    dataBlob[`${ii}`] = `row - ${ii}`;
+  }
+  return dataBlob;
+}
+
 class Demo extends React.Component {
   constructor(props) {
     super(props);
@@ -40,29 +49,19 @@ class Demo extends React.Component {
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
 
-    this.genData = (pIndex = 0) => {
-      const dataBlob = {};
-      for (let i = 0; i < NUM_ROWS; i++) {
-        const ii = (pIndex * NUM_ROWS) + i;
-        dataBlob[`${ii}`] = `row - ${ii}`;
-      }
-      return dataBlob;
-    };
-
     this.state = {
-      dataSource: dataSource.cloneWithRows({}),
+      dataSource,
       isLoading: true,
     };
   }
 
   componentDidMount() {
     // you can scroll to the specified position
-    // setTimeout(() => this.refs.lv.refs.listview.scrollTo(0, 200), 800); // also work
-    // setTimeout(() => this.refs.lv.scrollTo(0, 200), 800); // recommend usage
+    // setTimeout(() => this.lv.scrollTo(0, 120), 800);
 
     // simulate initial Ajax
     setTimeout(() => {
-      this.rData = this.genData();
+      this.rData = genData();
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(this.rData),
         isLoading: false,
@@ -88,7 +87,7 @@ class Demo extends React.Component {
     console.log('reach end', event);
     this.setState({ isLoading: true });
     setTimeout(() => {
-      this.rData = { ...this.rData, ...this.genData(++pageIndex) };
+      this.rData = { ...this.rData, ...genData(++pageIndex) };
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(this.rData),
         isLoading: false,
@@ -98,7 +97,8 @@ class Demo extends React.Component {
 
   render() {
     const separator = (sectionID, rowID) => (
-      <div key={`${sectionID}-${rowID}`}
+      <div
+        key={`${sectionID}-${rowID}`}
         style={{
           backgroundColor: '#F5F5F9',
           height: 8,
@@ -113,20 +113,28 @@ class Demo extends React.Component {
       }
       const obj = data[index--];
       return (
-        <div key={rowID} className="row">
-          <div className="row-title">{obj.title}</div>
-          <div style={{ display: '-webkit-box', display: 'flex', padding: '0.3rem 0' }}>
-            <img style={{ height: '1.28rem', marginRight: '0.3rem' }} src={obj.img} alt="icon" />
-            <div className="row-text">
-              <div style={{ marginBottom: '0.16rem', fontWeight: 'bold' }}>{obj.des}</div>
-              <div><span style={{ fontSize: '0.6rem', color: '#FF6E27' }}>{rowID}</span>¥</div>
+        <div key={rowID} style={{ padding: '0 15px' }}>
+          <div
+            style={{
+              lineHeight: '50px',
+              color: '#888',
+              fontSize: 18,
+              borderBottom: '1px solid #F6F6F6',
+            }}
+          >{obj.title}</div>
+          <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
+            <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="icon" />
+            <div style={{ lineHeight: 1 }}>
+              <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
+              <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>{rowID}</span>¥</div>
             </div>
           </div>
         </div>
       );
     };
     return (
-      <ListView ref="lv"
+      <ListView
+        ref={el => this.lv = el}
         dataSource={this.state.dataSource}
         renderHeader={() => <span>header</span>}
         renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
@@ -148,22 +156,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
-````css
-.row {
-  padding: 0 0.3rem;
-  background-color: white;
-}
-.row-title {
-  height: 1rem;
-  line-height: 1rem;
-  color: #888;
-  font-size: 0.36rem;
-  border-bottom: 1px solid #F6F6F6;
-}
-.row-text {
-  display: inline-block;
-  font-size: 0.32rem;
-  line-height: 1;
-}
 ````

@@ -504,7 +504,7 @@
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = FZ332UUAVD;
+						DevelopmentTeam = Q5PJGLWG38;
 					};
 				};
 			};
@@ -820,7 +820,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = FZ332UUAVD;
+				DEVELOPMENT_TEAM = Q5PJGLWG38;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -835,7 +835,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mybank.ios.RNPlayground;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mybank.ios.phone.test;
 				PRODUCT_NAME = "antd-mobile";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -846,7 +846,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FZ332UUAVD;
+				DEVELOPMENT_TEAM = Q5PJGLWG38;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -861,7 +861,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mybank.ios.RNPlayground;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mybank.ios.phone.test;
 				PRODUCT_NAME = "antd-mobile";
 				VERSIONING_SYSTEM = "apple-generic";
 			};

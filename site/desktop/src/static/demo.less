@@ -20,18 +20,26 @@
   }
 }
 
-.code-box-expand-trigger {
-  cursor: pointer;
-  font-size: 14Px;
-  color: #9199ac;
-  margin-left: 5Px;
-  opacity: .8;
-  transition: all .3s ease;
-  top: -2Px;
-  position: relative;
-
-  &-active {
-    color: #3b4357;
+.demo-code-container {
+  min-height: 300Px;
+  padding-right: 405Px;
+  &-mutli {
+    padding-bottom: 400px;
+  }
+  .mobile-wrapper {
+    position: relative;
+    float: right;
+    width: 405Px;
+    margin-right: -405Px;
+    padding: 0 0 0 30Px;
+  }
+  &-fixed {
+    .mobile-wrapper {
+      position: fixed;
+      top: 0;
+      margin-right: 0;
+      right: 9.04%;
+    }
   }
 }
 
@@ -43,26 +51,43 @@
   position: relative;
   margin: 0 0 16Px;
   transition: all 0.5s ease;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 1Px 6Px rgba(0, 0, 0, .2);
+    border-color: transparent;
+    position: relative;
+    z-index: 10;
+    background: #fff;
+  }
 
   &-preview {
     border: none;
   }
 
-  &-code-copy {
+  &-actions {
     position: absolute;
+    top: 16px;
+    right: 60px;
+    text-align: right;
+    >i,
+    >form {
+      display: inline-block;
+      margin-left: 8px;
+    }
+  }
+
+  &-code-copy {
     opacity: 0;
-    top: 52Px;
-    right: 16Px;
     transition: all .24s;
     z-index: 1000;
     cursor: pointer;
     .anticon {
       font-size: 14Px;
       font-weight: bold;
-      border: 1Px solid #ededed;
       padding: 8Px;
-      border-radius: 16Px;
       background-color: rgba(256, 256, 256, 0.6);
+      width: 20px;
+      height: 20px;
     }
     &:hover {
       color: @primary-color;
@@ -75,8 +100,34 @@
     }
   }
 
-  .highlight-wrapper:hover &-code-copy {
-    opacity: 1;
+  &-codepen {
+    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/bsyXYJlnerAkEMGKtTpa.svg") center / 14px no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .3s;
+    border: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+  &-riddle {
+    background: transparent url("https://zos.alipayobjects.com/rmsportal/WpXYyalbBFqfZEV.svg") center / 14px no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .3s;
+    border: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+  .highlight-wrapper:hover &-code-copy,
+  .highlight-wrapper:hover &-codepen,
+  .highlight-wrapper:hover &-riddle {
+    opacity: .66;
   }
 }
 
@@ -94,7 +145,8 @@
   border: 0;
 }
 
-.code-box-meta,  .code-box-meta.markdown {
+.code-box-meta,
+.code-box-meta.markdown {
   position: relative;
   padding: 12Px 16Px;
   border-radius: 6Px 6Px 0 0;
@@ -130,36 +182,8 @@
   word-break: break-word;
 }
 
-.code-box.expand .code-box-meta {
+.code-box .code-box-meta {
   border-bottom: 1Px dashed #e9e9e9;
-}
-
-.code-box .collapse {
-  position: absolute;
-  right: 18Px;
-  bottom: 18Px;
-  cursor: pointer;
-  width: 18Px;
-  height: 18Px;
-  font-size: 18Px;
-  line-height: 18Px;
-  opacity: 0.5;
-  text-align: center;
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-  transition: all 0.3s ease;
-  color: #999;
-  background: #fff;
-  user-select: none;
-}
-
-.code-box.expand .collapse {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-
-.code-box .collapse:hover {
-  opacity: 1;
 }
 
 .code-box .fullscreen {
@@ -177,13 +201,9 @@
 }
 
 .code-box .highlight-wrapper {
-  max-height: 0;
   overflow: auto;
   transition: all 0.4s ease;
   border-radius: 6px;
-}
-
-.code-box .highlight-wrapper-expand {
   max-height: 150px;
 }
 
@@ -225,13 +245,6 @@
 
 .code-box pre code {
   border: none;
-  background: #fff;
-}
-
-.code-box:hover {
-  box-shadow: 0 0 6Px rgba(0, 0, 0, .15);
-  position: relative;
-  z-index: 10;
   background: #fff;
 }
 
@@ -288,8 +301,10 @@
   }
 }
 
-.api-container table {
-  width: 100%;
+.api-container {
+  table {
+    width: 100%;
+  }
 }
 
 .aside-demo.fixed {

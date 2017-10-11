@@ -5,15 +5,18 @@ title:
   en-US: 'APP Tab Bar'
 ---
 
+## zh-CN
+
 多用于页面的内容区块，起着控制小范围内的大块内容的分组和隐藏，起着保持界面整洁的作用。
 
-````jsx
-import { TabBar, Icon } from 'antd-mobile';
+## en-US
 
-/* eslint global-require: 0 */
+Used for the content of the page block, control large content of a small range grouping and hidden, plays a role in keeping the interface clean and tidy.
+
+````jsx
+import { TabBar } from 'antd-mobile';
 
 class TabBarExample extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +28,7 @@ class TabBarExample extends React.Component {
   renderContent(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-        <div style={{ paddingTop: 60 }}>你已点击“{pageText}” tab， 当前展示“{pageText}”信息</div>
+        <div style={{ paddingTop: 60 }}>clicked “{pageText}” tab， show “{pageText}” information</div>
         <a style={{ display: 'block', marginTop: 40, marginBottom: 600, color: '#108ee9' }}
           onClick={(e) => {
             e.preventDefault();
@@ -34,7 +37,7 @@ class TabBarExample extends React.Component {
             });
           }}
         >
-          点击切换 tab-bar 显示/隐藏
+          click to show/hide tab-bar
         </a>
       </div>
     );
@@ -49,18 +52,18 @@ class TabBarExample extends React.Component {
         hidden={this.state.hidden}
       >
         <TabBar.Item
-          title="生活"
-          key="生活"
+          title="Life"
+          key="Life"
           icon={<div style={{
-            width: '0.44rem',
-            height: '0.44rem',
-            background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  0.42rem 0.42rem no-repeat' }}
+            width: '22px',
+            height: '22px',
+            background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
           />
           }
           selectedIcon={<div style={{
-            width: '0.44rem',
-            height: '0.44rem',
-            background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  0.42rem 0.42rem no-repeat' }}
+            width: '22px',
+            height: '22px',
+            background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
           />
           }
           selected={this.state.selectedTab === 'blueTab'}
@@ -72,13 +75,25 @@ class TabBarExample extends React.Component {
           }}
           data-seed="logId"
         >
-          {this.renderContent('生活')}
+          {this.renderContent('Life')}
         </TabBar.Item>
         <TabBar.Item
-          icon={<Icon type="koubei-o" size="md" />}
-          selectedIcon={<Icon type="koubei" size="md" />}
-          title="口碑"
-          key="口碑"
+          icon={
+            <div style={{
+              width: '22px',
+              height: '22px',
+              background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat' }}
+            />
+          }
+          selectedIcon={
+            <div style={{
+              width: '22px',
+              height: '22px',
+              background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat' }}
+            />
+          }
+          title="Koubei"
+          key="Koubei"
           badge={'new'}
           selected={this.state.selectedTab === 'redTab'}
           onPress={() => {
@@ -88,25 +103,25 @@ class TabBarExample extends React.Component {
           }}
           data-seed="logId1"
         >
-          {this.renderContent('口碑')}
+          {this.renderContent('Koubei')}
         </TabBar.Item>
         <TabBar.Item
           icon={
             <div style={{
-              width: '0.44rem',
-              height: '0.44rem',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  0.42rem 0.42rem no-repeat' }}
+              width: '22px',
+              height: '22px',
+              background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat' }}
             />
           }
           selectedIcon={
             <div style={{
-              width: '0.44rem',
-              height: '0.44rem',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  0.42rem 0.42rem no-repeat' }}
+              width: '22px',
+              height: '22px',
+              background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }}
             />
           }
-          title="朋友"
-          key="朋友"
+          title="Friend"
+          key="Friend"
           dot
           selected={this.state.selectedTab === 'greenTab'}
           onPress={() => {
@@ -115,13 +130,13 @@ class TabBarExample extends React.Component {
             });
           }}
         >
-          {this.renderContent('朋友')}
+          {this.renderContent('Friend')}
         </TabBar.Item>
         <TabBar.Item
           icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
           selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-          title="我的"
-          key="我的"
+          title="My"
+          key="my"
           selected={this.state.selectedTab === 'yellowTab'}
           onPress={() => {
             this.setState({
@@ -129,7 +144,7 @@ class TabBarExample extends React.Component {
             });
           }}
         >
-          {this.renderContent('我的')}
+          {this.renderContent('My')}
         </TabBar.Item>
       </TabBar>
     );
@@ -145,13 +160,7 @@ ReactDOM.render(<TabBarExample />, mountNode);
   flex-direction: column;
 }
 #tab-bar .demoName {
-  height: 0.8rem;
-}
-#tab-bar .demo-preview-item,
-#tab-bar .demo-preview-item .am-tab-bar {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  height: 40px;
 }
 #tab-bar .demo-preview-item .am-tab-bar {
   background-color: white;

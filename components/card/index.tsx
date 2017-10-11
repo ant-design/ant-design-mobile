@@ -1,19 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
-import CardBody from './CardBody';
+import classnames from 'classnames';
 import CardHeader from './CardHeader';
+import CardBody from './CardBody';
 import CardFooter from './CardFooter';
-import CardStyle, { ICardStyle } from './style/index';
-import { CardProps } from './PropsType';
+import { CardProps as BasePropsType } from './PropsType';
 
-export interface ICardNativeProps extends CardProps {
-  styles?: ICardStyle;
+export interface CardProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
 }
-export default class Card extends React.Component<ICardNativeProps, any> {
+
+export default class Card extends React.Component<CardProps, any> {
   static defaultProps = {
-    style: {},
+    prefixCls: 'am-card',
     full: false,
-    styles: CardStyle,
   };
 
   static Header = CardHeader;
@@ -21,16 +21,13 @@ export default class Card extends React.Component<ICardNativeProps, any> {
   static Footer = CardFooter;
 
   render() {
-    const { style , styles, full, children, ...restProps } = this.props;
-    const cardStyle = full ? styles!.full : {};
-    const childDom = React.Children.map(children, (child) => React.cloneElement(
-        child as React.ReactElement<any>, { styles },
-      ),
-    );
+    const { prefixCls, full, className, ...resetProps } = this.props;
+    const wrapCls = classnames(prefixCls, className, {
+      [`${prefixCls}-full`]: full,
+    });
+
     return (
-      <View style={[styles!.card, cardStyle, style]} {...restProps}>
-        {childDom}
-      </View>
+      <div className={wrapCls} {...resetProps} />
     );
   }
 }

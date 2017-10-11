@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="http://mobile.ant.design">
-    <img width="320" src="https://zos.alipayobjects.com/rmsportal/XyhtJExcOrXZnLv.png">
+    <img width="320" src="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png">
   </a>
 </p>
 

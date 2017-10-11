@@ -9,7 +9,7 @@
           "import",
           {
             "libraryName": "antd-mobile",
-            "libraryDirectory": "components"
+            "libraryDirectory": "components",
           }
         ]
       ]
@@ -23,7 +23,7 @@
           "import",
           {
             "libraryName": "antd-mobile",
-            "libraryDirectory": "components"
+            "libraryDirectory": "components",
           }
         ]
       ]
@@ -37,7 +37,7 @@
           "import",
           {
             "libraryName": "antd-mobile",
-            "libraryDirectory": "components"
+            "libraryDirectory": "components",
           }
         ]
       ]

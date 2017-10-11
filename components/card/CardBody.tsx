@@ -1,16 +1,23 @@
 import React from 'react';
-import { View } from 'react-native';
-import { CardBodyProps } from './PropsType';
+import classnames from 'classnames';
+import { CardBodyProps as BasePropsType } from './PropsType';
+
+export interface CardBodyProps extends BasePropsType {
+  prefixCls?: string;
+  className?: string;
+}
 
 export default class CardBody extends React.Component<CardBodyProps, any> {
   static defaultProps = {
-    style: {},
+    prefixCls: 'am-card',
   };
 
   render() {
-    let { style, styles, ...restProps } = this.props;
+    const { prefixCls, className, ...restProps } = this.props;
+    const wrapCls = classnames(`${prefixCls}-body`, className);
+
     return (
-      <View style={[styles.body, style]} {...restProps} />
+      <div className={wrapCls} {...restProps} />
     );
   }
 }

@@ -1,166 +1,137 @@
 import React from 'react';
-import {
-  View, Text, Modal,
-  TouchableHighlight,
-  Dimensions,
-  StyleSheet,
-  TouchableWithoutFeedback,
-} from 'react-native';
-import modalStyle, { IModalStyle } from './style/index';
-import { ModalProps } from './PropsType';
-import RCModal from 'rc-dialog/lib/Modal';
+import Dialog from 'rmc-dialog';
+import classnames from 'classnames';
+import { ModalProps as BasePropsType, ModalComponent } from './PropsType';
+import TouchFeedback from 'rmc-feedback';
 
-const maxHeight = StyleSheet.create({
-  'maxHeight': {
-    maxHeight: Dimensions.get('window').height,
-  },
-}).maxHeight;
-
-export interface IModalNativeProps extends ModalProps {
-  styles?: IModalStyle;
+export interface ModalProps extends BasePropsType {
+  prefixCls?: string;
+  transitionName?: string;
+  maskTransitionName?: string;
+  className?: string;
+  wrapClassName?: string;
 }
 
-class AntmModal extends React.Component<IModalNativeProps, any> {
+export default class Modal extends ModalComponent<ModalProps, any> {
   static defaultProps = {
-    visible: false,
-    closable: false,
-    maskClosable: false,
-    style: {},
-    bodyStyle: {},
-    animationType: 'fade',
-    onClose() {
-    },
-    footer: [],
+    prefixCls: 'am-modal',
     transparent: false,
-    animateAppear: true,
-    styles: modalStyle,
+    popup: false,
+    animationType: 'slide-down',
+    animated: true,
+    style: {},
+    onShow() { },
+    footer: [],
+    closable: false,
     operation: false,
+    platform: 'ios',
   };
 
-  root: any;
-
-  onFooterLayout = (e) => {
-    if (this.root) {
-      this.root.setNativeProps({
-        style: [{ paddingBottom: e.nativeEvent.layout.height }, maxHeight],
-      });
+  isInModal(e) {
+    if (!/\biPhone\b|\biPod\b/i.test(navigator.userAgent)) {
+      return;
     }
+    // fix touch to scroll background page on iOS
+    const prefixCls = this.props.prefixCls;
+    const pNode = (node => {
+      while (node.parentNode && node.parentNode !== document.body) {
+        if (node.classList.contains(prefixCls)) {
+          return node;
+        }
+        node = node.parentNode;
+      }
+    })(e.target);
+    if (!pNode) {
+      e.preventDefault();
+    }
+    return true;
   }
 
-  saveRoot = (root) => {
-    this.root = root;
+  renderFooterButton(button, prefixCls, i) {
+    let buttonStyle = {};
+    if (button.style) {
+      buttonStyle = button.style;
+      if (typeof buttonStyle === 'string') {
+        const styleMap = {
+          cancel: {},
+          default: {},
+          destructive: { color: 'red' },
+        };
+        buttonStyle = styleMap[buttonStyle] || {};
+      }
+    }
+
+    const onClickFn = function (e) {
+      e.preventDefault();
+      if (button.onPress) {
+        button.onPress();
+      }
+    };
+
+    return (
+      <TouchFeedback activeClassName={`${prefixCls}-button-active`} key={i}>
+        <a className={`${prefixCls}-button`} role="button" style={buttonStyle} onClick={onClickFn}>
+          {button.text || `Button`}
+        </a>
+      </TouchFeedback>
+    );
   }
 
   render() {
-    const {
-      title, closable, footer, children, style, animateAppear, maskClosable,
-      transparent, visible, onClose, bodyStyle, onAnimationEnd, operation,
+    let {
+      prefixCls, className, wrapClassName, transitionName, maskTransitionName, style, platform,
+      footer = [], operation, animated, transparent, popup, animationType, ...restProps,
     } = this.props;
 
-    const styles = this.props.styles!;
+    const btnGroupClass = classnames(
+      `${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`,
+      `${prefixCls}-button-group-${operation ? 'operation' : 'normal'}`,
+    );
+    const footerDom = footer.length ? <div className={btnGroupClass} role="group">
+      {footer.map((button: any, i) => this.renderFooterButton(button, prefixCls, i))}
+    </div> : null;
 
-    let btnGroupStyle = styles.buttonGroupV;
-    let horizontalFlex = {};
-    if (footer && footer.length === 2 && !operation) {
-      btnGroupStyle = styles.buttonGroupH;
-      horizontalFlex = { flex: 1 };
-    }
-    const buttonWrapStyle = footer && footer.length === 2 ? styles.buttonWrapH : styles.buttonWrapV;
-    let footerDom;
-    if (footer && footer.length) {
-      const footerButtons = footer.map((button: any, i) => {
-        let buttonStyle = {};
-        if (operation) {
-          buttonStyle = styles.buttonTextOperation;
-        }
-        if (button.style) {
-          buttonStyle = button.style;
-          if (typeof buttonStyle === 'string') {
-            const styleMap = {
-              'cancel': { fontWeight: 'bold' },
-              'default': {},
-              'destructive': { color: 'red' },
-            };
-            buttonStyle = styleMap[buttonStyle] || {};
-          }
-        }
-        const noneBorder = footer && footer.length === 2 && i === 1 ? { borderRightWidth: 0 } : {};
-        const onPressFn = function() {
-          if (button.onPress) {
-            button.onPress();
-          }
-          if (onClose) {
-            onClose();
-          }
-        };
-        return (
-          <TouchableHighlight key={i} style={horizontalFlex} underlayColor="#ddd" onPress={onPressFn}>
-            <View style={[buttonWrapStyle, noneBorder]}>
-              <Text style={[styles.buttonText, buttonStyle]}>{button.text || `按钮${i}`}</Text>
-            </View>
-          </TouchableHighlight>
-        );
-      });
-      footerDom = (
-        <View style={[btnGroupStyle, styles.footer]} onLayout={this.onFooterLayout}>
-          {footerButtons}
-        </View>
-      );
+    // popup 模式自动禁止 transparent
+    if (popup) {
+      transparent = false;
     }
 
-    let animType = this.props.animationType;
-    if (transparent) {
-      if (animType === 'slide') {
-        animType = 'slide-up';
+    let transName;
+    let maskTransName;
+    if (animated) {
+      if (transparent) {
+        transName = maskTransName = 'am-fade';
+      } else {
+        transName = maskTransName = 'am-slide-up';
       }
-      const closableDom = closable ? (
-        <View style={[styles.closeWrap]}>
-          <TouchableWithoutFeedback onPress={onClose}>
-            <View>
-              <Text style={[styles.close]}>×</Text>
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
-      ) : null;
-      return (
-        <View style={styles.container}>
-          <RCModal
-            onClose={onClose}
-            animationType={animType}
-            wrapStyle={transparent ? styles.wrap : undefined}
-            style={[styles.innerContainer, style]}
-            visible={visible}
-            onAnimationEnd={onAnimationEnd}
-            animateAppear={animateAppear}
-            maskClosable={maskClosable}
-          >
-            <View style={maxHeight} ref={this.saveRoot}>
-              {title ? <Text style={[styles.header]}>{title}</Text> : null}
-              <View style={[styles.body, bodyStyle]}>{children}</View>
-              {footerDom}
-              {closableDom}
-            </View>
-          </RCModal>
-        </View>
-      );
+      if (popup) {
+        transName = animationType === 'slide-up' ? 'am-slide-up' : 'am-slide-down';
+        maskTransName = 'am-fade';
+      }
     }
-    if (animType === 'slide-up' || animType === 'slide-down' || animType === 'slide') {
-      animType = 'slide';
-    }
+
+    const wrapCls = classnames(wrapClassName, {
+      [`${prefixCls}-wrap-popup`]: popup,
+    });
+    const cls = classnames(className, {
+      [`${prefixCls}-transparent`]: transparent,
+      [`${prefixCls}-popup`]: popup,
+      [`${prefixCls}-popup-${animationType}`]: popup && animationType,
+      [`${prefixCls}-android`]: platform === 'android',
+    });
+
     return (
-      <View style={styles.container}>
-        <Modal
-          visible={visible}
-          animationType={animType}
-          onRequestClose={onClose}
-        >
-          <View style={style}>
-            {children}
-          </View>
-        </Modal>
-      </View>
+      <Dialog
+        {...restProps}
+        prefixCls={prefixCls}
+        className={cls}
+        wrapClassName={wrapCls}
+        transitionName={transitionName || transName}
+        maskTransitionName={maskTransitionName || maskTransName}
+        style={style}
+        footer={footerDom}
+        wrapProps={{ onTouchStart: e => this.isInModal(e) }}
+      />
     );
   }
 }
-
-export default AntmModal;

@@ -14,8 +14,9 @@ export function webDemoTest(component, options = {}) {
       testMethod = test.skip;
     }
     testMethod(`renders ${file} correctly`, () => {
-      MockDate.set(new Date('2016-11-22').getTime());
-      const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+      // https://github.com/boblauer/MockDate#api
+      MockDate.set('11/22/2016', -60); // Set an arbitrary time zone
+      const demo = require(`../.${file}`); // eslint-disable-line global-require, import/no-dynamic-require
       const wrapper = render(demo);
       expect(renderToJson(wrapper)).toMatchSnapshot();
       MockDate.reset();
@@ -33,7 +34,8 @@ export function rnDemoTest(component, options = {}) {
     }
 
     testMethod(`renders ${file} correctly`, () => {
-      const Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+      let Demo = require(`../.${file}`); // eslint-disable-line global-require, import/no-dynamic-require
+      Demo = Demo.default || Demo;
       const tree = renderer.create(<Demo />).toJSON();
       expect(tree).toMatchSnapshot();
     });

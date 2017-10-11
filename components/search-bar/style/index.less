@@ -45,7 +45,7 @@
         width: @icon-size-xxs;
         height: @icon-size-xxs;
         overflow: hidden;
-        vertical-align: -5px;
+        vertical-align: -2.5 * @hd;
         background-repeat: no-repeat;
         background-size: @icon-size-xxs auto;
         .encoded-svg-background('search_bar_search');
@@ -53,7 +53,7 @@
 
       &-placeholder {
         color: @color-text-placeholder;
-        font-size: @searchbar-font-size;
+        font-size: @search-bar-font-size;
       }
     }
 
@@ -65,11 +65,11 @@
       display: block;
       color: @color-text-base;
       height: @search-bar-input-height;
-      font-size: @searchbar-font-size;
+      font-size: @search-bar-font-size;
       background-color: transparent;
       border: 0;
 
-      &::-webkit-input-placeholder {
+      &::placeholder {
         background: none;
         text-align: left;
         // color: @color-text-placeholder;
@@ -99,7 +99,7 @@
       transition: all .3s;
       .encoded-svg-background('search_bar_clear');
 
-      &:active {
+      &-active {
         .encoded-svg-background('search_bar_clear_active');
       }
 
@@ -133,9 +133,9 @@
     .@{searchPrefixCls}-input {
       input[type="search"] {
         opacity: 1;
-        padding-left: @h-spacing-lg + @icon-size-xxs + @h-spacing-sm;
+        padding: 0 0 0 @h-spacing-lg + @icon-size-xxs + @h-spacing-sm;
 
-        &::-webkit-input-placeholder {
+        &::placeholder {
           // display: none;
           color: transparent;
         }

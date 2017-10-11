@@ -1,3 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/menu/demo/basic.tsx correctly 1`] = `null`;
+exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
+<div
+  class=""
+>
+  <div>
+    <div
+      class="am-navbar am-navbar-light top-nav-bar"
+    >
+      <div
+        class="am-navbar-left"
+        role="button"
+      >
+        <span
+          aria-hidden="true"
+          class="am-navbar-left-icon"
+        >
+          <img
+            alt="icon"
+            class="am-icon am-icon-md"
+            src="https://gw.alipayobjects.com/zos/rmsportal/iXVHARNNlmdCGnwWxQPH.svg"
+          >
+            
+          </img>
+        </span>
+        <span
+          class="am-navbar-left-content"
+        >
+          Menu
+        </span>
+      </div>
+      <div
+        class="am-navbar-title"
+      >
+        Here is title
+      </div>
+      <div
+        class="am-navbar-right"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -15,6 +15,24 @@ TypeScript
 $ npm run lint
 ```
 
+### Directory Structure
+```
+├── AUTHORS.txt             authors
+├── CHANGELOG.xxx.md        changelog document
+├── LICENSE                 license
+├── README.md               readme document
+├── ant-design-analysis     package analysis
+├── components              components source code
+├── development.xxx.md      development document
+├── docs                    other docs
+├── rn-kitchen-sink         RN demo project source code
+├── scripts                 scripts for development
+├── site                    offical web site source code
+├── tests                   test code
+├── tsconfig.json           TypeScript config
+├── typings                 mistake defined for TypeScript
+```
+
 ### API Design Philosophy
 
 Basic principles:
@@ -152,7 +170,7 @@ $ npm run rn-start
 $ npm run ios / android
 ```
 
-The code of demo app: https://github.com/ant-design/ant-design-mobile/rn-kitchen-sink
+The code of demo app: https://github.com/ant-design/ant-design-mobile/tree/master/rn-kitchen-sink
 
 If you need to add a new component, then modify `rn-kitchen-sink/demoList.js` and `./index.js`.
 
@@ -223,7 +241,3 @@ Debug test:
 1. Run `node --debug-brk ./node_modules/.bin/jest -i -c .jest.json -i components/button/__tests/index.test.js` (.jest.web.json for web component);
 1. Run `node-inspector`；
 1. Open `http://127.0.0.1:8080/?port=5858`, a breakpoint will be set at the first line of the Jest CLI script. Click the button that looks like a "play" button in the upper right hand side of the screen to continue execution. When Jest executes the test that contains the debugger statement, execution will pause and you can examine the current scope and call stack.
-
-### How antd mobile deal with web and react native code ?
-
-see [Wiki](https://github.com/ant-design/ant-design-mobile/wiki/How-antd-mobile-deal-with-web-and-react-native-code-%3F)

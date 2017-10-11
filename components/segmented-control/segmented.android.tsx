@@ -1,11 +1,16 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import setNormalizedColorAlpha from 'react-native/Libraries/StyleSheet/setNormalizedColorAlpha';
+import normalizeColor from 'react-native/Libraries/StyleSheet/normalizeColor';
 import SegmentedControlProps from './PropsType';
-import AndroidStyle, { ISegmentControlStyle } from './style/';
+import AndroidStyle, { ISegmentControlStyle } from './style/index.native';
 
 export interface ISegmentControlNativeProps extends SegmentedControlProps {
   styles?: ISegmentControlStyle;
 }
+
+const AndroidStyles = StyleSheet.create<any>(AndroidStyle);
+
 export default class SegmentedControl extends React.Component<ISegmentControlNativeProps, any> {
   static defaultProps = {
     selectedIndex: 0,
@@ -15,7 +20,7 @@ export default class SegmentedControl extends React.Component<ISegmentControlNat
     onValueChange() {},
     tintColor: '#108ee9',
     style: {},
-    styles: AndroidStyle,
+    styles: AndroidStyles,
   };
 
   constructor(props) {
@@ -64,18 +69,27 @@ export default class SegmentedControl extends React.Component<ISegmentControlNat
       }
 
       const itemStyle = [styles.item, itemRadius, {
-        backgroundColor: idx === selectedIndex ? tintColor : '#fff',
+        backgroundColor: idx === selectedIndex ? tintColor : 'transparent',
         borderColor: tintColor,
       }];
 
+      const underlayColor = idx === selectedIndex ? tintColor : setNormalizedColorAlpha(
+        normalizeColor(tintColor), 0.3,
+      );
+
       return (
-        <TouchableWithoutFeedback key={idx} onPress={(e?: any) => this.onPress(e, idx, value)}>
-          <View style={itemStyle} >
-            <Text style={[styles.itemText, { color: idx === selectedIndex ? '#fff' : tintColor }]}>
-              {value}
-            </Text>
-          </View>
-        </TouchableWithoutFeedback>
+        <TouchableHighlight
+          disabled={disabled}
+          key={idx}
+          onPress={(e?: any) => this.onPress(e, idx, value)}
+          underlayColor={underlayColor}
+          style={itemStyle}
+          activeOpacity={1}
+        >
+          <Text style={[styles.itemText, { color: idx === selectedIndex ? '#fff' : tintColor }]}>
+            {value}
+          </Text>
+        </TouchableHighlight>
       );
     });
 
