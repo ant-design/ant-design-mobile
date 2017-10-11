@@ -1,42 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
-<div
-  class=""
->
-  <div>
+<div>
+  <div
+    class="am-flexbox am-filter am-flexbox-align-center"
+  >
     <div
-      class="am-navbar am-navbar-light top-nav-bar"
+      class="am-flexbox-item custom-filter-item am-filter-item"
     >
       <div
-        class="am-navbar-left"
-        role="button"
+        class="am-filter-label"
       >
-        <span
-          aria-hidden="true"
-          class="am-navbar-left-icon"
-        >
-          <img
-            alt="icon"
-            class="am-icon am-icon-md"
-            src="https://gw.alipayobjects.com/zos/rmsportal/iXVHARNNlmdCGnwWxQPH.svg"
-          >
-            
-          </img>
-        </span>
-        <span
-          class="am-navbar-left-content"
-        >
-          Menu
-        </span>
+        全部状态
       </div>
       <div
-        class="am-navbar-title"
-      >
-        Here is title
-      </div>
-      <div
-        class="am-navbar-right"
+        class="am-filter-icon"
       >
         
       </div>

@@ -1,0 +1,64 @@
+@import '../../style/mixins';
+@import '../../style/themes/default';
+
+@filterPrefixCls: am-filter;
+
+.@{filterPrefixCls} {
+  height: 44px;
+  background-color: #fff;
+  .@{filterPrefixCls}-item {
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    position: relative;
+    .@{filterPrefixCls}-label {
+      .ellipsis();
+      font-size: 15px;
+      color: #000;
+    }
+    &:after {
+      position: absolute;
+      display: block;
+      content: '';
+      height: 16px;
+      width: 1Px;
+      right: 0;
+      top: 12px;
+      background-color: #E5E5E5;
+    }
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+    .@{filterPrefixCls}-icon {
+      display: flex;
+      width: 8px;
+      height: 44px;
+      margin-left: 5px;
+      .encoded-svg-background-i("<svg width='14' height='7' viewBox='0 0 14 7' xmlns='http://www.w3.org/2000/svg'><path d='M0 0l7 7 7-7z' fill='#979797' fill-rule='evenodd'/></svg>");
+      background-repeat: no-repeat;
+      background-size: 8px auto;
+      background-position: center center;
+      img {
+        width: 8px;
+      }
+    }
+    &.@{filterPrefixCls}-item-selected {
+      .@{filterPrefixCls}-label {
+        color: @brand-primary;
+      }
+      .@{filterPrefixCls}-icon {
+        .encoded-svg-background-i("<svg width='14' height='7' viewBox='0 0 14 7' xmlns='http://www.w3.org/2000/svg'><path d='M0 7l7-7 7 7z' fill='#108EE9' fill-rule='evenodd'/></svg>");
+      }
+    }
+    &.@{filterPrefixCls}-item-custom-icon {
+      background: transparent;
+    }
+  }
+}

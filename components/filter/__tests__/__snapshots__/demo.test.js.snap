@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/filter/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="am-flexbox am-filter am-flexbox-align-center"
+  >
+    <div
+      class="am-flexbox-item am-filter-item"
+    >
+      <div
+        class="am-filter-label"
+      >
+        全部状态
+      </div>
+      <div
+        class="am-filter-icon"
+      >
+        
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+  <div
+    class="am-flexbox am-filter am-flexbox-align-center"
+  >
+    <div
+      class="am-flexbox-item am-filter-item"
+    >
+      <div
+        class="am-filter-label"
+      >
+        <div>
+          全国
+        </div>
+      </div>
+      <div
+        class="am-filter-icon"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item am-filter-item"
+    >
+      <div
+        class="am-filter-label"
+      >
+        全部状态全部
+      </div>
+      <div
+        class="am-filter-icon"
+      >
+        
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+  <div
+    class="am-flexbox am-filter am-flexbox-align-center"
+  >
+    <div
+      class="am-flexbox-item am-filter-item"
+    >
+      <div
+        class="am-filter-label"
+      >
+        全部门店
+      </div>
+      <div
+        class="am-filter-icon"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item am-filter-item"
+    >
+      <div
+        class="am-filter-label"
+      >
+        全部状态
+      </div>
+      <div
+        class="am-filter-icon"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item am-filter-item"
+    >
+      <div
+        class="am-filter-label"
+      >
+        全部状态
+      </div>
+      <div
+        class="am-filter-icon"
+      >
+        
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  >
+    
+  </div>
+  <div
+    class="am-flexbox am-filter am-flexbox-align-center"
+  >
+    <div
+      class="am-flexbox-item am-filter-item"
+    >
+      <div
+        class="am-filter-label"
+      >
+        私海
+      </div>
+      <div
+        class="am-filter-icon"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item am-filter-item"
+    >
+      <div
+        class="am-filter-label"
+      >
+        已生效
+      </div>
+      <div
+        class="am-filter-icon"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item am-filter-item"
+    >
+      <div
+        class="am-filter-label"
+      >
+        即将到期
+      </div>
+      <div
+        class="am-filter-icon"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item search-filter-item am-filter-item am-filter-item-custom-icon"
+    >
+      <div
+        class="am-filter-label"
+      >
+        搜索
+      </div>
+      <div
+        class="am-filter-icon"
+      >
+        <img
+          src="https://gw.alipayobjects.com/zos/rmsportal/ajwlMoueKEbixQmJrHZN.svg"
+        >
+          
+        </img>
+      </div>
+    </div>
+  </div>
+</div>
+`;

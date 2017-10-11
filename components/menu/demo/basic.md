@@ -7,7 +7,7 @@ title:
 
 ````jsx
 /* eslint global-require:0, no-nested-ternary:0 */
-import { Menu, ActivityIndicator, NavBar } from 'antd-mobile';
+import { Menu, ActivityIndicator, Filter } from 'antd-mobile';
 
 const data = [
   {
@@ -85,10 +85,12 @@ class MenuExample extends React.Component {
     this.state = {
       initData: '',
       show: false,
+      filterLabel: '全部状态',
     };
   }
   onChange = (value) => {
     let label = '';
+    let cLabel = '';
     data.forEach((dataItem) => {
       if (dataItem.value === value[0]) {
         label = dataItem.label;
@@ -96,30 +98,27 @@ class MenuExample extends React.Component {
           dataItem.children.forEach((cItem) => {
             if (cItem.value === value[1]) {
               label += ` ${cItem.label}`;
+              cLabel = cItem.label;
             }
           });
         }
       }
     });
-    console.log(label);
-  }
-  handleClick = (e) => {
-    e.preventDefault(); // Fix event propagation on Android
-    this.setState({
-      show: !this.state.show,
-    });
-    // mock for async data loading
-    if (!this.state.initData) {
-      setTimeout(() => {
+    setTimeout(() => {
+      this.setState({
+        show: false,
+      });
+      if (cLabel !== '') {
         this.setState({
-          initData: data,
+          filterLabel: cLabel,
         });
-      }, 500);
-    }
+      }
+    });
+    console.log(label);
   }
 
   render() {
-    const { initData, show } = this.state;
+    const { initData, show, filterLabel } = this.state;
     const menuEl = (
       <Menu
         className="foo-menu"
@@ -135,18 +134,26 @@ class MenuExample extends React.Component {
       </div>
     );
     return (
-      <div className={show ? 'menu-active' : ''}>
-        <div>
-          <NavBar
-            leftContent="Menu"
-            mode="light"
-            iconName={<img src="https://gw.alipayobjects.com/zos/rmsportal/iXVHARNNlmdCGnwWxQPH.svg" className="am-icon am-icon-md" alt="icon" />}
-            onLeftClick={this.handleClick}
-            className="top-nav-bar"
-          >
-            Here is title
-          </NavBar>
-        </div>
+      <div>
+        <Filter
+          data={[{
+            text: filterLabel,
+            selected: show,
+            onClick: (el) => {
+              this.setState({
+                show: !el.selected,
+              });
+              if (!this.state.initData) {
+                setTimeout(() => {
+                  this.setState({
+                    initData: data,
+                  });
+                }, 500);
+              }
+            },
+            className: 'custom-filter-item',
+          }]}
+        />
         {show ? initData ? menuEl : loadingEl : null}
       </div>
     );
@@ -160,23 +167,5 @@ ReactDOM.render(<MenuExample />, mountNode);
 .foo-menu {
   position: relative;
   z-index: 1000 !important;
-}
-.top-nav-bar {
-  position: relative;
-  z-index: 1000 !important;
-  background-color: #008AE6;
-  color: #FFF;
-}
-.am-navbar-title {
-  color: #FFF!important;
-}
-.menu-active:after {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.4;
 }
 ```
