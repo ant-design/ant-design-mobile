@@ -118,7 +118,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-extra"
               >
-                Click to see i18n text
+                please select
               </div>
               <div
                 aria-hidden="true"
@@ -196,6 +196,57 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
         </div>
       </div>
     </div>
+    <div
+      class="am-whitespace am-whitespace-md"
+    >
+      
+    </div>
+    <form
+      action="#"
+      class="am-search"
+    >
+      <div
+        class="am-search-input"
+      >
+        <div
+          class="am-search-synthetic-ph"
+        >
+          <span
+            class="am-search-synthetic-ph-container"
+          >
+            <i
+              class="am-search-synthetic-ph-icon"
+            >
+              
+            </i>
+            <span
+              class="am-search-synthetic-ph-placeholder"
+              style="visibility:visible"
+            >
+              Search
+            </span>
+          </span>
+        </div>
+        <input
+          class="am-search-value"
+          placeholder="Search"
+          type="search"
+          value=""
+        >
+          
+        </input>
+        <a
+          class="am-search-clear"
+        >
+          
+        </a>
+      </div>
+      <div
+        class="am-search-cancel am-search-cancel-show"
+      >
+        取消
+      </div>
+    </form>
   </div>
 </div>
 `;
