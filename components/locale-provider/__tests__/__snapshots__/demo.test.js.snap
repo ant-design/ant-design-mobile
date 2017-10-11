@@ -135,6 +135,38 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
             </div>
           </div>
         </div>
+        <div>
+          <div
+            class="am-list-item am-list-item-middle"
+          >
+            <div
+              class="am-list-line"
+            >
+              <div
+                class="am-list-content"
+              >
+                Multiple
+              </div>
+              <div
+                class="am-list-extra"
+              >
+                请选择
+              </div>
+              <div
+                aria-hidden="true"
+                class="am-list-arrow am-list-arrow-horizontal"
+              >
+                
+              </div>
+            </div>
+            <div
+              class="am-list-ripple"
+              style="display:none"
+            >
+              
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div

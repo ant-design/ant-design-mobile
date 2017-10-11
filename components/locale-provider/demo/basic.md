@@ -9,12 +9,35 @@ Wrap your app with `LocaleProvider`, and apply the corresponding language packag
 
 ````jsx
 import {
-  Pagination, LocaleProvider, List, DatePicker, WhiteSpace, InputItem, WingBlank, SegmentedControl,
+  Pagination, LocaleProvider, List, DatePicker, WhiteSpace, InputItem, WingBlank, SegmentedControl, Picker,
 } from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US';
 
 const maxDate = new Date(2018, 11, 3, 22, 0);
 const minDate = new Date(2015, 7, 6, 8, 30);
+
+const seasons = [
+  [
+    {
+      label: '2013',
+      value: '2013',
+    },
+    {
+      label: '2014',
+      value: '2014',
+    },
+  ],
+  [
+    {
+      label: '春',
+      value: '春',
+    },
+    {
+      label: '夏',
+      value: '夏',
+    },
+  ],
+];
 
 const Page = () => (
   <div>
@@ -33,6 +56,14 @@ const Page = () => (
       >
         <List.Item arrow="horizontal">date</List.Item>
       </DatePicker>
+      <Picker
+        data={seasons}
+        cascade={false}
+        onChange={v => this.setState({ sValue: v })}
+        onOk={v => this.setState({ sValue: v })}
+      >
+        <List.Item arrow="horizontal">Multiple</List.Item>
+      </Picker>
     </List>
     <WhiteSpace />
     <InputItem type="money" placeholder="money input" />
