@@ -5,7 +5,6 @@ title: ListView
 ---
 
 It is suitable for displaying the long list data type of the same kind, and has certain optimization effect on the rendering performance.
-`ListView` is often used with [RefreshControl] (https://mobile.ant.design/components/refresh-control/).
 
 ## API
 
@@ -32,21 +31,13 @@ Properties | Descrition | Type | Default
 | onContentSizeChange | Called when scrollable content view of the ScrollView changes. | (contentWidth, contentHeight) => {} | - |
 | onScroll | Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop. | e => {} | - |
 | scrollEventThrottle | This controls how often the scroll event will be fired while scrolling | number | 50 |
-| refreshControl | A [RefreshControl](https://mobile.ant.design/components/refresh-control/) component, used to provide pull-to-refresh functionality for the ScrollView. | element | - |
 | onLayout | Invoked on mount and layout changes with | ({nativeEvent:{ layout:{ width, height }}}) => {} | - |
 | ---- |
 | renderBodyComponent (`web only`) | render listview body wrapper component | () => renderable | - |
 | renderSectionWrapper (`web only`) | | render listview section wrapper component | (sectionID) => renderable | - |
 | renderSectionBodyWrapper (`web only`) | render listview section body wrapper component | (sectionID) => renderable | - |
 | useBodyScroll (`web only`) | use html `body`'s scroll | bool | false |
-| useZscroller (`web only`) | use [zscroller](https://github.com/yiminghe/zscroller) to simulate the implementation of rolling containers(can be used for some poor Android machine) (`useBodyScroll` settings are automatically ignored), and can support RefreshControl well | bool | false |
-| scrollerOptions (`web only`) | [zscroller options](https://github.com/yiminghe/zscroller#options) | Object | - |
-| ---- |
-| pullUpEnabled (`web only`) | Whether enable pull-up (It is not supported with `useZscroller`) | bool | false |
-| pullUpRefreshing (`web only`) | Whether the view should be indicating an active refresh | bool | false |
-| pullUpOnRefresh (`web only`) | Called when the view starts refreshing. | () => void | - |
-| pullUpDistanceToRefresh (`web only`) | distance to pull up | number | `25` |
-| pullUpRenderer (`web only`) | custom renderer text, the params are one of `activate` / `deactivate` / `release` / `finish` | (arg) => void | - |
+| pullToRefresh (`web only`) | Whether enable pullToRefresh, you need use it with `PullToRefresh` component | bool | false |
 
 ### Methods
 
@@ -60,7 +51,7 @@ Support WEB.
 
 This component is often used in the "Contacts" / "city list" scenes, support for index navigation.
 
-> You can use almost all APIs on the ListView, except for `useZscroller`
+> You can use almost all APIs on the ListView.
 >
 > Note: Only two-step rendering is supported, so that the first screen priority display can be achieved, but if the list data volume is too large, the overall performance will still be affected.
 
@@ -76,11 +67,9 @@ Properties | Descrition | Type | Default
 
 ## Tips
 
-ListView has three types of scroll containers:
+ListView has two types of scroll containers:
 
 1. Partial div container
     - default, note: **need to manually set the height of the ListView**
 2. html body container
     - set `useBodyScroll` to take effect (do not need to set height)
-3. Use [zscroller](https://github.com/yiminghe/zscroller) to simulate the rolling container
-    - set `useZscroller` to take effect, then you can set `scrollerOptions` (need to manually set the height of the ListView)

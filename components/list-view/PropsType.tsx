@@ -29,7 +29,6 @@ interface Props {
   renderBodyComponent?: Function;
   renderSectionBodyWrapper?: Function;
   sectionBodyClassName?: string;
-  useZscroller?: boolean;
   useBodyScroll?: boolean;
   stickyHeader?: boolean;
   stickyProps?: any; // https://github.com/captivationsoftware/react-sticky/blob/master/README.md#sticky--props

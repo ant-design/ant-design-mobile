@@ -129,12 +129,38 @@ const tabs = [
 + </Modal>
 ```
 
+#### ListView & RefreshControl
+
+**注意: 从 `beta.6` 版本开始，他们有很大的优化**，如果你之前有使用 ListView 的 `useZscroller` 属性、或者 `RefreshControl` 组件，你需要按新的用法来升级。
+
+现在 `useZscroller` `scrollerOptions` `refreshControl` 这些属性不再起作用。**使用 web 的原生 scroller 来代替 zscroller，使用 `PullToRefresh` 组件来代替 `RefreshControl` 组件**。
+
+升级示例:
+
+  ```diff
+  - import { ListView, RefreshControl } from 'antd-mobile';
+  + import { ListView, PullToRefresh } from 'antd-mobile';
+  <ListView
+     dataSource={this.state.dataSource}
+  -  refreshControl={<RefreshControl
+  +  pullToRefresh={<PullToRefresh
+       refreshing={this.state.refreshing}
+       onRefresh={this.onRefresh}
+  -    icon={this.renderCustomIcon()}
+  +    indicator={{ deactivate: '下拉' }}
+     />}
+  />
+  ```
+
+> **注意：我们不推荐使用模拟 scroller**。如果你有特殊需求执意要用，请查看 [list-view zscroller](https://github.com/react-component/m-list-view/blob/master/HISTORY.md#zscroller) 这里的详细用法。
+
+
 #### Others
 
 - 删除 `Table` 组件，可以自行使用 [rc-table](https://github.com/react-component/table) 包装。
 - 各个组件的 `ref` 从 `string` 修改为 `function` (比如 `input` 组件 `this.refs.input` => `this.input`)
 - 部分 Web 版本组件原来会根据 UA 对 iOS 或 Android 平台应用不同的样式，现在修改为默认应用 iOS 平台样式。
-- `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` / `RefreshControl` 等组件的 细节样式 或 API 都有部分微调。
+- `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` 等组件的 细节样式 或 API 都有部分微调。
 - `ListView` 的 sticky 特性从“内置”改为“外置”。
 
 更细节的信息，请查看 change logs

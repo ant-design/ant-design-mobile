@@ -31,7 +31,7 @@ Array [
   "Popover",
   "Progress",
   "Radio",
-  "RefreshControl",
+  "PullToRefresh",
   "Result",
   "SearchBar",
   "SegmentedControl",

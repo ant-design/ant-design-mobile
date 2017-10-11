@@ -27,10 +27,6 @@ export default class ListView extends React.Component<ListViewPropsType, any> {
 
   render() {
     const { restProps, extraProps } = handleProps(this.props, false);
-    let { useZscroller, refreshControl } = this.props;
-    if (refreshControl) {
-      useZscroller = true;
-    }
-    return <MListView ref={el => this.listviewRef = el} {...restProps} {...extraProps} useZscroller={useZscroller} />;
+    return <MListView ref={el => this.listviewRef = el} {...restProps} {...extraProps} />;
   }
 }

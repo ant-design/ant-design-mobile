@@ -123,12 +123,38 @@ Example of implementing Popup using Modal components:
 + </Modal>
 ```
 
+#### ListView & RefreshControl
+
+**Note: they have very big optimization from `beta.6` version**. If you have used the `useZscroller` prop of the `ListView` before, or the `RefreshControl` component. You need to follow new usage.
+
+Now `useZscroller` `scrollerOptions` `refreshControl` these props no longer work. **Use the web's native scroller instead of zscroller, using the `PullToRefresh` component instead of the `RefreshControl` component**.
+
+Upgrade example:
+
+  ```diff
+  - import { ListView, RefreshControl } from 'antd-mobile';
+  + import { ListView, PullToRefresh } from 'antd-mobile';
+  <ListView
+     dataSource={this.state.dataSource}
+  -  refreshControl={<RefreshControl
+  +  pullToRefresh={<PullToRefresh
+       refreshing={this.state.refreshing}
+       onRefresh={this.onRefresh}
+  -    icon={this.renderCustomIcon()}
+  +    indicator={{ deactivate: '下拉' }}
+     />}
+  />
+  ```
+
+> **Note: we do not recommend using simulated scroller**. If you have special needs insisted on using it. Please see [list-view zscroller](https://github.com/react-component/m-list-view/blob/master/HISTORY.md#zscroller) for details.
+
+
 #### Others
 
 - Delete the `Table` component, and you can use [rc-table](https://github.com/react-component/table) instead.
 - Each component's `ref` changed from `string` to `function` (e.g. `input` component: `this.refs.input` => `this.input`)
 - Part of the Web's components styles were differ from the UA of iOS or Android platform, but now all components use iOS platform styles as default.
-- For `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` / `RefreshControl` components, Their detail styles or APIs have some fine tuning.
+- For `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` components, Their detail styles or APIs have some fine tuning.
 - `ListView`'s sticky feature change from "built-in" to "external".
 
 For more details, please see change logs.

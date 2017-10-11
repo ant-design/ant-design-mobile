@@ -43,7 +43,7 @@ export { default as Popover } from './popover/index';
 export { default as Progress } from './progress/index';
 
 export { default as Radio } from './radio/index';
-export { default as RefreshControl } from './refresh-control/index';
+export { default as PullToRefresh } from './pull-to-refresh/index';
 export { default as Result } from './result/index';
 export { default as SearchBar } from './search-bar/index';
 export { default as SegmentedControl } from './segmented-control/index';

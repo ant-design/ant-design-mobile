@@ -1,8 +1,8 @@
 ---
-order: 0
+order: 1
 title:
   zh-CN: 'ListView 下拉刷新'
-  en-US: 'ListView RefreshControl'
+  en-US: 'ListView PullToRefresh'
 ---
 
 下拉刷新
@@ -10,7 +10,7 @@ title:
 
 ````jsx
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
-import { RefreshControl, ListView } from 'antd-mobile';
+import { PullToRefresh, ListView } from 'antd-mobile';
 
 const data = [
   {
@@ -52,6 +52,7 @@ class App extends React.Component {
     this.state = {
       dataSource,
       refreshing: true,
+      isLoading: true,
       height: document.documentElement.clientHeight,
     };
   }
@@ -66,57 +67,27 @@ class App extends React.Component {
   // }
 
   componentDidMount() {
-    // Set the appropriate height
-    setTimeout(() => this.setState({
-      height: this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop,
-    }), 0);
-
-    // handle https://github.com/ant-design/ant-design-mobile/issues/1588
-    this.lv.getInnerViewNode().addEventListener('touchstart', this.ts = (e) => {
-      this.tsPageY = e.touches[0].pageY;
-    });
-    // In chrome61 `document.body.scrollTop` is invalid
-    const scrollNode = document.scrollingElement ? document.scrollingElement : document.body;
-    this.lv.getInnerViewNode().addEventListener('touchmove', this.tm = (e) => {
-      this.tmPageY = e.touches[0].pageY;
-      if (this.tmPageY > this.tsPageY && this.scrollerTop <= 0 && scrollNode.scrollTop > 0) {
-        console.log('start pull to refresh');
-        this.domScroller.options.preventDefaultOnTouchMove = false;
-      } else {
-        this.domScroller.options.preventDefaultOnTouchMove = undefined;
-      }
-    });
+    const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(genData()),
+        height: hei,
+        refreshing: false,
+      });
+    }, 2000);
   }
-
-  componentWillUnmount() {
-    this.lv.getInnerViewNode().removeEventListener('touchstart', this.ts);
-    this.lv.getInnerViewNode().removeEventListener('touchmove', this.tm);
-  }
-
-  onScroll = (e) => {
-    this.scrollerTop = e.scroller.getValues().top;
-    this.domScroller = e;
-  };
 
   onRefresh = () => {
-    console.log('onRefresh');
-    if (!this.manuallyRefresh) {
-      this.setState({ refreshing: true });
-    } else {
-      this.manuallyRefresh = false;
-    }
-
+    this.setState({ refreshing: true, isLoading: true });
     // simulate initial Ajax
     setTimeout(() => {
       this.rData = genData();
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(this.rData),
         refreshing: false,
-        showFinishTxt: true,
+        isLoading: false,
       });
-      if (this.domScroller) {
-        this.domScroller.scroller.options.animationDuration = 500;
-      }
     }, 600);
   };
 
@@ -136,24 +107,6 @@ class App extends React.Component {
       });
     }, 1000);
   };
-
-  scrollingComplete = () => {
-    // In general, this.scrollerTop should be 0 at the end, but it may be -0.000051 in chrome61.
-    if (this.scrollerTop >= -1) {
-      this.setState({ showFinishTxt: false });
-    }
-  }
-
-  renderCustomIcon() {
-    return [
-      <div key="0" className="am-refresh-control-pull">
-        <span>{this.state.showFinishTxt ? '刷新完毕' : '下拉可以刷新'}</span>
-      </div>,
-      <div key="1" className="am-refresh-control-release">
-        <span>松开立即刷新</span>
-      </div>,
-    ];
-  }
 
   render() {
     const separator = (sectionID, rowID) => (
@@ -202,33 +155,21 @@ class App extends React.Component {
         </div>)}
         renderRow={row}
         renderSeparator={separator}
-        initialListSize={5}
-        pageSize={5}
         style={{
           height: this.state.height,
           border: '1px solid #ddd',
           margin: '5px 0',
         }}
-        scrollerOptions={{ scrollbars: true, scrollingComplete: this.scrollingComplete }}
-        refreshControl={<RefreshControl
+        pullToRefresh={<PullToRefresh
           refreshing={this.state.refreshing}
           onRefresh={this.onRefresh}
-          icon={this.renderCustomIcon()}
         />}
-        onScroll={this.onScroll}
-        scrollRenderAheadDistance={200}
-        scrollEventThrottle={20}
         onEndReached={this.onEndReached}
-        onEndReachedThreshold={10}
+        pageSize={5}
       />
     );
   }
 }
 
 ReactDOM.render(<App />, mountNode);
-````
-````css
-.am-refresh-control-deactive .am-refresh-control-indicator-icon {
-  display: block;
-}
 ````

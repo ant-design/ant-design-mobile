@@ -61,6 +61,9 @@ toc: false
       - 从 `${prefixCls}-ptr` 改为 `${prefixCls}-indicator`
       - 从 `${prefixCls}-ptr-icon` 改为 `${prefixCls}-indicator-icon-wrapper`
       - 从 `${prefixCls}-ptr-loading` 改为 `${prefixCls}-indicator-loading-wrapper`
+  - [Web] `ListView`(beta.6) 新增 `pullToRefresh` 属性，移除 `useZscroller` `scrollerOptions` `refreshControl` `pullUpEnabled` `pullUpRefreshing` `pullUpOnRefresh` `pullUpDistanceToRefresh` `pullUpRenderer` 属性
+  - [Web] `RefreshControl`(beta.6) 已经被移除，请使用新增的 `PullToRefresh` 组件代替
+  - [RN] `RefreshControl`(beta.6) 已经被移除，请直接引用 react-native RefreshControl
   - [RN] `ActionSheet.showShareActionSheetWithOptions` 利用 react native `Share` 进行重新实现
   - [RN] `Button` 组件 style 里 `disabledRaw` / `disabledRawText` 修改为 `defaultDisabledRaw` / `defaultDisabledRawText`
 

@@ -6,7 +6,6 @@ subtitle: 长列表
 ---
 
 适用于显示同类的长列表数据类型，对渲染性能有一定的优化效果。
-`ListView`经常和 [RefreshControl](https://mobile.ant.design/components/refresh-control-cn/) 搭配使用。
 
 ## API
 
@@ -33,21 +32,13 @@ subtitle: 长列表
 | onContentSizeChange | 此函数会在 ScrollView 内部可滚动内容的视图发生变化时调用。 | (contentWidth, contentHeight) => {} | - |
 | onScroll | 在滚动的过程中，每帧最多调用一次此回调函数。调用的频率可以用`scrollEventThrottle`属性来控制。| e => {} | - |
 | scrollEventThrottle | 控制在滚动过程中，scroll事件被调用的频率 | number | 50 |
-| refreshControl | 指定 [RefreshControl](https://mobile.ant.design/components/refresh-control-cn/) 组件，用于为ScrollView 提供下拉刷新功能。 | element | - |
 | onLayout | 当组件挂载或者布局变化的时候调用 | ({nativeEvent:{ layout:{ width, height }}}) => {} | - |
 | ---- |
 | renderBodyComponent (`web only`) | 自定义 body 的包裹组件 | () => renderable | - |
 | renderSectionWrapper (`web only`) | 渲染自定义的区块包裹组件 | (sectionID) => renderable | - |
 | renderSectionBodyWrapper (`web only`) | 渲染自定义的区块 body 包裹组件 | (sectionID) => renderable | - |
 | useBodyScroll (`web only`) | 使用 html 的 `body` 作为滚动容器 | bool | false |
-| useZscroller (`web only`) | 使用 [zscroller](https://github.com/yiminghe/zscroller) 来模拟实现滚动容器 (可用于一些低端 Android 机上)，注意：开启后`useBodyScroll`设置会自动被忽略 | bool | false |
-| scrollerOptions (`web only`) | [zscroller options](https://github.com/yiminghe/zscroller#options) | Object | - |
-| ---- |
-| pullUpEnabled (`web only`) | 是否开启 pull-up (不能和 `useZscroller` 一起使用) | bool | false |
-| pullUpRefreshing (`web only`) | 是否显示刷新状态 | bool | false |
-| pullUpOnRefresh (`web only`) | 刷新回调函数 | () => void | - |
-| pullUpDistanceToRefresh (`web only`) | 刷新距离 | number | `25` |
-| pullUpRenderer (`web only`) | 自定义各个状态的文案，参数为 `activate` / `deactivate` / `release` / `finish` 中的一个 | (arg) => void | - |
+| pullToRefresh (`web only`) | 使用 pullToRefresh， 你需要和 `PullToRefresh` 组件一起使用 | bool | false |
 
 ### 方法
 
@@ -61,7 +52,7 @@ subtitle: 长列表
 
 此组件常用于 “通讯录”/“城市列表” 等场景中，支持索引导航功能。
 
-> 你可以使用 ListView 上的几乎所有 APIs，除了`useZscroller`
+> 你可以使用 ListView 上的几乎所有 APIs。
 >
 > 注意：由于索引列表可以点击任一项索引来定位其内容、即内容需要直接滚动到任意位置，这样就难以做到像 ListView 一样能在滚动时自动懒渲染。目前实现上只支持分两步渲染，能借此达到首屏优先显示目的，但如果列表数据量过大时、整体性能仍会有影响。
 
@@ -77,14 +68,12 @@ subtitle: 长列表
 
 ## 提示
 
-ListView 有三种类型的滚动容器：
+ListView 有两种类型的滚动容器：
 
 1. 局部 div 容器
     - 默认，注意：**需要手动给 ListView 设置高度**
 2. html 的 body 容器
     - 设置`useBodyScroll`后生效 (不需要设置高度)
-3. 使用 [zscroller](https://github.com/yiminghe/zscroller) 的模拟滚动容器
-    - 设置`useZscroller`后生效，然后可以设置`scrollerOptions` (需要手动给 ListView 设置高度)
 
 <br />
 

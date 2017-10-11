@@ -23,7 +23,6 @@ export { default as PickerView } from './picker-view/index.native';
 export { default as Popover } from './popover/index.native';
 export { default as Progress } from './progress/index.native';
 export { default as Radio } from './radio/index.native';
-export { default as RefreshControl } from './refresh-control/index.native';
 export { default as Result } from './result/index.native';
 export { default as SearchBar } from './search-bar/index.native';
 export { default as SegmentedControl } from './segmented-control/index.native';

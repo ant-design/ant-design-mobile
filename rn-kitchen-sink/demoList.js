@@ -180,12 +180,6 @@ module.exports = {
       module: require('../components/radio/demo/basic.native'), // 必须
     },
     {
-      title: 'RefreshControl',
-      description: '下拉刷新',
-      icon: 'https://os.alipayobjects.com/rmsportal/nUAtybajGulmcSM.png',
-      module: require('../components/refresh-control/demo/basic.native'),
-    },
-    {
       title: 'Slider',
       description: '滑动输入条',
       icon: 'https://os.alipayobjects.com/rmsportal/mCyccAjoVLFVhSH.png',

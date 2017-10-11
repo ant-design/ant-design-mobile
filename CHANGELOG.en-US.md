@@ -61,6 +61,9 @@ toc: false
       - from `${prefixCls}-ptr` to `${prefixCls}-indicator`
       - from `${prefixCls}-ptr-icon` to `${prefixCls}-indicator-icon-wrapper`
       - from `${prefixCls}-ptr-loading` to `${prefixCls}-indicator-loading-wrapper`
+  - [Web] `ListView`(beta.6) add `pullToRefresh` prop and remove `useZscroller` `scrollerOptions` `refreshControl` `pullUpEnabled` `pullUpRefreshing` `pullUpOnRefresh` `pullUpDistanceToRefresh` `pullUpRenderer` props.
+  - [Web] `RefreshControl` (beta.6) has been removed, please use the new `PullToRefresh` component instead
+  - [RN] `RefreshControl` (beta.6) has been removed, please use react-native RefreshControl directly
   - [RN] `ActionSheet.showShareActionSheetWithOptions` rewrite with react native `Share`
   - [RN] `Button` api `style` attribute `disabledRaw` / `disabledRawText` rename to `defaultDisabledRaw` / `defaultDisabledRawText`
 
