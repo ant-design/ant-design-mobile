@@ -15,7 +15,7 @@ Docked in document
 
 
 ````jsx
-import { Drawer, List, NavBar } from 'antd-mobile';
+import { Drawer, List, NavBar, Icon } from 'antd-mobile';
 
 class App extends React.Component {
   state = {
@@ -42,7 +42,9 @@ class App extends React.Component {
     </List>);
 
     return (<div style={{ height: '100%' }}>
-      <NavBar iconName="ellipsis" onLeftClick={() => this.onDock('docked')}>Docked in document</NavBar>
+      <NavBar icon={<Icon type="ellipsis" />} onLeftClick={() => this.onDock('docked')}>
+        Docked in document
+      </NavBar>
       <Drawer
         className="my-drawer"
         style={{ minHeight: document.documentElement.clientHeight }}

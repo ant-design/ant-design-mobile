@@ -8,25 +8,7 @@ exports[`NavBar renders correctly 1`] = `
     class="am-navbar-left"
     role="button"
   >
-    <span
-      aria-hidden="true"
-      class="am-navbar-left-icon"
-    >
-      <svg
-        class="am-icon am-icon-left am-icon-md"
-      >
-        <use
-          href="#left"
-        >
-          
-        </use>
-      </svg>
-    </span>
-    <span
-      class="am-navbar-left-content"
-    >
-      返回
-    </span>
+    返回
   </div>
   <div
     class="am-navbar-title"

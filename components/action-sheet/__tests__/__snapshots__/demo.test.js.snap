@@ -2,46 +2,40 @@
 
 exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
 <div
-  class="actionSheetContainer"
+  class="am-wingblank am-wingblank-lg"
 >
-  <div
-    style="margin:7.5px 0"
+  <a
+    aria-disabled="false"
+    class="am-button"
+    role="button"
   >
-    <a
-      aria-disabled="false"
-      class="am-button"
-      role="button"
-    >
-      <span>
-        showActionSheet
-      </span>
-    </a>
-  </div>
+    <span>
+      showActionSheet
+    </span>
+  </a>
   <div
-    style="margin:7.5px 0"
+    class="am-whitespace am-whitespace-md"
+  />
+  <a
+    aria-disabled="false"
+    class="am-button"
+    role="button"
   >
-    <a
-      aria-disabled="false"
-      class="am-button"
-      role="button"
-    >
-      <span>
-        showShareActionSheet
-      </span>
-    </a>
-  </div>
+    <span>
+      showShareActionSheet
+    </span>
+  </a>
   <div
-    style="margin:7.5px 0"
+    class="am-whitespace am-whitespace-md"
+  />
+  <a
+    aria-disabled="false"
+    class="am-button"
+    role="button"
   >
-    <a
-      aria-disabled="false"
-      class="am-button"
-      role="button"
-    >
-      <span>
-        showShareActionSheetMulpitleLine
-      </span>
-    </a>
-  </div>
+    <span>
+      showShareActionSheetMulpitleLine
+    </span>
+  </a>
 </div>
 `;

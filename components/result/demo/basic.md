@@ -6,7 +6,6 @@ title:
 ---
 
 ````jsx
-/* eslint global-require: 0 */
 import { Result, Icon, WhiteSpace } from 'antd-mobile';
 
 const customIcon = src => <img src={src} className="icon am-icon am-icon-md" alt="icon" />;

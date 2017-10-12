@@ -162,7 +162,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      Show clear icon
+      Show clear
     </div>
     <div
       class="am-list-body"
@@ -179,7 +179,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           class="am-input-control"
         >
           <input
-            placeholder="displayed clear icon while typing"
+            placeholder="displayed clear while typing"
             type="text"
             value=""
           />

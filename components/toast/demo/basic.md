@@ -41,7 +41,6 @@ const customIcon = () => (
   </svg>
 );
 
-/* eslint global-require: 0 */
 const ToastExample = () => (
   <WingBlank>
     <WhiteSpace />

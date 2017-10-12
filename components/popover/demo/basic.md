@@ -7,12 +7,11 @@ title:
 
 
 ````jsx
-/* eslint global-require: 0 */
 import { Popover, NavBar, Icon } from 'antd-mobile';
 
 const Item = Popover.Item;
 
-const customIcon = src => <img src={src} className="am-icon am-icon-xs" alt="icon" />;
+const customIcon = src => <img src={src} className="am-icon am-icon-xs" alt="" />;
 class App extends React.Component {
   state = {
     visible: true,
@@ -36,7 +35,7 @@ class App extends React.Component {
       offsetX = -26;
     }
     return (<div>
-      <NavBar iconName={false}
+      <NavBar
         mode="light"
         rightContent={
           <Popover mask

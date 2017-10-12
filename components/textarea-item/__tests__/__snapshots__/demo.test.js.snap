@@ -167,7 +167,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      Show clear icon
+      Show clear
     </div>
     <div
       class="am-list-body"
@@ -184,7 +184,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           class="am-textarea-control"
         >
           <textarea
-            placeholder="displayed clear icon while typing"
+            placeholder="displayed clear while typing"
             rows="1"
           />
         </div>
@@ -209,7 +209,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           class="am-textarea-label am-textarea-label-5"
         >
           <img
-            alt="icon"
+            alt=""
             src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
             style="width:28px;height:28px"
           />

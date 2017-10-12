@@ -8,15 +8,7 @@ exports[`renders ./components/popover/demo/basic.md correctly 1`] = `
     <div
       class="am-navbar-left"
       role="button"
-    >
-      <span
-        aria-hidden="true"
-        class="am-navbar-left-icon"
-      />
-      <span
-        class="am-navbar-left-content"
-      />
-    </div>
+    />
     <div
       class="am-navbar-title"
     >

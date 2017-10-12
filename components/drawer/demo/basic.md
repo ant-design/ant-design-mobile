@@ -15,7 +15,7 @@ Overlayer mode
 
 
 ````jsx
-import { Drawer, List, NavBar } from 'antd-mobile';
+import { Drawer, List, NavBar, Icon } from 'antd-mobile';
 
 class App1 extends React.Component {
   state = {
@@ -41,7 +41,7 @@ class App1 extends React.Component {
     </List>);
 
     return (<div>
-      <NavBar iconName="ellipsis" onLeftClick={this.onOpenChange}>Basic</NavBar>
+      <NavBar icon={<Icon type="ellipsis" />} onLeftClick={this.onOpenChange}>Basic</NavBar>
       <Drawer
         className="my-drawer"
         style={{ minHeight: document.documentElement.clientHeight }}

@@ -10,7 +10,6 @@ button
 ````jsx
 import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
-/* eslint global-require: 0 */
 const ButtonExample = () => (
   <WingBlank>
     <Button>default</Button><WhiteSpace />

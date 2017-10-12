@@ -7,7 +7,6 @@ title:
 
 
 ````jsx
-/* eslint global-require: 0 */
 import { Steps, WingBlank, WhiteSpace } from 'antd-mobile';
 
 const Step = Steps.Step;

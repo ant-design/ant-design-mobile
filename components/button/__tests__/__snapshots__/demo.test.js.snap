@@ -122,7 +122,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
     role="button"
   >
     <img
-      alt="icon"
+      alt=""
       class="am-icon am-button-icon am-icon-md"
       src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg"
     />

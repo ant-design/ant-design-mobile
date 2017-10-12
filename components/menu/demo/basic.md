@@ -6,7 +6,7 @@ title:
 ---
 
 ````jsx
-/* eslint global-require:0, no-nested-ternary:0 */
+/* eslint no-nested-ternary:0 */
 import { Menu, ActivityIndicator, NavBar } from 'antd-mobile';
 
 const data = [
@@ -140,7 +140,7 @@ class MenuExample extends React.Component {
           <NavBar
             leftContent="Menu"
             mode="light"
-            iconName={<img src="https://gw.alipayobjects.com/zos/rmsportal/iXVHARNNlmdCGnwWxQPH.svg" className="am-icon am-icon-md" alt="icon" />}
+            icon={<img src="https://gw.alipayobjects.com/zos/rmsportal/iXVHARNNlmdCGnwWxQPH.svg" className="am-icon am-icon-md" alt="" />}
             onLeftClick={this.handleClick}
             className="top-nav-bar"
           >

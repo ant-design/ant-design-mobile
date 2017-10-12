@@ -6,7 +6,7 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
 >
   <div>
     <div
-      class="am-navbar am-navbar-light top-nav-bar"
+      class="top-nav-bar am-navbar am-navbar-light"
     >
       <div
         class="am-navbar-left"
@@ -17,16 +17,12 @@ exports[`renders ./components/menu/demo/basic.md correctly 1`] = `
           class="am-navbar-left-icon"
         >
           <img
-            alt="icon"
+            alt=""
             class="am-icon am-icon-md"
             src="https://gw.alipayobjects.com/zos/rmsportal/iXVHARNNlmdCGnwWxQPH.svg"
           />
         </span>
-        <span
-          class="am-navbar-left-content"
-        >
-          Menu
-        </span>
+        Menu
       </div>
       <div
         class="am-navbar-title"

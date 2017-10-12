@@ -21,11 +21,6 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
           />
         </svg>
       </span>
-      <span
-        class="am-navbar-left-content"
-      >
-        back
-      </span>
     </div>
     <div
       class="am-navbar-title"
@@ -59,23 +54,7 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
       class="am-navbar-left"
       role="button"
     >
-      <span
-        aria-hidden="true"
-        class="am-navbar-left-icon"
-      >
-        <svg
-          class="am-icon am-icon-left am-icon-md"
-        >
-          <use
-            href="#left"
-          />
-        </svg>
-      </span>
-      <span
-        class="am-navbar-left-content"
-      >
-        back
-      </span>
+      back
     </div>
     <div
       class="am-navbar-title"
