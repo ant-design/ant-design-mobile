@@ -66,6 +66,7 @@ toc: false
   - [RN] `RefreshControl` (beta.6) has been removed, please use react-native RefreshControl directly
   - [RN] `ActionSheet.showShareActionSheetWithOptions` rewrite with react native `Share`
   - [RN] `Button` api `style` attribute `disabledRaw` / `disabledRawText` rename to `defaultDisabledRaw` / `defaultDisabledRawText`
+  - [Web] `NavBar`(beta.7) modify the prop `iconName` to `icon`, you need to use `Icon` component or your custom icon.
 
 - **Theme**
 

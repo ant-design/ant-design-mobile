@@ -10,17 +10,19 @@ import { NavBar, Icon } from 'antd-mobile';
 
 ReactDOM.render(
   <div>
-    <NavBar leftContent="back"
+    <NavBar
       mode="light"
+      icon={<Icon type="left" />}
       onLeftClick={() => console.log('onLeftClick')}
       rightContent={[
         <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
         <Icon key="1" type="ellipsis" />,
       ]}
     >NavBar</NavBar>
-    <NavBar leftContent="back"
+
+    <NavBar
       mode="dark"
-      onLeftClick={() => console.log('onLeftClick')}
+      leftContent="back"
       rightContent={[
         <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
         <Icon key="1" type="ellipsis" />,

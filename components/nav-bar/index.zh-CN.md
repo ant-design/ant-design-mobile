@@ -20,8 +20,8 @@ subtitle: 导航栏
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| mode   | 导航模式   | string |  'dark' enum{'dark', 'light'} |
-| iconName   | 左边的 icon name (设置为 false/null 不渲染此图标)  | string/false/null |  'left' |
+| mode   | 模式   | string |  'dark' enum{'dark', 'light'} |
+| icon   | 出现在最左边的图标占位符  | ReactNode |  - |
 | leftContent   | 导航左边内容      | any |    无  |
 | rightContent   | 导航右边内容      | any |    无  |
 | onLeftClick   | 导航左边点击回调      | (e: Object): void |    无  |

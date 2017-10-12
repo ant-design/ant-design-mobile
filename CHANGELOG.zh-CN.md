@@ -66,6 +66,7 @@ toc: false
   - [RN] `RefreshControl`(beta.6) 已经被移除，请直接引用 react-native RefreshControl
   - [RN] `ActionSheet.showShareActionSheetWithOptions` 利用 react native `Share` 进行重新实现
   - [RN] `Button` 组件 style 里 `disabledRaw` / `disabledRawText` 修改为 `defaultDisabledRaw` / `defaultDisabledRawText`
+  - [Web] `NavBar`(beta.7) 修改属性 `iconName` 为 `icon`，你需要使用 `Icon` 组件或自定义图标
 
 - **Theme**
 
