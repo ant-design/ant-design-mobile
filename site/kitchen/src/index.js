@@ -5,7 +5,7 @@ const _indexDemos = ['drawer'];
 const _subListDemos = ['list-view'];
 
 const pluginAntdConfig = {
-  babelConfig: {
+  babelConfig: JSON.stringify({
     plugins: [
       [
         require.resolve('babel-plugin-import'), {
@@ -15,7 +15,7 @@ const pluginAntdConfig = {
         },
       ],
     ],
-  },
+  }),
 };
 
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
   },
   pick: {
     components(markdownData) {
-      const filename = markdownData.meta.filename;
+      const { filename } = markdownData.meta;
       if (!/^components/.test(filename) ||
           /\/demo$/.test(path.dirname(filename))) return;
       /* eslint-disable consistent-return */
