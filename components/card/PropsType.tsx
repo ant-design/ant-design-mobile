@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 export interface CardProps {
   full?: boolean;
   style?: {};
@@ -5,7 +7,8 @@ export interface CardProps {
 
 export interface CardHeaderProps {
   title?: any;
-  thumb?: string;
+  /** need url of img, if this is string. */
+  thumb?: React.ReactNode;
   extra?: any;
   thumbStyle?: {};
   style?: any;
