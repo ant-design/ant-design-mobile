@@ -20,7 +20,6 @@ subtitle: 导航栏
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| children   | 导航内容      | any |    无  |
 | mode   | 导航模式   | string |  'dark' enum{'dark', 'light'} |
 | iconName   | 左边的 icon name (设置为 false/null 不渲染此图标)  | string/false/null |  'left' |
 | leftContent   | 导航左边内容      | any |    无  |

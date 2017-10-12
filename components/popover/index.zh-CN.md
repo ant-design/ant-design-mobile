@@ -37,7 +37,6 @@ subtitle: 气泡
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| children   | 节点内容    | String/React.node |  -   |
 | disabled   | 是否禁用    | Boolean |  false   |
 | style  | item 样式    | Object |  -   |
 | icon (`web only`)  | icon   | React.Node |  -   |

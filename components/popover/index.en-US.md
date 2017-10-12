@@ -36,7 +36,6 @@ more available API can be found at [rmc-tooltip](https://github.com/react-compon
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| children   | children    | String/React.node |  -   |
 | disabled   | set disabled    | Boolean |  false   |
 | style  | item style   | Object |  -   |
 | icon (`web only`)  | icon   | React.Node |  -   |

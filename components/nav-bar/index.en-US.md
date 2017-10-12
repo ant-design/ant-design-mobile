@@ -19,7 +19,6 @@ Support WEB.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| children   | children content   | any |   -  |
 | mode   | style mode  | string |  'dark' enum{'dark', 'light'} |
 | iconName   | Left icon name (set to false / null does not render this icon)  | string/false/null |  'left' |
 | leftContent   | left content    | any |  - |
