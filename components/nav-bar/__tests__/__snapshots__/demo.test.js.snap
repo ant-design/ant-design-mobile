@@ -18,9 +18,7 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
         >
           <use
             href="#left"
-          >
-            
-          </use>
+          />
         </svg>
       </span>
       <span
@@ -43,18 +41,14 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
       >
         <use
           href="#search"
-        >
-          
-        </use>
+        />
       </svg>
       <svg
         class="am-icon am-icon-ellipsis am-icon-md"
       >
         <use
           href="#ellipsis"
-        >
-          
-        </use>
+        />
       </svg>
     </div>
   </div>
@@ -74,9 +68,7 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
         >
           <use
             href="#left"
-          >
-            
-          </use>
+          />
         </svg>
       </span>
       <span
@@ -99,18 +91,14 @@ exports[`renders ./components/nav-bar/demo/basic.md correctly 1`] = `
       >
         <use
           href="#search"
-        >
-          
-        </use>
+        />
       </svg>
       <svg
         class="am-icon am-icon-ellipsis am-icon-md"
       >
         <use
           href="#ellipsis"
-        >
-          
-        </use>
+        />
       </svg>
     </div>
   </div>

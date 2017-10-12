@@ -28,9 +28,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="auto focus"
             type="text"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
       <div
@@ -48,9 +46,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="click the button below to focus"
             type="text"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
       <div
@@ -72,9 +68,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -104,9 +98,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="Hello World"
             type="text"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
       <div
@@ -124,18 +116,14 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             data-seed="logId"
             placeholder="please input content"
             type="text"
-          >
-            
-          </input>
+          />
         </div>
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-list"
   >
@@ -163,9 +151,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           <input
             placeholder="click label to focus input"
             type="text"
-          >
-            
-          </input>
+          />
         </div>
       </div>
     </div>
@@ -196,18 +182,14 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="displayed clear icon while typing"
             type="text"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-list"
   >
@@ -234,18 +216,14 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="limited title length"
             type="text"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-list"
   >
@@ -267,9 +245,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="no label"
             type="text"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
       <div
@@ -280,9 +256,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
         >
           <div
             style="background-image:url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png);background-size:cover;height:22px;width:22px"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-input-control"
@@ -291,18 +265,14 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="title can be icon，image or text"
             type="text"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-list"
   >
@@ -329,9 +299,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="0.00"
             type="text"
             value=""
-          >
-            
-          </input>
+          />
         </div>
         <div
           class="am-input-extra"
@@ -343,9 +311,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-list"
   >
@@ -372,9 +338,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder=""
             type="tel"
             value="8888 8888 8888 8888"
-          >
-            
-          </input>
+          />
         </div>
       </div>
       <div
@@ -392,9 +356,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="186 1234 1234"
             type="tel"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
       <div
@@ -412,9 +374,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="****"
             type="password"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
       <div
@@ -433,18 +393,14 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder="click to show number keyboard"
             type="text"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-list"
   >
@@ -472,9 +428,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             readonly=""
             type="text"
             value="Not editable"
-          >
-            
-          </input>
+          />
         </div>
       </div>
       <div
@@ -493,9 +447,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             placeholder=""
             type="text"
             value="style of disabled \`InputItem\`"
-          >
-            
-          </input>
+          />
         </div>
       </div>
     </div>
@@ -531,9 +483,7 @@ exports[`renders ./components/input-item/demo/error.md correctly 1`] = `
             placeholder="input your phone"
             type="tel"
             value=""
-          >
-            
-          </input>
+          />
         </div>
       </div>
     </div>
@@ -572,9 +522,7 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
         </div>
         <div
           class="am-input-clear"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-input-item"
@@ -590,9 +538,7 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
           <input
             placeholder="22"
             type="text"
-          >
-            
-          </input>
+          />
         </div>
       </div>
       <div
@@ -616,9 +562,7 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
             </div>
             <div
               class="fake-input"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -641,9 +585,7 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-input-item"
@@ -666,9 +608,7 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
             </div>
             <div
               class="fake-input"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -693,9 +633,7 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
             </div>
             <div
               class="fake-input"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>

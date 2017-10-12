@@ -6,9 +6,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
 >
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-wingblank am-wingblank-lg"
   >
@@ -26,20 +24,14 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-slider-rail"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-track am-slider-track-1"
           style="visibility:visible;left:15%;width:35%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-step"
-        >
-          
-        </div>
+        />
         <div
           aria-disabled="false"
           aria-valuemax="20"
@@ -48,9 +40,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
           class="am-slider-handle am-slider-handle-1"
           role="slider"
           style="left:15%"
-        >
-          
-        </div>
+        />
         <div
           aria-disabled="false"
           aria-valuemax="20"
@@ -59,22 +49,16 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
           class="am-slider-handle am-slider-handle-2"
           role="slider"
           style="left:50%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-mark"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-wingblank am-wingblank-lg"
   >
@@ -92,20 +76,14 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-slider-rail"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-track am-slider-track-1"
           style="visibility:visible;left:15%;width:35%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-step"
-        >
-          
-        </div>
+        />
         <div
           aria-disabled="true"
           aria-valuemax="20"
@@ -114,9 +92,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
           class="am-slider-handle am-slider-handle-1"
           role="slider"
           style="left:15%"
-        >
-          
-        </div>
+        />
         <div
           aria-disabled="true"
           aria-valuemax="20"
@@ -125,22 +101,16 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
           class="am-slider-handle am-slider-handle-2"
           role="slider"
           style="left:50%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-mark"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-wingblank am-wingblank-lg"
   >
@@ -159,20 +129,14 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
         <div
           class="am-slider-rail"
           style="background-color:black"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-track am-slider-track-1"
           style="visibility:visible;background-color:red;left:15%;width:35%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-step"
-        >
-          
-        </div>
+        />
         <div
           aria-disabled="false"
           aria-valuemax="20"
@@ -181,9 +145,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
           class="am-slider-handle am-slider-handle-1"
           role="slider"
           style="background-color:yellow;left:15%"
-        >
-          
-        </div>
+        />
         <div
           aria-disabled="false"
           aria-valuemax="20"
@@ -192,14 +154,10 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
           class="am-slider-handle am-slider-handle-2"
           role="slider"
           style="background-color:gray;left:50%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-mark"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>

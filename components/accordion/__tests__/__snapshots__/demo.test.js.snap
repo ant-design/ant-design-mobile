@@ -17,9 +17,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
       >
         <i
           class="arrow"
-        >
-          
-        </i>
+        />
         Title 1
       </div>
     </div>
@@ -33,9 +31,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
       >
         <i
           class="arrow"
-        >
-          
-        </i>
+        />
         Title 2
       </div>
     </div>
@@ -49,9 +45,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
       >
         <i
           class="arrow"
-        >
-          
-        </i>
+        />
         Title 3
       </div>
     </div>
@@ -76,9 +70,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
       >
         <i
           class="arrow"
-        >
-          
-        </i>
+        />
         Title 1
       </div>
       <div
@@ -109,9 +101,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                 <div
                   class="am-list-ripple"
                   style="display:none"
-                >
-                  
-                </div>
+                />
               </div>
               <div
                 class="am-list-item am-list-item-middle"
@@ -128,9 +118,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                 <div
                   class="am-list-ripple"
                   style="display:none"
-                >
-                  
-                </div>
+                />
               </div>
               <div
                 class="am-list-item am-list-item-middle"
@@ -147,9 +135,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                 <div
                   class="am-list-ripple"
                   style="display:none"
-                >
-                  
-                </div>
+                />
               </div>
             </div>
           </div>
@@ -166,9 +152,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
       >
         <i
           class="arrow"
-        >
-          
-        </i>
+        />
         Title 2
       </div>
     </div>
@@ -182,9 +166,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
       >
         <i
           class="arrow"
-        >
-          
-        </i>
+        />
         Title 3
       </div>
     </div>

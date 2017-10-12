@@ -6,13 +6,9 @@ exports[`Badge renders dot prop correctly 1`] = `
 >
   <span
     style="width:0.52rem;height:0.52rem;background:#ddd;display:inline-block"
-  >
-    
-  </span>
+  />
   <sup
     class="am-badge-dot"
-  >
-    
-  </sup>
+  />
 </span>
 `;

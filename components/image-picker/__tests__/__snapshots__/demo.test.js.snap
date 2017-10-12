@@ -25,17 +25,13 @@ exports[`renders ./components/image-picker/demo/basic.md correctly 1`] = `
                 aria-label="Click and Remove this image"
                 class="am-image-picker-item-remove"
                 role="button"
-              >
-                
-              </div>
+              />
               <div
                 aria-label="Image can be clicked"
                 class="am-image-picker-item-content"
                 role="button"
                 style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);transform:rotate(0deg)"
-              >
-                
-              </div>
+              />
             </div>
           </div>
           <div
@@ -48,17 +44,13 @@ exports[`renders ./components/image-picker/demo/basic.md correctly 1`] = `
                 aria-label="Click and Remove this image"
                 class="am-image-picker-item-remove"
                 role="button"
-              >
-                
-              </div>
+              />
               <div
                 aria-label="Image can be clicked"
                 class="am-image-picker-item-content"
                 role="button"
                 style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);transform:rotate(0deg)"
-              >
-                
-              </div>
+              />
             </div>
           </div>
           <div
@@ -72,16 +64,12 @@ exports[`renders ./components/image-picker/demo/basic.md correctly 1`] = `
               <input
                 accept="image/jpg,image/jpeg,image/png,image/gif"
                 type="file"
-              >
-                
-              </input>
+              />
             </div>
           </div>
           <div
             class="am-flexbox-item"
-          >
-            
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -114,17 +102,13 @@ exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
                 aria-label="Click and Remove this image"
                 class="am-image-picker-item-remove"
                 role="button"
-              >
-                
-              </div>
+              />
               <div
                 aria-label="Image can be clicked"
                 class="am-image-picker-item-content"
                 role="button"
                 style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);transform:rotate(0deg)"
-              >
-                
-              </div>
+              />
             </div>
           </div>
           <div
@@ -137,17 +121,13 @@ exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
                 aria-label="Click and Remove this image"
                 class="am-image-picker-item-remove"
                 role="button"
-              >
-                
-              </div>
+              />
               <div
                 aria-label="Image can be clicked"
                 class="am-image-picker-item-content"
                 role="button"
                 style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);transform:rotate(0deg)"
-              >
-                
-              </div>
+              />
             </div>
           </div>
           <div
@@ -161,16 +141,12 @@ exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
               <input
                 accept="image/jpg,image/jpeg,image/png,image/gif"
                 type="file"
-              >
-                
-              </input>
+              />
             </div>
           </div>
           <div
             class="am-flexbox-item"
-          >
-            
-          </div>
+          />
         </div>
       </div>
     </div>

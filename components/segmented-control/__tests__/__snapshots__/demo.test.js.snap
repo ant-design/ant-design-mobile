@@ -22,9 +22,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
-      >
-        
-      </div>
+      />
       Segment1
     </div>
     <div
@@ -36,9 +34,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
-      >
-        
-      </div>
+      />
       Segment2
     </div>
   </div>
@@ -60,9 +56,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
-      >
-        
-      </div>
+      />
       Segment1
     </div>
     <div
@@ -74,9 +68,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
-      >
-        
-      </div>
+      />
       Segment2
     </div>
   </div>
@@ -98,9 +90,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
-      >
-        
-      </div>
+      />
       Segment1
     </div>
     <div
@@ -112,9 +102,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
-      >
-        
-      </div>
+      />
       Segment2
     </div>
     <div
@@ -126,9 +114,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
-      >
-        
-      </div>
+      />
       Segment3
     </div>
   </div>
@@ -152,9 +138,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
         style="background-color:#ff0000"
-      >
-        
-      </div>
+      />
       Segment1
     </div>
     <div
@@ -167,9 +151,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
         style="background-color:#ff0000"
-      >
-        
-      </div>
+      />
       Segment2
     </div>
     <div
@@ -182,9 +164,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
         style="background-color:#ff0000"
-      >
-        
-      </div>
+      />
       Segment3
     </div>
   </div>
@@ -206,9 +186,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
-      >
-        
-      </div>
+      />
       Segment1
     </div>
     <div
@@ -220,9 +198,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
-      >
-        
-      </div>
+      />
       Segment2
     </div>
     <div
@@ -234,9 +210,7 @@ exports[`renders ./components/segmented-control/demo/basic.md correctly 1`] = `
     >
       <div
         class="am-segment-item-inner"
-      >
-        
-      </div>
+      />
       Segment3
     </div>
   </div>

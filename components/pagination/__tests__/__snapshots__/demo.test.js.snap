@@ -84,9 +84,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
             >
               <use
                 href="#left"
-              >
-                
-              </use>
+              />
             </svg>
             上一步
           </span>
@@ -123,9 +121,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
             >
               <use
                 href="#right"
-              >
-                
-              </use>
+              />
             </svg>
           </span>
         </a>
@@ -208,37 +204,27 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
       <div
         class="am-pagination-wrap-dot"
       >
-        <span>
-          
-        </span>
+        <span />
       </div>
       <div
         class="am-pagination-wrap-dot am-pagination-wrap-dot-active"
       >
-        <span>
-          
-        </span>
+        <span />
       </div>
       <div
         class="am-pagination-wrap-dot"
       >
-        <span>
-          
-        </span>
+        <span />
       </div>
       <div
         class="am-pagination-wrap-dot"
       >
-        <span>
-          
-        </span>
+        <span />
       </div>
       <div
         class="am-pagination-wrap-dot"
       >
-        <span>
-          
-        </span>
+        <span />
       </div>
     </div>
   </div>

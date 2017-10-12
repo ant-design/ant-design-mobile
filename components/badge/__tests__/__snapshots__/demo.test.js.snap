@@ -21,14 +21,10 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           >
             <span
               style="width:26px;height:26px;background:#ddd;display:inline-block"
-            >
-              
-            </span>
+            />
             <sup
               class="am-badge-dot"
-            >
-              
-            </sup>
+            />
           </span>
           <span
             style="margin-left:12px"
@@ -44,16 +40,12 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           aria-hidden="true"
           class="am-list-arrow am-list-arrow-horizontal"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-ripple"
         style="display:none"
-      >
-        
-      </div>
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -63,9 +55,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       >
         <img
           src="https://zos.alipayobjects.com/rmsportal/faMhXAxhCzLvveJ.png"
-        >
-          
-        </img>
+        />
       </div>
       <div
         class="am-list-line"
@@ -91,16 +81,12 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           aria-hidden="true"
           class="am-list-arrow am-list-arrow-horizontal"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-ripple"
         style="display:none"
-      >
-        
-      </div>
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -130,9 +116,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       <div
         class="am-list-ripple"
         style="display:none"
-      >
-        
-      </div>
+      />
     </div>
     <div
       class="am-list-item special-badge am-list-item-middle"
@@ -162,9 +146,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       <div
         class="am-list-ripple"
         style="display:none"
-      >
-        
-      </div>
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -199,16 +181,12 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           aria-hidden="true"
           class="am-list-arrow am-list-arrow-horizontal"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-ripple"
         style="display:none"
-      >
-        
-      </div>
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -275,9 +253,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       <div
         class="am-list-ripple"
         style="display:none"
-      >
-        
-      </div>
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -324,9 +300,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
       <div
         class="am-list-ripple"
         style="display:none"
-      >
-        
-      </div>
+      />
     </div>
   </div>
 </div>

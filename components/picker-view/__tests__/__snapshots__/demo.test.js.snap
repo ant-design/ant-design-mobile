@@ -11,14 +11,10 @@ exports[`renders ./components/picker-view/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-picker-col-mask"
-    >
-      
-    </div>
+    />
     <div
       class="am-picker-col-indicator "
-    >
-      
-    </div>
+    />
     <div
       class="am-picker-col-content"
     >
@@ -40,14 +36,10 @@ exports[`renders ./components/picker-view/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-picker-col-mask"
-    >
-      
-    </div>
+    />
     <div
       class="am-picker-col-indicator "
-    >
-      
-    </div>
+    />
     <div
       class="am-picker-col-content"
     >

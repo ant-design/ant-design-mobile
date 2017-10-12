@@ -73,9 +73,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-      >
-        
-      </div>
+      />
     </div>
     <div
       class="am-tabs-tab-bar-wrap"
@@ -98,9 +96,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
                
               <div
                 style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat"
-              >
-                
-              </div>
+              />
                
               <sup
                 class="am-badge-text"
@@ -130,9 +126,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
                
               <div
                 style="width:22px;height:22px;background:url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat"
-              >
-                
-              </div>
+              />
                
               <sup
                 class="am-badge-text"
@@ -160,14 +154,10 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
             >
               <div
                 style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat"
-              >
-                
-              </div>
+              />
               <sup
                 class="am-badge-dot"
-              >
-                
-              </sup>
+              />
             </span>
           </div>
           <p
@@ -188,9 +178,7 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
               alt="My"
               class="am-tab-bar-tab-image"
               src="https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg"
-            >
-              
-            </img>
+            />
           </div>
           <p
             class="am-tab-bar-tab-title"

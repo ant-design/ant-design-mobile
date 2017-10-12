@@ -33,9 +33,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-flexbox am-flexbox-align-center"
   >
@@ -69,9 +67,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-flexbox am-flexbox-align-center"
   >
@@ -114,9 +110,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="sub-title"
   >
@@ -170,9 +164,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="sub-title"
   >
@@ -202,9 +194,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-flexbox am-flexbox-justify-end am-flexbox-align-center"
   >
@@ -229,9 +219,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-flexbox am-flexbox-justify-between am-flexbox-align-center"
   >
@@ -256,9 +244,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-flexbox am-flexbox-align-start"
   >
@@ -283,9 +269,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-flexbox am-flexbox-align-end"
   >
@@ -310,9 +294,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-flexbox am-flexbox-align-baseline"
   >

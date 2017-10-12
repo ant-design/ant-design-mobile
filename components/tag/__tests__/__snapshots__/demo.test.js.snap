@@ -60,9 +60,7 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
       >
         <use
           href="#cross-circle"
-        >
-          
-        </use>
+        />
       </svg>
     </div>
   </div>

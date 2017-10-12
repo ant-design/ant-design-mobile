@@ -22,9 +22,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#check-circle"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -49,9 +47,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#check"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -76,9 +72,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#check-circle-o"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -107,9 +101,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#cross-circle"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -134,9 +126,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#cross"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -161,9 +151,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#cross-circle-o"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -192,9 +180,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#up"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -219,9 +205,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#down"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -246,9 +230,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#left"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -277,9 +259,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#right"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -304,9 +284,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#ellipsis"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -331,9 +309,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
           >
             <use
               href="#loading"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -369,9 +345,7 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
           >
             <use
               href="#search"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -396,9 +370,7 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
           >
             <use
               href="#search"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -423,9 +395,7 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
           >
             <use
               href="#search"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -450,9 +420,7 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
           >
             <use
               href="#search"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"
@@ -477,9 +445,7 @@ exports[`renders ./components/icon/demo/size.md correctly 1`] = `
           >
             <use
               href="#search"
-            >
-              
-            </use>
+            />
           </svg>
           <div
             class="am-grid-text"

@@ -18,16 +18,12 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
         >
           <use
             href="#ellipsis"
-          >
-            
-          </use>
+          />
         </svg>
       </span>
       <span
         class="am-navbar-left-content"
-      >
-        
-      </span>
+      />
     </div>
     <div
       class="am-navbar-title"
@@ -36,9 +32,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-navbar-right"
-    >
-      
-    </div>
+    />
   </div>
   <div
     class="my-drawer am-drawer am-drawer-left am-drawer-open"
@@ -62,9 +56,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line am-list-line-multiple"
@@ -78,9 +70,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -90,9 +80,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -106,9 +94,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -118,9 +104,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -134,9 +118,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -146,9 +128,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -162,9 +142,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -174,9 +152,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -190,9 +166,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -202,9 +176,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -218,9 +190,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -230,9 +200,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -246,9 +214,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -258,9 +224,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -274,9 +238,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -286,9 +248,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -302,9 +262,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -314,9 +272,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -330,9 +286,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -342,9 +296,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -358,9 +310,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -370,9 +320,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -386,9 +334,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -398,9 +344,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -414,9 +358,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -426,9 +368,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -442,9 +382,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -454,9 +392,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -470,9 +406,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -482,9 +416,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -498,9 +430,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -510,9 +440,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -526,9 +454,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -538,9 +464,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -554,9 +478,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -566,9 +488,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -582,9 +502,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -594,9 +512,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -610,9 +526,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -621,9 +535,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
       class="am-drawer-overlay"
       role="presentation"
       style="opacity:1;visibility:visible"
-    >
-      
-    </div>
+    />
     <div
       class="am-drawer-content"
       style="color:#A6A6A6;text-align:center;padding-top:42px"
@@ -654,16 +566,12 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
         >
           <use
             href="#ellipsis"
-          >
-            
-          </use>
+          />
         </svg>
       </span>
       <span
         class="am-navbar-left-content"
-      >
-        
-      </span>
+      />
     </div>
     <div
       class="am-navbar-title"
@@ -672,9 +580,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
     </div>
     <div
       class="am-navbar-right"
-    >
-      
-    </div>
+    />
   </div>
   <div
     class="my-drawer am-drawer am-drawer-left"
@@ -698,9 +604,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line am-list-line-multiple"
@@ -714,9 +618,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -726,9 +628,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -742,9 +642,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -754,9 +652,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -770,9 +666,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -782,9 +676,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -798,9 +690,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -810,9 +700,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -826,9 +714,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -838,9 +724,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -854,9 +738,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -866,9 +748,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -882,9 +762,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -894,9 +772,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -910,9 +786,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -922,9 +796,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -938,9 +810,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -950,9 +820,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -966,9 +834,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -978,9 +844,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -994,9 +858,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -1006,9 +868,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -1022,9 +882,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -1034,9 +892,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -1050,9 +906,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -1062,9 +916,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -1078,9 +930,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -1090,9 +940,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -1106,9 +954,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -1118,9 +964,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -1134,9 +978,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -1146,9 +988,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -1162,9 +1002,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -1174,9 +1012,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -1190,9 +1026,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -1202,9 +1036,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -1218,9 +1050,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
           <div
             class="am-list-item am-list-item-middle"
@@ -1230,9 +1060,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             >
               <img
                 src="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"
-              >
-                
-              </img>
+              />
             </div>
             <div
               class="am-list-line"
@@ -1246,9 +1074,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -1256,9 +1082,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
     <div
       class="am-drawer-overlay"
       role="presentation"
-    >
-      
-    </div>
+    />
     <div
       class="am-drawer-content"
       style="color:#A6A6A6;text-align:center;padding-top:42px"

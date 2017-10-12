@@ -15,9 +15,7 @@ exports[`Drawer match snapshot 1`] = `
   <div
     class="am-drawer-overlay"
     role="presentation"
-  >
-    
-  </div>
+  />
   <div
     class="am-drawer-content"
     style="color:#A6A6A6;text-align:center;padding-top:42px"

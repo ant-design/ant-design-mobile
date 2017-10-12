@@ -28,14 +28,10 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
               <input
                 class="am-checkbox-input"
                 type="checkbox"
-              >
-                
-              </input>
+              />
               <span
                 class="am-checkbox-inner"
-              >
-                
-              </span>
+              />
             </span>
           </label>
         </div>
@@ -51,9 +47,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-checkbox-item am-list-item-middle"
@@ -70,14 +64,10 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
               <input
                 class="am-checkbox-input"
                 type="checkbox"
-              >
-                
-              </input>
+              />
               <span
                 class="am-checkbox-inner"
-              >
-                
-              </span>
+              />
             </span>
           </label>
         </div>
@@ -93,9 +83,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-checkbox-item am-list-item-middle"
@@ -112,14 +100,10 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
               <input
                 class="am-checkbox-input"
                 type="checkbox"
-              >
-                
-              </input>
+              />
               <span
                 class="am-checkbox-inner"
-              >
-                
-              </span>
+              />
             </span>
           </label>
         </div>
@@ -135,9 +119,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-checkbox-item am-checkbox-item-disabled am-list-item-middle"
@@ -157,14 +139,10 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
                 class="am-checkbox-input"
                 disabled=""
                 type="checkbox"
-              >
-                
-              </input>
+              />
               <span
                 class="am-checkbox-inner"
-              >
-                
-              </span>
+              />
             </span>
           </label>
         </div>
@@ -185,9 +163,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -211,14 +187,10 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
               class="am-checkbox-input"
               data-seed="logId"
               type="checkbox"
-            >
-              
-            </input>
+            />
             <span
               class="am-checkbox-inner"
-            >
-              
-            </span>
+            />
           </span>
           Agree 
           <a>

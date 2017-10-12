@@ -15,9 +15,7 @@ exports[`renders ./components/wing-blank/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-wingblank am-wingblank-md"
   >
@@ -29,9 +27,7 @@ exports[`renders ./components/wing-blank/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-wingblank am-wingblank-sm"
   >

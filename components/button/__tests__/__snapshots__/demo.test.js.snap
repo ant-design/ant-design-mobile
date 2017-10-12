@@ -15,9 +15,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="true"
     class="am-button am-button-disabled"
@@ -29,9 +27,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button am-button-primary"
@@ -43,9 +39,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="true"
     class="am-button am-button-primary am-button-disabled"
@@ -57,9 +51,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button am-button-warning"
@@ -71,9 +63,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="true"
     class="am-button am-button-warning am-button-disabled"
@@ -85,9 +75,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button am-button-loading am-button-icon"
@@ -99,9 +87,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
     >
       <use
         href="#loading"
-      >
-        
-      </use>
+      />
     </svg>
     <span>
       loading button
@@ -109,9 +95,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button am-button-icon"
@@ -123,9 +107,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
     >
       <use
         href="#check-circle-o"
-      >
-        
-      </use>
+      />
     </svg>
     <span>
       with icon
@@ -133,9 +115,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button am-button-icon"
@@ -145,23 +125,17 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
       alt="icon"
       class="am-icon am-button-icon am-icon-md"
       src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg"
-    >
-      
-    </img>
+    />
     <span>
       with custom icon
     </span>
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button am-button-primary am-button-inline"
@@ -184,9 +158,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button am-button-primary am-button-small am-button-inline"
@@ -208,9 +180,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button am-button-ghost am-button-small am-button-inline"
@@ -274,9 +244,7 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
       <div
         class="am-list-ripple"
         style="display:none"
-      >
-        
-      </div>
+      />
     </div>
     <div
       class="am-list-item am-list-item-middle"
@@ -311,9 +279,7 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
       <div
         class="am-list-ripple"
         style="display:none"
-      >
-        
-      </div>
+      />
     </div>
   </div>
 </div>

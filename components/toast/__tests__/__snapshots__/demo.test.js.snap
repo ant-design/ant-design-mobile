@@ -6,9 +6,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
 >
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button"
@@ -20,9 +18,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button"
@@ -34,9 +30,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button"
@@ -48,9 +42,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button"
@@ -62,9 +54,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button"
@@ -76,9 +66,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button"
@@ -90,9 +78,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <a
     aria-disabled="false"
     class="am-button"
@@ -104,8 +90,6 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
 </div>
 `;

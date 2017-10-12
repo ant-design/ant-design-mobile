@@ -27,9 +27,7 @@ exports[`renders ./components/pull-to-refresh/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-pull-to-refresh-indicator"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -56,9 +54,7 @@ exports[`renders ./components/pull-to-refresh/demo/basic-listview.md correctly 1
         >
           <div
             class="am-pull-to-refresh-indicator"
-          >
-            
-          </div>
+          />
           <div
             class="am-list-header"
           >
@@ -68,9 +64,7 @@ exports[`renders ./components/pull-to-refresh/demo/basic-listview.md correctly 1
           </div>
           <div
             class="am-list-body"
-          >
-            
-          </div>
+          />
           <div
             class="am-list-footer"
           >

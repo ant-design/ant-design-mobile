@@ -4,9 +4,7 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
 <div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-notice-bar"
     role="alert"
@@ -21,9 +19,7 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       >
         <use
           href="#voice"
-        >
-          
-        </use>
+        />
       </svg>
        
     </div>
@@ -46,9 +42,7 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-notice-bar"
     role="alert"
@@ -63,9 +57,7 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       >
         <use
           href="#voice"
-        >
-          
-        </use>
+        />
       </svg>
        
     </div>
@@ -95,17 +87,13 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       >
         <use
           href="#right"
-        >
-          
-        </use>
+        />
       </svg>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-notice-bar"
     role="alert"
@@ -136,17 +124,13 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       >
         <use
           href="#cross"
-        >
-          
-        </use>
+        />
       </svg>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-notice-bar"
     role="alert"
@@ -161,9 +145,7 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       >
         <use
           href="#check-circle-o"
-        >
-          
-        </use>
+        />
       </svg>
        
     </div>
@@ -193,9 +175,7 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       >
         <use
           href="#cross"
-        >
-          
-        </use>
+        />
       </svg>
     </div>
   </div>

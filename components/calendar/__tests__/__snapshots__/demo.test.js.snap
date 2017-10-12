@@ -32,23 +32,17 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
                 name=""
                 type="checkbox"
                 value="on"
-              >
-                
-              </input>
+              />
               <div
                 class="checkbox"
-              >
-                
-              </div>
+              />
             </label>
           </div>
         </div>
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -64,16 +58,12 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -89,16 +79,12 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -114,16 +100,12 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -139,16 +121,12 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -164,16 +142,12 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -189,16 +163,12 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -214,16 +184,12 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -239,16 +205,12 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
       <div
         class="am-list-item am-list-item-middle"
@@ -264,16 +226,12 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="am-list-arrow am-list-arrow-horizontal"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -284,17 +242,13 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
       <div
         class="mask animate"
         style="display:none"
-      >
-        
-      </div>
+      />
     </span>
     <span>
       <div
         class="content animate"
         style="display:none"
-      >
-        
-      </div>
+      />
     </span>
   </div>
 </div>

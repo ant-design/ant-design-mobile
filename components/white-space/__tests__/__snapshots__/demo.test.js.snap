@@ -4,9 +4,7 @@ exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
 <div>
   <div
     class="am-whitespace am-whitespace-xs"
-  >
-    
-  </div>
+  />
   <div
     style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
   >
@@ -14,9 +12,7 @@ exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-sm"
-  >
-    
-  </div>
+  />
   <div
     style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
   >
@@ -24,9 +20,7 @@ exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
   >
@@ -34,9 +28,7 @@ exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
   >
@@ -44,9 +36,7 @@ exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-xl"
-  >
-    
-  </div>
+  />
   <div
     style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
   >

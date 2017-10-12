@@ -15,9 +15,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-swipe-cover"
-        >
-          
-        </div>
+        />
         <div
           class="am-swipe-actions am-swipe-actions-left"
         >
@@ -93,16 +91,12 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
-              >
-                
-              </div>
+              />
             </div>
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -115,9 +109,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-swipe-cover"
-        >
-          
-        </div>
+        />
         <div
           class="am-swipe-actions am-swipe-actions-left"
         >
@@ -167,16 +159,12 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
-              >
-                
-              </div>
+              />
             </div>
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -189,9 +177,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-swipe-cover"
-        >
-          
-        </div>
+        />
         <div
           class="am-swipe-actions am-swipe-actions-right"
         >
@@ -241,16 +227,12 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
-              >
-                
-              </div>
+              />
             </div>
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -263,9 +245,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-swipe-cover"
-        >
-          
-        </div>
+        />
         <div
           class="am-swipe-actions am-swipe-actions-right"
         >
@@ -315,16 +295,12 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
-              >
-                
-              </div>
+              />
             </div>
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -337,9 +313,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-swipe-cover"
-        >
-          
-        </div>
+        />
         <div
           class="am-swipe-actions am-swipe-actions-right"
         >
@@ -389,16 +363,12 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 aria-hidden="true"
                 class="am-list-arrow am-list-arrow-horizontal"
-              >
-                
-              </div>
+              />
             </div>
             <div
               class="am-list-ripple"
               style="display:none"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>

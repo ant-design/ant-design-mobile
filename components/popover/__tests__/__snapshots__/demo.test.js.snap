@@ -12,14 +12,10 @@ exports[`renders ./components/popover/demo/basic.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="am-navbar-left-icon"
-      >
-        
-      </span>
+      />
       <span
         class="am-navbar-left-content"
-      >
-        
-      </span>
+      />
     </div>
     <div
       class="am-navbar-title"
@@ -37,9 +33,7 @@ exports[`renders ./components/popover/demo/basic.md correctly 1`] = `
         >
           <use
             href="#ellipsis"
-          >
-            
-          </use>
+          />
         </svg>
       </div>
     </div>

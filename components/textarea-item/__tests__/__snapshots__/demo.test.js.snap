@@ -28,9 +28,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
             data-seed="logId"
             placeholder="auto focus in Alipay client"
             rows="1"
-          >
-            
-          </textarea>
+          />
         </div>
       </div>
       <div
@@ -48,9 +46,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
             data-seed="logId"
             placeholder="click the button below to focus"
             rows="1"
-          >
-            
-          </textarea>
+          />
         </div>
       </div>
       <div
@@ -72,9 +68,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
         <div
           class="am-list-ripple"
           style="display:none"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -103,9 +97,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           <textarea
             placeholder="Hello World"
             rows="1"
-          >
-            
-          </textarea>
+          />
         </div>
       </div>
       <div
@@ -122,9 +114,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           <textarea
             placeholder="please input content"
             rows="1"
-          >
-            
-          </textarea>
+          />
         </div>
       </div>
     </div>
@@ -154,9 +144,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           <textarea
             placeholder=""
             rows="1"
-          >
-            
-          </textarea>
+          />
         </div>
       </div>
       <div
@@ -168,9 +156,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           <textarea
             placeholder="fixed number of lines"
             rows="3"
-          >
-            
-          </textarea>
+          />
         </div>
       </div>
     </div>
@@ -200,9 +186,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           <textarea
             placeholder="displayed clear icon while typing"
             rows="1"
-          >
-            
-          </textarea>
+          />
         </div>
       </div>
     </div>
@@ -228,9 +212,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
             alt="icon"
             src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png"
             style="width:28px;height:28px"
-          >
-            
-          </img>
+          />
         </div>
         <div
           class="am-textarea-control"
@@ -238,9 +220,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           <textarea
             placeholder="title can be customized"
             rows="1"
-          >
-            
-          </textarea>
+          />
         </div>
       </div>
     </div>
@@ -266,9 +246,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
             maxlength="10"
             placeholder="can enter up to 10 characters"
             rows="1"
-          >
-            
-          </textarea>
+          />
         </div>
       </div>
     </div>

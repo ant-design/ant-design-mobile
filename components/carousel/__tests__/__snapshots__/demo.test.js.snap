@@ -32,9 +32,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
             <img
               alt=""
               src="https://zos.alipayobjects.com/rmsportal/.png"
-            >
-              
-            </img>
+            />
           </a>
         </li>
         <li
@@ -48,9 +46,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
             <img
               alt=""
               src="https://zos.alipayobjects.com/rmsportal/.png"
-            >
-              
-            </img>
+            />
           </a>
         </li>
         <li
@@ -64,9 +60,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
             <img
               alt=""
               src="https://zos.alipayobjects.com/rmsportal/.png"
-            >
-              
-            </img>
+            />
           </a>
         </li>
       </ul>
@@ -81,32 +75,24 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
         <div
           class="am-carousel-wrap-dot"
         >
-          <span>
-            
-          </span>
+          <span />
         </div>
         <div
           class="am-carousel-wrap-dot am-carousel-wrap-dot-active"
         >
-          <span>
-            
-          </span>
+          <span />
         </div>
         <div
           class="am-carousel-wrap-dot"
         >
-          <span>
-            
-          </span>
+          <span />
         </div>
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="sub-title"
   >
@@ -159,9 +145,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="sub-title"
   >

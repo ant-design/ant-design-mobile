@@ -56,17 +56,13 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
               Third Tab
               <sup
                 class="am-badge-dot"
-              >
-                
-              </sup>
+              />
             </span>
           </div>
           <div
             class="am-tabs-default-bar-underline"
             style="width:33.333333333333336%;left:33.333333333333336%"
-          >
-            
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -105,9 +101,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-tabs am-tabs-horizontal am-tabs-bottom"
   >
@@ -181,18 +175,14 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
           <div
             class="am-tabs-default-bar-underline"
             style="width:33.333333333333336%;left:33.333333333333336%"
-          >
-            
-          </div>
+          />
         </div>
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
 </div>
 `;
 
@@ -200,9 +190,7 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
 <div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     style="height:200px"
   >
@@ -241,9 +229,7 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
             <div
               class="am-tabs-default-bar-underline"
               style="width:33.333333333333336%;left:0%"
-            >
-              
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -271,9 +257,7 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
         </div>
         <div
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -284,9 +268,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
 <div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-tabs am-tabs-horizontal am-tabs-top"
   >
@@ -358,15 +340,11 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
           <div
             class="am-tabs-default-bar-underline"
             style="width:20%;left:0%"
-          >
-            
-          </div>
+          />
         </div>
         <div
           class="am-tabs-default-bar-nextpage"
-        >
-          
-        </div>
+        />
       </div>
     </div>
     <div
@@ -397,46 +375,30 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
       </div>
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-      >
-        
-      </div>
+      />
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-      >
-        
-      </div>
+      />
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-      >
-        
-      </div>
+      />
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-      >
-        
-      </div>
+      />
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-      >
-        
-      </div>
+      />
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-      >
-        
-      </div>
+      />
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-      >
-        
-      </div>
+      />
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
 </div>
 `;
 
@@ -444,9 +406,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
 <div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div
     class="am-tabs am-tabs-horizontal am-tabs-top"
   >
@@ -482,9 +442,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
           <div
             class="am-tabs-default-bar-underline"
             style="width:33.333333333333336%;left:66.66666666666667%"
-          >
-            
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -494,9 +452,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
     >
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-      >
-        
-      </div>
+      />
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
       >
@@ -519,9 +475,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
 </div>
 `;
 
@@ -529,9 +483,7 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
 <div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
   <div>
     <div
       class="am-tabs am-tabs-horizontal am-tabs-top"
@@ -542,9 +494,7 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
         <div>
           <div
             style="padding-bottom:0"
-          >
-            
-          </div>
+          />
           <div
             class=""
             style="transform:translateZ(0);z-index:1"
@@ -578,9 +528,7 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
                 <div
                   class="am-tabs-default-bar-underline"
                   style="width:33.333333333333336%;left:0%"
-                >
-                  
-                </div>
+                />
               </div>
             </div>
           </div>
@@ -610,16 +558,12 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
         </div>
         <div
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-md"
-  >
-    
-  </div>
+  />
 </div>
 `;

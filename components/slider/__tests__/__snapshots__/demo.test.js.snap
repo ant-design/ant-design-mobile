@@ -6,9 +6,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
 >
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-wingblank am-wingblank-lg"
   >
@@ -26,20 +24,14 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-slider-rail"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-track"
           style="visibility:visible;left:0%;width:86.66666666666667%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-step"
-        >
-          
-        </div>
+        />
         <div
           aria-disabled="false"
           aria-valuemax="30"
@@ -48,22 +40,16 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
           class="am-slider-handle"
           role="slider"
           style="left:86.66666666666667%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-mark"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-wingblank am-wingblank-lg"
   >
@@ -81,20 +67,14 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-slider-rail"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-track"
           style="visibility:visible;left:0%;width:86.66666666666667%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-step"
-        >
-          
-        </div>
+        />
         <div
           aria-disabled="true"
           aria-valuemax="30"
@@ -103,22 +83,16 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
           class="am-slider-handle"
           role="slider"
           style="left:86.66666666666667%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-mark"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
-  >
-    
-  </div>
+  />
   <div
     class="am-wingblank am-wingblank-lg"
   >
@@ -137,20 +111,14 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
         <div
           class="am-slider-rail"
           style="background-color:blue;height:5px"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-track"
           style="visibility:visible;background-color:red;height:5px;left:0%;width:86.66666666666667%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-step"
-        >
-          
-        </div>
+        />
         <div
           aria-disabled="false"
           aria-valuemax="30"
@@ -159,14 +127,10 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
           class="am-slider-handle"
           role="slider"
           style="border-color:blue;height:14px;width:14px;margin-left:-7px;margin-top:-4.5px;background-color:blue;left:86.66666666666667%"
-        >
-          
-        </div>
+        />
         <div
           class="am-slider-mark"
-        >
-          
-        </div>
+        />
       </div>
     </div>
   </div>

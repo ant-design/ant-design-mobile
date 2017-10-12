@@ -51,9 +51,7 @@ exports[`renders ./components/list-view/demo/basic-body.md correctly 1`] = `
   </div>
   <div
     class="am-list-body"
-  >
-    
-  </div>
+  />
   <div
     class="am-list-footer"
   >
@@ -79,9 +77,7 @@ exports[`renders ./components/list-view/demo/basic-sticky.md correctly 1`] = `
   </div>
   <div
     class="am-list-body"
-  >
-    
-  </div>
+  />
   <div
     class="am-list-footer"
   >
@@ -116,9 +112,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
           >
             <i
               class="am-search-synthetic-ph-icon"
-            >
-              
-            </i>
+            />
             <span
               class="am-search-synthetic-ph-placeholder"
               style="visibility:visible"
@@ -132,14 +126,10 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
           placeholder="Search"
           type="search"
           value=""
-        >
-          
-        </input>
+        />
         <a
           class="am-search-clear"
-        >
-          
-        </a>
+        />
       </div>
       <div
         class="am-search-cancel"
@@ -163,9 +153,7 @@ exports[`renders ./components/list-view/demo/idxed.md correctly 1`] = `
       </div>
       <div
         class="am-list-body"
-      >
-        
-      </div>
+      />
       <div
         class="am-list-footer"
       >
