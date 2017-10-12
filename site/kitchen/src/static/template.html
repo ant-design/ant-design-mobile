@@ -3,8 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
-    <title>支付宝移动组件库</title>
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
     <script>
+      if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body);
+        }, false);
+      }
       window.PromiseRejectionEvent = function () {};
       if (!window.Intl) {
         document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js">' + '<' + '/script>');
@@ -12,6 +17,7 @@
     </script>
     <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="{{ root }}kitchen-sink.css"/>
+    <title>支付宝移动组件库</title>
   </head>
   <body>
     <div id="react-content"></div>
@@ -28,13 +34,5 @@
     <script src="https://os.alipayobjects.com/rmsportal/wzWaWInUcXErDyTwvySY.js"></script>
     <script src="{{ root }}common.js"></script>
     <script src="{{ root }}kitchen-sink.js"></script>
-    <script type="text/javascript" src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
-    <script type="text/javascript">
-    if ('addEventListener' in document) {
-      document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-      }, false);
-    }
-    </script>
   </body>
 </html>
