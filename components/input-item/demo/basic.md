@@ -71,11 +71,11 @@ class BasicInputExample extends React.Component {
           ><div onClick={() => this.labelFocusInst.focus()}>标题</div></InputItem>
         </List>
 
-        <List renderHeader={() => 'Show clear icon'}>
+        <List renderHeader={() => 'Show clear'}>
           <InputItem
             {...getFieldProps('inputclear')}
             clear
-            placeholder="displayed clear icon while typing"
+            placeholder="displayed clear while typing"
           >标题</InputItem>
         </List>
 

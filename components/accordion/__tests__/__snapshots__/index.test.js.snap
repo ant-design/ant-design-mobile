@@ -14,7 +14,9 @@ exports[`Accordion match snapshot 1`] = `
     >
       <i
         class="arrow"
-      />
+      >
+        
+      </i>
       标题一
     </div>
   </div>
@@ -28,7 +30,9 @@ exports[`Accordion match snapshot 1`] = `
     >
       <i
         class="arrow"
-      />
+      >
+        
+      </i>
       标题二
     </div>
   </div>

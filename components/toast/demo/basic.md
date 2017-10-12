@@ -5,7 +5,6 @@ title:
   en-US: Basic
 ---
 
-text、icon、success、failure、offline、loading
 
 ````jsx
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';

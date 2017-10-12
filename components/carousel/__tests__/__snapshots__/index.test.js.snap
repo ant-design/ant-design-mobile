@@ -23,7 +23,9 @@ exports[`Carousel.web renders correctly 1`] = `
           <img
             alt="carousel images"
             src="https://zos.alipayobjects.com/rmsportal/AiyWuByWklrrUDlFignR"
-          />
+          >
+            
+          </img>
         </a>
       </li>
       <li
@@ -36,7 +38,9 @@ exports[`Carousel.web renders correctly 1`] = `
           <img
             alt="carousel images"
             src="https://zos.alipayobjects.com/rmsportal/TekJlZRVCjLFexlOCuWn"
-          />
+          >
+            
+          </img>
         </a>
       </li>
       <li
@@ -49,7 +53,9 @@ exports[`Carousel.web renders correctly 1`] = `
           <img
             alt="carousel images"
             src="https://zos.alipayobjects.com/rmsportal/IJOtIlfsYdTyaDTRVrLI"
-          />
+          >
+            
+          </img>
         </a>
       </li>
     </ul>
@@ -64,17 +70,23 @@ exports[`Carousel.web renders correctly 1`] = `
       <div
         class="am-carousel-wrap-dot am-carousel-wrap-dot-active"
       >
-        <span />
+        <span>
+          
+        </span>
       </div>
       <div
         class="am-carousel-wrap-dot"
       >
-        <span />
+        <span>
+          
+        </span>
       </div>
       <div
         class="am-carousel-wrap-dot"
       >
-        <span />
+        <span>
+          
+        </span>
       </div>
     </div>
   </div>

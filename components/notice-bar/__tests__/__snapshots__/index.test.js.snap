@@ -15,7 +15,9 @@ exports[`NoticeBar renders correctly 1`] = `
     >
       <use
         href="#voice"
-      />
+      >
+        
+      </use>
     </svg>
      
   </div>

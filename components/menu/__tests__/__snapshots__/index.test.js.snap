@@ -44,10 +44,14 @@ exports[`Menu level 1 renders correctly 1`] = `
                     <input
                       class="am-radio-input"
                       type="radio"
-                    />
+                    >
+                      
+                    </input>
                     <span
                       class="am-radio-inner"
-                    />
+                    >
+                      
+                    </span>
                   </span>
                 </label>
               </div>
@@ -55,7 +59,9 @@ exports[`Menu level 1 renders correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            />
+            >
+              
+            </div>
           </div>
           <div
             class="am-list-item am-radio-item am-list-item-middle"
@@ -80,10 +86,14 @@ exports[`Menu level 1 renders correctly 1`] = `
                     <input
                       class="am-radio-input"
                       type="radio"
-                    />
+                    >
+                      
+                    </input>
                     <span
                       class="am-radio-inner"
-                    />
+                    >
+                      
+                    </span>
                   </span>
                 </label>
               </div>
@@ -91,7 +101,9 @@ exports[`Menu level 1 renders correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            />
+            >
+              
+            </div>
           </div>
         </div>
       </div>
@@ -136,7 +148,9 @@ exports[`Menu renders correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            />
+            >
+              
+            </div>
           </div>
           <div
             aria-selected="false"
@@ -155,7 +169,9 @@ exports[`Menu renders correctly 1`] = `
             <div
               class="am-list-ripple"
               style="display:none"
-            />
+            >
+              
+            </div>
           </div>
         </div>
       </div>
@@ -172,7 +188,9 @@ exports[`Menu renders correctly 1`] = `
       >
         <div
           class="am-list-body"
-        />
+        >
+          
+        </div>
       </div>
     </div>
   </div>

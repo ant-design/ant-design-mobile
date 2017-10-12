@@ -14,7 +14,9 @@ exports[`SegmentedControl renders correctly 1`] = `
   >
     <div
       class="am-segment-item-inner"
-    />
+    >
+      
+    </div>
     切换一
   </div>
   <div
@@ -26,7 +28,9 @@ exports[`SegmentedControl renders correctly 1`] = `
   >
     <div
       class="am-segment-item-inner"
-    />
+    >
+      
+    </div>
     切换二
   </div>
 </div>

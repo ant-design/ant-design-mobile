@@ -73,18 +73,18 @@ class TextareaItemExample extends React.Component {
             placeholder="fixed number of lines"
           />
         </List>
-        <List renderHeader={() => 'Show clear icon'}>
+        <List renderHeader={() => 'Show clear'}>
           <TextareaItem
             {...getFieldProps('clear1')}
             clear
             title="标题"
-            placeholder="displayed clear icon while typing"
+            placeholder="displayed clear while typing"
           />
         </List>
         <List renderHeader={() => 'Custom title（text / image / empty）'}>
           <TextareaItem
             {...getFieldProps('title3')}
-            title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" alt="icon" style={{ width: '28px', height: '28px' }} />}
+            title={<img src="https://os.alipayobjects.com/rmsportal/mOoPurdIfmcuqtr.png" style={{ width: '28px', height: '28px' }} alt="" />}
             placeholder="title can be customized"
           />
         </List>

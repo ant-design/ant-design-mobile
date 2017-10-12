@@ -17,7 +17,9 @@ exports[`NavBar renders correctly 1`] = `
       >
         <use
           href="#left"
-        />
+        >
+          
+        </use>
       </svg>
     </span>
     <span
