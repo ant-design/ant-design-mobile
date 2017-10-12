@@ -7,8 +7,7 @@ title:
 
 
 ````jsx
-/* eslint global-require: 0 */
-import { ActionSheet, Button, Toast } from 'antd-mobile';
+import { ActionSheet, WingBlank, WhiteSpace, Button, Toast } from 'antd-mobile';
 
 // fix touch to scroll background page on iOS
 // https://github.com/ant-design/ant-design-mobile/issues/307
@@ -21,18 +20,6 @@ if (isIPhone) {
   };
 }
 
-const customIcon = (src, name) => <img src={src} alt={name} className={name} />;
-const iconList = [
-  { icon: customIcon('https://zos.alipayobjects.com/rmsportal/WmEzpOsElbbvgmrexFSH.png', 'img'), title: '发送给朋友' },
-  { icon: customIcon('https://zos.alipayobjects.com/rmsportal/HssPJKvrjEByyVWJIFwl.png', 'img'), title: '新浪微博' },
-  { icon: customIcon('https://zos.alipayobjects.com/rmsportal/HCGowLrLFMFglxRAKjWd.png', 'img'), title: '生活圈' },
-  { icon: customIcon('https://zos.alipayobjects.com/rmsportal/LeZNKxCTkLHDWsjFfqqn.png', 'img'), title: '微信好友' },
-  { icon: customIcon('https://zos.alipayobjects.com/rmsportal/YHHFcpGxlvQIqCAvZdbw.png', 'img'), title: 'QQ' },
-  { icon: customIcon('https://gw.alipayobjects.com/zos/rmsportal/VgOeEwrQxpfxxoxDhhRu.svg', 'icon'), title: '刷新' },
-  { icon: customIcon('https://gw.alipayobjects.com/zos/rmsportal/QcRdiavUOhCmQjvQHVqt.svg', 'icon'), title: '链接' },
-  { icon: customIcon('https://gw.alipayobjects.com/zos/rmsportal/cVeaIFCKBHUjLROxfysg.svg', 'icon'), title: '投诉' },
-];
-
 class Test extends React.Component {
   constructor() {
     super();
@@ -42,6 +29,18 @@ class Test extends React.Component {
       clicked2: 'none',
     };
   }
+
+  iconList = [
+    { icon: 'OpHiXAcYzmPQHcdlLFrc', title: '发送给朋友' },
+    { icon: 'wvEzCMiDZjthhAOcwTOu', title: '新浪微博' },
+    { icon: 'cTTayShKtEIdQVEMuiWt', title: '生活圈' },
+    { icon: 'umnHwvEgSyQtXlZjNJTt', title: '微信好友' },
+    { icon: 'SxpunpETIwdxNjcJamwB', title: 'QQ' },
+  ].map(obj => ({
+    icon: <img src={`https://gw.alipayobjects.com/zos/rmsportal/${obj.icon}.png`} alt={obj.title} style={{ width: 36 }} />,
+    title: obj.title,
+  }));
+
   showActionSheet = () => {
     const BUTTONS = ['Operation1', 'Operation2', 'Operation2', 'Delete', 'Cancel'];
     ActionSheet.showActionSheetWithOptions({
@@ -58,14 +57,14 @@ class Test extends React.Component {
       this.setState({ clicked: BUTTONS[buttonIndex] });
     });
   }
+
   showShareActionSheet = () => {
-    const icons = [...iconList];
+    const icons = [...this.iconList];
     icons.length = 4;
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
       // title: 'title',
       message: 'I am description, description, description',
-      className: 'my-action-sheet',
     },
     (buttonIndex) => {
       this.setState({ clicked1: buttonIndex > -1 ? icons[buttonIndex].title : 'cancel' });
@@ -76,46 +75,28 @@ class Test extends React.Component {
       });
     });
   }
+
   showShareActionSheetMulpitleLine = () => {
-    const icons = [[...iconList], [iconList[5], iconList[6], iconList[7]]];
+    const icons = [[...this.iconList, this.iconList[2]], [this.iconList[3], this.iconList[4]]];
     ActionSheet.showShareActionSheetWithOptions({
       options: icons,
-      // title: 'title',
       message: 'I am description, description, description',
-      className: 'my-action-sheet',
     },
     (buttonIndex, rowIndex) => {
       this.setState({ clicked2: buttonIndex > -1 ? icons[rowIndex][buttonIndex].title : 'cancel' });
     });
   }
+
   render() {
-    return (<div className="actionSheetContainer">
-      <div style={{ margin: '7.5px 0' }}>
-        <Button onClick={this.showActionSheet}>showActionSheet</Button>
-      </div>
-      <div style={{ margin: '7.5px 0' }}>
-        <Button onClick={this.showShareActionSheet}>showShareActionSheet</Button>
-      </div>
-      <div style={{ margin: '7.5px 0' }}>
-        <Button onClick={this.showShareActionSheetMulpitleLine}>showShareActionSheetMulpitleLine</Button>
-      </div>
-    </div>);
+    return (<WingBlank>
+      <Button onClick={this.showActionSheet}>showActionSheet</Button>
+      <WhiteSpace />
+      <Button onClick={this.showShareActionSheet}>showShareActionSheet</Button>
+      <WhiteSpace />
+      <Button onClick={this.showShareActionSheetMulpitleLine}>showShareActionSheetMulpitleLine</Button>
+    </WingBlank>);
   }
 }
 
 ReactDOM.render(<Test />, mountNode);
-````
-
-````css
-.actionSheetContainer {
-  margin: 0 15px;
-}
-
-.my-action-sheet .am-action-sheet-share-list-item-icon .img {
-  width: 36px;
-}
-.my-action-sheet .am-action-sheet-share-list-item-icon .icon {
-  width: 22px;
-  height: 22px;
-}
 ````

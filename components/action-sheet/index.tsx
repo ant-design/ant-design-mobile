@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from 'rmc-dialog';
 import classnames from 'classnames';
-import Icon from '../icon';
 import getDataAttr from '../_util/getDataAttr';
 import TouchFeedback from 'rmc-feedback';
 
@@ -97,7 +96,7 @@ function createActionSheet(flag, config, callback) {
       const createList = (item, index, rowIndex = 0) => (
         <div className={`${prefixCls}-share-list-item`} role="button" key={index} onClick={() => cb(index, rowIndex)}>
           <div className={`${prefixCls}-share-list-item-icon`}>
-            {item.iconName ? <Icon type={item.iconName}/> : item.icon}
+            {item.icon}
           </div>
           <div className={`${prefixCls}-share-list-item-title`}>{item.title}</div>
         </div>
