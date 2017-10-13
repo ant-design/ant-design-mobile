@@ -182,12 +182,18 @@ class InputItem extends React.Component<InputItemProps, any> {
 
     const { placeholder, focus } = this.state;
 
-    const wrapCls = classnames(`${prefixListCls}-item`, `${prefixCls}-item`, className, {
-      [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-error`]: error,
-      [`${prefixCls}-focus`]: focus,
-      [`${prefixCls}-android`]: focus,
-    });
+    const wrapCls = classnames(
+      `${prefixListCls}-item`,
+      `${prefixCls}-item`,
+      `${prefixListCls}-item-middle`,
+      className,
+      {
+        [`${prefixCls}-disabled`]: disabled,
+        [`${prefixCls}-error`]: error,
+        [`${prefixCls}-focus`]: focus,
+        [`${prefixCls}-android`]: focus,
+      },
+    );
 
     const labelCls = classnames(`${prefixCls}-label`, {
       [`${prefixCls}-label-2`]: labelNumber === 2,
@@ -238,52 +244,54 @@ class InputItem extends React.Component<InputItemProps, any> {
 
     return (
       <div className={wrapCls}>
-        {children ? (<div className={labelCls}>{children}</div>) : null}
-        <div className={controlCls}>
-          {type === 'money' ? (
-            <CustomInput
-              type={type}
-              ref={el => this.inputRef = el}
-              maxLength={maxLength}
-              placeholder={placeholder}
-              onChange={this.onInputChange}
-              onFocus={this.onInputFocus}
-              onBlur={this.onInputBlur}
-              disabled={disabled}
-              editable={editable}
-              value={fixControlledValue(value)}
-              prefixCls={prefixCls}
-              style={style}
-              confirmLabel={confirmLabel}
-              moneyKeyboardAlign={moneyKeyboardAlign}
-            />
-          ) : (
-              <Input
-                {...patternProps}
-                {...restProps}
-                {...valueProps}
-                {...classNameProps}
+        <div className={`${prefixListCls}-line`}>
+          {children ? (<div className={labelCls}>{children}</div>) : null}
+          <div className={controlCls}>
+            {type === 'money' ? (
+              <CustomInput
+                type={type}
                 ref={el => this.inputRef = el}
-                style={style}
-                type={inputType}
                 maxLength={maxLength}
-                name={name}
                 placeholder={placeholder}
                 onChange={this.onInputChange}
                 onFocus={this.onInputFocus}
                 onBlur={this.onInputBlur}
-                readOnly={!editable}
                 disabled={disabled}
+                editable={editable}
+                value={fixControlledValue(value)}
+                prefixCls={prefixCls}
+                style={style}
+                confirmLabel={confirmLabel}
+                moneyKeyboardAlign={moneyKeyboardAlign}
               />
-            )}
+            ) : (
+                <Input
+                  {...patternProps}
+                  {...restProps}
+                  {...valueProps}
+                  {...classNameProps}
+                  ref={el => this.inputRef = el}
+                  style={style}
+                  type={inputType}
+                  maxLength={maxLength}
+                  name={name}
+                  placeholder={placeholder}
+                  onChange={this.onInputChange}
+                  onFocus={this.onInputFocus}
+                  onBlur={this.onInputBlur}
+                  readOnly={!editable}
+                  disabled={disabled}
+                />
+              )}
+          </div>
+          {clear && editable && !disabled && (value && value.length > 0) ?
+            <TouchFeedback activeClassName={`${prefixCls}-clear-active`}>
+              <div className={`${prefixCls}-clear`} onClick={this.clearInput} />
+            </TouchFeedback>
+            : null}
+          {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
+          {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
         </div>
-        {clear && editable && !disabled && (value && value.length > 0) ?
-          <TouchFeedback activeClassName={`${prefixCls}-clear-active`}>
-            <div className={`${prefixCls}-clear`} onClick={this.clearInput} />
-          </TouchFeedback>
-          : null}
-        {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
-        {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
       </div>
     );
   }

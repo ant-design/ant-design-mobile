@@ -538,39 +538,47 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
       class="am-list-body"
     >
       <div
-        class="am-list-item am-input-item"
+        class="am-list-item am-input-item am-list-item-middle"
       >
         <div
-          class="am-input-label am-input-label-5"
+          class="am-list-line"
         >
-          Account
-        </div>
-        <div
-          class="am-input-control"
-        >
-          <input
-            placeholder="Please input account"
-            type="text"
-            value=""
-          />
+          <div
+            class="am-input-label am-input-label-5"
+          >
+            Account
+          </div>
+          <div
+            class="am-input-control"
+          >
+            <input
+              placeholder="Please input account"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
       <div
-        class="am-list-item am-input-item"
+        class="am-list-item am-input-item am-list-item-middle"
       >
         <div
-          class="am-input-label am-input-label-5"
+          class="am-list-line"
         >
-          Password
-        </div>
-        <div
-          class="am-input-control"
-        >
-          <input
-            placeholder="Please input password"
-            type="password"
-            value=""
-          />
+          <div
+            class="am-input-label am-input-label-5"
+          >
+            Password
+          </div>
+          <div
+            class="am-input-control"
+          >
+            <input
+              placeholder="Please input password"
+              type="password"
+              value=""
+            />
+          </div>
         </div>
       </div>
       <div

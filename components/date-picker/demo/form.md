@@ -69,7 +69,6 @@ class Test extends React.Component {
     return (<form>
       <List
         className="date-picker-list"
-        style={{ backgroundColor: 'white' }}
         renderFooter={() => getFieldError('dp') && getFieldError('dp').join(',')}
       >
         <InputItem

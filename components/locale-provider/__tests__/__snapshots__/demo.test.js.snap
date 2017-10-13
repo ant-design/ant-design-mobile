@@ -157,22 +157,26 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
       class="am-whitespace am-whitespace-md"
     />
     <div
-      class="am-list-item am-input-item"
+      class="am-list-item am-input-item am-list-item-middle"
     >
       <div
-        class="am-input-control"
+        class="am-list-line"
       >
         <div
-          class="fake-input-container"
+          class="am-input-control"
         >
           <div
-            class="fake-input-placeholder"
+            class="fake-input-container"
           >
-            money input
+            <div
+              class="fake-input-placeholder"
+            >
+              money input
+            </div>
+            <div
+              class="fake-input"
+            />
           </div>
-          <div
-            class="fake-input"
-          />
         </div>
       </div>
     </div>

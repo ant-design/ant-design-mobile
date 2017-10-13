@@ -153,7 +153,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
             style="width:33.333333333333336%"
           >
             <span>
-              First Tab-1
+              First Tab
             </span>
           </div>
           <div
@@ -161,7 +161,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
             style="width:33.333333333333336%"
           >
             <span>
-              Second Tab-2
+              Second Tab
             </span>
           </div>
           <div
@@ -169,7 +169,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
             style="width:33.333333333333336%"
           >
             <span>
-              Third Tab-3
+              Third Tab
             </span>
           </div>
           <div
