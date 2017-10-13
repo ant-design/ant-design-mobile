@@ -13,7 +13,6 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       aria-hidden="true"
       class="am-notice-bar-icon"
     >
-       
       <svg
         class="am-icon am-icon-voice am-icon-xxs"
       >
@@ -21,7 +20,6 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
           href="#voice"
         />
       </svg>
-       
     </div>
     <div
       class="am-notice-bar-content"
@@ -51,7 +49,6 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       aria-hidden="true"
       class="am-notice-bar-icon"
     >
-       
       <svg
         class="am-icon am-icon-voice am-icon-xxs"
       >
@@ -59,7 +56,6 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
           href="#voice"
         />
       </svg>
-       
     </div>
     <div
       class="am-notice-bar-content"
@@ -139,7 +135,6 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
       aria-hidden="true"
       class="am-notice-bar-icon"
     >
-       
       <svg
         class="am-icon am-icon-check-circle-o am-icon-xxs"
       >
@@ -147,7 +142,6 @@ exports[`renders ./components/notice-bar/demo/basic.md correctly 1`] = `
           href="#check-circle-o"
         />
       </svg>
-       
     </div>
     <div
       class="am-notice-bar-content"

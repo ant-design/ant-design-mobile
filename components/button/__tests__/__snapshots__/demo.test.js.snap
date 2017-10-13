@@ -83,7 +83,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="am-icon am-icon-loading am-icon-md am-button-icon"
+      class="am-button-icon am-icon am-icon-loading am-icon-md"
     >
       <use
         href="#loading"
@@ -103,7 +103,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="am-icon am-icon-check-circle-o am-icon-md am-button-icon"
+      class="am-button-icon am-icon am-icon-check-circle-o am-icon-md"
     >
       <use
         href="#check-circle-o"

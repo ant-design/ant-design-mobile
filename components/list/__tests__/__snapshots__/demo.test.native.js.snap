@@ -34,7 +34,7 @@ exports[`renders ./components/list/demo/basic.native.tsx correctly 1`] = `
             }
           }
         >
-          左侧无icon
+          basic
         </Text>
       </View>
       <View

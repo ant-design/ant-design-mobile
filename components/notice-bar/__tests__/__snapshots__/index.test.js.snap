@@ -9,7 +9,6 @@ exports[`NoticeBar renders correctly 1`] = `
     aria-hidden="true"
     class="am-notice-bar-icon"
   >
-     
     <svg
       class="am-icon am-icon-voice am-icon-xxs"
     >
@@ -17,7 +16,6 @@ exports[`NoticeBar renders correctly 1`] = `
         href="#voice"
       />
     </svg>
-     
   </div>
   <div
     class="am-notice-bar-content"

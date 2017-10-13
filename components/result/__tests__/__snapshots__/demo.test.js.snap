@@ -17,8 +17,8 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
       class="am-result-pic"
     >
       <img
-        alt="icon"
-        class="icon am-icon am-icon-md"
+        alt=""
+        class="spe am-icon am-icon-md"
         src="https://gw.alipayobjects.com/zos/rmsportal/pdFARIqkrKEGVVEwotFe.svg"
       />
     </div>
@@ -54,7 +54,7 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
       class="am-result-pic"
     >
       <svg
-        class="am-icon am-icon-check-circle am-icon-md icon"
+        class="spe am-icon am-icon-check-circle am-icon-md"
         style="fill:#1F90E6"
       >
         <use
@@ -89,7 +89,7 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
       class="am-result-pic"
     >
       <svg
-        class="am-icon am-icon-cross-circle-o am-icon-md icon"
+        class="spe am-icon am-icon-cross-circle-o am-icon-md"
         style="fill:#F13642"
       >
         <use
@@ -124,8 +124,8 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
       class="am-result-pic"
     >
       <img
-        alt="icon"
-        class="icon am-icon am-icon-md"
+        alt=""
+        class="spe am-icon am-icon-md"
         src="https://gw.alipayobjects.com/zos/rmsportal/HWuSTipkjJRfTWekgTUG.svg"
       />
     </div>
@@ -156,8 +156,8 @@ exports[`renders ./components/result/demo/basic.md correctly 1`] = `
       class="am-result-pic"
     >
       <img
-        alt="icon"
-        class="icon am-icon am-icon-md"
+        alt=""
+        class="spe am-icon am-icon-md"
         src="https://gw.alipayobjects.com/zos/rmsportal/GIyMDJnuqmcqPLpHCSkj.svg"
       />
     </div>
