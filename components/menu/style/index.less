@@ -3,12 +3,34 @@
 
 @menuPrefixCls: am-menu;
 @subMenuPrefixCls: am-sub-menu;
+@MenuSelectContanerPrefixCls: am-menu-select-container;
+@multiSelectMenuBtnsCls: am-multi-select-btns;
 @flexPrefixCls: am-flexbox;
 @listPrefixCls: am-list;
+@checkboxPrefixCls: am-checkbox;
 @firstMenuColor: @fill-grey;
 
 .@{menuPrefixCls} {
   background-color: @fill-body;
+
+  .@{MenuSelectContanerPrefixCls} {
+    flex-grow: 2;
+
+    .@{MenuSelectContanerPrefixCls}-submenu {
+      align-self: stretch;
+    }
+  }
+
+  .@{multiSelectMenuBtnsCls} {
+    height: 50px;
+    width: 100%;
+
+    .@{multiSelectMenuBtnsCls}-btn {
+      width: 50%;
+      height: 100%;
+      border-radius: 0;
+    }
+  }
 
   .@{flexPrefixCls} {
     .@{flexPrefixCls}-item {
@@ -25,6 +47,25 @@
           .@{listPrefixCls}-line {
             .@{listPrefixCls}-content {
               font-size: @link-button-font-size;
+            }
+            .@{listPrefixCls}-extra {
+              .@{checkboxPrefixCls}-wrapper {
+                .@{checkboxPrefixCls} {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  width: 100%;
+                  height: 100%;
+                  overflow: visible;
+
+                  .@{checkboxPrefixCls}-inner {
+                    top: 12px;
+                    right: 15px;
+                  }
+                }
+              }
             }
           }
         }

@@ -2,15 +2,15 @@
 
 exports[`Menu level 1 renders correctly 1`] = `
 <div
-  class="am-menu"
+  class="am-flexbox am-menu am-flexbox-dir-column am-flexbox-align-stretch"
   style="height:0px"
 >
   <div
-    class="am-flexbox am-flexbox-align-start"
+    class="am-flexbox am-menu-select-container am-flexbox-align-start"
   >
     <div
       aria-hidden="false"
-      class="am-flexbox-item"
+      class="am-flexbox-item am-menu-select-container-submenu"
       role="tabpanel"
       style="height:0px"
     >
@@ -102,11 +102,11 @@ exports[`Menu level 1 renders correctly 1`] = `
 
 exports[`Menu renders correctly 1`] = `
 <div
-  class="am-menu"
+  class="am-flexbox am-menu am-flexbox-dir-column am-flexbox-align-stretch"
   style="height:0px"
 >
   <div
-    class="am-flexbox am-flexbox-align-start"
+    class="am-flexbox am-menu-select-container am-flexbox-align-start"
   >
     <div
       class="am-flexbox-item"
@@ -162,7 +162,7 @@ exports[`Menu renders correctly 1`] = `
     </div>
     <div
       aria-hidden="false"
-      class="am-flexbox-item"
+      class="am-flexbox-item am-menu-select-container-submenu"
       role="tabpanel"
       style="height:0px"
     >
