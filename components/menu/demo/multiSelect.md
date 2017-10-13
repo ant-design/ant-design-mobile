@@ -1,8 +1,8 @@
 ---
-order: 0
+order: 2
 title:
-  zh-CN: 菜单
-  en-US: Menu
+  zh-CN: 菜单多选
+  en-US: Menu Multiple Select
 ---
 
 ````jsx
@@ -79,7 +79,7 @@ const data = [
   },
 ];
 
-class MenuExample extends React.Component {
+class MultiMenuExample extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {
@@ -88,20 +88,14 @@ class MenuExample extends React.Component {
     };
   }
   onChange = (value) => {
-    let label = '';
-    data.forEach((dataItem) => {
-      if (dataItem.value === value[0]) {
-        label = dataItem.label;
-        if (dataItem.children && value[1]) {
-          dataItem.children.forEach((cItem) => {
-            if (cItem.value === value[1]) {
-              label += ` ${cItem.label}`;
-            }
-          });
-        }
-      }
-    });
-    console.log(label);
+    console.log(value);
+  }
+  onOk = (value) => {
+    console.log(value);
+    this.onCancel();
+  }
+  onCancel = () => {
+    this.setState({ show: false });
   }
   handleClick = (e) => {
     e.preventDefault(); // Fix event propagation on Android
@@ -122,11 +116,14 @@ class MenuExample extends React.Component {
     const { initData, show } = this.state;
     const menuEl = (
       <Menu
-        className="foo-menu"
+        className="multi-foo-menu"
         data={initData}
-        value={['1', '3']}
+        value={['1', ['3', '4']]}
         onChange={this.onChange}
+        onOk={this.onOk}
+        onCancel={this.onCancel}
         height={document.documentElement.clientHeight * 0.6}
+        multiSelect
       />
     );
     const loadingEl = (
@@ -135,16 +132,16 @@ class MenuExample extends React.Component {
       </div>
     );
     return (
-      <div className={show ? 'menu-active' : ''}>
+      <div className={show ? 'multi-menu-active' : ''}>
         <div>
           <NavBar
             leftContent="Menu"
             mode="light"
             iconName={require('./menu.svg')}
             onLeftClick={this.handleClick}
-            className="top-nav-bar"
+            className="multi-top-nav-bar"
           >
-            Basic menu
+            Multi select menu
           </NavBar>
         </div>
         {show ? initData ? menuEl : loadingEl : null}
@@ -153,25 +150,25 @@ class MenuExample extends React.Component {
   }
 }
 
-ReactDOM.render(<MenuExample />, mountNode);
+ReactDOM.render(<MultiMenuExample />, mountNode);
 ````
 
 ```css
-.foo-menu {
+.multi-foo-menu {
   position: absolute;
-  z-index: 100 !important;
+  z-index: 80 !important;
   width: 100%;
 }
-.top-nav-bar {
+.multi-top-nav-bar {
   position: relative;
-  z-index: 100 !important;
+  z-index: 80 !important;
   background-color: #008AE6;
   color: #FFF;
 }
 .am-navbar-title {
   color: #FFF!important;
 }
-.menu-active:after {
+.multi-menu-active:after {
   content: ' ';
   position: absolute;
   top: 0;
@@ -179,6 +176,6 @@ ReactDOM.render(<MenuExample />, mountNode);
   height: 100%;
   background-color: #000;
   opacity: 0.4;
-  z-index: 99;
+  z-index: 79;
 }
 ```

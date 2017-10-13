@@ -2,17 +2,16 @@
 
 exports[`Menu level 1 renders correctly 1`] = `
 <div
-  class="am-menu"
+  class="am-flexbox am-flexbox-dir-column am-flexbox-align-stretch am-menu"
   style="height:0px;"
 >
   <div
-    class="am-flexbox am-flexbox-align-top"
+    class="am-flexbox am-flexbox-align-top am-menu-select-container"
   >
     <div
       aria-hidden="false"
-      class="am-flexbox-item"
+      class="am-flexbox-item am-menu-select-container-submenu"
       role="tabpanel"
-      style="height:0px;"
     >
       <div
         class="am-list am-sub-menu"
@@ -100,17 +99,137 @@ exports[`Menu level 1 renders correctly 1`] = `
 </div>
 `;
 
-exports[`Menu renders correctly 1`] = `
+exports[`Menu multiple select menu level 1 renders correctly 1`] = `
 <div
-  class="am-menu"
+  class="am-flexbox am-flexbox-dir-column am-flexbox-align-stretch am-menu"
   style="height:0px;"
 >
   <div
-    class="am-flexbox am-flexbox-align-top"
+    class="am-flexbox am-flexbox-align-top am-menu-select-container"
+  >
+    <div
+      aria-hidden="false"
+      class="am-flexbox-item am-menu-select-container-submenu"
+      role="tabpanel"
+    >
+      <div
+        class="am-list am-sub-menu"
+        style="padding-top:0;"
+      >
+        <div
+          class="am-list-body"
+        >
+          <div
+            class="am-radio-item am-list-item am-list-item-middle"
+          >
+            <div
+              class="am-list-line"
+            >
+              <div
+                class="am-list-content"
+              >
+                Item1
+              </div>
+              <div
+                class="am-list-extra"
+              >
+                <label
+                  class="am-checkbox-wrapper"
+                >
+                  <span
+                    class="am-checkbox"
+                  >
+                    <input
+                      class="am-checkbox-input"
+                      type="checkbox"
+                    />
+                    <span
+                      class="am-checkbox-inner"
+                    />
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
+          </div>
+          <div
+            class="am-radio-item am-list-item am-list-item-middle"
+          >
+            <div
+              class="am-list-line"
+            >
+              <div
+                class="am-list-content"
+              >
+                Item2
+              </div>
+              <div
+                class="am-list-extra"
+              >
+                <label
+                  class="am-checkbox-wrapper"
+                >
+                  <span
+                    class="am-checkbox"
+                  >
+                    <input
+                      class="am-checkbox-input"
+                      type="checkbox"
+                    />
+                    <span
+                      class="am-checkbox-inner"
+                    />
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-multi-select-btns"
+  >
+    <a
+      aria-disabled="false"
+      class="am-multi-select-btns-btn am-button am-button-inline"
+      role="button"
+    >
+      <span>
+        取 消
+      </span>
+    </a>
+    <a
+      aria-disabled="false"
+      class="am-multi-select-btns-btn am-button am-button-primary am-button-inline"
+      role="button"
+    >
+      <span>
+        确 定
+      </span>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Menu multiple select menu renders correctly 1`] = `
+<div
+  class="am-flexbox am-flexbox-dir-column am-flexbox-align-stretch am-menu"
+  style="height:0px;"
+>
+  <div
+    class="am-flexbox am-flexbox-align-top am-menu-select-container"
   >
     <div
       class="am-flexbox-item"
-      style="height:0px;"
     >
       <div
         class="am-list"
@@ -162,9 +281,107 @@ exports[`Menu renders correctly 1`] = `
     </div>
     <div
       aria-hidden="false"
-      class="am-flexbox-item"
+      class="am-flexbox-item am-menu-select-container-submenu"
       role="tabpanel"
-      style="height:0px;"
+    >
+      <div
+        class="am-list am-sub-menu"
+        style="padding-top:0;"
+      >
+        <div
+          class="am-list-body"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-multi-select-btns"
+  >
+    <a
+      aria-disabled="false"
+      class="am-multi-select-btns-btn am-button am-button-inline"
+      role="button"
+    >
+      <span>
+        取 消
+      </span>
+    </a>
+    <a
+      aria-disabled="false"
+      class="am-multi-select-btns-btn am-button am-button-primary am-button-inline"
+      role="button"
+    >
+      <span>
+        确 定
+      </span>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Menu renders correctly 1`] = `
+<div
+  class="am-flexbox am-flexbox-dir-column am-flexbox-align-stretch am-menu"
+  style="height:0px;"
+>
+  <div
+    class="am-flexbox am-flexbox-align-top am-menu-select-container"
+  >
+    <div
+      class="am-flexbox-item"
+    >
+      <div
+        class="am-list"
+        role="tablist"
+      >
+        <div
+          class="am-list-body"
+        >
+          <div
+            aria-selected="true"
+            class="am-menu-selected am-list-item am-list-item-middle"
+            role="tab"
+          >
+            <div
+              class="am-list-line"
+            >
+              <div
+                class="am-list-content"
+              >
+                Item1
+              </div>
+            </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
+          </div>
+          <div
+            aria-selected="false"
+            class="am-list-item am-list-item-middle"
+            role="tab"
+          >
+            <div
+              class="am-list-line"
+            >
+              <div
+                class="am-list-content"
+              >
+                Item2
+              </div>
+            </div>
+            <div
+              class="am-list-ripple"
+              style="display:none;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="false"
+      class="am-flexbox-item am-menu-select-container-submenu"
+      role="tabpanel"
     >
       <div
         class="am-list am-sub-menu"

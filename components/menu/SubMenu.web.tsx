@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import List from '../list/index.web';
 import Radio from '../radio/Radio.web';
+import Checkbox from '../checkbox/index.web';
 
 export default function SubMenu(props) {
   const onClick = (dataItem) => {
@@ -11,8 +12,8 @@ export default function SubMenu(props) {
     }
   };
 
-  const { subMenuPrefixCls, radioPrefixCls, subMenuData, showSelect, selItem } = props;
-  const selected = dataItem => (showSelect && (selItem.length > 0 && selItem[0].value === dataItem.value));
+  const { subMenuPrefixCls, radioPrefixCls, subMenuData, showSelect, selItem, multiSelect } = props;
+  const selected = dataItem => (showSelect && (selItem.length > 0 && selItem.indexOf(dataItem.value) !== -1));
 
   return(
     <List style={{ paddingTop: 0 }} className={subMenuPrefixCls}>
@@ -24,11 +25,18 @@ export default function SubMenu(props) {
             [`${subMenuPrefixCls}-item-disabled`]: dataItem.disabled,
           })}
           key={idx}
-          extra={<Radio
+          extra={!multiSelect ? (<Radio
             checked={selected(dataItem)}
             disabled={dataItem.disabled}
             onChange={() => onClick(dataItem)}
-          />}
+          />)
+          :
+          (<Checkbox
+            checked={selected(dataItem)}
+            disabled={dataItem.disabled}
+            onChange={() => onClick(dataItem)}
+          />)
+          }
         >
           {dataItem.label}
         </List.Item>
