@@ -497,32 +497,32 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
     class="am-list"
   >
     <div
-      class="am-list-header"
-    >
-      Format
-    </div>
-    <div
       class="am-list-body"
     >
       <div
         class="am-list-item am-input-item"
       >
         <div
+          class="am-input-label am-input-label-5"
+        >
+          光标在左
+        </div>
+        <div
           class="am-input-control"
         >
           <div
-            class="fake-input-container"
+            class="fake-input-container fake-input-container-left"
           >
             <div
-              class="fake-input"
+              class="fake-input-placeholder"
             >
-              222
+              start from left
             </div>
+            <div
+              class="fake-input"
+            />
           </div>
         </div>
-        <div
-          class="am-input-clear"
-        />
       </div>
       <div
         class="am-list-item am-input-item"
@@ -530,15 +530,23 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
         <div
           class="am-input-label am-input-label-5"
         >
-          普通键盘
+          光标在右
         </div>
         <div
           class="am-input-control"
         >
-          <input
-            placeholder="22"
-            type="text"
-          />
+          <div
+            class="fake-input-container"
+          >
+            <div
+              class="fake-input-placeholder"
+            >
+              start from right
+            </div>
+            <div
+              class="fake-input"
+            />
+          </div>
         </div>
       </div>
       <div
@@ -587,66 +595,7 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
           style="display:none"
         />
       </div>
-      <div
-        class="am-list-item am-input-item"
-      >
-        <div
-          class="am-input-label am-input-label-5"
-        >
-          正整数
-        </div>
-        <div
-          class="am-input-control"
-        >
-          <div
-            class="fake-input-container"
-          >
-            <div
-              class="fake-input-placeholder"
-            >
-              money format natural
-            </div>
-            <div
-              class="fake-input"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="am-list-item am-input-item"
-      >
-        <div
-          class="am-input-label am-input-label-5"
-        >
-          光标在左
-        </div>
-        <div
-          class="am-input-control"
-        >
-          <div
-            class="fake-input-container fake-input-container-left"
-          >
-            <div
-              class="fake-input-placeholder"
-            >
-              start from left
-            </div>
-            <div
-              class="fake-input"
-            />
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-  <a
-    aria-disabled="false"
-    class="am-button"
-    role="button"
-  >
-    <span>
-      重置为电话类型
-    </span>
-  </a>
 </div>
 `;
