@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "1.6.11",
+  "version": "1.7.0",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -75,8 +75,8 @@
     "babel-plugin-import": "^1.2.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-react-native": "^2.0.0",
-    "bisheng": "^0.25.0",
-    "bisheng-plugin-antd": "^0.15.0",
+    "bisheng": "0.25.0",
+    "bisheng-plugin-antd": "0.15.0",
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.5.0",
     "bisheng-plugin-toc": "^0.4.0",
