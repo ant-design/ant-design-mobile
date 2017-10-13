@@ -44,7 +44,7 @@ const TabExample = () => (
     <Tabs tabs={tabs2}
       initialPage={1}
       tabBarPosition="bottom"
-      renderTab={tab => <span>{tab.title}-{tab.sub}</span>}
+      renderTab={tab => <span>{tab.title}</span>}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
         Content of First Tab
