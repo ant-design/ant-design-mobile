@@ -79,6 +79,19 @@ toc: false
   - `rmc-picker` upgrade，dom structure simplify ([#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - remove global `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
 
+## 1.7.0
+`2017-10-13`
+
+- **Feature**
+
+  - `Menu` add mulit-choose feature.
+
+- **Bug Fix**
+
+  - Fix `Icon` spell error.
+  - Fix `Popover` styles.
+  - Fix `Steps` styles.
+
 ## 1.6.10/1.6.11
 `2017-09-25`
 
