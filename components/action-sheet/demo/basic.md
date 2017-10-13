@@ -30,14 +30,14 @@ class Test extends React.Component {
     };
   }
 
-  iconList = [
-    { icon: 'OpHiXAcYzmPQHcdlLFrc', title: '发送给朋友' },
-    { icon: 'wvEzCMiDZjthhAOcwTOu', title: '新浪微博' },
-    { icon: 'cTTayShKtEIdQVEMuiWt', title: '生活圈' },
-    { icon: 'umnHwvEgSyQtXlZjNJTt', title: '微信好友' },
-    { icon: 'SxpunpETIwdxNjcJamwB', title: 'QQ' },
+  dataList = [
+    { url: 'OpHiXAcYzmPQHcdlLFrc', title: '发送给朋友' },
+    { url: 'wvEzCMiDZjthhAOcwTOu', title: '新浪微博' },
+    { url: 'cTTayShKtEIdQVEMuiWt', title: '生活圈' },
+    { url: 'umnHwvEgSyQtXlZjNJTt', title: '微信好友' },
+    { url: 'SxpunpETIwdxNjcJamwB', title: 'QQ' },
   ].map(obj => ({
-    icon: <img src={`https://gw.alipayobjects.com/zos/rmsportal/${obj.icon}.png`} alt={obj.title} style={{ width: 36 }} />,
+    icon: <img src={`https://gw.alipayobjects.com/zos/rmsportal/${obj.url}.png`} alt={obj.title} style={{ width: 36 }} />,
     title: obj.title,
   }));
 
@@ -59,15 +59,13 @@ class Test extends React.Component {
   }
 
   showShareActionSheet = () => {
-    const icons = [...this.iconList];
-    icons.length = 4;
     ActionSheet.showShareActionSheetWithOptions({
-      options: icons,
+      options: this.dataList,
       // title: 'title',
       message: 'I am description, description, description',
     },
     (buttonIndex) => {
-      this.setState({ clicked1: buttonIndex > -1 ? icons[buttonIndex].title : 'cancel' });
+      this.setState({ clicked1: buttonIndex > -1 ? this.dataList[buttonIndex].title : 'cancel' });
       // also support Promise
       return new Promise((resolve) => {
         Toast.info('closed after 1000ms');
@@ -77,13 +75,13 @@ class Test extends React.Component {
   }
 
   showShareActionSheetMulpitleLine = () => {
-    const icons = [[...this.iconList, this.iconList[2]], [this.iconList[3], this.iconList[4]]];
+    const data = [[...this.dataList, this.dataList[2]], [this.dataList[3], this.dataList[4]]];
     ActionSheet.showShareActionSheetWithOptions({
-      options: icons,
+      options: data,
       message: 'I am description, description, description',
     },
     (buttonIndex, rowIndex) => {
-      this.setState({ clicked2: buttonIndex > -1 ? icons[rowIndex][buttonIndex].title : 'cancel' });
+      this.setState({ clicked2: buttonIndex > -1 ? data[rowIndex][buttonIndex].title : 'cancel' });
     });
   }
 

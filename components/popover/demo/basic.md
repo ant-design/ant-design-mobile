@@ -11,7 +11,7 @@ import { Popover, NavBar, Icon } from 'antd-mobile';
 
 const Item = Popover.Item;
 
-const customIcon = src => <img src={src} className="am-icon am-icon-xs" alt="" />;
+const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" alt="" />;
 class App extends React.Component {
   state = {
     visible: true,
@@ -43,9 +43,9 @@ class App extends React.Component {
             overlayStyle={{ color: 'currentColor' }}
             visible={this.state.visible}
             overlay={[
-              (<Item key="4" value="scan" icon={customIcon('https://gw.alipayobjects.com/zos/rmsportal/tOtXhkIWzwotgGSeptou.svg')} data-seed="logId">Scan</Item>),
-              (<Item key="5" value="special" icon={customIcon('https://gw.alipayobjects.com/zos/rmsportal/PKAgAqZWJVNwKsAJSmXd.svg')} style={{ whiteSpace: 'nowrap' }}>My Qrcode</Item>),
-              (<Item key="6" value="button ct" icon={customIcon('https://gw.alipayobjects.com/zos/rmsportal/uQIYTFeRrjPELImDRrPt.svg')}>
+              (<Item key="4" value="scan" icon={myImg('tOtXhkIWzwotgGSeptou')} data-seed="logId">Scan</Item>),
+              (<Item key="5" value="special" icon={myImg('PKAgAqZWJVNwKsAJSmXd')} style={{ whiteSpace: 'nowrap' }}>My Qrcode</Item>),
+              (<Item key="6" value="button ct" icon={myImg('uQIYTFeRrjPELImDRrPt')}>
                 <span style={{ marginRight: 5 }}>Help</span>
               </Item>),
             ]}

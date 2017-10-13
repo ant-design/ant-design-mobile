@@ -18,10 +18,10 @@ export default class Icon extends React.Component<IconPropType, any> {
     loadSprite();
   }
   render() {
-    const { type, className, style, size, ...restProps } = this.props;
-    const iconClassName = classnames('am-icon', `am-icon-${type}`, `am-icon-${size}`, className);
+    const { type, className, size, ...restProps } = this.props;
+    const cls = classnames(className, 'am-icon', `am-icon-${type}`, `am-icon-${size}`);
     return (
-      <svg className={iconClassName} style={style} {...restProps}>
+      <svg className={cls} {...restProps}>
         <use xlinkHref={`#${type}`} />
       </svg>
     );

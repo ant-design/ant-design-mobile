@@ -15,7 +15,7 @@ export default class BasicListExample extends React.Component<any, any> {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        <List renderHeader={() => '左侧无icon'}>
+        <List renderHeader={() => 'basic'}>
           <Item data-seed="logId">标题文字点击无反馈，文字超长则隐藏，文字超长则隐藏</Item>
           <Item wrap>文字超长折行文字超长折行文字超长折行文字超长折行文字超长折行</Item>
           <Item disabled extra="箭头向右" arrow="horizontal" onClick={() => {}}>标题文字</Item>

@@ -69,11 +69,9 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
       );
     }
 
-    const iconDom = icon && React.isValidElement(icon) ? <View style={styles.left15}>{icon}</View> : null;
-
     const main = (
       <View style={[styles.notice, style]}>
-        {iconDom}
+        {icon && <View style={styles.left15}>{icon}</View>}
         <View style={[styles.container, icon ? styles.left6 : styles.left15]}>
           <Marquee style={styles.content} text={children} {...marqueeProps} />
         </View>

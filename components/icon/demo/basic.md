@@ -9,7 +9,7 @@ title:
 ````jsx
 import { Icon, Grid } from 'antd-mobile';
 
-const icons = [
+const list = [
   'check-circle', 'check', 'check-circle-o',
   'cross-circle', 'cross', 'cross-circle-o',
   'up', 'down', 'left',
@@ -18,7 +18,7 @@ const icons = [
 ];
 
 const Demo = () => {
-  const data = icons.map(item => ({
+  const data = list.map(item => ({
     icon: (<Icon type={item} />),
     text: item,
   }));

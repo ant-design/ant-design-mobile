@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon, Grid } from 'antd-mobile';
 
-const icons = [
+const list = [
   'check-circle', 'check', 'check-circle-o',
   'cross-circle', 'cross', 'cross-circle-o',
   'up', 'down', 'left',
@@ -10,7 +10,7 @@ const icons = [
 
 export default class IConDemo extends React.Component<any, any> {
   render() {
-    const data = icons.map(item => ({
+    const data = list.map(item => ({
       icon: (<Icon type={item} />),
       text: item,
     })).concat([{

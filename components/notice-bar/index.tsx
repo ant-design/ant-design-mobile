@@ -64,7 +64,7 @@ export default class NoticeBar extends React.Component<INoticeWebProps, any> {
 
     return this.state.show ? (
       <div className={wrapCls} {...restProps} {...extraProps} role="alert">
-        {icon && <div className={`${prefixCls}-icon`} aria-hidden="true"> {icon} </div>}
+        {icon && <div className={`${prefixCls}-icon`} aria-hidden="true">{icon}</div>}
         <div className={`${prefixCls}-content`}>
           <Marquee prefixCls={prefixCls} text={children as string} {...marqueeProps} />
         </div>

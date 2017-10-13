@@ -10,7 +10,6 @@ export default class Item extends React.Component<any, any> {
   static myName = 'PopoverItem';
 
   render() {
-
     const { children, className, prefixCls, icon, disabled, firstItem, activeStyle, ...restProps } = this.props;
     const cls = classnames(`${prefixCls}-item`, className, {
       [`${prefixCls}-item-disabled`]: disabled,

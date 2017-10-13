@@ -35,7 +35,7 @@ The `callback` function support returns Promise (`web only`)
 Display shareable action sheet. The `options` object must contain one or more of:
 
 - options (array of `{icon: ReactNode, title: string}`) - a list of share buttons (required)
-    - It can be a two-dimensional array, can display multi-line buttons, e.g. `[[{icon,title},{icon,title}], [{icon,title},{icon,title}]]` means two rows and two columns. In this case there are two parameters on `callback`, the first for the `column` sequence, the second for the `line`.
+    - It can be a two-dimensional array, can display multi-line buttons, e.g. `[[{icon,title},...],...]` means two rows and two columns. In this case there are two parameters on `callback`, the first for the `column` sequence, the second for the `line`.
 - cancelButtonText (string)(`web only`) - the text of cancel button, default `取消`
 - title (string) - a title to show above the action sheet
 - message (string/React.element) - a message to show below the title

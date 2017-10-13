@@ -36,7 +36,7 @@ subtitle: 动作面板
 显示分享 action sheet，`options`对象必须包含以下的一个或者多个：
 
 - options (array of `{icon: ReactNode, title: string}`) - 分享按钮列表 (required)
-    - 可以是二维数组，能显示多行按钮，例如`[[{icon,title},{icon,title}], [{icon,title},{icon,title}]]`表示两行两列。当为二维数组时`callback`有两个参数，第一个为`列`序列、第二个为`行`序列。
+    - 可以是二维数组，能显示多行按钮，例如`[[{icon,title},...],...]`表示两行两列。当为二维数组时`callback`有两个参数，第一个为`列`序列、第二个为`行`序列。
 - cancelButtonText (string)(`web only`) - 取消按钮文案，默认为`取消`
 - title (string) - 顶部标题
 - message (string/React.element) - 顶部标题下的简要消息

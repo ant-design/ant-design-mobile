@@ -38,7 +38,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
           <InputItem
             clear
             error
-            onErrorPress={() => { alert('点击了错误icon'); }}
+            onErrorPress={() => alert('clicked me')}
             value={this.state.value}
             onChange={(value) => {
               this.setState({
