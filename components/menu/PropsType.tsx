@@ -1,13 +1,15 @@
 import React from 'react';
 
 export interface DataItem {
-  label?: any;
+  label?: React.ReactNode;
   value?: any;
   children?: any;
   isLeaf?: boolean;
   disabled?: boolean;
   [key: string]: any;
 }
+
+export type ValueType = (string | string[])[];
 
 export interface MenuProps {
   /** web only */
@@ -18,12 +20,12 @@ export interface MenuProps {
   MenuSelectContanerPrefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  data?: Array<DataItem>;
-  defaultValue?: Array<string>;
-  value?: Array<string>;
-  onChange?: Function;
-  onOk?: Function;
-  onCancel?: Function;
+  data?: DataItem[];
+  defaultValue?: ValueType;
+  value?: ValueType;
+  onChange?: (value?: ValueType) => void;
+  onOk?: (value?: ValueType) => void;
+  onCancel?: () => void;
   level?: 1 | 2;
   height?: number;
   multiSelect?: boolean;

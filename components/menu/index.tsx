@@ -5,9 +5,14 @@ import List from '../list';
 import Flex from '../flex';
 import SubMenu from './SubMenu';
 import Button from '../button';
-import { MenuProps } from './PropsType';
+import { MenuProps, ValueType, DataItem } from './PropsType';
 
-export default class Menu extends React.Component<MenuProps, any> {
+export interface StateType {
+  value?: ValueType;
+  firstLevelSelectValue: string;
+}
+
+export default class Menu extends React.Component<MenuProps, StateType> {
   static defaultProps = {
     prefixCls: 'am-menu',
     subMenuPrefixCls: 'am-sub-menu',
@@ -22,14 +27,14 @@ export default class Menu extends React.Component<MenuProps, any> {
     multiSelect: false,
   };
 
-  constructor(props) {
+  constructor(props: MenuProps) {
     super(props);
     this.state = {
       firstLevelSelectValue: this.getNewFsv(props),
       value: props.value,
     };
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: MenuProps) {
     if (nextProps.value !== this.props.value) {
       this.setState({
         firstLevelSelectValue: this.getNewFsv(nextProps),
@@ -52,19 +57,19 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
   }
 
-  getNewFsv(props) {
+  getNewFsv(props: MenuProps) {
     const { value, data } = props;
     let firstValue = '';
     if (value && value.length) {  // if has init path, chose init first value
-      firstValue = value[0];
-    } else if (!data[0].isLeaf) {  // chose the first menu item if it's not leaf.
+      firstValue = value[0] as string; // this is a contract
+    } else if (data && !data[0].isLeaf) {  // chose the first menu item if it's not leaf.
       firstValue = data[0].value;
     }
 
     return firstValue;
   }
 
-  onClickFirstLevelItem = (dataItem) => {
+  onClickFirstLevelItem = (dataItem: DataItem) => {
     const { onChange } = this.props;
     this.setState({
       firstLevelSelectValue: dataItem.value,
@@ -74,7 +79,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
   }
 
-  getSelectValue = (dataItem) => {
+  getSelectValue = (dataItem: DataItem) => {
     const { level, multiSelect } = this.props;
     if (multiSelect) {
       const { value, firstLevelSelectValue } = this.state;
@@ -84,7 +89,7 @@ export default class Menu extends React.Component<MenuProps, any> {
           return [firstLevelSelectValue, [dataItem.value]];
         } else {
           /* if level is 1, or first level isn't changed when level is 2, just do add or delete for submenu array  */
-          const chosenValues = (level === 2) ? value[1] : value;
+          const chosenValues = (level === 2) ? value[1] as string[] : value; // FIXME: hack type
           const existIndex = chosenValues.indexOf(dataItem.value);
           if (existIndex === -1) {
             chosenValues.push(dataItem.value);
@@ -102,7 +107,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     return (level === 2) ? [this.state.firstLevelSelectValue, dataItem.value] : [dataItem.value];
   }
 
-  onClickSubMenuItem = (dataItem) => {
+  onClickSubMenuItem = (dataItem: DataItem) => {
     const { onChange } = this.props;
     const value = this.getSelectValue(dataItem);
     this.setState({ value });
@@ -141,7 +146,7 @@ export default class Menu extends React.Component<MenuProps, any> {
       subValue.shift();
       if (multiSelect) {
         /* example: [[1,2,3]] -> [1,2,3] */
-        subValue = subValue[0];
+        subValue = subValue[0] as string[]; // FIXME: hack type
       }
     }
 

@@ -4,8 +4,19 @@ import classnames from 'classnames';
 import List from '../list';
 import Radio from '../radio';
 import Checkbox from '../checkbox';
+import { DataItem } from './PropsType';
 
-export default function SubMenu(props) {
+export interface PropsType {
+  subMenuPrefixCls?: string;
+  radioPrefixCls?: string;
+  subMenuData: DataItem[];
+  showSelect: boolean;
+  onSel: (dataItem: DataItem) => void;
+  selItem: DataItem[];
+  multiSelect?: boolean;
+}
+
+export default function SubMenu(props: PropsType) {
   const onClick = (dataItem) => {
     if (props.onSel) {
       props.onSel(dataItem);
