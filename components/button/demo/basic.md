@@ -23,7 +23,7 @@ const ButtonExample = () => (
 
     <Button loading>loading button</Button><WhiteSpace />
     <Button icon="check-circle-o">with icon</Button><WhiteSpace />
-    <Button icon={<img src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg" className="spe" alt="" />}>with custom icon</Button><WhiteSpace />
+    <Button icon={<img src="https://gw.alipayobjects.com/zos/rmsportal/jBfVSpDwPbitsABtDDlB.svg" alt="" />}>with custom icon</Button><WhiteSpace />
 
     {/* <Button activeStyle={false}>无点击反馈</Button><WhiteSpace /> */}
     {/* <Button activeStyle={{ backgroundColor: 'red' }}>custom feedback style</Button><WhiteSpace /> */}
@@ -41,11 +41,4 @@ const ButtonExample = () => (
   </WingBlank>
 );
 ReactDOM.render(<ButtonExample />, mountNode);
-````
-
-````css
-.spe {
-  width: 22px;
-  height: 22px;
-}
 ````

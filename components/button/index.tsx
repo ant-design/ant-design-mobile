@@ -51,7 +51,7 @@ class Button extends React.Component<ButtonProps, any> {
       delayPressIn, delayPressOut, ...restProps,
     } = this.props;
 
-    const iconType = loading ? 'loading' : icon;
+    const iconType: any = loading ? 'loading' : icon;
     const wrapCls = classnames(prefixCls, className, {
       [`${prefixCls}-primary`]: type === 'primary',
       [`${prefixCls}-ghost`]: type === 'ghost',
@@ -75,9 +75,10 @@ class Button extends React.Component<ButtonProps, any> {
           className={`${prefixCls}-icon`}
         />;
     } else if (iconType) {
+      const rawCls = iconType.props && iconType.props.className;
       const cls = classnames('am-icon', `${prefixCls}-icon`, size === 'small' ? 'am-icon-xxs' : 'am-icon-md');
       iconEl = React.cloneElement(iconType, {
-        className: cls,
+        className: rawCls ? `${rawCls} ${cls}` : cls,
       });
     }
     // use div, button native is buggy @yiminghe
