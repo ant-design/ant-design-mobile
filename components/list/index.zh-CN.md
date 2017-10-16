@@ -31,7 +31,7 @@ subtitle: 列表
 | thumb       | 缩略图(当为 string 类型时作为 img src)  | String/React.Element |  无  |
 | extra      | 右边内容        | String/React.Element |  无  |
 | arrow      | 箭头方向(右,上,下), 可选`horizontal`,`up`,`down`,`empty`，如果是`empty`则存在对应的dom,但是不显示   | String |   无  |
-| align    |    Flex 子元素垂直对齐，可选`top`,`middle`,`bottom`  | String   | `middle` |
+| align    |  子元素垂直对齐，可选`top`,`middle`,`bottom`  | String   | `middle` |
 | onClick    | 点击事件的回调函数 | (): void |  无  |
 | error(`web only`)    | 报错样式,右侧文字颜色变成橙色 | Boolean  | `false`  |
 | multipleLine    | 多行 | Boolean  | `false`  |
