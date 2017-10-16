@@ -7,13 +7,13 @@ exports[`Calendar renders correctly 1`] = `
   <span>
     <div
       class="mask animate"
-      style="display:flex"
+      style="display:flex;"
     />
   </span>
   <span>
     <div
       class="content animate"
-      style="display:flex"
+      style="display:flex;"
     >
       <div
         class="header"
@@ -79,10 +79,10 @@ exports[`Calendar renders correctly 1`] = `
         </div>
         <div
           class="wrapper"
-          style="overflow-x:hidden;overflow-y:visible"
+          style="overflow-x:hidden;overflow-y:visible;"
         >
           <div
-            style="transform:"
+            style="transform:;"
           >
             <div
               class="load-tip"

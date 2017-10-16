@@ -23,11 +23,11 @@ exports[`NoticeBar renders correctly 1`] = `
     <div
       class="am-notice-bar-marquee-wrap "
       role="marquee"
-      style="overflow:hidden"
+      style="overflow:hidden;"
     >
       <div
         class="am-notice-bar-marquee"
-        style="position:relative;right:0;white-space:nowrap;display:inline-block"
+        style="position:relative;right:0;white-space:nowrap;display:inline-block;"
       >
         foo 
       </div>

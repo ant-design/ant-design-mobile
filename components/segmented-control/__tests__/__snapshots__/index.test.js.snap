@@ -10,7 +10,7 @@ exports[`SegmentedControl renders correctly 1`] = `
     aria-selected="true"
     class="am-segment-item am-segment-item-selected"
     role="tab"
-    style="color:#fff;background-color:;border-color:"
+    style="color:#fff;background-color:;border-color:;"
   >
     <div
       class="am-segment-item-inner"
@@ -22,7 +22,7 @@ exports[`SegmentedControl renders correctly 1`] = `
     aria-selected="false"
     class="am-segment-item"
     role="tab"
-    style="color:;background-color:transparent;border-color:"
+    style="color:;background-color:transparent;border-color:;"
   >
     <div
       class="am-segment-item-inner"

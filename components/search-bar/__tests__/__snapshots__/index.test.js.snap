@@ -19,7 +19,7 @@ exports[`SearchBar renders correctly 1`] = `
         />
         <span
           class="am-search-synthetic-ph-placeholder"
-          style="visibility:visible"
+          style="visibility:visible;"
         >
           搜索
         </span>

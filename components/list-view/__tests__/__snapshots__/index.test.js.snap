@@ -3,11 +3,11 @@
 exports[`ListView renders correctly 1`] = `
 <div
   class="am-list-view-scrollview"
-  style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;flex:1"
+  style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;flex:1;"
 >
   <div
     class="am-list-view-scrollview-content am-list"
-    style="position:absolute;min-width:100%"
+    style="position:absolute;min-width:100%;"
   >
     <div
       class="am-list-body"
