@@ -51,11 +51,13 @@ export default class ComponentDoc extends React.Component {
 
   componentWillReceiveProps = (nextProps) => {
     const inMultiDemoMode = getDemos(nextProps).length >= 2;
-    this.setState({
-      currentIndex: 0,
-      inMultiDemoMode,
-      inFixedDemoMode: false,
-    });
+    if (this.props.demos !== nextProps.demos) {
+      this.setState({
+        currentIndex: 0,
+        inMultiDemoMode,
+        inFixedDemoMode: false,
+      });
+    }
   }
 
   togglePreview = (e) => {

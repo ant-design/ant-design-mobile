@@ -17,7 +17,7 @@
     right: 0;
     width: @icon-size-sm;
     height: @icon-size-sm;
-    border: 1.5 * @hd solid @color-text-caption;
+    border: 1 * @hd solid #ccc;
     border-radius: @radius-circle;
     transform: rotate(0deg);
     box-sizing: border-box;
@@ -31,7 +31,7 @@
       width: 5 * @hd;
       height: 11 * @hd;
       border-style: solid;
-      border-width: 0 1.5 * @hd 1.5 * @hd 0;
+      border-width: 0 1 * @hd 1 * @hd 0;
       content: '\0020';
       transform: rotate(45deg);
     }
@@ -52,10 +52,11 @@
   &.@{checkboxWarpPrefixCls}-checked {
     .@{checkboxInnerPrefixCls} {
       border-color: @brand-primary;
+      background: @brand-primary;
 
       &:after {
         display: block;
-        border-color: @brand-primary;
+        border-color: #fff;
       }
     }
   }
@@ -66,6 +67,7 @@
     &.@{checkboxWarpPrefixCls}-checked {
       .@{checkboxInnerPrefixCls} {
         border-color: @color-text-caption;
+        background: none;
 
         &:after {
           border-color: @color-text-caption;

@@ -23,7 +23,7 @@ export default class Header extends React.Component {
   };
 
   componentDidMount() {
-    this.context.router.listen(this.handleHideMenu);
+    // this.context.router.listen(this.handleHideMenu);
     const { searchInput } = this;
     /* eslint-disable global-require */
     require('enquire.js')
