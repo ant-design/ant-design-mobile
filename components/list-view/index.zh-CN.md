@@ -9,9 +9,9 @@ subtitle: 长列表
 
 ## API
 
-适用平台：WEB、React-Native(`DEPRECATED`)
+适用平台：WEB
 
-注意: **React Native [ListView](https://facebook.github.io/react-native/docs/listview.html#content) 现在已经被标记了`DEPRECATED`**。因为我们内部是直接从 'react-native' 里导入`ListView`，所以我们也将废弃 ListView RN 版本。
+> 注意: 我们使用 [react-native@0.26 ListView](http://facebook.github.io/react-native/releases/0.26/docs/listview.html) 的一些 API，尽管 react-native ListView 已经被官方标记为 `DEPRECATED`，但我们的 `WEB` 版本仍然正常工作。
 
 
 属性 | 说明 | 类型 | 默认值

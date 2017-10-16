@@ -13,7 +13,6 @@ export { default as Grid } from './grid';
 export { default as ImagePicker } from './image-picker/index.native';
 export { default as InputItem } from './input-item/index.native';
 export { default as List } from './list/index.native';
-export { default as ListView } from './list-view/index.native';
 export { default as Modal } from './modal/index.native';
 
 export { default as NoticeBar } from './notice-bar/index.native';

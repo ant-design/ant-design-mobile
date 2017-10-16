@@ -68,6 +68,7 @@ toc: false
   - [RN] `Button` 组件 style 里 `disabledRaw` / `disabledRawText` 修改为 `defaultDisabledRaw` / `defaultDisabledRawText`
   - [Web] `NavBar`(rc.1) 修改属性 `iconName` 为 `icon`，你需要使用 `Icon` 组件或自定义图标
   - [Web] `ActionSheet`(rc.1) 删除 `iconName` 属性，使用 `icon` 代替
+  - [RN] `ListView`(rc.3) 已经被移除，请直接引用 react-native ListView
 
 - **Theme**
 

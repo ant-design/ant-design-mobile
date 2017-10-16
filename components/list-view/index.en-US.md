@@ -8,9 +8,9 @@ It is suitable for displaying the long list data type of the same kind, and has 
 
 ## API
 
-Support WEB, React-Native(`DEPRECATED`).
+Support WEB.
 
-Note: **React Native [ListView](https://facebook.github.io/react-native/docs/listview.html#content) has been marked with `DEPRECATED` now.** Because we import `ListView` from 'react-native' directly inside, so we will also do not recommend using RN version's ListView.
+> Note: We use some APIs of [react-native@0.26 ListView](http://facebook.github.io/react-native/releases/0.26/docs/listview.html), although react-native ListView has been officially marked as `DEPRECATED` now, but our `WEB` version is still working properly.
 
 
 Properties | Descrition | Type | Default

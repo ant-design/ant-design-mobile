@@ -1,39 +1,36 @@
 import React from 'react';
 
 interface Props {
-  children?: any;
-  refreshControl?: any;
-  onScroll?: Function;
-  scrollEventThrottle?: number;
-  removeClippedSubviews?: boolean; // offscreen views are removed
   dataSource: any;
-  renderSeparator?: Function;
-  renderRow: Function;
   initialListSize?: number;
   onEndReached?: Function;
   onEndReachedThreshold?: number;
   pageSize?: number;
-  renderFooter?: Function;
   renderHeader?: Function;
-  renderSectionHeader?: Function;
+  renderFooter?: Function;
+  renderRow: Function;
   renderScrollComponent?: Function;
+  renderSectionHeader?: Function;
+  renderSeparator?: Function;
   scrollRenderAheadDistance?: number;
-  onChangeVisibleRows?: Function;
+  horizontal?: boolean;
+  onContentSizeChange?: Function;
+  onScroll?: Function;
+  scrollEventThrottle?: number;
+  onLayout?: Function;
   style?: any;
-  /** below web only */
+  /** The following is new added and does not exist in react-native */
+  contentContainerStyle?: React.CSSProperties;
+  renderBodyComponent?: Function;
+  renderSectionWrapper?: Function;
+  renderSectionBodyWrapper?: Function;
+  useBodyScroll?: boolean;
+  pullToRefresh?: React.ReactNode;
   className?: string;
   prefixCls?: string;
   listPrefixCls?: string;
   listViewPrefixCls?: string;
-  contentContainerStyle?: React.CSSProperties;
-  renderBodyComponent?: Function;
-  renderSectionBodyWrapper?: Function;
   sectionBodyClassName?: string;
-  useBodyScroll?: boolean;
-  stickyHeader?: boolean;
-  stickyProps?: any; // https://github.com/captivationsoftware/react-sticky/blob/master/README.md#sticky--props
-  stickyContainerProps?: any;
-  scrollerOptions?: any;
 }
 
 export default Props;

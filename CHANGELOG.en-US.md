@@ -68,6 +68,7 @@ toc: false
   - [RN] `Button` api `style` attribute `disabledRaw` / `disabledRawText` rename to `defaultDisabledRaw` / `defaultDisabledRawText`
   - [Web] `NavBar`(rc.1) modify the prop `iconName` to `icon`, you need to use `Icon` component or your custom icon
   - [Web] `ActionSheet`(rc.1) delete `iconName` prop, use `icon` instead
+  - [RN] `ListView` (rc.3) has been removed, please use react-native ListView directly
 
 - **Theme**
 
