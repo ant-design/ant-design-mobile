@@ -54,15 +54,13 @@ const Page = () => (
         minDate={minDate}
         maxDate={maxDate}
       >
-        <List.Item arrow="horizontal">date</List.Item>
+        <List.Item arrow="horizontal">DatePicker</List.Item>
       </DatePicker>
       <Picker
         data={seasons}
         cascade={false}
-        onChange={v => this.setState({ sValue: v })}
-        onOk={v => this.setState({ sValue: v })}
       >
-        <List.Item arrow="horizontal">Multiple</List.Item>
+        <List.Item arrow="horizontal">Picker</List.Item>
       </Picker>
     </List>
     <WhiteSpace />

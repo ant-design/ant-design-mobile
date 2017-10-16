@@ -105,7 +105,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                date
+                DatePicker
               </div>
               <div
                 class="am-list-extra"
@@ -133,7 +133,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                Multiple
+                Picker
               </div>
               <div
                 class="am-list-extra"
