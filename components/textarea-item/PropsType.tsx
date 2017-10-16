@@ -20,9 +20,6 @@ interface TextAreaItemProps {
   editable?: boolean;
   disabled?: boolean;
   labelNumber?: number;
-  autoFocus?: boolean;
-  focused?: boolean;
-  last?: boolean;
 }
 
 export default TextAreaItemProps;

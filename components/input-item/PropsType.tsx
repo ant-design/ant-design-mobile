@@ -19,7 +19,6 @@ interface InputItemProps {
   onFocus?: Function;
   extra?: React.ReactNode;
   onExtraClick?: (e?) => void;
-  onExtraPress?: Function;
   error?: boolean;
   onErrorClick?: (e?) => void;
   onErrorPress?: Function;
@@ -30,8 +29,6 @@ interface InputItemProps {
   children?: any;
   updatePlaceholder?: boolean;
   styles?: any;
-  autoFocus?: boolean;
-  focused?: boolean;
   locale?: object;
 }
 

@@ -50,4 +50,4 @@ Properties | Descrition | Type | Default
 
 Property | Description | Type | Default
 ----|-----|------|------
-| focus (`Web Only`)    | Force focus back onto the input node  | - |  -  |
+| focus (`Web Only`)    | Force focus back onto the input node  | (): void |  -  |

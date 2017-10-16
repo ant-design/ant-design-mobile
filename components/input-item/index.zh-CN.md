@@ -51,6 +51,6 @@ subtitle: 文本输入
 
 ## InputItem methods
 
-Property | Description | Type | Default
+属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| focus (`Web Only`)    | Force focus back onto the input node  | - |  -  |
+| focus (`Web Only`)    | 使 input 聚焦  | (): void |  -  |

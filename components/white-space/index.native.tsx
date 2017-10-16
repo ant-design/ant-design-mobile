@@ -1,4 +1,3 @@
-// WhiteSpace
 import React from 'react';
 import { View } from 'react-native';
 import WhiteSpaceProps from './PropsType';
