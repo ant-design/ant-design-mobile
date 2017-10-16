@@ -3,7 +3,7 @@
 exports[`Drawer match snapshot 1`] = `
 <div
   class="my-drawer am-drawer am-drawer-left"
-  style="min-height:-200px;"
+  style="min-height:-200px"
 >
   <div
     class="am-drawer-sidebar"
@@ -18,7 +18,7 @@ exports[`Drawer match snapshot 1`] = `
   />
   <div
     class="am-drawer-content"
-    style="color:#A6A6A6;text-align:center;padding-top:42px;"
+    style="color:#A6A6A6;text-align:center;padding-top:42px"
   >
     Click upper-left corner icon
   </div>

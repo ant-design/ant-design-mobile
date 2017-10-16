@@ -10,7 +10,7 @@ exports[`Progress match snapshot 1`] = `
 >
   <div
     class="am-progress-bar"
-    style="width:30%;height:0;"
+    style="width:30%;height:0"
   />
 </div>
 `;
