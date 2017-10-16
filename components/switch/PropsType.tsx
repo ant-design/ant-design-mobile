@@ -5,7 +5,6 @@ interface SwitchProps {
   onChange?: (checked: boolean) => void;
   color?: string;
   name?: string;
-  platform?: string;
   onClick?: (checked?: boolean) => void;
 }
 

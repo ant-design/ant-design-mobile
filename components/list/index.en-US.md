@@ -29,7 +29,7 @@ Properties | Descrition | Type | Default
 | thumb       | thumbnail on the left side of `List`(string type will be used to set img src)  | String/React.Element |   |
 | extra      | extra content on the right side of `List`        | String/React.Element |    |
 | arrow      | arrow direction, options: `horizontal`,`up`,`down`, `empty`; `empty` option may hide the dom  | String |     |
-| align    |    vertical alignment of `Flex` child elements，options: `top`,`middle`,`bottom`  | String   | `middle` |
+| align    | vertical alignment of child elements，options: `top`,`middle`,`bottom`  | String   | `middle` |
 | onClick    | callback is called when  list is clicked | (): void |    |
 | error(`web only`)    | Whether to display error style(the color of text on the right side may change to orange) | Boolean  | `false`  |
 | multipleLine    | multiple line | Boolean  | `false`  |

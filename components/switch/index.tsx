@@ -5,6 +5,7 @@ import BasePropsType from './PropsType';
 export interface SwitchProps extends BasePropsType {
   prefixCls?: string;
   className?: string;
+  platform?: string;
 }
 
 export default class Switch extends React.Component<SwitchProps, any> {
