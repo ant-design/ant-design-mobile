@@ -54,4 +54,4 @@ subtitle: 图标
 |------------|----------------|----------------|--------------|
 | type    |   内置 icon 名称 (`web`) 或 unicode (`RN`)    | String   |
 | size    |   图标大小    | 'xxs'/'xs'/'sm'/'md'/'lg' (`RN/WEB`)/ number(`RN Only`)  | `md` |
-| color(`RN Only`) | 图标颜色  | Color | '#000' |
+| color   | 图标颜色  | Color | '#000' |

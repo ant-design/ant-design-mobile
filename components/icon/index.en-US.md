@@ -50,4 +50,4 @@ Support：WEB、React-Native
 |------------|----------------|----------------|--------------|
 | type    |   string name of built-in icon for `WEB` or unicode string for `RN`    | String   |
 | size    |   icon size     | 'xxs'/'xs'/'sm'/'md'/'lg' (`RN/WEB`)/ number(`RN Only`)  | `md` |
-| color(`RN Only`) | icon color  | Color | '#000' |
+| color   | icon color  | Color | '#000' |
