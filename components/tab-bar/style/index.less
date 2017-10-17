@@ -5,6 +5,7 @@
 @tabs-prefix-cls: am-tabs;
 
 .@{tabbar-prefix-cls} {
+  height: 100%;
   overflow: hidden;
 
   .@{tabs-prefix-cls}-content-wrap {
@@ -15,8 +16,6 @@
     box-sizing: border-box;
     height: @tab-bar-height;
     .hairline('top');
-    position: fixed;
-    bottom: 0;
     width: 100%;
     display: flex;
     transition: bottom .2s;
