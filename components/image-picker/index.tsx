@@ -1,16 +1,15 @@
 /* tslint:disable:no-bitwise */
 import React from 'react';
 import classnames from 'classnames';
+import TouchFeedback from 'rmc-feedback';
 import Flex from '../flex';
 import { ImagePickerPropTypes as BasePropsType } from './PropsType';
-import TouchFeedback from 'rmc-feedback';
 
 export interface ImagePickerPropTypes extends BasePropsType {
   prefixCls?: string;
   className?: string;
 }
 
-const Item = Flex.Item;
 function noop() { }
 
 export default class ImagePicker extends React.Component<ImagePickerPropTypes, any> {
@@ -156,7 +155,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
         transform: `rotate(${this.getRotation(image.orientation)}deg)`,
       };
       imgItemList.push(
-        <Item key={`item-${index}`}>
+        <Flex.Item key={`item-${index}`}>
           <div key={index} className={`${prefixCls}-item`} >
             <div
               className={`${prefixCls}-item-remove`}
@@ -172,12 +171,12 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
               style={imgStyle}
             />
           </div>
-        </Item>,
+        </Flex.Item>,
       );
     });
 
     const selectEl = (
-      <Item key="select">
+      <Flex.Item key="select">
         <TouchFeedback activeClassName={`${prefixCls}-upload-btn-active`}>
           <div
             className={`${prefixCls}-item ${prefixCls}-upload-btn`}
@@ -193,7 +192,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             />
           </div>
         </TouchFeedback>
-      </Item>
+      </Flex.Item>
     );
 
     let allEl = selectable ? imgItemList.concat([selectEl]) : imgItemList;
@@ -202,7 +201,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       const blankCount = 4 - length % 4;
       let fillBlankEl: Array<any> = [];
       for (let i = 0; i < blankCount; i++) {
-        fillBlankEl.push(<Item key={`blank-${i}`} />);
+        fillBlankEl.push(<Flex.Item key={`blank-${i}`} />);
       }
       allEl = allEl.concat(fillBlankEl);
     }
