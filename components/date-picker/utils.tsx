@@ -27,18 +27,3 @@ export function formatFn(instance, value) {
   }
   return formatIt(value, formatsEnum[instance.props.mode]);
 }
-
-export function getDefaultDate(props) {
-  const { defaultDate, minDate, maxDate } = props;
-  if (defaultDate) {
-    return defaultDate;
-  }
-  const now = new Date();
-  if (minDate && now < minDate) {
-    return minDate;
-  }
-  if (maxDate && maxDate < now) {
-    return minDate;
-  }
-  return now;
-}

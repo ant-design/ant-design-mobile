@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
-import { formatFn, getDefaultDate } from './utils';
+import { formatFn } from './utils';
 import BasePropsType from './PropsType';
 import { getComponentLocale } from '../_util/getLocale';
 
@@ -67,7 +67,7 @@ export default class DatePicker extends React.Component<PropsType, any> {
         mode={props.mode}
         pickerPrefixCls={props.pickerPrefixCls}
         prefixCls={props.prefixCls}
-        defaultDate={value || getDefaultDate(this.props)}
+        defaultDate={value}
         use12Hours={props.use12Hours}
         onValueChange={props.onValueChange}
         onScrollChange={this.setScrollValue}
@@ -82,7 +82,7 @@ export default class DatePicker extends React.Component<PropsType, any> {
         maskTransitionName="am-fade"
         {...props}
         prefixCls={popupPrefixCls}
-        date={value || getDefaultDate(this.props)}
+        date={value}
         dismissText={dismissText}
         okText={okText}
         ref={this.fixOnOk}
