@@ -59,6 +59,7 @@ module.exports = {
   htmlTemplateExtraData: {
     isDev,
     useReact,
+    useHD: process.env.HD_ENV === 'hd',
   },
   themeConfig: {
     siteTitle: 'ANT DESIGN MOBILE',

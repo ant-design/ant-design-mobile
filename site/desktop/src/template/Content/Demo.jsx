@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { FormattedMessage } from 'react-intl';
 import { Button, Modal, Radio, Tooltip, Icon } from 'antd';
-import { ping, head } from '../../../../utils';
+import { ping } from '../../../../utils';
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -110,16 +110,14 @@ export default class Demo extends React.Component {
       editors: '001',
       css_external: 'https://unpkg.com/antd-mobile@next/dist/antd-mobile.min.css',
       js_external: [
-        'react@15/dist/react.js',
-        'react-dom@15/dist/react-dom.js',
-        'moment/min/moment-with-locales.js',
+        'react@16/dist/react.js',
+        'react-dom@16/dist/react-dom.js',
         'antd-mobile@next/dist/antd-mobile.min.js',
       ]
         .map(url => `https://unpkg.com/${url}`)
         .concat(['https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js'])
         .join(';'),
       js_pre_processor: 'typescript',
-      head,
     };
     const riddlePrefillConfig = {
       title: `${localizedTitle} - Ant Design Mobile Demo`,

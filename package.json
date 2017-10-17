@@ -100,6 +100,7 @@
     "lint-staged": "^4.0.2",
     "lodash.debounce": "^4.0.6",
     "mockdate": "^2.0.1",
+    "postcss-pxtorem": "^3.3.1",
     "pre-commit": "1.x",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
@@ -146,6 +147,7 @@
     "watch-tsc": "antd-tools run watch-tsc",
     "clean": "antd-tools run clean",
     "start": "cross-env NODE_ENV=development concurrently \"DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js --no-livereload\" \"DEMO_ENV=preact bisheng start -c ./site/bisheng.kitchen.config.js --no-livereload\"",
+    "start-hd": "cross-env NODE_ENV=development concurrently \"DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js --no-livereload\" \"DEMO_ENV=preact HD_ENV=hd bisheng start -c ./site/bisheng.kitchen.config.js --no-livereload\"",
     "start-prod": "cross-env NODE_ENV=production concurrently \"DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js --no-livereload\" \"DEMO_ENV=preact bisheng start -c ./site/bisheng.kitchen.config.js --no-livereload\"",
     "site": "cross-env NODE_ENV=production concurrently \"DEMO_ENV=react bisheng build -c ./site/bisheng.desktop.config.js\" \"DEMO_ENV=preact bisheng build -c ./site/bisheng.kitchen.config.js\" && node scripts/copy-app-res",
     "site-cdn": "cdn-tools run -c ./scripts/cdn-config.js",
@@ -185,6 +187,7 @@
     "port": 8001
   },
   "typings": "lib/index.d.ts",
+  "theme": "./site/theme.js",
   "pre-commit": [
     "lint-staged"
   ]
