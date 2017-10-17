@@ -63,6 +63,12 @@ class MenuExample extends React.Component {
     }
   }
 
+  onMaskClick = () => {
+    this.setState({
+      show: false,
+    });
+  }
+
   render() {
     const { initData, show } = this.state;
     const menuEl = (
@@ -93,6 +99,7 @@ class MenuExample extends React.Component {
           </NavBar>
         </div>
         {show ? initData ? menuEl : loadingEl : null}
+        {show ? <div className="menu-mask" onClick={this.onMaskClick} /> : null}
       </div>
     );
   }
@@ -107,17 +114,20 @@ ReactDOM.render(<MenuExample />, mountNode);
   z-index: 90 !important;
   width: 100%;
 }
+
+.single-menu-active .single-top-nav-bar{
+  z-index: 90;
+}
+
 .single-top-nav-bar {
   position: relative;
-  z-index: 90 !important;
   background-color: #008AE6;
   color: #FFF;
 }
 .am-navbar-title {
   color: #FFF!important;
 }
-.single-menu-active:after {
-  content: ' ';
+.menu-mask {
   position: absolute;
   top: 0;
   width: 100%;

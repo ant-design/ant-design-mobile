@@ -14,7 +14,7 @@ const Demo = () => {
     icon: (<Icon type="search" size={item} />),
     text: item,
   }));
-  return (<Grid data={data} columnNum={5} hasLine={false} />);
+  return (<Grid data={data} columnNum={5} hasLine={false} activeStyle={false} />);
 };
 ReactDOM.render(<Demo />, mountNode);
 ````
