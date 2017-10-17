@@ -4,12 +4,16 @@ export interface TabBarProps {
   barTintColor?: string;
   tintColor?: string;
   unselectedTintColor?: string;
-  children: any;
+  children?: any;
   /*web only*/
   prefixCls?: string;
   className?: string;
   hidden?: boolean;
   placeholder?: React.ReactNode;
+  /** default: false */
+  animated?: boolean;
+  /** default: false */
+  swipeable?: boolean;
   /** rn android only**/
   styles?: any;
 }
