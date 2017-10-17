@@ -17,6 +17,7 @@ Properties | Descrition | Type | Default
 | onChange    |   Callback is called when the value of `files` is changed. The `operationType` is one of `add` or `remove`(the third argument is the removed index).| (files: Object, operationType: string, index: number): void |   |
 | onImageClick   | Callback is called when the user clicks the selected picture | (index: number, files: Object): void |   |
 | onAddImageClick | Callback is called when the selector button is clicked   | (): void |   |
+| onFail | Callback is called when canceled image selection(`RN`) or failed selection(`WEB`)  | (msg: string): void |   |
 | selectable | whether to show selector button  | boolean |  true |
 
 > Note: Only return assets-library type for RN, if you want to upload files, see https://github.com/facebook/react-native/issues/201

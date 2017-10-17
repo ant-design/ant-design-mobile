@@ -1,9 +1,7 @@
 /* tslint:disable:no-bitwise */
 import React from 'react';
 import classnames from 'classnames';
-import WingBlank from '../wing-blank';
 import Flex from '../flex';
-import Toast from '../toast';
 import { ImagePickerPropTypes as BasePropsType } from './PropsType';
 import TouchFeedback from 'rmc-feedback';
 
@@ -22,6 +20,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     onChange: noop,
     onImageClick: noop,
     onAddImageClick: noop,
+    onFail: noop,
     selectable: true,
   };
 
@@ -117,7 +116,9 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       reader.onload = (e) => {
         const dataURL = (e.target as any).result;
         if (!dataURL) {
-          Toast.fail('图片获取失败');
+          if (this.props.onFail) {
+            this.props.onFail('Fail to get image');
+          }
           return;
         }
 
@@ -141,8 +142,10 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
 
   render() {
-    const { prefixCls, style, className, files = [],
-      selectable, onAddImageClick } = this.props;
+    const {
+      prefixCls, style, className, files = [], selectable, onAddImageClick,
+    } = this.props;
+
     const imgItemList: any[] = [];
 
     const wrapCls = classnames(`${prefixCls}`, className);
@@ -213,12 +216,11 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
         {item}
       </Flex>
     ));
+
     return (
       <div className={wrapCls} style={style}>
         <div className={`${prefixCls}-list`} role="group">
-          <WingBlank size="md">
-            {renderEl}
-          </WingBlank>
+          {renderEl}
         </div>
       </div>
     );
