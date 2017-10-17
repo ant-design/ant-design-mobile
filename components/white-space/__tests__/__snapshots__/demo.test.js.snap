@@ -8,7 +8,7 @@ exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
   <div
     style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
   >
-    Block
+    block
   </div>
   <div
     class="am-whitespace am-whitespace-sm"
@@ -16,7 +16,7 @@ exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
   <div
     style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
   >
-    Block
+    block
   </div>
   <div
     class="am-whitespace am-whitespace-md"
@@ -24,7 +24,7 @@ exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
   <div
     style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
   >
-    Block
+    block
   </div>
   <div
     class="am-whitespace am-whitespace-lg"
@@ -32,7 +32,7 @@ exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
   <div
     style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
   >
-    Block
+    block
   </div>
   <div
     class="am-whitespace am-whitespace-xl"
@@ -40,7 +40,7 @@ exports[`renders ./components/white-space/demo/basic.md correctly 1`] = `
   <div
     style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
   >
-    Block
+    block
   </div>
 </div>
 `;

@@ -5,7 +5,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-     always square grid item 
+    Always square grid item 
   </div>
   <div
     class="am-grid am-grid-square am-grid-line"
@@ -236,7 +236,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-     grid item adjust accroiding to img size 
+    Grid item adjust accroiding to img size 
   </div>
   <div
     class="am-grid not-square-grid am-grid-line"
@@ -467,7 +467,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    columnNum=3 
+    ColumnNum=3 
   </div>
   <div
     class="am-grid am-grid-square am-grid-line"
@@ -686,7 +686,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    no border
+    No border
   </div>
   <div
     class="am-grid am-grid-square"
@@ -917,7 +917,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    carousel
+    Carousel
   </div>
   <div
     class="am-grid am-grid-square am-grid-line am-grid-carousel"
@@ -1220,7 +1220,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    custom content
+    Custom content
   </div>
   <div
     class="am-grid am-grid-square am-grid-line"

@@ -29,13 +29,13 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
           <span
             style="margin-left:12px"
           >
-            Dot Badge
+            dot badge
           </span>
         </div>
         <div
           class="am-list-extra"
         >
-          Extra content
+          extra content
         </div>
         <div
           aria-hidden="true"
@@ -63,7 +63,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Content
+          content
         </div>
         <div
           class="am-list-extra"
@@ -103,7 +103,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
             <div
               class="corner-badge"
             >
-              Use corner prop
+              use corner prop
             </div>
             <sup
               class="am-badge-corner"
@@ -127,7 +127,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Custom corner
+          custom corner
         </div>
         <div
           class="am-list-extra"
@@ -176,7 +176,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           class="am-list-extra"
         >
-          Extra
+          extra
         </div>
         <div
           aria-hidden="true"
@@ -197,7 +197,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Marketing:
+          marketing:
           <span
             class="am-badge am-badge-not-a-wrapper am-badge-hot"
           >
@@ -264,7 +264,7 @@ exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Customize
+          customize
           <span
             class="am-badge am-badge-not-a-wrapper"
           >

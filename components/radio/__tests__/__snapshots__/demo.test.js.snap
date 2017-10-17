@@ -23,7 +23,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            Doctor
+            doctor
           </div>
           <div
             class="am-list-extra"
@@ -60,7 +60,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            Bachelor
+            bachelor
           </div>
           <div
             class="am-list-extra"
@@ -108,11 +108,11 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            Basketball
+            basketball
             <div
               class="am-list-brief"
             >
-              Details
+              details
             </div>
           </div>
           <div
@@ -150,11 +150,11 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            Football
+            football
             <div
               class="am-list-brief"
             >
-              Details
+              details
             </div>
           </div>
           <div
@@ -205,7 +205,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            Doctor
+            doctor
           </div>
           <div
             class="am-list-extra"
@@ -243,7 +243,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            Bachelor
+            bachelor
           </div>
           <div
             class="am-list-extra"
@@ -292,11 +292,11 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            Basketball
+            basketball
             <div
               class="am-list-brief"
             >
-              Details
+              details
             </div>
           </div>
           <div
@@ -335,11 +335,11 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            Football
+            football
             <div
               class="am-list-brief"
             >
-              Details
+              details
             </div>
           </div>
           <div
@@ -378,7 +378,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
       style="padding:15px 0;color:#888;flex:none"
     >
-      Radio Demo(Customized style)
+      Radio demo(dustomized style)
     </div>
     <div
       class="am-flexbox-item"

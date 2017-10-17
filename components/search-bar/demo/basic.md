@@ -46,10 +46,10 @@ class SearchBarExample extends React.Component {
               focused: true,
             });
           }}
-        >Click to Focus</Button>
+        >click to focus</Button>
       </WingBlank>
       <WhiteSpace />
-      <WingBlank><div className="sub-title">Show Cancel Button</div></WingBlank>
+      <WingBlank><div className="sub-title">Show cancel button</div></WingBlank>
       <SearchBar
         value={this.state.value}
         placeholder="Search"

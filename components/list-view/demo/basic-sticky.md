@@ -2,7 +2,7 @@
 order: 2
 title:
   zh-CN: '标题吸顶（body 容器)'
-  en-US: 'Title sticky (use `<body>` container)'
+  en-US: 'title sticky (use `<body>` container)'
 ---
 
 sticky block header to the top of the page

@@ -2,7 +2,7 @@
 order: 3
 title:
   zh-CN: '索引列表（标题吸顶）'
-  en-US: 'Index List (Title sticky)'
+  en-US: 'index List (title sticky)'
 ---
 
 sticky index List

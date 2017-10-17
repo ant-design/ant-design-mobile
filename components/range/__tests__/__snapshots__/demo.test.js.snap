@@ -13,7 +13,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     <p
       class="sub-title"
     >
-      Basic Range
+      Basic range
     </p>
     <div
       class="am-slider-wrapper"
@@ -65,7 +65,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     <p
       class="sub-title"
     >
-      Disabled Range
+      Disabled range
     </p>
     <div
       class="am-slider-wrapper"
@@ -117,7 +117,7 @@ exports[`renders ./components/range/demo/basic.md correctly 1`] = `
     <p
       class="sub-title"
     >
-      Range with Customized Style
+      Range with customized style
     </p>
     <div
       class="am-slider-wrapper"

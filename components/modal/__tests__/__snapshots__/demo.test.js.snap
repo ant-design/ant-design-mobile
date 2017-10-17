@@ -13,7 +13,7 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
     role="button"
   >
     <span>
-      Customized buttons
+      customized buttons
     </span>
   </a>
   <div
@@ -25,7 +25,7 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
     role="button"
   >
     <span>
-      Confirm
+      confirm
     </span>
   </a>
   <div
@@ -37,7 +37,7 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
     role="button"
   >
     <span>
-      More than two buttons
+      more than two buttons
     </span>
   </a>
   <div
@@ -49,7 +49,7 @@ exports[`renders ./components/modal/demo/alert.md correctly 1`] = `
     role="button"
   >
     <span>
-      Promise
+      promise
     </span>
   </a>
   <div
@@ -102,7 +102,7 @@ exports[`renders ./components/modal/demo/operation.md correctly 1`] = `
     role="button"
   >
     <span>
-      Operation
+      operation
     </span>
   </a>
   <div
@@ -124,7 +124,7 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
     role="button"
   >
     <span>
-      Promise
+      promise
     </span>
   </a>
   <div
@@ -160,7 +160,7 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
     role="button"
   >
     <span>
-      Custom buttons
+      custom buttons
     </span>
   </a>
   <div

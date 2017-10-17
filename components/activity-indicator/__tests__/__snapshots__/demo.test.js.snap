@@ -11,7 +11,7 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
       <p
         class="sub-title"
       >
-        without text
+        Without text
       </p>
       <div
         class="loading-example"
@@ -28,7 +28,7 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
       <p
         class="sub-title"
       >
-        with text
+        With text
       </p>
       <div
         class="loading-example"
@@ -50,7 +50,7 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
       <p
         class="sub-title"
       >
-        with large size and customized text style
+        With large size and customized text style
       </p>
       <div
         class="loading-example"
@@ -86,7 +86,7 @@ exports[`renders ./components/activity-indicator/demo/basic.md correctly 1`] = `
         role="button"
       >
         <span>
-          Click to show Toast
+          click to show Toast
         </span>
       </a>
       <div

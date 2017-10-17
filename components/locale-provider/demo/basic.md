@@ -54,13 +54,13 @@ const Page = () => (
         minDate={minDate}
         maxDate={maxDate}
       >
-        <List.Item arrow="horizontal">DatePicker</List.Item>
+        <List.Item arrow="horizontal">datePicker</List.Item>
       </DatePicker>
       <Picker
         data={seasons}
         cascade={false}
       >
-        <List.Item arrow="horizontal">Picker</List.Item>
+        <List.Item arrow="horizontal">picker</List.Item>
       </Picker>
     </List>
     <WhiteSpace />

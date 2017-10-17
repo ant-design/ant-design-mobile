@@ -2,7 +2,7 @@
 order: 1
 title:
   zh-CN: 警告弹窗
-  en-US: alert
+  en-US: Alert
 ---
 
 ## zh-CN
@@ -33,14 +33,14 @@ const showAlert = () => {
 const App = () => (
   <WingBlank size="lg">
     <WhiteSpace size="lg" />
-    <Button onClick={showAlert}>Customized buttons</Button>
+    <Button onClick={showAlert}>customized buttons</Button>
 
     <WhiteSpace size="lg" />
     <Button onClick={() => alert('Delete', 'Are you sure???', [
       { text: 'Cancel', onPress: () => console.log('cancel') },
       { text: 'Ok', onPress: () => console.log('ok') },
     ])}
-    >Confirm</Button>
+    >confirm</Button>
 
     <WhiteSpace size="lg" />
     <Button onClick={() => alert('Much Buttons', <div>More than two buttons</div>, [
@@ -48,7 +48,7 @@ const App = () => (
       { text: 'Button2', onPress: () => console.log('第1个按钮被点击了') },
       { text: 'Button3', onPress: () => console.log('第2个按钮被点击了') },
     ])}
-    >More than two buttons</Button>
+    >more than two buttons</Button>
 
     <WhiteSpace size="lg" />
 
@@ -62,7 +62,7 @@ const App = () => (
         }),
       },
     ])}
-    >Promise</Button>
+    >promise</Button>
 
     <WhiteSpace size="lg" />
   </WingBlank>

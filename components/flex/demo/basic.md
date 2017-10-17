@@ -53,7 +53,7 @@ const FlexExample = () => (
     </Flex>
     <WhiteSpace size="lg" />
 
-    <div className="sub-title">wrap</div>
+    <div className="sub-title">Wrap</div>
     <Flex wrap="wrap">
       <PlaceHolder className="inline" />
       <PlaceHolder className="inline" />

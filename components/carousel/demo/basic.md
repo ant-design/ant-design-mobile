@@ -29,7 +29,7 @@ class App extends React.Component {
     const hProp = this.state.initialHeight ? { height: this.state.initialHeight } : {};
     return (
       <WingBlank>
-        <div className="sub-title">normal</div>
+        <div className="sub-title">Normal</div>
         <Carousel
           className="my-carousel"
           autoplay={false}
@@ -57,7 +57,7 @@ class App extends React.Component {
         </Carousel>
 
         <WhiteSpace />
-        <div className="sub-title">vertical</div>
+        <div className="sub-title">Vertical</div>
         <Carousel className="my-carousel"
           vertical
           dots={false}
@@ -66,13 +66,13 @@ class App extends React.Component {
           autoplay
           infinite
         >
-          <div className="v-item">Carousel 1</div>
-          <div className="v-item">Carousel 2</div>
-          <div className="v-item">Carousel 3</div>
+          <div className="v-item">carousel 1</div>
+          <div className="v-item">carousel 2</div>
+          <div className="v-item">carousel 3</div>
         </Carousel>
 
         <WhiteSpace />
-        <div className="sub-title">lottery</div>
+        <div className="sub-title">Lottery</div>
         <Carousel className="my-carousel"
           vertical
           dots={false}

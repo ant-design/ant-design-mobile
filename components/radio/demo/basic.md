@@ -33,12 +33,12 @@ class Test extends React.Component {
   render() {
     const { value, value2, value3, value4 } = this.state;
     const data = [
-      { value: 0, label: 'Doctor' },
-      { value: 1, label: 'Bachelor' },
+      { value: 0, label: 'doctor' },
+      { value: 1, label: 'bachelor' },
     ];
     const data2 = [
-      { value: 0, label: 'Basketball', extra: 'Details' },
-      { value: 1, label: 'Football', extra: 'Details' },
+      { value: 0, label: 'basketball', extra: 'details' },
+      { value: 1, label: 'football', extra: 'details' },
     ];
 
     return (<div>
@@ -74,7 +74,7 @@ class Test extends React.Component {
         ))}
       </List>
       <Flex style={{ padding: '15px' }}>
-        <Flex.Item style={{ padding: '15px 0', color: '#888', flex: 'none' }}>Radio Demo(Customized style)</Flex.Item>
+        <Flex.Item style={{ padding: '15px 0', color: '#888', flex: 'none' }}>Radio demo(dustomized style)</Flex.Item>
         <Flex.Item>
           <Radio className="my-radio" onChange={e => console.log('checkbox', e)}>Agree</Radio>
         </Flex.Item>

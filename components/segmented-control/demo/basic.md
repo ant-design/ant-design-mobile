@@ -19,24 +19,24 @@ class SegmentedControlExample extends React.Component {
     return (
       <WingBlank size="lg" className="sc-example">
         <p className="sub-title">Simplest</p>
-        <SegmentedControl values={['Segment1', 'Segment2']} />
+        <SegmentedControl values={['segment1', 'segment2']} />
 
         <p className="sub-title">Disabled</p>
-        <SegmentedControl values={['Segment1', 'Segment2']} disabled />
+        <SegmentedControl values={['segment1', 'segment2']} disabled />
 
         <p className="sub-title">SelectedIndex</p>
-        <SegmentedControl selectedIndex={1} values={['Segment1', 'Segment2', 'Segment3']} />
+        <SegmentedControl selectedIndex={1} values={['segment1', 'segment2', 'segment3']} />
 
         <p className="sub-title">TintColor</p>
         <SegmentedControl
-          values={['Segment1', 'Segment2', 'Segment3']}
+          values={['segment1', 'segment2', 'segment3']}
           tintColor={'#ff0000'}
           style={{ height: '40px', width: '250px' }}
         />
 
         <p className="sub-title">onChange/onValueChange</p>
         <SegmentedControl
-          values={['Segment1', 'Segment2', 'Segment3']}
+          values={['segment1', 'segment2', 'segment3']}
           onChange={this.onChange}
           onValueChange={this.onValueChange}
         />

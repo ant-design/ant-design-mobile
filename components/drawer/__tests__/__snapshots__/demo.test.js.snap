@@ -537,7 +537,7 @@ exports[`renders ./components/drawer/demo/basic.md correctly 1`] = `
       class="am-drawer-content"
       style="color:#A6A6A6;text-align:center;padding-top:42px"
     >
-      Click upper-left corner
+      click upper-left corner
     </div>
   </div>
 </div>
@@ -1081,7 +1081,7 @@ exports[`renders ./components/drawer/demo/dock.md correctly 1`] = `
       class="am-drawer-content"
       style="color:#A6A6A6;text-align:center;padding-top:42px"
     >
-      Click upper-left corner
+      click upper-left corner
     </div>
   </div>
 </div>

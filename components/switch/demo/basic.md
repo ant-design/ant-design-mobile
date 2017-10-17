@@ -25,7 +25,7 @@ let SwitchExample = (props) => {
           })}
           onClick={(checked) => { console.log(checked); }}
         />}
-      >On</List.Item>
+      >on</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch2', {
@@ -34,7 +34,7 @@ let SwitchExample = (props) => {
           })}
           onClick={(checked) => { console.log(checked); }}
         />}
-      >Off</List.Item>
+      >off</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch3', {
@@ -44,7 +44,7 @@ let SwitchExample = (props) => {
           onClick={(checked) => { console.log(checked); }}
           disabled
         />}
-      >Disabled off</List.Item>
+      >disabled off</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch4', {
@@ -54,7 +54,7 @@ let SwitchExample = (props) => {
           onClick={(checked) => { console.log(checked); }}
           disabled
         />}
-      >Disabled on</List.Item>
+      >disabled on</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch5', {
@@ -63,7 +63,7 @@ let SwitchExample = (props) => {
           })}
           platform="android"
         />}
-      >Style for Android</List.Item>
+      >style for Android</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch6', {
@@ -73,7 +73,7 @@ let SwitchExample = (props) => {
           platform="android"
           color="red"
         />}
-      >Color for Android</List.Item>
+      >color for Android</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch7', {
@@ -82,7 +82,7 @@ let SwitchExample = (props) => {
           })}
           platform="ios"
         />}
-      >Style for iOS</List.Item>
+      >style for iOS</List.Item>
       <List.Item
         extra={<Switch
           {...getFieldProps('Switch8', {
@@ -92,7 +92,7 @@ let SwitchExample = (props) => {
           platform="ios"
           color="red"
         />}
-      >Color for iOS</List.Item>
+      >color for iOS</List.Item>
     </List>
   );
 };

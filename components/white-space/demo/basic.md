@@ -22,7 +22,7 @@ const PlaceHolder = props => (
       width: '100%',
     }}
     {...props}
-  >Block</div>
+  >block</div>
 );
 
 const WhiteSpaceExample = () => (

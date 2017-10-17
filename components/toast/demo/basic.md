@@ -44,21 +44,21 @@ const customIcon = () => (
 const ToastExample = () => (
   <WingBlank>
     <WhiteSpace />
-    <Button onClick={showToast}>Text toast</Button>
+    <Button onClick={showToast}>text only</Button>
     <WhiteSpace />
-    <Button onClick={showToastNoMask}>Without mask</Button>
+    <Button onClick={showToastNoMask}>without mask</Button>
     <WhiteSpace />
     <Button onClick={() => Toast.info(customIcon(), 1)}>
-      Cumstom Icon
+      cumstom icon
     </Button>
     <WhiteSpace />
-    <Button onClick={successToast}>Success toast</Button>
+    <Button onClick={successToast}>success</Button>
     <WhiteSpace />
-    <Button onClick={failToast}>Failed toast</Button>
+    <Button onClick={failToast}>fail</Button>
     <WhiteSpace />
-    <Button onClick={offline}>Network failure toast</Button>
+    <Button onClick={offline}>network failure</Button>
     <WhiteSpace />
-    <Button onClick={loadingToast}>Loading toast</Button>
+    <Button onClick={loadingToast}>loading</Button>
     <WhiteSpace />
   </WingBlank>
 );
