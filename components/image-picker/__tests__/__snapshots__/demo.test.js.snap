@@ -10,67 +10,63 @@ exports[`renders ./components/image-picker/demo/basic.md correctly 1`] = `
       role="group"
     >
       <div
-        class="am-wingblank am-wingblank-md"
+        class="am-flexbox am-flexbox-align-center"
       >
         <div
-          class="am-flexbox am-flexbox-align-center"
+          class="am-flexbox-item"
         >
           <div
-            class="am-flexbox-item"
+            class="am-image-picker-item"
           >
             <div
-              class="am-image-picker-item"
-            >
-              <div
-                aria-label="Click and Remove this image"
-                class="am-image-picker-item-remove"
-                role="button"
-              />
-              <div
-                aria-label="Image can be clicked"
-                class="am-image-picker-item-content"
-                role="button"
-                style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);transform:rotate(0deg)"
-              />
-            </div>
-          </div>
-          <div
-            class="am-flexbox-item"
-          >
-            <div
-              class="am-image-picker-item"
-            >
-              <div
-                aria-label="Click and Remove this image"
-                class="am-image-picker-item-remove"
-                role="button"
-              />
-              <div
-                aria-label="Image can be clicked"
-                class="am-image-picker-item-content"
-                role="button"
-                style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);transform:rotate(0deg)"
-              />
-            </div>
-          </div>
-          <div
-            class="am-flexbox-item"
-          >
-            <div
-              aria-label="Choose and add image"
-              class="am-image-picker-item am-image-picker-upload-btn"
+              aria-label="Click and Remove this image"
+              class="am-image-picker-item-remove"
               role="button"
-            >
-              <input
-                accept="image/jpg,image/jpeg,image/png,image/gif"
-                type="file"
-              />
-            </div>
+            />
+            <div
+              aria-label="Image can be clicked"
+              class="am-image-picker-item-content"
+              role="button"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);transform:rotate(0deg)"
+            />
           </div>
-          <div
-            class="am-flexbox-item"
-          />
         </div>
+        <div
+          class="am-flexbox-item"
+        >
+          <div
+            class="am-image-picker-item"
+          >
+            <div
+              aria-label="Click and Remove this image"
+              class="am-image-picker-item-remove"
+              role="button"
+            />
+            <div
+              aria-label="Image can be clicked"
+              class="am-image-picker-item-content"
+              role="button"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);transform:rotate(0deg)"
+            />
+          </div>
+        </div>
+        <div
+          class="am-flexbox-item"
+        >
+          <div
+            aria-label="Choose and add image"
+            class="am-image-picker-item am-image-picker-upload-btn"
+            role="button"
+          >
+            <input
+              accept="image/jpg,image/jpeg,image/png,image/gif"
+              type="file"
+            />
+          </div>
+        </div>
+        <div
+          class="am-flexbox-item"
+        />
       </div>
     </div>
   </div>
@@ -87,67 +83,63 @@ exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
       role="group"
     >
       <div
-        class="am-wingblank am-wingblank-md"
+        class="am-flexbox am-flexbox-align-center"
       >
         <div
-          class="am-flexbox am-flexbox-align-center"
+          class="am-flexbox-item"
         >
           <div
-            class="am-flexbox-item"
+            class="am-image-picker-item"
           >
             <div
-              class="am-image-picker-item"
-            >
-              <div
-                aria-label="Click and Remove this image"
-                class="am-image-picker-item-remove"
-                role="button"
-              />
-              <div
-                aria-label="Image can be clicked"
-                class="am-image-picker-item-content"
-                role="button"
-                style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);transform:rotate(0deg)"
-              />
-            </div>
-          </div>
-          <div
-            class="am-flexbox-item"
-          >
-            <div
-              class="am-image-picker-item"
-            >
-              <div
-                aria-label="Click and Remove this image"
-                class="am-image-picker-item-remove"
-                role="button"
-              />
-              <div
-                aria-label="Image can be clicked"
-                class="am-image-picker-item-content"
-                role="button"
-                style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);transform:rotate(0deg)"
-              />
-            </div>
-          </div>
-          <div
-            class="am-flexbox-item"
-          >
-            <div
-              aria-label="Choose and add image"
-              class="am-image-picker-item am-image-picker-upload-btn"
+              aria-label="Click and Remove this image"
+              class="am-image-picker-item-remove"
               role="button"
-            >
-              <input
-                accept="image/jpg,image/jpeg,image/png,image/gif"
-                type="file"
-              />
-            </div>
+            />
+            <div
+              aria-label="Image can be clicked"
+              class="am-image-picker-item-content"
+              role="button"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg);transform:rotate(0deg)"
+            />
           </div>
-          <div
-            class="am-flexbox-item"
-          />
         </div>
+        <div
+          class="am-flexbox-item"
+        >
+          <div
+            class="am-image-picker-item"
+          >
+            <div
+              aria-label="Click and Remove this image"
+              class="am-image-picker-item-remove"
+              role="button"
+            />
+            <div
+              aria-label="Image can be clicked"
+              class="am-image-picker-item-content"
+              role="button"
+              style="background-image:url(https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg);transform:rotate(0deg)"
+            />
+          </div>
+        </div>
+        <div
+          class="am-flexbox-item"
+        >
+          <div
+            aria-label="Choose and add image"
+            class="am-image-picker-item am-image-picker-upload-btn"
+            role="button"
+          >
+            <input
+              accept="image/jpg,image/jpeg,image/png,image/gif"
+              type="file"
+            />
+          </div>
+        </div>
+        <div
+          class="am-flexbox-item"
+        />
       </div>
     </div>
   </div>

@@ -21,7 +21,8 @@ const imagePickerStyles = StyleSheet.create<any>(imagePickerStyle);
 export default class ImagePicker extends React.Component<ImagePickerNativeProps, any> {
   static defaultProps = {
     styles: imagePickerStyles,
-    onChange() {},
+    onChange() { },
+    onFail() {},
     files: [],
     selectable: true,
   };
@@ -89,6 +90,9 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
     this.setState({
       visible: false,
     });
+    if (this.props.onFail) {
+      this.props.onFail('cancel image selection');
+    }
   }
 
   onImageClick(index) {
