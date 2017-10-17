@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import PickerStyle, { IPickerStyle } from '../picker/style/index.native';
-import { formatFn, getDefaultDate } from './utils';
+import { formatFn } from './utils';
 import tsPropsType from './PropsType';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
 import { getComponentLocale } from '../_util/getLocale';
@@ -40,7 +40,7 @@ export default class DatePicker extends React.Component<IDatePickerNativeProps, 
         mode={props.mode}
         minDate={props.minDate}
         maxDate={props.maxDate}
-        defaultDate={value || getDefaultDate(this.props)}
+        defaultDate={value}
         onValueChange={props.onValueChange}
       />
     );
@@ -50,7 +50,7 @@ export default class DatePicker extends React.Component<IDatePickerNativeProps, 
         datePicker={dataPicker}
         styles={styles}
         {...props}
-        date={value || getDefaultDate(this.props)}
+        date={value}
         dismissText={dismissText}
         okText={okText}
       >

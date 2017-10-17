@@ -4,21 +4,6 @@ import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
 import tsPropsType from './PropsType';
 import { getComponentLocale } from '../_util/getLocale';
 
-function getDefaultDate(props) {
-  const { defaultDate, minDate, maxDate } = props;
-  if (defaultDate) {
-    return defaultDate;
-  }
-  const now = new Date();
-  if (minDate && now < minDate) {
-    return minDate;
-  }
-  if (maxDate && maxDate < now) {
-    return minDate;
-  }
-  return now;
-}
-
 export default class DatePickerView extends React.Component<tsPropsType, any> {
   static defaultProps = {
     mode: 'datetime',
@@ -43,7 +28,7 @@ export default class DatePickerView extends React.Component<tsPropsType, any> {
       <RCDatePicker
         {...props}
         locale={locale}
-        date={props.value || getDefaultDate(this.props)}
+        date={props.value}
         onDateChange={props.onChange}
         onValueChange={props.onValueChange}
         onScrollChange={props.onScrollChange}
