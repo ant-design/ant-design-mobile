@@ -18,7 +18,9 @@ class AntTabBar extends React.Component<TabBarProps, any> {
     hidden: false,
     unselectedTintColor: '#888',
     placeholder: '正在加载',
-  };
+    animated: false,
+    swipeable: false,
+  } as TabBarProps;
 
   public static Item = Item;
 
@@ -56,7 +58,7 @@ class AntTabBar extends React.Component<TabBarProps, any> {
   }
 
   render() {
-    const { children, hidden } = this.props;
+    const { prefixCls, children, hidden, animated, swipeable } = this.props;
     const tabs = this.getTabs();
     let activeIndex = 0;
     tabs.forEach((tab, index) => {
@@ -66,14 +68,14 @@ class AntTabBar extends React.Component<TabBarProps, any> {
     });
 
     return (
-      <div className={this.props.prefixCls}>
+      <div className={prefixCls}>
         <Tabs
           tabs={tabs}
           renderTabBar={hidden ? false : this.renderTabBar}
           tabBarPosition="bottom"
           page={activeIndex < 0 ? undefined : activeIndex}
-          animated={false}
-          swipeable={false}
+          animated={animated}
+          swipeable={swipeable}
         >
           {children}
         </Tabs>
