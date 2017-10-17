@@ -95,7 +95,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                   <div
                     class="am-list-content"
                   >
-                    Content 1
+                    content 1
                   </div>
                 </div>
                 <div
@@ -112,7 +112,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                   <div
                     class="am-list-content"
                   >
-                    Content 2
+                    content 2
                   </div>
                 </div>
                 <div
@@ -129,7 +129,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
                   <div
                     class="am-list-content"
                   >
-                    Content 3
+                    content 3
                   </div>
                 </div>
                 <div

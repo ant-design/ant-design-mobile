@@ -2,7 +2,7 @@
 order: 9
 title:
   zh-CN: '超出界面宽度，多于5个标签'
-  en-US: 'overflow, more than 5 tabs'
+  en-US: 'Overflow, more than 5 tabs'
 ---
 
 There are at most 5 tab panes in the visible area, click on the both sides of `Tabs` to scroll.

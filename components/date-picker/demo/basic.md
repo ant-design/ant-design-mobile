@@ -64,16 +64,16 @@ class Test extends React.Component {
     return (<div>
       <List className="date-picker-list" style={{ backgroundColor: 'white' }}>
         <DatePicker value={this.state.date} onChange={this.onChange}>
-          <List.Item arrow="horizontal">Date + Time</List.Item>
+          <List.Item arrow="horizontal">datetime</List.Item>
         </DatePicker>
         <DatePicker mode="date" title="Select Date" extra="Optional" value={this.state.date} onChange={this.onChange}>
-          <List.Item arrow="horizontal">Date</List.Item>
+          <List.Item arrow="horizontal">date</List.Item>
         </DatePicker>
         <DatePicker mode="time" minuteStep={5} use12Hours value={this.state.date} onChange={this.onChange}>
-          <List.Item arrow="horizontal">Time</List.Item>
+          <List.Item arrow="horizontal">time</List.Item>
         </DatePicker>
         <DatePicker mode="time" minDate={minDate} maxDate={maxDate} value={this.state.date} onChange={this.onChange}>
-          <List.Item arrow="horizontal">Limited time</List.Item>
+          <List.Item arrow="horizontal">limited time</List.Item>
         </DatePicker>
         <DatePicker
           mode="time"
@@ -86,7 +86,7 @@ class Test extends React.Component {
         </DatePicker>
 
         <List.Item extra={this.state.dpValue && formatDate(this.state.dpValue)}>
-          <div onClick={() => this.setState({ visible: true })}>Condition(cannot select fifteenth minute)</div>
+          <div onClick={() => this.setState({ visible: true })}>condition(cannot select fifteenth minute)</div>
         </List.Item>
         <DatePicker
           visible={this.state.visible}
@@ -102,7 +102,7 @@ class Test extends React.Component {
           onChange={v => this.setState({ customChildValue: v })}
           extra="click to choose"
         >
-          <CustomChildren>With customized children</CustomChildren>
+          <CustomChildren>with customized children</CustomChildren>
         </DatePicker>
       </List>
     </div>);

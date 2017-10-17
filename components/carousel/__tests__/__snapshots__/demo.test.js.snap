@@ -7,7 +7,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    normal
+    Normal
   </div>
   <div
     class="slider am-carousel my-carousel"
@@ -96,7 +96,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    vertical
+    Vertical
   </div>
   <div
     class="slider am-carousel my-carousel am-carousel-vertical"
@@ -117,7 +117,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
           <div
             class="v-item"
           >
-            Carousel 1
+            carousel 1
           </div>
         </li>
         <li
@@ -127,7 +127,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
           <div
             class="v-item"
           >
-            Carousel 2
+            carousel 2
           </div>
         </li>
         <li
@@ -137,7 +137,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
           <div
             class="v-item"
           >
-            Carousel 3
+            carousel 3
           </div>
         </li>
       </ul>
@@ -149,7 +149,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    lottery
+    Lottery
   </div>
   <div
     class="slider am-carousel my-carousel am-carousel-vertical"

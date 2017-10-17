@@ -2,7 +2,7 @@
 order: 3
 title:
   zh-CN: 固定高度
-  en-US: 'fixed height'
+  en-US: 'Fixed height'
 ---
 
 固定外部容器高度

@@ -13,7 +13,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
     role="button"
   >
     <span>
-      Text toast
+      text only
     </span>
   </a>
   <div
@@ -25,7 +25,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
     role="button"
   >
     <span>
-      Without mask
+      without mask
     </span>
   </a>
   <div
@@ -37,7 +37,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
     role="button"
   >
     <span>
-      Cumstom Icon
+      cumstom icon
     </span>
   </a>
   <div
@@ -49,7 +49,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
     role="button"
   >
     <span>
-      Success toast
+      success
     </span>
   </a>
   <div
@@ -61,7 +61,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
     role="button"
   >
     <span>
-      Failed toast
+      fail
     </span>
   </a>
   <div
@@ -73,7 +73,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
     role="button"
   >
     <span>
-      Network failure toast
+      network failure
     </span>
   </a>
   <div
@@ -85,7 +85,7 @@ exports[`renders ./components/toast/demo/basic.md correctly 1`] = `
     role="button"
   >
     <span>
-      Loading toast
+      loading
     </span>
   </a>
   <div

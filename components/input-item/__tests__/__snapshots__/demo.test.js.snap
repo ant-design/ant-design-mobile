@@ -146,7 +146,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      click label to focus input
+      Click label to focus input
     </div>
     <div
       class="am-list-body"

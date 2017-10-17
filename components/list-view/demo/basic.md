@@ -2,7 +2,7 @@
 order: 0
 title:
   zh-CN: 自定义容器
-  en-US: 'Custom container'
+  en-US: 'custom container'
 ---
 
 > Note: you need to set `height`/`overflow` style.

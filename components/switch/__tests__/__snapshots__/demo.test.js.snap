@@ -21,7 +21,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          On
+          on
         </div>
         <div
           class="am-list-extra"
@@ -56,7 +56,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Off
+          off
         </div>
         <div
           class="am-list-extra"
@@ -90,7 +90,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Disabled off
+          disabled off
         </div>
         <div
           class="am-list-extra"
@@ -125,7 +125,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Disabled on
+          disabled on
         </div>
         <div
           class="am-list-extra"
@@ -161,7 +161,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Style for Android
+          style for Android
         </div>
         <div
           class="am-list-extra"
@@ -196,7 +196,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Color for Android
+          color for Android
         </div>
         <div
           class="am-list-extra"
@@ -232,7 +232,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Style for iOS
+          style for iOS
         </div>
         <div
           class="am-list-extra"
@@ -267,7 +267,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Color for iOS
+          color for iOS
         </div>
         <div
           class="am-list-extra"

@@ -168,7 +168,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
       role="button"
     >
       <span>
-        Click to Focus
+        click to focus
       </span>
     </a>
   </div>
@@ -181,7 +181,7 @@ exports[`renders ./components/search-bar/demo/basic.md correctly 1`] = `
     <div
       class="sub-title"
     >
-      Show Cancel Button
+      Show cancel button
     </div>
   </div>
   <form

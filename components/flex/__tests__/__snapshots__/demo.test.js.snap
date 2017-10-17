@@ -114,7 +114,7 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
   <div
     class="sub-title"
   >
-    wrap
+    Wrap
   </div>
   <div
     class="am-flexbox am-flexbox-wrap am-flexbox-align-center"

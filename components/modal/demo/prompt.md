@@ -2,7 +2,7 @@
 order: 2
 title:
   zh-CN: 输入弹窗
-  en-US: prompt
+  en-US: Prompt
 ---
 
 ## zh-CN
@@ -35,7 +35,7 @@ const App = () => (
           }),
         },
       ], 'default', null, ['input your name'])}
-    >Promise</Button>
+    >promise</Button>
 
     <WhiteSpace size="lg" />
     <Button onClick={() => prompt('defaultValue', 'defaultValue for prompt', [
@@ -63,7 +63,7 @@ const App = () => (
       ],
       'secure-text',
     )}
-    >Custom buttons</Button>
+    >custom buttons</Button>
 
     <WhiteSpace size="lg" />
     <Button onClick={() => prompt(

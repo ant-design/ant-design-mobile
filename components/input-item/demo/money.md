@@ -2,7 +2,7 @@
 order: 0
 title:
   zh-CN: 金额键盘
-  en-US: MoneyInput
+  en-US: Money input
 ---
 
 ## zh-CN
