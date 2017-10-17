@@ -57,6 +57,12 @@ class MultiMenuExample extends React.Component {
     }
   }
 
+  onMaskClick = () => {
+    this.setState({
+      show: false,
+    });
+  }
+
   render() {
     const { initData, show } = this.state;
     const menuEl = (
@@ -90,6 +96,7 @@ class MultiMenuExample extends React.Component {
           </NavBar>
         </div>
         {show ? initData ? menuEl : loadingEl : null}
+        {show ? <div className="menu-mask" onClick={this.onMaskClick} /> : null}
       </div>
     );
   }
@@ -104,16 +111,20 @@ ReactDOM.render(<MultiMenuExample />, mountNode);
   z-index: 70 !important;
   width: 100%;
 }
+
+.single-multi-menu-active .single-multi-top-nav-bar{
+  z-index: 80;
+}
+
 .single-multi-top-nav-bar {
   position: relative;
-  z-index: 70 !important;
   background-color: #008AE6;
   color: #FFF;
 }
 .am-navbar-title {
   color: #FFF!important;
 }
-.single-multi-menu-active:after {
+.menu-mask {
   content: ' ';
   position: absolute;
   top: 0;

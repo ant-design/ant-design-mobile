@@ -194,34 +194,30 @@ ReactDOM.render(<TestWrapper />, mountNode);
 .picker-list .am-list-item .am-list-line .am-list-extra {
   flex-basis: initial;
 }
+
 .test {
   position: relative;
-  border-bottom: 1PX solid #ddd;
+  border-bottom: 0;
 }
 
-@media(-webkit-min-device-pixel-ratio: 2) and (-webkit-min-device-pixel-ratio: 3), (min-resolution: 2dppx) and (min-resolution: 3dppx) {
-  .test {
-    border-bottom: 0;
-  }
-
-  .test::after {
-    content: '';
-    position: absolute;
-    background-color: #ddd;
-    display: block;
-    z-index: 1;
-    top: auto;
-    right: auto;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1PX;
-    -webkit-transform-origin: 50% 100%;
-    -ms-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-    -webkit-transform: scaleY(0.5);
-    -ms-transform: scaleY(0.5);
-    transform: scaleY(0.5);
-  }
+.test:after {
+  content: '';
+  position: absolute;
+  background-color: #ddd;
+  display: block;
+  z-index: 1;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1PX;
+  -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  transform: scaleY(0.5);
 }
+
 ````

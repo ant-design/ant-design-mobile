@@ -23,7 +23,7 @@ class ListExample extends React.Component {
         <Item extra={'extra content'}>Title</Item>
       </List>
       <List renderHeader={() => 'Subtitle'} className="my-list">
-        <Item arrow="horizontal" multipleLine>
+        <Item arrow="horizontal" multipleLine onClick={() => {}}>
           Title <Brief>subtitle</Brief>
         </Item>
         <Item
@@ -62,7 +62,13 @@ class ListExample extends React.Component {
           arrow="horizontal"
           onClick={() => {}}
         >My wallet</Item>
-        <Item thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png" arrow="horizontal">My Cost Ratio</Item>
+        <Item
+          thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
+          onClick={() => {}}
+          arrow="horizontal"
+        >
+          My Cost Ratio
+        </Item>
       </List>
       <List renderHeader={() => 'Text Wrapping'} className="my-list">
         <Item data-seed="logId">Single line，long text will be hidden with ellipsis；</Item>

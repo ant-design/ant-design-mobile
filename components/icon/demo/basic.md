@@ -23,7 +23,7 @@ const Demo = () => {
     text: item,
   }));
   return (
-    <Grid data={data} columnNum={3} hasLine={false} />
+    <Grid data={data} columnNum={3} hasLine={false} activeStyle={false} />
   );
 };
 
