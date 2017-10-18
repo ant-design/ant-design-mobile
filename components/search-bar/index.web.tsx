@@ -133,9 +133,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   onBlur = () => {
     this.onBlurTimeout = setTimeout(() => {
       if (!this.blurFromOnClear) {
-        this.setState({
-          focus: false,
-        });
+        if (document.activeElement !== this.refs.search) {
+          this.setState({
+            focus: false,
+          });
+        }
       }
       this.blurFromOnClear = false;
     }, 50);
