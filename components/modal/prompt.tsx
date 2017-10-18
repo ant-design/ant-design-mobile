@@ -170,6 +170,9 @@ export default function prompt(
 
   function onWrapTouchStart(e) {
     // exclude input element for focus
+    if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
+      return;
+    }
     const pNode = closest(e.target, `.${prefixCls}-input-container`);
     if (!pNode) {
       e.preventDefault();

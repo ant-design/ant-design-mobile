@@ -34,6 +34,13 @@ export default function operation(
     return button;
   });
 
+  function onWrapTouchStart(e) {
+    if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
+      return;
+    }
+    e.preventDefault();
+  }
+
   ReactDOM.render(
     <Modal
       visible
@@ -48,7 +55,7 @@ export default function operation(
       maskTransitionName="am-fade"
       className="am-modal-operation"
       platform={platform}
-      wrapProps={{ onTouchStart: e => e.preventDefault() }}
+      wrapProps={{ onTouchStart: onWrapTouchStart }}
     /> , div,
   );
 
