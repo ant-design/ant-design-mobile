@@ -2,29 +2,52 @@ const fs = require('fs');
 const path = require('path');
 
 const projectDir = path.join(__dirname, '../');
-
 const baseDir = path.join(projectDir, '_site');
-const filelist = [];
 
+// PC Pages
+const pcFL = [];
 let dir = `${baseDir}`;
 fs.readdirSync(dir)
   .filter(file => path.parse(file).ext === '.html')
   .forEach((doc) => {
-    filelist.push(path.join(dir, doc));
+    pcFL.push(path.join(dir, doc));
   });
 
 dir = `${baseDir}/docs/pattern`;
 fs.readdirSync(dir)
   .filter(file => path.parse(file).ext === '.html')
   .forEach((doc) => {
-    filelist.push(path.join(dir, doc));
+    pcFL.push(path.join(dir, doc));
   });
 
 dir = `${baseDir}/docs/react`;
 fs.readdirSync(dir)
   .filter(file => path.parse(file).ext === '.html')
   .forEach((doc) => {
-    filelist.push(path.join(dir, doc));
+    pcFL.push(path.join(dir, doc));
+  });
+
+dir = `${baseDir}/components`;
+fs.readdirSync(dir)
+  .filter(file => path.parse(file).ext === '.html')
+  .forEach((doc) => {
+    pcFL.push(path.join(dir, doc));
+  });
+
+// Mobile Pages
+const mobileFL = [];
+dir = `${baseDir}/kitchen-sink`;
+fs.readdirSync(dir)
+  .filter(file => path.parse(file).ext === '.html')
+  .forEach((doc) => {
+    mobileFL.push(path.join(dir, doc));
+  });
+
+dir = `${baseDir}/kitchen-sink/components`;
+fs.readdirSync(dir)
+  .filter(file => path.parse(file).ext === '.html')
+  .forEach((doc) => {
+    mobileFL.push(path.join(dir, doc));
   });
 
 module.exports = {
@@ -32,7 +55,7 @@ module.exports = {
   secret: 'mXvdTx0LJjKDCb2Wqsq5jKpiMEvk2SL1ocVESHCfn5iHb4RWOB+34ihM2e+Rc6SZssxX1vQ041Q2OIg+j6uy7/mrTp/TvDOqORHzLGtLnSA=',
   fileList: [
     {
-      template: filelist,
+      template: pcFL,
       data: [
         {
           regex: /"\/index.css"/g,
@@ -55,10 +78,7 @@ module.exports = {
       },
     },
     {
-      template: [
-        `${baseDir}/kitchen-sink/index.html`,
-        `${baseDir}/kitchen-sink/404.html`,
-      ],
+      template: mobileFL,
       data: [
         {
           regex: '/kitchen-sink/kitchen-sink.css',
