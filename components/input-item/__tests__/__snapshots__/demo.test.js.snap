@@ -106,7 +106,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             class="am-input-control"
           >
             <input
-              placeholder="Hello World"
+              placeholder="controled input"
               type="text"
               value=""
             />
@@ -486,7 +486,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
               placeholder=""
               readonly=""
               type="text"
-              value="Not editable"
+              value="not editable"
             />
           </div>
         </div>

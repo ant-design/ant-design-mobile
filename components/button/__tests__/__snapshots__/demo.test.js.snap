@@ -220,7 +220,7 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          regional manager
+          Regional manager
           <div
             class="am-list-brief"
           >
@@ -255,7 +255,7 @@ exports[`renders ./components/button/demo/complex.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          regional manager
+          Regional manager
           <div
             class="am-list-brief"
           >

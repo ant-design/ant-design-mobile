@@ -76,7 +76,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
         >
-          Content of First Tab
+          Content of first tab
         </div>
       </div>
       <div
@@ -85,7 +85,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
         >
-          Content of Second Tab
+          Content of second tab
         </div>
       </div>
       <div
@@ -94,7 +94,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
         >
-          Content of Third Tab
+          Content of third tab
         </div>
       </div>
     </div>
@@ -115,7 +115,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
         >
-          Content of First Tab
+          Content of first tab
         </div>
       </div>
       <div
@@ -124,7 +124,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
         >
-          Content of Second Tab
+          Content of second tab
         </div>
       </div>
       <div
@@ -133,7 +133,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
         >
-          Content of Third Tab
+          Content of third tab
         </div>
       </div>
     </div>
@@ -243,7 +243,7 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
           <div
             style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
           >
-            Content of First Tab
+            Content of first tab
           </div>
         </div>
         <div
@@ -252,7 +252,7 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
           <div
             style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
           >
-            Content of Second Tab
+            Content of second tab
           </div>
         </div>
         <div
@@ -459,7 +459,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
         >
-          Content of Second Tab
+          Content of second tab
         </div>
       </div>
       <div
@@ -468,7 +468,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
         <div
           style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
         >
-          Content of Third Tab
+          Content of third tab
         </div>
       </div>
     </div>
@@ -544,7 +544,7 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
           <div
             style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
           >
-            Content of First Tab
+            Content of first tab
           </div>
         </div>
         <div
@@ -553,7 +553,7 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
           <div
             style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
           >
-            Content of Second Tab
+            Content of second tab
           </div>
         </div>
         <div

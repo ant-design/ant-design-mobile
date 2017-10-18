@@ -53,7 +53,7 @@ class TextareaItemExample extends React.Component {
           <TextareaItem
             {...getFieldProps('control')}
             title="受控组件"
-            placeholder="Hello World"
+            placeholder="controlled"
           />
           <TextareaItem
             title="非受控组件"

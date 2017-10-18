@@ -14,7 +14,7 @@ const ComplexButtonDemo = () => (
       extra={<Button type="ghost" size="small" inline>small</Button>}
       multipleLine
     >
-      regional manager
+      Regional manager
       <List.Item.Brief>
         Can be collected, refund, discount management, view data and other operations
       </List.Item.Brief>
@@ -23,7 +23,7 @@ const ComplexButtonDemo = () => (
       extra={<Button type="primary" size="small" inline>small</Button>}
       multipleLine
     >
-      regional manager
+      Regional manager
       <List.Item.Brief>
         Can be collected, refund, discount management, view data and other operations
       </List.Item.Brief>

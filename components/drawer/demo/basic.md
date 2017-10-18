@@ -51,7 +51,7 @@ class App1 extends React.Component {
         open={this.state.open}
         onOpenChange={this.onOpenChange}
       >
-        click upper-left corner
+        Click upper-left corner
       </Drawer>
     </div>);
   }

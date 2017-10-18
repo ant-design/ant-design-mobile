@@ -22,7 +22,7 @@ ReactDOM.render(
 
     <NavBar
       mode="dark"
-      leftContent="back"
+      leftContent="Back"
       rightContent={[
         <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
         <Icon key="1" type="ellipsis" />,

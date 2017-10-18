@@ -34,7 +34,7 @@ class App extends React.Component {
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="sub-title">Disabled Slider</p>
+          <p className="sub-title">Disabled slider</p>
           <Slider
             style={{ marginLeft: 30, marginRight: 30 }}
             defaultValue={26}
@@ -47,7 +47,7 @@ class App extends React.Component {
         </WingBlank>
         <WhiteSpace size="lg" />
         <WingBlank size="lg">
-          <p className="sub-title">Slider With Customized Color</p>
+          <p className="sub-title">Slider with customized color</p>
           <Slider
             style={{ marginLeft: 30, marginRight: 30 }}
             defaultValue={26}

@@ -80,7 +80,7 @@ class Test extends React.Component {
               { validator: this.validateIdp },
             ],
           })}
-        >input date</InputItem>
+        >Input date</InputItem>
         <DatePicker
           {...getFieldProps('dp', {
             initialValue: this.state.dpValue,
@@ -90,7 +90,7 @@ class Test extends React.Component {
             ],
           })}
         >
-          <List.Item arrow="horizontal">date</List.Item>
+          <List.Item arrow="horizontal">Date</List.Item>
         </DatePicker>
         <List.Item>
           <Button type="primary" size="small" inline onClick={this.onSubmit}>Submit</Button>

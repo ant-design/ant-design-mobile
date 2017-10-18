@@ -28,7 +28,7 @@ class TabBarExample extends React.Component {
   renderContent(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-        <div style={{ paddingTop: 60 }}>clicked “{pageText}” tab， show “{pageText}” information</div>
+        <div style={{ paddingTop: 60 }}>Clicked “{pageText}” tab， show “{pageText}” information</div>
         <a style={{ display: 'block', marginTop: 40, marginBottom: 600, color: '#108ee9' }}
           onClick={(e) => {
             e.preventDefault();
@@ -37,7 +37,7 @@ class TabBarExample extends React.Component {
             });
           }}
         >
-          click to show/hide tab-bar
+          Click to show/hide tab-bar
         </a>
       </div>
     );

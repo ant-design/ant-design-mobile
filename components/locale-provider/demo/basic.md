@@ -90,7 +90,7 @@ class App extends React.Component {
     return (
       <WingBlank>
         <SegmentedControl
-          values={['切换到英文', 'change to chinese']}
+          values={['切换到英文', 'Change to Chinese']}
           selectedIndex={this.state.isEnglish ? 0 : 1}
           onChange={this.onChange}
         />

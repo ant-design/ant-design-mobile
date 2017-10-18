@@ -20,7 +20,7 @@ class Test extends React.Component {
     const data = [
       { value: 0, label: 'Ph.D.' },
       { value: 1, label: 'Bachelor' },
-      { value: 2, label: 'college diploma' },
+      { value: 2, label: 'College diploma' },
     ];
     return (<div>
       <List renderHeader={() => 'CheckboxItem demo'}>
@@ -30,7 +30,7 @@ class Test extends React.Component {
           </CheckboxItem>
         ))}
         <CheckboxItem key="disabled" data-seed="logId" disabled defaultChecked multipleLine>
-          undergraduate<List.Item.Brief>Auxiliary text</List.Item.Brief>
+          Undergraduate<List.Item.Brief>Auxiliary text</List.Item.Brief>
         </CheckboxItem>
       </List>
 

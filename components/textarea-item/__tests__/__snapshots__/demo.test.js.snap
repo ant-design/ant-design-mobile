@@ -95,7 +95,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
           class="am-textarea-control"
         >
           <textarea
-            placeholder="Hello World"
+            placeholder="controlled"
             rows="1"
           />
         </div>
