@@ -48,6 +48,7 @@ export default function operation(
       maskTransitionName="am-fade"
       className="am-modal-operation"
       platform={platform}
+      wrapProps={{ onTouchStart: e => e.preventDefault() }}
     /> , div,
   );
 

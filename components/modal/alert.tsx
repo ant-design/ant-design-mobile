@@ -52,6 +52,7 @@ export default function alert(
       footer={footer}
       maskTransitionName="am-fade"
       platform={platform}
+      wrapProps={{ onTouchStart: e => e.preventDefault() }}
     >
       <div style={{ zoom: 1, overflow: 'hidden' }}>{message}</div>
     </Modal>, div,
