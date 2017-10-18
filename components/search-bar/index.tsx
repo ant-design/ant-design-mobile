@@ -48,6 +48,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     }
     this.componentDidUpdate();
   }
+
   componentDidUpdate() {
     // 检测是否包含名为 ${this.props.prefixCls}-start 样式，生成动画
     // offsetWidth 某些时候是向上取整，某些时候是向下取整，不能用
@@ -144,9 +145,11 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   onBlur = () => {
     this.onBlurTimeout = setTimeout(() => {
       if (!this.blurFromOnClear) {
-        this.setState({
-          focus: false,
-        });
+        if (document.activeElement !== this.inputRef) {
+          this.setState({
+            focus: false,
+          });
+        }
       }
       this.blurFromOnClear = false;
     }, 50);
