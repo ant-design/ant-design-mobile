@@ -15,6 +15,7 @@ Basic Modal.
 
 ````jsx
 import { Modal, List, Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import closest from '../../_util/closest';
 
 class App extends React.Component {
   constructor(props) {
@@ -35,6 +36,18 @@ class App extends React.Component {
       [key]: false,
     });
   }
+
+  onWrapTouchStart = (e) => {
+    // fix touch to scroll background page on iOS
+    if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
+      return;
+    }
+    const pNode = closest(e.target, '.am-modal-body');
+    if (!pNode) {
+      e.preventDefault();
+    }
+  }
+
   render() {
     return (
       <WingBlank>
@@ -47,9 +60,16 @@ class App extends React.Component {
           onClose={this.onClose('modal1')}
           title="Title"
           footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal1')(); } }]}
+          wrapProps={{ onTouchStart: this.onWrapTouchStart }}
         >
-          Content...<br />
-          Content...<br />
+          <div style={{ height: 100, overflow: 'scroll' }}>
+            scoll content...<br />
+            scoll content...<br />
+            scoll content...<br />
+            scoll content...<br />
+            scoll content...<br />
+            scoll content...<br />
+          </div>
         </Modal>
 
         <Button onClick={this.showModal('modal2')}>popup</Button>
