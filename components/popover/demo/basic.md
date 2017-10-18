@@ -30,10 +30,6 @@ class App extends React.Component {
     });
   };
   render() {
-    let offsetX = -10; // just for pc demo
-    if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
-      offsetX = -26;
-    }
     return (<div>
       <NavBar
         mode="light"
@@ -51,7 +47,7 @@ class App extends React.Component {
             ]}
             align={{
               overflow: { adjustY: 0, adjustX: 0 },
-              offset: [offsetX, 15],
+              offset: [-10, 0],
             }}
             onVisibleChange={this.handleVisibleChange}
             onSelect={this.onSelect}
