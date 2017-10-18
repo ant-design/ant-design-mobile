@@ -29,6 +29,7 @@ toc: false
   - [Web] `ListView`(beta.3) 新增 pull-up 功能
   - [Web/RN] 新增 `DatePickerView` 组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
   - [Web/RN] 新增 `Calendar` 组件，支持跨日期的日期时间选择 ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
+  - [Web] `Picker` `SearchBar` 多语言支持
 
 - **Break Change**
 

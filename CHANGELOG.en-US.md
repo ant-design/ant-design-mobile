@@ -29,6 +29,7 @@ toc: false
   - [Web] `ListView`(beta.3) add pull-up feature.
   - Add `DatePickerView` ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
   - Add `Calendar` ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
+  - [Web] locale support for `Picker` `SearchBar`
 
 - **Break Change**
 
