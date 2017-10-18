@@ -26,7 +26,7 @@ export default function alert(
   }
 
   const footer = actions.map((button: Action) => {
-    const orginPress = button.onPress || function() {};
+    const orginPress = button.onPress || function () {};
     button.onPress = () => {
       const res = orginPress();
       if (res && res.then) {
@@ -40,6 +40,13 @@ export default function alert(
     return button;
   });
 
+  function onWrapTouchStart(e) {
+    if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
+      return;
+    }
+    e.preventDefault();
+  }
+
   ReactDOM.render(
     <Modal
       visible
@@ -52,7 +59,7 @@ export default function alert(
       footer={footer}
       maskTransitionName="am-fade"
       platform={platform}
-      wrapProps={{ onTouchStart: e => e.preventDefault() }}
+      wrapProps={{ onTouchStart: onWrapTouchStart }}
     >
       <div style={{ zoom: 1, overflow: 'hidden' }}>{message}</div>
     </Modal>, div,
