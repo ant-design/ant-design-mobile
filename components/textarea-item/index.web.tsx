@@ -103,9 +103,11 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   onBlur = (e) => {
     this.debounceTimeout = setTimeout(() => {
-      this.setState({
-        focus: false,
-      });
+      if (document.activeElement !== this.refs.textarea) {
+        this.setState({
+          focus: false,
+        });
+      }
     }, 100);
     if (!('focused' in this.props)) {
       this.setState({
