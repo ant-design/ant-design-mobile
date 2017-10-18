@@ -54,7 +54,7 @@ class BasicInputExample extends React.Component {
         <List renderHeader={() => 'Whether is controlled'}>
           <InputItem
             {...getFieldProps('control')}
-            placeholder="Hello World"
+            placeholder="controled input"
           >受控组件</InputItem>
           <InputItem
             placeholder="please input content"
@@ -143,7 +143,7 @@ class BasicInputExample extends React.Component {
 
         <List renderHeader={() => 'Not editable / Disabled'}>
           <InputItem
-            value="Not editable"
+            value="not editable"
             editable={false}
           >姓名</InputItem>
           <InputItem

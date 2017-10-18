@@ -498,7 +498,7 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
                 selected=""
                 value="1"
               >
-                html select element
+                Html select element
               </option>
               <option
                 disabled=""
@@ -552,7 +552,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             class="am-input-control"
           >
             <input
-              placeholder="Please input account"
+              placeholder="please input account"
               type="text"
               value=""
             />
@@ -574,7 +574,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
             class="am-input-control"
           >
             <input
-              placeholder="Please input password"
+              placeholder="please input password"
               type="password"
               value=""
             />

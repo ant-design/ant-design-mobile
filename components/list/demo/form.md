@@ -57,9 +57,9 @@ class BasicInput extends React.Component {
           onErrorClick={() => {
             alert(getFieldError('account').join('、'));
           }}
-          placeholder="Please input account"
+          placeholder="please input account"
         >Account</InputItem>
-        <InputItem {...getFieldProps('password')} placeholder="Please input password" type="password">
+        <InputItem {...getFieldProps('password')} placeholder="please input password" type="password">
           Password
         </InputItem>
         <Item

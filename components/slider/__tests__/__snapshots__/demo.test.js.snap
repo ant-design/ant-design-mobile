@@ -56,7 +56,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     <p
       class="sub-title"
     >
-      Disabled Slider
+      Disabled slider
     </p>
     <div
       class="am-slider-wrapper"
@@ -99,7 +99,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
     <p
       class="sub-title"
     >
-      Slider With Customized Color
+      Slider with customized color
     </p>
     <div
       class="am-slider-wrapper"

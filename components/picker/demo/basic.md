@@ -134,7 +134,7 @@ class Test extends React.Component {
           onOk={e => console.log('ok', e)}
           onDismiss={e => console.log('dismiss', e)}
         >
-          <List.Item arrow="horizontal">multiple & cascader</List.Item>
+          <List.Item arrow="horizontal">Multiple & cascader</List.Item>
         </Picker>
         <Picker
           data={seasons}
@@ -145,10 +145,10 @@ class Test extends React.Component {
           onChange={v => this.setState({ sValue: v })}
           onOk={v => this.setState({ sValue: v })}
         >
-          <List.Item arrow="horizontal">multiple</List.Item>
+          <List.Item arrow="horizontal">Multiple</List.Item>
         </Picker>
         <Picker data={district} cols={1} {...getFieldProps('district3')} className="forss">
-          <List.Item arrow="horizontal">single</List.Item>
+          <List.Item arrow="horizontal">Single</List.Item>
         </Picker>
         <Picker
           data={this.state.data}
@@ -157,7 +157,7 @@ class Test extends React.Component {
           onPickerChange={this.onPickerChange}
           onOk={v => console.log(v)}
         >
-          <List.Item arrow="horizontal" onClick={this.onClick}>multiple & async</List.Item>
+          <List.Item arrow="horizontal" onClick={this.onClick}>Multiple & async</List.Item>
         </Picker>
         <Picker
           title="选择地区"
@@ -167,7 +167,7 @@ class Test extends React.Component {
           onChange={v => this.setState({ pickerValue: v })}
           onOk={v => this.setState({ pickerValue: v })}
         >
-          <CustomChildren>customized children</CustomChildren>
+          <CustomChildren>Customized children</CustomChildren>
         </Picker>
         <Picker
           visible={this.state.visible}
@@ -178,7 +178,7 @@ class Test extends React.Component {
           onDismiss={() => this.setState({ visible: false })}
         >
           <List.Item extra={this.getSel()}>
-            <div onClick={() => this.setState({ visible: true })}>visible state</div>
+            <div onClick={() => this.setState({ visible: true })}>Visible state</div>
           </List.Item>
         </Picker>
       </List>

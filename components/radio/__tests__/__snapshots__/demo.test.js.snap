@@ -8,7 +8,7 @@ exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
     <div
       class="am-list-header"
     >
-      RadioItem Demo
+      RadioItem demo
     </div>
     <div
       class="am-list-body"

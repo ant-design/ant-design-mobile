@@ -30,7 +30,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
       <div
         class="am-segment-item-inner"
       />
-      change to chinese
+      Change to Chinese
     </div>
   </div>
   <div

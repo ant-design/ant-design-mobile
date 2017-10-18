@@ -24,13 +24,13 @@ const TabExample = () => (
         initalPage={'t2'}
       >
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-          Content of First Tab
+          Content of first tab
         </div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-          Content of Second Tab
+          Content of second tab
         </div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-          Content of Third Tab
+          Content of third tab
         </div>
       </Tabs>
     </div>

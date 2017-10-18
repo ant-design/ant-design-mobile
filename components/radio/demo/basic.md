@@ -42,7 +42,7 @@ class Test extends React.Component {
     ];
 
     return (<div>
-      <List renderHeader={() => 'RadioItem Demo'}>
+      <List renderHeader={() => 'RadioItem demo'}>
         {data.map(i => (
           <RadioItem key={i.value} checked={value === i.value} onChange={() => this.onChange(i.value)}>
             {i.label}

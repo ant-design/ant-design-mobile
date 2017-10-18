@@ -31,13 +31,13 @@ const TabExample = () => (
       onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-        Content of First Tab
+        Content of first tab
       </div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-        Content of Second Tab
+        Content of second tab
       </div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-        Content of Third Tab
+        Content of third tab
       </div>
     </Tabs>
     <WhiteSpace />
@@ -47,13 +47,13 @@ const TabExample = () => (
       renderTab={tab => <span>{tab.title}</span>}
     >
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-        Content of First Tab
+        Content of first tab
       </div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-        Content of Second Tab
+        Content of second tab
       </div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-        Content of Third Tab
+        Content of third tab
       </div>
     </Tabs>
     <WhiteSpace />

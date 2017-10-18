@@ -46,7 +46,7 @@ const SwipeActionExample = () => (
         arrow="horizontal"
         onClick={e => console.log(e)}
       >
-        have left and right buttons
+        Have left and right buttons
       </List.Item>
     </SwipeAction>
     <SwipeAction
@@ -72,7 +72,7 @@ const SwipeActionExample = () => (
         arrow="horizontal"
         onClick={e => console.log(e)}
       >
-        only left buttons
+        Only left buttons
       </List.Item>
     </SwipeAction>
     <SwipeAction
@@ -98,7 +98,7 @@ const SwipeActionExample = () => (
         arrow="horizontal"
         onClick={e => console.log(e)}
       >
-        only right buttons
+        Only right buttons
       </List.Item>
     </SwipeAction>
     <SwipeAction
@@ -124,7 +124,7 @@ const SwipeActionExample = () => (
         arrow="horizontal"
         onClick={e => console.log(e)}
       >
-        different button width
+        Different button width
       </List.Item>
     </SwipeAction>
     <SwipeAction

@@ -39,7 +39,7 @@ class Demo extends React.Component {
               onChange={this.onChange}
             />}
         >
-        show number value
+        Show number value
         </List.Item>
         <List.Item extra={
           <Stepper
@@ -51,7 +51,7 @@ class Demo extends React.Component {
             disabled
           />}
         >
-        disabled
+        Disabled
         </List.Item>
       </List>
     );

@@ -192,7 +192,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   <p
     class="sub-title"
   >
-    Point Style
+    Point style
   </p>
   <div
     class="am-pagination"

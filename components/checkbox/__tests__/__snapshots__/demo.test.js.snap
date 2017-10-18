@@ -113,7 +113,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            college diploma
+            College diploma
           </div>
         </div>
         <div
@@ -152,7 +152,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            undergraduate
+            Undergraduate
             <div
               class="am-list-brief"
             >

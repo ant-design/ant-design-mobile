@@ -22,7 +22,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              multiple & cascader
+              Multiple & cascader
             </div>
             <div
               class="am-list-extra"
@@ -50,7 +50,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              multiple
+              Multiple
             </div>
             <div
               class="am-list-extra"
@@ -78,7 +78,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              single
+              Single
             </div>
             <div
               class="am-list-extra"
@@ -106,7 +106,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              multiple & async
+              Multiple & async
             </div>
             <div
               class="am-list-extra"
@@ -135,7 +135,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"
             >
-              customized children
+              Customized children
             </div>
             <div
               style="text-align:right;color:#888;margin-right:15px"
@@ -156,7 +156,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
               class="am-list-content"
             >
               <div>
-                visible state
+                Visible state
               </div>
             </div>
             <div

@@ -53,7 +53,7 @@ class App extends React.Component {
         sidebar={sidebar}
         docked={this.state.docked}
       >
-        click upper-left corner
+        Click upper-left corner
       </Drawer>
     </div>);
   }

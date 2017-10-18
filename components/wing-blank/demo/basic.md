@@ -21,7 +21,7 @@ const PlaceHolder = props => (
       width: '100%',
     }}
     {...props}
-  >block</div>
+  >Block</div>
 );
 
 const WingBlankExample = () => (

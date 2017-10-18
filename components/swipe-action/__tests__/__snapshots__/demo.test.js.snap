@@ -81,7 +81,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                have left and right buttons
+                Have left and right buttons
               </div>
               <div
                 class="am-list-extra"
@@ -149,7 +149,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                only left buttons
+                Only left buttons
               </div>
               <div
                 class="am-list-extra"
@@ -217,7 +217,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                only right buttons
+                Only right buttons
               </div>
               <div
                 class="am-list-extra"
@@ -285,7 +285,7 @@ exports[`renders ./components/swipe-action/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-content"
               >
-                different button width
+                Different button width
               </div>
               <div
                 class="am-list-extra"

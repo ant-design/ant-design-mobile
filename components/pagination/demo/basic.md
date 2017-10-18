@@ -43,7 +43,7 @@ const App = () => (
     <p className="sub-title">Show number only</p>
     <Pagination mode="number" total={5} current={3} />
 
-    <p className="sub-title">Point Style</p>
+    <p className="sub-title">Point style</p>
     <Pagination mode="pointer" total={5} current={2} style={{ marginBottom: '16px' }} />
   </div>
 );

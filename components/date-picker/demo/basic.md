@@ -60,7 +60,7 @@ class Demo extends React.Component {
           value={this.state.date}
           onChange={date => this.setState({ date })}
         >
-          <List.Item arrow="horizontal">datetime</List.Item>
+          <List.Item arrow="horizontal">Datetime</List.Item>
         </DatePicker>
         <DatePicker
           mode="date"
@@ -69,7 +69,7 @@ class Demo extends React.Component {
           value={this.state.date}
           onChange={date => this.setState({ date })}
         >
-          <List.Item arrow="horizontal">date</List.Item>
+          <List.Item arrow="horizontal">Date</List.Item>
         </DatePicker>
 
         <DatePicker
@@ -79,7 +79,7 @@ class Demo extends React.Component {
           value={this.state.time}
           onChange={time => this.setState({ time })}
         >
-          <List.Item arrow="horizontal">time (am/pm)</List.Item>
+          <List.Item arrow="horizontal">Time (am/pm)</List.Item>
         </DatePicker>
         <DatePicker
           mode="time"
@@ -88,7 +88,7 @@ class Demo extends React.Component {
           value={this.state.time}
           onChange={time => this.setState({ time })}
         >
-          <List.Item arrow="horizontal">limited time</List.Item>
+          <List.Item arrow="horizontal">Limited time</List.Item>
         </DatePicker>
 
         <DatePicker
@@ -102,7 +102,7 @@ class Demo extends React.Component {
         </DatePicker>
 
         <List.Item extra={this.state.dpValue && formatDate(this.state.dpValue)}>
-          <div onClick={() => this.setState({ visible: true })}>external control visible stat</div>
+          <div onClick={() => this.setState({ visible: true })}>External control visible state</div>
         </List.Item>
         <DatePicker
           visible={this.state.visible}
@@ -119,7 +119,7 @@ class Demo extends React.Component {
           onChange={v => this.setState({ customChildValue: v })}
           extra="click to choose"
         >
-          <CustomChildren>with customized children</CustomChildren>
+          <CustomChildren>With customized children</CustomChildren>
         </DatePicker>
       </List>
     );

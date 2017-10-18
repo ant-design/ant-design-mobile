@@ -16,7 +16,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          show number value
+          Show number value
         </div>
         <div
           class="am-list-extra"
@@ -90,7 +90,7 @@ exports[`renders ./components/stepper/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          disabled
+          Disabled
         </div>
         <div
           class="am-list-extra"
