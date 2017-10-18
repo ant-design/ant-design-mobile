@@ -12,11 +12,17 @@ import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
-const maxDate = new Date(nowTimeStamp + 1e7);
-const minDate = new Date(nowTimeStamp - 1e7);
-
 // GMT is not currently observed in the UK. So use UTC now.
 const utcNow = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
+
+// Make sure that in `time` mode, the maxDate and minDate are within one day.
+let minDate = new Date(nowTimeStamp - 1e7);
+const maxDate = new Date(nowTimeStamp + 1e7);
+// console.log(minDate, maxDate);
+if (minDate.getDate() !== maxDate.getDate()) {
+  // set the minDate to the 0 of maxDate
+  minDate = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate());
+}
 
 function formatDate(date) {
   /* eslint no-confusing-arrow: 0 */
@@ -26,8 +32,8 @@ function formatDate(date) {
   return `${dateStr} ${timeStr}`;
 }
 
-// 如果不是使用 List.Item 作为 children
-// 组件内需处理 onClick/extra 属性
+// If not using `List.Item` as children
+// The `onClick / extra` props need to be processed within the component
 const CustomChildren = ({ extra, onClick, children }) => (
   <div
     onClick={onClick}
@@ -38,43 +44,53 @@ const CustomChildren = ({ extra, onClick, children }) => (
   </div>
 );
 
-class Test extends React.Component {
+class Demo extends React.Component {
   state = {
     date: now,
+    time: now,
     utcDate: utcNow,
     dpValue: null,
     customChildValue: null,
     visible: false,
   }
-  onChange = (date) => {
-    console.log('onChange', date);
-    this.setState({ date });
-  }
-  onOk = (date) => {
-    console.log('onOk', date);
-  }
-  onConditionSelect = (date) => {
-    if (date.getMinutes() === 15) {
-      alert('15 is invalid');
-      return;
-    }
-    this.setState({ dpValue: date, visible: false });
-  }
   render() {
-    return (<div>
+    return (
       <List className="date-picker-list" style={{ backgroundColor: 'white' }}>
-        <DatePicker value={this.state.date} onChange={this.onChange}>
+        <DatePicker
+          value={this.state.date}
+          onChange={date => this.setState({ date })}
+        >
           <List.Item arrow="horizontal">datetime</List.Item>
         </DatePicker>
-        <DatePicker mode="date" title="Select Date" extra="Optional" value={this.state.date} onChange={this.onChange}>
+        <DatePicker
+          mode="date"
+          title="Select Date"
+          extra="Optional"
+          value={this.state.date}
+          onChange={date => this.setState({ date })}
+        >
           <List.Item arrow="horizontal">date</List.Item>
         </DatePicker>
-        <DatePicker mode="time" minuteStep={5} use12Hours value={this.state.date} onChange={this.onChange}>
-          <List.Item arrow="horizontal">time</List.Item>
+
+        <DatePicker
+          mode="time"
+          minuteStep={2}
+          use12Hours
+          value={this.state.time}
+          onChange={time => this.setState({ time })}
+        >
+          <List.Item arrow="horizontal">time (am/pm)</List.Item>
         </DatePicker>
-        <DatePicker mode="time" minDate={minDate} maxDate={maxDate} value={this.state.date} onChange={this.onChange}>
+        <DatePicker
+          mode="time"
+          minDate={minDate}
+          maxDate={maxDate}
+          value={this.state.time}
+          onChange={time => this.setState({ time })}
+        >
           <List.Item arrow="horizontal">limited time</List.Item>
         </DatePicker>
+
         <DatePicker
           mode="time"
           locale={enUs}
@@ -86,14 +102,15 @@ class Test extends React.Component {
         </DatePicker>
 
         <List.Item extra={this.state.dpValue && formatDate(this.state.dpValue)}>
-          <div onClick={() => this.setState({ visible: true })}>condition(cannot select fifteenth minute)</div>
+          <div onClick={() => this.setState({ visible: true })}>external control visible stat</div>
         </List.Item>
         <DatePicker
           visible={this.state.visible}
           value={this.state.dpValue}
-          onOk={this.onConditionSelect}
+          onOk={date => this.setState({ dpValue: date, visible: false })}
           onDismiss={() => this.setState({ visible: false })}
         />
+
         <DatePicker
           mode="time"
           format="HH:mm"
@@ -105,11 +122,11 @@ class Test extends React.Component {
           <CustomChildren>with customized children</CustomChildren>
         </DatePicker>
       </List>
-    </div>);
+    );
   }
 }
 
-ReactDOM.render(<Test />, mountNode);
+ReactDOM.render(<Demo />, mountNode);
 ````
 
 ````css
