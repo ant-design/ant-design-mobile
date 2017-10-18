@@ -2,7 +2,7 @@
 
 exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
 <div
-  style="height:500px"
+  style="height:400px"
 >
   <div
     class="am-tab-bar"
