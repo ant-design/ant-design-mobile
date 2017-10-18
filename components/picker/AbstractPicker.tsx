@@ -98,10 +98,17 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
     }
   }
 
+  onPickerChange = (v: any) => {
+    this.setScrollValue(v);
+    if (this.props.onPickerChange) {
+      this.props.onPickerChange(v);
+    }
+  }
+
   render() {
     const {
       children, value = [], popupPrefixCls, itemStyle, indicatorStyle,
-      cascade, prefixCls, pickerPrefixCls, data, cols, onPickerChange, onOk, ...restProps,
+      cascade, prefixCls, pickerPrefixCls, data, cols, onOk, ...restProps,
     } = this.props;
 
     const _locale = getComponentLocale(this.props, this.context, 'Picker', () => require('./locale/zh_CN'));
@@ -117,7 +124,7 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
           pickerPrefixCls={pickerPrefixCls}
           data={data}
           cols={cols}
-          onChange={onPickerChange}
+          onChange={this.onPickerChange}
           onScrollChange={this.setScrollValue}
           pickerItemStyle={itemStyle}
           indicatorStyle={indicatorStyle}
