@@ -10,6 +10,7 @@ import { MenuProps, ValueType, DataItem } from './PropsType';
 export interface StateType {
   value?: ValueType;
   firstLevelSelectValue: string;
+  height?: number;
 }
 
 export default class Menu extends React.Component<MenuProps, StateType> {
@@ -32,6 +33,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
     this.state = {
       firstLevelSelectValue: this.getNewFsv(props),
       value: props.value,
+      height: props.height,
     };
   }
   componentWillReceiveProps(nextProps: MenuProps) {
@@ -39,6 +41,19 @@ export default class Menu extends React.Component<MenuProps, StateType> {
       this.setState({
         firstLevelSelectValue: this.getNewFsv(nextProps),
         value: nextProps.value,
+      });
+    }
+    if (this.props.height !== nextProps.height) {
+      this.setState({
+        height: nextProps.height,
+      });
+    }
+  }
+
+  componentDidMount() {
+    if (!('height' in this.props)) {
+      this.setState({
+        height: Math.round(document.documentElement.clientHeight / 2),
       });
     }
   }
@@ -121,11 +136,11 @@ export default class Menu extends React.Component<MenuProps, StateType> {
 
   render() {
     const {
-      className, style, height, data = [],
+      className, style, data = [],
       prefixCls, level, multiSelect,
       multiSelectMenuBtnsCls, MenuSelectContanerPrefixCls,
     } = this.props;
-    const { firstLevelSelectValue, value } = this.state;
+    const { firstLevelSelectValue, value, height } = this.state;
     let subMenuData = data; // menu only has one level as init
 
     if (level === 2) {
@@ -160,9 +175,9 @@ export default class Menu extends React.Component<MenuProps, StateType> {
       showSelect = false;
     }
 
-    const heightStyle = {
-      height: `${Math.round(height || document.documentElement.clientHeight / 2)}px`,
-    };
+    const heightStyle = height !== undefined ? {
+      height: `${height}px`,
+    } : {};
 
     return (
       <Flex
