@@ -39,21 +39,23 @@ export default class NoticeBar extends React.Component<INoticeWebProps, any> {
   }
 
   render() {
-    const { mode, icon, onClick, children, className, prefixCls, marqueeProps, ...restProps } = this.props;
+    const {
+      mode, icon, onClick, children, className, prefixCls, actionText, marqueeProps, ...restProps,
+    } = this.props;
 
     const extraProps: any = {};
     let operationDom: any = null;
     if (mode === 'closable') {
       operationDom = (
         <div className={`${prefixCls}-operation`} onClick={this.onClick} role="button" aria-label="close">
-          <Icon type="cross" size="md" />
+          {actionText ? actionText : <Icon type="cross" size="md" />}
         </div>
       );
     } else {
       if (mode === 'link') {
         operationDom = (
           <div className={`${prefixCls}-operation`} role="button" aria-label="go to detail">
-            <Icon type="right" size="md" />
+            {actionText ? actionText : <Icon type="right" size="md" />}
           </div>
         );
       }
