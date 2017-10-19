@@ -134,7 +134,7 @@ class Home extends React.Component {
                       style={{ width: '424Px', height: '662Px' }}
                     >
                       <div className="title">Ant Design Mobile</div>
-                      <div className="title">2.0 <span style={{ fontSize: 20 }}>Beta</span></div>
+                      <div className="title">2.0</div>
                       <div className="prg">loading</div>
                       <div className="prg">[{prg}]</div>
                       <div className="prg">{this.state.loading}%</div>
