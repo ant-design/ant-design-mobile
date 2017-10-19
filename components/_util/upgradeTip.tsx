@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' && !process.env.DISABLE_ANTD_MOBILE_UPGRADE) {
   try {
     const localVersion = require('./version.json');
     if (!localVersion._disable && fetch) {
