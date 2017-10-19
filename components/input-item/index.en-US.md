@@ -26,7 +26,7 @@ Properties | Descrition | Type | Default
 | placeholder  | the string that will be rendered before text input has been entered. | String | ''  |
 | editable    | whether is editable        | bool |  true  |
 | disabled    | whether is disabled       | bool |  false  |
-| clear      |  whether to display clear(it takes effect only `editable` is `true` or `disabled` is `false` or `value` has been set) | bool | false  |
+| clear      |  whether to display clear(it takes effect only `editable` is `true` and `disabled` is `false` has been set) | bool | false  |
 | maxLength      |  limits the maximum number of characters that can be entered      | number |    |
 | onChange    | callback that is called when the text input's text changes | (val: string): void |  -  |
 | onBlur     | callback that is called when the text input is blurred | (val: string): void |   -  |

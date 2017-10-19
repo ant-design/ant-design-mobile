@@ -29,7 +29,7 @@ subtitle: 文本输入
 | placeholder      | placeholder        | String | ''  |
 | editable    | 是否可编辑        | bool |  true  |
 | disabled    | 是否禁用        | bool |  false  |
-| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`,`value`设置才生效) | bool | false  |
+| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
 | maxLength      |  最大长度      | number |  无  |
 | onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
 | onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
