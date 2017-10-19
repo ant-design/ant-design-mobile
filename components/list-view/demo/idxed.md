@@ -65,7 +65,12 @@ class Demo extends React.Component {
   onSearch = (val) => {
     const pd = { ...provinceData };
     Object.keys(pd).forEach((item) => {
-      pd[item] = pd[item].filter(jj => jj.spell.toLocaleLowerCase().indexOf(val) > -1);
+      const arr = pd[item].filter(jj => jj.spell.toLocaleLowerCase().indexOf(val) > -1);
+      if (!arr.length) {
+        delete pd[item];
+      } else {
+        pd[item] = arr;
+      }
     });
     this.setState({
       inputValue: val,

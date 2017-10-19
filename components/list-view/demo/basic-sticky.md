@@ -29,8 +29,6 @@ const data = [
     des: '不是所有的兼职汪都需要风吹日晒',
   },
 ];
-let index = data.length - 1;
-
 const NUM_SECTIONS = 5;
 const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
@@ -127,6 +125,7 @@ class Demo extends React.Component {
         }}
       />
     );
+    let index = data.length - 1;
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {
         index = data.length - 1;
