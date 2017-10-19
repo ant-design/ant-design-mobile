@@ -110,8 +110,8 @@ export default class Demo extends React.Component {
       editors: '001',
       css_external: 'https://unpkg.com/antd-mobile@next/dist/antd-mobile.min.css',
       js_external: [
-        'react@16/dist/react.js',
-        'react-dom@16/dist/react-dom.js',
+        'react@16/umd/react.production.min.js',
+        'react-dom@16/umd/react-dom.production.min.js',
         'antd-mobile@next/dist/antd-mobile.min.js',
       ]
         .map(url => `https://unpkg.com/${url}`)
