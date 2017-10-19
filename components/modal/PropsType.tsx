@@ -15,10 +15,7 @@ export interface ModalProps {
   animationType?: any;
   onAnimationEnd?: (visible: boolean) => void;
   animateAppear?: boolean;
-  touchFeedback?: boolean;
-  wrapProps?: {};
   operation?: boolean;
-  platform?: string;
 }
 
 export type Action = {
@@ -26,12 +23,15 @@ export type Action = {
   onPress?: Function,
   style?: {},
 };
+
 export type Callback = (valueOrLogin: string, password?: string) => void;
+
 export abstract class ModalComponent<P, S> extends React.Component<P, S> {
   static alert: (
     title: string | JSX.Element,
     message: string | JSX.Element,
     actions?: Action[],
+    platform?: string,
   ) => { close: () => void };
 
   static prompt: (
@@ -40,9 +40,12 @@ export abstract class ModalComponent<P, S> extends React.Component<P, S> {
     callbackOrActions: Callback | Action[],
     type?: 'default' | 'secure-text' | 'login-password',
     defaultValue?: string,
+    placeholders?: string[],
+    platform?: string,
   ) => { close: () => void };
 
   static operation: (
     actions?: Action[],
+    platform?: string,
   ) => { close: () => void };
 }

@@ -29,8 +29,6 @@ Properties | Descrition | Type | Default
 | animationType | Options: 'slide-down/up'(only transparent / `web version`) / 'fade' / 'slide'(only not tranparent) | String |   fade |
 | title       | title (only transparent)         | React.Element    | -           |
 | footer     | footer content (only not transparent)       |  Array [{text, onPress}]    | [] |
-| prefixCls (`web only`)      | Class name prefix of elements |    String   | `am-modal`      |
-| style (`web only`) |  style    | Object | {} |
 | platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios` | String | `'ios'`|
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )

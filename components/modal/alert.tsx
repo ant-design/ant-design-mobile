@@ -6,7 +6,6 @@ import { Action } from './PropsType';
 export default function alert(
   title, message, actions = [{ text: '确定' }], platform = 'ios',
 ) {
-
   if (!title && !message) {
     // console.log('Must specify either an alert title, or message, or both');
     return {
@@ -14,7 +13,6 @@ export default function alert(
     };
   }
 
-  const prefixCls = 'am-modal';
   let div: any = document.createElement('div');
   document.body.appendChild(div);
 
@@ -51,7 +49,6 @@ export default function alert(
     <Modal
       visible
       transparent
-      prefixCls={prefixCls}
       title={title}
       transitionName="am-zoom"
       closable={false}
