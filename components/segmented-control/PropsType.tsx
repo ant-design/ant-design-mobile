@@ -6,7 +6,6 @@ interface SegmentedControlProps {
   onChange?: (e: any) => void;
   onValueChange?: (value: string) => void;
   style?: any;
-  touchFeedback?: boolean;
 }
 
 export default SegmentedControlProps;
