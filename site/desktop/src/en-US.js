@@ -11,7 +11,7 @@ module.exports = {
     'app.header.menu.pc': 'Desktop',
     'app.header.lang': '中文',
     'app.home.slogan': 'Mobile Design Specification',
-    'app.home.centerSlogan': 'Ant Design Mobile 2.0 Beta is coming!',
+    'app.home.centerSlogan': 'Ant Design Mobile 2.0 is coming!',
     'app.home.centerSubSlogan': 'More lightweight, faster and easier to use',
     'app.home.centerStart': 'Learn More',
     'app.home.qrtip': 'Scan QR Code for Preview',
