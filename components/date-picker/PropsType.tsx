@@ -8,6 +8,8 @@ interface DatePickerProps {
   maxDate?: any;
   onChange?: (x: any) => void;
   onValueChange?: (vals: any, index: number) => void;
+  visible?: boolean;
+  onDismiss?: () => void;
   locale?: any;
   minuteStep?: number;
   disabled?: boolean;
