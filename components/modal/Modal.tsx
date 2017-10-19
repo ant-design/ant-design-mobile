@@ -10,6 +10,8 @@ export interface ModalProps extends BasePropsType {
   maskTransitionName?: string;
   className?: string;
   wrapClassName?: string;
+  wrapProps?: {};
+  platform?: string;
 }
 
 export default class Modal extends ModalComponent<ModalProps, any> {

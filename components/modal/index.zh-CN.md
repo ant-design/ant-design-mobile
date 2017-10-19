@@ -31,8 +31,6 @@ subtitle: 对话框
 | animationType | 可选: 'slide-down/up'(transparent 模式下 / `web version`) / 'fade' / 'slide'(仅非 tranparent) | String |   fade |
 | title       | 标题 (only transparent)   | React.Element    | 无           |
 | footer     | 底部内容 (only not transparent)     |  Array [{text, onPress}]    | [] |
-| prefixCls (`web only`)    | 样式类名前缀 |    String   | `am-modal`      |
-| style (`web only`) |  样式    | Object | {} |
 | platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`    | String | `'ios'`|
 
 ### Modal.alert(title, message, actions?, platform?)
