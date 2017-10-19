@@ -93,7 +93,7 @@ export function getQuery(key) {
 
 export function injectPreactDevtool() {
   /* eslint-disable no-undef,global-require, no-console */
-  if (PREACT_DEVTOOLS) {
+  if (typeof PREACT_DEVTOOLS !== 'undefined' && PREACT_DEVTOOLS) {
     console.log('inject preact devtools');
     require('preact/devtools');
   }
