@@ -131,6 +131,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
               data-seed="logId"
               placeholder="please input content"
               type="text"
+              value=""
             />
           </div>
         </div>
@@ -170,6 +171,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
             <input
               placeholder="click label to focus input"
               type="text"
+              value=""
             />
           </div>
         </div>
