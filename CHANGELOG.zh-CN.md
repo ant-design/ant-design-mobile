@@ -30,7 +30,7 @@ toc: false
   - [Web/RN] 新增 `DatePickerView` 组件，支持更灵活的时间选择器用法 ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
   - [Web/RN] 新增 `Calendar` 组件，支持跨日期的日期时间选择 ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
   - [Web] `Picker` `SearchBar` 多语言支持
-  - [Web/RN] `NoticeBar` 增加自定义操作文案 ([#1959](https://github.com/ant-design/ant-design-mobile/issues/1959))
+  - [Web/RN] `NoticeBar` 增加自定义操作文案 action 属性 ([#1959](https://github.com/ant-design/ant-design-mobile/issues/1959))
 
 - **Break Change**
 

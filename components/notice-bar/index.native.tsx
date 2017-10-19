@@ -53,7 +53,7 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
   }
 
   render() {
-    const { children, mode, icon, style, actionText, marqueeProps } = this.props;
+    const { children, mode, icon, style, action, marqueeProps } = this.props;
     const styles = this.props.styles!;
 
     let operationDom: any = null;
@@ -61,14 +61,14 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
       operationDom =  (
         <TouchableWithoutFeedback onPress={this.onClick}>
           <View style={styles.actionWrap}>
-            {actionText ? actionText : <Text style={[styles.close]}>×</Text>}
+            {action ? action : <Text style={[styles.close]}>×</Text>}
           </View>
         </TouchableWithoutFeedback>
       );
     } else if (mode === 'link') {
       operationDom = (
         <View style={styles.actionWrap}>
-          {actionText ? actionText : <Text style={[styles.link]}>∟</Text>}
+          {action ? action : <Text style={[styles.link]}>∟</Text>}
         </View>
       );
     }
