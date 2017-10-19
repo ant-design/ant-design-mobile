@@ -48,7 +48,7 @@ if (process.env.NODE_ENV === 'development' && !process.env.DISABLE_ANTD_MOBILE_U
                 }),
               '\n',
               '[you can reinstall node_modules to upgrade all of them.]\n',
-              '[about this] http://beta.mobile.ant.design/docs/react/upgrade-tip-cn\n',
+              '[about this] http://mobile.ant.design/docs/react/upgrade-tip-cn\n',
               '--------------------------------------------------------',
             );
           }
