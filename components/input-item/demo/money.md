@@ -35,10 +35,11 @@ class H5NumberInputExample extends React.Component {
             moneyKeyboardAlign="left"
           >光标在左</InputItem>
           <InputItem
-            {...getFieldProps('money4')}
             type={type}
             placeholder="start from right"
             clear
+            onChange={(v) => { console.log('onChange', v); }}
+            onBlur={(v) => { console.log('onBlur', v); }}
           >光标在右</InputItem>
           <InputItem
             {...getFieldProps('money2', {

@@ -21,7 +21,7 @@ const data1 = Array.from(new Array(9)).map(() => ({
 const GridExample = () => (
   <div>
     <div className="sub-title">Always square grid item </div>
-    <Grid data={data} />
+    <Grid data={data} activeStyle={false} />
 
     <div className="sub-title">Grid item adjust accroiding to img size </div>
     <Grid data={data} square={false} className="not-square-grid" />
