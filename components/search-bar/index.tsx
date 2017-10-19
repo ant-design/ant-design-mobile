@@ -36,16 +36,12 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     this.state = {
       value,
       focus: false,
-      focused: props.focused || false,
     };
   }
 
   componentDidMount() {
     const initBtn = window.getComputedStyle(this.rightBtnRef);
     this.rightBtnInitMarginleft = initBtn['margin-left'];
-    if ((this.props.autoFocus || this.state.focused) && navigator.userAgent.indexOf('AlipayClient') > 0) {
-      this.inputRef.focus();
-    }
     this.componentDidUpdate();
   }
 
@@ -65,20 +61,12 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           `-${this.rightBtnRef.offsetWidth + parseInt(this.rightBtnInitMarginleft, 10)}px`;
       }
     }
-    if (this.state.focused) {
-      this.inputRef.focus();
-    }
   }
 
   componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
+    if ('value' in nextProps && nextProps.value !== this.state.value) {
       this.setState({
         value: nextProps.value,
-      });
-    }
-    if ('focused' in nextProps) {
-      this.setState({
-        focused: nextProps.focused,
       });
     }
   }
@@ -123,12 +111,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
     });
     this.firstFocus = true;
 
-    if (!('focused' in this.props)) {
-      this.setState({
-        focused: true,
-      });
-    }
-
     if (this.props.onFocus) {
       this.props.onFocus();
     }
@@ -153,11 +135,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       }
       this.blurFromOnClear = false;
     }, 50);
-    if (!('focused' in this.props)) {
-      this.setState({
-        focused: false,
-      });
-    }
     if (this.props.onBlur) {
       this.props.onBlur();
     }
@@ -178,7 +155,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.props.onChange('');
     }
     if (blurFromOnClear) {
-      this.inputRef.focus();
     }
   }
 
@@ -189,7 +165,9 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.doClear(false);
     }
   }
-
+  focus = () => {
+    this.inputRef.focus();
+  }
   render() {
     const {
       prefixCls, showCancelButton, disabled, placeholder, className, style, maxLength,
