@@ -41,11 +41,11 @@ export default class NoticeBarExample extends React.Component<any, any> {
         <WhiteSpace size="lg" />
         <NoticeBar mode="closable" icon={null}>Remove the default icon.</NoticeBar>
         <WhiteSpace size="lg" />
-        <NoticeBar mode="closable" actionText={<Text style={{ color: '#a1a1a1' }}>不再提示</Text>}>
+        <NoticeBar mode="closable" action={<Text style={{ color: '#a1a1a1' }}>不再提示</Text>}>
           Closable demo for `actionText`.
         </NoticeBar>
         <WhiteSpace size="lg" />
-        <NoticeBar mode="link" actionText={<Text>去看看</Text>}>
+        <NoticeBar mode="link" action={<Text>去看看</Text>}>
           Link demo for `actionText`.
         </NoticeBar>
       </View>

@@ -26,11 +26,11 @@ const NoticeBarExample = () => (
       Customized icon.
     </NoticeBar>
     <WhiteSpace size="lg" />
-    <NoticeBar mode="closable" actionText={<span style={{ color: '#a1a1a1' }}>不再提示</span>}>
+    <NoticeBar mode="closable" action={<span style={{ color: '#a1a1a1' }}>不再提示</span>}>
       Closable demo for `actionText`.
     </NoticeBar>
     <WhiteSpace size="lg" />
-    <NoticeBar mode="link" actionText={<span>去看看</span>}>
+    <NoticeBar mode="link" action={<span>去看看</span>}>
       Link demo for `actionText`.
     </NoticeBar>
   </div>
