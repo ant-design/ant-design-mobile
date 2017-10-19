@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 export interface ListProps {
   renderHeader?: Function | JSX.Element;
   renderFooter?: Function | JSX.Element;
-  children?: JSX.Element | JSX.Element[];
+  children?: ReactNode;
   style?: React.CSSProperties | {} | Array<{}>;
 }
 
