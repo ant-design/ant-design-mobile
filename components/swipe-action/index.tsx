@@ -11,7 +11,6 @@ export interface SwipeActionProps extends BasePropsType {
 class SwipeAction extends React.Component<SwipeActionProps, any> {
   static defaultProps = {
     prefixCls: 'am-swipe',
-    title: '请确认操作',
     autoClose: false,
     disabled: false,
     left: [],
@@ -24,6 +23,7 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     const {
       className, style, prefixCls, left = [], right = [], autoClose, disabled, onOpen, onClose, children,
     } = this.props;
+
     const wrapClass = classnames(prefixCls, className);
 
     return (left.length || right.length) ? (

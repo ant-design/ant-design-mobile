@@ -17,7 +17,6 @@ export default class Stepper extends React.Component<StepProps, any> {
     readOnly: false,
     showNumber: false,
     focusOnUpDown: false,
-    useTouch: true,
   };
 
   stepperRef: any;
