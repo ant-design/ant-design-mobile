@@ -10,23 +10,41 @@ const IS_REACT_16 = !!(ReactDOM as any).createPortal;
 class NumberInput extends React.Component<any, any> {
 
   static defaultProps = {
-    onChange: () => {},
-    onFocus: () => {},
-    onBlur: () => {},
+    onChange: () => { },
+    onFocus: () => { },
+    onBlur: () => { },
     placeholder: '',
-    value: '',
     disabled: false,
     editable: true,
     prefixCls: 'am-input',
     keyboardPrefixCls: 'am-number-keyboard',
   };
 
-  state = {
-    focus: false,
-  };
-
   private container: any;
   private inputRef: any;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      focus: false,
+      value: props.value || '',
+    };
+  }
+
+  onChange = (value) => {
+    if (!('value' in this.props)) {
+      this.setState({ value: value.target.value });
+    }
+    this.props.onChange(value);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if ('value' in nextProps) {
+      this.setState({
+        value: nextProps.value,
+      });
+    }
+  }
 
   componentDidMount() {
     if (!IS_REACT_16 && !(window as any).antmCustomKeyboard) {
@@ -82,7 +100,7 @@ class NumberInput extends React.Component<any, any> {
   }
 
   doBlur = (ev) => {
-    const { value } = this.props;
+    const { value } = this.state;
     if (ev.target !== this.inputRef) {
       this.onInputBlur(value);
     }
@@ -111,7 +129,7 @@ class NumberInput extends React.Component<any, any> {
   }
 
   onInputFocus = () => {
-    const { value } = this.props;
+    const { value } = this.state;
     this.props.onFocus(value);
     this.setState({
       focus: true,
@@ -129,18 +147,21 @@ class NumberInput extends React.Component<any, any> {
   }
 
   onKeyboardClick = (KeyboardItemValue) => {
-    let { value, onChange, maxLength } = this.props;
+    const { maxLength } = this.props;
+    const { value } = this.state;
+    const { onChange } = this;
+
     let valueAfterChange;
     // 删除键
     if (KeyboardItemValue === 'delete') {
       valueAfterChange = value.substring(0, value.length - 1);
       onChange({ target: { value: valueAfterChange } });
-    // 确认键
+      // 确认键
     } else if (KeyboardItemValue === 'confirm') {
       valueAfterChange = value;
       onChange({ target: { value: valueAfterChange } });
       this.onInputBlur(value);
-    // 收起键
+      // 收起键
     } else if (KeyboardItemValue === 'hide') {
       valueAfterChange = value;
       this.onInputBlur(valueAfterChange);
@@ -180,8 +201,8 @@ class NumberInput extends React.Component<any, any> {
   }
 
   render() {
-    const { placeholder, value, disabled, editable, moneyKeyboardAlign } = this.props;
-    const { focus } = this.state;
+    const { placeholder, disabled, editable, moneyKeyboardAlign } = this.props;
+    const { focus, value } = this.state;
     const preventKeyboard = disabled || !editable;
     const fakeInputCls = classnames(`fake-input`, {
       focus,
@@ -197,7 +218,7 @@ class NumberInput extends React.Component<any, any> {
         <div
           className={fakeInputCls}
           ref={el => this.inputRef = el}
-          onClick={preventKeyboard ? () => {} : this.onFakeInputClick}
+          onClick={preventKeyboard ? () => { } : this.onFakeInputClick}
         >
           {value}
         </div>

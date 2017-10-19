@@ -251,6 +251,7 @@ class InputItem extends React.Component<InputItemProps, any> {
           <div className={controlCls}>
             {type === 'money' ? (
               <CustomInput
+                {...valueProps}
                 type={type}
                 ref={el => this.inputRef = el}
                 maxLength={maxLength}
@@ -260,7 +261,6 @@ class InputItem extends React.Component<InputItemProps, any> {
                 onBlur={this.onInputBlur}
                 disabled={disabled}
                 editable={editable}
-                value={fixControlledValue(value)}
                 prefixCls={prefixCls}
                 style={style}
                 confirmLabel={confirmLabel}
