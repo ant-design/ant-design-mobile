@@ -30,6 +30,7 @@ toc: false
   - Add `DatePickerView` ([#1232](https://github.com/ant-design/ant-design-mobile/issues/1232))
   - Add `Calendar` ([#1610](https://github.com/ant-design/ant-design-mobile/issues/1610))
   - [Web] locale support for `Picker` `SearchBar`
+  - [Web/RN] `NoticeBar` can use `action` prop to customize action text. ([#1959](https://github.com/ant-design/ant-design-mobile/issues/1959))
 
 - **Break Change**
 

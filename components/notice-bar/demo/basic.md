@@ -25,6 +25,14 @@ const NoticeBarExample = () => (
     <NoticeBar mode="closable" icon={<Icon type="check-circle-o" size="xxs" />}>
       Customized icon.
     </NoticeBar>
+    <WhiteSpace size="lg" />
+    <NoticeBar mode="closable" actionText={<span style={{ color: '#a1a1a1' }}>不再提示</span>}>
+      Closable demo for `actionText`.
+    </NoticeBar>
+    <WhiteSpace size="lg" />
+    <NoticeBar mode="link" actionText={<span>去看看</span>}>
+      Link demo for `actionText`.
+    </NoticeBar>
   </div>
 );
 

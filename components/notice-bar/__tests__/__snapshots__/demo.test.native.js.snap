@@ -235,7 +235,11 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={undefined}
+      style={
+        Object {
+          "marginRight": 15,
+        }
+      }
       testID={undefined}
     >
       <Text
@@ -249,7 +253,6 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
               "color": "#f4333c",
               "fontSize": 18,
               "fontWeight": "200",
-              "marginRight": 15,
               "textAlign": "left",
             },
           ]
@@ -372,7 +375,11 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={undefined}
+      style={
+        Object {
+          "marginRight": 15,
+        }
+      }
       testID={undefined}
     >
       <Text
@@ -386,7 +393,6 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
               "color": "#f4333c",
               "fontSize": 18,
               "fontWeight": "200",
-              "marginRight": 15,
               "textAlign": "left",
             },
           ]
@@ -509,30 +515,37 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
         </View>
       </View>
     </View>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
+    <View
       style={
-        Array [
-          Object {
-            "color": "#f4333c",
-            "fontSize": 10,
-            "fontWeight": "500",
-            "marginRight": 15,
-            "textAlign": "left",
-            "transform": Array [
-              Object {
-                "rotate": "225deg",
-              },
-            ],
-          },
-        ]
+        Object {
+          "marginRight": 15,
+        }
       }
     >
-      ∟
-    </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#f4333c",
+              "fontSize": 10,
+              "fontWeight": "500",
+              "textAlign": "left",
+              "transform": Array [
+                Object {
+                  "rotate": "225deg",
+                },
+              ],
+            },
+          ]
+        }
+      >
+        ∟
+      </Text>
+    </View>
   </View>
   <View
     style={
@@ -647,30 +660,37 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
         </View>
       </View>
     </View>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      disabled={false}
-      ellipsizeMode="tail"
+    <View
       style={
-        Array [
-          Object {
-            "color": "#f4333c",
-            "fontSize": 10,
-            "fontWeight": "500",
-            "marginRight": 15,
-            "textAlign": "left",
-            "transform": Array [
-              Object {
-                "rotate": "225deg",
-              },
-            ],
-          },
-        ]
+        Object {
+          "marginRight": 15,
+        }
       }
     >
-      ∟
-    </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#f4333c",
+              "fontSize": 10,
+              "fontWeight": "500",
+              "textAlign": "left",
+              "transform": Array [
+                Object {
+                  "rotate": "225deg",
+                },
+              ],
+            },
+          ]
+        }
+      >
+        ∟
+      </Text>
+    </View>
   </View>
   <View
     style={
@@ -764,7 +784,11 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={undefined}
+      style={
+        Object {
+          "marginRight": 15,
+        }
+      }
       testID={undefined}
     >
       <Text
@@ -778,13 +802,277 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
               "color": "#f4333c",
               "fontSize": 18,
               "fontWeight": "200",
-              "marginRight": 15,
               "textAlign": "left",
             },
           ]
         }
       >
         ×
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 15,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fffada",
+          "flexDirection": "row",
+          "height": 36,
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "marginLeft": 15,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png",
+          }
+        }
+        style={
+          Object {
+            "height": 12,
+            "width": 14,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "marginRight": 15,
+            "overflow": "hidden",
+            "width": 0,
+          },
+          Object {
+            "marginLeft": 5,
+          },
+        ]
+      }
+    >
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          collapsable={undefined}
+          style={
+            Object {
+              "flexDirection": "row",
+              "left": 0,
+              "width": 1000,
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            onLayout={[Function]}
+            style={
+              Object {
+                "color": "#f4333c",
+                "fontSize": 15,
+              }
+            }
+          >
+            Closable demo for \`actionText\`.
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "marginRight": 15,
+        }
+      }
+      testID={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#a1a1a1",
+          }
+        }
+      >
+        不再提示
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 15,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fffada",
+          "flexDirection": "row",
+          "height": 36,
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}
+  >
+    <View
+      style={
+        Object {
+          "marginLeft": 15,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png",
+          }
+        }
+        style={
+          Object {
+            "height": 12,
+            "width": 14,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "marginRight": 15,
+            "overflow": "hidden",
+            "width": 0,
+          },
+          Object {
+            "marginLeft": 5,
+          },
+        ]
+      }
+    >
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          collapsable={undefined}
+          style={
+            Object {
+              "flexDirection": "row",
+              "left": 0,
+              "width": 1000,
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            onLayout={[Function]}
+            style={
+              Object {
+                "color": "#f4333c",
+                "fontSize": 15,
+              }
+            }
+          >
+            Link demo for \`actionText\`.
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginRight": 15,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+      >
+        去看看
       </Text>
     </View>
   </View>

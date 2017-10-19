@@ -1,6 +1,7 @@
 import { AppRegistry } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import Home from './components/Home';
+// import Home from './components/Home';
+import Home from '../components/notice-bar/demo/basic.native';
 import RnIndex from './components/RnIndex';
 import WebIndex from './components/WebIndex';
 import { UIVIEWS, UICONTROLS, OTHERS, UIBARS } from './demoList';
