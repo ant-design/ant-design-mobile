@@ -40,7 +40,7 @@ toc: false
   - [Web/RN] 各个组件的 `ref` 从 `string` 修改为 `function` ([#1354](https://github.com/ant-design/ant-design-mobile/issues/1354))
   - [Web/RN] 重构 `Tabs` 组件，底层重写，**APIs 大量更改**
   - [Web/RN] 去除 `Popup` 组件，给 `Modal` 组件新增 `popup` 属性，相应地 Modal 组件中原 `animationType` 属性开始支持 web 版本、用以标识 popup 弹出动画的类型 [#1125](https://github.com/ant-design/ant-design-mobile/issues/1125)
-  - [Web/RN] `InputItem` / `TextareaItem` 组件
+  - [Web/RN] `InputItem` / `TextareaItem` /`SearchBar` 组件
       - 将 `style` 属性传至 input(web) / TextInput(rn)
       - 去除 `focused` / `autoFocus` 属性 (用 `focus()` 实例方法实现同样效果)
   - [Web/RN] `DatePicker` 组件去除 moment.js 依赖
