@@ -1,28 +1,32 @@
 /* eslint-disable */
 var fs = require('fs');
+var path = require('path');
+
+var thisPackage = require(path.join(__dirname, '../package.json'));
+
 function debug() {
   // console.log.apply(this, arguments);
 }
 var projectRoot = getProjectRoot();
-var nodeModulesRoot = projectRoot + '/node_modules';
-var antdMobileRoot = nodeModulesRoot + '/antd-mobile';
+var nodeModulesRoot = path.join(projectRoot, 'node_modules');
+var antdMobileRoot = path.join(nodeModulesRoot, thisPackage.name);
 
 debug('\n------------------------------------');
 debug('[antd-mobile-update-tip] projectRoot: ' + projectRoot);
 debug('[antd-mobile-update-tip] nodeModulesRoot: ' + nodeModulesRoot);
 debug('[antd-mobile-update-tip] antdMobileRoot: ' + antdMobileRoot);
 
-if (!fs.existsSync(projectRoot + '/package.json') || !fs.existsSync(antdMobileRoot + '/package.json')) {
+if (!fs.existsSync(path.join(projectRoot, 'package.json')) || !fs.existsSync(path.join(antdMobileRoot, 'package.json'))) {
   debug('[antd-mobile-update-tip] Not found package.json.');
   debug('------------------------------------');
   return;
 }
 
-var projectInfo = require(projectRoot + '/package.json');
+var projectInfo = require(path.join(projectRoot, 'package.json'));
 /** version.json 保存目录 */
-var targetDir = antdMobileRoot + '/lib/_util';
+var targetDir = path.join(antdMobileRoot, 'lib/_util');
 /** version.json 路径 */
-var targetFile = targetDir + '/version.json';
+var targetFile = path.join(targetDir, 'version.json');
 
 if (projectInfo['antd-mobile'] && projectInfo['antd-mobile']['upgrade-tip'] === false) {
   debug('[antd-mobile-update-tip] upgrade-tip disabled.');
@@ -34,7 +38,7 @@ if (projectInfo['antd-mobile'] && projectInfo['antd-mobile']['upgrade-tip'] === 
 }
 
 var versionList = {};
-var antdMobileInfo = require(antdMobileRoot + '/package.json');
+var antdMobileInfo = require(path.join(antdMobileRoot, 'package.json'));
 versionList[antdMobileInfo.name] = antdMobileInfo.version;
 
 debug('\nantd-mobile: ' + antdMobileInfo.version + '\n', 'dependencies:');
@@ -43,7 +47,7 @@ Object.keys(antdMobileInfo.dependencies).filter(function (depName) {
   return depName.indexOf('rc-') === 0 || depName.indexOf('rmc-') === 0;
 }).forEach(function (depName) {
   var version = '';
-  packagePath = nodeModulesRoot + '/' + depName + '/package.json';
+  packagePath = path.join(nodeModulesRoot, depName, 'package.json');
   if (fs.existsSync(packagePath)) {
     version = require(packagePath).version;
   }
@@ -60,11 +64,11 @@ if (fs.existsSync(targetDir)) {
 debug('------------------------------------\n');
 
 function getProjectRoot() {
-  var cwd = process.cwd();
-  var index = cwd.lastIndexOf('/node_modules/');
+  var path = __filename;
+  var index = path.lastIndexOf('/node_modules/');
   if (index >= 0) {
-    return cwd.slice(0, index);
+    return path.slice(0, index);
   } else {
-    return cwd;
+    return path;
   }
 }
