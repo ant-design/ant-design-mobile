@@ -46,7 +46,7 @@ Properties | Descrition | Type | Default
 
 > Note: `InputItem` does not support negative number if `type` is text, you can use `type=text` to do that.
 
-## InputItem methods
+## InputItem Instance methods
 
 Property | Description | Type | Default
 ----|-----|------|------

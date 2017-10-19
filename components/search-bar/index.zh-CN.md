@@ -30,8 +30,13 @@ subtitle: 搜索栏
 | cancelText    |   定制`取消`按钮的文字     | String |  `取消`  |
 | disabled    |  设置禁用   | bool |  `false`  |
 | onClear(`web only`)    |    点击 clear 图标触发  | (val: string): void |    |
-| autoFocus(`web only`)   | 页面初始化时`SearchBar`自动获取光标, 每个页面只有一个`SearchBar`的`autoFocus`会生效 (不保证兼容所有浏览器，目前只支付宝客户端支持) | bool | false  |
-| focused(`web only`)   | 手动聚焦 SearchBar (在`focused`设置为 true 后，需要在`onFocus`或者`onBlur`时再次将该属性设置为 false ) | bool | false  |
 | maxLength(`web only`)      |  最多允许输入的字符个数    | number | -  |
 
 注：RN 版本更多 API 请参考 [http://facebook.github.io/react-native/docs/textinput.html](http://facebook.github.io/react-native/docs/textinput.html)
+
+
+## SearchBar Instance methods
+
+属性 | 说明 | 类型 | 默认值
+----|-----|------|------
+| focus (`Web Only`)    | 使 SearchBar 聚焦  | (): void |  -  |
