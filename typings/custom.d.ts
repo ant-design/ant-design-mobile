@@ -32,6 +32,7 @@ declare module 'react-native-collapsible/Accordion';
 
 declare var process: {
   env: {
-    NODE_ENV: string
+    NODE_ENV: string,
+    DISABLE_ANTD_MOBILE_UPGRADE: string,
   }
 };
