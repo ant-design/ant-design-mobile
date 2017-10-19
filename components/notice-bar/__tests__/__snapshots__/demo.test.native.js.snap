@@ -235,11 +235,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "marginRight": 15,
-        }
-      }
+      style={undefined}
       testID={undefined}
     >
       <Text
@@ -375,11 +371,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "marginRight": 15,
-        }
-      }
+      style={undefined}
       testID={undefined}
     >
       <Text
@@ -515,37 +507,29 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
         </View>
       </View>
     </View>
-    <View
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
       style={
-        Object {
-          "marginRight": 15,
-        }
+        Array [
+          Object {
+            "color": "#f4333c",
+            "fontSize": 10,
+            "fontWeight": "500",
+            "textAlign": "left",
+            "transform": Array [
+              Object {
+                "rotate": "225deg",
+              },
+            ],
+          },
+        ]
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#f4333c",
-              "fontSize": 10,
-              "fontWeight": "500",
-              "textAlign": "left",
-              "transform": Array [
-                Object {
-                  "rotate": "225deg",
-                },
-              ],
-            },
-          ]
-        }
-      >
-        ∟
-      </Text>
-    </View>
+      ∟
+    </Text>
   </View>
   <View
     style={
@@ -660,37 +644,29 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
         </View>
       </View>
     </View>
-    <View
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
       style={
-        Object {
-          "marginRight": 15,
-        }
+        Array [
+          Object {
+            "color": "#f4333c",
+            "fontSize": 10,
+            "fontWeight": "500",
+            "textAlign": "left",
+            "transform": Array [
+              Object {
+                "rotate": "225deg",
+              },
+            ],
+          },
+        ]
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#f4333c",
-              "fontSize": 10,
-              "fontWeight": "500",
-              "textAlign": "left",
-              "transform": Array [
-                Object {
-                  "rotate": "225deg",
-                },
-              ],
-            },
-          ]
-        }
-      >
-        ∟
-      </Text>
-    </View>
+      ∟
+    </Text>
   </View>
   <View
     style={
@@ -784,11 +760,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "marginRight": 15,
-        }
-      }
+      style={undefined}
       testID={undefined}
     >
       <Text
@@ -924,11 +896,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "marginRight": 15,
-        }
-      }
+      style={undefined}
       testID={undefined}
     >
       <Text
@@ -937,12 +905,17 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
         disabled={false}
         ellipsizeMode="tail"
         style={
-          Object {
-            "color": "#a1a1a1",
-          }
+          Array [
+            Object {
+              "color": "#f4333c",
+              "fontSize": 18,
+              "fontWeight": "200",
+              "textAlign": "left",
+            },
+          ]
         }
       >
-        不再提示
+        ×
       </Text>
     </View>
   </View>
@@ -1059,22 +1032,29 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
         </View>
       </View>
     </View>
-    <View
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
       style={
-        Object {
-          "marginRight": 15,
-        }
+        Array [
+          Object {
+            "color": "#f4333c",
+            "fontSize": 10,
+            "fontWeight": "500",
+            "textAlign": "left",
+            "transform": Array [
+              Object {
+                "rotate": "225deg",
+              },
+            ],
+          },
+        ]
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-      >
-        去看看
-      </Text>
-    </View>
+      ∟
+    </Text>
   </View>
 </View>
 `;
