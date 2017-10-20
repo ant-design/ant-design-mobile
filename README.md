@@ -37,7 +37,9 @@ http://mobile.ant.design/kitchen-sink/
 
 ### react native demo
 
-<img width="250" src="https://cloud.githubusercontent.com/assets/1698185/23120244/7da34ea6-f796-11e6-94c0-5e980334eb86.png" /><img width="250" src="https://user-images.githubusercontent.com/1698185/27175806-f0a8a7f0-51f2-11e7-85fb-4b7ea9f89e5b.png" />
+<img width="250" src="https://user-images.githubusercontent.com/1698185/27175806-f0a8a7f0-51f2-11e7-85fb-4b7ea9f89e5b.png" />
+
+install expo app: https://expo.io/tools
 
 ## Install & Usage
 
