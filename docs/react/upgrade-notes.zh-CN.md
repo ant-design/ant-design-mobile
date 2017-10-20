@@ -153,13 +153,20 @@ const tabs = [
   + import { ListView, PullToRefresh } from 'antd-mobile';
   <ListView
      dataSource={this.state.dataSource}
-  -  refreshControl={<RefreshControl
-  +  pullToRefresh={<PullToRefresh
-       refreshing={this.state.refreshing}
-       onRefresh={this.onRefresh}
-  -    icon={this.renderCustomIcon()}
-  +    indicator={{ deactivate: '下拉' }}
-     />}
+  -  refreshControl={
+  -    <RefreshControl
+  -      refreshing={this.state.refreshing}
+  -      onRefresh={this.onRefresh}
+  -      icon={this.renderCustomIcon()}
+  -    />
+  -  }
+  +  pullToRefresh={
+  +    <PullToRefresh
+  +      refreshing={this.state.refreshing}
+  +      onRefresh={this.onRefresh}
+  +      indicator={{ deactivate: '下拉' }}
+  +    />
+  +  }
   />
   ```
 
@@ -172,9 +179,9 @@ const tabs = [
 - 各个组件的 `ref` 从 `string` 修改为 `function` (比如 `input` 组件 `this.refs.input` => `this.input`)
 - 部分 Web 版本组件原来会根据 UA 对 iOS 或 Android 平台应用不同的样式，现在修改为默认应用 iOS 平台样式。
 - `Button` / `InputItem` / `TextareaItem` / `Progress` / `List`/ `Result`/ `Switch` / `Slider` / `Flex` / `pagination` / `ActionSheet` 等组件的 细节样式 或 API 都有部分微调。
-- `ListView` 的 sticky 特性从“内置”改为“外置”。
+- `ListView` 的 sticky 特性从内置改为外置。
 
-更细节的信息，请查看 change logs
+更细节的信息，请查看 [changelog](/changelog)。
 
 
 ## 0.9.x => 1.0
