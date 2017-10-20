@@ -701,6 +701,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                   aria-label="Increase Value"
                   class="am-stepper-handler am-stepper-handler-up "
                   role="button"
+                  unselectable="unselectable"
                 >
                   <svg
                     class="am-icon am-icon-plus am-icon-xxs"
@@ -715,6 +716,7 @@ exports[`renders ./components/list/demo/form.md correctly 1`] = `
                   aria-label="Decrease Value"
                   class="am-stepper-handler am-stepper-handler-down "
                   role="button"
+                  unselectable="unselectable"
                 >
                   <svg
                     class="am-icon am-icon-minus am-icon-xxs"
