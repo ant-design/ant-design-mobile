@@ -1,8 +1,8 @@
 ---
 order: 0
 title:
-  zh-CN: '拉动刷新 (仅支持手机查看效果)'
-  en-US: 'PullToRefresh (see on phone)'
+  zh-CN: '拉动刷新'
+  en-US: 'PullToRefresh'
 ---
 
 

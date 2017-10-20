@@ -91,7 +91,7 @@ export default class Demo extends React.Component {
     let touchNoticeText = '';
     if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
       style.minHeight = document.documentElement.clientHeight;
-    } else if (/(tabs|swipe-action)/i.test(window.location.hash.toLowerCase())) {
+    } else if (/(tabs|swipe-action|pull-to-refresh)/i.test(window.location.hash.toLowerCase())) {
       touchNoticeText = locale === 'en-US' ? 'This component only support Touch Events, USE mobile mode open this page please.' : '该组件只支持Touch事件，请使用移动模式/设备打开此页。';
     }
 
