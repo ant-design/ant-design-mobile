@@ -99,19 +99,24 @@ export default class Demo extends React.Component {
     const localizedTitle = meta.title[locale] || meta.title;
     const prefillStyle = `@import 'antd-mobile@next/dist/antd-mobile.min.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
 
+    const js = sourceCode
+      .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'rc-form';/, 'const { $1 } = window["rc-form"];')
+      .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd-mobile';/, 'const { $1 } = window["antd-mobile"];');
+
     const codepenPrefillConfig = {
       title: `${localizedTitle} - Ant Design Mobile Demo`,
       html: `<div id="container" style="padding: 24px"></div>
               <script>
                 var mountNode = document.getElementById('container');
               </script>`,
-      js: sourceCode.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd-mobile';/, 'const { $1 } = window["antd-mobile"];'),
+      js,
       css: prefillStyle,
       editors: '001',
       css_external: 'https://unpkg.com/antd-mobile@next/dist/antd-mobile.min.css',
       js_external: [
         'react@16/umd/react.production.min.js',
         'react-dom@16/umd/react-dom.production.min.js',
+        'rc-form@1/dist/rc-form.min.js',
         'antd-mobile@next/dist/antd-mobile.min.js',
       ]
         .map(url => `https://unpkg.com/${url}`)
