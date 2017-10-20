@@ -15,6 +15,11 @@ toc: false
 
 ---
 
+## 1.7.1
+`2017-10-20`
+
+- Fix `InputItem`/`TextareaItem` 删除按钮不显示问题. ([#1955](https://github.com/ant-design/ant-design-mobile/issues/1955))
+
 ## 1.7.0
 `2017-10-13`
 
