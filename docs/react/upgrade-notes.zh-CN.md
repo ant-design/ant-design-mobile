@@ -109,6 +109,17 @@ const tabs = [
 </Tabs>
 ```
 
+#### TabBar
+底部Bar将不再使用 `fixed` 样式，整个 `TabBar` 的高度、位置将由外层决定，提高布局灵活性。
+
+简单的升级方案：
+在TabBar外层包裹一个div，可参见 [TabBar Demo](http://mobile.ant.design/components/tab-bar-cn/)。
+```jsx
+<div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
+  <TabBar>...</TabBar>
+</div>
+```
+
 #### Popup
 
 由于 Popup 组件的底层依赖和大量样式都与 Modal 组件相同，并且 `Popup.show()` 的 API 调用方法在数据更新时遇到困难，因此我们删除了 Popup 组件，并且在 Modal 组件上增加 `popup` 属性、来实现 Popup 组件的功能。

@@ -103,6 +103,19 @@ const tabs = [
 </Tabs>
 ```
 
+#### TabBar
+The `Bar`'s style of TabBar is no longer use `fixed`, `TabBar`'s height, position is determined by wrapper，improve layout flexibility.
+
+easy to upgrade:
+
+```jsx
+<div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
+  <TabBar>...</TabBar>
+</div>
+```
+
+(more detail: [TabBar Demo](http://mobile.ant.design/components/tab-bar-cn/))
+
 #### Popup
 
 Since the underlying dependencies and bulk styles of the Popup component are the same as the Modal component, and the API call method of the `Popup.show ()` is difficult to update the data, we removed the Popup component and added `popup` prop to the Modal component to implement the Popup component's functionality.
