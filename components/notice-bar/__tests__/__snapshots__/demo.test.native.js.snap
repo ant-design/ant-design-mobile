@@ -937,17 +937,12 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
         disabled={false}
         ellipsizeMode="tail"
         style={
-          Array [
-            Object {
-              "color": "#f4333c",
-              "fontSize": 18,
-              "fontWeight": "200",
-              "textAlign": "left",
-            },
-          ]
+          Object {
+            "color": "#a1a1a1",
+          }
         }
       >
-        ×
+        不再提示
       </Text>
     </View>
   </View>
@@ -1076,23 +1071,8 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
         allowFontScaling={true}
         disabled={false}
         ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#f4333c",
-              "fontSize": 10,
-              "fontWeight": "500",
-              "textAlign": "left",
-              "transform": Array [
-                Object {
-                  "rotate": "225deg",
-                },
-              ],
-            },
-          ]
-        }
       >
-        ∟
+        去看看
       </Text>
     </View>
   </View>
