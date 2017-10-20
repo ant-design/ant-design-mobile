@@ -18,7 +18,7 @@ title: 升级指南
 
 如何升级？
 
-1. 确保在页面的 html 标签上tinJIe `data-scale` 属性， 如 `<html data-scale="true"></html>`, 或者通过脚本动态添加 `document.documentElement.setAttribute('data-scale', true);`。
+1. 确保在页面的 html 标签上添加 `data-scale` 属性， 如 `<html data-scale="true"></html>`, 或者通过脚本动态添加 `document.documentElement.setAttribute('data-scale', true);`。
 
 2. 参照 [自定义主题文档](https://beta.mobile.ant.design/docs/react/customize-theme-cn)  将 antd-mobile 提供的主题变量 `@hd` 赋值为 `@hd: '2px'`。
 
