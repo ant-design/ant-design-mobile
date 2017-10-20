@@ -193,7 +193,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <a
     aria-disabled="true"
-    class="am-button am-button-ghost am-button-small am-button-inline am-button-disabled"
+    class="am-button am-button-borderfix am-button-ghost am-button-small am-button-inline am-button-disabled"
     role="button"
   >
     <span>
