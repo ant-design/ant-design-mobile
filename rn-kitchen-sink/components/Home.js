@@ -168,7 +168,7 @@ class Home extends React.Component {
           >React Native 组件</List.Item>
         </List>
         <View style={styles.footer}>
-          <Text style={styles.version}>App 版本: 1.6.3 / Demo 版本: 1.6.3</Text>
+          <Text style={styles.version}>App 版本: 2.0.0 / Demo 版本: 2.0.0</Text>
           <View style={styles.checkView}>
             <TouchableOpacity onPress={this.onCheckUpdate}>
               <Text style={styles.check}>检查更新</Text>

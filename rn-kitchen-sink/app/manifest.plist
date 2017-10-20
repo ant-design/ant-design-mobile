@@ -31,7 +31,7 @@
 				<key>bundle-identifier</key>
 				<string>com.mybank.ios.phone.test</string>
 				<key>bundle-version</key>
-				<string>1.6.3</string>
+				<string>2.0.0</string>
 				<key>kind</key>
 				<string>software</string>
 				<key>title</key>
