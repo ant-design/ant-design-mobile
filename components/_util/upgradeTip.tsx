@@ -3,7 +3,7 @@ if (process.env.NODE_ENV === 'development' && !process.env.DISABLE_ANTD_MOBILE_U
     const localVersion = require('./version.json');
     if (!localVersion._disable && fetch) {
       const server = 'http://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com';
-      fetch(`${server}/filesync/prod/z/fengdie/antd-mobile-upgrade-tip/upgrade-tip-h5data.json`)
+      fetch(`${server}/filesync/prod/z/fengdie/antd-mobile-upgrade-tip/upgrade-tip-h5data.json`, { cache: 'no-cache' })
         .then(data => data.json())
         .then((data) => {
           let notice = '';
