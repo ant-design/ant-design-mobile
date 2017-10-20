@@ -56,7 +56,7 @@ title: Ant Design Mobile of React
 ### 2. 安装
 
 ```bash
-$ npm install antd-mobile@next --save
+$ npm install antd-mobile --save
 ```
 
 ### 3. 使用
