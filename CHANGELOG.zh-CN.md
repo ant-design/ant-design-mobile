@@ -17,7 +17,7 @@ toc: false
 
 ### 2.0.0
 
-`2017-xx-xx`
+`2017-10-20`
 
 - **Feature**
 
@@ -82,6 +82,11 @@ toc: false
   - 不再需要配置 `webpack.resolve`
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
+
+## 1.7.1
+`2017-10-20`
+
+- Fix `InputItem`/`TextareaItem` 删除按钮不显示问题. ([#1955](https://github.com/ant-design/ant-design-mobile/issues/1955))
 
 ## 1.7.0
 `2017-10-13`
