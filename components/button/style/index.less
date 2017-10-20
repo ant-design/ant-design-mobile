@@ -25,6 +25,13 @@
 
   .hairline('all', @border-color-base, @radius-md);
 
+  // Multiple buttons inline arranged, the last one border-right may not display
+  &-borderfix {
+    &:before {
+      transform: scale(0.49)!important;
+    }
+  }
+
   &&-active {
     background-color: @fill-tap;
   }
