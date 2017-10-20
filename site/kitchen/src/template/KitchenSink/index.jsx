@@ -49,7 +49,7 @@ export default class App extends React.Component {
   getStateCache = () => {
     try {
       const data = JSON.parse(localStorage.getItem('_mobile-index-state'));
-      if (+new Date() - data.lastDate < 30 * 60000) {
+      if (data && +new Date() - data.lastDate < 30 * 60000) {
         return data;
       }
     } catch (error) {
