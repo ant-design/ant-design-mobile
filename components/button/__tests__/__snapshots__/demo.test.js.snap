@@ -148,7 +148,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   </a>
   <a
     aria-disabled="false"
-    class="am-button am-button-ghost am-button-inline"
+    class="am-button am-button-borderfix am-button-ghost am-button-inline"
     role="button"
     style="margin-right:4px"
   >
