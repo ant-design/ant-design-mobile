@@ -17,7 +17,7 @@ toc: false
 ---
 ### 2.0.0
 
-`2017-xx-xx`
+`2017-10-20`
 
 - **Feature**
 
@@ -82,6 +82,11 @@ toc: false
   - no need of `webpack.resolve`
   - `rmc-picker` upgrade，dom structure simplify ([#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - remove global `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
+
+## 1.7.1
+`2017-10-20`
+
+- Fix `InputItem`/`TextareaItem` clear button is not displayed. ([#1955](https://github.com/ant-design/ant-design-mobile/issues/1955))
 
 ## 1.7.0
 `2017-10-13`
