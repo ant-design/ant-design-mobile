@@ -30,13 +30,15 @@ const ButtonExample = () => (
 
     <WhiteSpace />
     <Button type="primary" inline style={{ marginRight: '4px' }}>inline primary</Button>
-    <Button type="ghost" inline style={{ marginRight: '4px' }}>inline ghost</Button>
+    {/* use `am-button-borderfix`. because Multiple buttons inline arranged, the last one border-right may not display */}
+    <Button type="ghost" inline style={{ marginRight: '4px' }} className="am-button-borderfix">inline ghost</Button>
 
     <WhiteSpace />
     <Button type="primary" inline size="small" style={{ marginRight: '4px' }}>primary</Button>
     <Button type="primary" inline size="small" disabled>primary disabled</Button>
     <WhiteSpace />
     <Button type="ghost" inline size="small" style={{ marginRight: '4px' }}>ghost</Button>
+    {/* use `am-button-borderfix`. because Multiple buttons inline arranged, the last one border-right may not display */}
     <Button type="ghost" inline size="small" className="am-button-borderfix" disabled>ghost disabled</Button>
   </WingBlank>
 );
