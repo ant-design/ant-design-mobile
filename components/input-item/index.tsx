@@ -113,6 +113,8 @@ class InputItem extends React.Component<InputItemProps, any> {
     }
     if (!('value' in this.props)) {
       this.setState({ value });
+    } else {
+      this.setState({ value: this.props.value });
     }
     if (onChange) {
       onChange(value);
