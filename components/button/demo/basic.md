@@ -37,7 +37,7 @@ const ButtonExample = () => (
     <Button type="primary" inline size="small" disabled>primary disabled</Button>
     <WhiteSpace />
     <Button type="ghost" inline size="small" style={{ marginRight: '4px' }}>ghost</Button>
-    <Button type="ghost" inline size="small" disabled>ghost disabled</Button>
+    <Button type="ghost" inline size="small" className="am-button-borderfix" disabled>ghost disabled</Button>
   </WingBlank>
 );
 ReactDOM.render(<ButtonExample />, mountNode);
