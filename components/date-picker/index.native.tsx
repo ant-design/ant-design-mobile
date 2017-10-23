@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
@@ -51,10 +52,15 @@ export default class DatePicker extends React.Component<IDatePickerNativeProps, 
         styles={styles}
         {...props}
         date={value}
-        dismissText={dismissText}
-        okText={okText}
+        dismissText={this.props.dismissText || dismissText}
+        okText={this.props.okText || okText}
       >
-        {children && React.cloneElement(children, { extra: value ? formatFn(this, value) : extra })}
+        {
+          children && React.cloneElement(
+            children,
+            { extra: value ? formatFn(this, value) : (this.props.extra || extra) },
+          )
+        }
       </PopupDatePicker>
     );
   }

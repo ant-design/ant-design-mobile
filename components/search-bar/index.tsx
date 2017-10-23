@@ -229,7 +229,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
           </TouchFeedback>
         </div>
         <div className={cancelCls} onClick={this.onCancel} ref={el => this.rightBtnRef = el}>
-          {cancelText}
+          {this.props.cancelText || cancelText}
         </div>
       </form>
     );

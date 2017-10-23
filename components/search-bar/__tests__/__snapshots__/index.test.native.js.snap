@@ -22,7 +22,6 @@ exports[`SearchBar renders correctly 1`] = `
     }
   >
     <TextInput
-      cancelText="取消"
       clearButtonMode="always"
       editable={true}
       onBlur={[Function]}
