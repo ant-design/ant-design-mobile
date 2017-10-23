@@ -52,7 +52,7 @@ fs.readdirSync(dir)
 
 module.exports = {
   cwd: projectDir,
-  secret: 'mXvdTx0LJjKDCb2Wqsq5jKpiMEvk2SL1ocVESHCfn5iHb4RWOB+34ihM2e+Rc6SZssxX1vQ041Q2OIg+j6uy7/mrTp/TvDOqORHzLGtLnSA=',
+  secret: '5E+3rBBn4Rw+PeBAxefHUC+DjxgoNzMrk1KsUAmIjvK+YsZOXObcNcP30U0wuPCNil7nMh/R098L+60ekfw9+FkM35+dktEMIm+N4uek9fE=',
   fileList: [
     {
       template: pcFL,
