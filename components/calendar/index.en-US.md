@@ -33,6 +33,8 @@ infiniteOpt|infinite scroll optimize|boolean| false|false
 initalMonths|inital months|number| 6|false
 maxDate|max date|Date||false
 minDate|min date|Date||false
+onSelect | on select dates callback | (date: \[Date, Date\] \| \[Date\]) => \[Date, Date\] \| \[Date\] \| void | | false
 onSelectHasDisableDate|on select has disable date|(date: Date[]) => void||false
 rowSize|row size|'normal' \| 'xl'||false
+defaultValue | default date select value | \[Date, Date\] \| \[Date\] | | false
 defaultTimeValue|default time of timePicker|Date||false

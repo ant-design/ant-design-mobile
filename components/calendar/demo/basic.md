@@ -105,6 +105,13 @@ class Test extends React.Component {
           {this.renderBtn('大行距', 'XL row size', { rowSize: 'xl' })}
           {this.renderBtn('不使用ZScroller(无法向前滚动)', 'No use zscorller', { infinite: false })}
           {this.renderBtn('水平进入', 'Horizontal enter', { enterDirection: 'horizontal' })}
+          {this.renderBtn('默认选择范围', 'Selected Date Range', { defaultValue: [new Date(+now - 86400000), new Date(+now - 345600000)] })}
+          {this.renderBtn('onSelect API', 'onSelect API', {
+            onSelect: (date) => {
+              console.log('onSelect', date);
+              return [date, new Date(+now - 604800000)];
+            },
+          })}
           {
             this.state.startTime &&
             <List.Item>Time1: {this.state.startTime.toLocaleString()}</List.Item>
