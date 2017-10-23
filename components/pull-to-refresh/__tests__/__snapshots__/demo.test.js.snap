@@ -36,44 +36,56 @@ exports[`renders ./components/pull-to-refresh/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/pull-to-refresh/demo/basic-listview.md correctly 1`] = `
-<div
-  class="am-list-view-scrollview"
-  style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;flex:1;height:0;border:1px solid #ddd;margin:5px 0"
->
+<div>
+  <a
+    aria-disabled="false"
+    class="am-button am-button-inline"
+    role="button"
+    style="margin:30px 15px"
+  >
+    <span>
+      partial scroll
+    </span>
+  </a>
   <div
-    class="am-list-view-scrollview-content am-list"
-    style="position:absolute;min-width:100%"
+    class="am-list-view-scrollview"
+    style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;flex:1;height:0;border:1px solid #ddd;margin:5px 0"
   >
     <div
-      class="am-pull-to-refresh am-pull-to-refresh-down"
+      class="am-list-view-scrollview-content am-list"
+      style="position:absolute;min-width:100%"
     >
       <div
-        class="am-pull-to-refresh-content-wrapper"
+        class="am-pull-to-refresh am-pull-to-refresh-down"
       >
         <div
-          class="am-pull-to-refresh-content am-pull-to-refresh-transition"
+          class="am-pull-to-refresh-content-wrapper"
         >
           <div
-            class="am-pull-to-refresh-indicator"
-          />
-          <div>
+            class="am-pull-to-refresh-content am-pull-to-refresh-transition"
+          >
             <div
-              class="am-list-header"
-            >
-              <span>
-                Pull to refresh
-              </span>
-            </div>
-            <div
-              class="am-list-body"
+              class="am-pull-to-refresh-indicator"
             />
-            <div
-              class="am-list-footer"
-            >
+            <div>
               <div
-                style="padding:30px;text-align:center"
+                class="am-list-header"
               >
-                Loading...
+                <span>
+                  Pull to refresh
+                </span>
+              </div>
+              <div
+                class="am-list-body"
+              />
+              <div
+                class="am-list-footer"
+              >
+                <div
+                  style="padding:30px;text-align:center"
+                >
+                  Loading...
+                </div>
               </div>
             </div>
           </div>

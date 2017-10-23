@@ -8,7 +8,7 @@ title:
 
 ````jsx
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
-import { PullToRefresh, ListView } from 'antd-mobile';
+import { PullToRefresh, ListView, Button } from 'antd-mobile';
 
 const data = [
   {
@@ -50,6 +50,7 @@ class App extends React.Component {
       refreshing: true,
       isLoading: true,
       height: document.documentElement.clientHeight,
+      useBodyScroll: false,
     };
   }
 
@@ -62,16 +63,26 @@ class App extends React.Component {
   //   }
   // }
 
+  componentDidUpdate() {
+    if (this.state.useBodyScroll) {
+      document.body.style.overflow = 'auto';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
   componentDidMount() {
     const hei = this.state.height - ReactDOM.findDOMNode(this.lv).offsetTop;
-    document.body.style.overflow = 'hidden';
+
     setTimeout(() => {
+      this.rData = genData();
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(genData()),
         height: hei,
         refreshing: false,
+        isLoading: false,
       });
-    }, 2000);
+    }, 1500);
   }
 
   onRefresh = () => {
@@ -142,8 +153,16 @@ class App extends React.Component {
         </div>
       );
     };
-    return (
+    return (<div>
+      <Button
+        style={{ margin: '30px 15px' }}
+        inline
+        onClick={() => this.setState({ useBodyScroll: !this.state.useBodyScroll })}
+      >
+        {this.state.useBodyScroll ? 'useBodyScroll' : 'partial scroll'}
+      </Button>
       <ListView
+        key={this.state.useBodyScroll ? '0' : '1'}
         ref={el => this.lv = el}
         dataSource={this.state.dataSource}
         renderHeader={() => <span>Pull to refresh</span>}
@@ -152,7 +171,8 @@ class App extends React.Component {
         </div>)}
         renderRow={row}
         renderSeparator={separator}
-        style={{
+        useBodyScroll={this.state.useBodyScroll}
+        style={this.state.useBodyScroll ? {} : {
           height: this.state.height,
           border: '1px solid #ddd',
           margin: '5px 0',
@@ -164,7 +184,7 @@ class App extends React.Component {
         onEndReached={this.onEndReached}
         pageSize={5}
       />
-    );
+    </div>);
   }
 }
 
