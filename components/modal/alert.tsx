@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './Modal';
+import closest from '../_util/closest';
 import { Action } from './PropsType';
 
 export default function alert(
@@ -42,7 +43,10 @@ export default function alert(
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
     }
-    e.preventDefault();
+    const pNode = closest(e.target, `.am-modal-footer`);
+    if (!pNode) {
+      e.preventDefault();
+    }
   }
 
   ReactDOM.render(

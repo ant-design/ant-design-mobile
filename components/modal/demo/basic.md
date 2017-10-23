@@ -42,7 +42,7 @@ class App extends React.Component {
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
     }
-    const pNode = closest(e.target, '.am-modal-body');
+    const pNode = closest(e.target, '.am-modal-content');
     if (!pNode) {
       e.preventDefault();
     }
