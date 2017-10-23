@@ -35,6 +35,5 @@ export const defaultProps = {
   onBlur: noop,
   onClear: noop,
   showCancelButton: false,
-  cancelText: '取消',
   disabled: false,
 };

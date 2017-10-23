@@ -140,7 +140,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               style="text-align:right;color:#888;margin-right:15px"
             >
-              请选择
+              请选择(可选)
             </div>
           </div>
         </div>

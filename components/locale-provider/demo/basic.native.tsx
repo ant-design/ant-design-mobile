@@ -1,10 +1,35 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Pagination, LocaleProvider, List, DatePicker, WhiteSpace, Button } from 'antd-mobile';
+import {
+  Pagination, LocaleProvider, List, DatePicker, WhiteSpace, Button, Picker, SearchBar,
+} from 'antd-mobile';
 import enUS from '../en_US';
 
 const maxDate = new Date(2018, 11, 3, 22, 0);
 const minDate = new Date(2015, 7, 6, 8, 30);
+
+const seasons = [
+  [
+    {
+      label: '2013',
+      value: '2013',
+    },
+    {
+      label: '2014',
+      value: '2014',
+    },
+  ],
+  [
+    {
+      label: '春',
+      value: '春',
+    },
+    {
+      label: '夏',
+      value: '夏',
+    },
+  ],
+];
 
 const Page = () => (
   <View>
@@ -14,12 +39,19 @@ const Page = () => (
       <DatePicker
         mode="date"
         title="选择日期"
-        extra="点击查看国际化"
         minDate={minDate}
         maxDate={maxDate}
       >
         <List.Item arrow="horizontal">日期</List.Item>
       </DatePicker>
+      <Picker
+        data={seasons}
+        cascade={false}
+      >
+        <List.Item arrow="horizontal">picker</List.Item>
+      </Picker>
+      <WhiteSpace />
+      <SearchBar placeholder="Search" showCancelButton />
     </List>
   </View>
 );

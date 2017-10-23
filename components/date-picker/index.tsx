@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import PropTypes from 'prop-types';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';
@@ -83,11 +84,16 @@ export default class DatePicker extends React.Component<PropsType, any> {
         {...props}
         prefixCls={popupPrefixCls}
         date={value}
-        dismissText={dismissText}
-        okText={okText}
+        dismissText={this.props.dismissText || dismissText}
+        okText={this.props.okText || okText}
         ref={this.fixOnOk}
       >
-        {children && React.cloneElement(children, { extra: value ? formatFn(this, value) : extra })}
+        {
+          children && React.cloneElement(
+            children,
+            { extra: value ? formatFn(this, value) : (this.props.extra || extra) },
+          )
+        }
       </PopupDatePicker>
     );
   }

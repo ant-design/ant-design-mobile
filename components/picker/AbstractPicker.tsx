@@ -25,9 +25,6 @@ export function getDefaultProps() {
     format: defaultFormat,
     cols: 3,
     cascade: true,
-    extra: '请选择',
-    okText: '确定',
-    dismissText: '取消',
     title: '',
   };
 }
@@ -107,13 +104,11 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
 
   render() {
     const {
-      children, value = [], popupPrefixCls, itemStyle, indicatorStyle,
-      cascade, prefixCls, pickerPrefixCls, data, cols, onOk, ...restProps,
+      children, value = [], popupPrefixCls, itemStyle, indicatorStyle, okText, dismissText,
+      extra, cascade, prefixCls, pickerPrefixCls, data, cols, onOk, ...restProps,
     } = this.props;
 
     const _locale = getComponentLocale(this.props, this.context, 'Picker', () => require('./locale/zh_CN'));
-
-    const { okText, dismissText, extra } = _locale;
 
     let cascader;
     let popupMoreProps = {};
@@ -152,12 +147,12 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
         {...restProps}
         prefixCls={popupPrefixCls}
         value={value}
-        dismissText={dismissText}
-        okText={okText}
+        dismissText={dismissText || _locale.dismissText}
+        okText={okText || _locale.okText}
         {...popupMoreProps}
         ref={this.fixOnOk}
       >
-        {children && React.cloneElement(children, { extra: this.getSel() || extra })}
+        {children && React.cloneElement(children, { extra: this.getSel() || extra || _locale.extra })}
       </RMCPopupCascader>
     );
   }
