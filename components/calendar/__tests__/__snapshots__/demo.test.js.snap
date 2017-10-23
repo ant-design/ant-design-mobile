@@ -233,6 +233,48 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           style="display:none"
         />
       </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            默认选择范围
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none"
+        />
+      </div>
+      <div
+        class="am-list-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            onSelect API
+          </div>
+          <div
+            aria-hidden="true"
+            class="am-list-arrow am-list-arrow-horizontal"
+          />
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none"
+        />
+      </div>
     </div>
   </div>
   <div
