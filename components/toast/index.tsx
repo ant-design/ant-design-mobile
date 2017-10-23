@@ -6,12 +6,12 @@ import classnames from 'classnames';
 let messageInstance;
 let prefixCls = 'am-toast';
 
-function getMessageInstance(mask) {
+function getMessageInstance(mask, callback) {
   if (messageInstance) {
     messageInstance.destroy();
     messageInstance = null;
   }
-  messageInstance = (Notification as any).newInstance({
+  (Notification as any).newInstance({
     prefixCls,
     style: { }, // clear rc-notification default style
     transitionName: 'am-fade',
@@ -19,8 +19,7 @@ function getMessageInstance(mask) {
       [`${prefixCls}-mask`]: mask,
       [`${prefixCls}-nomask`]: !mask,
     }),
-  });
-  return messageInstance;
+  }, (notification) => callback && callback(notification));
 }
 
 function notice(content, type, duration = 3, onClose, mask = true) {
@@ -32,28 +31,32 @@ function notice(content, type, duration = 3, onClose, mask = true) {
     loading: 'loading',
   })[type];
 
-  let instance = getMessageInstance(mask);
-  instance.notice({
-    duration,
-    style: {},
-    content: !!iconType ? (
-      <div className={`${prefixCls}-text ${prefixCls}-text-icon`} role="alert" aria-live="assertive">
-        <Icon type={iconType} size="lg" />
-        <div className={`${prefixCls}-text-info`}>{content}</div>
-      </div>
-    ) : (
-      <div className={`${prefixCls}-text`} role="alert" aria-live="assertive">
-        <div>{content}</div>
-      </div>
-    ),
-    onClose: () => {
-      if (onClose) {
-        onClose();
-      }
-      instance.destroy();
-      instance = null;
-      messageInstance = null;
-    },
+  getMessageInstance(mask, (notification) => {
+    messageInstance = notification;
+
+    notification.notice({
+      duration,
+      style: {},
+      content: !!iconType ? (
+        <div className={`${prefixCls}-text ${prefixCls}-text-icon`} role="alert" aria-live="assertive">
+          <Icon type={iconType} size="lg" />
+          <div className={`${prefixCls}-text-info`}>{content}</div>
+        </div>
+      ) : (
+        <div className={`${prefixCls}-text`} role="alert" aria-live="assertive">
+          <div>{content}</div>
+        </div>
+      ),
+      closable: true,
+      onClose() {
+        if (onClose) {
+          onClose();
+        }
+        notification.destroy();
+        notification = null;
+        messageInstance = null;
+      },
+    });
   });
 }
 

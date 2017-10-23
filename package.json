@@ -39,7 +39,7 @@
     "rc-checkbox": "~2.0.0",
     "rc-collapse": "~1.7.0",
     "rc-drawer": "~0.4.9",
-    "rc-notification": "~2.0.0",
+    "rc-notification": "~3.0.0",
     "rc-slider": "~8.2.0",
     "rc-swipeout": "~2.0.0",
     "react-native-camera-roll-picker": "^1.2.1",
