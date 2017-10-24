@@ -23,10 +23,10 @@ we can use the way of [modifyVars](http://lesscss.org/usage/#using-less-in-the-b
 ### 1) theme
 
 
-1. Firstly，you should install these devDependencies in your project:`babel-plugin-import less less-loder style-loader css-loader`.
+1. Firstly，you should install these devDependencies in your project:`babel-plugin-import less less-loader style-loader css-loader`.
 
 ```bash
-  npm install --save-dev babel-plugin-import less less-loder
+  npm install --save-dev babel-plugin-import less less-loader
 ```
 1. Secondly, configuration babel-plugin-import to load antd-mobile less
 
