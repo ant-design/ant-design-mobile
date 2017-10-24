@@ -146,7 +146,6 @@ class Demo extends React.Component {
         useBodyScroll
         onScroll={() => { console.log('scroll'); }}
         scrollRenderAheadDistance={500}
-        scrollEventThrottle={200}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
       />
