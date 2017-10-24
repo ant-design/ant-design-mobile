@@ -15,6 +15,7 @@ function fixControlledValue(value) {
 export interface ITextareaItemNativeProps extends TextAreaItemProps {
   last?: boolean;
   keyboardType?: string;
+  onContentSizeChange?: (e: any) => void;
   styles?: ITextareaItemStyle;
 }
 
@@ -51,8 +52,20 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
 
   onChange = (event) => {
     const text = event.nativeEvent.text;
+    const { onChange } = this.props;
+
+    this.setState({
+      inputCount: text.length,
+    });
+
+    if (onChange) {
+      onChange(text);
+    }
+  }
+
+  onContentSizeChange = (event) => {
     let height;
-    const { autoHeight, onChange } = this.props;
+    const { autoHeight, onContentSizeChange } = this.props;
     const rows = this.props.rows as number;
     if (autoHeight) {
       height = event.nativeEvent.contentSize.height;
@@ -63,11 +76,11 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
     }
 
     this.setState({
-      inputCount: text.length,
       height,
     });
-    if (onChange) {
-      onChange(text);
+
+    if (onContentSizeChange) {
+      onContentSizeChange(event);
     }
   }
 
@@ -107,6 +120,7 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
           {...restProps}
           {...valueProps}
           onChange={(event) => this.onChange(event)}
+          onContentSizeChange={this.onContentSizeChange}
           multiline={rows! > 1 || autoHeight}
           numberOfLines={rows}
           maxLength={maxLength}

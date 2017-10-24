@@ -72,6 +72,7 @@ exports[`renders ./components/textarea-item/demo/basic.native.tsx correctly 1`] 
             numberOfLines={4}
             onBlur={[Function]}
             onChange={[Function]}
+            onContentSizeChange={[Function]}
             onFocus={[Function]}
             placeholder="固定行数"
             style={
@@ -123,6 +124,7 @@ exports[`renders ./components/textarea-item/demo/basic.native.tsx correctly 1`] 
             numberOfLines={4}
             onBlur={[Function]}
             onChange={[Function]}
+            onContentSizeChange={[Function]}
             onFocus={[Function]}
             placeholder="多行带计数"
             style={
@@ -196,6 +198,7 @@ exports[`renders ./components/textarea-item/demo/basic.native.tsx correctly 1`] 
             numberOfLines={4}
             onBlur={[Function]}
             onChange={[Function]}
+            onContentSizeChange={[Function]}
             onFocus={[Function]}
             placeholder="高度自适应"
             style={
@@ -246,6 +249,7 @@ exports[`renders ./components/textarea-item/demo/basic.native.tsx correctly 1`] 
             numberOfLines={1}
             onBlur={[Function]}
             onChange={[Function]}
+            onContentSizeChange={[Function]}
             onFocus={[Function]}
             style={
               Array [
@@ -296,6 +300,7 @@ exports[`renders ./components/textarea-item/demo/basic.native.tsx correctly 1`] 
             numberOfLines={1}
             onBlur={[Function]}
             onChange={[Function]}
+            onContentSizeChange={[Function]}
             onFocus={[Function]}
             style={
               Array [
@@ -347,6 +352,7 @@ exports[`renders ./components/textarea-item/demo/basic.native.tsx correctly 1`] 
             numberOfLines={1}
             onBlur={[Function]}
             onChange={[Function]}
+            onContentSizeChange={[Function]}
             onFocus={[Function]}
             placeholder="不显示清除按钮"
             style={
@@ -398,6 +404,7 @@ exports[`renders ./components/textarea-item/demo/basic.native.tsx correctly 1`] 
             numberOfLines={1}
             onBlur={[Function]}
             onChange={[Function]}
+            onContentSizeChange={[Function]}
             onFocus={[Function]}
             style={
               Array [
