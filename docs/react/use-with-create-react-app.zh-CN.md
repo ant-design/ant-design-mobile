@@ -38,7 +38,7 @@ $ yarn start
 
 - **基础运行：**
 
-  配置入口 html （仅 Web 项目需要），参考 [入口页面 (html 或 模板) 相关设置](/docs/react/introduce-cn#Web-使用方式)
+  配置入口 html （仅 Web 项目需要），参考 [入口页面 (html 或 模板) 相关设置](/docs/react/introduce#Web-使用方式)
 
   > 注：antd-mobile@1.x 需要运行 `yarn run eject` 以生成自定义配置，可参考  [antd-mobile-samples/create-react-app](https://github.com/ant-design/antd-mobile-samples/tree/1.x/create-react-app)
 
