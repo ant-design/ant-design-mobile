@@ -166,15 +166,22 @@ class Demo extends React.Component {
           />
         )}
         renderSectionHeader={sectionData => (
-          <Sticky
-            className="sticky"
-            style={{
-              zIndex: 3,
-              backgroundColor: parseInt(sectionData.replace('Section ', ''), 10) % 2 ?
-                '#5890ff' : '#F8591A',
-              color: 'white',
-            }}
-          >{`Task ${sectionData.split(' ')[1]}`}</Sticky>
+          <Sticky>
+            {({
+              style,
+            }) => (
+              <div
+                className="sticky"
+                style={{
+                  ...style,
+                  zIndex: 3,
+                  backgroundColor: parseInt(sectionData.replace('Section ', ''), 10) % 2 ?
+                    '#5890ff' : '#F8591A',
+                  color: 'white',
+                }}
+              >{`Task ${sectionData.split(' ')[1]}`}</div>
+            )}
+          </Sticky>
         )}
         renderHeader={() => <span>header</span>}
         renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>

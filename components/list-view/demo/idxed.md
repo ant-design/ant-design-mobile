@@ -101,14 +101,21 @@ class Demo extends React.Component {
           />
         )}
         renderSectionHeader={sectionData => (
-          <Sticky
-            className="sticky"
-            style={{
-              zIndex: 3,
-              backgroundColor: sectionData.charCodeAt(0) % 2 ? '#5890ff' : '#F8591A',
-              color: 'white',
-            }}
-          >{sectionData}</Sticky>
+          <Sticky>
+            {({
+              style,
+            }) => (
+              <div
+                className="sticky"
+                style={{
+                  ...style,
+                  zIndex: 3,
+                  backgroundColor: sectionData.charCodeAt(0) % 2 ? '#5890ff' : '#F8591A',
+                  color: 'white',
+                }}
+              >{sectionData}</div>
+            )}
+          </Sticky>
         )}
         renderHeader={() => <span>custom header</span>}
         renderFooter={() => <span>custom footer</span>}

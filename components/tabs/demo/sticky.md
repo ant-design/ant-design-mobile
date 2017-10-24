@@ -12,8 +12,8 @@ import { Tabs, WhiteSpace } from 'antd-mobile';
 import { StickyContainer, Sticky } from 'react-sticky';
 
 function renderTabBar(props) {
-  return (<Sticky style={{ zIndex: 1 }}>
-    <Tabs.DefaultTabBar {...props} />
+  return (<Sticky>
+    {({ style }) => <div style={{ ...style, zIndex: 1 }}><Tabs.DefaultTabBar {...props} /></div>}
   </Sticky>);
 }
 const tabs = [

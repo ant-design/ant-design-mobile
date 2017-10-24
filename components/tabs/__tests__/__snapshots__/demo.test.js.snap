@@ -492,12 +492,9 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
         class="am-tabs-tab-bar-wrap"
       >
         <div>
+          <div />
           <div
-            style="padding-bottom:0"
-          />
-          <div
-            class=""
-            style="transform:translateZ(0);z-index:1"
+            style="z-index:1"
           >
             <div
               class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
