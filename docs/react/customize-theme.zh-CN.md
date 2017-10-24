@@ -21,10 +21,10 @@ antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，
 ### 1) theme 属性
 
 
-1. 首先，你的项目里需要包含如下依赖 `babel-plugin-import less less-loder style-loader css-loader` 。
+1. 首先，你的项目里需要包含如下依赖 `babel-plugin-import less less-loader style-loader css-loader` 。
 
 ```bash
-  npm install --save-dev babel-plugin-import less less-loder style-loader css-loader
+  npm install --save-dev babel-plugin-import less less-loader style-loader css-loader
 ```
 
 1. 其次，配置 babel-plugin-import 确保加载 antd-mobile less 文件
