@@ -39,19 +39,6 @@ module.exports = {
       config.resolve.alias = Object.assign(config.resolve.alias, preactAlias);
     }
 
-    config.babel.plugins.push([
-      'babel-plugin-transform-runtime',
-      {
-        polyfill: false,
-        regenerator: true,
-      },
-    ], [
-      require.resolve('babel-plugin-import'),
-      {
-        libraryName: 'antd-mobile',
-        libraryDirectory: 'components',
-      },
-    ]);
 
     config.plugins.push(new webpack.DefinePlugin({ PREACT_DEVTOOLS: isDev && !useReact }));
     return config;
