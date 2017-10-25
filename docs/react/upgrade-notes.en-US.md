@@ -17,7 +17,7 @@ How to upgrade?
 
 1. make sure add a `data-scale` attibute in your `html` tag, eg: `<html data-scale="true"></html>`, or you can do it through js, eg: `document.documentElement.setAttribute('data-scale', true);`.
 
-2.Follow [Customize Theme Doc](https://mobile.ant.design/docs/react/customize-theme)  to modify antd-mobile theme variable `@hd` to be `@hd: '2px'`.
+2.Follow [Customize Theme Doc](https://mobile.ant.design/docs/react/customize-theme) to modify antd-mobile theme variable `@hd` to be `2px`.
 
 #### svg icon
 
