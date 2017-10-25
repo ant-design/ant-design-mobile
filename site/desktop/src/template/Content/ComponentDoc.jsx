@@ -158,13 +158,9 @@ export default class ComponentDoc extends React.Component {
               </div>
               <Sticky style={{ pointerEvents: 'none' }}>
                 {
-                  ({ style }) => {
-                    if (style.left) {
-                      style.left = '';
-                      style.right = '308px';
-                    }
-                    return (
-                      <div className="mobile-wrapper" style={{ ...style, pointerEvents: 'auto' }}>
+                  ({ style }) => (
+                    <div style={{ ...style }}>
+                      <div className="mobile-wrapper" style={{ pointerEvents: 'auto' }}>
                         <div id="aside-demo" className="aside-demo">
                           <div style={{ width: '377Px', height: '620Px' }}>
                             <div className="demo-preview-wrapper">
@@ -194,8 +190,8 @@ export default class ComponentDoc extends React.Component {
                           </div>
                         </div>
                       </div>
-                    );
-                  }
+                    </div>
+                  )
                 }
               </Sticky>
             </div>
