@@ -200,7 +200,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           <div
             class="am-list-content"
           >
-            不使用ZScroller(无法向前滚动)
+            不无限滚动
           </div>
           <div
             aria-hidden="true"

@@ -103,7 +103,7 @@ class Test extends React.Component {
           {this.renderBtn('选择日期区间(快捷)', 'Select Date Range (Shortcut)', { showShortcut: true })}
           {this.renderBtn('选择日期时间区间(快捷)', 'Select DateTime Range (Shortcut)', { pickTime: true, showShortcut: true })}
           {this.renderBtn('大行距', 'XL row size', { rowSize: 'xl' })}
-          {this.renderBtn('不使用ZScroller(无法向前滚动)', 'No use zscorller', { infinite: false })}
+          {this.renderBtn('不无限滚动', 'infinite: false', { infinite: false })}
           {this.renderBtn('水平进入', 'Horizontal enter', { enterDirection: 'horizontal' })}
           {this.renderBtn('默认选择范围', 'Selected Date Range', { defaultValue: [new Date(+now - 86400000), new Date(+now - 345600000)] })}
           {this.renderBtn('onSelect API', 'onSelect API', {
