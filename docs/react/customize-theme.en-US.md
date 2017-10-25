@@ -23,12 +23,12 @@ we can use the way of [modifyVars](http://lesscss.org/usage/#using-less-in-the-b
 ### 1) theme
 
 
-1. Firstly，you should install these devDependencies in your project:`babel-plugin-import less less-loader style-loader css-loader`.
+- Firstly，you should install these devDependencies in your project:`babel-plugin-import less less-loader style-loader css-loader`.
 
 ```bash
   npm install --save-dev babel-plugin-import less less-loader
 ```
-1. Secondly, configuration babel-plugin-import to load antd-mobile less
+- Secondly, configuration babel-plugin-import to load antd-mobile less
 
 ```js
 {
@@ -40,7 +40,7 @@ we can use the way of [modifyVars](http://lesscss.org/usage/#using-less-in-the-b
 }
 ```
 
-1. Then，add the 'theme' in `package.json` file, [the default style variable](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
+- Then，add the 'theme' in `package.json` file, [the default style variable](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
 
 ```js
 {
@@ -54,7 +54,7 @@ we can use the way of [modifyVars](http://lesscss.org/usage/#using-less-in-the-b
 }
 ```
 
-1. In the end, in your webpack(3.0+) config file, add these config.
+- In the end, in your webpack(3.0+) config file, add these config.
 
 >  webpack loader configuration changes in different version，please see webpack offcial doc.
 
