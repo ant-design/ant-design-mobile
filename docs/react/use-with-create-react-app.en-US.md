@@ -37,15 +37,15 @@ $ yarn start
 ## Integrate antd-mobile
 
 
-- **Basic run：**
+#### **Basic run：**
 
   Settings entry html page（`web only`），see [Entry html page settings](/docs/react/introduce#Web-usage)
 
   > Note：you need to run `yarn run eject` before customzing configurations for, more ref  [antd-mobile-samples/create-react-app](https://github.com/ant-design/antd-mobile-samples/tree/1.x/create-react-app)
 
-- **Use modularized antd-mobile：**
+#### **Use modularized antd-mobile：**
 
-  1. Import [react-app-rewired](https://github.com/timarney/react-app-rewired) and modify the `scripts` field in package.json.
+- Import [react-app-rewired](https://github.com/timarney/react-app-rewired) and modify the `scripts` field in package.json.
 
 ```bash
 $ yarn add react-app-rewired --dev
@@ -63,7 +63,7 @@ $ yarn add react-app-rewired --dev
 }
 ```
 
-  2. Then create a `config-overrides.js` at root directory of your project for futher overriding.
+- Then create a `config-overrides.js` at root directory of your project for futher overriding.
 
 ```js
 module.exports = function override(config, env) {
@@ -72,7 +72,7 @@ module.exports = function override(config, env) {
 };
 ```
 
-  3. Use babel-plugin-import, [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand（[How does it work?](https://ant.design/docs/react/getting-started#Import-on-Demand)），We are now trying to install it and modify config-overrides.js.
+- Use babel-plugin-import, [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand（[How does it work?](https://ant.design/docs/react/getting-started#Import-on-Demand)），We are now trying to install it and modify config-overrides.js.
 
 ```bash
 yarn add babel-plugin-import --dev
@@ -86,11 +86,11 @@ yarn add babel-plugin-import --dev
   };
 ```
 
-  4. change importation like below:
+- change importation like below:
 
 ```diff
-- import Button from 'antd/lib/button';
-+ import { Button } from 'antd';
+- import Button from 'antd-mobile/lib/button';
++ import { Button } from 'antd-mobile';
 ```
 
 ## Complete example

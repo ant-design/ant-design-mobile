@@ -36,15 +36,15 @@ $ yarn start
 
 ## 使用 antd-mobile
 
-- **基础运行：**
+#### **基础运行：**
 
   配置入口 html （仅 Web 项目需要），参考 [入口页面 (html 或 模板) 相关设置](/docs/react/introduce#Web-使用方式)
 
   > 注：antd-mobile@1.x 需要运行 `yarn run eject` 以生成自定义配置，可参考  [antd-mobile-samples/create-react-app](https://github.com/ant-design/antd-mobile-samples/tree/1.x/create-react-app)
 
-- **按需加载：**
+#### **按需加载：**
 
-  1. 引入 [react-app-rewired](https://github.com/timarney/react-app-rewired) 并修改 package.json 里的启动配置:
+  - 引入 [react-app-rewired](https://github.com/timarney/react-app-rewired) 并修改 package.json 里的启动配置:
 
 ```bash
 $ yarn add react-app-rewired --dev
@@ -62,7 +62,7 @@ $ yarn add react-app-rewired --dev
 }
 ```
 
-  2. 然后在项目根目录创建一个 config-overrides.js 用于修改默认配置。
+  - 然后在项目根目录创建一个 config-overrides.js 用于修改默认配置。
 
 ```js
 module.exports = function override(config, env) {
@@ -71,7 +71,7 @@ module.exports = function override(config, env) {
 };
 ```
 
-  3. 使用 babel-plugin-import, [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](https://ant.design/docs/react/getting-started-cn#按需加载)），现在我们尝试安装它并修改 config-overrides.js 文件。
+  - 使用 babel-plugin-import, [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](https://ant.design/docs/react/getting-started-cn#按需加载)），现在我们尝试安装它并修改 config-overrides.js 文件。
 
 ```bash
 yarn add babel-plugin-import --dev
@@ -85,11 +85,11 @@ yarn add babel-plugin-import --dev
   };
 ```
 
-  4. 更改引用方式
+  - 更改引用方式
 
 ```diff
-- import Button from 'antd/lib/button';
-+ import { Button } from 'antd';
+- import Button from 'antd-mobile/lib/button';
++ import { Button } from 'antd-mobile';
 ```
 
 ## 完整的示例

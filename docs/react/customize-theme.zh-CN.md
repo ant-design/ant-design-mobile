@@ -21,13 +21,13 @@ antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，
 ### 1) theme 属性
 
 
-1. 首先，你的项目里需要包含如下依赖 `babel-plugin-import less less-loader style-loader css-loader` 。
+- 首先，你的项目里需要包含如下依赖 `babel-plugin-import less less-loader style-loader css-loader` 。
 
 ```bash
   npm install --save-dev babel-plugin-import less less-loader style-loader css-loader
 ```
 
-1. 其次，配置 babel-plugin-import 确保加载 antd-mobile less 文件
+- 配置 babel-plugin-import 确保加载 antd-mobile less 文件
 
 ```js
 {
@@ -39,7 +39,7 @@ antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，
 }
 ```
 
-1. 再次，在 `package.json` 文件中添加一个 theme 字段，里面将包含所有我们想要修改的主题样式。[全部主题样式参考这里](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less)
+- 在 `package.json` 文件中添加一个 theme 字段，里面将包含所有我们想要修改的主题样式。[全部主题样式参考这里](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less)
 
 ```
   {
@@ -53,7 +53,7 @@ antd-mobile 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，
   }
 ```
 
-1. 最后，在你的 webpack （版本3.0+） 配置文件里，添加如下配置，之后运行你的 `npm start`。
+- 最后，在你的 webpack （版本3.0+） 配置文件里，添加如下配置，之后运行你的 `npm start`。
 
 > 不同版本的 webpack loader 配置方法有差异，请查看 webpack 官方文档
 
