@@ -123,7 +123,13 @@ if (process.env.NODE_ENV === 'development' && !process.env.DISABLE_ANTD_MOBILE_U
             const length = Math.max(oldVer.length, newVer.length);
             for (let i = 0; i < length; i++) {
               if (oldVer[i] !== newVer[i]) {
-                result = result || oldVer[i] === undefined || oldVer[i] < newVer[i];
+                const newVerNum = +newVer[i];
+                const oldVerNum = +oldVer[i];
+                const hasNaN = isNaN(newVerNum) || isNaN(oldVerNum);
+                result = !(!hasNaN && oldVerNum >= newVerNum);
+                if (result) {
+                  break;
+                }
               }
             }
             return result;
