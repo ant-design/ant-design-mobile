@@ -39,11 +39,13 @@ export default function alert(
     return button;
   });
 
+  const prefixCls = 'am-modal';
+
   function onWrapTouchStart(e) {
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
     }
-    const pNode = closest(e.target, `.am-modal-footer`);
+    const pNode = closest(e.target, `.${prefixCls}-footer`);
     if (!pNode) {
       e.preventDefault();
     }
@@ -62,7 +64,7 @@ export default function alert(
       platform={platform}
       wrapProps={{ onTouchStart: onWrapTouchStart }}
     >
-      <div style={{ zoom: 1, overflow: 'hidden' }}>{message}</div>
+      <div className={`${prefixCls}-alert-content`}>{message}</div>
     </Modal>, div,
   );
 

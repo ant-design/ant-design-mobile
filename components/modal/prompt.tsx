@@ -193,7 +193,7 @@ export default function prompt(
       platform={platform}
       wrapProps={{ onTouchStart: onWrapTouchStart }}
     >
-      <div style={{ zoom: 1, overflow: 'hidden' }}>{content}</div>
+      <div className={`${prefixCls}-propmt-content`}>{content}</div>
     </Modal>, div,
   );
 
