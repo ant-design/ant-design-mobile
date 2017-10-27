@@ -155,6 +155,7 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
       this.props.onChange('');
     }
     if (blurFromOnClear) {
+      this.focus();
     }
   }
 
