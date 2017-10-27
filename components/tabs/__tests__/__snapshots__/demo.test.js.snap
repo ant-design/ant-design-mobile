@@ -564,3 +564,82 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
   />
 </div>
 `;
+
+exports[`renders ./components/tabs/demo/vertical.md correctly 1`] = `
+<div
+  style="height:200px"
+>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <div
+    class="am-tabs am-tabs-vertical am-tabs-left"
+  >
+    <div
+      class="am-tabs-tab-bar-wrap"
+    >
+      <div
+        class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-left"
+        style="background-color:#fff"
+      >
+        <div
+          class="am-tabs-default-bar-content"
+          style="touch-action:pan-x"
+        >
+          <div
+            class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            style="height:33.333333333333336%"
+          >
+            1 Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="height:33.333333333333336%"
+          >
+            2 Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-tab"
+            style="height:33.333333333333336%"
+          >
+            3 Tab
+          </div>
+          <div
+            class="am-tabs-default-bar-underline"
+            style="height:33.333333333333336%;top:0%"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+      style="touch-action:pan-x;transform:translate3d(0px, 0%, 0px);-webkit-transform:translate3d(0px, 0%, 0px);-moz-transform:translate3d(0px, 0%, 0px)"
+    >
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+        >
+          Content of first tab
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      >
+        <div
+          style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+        >
+          Content of second tab
+        </div>
+      </div>
+      <div
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+      />
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+</div>
+`;
