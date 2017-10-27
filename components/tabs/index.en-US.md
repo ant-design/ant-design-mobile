@@ -23,7 +23,7 @@ Properties | Descrition | Type | Default | Required
 -----------|------------|------|--------|--------
 prefixCls | prefix class (`web only`) | string |  rmc-tabs | false
 tabs | tabs data | Models.TabData[] |  | true
-tabBarPosition | TabBar's position | 'top' \| 'bottom' \| 'left' \| 'right' |  top | false
+tabBarPosition | TabBar's position | 'top' \| 'bottom' \| 'left' `(web only)` \| 'right' `(web only)` |  top | false
 renderTabBar | replace the TabBar | ((props: TabBarPropsType) => React.ReactNode) \| false |  | false
 initialPage | the tab when inital, index or key | number \| string |  | false
 page | current tab, index or key | number \| string |  | false
@@ -36,7 +36,7 @@ onTabClick  | on tab click | (tab: Models.TabData, index: number) => void |  | f
 destroyInactiveTab | destroy inactive tab | boolean |  false | false
 distanceToChangeTab | distance to change tab, width ratio | number |  0.3 | false
 usePaged | use paged | boolean |  true | false
-tabDirection | tab paging direction | 'horizontal' \| 'vertical' |  horizontal | false
+tabDirection | tab paging direction `(web only)` | 'horizontal' \| 'vertical' |  horizontal | false
 tabBarUnderlineStyle | style of the default tab bar's underline | React.CSSProperties \| any |  | false
 tabBarBackgroundColor | color of the default tab bar's background | string |  | false
 tabBarActiveTextColor | color of the default tab bar's text when active | string |  | false
