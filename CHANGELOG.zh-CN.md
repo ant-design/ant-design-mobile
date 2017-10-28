@@ -15,6 +15,24 @@ toc: false
 
 ---
 
+### 2.0.1
+
+`2017-10-28`
+
+- **Bug Fix**
+
+  - Fix `Modal` android 下按钮事件触发多次 ([#1975](https://github.com/ant-design/ant-design-mobile/issues/1975)).
+  - Fix: `Accordion` 在 RN > 0.49 下 crash ([#1969](https://github.com/ant-design/ant-design-mobile/pull/1969))
+  - Fix: `Toast` 在 componentDidMount 下不显示和 react@16 不兼容 ([#1980](https://github.com/ant-design/ant-design-mobile/issues/1980))
+  - Fix: `Modal.alert/prompt` 按钮 iOS 下关闭失效；([#1976](https://github.com/ant-design/ant-design-mobile/issues/1976))
+  - Fix: `Modal` RN 下 promise 失效;
+  - Fix: `Picker/DatePicker` 不能设置 `okText/dismissText/extra`； ([#1984](https://github.com/ant-design/ant-design-mobile/issues/1984))
+  - Fix: `Picker` RN 国际化失效；([#2001](https://github.com/ant-design/ant-design-mobile/issues/2001))
+  - Fix: `SearchBar` clear icon 遮盖 input 输入内容；([#2010](https://github.com/ant-design/ant-design-mobile/issues/2010))
+  - Fix: `SearchBar` clear 不能 focus；
+  - Fix: `TextareaItem` autoHeight 在 RN@49 下 crash; ([#1970](https://github.com/ant-design/ant-design-mobile/issues/1970))
+
+
 ### 2.0.0
 
 `2017-10-20`

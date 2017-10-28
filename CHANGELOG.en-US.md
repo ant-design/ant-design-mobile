@@ -15,6 +15,23 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+### 2.0.1
+
+`2017-10-28`
+
+- **Bug Fix**
+
+  - Fix `Modal` button event is triggered more than once in android. ([#1975](https://github.com/ant-design/ant-design-mobile/issues/1975)).
+  - Fix: `Accordion` crashed under react-native@0.49.  ([#1969](https://github.com/ant-design/ant-design-mobile/pull/1969))
+  - Fix: `Toast` show in componentDidMount and compatibility with react@16. ([#1980](https://github.com/ant-design/ant-design-mobile/issues/1980))
+  - Fix: `Modal.alert/prompt` buttons cannot close Modal in iOS.([#1976](https://github.com/ant-design/ant-design-mobile/issues/1976))
+  - Fix: `Modal` RN button promise.
+  - Fix: `Picker/DatePicker`,the `okText/dismissText/extra` cannot be set； ([#1984](https://github.com/ant-design/ant-design-mobile/issues/1984))
+  - Fix: `Picker` RN i18n；([#2001](https://github.com/ant-design/ant-design-mobile/issues/2001))
+  - Fix: `SearchBar` input content is covered by clear icon；([#2010](https://github.com/ant-design/ant-design-mobile/issues/2010))
+  - Fix: `SearchBar` input cannot be focused when clicked clear icon；
+  - Fix: `TextareaItem` autoHeight crashed under RN@49; ([#1970](https://github.com/ant-design/ant-design-mobile/issues/1970))
+
 ### 2.0.0
 
 `2017-10-20`
