@@ -119,7 +119,7 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
    }
    ```
 
-   然后只需从 antd-mobile 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
+   然后只需从 antd-mobile 引入模块即可，无需单独引入样式。
 
    ```jsx
    // babel-plugin-import 会帮助你加载 JS 和 CSS
@@ -166,10 +166,6 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
 - 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)（推荐）。
 
-   ```bash
-   yarn add babel-plugin-import --dev
-   ```
-
    ```js
    // .babelrc or babel-loader option
    {
@@ -179,7 +175,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
    }
    ```
 
-   然后只需从 antd-mobile 引入模块即可，无需单独引入样式。等同于下面手动引入的方式。
+   然后只需从 antd-mobile 引入模块即可。
 
    ```jsx
    import { DatePicker } from 'antd-mobile';
@@ -188,7 +184,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 - 手动引入
 
    ```jsx
-   import DatePicker from 'antd-mobile/lib/date-picker';  // 加载 JS
+   import DatePicker from 'antd-mobile/lib/date-picker';
    ```
 
 #### 更多增强 (非必须):

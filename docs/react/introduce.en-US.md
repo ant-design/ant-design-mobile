@@ -162,10 +162,6 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
 - Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
-   ```bash
-   yarn add babel-plugin-import --dev
-   ```
-
    ```js
    // .babelrc or babel-loader option
    {
@@ -175,7 +171,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
    }
    ```
 
-   This allows you to import components from antd-mobile without having to manually import the corresponding stylesheet. The babel plugin will automatically import stylesheets.
+   Then just import modules from antd-mobile.
 
    ```jsx
    import { DatePicker } from 'antd-mobile';
@@ -184,7 +180,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 - Manually import
 
    ```jsx
-   import DatePicker from 'antd-mobile/lib/date-picker';  // for js
+   import DatePicker from 'antd-mobile/lib/date-picker';
    ```
 
 #### More enhanced (optional):
