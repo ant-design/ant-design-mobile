@@ -13,6 +13,7 @@ export default class Stepper extends React.Component<StepProps, any> {
     step: 1,
     readOnly: false,
     disabled: false,
+    keyboardType: 'numeric',
     styles,
     inputStyle: {},
   } as StepProps;
