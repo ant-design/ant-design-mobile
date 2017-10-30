@@ -48,8 +48,8 @@ export default class Article extends React.Component {
 
     const IntroTabs = (
       <Tabs defaultActiveKey="1" key="tabs">
-        <TabPane tab={allChildren[webIndex].props.id.replace(/-/g, ' ')} key="1">{webContent}</TabPane>
-        <TabPane tab={allChildren[RnIndex].props.id.replace(/-/g, ' ')} key="2">{rnContent}</TabPane>
+        <TabPane tab={allChildren[webIndex].props.id.replace(/-/g, ' ')} key="1" className="markdown">{webContent}</TabPane>
+        <TabPane tab={allChildren[RnIndex].props.id.replace(/-/g, ' ')} key="2" className="markdown">{rnContent}</TabPane>
       </Tabs>
     );
     newChildren.push(IntroTabs);
