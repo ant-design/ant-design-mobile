@@ -106,7 +106,9 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
 
 #### 按需加载
 
-下面两种方式都可以只加载用到的组件。
+**注意：强烈推荐使用。**
+
+下面两种方式都可以**只加载**用到的组件，选择其中一种方式即可。
 
 - 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)（推荐）。
 
@@ -162,7 +164,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
 #### 按需加载
 
-下面两种方式都可以只加载用到的组件。
+下面两种方式都可以**只加载**用到的组件，选择其中一种方式即可。
 
 - 使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)（推荐）。
 

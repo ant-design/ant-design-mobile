@@ -106,6 +106,10 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
 
 #### Use modularized antd-mobile
 
+**Note: Strongly recommended.**
+
+The following two ways used to load the **only components you used**, select one of the ways you like.
+
 - Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
    ```js
@@ -159,6 +163,8 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 
 #### Use modularized antd-mobile
+
+The following two ways used to load the **only components you used**, select one of the ways you like.
 
 - Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
