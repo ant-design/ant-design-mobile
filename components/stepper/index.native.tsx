@@ -24,12 +24,13 @@ export default class Stepper extends React.Component<StepProps, any> {
       height: 26,
     } : {};
     const { inputStyle, ...restProps } = this.props;
+    const keyboardType = Platform.OS === 'android' ? 'numeric' : 'numbers-and-punctuation';
     const _inputStyle = {
       ...inputAndroidStyle,
       ...inputStyle,
     };
     return (
-      <RMCInputNumber {...restProps} keyboardType="numeric" inputStyle={_inputStyle} />
+      <RMCInputNumber {...restProps} keyboardType={keyboardType} inputStyle={_inputStyle} />
     );
   }
 }
