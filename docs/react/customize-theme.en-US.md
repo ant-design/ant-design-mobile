@@ -7,7 +7,7 @@ Ant Design Mobile allows to customize some basic design aspects in order to meet
 
 ![](https://gw.alipayobjects.com/zos/rmsportal/pinkfuSuBGRhJFugFdmO.png)
 
-> This doc only introduce how to customize theme in web project, if you want to know how to custom theme and style for single component, please see [customize theme and style for react-native components](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui#antd-mobile-with-rn-custom-ui)
+> This doc only introduce how to customize theme in web project, if you want to know how to do this for react-native components, please see [customize theme and style for react-native components](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui#antd-mobile-with-rn-custom-ui)
 
 ## Less variables
 
