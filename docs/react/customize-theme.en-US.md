@@ -7,6 +7,8 @@ Ant Design Mobile allows to customize some basic design aspects in order to meet
 
 ![](https://gw.alipayobjects.com/zos/rmsportal/pinkfuSuBGRhJFugFdmO.png)
 
+> This doc only introduce how to customize theme in web project, if you want to know how to custom theme and style for single component, please see [customize theme and style for react-native components](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui#antd-mobile-with-rn-custom-ui)
+
 ## Less variables
 
 We are using [Less](http://lesscss.org/) as the development language of style. A set of less variables are defined for each design aspect that can be customized to your needs.
