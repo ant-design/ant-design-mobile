@@ -5,7 +5,7 @@ title: Customize Theme
 
 Ant Design Mobile allows to customize some basic design aspects in order to meet the needs of UI diversity from business and brand, including primary color, border radius, border color, etc.
 
-![](https://gw.alipayobjects.com/zos/rmsportal/pinkfuSuBGRhJFugFdmO.png)
+![](https://gw.alipayobjects.com/zos/rmsportal/bvJhBmAfTWsUixLpGLbL.png)
 
 > This doc only introduce how to customize theme in web project, if you want to know how to do this for react-native components, please see [customize theme and style for react-native components](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui#antd-mobile-with-rn-custom-ui)
 
@@ -114,7 +114,7 @@ Use less files for variable coverage.
 To establish a separate ` less ` files as follows, to introduce the file again.
 
 ```css
-@import "~antd/dist/antd.less";   // Introduce the official less style entry file
+@import "~antd-mobile/dist/antd-mobile.less";   // Introduce the official less style entry file
 @import "your-theme-file.less";   // Used to override the variables defined above
 ```
 
