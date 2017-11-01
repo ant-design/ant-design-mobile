@@ -1,8 +1,8 @@
-import React from 'react';
-import RMCInputNumber from 'rmc-input-number/lib/index.ios';
 import BasePropsType from './PropsType';
-import styles from 'rmc-input-number/lib/styles';
 import { Platform } from 'react-native';
+import RMCInputNumber from 'rmc-input-number/lib/index.ios';
+import React from 'react';
+import styles from 'rmc-input-number/lib/styles';
 
 export interface StepProps extends BasePropsType {
   styles?: typeof styles;
@@ -24,12 +24,13 @@ export default class Stepper extends React.Component<StepProps, any> {
       height: 26,
     } : {};
     const { inputStyle, ...restProps } = this.props;
+    const keyboardType = Platform.OS === 'android' ? 'numeric' : 'numbers-and-punctuation';
     const _inputStyle = {
       ...inputAndroidStyle,
       ...inputStyle,
     };
     return (
-      <RMCInputNumber {...restProps} inputStyle={_inputStyle} />
+      <RMCInputNumber {...restProps} keyboardType={keyboardType} inputStyle={_inputStyle} />
     );
   }
 }
