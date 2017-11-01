@@ -18,7 +18,6 @@ export interface ListItemProps {
   wrap?: boolean;
   onClick?: (e?: any) => void;
   style?: React.CSSProperties | {} | Array<{}>;
-  onLongPress?: () => void;
   activeStyle?: React.CSSProperties;
   error?: boolean;
   platform?: 'android' | 'ios';

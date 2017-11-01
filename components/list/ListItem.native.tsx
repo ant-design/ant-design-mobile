@@ -66,7 +66,7 @@ export default class Item extends React.Component<ListItemProps, any> {
   render() {
     const {
       styles, children, multipleLine, thumb, extra, arrow, style, onClick,
-      onPressIn, onPressOut, onLongPress, wrap, disabled, align, ...restProps,
+      onPressIn, onPressOut, wrap, disabled, align, ...restProps,
     } = this.props;
     const itemStyles = styles!; // assert none-null none-undefined
 
@@ -192,7 +192,6 @@ export default class Item extends React.Component<ListItemProps, any> {
         onPress={onClick ? onClick : undefined}
         onPressIn={onPressIn}
         onPressOut={onPressOut}
-        onLongPress={onLongPress}
       >
         {itemView}
       </TouchableHighlight>

@@ -120,6 +120,7 @@ class ListItem extends React.Component<ListItemProps, any> {
       [`${prefixCls}-arrow-vertical`]: arrow === 'down' || arrow === 'up',
       [`${prefixCls}-arrow-vertical-up`]: arrow === 'up',
     });
+
     const content = <div
       {...otherProps}
       onClick={(ev) => {
@@ -138,8 +139,17 @@ class ListItem extends React.Component<ListItemProps, any> {
       <div style={coverRippleStyle} className={rippleCls} />
     </div>;
 
+    const touchProps = {};
+    Object.keys(otherProps).forEach(key => {
+      if (/onTouch/i.test(key)) {
+        touchProps[key] = otherProps[key];
+        delete otherProps[key];
+      }
+    });
+
     return (
       <TouchFeedback
+        {...touchProps}
         disabled={disabled || !onClick}
         activeStyle={activeStyle}
         activeClassName={`${prefixCls}-item-active`}
