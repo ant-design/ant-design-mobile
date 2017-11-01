@@ -14,6 +14,8 @@ const pluginAntdConfig = {
           libraryDirectory: 'components',
         },
       ],
+      require.resolve('babel-plugin-transform-class-properties'),
+      require.resolve('babel-plugin-transform-object-rest-spread'),
     ],
   }),
 };
