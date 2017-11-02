@@ -17,7 +17,9 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
         <div
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
         >
-          <div>
+          <div
+            class="am-tab-bar-item"
+          >
             <div
               style="background-color:white;height:100%;text-align:center"
             >
@@ -42,7 +44,9 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
         <div
           class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
         >
-          <div>
+          <div
+            class="am-tab-bar-item"
+          >
             <div
               style="background-color:white;height:100%;text-align:center"
             >
@@ -67,7 +71,9 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
         <div
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
         >
-          <div>
+          <div
+            class="am-tab-bar-item"
+          >
             <div
               style="background-color:white;height:100%;text-align:center"
             >

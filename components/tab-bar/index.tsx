@@ -5,8 +5,16 @@ import getDataAttr from '../_util/getDataAttr';
 import { TabBarProps, TabBarItemProps } from './PropsType';
 
 export class Item extends React.Component<TabBarItemProps, any> {
+  static defaultProps = {
+    prefixCls: 'am-tab-bar-item',
+  } as TabBarItemProps;
+
   render() {
-    return <div>{this.props.children}</div>;
+    const { prefixCls, style } = this.props;
+
+    return <div className={prefixCls} style={style}>
+      {this.props.children}
+    </div>;
   }
 }
 

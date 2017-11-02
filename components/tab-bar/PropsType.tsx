@@ -27,4 +27,8 @@ export interface TabBarItemProps {
   title: string;
   /*web only*/
   dot?: boolean;
+  /*web only*/
+  prefixCls?: string;
+  /*web only*/
+  style?: any;
 }
