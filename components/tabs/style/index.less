@@ -28,6 +28,7 @@
     }
 
     display: flex;
+    flex: 1;
     position: relative;
     overflow: hidden;
     height: 100%;
@@ -35,6 +36,7 @@
 
     &-content-wrap {
       display: flex;
+      flex: 1;
       width: 100%;
       height: 100%;
 
@@ -56,10 +58,6 @@
 
     &-horizontal {
       .@{tabs-prefix-cls} {
-        &-content-wrap {
-          flex-direction: row;
-        }
-
         &-pane-wrap-active {
           height: auto;
         }
@@ -72,11 +70,13 @@
     }
 
     &-vertical {
-      height: 100%;
-
       .@{tabs-prefix-cls} {
         &-content-wrap {
           flex-direction: column;
+        }
+
+        &-tab-bar-wrap {
+          height: 100%;
         }
 
         &-pane-wrap {
@@ -112,6 +112,7 @@
     width: 100%;
     height: 100%;
     overflow: visible;
+    z-index: 1;
 
     &-tab {
       position: relative;
