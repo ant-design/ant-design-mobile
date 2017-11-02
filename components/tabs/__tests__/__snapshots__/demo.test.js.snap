@@ -68,7 +68,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-tabs-content-wrap am-tabs-content-wrap-animated"
-      style="touch-action:pan-y;transform:translate3d(-100%, 0px, 0px);-webkit-transform:translate3d(-100%, 0px, 0px);-moz-transform:translate3d(-100%, 0px, 0px)"
+      style="touch-action:pan-y;transform:translate3d(-100%, 0px, 1px);-webkit-transform:translate3d(-100%, 0px, 1px);-moz-transform:translate3d(-100%, 0px, 1px)"
     >
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
@@ -107,7 +107,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-tabs-content-wrap am-tabs-content-wrap-animated"
-      style="touch-action:pan-y;transform:translate3d(-100%, 0px, 0px);-webkit-transform:translate3d(-100%, 0px, 0px);-moz-transform:translate3d(-100%, 0px, 0px)"
+      style="touch-action:pan-y;transform:translate3d(-100%, 0px, 1px);-webkit-transform:translate3d(-100%, 0px, 1px);-moz-transform:translate3d(-100%, 0px, 1px)"
     >
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
@@ -235,7 +235,7 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
       </div>
       <div
         class="am-tabs-content-wrap am-tabs-content-wrap-animated"
-        style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px)"
+        style="touch-action:pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
       >
         <div
           class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
@@ -349,7 +349,7 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
     </div>
     <div
       class="am-tabs-content-wrap am-tabs-content-wrap-animated"
-      style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px)"
+      style="touch-action:pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
     >
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
@@ -448,7 +448,7 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
     </div>
     <div
       class="am-tabs-content-wrap"
-      style="touch-action:pan-y;transform:translate3d(-200%, 0px, 0px);-webkit-transform:translate3d(-200%, 0px, 0px);-moz-transform:translate3d(-200%, 0px, 0px)"
+      style="touch-action:pan-y;transform:translate3d(-200%, 0px, 1px);-webkit-transform:translate3d(-200%, 0px, 1px);-moz-transform:translate3d(-200%, 0px, 1px)"
     >
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
@@ -533,7 +533,7 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
       </div>
       <div
         class="am-tabs-content-wrap am-tabs-content-wrap-animated"
-        style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px)"
+        style="touch-action:pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
       >
         <div
           class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
@@ -613,7 +613,7 @@ exports[`renders ./components/tabs/demo/vertical.md correctly 1`] = `
     </div>
     <div
       class="am-tabs-content-wrap am-tabs-content-wrap-animated"
-      style="touch-action:pan-x;transform:translate3d(0px, 0%, 0px);-webkit-transform:translate3d(0px, 0%, 0px);-moz-transform:translate3d(0px, 0%, 0px)"
+      style="touch-action:pan-x;transform:translate3d(0px, 0%, 1px);-webkit-transform:translate3d(0px, 0%, 1px);-moz-transform:translate3d(0px, 0%, 1px)"
     >
       <div
         class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
