@@ -23,6 +23,7 @@ export default class Grid extends React.Component<GridProps, any> {
     carouselMaxRow: 2,
     prefixCls: 'am-grid',
     square: true,
+    itemStyle: {},
   };
   state = {
     initialSlideWidth: 0, // only used in carousel model
@@ -86,9 +87,9 @@ export default class Grid extends React.Component<GridProps, any> {
     columnNum = columnNum!;
 
     const rowWidth = `${100 / columnNum}%`;
-    const colStyle = {
+    const colStyle = Object.assign({
       width: rowWidth,
-    };
+    }, this.props.itemStyle);
 
     for (let i = 0; i < rowCount; i++) {
       const rowArr: any[] = [];

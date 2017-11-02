@@ -18,7 +18,7 @@ export default class BasicGridExample extends React.Component<any, any> {
       <View style={[{ margin: 10 }]}><Text>Carousel</Text></View>
       <Grid data={data} columnNum={3} isCarousel onClick={(_el, index) => alert(index)} />
       <View style={[{ margin: 10 }]}><Text>Custom GridCell Style</Text></View>
-      <Grid data={data} columnNum={3}  itemStyles={{ height: 150, backgroundColor: '#ffff00' }} />
+      <Grid data={data} columnNum={3}  itemStyle={{ height: 150, backgroundColor: '#ffff00' }} />
     </ScrollView>);
   }
 }
