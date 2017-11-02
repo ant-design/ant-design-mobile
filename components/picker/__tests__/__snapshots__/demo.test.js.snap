@@ -155,9 +155,7 @@ exports[`renders ./components/picker/demo/basic.md correctly 1`] = `
             <div
               class="am-list-content"
             >
-              <div>
-                Visible state
-              </div>
+              Visible state
             </div>
             <div
               class="am-list-extra"

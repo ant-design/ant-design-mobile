@@ -101,8 +101,11 @@ class Demo extends React.Component {
           <List.Item arrow="horizontal">UTC time</List.Item>
         </DatePicker>
 
-        <List.Item extra={this.state.dpValue && formatDate(this.state.dpValue)}>
-          <div onClick={() => this.setState({ visible: true })}>External control visible state</div>
+        <List.Item
+          extra={this.state.dpValue && formatDate(this.state.dpValue)}
+          onClick={() => this.setState({ visible: true })}
+        >
+          External control visible state
         </List.Item>
         <DatePicker
           visible={this.state.visible}

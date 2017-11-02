@@ -177,8 +177,8 @@ class Test extends React.Component {
           onOk={() => this.setState({ visible: false })}
           onDismiss={() => this.setState({ visible: false })}
         >
-          <List.Item extra={this.getSel()}>
-            <div onClick={() => this.setState({ visible: true })}>Visible state</div>
+          <List.Item extra={this.getSel()} onClick={() => this.setState({ visible: true })}>
+            Visible state
           </List.Item>
         </Picker>
       </List>
