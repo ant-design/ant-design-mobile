@@ -20,6 +20,7 @@ export default class Grid extends React.Component<GridProps, any> {
     columnNum: 4,
     carouselMaxRow: 2,
     styles: GridStyles,
+    itemStyle: {},
   };
 
   getFlexItemStyle() {
@@ -30,9 +31,10 @@ export default class Grid extends React.Component<GridProps, any> {
   }
 
   render() {
-    const { data, hasLine, isCarousel, onClick = () => { }, styles } = this.props;
+    const { data, hasLine, isCarousel, onClick = () => {}, styles } = this.props;
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/11640
     const columnNum = this.props.columnNum as number;
+    const customItemStyle = this.props.itemStyle;
     const carouselMaxRow = this.props.carouselMaxRow as number;
     const dataLength = data && data.length || 0;
     const rowCount = Math.ceil(dataLength / columnNum);
@@ -57,7 +59,10 @@ export default class Grid extends React.Component<GridProps, any> {
           rowArr.push(
             <Flex.Item
               key={j}
-              style={[styles.grayBorderBox, flexItemStyle, { borderLeftWidth: hasLine && j === 0 ? 1 : 0 }]}
+              style={[styles.grayBorderBox,
+                flexItemStyle,
+                { borderLeftWidth: hasLine && j === 0 ? 1 : 0 },
+                customItemStyle] }
               onPress={() => onClick(el, dataIndex)}
             >
               {renderItem(el, dataIndex)}
