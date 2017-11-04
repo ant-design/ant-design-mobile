@@ -15,6 +15,20 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+### 2.0.2
+
+`2017-11-04`
+
+- **Bug Fix**
+
+  - Fix：`onTouch` event cannot be trigged when components use `List.Item` with rmc-feedback；
+  - Fix: Tabs invalid z-index; ([#2014](https://github.com/ant-design/ant-design-mobile/issues/2014))
+  - Fix: Picker `onOk` cannot be triggerd correctly; ([#2042](https://github.com/ant-design/ant-design-mobile/issues/2042))
+
+- **Enhancement**
+
+  - RN stepper numberic keyboard type by default；
+
 ### 2.0.1
 
 `2017-10-28`

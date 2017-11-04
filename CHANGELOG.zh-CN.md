@@ -14,6 +14,19 @@ toc: false
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+### 2.0.2
+
+`2017-11-04`
+
+- **Bug Fix**
+
+  - Fix：使用了（含） `List.Item` 的组件绑定 onTouch 事件不生效；
+  - Fix: Tabs z-index 值太高引起遮挡问题; ([#2014](https://github.com/ant-design/ant-design-mobile/issues/2014))
+  - Fix: Picker onOk 触发问题；([#2042](https://github.com/ant-design/ant-design-mobile/issues/2042))
+
+- **Enhancement**
+
+  - RN stepper 默认输入框使用数字键盘；
 
 ### 2.0.1
 
