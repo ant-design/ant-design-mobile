@@ -93,6 +93,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -190,6 +191,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -287,6 +289,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -420,6 +423,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -517,6 +521,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -614,6 +619,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -747,6 +753,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -844,6 +851,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -941,6 +949,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -1074,6 +1083,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -1171,6 +1181,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }
@@ -1268,6 +1279,7 @@ exports[`renders ./components/icon/demo/basic.native.tsx correctly 1`] = `
             Object {
               "borderLeftWidth": 0,
             },
+            Object {},
           ],
         ]
       }

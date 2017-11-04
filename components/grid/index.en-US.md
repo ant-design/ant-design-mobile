@@ -26,5 +26,5 @@ Properties | Description | Type | Default
 | square (`Web Only`)   |   whether each item restrict to a square   | boolean | true |
 | activeStyle(`Web Only`) | the feedback's custom style (set to false to disable click feedback) | {}/false | {} |
 | activeClassName(`Web Only`)  | the feedback's custom class name | string |  |
-
+| itemStyle| Custom GridCell Style| object|{} |
 When `isCarousel = true`, the APIs of [carousel](https://mobile.ant.design/components/carousel) also can be delivered.
