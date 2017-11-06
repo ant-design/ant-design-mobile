@@ -108,7 +108,7 @@ class NumberInput extends React.Component<any, any> {
 
   unLinkInput = () => {
     const antmCustomKeyboard = (window as any).antmCustomKeyboard;
-    if (antmCustomKeyboard.linkedInput === this) {
+    if (antmCustomKeyboard && antmCustomKeyboard.linkedInput && antmCustomKeyboard.linkedInput === this) {
       antmCustomKeyboard.linkedInput = null;
       addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
       this.removeBlurListen();
