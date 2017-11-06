@@ -122,6 +122,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                   Object {
                     "borderLeftWidth": 0,
                   },
+                  Object {},
                 ],
               ]
             }
@@ -216,6 +217,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                   Object {
                     "borderLeftWidth": 0,
                   },
+                  Object {},
                 ],
               ]
             }
@@ -310,6 +312,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                   Object {
                     "borderLeftWidth": 0,
                   },
+                  Object {},
                 ],
               ]
             }
@@ -404,6 +407,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                   Object {
                     "borderLeftWidth": 0,
                   },
+                  Object {},
                 ],
               ]
             }
@@ -534,6 +538,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                   Object {
                     "borderLeftWidth": 0,
                   },
+                  Object {},
                 ],
               ]
             }
@@ -628,6 +633,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                   Object {
                     "borderLeftWidth": 0,
                   },
+                  Object {},
                 ],
               ]
             }
@@ -722,6 +728,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                   Object {
                     "borderLeftWidth": 0,
                   },
+                  Object {},
                 ],
               ]
             }
@@ -816,6 +823,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                   Object {
                     "borderLeftWidth": 0,
                   },
+                  Object {},
                 ],
               ]
             }
@@ -946,6 +954,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                   Object {
                     "borderLeftWidth": 0,
                   },
+                  Object {},
                 ],
               ]
             }
@@ -1276,6 +1285,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                         Object {
                           "borderLeftWidth": 1,
                         },
+                        Object {},
                       ],
                     ]
                   }
@@ -1370,6 +1380,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                         Object {
                           "borderLeftWidth": 0,
                         },
+                        Object {},
                       ],
                     ]
                   }
@@ -1464,6 +1475,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                         Object {
                           "borderLeftWidth": 0,
                         },
+                        Object {},
                       ],
                     ]
                   }
@@ -1594,6 +1606,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                         Object {
                           "borderLeftWidth": 1,
                         },
+                        Object {},
                       ],
                     ]
                   }
@@ -1688,6 +1701,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                         Object {
                           "borderLeftWidth": 0,
                         },
+                        Object {},
                       ],
                     ]
                   }
@@ -1782,6 +1796,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                         Object {
                           "borderLeftWidth": 0,
                         },
+                        Object {},
                       ],
                     ]
                   }
@@ -1933,6 +1948,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                         Object {
                           "borderLeftWidth": 1,
                         },
+                        Object {},
                       ],
                     ]
                   }
@@ -2027,6 +2043,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                         Object {
                           "borderLeftWidth": 0,
                         },
+                        Object {},
                       ],
                     ]
                   }
@@ -2121,6 +2138,7 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
                         Object {
                           "borderLeftWidth": 0,
                         },
+                        Object {},
                       ],
                     ]
                   }
@@ -2383,6 +2401,1042 @@ exports[`renders ./components/grid/demo/basic.native.tsx correctly 1`] = `
               ]
             }
           />
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "margin": 10,
+          },
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+      >
+        Custom GridCell Style
+      </Text>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "flexWrap": "nowrap",
+            "justifyContent": "flex-start",
+          },
+          undefined,
+        ]
+      }
+      testID={undefined}
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "justifyContent": "flex-start",
+            },
+            Array [
+              Object {
+                "borderColor": "#dddddd",
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderTopWidth": 1,
+              },
+            ],
+          ]
+        }
+        testID={undefined}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "flex": 1,
+              },
+              Array [
+                Object {
+                  "borderColor": "#dddddd",
+                },
+                Object {
+                  "borderRightWidth": 1,
+                  "height": 187.5,
+                },
+                Object {
+                  "borderLeftWidth": 1,
+                },
+                Object {
+                  "backgroundColor": "#ffff00",
+                  "height": 150,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "flexWrap": "nowrap",
+                  "justifyContent": "center",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontSize": 12,
+                  "marginTop": 9,
+                }
+              }
+            >
+              Name0
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "flex": 1,
+              },
+              Array [
+                Object {
+                  "borderColor": "#dddddd",
+                },
+                Object {
+                  "borderRightWidth": 1,
+                  "height": 187.5,
+                },
+                Object {
+                  "borderLeftWidth": 0,
+                },
+                Object {
+                  "backgroundColor": "#ffff00",
+                  "height": 150,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "flexWrap": "nowrap",
+                  "justifyContent": "center",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontSize": 12,
+                  "marginTop": 9,
+                }
+              }
+            >
+              Name1
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "flex": 1,
+              },
+              Array [
+                Object {
+                  "borderColor": "#dddddd",
+                },
+                Object {
+                  "borderRightWidth": 1,
+                  "height": 187.5,
+                },
+                Object {
+                  "borderLeftWidth": 0,
+                },
+                Object {
+                  "backgroundColor": "#ffff00",
+                  "height": 150,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "flexWrap": "nowrap",
+                  "justifyContent": "center",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontSize": 12,
+                  "marginTop": 9,
+                }
+              }
+            >
+              Name2
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "justifyContent": "flex-start",
+            },
+            Array [
+              Object {
+                "borderColor": "#dddddd",
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderTopWidth": 0,
+              },
+            ],
+          ]
+        }
+        testID={undefined}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "flex": 1,
+              },
+              Array [
+                Object {
+                  "borderColor": "#dddddd",
+                },
+                Object {
+                  "borderRightWidth": 1,
+                  "height": 187.5,
+                },
+                Object {
+                  "borderLeftWidth": 1,
+                },
+                Object {
+                  "backgroundColor": "#ffff00",
+                  "height": 150,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "flexWrap": "nowrap",
+                  "justifyContent": "center",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontSize": 12,
+                  "marginTop": 9,
+                }
+              }
+            >
+              Name3
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "flex": 1,
+              },
+              Array [
+                Object {
+                  "borderColor": "#dddddd",
+                },
+                Object {
+                  "borderRightWidth": 1,
+                  "height": 187.5,
+                },
+                Object {
+                  "borderLeftWidth": 0,
+                },
+                Object {
+                  "backgroundColor": "#ffff00",
+                  "height": 150,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "flexWrap": "nowrap",
+                  "justifyContent": "center",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontSize": 12,
+                  "marginTop": 9,
+                }
+              }
+            >
+              Name4
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "flex": 1,
+              },
+              Array [
+                Object {
+                  "borderColor": "#dddddd",
+                },
+                Object {
+                  "borderRightWidth": 1,
+                  "height": 187.5,
+                },
+                Object {
+                  "borderLeftWidth": 0,
+                },
+                Object {
+                  "backgroundColor": "#ffff00",
+                  "height": 150,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "flexWrap": "nowrap",
+                  "justifyContent": "center",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontSize": 12,
+                  "marginTop": 9,
+                }
+              }
+            >
+              Name5
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        hitSlop={undefined}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "justifyContent": "flex-start",
+            },
+            Array [
+              Object {
+                "borderColor": "#dddddd",
+              },
+              Object {
+                "borderBottomWidth": 1,
+                "borderTopWidth": 0,
+              },
+            ],
+          ]
+        }
+        testID={undefined}
+      >
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "flex": 1,
+              },
+              Array [
+                Object {
+                  "borderColor": "#dddddd",
+                },
+                Object {
+                  "borderRightWidth": 1,
+                  "height": 187.5,
+                },
+                Object {
+                  "borderLeftWidth": 1,
+                },
+                Object {
+                  "backgroundColor": "#ffff00",
+                  "height": 150,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "flexWrap": "nowrap",
+                  "justifyContent": "center",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontSize": 12,
+                  "marginTop": 9,
+                }
+              }
+            >
+              Name6
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "flex": 1,
+              },
+              Array [
+                Object {
+                  "borderColor": "#dddddd",
+                },
+                Object {
+                  "borderRightWidth": 1,
+                  "height": 187.5,
+                },
+                Object {
+                  "borderLeftWidth": 0,
+                },
+                Object {
+                  "backgroundColor": "#ffff00",
+                  "height": 150,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "flexWrap": "nowrap",
+                  "justifyContent": "center",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontSize": 12,
+                  "marginTop": 9,
+                }
+              }
+            >
+              Name7
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          hitSlop={undefined}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "flex": 1,
+              },
+              Array [
+                Object {
+                  "borderColor": "#dddddd",
+                },
+                Object {
+                  "borderRightWidth": 1,
+                  "height": 187.5,
+                },
+                Object {
+                  "borderLeftWidth": 0,
+                },
+                Object {
+                  "backgroundColor": "#ffff00",
+                  "height": 150,
+                },
+              ],
+            ]
+          }
+          testID={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hitSlop={undefined}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                  "flexWrap": "nowrap",
+                  "justifyContent": "center",
+                },
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+            testID={undefined}
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png",
+                }
+              }
+              style={
+                Object {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+            />
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontSize": 12,
+                  "marginTop": 9,
+                }
+              }
+            >
+              Name8
+            </Text>
+          </View>
         </View>
       </View>
     </View>
