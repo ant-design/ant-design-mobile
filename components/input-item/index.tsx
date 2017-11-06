@@ -142,13 +142,15 @@ class InputItem extends React.Component<InputItemProps, any> {
   }
 
   onInputBlur = (value) => {
-    this.debounceTimeout = setTimeout(() => {
-      if (document.activeElement !== this.inputRef.inputRef) {
-        this.setState({
-          focus: false,
-        });
-      }
-    }, 200);
+    if (this.inputRef) { // this.inputRef may be null if customKeyboard unmount
+      this.debounceTimeout = setTimeout(() => {
+        if (document.activeElement !== this.inputRef.inputRef) {
+          this.setState({
+            focus: false,
+          });
+        }
+      }, 200);
+    }
     if (this.props.onBlur) {
       this.props.onBlur(value);
     }

@@ -51,13 +51,20 @@ class NumberInput extends React.Component<any, any> {
       this.renderCustomKeyboard();
     }
   }
+
   addBlurListener = () => {
     document.addEventListener('click', this.doBlur, false);
   }
-  removeBlurListen = () => {
+
+  removeBlurListener = () => {
     document.removeEventListener('click', this.doBlur, false);
   }
+
   componentWillUnmount() {
+    // focus:true unmount 不能触发 blur
+    if (this.state.focus) {
+      this.props.onBlur(this.state.value);
+    }
     this.unLinkInput();
   }
 
@@ -111,8 +118,9 @@ class NumberInput extends React.Component<any, any> {
     if (antmCustomKeyboard && antmCustomKeyboard.linkedInput && antmCustomKeyboard.linkedInput === this) {
       antmCustomKeyboard.linkedInput = null;
       addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
-      this.removeBlurListen();
     }
+    // for unmount
+    this.removeBlurListener();
   }
 
   onInputBlur = (value) => {
@@ -190,7 +198,7 @@ class NumberInput extends React.Component<any, any> {
 
   focus = () => {
     // this focus may invocked by users page button click, so this click may trigger blurEventListener at the same time
-    this.removeBlurListen();
+    this.removeBlurListener();
     const { focus } = this.state;
     if (!focus) {
       this.onInputFocus();
