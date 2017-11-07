@@ -708,9 +708,8 @@ exports[`renders ./components/checkbox/demo/basic.native.tsx correctly 1`] = `
                   "flex": 1,
                   "flexDirection": "row",
                   "minHeight": 44,
-                  "paddingBottom": 6,
                   "paddingRight": 15,
-                  "paddingTop": 6,
+                  "paddingVertical": 6,
                 },
                 false,
                 false,
@@ -738,7 +737,6 @@ exports[`renders ./components/checkbox/demo/basic.native.tsx correctly 1`] = `
                     Object {
                       "color": "#000000",
                       "fontSize": 17,
-                      "lineHeight": 19,
                       "textAlignVertical": "center",
                     },
                   ]
@@ -844,9 +842,8 @@ exports[`renders ./components/checkbox/demo/basic.native.tsx correctly 1`] = `
                   "flex": 1,
                   "flexDirection": "row",
                   "minHeight": 44,
-                  "paddingBottom": 6,
                   "paddingRight": 15,
-                  "paddingTop": 6,
+                  "paddingVertical": 6,
                 },
                 false,
                 false,
@@ -874,7 +871,6 @@ exports[`renders ./components/checkbox/demo/basic.native.tsx correctly 1`] = `
                     Object {
                       "color": "#000000",
                       "fontSize": 17,
-                      "lineHeight": 19,
                       "textAlignVertical": "center",
                     },
                   ]
@@ -980,9 +976,8 @@ exports[`renders ./components/checkbox/demo/basic.native.tsx correctly 1`] = `
                   "flex": 1,
                   "flexDirection": "row",
                   "minHeight": 44,
-                  "paddingBottom": 6,
                   "paddingRight": 15,
-                  "paddingTop": 6,
+                  "paddingVertical": 6,
                 },
                 false,
                 false,
@@ -1010,7 +1005,6 @@ exports[`renders ./components/checkbox/demo/basic.native.tsx correctly 1`] = `
                     Object {
                       "color": "#000000",
                       "fontSize": 17,
-                      "lineHeight": 19,
                       "textAlignVertical": "center",
                     },
                   ]
@@ -1116,9 +1110,8 @@ exports[`renders ./components/checkbox/demo/basic.native.tsx correctly 1`] = `
                   "flex": 1,
                   "flexDirection": "row",
                   "minHeight": 44,
-                  "paddingBottom": 6,
                   "paddingRight": 15,
-                  "paddingTop": 6,
+                  "paddingVertical": 6,
                 },
                 false,
                 false,
@@ -1146,7 +1139,6 @@ exports[`renders ./components/checkbox/demo/basic.native.tsx correctly 1`] = `
                     Object {
                       "color": "#000000",
                       "fontSize": 17,
-                      "lineHeight": 19,
                       "textAlignVertical": "center",
                     },
                   ]

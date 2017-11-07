@@ -27,8 +27,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               "color": "#888888",
               "fontSize": 14,
               "paddingBottom": 9,
-              "paddingLeft": 15,
-              "paddingRight": 15,
+              "paddingHorizontal": 15,
               "paddingTop": 15,
             }
           }
@@ -530,9 +529,8 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
                     "flex": 1,
                     "flexDirection": "row",
                     "minHeight": 44,
-                    "paddingBottom": 6,
                     "paddingRight": 15,
-                    "paddingTop": 6,
+                    "paddingVertical": 6,
                   },
                   false,
                   false,
@@ -662,8 +660,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               "color": "#888888",
               "fontSize": 14,
               "paddingBottom": 9,
-              "paddingLeft": 15,
-              "paddingRight": 15,
+              "paddingHorizontal": 15,
               "paddingTop": 15,
             }
           }
@@ -923,8 +920,7 @@ exports[`renders ./components/input-item/demo/basic.native.tsx correctly 1`] = `
               "color": "#888888",
               "fontSize": 14,
               "paddingBottom": 9,
-              "paddingLeft": 15,
-              "paddingRight": 15,
+              "paddingHorizontal": 15,
               "paddingTop": 15,
             }
           }
