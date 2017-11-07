@@ -8,8 +8,7 @@ export default {
   Header: {
     fontSize: variables.font_size_base,
     color: variables.color_text_caption,
-    paddingLeft: variables.h_spacing_lg,
-    paddingRight: variables.h_spacing_lg,
+    paddingHorizontal: variables.h_spacing_lg,
     paddingTop: variables.v_spacing_lg,
     paddingBottom: variables.v_spacing_md,
     backgroundColor: variables.fill_body,
@@ -17,10 +16,8 @@ export default {
   Footer: {
     fontSize: variables.font_size_base,
     color: variables.color_text_caption,
-    paddingLeft: variables.h_spacing_lg,
-    paddingRight: variables.h_spacing_lg,
-    paddingTop: variables.v_spacing_md,
-    paddingBottom: variables.v_spacing_md,
+    paddingHorizontal: variables.h_spacing_lg,
+    paddingVertical: variables.v_spacing_md,
     backgroundColor: variables.fill_body,
   },
   Body: {
@@ -46,12 +43,11 @@ export default {
     backgroundColor: variables.fill_base,
   },
   Line: {
-    flexDirection: 'row',
     flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
     paddingRight: variables.h_spacing_lg,
-    paddingTop: variables.v_spacing_sm,
-    paddingBottom: variables.v_spacing_sm,
+    paddingVertical: variables.v_spacing_sm,
     minHeight: variables.list_item_height,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: variables.border_color_base,
@@ -64,13 +60,11 @@ export default {
   Content: {
     color: variables.color_text_base,
     fontSize: variables.font_size_heading,
-    lineHeight: Math.round(variables.font_size_heading * 1.1),
     textAlignVertical: 'center',
   },
   Extra: {
     color: variables.color_text_caption,
     fontSize: variables.font_size_heading,
-    lineHeight: Math.round(variables.font_size_heading * 1.1),
     textAlign: 'right',
     textAlignVertical: 'center',
   },
@@ -95,8 +89,7 @@ export default {
     marginLeft: variables.h_spacing_md,
   },
   multipleLine: {
-    paddingTop: variables.v_spacing_sm,
-    paddingBottom: variables.v_spacing_sm,
+    paddingVertical: variables.v_spacing_sm,
   },
   multipleThumb: {
     width: variables.icon_size_lg,
