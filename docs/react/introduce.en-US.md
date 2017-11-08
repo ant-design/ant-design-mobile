@@ -151,7 +151,7 @@ Example of usage:
 ```jsx
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import { Button } from 'antd-mobile';
+import Button from 'antd-mobile/lib/button';
 
 class HelloWorldApp extends Component {
   render() {
@@ -177,16 +177,16 @@ The following two ways used to load the **only components you used**, select one
    }
    ```
 
-   Then just import modules from antd-mobile.
+   Then just change the way of import modules from antd-mobile.
 
    ```jsx
-   import { DatePicker } from 'antd-mobile';
+   import { Button } from 'antd-mobile';
    ```
 
 - Manually import
 
    ```jsx
-   import DatePicker from 'antd-mobile/lib/date-picker';
+   import Button from 'antd-mobile/lib/button';
    ```
 
 #### More enhanced (optional):

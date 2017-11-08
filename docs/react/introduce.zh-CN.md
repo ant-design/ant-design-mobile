@@ -144,14 +144,14 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
 
 ### React-Native 使用方式
 
-> 注：`Menu`/`NavBar` 组件暂无 React Native 版本
+> 注：`Menu`/`NavBar`/`Range` 组件暂无 React Native 版本
 
 组件使用实例：
 
 ```jsx
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import { Button } from 'antd-mobile';
+import Button from 'antd-mobile/lib/button';
 
 class HelloWorldApp extends Component {
   render() {
@@ -177,16 +177,16 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
    }
    ```
 
-   然后只需从 antd-mobile 引入模块即可。
+   然后改变从 antd-mobile 引入模块方式即可。
 
    ```jsx
-   import { DatePicker } from 'antd-mobile';
+   import { Button } from 'antd-mobile';
    ```
 
 - 手动引入
 
    ```jsx
-   import DatePicker from 'antd-mobile/lib/date-picker';
+   import Button from 'antd-mobile/lib/button';
    ```
 
 #### 更多增强 (非必须):
