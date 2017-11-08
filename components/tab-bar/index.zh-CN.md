@@ -25,6 +25,7 @@ subtitle: 标签栏
 | unselectedTintColor       | 未选中的字体颜色  | String | '#888'           |
 | hidden (`web only`)      | 是否隐藏  | Boolean | false           |
 | prefixCls(`web only`) | 样式前缀  | String   | 'am-tab-bar'      |
+| noRenderContent(`web only`) | 不渲染内容部分  | Boolean   |   false   |
 
 ### TabBar.Item
 

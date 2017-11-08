@@ -16,6 +16,8 @@ export interface TabBarProps {
   swipeable?: boolean;
   /** rn android only**/
   styles?: any;
+  /*web only*/
+  noRenderContent?: boolean;
 }
 
 export interface TabBarItemProps {

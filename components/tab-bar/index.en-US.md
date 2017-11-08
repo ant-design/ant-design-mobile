@@ -24,6 +24,7 @@ Properties | Descrition | Type | Default
 | unselectedTintColor       | unselected's font color  | String | '#888'           |
 | hidden       | whether it is hidden  | Boolean | false           |
 | prefixCls(`web only`) | prefix className  | String   | 'am-tab-bar'      |
+| noRenderContent(`web only`) | can't render content  | Boolean   |   false   |
 
 ### TabBar.Item
 
