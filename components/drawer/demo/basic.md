@@ -26,8 +26,9 @@ class App1 extends React.Component {
     this.setState({ open: !this.state.open });
   }
   render() {
+    // fix in codepen
     const sidebar = (<List>
-      {[...Array(20).keys()].map((i, index) => {
+      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i, index) => {
         if (index === 0) {
           return (<List.Item key={index}
             thumb="https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png"

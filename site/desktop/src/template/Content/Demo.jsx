@@ -106,12 +106,12 @@ export default class Demo extends React.Component {
       js: sourceCode.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd-mobile';/, 'const { $1 } = window["antd-mobile"];'),
       css: prefillStyle,
       editors: '001',
-      css_external: 'https://unpkg.com/antd-mobile/dist/antd-mobile.min.css',
+      css_external: 'https://unpkg.com/antd-mobile@1.x/dist/antd-mobile.min.css',
       js_external: [
-        'react/dist/react.js',
-        'react-dom/dist/react-dom.js',
+        'react@15.6.2//dist/react.js',
+        'react-dom@15.6.2/dist/react-dom.js',
         'moment/min/moment-with-locales.js',
-        'antd-mobile/dist/antd-mobile.min.js',
+        'antd-mobile@1.x/dist/antd-mobile.min.js',
       ]
         .map(url => `https://unpkg.com/${url}`)
         .concat(['https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js'])
