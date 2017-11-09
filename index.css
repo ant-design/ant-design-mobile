@@ -194,7 +194,7 @@
   border-width: 7px 7px 7px 0;
 }
 /*!
- * antd v2.13.8
+ * antd v2.13.9
  * 
  * Copyright 2015-present, Alipay, Inc.
  * All rights reserved.
@@ -675,6 +675,9 @@ textarea {
   font-size: inherit;
   line-height: inherit;
   color: inherit;
+}
+input[type="text"],
+textarea {
   -webkit-appearance: none;
 }
 ul,

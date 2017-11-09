@@ -7381,6 +7381,8 @@ a {
 }
 .am-tab-bar-item {
   height: 100%;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
 }
 .am-tag {
   display: inline-block;
