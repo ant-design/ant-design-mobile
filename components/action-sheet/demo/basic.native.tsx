@@ -3,8 +3,8 @@ import { View, Text, Platform } from 'react-native';
 import { ActionSheet, Button } from 'antd-mobile';
 
 export default class Test extends React.Component<any, any> {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       clicked: 'none',
       text: '',
