@@ -28,7 +28,11 @@ module.exports = {
     // 因为 preact/devtools 未提供 umd
     if (!isDev) {
       config.externals = Object.assign(config.externals, prodExternals);
+    } else {
+      // add devtool for bisheng@0.27
+      config.devtool = 'eval-source-map';
     }
+
     config.resolve.alias = {
       'antd-mobile/lib': path.join(process.cwd(), 'components'),
       'antd-mobile': process.cwd(),
