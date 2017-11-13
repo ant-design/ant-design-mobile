@@ -3,12 +3,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 import CustomKeyboard from './CustomKeyboard';
+import Portal from './Portal';
 import { addClass, removeClass } from '../_util/class';
 
 const IS_REACT_16 = !!(ReactDOM as any).createPortal;
+let antmCustomKeyboard: any = null;
+let hasPortal = false;
 
 class NumberInput extends React.Component<any, any> {
-
   static defaultProps = {
     onChange: () => { },
     onFocus: () => { },
@@ -47,7 +49,7 @@ class NumberInput extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    if (!IS_REACT_16 && !(window as any).antmCustomKeyboard) {
+    if (!IS_REACT_16 && !antmCustomKeyboard) {
       this.renderCustomKeyboard();
     }
   }
@@ -70,19 +72,23 @@ class NumberInput extends React.Component<any, any> {
 
   saveRef = (el) => {
     if (IS_REACT_16) {
-      (window as any).antmCustomKeyboard = el;
+      antmCustomKeyboard = el;
     }
   }
 
   getComponent() {
     const { keyboardPrefixCls, confirmLabel } = this.props;
-
-    return (<CustomKeyboard
-      ref={this.saveRef}
-      onClick={this.onKeyboardClick}
-      preixCls={keyboardPrefixCls}
-      confirmLabel={confirmLabel}
-    />);
+    if (!hasPortal || !IS_REACT_16) {
+      return (
+        <CustomKeyboard
+          ref={!hasPortal && this.saveRef}
+          onClick={this.onKeyboardClick}
+          preixCls={keyboardPrefixCls}
+          confirmLabel={confirmLabel}
+        />
+      );
+    }
+    return '' as any;
   }
 
   getContainer() {
@@ -97,13 +103,11 @@ class NumberInput extends React.Component<any, any> {
   }
 
   renderCustomKeyboard() {
-    if (!this.container) {
-      (window as any).antmCustomKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
-        this,
-        this.getComponent(),
-        this.getContainer(),
-      );
-    }
+    antmCustomKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
+      this,
+      this.getComponent(),
+      this.getContainer(),
+    );
   }
 
   doBlur = (ev) => {
@@ -114,7 +118,6 @@ class NumberInput extends React.Component<any, any> {
   }
 
   unLinkInput = () => {
-    const antmCustomKeyboard = (window as any).antmCustomKeyboard;
     if (antmCustomKeyboard && antmCustomKeyboard.linkedInput && antmCustomKeyboard.linkedInput === this) {
       antmCustomKeyboard.linkedInput = null;
       addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
@@ -142,7 +145,6 @@ class NumberInput extends React.Component<any, any> {
     this.setState({
       focus: true,
     }, () => {
-      const antmCustomKeyboard = (window as any).antmCustomKeyboard;
       antmCustomKeyboard.linkedInput = this;
       removeClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
       antmCustomKeyboard.confirmDisabled = (value === '');
@@ -183,7 +185,6 @@ class NumberInput extends React.Component<any, any> {
       }
     }
 
-    const antmCustomKeyboard = (window as any).antmCustomKeyboard;
     antmCustomKeyboard.confirmDisabled = (valueAfterChange === '');
     if (valueAfterChange === '') {
       addClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
@@ -208,6 +209,22 @@ class NumberInput extends React.Component<any, any> {
     }, 50);
   }
 
+  renderPortal() {
+    if (!IS_REACT_16) {
+      return null;
+    }
+
+    const portal = (
+      <Portal getContainer={() => this.getContainer()}>
+        {this.getComponent()}
+      </Portal>
+    );
+    // make sure one keyboard is been created in react@16
+    hasPortal = true;
+
+    return portal;
+  }
+
   render() {
     const { placeholder, disabled, editable, moneyKeyboardAlign } = this.props;
     const { focus, value } = this.state;
@@ -230,7 +247,7 @@ class NumberInput extends React.Component<any, any> {
         >
           {value}
         </div>
-        {IS_REACT_16 && (ReactDOM as any).createPortal(this.getComponent(), this.getContainer())}
+        {this.renderPortal()}
       </div>
     );
   }
