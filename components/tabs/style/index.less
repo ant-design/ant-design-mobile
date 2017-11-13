@@ -41,8 +41,8 @@
       height: 100%;
 
       &-animated {
-        transition: transform @effect-duration @easing-in-out;
-        will-change: transform;
+        transition: transform @effect-duration @easing-in-out, left @effect-duration @easing-in-out, top @effect-duration @easing-in-out;
+        will-change: transform, left, top;
       }
     }
 
