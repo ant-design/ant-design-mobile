@@ -48,7 +48,7 @@ class Button extends React.Component<ButtonProps, any> {
     const {
       children, className, prefixCls, type, size, inline,
       disabled, icon, loading, activeStyle, activeClassName, onClick,
-      delayPressIn, delayPressOut, ...restProps,
+      ...restProps,
     } = this.props;
 
     const iconType: any = loading ? 'loading' : icon;

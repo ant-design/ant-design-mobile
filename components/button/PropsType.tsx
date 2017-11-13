@@ -7,7 +7,5 @@ export interface ButtonProps {
   disabled?: boolean;
   onClick?: (x?: any) => void;
   loading?: boolean;
-  delayPressIn?: number;
-  delayPressOut?: number;
   style?: React.CSSProperties;
 }
