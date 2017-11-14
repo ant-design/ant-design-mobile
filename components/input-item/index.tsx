@@ -50,7 +50,6 @@ class InputItem extends React.Component<InputItemProps, any> {
 
   inputRef: any;
   private debounceTimeout: any;
-  private scrollIntoViewTimeout: any;
 
   constructor(props) {
     super(props);
@@ -77,10 +76,6 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
       this.debounceTimeout = null;
-    }
-    if (this.scrollIntoViewTimeout) {
-      clearTimeout(this.scrollIntoViewTimeout);
-      this.scrollIntoViewTimeout = null;
     }
   }
 
@@ -129,13 +124,6 @@ class InputItem extends React.Component<InputItemProps, any> {
     this.setState({
       focus: true,
     });
-    if (document.activeElement.tagName.toLowerCase() === 'input') {
-      this.scrollIntoViewTimeout = setTimeout(() => {
-        try {
-          (document.activeElement as any).scrollIntoViewIfNeeded();
-        } catch (e) { }
-      }, 100);
-    }
     if (this.props.onFocus) {
       this.props.onFocus(value);
     }
