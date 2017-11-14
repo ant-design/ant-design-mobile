@@ -81,14 +81,14 @@ class NumberInput extends React.Component<any, any> {
     if (!hasPortal || !IS_REACT_16) {
       return (
         <CustomKeyboard
-          ref={!hasPortal && this.saveRef}
+          ref={this.saveRef}
           onClick={this.onKeyboardClick}
           preixCls={keyboardPrefixCls}
           confirmLabel={confirmLabel}
         />
       );
     }
-    return '' as any;
+    return null as any;
   }
 
   getContainer() {
@@ -220,6 +220,7 @@ class NumberInput extends React.Component<any, any> {
       </Portal>
     );
     // make sure one keyboard is been created in react@16
+    // https://github.com/ant-design/ant-design-mobile/issues/2065
     hasPortal = true;
 
     return portal;
