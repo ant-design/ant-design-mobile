@@ -13,7 +13,7 @@ The following guidelines are about *How to avoid Homework Questions*.
 
 ### 1. Read the documentation.
 
-It sad but true that someone just glance(not read) [Ant Design Mobile's documentation](http://mobile ant.design/). Please read the documentation closely.
+It sad but true that someone just glance(not read) [Ant Design Mobile's documentation](http://mobile.ant.design/). Please read the documentation closely.
 
 Tips: choose the corresponding documentation with versions selector which in the bottom-right corner.
 
