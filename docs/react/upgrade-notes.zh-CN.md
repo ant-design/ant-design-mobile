@@ -38,7 +38,7 @@ title: 升级指南
 +       {...restProps}
 +     >
 +       <use xlinkHref={type} /> {/* svg-sprite-loader@0.3.x */}
-+       {/* <use xlinkHref={#${type.default.id}} /> */} {/* svg-sprite-loader@lastest */}
++       {/* <use xlinkHref={#${type.default.id}} /> */} {/* svg-sprite-loader@latest */}
 +     </svg>
 + );
 + <CustomIcon type={require('./foo.svg')} />
