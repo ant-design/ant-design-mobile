@@ -194,7 +194,7 @@
   border-width: 7px 7px 7px 0;
 }
 /*!
- * antd v2.13.9
+ * antd v2.13.10
  * 
  * Copyright 2015-present, Alipay, Inc.
  * All rights reserved.
@@ -3562,14 +3562,16 @@ samp {
   line-height: 32px;
 }
 .ant-select-auto-complete.ant-select-lg .ant-input {
-  padding: 6px 7px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   height: 32px;
 }
 .ant-select-auto-complete.ant-select-sm .ant-select-selection__rendered {
   line-height: 22px;
 }
 .ant-select-auto-complete.ant-select-sm .ant-input {
-  padding: 1px 7px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   height: 22px;
 }
 /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
@@ -4649,7 +4651,7 @@ textarea.ant-input {
 .ant-input-group.ant-input-group-compact > * {
   border-radius: 0;
   border-right-width: 0;
-  vertical-align: middle;
+  vertical-align: top;
   float: none;
   display: inline-block;
 }
