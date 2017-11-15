@@ -7,7 +7,7 @@ Here list some of main incompatible changes and recommended changes in the upgra
 
 ## 1.x => 2.0
 
-### 2.x Breaking changes
+2.x Breaking changes upgrade sample [antd-mobile-samples / web-1.x-2.0](https://github.com/ant-design/antd-mobile-samples/tree/master/web-1.x-2.0)
 
 #### HD program
 
@@ -19,16 +19,16 @@ How to upgrade?
 
 2.Follow [Customize Theme Doc](https://mobile.ant.design/docs/react/customize-theme) to modify antd-mobile theme variable `@hd` to be `2px`.
 
-#### svg icon
+#### Icon
 
 How to upgrade, depend on which case you use:
 
-1. If you previously only use antd-mobile built-in Icon like this： `<Icon type="loading" />`, no need to do any change.
-2. If you previously use your local svg file to do custom Icon like this way： `<Icon type={require('../foo.svg')} />`. Suggest you follow below solution:
+1. If you previously only use antd-mobile built-in Icon like this：`<Icon type="loading" />`, no need to do any change.
+2. If you previously use your local svg file to do custom Icon like this way：`<Icon type={require('../foo.svg')} />`. Suggest you follow below solution:
 
 ```diff
 - import { Icon } from 'antd-mobile';
-- <Icon type={require('./foo.svg)'} />
+- <Icon type={require('./foo.svg')} />
 
 + const CustomIcon = ({ type, className = '', size = 'md', ...restProps }) => (
 +     <svg
@@ -39,7 +39,7 @@ How to upgrade, depend on which case you use:
 +       {/* <use xlinkHref={#${type.default.id}} /> */} {/* svg-sprite-loader@lastest */}
 +     </svg>
 + );
-+ <CustomIcon type={require('./foo.svg)'} />
++ <CustomIcon type={require('./foo.svg')} />
 ```
 
 #### DatePicker
