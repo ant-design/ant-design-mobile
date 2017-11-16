@@ -7,7 +7,7 @@ import Portal from './Portal';
 import { addClass, removeClass } from '../_util/class';
 
 const IS_REACT_16 = !!(ReactDOM as any).createPortal;
-let antmCustomKeyboard: any = null;
+let customNumberKeyboard: any = null;
 let hasPortal = false;
 
 class NumberInput extends React.Component<any, any> {
@@ -49,7 +49,7 @@ class NumberInput extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    if (!IS_REACT_16 && !antmCustomKeyboard) {
+    if (!IS_REACT_16 && !customNumberKeyboard) {
       this.renderCustomKeyboard();
     }
   }
@@ -72,7 +72,7 @@ class NumberInput extends React.Component<any, any> {
 
   saveRef = (el) => {
     if (IS_REACT_16) {
-      antmCustomKeyboard = el;
+      customNumberKeyboard = el;
     }
   }
 
@@ -103,7 +103,7 @@ class NumberInput extends React.Component<any, any> {
   }
 
   renderCustomKeyboard() {
-    antmCustomKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
+    customNumberKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
       this,
       this.getComponent(),
       this.getContainer(),
@@ -118,9 +118,9 @@ class NumberInput extends React.Component<any, any> {
   }
 
   unLinkInput = () => {
-    if (antmCustomKeyboard && antmCustomKeyboard.linkedInput && antmCustomKeyboard.linkedInput === this) {
-      antmCustomKeyboard.linkedInput = null;
-      addClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
+    if (customNumberKeyboard && customNumberKeyboard.linkedInput && customNumberKeyboard.linkedInput === this) {
+      customNumberKeyboard.linkedInput = null;
+      addClass(customNumberKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
     }
     // for unmount
     this.removeBlurListener();
@@ -145,13 +145,13 @@ class NumberInput extends React.Component<any, any> {
     this.setState({
       focus: true,
     }, () => {
-      antmCustomKeyboard.linkedInput = this;
-      removeClass(antmCustomKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
-      antmCustomKeyboard.confirmDisabled = (value === '');
+      customNumberKeyboard.linkedInput = this;
+      removeClass(customNumberKeyboard.antmKeyboard, `${this.props.keyboardPrefixCls}-wrapper-hide`);
+      customNumberKeyboard.confirmDisabled = (value === '');
       if (value === '') {
-        addClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
+        addClass(customNumberKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
       } else {
-        removeClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
+        removeClass(customNumberKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
       }
     });
   }
@@ -185,11 +185,11 @@ class NumberInput extends React.Component<any, any> {
       }
     }
 
-    antmCustomKeyboard.confirmDisabled = (valueAfterChange === '');
+    customNumberKeyboard.confirmDisabled = (valueAfterChange === '');
     if (valueAfterChange === '') {
-      addClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
+      addClass(customNumberKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
     } else {
-      removeClass(antmCustomKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
+      removeClass(customNumberKeyboard.confirmKeyboardItem, `${this.props.keyboardPrefixCls}-item-disabled`);
     }
   }
 
