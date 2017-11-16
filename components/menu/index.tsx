@@ -77,7 +77,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
     let firstValue = '';
     if (value && value.length) {  // if has init path, chose init first value
       firstValue = value[0] as string; // this is a contract
-    } else if (data && !data[0].isLeaf) {  // chose the first menu item if it's not leaf.
+    } else if (data && data.length && !data[0].isLeaf) {  // chose the first menu item if it's not leaf.
       firstValue = data[0].value;
     }
 
