@@ -1,5 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
-import { Steps, WingBlank, Icon } from 'antd-mobile';
+import { WingBlank, Icon } from 'antd-mobile';
+import Steps from '../index.native';
 const Step = Steps.Step;
 import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
@@ -28,6 +29,21 @@ export default class BasicTimelineExample extends React.Component<any, any> {
       showsHorizontalScrollIndicator={false}
       showsVerticalScrollIndicator={false}
     >
+      <View style={{ marginTop: 60 }}>
+        <WingBlank size="lg">
+          <Steps size="small" current={1} direction="horizontal">
+            {
+              this.state.steps1.map((item, index) => (
+                <Step
+                  key={index}
+                  title={<View><Text>title:{item.title}</Text></View>}
+                  status={item.status}
+                />
+              ))
+            }
+          </Steps>
+        </WingBlank>
+      </View>
       <View style={{ marginTop: 60 }}>
         <WingBlank size="lg">
           <Steps size="small" current={1}>
