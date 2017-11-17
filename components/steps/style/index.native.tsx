@@ -90,6 +90,11 @@ export default {
     height: 30,
     marginLeft: 2 * grid,
   },
+  tail_default_s_h: {
+    height: variables.border_width_lg,
+    width: 50,
+    marginTop: 2 * grid,
+  },
   tail_gray: {
     backgroundColor: variables.color_text_placeholder,
   },
@@ -104,6 +109,9 @@ export default {
   },
   content_s: {
     paddingLeft: variables.h_spacing_md,
+  },
+  content_s_h: {
+    paddingTop: variables.v_spacing_md,
   },
   content_l: {
     paddingLeft: variables.h_spacing_lg,
