@@ -22,11 +22,9 @@ export default class FlexItem extends React.Component<FlexItemProps, any> {
     // support other touchablewithoutfeedback props
     // TODO  support TouchableHighlight
     return (
-      <TouchableWithoutFeedback {...restProps}>
-        <View style={[flexItemStyle, style]}>
-          {children}
-        </View>
-      </TouchableWithoutFeedback>
+      <View style={[flexItemStyle, style]} {...restProps }>
+        {children}
+      </View>
     );
   }
 }
