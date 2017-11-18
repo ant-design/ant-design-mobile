@@ -52,11 +52,9 @@ export default class Flex extends React.Component<FlexProps, any> {
     };
 
     return (
-      <TouchableWithoutFeedback {...restProps}>
-        <View style={[flexStyle, style]}>
-          {children}
-        </View>
-      </TouchableWithoutFeedback>
+      <View style={[flexStyle, style]} {...restProps}>
+        {children}
+      </View>
     );
   }
 }
