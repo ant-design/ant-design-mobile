@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, ScrollView } from 'react-native';
 import Modal from './Modal';
+import styles from './style/index.native';
 
 export type AlertButtonType = {
   text: string;
@@ -54,7 +55,7 @@ export default class AlertContainer extends React.Component<AlertContainerProps,
         footer={footer}
         onAnimationEnd={onAnimationEnd}
       >
-        <ScrollView>
+        <ScrollView style={styles.alertBody}>
           <Text>{content}</Text>
         </ScrollView>
       </Modal>

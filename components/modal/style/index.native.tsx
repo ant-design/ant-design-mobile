@@ -20,6 +20,7 @@ export interface IModalStyle {
   operationContainer: ViewStyle;
   operationBody: ViewStyle;
   buttonTextOperation: TextStyle;
+  alertBody: ViewStyle;
 }
 
 export default {
@@ -122,5 +123,8 @@ export default {
     color: variables.color_text_base,
     textAlign: 'left',
     paddingHorizontal: 15,
+  },
+  alertBody: {
+    marginTop: variables.v_spacing_md,
   },
 };
