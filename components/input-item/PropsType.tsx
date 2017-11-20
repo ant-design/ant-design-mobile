@@ -18,9 +18,9 @@ interface InputItemProps {
   onBlur?: Function;
   onFocus?: Function;
   extra?: React.ReactNode;
-  onExtraClick?: (e?) => void;
+  onExtraClick?: (e?: any) => void;
   error?: boolean;
-  onErrorClick?: (e?) => void;
+  onErrorClick?: (e?: any) => void;
   onErrorPress?: Function;
   size?: 'large' | 'small';
   labelNumber?: number;
