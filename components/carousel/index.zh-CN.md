@@ -22,7 +22,7 @@ subtitle: 走马灯
 | dotStyle  | 指示点样式    | Object  | 无
 | dotActiveStyle  | 当前激活的指示点样式     | Object  | 无
 | easing (`web only`) | 缓动函数，你可以使用[这里](https://github.com/chenglou/tween-functions)提供的其他函数 | Function   | easeOutCirc |
-| swipeSpeed  (`web only`)     | 滑动灵敏度     |  number | 5
+| swipeSpeed  (`web only`)     | 滑动灵敏度     |  number | 12
 | beforeChange  (`web only`)     | 切换面板前的回调函数     | (from: number, to: number): void | 无
 | onScrollBeginDrag (`rn only`) | 见 react-native scrollView onScrollBeginDrag | (): void | 无 |
 | bounces (`rn only`) | 见 react-native scrollView bounces       |   Boolean      | true |

@@ -35,7 +35,6 @@ class App extends React.Component {
           autoplay={false}
           infinite
           selectedIndex={1}
-          swipeSpeed={35}
           beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
           afterChange={index => console.log('slide to', index)}
         >

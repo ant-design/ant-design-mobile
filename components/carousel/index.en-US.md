@@ -20,7 +20,7 @@ Properties | Descrition | Type | Default
 | dotStyle  | style of dots    | Object  |
 | dotActiveStyle  | style of active dot     | Object  |
 | easing (`web only`) | Animation easing function, see valid easings [here](https://github.com/chenglou/tween-functions) | Function   | easeOutCirc |
-| swipeSpeed  (`web only`)     | configure the swipe sensitivity     |  number | 5
+| swipeSpeed  (`web only`)     | configure the swipe sensitivity     |  number | 12
 | beforeChange  (`web only`)     | callback to be called before a slide is changed     | (from: number, to: number): void |
 | onScrollBeginDrag (`rn only`) | as same as react-native scrollView `onScrollBeginDrag` | (): void |  |
 | bounces (`rn only`) | as same as react-native scrollView `bounces`       |   Boolean      | true |
