@@ -1,6 +1,6 @@
  /* tslint:disable: jsx-no-multiline-js */
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, StyleProp, ViewStyle } from 'react-native';
 
 export interface StepsItemProps {
   width?: number;
@@ -21,7 +21,7 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
 
   render() {
     const {
-      size, last, title, description,
+      size, last, title, description, direction,
       status, icon, styles,
     } = this.props;
 
@@ -84,9 +84,18 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
       }
     }
 
+    const isHorizontal = direction === 'horizontal';
+    const parentStyle: StyleProp<ViewStyle> = isHorizontal ? { flexDirection: 'column' } : { flexDirection: 'row' };
+    const childStyle: StyleProp<ViewStyle> = isHorizontal ? { flexDirection: 'row', flex: 1 } :
+      { flexDirection: 'column' };
+    let styleSuffix: string = '';
+    if (isHorizontal) {
+      styleSuffix = '_h';
+    }
+
     return (
-      <View style={{ flexDirection: 'row' }}>
-        <View style={{ flexDirection: 'column' }}>
+      <View style={parentStyle}>
+        <View style={childStyle}>
           <View style={[styles[`head_default${sizeCls}`], styles[headCls]]}>
             {
               React.isValidElement(iconSource) ? iconSource : (
@@ -94,10 +103,10 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
               )
             }
           </View>
-          {<View style={[styles[`tail_default${sizeCls}`], styles[tailTopCls]]} />}
-          {<View style={[styles[`tail_default${sizeCls}`], styles[tailBottomCls]]} />}
+          {<View style={[styles[`tail_default${sizeCls}${styleSuffix}`], styles[tailTopCls]]} />}
+          {<View style={[styles[`tail_default${sizeCls}${styleSuffix}`], styles[tailBottomCls]]} />}
         </View>
-        <View style={styles[`content${sizeCls}`]}>
+        <View style={styles[`content${sizeCls}${styleSuffix}`]}>
           {typeof title !== 'object' ?
             <Text style={[styles[`title${sizeCls}`]]}>{title}</Text>
             : <View>{title}</View>

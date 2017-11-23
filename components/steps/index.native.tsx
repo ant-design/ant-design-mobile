@@ -5,7 +5,7 @@ import { View, StyleSheet } from 'react-native';
 import StepStyle, { IStepsStyle } from './style/index.native';
 
 export interface StepsProps {
-  direction?: 'vertical' | 'horizon';
+  direction?: 'vertical' | 'horizontal';
   current?: number;
   width?: number;
   size?: string;
@@ -42,10 +42,10 @@ export default class Steps extends React.Component<IStepsNativeProps, any> {
 
   render() {
     const children = this.props.children as any;
-    const wrapView = this.props.direction === 'vertical' ? '' : 'warp_row';
+    const direction = this.props.direction === 'horizontal' ? 'row' : 'column';
     const styles = this.props.styles!;
     return (
-      <View style={styles[wrapView]} onLayout={(e) => {this.onLayout(e); }}>
+      <View style={{ flexDirection: direction }} onLayout={(e) => {this.onLayout(e); }}>
       {
         React.Children.map(children, (ele: any, idx) => {
           let errorTail = -1;
