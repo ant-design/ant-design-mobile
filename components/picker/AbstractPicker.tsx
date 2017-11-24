@@ -89,6 +89,17 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
     this.scrollValue = v;
   }
 
+  setCasecadeScrollValue = (v: any) => {
+    // 级联情况下保证数据正确性，滚动过程中只有当最后一级变化时才变更数据
+    if (v && this.scrollValue) {
+      const length = this.scrollValue.length;
+      if (length === v.length && this.scrollValue[length - 1] === v[length - 1]) {
+        return;
+      }
+    }
+    this.scrollValue = v;
+  }
+
   fixOnOk = (cascader: any) => {
     if (cascader && cascader.onOk !== this.onOk) {
       cascader.onOk = this.onOk;
@@ -121,7 +132,7 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
           data={data}
           cols={cols}
           onChange={this.onPickerChange}
-          onScrollChange={this.setScrollValue}
+          onScrollChange={this.setCasecadeScrollValue}
           pickerItemStyle={itemStyle}
           indicatorStyle={indicatorStyle}
         />
