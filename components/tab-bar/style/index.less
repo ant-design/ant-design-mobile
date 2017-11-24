@@ -20,6 +20,11 @@
     z-index: 100;
     justify-content: space-around;
     align-items: center;
+    bottom: 0;
+
+    &-hidden {
+      bottom: -@tab-bar-height;
+    }
 
     .@{tabbar-prefix-cls}-tab {
       flex: 1;

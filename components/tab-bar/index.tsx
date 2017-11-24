@@ -41,7 +41,7 @@ class AntTabBar extends React.Component<TabBarProps, any> {
   }
 
   renderTabBar = () => {
-    const { barTintColor, prefixCls, tintColor, unselectedTintColor } = this.props;
+    const { barTintColor, prefixCls, tintColor, unselectedTintColor, hidden } = this.props;
     const tabsData = this.getTabs();
 
     const content = tabsData.map((cProps, index) => {
@@ -60,13 +60,18 @@ class AntTabBar extends React.Component<TabBarProps, any> {
         onClick={() => cProps.onPress && cProps.onPress()}
       />;
     });
-    return <div className={`${prefixCls}-bar`} style={{ backgroundColor: barTintColor }}>
+    let cls = `${prefixCls}-bar`;
+    if (hidden) {
+      cls += ` ${prefixCls}-bar-hidden`;
+    }
+
+    return <div className={cls} style={{ backgroundColor: barTintColor }}>
       {content}
     </div>;
   }
 
   render() {
-    const { prefixCls, children, hidden, animated, swipeable, noRenderContent } = this.props;
+    const { prefixCls, children, animated, swipeable, noRenderContent } = this.props;
     const tabs = this.getTabs();
     let activeIndex = 0;
     tabs.forEach((tab, index) => {
@@ -79,7 +84,7 @@ class AntTabBar extends React.Component<TabBarProps, any> {
       <div className={prefixCls}>
         <Tabs
           tabs={tabs}
-          renderTabBar={hidden ? false : this.renderTabBar}
+          renderTabBar={this.renderTabBar}
           tabBarPosition="bottom"
           page={activeIndex < 0 ? undefined : activeIndex}
           animated={animated}
