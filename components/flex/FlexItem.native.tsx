@@ -10,17 +10,12 @@ export interface FlexItemProps extends BasePropsType {
   onPressOut?: any;
 }
 
-export default class FlexItem extends React.Component < FlexItemProps, any > {
+export default class FlexItem extends React.Component <FlexItemProps, any> {
   static defaultProps = {
     flex: 1,
   };
   render() {
-    let {
-      style,
-      children,
-      flex,
-      ...restProps,
-    } = this.props;
+    let { style, children, flex, ...restProps } = this.props;
     const flexItemStyle = {
       flex: flex || 1,
     };
