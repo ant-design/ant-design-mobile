@@ -848,7 +848,6 @@ template {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-size: 16px;
   background-color: #f5f5f9;
 }
 *[contenteditable] {
@@ -7293,6 +7292,7 @@ a {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  bottom: 0;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
   html:not([data-scale]) .am-tab-bar-bar {
@@ -7324,6 +7324,9 @@ a {
         -ms-transform: scaleY(0.33);
             transform: scaleY(0.33);
   }
+}
+.am-tab-bar-bar-hidden {
+  bottom: -50px;
 }
 .am-tab-bar-bar .am-tab-bar-tab {
   -webkit-box-flex: 1;
