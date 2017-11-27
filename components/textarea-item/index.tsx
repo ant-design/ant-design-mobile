@@ -61,14 +61,21 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     this.textareaRef.focus();
   }
 
-  componentDidUpdate() {
-    if (this.props.autoHeight && this.state.focus) {
-      const textareaDom = this.textareaRef;
-      textareaDom.style.height = ''; // 字数减少时能自动减小高度
-      textareaDom.style.height = `${textareaDom.scrollHeight}px`;
+  componentDidMount() {
+    if (this.props.autoHeight) {
+      this.reAlignHeight();
     }
   }
-
+  componentDidUpdate() {
+    if (this.props.autoHeight && this.state.focus) {
+      this.reAlignHeight();
+    }
+  }
+  reAlignHeight = () => {
+    const textareaDom = this.textareaRef;
+    textareaDom.style.height = ''; // 字数减少时能自动减小高度
+    textareaDom.style.height = `${textareaDom.scrollHeight}px`;
+  }
   componentWillUnmount() {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
