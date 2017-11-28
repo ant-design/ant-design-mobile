@@ -16,7 +16,7 @@ subtitle: 区域选择
 
 ## Common API
 
-适用平台：WEB、React-Native
+适用平台：WEB
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------

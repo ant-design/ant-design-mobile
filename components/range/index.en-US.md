@@ -16,7 +16,7 @@ A `Range` component for selecting particular value in range, eg: controls the di
 
 ## Common API
 
-Support WEB, React-Native.
+Support WEB.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
