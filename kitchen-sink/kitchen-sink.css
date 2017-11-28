@@ -3906,10 +3906,10 @@ a {
   }
 }
 .am-number-keyboard-wrapper table tr .am-number-keyboard-item.keyboard-confirm.am-number-keyboard-item-active {
-  background-color: #1284d6;
+  background-color: #0e80d2;
 }
 .am-number-keyboard-wrapper table tr .am-number-keyboard-item.keyboard-confirm.am-number-keyboard-item-disabled {
-  background-color: #1284d6;
+  background-color: #0e80d2;
   color: rgba(255, 255, 255, 0.45);
 }
 .am-number-keyboard-wrapper table tr .am-number-keyboard-item.keyboard-delete {
