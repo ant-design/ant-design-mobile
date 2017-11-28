@@ -33,8 +33,8 @@ export default class BasicModalExample extends React.Component<any, any> {
 
   onButtonClick = () => {
     Modal.alert(
-      'Title',
-     'alert content',
+      '中文内容',
+     '中文内容中文内容中文内容中文内容中文内容中文内容',
       [
         { text: 'Cancel', onPress: () => console.log('cancel'), style: 'cancel' },
         { text: 'OK', onPress: () => console.log('ok') },

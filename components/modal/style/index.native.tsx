@@ -64,6 +64,7 @@ export default {
     paddingTop: 0,
     paddingBottom: variables.v_spacing_lg,
     paddingHorizontal: variables.h_spacing_lg,
+    marginTop: variables.v_spacing_sm,
   },
   maskClosable: {
     position: 'absolute',
@@ -123,8 +124,5 @@ export default {
     color: variables.color_text_base,
     textAlign: 'left',
     paddingHorizontal: 15,
-  },
-  alertBody: {
-    marginTop: variables.v_spacing_md,
   },
 };
