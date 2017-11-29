@@ -18,8 +18,33 @@ const preactAlias = {
 
 const prodExternals = useReact ? reactExternals : {};
 
+const excludePath = [];
+function getServerPath(pa) {
+  try {
+    const p = require.resolve(pa).replace('/lib/Server.js', '');
+    if (p) {
+      excludePath.push(p);
+    }
+  } catch (e) {
+    // console.log('sdd', e)
+  }
+}
+
 module.exports = {
   webpackConfig(config) {
+    // fix webpack-dev-server "SyntaxError: Use of const in strict mode." ref https://github.com/mrdulin/blog/issues/35
+    // https://github.com/webpack/webpack/issues/2031#issuecomment-339336830
+    config.module.rules.forEach((rule) => {
+      if (rule.test.toString().indexOf('js$') > -1) {
+        getServerPath('webpack-dev-server');
+        getServerPath('bisheng/node_modules/webpack-dev-server');
+        rule.exclude = {
+          test: path.resolve(process.cwd(), 'node_modules'),
+          exclude: excludePath,
+        };
+      }
+    });
+
     config.externals = {
       history: 'History',
       'babel-polyfill': 'this', // hack babel-polyfill has no exports
