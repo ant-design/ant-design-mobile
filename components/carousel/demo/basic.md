@@ -15,7 +15,7 @@ import { Carousel, WhiteSpace, WingBlank } from 'antd-mobile';
 class App extends React.Component {
   state = {
     data: ['', '', ''],
-    initialHeight: 176,
+    imgHeight: 176,
   }
   componentDidMount() {
     // simulate img loading
@@ -26,12 +26,10 @@ class App extends React.Component {
     }, 100);
   }
   render() {
-    const hProp = this.state.initialHeight ? { height: this.state.initialHeight } : {};
     return (
       <WingBlank>
         <div className="sub-title">Normal</div>
         <Carousel
-          className="my-carousel"
           autoplay={false}
           infinite
           selectedIndex={1}
@@ -39,16 +37,19 @@ class App extends React.Component {
           afterChange={index => console.log('slide to', index)}
         >
           {this.state.data.map(ii => (
-            <a href="http://www.baidu.com" key={ii} style={hProp}>
+            <a
+              key={ii}
+              href="http://www.alipay.com"
+              style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+            >
               <img
                 src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`}
                 alt=""
+                style={{ width: '100%', verticalAlign: 'top' }}
                 onLoad={() => {
                   // fire window resize event to change height
                   window.dispatchEvent(new Event('resize'));
-                  this.setState({
-                    initialHeight: null,
-                  });
+                  this.setState({ imgHeight: 'auto' });
                 }}
               />
             </a>
@@ -95,17 +96,6 @@ class App extends React.Component {
 ReactDOM.render(<App />, mountNode);
 ````
 ````css
-.my-carousel {
-}
-.my-carousel a {
-  display: inline-block;
-  width: 100%;
-  margin: 0; padding: 0;
-}
-.my-carousel a img {
-  width: 100%;
-  vertical-align: top;
-}
 .my-carousel .v-item {
   height: 36px;
   line-height: 36px;

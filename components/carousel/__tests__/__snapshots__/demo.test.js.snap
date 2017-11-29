@@ -10,7 +10,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
     Normal
   </div>
   <div
-    class="slider am-carousel my-carousel"
+    class="slider am-carousel"
     style="position:relative;display:block;width:100%;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;visibility:hidden"
   >
     <div
@@ -26,12 +26,13 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
           style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto"
         >
           <a
-            href="http://www.baidu.com"
-            style="height:176px"
+            href="http://www.alipay.com"
+            style="display:inline-block;width:100%;height:176px"
           >
             <img
               alt=""
               src="https://zos.alipayobjects.com/rmsportal/.png"
+              style="width:100%;vertical-align:top"
             />
           </a>
         </li>
@@ -40,12 +41,13 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
           style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto"
         >
           <a
-            href="http://www.baidu.com"
-            style="height:176px"
+            href="http://www.alipay.com"
+            style="display:inline-block;width:100%;height:176px"
           >
             <img
               alt=""
               src="https://zos.alipayobjects.com/rmsportal/.png"
+              style="width:100%;vertical-align:top"
             />
           </a>
         </li>
@@ -54,12 +56,13 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
           style="position:absolute;left:0;top:0;display:inline-block;list-style-type:none;vertical-align:top;width:0;height:auto;box-sizing:border-box;-moz-box-sizing:border-box;margin-left:0;margin-right:0;margin-top:auto;margin-bottom:auto"
         >
           <a
-            href="http://www.baidu.com"
-            style="height:176px"
+            href="http://www.alipay.com"
+            style="display:inline-block;width:100%;height:176px"
           >
             <img
               alt=""
               src="https://zos.alipayobjects.com/rmsportal/.png"
+              style="width:100%;vertical-align:top"
             />
           </a>
         </li>
