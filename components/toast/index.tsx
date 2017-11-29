@@ -1,5 +1,5 @@
 import React from 'react';
-import Notification from 'rc-notification';
+import Notification from 'rmc-notification';
 import Icon from '../icon';
 import classnames from 'classnames';
 
@@ -13,7 +13,7 @@ function getMessageInstance(mask, callback) {
   }
   (Notification as any).newInstance({
     prefixCls,
-    style: { }, // clear rc-notification default style
+    style: { }, // clear rmc-notification default style
     transitionName: 'am-fade',
     className: classnames({
       [`${prefixCls}-mask`]: mask,
