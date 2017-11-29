@@ -1,6 +1,6 @@
-import { Button, Flex, WingBlank, WhiteSpace } from 'antd-mobile';
+import { Button, WingBlank, WhiteSpace, Flex } from 'antd-mobile';
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
 
 const Circle = (props) => {
   const size = props.size || 20;
@@ -154,7 +154,7 @@ export default class FlexExample extends React.Component<any, any> {
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
           <WingBlank>
-            <Flex align="stretch" style={{ height: 70 }}>
+            <Flex align="stretch" style={{ height: 70 }} >
               <Text style={{ fontSize: 20, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
               <Text style={{ fontSize: 18, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
               <Text style={{ fontSize: 16, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
@@ -167,18 +167,22 @@ export default class FlexExample extends React.Component<any, any> {
           <Text>wrap="wrap":换行</Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
+         <TouchableWithoutFeedback onPress={() => ({})} >
           <Flex wrap="wrap">
             {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={`${i}-${char}`} />)}
           </Flex>
+          </TouchableWithoutFeedback>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
           <Text>wrap="nowrap":不换行</Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
-          <Flex wrap="nowrap">
-            {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={`${i}-${char}`} />)}
-          </Flex>
+            <Flex wrap="nowrap" onPress={() => ({})}>
+              {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={`${i}-${char}`} />)}
+            </Flex>
         </WingBlank>
+        <WhiteSpace />
+        <WhiteSpace />
         <WhiteSpace />
       </ScrollView>
     );

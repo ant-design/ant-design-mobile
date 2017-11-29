@@ -22,19 +22,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Array [
           Object {
@@ -46,22 +33,8 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
           undefined,
         ]
       }
-      testID={undefined}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
@@ -70,7 +43,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
             undefined,
           ]
         }
-        testID={undefined}
       >
         <Text
           accessible={true}
@@ -82,19 +54,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
@@ -103,7 +62,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
             undefined,
           ]
         }
-        testID={undefined}
       >
         <View
           style={
@@ -148,19 +106,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Array [
           Object {
@@ -172,22 +117,8 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
           undefined,
         ]
       }
-      testID={undefined}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
@@ -196,7 +127,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
             undefined,
           ]
         }
-        testID={undefined}
       >
         <Text
           accessible={true}
@@ -208,19 +138,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
@@ -229,7 +146,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
             undefined,
           ]
         }
-        testID={undefined}
       >
         <View
           style={
@@ -291,19 +207,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Array [
           Object {
@@ -315,22 +218,8 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
           undefined,
         ]
       }
-      testID={undefined}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
@@ -339,7 +228,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
             undefined,
           ]
         }
-        testID={undefined}
       >
         <Text
           accessible={true}
@@ -351,19 +239,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
@@ -372,7 +247,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
             undefined,
           ]
         }
-        testID={undefined}
       >
         <View
           style={
@@ -431,19 +305,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
     }
   >
     <View
-      accessibilityComponentType={undefined}
-      accessibilityLabel={undefined}
-      accessibilityTraits={undefined}
-      accessible={true}
-      hitSlop={undefined}
-      nativeID={undefined}
-      onLayout={undefined}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Array [
           Object {
@@ -455,22 +316,8 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
           undefined,
         ]
       }
-      testID={undefined}
     >
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
@@ -479,7 +326,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
             undefined,
           ]
         }
-        testID={undefined}
       >
         <Text
           accessible={true}
@@ -491,19 +337,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
         </Text>
       </View>
       <View
-        accessibilityComponentType={undefined}
-        accessibilityLabel={undefined}
-        accessibilityTraits={undefined}
-        accessible={true}
-        hitSlop={undefined}
-        nativeID={undefined}
-        onLayout={undefined}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
@@ -512,7 +345,6 @@ exports[`renders ./components/activity-indicator/demo/basic.native.tsx correctly
             undefined,
           ]
         }
-        testID={undefined}
       >
         <View
           style={

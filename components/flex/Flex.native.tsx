@@ -20,9 +20,17 @@ export default class Flex extends React.Component<FlexProps, any> {
   };
 
   render() {
-    let { style, direction, wrap, justify, align, children, ...restProps } = this.props;
+    let {
+      style,
+      direction,
+      wrap,
+      justify,
+      align,
+      children,
+      ...restProps,
+    } = this.props;
     let transferConst = [justify, align];
-    transferConst = transferConst.map((el) => {
+    transferConst = transferConst.map(el => {
       let tempTxt;
       switch (el) {
         case 'start':
@@ -51,12 +59,26 @@ export default class Flex extends React.Component<FlexProps, any> {
       alignItems: transferConst[1],
     };
 
-    return (
-      <TouchableWithoutFeedback {...restProps}>
-        <View style={[flexStyle, style]}>
-          {children}
-        </View>
-      </TouchableWithoutFeedback>
+    const inner = (
+      <View style={[flexStyle, style]} {...restProps}>
+        {children}
+      </View>
     );
+
+    const shouldWrapInTouchableComponent =
+      restProps.onPress ||
+      restProps.onLongPress ||
+      restProps.onPressIn ||
+      restProps.onPressOut;
+
+    if (!!shouldWrapInTouchableComponent) {
+      return (
+        <TouchableWithoutFeedback {...restProps}>
+          {inner}
+        </TouchableWithoutFeedback>
+      );
+    } else {
+      return inner;
+    }
   }
 }

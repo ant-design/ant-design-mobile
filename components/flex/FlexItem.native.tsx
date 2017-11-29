@@ -10,7 +10,7 @@ export interface FlexItemProps extends BasePropsType {
   onPressOut?: any;
 }
 
-export default class FlexItem extends React.Component<FlexItemProps, any> {
+export default class FlexItem extends React.Component <FlexItemProps, any> {
   static defaultProps = {
     flex: 1,
   };
@@ -21,12 +21,26 @@ export default class FlexItem extends React.Component<FlexItemProps, any> {
     };
     // support other touchablewithoutfeedback props
     // TODO  support TouchableHighlight
-    return (
-      <TouchableWithoutFeedback {...restProps}>
-        <View style={[flexItemStyle, style]}>
-          {children}
-        </View>
-      </TouchableWithoutFeedback>
+    const inner = (
+      <View style={[flexItemStyle, style]} {...restProps}>
+        {children}
+      </View>
     );
+
+    const shouldWrapInTouchableComponent =
+      restProps.onPress
+      || restProps.onLongPress
+      || restProps.onPressIn
+      || restProps.onPressOut;
+
+    if (!!shouldWrapInTouchableComponent) {
+      return (
+        <TouchableWithoutFeedback {...restProps}>
+          {inner}
+        </TouchableWithoutFeedback>
+      );
+    } else {
+      return inner;
+    }
   }
 }
