@@ -1,5 +1,4 @@
 interface DatePickerProps {
-  defaultDate?: any;
   value?: any;
   mode?: string;
   minDate?: any;
