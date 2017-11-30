@@ -24,7 +24,7 @@ subtitle: 多行输入
 | placeholder      | placeholder        | String | ''  |
 | editable    | 是否可编辑        | bool |  true  |
 | disabled    | 是否禁用        | bool |  false  |
-| clear      |   是否带清除功能      | bool |  true  |
+| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
 | rows      |   显示几行      | number |   1 |
 | count      |  计数功能,兼具最大长度,默认为0,代表不开启计数功能      | number | -  |
 | onChange    | change 事件触发的回调函数 | (val: string): void |  -  |

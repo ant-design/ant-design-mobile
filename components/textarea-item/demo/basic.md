@@ -27,6 +27,7 @@ class TextareaItemExample extends React.Component {
       <div>
         <List renderHeader={() => 'Customize to focus'}>
           <TextareaItem
+            clear
             title="标题"
             placeholder="auto focus in Alipay client"
             data-seed="logId"
@@ -34,6 +35,7 @@ class TextareaItemExample extends React.Component {
             autoHeight
           />
           <TextareaItem
+            clear
             title="标题"
             placeholder="click the button below to focus"
             data-seed="logId"
@@ -51,17 +53,22 @@ class TextareaItemExample extends React.Component {
         </List>
         <List renderHeader={() => 'Whether is controlled'}>
           <TextareaItem
+            clear
+            defaultValue="123"
             {...getFieldProps('control')}
             title="受控组件"
             placeholder="controlled"
           />
           <TextareaItem
+            clear
+            defaultValue="1232"
             title="非受控组件"
             placeholder="please input content"
           />
         </List>
         <List renderHeader={() => 'Auto / Fixed height'}>
           <TextareaItem
+            clear
             {...getFieldProps('note3')}
             title="高度自适应"
             autoHeight
@@ -97,6 +104,7 @@ class TextareaItemExample extends React.Component {
         </List>
         <List renderHeader={() => 'Count'}>
           <TextareaItem
+            clear
             {...getFieldProps('count', {
               initialValue: '计数功能,我的意见是...',
             })}
