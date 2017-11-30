@@ -167,10 +167,6 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   clearInput = () => {
     this.setState({
       value: '',
-    }, () => {
-      if (this.textareaRef) {
-        this.textareaRef.value = '';
-      }
     });
 
     if (this.props.onChange) {
