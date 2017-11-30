@@ -70,7 +70,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
-        value: nextProps.value,
+        value: fixControlledValue(nextProps.value),
       });
     }
   }
@@ -211,7 +211,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
             ref={el => this.textareaRef = el}
             {...lengthCtrlProps}
             {...otherProps}
-            value={fixControlledValue(value)}
+            value={value}
             onChange={this.onChange}
             onBlur={this.onBlur}
             onFocus={this.onFocus}
