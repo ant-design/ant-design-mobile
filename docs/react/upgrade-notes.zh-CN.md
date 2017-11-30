@@ -138,7 +138,7 @@ const tabs = [
 
 #### ListView & RefreshControl
 
-**注意: 从 `beta.6` 版本开始，他们有很大的优化**，如果你之前有使用 ListView 的 `useZscroller` 属性、或者 `RefreshControl` 组件，你需要按新的用法来升级。
+**注意: 从 `2.0.0-beta.6` 版本开始，他们有很大的优化**，`RefreshControl` 被移除，需要使用新增的 `PullToRefresh` 组件代替。如果你之前有使用 ListView 的 `useZscroller` 属性、或者 `RefreshControl` 组件，你需要按新的用法来升级。
 
 现在 `useZscroller` `scrollerOptions` `refreshControl` 这些属性不再起作用。**使用 web 的原生 scroller 来代替 zscroller，使用 `PullToRefresh` 组件来代替 `RefreshControl` 组件**。
 

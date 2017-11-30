@@ -138,7 +138,7 @@ Example of implementing Popup using Modal components:
 
 #### ListView & RefreshControl
 
-**Note: they have very big optimization from `beta.6` version**. If you have used the `useZscroller` prop of the `ListView` before, or the `RefreshControl` component. You need to follow new usage.
+**Note: they have very big optimization from `2.0.0-beta.6` version**, `RefreshControl` is removed and needs to be replaced with the new` PullToRefresh` component. If you have used the `useZscroller` prop of the `ListView` before, or the `RefreshControl` component. You need to follow new usage.
 
 Now `useZscroller` `scrollerOptions` `refreshControl` these props no longer work. **Use the web's native scroller instead of zscroller, using the `PullToRefresh` component instead of the `RefreshControl` component**.
 
