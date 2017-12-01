@@ -90,7 +90,7 @@ exports[`renders ./components/image-picker/demo/basic.md correctly 1`] = `
             role="button"
           >
             <input
-              accept="image/jpg,image/jpeg,image/png,image/gif"
+              accept="image/*"
               type="file"
             />
           </div>
@@ -163,7 +163,7 @@ exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
             role="button"
           >
             <input
-              accept="image/jpg,image/jpeg,image/png,image/gif"
+              accept="image/*"
               type="file"
             />
           </div>
