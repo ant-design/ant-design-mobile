@@ -8,4 +8,5 @@ export interface ImagePickerPropTypes {
   onAddImageClick?: () => void;
   onFail?: (msg: string) => void;
   selectable?: boolean;
+  multiple?: boolean;
 }
