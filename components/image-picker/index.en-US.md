@@ -19,5 +19,6 @@ Properties | Descrition | Type | Default
 | onAddImageClick | Callback is called when the selector button is clicked   | (): void |   |
 | onFail | Callback is called when canceled image selection(`RN`) or failed selection(`WEB`)  | (msg: string): void |   |
 | selectable | whether to show selector button  | boolean |  true |
+| multiple| whether support choose multi images at once  | boolean |  false |
 
 > Note: Only return assets-library type for RN, if you want to upload files, see https://github.com/facebook/react-native/issues/201

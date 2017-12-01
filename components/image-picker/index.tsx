@@ -21,6 +21,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     onAddImageClick: noop,
     onFail: noop,
     selectable: true,
+    multiple: false,
   };
 
   fileSelectorInput: any;
@@ -110,39 +111,43 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   onFileChange = () => {
     const fileSelectorEl = this.fileSelectorInput;
     if (fileSelectorEl && fileSelectorEl.files && fileSelectorEl.files.length) {
-      const file = fileSelectorEl.files[0];
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const dataURL = (e.target as any).result;
-        if (!dataURL) {
-          if (this.props.onFail) {
-            this.props.onFail('Fail to get image');
-          }
-          return;
-        }
-
-        let orientation = 1;
-        this.getOrientation(file, (res) => {
-          // -2: not jpeg , -1: not defined
-          if (res > 0) {
-            orientation = res;
-          }
-          this.addImage({
-            url: dataURL,
-            orientation,
-            file,
-          });
-
-          fileSelectorEl.value = '';
-        });
-      };
-      reader.readAsDataURL(file);
+      const files = fileSelectorEl.files;
+      for (let i = 0; i < files.length; i++) {
+        this.parseFile(files[i], i);
+      }
     }
+    fileSelectorEl.value = '';
   }
 
+  parseFile = (file, index) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const dataURL = (e.target as any).result;
+      if (!dataURL) {
+        if (this.props.onFail) {
+          this.props.onFail(`Fail to get the ${index} image`);
+        }
+        return;
+      }
+
+      let orientation = 1;
+      this.getOrientation(file, (res) => {
+        // -2: not jpeg , -1: not defined
+        if (res > 0) {
+          orientation = res;
+        }
+        this.addImage({
+          url: dataURL,
+          orientation,
+          file,
+        });
+      });
+    };
+    reader.readAsDataURL(file);
+  }
   render() {
     const {
-      prefixCls, style, className, files = [], selectable, onAddImageClick,
+      prefixCls, style, className, files = [], selectable, onAddImageClick, multiple,
     } = this.props;
 
     const imgItemList: any[] = [];
@@ -187,8 +192,9 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             <input
               ref={(input) => { this.fileSelectorInput = input; }}
               type="file"
-              accept="image/jpg,image/jpeg,image/png,image/gif"
+              accept="image/*"
               onChange={() => { this.onFileChange(); }}
+              multiple={multiple}
             />
           </div>
         </TouchFeedback>
