@@ -23,7 +23,7 @@ Properties | Descrition | Type | Default
 | placeholder      | the string that will be rendered before text input has been entered. | String | ''  |
 | editable    | whether is editable         | bool |  true  |
 | disabled    | whether is disabled         | bool |  false  |
-| clear      |   whether to display clear      | bool |  true  |
+| clear      |  whether to display clear(it takes effect only `editable` is `true` and `disabled` is `false` has been set) | bool | false  |
 | rows      |   sets the number of lines for a textarea     | number |   1 |
 | count |  it is used for word count and maxlength, the default is 0 which indicates that word count is turned off. | number | -  |
 | onChange    | callback that is called when the textarea's text changes. | (val: string): void |  -  |

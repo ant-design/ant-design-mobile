@@ -28,6 +28,7 @@ function countSymbols(text = '') {
 
 export interface TextareaItemState {
   focus?: boolean;
+  value?: string;
 }
 
 export default class TextareaItem extends React.Component<TextareaItemProps, TextareaItemState> {
@@ -50,15 +51,28 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   textareaRef: any;
 
-  state = {
-    focus: false,
-  };
-
   private debounceTimeout: any;
   private scrollIntoViewTimeout: any;
 
+  constructor(props: TextareaItemProps) {
+    super(props);
+
+    this.state = {
+      focus: false,
+      value: props.value || props.defaultValue || '',
+    };
+  }
+
   focus = () => {
     this.textareaRef.focus();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if ('value' in nextProps) {
+      this.setState({
+        value: fixControlledValue(nextProps.value),
+      });
+    }
   }
 
   componentDidMount() {
@@ -90,6 +104,13 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
 
   onChange = (e) => {
     let value = e.target.value;
+
+    if ('value' in this.props) {
+      this.setState({ value: this.props.value });
+    } else {
+      this.setState({ value });
+    }
+
     const { onChange } = this.props;
     if (onChange) {
       onChange(value);
@@ -144,6 +165,10 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
   }
 
   clearInput = () => {
+    this.setState({
+      value: '',
+    });
+
     if (this.props.onChange) {
       this.props.onChange('');
     }
@@ -153,22 +178,11 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     const {
       prefixCls, prefixListCls, editable, style,
       clear, children, error, className, count, labelNumber,
-      title, onErrorClick, autoHeight, ...otherProps,
+      title, onErrorClick, autoHeight, defaultValue, ...otherProps,
     } = this.props;
-    const { value, defaultValue, disabled } = otherProps;
+    const { disabled } = otherProps;
+    const { value, focus } = this.state;
 
-    let valueProps;
-    if ('value' in this.props) {
-      valueProps = {
-        value: fixControlledValue(value),
-      };
-    } else {
-      valueProps = {
-        defaultValue,
-      };
-    }
-
-    const { focus } = this.state;
     const wrapCls = classnames(className, `${prefixListCls}-item`, `${prefixCls}-item`, {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-item-single-line`]: this.props.rows === 1 && !autoHeight,
@@ -197,7 +211,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
             ref={el => this.textareaRef = el}
             {...lengthCtrlProps}
             {...otherProps}
-            {...valueProps}
+            value={value}
             onChange={this.onChange}
             onBlur={this.onBlur}
             onFocus={this.onFocus}

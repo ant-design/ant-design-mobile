@@ -58,6 +58,7 @@ class TextareaItemExample extends React.Component {
           <TextareaItem
             title="非受控组件"
             placeholder="please input content"
+            clear
           />
         </List>
         <List renderHeader={() => 'Auto / Fixed height'}>
