@@ -178,7 +178,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     const {
       prefixCls, prefixListCls, editable, style,
       clear, children, error, className, count, labelNumber,
-      title, onErrorClick, autoHeight, ...otherProps,
+      title, onErrorClick, autoHeight, defaultValue, ...otherProps,
     } = this.props;
     const { disabled } = otherProps;
     const { value, focus } = this.state;
