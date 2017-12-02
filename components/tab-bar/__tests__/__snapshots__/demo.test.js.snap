@@ -2,7 +2,7 @@
 
 exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
 <div
-  style="height:400px"
+  style="position:fixed;height:100%;width:100%;top:0"
 >
   <div
     class="am-tab-bar"
@@ -24,6 +24,23 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
               style="background-color:white;height:100%;text-align:center"
             >
               <div
+                class="am-activity-indicator am-activity-indicator-sm am-activity-indicator-toast"
+              >
+                <div
+                  class="am-activity-indicator-content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="am-activity-indicator-spinner am-activity-indicator-spinner-lg"
+                  />
+                  <span
+                    class="am-activity-indicator-toast"
+                  >
+                    Loading...
+                  </span>
+                </div>
+              </div>
+              <div
                 style="padding-top:60px"
               >
                 Clicked “Life” tab， show “Life” information
@@ -33,6 +50,88 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
               >
                 Click to show/hide tab-bar
               </a>
+              <div
+                class="am-whitespace am-whitespace-md"
+              />
+              <div>
+                <div
+                  class="am-tabs am-tabs-horizontal am-tabs-top"
+                >
+                  <div
+                    class="am-tabs-tab-bar-wrap"
+                  >
+                    <div>
+                      <div />
+                      <div
+                        id="sticky"
+                        style="z-index:1"
+                      >
+                        <div
+                          class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
+                          style="background-color:#fff"
+                        >
+                          <div
+                            class="am-tabs-default-bar-content"
+                            style="touch-action:pan-y"
+                          >
+                            <div
+                              class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+                              style="width:33.333333333333336%"
+                            >
+                              First Tab
+                            </div>
+                            <div
+                              class="am-tabs-default-bar-tab"
+                              style="width:33.333333333333336%"
+                            >
+                              Second Tab
+                            </div>
+                            <div
+                              class="am-tabs-default-bar-tab"
+                              style="width:33.333333333333336%"
+                            >
+                              Third Tab
+                            </div>
+                            <div
+                              class="am-tabs-default-bar-underline"
+                              style="width:33.333333333333336%;left:0%"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+                    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
+                  >
+                    <div
+                      class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+                    >
+                      <div
+                        style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+                      >
+                        Content of first tab
+                      </div>
+                    </div>
+                    <div
+                      class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+                    >
+                      <div
+                        style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+                      >
+                        Content of second tab
+                      </div>
+                    </div>
+                    <div
+                      class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="am-whitespace am-whitespace-md"
+              />
               <a
                 style="display:block;margin-bottom:600px;color:#108ee9"
               >
@@ -51,6 +150,23 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
               style="background-color:white;height:100%;text-align:center"
             >
               <div
+                class="am-activity-indicator am-activity-indicator-sm am-activity-indicator-toast"
+              >
+                <div
+                  class="am-activity-indicator-content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="am-activity-indicator-spinner am-activity-indicator-spinner-lg"
+                  />
+                  <span
+                    class="am-activity-indicator-toast"
+                  >
+                    Loading...
+                  </span>
+                </div>
+              </div>
+              <div
                 style="padding-top:60px"
               >
                 Clicked “Koubei” tab， show “Koubei” information
@@ -60,6 +176,88 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
               >
                 Click to show/hide tab-bar
               </a>
+              <div
+                class="am-whitespace am-whitespace-md"
+              />
+              <div>
+                <div
+                  class="am-tabs am-tabs-horizontal am-tabs-top"
+                >
+                  <div
+                    class="am-tabs-tab-bar-wrap"
+                  >
+                    <div>
+                      <div />
+                      <div
+                        id="sticky"
+                        style="z-index:1"
+                      >
+                        <div
+                          class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
+                          style="background-color:#fff"
+                        >
+                          <div
+                            class="am-tabs-default-bar-content"
+                            style="touch-action:pan-y"
+                          >
+                            <div
+                              class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+                              style="width:33.333333333333336%"
+                            >
+                              First Tab
+                            </div>
+                            <div
+                              class="am-tabs-default-bar-tab"
+                              style="width:33.333333333333336%"
+                            >
+                              Second Tab
+                            </div>
+                            <div
+                              class="am-tabs-default-bar-tab"
+                              style="width:33.333333333333336%"
+                            >
+                              Third Tab
+                            </div>
+                            <div
+                              class="am-tabs-default-bar-underline"
+                              style="width:33.333333333333336%;left:0%"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+                    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
+                  >
+                    <div
+                      class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+                    >
+                      <div
+                        style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+                      >
+                        Content of first tab
+                      </div>
+                    </div>
+                    <div
+                      class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+                    >
+                      <div
+                        style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+                      >
+                        Content of second tab
+                      </div>
+                    </div>
+                    <div
+                      class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="am-whitespace am-whitespace-md"
+              />
               <a
                 style="display:block;margin-bottom:600px;color:#108ee9"
               >
@@ -78,6 +276,23 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
               style="background-color:white;height:100%;text-align:center"
             >
               <div
+                class="am-activity-indicator am-activity-indicator-sm am-activity-indicator-toast"
+              >
+                <div
+                  class="am-activity-indicator-content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="am-activity-indicator-spinner am-activity-indicator-spinner-lg"
+                  />
+                  <span
+                    class="am-activity-indicator-toast"
+                  >
+                    Loading...
+                  </span>
+                </div>
+              </div>
+              <div
                 style="padding-top:60px"
               >
                 Clicked “Friend” tab， show “Friend” information
@@ -87,6 +302,88 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
               >
                 Click to show/hide tab-bar
               </a>
+              <div
+                class="am-whitespace am-whitespace-md"
+              />
+              <div>
+                <div
+                  class="am-tabs am-tabs-horizontal am-tabs-top"
+                >
+                  <div
+                    class="am-tabs-tab-bar-wrap"
+                  >
+                    <div>
+                      <div />
+                      <div
+                        id="sticky"
+                        style="z-index:1"
+                      >
+                        <div
+                          class="am-tabs-default-bar am-tabs-default-bar-animated am-tabs-default-bar-top"
+                          style="background-color:#fff"
+                        >
+                          <div
+                            class="am-tabs-default-bar-content"
+                            style="touch-action:pan-y"
+                          >
+                            <div
+                              class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+                              style="width:33.333333333333336%"
+                            >
+                              First Tab
+                            </div>
+                            <div
+                              class="am-tabs-default-bar-tab"
+                              style="width:33.333333333333336%"
+                            >
+                              Second Tab
+                            </div>
+                            <div
+                              class="am-tabs-default-bar-tab"
+                              style="width:33.333333333333336%"
+                            >
+                              Third Tab
+                            </div>
+                            <div
+                              class="am-tabs-default-bar-underline"
+                              style="width:33.333333333333336%;left:0%"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="am-tabs-content-wrap am-tabs-content-wrap-animated"
+                    style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
+                  >
+                    <div
+                      class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+                    >
+                      <div
+                        style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+                      >
+                        Content of first tab
+                      </div>
+                    </div>
+                    <div
+                      class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+                    >
+                      <div
+                        style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
+                      >
+                        Content of second tab
+                      </div>
+                    </div>
+                    <div
+                      class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="am-whitespace am-whitespace-md"
+              />
               <a
                 style="display:block;margin-bottom:600px;color:#108ee9"
               >
