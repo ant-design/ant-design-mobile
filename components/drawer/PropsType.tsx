@@ -16,6 +16,8 @@ export interface DrawerWebProps extends DrawerProps {
   touch?: boolean;
   dragToggleDistance?: number;
   prefixCls?: string;
+  className?: string;
+  style?: Object;
 }
 
 export interface DrawerNativeProps extends DrawerProps {
