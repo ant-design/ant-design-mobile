@@ -97,7 +97,7 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
         return;
       }
     }
-    this.scrollValue = v;
+    this.setScrollValue(v);
   }
 
   fixOnOk = (cascader: any) => {
