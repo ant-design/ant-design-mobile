@@ -14,6 +14,39 @@ toc: false
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+
+### 2.1.0
+
+`2017-12-03`
+
+- **Feature**
+
+  - 🌟 [React Native] `Steps` 支持 `horizontal` 垂直方向。([#2090](https://github.com/ant-design/ant-design-mobile/pull/2090))
+  - 🌟 `ImagePicker` 支持多选。([#2017](https://github.com/ant-design/ant-design-mobile/issues/2017))
+  - 🇸🇪  `LocaleProvider` 添加 瑞典语 支持。([#2132](https://github.com/ant-design/ant-design-mobile/pull/2132))
+
+- **Bug Fix**
+
+  - 🐞  修复 `[InputItem type="money"]` 虚拟数字键盘遮挡页面内容的问题。([#1893](https://github.com/ant-design/ant-design-mobile/issues/1893))
+  - 🐞  修复 `[InputItem type="money"]` 单页面多实例未复用的问题。 ([#2065](https://github.com/ant-design/ant-design-mobile/issues/2065))
+  - 🐞  修复 `Menu` props.data 数据为空时的报错。 ([#2079](https://github.com/ant-design/ant-design-mobile/pull/2079))
+  - 🐞  修复 `Menu` 组件的按钮样式丢失问题。 ([#2097](https://github.com/ant-design/ant-design-mobile/issues/2097))
+  - 🐞  修复 `InputItem`, `Drawer` tsd. ([#2100](https://github.com/ant-design/ant-design-mobile/issues/2100), [#2138](https://github.com/ant-design/ant-design-mobile/issues/2138))
+  - 🐞  修复 `Picker` 级联的时候数据不准确的问题 ([59a66c](https://github.com/ant-design/ant-design-mobile/commit/59a66cfbe0daef8c9f080d0387bc880e54632fe0))
+  - 🐞  修复 `TabBar` 显示隐藏的动画。 ([#2072](https://github.com/ant-design/ant-design-mobile/issues/2072))
+  - 🐞  修复 `Textarea` autoHeight 在初始时不生效的问题。([#2118](https://github.com/ant-design/ant-design-mobile/issues/2118))
+  - 🐞  修复 React Native `Flex` 在无事件监听时不添加触摸反馈。 ([#2095](https://github.com/ant-design/ant-design-mobile/pull/2095))
+  - 🐞  修复 `Toast` 被点击后不会自动隐藏的问题。 ([#2103](https://github.com/ant-design/ant-design-mobile/issues/2103))
+  - 🐞  修复 `Textarea` 非受控下 clear 无效的问题。([#2131](https://github.com/ant-design/ant-design-mobile/issues/2131))
+  - 🐞 修复 `TabBar` sticky 效果。([#2136](https://github.com/ant-design/ant-design-mobile/issues/2136))
+
+- **Theme**
+
+  - 🗑 删除了全局默认的 body font-size 设置。([#2106](https://github.com/ant-design/ant-design-mobile/pull/2106))
+  - 🆕 `brand-primary-tap` 改为 `0e80d2`。 ([#2115](https://github.com/ant-design/ant-design-mobile/pull/2115))
+
+
+
 ### 2.0.3
 
 `2017-11-11`

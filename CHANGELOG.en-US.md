@@ -15,6 +15,37 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+
+### 2.1.0
+
+`2017-12-03`
+
+- **Feature**
+
+  - 🌟 `Steps` [React Native] support `horizontal`. ([#2090](https://github.com/ant-design/ant-design-mobile/pull/2090))
+  - 🌟 `ImagePicker` support `multiple`. ([#2017](https://github.com/ant-design/ant-design-mobile/issues/2017))
+  - 🇸🇪  `LocaleProvider` add swedish. ([#2132](https://github.com/ant-design/ant-design-mobile/pull/2132))
+
+- **Bug Fix**
+
+  - 🐞  Fix `[InputItem type="money"]` cover page content. ([#1893](https://github.com/ant-design/ant-design-mobile/issues/1893))
+  - 🐞  Fix `[InputItem type="money"]` multi instance at one page. ([#2065](https://github.com/ant-design/ant-design-mobile/issues/2065))
+  - 🐞  Fix `Menu` props.data null array. ([#2079](https://github.com/ant-design/ant-design-mobile/pull/2079))
+  - 🐞  Fix `Menu` lost Button style. ([#2097](https://github.com/ant-design/ant-design-mobile/issues/2097))
+  - 🐞  Fix `InputItem`, `Drawer` tsd. ([#2100](https://github.com/ant-design/ant-design-mobile/issues/2100), [#2138](https://github.com/ant-design/ant-design-mobile/issues/2138))
+  - 🐞  Fix `Picker` cascader data not accuracy. ([59a66c](https://github.com/ant-design/ant-design-mobile/commit/59a66cfbe0daef8c9f080d0387bc880e54632fe0))
+  - 🐞  Fix `TabBar` animation. ([#2072](https://github.com/ant-design/ant-design-mobile/issues/2072))
+  - 🐞  Fix `Textarea` autoHeight not work when init. ([#2118](https://github.com/ant-design/ant-design-mobile/issues/2118))
+  - 🐞  Fix `Flex` [React Native] no need to add touch feedback when no event handler ([#2095](https://github.com/ant-design/ant-design-mobile/pull/2095))
+  - 🐞  Fix `Toast` can not hide after click. ([#2103](https://github.com/ant-design/ant-design-mobile/issues/2103))
+  - 🐞  Fix `Textarea` clear not work in controlled mode. ([#2131](https://github.com/ant-design/ant-design-mobile/issues/2131))
+  - 🐞  Fix `TabBar` sticky. ([#2136](https://github.com/ant-design/ant-design-mobile/issues/2136))
+
+- **Theme**
+
+  - 🗑  Delete bulit-in `body` font-size style. ([#2106](https://github.com/ant-design/ant-design-mobile/pull/2106))
+  - 🆕 `brand-primary-tap` change to `0e80d2`。 ([#2115](https://github.com/ant-design/ant-design-mobile/pull/2115))
+
 ### 2.0.3
 
 `2017-11-11`
