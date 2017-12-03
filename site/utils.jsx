@@ -95,6 +95,6 @@ export function injectPreactDevtool() {
   /* eslint-disable no-undef,global-require, no-console */
   if (typeof PREACT_DEVTOOLS !== 'undefined' && PREACT_DEVTOOLS) {
     console.log('inject preact devtools');
-    require('preact/devtools');
+    require('preact/debug');
   }
 }

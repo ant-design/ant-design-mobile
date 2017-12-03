@@ -14,12 +14,14 @@ const preactAlias = {
   react: 'preact-compat',
   'react-dom': 'preact-compat',
   'create-react-class': 'preact-compat/lib/create-react-class',
+  preact$: 'preact/dist/preact.js', // https://github.com/developit/preact/issues/924
 };
 
 const prodExternals = useReact ? reactExternals : {};
 
 module.exports = {
   webpackConfig(config) {
+    console.log('start site with config', process.env.NODE_ENV, process.env.DEMO_ENV);
     // fix webpack-dev-server "SyntaxError: Use of const in strict mode." ref https://github.com/mrdulin/blog/issues/35
     // https://github.com/webpack/webpack/issues/2031#issuecomment-339336830
     config.module.rules.push({
@@ -51,7 +53,12 @@ module.exports = {
     }
 
 
-    config.plugins.push(new webpack.DefinePlugin({ PREACT_DEVTOOLS: isDev && !useReact }));
+    config.plugins.push(new webpack.DefinePlugin({
+      PREACT_DEVTOOLS: isDev && !useReact,
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }));
     return config;
   },
   htmlTemplateExtraData: {

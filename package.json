@@ -102,7 +102,7 @@
     "mockdate": "^2.0.1",
     "postcss-pxtorem": "^3.3.1",
     "pre-commit": "1.x",
-    "preact": "^8.2.5",
+    "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
     "qrcode.react": "^0.7.1",
     "rc-form": "1.x",
