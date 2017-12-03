@@ -194,7 +194,7 @@
   border-width: 7px 7px 7px 0;
 }
 /*!
- * antd v2.13.10
+ * antd v2.13.11
  * 
  * Copyright 2015-present, Alipay, Inc.
  * All rights reserved.
@@ -12548,12 +12548,12 @@ input[type="checkbox"].disabled {
   color: rgba(0, 0, 0, 0.65);
   vertical-align: top;
 }
-.ant-form-item > .ant-form-item:last-child,
-.ant-form-item :not(.ant-form) > .ant-form-item {
+.ant-form-item-control > .ant-form-item:last-child,
+.ant-form-item [class^="ant-col-"] > .ant-form-item:only-child {
   margin-bottom: -24px;
 }
 .ant-form-item-control {
-  line-height: 32px;
+  line-height: 31.9999px;
   position: relative;
   zoom: 1;
 }
@@ -12671,7 +12671,6 @@ form .ant-radio-vertical + .ant-radio-vertical {
   margin-left: 0;
 }
 form .ant-input-number {
-  margin-top: -1px;
   margin-right: 8px;
 }
 form .ant-select,
@@ -12689,6 +12688,16 @@ form .ant-input-group .ant-cascader-picker {
 form .ant-input-group-addon .ant-select:only-child,
 form .ant-input-group-addon .ant-cascader-picker:only-child {
   display: inline-block;
+}
+form .ant-input-group-wrapper {
+  position: relative;
+  top: 2px;
+}
+form .ant-input-group-wrapper.ant-input-group-wrapper-lg {
+  top: 0;
+}
+form .ant-input-group-wrapper.ant-input-group-wrapper-sm {
+  top: 5px;
 }
 .ant-input-group-wrap .ant-select-selection {
   border-bottom-left-radius: 0;
@@ -15424,6 +15433,7 @@ textarea.ant-pagination-options-quick-jumper input {
   position: relative;
 }
 .ant-progress-text {
+  word-break: normal;
   width: 2em;
   text-align: left;
   font-size: 1em;
@@ -15547,6 +15557,7 @@ textarea.ant-pagination-options-quick-jumper input {
   font-size: 20px;
   display: inline-block;
   vertical-align: middle;
+  color: #f5a623;
 }
 .ant-rate-disabled .ant-rate-star {
   cursor: not-allowed;
@@ -15564,7 +15575,7 @@ textarea.ant-pagination-options-quick-jumper input {
   position: relative;
   -webkit-transition: all .3s;
   transition: all .3s;
-  color: #e9e9e9;
+  color: inherit;
   cursor: pointer;
 }
 .ant-rate-star-first,
@@ -15575,6 +15586,7 @@ textarea.ant-pagination-options-quick-jumper input {
           user-select: none;
   -webkit-transition: all .3s;
   transition: all .3s;
+  color: #e9e9e9;
 }
 .ant-rate-star:hover {
   -webkit-transform: scale(1.1);
@@ -15596,11 +15608,7 @@ textarea.ant-pagination-options-quick-jumper input {
 }
 .ant-rate-star-half .ant-rate-star-first,
 .ant-rate-star-full .ant-rate-star-second {
-  color: #f5a623;
-}
-.ant-rate-star-half:hover .ant-rate-star-first,
-.ant-rate-star-full:hover .ant-rate-star-second {
-  color: #f7b84f;
+  color: inherit;
 }
 .ant-rate-text {
   margin-left: 8px;
@@ -16884,7 +16892,7 @@ textarea.ant-pagination-options-quick-jumper input {
 .ant-table-placeholder .anticon {
   margin-right: 4px;
 }
-.ant-table-pagination {
+.ant-table-pagination.ant-pagination {
   margin: 16px 0;
   float: right;
 }
