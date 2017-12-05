@@ -100,7 +100,6 @@
     "lint-staged": "^4.0.2",
     "lodash.debounce": "^4.0.6",
     "mockdate": "^2.0.1",
-    "postcss-pxtorem": "^3.3.1",
     "pre-commit": "1.x",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
@@ -147,7 +146,6 @@
     "watch-tsc": "antd-tools run watch-tsc",
     "clean": "antd-tools run clean",
     "start": "cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js\" \"cross-env DEMO_ENV=preact bisheng start -c ./site/bisheng.kitchen.config.js\"",
-    "start-hd": "cross-env NODE_ENV=development concurrently \"cross-env DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js\" \"cross-env DEMO_ENV=preact HD_ENV=hd bisheng start -c ./site/bisheng.kitchen.config.js\"",
     "start-prod": "cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng start -c ./site/bisheng.desktop.config.js\" \"cross-env DEMO_ENV=preact bisheng start -c ./site/bisheng.kitchen.config.js\"",
     "site": "cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng build -c ./site/bisheng.desktop.config.js\" \"cross-env DEMO_ENV=preact bisheng build -c ./site/bisheng.kitchen.config.js\" && node scripts/copy-app-res",
     "site-cdn": "cdn-tools run -c ./scripts/cdn-config.js",
@@ -167,7 +165,6 @@
     "lint-staged:es": "eslint ./.eslintrc.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
     "tsc": "antd-tools run tsc",
-    "hd": "node scripts/rewrite-px.js",
     "add-tip": "node scripts/add-tip.js",
     "postinstall": "node scripts/update-tip.js"
   },
