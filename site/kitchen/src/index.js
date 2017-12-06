@@ -5,6 +5,7 @@ const _indexDemos = ['drawer'];
 const _subListDemos = ['list-view'];
 
 const pluginAntdConfig = {
+  pxtorem: true,
   babelConfig: JSON.stringify({
     plugins: [
       [
