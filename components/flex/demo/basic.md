@@ -17,18 +17,8 @@ Basic use of Flex
 ````jsx
 import { Flex, WhiteSpace } from 'antd-mobile';
 
-const PlaceHolder = props => (
-  <div
-    style={{
-      backgroundColor: '#ebebef',
-      color: '#bbb',
-      textAlign: 'center',
-      height: '30px',
-      lineHeight: '30px',
-      width: '100%',
-    }}
-    {...props}
-  >Item</div>
+const PlaceHolder = ({ className = '', ...restProps }) => (
+  <div className={`${className} placeholder`} {...restProps}>Block</div>
 );
 
 const FlexExample = () => (
@@ -125,4 +115,12 @@ ReactDOM.render(<FlexExample />, mountNode);
   font-size: 14px;
   padding: 30px 0 18px 0;
 }
-```
+.placeholder {
+  background-color: #ebebef;
+  color: #bbb;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+}
+````

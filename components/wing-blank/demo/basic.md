@@ -10,18 +10,8 @@ title:
 ````jsx
 import { WingBlank, WhiteSpace } from 'antd-mobile';
 
-const PlaceHolder = props => (
-  <div
-    style={{
-      backgroundColor: '#ebebef',
-      color: '#bbb',
-      textAlign: 'center',
-      height: '30px',
-      lineHeight: '30px',
-      width: '100%',
-    }}
-    {...props}
-  >Block</div>
+const PlaceHolder = ({ className = '', ...restProps }) => (
+  <div className={`${className} placeholder`} {...restProps}>Block</div>
 );
 
 const WingBlankExample = () => (
@@ -37,4 +27,15 @@ const WingBlankExample = () => (
 );
 
 ReactDOM.render(<WingBlankExample />, mountNode);
+````
+
+````css
+.placeholder {
+  background-color: #ebebef;
+  color: #bbb;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+}
 ````
