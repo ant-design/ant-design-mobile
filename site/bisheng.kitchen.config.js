@@ -1,7 +1,7 @@
 const path = require('path');
 const commonConfig = require('./bisheng.common.config');
 
-const kitchenConfig = {
+module.exports = Object.assign({}, commonConfig, {
   port: 8002,
   source: {
     components: './components',
@@ -11,10 +11,4 @@ const kitchenConfig = {
   entryName: 'kitchen-sink',
   theme: './site/kitchen/src',
   htmlTemplate: path.join(__dirname, './kitchen/src/static/template.html'),
-  doraConfig: {
-    verbose: true,
-    plugins: ['dora-plugin-upload'],
-  },
-};
-
-module.exports = Object.assign({}, commonConfig, kitchenConfig);
+});

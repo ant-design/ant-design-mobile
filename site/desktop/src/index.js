@@ -52,8 +52,9 @@ module.exports = {
   },
   plugins: [
     'bisheng-plugin-description',
-    'bisheng-plugin-toc?maxDepth=2',
+    'bisheng-plugin-toc?maxDepth=2&keepElem',
     'bisheng-plugin-antd?noPreview',
+    'bisheng-plugin-react?lang=__react',
   ],
   routes: {
     path: '/',

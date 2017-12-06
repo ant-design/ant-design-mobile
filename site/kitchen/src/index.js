@@ -61,6 +61,7 @@ module.exports = {
     },
   },
   plugins: [
+    'bisheng-plugin-description',
     `bisheng-plugin-antd?${JSON.stringify(pluginAntdConfig)}`,
     'bisheng-plugin-react?lang=__react',
   ],

@@ -1,8 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
+const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
+const replaceLib = require('antd-tools/lib/replaceLib');
+
 
 const useReact = process.env.DEMO_ENV === 'react';
 const isDev = process.env.NODE_ENV === 'development';
+
+function alertBabelConfig(rules) {
+  rules.forEach((rule) => {
+    if (rule.loader && rule.loader === 'babel-loader') {
+      rule.options.plugins.push(replaceLib);
+    } else if (rule.use) {
+      alertBabelConfig(rule.use);
+    }
+  });
+}
 
 const reactExternals = {
   react: 'React',
@@ -20,15 +33,19 @@ const preactAlias = {
 const prodExternals = useReact ? reactExternals : {};
 
 module.exports = {
+  filePathMapper(filePath) {
+    if (filePath === '/index.html') {
+      return ['/index.html', '/index-cn.html'];
+    }
+    if (filePath.endsWith('/index.html')) {
+      return [filePath, filePath.replace(/\/index\.html$/, '-cn/index.html')];
+    }
+    if (filePath !== '/404.html' && filePath !== '/index-cn.html') {
+      return [filePath, filePath.replace(/\.html$/, '-cn.html')];
+    }
+    return filePath;
+  },
   webpackConfig(config) {
-    console.log('start site with config', process.env.NODE_ENV, process.env.DEMO_ENV);
-    // fix webpack-dev-server "SyntaxError: Use of const in strict mode." ref https://github.com/mrdulin/blog/issues/35
-    // https://github.com/webpack/webpack/issues/2031#issuecomment-339336830
-    config.module.rules.push({
-      test: /webpack-dev-server/,
-      loader: 'babel-loader',
-    });
-
     config.externals = {
       history: 'History',
       'babel-polyfill': 'this', // hack babel-polyfill has no exports
@@ -38,16 +55,16 @@ module.exports = {
     if (!isDev) {
       config.externals = Object.assign(config.externals, prodExternals);
     } else {
-      // add devtool for bisheng@0.27
-      config.devtool = 'eval-source-map';
+      config.devtool = 'source-map';
     }
 
+    alertBabelConfig(config.module.rules);
+    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
+
     config.resolve.alias = {
-      'antd-mobile/lib': path.join(process.cwd(), 'components'),
       'antd-mobile': process.cwd(),
       site: path.join(process.cwd(), 'site'),
     };
-
     if (!useReact) {
       config.resolve.alias = Object.assign(config.resolve.alias, preactAlias);
     }
@@ -59,6 +76,13 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }));
+
+    // fix webpack-dev-server "SyntaxError: Use of const in strict mode." ref https://github.com/mrdulin/blog/issues/35
+    // https://github.com/webpack/webpack/issues/2031#issuecomment-339336830
+    config.module.rules.push({
+      test: /webpack-dev-server/,
+      loader: 'babel-loader',
+    });
     return config;
   },
   htmlTemplateExtraData: {
@@ -91,13 +115,6 @@ module.exports = {
       Gesture: '手势',
       Combination: '组合组件',
       Other: '其他',
-    },
-    // for desktop
-    docVersions: {
-      '0.7.x': 'http://07x.mobile.ant.design',
-      '0.8.x': 'http://08x.mobile.ant.design',
-      '0.9.x': 'http://09x.mobile.ant.design',
-      '1.x': 'http://1x.mobile.ant.design',
     },
   },
 };
