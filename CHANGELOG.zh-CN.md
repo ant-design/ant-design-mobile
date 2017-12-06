@@ -15,6 +15,17 @@ toc: false
 
 ---
 
+### 2.1.1
+
+`2017-12-06`
+
+- **Bug Fix**
+
+  - 🐞  修复 `List` 在 rem 页面下头部间距增大的问题。([#2145](https://github.com/ant-design/ant-design-mobile/pull/2145))
+  - 🐞  修复 `body.fontSize` 为 `@font-sizep-base` 14px。 ([8973a0f](https://github.com/ant-design/ant-design-mobile/commit/8973a0f890e776a47743188b14356bee34b68ad6))
+  - 🐞  修复 `Button` 在 iOS 11 下需要滑动才显示的问题。 ([6b571bef](https://github.com/ant-design/ant-design-mobile/commit/6b571bef0d714e8fdb7c4434ee1ab280be9952fd))
+
+
 ### 2.1.0
 
 `2017-12-03`

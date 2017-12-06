@@ -16,6 +16,16 @@ toc: false
 
 ---
 
+### 2.1.1
+
+`2017-12-06`
+
+- **Bug Fix**
+
+  - 🐞  Fix `List` padding incrase in rem style page. ([#2145](https://github.com/ant-design/ant-design-mobile/pull/2145))
+  - 🐞  Fix `body.fontSize` to `@font-sizep-base` 14px。 ([8973a0f](https://github.com/ant-design/ant-design-mobile/commit/8973a0f890e776a47743188b14356bee34b68ad6))
+  - 🐞  Fix `Button` do not show until scroll in iOS 11. ([6b571bef](https://github.com/ant-design/ant-design-mobile/commit/6b571bef0d714e8fdb7c4434ee1ab280be9952fd))
+
 ### 2.1.0
 
 `2017-12-03`
