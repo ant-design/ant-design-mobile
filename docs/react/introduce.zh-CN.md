@@ -61,7 +61,7 @@ $ npm install antd-mobile --save
 
 ### 3. 使用
 
-### Web 使用方式
+#### Web 使用方式
 
 入口页面 (html 或 模板) 相关设置：
 
@@ -104,7 +104,7 @@ ReactDOM.render(<Button>Start</Button>, mountNode);
 import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
 ```
 
-#### 按需加载
+##### 按需加载
 
 **注意：强烈推荐使用。**
 
@@ -136,13 +136,13 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
    // import 'antd-mobile/lib/date-picker/style';         // 加载 LESS
    ```
 
-#### 更多增强 (非必须):
+##### 更多增强 (非必须):
 
 > 如何自定义主题？[见此文档](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/theme-config.zh-CN.md)，
 > 基于 antd-mobile 的自定义 UI 库：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
 
-### React-Native 使用方式
+#### React-Native 使用方式
 
 > 注：`Menu`/`NavBar`/`Range` 组件暂无 React Native 版本
 
@@ -162,7 +162,7 @@ class HelloWorldApp extends Component {
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 
-#### 按需加载
+##### 按需加载
 
 下面两种方式都可以**只加载**用到的组件，选择其中一种方式即可。
 
@@ -189,7 +189,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
    import Button from 'antd-mobile/lib/button';
    ```
 
-#### 更多增强 (非必须):
+##### 更多增强 (非必须):
 
 > [自定义 RN 主题和单个组件样式](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
 

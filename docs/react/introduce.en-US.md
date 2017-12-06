@@ -61,7 +61,7 @@ $ npm install antd-mobile --save
 
 ### 3. Usage
 
-### Web usage
+#### Web usage
 
 Entry html page settings:
 
@@ -104,7 +104,7 @@ And import stylesheets manually:
 import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
 ```
 
-#### Use modularized antd-mobile
+##### Use modularized antd-mobile
 
 **Note: Strongly recommended.**
 
@@ -136,13 +136,13 @@ The following two ways used to load the **only components you used**, select one
    // import 'antd-mobile/lib/date-picker/style';         // that will import less
    ```
 
-#### More enhanced (optional):
+##### More enhanced (optional):
 
 > [Custom theme](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/theme-config.en-US.md).
 > Your custom UI library based on antd-mobile: [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
 
-### React-Native usage
+#### React-Native usage
 
 > Note: `Menu`/`NavBar`/`Range` does not have React-Native implementation.
 
@@ -162,7 +162,7 @@ class HelloWorldApp extends Component {
 AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ```
 
-#### Use modularized antd-mobile
+##### Use modularized antd-mobile
 
 The following two ways used to load the **only components you used**, select one of the ways you like.
 
@@ -189,7 +189,7 @@ The following two ways used to load the **only components you used**, select one
    import Button from 'antd-mobile/lib/button';
    ```
 
-#### More enhanced (optional):
+##### More enhanced (optional):
 
 > [Custom theme and single component style](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
 

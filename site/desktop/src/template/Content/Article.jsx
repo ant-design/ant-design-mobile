@@ -37,15 +37,19 @@ export default class Article extends React.Component {
     }
     const allChildren = [].slice.call(article.props.children);
 
-    const webIndex = allChildren.findIndex(item => item.type === 'h3' && item.props.id.includes('Web'));
-    const RnIndex = allChildren.findIndex(item => item.type === 'h3' && item.props.id.includes('React-Native'));
+    const webIndex = allChildren.findIndex(item => item.type === 'h4' && item.props.id.includes('Web'));
+    const RnIndex = allChildren.findIndex(item => item.type === 'h4' && item.props.id.includes('React-Native'));
+    if (webIndex === -1 || RnIndex === -1) {
+      return article;
+    }
     const endIndex = allChildren.findIndex((item, index) => item.type === 'h2' && index > RnIndex);
 
     const newChildren = allChildren.slice(0, webIndex);
     const webContent = allChildren.slice(webIndex, RnIndex);
+    webContent.splice(0, 1);
     const rnContent = allChildren.slice(RnIndex, endIndex);
+    rnContent.splice(0, 1);
     const otherContent = allChildren.slice(endIndex, allChildren.length);
-
     const IntroTabs = (
       <Tabs defaultActiveKey="1" key="tabs">
         <TabPane tab={allChildren[webIndex].props.id.replace(/-/g, ' ')} key="1" className="markdown">{webContent}</TabPane>

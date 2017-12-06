@@ -70,7 +70,7 @@
     "antd-mobile-demo-data": "^0.1.1",
     "antd-tools": "^4.0.2",
     "babel-eslint": "^7.2.3",
-    "babel-plugin-import": "1.6.1",
+    "babel-plugin-import": "^1.6.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-react-native": "^1.0.0",
     "bisheng": "^0.28.0",
@@ -186,7 +186,6 @@
     "port": 8001
   },
   "typings": "lib/index.d.ts",
-  "theme": "./site/theme.js",
   "pre-commit": [
     "lint-staged"
   ]

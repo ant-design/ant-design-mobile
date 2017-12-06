@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 const replaceLib = require('antd-tools/lib/replaceLib');
 
-
 const useReact = process.env.DEMO_ENV === 'react';
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -23,6 +22,10 @@ const reactExternals = {
   'react-router': 'ReactRouter',
 };
 
+const preactExternals = {
+  preact: 'preact',
+};
+
 const preactAlias = {
   react: 'preact-compat',
   'react-dom': 'preact-compat',
@@ -30,7 +33,7 @@ const preactAlias = {
   preact$: 'preact/dist/preact.js', // https://github.com/developit/preact/issues/924
 };
 
-const prodExternals = useReact ? reactExternals : {};
+const prodExternals = useReact ? reactExternals : preactExternals;
 
 module.exports = {
   filePathMapper(filePath) {
@@ -62,6 +65,7 @@ module.exports = {
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     config.resolve.alias = {
+      'antd-mobile/lib': path.join(process.cwd(), 'components'),
       'antd-mobile': process.cwd(),
       site: path.join(process.cwd(), 'site'),
     };
@@ -115,6 +119,12 @@ module.exports = {
       Gesture: '手势',
       Combination: '组合组件',
       Other: '其他',
+    },
+    docVersions: {
+      '0.7.x': 'http://07x.mobile.ant.design',
+      '0.8.x': 'http://08x.mobile.ant.design',
+      '0.9.x': 'http://09x.mobile.ant.design',
+      '1.x': 'http://1x.mobile.ant.design',
     },
   },
 };

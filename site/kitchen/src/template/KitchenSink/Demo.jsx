@@ -1,14 +1,14 @@
 /* eslint react/no-danger: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WhiteSpace from 'antd-mobile/components/white-space';
-import 'antd-mobile/components/white-space/style/index.tsx';
-import Button from 'antd-mobile/components/button';
-import 'antd-mobile/components/button/style/index.tsx';
-import WingBlank from 'antd-mobile/components/wing-blank';
-import 'antd-mobile/components/wing-blank/style/index.tsx';
-import NoticeBar from 'antd-mobile/components/notice-bar';
-import 'antd-mobile/components/notice-bar/style/index.tsx';
+import WhiteSpace from 'antd-mobile/lib/white-space';
+import 'antd-mobile/lib/white-space/style';
+import Button from 'antd-mobile/lib/button';
+import 'antd-mobile/lib/button/style';
+import WingBlank from 'antd-mobile/lib/wing-blank';
+import 'antd-mobile/lib/wing-blank/style';
+import NoticeBar from 'antd-mobile/lib/notice-bar';
+import 'antd-mobile/lib/notice-bar/style';
 import collect from 'bisheng/collect';
 import { getQuery } from '../../../../utils';
 
