@@ -5,7 +5,7 @@ const _indexDemos = ['drawer'];
 const _subListDemos = ['list-view'];
 
 const pluginAntdConfig = {
-  pxtorem: true,
+  pxtorem: process.env.HD_ENV === 'hd',
   babelConfig: JSON.stringify({
     plugins: [
       [
