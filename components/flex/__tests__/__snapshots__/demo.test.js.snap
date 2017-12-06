@@ -16,52 +16,18 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+        class=" placeholder"
       >
-        Item
+        Block
       </div>
     </div>
     <div
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+        class=" placeholder"
       >
-        Item
-      </div>
-    </div>
-  </div>
-  <div
-    class="am-whitespace am-whitespace-lg"
-  />
-  <div
-    class="am-flexbox am-flexbox-align-center"
-  >
-    <div
-      class="am-flexbox-item"
-    >
-      <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
-      >
-        Item
-      </div>
-    </div>
-    <div
-      class="am-flexbox-item"
-    >
-      <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
-      >
-        Item
-      </div>
-    </div>
-    <div
-      class="am-flexbox-item"
-    >
-      <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
-      >
-        Item
+        Block
       </div>
     </div>
   </div>
@@ -75,36 +41,70 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+        class=" placeholder"
       >
-        Item
+        Block
       </div>
     </div>
     <div
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+        class=" placeholder"
       >
-        Item
+        Block
       </div>
     </div>
     <div
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+        class=" placeholder"
       >
-        Item
+        Block
+      </div>
+    </div>
+  </div>
+  <div
+    class="am-whitespace am-whitespace-lg"
+  />
+  <div
+    class="am-flexbox am-flexbox-align-center"
+  >
+    <div
+      class="am-flexbox-item"
+    >
+      <div
+        class=" placeholder"
+      >
+        Block
       </div>
     </div>
     <div
       class="am-flexbox-item"
     >
       <div
-        style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+        class=" placeholder"
       >
-        Item
+        Block
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item"
+    >
+      <div
+        class=" placeholder"
+      >
+        Block
+      </div>
+    </div>
+    <div
+      class="am-flexbox-item"
+    >
+      <div
+        class=" placeholder"
+      >
+        Block
       </div>
     </div>
   </div>
@@ -120,46 +120,39 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
     class="am-flexbox am-flexbox-wrap am-flexbox-align-center"
   >
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
   </div>
   <div
@@ -174,22 +167,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
     class="am-flexbox am-flexbox-justify-center am-flexbox-align-center"
   >
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
   </div>
   <div
@@ -199,22 +189,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
     class="am-flexbox am-flexbox-justify-end am-flexbox-align-center"
   >
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
   </div>
   <div
@@ -224,22 +211,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
     class="am-flexbox am-flexbox-justify-between am-flexbox-align-center"
   >
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
   </div>
   <div
@@ -249,22 +233,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
     class="am-flexbox am-flexbox-align-start"
   >
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline small"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline small placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
   </div>
   <div
@@ -274,22 +255,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
     class="am-flexbox am-flexbox-align-end"
   >
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline small"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline small placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
   </div>
   <div
@@ -299,22 +277,19 @@ exports[`renders ./components/flex/demo/basic.md correctly 1`] = `
     class="am-flexbox am-flexbox-align-baseline"
   >
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline small"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline small placeholder"
     >
-      Item
+      Block
     </div>
     <div
-      class="inline"
-      style="background-color:#ebebef;color:#bbb;text-align:center;height:30px;line-height:30px;width:100%"
+      class="inline placeholder"
     >
-      Item
+      Block
     </div>
   </div>
 </div>
