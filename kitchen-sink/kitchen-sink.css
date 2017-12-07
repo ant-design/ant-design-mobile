@@ -849,6 +849,7 @@ template {
 }
 body {
   background-color: #f5f5f9;
+  font-size: 14px;
 }
 *[contenteditable] {
   -webkit-user-select: auto !important;
@@ -1026,7 +1027,6 @@ a {
   padding: 15px 15px 9px 15px;
   font-size: 14px;
   color: #888;
-  display: inline-block;
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1458,8 +1458,6 @@ a {
   html:not([data-scale]) .am-button {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-button::before {
     content: '';
@@ -1479,7 +1477,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-button-borderfix:before {
@@ -1504,8 +1501,6 @@ a {
   html:not([data-scale]) .am-button-primary {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-button-primary::before {
     content: '';
@@ -1525,7 +1520,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-button-primary.am-button-active {
@@ -1546,8 +1540,6 @@ a {
   html:not([data-scale]) .am-button-ghost {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-button-ghost::before {
     content: '';
@@ -1567,7 +1559,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-button-ghost.am-button-active {
@@ -1580,8 +1571,6 @@ a {
   html:not([data-scale]) .am-button-ghost.am-button-active {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-button-ghost.am-button-active::before {
     content: '';
@@ -1601,7 +1590,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-button-ghost.am-button-disabled {
@@ -1614,8 +1602,6 @@ a {
   html:not([data-scale]) .am-button-ghost.am-button-disabled {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-button-ghost.am-button-disabled::before {
     content: '';
@@ -1635,7 +1621,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-button-warning {
@@ -3164,8 +3149,6 @@ a {
   html:not([data-scale]) .am-card:not(.am-card-full) {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-card:not(.am-card-full)::before {
     content: '';
@@ -3185,7 +3168,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-card.am-card-full {
@@ -5336,8 +5318,6 @@ a {
   html:not([data-scale]) .am-menu .am-multi-select-btns .am-multi-select-btns-btn {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-menu .am-multi-select-btns .am-multi-select-btns-btn::before {
     content: '';
@@ -5357,7 +5337,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-menu .am-flexbox .am-flexbox-item {
@@ -5786,8 +5765,6 @@ a {
   html:not([data-scale]) .am-modal-input-container {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-modal-input-container::before {
     content: '';
@@ -5807,7 +5784,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-modal-input {
@@ -7412,8 +7388,6 @@ a {
   html:not([data-scale]) .am-tag-normal {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-tag-normal::before {
     content: '';
@@ -7433,7 +7407,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-tag-active {
@@ -7446,8 +7419,6 @@ a {
   html:not([data-scale]) .am-tag-active {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-tag-active::before {
     content: '';
@@ -7467,7 +7438,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-tag-disabled {
@@ -7480,8 +7450,6 @@ a {
   html:not([data-scale]) .am-tag-disabled {
     position: relative;
     border: none;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
   }
   html:not([data-scale]) .am-tag-disabled::before {
     content: '';
@@ -7501,7 +7469,6 @@ a {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     pointer-events: none;
-    z-index: -1;
   }
 }
 .am-tag-close {
