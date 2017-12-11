@@ -15,7 +15,17 @@ Basic Modal.
 
 ````jsx
 import { Modal, List, Button, WhiteSpace, WingBlank } from 'antd-mobile';
-import closest from '../../_util/closest';
+
+function closest(el, selector) {
+  const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
+  while (el) {
+    if (matchesSelector.call(el, selector)) {
+      return el;
+    }
+    el = el.parentElement;
+  }
+  return null;
+}
 
 class App extends React.Component {
   constructor(props) {

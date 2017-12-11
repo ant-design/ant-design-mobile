@@ -30,6 +30,8 @@ Properties | Descrition | Type | Default
 | title       | title (only transparent)         | React.Element    | -           |
 | footer     | footer content (only not transparent)       |  Array [{text, onPress}]    | [] |
 | platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios` | String | `'ios'`|
+| className (`Wen only`) |	String |  |		additional className for dialog
+| wrapClassName (`Wen only`) |	String |  |		additional className for dialog wrap
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )
 

@@ -31,7 +31,9 @@ subtitle: 对话框
 | animationType | 可选: 'slide-down/up'(transparent 模式下 / `web version`) / 'fade' / 'slide'(仅非 tranparent) | String |   fade |
 | title       | 标题 (only transparent)   | React.Element    | 无           |
 | footer     | 底部内容 (only not transparent)     |  Array [{text, onPress}]    | [] |
-| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`    | String | `'ios'`|
+| platform (`Web Only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`    | String | `'ios'`|
+| className (`Web Only`) |	String |  |		additional className for dialog
+| wrapClassName (`Web Only`) |	String |  |		additional className for dialog wrap
 
 ### Modal.alert(title, message, actions?, platform?)
 

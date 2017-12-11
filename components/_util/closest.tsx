@@ -3,9 +3,8 @@ export default function closest(el, selector) {
   while (el) {
     if (matchesSelector.call(el, selector)) {
       return el;
-    } else {
-      el = el.parentElement;
     }
+    el = el.parentElement;
   }
   return null;
 }
