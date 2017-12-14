@@ -16,6 +16,11 @@ toc: false
 
 ---
 
+## 1.7.2
+`2017-12-14`
+
+- Fix `Picker` do not compatibility with Android 4.4. ([dbe8ce](https://github.com/ant-design/ant-design-mobile/commit/dbe8ce99bf1d18e3e68a0bba4c8d6907cc3c6e0f))
+
 ## 1.7.1
 `2017-10-20`
 
