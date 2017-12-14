@@ -43,13 +43,8 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       }
     }
 
-    // prevent click event from being fired more than once for android
-    // https://github.com/ant-design/ant-design-mobile/issues/1975
-    let isFired = false;
     const onClickFn = function (e) {
       e.preventDefault();
-      if (isFired) { return; }
-      isFired = true;
       if (button.onPress) {
         button.onPress();
       }
