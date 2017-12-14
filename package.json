@@ -136,7 +136,7 @@
     "prepublish": "antd-tools run guard",
     "prepare": "antd-tools run guard",
     "prepublishOnly": "antd-tools run guard",
-    "test": "npm run test:rn && npm run test:web",
+    "test": "npm run test:web",
     "test:rn": "jest --config .jest.js",
     "test:web": "jest --config .jest.web.js",
     "test:all": "./scripts/test-all.sh",
