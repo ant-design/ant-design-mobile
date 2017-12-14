@@ -3,13 +3,11 @@ import { View, Text, Platform } from 'react-native';
 import { ActionSheet, Button } from 'antd-mobile';
 
 export default class Test extends React.Component<any, any> {
-  constructor() {
-    super();
-    this.state = {
-      clicked: 'none',
-      text: '',
-    };
-  }
+  state = {
+    clicked: 'none',
+    text: '',
+  };
+
   render() {
     return (
       <View style={{ marginTop: 30 }}>
