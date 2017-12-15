@@ -15,6 +15,16 @@ toc: false
 
 ---
 
+### 2.1.2
+
+`2017-12-15`
+
+- **Bug Fix**
+
+  - 修复 `Modal` 按钮不允许多次点击问题。([#1975](https://github.com/ant-design/ant-design-mobile/issues/1975))
+  - 修复 `Modal` `DatePicker` 文档细节问题。
+  - 修复 upgradeTip / 网站 样式问题。
+
 ### 2.1.1
 
 `2017-12-06`
@@ -178,6 +188,11 @@ toc: false
   - 不再需要配置 `webpack.resolve`
   - `rmc-picker` 升级，简化 picker 相关的 dom 结构。（[#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - 去除全局的 `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
+
+## 1.7.2
+`2017-12-14`
+
+- Fix `Picker` 在 Android 4.4 以下显示不正常的问题. ([dbe8ce](https://github.com/ant-design/ant-design-mobile/commit/dbe8ce99bf1d18e3e68a0bba4c8d6907cc3c6e0f))
 
 ## 1.7.1
 `2017-10-20`

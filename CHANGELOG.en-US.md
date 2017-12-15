@@ -16,6 +16,16 @@ toc: false
 
 ---
 
+### 2.1.2
+
+`2017-12-15`
+
+- **Bug Fix**
+
+  - Fix `Modal` buttons can't trigger more than once.([#1975](https://github.com/ant-design/ant-design-mobile/issues/1975))
+  - Fix `Modal` `DatePicker` document issues.
+  - Fix upgradeTip / site style issues.
+
 ### 2.1.1
 
 `2017-12-06`
@@ -175,6 +185,11 @@ toc: false
   - no need of `webpack.resolve`
   - `rmc-picker` upgrade，dom structure simplify ([#1593](https://github.com/ant-design/ant-design-mobile/issues/1593)）
   - remove global `user-select: none`。[#1793](https://github.com/ant-design/ant-design-mobile/issues/1793)
+
+## 1.7.2
+`2017-12-14`
+
+- Fix `Picker` do not compatibility with Android 4.4. ([dbe8ce](https://github.com/ant-design/ant-design-mobile/commit/dbe8ce99bf1d18e3e68a0bba4c8d6907cc3c6e0f))
 
 ## 1.7.1
 `2017-10-20`
