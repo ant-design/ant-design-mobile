@@ -101,6 +101,8 @@ export default class Demo extends React.Component {
 
     const js = sourceCode
       .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'rc-form';/, 'const { $1 } = window["rc-form"];')
+      .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'array-tree-filter';/, 'const { $1 } = window["arrayTreeFilter"];')
+      .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd-mobile-demo-data';/, 'const { $1 } = window["antd-mobile-demo-data"];')
       .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd-mobile';/, 'const { $1 } = window["antd-mobile"];');
 
     const codepenPrefillConfig = {
@@ -118,6 +120,8 @@ export default class Demo extends React.Component {
         'react-dom@16/umd/react-dom.production.min.js',
         'rc-form@1/dist/rc-form.min.js',
         'antd-mobile@2/dist/antd-mobile.min.js',
+        'array-tree-filter@2',
+        'antd-mobile-demo-data@0.2',
       ]
         .map(url => `https://unpkg.com/${url}`)
         .concat(['https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js'])

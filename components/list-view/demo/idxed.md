@@ -9,22 +9,22 @@ sticky index List
 
 
 ````jsx
-import { province as provinceData } from 'antd-mobile-demo-data';
+import { province } from 'antd-mobile-demo-data';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { ListView, List, SearchBar } from 'antd-mobile';
 
 const { Item } = List;
 
-function genData(ds, province) {
+function genData(ds, provinceData) {
   const dataBlob = {};
   const sectionIDs = [];
   const rowIDs = [];
-  Object.keys(province).forEach((item, index) => {
+  Object.keys(provinceData).forEach((item, index) => {
     sectionIDs.push(item);
     dataBlob[item] = item;
     rowIDs[index] = [];
 
-    province[item].forEach((jj) => {
+    provinceData[item].forEach((jj) => {
       rowIDs[index].push(jj.value);
       dataBlob[jj.value] = jj.label;
     });
@@ -56,14 +56,14 @@ class Demo extends React.Component {
     // simulate initial Ajax
     setTimeout(() => {
       this.setState({
-        dataSource: genData(this.state.dataSource, provinceData),
+        dataSource: genData(this.state.dataSource, province),
         isLoading: false,
       });
     }, 600);
   }
 
   onSearch = (val) => {
-    const pd = { ...provinceData };
+    const pd = { ...province };
     Object.keys(pd).forEach((item) => {
       const arr = pd[item].filter(jj => jj.spell.toLocaleLowerCase().indexOf(val) > -1);
       if (!arr.length) {

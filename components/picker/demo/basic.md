@@ -12,7 +12,7 @@ import { Picker, List, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import arrayTreeFilter from 'array-tree-filter';
 
-import { district, provinceLite as province } from 'antd-mobile-demo-data';
+import { district, provinceLite } from 'antd-mobile-demo-data';
 
 // 如果不是使用 List.Item 作为 children
 const CustomChildren = props => (
@@ -62,7 +62,7 @@ class Test extends React.Component {
   onClick = () => {
     setTimeout(() => {
       this.setState({
-        data: province,
+        data: provinceLite,
       });
     }, 120);
   };
