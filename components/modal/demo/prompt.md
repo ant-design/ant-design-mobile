@@ -41,7 +41,7 @@ const App = () => (
     <Button onClick={() => prompt('defaultValue', 'defaultValue for prompt', [
       { text: 'Cancel' },
       { text: 'Submit', onPress: value => console.log(`输入的内容:${value}`) },
-    ], 'plain-text', '100')}
+    ], 'default', '100')}
     >defaultValue</Button>
 
     <WhiteSpace size="lg" />

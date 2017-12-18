@@ -84,7 +84,6 @@ export default function prompt(
         </div>
       );
       break;
-    case 'plain-text':
     case 'default':
     default:
       inputDom = (
