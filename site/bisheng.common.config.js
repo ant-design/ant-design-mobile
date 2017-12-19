@@ -84,7 +84,7 @@ module.exports = {
     // fix webpack-dev-server "SyntaxError: Use of const in strict mode." ref https://github.com/mrdulin/blog/issues/35
     // https://github.com/webpack/webpack/issues/2031#issuecomment-339336830
     config.module.rules.push({
-      test: /webpack-dev-server/,
+      test: /webpack-dev-server|to-fast-properties/,
       loader: 'babel-loader',
     });
     return config;
