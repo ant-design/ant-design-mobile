@@ -137,6 +137,11 @@ class BasicInputExample extends React.Component {
             type="number"
             placeholder="click to show number keyboard"
           >数字键盘</InputItem>
+          <InputItem
+            {...getFieldProps('digit')}
+            type="digit"
+            placeholder="click to show native number keyboard"
+          >数字键盘</InputItem>
         </List>
 
         <WhiteSpace />

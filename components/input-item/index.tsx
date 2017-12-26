@@ -234,7 +234,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     let classNameProps;
     if (type === 'digit') {
       classNameProps = {
-        className: 'h5numInput',
+        className: 'h5numInput', // the name is bad! todos rename.
       };
     }
 

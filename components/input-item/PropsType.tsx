@@ -5,7 +5,7 @@ interface InputItemProps {
   /** web only */
   moneyKeyboardAlign?: string;
   onClick?: Function;
-  type?: 'text' | 'bankCard' | 'phone' | 'password' | 'number' | 'idcard' | 'digit' | 'money';
+  type?: 'text' | 'bankCard' | 'phone' | 'password' | 'number' | 'digit' | 'money';
   editable?: boolean;
   disabled?: boolean;
   name?: string;

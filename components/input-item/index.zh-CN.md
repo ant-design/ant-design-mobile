@@ -23,7 +23,7 @@ subtitle: 文本输入
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| type    | 银行卡`bankCard`,手机号`phone`（此时最大长度固定为11,`maxLength`设置无效）,密码`password`, 数字`number`（尽量唤起数字键盘，纯web环境目前无法唤起`带小数点`的数字键盘，如有此需求，目前需使用默认键盘并通过onChange自行处理）,`money`带小数点的数字键盘（纯h5实现, `Web Only`）  | String |  `text`  |
+| type    | 可以是银行卡`bankCard`; 手机号`phone`(此时最大长度固定为11,`maxLength`设置无效); 密码`password`; 数字`number`(为了尽量唤起`带小数点`的数字键盘，此类型并不是原生 number，而是`<input type="text" pattern="[0-9]*" />`); `digit`(表示原生的 number 类型); `money`(带小数点的模拟的数字键盘`Web Only`) 以及其他标准 html input type 类型 | String |  `text`  |
 | value    | value 值(受控与否参考https://facebook.github.io/react/docs/forms.html)  | String |  无  |
 | defaultValue    | 设置初始默认值        | String |  -  |
 | placeholder      | placeholder        | String | ''  |
