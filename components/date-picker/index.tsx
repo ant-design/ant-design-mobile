@@ -59,22 +59,6 @@ export default class DatePicker extends React.Component<PropsType, any> {
     const locale = getComponentLocale(props, context, 'DatePicker', () => require('./locale/zh_CN'));
     const { okText, dismissText, extra, DatePickerLocale } = locale;
 
-    const dataPicker = (
-      <RCDatePicker
-        minuteStep={props.minuteStep}
-        locale={DatePickerLocale}
-        minDate={props.minDate}
-        maxDate={props.maxDate}
-        mode={props.mode}
-        pickerPrefixCls={props.pickerPrefixCls}
-        prefixCls={props.prefixCls}
-        defaultDate={value}
-        use12Hours={props.use12Hours}
-        onValueChange={props.onValueChange}
-        onScrollChange={this.setScrollValue}
-      />
-    );
-
     /**
      * 注意:
      * 受控 表示 通过设置 value 属性、组件的最终状态跟 value 设置值一致。
@@ -88,6 +72,22 @@ export default class DatePicker extends React.Component<PropsType, any> {
      *
      */
 
+    const dataPicker = (
+      <RCDatePicker
+        minuteStep={props.minuteStep}
+        locale={DatePickerLocale}
+        minDate={props.minDate}
+        maxDate={props.maxDate}
+        mode={props.mode}
+        pickerPrefixCls={props.pickerPrefixCls}
+        prefixCls={props.prefixCls}
+        defaultDate={value || new Date()}
+        use12Hours={props.use12Hours}
+        onValueChange={props.onValueChange}
+        onScrollChange={this.setScrollValue}
+      />
+    );
+
     return (
       <PopupDatePicker
         datePicker={dataPicker}
@@ -96,7 +96,7 @@ export default class DatePicker extends React.Component<PropsType, any> {
         maskTransitionName="am-fade"
         {...props}
         prefixCls={popupPrefixCls}
-        date={value}
+        date={value || new Date()}
         dismissText={this.props.dismissText || dismissText}
         okText={this.props.okText || okText}
         ref={this.fixOnOk}
