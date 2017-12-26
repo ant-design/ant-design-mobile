@@ -9,6 +9,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
   >
     <div
       class="am-accordion-item"
+      role="tablist"
     >
       <div
         aria-expanded="false"
@@ -23,6 +24,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
     </div>
     <div
       class="am-accordion-item pad"
+      role="tablist"
     >
       <div
         aria-expanded="false"
@@ -37,6 +39,7 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
     </div>
     <div
       class="am-accordion-item pad"
+      role="tablist"
     >
       <div
         aria-expanded="false"
@@ -62,6 +65,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-accordion-item am-accordion-item-active"
+      role="tablist"
     >
       <div
         aria-expanded="true"
@@ -144,6 +148,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-accordion-item pad"
+      role="tablist"
     >
       <div
         aria-expanded="false"
@@ -158,6 +163,7 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-accordion-item pad"
+      role="tablist"
     >
       <div
         aria-expanded="false"

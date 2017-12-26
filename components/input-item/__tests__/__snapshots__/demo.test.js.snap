@@ -454,6 +454,29 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="am-list-item am-input-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-input-label am-input-label-5"
+          >
+            数字键盘
+          </div>
+          <div
+            class="am-input-control"
+          >
+            <input
+              class="h5numInput"
+              placeholder="click to show native number keyboard"
+              type="number"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div

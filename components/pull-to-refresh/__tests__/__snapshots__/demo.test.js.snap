@@ -49,7 +49,7 @@ exports[`renders ./components/pull-to-refresh/demo/basic-listview.md correctly 1
   </a>
   <div
     class="am-list-view-scrollview"
-    style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;flex:1;height:0;border:1px solid #ddd;margin:5px 0"
+    style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;height:0;border:1px solid #ddd;margin:5px 0"
   >
     <div
       class="am-list-view-scrollview-content am-list"

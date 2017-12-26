@@ -3,7 +3,7 @@
 exports[`renders ./components/list-view/demo/basic.md correctly 1`] = `
 <div
   class="am-list-view-scrollview"
-  style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;flex:1;height:0"
+  style="position:relative;overflow:auto;-webkit-overflow-scrolling:touch;height:0"
 >
   <div
     class="am-list-view-scrollview-content am-list"

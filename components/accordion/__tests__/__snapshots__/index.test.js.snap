@@ -6,6 +6,7 @@ exports[`Accordion match snapshot 1`] = `
 >
   <div
     class="am-accordion-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
@@ -20,6 +21,7 @@ exports[`Accordion match snapshot 1`] = `
   </div>
   <div
     class="am-accordion-item"
+    role="tablist"
   >
     <div
       aria-expanded="false"
