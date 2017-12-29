@@ -16,6 +16,22 @@ toc: false
 
 ---
 
+### 2.1.3
+
+`2017-12-29`
+
+Happy new year 2018 🎉
+
+- **Enhancement**
+
+  - New website.
+  - Improve InputItem doc.
+
+- **Bug Fix**
+
+  - Fix: Add defaultDate for DatePicker.
+  - Fix: Delete redundant Modal code.
+
 ### 2.1.2
 
 `2017-12-15`
