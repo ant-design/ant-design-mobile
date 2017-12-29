@@ -1,188 +1,162 @@
+import 'react-github-button/assets/style.css';
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { Link } from 'bisheng/router';
 import GitHubButton from 'react-github-button';
 import { injectIntl } from 'react-intl';
-import 'react-github-button/assets/style.css';
+import { Popover, Button, Row, Col } from 'antd';
 import * as utils from '../../../../utils';
 
-class Home extends React.Component {
-  POINT = 60;
-  startTime = +new Date();
-  moreTime = false;
+function getStyle() {
+  return `
+    .main-wrapper {
+      padding: 0;
+    }
+    #header {
+      box-shadow: none;
+      width: 100%;
+    }
+    #header,
+    #header .ant-select-selection,
+    #header .ant-menu {
+      background: transparent;
+    }
+  `;
+}
 
+class Home extends React.Component {
   constructor(props) {
     super(props);
     const { pathname } = props.location;
     const isZhCN = utils.isZhCN(pathname);
     this.state = {
       isZhCN,
-      welcome: props.isFirstScreen,
-      loading: 0,
     };
-  }
-  componentWillMount() {
-    if (window.location.hash) {
-      const pathname = window.location.hash.replace(/^#/, '').replace('?scrollTo=', '#');
-      window.location.href = pathname;
-    }
-
-    const receiveMessage = (event) => {
-      if (event) {
-        this.setState({ loading: Math.max(this.state.loading, this.POINT) });
-      }
-    };
-    window.addEventListener('message', receiveMessage, false);
-  }
-
-  componentWillUnmount() {
-    const { onEnterChange } = this.props;
-    if (onEnterChange) {
-      onEnterChange('exit');
-    }
-  }
-
-  componentDidMount() {
-    this.loading();
-  }
-
-  loading() {
-    this.moreTime = this.moreTime || +new Date() > this.startTime + 2000;
-    let speed = 100;
-    if (this.state.loading >= this.POINT) {
-      if (this.moreTime) {
-        speed = 10;
-      } else {
-        speed = 70;
-      }
-    }
-
-    setTimeout(() => {
-      if (this.state.loading !== this.POINT - 1) {
-        this.setState({
-          loading: this.state.loading + 1,
-        });
-      }
-      if (this.state.loading < 100) {
-        this.loading();
-      } else {
-        this.setState({
-          welcome: false,
-        });
-      }
-    }, speed);
   }
 
   render() {
-    const { isZhCN, welcome, loading } = this.state;
+    const { isZhCN } = this.state;
 
-    let iframeUrl = window.location.port ? 'http://localhost:8002/' : `${window.location.origin}/kitchen-sink/`;
-    if (isZhCN) {
-      iframeUrl = `${iframeUrl}?lang=zh-CN`;
-    } else {
-      iframeUrl = `${iframeUrl}?lang=en-US`;
-    }
-
-    let iframeCls = 'home-iframe';
-    if (!welcome) {
-      iframeCls += ' move-left';
-    } else {
-      iframeCls += ' fade-in';
-    }
-
-    const count = Math.floor(loading / 10);
-    let prg = '';
-    for (let i = 0; i < 10; i += 1) {
-      prg += i < count ? '=' : '-';
-    }
+    const addSeparater = (str) => {
+      const arr = str.split('|');
+      // arr.splice(1, 0 <span>|</span>)
+      return [arr[0], <span className="divider">|</span>, arr[1]];
+    };
 
     return (
       <DocumentTitle title={`Ant Design Mobile - ${this.props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
-        <div className="home-main">
-          {
-            false &&
-            <div className="welcome-icon fade-in">
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/aKoUQpToTfJVKGFQdmFd.png" alt="" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/vWsYHYMWcdjmpIagCokB.png" alt="" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/CQuJgTfsOeYTVYyGVxZm.png" alt="" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/JYKUUhZWeDWnyrwyqXcf.png" alt="" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/zPnYQbPrVkPgAeXXbTTT.png" alt="" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/BlvJVPzFvsNlRwVIrBVm.png" alt="" />
-            </div>
-          }
-          <div className={iframeCls}>
-            <div style={{ width: '424Px', height: '810Px', position: 'relative' }}>
-              <div className="holo" />
-              <div className="demo-preview-wrapper">
-                <div className="hold" />
-                <section className="code-box-demo code-box-demo-preview"
-                  style={{
-                    background: welcome ? '#041928' : '#F5F5F9',
-                  }}
-                >
-                  <iframe
-                    id="demoFrame"
-                    title="antd-mobile"
-                    name="demoFrame"
-                    style={{ width: '424Px', height: '662Px' }}
-                    src={iframeUrl}
-                  />
-
-                  {
-                    welcome &&
-                    <div className="phone"
-                      style={{ width: '424Px', height: '662Px' }}
-                    >
-                      <div className="title">Ant Design Mobile</div>
-                      <div className="title">2.0</div>
-                      <div className="prg">loading</div>
-                      <div className="prg">[{prg}]</div>
-                      <div className="prg">{this.state.loading}%</div>
-                      <div className="feat">/* Faster */</div>
-                      <div className="feat">/* easy to use */</div>
-                      <div className="feat">/* lightweight */</div>
-                    </div>
-                  }
-                </section>
-                <div className="oval" />
-              </div>
-            </div>
-          </div>
-          {
-            false &&
-            <div className="welcome-icon fade-in">
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/agaKKXVNzwIVZMttqJbz.png" alt="" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/AgPJWjTZZEcLxPYWFWZV.png" alt="" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/rjKSrrgfyLgDcrjQwsGu.png" alt="" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/nyijBOGoiMaZmXejuflR.png" alt="" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/cGvpeIopGvhyZXvDcxfA.png" alt="" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/bzVjQwHEElzSFptaGFuX.png" alt="" />
-            </div>
-          }
-          {
-            !welcome &&
-            <div className="banner-text-wrapper content-in">
-              <h2 key="h2">{this.props.intl.formatMessage({ id: 'app.home.centerSlogan' })}</h2>
-              {this.props.intl.formatMessage({ id: 'app.home.centerSubSlogan' })}
-              <div className="op-area">
-                <div className="start-button-wrap" key="button">
+        <div className="main-wrapper">
+          <section className="home-s1">
+            <div className="banner-wrapper">
+              <div className="banner-text-wrapper">
+                <h2 key="h2">Ant Design Mobile</h2>
+                <p>{this.props.intl.formatMessage({ id: 'app.home.epitomize' })}</p>
+                <div key="button1" className="start-button">
                   <Link to={`/docs/react/introduce${isZhCN ? '-cn' : ''}`}>
-                    {this.props.intl.formatMessage({ id: 'app.home.centerStart' })}
+                    <Button type="primary" size="large">
+                      {this.props.intl.formatMessage({ id: 'app.home.centerStart' })}
+                    </Button>
                   </Link>
+                  <Popover
+                    placement="bottom"
+                    trigger="click"
+                    content={
+                      <img className="home-qr" src="https://zos.alipayobjects.com/rmsportal/TrdkqxQcrAUcmYelQUNK.png" alt="qrcode" />
+                    }
+                  >
+                    <Button type="primary" ghost>
+                      {this.props.intl.formatMessage({ id: 'app.home.qrtip' })}
+                    </Button>
+                  </Popover>
+                  <GitHubButton
+                    key="github-button"
+                    type="stargazers"
+                    namespace="ant-design"
+                    repo="ant-design-mobile"
+                  />
                 </div>
-                <GitHubButton
-                  key="github-button"
-                  type="stargazers"
-                  namespace="ant-design"
-                  repo="ant-design-mobile"
-                />
               </div>
-              <img className="qr" src="https://zos.alipayobjects.com/rmsportal/TrdkqxQcrAUcmYelQUNK.png" alt="qrcode" />
-              <div className="qr-tip">{this.props.intl.formatMessage({ id: 'app.home.qrtip' })}</div>
             </div>
-          }
+          </section>
+          <section className="home-s2">
+            <div className="wrapper">
+              <h3>{this.props.intl.formatMessage({ id: 'app.home.s2_title' })}</h3>
+              <Row gutter={72} style={{ marginBottom: 80 }}>
+                <Col span={12}>
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/KUmyjoMxFFbjEdjiIWOw.png" alt="" />
+                  <div className="des">
+                    <div>{addSeparater(this.props.intl.formatMessage({ id: 'app.home.s2_des1' }))}</div>
+                    <p>{this.props.intl.formatMessage({ id: 'app.home.s2_des10' })}</p>
+                  </div>
+                </Col>
+                <Col span={12}>
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/hfFgCpcxpGjeAlXFFgyT.png" alt="" />
+                  <div className="des">
+                    <div>{addSeparater(this.props.intl.formatMessage({ id: 'app.home.s2_des2' }))}</div>
+                    <p>{this.props.intl.formatMessage({ id: 'app.home.s2_des20' })}</p>
+                  </div>
+                </Col>
+              </Row>
+              <Row gutter={48}>
+                <Col span={12}>
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/nlUNcWIVLKoarLnWNaWS.png" alt="" />
+                  <div className="des">
+                    <div>{addSeparater(this.props.intl.formatMessage({ id: 'app.home.s2_des3' }))}</div>
+                    <p>{this.props.intl.formatMessage({ id: 'app.home.s2_des30' })}</p>
+                  </div>
+                </Col>
+                <Col span={12}>
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/JjNULDGGwgOZmsZAqvjH.png" alt="" />
+                  <div className="des">
+                    <div>{addSeparater(this.props.intl.formatMessage({ id: 'app.home.s2_des4' }))}</div>
+                    <p>{this.props.intl.formatMessage({ id: 'app.home.s2_des40' })}</p>
+                  </div>
+                </Col>
+              </Row>
+            </div>
+          </section>
+          <section className="home-s3">
+            <div className="wrapper">
+              <h3>
+                <img src="https://gw.alipayobjects.com/zos/rmsportal/EzhXjBHtavGDkTbewrvp.png" alt="" />
+                {this.props.intl.formatMessage({ id: 'app.home.s3_title' })}
+              </h3>
+              <p>{this.props.intl.formatMessage({ id: 'app.home.s3_des' })}</p>
+              <a href="http://p.tb.cn/rmsportal_3436_AntDesignMobile_20Template_20V1.0.sketch">
+                <Button size="large" ghost>{this.props.intl.formatMessage({ id: 'app.home.s3_btn' })}</Button>
+              </a>
+            </div>
+          </section>
+          <section className="home-s4">
+            <div className="wrapper">
+              <h3>{this.props.intl.formatMessage({ id: 'app.home.s4_title' })}</h3>
+              <Row style={{ marginBottom: 48 }}>
+                <Col span={8}>
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/BGcxWbIWmgBlIChNOpqp.png" alt="" />
+                </Col>
+                <Col span={8}>
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/qTKmDWNtAZMaYarVLIZT.png" alt="" />
+                </Col>
+                <Col span={8}>
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/ARwKOjaDethbuHOfMWOW.png" alt="" />
+                </Col>
+              </Row>
+              <Row>
+                <Col span={8}>
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/HinWzLTHESDKjWqvqChF.png" alt="" />
+                </Col>
+                <Col span={8}>
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/MHkXUADpUDavOJfLrMpy.png" alt="" />
+                </Col>
+                <Col span={8}>
+                  <img src="https://gw.alipayobjects.com/zos/rmsportal/YEiMaxUWGRExNqYAwQhy.png" alt="" />
+                </Col>
+              </Row>
+            </div>
+          </section>
+          <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
         </div>
-      </DocumentTitle >
+      </DocumentTitle>
     );
   }
 }

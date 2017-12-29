@@ -16,6 +16,7 @@ export default class Header extends React.Component {
     router: PropTypes.object.isRequired,
     intl: PropTypes.object.isRequired,
   }
+
   state = {
     inputValue: '',
     menuVisible: false,
@@ -56,6 +57,7 @@ export default class Header extends React.Component {
       window.location.href = `${searchLink}${this.state.inputValue}`;
       return;
     }
+
     const { intl, router } = this.context;
     this.setState({
       inputValue: '',
@@ -64,6 +66,7 @@ export default class Header extends React.Component {
       this.searchInput.blur();
     });
   }
+
   handleInputChange = (value) => {
     this.setState({
       inputValue: value,
@@ -106,7 +109,6 @@ export default class Header extends React.Component {
     const { components } = picked;
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
-
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
     }
@@ -127,11 +129,11 @@ export default class Header extends React.Component {
           </Option>
         );
       });
-    options.push((
+    options.push(
       <Option key="searchEngine" value={searchEngine} data-label={searchEngine}>
         <FormattedMessage id="app.header.search" />
-      </Option>
-    ));
+      </Option>);
+
     const headerClassName = classNames({
       clearfix: true,
       'home-nav-white': !isFirstScreen,
@@ -139,7 +141,7 @@ export default class Header extends React.Component {
     });
 
     const menu = [
-      <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
+      <Button ghost size="small" onClick={this.handleLangChange} className="header-lang-button" key="lang-button">
         <FormattedMessage id="app.header.lang" />
       </Button>,
       <Select
@@ -153,7 +155,7 @@ export default class Header extends React.Component {
       >
         {versionOptions}
       </Select>,
-      <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
+      <Menu className="menu-site" mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
           <Link to={utils.getLocalizedPathname('/', isZhCN)}>
             <FormattedMessage id="app.header.menu.home" />
@@ -164,18 +166,18 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="pc">
+        {/* <Menu.Item key="pc">
           <a href="//ant.design">
             <FormattedMessage id="app.header.menu.pc" />
           </a>
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu>,
     ];
 
     const searchPlaceholder = locale === 'zh-CN' ? '搜索组件...' : 'Search Components...';
     return (
       <header id="header" className={headerClassName}>
-        {menuMode === 'inline' && (
+        {menuMode === 'inline' ? (
           <Popover
             overlayClassName="popover-menu"
             placement="bottomRight"
@@ -191,16 +193,17 @@ export default class Header extends React.Component {
               onClick={this.handleShowMenu}
             />
           </Popover>
-        )}
+        ) : null}
         <Row>
-          <Col lg={5} md={6} sm={24} xs={24}>
+          <Col xxl={4} xl={5} lg={5} md={8} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
-              <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/cEhTdQeQZOaAoHqReZlo.svg" />
+              <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
               <span>{themeConfig.siteTitle}</span>
             </Link>
           </Col>
-          <Col lg={19} md={18} sm={0} xs={0}>
+          <Col xxl={20} xl={19} lg={19} md={16} sm={0} xs={0}>
             <div id="search-box">
+              <Icon type="search" />
               <AutoComplete
                 dataSource={options}
                 value={inputValue}
@@ -215,7 +218,7 @@ export default class Header extends React.Component {
                 <Input ref={ref => this.searchInput = ref} />
               </AutoComplete>
             </div>
-            {menuMode === 'horizontal' && menu}
+            {menuMode === 'horizontal' ? menu : null}
           </Col>
         </Row>
       </header>

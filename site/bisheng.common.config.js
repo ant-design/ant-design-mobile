@@ -95,7 +95,7 @@ module.exports = {
     useHD: process.env.HD_ENV === 'hd',
   },
   themeConfig: {
-    siteTitle: 'ANT DESIGN MOBILE',
+    siteTitle: 'Ant Design Mobile',
     siteSubTitle: '支付宝移动端组件库',
     indexDemos: ['drawer'], // for kitchen 这些组件每个 demo 都需要全屏展示，首页直接放其各个 demo 链接
     subListDemos: ['list-view', 'pull-to-refresh'], // for kitchen 这些组件每个 demo 都需要全屏展示，首页直接放其各个 demo 链接

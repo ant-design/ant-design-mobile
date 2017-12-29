@@ -39,7 +39,7 @@ export default class MainContent extends React.Component {
   }
 
   getSideBarOpenKeys(nextProps) {
-    const pathname = nextProps.location.pathname;
+    const { pathname } = nextProps.location;
     const prevModule = this.currentModule;
     this.currentModule = pathname.replace(/^\//).split('/')[1] || 'components';
     if (this.currentModule === 'react') {
@@ -160,7 +160,7 @@ export default class MainContent extends React.Component {
     const menuItemsList = this.flattenMenu(menuItems);
     let activeMenuItemIndex = -1;
     menuItemsList.forEach((menuItem, i) => {
-      if (menuItem.key === activeMenuItem) {
+      if (menuItem && menuItem.key === activeMenuItem) {
         activeMenuItemIndex = i;
       }
     });
@@ -180,7 +180,7 @@ export default class MainContent extends React.Component {
     }
   }
   render() {
-    const props = this.props;
+    const { props } = this;
     const activeMenuItem = getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
@@ -191,46 +191,45 @@ export default class MainContent extends React.Component {
       (<ComponentDoc {...props} doc={localizedPageData} demos={demos} />) :
       <Article {...props} content={localizedPageData} />;
     return (
-      <div className="main-layout">
-        <div className="main-wrapper">
-          <Row>
-            <Col lg={5} md={6} sm={24} xs={24}>
-              <Menu
-                className="aside-container"
-                mode="inline"
-                openKeys={this.state.openKeys}
-                selectedKeys={[activeMenuItem]}
-                onOpenChange={this.handleMenuOpenChange}
-              >
-                {menuItems}
-              </Menu>
-            </Col>
-            <Col lg={19} md={18} sm={24} xs={24} className="main-container">
-              {DemoEl}
-            </Col>
-          </Row>
-          <Row>
-            <Col
-              lg={{ span: 19, offset: 5 }}
-              md={{ span: 18, offset: 6 }}
-              sm={24}
-              xs={24}
+      <div className="main-wrapper">
+        <Row>
+          <Col lg={5} md={6} sm={24} xs={24}>
+            <Menu
+              inlineIndent="40"
+              className="aside-container menu-site"
+              mode="inline"
+              openKeys={this.state.openKeys}
+              selectedKeys={[activeMenuItem]}
+              onOpenChange={this.handleMenuOpenChange}
             >
-              <section className="prev-next-nav">
-                {
-                  prev ?
-                    React.cloneElement(prev.props.children, { className: 'prev-page' }) :
-                    null
-                }
-                {
-                  next ?
-                    React.cloneElement(next.props.children, { className: 'next-page' }) :
-                    null
-                }
-              </section>
-            </Col>
-          </Row>
-        </div>
+              {menuItems}
+            </Menu>
+          </Col>
+          <Col lg={19} md={18} sm={24} xs={24} className="main-container">
+            {DemoEl}
+          </Col>
+        </Row>
+        <Row>
+          <Col
+            lg={{ span: 19, offset: 5 }}
+            md={{ span: 18, offset: 6 }}
+            sm={24}
+            xs={24}
+          >
+            <section className="prev-next-nav">
+              {
+                prev ?
+                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
+                  null
+              }
+              {
+                next ?
+                  React.cloneElement(next.props.children, { className: 'next-page' }) :
+                  null
+              }
+            </section>
+          </Col>
+        </Row>
       </div>
     );
   }

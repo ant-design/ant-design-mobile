@@ -23,15 +23,8 @@
 }
 
 @media only screen and (min-width: 0) and (max-width: 992px) {
-  .home-iframe {
-    display: none;
-  }
-  .op-area {
-    justify-content: center;
-    margin-left: 60px;
-  }
-  .banner-text-wrapper {
-    margin-left: 0;
+  .banner-wrapper::before {
+    opacity: 0.1;
   }
   #search-box {
     display: none;
@@ -48,13 +41,6 @@
   .preview-image-box {
     padding-left: 0;
     margin: 10px 0;
-  }
-
-  a#logo {
-    width: 250px;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
   }
 
   .banner-entry {
@@ -92,13 +78,6 @@
   .banner-text-wrapper {
     width: 100%;
     text-align: center;
-  }
-
-  button.lang {
-    display: block;
-    margin: 29px auto 16px;
-    color: @text-color;
-    border-color: @text-color;
   }
 
   div.version {
@@ -185,13 +164,6 @@
     > .markdown > * {
       width: 100% !important;
     }
-  }
-
-  .main-wrapper {
-    background: #fff;
-    width: 100%;
-    border-radius: 0;
-    margin: 0;
   }
 
   footer {
