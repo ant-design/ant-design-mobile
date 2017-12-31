@@ -6,6 +6,8 @@ import RMCMultiPicker from 'rmc-picker/lib/MultiPicker';
 import RMCPicker from 'rmc-picker/lib/Picker';
 import treeFilter from 'array-tree-filter';
 import tsPropsType from './PropsType';
+import { getComponentLocale } from '../_util/getLocale';
+import zh_CN from './locale/zh_CN';
 
 export function getDefaultProps() {
   const defaultFormat = (values) => {
@@ -74,6 +76,9 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
       itemStyle, indicatorStyle, cascade, prefixCls, pickerPrefixCls, data, cols,
       onPickerChange, ...restProps,
     } = this.props;
+
+    const _locale = getComponentLocale(this.props, this.context, 'Picker', () => zh_CN);
+
     let cascader;
     let popupMoreProps = {};
     if (cascade) {
@@ -110,11 +115,11 @@ export default abstract class AbstractPicker extends React.Component<tsPropsType
         {...restProps}
         prefixCls={popupPrefixCls}
         value={value}
-        dismissText={dismissText}
-        okText={okText}
+        dismissText={dismissText || _locale.dismissText}
+        okText={okText || _locale.okText}
         {...popupMoreProps}
       >
-        {children && React.cloneElement(children, { extra: this.getSel() || extra })}
+        {children && React.cloneElement(children, { extra: this.getSel() || extra || _locale.extra })}
       </RMCPopupCascader>
     );
   }
