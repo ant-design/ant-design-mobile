@@ -40,7 +40,7 @@ class Home extends React.Component {
     const addSeparater = (str) => {
       const arr = str.split('|');
       // arr.splice(1, 0 <span>|</span>)
-      return [arr[0], <span key="divider" className="divider">|</span>, arr[1]];
+      return [arr[0], <span key="divider" className="divider" />, arr[1]];
     };
 
     return (
