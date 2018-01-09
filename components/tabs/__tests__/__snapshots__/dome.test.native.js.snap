@@ -46,7 +46,7 @@ exports[`renders ./components/tabs/demo/basic.native.tsx correctly 1`] = `
               onLayout={[Function]}
               style={
                 Object {
-                  "backgroundColor": "#ffffff",
+                  "backgroundColor": "#fff",
                   "elevation": 0,
                   "flex": 1,
                   "flexDirection": "row",
@@ -375,7 +375,7 @@ exports[`renders ./components/tabs/demo/basic.native.tsx correctly 1`] = `
                 onLayout={[Function]}
                 style={
                   Object {
-                    "backgroundColor": "#ffffff",
+                    "backgroundColor": "#fff",
                     "elevation": 0,
                     "flex": 1,
                     "flexDirection": "row",
