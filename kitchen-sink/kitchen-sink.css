@@ -5544,6 +5544,16 @@ a {
 .am-modal-wrap-popup {
   display: block;
 }
+.am-modal-transparent {
+  width: 270px;
+}
+.am-modal-transparent .am-modal-content {
+  border-radius: 7px;
+  padding-top: 15px;
+}
+.am-modal-transparent .am-modal-content .am-modal-body {
+  padding: 0 15px 15px;
+}
 .am-modal-popup {
   position: fixed;
   left: 0;
@@ -5554,17 +5564,6 @@ a {
 }
 .am-modal-popup-slide-up {
   bottom: 0;
-}
-.am-modal.am-modal-transparent {
-  width: 270px;
-}
-.am-modal.am-modal-transparent .am-modal-content {
-  border-radius: 7px;
-  height: auto;
-  padding-top: 15px;
-}
-.am-modal.am-modal-transparent .am-modal-content .am-modal-body {
-  padding: 0 15px 15px;
 }
 .am-modal-title {
   margin: 0;
