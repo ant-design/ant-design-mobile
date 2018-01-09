@@ -24,8 +24,8 @@ export interface IPickerView {
   value?: any[];
   data?: any;
   styles?: any;
-  onChange?: (value?) => void;
-  onScrollChange?: (value?) => void;
+  onChange?: (value?: any) => void;
+  onScrollChange?: (value?: any) => void;
   indicatorStyle?: any;
   itemStyle?: any;
 }

@@ -7,7 +7,7 @@ interface StepProps {
   autoFocus?: boolean;
   value?: number;
   defaultValue?: number;
-  onChange?: (value) => void;
+  onChange?: (value: any) => void;
   style?: {};
   upStyle?: {};
   downStyle?: {};
