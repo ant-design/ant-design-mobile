@@ -73,11 +73,6 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       {footer.map((button: any, i) => this.renderFooterButton(button, prefixCls, i))}
     </div> : null;
 
-    // popup 模式自动禁止 transparent
-    if (popup) {
-      transparent = false;
-    }
-
     let transName;
     let maskTransName;
     if (animated) {

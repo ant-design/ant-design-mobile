@@ -39,6 +39,18 @@
     }
   }
 
+  &-transparent {
+    width: 270 * @hd;
+    .@{modalPrefixClass}-content {
+      border-radius: @radius-lg;
+      padding-top: @v-spacing-lg;
+
+      .@{modalPrefixClass}-body {
+        padding: 0 @h-spacing-lg @v-spacing-lg;
+      }
+    }
+  }
+
   &-popup {
     position: fixed;
     left: 0;
@@ -50,19 +62,6 @@
 
     &-slide-up {
       bottom: 0;
-    }
-  }
-
-  &&-transparent {
-    width: 270 * @hd;
-    .@{modalPrefixClass}-content {
-      border-radius: @radius-lg;
-      height: auto;
-      padding-top: @v-spacing-lg;
-
-      .@{modalPrefixClass}-body {
-        padding: 0 @h-spacing-lg @v-spacing-lg;
-      }
     }
   }
 

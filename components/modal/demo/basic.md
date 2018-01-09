@@ -87,7 +87,7 @@ class App extends React.Component {
         <Modal
           popup
           visible={this.state.modal2}
-          maskClosable={false}
+          onClose={this.onClose('modal2')}
           animationType="slide-up"
         >
           <List renderHeader={() => <div>委托买入</div>} className="popup-list">

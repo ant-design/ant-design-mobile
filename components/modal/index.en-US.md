@@ -20,26 +20,28 @@ Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| visible      | Determine whether a modal dialog is visible or not | Boolean          | false           |
-| closable    | Determine whether a close (x) button is visible or not | Boolean    | `false`       |
-| maskClosable | Determine whether to close the modal dialog when clicked mask of it (only transparent) | Boolean   | true       |
-| onClose      | Callback for clicking close icon x or mask        | (): void   | - |
-| transparent | transparent mode or full screen mode       | Boolean   |  false |
-| popup | popup mode, transparent will not work when in popup mode | Boolean   |  false |
-| animationType | Options: 'slide-down/up'(only transparent / `web version`) / 'fade' / 'slide'(only not tranparent) | String |   fade |
-| title       | title (only transparent)         | React.Element    | -           |
-| footer     | footer content (only not transparent)       |  Array [{text, onPress}]    | [] |
-| platform (`web only`) |  set the special style depends on platform, Options  `android`, `ios` | String | `'ios'`|
-| className (`Wen only`) |	String |  |		additional className for dialog
-| wrapClassName (`Wen only`) |	String |  |		additional className for dialog wrap
+| visible | Determine whether a modal dialog is visible or not | Boolean | false |
+| closable | Determine whether a close (x) button is visible or not | Boolean | false |
+| maskClosable | Determine whether to close the modal dialog when clicked mask of it | Boolean | true |
+| onClose | Callback for clicking close icon x or mask | (): void | - |
+| transparent | transparent mode or full screen mode | Boolean | false |
+| popup | popup mode | Boolean | false |
+| animationType | Options: 'slide-down/up'(`web version`) / 'fade' / 'slide' | String | fade |
+| title | title | React.Element | - |
+| footer | footer content | Array [{text, onPress}] | [] |
+| platform (`web only`) | set the special style depends on platform, Options `android`, `ios` | String | `ios` |
+| transitionName (`Wen only`) | Modal animation css class name | String | |
+| maskTransitionName (`Wen only`) | mask animation css class name | String | |
+| className (`Wen only`) | additional className for dialog | String | |
+| wrapClassName (`Wen only`) | additional className for dialog wrap | String | |
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| title        | title                      | String or React.Element   | -            |
-| message      | message                  | String or React.Element    | -    |
-| actions         | button group, [{text, onPress, style}]       | Array | -            |
+| title | title | String or React.Element | -  |
+| message | message  | String or React.Element  | -  |
+| actions | button group, [{text, onPress, style}]  | Array | -  |
 
 call `Modal.alert(title, message, actions?).close()`  can close Alert Modal outside anywhere as you wish.
 
@@ -47,12 +49,12 @@ call `Modal.alert(title, message, actions?).close()`  can close Alert Modal outs
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| title        | title                      | String or React.Element   | -            |
-| message      | message                  | String or React.Element                    | -    |
-| callbackOrActions  | button group [{text, onPress}] or callback      | Array or Function | -            |
-| type       | prompt style   | String (`default`, `secure-text`, `login-password`)|  `default`  |
-| defaultValue       | Default(input whick type is password is not supported)   | String |   -  |
-| placeholders       | ['', '']  | String[] |   -  |
+| title | title | String or React.Element | -  |
+| message | message  | String or React.Element  | -  |
+| callbackOrActions  | button group [{text, onPress}] or callback | Array or Function | -  |
+| type  | prompt style | String (`default`, `secure-text`, `login-password`)|  `default`  |
+| defaultValue  | Default(input whick type is password is not supported) | String | -  |
+| placeholders  | ['', '']  | String[] | -  |
 
 call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?).close()` can close prompt Modal outside anywhere as you wish.
 
@@ -60,6 +62,6 @@ call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, place
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| actions         | button group, [{text, onPress, style}]       | Array | -            |
+| actions | button group, [{text, onPress, style}]  | Array | -  |
 
 call Modal.operation(actions?).close()` can close Operation Modal outside anywhere as you wish.
