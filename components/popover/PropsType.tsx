@@ -8,7 +8,7 @@ interface Props {
   triggerStyle?: any;
   overlayStyle?: any;
   contextStyle?: any;
-  renderOverlayComponent?: (values) => any;
+  renderOverlayComponent?: (values: any) => any;
   name?: string;
   openMenu?: Function;
   closeMenu?: Function;
