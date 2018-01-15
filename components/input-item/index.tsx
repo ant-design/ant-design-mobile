@@ -35,6 +35,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     onChange: noop,
     onBlur: noop,
     onFocus: noop,
+    onSubmit: noop,
     extra: '',
     onExtraClick: noop,
     error: false,
@@ -141,6 +142,12 @@ class InputItem extends React.Component<InputItemProps, any> {
     }
     if (this.props.onBlur) {
       this.props.onBlur(value);
+    }
+  }
+
+  onInputSubmit = (value) => {
+    if (this.props.onSubmit) {
+      this.props.onSubmit(value);
     }
   }
 
@@ -254,6 +261,7 @@ class InputItem extends React.Component<InputItemProps, any> {
                 onChange={this.onInputChange}
                 onFocus={this.onInputFocus}
                 onBlur={this.onInputBlur}
+                onSubmit={this.onInputSubmit}
                 disabled={disabled}
                 editable={editable}
                 prefixCls={prefixCls}
