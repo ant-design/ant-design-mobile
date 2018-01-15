@@ -137,6 +137,7 @@ ReactDOM.render(<App />, mountNode);
 .space-carousel {
   padding: 16px;
   background: #DEF1E5;
+  overflow: hidden;
 }
 .my-carousel .v-item {
   height: 36px;
