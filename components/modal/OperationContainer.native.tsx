@@ -21,7 +21,7 @@ export default class OperationContainer extends React.Component<OperationContain
     };
   }
 
-  onClose= () => {
+  onClose = () => {
     this.setState({
       visible: false,
     });
