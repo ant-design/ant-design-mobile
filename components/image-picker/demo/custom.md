@@ -48,6 +48,7 @@ class ImagePickerExample extends React.Component {
           onImageClick={(index, fs) => console.log(index, fs)}
           selectable={files.length < 5}
           onAddImageClick={this.onAddImageClick}
+          accept="image/*.gif,image/*.jpeg,image/*.jpg,image/*.png,image/*.svg"
         />
       </div>
     );
