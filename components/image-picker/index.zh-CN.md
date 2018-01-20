@@ -21,6 +21,7 @@ subtitle: 图片选择器
 | onFail | 选择失败(`WEB`)或者取消回调(`RN`)  | (msg: string): void |   |
 | selectable| 是否显示添加按钮  | boolean |  true |
 | multiple| 是否支持多选  | boolean |  false |
+| accept| 图片类型  | string |  image/* |
 
 
 > 注: RN 版本回传 assets-library (性能考虑)，需要使用 native 模块进行上传，可参考 https://github.com/facebook/react-native/issues/201
