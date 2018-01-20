@@ -1,12 +1,12 @@
 ---
-order: 1
+order: 2
 title:
-  zh-CN: 自定义选择图片的方法
-  en-US: 'Cutom how to choose file'
+  zh-CN: 自定义文件类型
+  en-US: 'Cutom file accept'
 ---
 
 ````jsx
-import { ImagePicker } from 'antd-mobile';
+import { ImagePicker, WingBlank, SegmentedControl } from 'antd-mobile';
 
 const data = [{
   url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg',
@@ -19,37 +19,39 @@ const data = [{
 class ImagePickerExample extends React.Component {
   state = {
     files: data,
-  };
+    multiple: false,
+  }
   onChange = (files, type, index) => {
     console.log(files, type, index);
     this.setState({
       files,
     });
-  };
-  onAddImageClick = (e) => {
-    e.preventDefault();
+  }
+  onSegChange = (e) => {
+    const index = e.nativeEvent.selectedSegmentIndex;
     this.setState({
-      files: this.state.files.concat({
-        url: 'https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg',
-        id: '3',
-      }),
+      multiple: index === 1,
     });
-  };
-  onTabChange = (key) => {
-    console.log(key);
-  };
+  }
+
   render() {
     const { files } = this.state;
     return (
-      <div>
+      <WingBlank>
+        <SegmentedControl
+          values={['切换到单选', '切换到多选']}
+          selectedIndex={this.state.multiple ? 1 : 0}
+          onChange={this.onSegChange}
+        />
         <ImagePicker
           files={files}
           onChange={this.onChange}
           onImageClick={(index, fs) => console.log(index, fs)}
           selectable={files.length < 5}
-          onAddImageClick={this.onAddImageClick}
+          multiple={this.state.multiple}
+          accept="image/*.gif,image/*.jpeg,image/*.jpg,image/*.png,image/*.svg"
         />
-      </div>
+      </WingBlank>
     );
   }
 }
