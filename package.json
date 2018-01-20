@@ -188,5 +188,10 @@
   "typings": "lib/index.d.ts",
   "pre-commit": [
     "lint-staged"
-  ]
+  ],
+  "rnpm": {
+    "assets": [
+      "./fonts"
+    ]
+  }
 }
