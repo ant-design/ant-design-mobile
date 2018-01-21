@@ -44,6 +44,7 @@ my-release-key.keystore
 yarn.lock
 npm-debug.log*
 !components/**/__tests__/*.js
+!components/icon/
 coverage
 /es/
 package-lock.json
