@@ -182,12 +182,14 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
     } = this.props;
     const { disabled } = otherProps;
     const { value, focus } = this.state;
+    const hasCount = count! > 0 && this.props.rows! > 1;
 
     const wrapCls = classnames(className, `${prefixListCls}-item`, `${prefixCls}-item`, {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-item-single-line`]: this.props.rows === 1 && !autoHeight,
       [`${prefixCls}-error`]: error,
       [`${prefixCls}-focus`]: focus,
+      [`${prefixCls}-has-count`]: hasCount,
     });
 
     const labelCls = classnames(`${prefixCls}-label`, {
@@ -225,7 +227,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
           </TouchFeedback>
         }
         {error && <div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />}
-        {count! > 0 && this.props.rows! > 1 &&
+        {hasCount &&
           <span className={`${prefixCls}-count`}><span>{value ? characterLength : 0}</span>/{count}</span>
         }
       </div>
