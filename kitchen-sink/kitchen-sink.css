@@ -7653,6 +7653,9 @@ a {
 .am-textarea-focus .am-textarea-clear {
   display: block;
 }
+.am-textarea-has-count {
+  padding-bottom: 14px;
+}
 .am-textarea-count {
   position: absolute;
   bottom: 6px;
