@@ -8,10 +8,15 @@ export default function prompt(
   type = 'default', defaultValue = '', placeholders = ['', ''],
   platform = 'ios',
 ) {
+  let closed = false;
+
+  defaultValue = typeof defaultValue === 'string' ? defaultValue :
+    typeof defaultValue === 'number' ? `${defaultValue}` : '';
+
   if (!callbackOrActions) {
     // console.log('Must specify callbackOrActions');
     return {
-      close: () => {},
+      close: () => { },
     };
   }
 
@@ -24,12 +29,12 @@ export default function prompt(
   function onChange(e) {
     const target = e.target;
     const inputType = target.getAttribute('type');
-    data[inputType] =  target.value;
+    data[inputType] = target.value;
   }
 
   let inputDom;
 
-  const focusFn = function(input) {
+  const focusFn = function (input) {
     setTimeout(() => {
       if (input) {
         input.focus();
@@ -125,7 +130,7 @@ export default function prompt(
     const { text = '', password = '' } = data;
     const callbackArgs =
       type === 'login-password' ? [text, password] :
-      type === 'secure-text' ?  [password] : [text];
+        type === 'secure-text' ? [password] : [text];
 
     return callback(...callbackArgs);
   }
@@ -148,14 +153,18 @@ export default function prompt(
   }
 
   const footer = actions.map((button) => {
-    const orginPress = button.onPress || function() {};
+    const orginPress = button.onPress || function () { };
     button.onPress = () => {
+      if (closed) { return; }
+
       const res = orginPress();
       if (res && res.then) {
         res.then(() => {
+          closed = true;
           close();
         });
       } else {
+        closed = true;
         close();
       }
     };
