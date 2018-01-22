@@ -31,7 +31,7 @@ export default function operation(
         res.then(() => {
           closed = true;
           close();
-        });
+        }).catch(() => { });
       } else {
         closed = true;
         close();

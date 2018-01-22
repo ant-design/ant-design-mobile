@@ -162,7 +162,7 @@ export default function prompt(
         res.then(() => {
           closed = true;
           close();
-        });
+        }).catch(() => { });
       } else {
         closed = true;
         close();

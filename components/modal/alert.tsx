@@ -36,7 +36,7 @@ export default function alert(
         res.then(() => {
           closed = true;
           close();
-        });
+        }).catch(() => { });
       } else {
         closed = true;
         close();
