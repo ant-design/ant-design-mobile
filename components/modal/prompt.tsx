@@ -118,7 +118,7 @@ export default function prompt(
     }
   }
 
-  function onConfirm(callback) {
+  function handleConfirm(callback) {
     if (typeof callback !== 'function') {
       return;
     }
@@ -134,14 +134,14 @@ export default function prompt(
   if (typeof callbackOrActions === 'function') {
     actions = [
       { text: '取消' },
-      { text: '确定', onPress: () => { onConfirm(callbackOrActions); } },
+      { text: '确定', onPress: () => { handleConfirm(callbackOrActions); } },
     ];
   } else {
     actions = callbackOrActions.map(item => {
       return {
         text: item.text,
         onPress: () => {
-          return onConfirm(item.onPress);
+          return handleConfirm(item.onPress);
         },
       };
     });
