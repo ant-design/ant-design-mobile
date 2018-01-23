@@ -16,6 +16,18 @@ toc: false
 
 ---
 
+### 2.1.4
+
+`2018-01-23`
+
+- **Bug Fix**
+
+  - Fix: Modal defaultValue problem. ([#2221](https://github.com/ant-design/ant-design-mobile/pull/2221))
+  - Fix: Modal click event not correctly. ([#1975](https://github.com/ant-design/ant-design-mobile/pull/1975))
+  - Fix: TextArea styles.
+  - Fix: DatePicker/Picker value cache problem.
+  - Fix: InputItem error. ([#2220](https://github.com/ant-design/ant-design-mobile/pull/2220))
+
 ### 2.1.3
 
 `2017-12-29`
