@@ -31,6 +31,8 @@ Properties | Descrition | Type | Default
 | extra   | the display text | String  |  `请选择`  |
 | prefixCls (`WEB only`) |  prefix class  | string | `am-picker` |
 | className (`WEB only`) |  className | string | - |
+| onOk  | handler called when click ok | (val): void  |  - |
+| onDismiss  | handler called when click cancel | (): void  |  -  |
 
 Note: The date strings have different implementations in different browsers. For example, `new Date ('2017-1-1')` is an Invalid Date on Safari but is parsed properly on Chrome.
 

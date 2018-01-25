@@ -107,8 +107,8 @@ class Test extends React.Component {
           {this.renderBtn('水平进入', 'Horizontal enter', { enterDirection: 'horizontal' })}
           {this.renderBtn('默认选择范围', 'Selected Date Range', { defaultValue: [new Date(+now - 86400000), new Date(+now - 345600000)] })}
           {this.renderBtn('onSelect API', 'onSelect API', {
-            onSelect: (date) => {
-              console.log('onSelect', date);
+            onSelect: (date, state) => {
+              console.log('onSelect', date, state);
               return [date, new Date(+now - 604800000)];
             },
           })}

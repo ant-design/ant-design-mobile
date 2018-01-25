@@ -35,7 +35,7 @@ infiniteOpt | 无限滚动优化（大范围选择）| boolean | false | false
 initalMonths | 初始化月个数 | number | 6 | false
 maxDate | 最大日期 | Date | | false
 minDate | 最小日期 | Date | | false
-onSelect | 选择区间回调 | (date: \[Date, Date\] \| \[Date\]) => \[Date, Date\] \| \[Date\] \| void | | false
+onSelect | 选择区间回调 | (date: Date, state?: \[Date | undefined, Date | undefined\]) => \[Date, Date\] \| \[Date\] \| void | | false
 onSelectHasDisableDate | 选择区间包含不可用日期 | (date: Date[]) => void | | false
 rowSize | 行大小 | 'normal' \| 'xl' | | false
 defaultValue | 默认日历选择范围 | \[Date, Date\] \| \[Date\] | | false
