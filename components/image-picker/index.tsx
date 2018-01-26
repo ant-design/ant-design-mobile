@@ -23,6 +23,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     selectable: true,
     multiple: false,
     accept: 'image/*',
+    grids: 4,
+    square: false,
   };
 
   fileSelectorInput: any;
@@ -148,7 +150,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
   render() {
     const {
-      prefixCls, style, className, files = [], selectable, onAddImageClick, multiple, accept,
+      prefixCls, style, className, files = [], selectable, onAddImageClick, multiple, accept, grids, square,
     } = this.props;
 
     const imgItemList: any[] = [];
@@ -204,17 +206,54 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
 
     let allEl = selectable ? imgItemList.concat([selectEl]) : imgItemList;
     const length = allEl.length;
-    if (length !== 0 && length % 4 !== 0) {
-      const blankCount = 4 - length % 4;
-      let fillBlankEl: Array<any> = [];
-      for (let i = 0; i < blankCount; i++) {
-        fillBlankEl.push(<Flex.Item key={`blank-${i}`} />);
+    let blankCount = 0;
+    let fillBlankEl: Array<any> = [];
+    if (square) {
+      if (length !== 0 && length % grids !== 0) {
+        const imageLength = selectable ? length - 1 : length;
+        const squareRoot = Math.floor(Math.sqrt(imageLength));
+        if (squareRoot >= grids || Math.pow(squareRoot, 2) !== imageLength) {
+          blankCount = grids - length % grids;
+          fillBlankEl = [];
+          for (let i = 0; i < blankCount; i++) {
+            fillBlankEl.push(<Flex.Item key={`blank-${i}`} />);
+          }
+          allEl = allEl.concat(fillBlankEl);
+        } else {
+          if (squareRoot > 0) {
+            for (let i = 0; i < squareRoot; i++) {
+              blankCount = grids - squareRoot;
+              if (i < squareRoot - 1) {
+                for (let j = 0; j < blankCount; j++) {
+                  allEl.splice(i * grids + squareRoot + j, 0, <Flex.Item key={`blank-${i}`}/>);
+                }
+              } else {
+                for (let j = 0; j < blankCount - 1; j++) {
+                  allEl.splice(i * grids + squareRoot + 1 + j, 0, <Flex.Item key={`blank-${i}`}/>);
+                }
+              }
+            }
+          } else {
+            blankCount = grids - squareRoot;
+            for (let i = 0; i < blankCount - 1; i++) {
+              allEl.splice(1 + i, 0, <Flex.Item key={`blank-${i}`}/>);
+            }
+          }
+        }
       }
-      allEl = allEl.concat(fillBlankEl);
+    } else {
+      if (length !== 0 && length % grids !== 0) {
+        blankCount = grids - length % grids;
+        fillBlankEl = [];
+        for (let i = 0; i < blankCount; i++) {
+          fillBlankEl.push(<Flex.Item key={`blank-${i}`} />);
+        }
+        allEl = allEl.concat(fillBlankEl);
+      }
     }
     const flexEl: Array<Array<any>> = [];
-    for (let i = 0; i < allEl.length / 4; i++) {
-      const rowEl = allEl.slice(i * 4, i * 4 + 4);
+    for (let i = 0; i < allEl.length / grids; i++) {
+      const rowEl = allEl.slice(i * grids, i * grids + grids);
       flexEl.push(rowEl);
     }
     const renderEl = flexEl.map((item, index) => (
