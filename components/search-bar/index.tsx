@@ -14,7 +14,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   static defaultProps = defaultProps;
   rightBtnInitMarginleft: any;
   firstFocus: any;
-  scrollIntoViewTimeout: any;
   blurFromOnClear: any;
   onBlurTimeout: any;
   inputRef: any;
@@ -72,10 +71,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   }
 
   componentWillUnmount() {
-    if (this.scrollIntoViewTimeout) {
-      clearTimeout(this.scrollIntoViewTimeout);
-      this.scrollIntoViewTimeout = null;
-    }
     if (this.onBlurTimeout) {
       clearTimeout(this.onBlurTimeout);
       this.onBlurTimeout = null;
@@ -113,14 +108,6 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
 
     if (this.props.onFocus) {
       this.props.onFocus();
-    }
-
-    if (document.activeElement.tagName.toLowerCase() === 'input') {
-      this.scrollIntoViewTimeout = setTimeout(() => {
-        try {
-          (document.activeElement as any).scrollIntoViewIfNeeded();
-        } catch (e) { }
-      }, 100);
     }
   }
 
