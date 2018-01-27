@@ -7,10 +7,12 @@ import { Action } from './PropsType';
 export default function alert(
   title, message, actions = [{ text: '确定' }], platform = 'ios',
 ) {
+  let closed = false;
+
   if (!title && !message) {
     // console.log('Must specify either an alert title, or message, or both');
     return {
-      close: () => {},
+      close: () => { },
     };
   }
 
@@ -25,14 +27,18 @@ export default function alert(
   }
 
   const footer = actions.map((button: Action) => {
-    const orginPress = button.onPress || function () {};
+    const orginPress = button.onPress || function () { };
     button.onPress = () => {
+      if (closed) { return; }
+
       const res = orginPress();
       if (res && res.then) {
         res.then(() => {
+          closed = true;
           close();
-        });
+        }).catch(() => { });
       } else {
+        closed = true;
         close();
       }
     };

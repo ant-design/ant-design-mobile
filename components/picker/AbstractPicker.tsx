@@ -114,6 +114,13 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
     }
   }
 
+  onVisibleChange = (_) => {
+    this.setScrollValue(undefined);
+    if (this.props.onVisibleChange) {
+      this.props.onVisibleChange(_);
+    }
+  }
+
   render() {
     const {
       children, value = [], popupPrefixCls, itemStyle, indicatorStyle, okText, dismissText,
@@ -163,6 +170,7 @@ export default abstract class AbstractPicker extends React.Component<PickerProps
         okText={okText || _locale.okText}
         {...popupMoreProps}
         ref={this.fixOnOk}
+        onVisibleChange={this.onVisibleChange}
       >
         {children && React.cloneElement(children, { extra: this.getSel() || extra || _locale.extra })}
       </RMCPopupCascader>

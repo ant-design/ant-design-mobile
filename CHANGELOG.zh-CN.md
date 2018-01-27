@@ -15,6 +15,18 @@ toc: false
 
 ---
 
+### 2.1.4
+
+`2018-01-23`
+
+- **Bug Fix**
+
+  - 修复: Modal defaultValue 问题 ([#2221](https://github.com/ant-design/ant-design-mobile/pull/2221))
+  - 修复: Modal 关闭事件问题 ([#1975](https://github.com/ant-design/ant-design-mobile/pull/1975))
+  - 修复: TextArea 样式问题
+  - 修复: DatePicker/Picker 值缓存问题
+  - 修复: InputItem 报错 ([#2220](https://github.com/ant-design/ant-design-mobile/pull/2220))
+
 ### 2.1.3
 
 `2017-12-29`

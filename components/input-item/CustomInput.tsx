@@ -1,4 +1,3 @@
-/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import classnames from 'classnames';
@@ -8,7 +7,6 @@ import { addClass, removeClass } from '../_util/class';
 
 const IS_REACT_16 = !!(ReactDOM as any).createPortal;
 let customNumberKeyboard: any = null;
-let hasPortal = false;
 
 class NumberInput extends React.Component<any, any> {
   static defaultProps = {
@@ -49,9 +47,7 @@ class NumberInput extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    if (!IS_REACT_16 && !customNumberKeyboard) {
-      this.renderCustomKeyboard();
-    }
+    this.renderCustomKeyboard();
   }
 
   addBlurListener = () => {
@@ -78,17 +74,14 @@ class NumberInput extends React.Component<any, any> {
 
   getComponent() {
     const { keyboardPrefixCls, confirmLabel } = this.props;
-    if (!hasPortal || !IS_REACT_16) {
-      return (
-        <CustomKeyboard
-          ref={this.saveRef}
-          onClick={this.onKeyboardClick}
-          preixCls={keyboardPrefixCls}
-          confirmLabel={confirmLabel}
-        />
-      );
-    }
-    return null as any;
+    return (
+      <CustomKeyboard
+        ref={this.saveRef}
+        onClick={this.onKeyboardClick}
+        preixCls={keyboardPrefixCls}
+        confirmLabel={confirmLabel}
+      />
+    );
   }
 
   getContainer() {
@@ -103,6 +96,9 @@ class NumberInput extends React.Component<any, any> {
   }
 
   renderCustomKeyboard() {
+    if (IS_REACT_16 || customNumberKeyboard) {
+      return;
+    }
     customNumberKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
       this,
       this.getComponent(),
@@ -219,10 +215,6 @@ class NumberInput extends React.Component<any, any> {
         {this.getComponent()}
       </Portal>
     );
-    // make sure one keyboard is been created in react@16
-    // https://github.com/ant-design/ant-design-mobile/issues/2065
-    hasPortal = true;
-
     return portal;
   }
 
