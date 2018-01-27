@@ -152,7 +152,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
   render() {
     const {
-      prefixCls, style, className, files = [], selectable, onAddImageClick, multiple, accept, grids, square,
+      prefixCls, style, className, files = [], selectable, onAddImageClick, multiple, accept, grids = 4, square,
     } = this.props;
 
     const imgItemList: any[] = [];
