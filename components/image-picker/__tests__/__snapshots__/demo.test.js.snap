@@ -253,7 +253,126 @@ exports[`renders ./components/image-picker/demo/custom.md correctly 1`] = `
 exports[`renders ./components/image-picker/demo/grids.md correctly 1`] = `
 <div>
   <div
+    class="am-list"
+  >
+    <div
+      class="am-list-body"
+    >
+      <div
+        checked=""
+        class="am-list-item am-radio-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            3*3 Grids
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            <label
+              class="am-radio-wrapper"
+            >
+              <span
+                class="am-radio am-radio-checked"
+              >
+                <input
+                  checked=""
+                  class="am-radio-input"
+                  type="radio"
+                />
+                <span
+                  class="am-radio-inner"
+                />
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none"
+        />
+      </div>
+      <div
+        class="am-list-item am-radio-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            4*4 Grids
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            <label
+              class="am-radio-wrapper"
+            >
+              <span
+                class="am-radio"
+              >
+                <input
+                  class="am-radio-input"
+                  type="radio"
+                />
+                <span
+                  class="am-radio-inner"
+                />
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none"
+        />
+      </div>
+      <div
+        class="am-list-item am-radio-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-list-content"
+          >
+            5*5 Grids
+          </div>
+          <div
+            class="am-list-extra"
+          >
+            <label
+              class="am-radio-wrapper"
+            >
+              <span
+                class="am-radio"
+              >
+                <input
+                  class="am-radio-input"
+                  type="radio"
+                />
+                <span
+                  class="am-radio-inner"
+                />
+              </span>
+            </label>
+          </div>
+        </div>
+        <div
+          class="am-list-ripple"
+          style="display:none"
+        />
+      </div>
+    </div>
+  </div>
+  <div
     class="am-image-picker"
+    style="width:calc(3*(25% + 1.25px) - 5px)"
   >
     <div
       class="am-image-picker-list"

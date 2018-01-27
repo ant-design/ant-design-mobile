@@ -22,6 +22,8 @@ subtitle: 图片选择器
 | selectable| 是否显示添加按钮  | boolean |  true |
 | multiple| 是否支持多选  | boolean |  false |
 | accept| 图片类型  | string |  image/* |
+| grids| 网格数量  | number |  4 |
+| square| 是否使用平方布局（参考微信九宫格），配合grids属性使用  | boolean |  false |
 
 
 > 注: RN 版本回传 assets-library (性能考虑)，需要使用 native 模块进行上传，可参考 https://github.com/facebook/react-native/issues/201
