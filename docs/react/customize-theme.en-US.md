@@ -13,7 +13,7 @@ Ant Design Mobile allows to customize some basic design aspects in order to meet
 
 We are using [Less](http://lesscss.org/) as the development language of style. A set of less variables are defined for each design aspect that can be customized to your needs.
 
-- [the default style variable](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
+- [the default style variable](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less)
 
 Please report an issue if the existing list of variables is not enough for you.
 
@@ -42,7 +42,7 @@ we can use the way of [modifyVars](http://lesscss.org/usage/#using-less-in-the-b
 }
 ```
 
-- Then，add the 'theme' in `package.json` file, [the default style variable](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
+- Then，add the 'theme' in `package.json` file, [the default style variable](https://github.com/ant-design/ant-design-mobile/blob/master/components/style/themes/default.less)
 
 ```js
 {
