@@ -6,6 +6,7 @@ const http = require('https');
 const { Buffer } = require('buffer');
 
 function debug(...args) {
+  // eslint-disable-next-line no-console
   console.log(...args);
 }
 
@@ -111,8 +112,7 @@ function resolveSource(version, file) {
   ].map(({ file, source, steps }) => {
     const init = readFileOverHttp(resolveSource(version, source));
     return steps.reduce((prev, next) => prev.then(next), init).then((data) => {
-      const filePath = path.resolve(__dirname, file);
-      return fs.writeFileSync(filePath, data);
+      fs.writeFileSync(path.resolve(__dirname, file), data);
     });
   });
 
