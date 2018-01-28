@@ -1,3 +1,5 @@
+/* eslint-disable comma-dangle */
+
 const config = {
   extends: ['eslint-config-airbnb'],
   env: {
@@ -5,21 +7,21 @@ const config = {
     node: true,
     mocha: true,
     jest: true,
-    es6: true,
+    es6: true
   },
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
     ecmaFeatures: {
       jsx: true,
-      experimentalObjectRestSpread: true,
+      experimentalObjectRestSpread: true
     },
   },
   plugins: [
     'markdown',
     'react',
     'babel',
-    'jsx-a11y',
+    'jsx-a11y'
   ],
   rules: {
     'class-methods-use-this': 0,
@@ -48,8 +50,8 @@ const config = {
     'prefer-destructuring': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'react/jsx-no-comment-textnodes': 0,
-    'object-curly-newline': 0,
-  },
+    'object-curly-newline': 0
+  }
 };
 
 if (process.env.RUN_ENV === 'DEMO') {
@@ -60,7 +62,7 @@ if (process.env.RUN_ENV === 'DEMO') {
     AlipayJSBridge: true,
     $: true,
     dd: true,
-    process: true,
+    process: true
   };
 
   Object.assign(config.rules, {
@@ -70,7 +72,7 @@ if (process.env.RUN_ENV === 'DEMO') {
     'import/no-webpack-loader-syntax': 0,
     'eol-last': 0,
     'prefer-rest-params': 0,
-    'react/no-multi-comp': 0,
+    'react/no-multi-comp': 0
   });
 }
 
