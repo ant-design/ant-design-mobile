@@ -11,7 +11,6 @@ export interface ITextareaItemStyle {
 
 export default {
   container: {
-    marginLeft: variables.h_spacing_lg,
     borderBottomWidth: variables.border_width_sm,
     borderBottomColor: variables.border_color_base,
   },
