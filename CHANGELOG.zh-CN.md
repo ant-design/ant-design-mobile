@@ -15,6 +15,26 @@ toc: false
 
 ---
 
+### 2.1.5
+
+`2017-01-29`
+
+- **Feature**
+
+  - 🌟 `ImagePicker` 支持自定义 `accept` 属性。([#2269](https://github.com/ant-design/ant-design-mobile/pull/2269))
+
+- **Bug Fix**
+
+  - 🐞  修复 `InputItem` 在 ios 11 上 focus 时被键盘遮盖的问题。([#2289](https://github.com/ant-design/ant-design-mobile/pull/2289))
+  - 🐞  修复 `Menu` 确定按钮遮盖内容列表的问题。([#2273](https://github.com/ant-design/ant-design-mobile/issues/2273))
+  - 🐞  修复 `Progress` tsd。([#2292](https://github.com/ant-design/ant-design-mobile/issues/2292))
+  - 🐞  [React Native] 修复 `TextareaItem` 多余的左间距。([#2260](https://github.com/ant-design/ant-design-mobile/pull/2260))
+
+
+- **Enhancement**
+
+  - 📝 修复 [Picker](https://github.com/ant-design/ant-design-mobile/issues/2291), [DatePicker, Calendar](https://github.com/ant-design/ant-design-mobile/issues/2282) 文档。
+
 ### 2.1.4
 
 `2018-01-23`
