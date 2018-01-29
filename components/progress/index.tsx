@@ -47,8 +47,8 @@ export default class Progress extends React.Component<ProgressProps, any> {
         className={wrapCls}
         role="progressbar"
         aria-valuenow={this.props.percent}
-        aria-valuemin="0"
-        aria-valuemax="100"
+        aria-valuemin={0}
+        aria-valuemax={100}
       >
         <div ref={el => this.barRef = el} className={`${prefixCls}-bar`} style={{ ...barStyle, ...percentStyle }} />
       </div>
