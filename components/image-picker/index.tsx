@@ -22,6 +22,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     onFail: noop,
     selectable: true,
     multiple: false,
+    accept: 'image/*',
   };
 
   fileSelectorInput: any;
@@ -147,7 +148,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
   render() {
     const {
-      prefixCls, style, className, files = [], selectable, onAddImageClick, multiple,
+      prefixCls, style, className, files = [], selectable, onAddImageClick, multiple, accept,
     } = this.props;
 
     const imgItemList: any[] = [];
@@ -192,7 +193,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             <input
               ref={(input) => { this.fileSelectorInput = input; }}
               type="file"
-              accept="image/*"
+              accept={accept}
               onChange={() => { this.onFileChange(); }}
               multiple={multiple}
             />
