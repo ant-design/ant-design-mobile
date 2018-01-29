@@ -19,7 +19,7 @@ subtitle: 选择器
 ----|-----|------|------
 | data    | 数据源        | `Array<{value, label, children: Array}>` |   -  |
 | value   | 值, 格式是`[value1, value2, value3]`, 对应数据源的相应级层value    | Array  | - |
-| format  | 格式化选中值的函数  | (val): void | `(values) => { return values.join(','); } ` |
+| format  | 格式化选中值的函数  | (labels: string[]): any | `(labels) => { return labels.join(','); } ` |
 | cols    | 列数        | Number |  `3`  |
 | onChange | 选中后的回调，可使用[rc-form](https://github.com/react-component/form) | (val): void | - |
 | onPickerChange | 每列数据选择变化后的回调函数   | (val): void | - |
