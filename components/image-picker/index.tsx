@@ -210,6 +210,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     if (square) {
       const imageLength = selectable ? allEl.length - 1 : allEl.length;
       const squareRoot = Math.floor(Math.sqrt(imageLength));
+      let allElInsertBlank: any[] = [];
       if (squareRoot > 1 && squareRoot < grids && Math.pow(squareRoot, 2) === imageLength) {
         for (let i = 0; i < squareRoot - 1; i++) {
           const blankCount = grids - squareRoot;
@@ -217,8 +218,10 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
           for (let j = 0; j < blankCount; j++) {
             fillBlankEl.push(<Flex.Item key={`blank-square-${j}`} />);
           }
-          allEl.splice(i * grids + squareRoot, 0, ...fillBlankEl);
+          const rowEl = allEl.slice(i * squareRoot, i * squareRoot + squareRoot);
+          allElInsertBlank = allElInsertBlank.concat(rowEl.concat(fillBlankEl));
         }
+        allEl = allElInsertBlank.concat(allEl.slice((squareRoot - 1) * squareRoot));
       }
     }
     const length = allEl.length;
