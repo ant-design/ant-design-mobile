@@ -23,6 +23,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     selectable: true,
     multiple: false,
     accept: 'image/*',
+    grids: 4,
+    square: false,
   };
 
   fileSelectorInput: any;
@@ -148,7 +150,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
   render() {
     const {
-      prefixCls, style, className, files = [], selectable, onAddImageClick, multiple, accept,
+      prefixCls, style, className, files = [], selectable, onAddImageClick, multiple, accept, grids = 4, square,
     } = this.props;
 
     const imgItemList: any[] = [];
@@ -191,7 +193,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             aria-label="Choose and add image"
           >
             <input
-              ref={(input) => { this.fileSelectorInput = input; }}
+              ref={(input) => { if (input) { this.fileSelectorInput = input; } }}
               type="file"
               accept={accept}
               onChange={() => { this.onFileChange(); }}
@@ -203,9 +205,26 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     );
 
     let allEl = selectable ? imgItemList.concat([selectEl]) : imgItemList;
+    if (square) {
+      const imageLength = selectable ? allEl.length - 1 : allEl.length;
+      const squareRoot = Math.floor(Math.sqrt(imageLength));
+      let allElInsertBlank: any[] = [];
+      if (squareRoot > 1 && squareRoot < grids && Math.pow(squareRoot, 2) === imageLength) {
+        for (let i = 0; i < squareRoot - 1; i++) {
+          const blankCount = grids - squareRoot;
+          let fillBlankEl: Array<any> = [];
+          for (let j = 0; j < blankCount; j++) {
+            fillBlankEl.push(<Flex.Item key={`blank-square-${j}`} />);
+          }
+          const rowEl = allEl.slice(i * squareRoot, i * squareRoot + squareRoot);
+          allElInsertBlank = allElInsertBlank.concat(rowEl.concat(fillBlankEl));
+        }
+        allEl = allElInsertBlank.concat(allEl.slice((squareRoot - 1) * squareRoot));
+      }
+    }
     const length = allEl.length;
-    if (length !== 0 && length % 4 !== 0) {
-      const blankCount = 4 - length % 4;
+    if (length !== 0 && length % grids !== 0) {
+      const blankCount = grids - length % grids;
       let fillBlankEl: Array<any> = [];
       for (let i = 0; i < blankCount; i++) {
         fillBlankEl.push(<Flex.Item key={`blank-${i}`} />);
@@ -213,8 +232,8 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       allEl = allEl.concat(fillBlankEl);
     }
     const flexEl: Array<Array<any>> = [];
-    for (let i = 0; i < allEl.length / 4; i++) {
-      const rowEl = allEl.slice(i * 4, i * 4 + 4);
+    for (let i = 0; i < allEl.length / grids; i++) {
+      const rowEl = allEl.slice(i * grids, i * grids + grids);
       flexEl.push(rowEl);
     }
     const renderEl = flexEl.map((item, index) => (
