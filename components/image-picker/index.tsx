@@ -119,9 +119,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
         this.parseFile(files[i], i);
       }
     }
-    if (fileSelectorEl) {
-      fileSelectorEl.value = '';
-    }
+    fileSelectorEl.value = '';
   }
 
   parseFile = (file, index) => {
