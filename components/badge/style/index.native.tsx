@@ -1,4 +1,4 @@
-import { Platform, ViewStyle, TextStyle } from 'react-native';
+import { Platform, TextStyle, ViewStyle } from 'react-native';
 import variables from '../../style/themes/default.native';
 
 export interface IBadgeStyle {
@@ -48,9 +48,11 @@ export default {
   textCorner: {
     width: 18 * grid,
     backgroundColor: variables.brand_important,
-    transform: [{
-      rotate: '45deg',
-    }],
+    transform: [
+      {
+        rotate: '45deg',
+      },
+    ],
     position: 'absolute',
     top: 2 * grid,
   },
