@@ -1,14 +1,17 @@
 /* tslint:disable:jsx-no-multiline-js */
-import React from 'react';
 import classnames from 'classnames';
-import BasePropsType from './PropsType';
+import React from 'react';
+import { ActivityIndicatorPropTypes } from './PropsType';
 
-export interface ActivityIndicatorProps extends BasePropsType {
+export interface ActivityIndicatorProps extends ActivityIndicatorPropTypes {
   prefixCls?: string;
   className?: string;
 }
 
-export default class ActivityIndicator extends React.Component<ActivityIndicatorProps, any> {
+export default class ActivityIndicator extends React.Component<
+  ActivityIndicatorProps,
+  any
+> {
   static defaultProps = {
     prefixCls: 'am-activity-indicator',
     animating: true,
@@ -31,18 +34,16 @@ export default class ActivityIndicator extends React.Component<ActivityIndicator
       if (toast) {
         return (
           <div className={wrapClass}>
-            {
-              text ? (
-                <div className={`${prefixCls}-content`}>
-                  <span className={spinnerClass} aria-hidden="true" />
-                  <span className={`${prefixCls}-toast`}>{text}</span>
-                </div>
-              ) : (
-                  <div className={`${prefixCls}-content`}>
-                    <span className={spinnerClass} aria-label="Loading" />
-                  </div>
-                )
-            }
+            {text ? (
+              <div className={`${prefixCls}-content`}>
+                <span className={spinnerClass} aria-hidden="true" />
+                <span className={`${prefixCls}-toast`}>{text}</span>
+              </div>
+            ) : (
+              <div className={`${prefixCls}-content`}>
+                <span className={spinnerClass} aria-label="Loading" />
+              </div>
+            )}
           </div>
         );
       } else {
@@ -52,10 +53,10 @@ export default class ActivityIndicator extends React.Component<ActivityIndicator
             <span className={`${prefixCls}-tip`}>{text}</span>
           </div>
         ) : (
-            <div className={wrapClass}>
-              <span className={spinnerClass} aria-label="loading" />
-            </div>
-          );
+          <div className={wrapClass}>
+            <span className={spinnerClass} aria-label="loading" />
+          </div>
+        );
       }
     } else {
       return null;
