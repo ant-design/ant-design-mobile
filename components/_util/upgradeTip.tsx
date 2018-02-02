@@ -1,3 +1,4 @@
+// tslint:disable
 if (
   typeof process !== 'undefined' &&
   process.env.NODE_ENV === 'development' &&
@@ -17,36 +18,40 @@ if (
         return `jsonp_${Date.now()}_${Math.ceil(Math.random() * 100000)}`;
       }
 
-      function clearFunction(functionName) {
+      function clearFunction(functionName: string) {
         // IE8 throws an exception when you try to delete a property on window
         // http://stackoverflow.com/a/1824228/751089
         try {
+          // @ts-ignore
           delete window[functionName];
         } catch (e) {
+          // @ts-ignore
           window[functionName] = undefined;
         }
       }
 
-      function removeScript(scriptId) {
+      function removeScript(scriptId: string) {
         const script = document.getElementById(scriptId);
         if (script) {
           document.getElementsByTagName('head')[0].removeChild(script);
         }
       }
 
-      function fetchJsonp(_url, options: any = {}) {
+      function fetchJsonp(_url: string, options: any = {}) {
         // to avoid param reassign
         let url = _url;
         const timeout = options.timeout || defaultOptions.timeout;
-        const jsonpCallback = options.jsonpCallback || defaultOptions.jsonpCallback;
+        const jsonpCallback =
+          options.jsonpCallback || defaultOptions.jsonpCallback;
 
-        let timeoutId;
+        let timeoutId: number;
 
         return new Promise((resolve, reject) => {
-          const callbackFunction = options.jsonpCallbackFunction || generateCallbackFunction();
+          const callbackFunction =
+            options.jsonpCallbackFunction || generateCallbackFunction();
           const scriptId = `${jsonpCallback}_${callbackFunction}`;
-
-          window[callbackFunction] = (response) => {
+          // @ts-ignore
+          window[callbackFunction] = response => {
             resolve({
               ok: true,
               // keep consistent with fetch API
@@ -63,10 +68,13 @@ if (
           };
 
           // Check if the user set their own params, and if not add a ? to start a list of params
-          url += (url.indexOf('?') === -1) ? '?' : '&';
+          url += url.indexOf('?') === -1 ? '?' : '&';
 
           const jsonpScript = document.createElement('script');
-          jsonpScript.setAttribute('src', `${url}${jsonpCallback}=${callbackFunction}`);
+          jsonpScript.setAttribute(
+            'src',
+            `${url}${jsonpCallback}=${callbackFunction}`
+          );
           if (options.charset) {
             jsonpScript.setAttribute('charset', options.charset);
           }
@@ -78,6 +86,7 @@ if (
 
             clearFunction(callbackFunction);
             removeScript(scriptId);
+            // @ts-ignore
             window[callbackFunction] = () => {
               clearFunction(callbackFunction);
             };
@@ -97,7 +106,8 @@ if (
       }
       //#endregion
 
-      const gateway = 'https://basement-gzone.alipay.com/mgw_proxy/unauthorized_endpoint';
+      const gateway =
+        'https://basement-gzone.alipay.com/mgw_proxy/unauthorized_endpoint';
       const params = {
         path: 'antd-mobile-upgrade-tip/upgrade-tip-h5data',
         'x-basement-operation': 'com.alipay.h5data.fengdie.get',
@@ -113,7 +123,7 @@ if (
             data = data.result.result;
           }
           let notice = '';
-          const tipComponents = data.filter(item => {
+          const tipComponents = data.filter((item: any) => {
             const key = item.name;
             if (key === '[notice]') {
               notice = item.tip;
@@ -144,7 +154,7 @@ if (
               '--------------------------------------------------------\n',
               '[antd-mobile-upgrade-tip] Notice:\n',
               `${notice}\n`,
-              '--------------------------------------------------------',
+              '--------------------------------------------------------'
             );
           }
 
@@ -153,20 +163,20 @@ if (
               '--------------------------------------------------------\n',
               '[antd-mobile-upgrade-tip] some components is expired:\n',
               '\n',
-              ...tipComponents
-                .map(newData => {
-                  const key = newData.name;
-                  return `${key}: ${localVersion[key]} => ${newData.version} ${newData.tip} ${newData.url}\n`;
-                }),
+              ...tipComponents.map((newData: any) => {
+                const key = newData.name;
+                return `${key}: ${localVersion[key]} => ${newData.version} ${
+                  newData.tip
+                } ${newData.url}\n`;
+              }),
               '\n',
               '[you can reinstall node_modules to upgrade all of them.]\n',
               '[about this] http://mobile.ant.design/docs/react/upgrade-tip-cn\n',
-              '--------------------------------------------------------',
+              '--------------------------------------------------------'
             );
           }
-        }).catch(() => { });
+        })
+        .catch(() => {});
     }
-  } catch (error) {
-
-  }
+  } catch (error) {}
 }
