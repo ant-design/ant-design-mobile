@@ -1,7 +1,7 @@
+import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import variables from '../../style/themes/default.native';
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-export interface IAccordionStyle {
+export interface AccordionStyle {
   container: ViewStyle;
   header: ViewStyle;
   arrow: ViewStyle;
