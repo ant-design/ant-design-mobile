@@ -30,10 +30,10 @@ Properties | Descrition | Type | Default
 | title | title | React.Element | - |
 | footer | footer content | Array [{text, onPress}] | [] |
 | platform (`web only`) | set the special style depends on platform, Options `android`, `ios` | String | `ios` |
-| transitionName (`Wen only`) | Modal animation css class name | String | |
-| maskTransitionName (`Wen only`) | mask animation css class name | String | |
-| className (`Wen only`) | additional className for dialog | String | |
-| wrapClassName (`Wen only`) | additional className for dialog wrap | String | |
+| transitionName (`web only`) | Modal animation css class name | String | |
+| maskTransitionName (`web only`) | mask animation css class name | String | |
+| className (`web only`) | additional className for dialog | String | |
+| wrapClassName (`web only`) | additional className for dialog wrap | String | |
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )
 
