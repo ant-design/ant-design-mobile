@@ -26,6 +26,7 @@
     "dist",
     "lib",
     "es",
+    "fonts",
     "scripts/update-tip.js"
   ],
   "license": "MIT",
@@ -191,7 +192,7 @@
   ],
   "rnpm": {
     "assets": [
-      "./fonts"
+      "fonts"
     ]
   }
 }
