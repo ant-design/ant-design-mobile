@@ -20,8 +20,6 @@ declare module 'react-native-camera-roll-picker';
 
 declare module 'array-tree-filter';
 
-declare module 'react-native-drawer-layout';
-
 declare module 'rc-drawer';
 
 declare module 'rmc-dialog';
