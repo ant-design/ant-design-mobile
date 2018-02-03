@@ -1,16 +1,16 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 import loadSprite from './loadSprite';
+import { IconPropsType } from './PropsType';
 
-export interface IconPropType {
-  type: string;
+export interface IconProps extends IconPropsType {
   className?: string;
   style?: React.CSSProperties;
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
-  onClick?: (e?: any) => void;
+  onClick?: React.MouseEventHandler<SVGSVGElement>;
 }
 
-export default class Icon extends React.Component<IconPropType, any> {
+export default class Icon extends React.Component<IconProps, any> {
   static defaultProps = {
     size: 'md',
   };
@@ -19,7 +19,12 @@ export default class Icon extends React.Component<IconPropType, any> {
   }
   render() {
     const { type, className, size, ...restProps } = this.props;
-    const cls = classnames(className, 'am-icon', `am-icon-${type}`, `am-icon-${size}`);
+    const cls = classnames(
+      className,
+      'am-icon',
+      `am-icon-${type}`,
+      `am-icon-${size}`
+    );
     return (
       <svg className={cls} {...restProps}>
         <use xlinkHref={`#${type}`} />
