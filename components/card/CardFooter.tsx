@@ -1,9 +1,10 @@
-import React from 'react';
 import classnames from 'classnames';
-import { CardFooterProps as BasePropsType } from './PropsType';
+import React from 'react';
+import { CardFooterPropsType } from './PropsType';
 
-export interface CardFooterProps extends BasePropsType {
+export interface CardFooterProps extends CardFooterPropsType {
   prefixCls?: string;
+  className?: string;
 }
 
 export default class CardFooter extends React.Component<CardFooterProps, any> {

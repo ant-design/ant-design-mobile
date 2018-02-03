@@ -1,27 +1,17 @@
-import * as React from 'react';
+import React from 'react';
 
-export interface CardProps {
+export interface CardPropsType {
   full?: boolean;
-  style?: {};
 }
 
-export interface CardHeaderProps {
-  title?: any;
+export interface CardHeaderPropsType {
+  title?: React.ReactType;
   /** need url of img, if this is string. */
   thumb?: React.ReactNode;
-  extra?: any;
-  thumbStyle?: {};
-  style?: any;
+  extra?: React.ReactType;
 }
 
-export interface CardBodyProps {
-  children?: any;
-  style?: {};
-}
-
-export interface CardFooterProps {
-  content?: any;
-  extra?: any;
-  className?: string;
-  style?: {};
+export interface CardFooterPropsType {
+  content?: React.ReactType;
+  extra?: React.ReactType;
 }

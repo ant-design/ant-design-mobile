@@ -1,10 +1,8 @@
-import React from 'react';
 import classnames from 'classnames';
-import { CardBodyProps as BasePropsType } from './PropsType';
+import React from 'react';
 
-export interface CardBodyProps extends BasePropsType {
+export interface CardBodyProps extends React.HTMLProps<HTMLDivElement> {
   prefixCls?: string;
-  className?: string;
 }
 
 export default class CardBody extends React.Component<CardBodyProps, any> {
@@ -16,8 +14,6 @@ export default class CardBody extends React.Component<CardBodyProps, any> {
     const { prefixCls, className, ...restProps } = this.props;
     const wrapCls = classnames(`${prefixCls}-body`, className);
 
-    return (
-      <div className={wrapCls} {...restProps} />
-    );
+    return <div className={wrapCls} {...restProps} />;
   }
 }

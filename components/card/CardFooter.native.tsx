@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { CardFooterProps as BasePropsType } from './PropsType';
+import { StyleProp, Text, View, ViewStyle } from 'react-native';
+import { CardFooterPropsType } from './PropsType';
 
-export interface CardFooterProps extends BasePropsType {
+export interface CardFooterProps extends CardFooterPropsType {
   styles?: any;
+  style?: StyleProp<ViewStyle>;
 }
 
 export default class CardFooter extends React.Component<CardFooterProps, any> {
@@ -14,15 +15,17 @@ export default class CardFooter extends React.Component<CardFooterProps, any> {
   render() {
     const { content, extra, styles, style, ...restProps } = this.props;
 
-    const contentDom = React.isValidElement(content) ? (
-      <View style={{ flex: 1 }}>{content}</View>
-    ) : (
+    const contentDom =
+      content !== undefined && React.isValidElement(content) ? (
+        <View style={{ flex: 1 }}>{content}</View>
+      ) : (
         <Text style={styles.footerContent}>{content}</Text>
       );
 
-    const extraDom = React.isValidElement(extra) ? (
-      <View style={{ flex: 1 }}>{extra}</View>
-    ) : (
+    const extraDom =
+      extra !== undefined && React.isValidElement(extra) ? (
+        <View style={{ flex: 1 }}>{extra}</View>
+      ) : (
         <Text style={[styles.footerExtra]}>{extra}</Text>
       );
 
