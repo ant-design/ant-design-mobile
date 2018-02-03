@@ -1,13 +1,13 @@
 /* tslint:disable:jsx-no-multiline-js */
-import React from 'react';
 import PropTypes from 'prop-types';
-import PopupDatePicker from 'rmc-date-picker/lib/Popup';
+import React from 'react';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
-import { formatFn } from './utils';
-import BasePropsType from './PropsType';
+import PopupDatePicker from 'rmc-date-picker/lib/Popup';
 import { getComponentLocale } from '../_util/getLocale';
+import { DatePickerPropsType } from './PropsType';
+import { formatFn } from './utils';
 
-export interface PropsType extends BasePropsType {
+export interface PropsType extends DatePickerPropsType {
   prefixCls?: string;
   className?: string;
   use12Hours?: boolean;
@@ -34,7 +34,7 @@ export default class DatePicker extends React.Component<PropsType, any> {
 
   setScrollValue = (v: any) => {
     this.scrollValue = v;
-  }
+  };
 
   onOk = (v: any) => {
     if (this.scrollValue !== undefined) {
@@ -46,25 +46,28 @@ export default class DatePicker extends React.Component<PropsType, any> {
     if (this.props.onOk) {
       this.props.onOk(v);
     }
-  }
+  };
 
-  onVisibleChange = (_) => {
+  onVisibleChange = (visible: boolean) => {
     this.scrollValue = undefined;
     if (this.props.onVisibleChange) {
-      this.props.onVisibleChange(_);
+      this.props.onVisibleChange(visible);
     }
-  }
+  };
 
   fixOnOk = (picker: any) => {
     if (picker) {
       picker.onOk = this.onOk;
     }
-  }
+  };
 
   render() {
+    // tslint:disable-next-line:no-this-assignment
     const { props, context } = this;
     const { children, value, popupPrefixCls } = props;
-    const locale = getComponentLocale(props, context, 'DatePicker', () => require('./locale/zh_CN'));
+    const locale = getComponentLocale(props, context, 'DatePicker', () =>
+      require('./locale/zh_CN')
+    );
     const { okText, dismissText, extra, DatePickerLocale } = locale;
 
     /**
@@ -104,7 +107,7 @@ export default class DatePicker extends React.Component<PropsType, any> {
         WrapComponent="div"
         transitionName="am-slide-up"
         maskTransitionName="am-fade"
-        {...props}
+        {...props as any}
         prefixCls={popupPrefixCls}
         date={value || new Date()}
         dismissText={this.props.dismissText || dismissText}
@@ -112,12 +115,11 @@ export default class DatePicker extends React.Component<PropsType, any> {
         ref={this.fixOnOk}
         onVisibleChange={this.onVisibleChange}
       >
-        {
-          children && React.cloneElement(
-            children,
-            { extra: value ? formatFn(this, value) : (this.props.extra || extra) },
-          )
-        }
+        {children &&
+          React.isValidElement(children) &&
+          React.cloneElement<object, object>(children, {
+            extra: value ? formatFn(this, value) : this.props.extra || extra,
+          })}
       </PopupDatePicker>
     );
   }
