@@ -1,21 +1,27 @@
 import React from 'react';
-import { View, TouchableWithoutFeedback } from 'react-native';
-import { FlexItemProps as BasePropsType } from './PropsType';
+import {
+  StyleProp,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle,
+} from 'react-native';
+import { FlexItemPropsType } from './PropsType';
 
-export interface FlexItemProps extends BasePropsType {
+export interface FlexItemProps extends FlexItemPropsType {
   flex?: number;
-  onPress?: (e?: any) => void;
-  onLongPress?: any;
-  onPressIn?: any;
-  onPressOut?: any;
+  onPress?: () => void;
+  onLongPress?: () => void;
+  onPressIn?: () => void;
+  onPressOut?: () => void;
+  style?: StyleProp<ViewStyle>;
 }
 
-export default class FlexItem extends React.Component <FlexItemProps, any> {
+export default class FlexItem extends React.Component<FlexItemProps, any> {
   static defaultProps = {
     flex: 1,
   };
   render() {
-    let { style, children, flex, ...restProps } = this.props;
+    const { style, children, flex, ...restProps } = this.props;
     const flexItemStyle = {
       flex: flex || 1,
     };
@@ -28,10 +34,10 @@ export default class FlexItem extends React.Component <FlexItemProps, any> {
     );
 
     const shouldWrapInTouchableComponent =
-      restProps.onPress
-      || restProps.onLongPress
-      || restProps.onPressIn
-      || restProps.onPressOut;
+      restProps.onPress ||
+      restProps.onLongPress ||
+      restProps.onPressIn ||
+      restProps.onPressOut;
 
     if (!!shouldWrapInTouchableComponent) {
       return (
