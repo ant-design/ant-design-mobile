@@ -25,9 +25,8 @@ declare module 'react-native-drawer-layout';
 declare module 'rc-drawer';
 
 declare module 'rmc-dialog';
-
+declare module 'rmc-nuka-carousel';
 declare module 'react-native-menu';
-
 declare var process: {
   env: {
     NODE_ENV: string;
