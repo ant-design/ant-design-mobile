@@ -1,17 +1,7 @@
-interface DatePickerProps {
-  value?: any;
-  mode?: string;
-  minDate?: any;
-  maxDate?: any;
-  onChange?: (x: any) => void;
-  onValueChange?: (vals: any, index: number) => void;
+import { DatePickerPropsType } from '../date-picker/PropsType';
+
+export interface DatePickerProps extends DatePickerPropsType {
   onScrollChange?: (newValue: any, vals: any, index: number) => void;
-  locale?: any;
-  minuteStep?: number;
-  /** web only */
-  use12Hours?: boolean;
-  disabled?: boolean;
-  format?: (x: any) => void;
   /** rn only */
   triggerTypes?: string;
   /** rn only */
@@ -23,5 +13,3 @@ interface DatePickerProps {
   /** web only */
   pickerPrefixCls?: string;
 }
-
-export default DatePickerProps;
