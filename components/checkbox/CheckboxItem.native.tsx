@@ -1,35 +1,48 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import Checkbox from './Checkbox.native';
+import { ImageStyle, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import List from '../list/index.native';
-import { CheckboxItemProps } from './PropsType';
+import Checkbox from './Checkbox.native';
+import { CheckboxItemPropsType } from './PropsType';
 import CheckboxItemStyle, { ICheckboxStyle } from './style/index.native';
 
 const ListItem = List.Item;
 const refCheckbox = 'checkbox';
 
-export interface ICheckboxItemNativeProps extends CheckboxItemProps {
+export interface ICheckboxItemNativeProps extends CheckboxItemPropsType {
   styles?: ICheckboxStyle;
-  checkboxStyle?: any;
+  checkboxStyle?: StyleProp<ImageStyle>;
+  style?: StyleProp<ViewStyle>;
 }
 
 const CheckboxItemStyles = StyleSheet.create<any>(CheckboxItemStyle);
 
-export default class CheckboxItem extends React.Component<ICheckboxItemNativeProps, any> {
+export default class CheckboxItem extends React.Component<
+  ICheckboxItemNativeProps,
+  any
+> {
   static defaultProps = {
     styles: CheckboxItemStyles,
   };
 
   handleClick = () => {
-    let checkBox: Checkbox = this.refs[refCheckbox] as Checkbox;
+    const checkBox: Checkbox = this.refs[refCheckbox] as Checkbox;
     checkBox.handleClick();
     if (this.props.onClick) {
       this.props.onClick();
     }
-  }
+  };
 
   render() {
-    const { style, checkboxStyle, defaultChecked, checked, disabled, children, extra, onChange } = this.props;
+    const {
+      style,
+      checkboxStyle,
+      defaultChecked,
+      checked,
+      disabled,
+      children,
+      extra,
+      onChange,
+    } = this.props;
     const styles = this.props.styles!;
 
     const thumbEl = (
