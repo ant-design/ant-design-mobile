@@ -50,7 +50,7 @@ export default function prompt(
             <label>
               <input
                 type="text"
-                value={data.text}
+                defaultValue={data.text}
                 ref={input => focusFn(input)}
                 onChange={onChange}
                 placeholder={placeholders[0]}
@@ -61,7 +61,7 @@ export default function prompt(
             <label>
               <input
                 type="password"
-                value={data.password}
+                defaultValue={data.password}
                 onChange={onChange}
                 placeholder={placeholders[1]}
               />
@@ -77,7 +77,7 @@ export default function prompt(
             <label>
               <input
                 type="password"
-                value={data.password}
+                defaultValue={data.password}
                 ref={input => focusFn(input)}
                 onChange={onChange}
                 placeholder={placeholders[0]}
@@ -95,7 +95,7 @@ export default function prompt(
             <label>
               <input
                 type="text"
-                value={data.text}
+                defaultValue={data.text}
                 ref={input => focusFn(input)}
                 onChange={onChange}
                 placeholder={placeholders[0]}
