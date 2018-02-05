@@ -2,21 +2,20 @@ import React from 'react';
 import { TextInput, TextInputProperties } from 'react-native';
 
 export interface TextInputProps extends TextInputProperties {
-  ref?: any; // overwrite for no error
   focused?: boolean;
 }
 
 class Input extends React.Component<TextInputProps, any> {
-  inputRef: any;
+  inputRef: TextInput | null;
 
-  constructor(props) {
+  constructor(props: TextInputProps) {
     super(props);
     this.state = {
       focused: props.focused || false,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: TextInputProps) {
     if (nextProps.focused !== this.state.focused) {
       this.setState({
         focused: nextProps.focused,
@@ -25,13 +24,13 @@ class Input extends React.Component<TextInputProps, any> {
   }
 
   componentDidMount() {
-    if (this.props.autoFocus || this.props.focused) {
+    if (this.inputRef && (this.props.autoFocus || this.props.focused)) {
       this.inputRef.focus();
     }
   }
 
   componentDidUpdate() {
-    if (this.props.focused) {
+    if (this.inputRef && this.props.focused) {
       this.inputRef.focus();
     }
   }
@@ -39,7 +38,7 @@ class Input extends React.Component<TextInputProps, any> {
   render() {
     return (
       <TextInput
-        ref={el => this.inputRef = el}
+        ref={el => ((this.inputRef as any) = el)}
         underlineColorAndroid="transparent"
         {...this.props}
       />
