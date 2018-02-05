@@ -195,7 +195,7 @@
 }
 /*!
  * 
- * antd v3.1.6
+ * antd v3.2.0
  * 
  * Copyright 2015-present, Alipay, Inc.
  * All rights reserved.
@@ -3936,7 +3936,6 @@ mark {
   top: -9999px;
   position: absolute;
   outline: none;
-  overflow: hidden;
   font-size: 14px;
 }
 .ant-select-dropdown.slide-up-enter.slide-up-enter-active.ant-select-dropdown-placement-bottomLeft,
@@ -6712,6 +6711,16 @@ span.ant-radio + * {
   margin-left: -1px;
   padding-left: 18px;
 }
+.ant-tabs.ant-tabs-card.ant-tabs-bottom > .ant-tabs-bar .ant-tabs-tab {
+  border-bottom: 1px solid #e8e8e8;
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
+}
+.ant-tabs.ant-tabs-card.ant-tabs-bottom > .ant-tabs-bar .ant-tabs-tab-active {
+  color: #1890ff;
+  padding-bottom: 0;
+  padding-top: 1px;
+}
 .ant-tabs {
   font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -6784,6 +6793,18 @@ span.ant-radio + * {
 .ant-tabs-nav-container-scrolling {
   padding-left: 32px;
   padding-right: 32px;
+}
+.ant-tabs-bottom .ant-tabs-bar {
+  border-bottom: none;
+  border-top: 1px solid #e8e8e8;
+}
+.ant-tabs-bottom .ant-tabs-ink-bar {
+  bottom: auto;
+  top: 1px;
+}
+.ant-tabs-bottom .ant-tabs-nav-container {
+  margin-bottom: 0;
+  margin-top: -1px;
 }
 .ant-tabs-tab-prev,
 .ant-tabs-tab-next {
@@ -14441,6 +14462,9 @@ form .ant-input-group-wrapper {
   -webkit-box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.2);
           box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.2);
 }
+.has-error .ant-select.ant-select-auto-complete .ant-input:focus {
+  border-color: #f5222d;
+}
 .has-error .ant-input-group-addon .ant-select-selection {
   border-color: transparent;
   -webkit-box-shadow: none;
@@ -14577,26 +14601,6 @@ form .ant-input-group-wrapper {
   }
 }
 @-webkit-keyframes diffZoomIn1 {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-@keyframes diffZoomIn1 {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-@-webkit-keyframes diffZoomIn2 {
   0% {
     -webkit-transform: scale(0);
             transform: scale(0);

@@ -1,4 +1,24 @@
 
+@keyframes diffZoomIn1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes diffZoomIn2 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
 @keyframes diffZoomIn2 {
   0% {
     -webkit-transform: scale(0);
@@ -2590,6 +2610,7 @@ textarea.ant-mention-wrapper .ant-mention-editor {
   color: rgba(0, 0, 0, 0.85);
   font-weight: 500;
   font-size: 16px;
+  line-height: 22px;
 }
 .ant-confirm-body .ant-confirm-content {
   margin-left: 38px;
@@ -2600,8 +2621,8 @@ textarea.ant-mention-wrapper .ant-mention-editor {
 .ant-confirm-body > .anticon {
   font-size: 22px;
   margin-right: 16px;
-  margin-top: 1px;
   float: left;
+  min-height: 48px;
 }
 .ant-confirm .ant-confirm-btns {
   margin-top: 24px;
@@ -3083,6 +3104,7 @@ a.ant-notification-notice-close:focus {
   background-color: #f5f5f5;
   border-radius: 100px;
   vertical-align: middle;
+  position: relative;
 }
 .ant-progress-circle-trail {
   stroke: #f5f5f5;
@@ -3092,12 +3114,19 @@ a.ant-notification-notice-close:focus {
   -webkit-animation: ant-progress-appear 0.3s;
           animation: ant-progress-appear 0.3s;
 }
+.ant-progress-success-bg,
 .ant-progress-bg {
   border-radius: 100px;
   background-color: #1890ff;
   -webkit-transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
   transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
   position: relative;
+}
+.ant-progress-success-bg {
+  background-color: #52c41a;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .ant-progress-text {
   word-break: normal;
@@ -4618,7 +4647,7 @@ tr.ant-table-expanded-row:hover {
 }
 .ant-table-middle > .ant-table-title,
 .ant-table-middle > .ant-table-footer {
-  padding: 12px 8px;
+  padding: 10.66666667px 8px;
 }
 .ant-table-middle > .ant-table-content > .ant-table-header > table > .ant-table-thead > tr > th,
 .ant-table-middle > .ant-table-content > .ant-table-body > table > .ant-table-thead > tr > th,
@@ -4636,7 +4665,7 @@ tr.ant-table-expanded-row:hover {
 .ant-table-middle > .ant-table-content > .ant-table-fixed-right > .ant-table-header > table > .ant-table-tbody > tr > td,
 .ant-table-middle > .ant-table-content > .ant-table-fixed-left > .ant-table-body-outer > .ant-table-body-inner > table > .ant-table-tbody > tr > td,
 .ant-table-middle > .ant-table-content > .ant-table-fixed-right > .ant-table-body-outer > .ant-table-body-inner > table > .ant-table-tbody > tr > td {
-  padding: 12px 8px;
+  padding: 10.66666667px 8px;
 }
 .ant-table-small {
   border: 1px solid #e8e8e8;
@@ -4644,7 +4673,7 @@ tr.ant-table-expanded-row:hover {
 }
 .ant-table-small > .ant-table-title,
 .ant-table-small > .ant-table-footer {
-  padding: 8px;
+  padding: 8px 8px;
 }
 .ant-table-small > .ant-table-title {
   border-bottom: 1px solid #e8e8e8;
@@ -4677,7 +4706,7 @@ tr.ant-table-expanded-row:hover {
 .ant-table-small > .ant-table-content > .ant-table-fixed-right > .ant-table-header > table > .ant-table-tbody > tr > td,
 .ant-table-small > .ant-table-content > .ant-table-fixed-left > .ant-table-body-outer > .ant-table-body-inner > table > .ant-table-tbody > tr > td,
 .ant-table-small > .ant-table-content > .ant-table-fixed-right > .ant-table-body-outer > .ant-table-body-inner > table > .ant-table-tbody > tr > td {
-  padding: 8px;
+  padding: 8px 8px;
 }
 .ant-table-small > .ant-table-content > .ant-table-header > table > .ant-table-thead > tr > th,
 .ant-table-small > .ant-table-content > .ant-table-body > table > .ant-table-thead > tr > th,
@@ -4762,7 +4791,7 @@ tr.ant-table-expanded-row:hover {
 .ant-tag a:hover {
   color: rgba(0, 0, 0, 0.65);
 }
-.ant-tag-text a:first-child:last-child {
+.ant-tag > a:first-child:last-child {
   display: inline-block;
   margin: 0 -8px;
   padding: 0 8px;
