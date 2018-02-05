@@ -1,8 +1,15 @@
+import {
+  Button,
+  DatePicker,
+  List,
+  LocaleProvider,
+  Pagination,
+  Picker,
+  SearchBar,
+  WhiteSpace,
+} from 'antd-mobile';
 import React from 'react';
 import { View } from 'react-native';
-import {
-  Pagination, LocaleProvider, List, DatePicker, WhiteSpace, Button, Picker, SearchBar,
-} from 'antd-mobile';
 import enUS from '../en_US';
 
 const maxDate = new Date(2018, 11, 3, 22, 0);
@@ -44,10 +51,7 @@ const Page = () => (
       >
         <List.Item arrow="horizontal">日期</List.Item>
       </DatePicker>
-      <Picker
-        data={seasons}
-        cascade={false}
-      >
+      <Picker data={seasons} cascade={false}>
         <List.Item arrow="horizontal">picker</List.Item>
       </Picker>
       <WhiteSpace />
@@ -67,7 +71,7 @@ export default class LocaleProviderExample extends React.Component<any, any> {
     this.setState({
       isEnglish: !this.state.isEnglish,
     });
-  }
+  };
   render() {
     const locale = this.state.isEnglish ? enUS : undefined;
     return (
