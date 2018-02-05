@@ -16,6 +16,14 @@ toc: false
 
 ---
 
+### 2.1.6
+
+`2017-02-05`
+
+
+- **Bug Fix**
+
+  - 🐞  Fix `Modal.prompt` can not input.
 ### 2.1.5
 
 `2017-01-29`
