@@ -1,8 +1,8 @@
-import React from 'react';
 import RcSlider from 'rc-slider/lib/Slider';
-import BasePropsType from './PropsType';
+import React from 'react';
+import { SliderPropsType } from './PropsType';
 
-export interface SliderProps extends BasePropsType {
+export interface SliderProps extends SliderPropsType {
   prefixCls?: string;
   marks?: { [key: number]: string };
   dots?: boolean;
@@ -20,7 +20,9 @@ export default class Slider extends React.Component<SliderProps, any> {
   };
   render() {
     return (
-      <div className={`${this.props.prefixCls}-wrapper`}><RcSlider {...this.props} /></div>
+      <div className={`${this.props.prefixCls}-wrapper`}>
+        <RcSlider {...this.props} />
+      </div>
     );
   }
 }
