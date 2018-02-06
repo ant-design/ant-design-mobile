@@ -24,7 +24,9 @@
       }
     </script>
     <link rel="icon" href="https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png" type="image/x-icon">
+    {% if not isDev %}
     <link rel="stylesheet" type="text/css" href="{{ root }}kitchen-sink.css"/>
+    {% endif %}
     <title>支付宝移动组件库</title>
   </head>
   <body>

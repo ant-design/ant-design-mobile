@@ -48,7 +48,7 @@ const GridExample = () => (
       )}
     />
     <div className="sub-title">Custom GridCell Style</div>
-    <Grid data={data1} columnNum={3} itemStyle={{ height: '150px', backgroundColor: '#ffff00' }} />
+    <Grid data={data1} columnNum={3} itemStyle={{ height: '150px', background: 'rgba(0,0,0,.05)' }} />
   </div>
 );
 
