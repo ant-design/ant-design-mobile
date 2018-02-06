@@ -1,22 +1,25 @@
 import React from 'react';
-import { Text, ScrollView } from 'react-native';
-import Modal from './Modal';
+import { ScrollView, StyleProp, Text, TextStyle } from 'react-native';
+import Modal from './Modal.native';
 
-export type AlertButtonType = {
+export interface AlertButtonType {
   text: string;
-  onPress?: () => void;
-  style?: any;
-};
+  onPress?: () => void | Promise<any>;
+  style?: StyleProp<TextStyle>;
+}
 
 export interface AlertContainerProps {
-  title: string;
-  content: any;
-  actions: Array<AlertButtonType>;
+  title: React.ReactType;
+  content: React.ReactType;
+  actions: AlertButtonType[];
   onAnimationEnd?: (visible: boolean) => void;
 }
 
-export default class AlertContainer extends React.Component<AlertContainerProps, any> {
-  constructor(props) {
+export default class AlertContainer extends React.Component<
+  AlertContainerProps,
+  any
+> {
+  constructor(props: AlertContainerProps) {
     super(props);
     this.state = {
       visible: true,
@@ -27,16 +30,17 @@ export default class AlertContainer extends React.Component<AlertContainerProps,
     this.setState({
       visible: false,
     });
-  }
+  };
 
   render() {
     const { title, actions, content, onAnimationEnd } = this.props;
-    const footer = actions.map((button) => {
-      const orginPress = button.onPress || function () {};
+    const footer = actions.map(button => {
+      // tslint:disable-next-line:only-arrow-functions
+      const orginPress = button.onPress || function() {};
       button.onPress = () => {
         const res = orginPress();
-        if (res && (res as any).then) {
-          (res as any).then(() => {
+        if (res && res.then) {
+          res.then(() => {
             this.onClose();
           });
         } else {

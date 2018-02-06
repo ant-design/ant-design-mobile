@@ -1,7 +1,7 @@
-import Modal from './Modal';
 import alert from './alert';
-import prompt from './prompt';
+import Modal from './Modal';
 import operation from './operation';
+import prompt from './prompt';
 
 Modal.alert = alert;
 Modal.prompt = prompt;

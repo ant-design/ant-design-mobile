@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from './Modal';
 import closest from '../_util/closest';
+import Modal from './Modal';
 import { Action } from './PropsType';
 
 export default function operation(
   actions = [{ text: '确定' }],
-  platform = 'ios',
+  platform = 'ios'
 ) {
   let closed = false;
 
   const prefixCls = 'am-modal';
-  let div: any = document.createElement('div');
+  const div = document.createElement('div');
   document.body.appendChild(div);
 
   function close() {
@@ -22,16 +22,21 @@ export default function operation(
   }
 
   const footer = actions.map((button: Action) => {
+    // tslint:disable-next-line:only-arrow-functions
     const orginPress = button.onPress || function() {};
     button.onPress = () => {
-      if (closed) { return; }
+      if (closed) {
+        return;
+      }
 
       const res = orginPress();
       if (res && res.then) {
-        res.then(() => {
-          closed = true;
-          close();
-        }).catch(() => { });
+        res
+          .then(() => {
+            closed = true;
+            close();
+          })
+          .catch(() => {});
       } else {
         closed = true;
         close();
@@ -40,11 +45,11 @@ export default function operation(
     return button;
   });
 
-  function onWrapTouchStart(e) {
+  function onWrapTouchStart(e: React.TouchEvent<HTMLDivElement>) {
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
     }
-    const pNode = closest(e.target, `.am-modal-footer`);
+    const pNode = closest(e.currentTarget, `.am-modal-footer`);
     if (!pNode) {
       e.preventDefault();
     }
@@ -65,7 +70,8 @@ export default function operation(
       className="am-modal-operation"
       platform={platform}
       wrapProps={{ onTouchStart: onWrapTouchStart }}
-    /> , div,
+    />,
+    div
   );
 
   return {
