@@ -1,4 +1,4 @@
-import { ViewStyle, TextStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 import variables from '../../style/themes/default.native';
 
 export interface INoticeBarStyle {
