@@ -28,6 +28,9 @@ declare module 'react-native-menu';
 declare module 'rmc-tooltip';
 declare module 'rmc-pull-to-refresh';
 declare module 'rc-slider/lib/Range';
+declare module 'react-native/Libraries/StyleSheet/normalizeColor';
+declare module 'react-native/Libraries/StyleSheet/setNormalizedColorAlpha';
+
 declare var process: {
   env: {
     NODE_ENV: string;

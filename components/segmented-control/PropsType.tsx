@@ -1,11 +1,8 @@
-interface SegmentedControlProps {
+export interface SegmentedControlPropsType {
   tintColor?: string;
   disabled?: boolean;
   selectedIndex?: number;
-  values?: Array<string>;
+  values?: string[];
   onChange?: (e: any) => void;
   onValueChange?: (value: string) => void;
-  style?: any;
 }
-
-export default SegmentedControlProps;
