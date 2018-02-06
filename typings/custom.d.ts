@@ -31,6 +31,7 @@ declare module 'rc-slider/lib/Range';
 declare module 'react-native/Libraries/StyleSheet/normalizeColor';
 declare module 'react-native/Libraries/StyleSheet/setNormalizedColorAlpha';
 declare module 'rc-slider/lib/Slider';
+declare module 'rmc-steps';
 
 declare var process: {
   env: {
