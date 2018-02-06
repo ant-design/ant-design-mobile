@@ -1,12 +1,13 @@
-import React from 'react';
-import RcCheckbox from 'rc-checkbox';
-import { RadioProps as BasePropsType } from './PropsType';
 import classnames from 'classnames';
+import RcCheckbox from 'rc-checkbox';
+import React from 'react';
+import { RadioPropsType } from './PropsType';
 
-export interface RadioProps extends BasePropsType {
+export interface RadioProps extends RadioPropsType {
   prefixCls?: string;
   listPrefixCls?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export default class Radio extends React.Component<RadioProps, any> {
@@ -24,7 +25,7 @@ export default class Radio extends React.Component<RadioProps, any> {
     if ('class' in restProps) {
       // Todo https://github.com/developit/preact-compat/issues/422
       /* tslint:disable:no-string-literal */
-      delete restProps['class'];
+      delete (restProps as any)['class'];
     }
     const mark = (
       <label className={wrapCls} style={style}>
