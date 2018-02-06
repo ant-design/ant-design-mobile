@@ -27,6 +27,7 @@ declare module 'rmc-nuka-carousel';
 declare module 'react-native-menu';
 declare module 'rmc-tooltip';
 declare module 'rmc-pull-to-refresh';
+declare module 'rc-slider/lib/Range';
 declare var process: {
   env: {
     NODE_ENV: string;

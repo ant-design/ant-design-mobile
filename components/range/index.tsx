@@ -1,8 +1,8 @@
-import React from 'react';
 import RcRange from 'rc-slider/lib/Range';
-import BasePropsType from './PropsType';
+import React from 'react';
+import { RangePropsType } from './PropsType';
 
-export interface RangeProps extends BasePropsType {
+export interface RangeProps extends RangePropsType {
   prefixCls?: string;
   handleStyle?: React.CSSProperties[];
   trackStyle?: React.CSSProperties[];
@@ -16,7 +16,9 @@ export default class Range extends React.Component<RangeProps, any> {
 
   render() {
     return (
-      <div className={`${this.props.prefixCls}-wrapper`}><RcRange {...this.props} /></div>
+      <div className={`${this.props.prefixCls}-wrapper`}>
+        <RcRange {...this.props} />
+      </div>
     );
   }
 }
