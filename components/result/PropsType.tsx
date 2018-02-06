@@ -1,7 +1,6 @@
 import React from 'react';
 
-interface ResultProps {
-  style?: any;
+export interface ResultPropsType {
   imgUrl?: string;
   img?: React.ReactNode;
   title?: React.ReactNode;
@@ -10,5 +9,3 @@ interface ResultProps {
   buttonType?: 'primary' | 'ghost';
   onButtonClick?: () => void;
 }
-
-export default ResultProps;
