@@ -18,7 +18,7 @@ toc: false
 
 ### 2.1.6
 
-`2017-02-05`
+`2018-02-05`
 
 
 - **Bug Fix**
@@ -26,7 +26,7 @@ toc: false
   - 🐞  Fix `Modal.prompt` can not input.
 ### 2.1.5
 
-`2017-01-29`
+`2018-01-29`
 
 - **Feature**
 
