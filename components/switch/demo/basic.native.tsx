@@ -1,5 +1,5 @@
-import React from 'react';
 import { List, Switch } from 'antd-mobile';
+import React from 'react';
 
 export default class SwitchExample extends React.Component<any, any> {
   constructor(props) {
@@ -9,17 +9,24 @@ export default class SwitchExample extends React.Component<any, any> {
     };
   }
 
-  onSwitchChange = (value) => {
+  onSwitchChange = value => {
     this.setState({
       checked: value,
     });
-  }
+  };
   render() {
     return (
       <List style={{ marginTop: 20 }}>
         <List.Item extra={<Switch checked />}>On(controlled)</List.Item>
         <List.Item extra={<Switch />}>Off(controlled)</List.Item>
-        <List.Item extra={<Switch checked={this.state.checked} onChange={this.onSwitchChange} />}>
+        <List.Item
+          extra={
+            <Switch
+              checked={this.state.checked}
+              onChange={this.onSwitchChange}
+            />
+          }
+        >
           onChange event, switch status: {this.state.checked ? 'open' : 'close'}
         </List.Item>
         <List.Item extra={<Switch disabled />}>disabled</List.Item>
