@@ -1,6 +1,6 @@
+import { Button, Progress, WhiteSpace } from 'antd-mobile';
 import React from 'react';
-import { View, Text, ViewStyle } from 'react-native';
-import { WhiteSpace, Button, Progress } from 'antd-mobile';
+import { Text, View, ViewStyle } from 'react-native';
 
 export default class BasicProgressExample extends React.Component<any, any> {
   constructor(props) {
@@ -16,26 +16,36 @@ export default class BasicProgressExample extends React.Component<any, any> {
       p = 0;
     }
     this.setState({ percent: p });
-  }
+  };
 
   render() {
     const style = {
       marginTop: 80,
-      flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
     };
     return (
       <View>
         <Progress percent={90} position="fixed" />
 
         <View style={[style as ViewStyle]}>
-          <View style={{ marginRight: 10, height: 4, flex: 1 }}><Progress percent={this.state.percent} /></View>
+          <View style={{ marginRight: 10, height: 4, flex: 1 }}>
+            <Progress percent={this.state.percent} />
+          </View>
           <Text>{this.state.percent}%</Text>
         </View>
-        <Button style={{ width: 50, marginLeft: 10 }} type="ghost" size="small" onClick={this.onAdd}>(+-)10</Button>
+        <Button
+          style={{ width: 50, marginLeft: 10 }}
+          type="ghost"
+          size="small"
+          onClick={this.onAdd}
+        >
+          (+-)10
+        </Button>
 
-        <WhiteSpace/>
+        <WhiteSpace />
         <Progress percent={5} />
-
       </View>
     );
   }
