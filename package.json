@@ -59,9 +59,7 @@
     "rmc-steps": "~1.0.0",
     "rmc-tabs": "~1.2.0",
     "rmc-tooltip": "~1.0.0",
-    "rn-topview": "^0.1.6",
-    "tslint-config-prettier": "^1.7.0",
-    "tslint-react": "^3.4.0"
+    "rn-topview": "^0.1.6"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.3",
