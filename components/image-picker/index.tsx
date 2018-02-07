@@ -28,7 +28,7 @@ export default class ImagePicker extends React.Component<
     accept: 'image/*',
   };
 
-  fileSelectorInput: any;
+  fileSelectorInput: HTMLInputElement | null;
 
   // http://stackoverflow.com/questions/7584794/accessing-jpeg-exif-rotation-data-in-javascript-on-the-client-side
   getOrientation = (file: any, callback: (_: number) => void) => {
@@ -120,7 +120,9 @@ export default class ImagePicker extends React.Component<
         this.parseFile(files[i], i);
       }
     }
-    fileSelectorEl.value = '';
+    if (fileSelectorEl) {
+      fileSelectorEl.value = '';
+    }
   }
 
   parseFile = (file: any, index: number) => {
