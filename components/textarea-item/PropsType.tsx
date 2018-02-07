@@ -1,7 +1,6 @@
 import React from 'react';
-
-interface TextAreaItemProps {
-  style?: any;
+export type TextAreaEventHandle = (val?: string) => void;
+export interface TextAreaItemPropsType {
   title?: React.ReactNode;
   maxLength?: number;
   name?: string;
@@ -11,15 +10,15 @@ interface TextAreaItemProps {
   clear?: boolean;
   rows?: number;
   count?: number;
-  onChange?: Function;
-  onBlur?: Function;
-  onFocus?: Function;
+
   error?: boolean;
   onErrorClick?: () => void;
   autoHeight?: boolean;
   editable?: boolean;
   disabled?: boolean;
   labelNumber?: number;
-}
 
-export default TextAreaItemProps;
+  onChange?: TextAreaEventHandle;
+  onBlur?: TextAreaEventHandle;
+  onFocus?: TextAreaEventHandle;
+}

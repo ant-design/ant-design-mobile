@@ -1,36 +1,47 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Image, Text, TextInput, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TextInputProperties,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import variables from '../style/themes/default.native';
-import TextAreaItemProps from './PropsType';
+import { TextAreaItemPropsType } from './PropsType';
 import TextAreaItemStyle, { ITextareaItemStyle } from './style/index.native';
-
-function fixControlledValue(value) {
+export type TextInputProps = Omit<
+  TextInputProperties,
+  'onChange' | 'onFocus' | 'onBlur'
+>;
+function fixControlledValue(value?: string) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
   return value;
 }
 
-export interface ITextareaItemNativeProps extends TextAreaItemProps {
+export interface TextareaItemNativeProps
+  extends TextAreaItemPropsType,
+    TextInputProps {
   last?: boolean;
-  keyboardType?: string;
   onContentSizeChange?: (e: any) => void;
   styles?: ITextareaItemStyle;
 }
 
 const TextAreaItemStyles = StyleSheet.create<any>(TextAreaItemStyle);
 
-export default class TextAreaItem extends React.Component<ITextareaItemNativeProps, any> {
+export default class TextAreaItem extends React.Component<
+  TextareaItemNativeProps,
+  any
+> {
   static defaultProps = {
-    onChange() {
-    },
-    onFocus() {
-    },
-    onBlur() {
-    },
-    onErrorClick() {
-    },
+    onChange() {},
+    onFocus() {},
+    onBlur() {},
+    onErrorClick() {},
     clear: true,
     error: false,
     editable: true,
@@ -42,15 +53,25 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
     styles: TextAreaItemStyles,
   };
 
-  constructor(props) {
+  constructor(props: TextareaItemNativeProps) {
     super(props);
     this.state = {
       inputCount: 0,
-      height: props.rows > 1 ? 6 * props.rows * 4 : variables.list_item_height,
+      height:
+        props.rows !== undefined && props.rows > 1
+          ? 6 * props.rows * 4
+          : variables.list_item_height,
     };
   }
 
-  onChange = (event) => {
+  onChange = (event: {
+    nativeEvent: {
+      text: string;
+      contentSize: { width: number; height: number };
+      target: number;
+      eventCount: number;
+    };
+  }) => {
     const text = event.nativeEvent.text;
     const { onChange } = this.props;
 
@@ -61,9 +82,11 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
     if (onChange) {
       onChange(text);
     }
-  }
+  };
 
-  onContentSizeChange = (event) => {
+  onContentSizeChange = (event: {
+    nativeEvent: { contentSize: { width: number; height: number } };
+  }) => {
     let height;
     const { autoHeight, onContentSizeChange } = this.props;
     const rows = this.props.rows as number;
@@ -82,10 +105,21 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
     if (onContentSizeChange) {
       onContentSizeChange(event);
     }
-  }
+  };
 
   render() {
-    const { rows, error, clear, count, autoHeight, last, onErrorClick, styles, style, ...restProps } = this.props;
+    const {
+      rows,
+      error,
+      clear,
+      count,
+      autoHeight,
+      last,
+      onErrorClick,
+      styles,
+      style,
+      ...restProps
+    } = this.props;
     const { value, defaultValue } = restProps;
     const { inputCount } = this.state;
 
@@ -112,32 +146,46 @@ export default class TextAreaItem extends React.Component<ITextareaItemNativePro
     const maxLength = count! > 0 ? count : undefined;
 
     return (
-      <View style={[styles!.container, containerStyle, { position: 'relative' }]}>
+      <View
+        style={[styles!.container, containerStyle, { position: 'relative' }]}
+      >
         <TextInput
           clearButtonMode={clear ? 'while-editing' : 'never'}
           underlineColorAndroid="transparent"
-          style={[styles!.input, textareaStyle, { height: Math.max(45, this.state.height) }, style]}
+          style={[
+            styles!.input,
+            textareaStyle,
+            { height: Math.max(45, this.state.height) },
+            style,
+          ]}
           {...restProps}
           {...valueProps}
-          onChange={(event) => this.onChange(event)}
+          onChange={event => this.onChange(event)}
           onContentSizeChange={this.onContentSizeChange}
           multiline={rows! > 1 || autoHeight}
           numberOfLines={rows}
           maxLength={maxLength}
         />
-        {error ? <TouchableWithoutFeedback onPress={onErrorClick}>
-          <View style={[styles!.errorIcon]}>
-            <Image
-              source={require('../style/images/error.png')}
-              style={{ width: variables.icon_size_xs, height: variables.icon_size_xs }}
-            />
+        {error ? (
+          <TouchableWithoutFeedback onPress={onErrorClick}>
+            <View style={[styles!.errorIcon]}>
+              <Image
+                source={require('../style/images/error.png')}
+                style={{
+                  width: variables.icon_size_xs,
+                  height: variables.icon_size_xs,
+                }}
+              />
+            </View>
+          </TouchableWithoutFeedback>
+        ) : null}
+        {rows! > 1 && count! > 0 ? (
+          <View style={[styles!.count]}>
+            <Text>
+              {inputCount} / {count}
+            </Text>
           </View>
-        </TouchableWithoutFeedback> : null}
-        {rows! > 1 && count! > 0 ? <View style={[styles!.count]}>
-          <Text>
-            {inputCount} / {count}
-          </Text>
-        </View> : null}
+        ) : null}
       </View>
     );
   }

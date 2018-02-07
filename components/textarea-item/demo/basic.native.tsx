@@ -1,9 +1,12 @@
 /* tslint:disable:no-console */
+import { List, TextareaItem } from 'antd-mobile';
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { TextareaItem, List } from 'antd-mobile';
 
-export default class BasicTextAreaItemExample extends React.Component<any, any> {
+export default class BasicTextAreaItemExample extends React.Component<
+  any,
+  any
+> {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,10 +14,10 @@ export default class BasicTextAreaItemExample extends React.Component<any, any> 
     };
   }
 
-  onChange = (val) => {
+  onChange = val => {
     // console.log(val);
     this.setState({ val });
-  }
+  };
 
   render() {
     return (
