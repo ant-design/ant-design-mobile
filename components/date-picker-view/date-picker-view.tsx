@@ -25,7 +25,7 @@ export default class DatePickerView extends React.Component<
     // tslint:disable-next-line:no-this-assignment
     const { props, context } = this;
     const locale = getComponentLocale(props, context, 'DatePickerView', () =>
-      require('./locale/zh_CN')
+      require('./locale/zh_CN'),
     );
 
     // DatePicker use `defaultDate`, maybe because there are PopupDatePicker inside? @yiminghe

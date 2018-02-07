@@ -49,7 +49,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
         ...(c.props as TabBarItemProps),
       };
     });
-  };
+  }
 
   renderTabBar = () => {
     const {
@@ -89,7 +89,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
         {content}
       </div>
     );
-  };
+  }
 
   render() {
     const {

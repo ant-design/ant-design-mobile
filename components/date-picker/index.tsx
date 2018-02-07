@@ -34,7 +34,7 @@ export default class DatePicker extends React.Component<PropsType, any> {
 
   setScrollValue = (v: any) => {
     this.scrollValue = v;
-  };
+  }
 
   onOk = (v: any) => {
     if (this.scrollValue !== undefined) {
@@ -46,27 +46,27 @@ export default class DatePicker extends React.Component<PropsType, any> {
     if (this.props.onOk) {
       this.props.onOk(v);
     }
-  };
+  }
 
   onVisibleChange = (visible: boolean) => {
     this.scrollValue = undefined;
     if (this.props.onVisibleChange) {
       this.props.onVisibleChange(visible);
     }
-  };
+  }
 
   fixOnOk = (picker: any) => {
     if (picker) {
       picker.onOk = this.onOk;
     }
-  };
+  }
 
   render() {
     // tslint:disable-next-line:no-this-assignment
     const { props, context } = this;
     const { children, value, popupPrefixCls } = props;
     const locale = getComponentLocale(props, context, 'DatePicker', () =>
-      require('./locale/zh_CN')
+      require('./locale/zh_CN'),
     );
     const { okText, dismissText, extra, DatePickerLocale } = locale;
 

@@ -59,7 +59,7 @@ export default class Pagination extends React.Component<
       this.props,
       this.context,
       'Pagination',
-      () => require('./locale/zh_CN')
+      () => require('./locale/zh_CN'),
     );
     const { prevText, nextText } = locale;
 
@@ -115,7 +115,7 @@ export default class Pagination extends React.Component<
             })}
           >
             <span />
-          </div>
+          </div>,
         );
       }
       markup = <div className={`${prefixCls}-wrap`}>{arr}</div>;

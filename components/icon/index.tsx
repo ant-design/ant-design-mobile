@@ -23,7 +23,7 @@ export default class Icon extends React.Component<IconProps, any> {
       className,
       'am-icon',
       `am-icon-${type}`,
-      `am-icon-${size}`
+      `am-icon-${size}`,
     );
     return (
       <svg className={cls} {...restProps}>

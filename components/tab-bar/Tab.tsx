@@ -53,14 +53,14 @@ class Tab extends React.PureComponent<TabProps, any> {
       );
     }
     return iconDom;
-  };
+  }
 
   onClick = () => {
     const onClick = this.props.onClick;
     if (onClick) {
       onClick();
     }
-  };
+  }
 
   render() {
     const {

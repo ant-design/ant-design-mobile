@@ -6,7 +6,7 @@ import { Action } from './PropsType';
 
 export default function operation(
   actions = [{ text: '确定' }],
-  platform = 'ios'
+  platform = 'ios',
 ) {
   let closed = false;
 
@@ -71,7 +71,7 @@ export default function operation(
       platform={platform}
       wrapProps={{ onTouchStart: onWrapTouchStart }}
     />,
-    div
+    div,
   );
 
   return {

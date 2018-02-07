@@ -21,7 +21,7 @@ export interface PopOverPropsType extends PopoverPropsType {
 
 function recursiveCloneChildren(
   children: any,
-  cb = (ch: React.ReactChild, _: number) => ch
+  cb = (ch: React.ReactChild, _: number) => ch,
 ): React.ReactChild[] {
   return React.Children.map(children, (child, index) => {
     const newChild = cb(child, index);
@@ -35,7 +35,7 @@ function recursiveCloneChildren(
       return React.cloneElement(
         newChild,
         {},
-        recursiveCloneChildren(newChild.props.children, cb)
+        recursiveCloneChildren(newChild.props.children, cb),
       );
     }
     return newChild;

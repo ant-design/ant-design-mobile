@@ -55,7 +55,7 @@ export default class SearchBar extends React.Component<
       if (
         this.inputContainerRef &&
         this.inputContainerRef.className.indexOf(
-          `${this.props.prefixCls}-start`
+          `${this.props.prefixCls}-start`,
         ) > -1
       ) {
         // 检测是否包含名为 ${this.props.prefixCls}-start 样式，生成动画
@@ -104,7 +104,7 @@ export default class SearchBar extends React.Component<
     if (this.inputRef) {
       this.inputRef.blur();
     }
-  };
+  }
 
   onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!this.state.focus) {
@@ -119,7 +119,7 @@ export default class SearchBar extends React.Component<
     if (this.props.onChange) {
       this.props.onChange(value);
     }
-  };
+  }
 
   onFocus = () => {
     this.setState({
@@ -130,7 +130,7 @@ export default class SearchBar extends React.Component<
     if (this.props.onFocus) {
       this.props.onFocus();
     }
-  };
+  }
 
   onBlur = () => {
     this.onBlurTimeout = setTimeout(() => {
@@ -146,10 +146,10 @@ export default class SearchBar extends React.Component<
     if (this.props.onBlur) {
       this.props.onBlur();
     }
-  };
+  }
   onClear = () => {
     this.doClear();
-  };
+  }
   doClear = (blurFromOnClear = true) => {
     this.blurFromOnClear = blurFromOnClear;
 
@@ -165,7 +165,7 @@ export default class SearchBar extends React.Component<
     if (blurFromOnClear) {
       this.focus();
     }
-  };
+  }
 
   onCancel = () => {
     if (this.props.onCancel) {
@@ -173,12 +173,12 @@ export default class SearchBar extends React.Component<
     } else {
       this.doClear(false);
     }
-  };
+  }
   focus = () => {
     if (this.inputRef) {
       this.inputRef.focus();
     }
-  };
+  }
   render() {
     const {
       prefixCls,
@@ -195,7 +195,7 @@ export default class SearchBar extends React.Component<
       this.props,
       this.context,
       'SearchBar',
-      () => require('./locale/zh_CN')
+      () => require('./locale/zh_CN'),
     );
     const { cancelText } = _locale;
 

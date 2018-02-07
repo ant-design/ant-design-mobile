@@ -108,7 +108,7 @@ export default class SegmentedControl extends React.Component<
     return (
       <div className={wrapCls} style={style} role="tablist">
         {values.map((value, idx) =>
-          this.renderSegmentItem(idx, value, idx === this.state.selectedIndex)
+          this.renderSegmentItem(idx, value, idx === this.state.selectedIndex),
         )}
       </div>
     );

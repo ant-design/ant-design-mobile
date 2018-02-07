@@ -47,7 +47,7 @@ export default class PropmptContainer extends React.Component<
     this.setState({
       visible: false,
     });
-  };
+  }
 
   onChangeText(type: string, value: string) {
     this.setState({

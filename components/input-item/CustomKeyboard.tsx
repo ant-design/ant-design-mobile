@@ -12,7 +12,7 @@ export interface KeyboardItemProps extends HTMLTableDataProps {
   tdRef?: React.Ref<HTMLTableDataCellElement>;
   onClick: (
     event: React.MouseEvent<HTMLTableDataCellElement>,
-    value: string
+    value: string,
   ) => void;
 }
 export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
@@ -30,7 +30,7 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
       disabled,
       children,
       tdRef,
-      ...restProps
+      ...restProps,
     } = this.props;
     let value = children;
     if (className === 'keyboard-delete') {
@@ -71,7 +71,7 @@ class CustomKeyboard extends React.Component<any, any> {
 
   onKeyboardClick = (
     e: React.MouseEvent<HTMLTableDataCellElement>,
-    value: string
+    value: string,
   ) => {
     e.nativeEvent.stopImmediatePropagation();
     if (value === 'confirm' && this.confirmDisabled) {
@@ -81,7 +81,7 @@ class CustomKeyboard extends React.Component<any, any> {
         this.linkedInput.onKeyboardClick(value);
       }
     }
-  };
+  }
 
   renderKeyboardItem = (item: string, index: number) => {
     return (
@@ -92,13 +92,13 @@ class CustomKeyboard extends React.Component<any, any> {
         {item}
       </KeyboardItem>
     );
-  };
+  }
   render() {
     const { prefixCls, confirmLabel } = this.props;
 
     const wrapperCls = classnames(
       `${prefixCls}-wrapper`,
-      `${prefixCls}-wrapper-hide`
+      `${prefixCls}-wrapper-hide`,
     );
 
     return (
@@ -107,7 +107,7 @@ class CustomKeyboard extends React.Component<any, any> {
           <tbody>
             <tr>
               {['1', '2', '3'].map((item, index) =>
-                this.renderKeyboardItem(item, index)
+                this.renderKeyboardItem(item, index),
               )}
               <KeyboardItem
                 className="keyboard-delete"
@@ -117,12 +117,12 @@ class CustomKeyboard extends React.Component<any, any> {
             </tr>
             <tr>
               {['4', '5', '6'].map((item, index) =>
-                this.renderKeyboardItem(item, index)
+                this.renderKeyboardItem(item, index),
               )}
             </tr>
             <tr>
               {['7', '8', '9'].map((item, index) =>
-                this.renderKeyboardItem(item, index)
+                this.renderKeyboardItem(item, index),
               )}
               <KeyboardItem
                 className="keyboard-confirm"
@@ -135,7 +135,7 @@ class CustomKeyboard extends React.Component<any, any> {
             </tr>
             <tr>
               {['.', '0'].map((item, index) =>
-                this.renderKeyboardItem(item, index)
+                this.renderKeyboardItem(item, index),
               )}
               <KeyboardItem
                 className="keyboard-hide"

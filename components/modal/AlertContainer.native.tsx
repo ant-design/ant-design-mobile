@@ -30,7 +30,7 @@ export default class AlertContainer extends React.Component<
     this.setState({
       visible: false,
     });
-  };
+  }
 
   render() {
     const { title, actions, content, onAnimationEnd } = this.props;

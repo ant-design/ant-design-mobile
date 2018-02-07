@@ -28,7 +28,7 @@ function insertSpace(child: any) {
     return React.cloneElement(
       child,
       {},
-      child.props.children.split('').join(' ')
+      child.props.children.split('').join(' '),
     );
   }
   if (isString(child)) {
@@ -64,7 +64,7 @@ class Button extends React.Component<ButtonProps, any> {
       activeStyle,
       activeClassName,
       onClick,
-      ...restProps
+      ...restProps,
     } = this.props;
 
     const iconType: any = loading ? 'loading' : icon;
@@ -96,7 +96,7 @@ class Button extends React.Component<ButtonProps, any> {
       const cls = classnames(
         'am-icon',
         `${prefixCls}-icon`,
-        size === 'small' ? 'am-icon-xxs' : 'am-icon-md'
+        size === 'small' ? 'am-icon-xxs' : 'am-icon-md',
       );
       iconEl = React.cloneElement(iconType, {
         className: rawCls ? `${rawCls} ${cls}` : cls,
@@ -106,8 +106,7 @@ class Button extends React.Component<ButtonProps, any> {
     return (
       <TouchFeedback
         activeClassName={
-          activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)
-        }
+          activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
         disabled={disabled}
         activeStyle={activeStyle}
       >

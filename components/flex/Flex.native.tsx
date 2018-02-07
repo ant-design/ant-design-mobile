@@ -33,7 +33,7 @@ export default class Flex extends React.Component<FlexProps, any> {
       justify,
       align,
       children,
-      ...restProps
+      ...restProps,
     } = this.props;
     const transferConst = [justify, align];
     const transferConstStyle = transferConst.map(el => {

@@ -5,7 +5,7 @@ import AlertContainer from './AlertContainer.native';
 export default function a(
   title: React.ReactType,
   content: React.ReactType,
-  actions = [{ text: '确定' }]
+  actions = [{ text: '确定' }],
 ) {
   const onAnimationEnd = (visible: boolean) => {
     if (!visible) {
@@ -19,6 +19,6 @@ export default function a(
       content={content}
       actions={actions}
       onAnimationEnd={onAnimationEnd}
-    />
+    />,
   );
 }

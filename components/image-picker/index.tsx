@@ -66,7 +66,7 @@ export default class ImagePicker extends React.Component<
       return callback(-1);
     };
     reader.readAsArrayBuffer(file.slice(0, 64 * 1024));
-  };
+  }
 
   getRotation = (orientation = 1) => {
     let imgRotation = 0;
@@ -83,7 +83,7 @@ export default class ImagePicker extends React.Component<
       default:
     }
     return imgRotation;
-  };
+  }
 
   removeImage = (index: number) => {
     const newImages: any[] = [];
@@ -96,7 +96,7 @@ export default class ImagePicker extends React.Component<
     if (this.props.onChange) {
       this.props.onChange(newImages, 'remove', index);
     }
-  };
+  }
 
   addImage = (imgItem: any) => {
     const { files = [] } = this.props;
@@ -104,13 +104,13 @@ export default class ImagePicker extends React.Component<
     if (this.props.onChange) {
       this.props.onChange(newImages, 'add');
     }
-  };
+  }
 
   onImageClick = (index: number) => {
     if (this.props.onImageClick) {
       this.props.onImageClick(index, this.props.files);
     }
-  };
+  }
 
   onFileChange = () => {
     const fileSelectorEl = this.fileSelectorInput;
@@ -121,7 +121,7 @@ export default class ImagePicker extends React.Component<
       }
     }
     fileSelectorEl.value = '';
-  };
+  }
 
   parseFile = (file: any, index: number) => {
     const reader = new FileReader();
@@ -148,7 +148,7 @@ export default class ImagePicker extends React.Component<
       });
     };
     reader.readAsDataURL(file);
-  };
+  }
   render() {
     const {
       prefixCls,
@@ -191,7 +191,7 @@ export default class ImagePicker extends React.Component<
               style={imgStyle}
             />
           </div>
-        </Flex.Item>
+        </Flex.Item>,
       );
     });
 

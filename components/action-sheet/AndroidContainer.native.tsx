@@ -40,7 +40,7 @@ class ActionSheetAndroid extends React.Component<ActionSheetNativeProps, any> {
     this.setState({
       visible: false,
     });
-  };
+  }
   render() {
     const { config, onAnimationEnd } = this.props;
     const {
@@ -86,12 +86,12 @@ class ActionSheetAndroid extends React.Component<ActionSheetNativeProps, any> {
       <View style={styles.container}>
         <Modal
           animationDuration={200}
-          animateAppear={true}
+          animateAppear
           visible={this.state.visible}
           onAnimationEnd={onAnimationEnd}
           style={styles.content}
           animationType="slide-up"
-          maskClosable={true}
+          maskClosable
           onClose={() => this.confirm(cancelButtonIndex || -1)}
         >
           <View>

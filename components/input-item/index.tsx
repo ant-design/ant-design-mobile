@@ -103,7 +103,7 @@ class InputItem extends React.Component<InputItemProps, any> {
           value = `${value.substr(0, 3)} ${value.substr(3)}`;
         } else if (valueLen >= 8) {
           value = `${value.substr(0, 3)} ${value.substr(3, 4)} ${value.substr(
-            7
+            7,
           )}`;
         }
         break;
@@ -116,7 +116,7 @@ class InputItem extends React.Component<InputItemProps, any> {
         break;
     }
     this.handleOnChange(value);
-  };
+  }
   handleOnChange = (value: string) => {
     const { onChange } = this.props;
 
@@ -128,7 +128,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (onChange) {
       onChange(value);
     }
-  };
+  }
   onInputFocus = (value: string) => {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
@@ -140,7 +140,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (this.props.onFocus) {
       this.props.onFocus(value);
     }
-  };
+  }
 
   onInputBlur = (value: string) => {
     if (this.inputRef) {
@@ -158,19 +158,19 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (this.props.onBlur) {
       this.props.onBlur(value);
     }
-  };
+  }
 
   onExtraClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (this.props.onExtraClick) {
       this.props.onExtraClick(e);
     }
-  };
+  }
 
   onErrorClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (this.props.onErrorClick) {
       this.props.onErrorClick(e);
     }
-  };
+  }
 
   clearInput = () => {
     if (this.props.type !== 'password' && this.props.updatePlaceholder) {
@@ -185,13 +185,13 @@ class InputItem extends React.Component<InputItemProps, any> {
       this.props.onChange('');
     }
     this.focus();
-  };
+  }
 
   focus = () => {
     if (this.inputRef) {
       this.inputRef.focus();
     }
-  };
+  }
   render() {
     const {
       prefixCls,
@@ -210,7 +210,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       type,
       locale,
       moneyKeyboardAlign,
-      ...restProps
+      ...restProps,
     } = this.props;
     const { defaultValue, name, disabled, maxLength } = restProps;
     const { value } = this.state;
@@ -220,7 +220,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       this.props,
       this.context,
       'InputItem',
-      () => require('./locale/zh_CN')
+      () => require('./locale/zh_CN'),
     );
 
     const { confirmLabel } = _locale;
@@ -237,7 +237,7 @@ class InputItem extends React.Component<InputItemProps, any> {
         [`${prefixCls}-error`]: error,
         [`${prefixCls}-focus`]: focus,
         [`${prefixCls}-android`]: focus,
-      }
+      },
     );
 
     const labelCls = classnames(`${prefixCls}-label`, {

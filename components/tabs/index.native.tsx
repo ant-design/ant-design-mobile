@@ -20,7 +20,7 @@ export default class Tabs extends React.PureComponent<TabsProps, {}> {
         renderTab={renderTab}
       />
     );
-  };
+  }
 
   render() {
     return (

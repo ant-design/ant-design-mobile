@@ -1,8 +1,6 @@
 import React from 'react';
-import { ListViewDataSource } from 'react-native';
-
 export interface ListViewPropsType {
-  dataSource: ListViewDataSource;
+  dataSource: any;
   initialListSize?: number;
   onEndReached?: (e?: any) => void;
   onEndReachedThreshold?: number;
@@ -13,17 +11,17 @@ export interface ListViewPropsType {
     rowData: any,
     sectionID: string | number,
     rowID: string | number,
-    highlightRow?: boolean
+    highlightRow?: boolean,
   ) => React.ReactElement<any>;
   renderScrollComponent?: (p: any) => React.ReactElement<any>;
   renderSectionHeader?: (
     sectionData: any,
-    sectionId: string | number
+    sectionId: string | number,
   ) => React.ReactElement<any>;
   renderSeparator?: (
     sectionID: string | number,
     rowID: string | number,
-    adjacentRowHighlighted?: boolean
+    adjacentRowHighlighted?: boolean,
   ) => React.ReactElement<any>;
   scrollRenderAheadDistance?: number;
   horizontal?: boolean;

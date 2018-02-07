@@ -8,7 +8,7 @@ const prefixCls = 'am-toast';
 
 function getMessageInstance(
   mask: boolean,
-  callback: (notification: any) => void
+  callback: (notification: any) => void,
 ) {
   if (messageInstance) {
     messageInstance.destroy();
@@ -24,7 +24,7 @@ function getMessageInstance(
         [`${prefixCls}-nomask`]: !mask,
       }),
     },
-    (notification: any) => callback && callback(notification)
+    (notification: any) => callback && callback(notification),
   );
 }
 
@@ -33,7 +33,7 @@ function notice(
   type: string,
   duration = 3,
   onClose: (() => void) | undefined,
-  mask = true
+  mask = true,
 ) {
   const iconTypes: { [key: string]: string } = {
     info: '',
@@ -87,7 +87,7 @@ export default {
     content: string,
     duration?: number,
     onClose?: () => void,
-    mask?: boolean
+    mask?: boolean,
   ) {
     return notice(content, 'info', duration, onClose, mask);
   },
@@ -95,7 +95,7 @@ export default {
     content: string,
     duration?: number,
     onClose?: () => void,
-    mask?: boolean
+    mask?: boolean,
   ) {
     return notice(content, 'success', duration, onClose, mask);
   },
@@ -103,7 +103,7 @@ export default {
     content: string,
     duration?: number,
     onClose?: () => void,
-    mask?: boolean
+    mask?: boolean,
   ) {
     return notice(content, 'fail', duration, onClose, mask);
   },
@@ -111,7 +111,7 @@ export default {
     content: string,
     duration?: number,
     onClose?: () => void,
-    mask?: boolean
+    mask?: boolean,
   ) {
     return notice(content, 'offline', duration, onClose, mask);
   },
@@ -119,7 +119,7 @@ export default {
     content: string,
     duration?: number,
     onClose?: () => void,
-    mask?: boolean
+    mask?: boolean,
   ) {
     return notice(content, 'loading', duration, onClose, mask);
   },

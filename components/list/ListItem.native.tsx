@@ -92,7 +92,7 @@ export default class Item extends React.Component<ListItemProps, any> {
       wrap,
       disabled,
       align,
-      ...restProps
+      ...restProps,
     } = this.props;
     const itemStyles = styles!; // assert none-null none-undefined
 
@@ -143,7 +143,7 @@ export default class Item extends React.Component<ListItemProps, any> {
               key={`${index}-children`}
             >
               {el}
-            </Text>
+            </Text>,
           );
         }
       });
@@ -184,7 +184,7 @@ export default class Item extends React.Component<ListItemProps, any> {
                   key={`${index}-children`}
                 >
                   {el}
-                </Text>
+                </Text>,
               );
             } else {
               tempExtraDom.push(el);

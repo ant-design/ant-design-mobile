@@ -63,9 +63,9 @@ export default class Tag extends React.Component<TagNativeProps, any> {
         if (onChange) {
           onChange(!isSelect);
         }
-      }
+      },
     );
-  };
+  }
 
   onTagClose = () => {
     if (this.props.onClose) {
@@ -75,9 +75,9 @@ export default class Tag extends React.Component<TagNativeProps, any> {
       {
         closed: true,
       },
-      this.props.afterClose
+      this.props.afterClose,
     );
-  };
+  }
 
   onPressIn = () => {
     const styles = this.props.styles!;
@@ -92,7 +92,7 @@ export default class Tag extends React.Component<TagNativeProps, any> {
         ],
       });
     }
-  };
+  }
 
   onPressOut = () => {
     const styles = this.props.styles!;
@@ -104,7 +104,7 @@ export default class Tag extends React.Component<TagNativeProps, any> {
         ],
       });
     }
-  };
+  }
 
   render() {
     const { children, disabled, small, closable, style } = this.props;

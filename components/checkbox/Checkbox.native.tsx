@@ -59,7 +59,7 @@ export default class Checkbox extends React.Component<
     if (this.props.onChange) {
       this.props.onChange({ target: { checked } });
     }
-  };
+  }
 
   render(): JSX.Element {
     const { style, disabled, children, styles } = this.props;

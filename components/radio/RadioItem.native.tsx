@@ -34,7 +34,7 @@ export default class RadioItem extends React.Component<
   handleClick = () => {
     const radio: Radio = this.refs[refRadio] as Radio;
     radio.handleClick();
-  };
+  }
 
   render() {
     const {

@@ -52,7 +52,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       this.setState({ value: value.target.value });
     }
     this.props.onChange!(value);
-  };
+  }
 
   componentWillReceiveProps(nextProps: NumberInputProps) {
     if ('value' in nextProps) {
@@ -68,11 +68,11 @@ class NumberInput extends React.Component<NumberInputProps, any> {
 
   addBlurListener = () => {
     document.addEventListener('click', this.doBlur, false);
-  };
+  }
 
   removeBlurListener = () => {
     document.removeEventListener('click', this.doBlur, false);
-  };
+  }
 
   componentWillUnmount() {
     // focus:true unmount 不能触发 blur
@@ -86,7 +86,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     if (IS_REACT_16) {
       customNumberKeyboard = el;
     }
-  };
+  }
 
   getComponent() {
     const { keyboardPrefixCls, confirmLabel } = this.props;
@@ -102,7 +102,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
 
   getContainer() {
     let container = document.querySelector(
-      `#${this.props.keyboardPrefixCls}-container`
+      `#${this.props.keyboardPrefixCls}-container`,
     );
     if (!container) {
       container = document.createElement('div');
@@ -120,7 +120,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     customNumberKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
       this,
       this.getComponent(),
-      this.getContainer()
+      this.getContainer(),
     ) as CustomKeyboard;
   }
 
@@ -129,7 +129,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     if (ev.target !== this.inputRef) {
       this.onInputBlur(value);
     }
-  };
+  }
 
   unLinkInput = () => {
     if (
@@ -141,12 +141,12 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       customNumberKeyboard.linkedInput = null;
       addClass(
         customNumberKeyboard.antmKeyboard,
-        `${this.props.keyboardPrefixCls}-wrapper-hide`
+        `${this.props.keyboardPrefixCls}-wrapper-hide`,
       );
     }
     // for unmount
     this.removeBlurListener();
-  };
+  }
 
   onInputBlur = (value: string) => {
     const { focus } = this.state;
@@ -159,7 +159,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
         this.unLinkInput();
       }, 50);
     }
-  };
+  }
 
   onInputFocus = () => {
     const { value } = this.state;
@@ -174,7 +174,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
           if (customNumberKeyboard.antmKeyboard) {
             removeClass(
               customNumberKeyboard.antmKeyboard,
-              `${this.props.keyboardPrefixCls}-wrapper-hide`
+              `${this.props.keyboardPrefixCls}-wrapper-hide`,
             );
           }
           customNumberKeyboard.confirmDisabled = value === '';
@@ -182,19 +182,19 @@ class NumberInput extends React.Component<NumberInputProps, any> {
             if (value === '') {
               addClass(
                 customNumberKeyboard.confirmKeyboardItem,
-                `${this.props.keyboardPrefixCls}-item-disabled`
+                `${this.props.keyboardPrefixCls}-item-disabled`,
               );
             } else {
               removeClass(
                 customNumberKeyboard.confirmKeyboardItem,
-                `${this.props.keyboardPrefixCls}-item-disabled`
+                `${this.props.keyboardPrefixCls}-item-disabled`,
               );
             }
           }
         }
-      }
+      },
     );
-  };
+  }
 
   onKeyboardClick = (KeyboardItemValue: string) => {
     const { maxLength } = this.props;
@@ -235,21 +235,21 @@ class NumberInput extends React.Component<NumberInputProps, any> {
         if (valueAfterChange === '') {
           addClass(
             customNumberKeyboard.confirmKeyboardItem,
-            `${this.props.keyboardPrefixCls}-item-disabled`
+            `${this.props.keyboardPrefixCls}-item-disabled`,
           );
         } else {
           removeClass(
             customNumberKeyboard.confirmKeyboardItem,
-            `${this.props.keyboardPrefixCls}-item-disabled`
+            `${this.props.keyboardPrefixCls}-item-disabled`,
           );
         }
       }
     }
-  };
+  }
 
   onFakeInputClick = () => {
     this.focus();
-  };
+  }
 
   focus = () => {
     // this focus may invocked by users page button click, so this click may trigger blurEventListener at the same time
@@ -261,7 +261,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     setTimeout(() => {
       this.addBlurListener();
     }, 50);
-  };
+  }
 
   renderPortal() {
     if (!IS_REACT_16) {

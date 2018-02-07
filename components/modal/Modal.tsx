@@ -83,19 +83,19 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       transparent,
       popup,
       animationType,
-      ...restProps
+      ...restProps,
     } = this.props;
 
     const btnGroupClass = classnames(
       `${prefixCls}-button-group-${
         footer.length === 2 && !operation ? 'h' : 'v'
       }`,
-      `${prefixCls}-button-group-${operation ? 'operation' : 'normal'}`
+      `${prefixCls}-button-group-${operation ? 'operation' : 'normal'}`,
     );
     const footerDom = footer.length ? (
       <div className={btnGroupClass} role="group">
         {footer.map((button, i) =>
-          this.renderFooterButton(button, prefixCls, i)
+          this.renderFooterButton(button, prefixCls, i),
         )}
       </div>
     ) : null;

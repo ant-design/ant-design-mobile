@@ -19,19 +19,19 @@ const onAnimationEnd = (visible: boolean) => {
 export default {
   showActionSheetWithOptions(
     config: ActionSheetIOSOptions,
-    callback: ((index: number) => void)
+    callback: ((index: number) => void),
   ) {
     if (Platform.OS === 'ios') {
       ActionSheetIOS.showActionSheetWithOptions(config, callback);
     } else {
       topView.set(
         <ActionSheetAndroidContainer
-          visible={true}
+          visible
           ref={ref => (instance = ref)}
           onAnimationEnd={onAnimationEnd}
           config={config}
           callback={callback}
-        />
+        />,
       );
     }
   },
@@ -39,7 +39,7 @@ export default {
   showShareActionSheetWithOptions(
     config: any,
     failureCallback?: (arg0: any) => void,
-    successCallback?: (arg0: boolean, activityType?: string) => void
+    successCallback?: (arg0: boolean, activityType?: string) => void,
   ) {
     const content: any = {};
     const options: any = {};

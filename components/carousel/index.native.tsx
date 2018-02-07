@@ -19,12 +19,12 @@ export interface CarouselProps extends CarouselPropsType {
   onScrollBeginDrag?: (
     event: NativeSyntheticEvent<NativeScrollEvent>,
     state: CarouselState,
-    carousel: Carousel
+    carousel: Carousel,
   ) => void;
   onMomentumScrollEnd?: (
     event: NativeSyntheticEvent<NativeScrollEvent>,
     state: CarouselState,
-    carousel: Carousel
+    carousel: Carousel,
   ) => void;
   styles?: any;
   style?: StyleProp<ViewStyle>;
@@ -72,7 +72,7 @@ const defaultPagination = (props: PaginationProps) => {
           i === current && styles.pointActiveStyle,
           i === current && dotActiveStyle,
         ]}
-      />
+      />,
     );
   }
   return (
@@ -120,7 +120,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
   getChildrenCount = (children: React.ReactNode) => {
     const count = children ? React.Children.count(children) || 1 : 0;
     return count;
-  };
+  }
   componentDidMount() {
     this.autoplay();
   }
@@ -139,7 +139,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         this.scrollviewRef.scrollTo({ x, y: 0 }, false);
       }, 10);
     }
-  };
+  }
 
   autoplay = () => {
     const { children, autoplay, infinite, autoplayInterval } = this.props;
@@ -158,7 +158,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
       }
       this.scrollNextPage();
     }, autoplayInterval);
-  };
+  }
 
   onScrollBegin = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     this.setState(
@@ -169,9 +169,9 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         if (this.props.onScrollBeginDrag) {
           this.props.onScrollBeginDrag(e, this.state, this);
         }
-      }
+      },
     );
-  };
+  }
 
   onScrollEnd = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     this.setState({ isScrolling: false });
@@ -193,7 +193,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         this.props.onMomentumScrollEnd(e, this.state, this);
       }
     });
-  };
+  }
 
   onScrollEndDrag = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const { offset, selectedIndex } = this.state;
@@ -211,7 +211,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         isScrolling: false,
       });
     }
-  };
+  }
 
   updateIndex = (offset: CarouselOffset) => {
     const state = this.state;
@@ -252,7 +252,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     if (afterChange) {
       afterChange(selectedIndex);
     }
-  };
+  }
 
   scrollNextPage = () => {
     const { children, infinite } = this.props;
@@ -283,7 +283,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         } as any);
       }, 0);
     }
-  };
+  }
 
   renderContent = (pages: React.ReactNode) => {
     const others = {
@@ -311,7 +311,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         {pages}
       </ScrollView>
     );
-  };
+  }
 
   renderDots = (index: number) => {
     const {
@@ -333,7 +333,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
           dotActiveStyle,
         })
       : null;
-  };
+  }
 
   onLayout = (e: LayoutChangeEvent) => {
     // for horizontal, get width, scollTo
@@ -352,9 +352,9 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
         if (Platform.OS === 'android') {
           this.scrollviewRef.scrollTo({ y: 0, x: offsetX }, false);
         }
-      }
+      },
     );
-  };
+  }
 
   render() {
     const state = this.state;

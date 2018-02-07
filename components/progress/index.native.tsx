@@ -65,7 +65,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
     this.setState({
       wrapWidth: e.nativeEvent.layout.width,
     });
-  };
+  }
 
   normalPercent = (percent?: number) => {
     let widthPercent: any = 0;
@@ -73,11 +73,11 @@ export default class Progress extends React.Component<ProgressProps, any> {
       widthPercent = percent > 100 ? 100 : percent;
     }
     return widthPercent;
-  };
+  }
 
   getWidth = (percent = this.props.percent) => {
     return this.state.wrapWidth * (this.normalPercent(percent) / 100);
-  };
+  }
 
   render() {
     const { position, unfilled, style, styles, barStyle } = this.props;

@@ -51,7 +51,7 @@ class Marquee extends React.PureComponent<MarqueeProps, any> {
     this.twidth = e.nativeEvent.layout.width;
     // onLayout may be earlier than onLayoutContainer on android, can not be sure width < twidth at that time.
     this.tryStart();
-  };
+  }
 
   tryStart() {
     if (this.twidth > this.width && this.width) {
@@ -68,10 +68,10 @@ class Marquee extends React.PureComponent<MarqueeProps, any> {
         },
         () => {
           this.tryStart();
-        }
+        },
       );
     }
-  };
+  }
 
   startMove = () => {
     const { fps = 40, loop } = this.props;
@@ -88,7 +88,7 @@ class Marquee extends React.PureComponent<MarqueeProps, any> {
         this.moveToHeader();
       }
     });
-  };
+  }
 
   moveToHeader = () => {
     Animated.timing(this.state.left, {
@@ -98,7 +98,7 @@ class Marquee extends React.PureComponent<MarqueeProps, any> {
     }).start(() => {
       this.startMove();
     });
-  };
+  }
 
   render() {
     const { style, text, maxWidth } = this.props;

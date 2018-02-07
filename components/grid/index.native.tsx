@@ -95,11 +95,11 @@ export default class Grid extends React.Component<GridProps, any> {
               onPress={() => onClick(el, dataIndex)}
             >
               {renderItem(el, dataIndex)}
-            </Flex.Item>
+            </Flex.Item>,
           );
         } else {
           rowArr.push(
-            <Flex.Item key={j} style={[styles.grayBorderBox, flexItemStyle]} />
+            <Flex.Item key={j} style={[styles.grayBorderBox, flexItemStyle]} />,
           );
         }
       }
@@ -110,7 +110,7 @@ export default class Grid extends React.Component<GridProps, any> {
       rowsArr.push(
         <Flex key={i} style={[styles.grayBorderBox, boxBorderStyle]}>
           {rowArr}
-        </Flex>
+        </Flex>,
       );
     }
 
@@ -130,7 +130,7 @@ export default class Grid extends React.Component<GridProps, any> {
                 <Flex.Item
                   key={jjj}
                   style={[styles.grayBorderBox, flexItemStyle]}
-                />
+                />,
               );
             }
             pageRows.push(
@@ -142,7 +142,7 @@ export default class Grid extends React.Component<GridProps, any> {
                 ]}
               >
                 {res}
-              </Flex>
+              </Flex>,
             );
           }
         }
@@ -155,7 +155,7 @@ export default class Grid extends React.Component<GridProps, any> {
             ]}
           >
             {pageRows}
-          </View>
+          </View>,
         );
       }
     }

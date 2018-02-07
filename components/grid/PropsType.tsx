@@ -15,6 +15,6 @@ export interface GridPropsType {
   onClick?: (dataItem: DataItem | undefined, itemIndex: number) => void;
   renderItem?: (
     dataItem: DataItem | undefined,
-    itemIndex: number
+    itemIndex: number,
   ) => React.ReactElement<any>;
 }

@@ -7,7 +7,7 @@ function notice(
   type: string,
   duration = 3,
   onClose: (() => void) | undefined,
-  mask = true
+  mask = true,
 ) {
   topView.remove();
   function animationEnd() {
@@ -21,7 +21,7 @@ function notice(
       type={type}
       mask={mask}
       onAnimationEnd={animationEnd}
-    />
+    />,
   );
 }
 
@@ -35,7 +35,7 @@ export default {
     content: string,
     duration?: number,
     onClose?: () => void,
-    mask?: boolean
+    mask?: boolean,
   ) {
     return notice(content, 'info', duration, onClose, mask);
   },
@@ -43,7 +43,7 @@ export default {
     content: string,
     duration?: number,
     onClose?: () => void,
-    mask?: boolean
+    mask?: boolean,
   ) {
     return notice(content, 'success', duration, onClose, mask);
   },
@@ -51,7 +51,7 @@ export default {
     content: string,
     duration?: number,
     onClose?: () => void,
-    mask?: boolean
+    mask?: boolean,
   ) {
     return notice(content, 'fail', duration, onClose, mask);
   },
@@ -59,7 +59,7 @@ export default {
     content: string,
     duration?: number,
     onClose?: () => void,
-    mask?: boolean
+    mask?: boolean,
   ) {
     return notice(content, 'offline', duration, onClose, mask);
   },
@@ -67,7 +67,7 @@ export default {
     content: string,
     duration?: number,
     onClose?: () => void,
-    mask?: boolean
+    mask?: boolean,
   ) {
     return notice(content, 'loading', duration, onClose, mask);
   },

@@ -34,13 +34,13 @@ export interface ActionSheetWithOptions extends ActionSheetOptions {
 }
 export type ActionCallBack = (
   index: number,
-  rowIndex?: number
+  rowIndex?: number,
 ) => PromiseLike<any> | void;
 
 function createActionSheet(
   flag: string,
   config: ActionSheetWithOptions | ShareActionSheetWithOptions,
-  callback: ActionCallBack
+  callback: ActionCallBack,
 ) {
   const props = {
     prefixCls: 'am-action-sheet',
@@ -186,7 +186,7 @@ function createActionSheet(
             ) : (
               <div className={`${prefixCls}-share-list`}>
                 {(options as ShareOption[]).map((item, index) =>
-                  createList(item, index)
+                  createList(item, index),
                 )}
               </div>
             )}
@@ -213,7 +213,7 @@ function createActionSheet(
 
   ReactDOM.render(
     <Dialog
-      visible={true}
+      visible
       title=""
       footer=""
       prefixCls={prefixCls}
@@ -226,7 +226,7 @@ function createActionSheet(
     >
       {children}
     </Dialog>,
-    div
+    div,
   );
 
   return {
@@ -237,13 +237,13 @@ function createActionSheet(
 export default {
   showActionSheetWithOptions(
     config: ActionSheetWithOptions,
-    callback: ActionCallBack = noop
+    callback: ActionCallBack = noop,
   ) {
     createActionSheet(NORMAL, config, callback);
   },
   showShareActionSheetWithOptions(
     config: ShareActionSheetWithOptions,
-    callback: ActionCallBack = noop
+    callback: ActionCallBack = noop,
   ) {
     createActionSheet(SHARE, config, callback);
   },

@@ -66,7 +66,7 @@ export default class Pagination extends React.Component<
       this.props,
       this.context,
       'Pagination',
-      () => zh_CN
+      () => zh_CN,
     );
     const { prevText, nextText } = locale;
 
@@ -120,7 +120,7 @@ export default class Pagination extends React.Component<
               styles.spaceStyle,
               i + 1 === current && styles.pointActiveStyle,
             ]}
-          />
+          />,
         );
       }
       markup = (

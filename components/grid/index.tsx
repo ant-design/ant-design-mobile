@@ -55,16 +55,16 @@ export default class Grid extends React.Component<GridProps, any> {
           className={`${prefixCls}-carousel-page`}
         >
           {pageRows}
-        </div>
+        </div>,
       );
     }
     return pagesArr;
-  };
+  }
   renderItem = (
     dataItem: DataItem | any,
     index: number,
     columnNum: number,
-    renderItem: any
+    renderItem: any,
   ) => {
     const { prefixCls } = this.props;
     let itemEl: any = null;
@@ -88,7 +88,7 @@ export default class Grid extends React.Component<GridProps, any> {
       }
     }
     return <div className={`${prefixCls}-item-content`}>{itemEl}</div>;
-  };
+  }
   getRows = (rowCount: number, dataLength: number) => {
     // tslint:disable:prefer-const
     let {
@@ -122,8 +122,7 @@ export default class Grid extends React.Component<GridProps, any> {
             <TouchFeedback
               key={`griditem-${dataIndex}`}
               activeClassName={
-                activeClassName ? activeClassName : `${prefixCls}-item-active`
-              }
+                activeClassName ? activeClassName : `${prefixCls}-item-active`}
               activeStyle={activeStyle}
             >
               <Flex.Item
@@ -149,11 +148,11 @@ export default class Grid extends React.Component<GridProps, any> {
       rowsArr.push(
         <Flex justify="center" align="stretch" key={`gridline-${i}`}>
           {rowArr}
-        </Flex>
+        </Flex>,
       );
     }
     return rowsArr;
-  };
+  }
   render() {
     const {
       prefixCls,
@@ -164,14 +163,14 @@ export default class Grid extends React.Component<GridProps, any> {
       square,
       activeStyle,
       activeClassName,
-      ...restProps
+      ...restProps,
     } = this.props;
     let {
       columnNum,
       carouselMaxRow,
       onClick,
       renderItem,
-      ...restPropsForCarousel
+      ...restPropsForCarousel,
     } = restProps;
 
     const { initialSlideWidth } = this.state;

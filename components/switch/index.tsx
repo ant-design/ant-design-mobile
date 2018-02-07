@@ -25,7 +25,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
     if (this.props.onChange) {
       this.props.onChange(checked);
     }
-  };
+  }
 
   onClick = (e: any) => {
     if (this.props.onClick) {
@@ -38,7 +38,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
       }
       this.props.onClick(val);
     }
-  };
+  }
 
   render() {
     const {
@@ -49,7 +49,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
       className,
       platform,
       color,
-      ...restProps
+      ...restProps,
     } = this.props;
     const wrapCls = classnames(prefixCls, className, {
       [`${prefixCls}-android`]: platform === 'android',

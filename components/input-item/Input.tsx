@@ -19,7 +19,7 @@ class Input extends React.Component<InputProps, any> {
     if (this.props.onBlur) {
       this.props.onBlur(value);
     }
-  };
+  }
 
   onInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     // here should have a value definition but none.
@@ -27,13 +27,13 @@ class Input extends React.Component<InputProps, any> {
     if (this.props.onFocus) {
       this.props.onFocus(value);
     }
-  };
+  }
 
   focus = () => {
     if (this.inputRef) {
       this.inputRef.focus();
     }
-  };
+  }
 
   render() {
     const { onBlur, onFocus, ...restProps } = this.props;

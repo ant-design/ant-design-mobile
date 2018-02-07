@@ -8,7 +8,7 @@ export default function alert(
   title: React.ReactType,
   message: React.ReactType,
   actions = [{ text: '确定' }],
-  platform = 'ios'
+  platform = 'ios',
 ) {
   let closed = false;
 
@@ -80,7 +80,7 @@ export default function alert(
     >
       <div className={`${prefixCls}-alert-content`}>{message}</div>
     </Modal>,
-    div
+    div,
   );
 
   return {

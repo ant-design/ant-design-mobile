@@ -54,7 +54,7 @@ export default class PickerView extends React.Component<IPickerView, any> {
         </RMCPicker>
       );
     });
-  };
+  }
   render() {
     // tslint:disable-next-line:no-this-assignment
     const { props } = this;

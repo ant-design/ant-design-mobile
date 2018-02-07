@@ -50,9 +50,9 @@ export default class Carousel extends React.Component<
         if (this.props.afterChange) {
           this.props.afterChange(index);
         }
-      }
+      },
     );
-  };
+  }
 
   render() {
     const {
@@ -61,7 +61,7 @@ export default class Carousel extends React.Component<
       beforeChange,
       afterChange,
       dots,
-      ...restProps
+      ...restProps,
     } = this.props;
 
     const {

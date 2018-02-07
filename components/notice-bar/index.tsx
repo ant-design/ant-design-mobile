@@ -36,7 +36,7 @@ export default class NoticeBar extends React.Component<NoticeWebProps, any> {
         show: false,
       });
     }
-  };
+  }
 
   render() {
     const {
@@ -48,7 +48,7 @@ export default class NoticeBar extends React.Component<NoticeWebProps, any> {
       prefixCls,
       action,
       marqueeProps,
-      ...restProps
+      ...restProps,
     } = this.props;
 
     const extraProps: any = {};

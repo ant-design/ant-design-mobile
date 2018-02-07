@@ -30,7 +30,7 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
       extra,
       style,
       styles,
-      ...restProps
+      ...restProps,
     } = this.props;
 
     const titleDom =

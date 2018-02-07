@@ -82,7 +82,7 @@ export default class TextAreaItem extends React.Component<
     if (onChange) {
       onChange(text);
     }
-  };
+  }
 
   onContentSizeChange = (event: {
     nativeEvent: { contentSize: { width: number; height: number } };
@@ -105,7 +105,7 @@ export default class TextAreaItem extends React.Component<
     if (onContentSizeChange) {
       onContentSizeChange(event);
     }
-  };
+  }
 
   render() {
     const {
@@ -118,7 +118,7 @@ export default class TextAreaItem extends React.Component<
       onErrorClick,
       styles,
       style,
-      ...restProps
+      ...restProps,
     } = this.props;
     const { value, defaultValue } = restProps;
     const { inputCount } = this.state;

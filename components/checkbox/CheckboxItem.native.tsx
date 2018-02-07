@@ -30,7 +30,7 @@ export default class CheckboxItem extends React.Component<
     if (this.props.onClick) {
       this.props.onClick();
     }
-  };
+  }
 
   render() {
     const {

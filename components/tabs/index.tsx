@@ -8,7 +8,7 @@ import TabsProps from './PropsType';
 
 export class DefaultTabBar extends RMCDefaultTabBar {
   static defaultProps = {
-    ...RMCDefaultTabBar.defaultProps,
+    ...(RMCDefaultTabBar as any).defaultProps,
     prefixCls: 'am-tabs-default-bar',
   };
 }
@@ -23,7 +23,7 @@ export default class Tabs extends React.PureComponent<TabsProps, {}> {
   renderTabBar = (props: TabBarPropsType) => {
     const { renderTab } = this.props;
     return <DefaultTabBar {...props} renderTab={renderTab} />;
-  };
+  }
 
   render() {
     return <RMCTabs renderTabBar={this.renderTabBar} {...this.props} />;

@@ -54,7 +54,7 @@ class Accordion extends React.Component<AccordionNativeProps, any> {
         </View>
       </View>
     );
-  };
+  }
 
   renderContent = (section: AccordionHeader) => {
     const styles = this.props.styles!;
@@ -65,7 +65,7 @@ class Accordion extends React.Component<AccordionNativeProps, any> {
         <Text style={styles.contentText}>{section.content}</Text>
       </View>
     );
-  };
+  }
 
   onChange = (idx: number) => {
     const { onChange, children } = this.props;
@@ -78,7 +78,7 @@ class Accordion extends React.Component<AccordionNativeProps, any> {
     if (onChange) {
       onChange(key);
     }
-  };
+  }
 
   render() {
     const { children, style, defaultActiveKey, activeKey } = this.props;

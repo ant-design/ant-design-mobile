@@ -50,25 +50,25 @@ export default class Button extends React.Component<ButtonProps, any> {
     if (this.props.onPressIn) {
       (this.props.onPressIn as any)(...arg);
     }
-  };
+  }
   onPressOut = (...arg: any[]) => {
     this.setState({ pressIn: false });
     if (this.props.onPressOut) {
       (this.props.onPressOut as any)(...arg);
     }
-  };
+  }
   onShowUnderlay = (...arg: any[]) => {
     this.setState({ touchIt: true });
     if (this.props.onShowUnderlay) {
       (this.props.onShowUnderlay as any)(...arg);
     }
-  };
+  }
   onHideUnderlay = (...arg: any[]) => {
     this.setState({ touchIt: false });
     if (this.props.onHideUnderlay) {
       (this.props.onHideUnderlay as any)(...arg);
     }
-  };
+  }
 
   render() {
     // TODO: replace `TouchableHighlight` with `TouchableWithoutFeedback` in version 1.1.0
@@ -82,7 +82,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       style,
       styles,
       loading,
-      ...restProps
+      ...restProps,
     } = this.props;
     // can not understand this line.
     // tslint:disable-next-line:variable-name
@@ -121,13 +121,13 @@ export default class Button extends React.Component<ButtonProps, any> {
     ];
 
     const underlayColor = (StyleSheet.flatten(
-      _styles[activeStyle ? `${type}Highlight` : `${type}Raw`]
+      _styles[activeStyle ? `${type}Highlight` : `${type}Raw`],
     ) as any).backgroundColor;
 
     const indicatorColor = (StyleSheet.flatten(
       this.state.pressIn
         ? _styles[`${type}HighlightText`]
-        : _styles[`${type}RawText`]
+        : _styles[`${type}RawText`],
     ) as any).color;
 
     return (

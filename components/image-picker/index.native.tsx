@@ -47,14 +47,14 @@ export default class ImagePicker extends React.Component<
     this.plusWrap.setNativeProps({
       style: [styles.item, styles.size, styles.plusWrapHighlight],
     });
-  };
+  }
 
   onPressOut = () => {
     const styles = this.props.styles!;
     this.plusWrap.setNativeProps({
       style: [styles.item, styles.size, styles.plusWrapNormal],
     });
-  };
+  }
 
   showPicker = () => {
     if (this.props.onAddImageClick) {
@@ -64,7 +64,7 @@ export default class ImagePicker extends React.Component<
     this.setState({
       visible: true,
     });
-  };
+  }
 
   addImage(imageObj: any) {
     if (!imageObj.url) {
@@ -98,7 +98,7 @@ export default class ImagePicker extends React.Component<
     if (this.props.onFail) {
       this.props.onFail('cancel image selection');
     }
-  };
+  }
 
   onImageClick(index: number) {
     if (this.props.onImageClick) {

@@ -45,7 +45,7 @@ export default class ImageRoll extends React.Component<ImageRollProps, any> {
   onSelected = (images: any[], _: any) => {
     this.props.onSelected(images[0]);
     this.props.onCancel();
-  };
+  }
 
   render() {
     return (

@@ -41,7 +41,7 @@ export default class Drawer extends React.Component<DrawerNativeProps, any> {
       position,
       drawerRef,
       drawerWidth = 300,
-      ...restProps
+      ...restProps,
     } = this.props;
     [
       'onOpenChange',
@@ -55,9 +55,9 @@ export default class Drawer extends React.Component<DrawerNativeProps, any> {
       }
     });
     // tslint:disable-next-line:variable-name
-    let _position = DrawerLayout.positions.Left;
+    let _position = (DrawerLayout as any).positions.Left;
     if (position === 'right') {
-      _position = DrawerLayout.positions.Right;
+      _position = (DrawerLayout as any).positions.Right;
     }
     return (
       <DrawerLayout

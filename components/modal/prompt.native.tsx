@@ -9,7 +9,7 @@ export default function prompt(
   callbackOrActions: CallbackOrActions,
   type = 'default',
   defaultValue = '',
-  placeholders = ['', '']
+  placeholders = ['', ''],
 ) {
   if (!callbackOrActions) {
     // tslint:disable-next-line:no-console
@@ -32,6 +32,6 @@ export default function prompt(
       defaultValue={defaultValue}
       onAnimationEnd={onAnimationEnd}
       placeholders={placeholders}
-    />
+    />,
   );
 }

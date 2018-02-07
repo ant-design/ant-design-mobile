@@ -26,7 +26,7 @@ export default class List extends React.Component<ListProps, any> {
       // tslint:disable-next-line:variable-name
       renderFooter,
       styles,
-      ...restProps
+      ...restProps,
     } = this.props;
 
     // tslint:disable-next-line:variable-name

@@ -22,11 +22,9 @@ if (
         // IE8 throws an exception when you try to delete a property on window
         // http://stackoverflow.com/a/1824228/751089
         try {
-          // @ts-ignore
-          delete window[functionName];
+          delete (window as any)[functionName];
         } catch (e) {
-          // @ts-ignore
-          window[functionName] = undefined;
+          (window as any)[functionName] = undefined;
         }
       }
 
@@ -50,8 +48,7 @@ if (
           const callbackFunction =
             options.jsonpCallbackFunction || generateCallbackFunction();
           const scriptId = `${jsonpCallback}_${callbackFunction}`;
-          // @ts-ignore
-          window[callbackFunction] = response => {
+          (window as any)[callbackFunction] = (response: any) => {
             resolve({
               ok: true,
               // keep consistent with fetch API
@@ -86,8 +83,7 @@ if (
 
             clearFunction(callbackFunction);
             removeScript(scriptId);
-            // @ts-ignore
-            window[callbackFunction] = () => {
+            (window as any)[callbackFunction] = () => {
               clearFunction(callbackFunction);
             };
           }, timeout);

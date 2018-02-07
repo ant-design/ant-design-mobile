@@ -29,7 +29,7 @@ export default class OperationContainer extends React.Component<
     this.setState({
       visible: false,
     });
-  };
+  }
 
   render() {
     const { actions, onAnimationEnd } = this.props;

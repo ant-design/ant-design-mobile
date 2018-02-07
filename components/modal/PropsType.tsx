@@ -30,7 +30,7 @@ export abstract class ModalComponent<P, S> extends React.Component<P, S> {
     title: React.ReactType,
     message: React.ReactType,
     actions?: Action[],
-    platform?: string
+    platform?: string,
   ) => { close: () => void };
 
   static prompt: (
@@ -40,11 +40,11 @@ export abstract class ModalComponent<P, S> extends React.Component<P, S> {
     type?: 'default' | 'secure-text' | 'login-password',
     defaultValue?: string,
     placeholders?: string[],
-    platform?: string
+    platform?: string,
   ) => { close: () => void };
 
   static operation: (
     actions?: Action[],
-    platform?: string
+    platform?: string,
   ) => { close: () => void };
 }

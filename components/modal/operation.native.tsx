@@ -12,6 +12,6 @@ export default function a(...args: any[]) {
   };
 
   topView.set(
-    <OperationContainer actions={actions} onAnimationEnd={onAnimationEnd} />
+    <OperationContainer actions={actions} onAnimationEnd={onAnimationEnd} />,
   );
 }

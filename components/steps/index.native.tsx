@@ -10,7 +10,7 @@ export interface StepsProps extends StepsPropsType {
   size?: string;
   finishIcon?: string;
   styles?: any;
-  children: RNStepsItem[];
+  children: React.ReactElement<any>[];
 }
 
 export interface StepsNativeProps extends StepsProps {
@@ -38,7 +38,7 @@ export default class Steps extends React.Component<StepsNativeProps, any> {
     this.setState({
       wrapWidth: e.nativeEvent.layout.width,
     });
-  };
+  }
 
   render() {
     const children = this.props.children;

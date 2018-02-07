@@ -57,11 +57,11 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
         style: [{ paddingBottom: e.nativeEvent.layout.height }, maxHeight],
       });
     }
-  };
+  }
 
   saveRoot = (root: any) => {
     this.root = root;
-  };
+  }
 
   render() {
     const {

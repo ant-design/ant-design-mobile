@@ -33,7 +33,7 @@ export default class AgreeItem extends React.Component<
   handleClick = () => {
     const checkBox: Checkbox = this.refs[refCheckbox] as Checkbox;
     checkBox.handleClick();
-  };
+  }
 
   render(): JSX.Element {
     // tslint:disable:prefer-const

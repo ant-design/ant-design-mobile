@@ -20,7 +20,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     // tslint:disable-next-line:no-this-assignment
     const { props, context } = this;
     const locale = getComponentLocale(props, context, 'Calendar', () =>
-      require('./locale/zh_CN')
+      require('./locale/zh_CN'),
     );
     const Header = RMCalendar.DefaultHeader;
 

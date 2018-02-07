@@ -63,14 +63,14 @@ export default class Menu extends React.Component<MenuProps, StateType> {
     if (onOk) {
       onOk(this.state.value);
     }
-  };
+  }
 
   onMenuCancel = () => {
     const { onCancel } = this.props;
     if (onCancel) {
       onCancel();
     }
-  };
+  }
 
   getNewFsv(props: MenuProps) {
     const { value, data } = props;
@@ -94,7 +94,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
     if (dataItem.isLeaf && onChange) {
       onChange([dataItem.value]);
     }
-  };
+  }
 
   getSelectValue = (dataItem: DataItem) => {
     const { level, multiSelect } = this.props;
@@ -126,7 +126,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
     return level === 2
       ? [this.state.firstLevelSelectValue, dataItem.value]
       : [dataItem.value];
-  };
+  }
 
   onClickSubMenuItem = (dataItem: DataItem) => {
     const { onChange } = this.props;
@@ -138,7 +138,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
         onChange(value);
       }
     }, 300);
-  };
+  }
 
   render() {
     const {
@@ -158,7 +158,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
       let parent = data;
       if (firstLevelSelectValue && firstLevelSelectValue !== '') {
         parent = data.filter(
-          dataItem => dataItem.value === firstLevelSelectValue
+          dataItem => dataItem.value === firstLevelSelectValue,
         );
       }
 

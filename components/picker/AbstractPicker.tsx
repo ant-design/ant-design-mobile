@@ -41,7 +41,7 @@ export default abstract class AbstractPicker extends React.Component<
     let treeChildren: PickerData[];
     const { data } = this.props;
     if (this.props.cascade) {
-      treeChildren = treeFilter(data as PickerData[], (c, level) => {
+      treeChildren = treeFilter(data as PickerData[], (c: any, level: any) => {
         return c.value === value[level];
       });
     } else {
@@ -54,10 +54,10 @@ export default abstract class AbstractPicker extends React.Component<
       this.props.format(
         treeChildren.map(v => {
           return v.label;
-        })
+        }),
       )
     );
-  };
+  }
 
   getPickerCol = () => {
     const { data, pickerPrefixCls, itemStyle, indicatorStyle } = this.props;
@@ -80,7 +80,7 @@ export default abstract class AbstractPicker extends React.Component<
         </RMCPicker>
       );
     });
-  };
+  }
 
   onOk = (v: any) => {
     if (this.scrollValue !== undefined) {
@@ -92,11 +92,11 @@ export default abstract class AbstractPicker extends React.Component<
     if (this.props.onOk) {
       this.props.onOk(v);
     }
-  };
+  }
 
   setScrollValue = (v: any) => {
     this.scrollValue = v;
-  };
+  }
 
   setCasecadeScrollValue = (v: any) => {
     // 级联情况下保证数据正确性，滚动过程中只有当最后一级变化时才变更数据
@@ -110,28 +110,28 @@ export default abstract class AbstractPicker extends React.Component<
       }
     }
     this.setScrollValue(v);
-  };
+  }
 
   fixOnOk = (cascader: any) => {
     if (cascader && cascader.onOk !== this.onOk) {
       cascader.onOk = this.onOk;
       cascader.forceUpdate();
     }
-  };
+  }
 
   onPickerChange = (v: any) => {
     this.setScrollValue(v);
     if (this.props.onPickerChange) {
       this.props.onPickerChange(v);
     }
-  };
+  }
 
   onVisibleChange = (visible: boolean) => {
     this.setScrollValue(undefined);
     if (this.props.onVisibleChange) {
       this.props.onVisibleChange(visible);
     }
-  };
+  }
 
   render() {
     const {
@@ -149,12 +149,12 @@ export default abstract class AbstractPicker extends React.Component<
       data,
       cols,
       onOk,
-      ...restProps
+      ...restProps,
     } = this.props;
 
     // tslint:disable-next-line:variable-name
     const _locale = getComponentLocale(this.props, this.context, 'Picker', () =>
-      require('./locale/zh_CN')
+      require('./locale/zh_CN'),
     );
 
     let cascader;

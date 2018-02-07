@@ -42,7 +42,7 @@ class TabBar extends React.Component<TabBarNativeProps, any> {
             ]}
           >
             {child.props.children}
-          </View>
+          </View>,
         );
       } else {
         newChildren.push(
@@ -51,7 +51,7 @@ class TabBar extends React.Component<TabBarNativeProps, any> {
             tintColor,
             unselectedTintColor,
             styles,
-          })
+          }),
         );
       }
     });

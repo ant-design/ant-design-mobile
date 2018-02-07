@@ -76,7 +76,7 @@ export default class TextareaItem extends React.Component<
 
   focus = () => {
     this.textareaRef.focus();
-  };
+  }
 
   componentWillReceiveProps(nextProps: TextareaItemProps) {
     if ('value' in nextProps) {
@@ -100,7 +100,7 @@ export default class TextareaItem extends React.Component<
     const textareaDom = this.textareaRef;
     textareaDom.style.height = ''; // 字数减少时能自动减小高度
     textareaDom.style.height = `${textareaDom.scrollHeight}px`;
-  };
+  }
   componentWillUnmount() {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
@@ -123,7 +123,7 @@ export default class TextareaItem extends React.Component<
     }
     // 设置 defaultValue 时，用户输入不会触发 componentDidUpdate ，此处手工调用
     this.componentDidUpdate();
-  };
+  }
 
   onBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
     this.debounceTimeout = setTimeout(() => {
@@ -140,7 +140,7 @@ export default class TextareaItem extends React.Component<
     if (this.props.onBlur) {
       this.props.onBlur(value);
     }
-  };
+  }
 
   onFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
     if (this.debounceTimeout) {
@@ -154,13 +154,13 @@ export default class TextareaItem extends React.Component<
     if (this.props.onFocus) {
       this.props.onFocus(value);
     }
-  };
+  }
 
   onErrorClick = () => {
     if (this.props.onErrorClick) {
       this.props.onErrorClick();
     }
-  };
+  }
 
   clearInput = () => {
     this.setState({
@@ -170,7 +170,7 @@ export default class TextareaItem extends React.Component<
     if (this.props.onChange) {
       this.props.onChange('');
     }
-  };
+  }
 
   render() {
     const {
@@ -188,7 +188,7 @@ export default class TextareaItem extends React.Component<
       onErrorClick,
       autoHeight,
       defaultValue,
-      ...otherProps
+      ...otherProps,
     } = this.props;
     const { disabled } = otherProps;
     const { value, focus } = this.state;
@@ -204,7 +204,7 @@ export default class TextareaItem extends React.Component<
         [`${prefixCls}-error`]: error,
         [`${prefixCls}-focus`]: focus,
         [`${prefixCls}-has-count`]: hasCount,
-      }
+      },
     );
 
     const labelCls = classnames(`${prefixCls}-label`, {

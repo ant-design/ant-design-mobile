@@ -52,7 +52,7 @@ export default class Radio extends React.Component<RadioNativeProps, any> {
     if (this.props.onChange) {
       this.props.onChange({ target: { checked: true } });
     }
-  };
+  }
 
   render(): JSX.Element {
     const { style, disabled, children } = this.props;

@@ -53,7 +53,7 @@ export default class NoticeBar extends React.Component<NoticeNativeProps, any> {
         show: false,
       });
     }
-  };
+  }
 
   render() {
     const { children, mode, icon, style, action, marqueeProps } = this.props;

@@ -53,9 +53,9 @@ export default class Tag extends React.Component<TagProps, any> {
         if (onChange) {
           onChange(!isSelect);
         }
-      }
+      },
     );
-  };
+  }
 
   onTagClose = () => {
     if (this.props.onClose) {
@@ -65,9 +65,9 @@ export default class Tag extends React.Component<TagProps, any> {
       {
         closed: true,
       },
-      this.props.afterClose
+      this.props.afterClose,
     );
-  };
+  }
 
   render() {
     const {

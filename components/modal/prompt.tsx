@@ -11,7 +11,7 @@ export default function prompt(
   type = 'default',
   defaultValue = '',
   placeholders = ['', ''],
-  platform = 'ios'
+  platform = 'ios',
 ) {
   let closed = false;
 
@@ -221,7 +221,7 @@ export default function prompt(
     >
       <div className={`${prefixCls}-propmt-content`}>{content}</div>
     </Modal>,
-    div
+    div,
   );
 
   return {

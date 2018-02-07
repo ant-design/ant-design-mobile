@@ -66,7 +66,7 @@ export default class SearchBar extends React.Component<
     if (this.props.onSubmit) {
       this.props.onSubmit(this.state.value || '');
     }
-  };
+  }
 
   onChangeText = (value: string) => {
     if (!('value' in this.props)) {
@@ -75,13 +75,13 @@ export default class SearchBar extends React.Component<
     if (this.props.onChange) {
       this.props.onChange(value);
     }
-  };
+  }
 
   onCancel = () => {
     if (this.props.onCancel) {
       this.props.onCancel(this.state.value || '');
     }
-  };
+  }
 
   onFocus = () => {
     this.setState({
@@ -90,7 +90,7 @@ export default class SearchBar extends React.Component<
     if (this.props.onFocus) {
       this.props.onFocus();
     }
-  };
+  }
 
   onBlur = () => {
     this.setState({
@@ -99,7 +99,7 @@ export default class SearchBar extends React.Component<
     if (this.props.onBlur) {
       this.props.onBlur();
     }
-  };
+  }
   render() {
     const {
       showCancelButton,
@@ -110,7 +110,7 @@ export default class SearchBar extends React.Component<
       onChange,
       onSubmitEditing,
       disabled,
-      ...restProps
+      ...restProps,
     } = this.props;
 
     // tslint:disable-next-line:variable-name
@@ -118,7 +118,7 @@ export default class SearchBar extends React.Component<
       this.props,
       this.context,
       'SearchBar',
-      () => require('./locale/zh_CN')
+      () => require('./locale/zh_CN'),
     );
 
     const { style } = restProps;
