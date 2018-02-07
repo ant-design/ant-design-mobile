@@ -86,7 +86,7 @@ export default class ActivityIndicatorExample extends React.Component<
         </WingBlank>
         <ActivityIndicator
           animating={this.state.animating}
-          toast={true}
+          toast
           size="large"
           text="Loading..."
         />

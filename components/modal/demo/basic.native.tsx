@@ -4,7 +4,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 export default class BasicModalExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       visible: false,
@@ -17,66 +17,66 @@ export default class BasicModalExample extends React.Component<any, any> {
     this.setState({
       visible: false,
     });
-  };
+  }
 
   onClose1 = () => {
     this.setState({
       visible1: false,
     });
-  };
+  }
 
   onClose2 = () => {
     this.setState({
       visible2: false,
     });
-  };
+  }
 
   onButtonClick = () => {
     Modal.alert('Title', 'alert content', [
       { text: 'Cancel', onPress: () => console.log('cancel'), style: 'cancel' },
       { text: 'OK', onPress: () => console.log('ok') },
     ]);
-  };
+  }
 
   onButtonClick2 = () => {
     Modal.operation([
       { text: '标为未读', onPress: () => console.log('标为未读被点击了') },
       { text: '置顶聊天', onPress: () => console.log('置顶聊天被点击了') },
     ]);
-  };
+  }
 
   onButtonClick3 = () => {
     Modal.prompt(
       'Login',
       'Pleas input login information',
-      (login, password) =>
+      (login: any, password: any) =>
         console.log(`login: ${login}, password: ${password}`),
       'login-password',
       null,
-      ['Please input name', 'Please input password']
+      ['Please input name', 'Please input password'],
     );
-  };
+  }
 
   onButtonClick4 = () => {
     Modal.prompt(
       'Input password',
       'password message',
-      password => console.log(`password: ${password}`),
+      (password: any) => console.log(`password: ${password}`),
       'secure-text',
-      'defaultValue'
+      'defaultValue',
     );
-  };
+  }
 
   onButtonClick5 = () => {
     Modal.prompt(
       'Name',
       'name message',
-      password => console.log(`password: ${password}`),
+      (password: any) => console.log(`password: ${password}`),
       'default',
       null,
-      ['please input name']
+      ['please input name'],
     );
-  };
+  }
   render() {
     const footerButtons = [
       { text: 'Cancel', onPress: () => console.log('cancel') },

@@ -6,7 +6,7 @@ import React from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
 export default class BasicTimelineExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       steps1: [
@@ -49,7 +49,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
         <View style={{ marginTop: 60 }}>
           <WingBlank size="lg">
             <Steps size="small" current={1} direction="horizontal">
-              {this.state.steps1.map((item, index) => (
+              {this.state.steps1.map((item: any, index: any) => (
                 <Step
                   key={index}
                   title={
@@ -66,7 +66,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
         <View style={{ marginTop: 60 }}>
           <WingBlank size="lg">
             <Steps size="small" current={1}>
-              {this.state.steps1.map((item, index) => (
+              {this.state.steps1.map((item: any, index: any) => (
                 <Step
                   key={index}
                   title={
@@ -88,7 +88,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
         <View>
           <WingBlank size="lg">
             <Steps size="small">
-              {this.state.steps2.map((item, index) => (
+              {this.state.steps2.map((item: any, index: any) => (
                 <Step
                   key={index}
                   title={item.title}
@@ -102,7 +102,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
         <View>
           <WingBlank size="lg">
             <Steps current={1}>
-              {this.state.steps1.map((item, index) => (
+              {this.state.steps1.map((item: any, index: any) => (
                 <Step
                   key={index}
                   title={item.title}
@@ -116,7 +116,7 @@ export default class BasicTimelineExample extends React.Component<any, any> {
         <View>
           <WingBlank size="lg">
             <Steps>
-              {this.state.steps2.map((item, index) => (
+              {this.state.steps2.map((item: any, index: any) => (
                 <Step
                   key={index}
                   title={item.title}

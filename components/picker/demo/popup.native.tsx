@@ -5,7 +5,7 @@ import { View } from 'react-native';
 import { district } from 'antd-mobile-demo-data';
 
 export default class PopupExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       data: [],
@@ -19,11 +19,11 @@ export default class PopupExample extends React.Component<any, any> {
         data: district,
       });
     }, 500);
-  };
-  onChange = value => {
+  }
+  onChange = (value: any) => {
     // console.log(value);
     this.setState({ value });
-  };
+  }
   render() {
     return (
       <View style={{ marginTop: 30 }}>

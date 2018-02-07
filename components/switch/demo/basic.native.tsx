@@ -2,18 +2,18 @@ import { List, Switch } from 'antd-mobile';
 import React from 'react';
 
 export default class SwitchExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       checked: false,
     };
   }
 
-  onSwitchChange = value => {
+  onSwitchChange = (value: any) => {
     this.setState({
       checked: value,
     });
-  };
+  }
   render() {
     return (
       <List style={{ marginTop: 20 }}>

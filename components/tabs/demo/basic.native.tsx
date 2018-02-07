@@ -3,7 +3,7 @@ import { Tabs } from 'antd-mobile';
 import React from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
-const renderContent = (tab, index) => {
+const renderContent = (tab: any, index: any) => {
   const style = {
     paddingVertical: 40,
     justifyContent: 'center',

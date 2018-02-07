@@ -3,7 +3,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 export default class BasicSliderExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       changingValue: 0.25,
@@ -13,23 +13,23 @@ export default class BasicSliderExample extends React.Component<any, any> {
     };
   }
 
-  handleChange = value => {
+  handleChange = (value: any) => {
     this.setState({
       changingValue: value,
     });
-  };
+  }
 
-  onAfterChange = value => {
+  onAfterChange = (value: any) => {
     this.setState({
       changedValue: value,
     });
-  };
+  }
 
-  minMaxChange = value => {
+  minMaxChange = (value: any) => {
     this.setState({
       minMaxValue: value,
     });
-  };
+  }
 
   render() {
     return (
@@ -49,7 +49,7 @@ export default class BasicSliderExample extends React.Component<any, any> {
           <Slider
             min={0}
             max={1}
-            onAfterChange={value => this.minMaxChange(value)}
+            onAfterChange={(value: any) => this.minMaxChange(value)}
           />
         </View>
 
@@ -67,7 +67,7 @@ export default class BasicSliderExample extends React.Component<any, any> {
           <Text>onChange value: {this.state.changingValue}</Text>
           <Slider
             defaultValue={0.25}
-            onChange={value => this.handleChange(value)}
+            onChange={(value: any) => this.handleChange(value)}
           />
         </View>
 
@@ -75,7 +75,7 @@ export default class BasicSliderExample extends React.Component<any, any> {
           <Text>onAfterChange value: {this.state.changedValue}</Text>
           <Slider
             defaultValue={0.15}
-            onAfterChange={value => this.onAfterChange(value)}
+            onAfterChange={(value: any) => this.onAfterChange(value)}
           />
         </View>
 

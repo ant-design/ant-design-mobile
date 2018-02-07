@@ -3,7 +3,7 @@ import { List, Stepper } from 'antd-mobile';
 import React from 'react';
 import { View } from 'react-native';
 
-function onChange(value) {
+function onChange(value: any) {
   console.log('changed', value);
 }
 

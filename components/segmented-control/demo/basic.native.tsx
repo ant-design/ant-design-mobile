@@ -4,13 +4,13 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 export default class BasicTagExample extends React.Component<any, any> {
-  onChange = e => {
+  onChange = (e: any) => {
     console.log(`selectedIndex:${e.nativeEvent.selectedSegmentIndex}`);
-  };
+  }
 
-  onValueChange = value => {
+  onValueChange = (value: any) => {
     console.log(value);
-  };
+  }
 
   render() {
     return (

@@ -16,7 +16,7 @@ export default class BasicRadioExample extends React.Component<any, any> {
         <View style={{ padding: 10 }}>
           <Radio
             checked={this.state.part1Value === 1}
-            onChange={event => {
+            onChange={(event: any) => {
               if (event.target.checked) {
                 this.setState({ part1Value: 1 });
               }
@@ -28,7 +28,7 @@ export default class BasicRadioExample extends React.Component<any, any> {
           <WhiteSpace />
           <Radio
             checked={this.state.part1Value === 2}
-            onChange={event => {
+            onChange={(event: any) => {
               if (event.target.checked) {
                 this.setState({ part1Value: 2 });
               }
@@ -44,7 +44,7 @@ export default class BasicRadioExample extends React.Component<any, any> {
           </Text>
           <RadioItem
             checked={this.state.part2Value === 1}
-            onChange={event => {
+            onChange={(event: any) => {
               if (event.target.checked) {
                 this.setState({ part2Value: 1 });
               }
@@ -54,7 +54,7 @@ export default class BasicRadioExample extends React.Component<any, any> {
           </RadioItem>
           <RadioItem
             checked={this.state.part2Value === 2}
-            onChange={event => {
+            onChange={(event: any) => {
               if (event.target.checked) {
                 this.setState({ part2Value: 2 });
               }

@@ -2,7 +2,7 @@ import { Button, Flex, WhiteSpace, WingBlank } from 'antd-mobile';
 import React from 'react';
 import { ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
 
-const Circle = props => {
+const Circle = (props: any) => {
   const size = props.size || 20;
   const style = {
     borderRadius: size / 2,

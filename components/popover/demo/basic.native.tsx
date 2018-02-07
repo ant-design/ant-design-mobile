@@ -5,7 +5,7 @@ import { Platform, StyleSheet, Text, View, ViewStyle } from 'react-native';
 const Item = Popover.Item;
 
 export default class PopoverExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       // visible: false,
@@ -17,12 +17,12 @@ export default class PopoverExample extends React.Component<any, any> {
   //     this.refs.mc.refs.menuContext.toggleMenu('m');
   //   }, 2000);
   // }
-  onSelect = value => {
+  onSelect = (value: any) => {
     this.setState({
       // visible: false,
       selected: value,
     });
-  };
+  }
   // handleVisibleChange = (_visible) => {
   //   this.setState({
   //     visible,

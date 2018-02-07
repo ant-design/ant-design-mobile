@@ -69,7 +69,7 @@ const App = () => (
           {
             text: 'Ok',
             onPress: () =>
-              new Promise(resolve => {
+              new Promise((resolve) => {
                 Toast.info('onPress Promise', 1);
                 setTimeout(resolve, 1000);
               }),

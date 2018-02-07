@@ -9,16 +9,16 @@ export default class PopupExample extends React.Component<any, any> {
   date1MinDate: any;
   date1MaxDate: any;
 
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       value: undefined,
     };
   }
 
-  onChange = value => {
+  onChange = (value: any) => {
     this.setState({ value });
-  };
+  }
 
   render() {
     return (

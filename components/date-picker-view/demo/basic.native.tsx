@@ -7,13 +7,13 @@ export default class DatePickerViewExample extends React.Component {
   state = {
     value: null,
   };
-  onChange = value => {
+  onChange = (value: any) => {
     console.log(value);
     this.setState({ value });
-  };
-  onValueChange = (...args) => {
+  }
+  onValueChange = (...args: any[]) => {
     console.log(args);
-  };
+  }
   render() {
     return (
       <View>

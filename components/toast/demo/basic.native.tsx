@@ -50,7 +50,7 @@ export default class ToastExample extends React.Component<any, any> {
     this.timer = setTimeout(() => {
       Toast.hide();
     }, 5000);
-  };
+  }
 
   render() {
     return (

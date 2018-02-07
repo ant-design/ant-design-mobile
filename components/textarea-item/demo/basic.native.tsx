@@ -7,17 +7,17 @@ export default class BasicTextAreaItemExample extends React.Component<
   any,
   any
 > {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       val: '默认带value',
     };
   }
 
-  onChange = val => {
+  onChange = (val: any) => {
     // console.log(val);
     this.setState({ val });
-  };
+  }
 
   render() {
     return (

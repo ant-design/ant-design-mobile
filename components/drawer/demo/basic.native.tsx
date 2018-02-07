@@ -11,17 +11,17 @@ const styles = StyleSheet.create({
 export default class DrawerExample extends React.Component<any, any> {
   drawer: any;
 
-  onOpenChange = isOpen => {
+  onOpenChange = (isOpen: any) => {
     /* tslint:disable: no-console */
     console.log('是否打开了 Drawer', isOpen.toString());
-  };
+  }
 
   render() {
     const itemArr = Array.apply(null, Array(20))
-      .map(function(_, i) {
+      .map(function(_: any, i: any) {
         return i;
       })
-      .map((_i, index) => {
+      .map((_i: any, index: any) => {
         if (index === 0) {
           return (
             <List.Item
@@ -70,7 +70,7 @@ export default class DrawerExample extends React.Component<any, any> {
         sidebar={sidebar}
         position="left"
         open={false}
-        drawerRef={el => (this.drawer = el)}
+        drawerRef={(el: any) => (this.drawer = el)}
         onOpenChange={this.onOpenChange}
         drawerBackgroundColor="#ccc"
       >

@@ -61,7 +61,7 @@ const Page = () => (
 );
 
 export default class LocaleProviderExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       isEnglish: true,
@@ -71,7 +71,7 @@ export default class LocaleProviderExample extends React.Component<any, any> {
     this.setState({
       isEnglish: !this.state.isEnglish,
     });
-  };
+  }
   render() {
     const locale = this.state.isEnglish ? enUS : undefined;
     return (

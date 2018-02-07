@@ -3,7 +3,7 @@ import { Tag, WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import { View } from 'react-native';
 
-function onChange(selected) {
+function onChange(selected: any) {
   console.log(`tag selected: ${selected}`);
 }
 

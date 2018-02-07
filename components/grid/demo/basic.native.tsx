@@ -25,7 +25,7 @@ export default class BasicGridExample extends React.Component<any, any> {
           data={data}
           columnNum={3}
           isCarousel
-          onClick={(_el, index) => alert(index)}
+          onClick={(_el: any, index: any) => alert(index)}
         />
         <View style={[{ margin: 10 }]}>
           <Text>Custom GridCell Style</Text>

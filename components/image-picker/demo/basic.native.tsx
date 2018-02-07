@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 
 export default class ImagePickerExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       files: [
@@ -36,17 +36,17 @@ export default class ImagePickerExample extends React.Component<any, any> {
     };
   }
 
-  handleFileChange = files => {
+  handleFileChange = (files: any) => {
     this.setState({
       files,
     });
-  };
+  }
 
-  handleFile2Change = files2 => {
+  handleFile2Change = (files2: any) => {
     this.setState({
       files2,
     });
-  };
+  }
 
   render() {
     return (

@@ -28,7 +28,7 @@ export default class PickerViewExample extends React.Component {
   state = {
     value: null,
   };
-  onChange = (value) => {
+  onChange = (value: any) => {
     this.setState({
       value,
     });

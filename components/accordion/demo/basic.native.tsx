@@ -6,7 +6,7 @@ import { View } from 'react-native';
 export default class AccordionExmple extends React.Component<any, any> {
   onChange = (key: string) => {
     console.log(key);
-  };
+  }
   render() {
     return (
       <View style={{ marginTop: 80, marginBottom: 10 }}>

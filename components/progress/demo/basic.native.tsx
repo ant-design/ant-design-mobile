@@ -3,7 +3,7 @@ import React from 'react';
 import { Text, View, ViewStyle } from 'react-native';
 
 export default class BasicProgressExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       percent: 40,
@@ -16,7 +16,7 @@ export default class BasicProgressExample extends React.Component<any, any> {
       p = 0;
     }
     this.setState({ percent: p });
-  };
+  }
 
   render() {
     const style = {
