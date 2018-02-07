@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import TabBarIOS from './tabbar.ios';
 import TabBarAndroid from './tabbar.android';
+import TabBarIOS from './tabbar.ios';
 
-export default Platform.OS === 'ios' ? TabBarIOS : TabBarAndroid;
+export default (Platform.OS === 'ios' ? TabBarIOS : TabBarAndroid);
