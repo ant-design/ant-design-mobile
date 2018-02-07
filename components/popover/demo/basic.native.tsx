@@ -55,6 +55,7 @@ export default class PopoverExample extends React.Component<any, any> {
             style={{ backgroundColor: '#eee' }}
             overlay={overlay}
             contextStyle={styles.contextStyle}
+            // tslint:disable-next-line:jsx-no-multiline-js
             overlayStyle={[
               styles.overlayStyle,
               Platform.OS === 'android' && styles.androidOverlayStyle,

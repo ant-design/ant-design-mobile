@@ -31,6 +31,7 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
       <div className={wrapCls} {...restProps}>
         <div className={`${prefixCls}-header-content`}>
           {typeof thumb === 'string' ? (
+          // tslint:disable-next-line:jsx-no-multiline-js
             <img style={thumbStyle} src={thumb} />
           ) : (
             thumb
@@ -38,6 +39,7 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
           {title}
         </div>
         {extra ? (
+        // tslint:disable-next-line:jsx-no-multiline-js
           <div className={`${prefixCls}-header-extra`}>{extra}</div>
         ) : null}
       </div>

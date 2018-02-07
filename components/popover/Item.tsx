@@ -47,6 +47,7 @@ export default class Item extends React.Component<PopoverItemProps, any> {
         <div className={cls} {...restProps}>
           <div className={`${prefixCls}-item-container`}>
             {icon ? (
+            // tslint:disable-next-line:jsx-no-multiline-js
               <span className={`${prefixCls}-item-icon`} aria-hidden="true">
                 {icon}
               </span>

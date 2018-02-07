@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import { TextAreaItemPropsType } from './PropsType';
+import { Omit } from '../_util/types';
 export type HTMLTextAreaProps = Omit<
   React.HTMLProps<HTMLInputElement>,
   | 'onChange'

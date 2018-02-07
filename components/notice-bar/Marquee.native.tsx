@@ -120,6 +120,7 @@ class Marquee extends React.PureComponent<MarqueeProps, any> {
         onLayout={this.onLayoutContainer}
       >
         <Animated.View
+          // tslint:disable-next-line:jsx-no-multiline-js
           style={{
             flexDirection: 'row',
             left: this.state.left,

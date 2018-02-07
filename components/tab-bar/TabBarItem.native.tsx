@@ -59,11 +59,13 @@ export default class TabBarItem extends React.Component<TabBarItemProps, any> {
         <View style={[styles.barItem, itemSelectedStyle]}>
           <View>
             {source === null ? null : (
+            // tslint:disable-next-line:jsx-no-multiline-js
               <Image source={source} style={[styles.barIcon, iconStyle]} />
             )}
             {badgeDom}
           </View>
           <Text
+            // tslint:disable-next-line:jsx-no-multiline-js
             style={[
               styles.barItemTitle,
               { color: selected ? tintColor : unselectedTintColor },

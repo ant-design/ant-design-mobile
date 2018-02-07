@@ -7,6 +7,7 @@ import { getComponentLocale } from '../_util/getLocale';
 import CustomInput from './CustomInput';
 import Input from './Input';
 import { InputItemPropsType } from './PropsType';
+import { Omit } from '../_util/types';
 
 export type HTMLInputProps = Omit<
   React.HTMLProps<HTMLInputElement>,

@@ -70,6 +70,7 @@ export default class Radio extends React.Component<RadioNativeProps, any> {
         <View style={[styles.wrapper]}>
           <Image source={imgSrc} style={[styles.icon, style]} />
           {typeof children === 'string' ? (
+          // tslint:disable-next-line:jsx-no-multiline-js
             <Text>{this.props.children}</Text>
           ) : (
             children

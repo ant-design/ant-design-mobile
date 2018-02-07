@@ -27,6 +27,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     return (
       <RMCalendar
         locale={locale}
+        // tslint:disable-next-line:jsx-no-multiline-js
         renderHeader={headerProps => (
           <Header {...headerProps} closeIcon={<Icon type="cross" />} />
         )}

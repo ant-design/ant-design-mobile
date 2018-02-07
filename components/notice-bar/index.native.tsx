@@ -26,6 +26,7 @@ export default class NoticeBar extends React.Component<NoticeNativeProps, any> {
     onClick() {},
     icon: (
       <Image
+        // tslint:disable-next-line:jsx-no-multiline-js
         source={{
           uri:
             'https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png',

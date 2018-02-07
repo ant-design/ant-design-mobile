@@ -145,6 +145,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       >
         <View style={_styles.container}>
           {loading ? (
+          // tslint:disable-next-line:jsx-no-multiline-js
             <ActivityIndicator
               style={_styles.indicator}
               animating

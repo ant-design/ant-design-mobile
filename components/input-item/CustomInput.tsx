@@ -291,6 +291,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     return (
       <div className={fakeInputContainerCls}>
         {value === '' && (
+        // tslint:disable-next-line:jsx-no-multiline-js
           <div className="fake-input-placeholder">{placeholder}</div>
         )}
         <div

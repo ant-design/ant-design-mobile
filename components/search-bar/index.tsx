@@ -238,6 +238,7 @@ export default class SearchBar extends React.Component<
               <i className={`${prefixCls}-synthetic-ph-icon`} />
               <span
                 className={`${prefixCls}-synthetic-ph-placeholder`}
+                // tslint:disable-next-line:jsx-no-multiline-js
                 style={{
                   visibility: placeholder && !value ? 'visible' : 'hidden',
                 }}

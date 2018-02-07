@@ -177,6 +177,7 @@ export default class ImagePicker extends React.Component<
               className={`${prefixCls}-item-remove`}
               role="button"
               aria-label="Click and Remove this image"
+              // tslint:disable-next-line:jsx-no-multiline-js
               onClick={() => {
                 this.removeImage(index);
               }}
@@ -185,6 +186,7 @@ export default class ImagePicker extends React.Component<
               className={`${prefixCls}-item-content`}
               role="button"
               aria-label="Image can be clicked"
+              // tslint:disable-next-line:jsx-no-multiline-js
               onClick={() => {
                 this.onImageClick(index);
               }}
@@ -205,11 +207,13 @@ export default class ImagePicker extends React.Component<
             aria-label="Choose and add image"
           >
             <input
+              // tslint:disable-next-line:jsx-no-multiline-js
               ref={input => {
                 this.fileSelectorInput = input;
               }}
               type="file"
               accept={accept}
+              // tslint:disable-next-line:jsx-no-multiline-js
               onChange={() => {
                 this.onFileChange();
               }}

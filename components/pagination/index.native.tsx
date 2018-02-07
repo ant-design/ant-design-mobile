@@ -115,6 +115,7 @@ export default class Pagination extends React.Component<
         arr.push(
           <View
             key={`dot-${i}`}
+            // tslint:disable-next-line:jsx-no-multiline-js
             style={[
               styles.pointStyle,
               styles.spaceStyle,

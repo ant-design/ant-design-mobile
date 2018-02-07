@@ -105,6 +105,7 @@ class Button extends React.Component<ButtonProps, any> {
     // use div, button native is buggy @yiminghe
     return (
       <TouchFeedback
+        // tslint:disable-next-line:jsx-no-multiline-js
         activeClassName={
           activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
         disabled={disabled}

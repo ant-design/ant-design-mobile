@@ -36,6 +36,7 @@ class TabBar extends React.Component<TabBarNativeProps, any> {
         newChildren.push(
           <View
             key={idx}
+            // tslint:disable-next-line:jsx-no-multiline-js
             style={[
               styles.contentItem,
               idx === selectedIndex ? styles.contentItemSelected : undefined,

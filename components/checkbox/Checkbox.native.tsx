@@ -80,6 +80,7 @@ export default class Checkbox extends React.Component<
         <View style={[styles!.wrapper]}>
           <Image source={imgSrc} style={[styles!.icon, style]} />
           {typeof children === 'string' ? (
+          // tslint:disable-next-line:jsx-no-multiline-js
             <Text style={styles!.iconRight}>{this.props.children}</Text>
           ) : (
             children

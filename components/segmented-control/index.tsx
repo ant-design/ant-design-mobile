@@ -108,6 +108,7 @@ export default class SegmentedControl extends React.Component<
     return (
       <div className={wrapCls} style={style} role="tablist">
         {values.map((value, idx) =>
+        // tslint:disable-next-line:jsx-no-multiline-js
           this.renderSegmentItem(idx, value, idx === this.state.selectedIndex),
         )}
       </div>

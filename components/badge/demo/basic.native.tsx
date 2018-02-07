@@ -1,3 +1,4 @@
+// tslint:disable:jsx-no-multiline-js
 /* tslint:disable:no-console */
 import { Badge, WhiteSpace } from 'antd-mobile';
 import React from 'react';

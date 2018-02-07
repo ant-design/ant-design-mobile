@@ -1,3 +1,4 @@
+// tslint:disable:jsx-no-multiline-js
 import { List, Switch } from 'antd-mobile';
 import React from 'react';
 

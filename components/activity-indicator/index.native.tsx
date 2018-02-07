@@ -31,6 +31,7 @@ export default class RNActivityIndicator extends React.Component<
           <View style={[styles.wrapper]}>
             <ActivityIndicator color="white" size="large" />
             {this.props.text && (
+            // tslint:disable-next-line:jsx-no-multiline-js
               <Text style={[styles.toast]}>{this.props.text}</Text>
             )}
           </View>

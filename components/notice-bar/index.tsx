@@ -84,6 +84,7 @@ export default class NoticeBar extends React.Component<NoticeWebProps, any> {
     return this.state.show ? (
       <div className={wrapCls} {...restProps} {...extraProps} role="alert">
         {icon && (
+      // tslint:disable-next-line:jsx-no-multiline-js
           <div className={`${prefixCls}-icon`} aria-hidden="true">
             {icon}
           </div>

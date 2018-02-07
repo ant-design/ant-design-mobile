@@ -1,3 +1,4 @@
+// tslint:disable:jsx-no-multiline-js
 import { Checkbox, List, WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import { Text, View } from 'react-native';

@@ -12,6 +12,7 @@ import {
 import variables from '../style/themes/default.native';
 import { TextAreaItemPropsType } from './PropsType';
 import TextAreaItemStyle, { ITextareaItemStyle } from './style/index.native';
+import { Omit } from '../_util/types';
 export type TextInputProps = Omit<
   TextInputProperties,
   'onChange' | 'onFocus' | 'onBlur'

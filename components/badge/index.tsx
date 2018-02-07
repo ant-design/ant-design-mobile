@@ -62,6 +62,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       <span className={badgeCls}>
         {children}
         {(text || dot) && (
+        // tslint:disable-next-line:jsx-no-multiline-js
           <sup className={scrollNumberCls} {...restProps}>
             {text}
           </sup>

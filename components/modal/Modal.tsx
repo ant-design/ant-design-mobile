@@ -95,6 +95,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     const footerDom = footer.length ? (
       <div className={btnGroupClass} role="group">
         {footer.map((button, i) =>
+        // tslint:disable-next-line:jsx-no-multiline-js
           this.renderFooterButton(button, prefixCls, i),
         )}
       </div>

@@ -197,6 +197,7 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
           <RCModal
             onClose={onClose}
             animationType={animType}
+            // tslint:disable-next-line:jsx-no-multiline-js
             style={[
               styles.popupContainer,
               (styles as any)[`popup${aType}`],

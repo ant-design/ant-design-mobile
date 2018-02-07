@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
 import TouchFeedback from 'rmc-feedback';
+import { Omit } from '../_util/types';
 
 export type HTMLTableDataProps = Omit<
   React.HTMLProps<HTMLTableDataCellElement>,
@@ -46,6 +47,7 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
       <TouchFeedback activeClassName={`${prefixCls}-item-active`}>
         <td
           ref={tdRef}
+          // tslint:disable-next-line:jsx-no-multiline-js
           onClick={e => {
             onClick(e, value as string);
           }}
@@ -107,6 +109,7 @@ class CustomKeyboard extends React.Component<any, any> {
           <tbody>
             <tr>
               {['1', '2', '3'].map((item, index) =>
+              // tslint:disable-next-line:jsx-no-multiline-js
                 this.renderKeyboardItem(item, index),
               )}
               <KeyboardItem
@@ -117,11 +120,13 @@ class CustomKeyboard extends React.Component<any, any> {
             </tr>
             <tr>
               {['4', '5', '6'].map((item, index) =>
+              // tslint:disable-next-line:jsx-no-multiline-js
                 this.renderKeyboardItem(item, index),
               )}
             </tr>
             <tr>
               {['7', '8', '9'].map((item, index) =>
+              // tslint:disable-next-line:jsx-no-multiline-js
                 this.renderKeyboardItem(item, index),
               )}
               <KeyboardItem
@@ -135,6 +140,7 @@ class CustomKeyboard extends React.Component<any, any> {
             </tr>
             <tr>
               {['.', '0'].map((item, index) =>
+              // tslint:disable-next-line:jsx-no-multiline-js
                 this.renderKeyboardItem(item, index),
               )}
               <KeyboardItem

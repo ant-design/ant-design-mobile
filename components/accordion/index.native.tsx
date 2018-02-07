@@ -1,3 +1,4 @@
+// tslint:disable:jsx-no-multiline-js
 import React from 'react';
 import { Image, StyleProp, Text, View, ViewStyle } from 'react-native';
 import RNAccordion from 'react-native-collapsible/Accordion';

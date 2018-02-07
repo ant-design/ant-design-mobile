@@ -33,6 +33,7 @@ export default class NavBar extends React.Component<NavBarProps, any> {
           onClick={onLeftClick}
         >
           {icon ? (
+          // tslint:disable-next-line:jsx-no-multiline-js
             <span className={`${prefixCls}-left-icon`} aria-hidden="true">
               {icon}
             </span>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { InputEventHandler } from './PropsType';
+import { Omit } from '../_util/types';
 
 export type HTMLInputProps = Omit<
   React.HTMLProps<HTMLInputElement>,
