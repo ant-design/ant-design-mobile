@@ -1,4 +1,4 @@
-import { PropsType, Models } from 'rmc-tabs';
+import { Models, PropsType } from 'rmc-tabs';
 
 interface TabsProps extends PropsType {
   /** render for replace the tab of tabbar. */
