@@ -1,6 +1,3 @@
-export interface WingBlankProps {
+export interface WingBlankPropsType {
   size?: 'sm' | 'md' | 'lg';
-  style?: any;
 }
-
-export default WingBlankProps;
