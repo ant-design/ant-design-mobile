@@ -15,6 +15,7 @@ declare module 'rc-slider';
 declare module 'rn-topview';
 
 declare module 'rc-notification';
+declare module 'rmc-notification';
 
 declare module 'react-native-camera-roll-picker';
 
