@@ -1,7 +1,7 @@
 /* tslint:disable:no-console */
+import { Tag, WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import { View } from 'react-native';
-import { Tag, WhiteSpace } from 'antd-mobile';
 
 function onChange(selected) {
   console.log(`tag selected: ${selected}`);
@@ -21,8 +21,12 @@ export default class BasicTagExample extends React.Component<any, any> {
         <WhiteSpace />
         <Tag
           closable
-          onClose={() => { console.log('onClose'); }}
-          afterClose={() => { console.log('afterClose'); }}
+          onClose={() => {
+            console.log('onClose');
+          }}
+          afterClose={() => {
+            console.log('afterClose');
+          }}
         >
           Closable
         </Tag>
