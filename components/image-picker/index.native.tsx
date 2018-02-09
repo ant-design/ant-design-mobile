@@ -138,7 +138,7 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
                 ref={conponent => this.plusWrap = conponent}
                 style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}
               >
-                <Text style={[styles.plusText]}>+</Text>
+                <Text style={[styles.plusText]} includeFontPadding={false}>+</Text>
               </View>
             </TouchableWithoutFeedback>
           )
