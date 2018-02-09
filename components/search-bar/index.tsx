@@ -4,6 +4,7 @@ import { SearchBarProps as BasePropsType, SearchBarState, defaultProps } from '.
 import getDataAttr from '../_util/getDataAttr';
 import TouchFeedback from 'rmc-feedback';
 import { getComponentLocale } from '../_util/getLocale';
+import 'raf/polyfill';
 
 export interface SearchBarProps extends BasePropsType {
   prefixCls?: string;
@@ -112,16 +113,19 @@ export default class SearchBar extends React.Component<SearchBarProps, SearchBar
   }
 
   onBlur = () => {
-    this.onBlurTimeout = setTimeout(() => {
-      if (!this.blurFromOnClear) {
-        if (document.activeElement !== this.inputRef) {
-          this.setState({
-            focus: false,
-          });
+    setImmediate(() => {
+      const req = window.requestAnimationFrame(() => {
+        if (!this.blurFromOnClear) {
+          if (document.activeElement !== this.inputRef) {
+            this.setState({
+              focus: false,
+            });
+          }
         }
-      }
-      this.blurFromOnClear = false;
-    }, 50);
+        this.blurFromOnClear = false;
+        window.cancelAnimationFrame(req);
+      });
+    });
     if (this.props.onBlur) {
       this.props.onBlur();
     }
