@@ -181,7 +181,9 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
    ```jsx
    import { Button } from 'antd-mobile';
-   ```
+   ``` 
+   
+   > 说明：有人反映通过 `react-native init` 创建的项目在使用时可能会报 [Unable to resolve module `react-dom`](https://github.com/ant-design/ant-design-mobile/issues/2054) 的错误 ，此时不妨安装 [babel-plugin-module-resolver](https://www.npmjs.com/package/babel-plugin-module-resolver) 试试~
 
 - 手动引入
 
