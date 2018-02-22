@@ -20,6 +20,7 @@ export interface IModalStyle {
   operationContainer: ViewStyle;
   operationBody: ViewStyle;
   buttonTextOperation: TextStyle;
+  alertBody: ViewStyle;
 }
 
 export default {
@@ -63,6 +64,7 @@ export default {
     paddingTop: 0,
     paddingBottom: variables.v_spacing_lg,
     paddingHorizontal: variables.h_spacing_lg,
+    marginTop: variables.v_spacing_sm,
   },
   maskClosable: {
     position: 'absolute',
