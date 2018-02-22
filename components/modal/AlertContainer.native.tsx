@@ -53,6 +53,10 @@ export default class AlertContainer extends React.Component<AlertContainerProps,
         visible={this.state.visible}
         footer={footer}
         onAnimationEnd={onAnimationEnd}
+        bodyStyle={{
+          marginTop: 8,
+          alignItems: 'center',
+        }}
       >
         <ScrollView>
           <Text>{content}</Text>
