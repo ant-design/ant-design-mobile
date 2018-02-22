@@ -117,7 +117,6 @@ export default class PropmptContainer extends React.Component<PropmptContainerPr
         transparent
         title={title}
         visible={this.state.visible}
-        onClose={this.onClose}
         footer={footer}
         onAnimationEnd={onAnimationEnd}
       >
