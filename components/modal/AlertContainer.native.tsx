@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { Text, ScrollView } from 'react-native';
 import Modal from './Modal';
