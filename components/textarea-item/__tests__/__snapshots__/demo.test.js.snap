@@ -263,7 +263,7 @@ exports[`renders ./components/textarea-item/demo/basic.md correctly 1`] = `
       class="am-list-body"
     >
       <div
-        class="am-list-item am-textarea-item"
+        class="am-list-item am-textarea-item am-textarea-has-count"
       >
         <div
           class="am-textarea-control"

@@ -181,8 +181,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
 
     return (
       <Flex
-        className={classnames({
-          [prefixCls as string]: true,
+        className={classnames(prefixCls, {
           [className as string]: !!className,
         })}
         style={{
@@ -199,7 +198,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
           })}
         >
           {level === 2 &&
-            <Flex.Item style={heightStyle}>
+            <Flex.Item>
               <List role="tablist">
                 {data.map((dataItem, index) => (
                   <List.Item
@@ -216,12 +215,9 @@ export default class Menu extends React.Component<MenuProps, StateType> {
             </Flex.Item>
           }
           <Flex.Item
-            style={heightStyle}
             role="tabpanel"
             aria-hidden="false"
-            className={classnames({
-              [`${MenuSelectContanerPrefixCls}-submenu`]: true,
-            })}
+            className={`${MenuSelectContanerPrefixCls}-submenu`}
           >
             <SubMenu
               subMenuPrefixCls={this.props.subMenuPrefixCls}
@@ -236,15 +232,11 @@ export default class Menu extends React.Component<MenuProps, StateType> {
         </Flex>
         {multiSelect &&
           (<div
-            className={classnames({
-              [multiSelectMenuBtnsCls as string]: true,
-            })}
+            className={multiSelectMenuBtnsCls}
           >
             <Button
               inline
-              className={classnames({
-                [`${multiSelectMenuBtnsCls}-btn`]: true,
-              })}
+              className={`${multiSelectMenuBtnsCls}-btn`}
               onClick={this.onMenuCancel}
             >
               取消
@@ -252,9 +244,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
             <Button
               inline
               type="primary"
-              className={classnames({
-                [`${multiSelectMenuBtnsCls}-btn`]: true,
-              })}
+              className={`${multiSelectMenuBtnsCls}-btn`}
               onClick={this.onMenuOk}
             >
               确定

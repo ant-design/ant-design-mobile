@@ -16,6 +16,46 @@ toc: false
 
 ---
 
+### 2.1.6
+
+`2018-02-05`
+
+
+- **Bug Fix**
+
+  - 🐞  Fix `Modal.prompt` can not input.
+### 2.1.5
+
+`2018-01-29`
+
+- **Feature**
+
+  - 🌟 `ImagePicker` support custom `accept`.([#2269](https://github.com/ant-design/ant-design-mobile/pull/2269))
+
+- **Bug Fix**
+
+  - 🐞  Fix `InputItem` be cover by keyboard in ios 11. ([#2289](https://github.com/ant-design/ant-design-mobile/pull/2289))
+  - 🐞  Fix `Menu` be content be coverd by confim button.([#2273](https://github.com/ant-design/ant-design-mobile/issues/2273))
+  - 🐞  Fix `Progress` tsd。([#2292](https://github.com/ant-design/ant-design-mobile/issues/2292))
+  - 🐞  [React Native] Fix `TextareaItem` extra margin left.([#2260](https://github.com/ant-design/ant-design-mobile/pull/2260))
+
+
+- **Enhancement**
+
+  - 📝  Fix [Picker](https://github.com/ant-design/ant-design-mobile/issues/2291), [DatePicker, Calendar](https://github.com/ant-design/ant-design-mobile/issues/2282) doc.
+
+### 2.1.4
+
+`2018-01-23`
+
+- **Bug Fix**
+
+  - Fix: Modal defaultValue problem. ([#2221](https://github.com/ant-design/ant-design-mobile/pull/2221))
+  - Fix: Modal click event not correctly. ([#1975](https://github.com/ant-design/ant-design-mobile/pull/1975))
+  - Fix: TextArea styles.
+  - Fix: DatePicker/Picker value cache problem.
+  - Fix: InputItem error. ([#2220](https://github.com/ant-design/ant-design-mobile/pull/2220))
+
 ### 2.1.3
 
 `2017-12-29`

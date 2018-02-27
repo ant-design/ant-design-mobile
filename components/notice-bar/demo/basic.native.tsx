@@ -27,6 +27,7 @@ export default class NoticeBarExample extends React.Component<any, any> {
         <NoticeBar
           mode="closable"
           icon={customIcon}
+          style={{ backgroundColor: 'transparent' }}
         >
           Customized icon.
         </NoticeBar>

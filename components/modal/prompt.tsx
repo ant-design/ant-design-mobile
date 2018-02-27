@@ -1,4 +1,3 @@
-/* tslint:disable:no-switch-case-fall-through */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './Modal';
@@ -9,26 +8,33 @@ export default function prompt(
   type = 'default', defaultValue = '', placeholders = ['', ''],
   platform = 'ios',
 ) {
+  let closed = false;
+
+  defaultValue = typeof defaultValue === 'string' ? defaultValue :
+    typeof defaultValue === 'number' ? `${defaultValue}` : '';
+
   if (!callbackOrActions) {
     // console.log('Must specify callbackOrActions');
     return {
-      close: () => {},
+      close: () => { },
     };
   }
 
   const prefixCls = 'am-modal';
 
-  let data: any = {};
+  let data: any = {
+    text: defaultValue,
+  };
 
   function onChange(e) {
     const target = e.target;
     const inputType = target.getAttribute('type');
-    data[inputType] =  target.value;
+    data[inputType] = target.value;
   }
 
   let inputDom;
 
-  const focusFn = function(input) {
+  const focusFn = function (input) {
     setTimeout(() => {
       if (input) {
         input.focus();
@@ -44,8 +50,7 @@ export default function prompt(
             <label>
               <input
                 type="text"
-                value={data.text}
-                defaultValue={defaultValue}
+                defaultValue={data.text}
                 ref={input => focusFn(input)}
                 onChange={onChange}
                 placeholder={placeholders[0]}
@@ -56,8 +61,7 @@ export default function prompt(
             <label>
               <input
                 type="password"
-                value={data.password}
-                defaultValue=""
+                defaultValue={data.password}
                 onChange={onChange}
                 placeholder={placeholders[1]}
               />
@@ -73,8 +77,7 @@ export default function prompt(
             <label>
               <input
                 type="password"
-                value={data.password}
-                defaultValue=""
+                defaultValue={data.password}
                 ref={input => focusFn(input)}
                 onChange={onChange}
                 placeholder={placeholders[0]}
@@ -92,8 +95,7 @@ export default function prompt(
             <label>
               <input
                 type="text"
-                value={data.text}
-                defaultValue={defaultValue}
+                defaultValue={data.text}
                 ref={input => focusFn(input)}
                 onChange={onChange}
                 placeholder={placeholders[0]}
@@ -102,7 +104,6 @@ export default function prompt(
           </div>
         </div>
       );
-      break;
   }
 
   let content = (
@@ -112,7 +113,7 @@ export default function prompt(
     </div>
   );
 
-  let div: any = document.createElement('div');
+  let div = document.createElement('div');
   document.body.appendChild(div);
 
   function close() {
@@ -122,45 +123,48 @@ export default function prompt(
     }
   }
 
-  function getArgs(func) {
-    const text = data.text || defaultValue || '';
-    const password = data.password || '';
-    if (type === 'login-password') {
-      return func(text, password);
-    } else if (type === 'secure-text') {
-      return func(password || defaultValue);
+  function handleConfirm(callback) {
+    if (typeof callback !== 'function') {
+      return;
     }
-    return func(text);
+    const { text = '', password = '' } = data;
+    const callbackArgs =
+      type === 'login-password' ? [text, password] :
+        type === 'secure-text' ? [password] : [text];
+
+    return callback(...callbackArgs);
   }
 
   let actions;
   if (typeof callbackOrActions === 'function') {
     actions = [
       { text: '取消' },
-      { text: '确定', onPress: () => { getArgs(callbackOrActions); } },
+      { text: '确定', onPress: () => { handleConfirm(callbackOrActions); } },
     ];
   } else {
     actions = callbackOrActions.map(item => {
       return {
         text: item.text,
         onPress: () => {
-          if (item.onPress) {
-            return getArgs(item.onPress);
-          }
+          return handleConfirm(item.onPress);
         },
       };
     });
   }
 
   const footer = actions.map((button) => {
-    const orginPress = button.onPress || function() {};
+    const orginPress = button.onPress || function () { };
     button.onPress = () => {
+      if (closed) { return; }
+
       const res = orginPress();
       if (res && res.then) {
         res.then(() => {
+          closed = true;
           close();
-        });
+        }).catch(() => { });
       } else {
+        closed = true;
         close();
       }
     };

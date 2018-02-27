@@ -32,10 +32,10 @@ subtitle: 对话框
 | title | 标题 | React.Element | 无 |
 | footer | 底部内容 | Array [{text, onPress}] | [] |
 | platform (`Web Only`) | 设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios` | String | `ios'`|
-| transitionName (`Wen only`) | Modal 主内容动画 className | String | |
-| maskTransitionName (`Wen only`) | mask 动画 className | String | |
-| className (`Wen only`) | 手动设置 Modal 的 className | String | |
-| wrapClassName (`Wen only`) | 手动设置 Modal wrap 的 className | String | |
+| transitionName (`Web only`) | Modal 主内容动画 className | String | |
+| maskTransitionName (`Web only`) | mask 动画 className | String | |
+| className (`Web only`) | 手动设置 Modal 的 className | String | |
+| wrapClassName (`Web only`) | 手动设置 Modal wrap 的 className | String | |
 
 ### Modal.alert(title, message, actions?, platform?)
 

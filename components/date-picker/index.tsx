@@ -14,6 +14,7 @@ export interface PropsType extends BasePropsType {
   pickerPrefixCls?: string;
   popupPrefixCls?: string;
   onOk?: (x: any) => void;
+  onVisibleChange?: (visible: boolean) => void;
 }
 export default class DatePicker extends React.Component<PropsType, any> {
   static defaultProps = {
@@ -47,6 +48,13 @@ export default class DatePicker extends React.Component<PropsType, any> {
     }
   }
 
+  onVisibleChange = (_) => {
+    this.scrollValue = undefined;
+    if (this.props.onVisibleChange) {
+      this.props.onVisibleChange(_);
+    }
+  }
+
   fixOnOk = (picker: any) => {
     if (picker) {
       picker.onOk = this.onOk;
@@ -68,7 +76,9 @@ export default class DatePicker extends React.Component<PropsType, any> {
      * PickerView 对外通过 value “只支持 受控” 模式
      *
      * DatePicker / Picker 对外只有 value 属性 (没有 defaultValue)，
-     * 其中 List 展示部分 “只支持 受控” 模式，弹出的 选择器部分 “只支持 非受控” 模式
+     * 其中 List 展示部分 “只支持 受控” 模式，
+     * 弹出的 选择器部分 会随外部 value 改变而变、同时能自由滚动
+     * （即不会因为传入的 value 不变而不能滚动 (不像原生 input 的受控行为)）
      *
      */
 
@@ -100,6 +110,7 @@ export default class DatePicker extends React.Component<PropsType, any> {
         dismissText={this.props.dismissText || dismissText}
         okText={this.props.okText || okText}
         ref={this.fixOnOk}
+        onVisibleChange={this.onVisibleChange}
       >
         {
           children && React.cloneElement(

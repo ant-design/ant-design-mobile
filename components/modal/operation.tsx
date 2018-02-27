@@ -8,6 +8,7 @@ export default function operation(
   actions = [{ text: '确定' }],
   platform = 'ios',
 ) {
+  let closed = false;
 
   const prefixCls = 'am-modal';
   let div: any = document.createElement('div');
@@ -23,12 +24,16 @@ export default function operation(
   const footer = actions.map((button: Action) => {
     const orginPress = button.onPress || function() {};
     button.onPress = () => {
+      if (closed) { return; }
+
       const res = orginPress();
       if (res && res.then) {
         res.then(() => {
+          closed = true;
           close();
-        });
+        }).catch(() => { });
       } else {
+        closed = true;
         close();
       }
     };

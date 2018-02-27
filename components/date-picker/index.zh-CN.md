@@ -32,6 +32,8 @@ subtitle: 日期选择
 | extra   | 显示文案 | String  |  `请选择`  |
 | prefixCls (`WEB only`) |  class前缀 | string | `am-picker` |
 | className (`WEB only`) |  样式类名 | string | - |
+| onOk  | 点击选中时执行的回调 | (val): void  |  无 |
+| onDismiss  | 点击取消时执行的回调 | (): void  |  无  |
 
 注意：日期字符串在不同浏览器有不同的实现，例如 `new Date('2017-1-1')` 在 Safari 上是 Invalid Date，而在 Chrome 上是能正常解析的。
 

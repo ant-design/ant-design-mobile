@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "2.1.3",
+  "version": "2.1.6",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -167,8 +167,7 @@
     "lint-staged:es": "eslint ./.eslintrc.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
     "tsc": "antd-tools run tsc",
-    "add-tip": "node scripts/add-tip.js",
-    "postinstall": "node scripts/update-tip.js"
+    "add-tip": "node scripts/add-tip.js"
   },
   "lint-staged": {
     "components/**/*.tsx": [
