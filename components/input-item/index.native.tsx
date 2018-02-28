@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Image, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { View, Image, Text, TouchableWithoutFeedback, StyleSheet, Platform, TouchableOpacity } from 'react-native';
 import Input from './Input.native';
 import variables from '../style/themes/default.native';
 import BasePropsType from './PropsType';
@@ -88,9 +88,14 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     }
   }
 
+  onInputClear = () => {
+    this.inputRef.inputRef.clear();
+    this.onChange('');
+  }
+
   render() {
     const {
-      type, clear, children, error, extra, labelNumber, last,
+      type, editable, clear, children, error, extra, labelNumber, last,
       onExtraClick, onErrorClick, styles, ...restProps,
     } = this.props;
     const { value, defaultValue, style } = restProps;
@@ -156,6 +161,19 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           onBlur={this.onInputBlur}
           onFocus={this.onInputFocus}
         />
+        {
+          (editable && clear && Platform.OS === 'android') &&
+          <TouchableOpacity
+            style={[styles.clear]}
+            onPress={this.onInputClear}
+            hitSlop={{ top: 5, left: 5, bottom: 5, right: 5 }}
+          >
+            <Image
+              source={require('../style/images/cross_w.png')}
+              style={{ width: 12, height: 12 }}
+            />
+          </TouchableOpacity>
+        }
         {extra ? <TouchableWithoutFeedback onPress={onExtraClick}>
           <View>
             {typeof extra === 'string' ? <Text style={[styles.extra, extraStyle]}>{extra}</Text> : extra}
