@@ -4502,15 +4502,15 @@ a {
             transform: scaleX(0.33);
   }
 }
-.am-grid.am-grid-carousel .am-grid-carousel-page {
+.am-grid.am-grid-line.am-grid-carousel .am-grid-carousel-page {
   border-top: 1PX solid #ddd;
   border-right: 1PX solid #ddd;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-  html:not([data-scale]) .am-grid.am-grid-carousel .am-grid-carousel-page {
+  html:not([data-scale]) .am-grid.am-grid-line.am-grid-carousel .am-grid-carousel-page {
     border-top: none;
   }
-  html:not([data-scale]) .am-grid.am-grid-carousel .am-grid-carousel-page::before {
+  html:not([data-scale]) .am-grid.am-grid-line.am-grid-carousel .am-grid-carousel-page::before {
     content: '';
     position: absolute;
     background-color: #ddd;
@@ -4531,17 +4531,17 @@ a {
   }
 }
 @media (-webkit-min-device-pixel-ratio: 2) and (-webkit-min-device-pixel-ratio: 3), (min-resolution: 2dppx) and (min-resolution: 3dppx) {
-  html:not([data-scale]) .am-grid.am-grid-carousel .am-grid-carousel-page::before {
+  html:not([data-scale]) .am-grid.am-grid-line.am-grid-carousel .am-grid-carousel-page::before {
     -webkit-transform: scaleY(0.33);
         -ms-transform: scaleY(0.33);
             transform: scaleY(0.33);
   }
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-  html:not([data-scale]) .am-grid.am-grid-carousel .am-grid-carousel-page {
+  html:not([data-scale]) .am-grid.am-grid-line.am-grid-carousel .am-grid-carousel-page {
     border-right: none;
   }
-  html:not([data-scale]) .am-grid.am-grid-carousel .am-grid-carousel-page::after {
+  html:not([data-scale]) .am-grid.am-grid-line.am-grid-carousel .am-grid-carousel-page::after {
     content: '';
     position: absolute;
     background-color: #ddd;
@@ -4563,7 +4563,7 @@ a {
   }
 }
 @media (-webkit-min-device-pixel-ratio: 2) and (-webkit-min-device-pixel-ratio: 3), (min-resolution: 2dppx) and (min-resolution: 3dppx) {
-  html:not([data-scale]) .am-grid.am-grid-carousel .am-grid-carousel-page::after {
+  html:not([data-scale]) .am-grid.am-grid-line.am-grid-carousel .am-grid-carousel-page::after {
     -webkit-transform: scaleX(0.33);
         -ms-transform: scaleX(0.33);
             transform: scaleX(0.33);
