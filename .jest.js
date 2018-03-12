@@ -7,6 +7,7 @@ const transformIgnorePatterns = [
 
 module.exports = {
   setupFiles: [
+    'raf/polyfill',
     './tests/setup.js'
   ],
   moduleFileExtensions: [
