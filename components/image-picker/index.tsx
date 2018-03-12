@@ -191,7 +191,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
             aria-label="Choose and add image"
           >
             <input
-              ref={(input) => { this.fileSelectorInput = input; }}
+              ref={(input) => { if (input) { this.fileSelectorInput = input; } }}
               type="file"
               accept={accept}
               onChange={() => { this.onFileChange(); }}
