@@ -13,7 +13,7 @@ export default class BasicCarouselExample extends React.Component<any, any> {
         <View style={{ paddingHorizontal: 15 }}>
           <Carousel
             style={styles.wrapper}
-            autoplayTimeout={2}
+            autoplayInterval={2}
             selectedIndex={2}
             autoplay
             infinite
