@@ -285,61 +285,61 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
         >
           <div
             class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
-            style="width:20%"
+            style="width:33.333333333333336%"
           >
             1st Tab
           </div>
           <div
             class="am-tabs-default-bar-tab"
-            style="width:20%"
+            style="width:33.333333333333336%"
           >
             2nd Tab
           </div>
           <div
             class="am-tabs-default-bar-tab"
-            style="width:20%"
+            style="width:33.333333333333336%"
           >
             3rd Tab
           </div>
           <div
             class="am-tabs-default-bar-tab"
-            style="width:20%"
+            style="width:33.333333333333336%"
           >
             4th Tab
           </div>
           <div
             class="am-tabs-default-bar-tab"
-            style="width:20%"
+            style="width:33.333333333333336%"
           >
             5th Tab
           </div>
           <div
             class="am-tabs-default-bar-tab"
-            style="width:20%"
+            style="width:33.333333333333336%"
           >
             6th Tab
           </div>
           <div
             class="am-tabs-default-bar-tab"
-            style="width:20%"
+            style="width:33.333333333333336%"
           >
             7th Tab
           </div>
           <div
             class="am-tabs-default-bar-tab"
-            style="width:20%"
+            style="width:33.333333333333336%"
           >
             8th Tab
           </div>
           <div
             class="am-tabs-default-bar-tab"
-            style="width:20%"
+            style="width:33.333333333333336%"
           >
             9th Tab
           </div>
           <div
             class="am-tabs-default-bar-underline"
-            style="width:20%;left:0%"
+            style="width:33.333333333333336%;left:0%"
           />
         </div>
         <div
