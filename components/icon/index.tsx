@@ -2,10 +2,13 @@ import classnames from 'classnames';
 import React from 'react';
 import loadSprite from './loadSprite';
 import { IconPropsType } from './PropsType';
+import { Omit } from '../_util/types';
 
-export interface IconProps extends IconPropsType {
-  className?: string;
-  style?: React.CSSProperties;
+export type SvgProps = Omit<
+  React.HTMLProps<SVGSVGElement>,
+  'size' | 'type'
+>;
+export interface IconProps extends IconPropsType, SvgProps {
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg';
   onClick?: React.MouseEventHandler<SVGSVGElement>;
 }
