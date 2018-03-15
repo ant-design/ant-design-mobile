@@ -21,5 +21,7 @@ Properties | Descrition | Type | Default
 | selectable | whether to show selector button  | boolean |  true |
 | multiple| whether support choose multi images at once  | boolean |  false |
 | accept| File type accept  | string |  image/* |
+| grids| Grids number  | number |  4 |
+| square| whether to use square layout(like wechat 3*3 grids). This properties is used with grids  | boolean |  false |
 
 > Note: Only return assets-library type for RN, if you want to upload files, see https://github.com/facebook/react-native/issues/201

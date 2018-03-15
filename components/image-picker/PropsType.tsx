@@ -10,4 +10,6 @@ export interface ImagePickerPropTypes {
   selectable?: boolean;
   multiple?: boolean;
   accept?: string;
+  grids?: number;
+  square?: boolean;
 }
