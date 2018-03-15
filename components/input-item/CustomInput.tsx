@@ -13,6 +13,7 @@ class NumberInput extends React.Component<any, any> {
     onChange: () => { },
     onFocus: () => { },
     onBlur: () => { },
+    onSubmit: () => { },
     placeholder: '',
     disabled: false,
     editable: true,
@@ -167,6 +168,7 @@ class NumberInput extends React.Component<any, any> {
       valueAfterChange = value;
       onChange({ target: { value: valueAfterChange } });
       this.onInputBlur(value);
+      this.props.onSubmit(value);
       // 收起键
     } else if (KeyboardItemValue === 'hide') {
       valueAfterChange = value;

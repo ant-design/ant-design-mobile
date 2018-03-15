@@ -17,6 +17,7 @@ interface InputItemProps {
   onChange?: Function;
   onBlur?: Function;
   onFocus?: Function;
+  onSubmit?: Function;
   extra?: React.ReactNode;
   onExtraClick?: (e?: any) => void;
   error?: boolean;
