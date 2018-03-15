@@ -1,20 +1,20 @@
-'use strict';
+/* eslint-disable comma-dangle */
 
-const eslintrc = {
+const config = {
   extends: ['eslint-config-airbnb'],
   env: {
     browser: true,
     node: true,
     mocha: true,
     jest: true,
-    es6: true,
+    es6: true
   },
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
     ecmaFeatures: {
       jsx: true,
-      experimentalObjectRestSpread: true,
+      experimentalObjectRestSpread: true
     },
   },
   plugins: [
@@ -39,7 +39,7 @@ const eslintrc = {
     'import/extensions': 0,
     'import/no-extraneous-dependencies': 0,
     'react/no-string-refs': 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx", ".md"] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx', '.md'] }],
     'react/no-array-index-key': 0,
     'react/no-find-dom-node': 0,
     'react/require-extension': 0,
@@ -50,12 +50,12 @@ const eslintrc = {
     'prefer-destructuring': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'react/jsx-no-comment-textnodes': 0,
-    'object-curly-newline': 0,
+    'object-curly-newline': 0
   }
 };
 
 if (process.env.RUN_ENV === 'DEMO') {
-  eslintrc.globals = {
+  config.globals = {
     React: true,
     ReactDOM: true,
     mountNode: true,
@@ -65,15 +65,15 @@ if (process.env.RUN_ENV === 'DEMO') {
     process: true
   };
 
-  Object.assign(eslintrc.rules, {
+  Object.assign(config.rules, {
     'no-console': 0,
     'no-alert': 0,
     'no-plusplus': 0,
     'import/no-webpack-loader-syntax': 0,
     'eol-last': 0,
     'prefer-rest-params': 0,
-    'react/no-multi-comp': 0,
+    'react/no-multi-comp': 0
   });
 }
 
-module.exports = eslintrc;
+module.exports = config;

@@ -165,7 +165,7 @@
     "build-rn": "npm run tsc  && npm run build-rn-ios && npm run build-rn-android",
     "lint-staged": "lint-staged",
     "lint-staged:ts": "npm run tsc && node node_modules/tslint/bin/tslint -c node_modules/antd-tools/lib/tslint.json components/**/*.tsx",
-    "lint-staged:es": "eslint ./.eslintrc.js ./webpack.config.js",
+    "lint-staged:es": "eslint --ignore-pattern !.eslintrc.js .eslintrc.js webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
     "tsc": "antd-tools run tsc",
     "add-tip": "node scripts/add-tip.js"
