@@ -26,6 +26,7 @@
     "dist",
     "lib",
     "es",
+    "fonts",
     "scripts/update-tip.js"
   ],
   "license": "MIT",
@@ -188,5 +189,10 @@
   "typings": "lib/index.d.ts",
   "pre-commit": [
     "lint-staged"
-  ]
+  ],
+  "rnpm": {
+    "assets": [
+      "fonts"
+    ]
+  }
 }

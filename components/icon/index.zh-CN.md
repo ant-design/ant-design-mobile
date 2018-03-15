@@ -32,19 +32,15 @@ subtitle: 图标
 
 ## 如何使用 (RN 版)
 
-> RN 版本由于 Icon 无法做纯 UI，需要 native 支持
-
-- 下载 `https://at.alicdn.com/t/font_r5u29ls31bgldi.ttf` 重命名为 `anticon.ttf`
-- 打开 iOS 项目 `info.plist` 文件，添加 `Fonts provided by application`，指定一个 item 的值为 `anticon.ttf`， 将 `anticon.ttf` 拖进项目；
-- Android 项目将 `anticon.ttf` 放在 `android/app/src/main/assets/fonts/` 目录下;
+> 使用前请执行`react-native link`
 
 使用方式：
 
 ```html
-内置的几个图标： <Icon type="check" size="md" color="red" />
-自定义图标：<Icon type={'\ue601'} size={55} /> (具体参看 demo)
+内置图标： <Icon type="check" size="md" color="red" />
+自定义图标：<Icon type="step-backward" size={55} /> (具体参看 demo)
 ```
-> 注： 自定义图标需要先查找对应图标的 unicode 字符，可以去 ant.design 官网用 chrome 调试工具查看对应图标的值
+> 注： 图标 `type` 请参考 Ant design 官网 [Icon 图标](https://ant.design/components/icon-cn/)。
 
 ## API
 
