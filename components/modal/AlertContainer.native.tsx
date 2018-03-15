@@ -1,3 +1,4 @@
+/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { ScrollView, StyleProp, Text, TextStyle } from 'react-native';
 import Modal from './Modal.native';
@@ -57,6 +58,10 @@ export default class AlertContainer extends React.Component<
         visible={this.state.visible}
         footer={footer}
         onAnimationEnd={onAnimationEnd}
+        bodyStyle={{
+          marginTop: 8,
+          alignItems: 'center',
+        }}
       >
         <ScrollView>
           <Text>{content}</Text>

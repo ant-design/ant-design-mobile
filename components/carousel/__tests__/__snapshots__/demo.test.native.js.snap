@@ -22,8 +22,7 @@ exports[`renders ./components/carousel/demo/basic.native.tsx correctly 1`] = `
         afterChange={[Function]}
         automaticallyAdjustContentInsets={false}
         autoplay={true}
-        autoplayInterval={3000}
-        autoplayTimeout={2}
+        autoplayInterval={2}
         bounces={true}
         contentContainerStyle={
           Object {

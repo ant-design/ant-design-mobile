@@ -13,7 +13,7 @@ notifications:
   - rjmuqiang@gmail.com
 
 node_js:
-  - "6"
+  - "8"
 
 env:
   matrix:

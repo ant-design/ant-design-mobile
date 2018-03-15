@@ -209,10 +209,7 @@ export default class ImagePicker extends React.Component<
             aria-label="Choose and add image"
           >
             <input
-              // tslint:disable-next-line:jsx-no-multiline-js
-              ref={input => {
-                this.fileSelectorInput = input;
-              }}
+              ref={(input) => { if (input) { this.fileSelectorInput = input; } }}
               type="file"
               accept={accept}
               // tslint:disable-next-line:jsx-no-multiline-js

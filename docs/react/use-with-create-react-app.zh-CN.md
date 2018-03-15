@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 1
 title: 在 create-react(-native)-app 中使用
 ---
 
