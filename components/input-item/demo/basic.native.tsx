@@ -1,12 +1,12 @@
 /* tslint:disable:jsx-no-multiline-js */
+import { Button, InputItem, List } from 'antd-mobile';
 import React from 'react';
 import { ScrollView, Text } from 'react-native';
-import { InputItem, List, Button } from 'antd-mobile';
 
 declare var jest: any;
 
 export default class BasicInputItemExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       value: '',
@@ -40,7 +40,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             error
             onErrorPress={() => alert('clicked me')}
             value={this.state.value}
-            onChange={(value) => {
+            onChange={(value: any) => {
               this.setState({
                 value,
               });
@@ -52,9 +52,11 @@ export default class BasicInputItemExample extends React.Component<any, any> {
           </InputItem>
           <InputItem
             clear
-            onErrorPress={() => { alert(1); }}
+            onErrorPress={() => {
+              alert(1);
+            }}
             value="不可编辑"
-            onChange={(value) => {
+            onChange={(value: any) => {
               this.setState({
                 value,
               });
@@ -68,7 +70,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
           <InputItem
             clear
             value={this.state.value1}
-            onChange={(value) => {
+            onChange={(value: any) => {
               this.setState({
                 value1: value,
               });
@@ -79,7 +81,10 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             defaultValue="xx"
             clear
             placeholder="自动获取光标"
-            autoFocus={/* TODO: https://github.com/facebook/jest/issues/3707  */typeof(jest) === 'undefined'}
+            autoFocus={
+              /* TODO: https://github.com/facebook/jest/issues/3707  */ typeof jest ===
+              'undefined'
+            }
           >
             标题
           </InputItem>
@@ -108,11 +113,11 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             </Button>
           </List.Item>
         </List>
-        <List renderHeader={() => '固定标签字数'} >
+        <List renderHeader={() => '固定标签字数'}>
           <InputItem
             clear
             value={this.state.labelnum1}
-            onChange={(value) => {
+            onChange={(value: any) => {
               this.setState({
                 labelnum1: value,
               });
@@ -125,7 +130,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
           <InputItem
             clear
             value={this.state.labelnum2}
-            onChange={(value) => {
+            onChange={(value: any) => {
               this.setState({
                 labelnum2: value,
               });
@@ -138,7 +143,7 @@ export default class BasicInputItemExample extends React.Component<any, any> {
           <InputItem
             clear
             value={this.state.labelnum3}
-            onChange={(value) => {
+            onChange={(value: any) => {
               this.setState({
                 labelnum3: value,
               });
@@ -154,11 +159,11 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             clear
             error
             value={this.state.text}
-            onChange={(value) => {
-                this.setState({
-                  text: value,
-                });
-              }}
+            onChange={(value: any) => {
+              this.setState({
+                text: value,
+              });
+            }}
             placeholder="text"
           >
             文本输入
@@ -167,11 +172,11 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             clear
             type="bankCard"
             value={this.state.bankcard}
-            onChange={(value) => {
-                this.setState({
-                  bankcard: value,
-                });
-              }}
+            onChange={(value: any) => {
+              this.setState({
+                bankcard: value,
+              });
+            }}
             placeholder="bankCard"
           >
             银行卡
@@ -180,11 +185,11 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             clear
             type="phone"
             value={this.state.phone}
-            onChange={(value) => {
-                this.setState({
-                  phone: value,
-                });
-              }}
+            onChange={(value: any) => {
+              this.setState({
+                phone: value,
+              });
+            }}
             placeholder="phone"
           >
             手机号
@@ -193,11 +198,11 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             clear
             type="password"
             value={this.state.password}
-            onChange={(value) => {
-                this.setState({
-                  password: value,
-                });
-              }}
+            onChange={(value: any) => {
+              this.setState({
+                password: value,
+              });
+            }}
             placeholder="password"
           >
             密码
@@ -206,11 +211,11 @@ export default class BasicInputItemExample extends React.Component<any, any> {
             clear
             type="number"
             value={this.state.number}
-            onChange={(value) => {
-                this.setState({
-                  number: value,
-                });
-              }}
+            onChange={(value: any) => {
+              this.setState({
+                number: value,
+              });
+            }}
             placeholder="number"
           >
             数字

@@ -3,7 +3,7 @@ import { View, Text, Platform } from 'react-native';
 import { ActionSheet, Button } from 'antd-mobile';
 
 export default class Test extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       clicked: 'none',
@@ -20,26 +20,34 @@ export default class Test extends React.Component<any, any> {
           clicked button: {this.state.clicked}
         </Text>
         <View style={[{ padding: 8 }]}>
-          <Button onClick={this.showShareActionSheet}>showShareActionSheet</Button>
+          <Button onClick={this.showShareActionSheet}>
+            showShareActionSheet
+          </Button>
         </View>
-        <Text style={[{ padding: 8 }]}>
-          {this.state.text}
-        </Text>
+        <Text style={[{ padding: 8 }]}>{this.state.text}</Text>
       </View>
     );
   }
   showActionSheet = () => {
-    const BUTTONS = ['Operation1', 'Operation2', 'Operation3', 'Delete', 'Cancel'];
-    ActionSheet.showActionSheetWithOptions({
-      title: 'Title',
-      message: 'Description',
-      options: BUTTONS,
-      cancelButtonIndex: 4,
-      destructiveButtonIndex: 3,
-    },
-    (buttonIndex) => {
-      this.setState({ clicked: BUTTONS[buttonIndex] });
-    });
+    const BUTTONS = [
+      'Operation1',
+      'Operation2',
+      'Operation3',
+      'Delete',
+      'Cancel',
+    ];
+    ActionSheet.showActionSheetWithOptions(
+      {
+        title: 'Title',
+        message: 'Description',
+        options: BUTTONS,
+        cancelButtonIndex: 4,
+        destructiveButtonIndex: 3,
+      },
+      (buttonIndex: any) => {
+        this.setState({ clicked: BUTTONS[buttonIndex] });
+      },
+    );
   }
   showShareActionSheet = () => {
     const opts: any = {
@@ -50,15 +58,13 @@ export default class Test extends React.Component<any, any> {
     if (Platform.OS === 'ios') {
       opts.url = 'https://www.alipay.com/';
       opts.tintColor = '#ff0000';
-      opts.excludedActivityTypes = [
-        'com.apple.UIKit.activity.PostToTwitter',
-      ];
+      opts.excludedActivityTypes = ['com.apple.UIKit.activity.PostToTwitter'];
     }
 
     ActionSheet.showShareActionSheetWithOptions(
       opts,
-      (error) => alert(error),
-      (success, method) => {
+      (error: any) => alert(error),
+      (success: any, method: any) => {
         let text;
         if (success) {
           text = `Shared with ${method}`;

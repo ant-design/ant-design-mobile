@@ -1,17 +1,14 @@
-interface PaginationPropTypes {
-  prefixCls?: string;
-  className?: string;
+export interface PaginationPropsType {
   mode?: 'button' | 'number' | 'pointer';
-  simple?: Boolean;
-  style?: any;
+  simple?: boolean;
   current: number;
   total: number;
   prevText?: string;
   nextText?: string;
   onPrev?: () => void;
   onNext?: () => void;
-  onChange?: Function;
-  indicatorStyle?: any;
+  onChange?: (current: number) => void;
 }
-
-export default PaginationPropTypes;
+export interface PaginationState {
+  current: number;
+}

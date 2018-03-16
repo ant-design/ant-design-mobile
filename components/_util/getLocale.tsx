@@ -1,4 +1,9 @@
-export function getComponentLocale(props, context, componentName, getDefaultLocale) {
+export function getComponentLocale(
+  props: any,
+  context: any,
+  componentName: string,
+  getDefaultLocale: () => any,
+) {
   let locale: any = {};
   if (context && context.antLocale && context.antLocale[componentName]) {
     locale = context.antLocale[componentName];
@@ -27,7 +32,7 @@ export function getComponentLocale(props, context, componentName, getDefaultLoca
   return result;
 }
 
-export function getLocaleCode(context) {
+export function getLocaleCode(context: any) {
   const localeCode = context.antLocale && context.antLocale.locale;
   // Had use LocaleProvide but didn't set locale
   if (context.antLocale && context.antLocale.exist && !localeCode) {

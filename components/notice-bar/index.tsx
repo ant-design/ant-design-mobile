@@ -1,25 +1,25 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 import Icon from '../icon';
-import NoticeBarProps from './PropsType';
-import Marquee, { IMarqueeProps } from './Marquee';
+import Marquee, { MarqueeProps } from './Marquee';
+import { NoticeBarPropsType } from './PropsType';
 
-export interface INoticeWebProps extends NoticeBarProps {
-  marqueeProps?: IMarqueeProps;
+export interface NoticeWebProps extends NoticeBarPropsType {
+  marqueeProps?: MarqueeProps;
   className?: string;
   prefixCls?: string;
-  style?: {};
+  style?: React.CSSProperties;
 }
 
-export default class NoticeBar extends React.Component<INoticeWebProps, any> {
+export default class NoticeBar extends React.Component<NoticeWebProps, any> {
   static defaultProps = {
     prefixCls: 'am-notice-bar',
     mode: '',
-    icon: <Icon type="voice" size="xxs"/>,
+    icon: <Icon type="voice" size="xxs" />,
     onClick() {},
   };
 
-  constructor(props) {
+  constructor(props: NoticeWebProps) {
     super(props);
     this.state = {
       show: true,
@@ -40,21 +40,38 @@ export default class NoticeBar extends React.Component<INoticeWebProps, any> {
 
   render() {
     const {
-      mode, icon, onClick, children, className, prefixCls, action, marqueeProps, ...restProps,
+      mode,
+      icon,
+      onClick,
+      children,
+      className,
+      prefixCls,
+      action,
+      marqueeProps,
+      ...restProps,
     } = this.props;
 
     const extraProps: any = {};
     let operationDom: any = null;
     if (mode === 'closable') {
       operationDom = (
-        <div className={`${prefixCls}-operation`} onClick={this.onClick} role="button" aria-label="close">
+        <div
+          className={`${prefixCls}-operation`}
+          onClick={this.onClick}
+          role="button"
+          aria-label="close"
+        >
           {action ? action : <Icon type="cross" size="md" />}
         </div>
       );
     } else {
       if (mode === 'link') {
         operationDom = (
-          <div className={`${prefixCls}-operation`} role="button" aria-label="go to detail">
+          <div
+            className={`${prefixCls}-operation`}
+            role="button"
+            aria-label="go to detail"
+          >
             {action ? action : <Icon type="right" size="md" />}
           </div>
         );
@@ -66,9 +83,18 @@ export default class NoticeBar extends React.Component<INoticeWebProps, any> {
 
     return this.state.show ? (
       <div className={wrapCls} {...restProps} {...extraProps} role="alert">
-        {icon && <div className={`${prefixCls}-icon`} aria-hidden="true">{icon}</div>}
+        {icon && (
+      // tslint:disable-next-line:jsx-no-multiline-js
+          <div className={`${prefixCls}-icon`} aria-hidden="true">
+            {icon}
+          </div>
+        )}
         <div className={`${prefixCls}-content`}>
-          <Marquee prefixCls={prefixCls} text={children as string} {...marqueeProps} />
+          <Marquee
+            prefixCls={prefixCls}
+            text={children as string}
+            {...marqueeProps}
+          />
         </div>
         {operationDom}
       </div>

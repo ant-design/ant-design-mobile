@@ -1,6 +1,6 @@
- /* tslint:disable: jsx-no-multiline-js */
+/* tslint:disable: jsx-no-multiline-js */
 import React from 'react';
-import { View, Text, Image, StyleProp, ViewStyle } from 'react-native';
+import { Image, StyleProp, Text, View, ViewStyle } from 'react-native';
 
 export interface StepsItemProps {
   width?: number;
@@ -18,11 +18,16 @@ export interface StepsItemProps {
 }
 
 export default class StepsItem extends React.Component<StepsItemProps, any> {
-
   render() {
     const {
-      size, last, title, description, direction,
-      status, icon, styles,
+      size,
+      last,
+      title,
+      description,
+      direction,
+      status,
+      icon,
+      styles,
     } = this.props;
 
     const index = this.props.index as number;
@@ -64,7 +69,12 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
 
     let iconSource;
     if (size === 'small') {
-      if (index < current || status === 'finish' || index === current || status === 'process') {
+      if (
+        index < current ||
+        status === 'finish' ||
+        index === current ||
+        status === 'process'
+      ) {
         iconSource = require('../style/images/check.png');
       } else if (index > current || status === 'wait') {
         iconSource = require('../style/images/more.png');
@@ -72,7 +82,12 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
         iconSource = require('../style/images/cross.png');
       }
     } else {
-      if (index < current || status === 'finish' || index === current || status === 'process') {
+      if (
+        index < current ||
+        status === 'finish' ||
+        index === current ||
+        status === 'process'
+      ) {
         iconSource = require('../style/images/check_w.png');
       } else if (index > current || status === 'wait') {
         iconSource = require('../style/images/more_w.png');
@@ -85,9 +100,12 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
     }
 
     const isHorizontal = direction === 'horizontal';
-    const parentStyle: StyleProp<ViewStyle> = isHorizontal ? { flexDirection: 'column' } : { flexDirection: 'row' };
-    const childStyle: StyleProp<ViewStyle> = isHorizontal ? { flexDirection: 'row', flex: 1 } :
-      { flexDirection: 'column' };
+    const parentStyle: StyleProp<ViewStyle> = isHorizontal
+      ? { flexDirection: 'column' }
+      : { flexDirection: 'row' };
+    const childStyle: StyleProp<ViewStyle> = isHorizontal
+      ? { flexDirection: 'row', flex: 1 }
+      : { flexDirection: 'column' };
     let styleSuffix: string = '';
     if (isHorizontal) {
       styleSuffix = '_h';
@@ -97,24 +115,40 @@ export default class StepsItem extends React.Component<StepsItemProps, any> {
       <View style={parentStyle}>
         <View style={childStyle}>
           <View style={[styles[`head_default${sizeCls}`], styles[headCls]]}>
-            {
-              React.isValidElement(iconSource) ? iconSource : (
-                <Image source={iconSource} style={styles[`icon${sizeCls}`]} />
-              )
-            }
+            {React.isValidElement(iconSource) ? (
+              iconSource
+            ) : (
+              <Image source={iconSource} style={styles[`icon${sizeCls}`]} />
+            )}
           </View>
-          {<View style={[styles[`tail_default${sizeCls}${styleSuffix}`], styles[tailTopCls]]} />}
-          {<View style={[styles[`tail_default${sizeCls}${styleSuffix}`], styles[tailBottomCls]]} />}
+          {
+            <View
+              style={[
+                styles[`tail_default${sizeCls}${styleSuffix}`],
+                styles[tailTopCls],
+              ]}
+            />
+          }
+          {
+            <View
+              style={[
+                styles[`tail_default${sizeCls}${styleSuffix}`],
+                styles[tailBottomCls],
+              ]}
+            />
+          }
         </View>
         <View style={styles[`content${sizeCls}${styleSuffix}`]}>
-          {typeof title !== 'object' ?
+          {typeof title !== 'object' ? (
             <Text style={[styles[`title${sizeCls}`]]}>{title}</Text>
-            : <View>{title}</View>
-          }
-          {typeof description !== 'object' ?
+          ) : (
+            <View>{title}</View>
+          )}
+          {typeof description !== 'object' ? (
             <Text style={[styles[`description${sizeCls}`]]}>{description}</Text>
-            : <View>{description}</View>
-          }
+          ) : (
+            <View>{description}</View>
+          )}
         </View>
       </View>
     );

@@ -1,12 +1,16 @@
 import React from 'react';
-import { SegmentedControlIOS } from 'react-native';
-import BasePropsType from './PropsType';
+import { SegmentedControlIOS, StyleProp, ViewStyle } from 'react-native';
+import { SegmentedControlPropsType } from './PropsType';
 
-export interface SegmentedControlProps extends BasePropsType {
+export interface SegmentedControlProps extends SegmentedControlPropsType {
   styles?: any;
+  style?: StyleProp<ViewStyle>;
 }
 
-export default class SegmentedControl extends React.Component<SegmentedControlProps, any> {
+export default class SegmentedControl extends React.Component<
+  SegmentedControlProps,
+  any
+> {
   static defaultProps = {
     tintColor: '#108ee9',
     selectedIndex: 0,

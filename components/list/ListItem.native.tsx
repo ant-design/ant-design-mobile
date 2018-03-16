@@ -1,37 +1,49 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { Image, View, TouchableHighlight, Text, StyleSheet } from 'react-native';
-import { ListItemProps as ListItemBasePropsType, BriefProps as BriefBasePropsType } from './PropsType';
+import {
+  Image,
+  StyleProp,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+  ViewStyle,
+} from 'react-native';
+import {
+  BriefProps as BriefBasePropsType,
+  ListItemPropsType,
+} from './PropsType';
 import listItemStyle from './style/index.native';
-import listStyle from './style/index.native';
 
-export interface ListItemProps extends ListItemBasePropsType {
+export interface ListItemProps extends ListItemPropsType {
   styles?: {
-    underlayColor: {},
-    Content: {},
-    column: {},
-    Extra: {},
-    Arrow: {},
-    ArrowV: {},
-    Item: {},
-    Thumb: {},
-    multipleThumb: {},
-    Line: {},
-    multipleLine: {},
+    underlayColor: {};
+    Content: {};
+    column: {};
+    Extra: {};
+    Arrow: {};
+    ArrowV: {};
+    Item: {};
+    Thumb: {};
+    multipleThumb: {};
+    Line: {};
+    multipleLine: {};
   };
+  onClick?: () => void;
   onPressIn?: () => void;
   onPressOut?: () => void;
+  style?: StyleProp<ViewStyle>;
 }
 
 export interface BriefProps extends BriefBasePropsType {
   styles?: {
-    Brief: {},
-    BriefText: {},
+    Brief: {};
+    BriefText: {};
   };
 }
 
-const listStyles = StyleSheet.create<any>(listStyle);
-const listItemStyles = StyleSheet.create<any>(listItemStyle);
+const listStyles = StyleSheet.create<any>(listItemStyle);
+const listItemStyles: any = StyleSheet.create<any>(listItemStyle);
 
 export class Brief extends React.Component<BriefProps, any> {
   static defaultProps = {
@@ -50,7 +62,9 @@ export class Brief extends React.Component<BriefProps, any> {
     }
     return (
       <View style={[styles!.Brief]}>
-        <Text style={[styles!.BriefText, style]} {...numberOfLines}>{children}</Text>
+        <Text style={[styles!.BriefText, style]} {...numberOfLines}>
+          {children}
+        </Text>
       </View>
     );
   }
@@ -65,8 +79,20 @@ export default class Item extends React.Component<ListItemProps, any> {
   static Brief = Brief;
   render() {
     const {
-      styles, children, multipleLine, thumb, extra, arrow, style, onClick,
-      onPressIn, onPressOut, wrap, disabled, align, ...restProps,
+      styles,
+      children,
+      multipleLine,
+      thumb,
+      extra,
+      arrow,
+      style,
+      onClick,
+      onPressIn,
+      onPressOut,
+      wrap,
+      disabled,
+      align,
+      ...restProps,
     } = this.props;
     const itemStyles = styles!; // assert none-null none-undefined
 
@@ -81,7 +107,8 @@ export default class Item extends React.Component<ListItemProps, any> {
 
     if (!disabled && onClick) {
       underlayColor = {
-        underlayColor: StyleSheet.flatten(itemStyles.underlayColor).backgroundColor,
+        underlayColor: StyleSheet.flatten(itemStyles.underlayColor)
+          .backgroundColor,
         activeOpacity: 0.5,
       };
     } else {
@@ -110,18 +137,26 @@ export default class Item extends React.Component<ListItemProps, any> {
           tempContentDom.push(el);
         } else {
           tempContentDom.push(
-            <Text style={[itemStyles.Content]} {...numberOfLines} key={`${index}-children`}>{el}</Text>,
+            <Text
+              style={[itemStyles.Content]}
+              {...numberOfLines}
+              key={`${index}-children`}
+            >
+              {el}
+            </Text>,
           );
         }
       });
       contentDom = <View style={[itemStyles.column]}>{tempContentDom}</View>;
     } else {
-      if (React.isValidElement(children as Object)) {
+      if (children && React.isValidElement(children)) {
         contentDom = <View style={[itemStyles.column]}>{children}</View>;
       } else {
         contentDom = (
           <View style={[itemStyles.column]}>
-            <Text style={[itemStyles.Content]} {...numberOfLines}>{children}</Text>
+            <Text style={[itemStyles.Content]} {...numberOfLines}>
+              {children}
+            </Text>
           </View>
         );
       }
@@ -131,7 +166,9 @@ export default class Item extends React.Component<ListItemProps, any> {
     if (extra) {
       extraDom = (
         <View style={[itemStyles.column]}>
-          <Text style={[itemStyles.Extra]} {...numberOfLines}>{extra}</Text>
+          <Text style={[itemStyles.Extra]} {...numberOfLines}>
+            {extra}
+          </Text>
         </View>
       );
       if (React.isValidElement(extra)) {
@@ -153,11 +190,7 @@ export default class Item extends React.Component<ListItemProps, any> {
               tempExtraDom.push(el);
             }
           });
-          extraDom = (
-            <View style={[itemStyles.column]}>
-              {tempExtraDom}
-            </View>
-          );
+          extraDom = <View style={[itemStyles.column]}>{tempExtraDom}</View>;
         } else {
           extraDom = extra;
         }
@@ -165,9 +198,24 @@ export default class Item extends React.Component<ListItemProps, any> {
     }
 
     const arrEnum = {
-      horizontal: <Image source={require('../style/images/arrow.png')} style={itemStyles.Arrow} />,
-      down: <Image source={require('../style/images/arrow-down.png')} style={itemStyles.ArrowV} />,
-      up: <Image source={require('../style/images/arrow-up.png')} style={itemStyles.ArrowV} />,
+      horizontal: (
+        <Image
+          source={require('../style/images/arrow.png')}
+          style={itemStyles.Arrow}
+        />
+      ),
+      down: (
+        <Image
+          source={require('../style/images/arrow-down.png')}
+          style={itemStyles.ArrowV}
+        />
+      ),
+      up: (
+        <Image
+          source={require('../style/images/arrow-up.png')}
+          style={itemStyles.ArrowV}
+        />
+      ),
     };
 
     const itemView = (
@@ -177,11 +225,21 @@ export default class Item extends React.Component<ListItemProps, any> {
             source={{ uri: thumb }}
             style={[itemStyles.Thumb, multipleLine && itemStyles.multipleThumb]}
           />
-        ) : thumb}
-        <View style={[itemStyles.Line, multipleLine && itemStyles.multipleLine, multipleLine && alignStyle]}>
+        ) : (
+          thumb
+        )}
+        <View
+          style={[
+            itemStyles.Line,
+            multipleLine && itemStyles.multipleLine,
+            multipleLine && alignStyle,
+          ]}
+        >
           {contentDom}
           {extraDom}
-          {arrow ? (arrEnum[arrow] || <View style={itemStyles.Arrow} />) : null}
+          {arrow
+            ? (arrEnum as any)[arrow] || <View style={itemStyles.Arrow} />
+            : null}
         </View>
       </View>
     );

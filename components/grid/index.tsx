@@ -1,17 +1,18 @@
 /* tslint:disable:jsx-no-multiline-js */
-import React from 'react';
 import classnames from 'classnames';
-import Flex from '../flex';
-import Carousel from '../carousel';
-import { DataItem, GridProps as BasePropsType } from './PropsType';
+import React from 'react';
 import TouchFeedback from 'rmc-feedback';
+import Carousel from '../carousel';
+import Flex from '../flex';
+import { DataItem, GridPropsType } from './PropsType';
 
-export interface GridProps extends BasePropsType {
+export interface GridProps extends GridPropsType {
   prefixCls?: string;
   className?: string;
   square?: boolean;
   activeClassName?: string;
   activeStyle?: object;
+  itemStyle?: React.CSSProperties;
 }
 
 export default class Grid extends React.Component<GridProps, any> {
@@ -33,7 +34,7 @@ export default class Grid extends React.Component<GridProps, any> {
       initialSlideWidth: document.documentElement.clientWidth,
     });
   }
-  renderCarousel = (rowsArr, pageCount, rowCount) => {
+  renderCarousel = (rowsArr: any[], pageCount: number, rowCount: number) => {
     const { prefixCls } = this.props;
     const carouselMaxRow = this.props.carouselMaxRow as number;
     const pagesArr: any[] = [];
@@ -48,11 +49,23 @@ export default class Grid extends React.Component<GridProps, any> {
           pageRows.push(<div key={`gridline-${rowIndex}`} />);
         }
       }
-      pagesArr.push(<div key={`pageitem-${pageIndex}`} className={`${prefixCls}-carousel-page`}>{pageRows}</div>);
+      pagesArr.push(
+        <div
+          key={`pageitem-${pageIndex}`}
+          className={`${prefixCls}-carousel-page`}
+        >
+          {pageRows}
+        </div>,
+      );
     }
     return pagesArr;
   }
-  renderItem = (dataItem: DataItem | any, index: number, columnNum: number, renderItem: any) => {
+  renderItem = (
+    dataItem: DataItem | any,
+    index: number,
+    columnNum: number,
+    renderItem: any,
+  ) => {
     const { prefixCls } = this.props;
     let itemEl: any = null;
     if (renderItem) {
@@ -61,27 +74,33 @@ export default class Grid extends React.Component<GridProps, any> {
       if (dataItem) {
         const { icon, text } = dataItem;
         itemEl = (
-          <div className={`${prefixCls}-item-inner-content column-num-${columnNum}`}>
-            {
-              React.isValidElement(icon) ? icon : (
-                <img className={`${prefixCls}-icon`} src={icon} />
-              )
-            }
+          <div
+            className={`${prefixCls}-item-inner-content column-num-${columnNum}`}
+          >
+            {React.isValidElement(icon) ? (
+              icon
+            ) : (
+              <img className={`${prefixCls}-icon`} src={icon} />
+            )}
             <div className={`${prefixCls}-text`}>{text}</div>
           </div>
         );
       }
     }
-    return (
-      <div
-        className={`${prefixCls}-item-content`}
-      >
-        {itemEl}
-      </div>
-    );
+    return <div className={`${prefixCls}-item-content`}>{itemEl}</div>;
   }
-  getRows = (rowCount, dataLength) => {
-    let { columnNum, data, renderItem, prefixCls, onClick, activeStyle, activeClassName, itemStyle } = this.props;
+  getRows = (rowCount: number, dataLength: number) => {
+    // tslint:disable:prefer-const
+    let {
+      columnNum,
+      data,
+      renderItem,
+      prefixCls,
+      onClick,
+      activeStyle,
+      activeClassName,
+      itemStyle,
+    } = this.props;
     const rowsArr: any[] = [];
 
     columnNum = columnNum!;
@@ -102,7 +121,8 @@ export default class Grid extends React.Component<GridProps, any> {
           itemEl = (
             <TouchFeedback
               key={`griditem-${dataIndex}`}
-              activeClassName={activeClassName ? activeClassName : `${prefixCls}-item-active`}
+              activeClassName={
+                activeClassName ? activeClassName : `${prefixCls}-item-active`}
               activeStyle={activeStyle}
             >
               <Flex.Item
@@ -125,22 +145,40 @@ export default class Grid extends React.Component<GridProps, any> {
         }
         rowArr.push(itemEl);
       }
-      rowsArr.push(<Flex justify="center" align="stretch" key={`gridline-${i}`}>{rowArr}</Flex>);
+      rowsArr.push(
+        <Flex justify="center" align="stretch" key={`gridline-${i}`}>
+          {rowArr}
+        </Flex>,
+      );
     }
     return rowsArr;
   }
   render() {
-    const { prefixCls, className, data, hasLine, isCarousel,
-      square, activeStyle, activeClassName, ...restProps,
+    const {
+      prefixCls,
+      className,
+      data,
+      hasLine,
+      isCarousel,
+      square,
+      activeStyle,
+      activeClassName,
+      ...restProps,
     } = this.props;
-    let { columnNum, carouselMaxRow, onClick, renderItem, ...restPropsForCarousel } = restProps;
+    let {
+      columnNum,
+      carouselMaxRow,
+      onClick,
+      renderItem,
+      ...restPropsForCarousel,
+    } = restProps;
 
     const { initialSlideWidth } = this.state;
 
     columnNum = columnNum!;
     carouselMaxRow = carouselMaxRow!;
 
-    const dataLength = data && data.length || 0;
+    const dataLength = (data && data.length) || 0;
 
     let rowCount = Math.ceil(dataLength / columnNum);
 
@@ -165,7 +203,11 @@ export default class Grid extends React.Component<GridProps, any> {
         };
       }
       renderEl = (
-        <Carousel initialSlideWidth={initialSlideWidth} {...restPropsForCarousel} {...carouselProps}>
+        <Carousel
+          initialSlideWidth={initialSlideWidth}
+          {...restPropsForCarousel}
+          {...carouselProps}
+        >
           {this.renderCarousel(rowsArr, pageCount, rowCount)}
         </Carousel>
       );
@@ -178,12 +220,6 @@ export default class Grid extends React.Component<GridProps, any> {
       [`${prefixCls}-line`]: hasLine,
       [`${prefixCls}-carousel`]: isCarousel,
     });
-    return (
-      <div
-        className={cls}
-      >
-        {renderEl}
-      </div>
-    );
+    return <div className={cls}>{renderEl}</div>;
   }
 }

@@ -1,18 +1,19 @@
 import { CascaderValue } from 'rmc-cascader/lib/CascaderTypes';
 import { IPopupPickerProps } from 'rmc-picker/lib/PopupPickerTypes';
-
-interface Props extends IPopupPickerProps {
-  data: any;
+export interface PickerData {
+  value: string | number;
+  label: string;
+  children?: PickerData[];
+}
+export interface PickerPropsType extends IPopupPickerProps {
+  data: PickerData[] | PickerData[][];
   cascade?: boolean;
   value?: Array<string | number>;
-  format?: (values) => void;
+  format?: (values: string[]) => string;
   cols?: number;
   extra?: string;
-  children?: any;
   onChange?: (date?: CascaderValue) => void;
+  onPickerChange?: (value: CascaderValue) => void;
   itemStyle?: any;
   indicatorStyle?: any;
-  onPickerChange?: (value: CascaderValue) => void;
 }
-
-export default Props;

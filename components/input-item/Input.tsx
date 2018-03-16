@@ -1,34 +1,50 @@
 import React from 'react';
+import { InputEventHandler } from './PropsType';
+import { Omit } from '../_util/types';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export type HTMLInputProps = Omit<
+  React.HTMLProps<HTMLInputElement>,
+  'onFocus' | 'onBlur'
+>;
+export interface InputProps extends HTMLInputProps {
   focused?: boolean;
+  onFocus?: InputEventHandler;
+  onBlur?: InputEventHandler;
 }
 
 class Input extends React.Component<InputProps, any> {
-  inputRef: any;
+  inputRef: HTMLInputElement | null;
 
-  onInputBlur = (e) => {
-    const value = e.target.value;
+  onInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const value = (e.target as any).value;
     if (this.props.onBlur) {
       this.props.onBlur(value);
     }
   }
 
-  onInputFocus = (e) => {
-    const value = e.target.value;
+  onInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    // here should have a value definition but none.
+    const value = (e.target as any).value;
     if (this.props.onFocus) {
       this.props.onFocus(value);
     }
   }
 
   focus = () => {
-    this.inputRef.focus();
+    if (this.inputRef) {
+      this.inputRef.focus();
+    }
   }
 
   render() {
     const { onBlur, onFocus, ...restProps } = this.props;
     return (
-      <input ref={el => this.inputRef = el} onBlur={this.onInputBlur} onFocus={this.onInputFocus} {...restProps} />
+      <input
+        ref={el => (this.inputRef = el)}
+        onBlur={this.onInputBlur}
+        onFocus={this.onInputFocus}
+        {...restProps}
+      />
     );
   }
 }

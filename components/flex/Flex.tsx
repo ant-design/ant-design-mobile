@@ -1,6 +1,6 @@
-import React from 'react';
 import classnames from 'classnames';
-import { FlexProps as BasePropsType } from './PropsType';
+import React from 'react';
+import { FlexPropsType as BasePropsType } from './PropsType';
 
 export interface FlexProps extends BasePropsType {
   alignContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'stretch';
@@ -8,6 +8,7 @@ export interface FlexProps extends BasePropsType {
   prefixCls?: string;
   className?: string;
   role?: string;
+  style?: React.CSSProperties;
 }
 
 export default class Flex extends React.Component<FlexProps, any> {
@@ -19,8 +20,17 @@ export default class Flex extends React.Component<FlexProps, any> {
   };
 
   render() {
-    let {
-      direction, wrap, justify, align, alignContent, className, children, prefixCls, style, ...restProps,
+    const {
+      direction,
+      wrap,
+      justify,
+      align,
+      alignContent,
+      className,
+      children,
+      prefixCls,
+      style,
+      ...restProps,
     } = this.props;
 
     const wrapCls = classnames(prefixCls, className, {
@@ -51,7 +61,6 @@ export default class Flex extends React.Component<FlexProps, any> {
       [`${prefixCls}-align-content-between`]: alignContent === 'between',
       [`${prefixCls}-align-content-around`]: alignContent === 'around',
       [`${prefixCls}-align-content-stretch`]: alignContent === 'stretch',
-
     });
 
     return (

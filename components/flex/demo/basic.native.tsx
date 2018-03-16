@@ -1,8 +1,9 @@
-import { Button, WingBlank, WhiteSpace, Flex } from 'antd-mobile';
+// tslint:disable:jsx-no-multiline-js
+import { Button, Flex, WhiteSpace, WingBlank } from 'antd-mobile';
 import React from 'react';
-import { View, Text, ScrollView, TouchableWithoutFeedback } from 'react-native';
+import { ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native';
 
-const Circle = (props) => {
+const Circle = (props: any) => {
   const size = props.size || 20;
   const style = {
     borderRadius: size / 2,
@@ -11,11 +12,7 @@ const Circle = (props) => {
     height: size,
     margin: 1,
   };
-  return (
-    <View
-      style={style}
-    />
-  );
+  return <View style={style} />;
 };
 
 export default class FlexExample extends React.Component<any, any> {
@@ -44,18 +41,26 @@ export default class FlexExample extends React.Component<any, any> {
             </Flex.Item>
           </Flex>
         </WingBlank>
-        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}><
-          Text>direction="column":主轴为垂直方向，起点在上沿</Text>
+        <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
+          <Text>direction="column":主轴为垂直方向，起点在上沿</Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
           <Flex direction="column">
-            <Flex.Item style={{ paddingBottom: 4 }}><Button size="small">按钮1</Button></Flex.Item>
-            <Flex.Item style={{ paddingBottom: 4 }}><Button size="small">按钮2</Button></Flex.Item>
-            <Flex.Item style={{ paddingBottom: 4 }}><Button size="small">按钮3</Button></Flex.Item>
+            <Flex.Item style={{ paddingBottom: 4 }}>
+              <Button size="small">按钮1</Button>
+            </Flex.Item>
+            <Flex.Item style={{ paddingBottom: 4 }}>
+              <Button size="small">按钮2</Button>
+            </Flex.Item>
+            <Flex.Item style={{ paddingBottom: 4 }}>
+              <Button size="small">按钮3</Button>
+            </Flex.Item>
           </Flex>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
-          <Text style={{ marginTop: 20, marginBottom: 20 }}>项目在主轴上的对齐方式</Text>
+          <Text style={{ marginTop: 20, marginBottom: 20 }}>
+            项目在主轴上的对齐方式
+          </Text>
           <Text>justify="start":左对齐</Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
@@ -116,15 +121,53 @@ export default class FlexExample extends React.Component<any, any> {
           </Flex>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
-          <Text style={{ marginTop: 20, marginBottom: 20 }}>项目在交叉轴上的对齐方式</Text>
+          <Text style={{ marginTop: 20, marginBottom: 20 }}>
+            项目在交叉轴上的对齐方式
+          </Text>
           <Text>align="start":交叉轴的起点对齐</Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
           <Flex align="start" style={{ height: 30 }}>
-            <Text style={{ fontSize: 20, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-            <Text style={{ fontSize: 18, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-            <Text style={{ fontSize: 16, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-            <Text style={{ fontSize: 14, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text
+              style={{
+                fontSize: 20,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
+            <Text
+              style={{
+                fontSize: 18,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
           </Flex>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
@@ -132,10 +175,46 @@ export default class FlexExample extends React.Component<any, any> {
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
           <Flex align="center" style={{ height: 30 }}>
-            <Text style={{ fontSize: 20, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-            <Text style={{ fontSize: 18, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-            <Text style={{ fontSize: 16, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-            <Text style={{ fontSize: 14, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text
+              style={{
+                fontSize: 20,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
+            <Text
+              style={{
+                fontSize: 18,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
           </Flex>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
@@ -143,22 +222,96 @@ export default class FlexExample extends React.Component<any, any> {
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
           <Flex align="end" style={{ height: 30 }}>
-            <Text style={{ fontSize: 20, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-            <Text style={{ fontSize: 18, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-            <Text style={{ fontSize: 16, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-            <Text style={{ fontSize: 14, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Text
+              style={{
+                fontSize: 20,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
+            <Text
+              style={{
+                fontSize: 18,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#527fe4',
+              }}
+            >
+              兜兜
+            </Text>
           </Flex>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
-          <Text>align="stretch":如果项目未设置高度或设为auto，将占满整个容器的高度</Text>
+          <Text>
+            align="stretch":如果项目未设置高度或设为auto，将占满整个容器的高度
+          </Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
           <WingBlank>
-            <Flex align="stretch" style={{ height: 70 }} >
-              <Text style={{ fontSize: 20, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-              <Text style={{ fontSize: 18, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-              <Text style={{ fontSize: 16, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
-              <Text style={{ fontSize: 14, borderWidth: 1, borderStyle: 'solid', borderColor: '#527fe4' }}>兜兜</Text>
+            <Flex align="stretch" style={{ height: 70 }}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  borderWidth: 1,
+                  borderStyle: 'solid',
+                  borderColor: '#527fe4',
+                }}
+              >
+                兜兜
+              </Text>
+              <Text
+                style={{
+                  fontSize: 18,
+                  borderWidth: 1,
+                  borderStyle: 'solid',
+                  borderColor: '#527fe4',
+                }}
+              >
+                兜兜
+              </Text>
+              <Text
+                style={{
+                  fontSize: 16,
+                  borderWidth: 1,
+                  borderStyle: 'solid',
+                  borderColor: '#527fe4',
+                }}
+              >
+                兜兜
+              </Text>
+              <Text
+                style={{
+                  fontSize: 14,
+                  borderWidth: 1,
+                  borderStyle: 'solid',
+                  borderColor: '#527fe4',
+                }}
+              >
+                兜兜
+              </Text>
             </Flex>
           </WingBlank>
         </WingBlank>
@@ -167,19 +320,23 @@ export default class FlexExample extends React.Component<any, any> {
           <Text>wrap="wrap":换行</Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
-         <TouchableWithoutFeedback onPress={() => ({})} >
-          <Flex wrap="wrap">
-            {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={`${i}-${char}`} />)}
-          </Flex>
+          <TouchableWithoutFeedback onPress={() => ({})}>
+            <Flex wrap="wrap">
+              {'ooooooooooooooooooooooooooooo'
+                .split('')
+                .map((char, i) => <Circle key={`${i}-${char}`} />)}
+            </Flex>
           </TouchableWithoutFeedback>
         </WingBlank>
         <WingBlank style={{ marginTop: 5, marginBottom: 5 }}>
           <Text>wrap="nowrap":不换行</Text>
         </WingBlank>
         <WingBlank style={{ marginBottom: 5 }}>
-            <Flex wrap="nowrap" onPress={() => ({})}>
-              {'ooooooooooooooooooooooooooooo'.split('').map((char, i) => <Circle key={`${i}-${char}`} />)}
-            </Flex>
+          <Flex wrap="nowrap" onPress={() => ({})}>
+            {'ooooooooooooooooooooooooooooo'
+              .split('')
+              .map((char, i) => <Circle key={`${i}-${char}`} />)}
+          </Flex>
         </WingBlank>
         <WhiteSpace />
         <WhiteSpace />

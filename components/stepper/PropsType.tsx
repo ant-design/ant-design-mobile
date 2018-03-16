@@ -1,4 +1,4 @@
-interface StepProps {
+export interface StepPropsType {
   min?: number;
   max?: number;
   step?: number | string;
@@ -8,11 +8,8 @@ interface StepProps {
   value?: number;
   defaultValue?: number;
   onChange?: (value: any) => void;
-  style?: {};
   upStyle?: {};
   downStyle?: {};
   inputStyle?: {};
   name?: string;
 }
-
-export default StepProps;

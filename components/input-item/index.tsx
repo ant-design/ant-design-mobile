@@ -1,22 +1,30 @@
 /* tslint:disable:jsx-no-multiline-js */
-import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import BasePropsType from './PropsType';
-import Input from './Input';
-import CustomInput from './CustomInput';
-import { getComponentLocale } from '../_util/getLocale';
+import PropTypes from 'prop-types';
+import React from 'react';
 import TouchFeedback from 'rmc-feedback';
+import { getComponentLocale } from '../_util/getLocale';
+import CustomInput from './CustomInput';
+import Input from './Input';
+import { InputItemPropsType } from './PropsType';
+import { Omit } from '../_util/types';
 
-export interface InputItemProps extends BasePropsType {
+export type HTMLInputProps = Omit<
+  React.HTMLProps<HTMLInputElement>,
+  'onChange' | 'onFocus' | 'onBlur' | 'value' | 'defaultValue' | 'type'
+>;
+
+export interface InputItemProps extends InputItemPropsType, HTMLInputProps {
   prefixCls?: string;
   prefixListCls?: string;
   className?: string;
+  onErrorClick?: React.MouseEventHandler<HTMLDivElement>;
+  onExtraClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-function noop() { }
+function noop() {}
 
-function fixControlledValue(value) {
+function fixControlledValue(value?: string) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
@@ -48,10 +56,10 @@ class InputItem extends React.Component<InputItemProps, any> {
     antLocale: PropTypes.object,
   };
 
-  inputRef: any;
-  private debounceTimeout: any;
+  inputRef: Input | CustomInput | null;
+  private debounceTimeout: number | null;
 
-  constructor(props) {
+  constructor(props: InputItemProps) {
     super(props);
     this.state = {
       placeholder: props.placeholder,
@@ -59,7 +67,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: InputItemProps) {
     if ('placeholder' in nextProps && !nextProps.updatePlaceholder) {
       this.setState({
         placeholder: nextProps.placeholder,
@@ -79,9 +87,9 @@ class InputItem extends React.Component<InputItemProps, any> {
     }
   }
 
-  onInputChange = (e) => {
+  onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
-    const { onChange, type } = this.props;
+    const { type } = this.props;
 
     switch (type) {
       case 'text':
@@ -95,7 +103,9 @@ class InputItem extends React.Component<InputItemProps, any> {
         if (valueLen > 3 && valueLen < 8) {
           value = `${value.substr(0, 3)} ${value.substr(3)}`;
         } else if (valueLen >= 8) {
-          value = `${value.substr(0, 3)} ${value.substr(3, 4)} ${value.substr(7)}`;
+          value = `${value.substr(0, 3)} ${value.substr(3, 4)} ${value.substr(
+            7,
+          )}`;
         }
         break;
       case 'number':
@@ -106,6 +116,11 @@ class InputItem extends React.Component<InputItemProps, any> {
       default:
         break;
     }
+    this.handleOnChange(value);
+  }
+  handleOnChange = (value: string) => {
+    const { onChange } = this.props;
+
     if (!('value' in this.props)) {
       this.setState({ value });
     } else {
@@ -115,8 +130,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       onChange(value);
     }
   }
-
-  onInputFocus = (value) => {
+  onInputFocus = (value: string) => {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
       this.debounceTimeout = null;
@@ -129,10 +143,13 @@ class InputItem extends React.Component<InputItemProps, any> {
     }
   }
 
-  onInputBlur = (value) => {
-    if (this.inputRef) { // this.inputRef may be null if customKeyboard unmount
+  onInputBlur = (value: string) => {
+    if (this.inputRef) {
+      // this.inputRef may be null if customKeyboard unmount
       this.debounceTimeout = setTimeout(() => {
-        if (document.activeElement !== this.inputRef.inputRef) {
+        if (
+          document.activeElement !== (this.inputRef && this.inputRef.inputRef)
+        ) {
           this.setState({
             focus: false,
           });
@@ -144,13 +161,13 @@ class InputItem extends React.Component<InputItemProps, any> {
     }
   }
 
-  onExtraClick = (e) => {
+  onExtraClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (this.props.onExtraClick) {
       this.props.onExtraClick(e);
     }
   }
 
-  onErrorClick = (e) => {
+  onErrorClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (this.props.onErrorClick) {
       this.props.onErrorClick(e);
     }
@@ -172,18 +189,40 @@ class InputItem extends React.Component<InputItemProps, any> {
   }
 
   focus = () => {
-    this.inputRef.focus();
+    if (this.inputRef) {
+      this.inputRef.focus();
+    }
   }
   render() {
     const {
-      prefixCls, prefixListCls, editable, style,
-      clear, children, error, className, extra, labelNumber, onExtraClick, onErrorClick,
-      updatePlaceholder, type, locale, moneyKeyboardAlign, ...restProps,
+      prefixCls,
+      prefixListCls,
+      editable,
+      style,
+      clear,
+      children,
+      error,
+      className,
+      extra,
+      labelNumber,
+      onExtraClick,
+      onErrorClick,
+      updatePlaceholder,
+      type,
+      locale,
+      moneyKeyboardAlign,
+      ...restProps,
     } = this.props;
     const { defaultValue, name, disabled, maxLength } = restProps;
     const { value } = this.state;
 
-    const _locale = getComponentLocale(this.props, this.context, 'InputItem', () => require('./locale/zh_CN'));
+    // tslint:disable-next-line:variable-name
+    const _locale = getComponentLocale(
+      this.props,
+      this.context,
+      'InputItem',
+      () => require('./locale/zh_CN'),
+    );
 
     const { confirmLabel } = _locale;
 
@@ -241,17 +280,17 @@ class InputItem extends React.Component<InputItemProps, any> {
     return (
       <div className={wrapCls}>
         <div className={`${prefixListCls}-line`}>
-          {children ? (<div className={labelCls}>{children}</div>) : null}
+          {children ? <div className={labelCls}>{children}</div> : null}
           <div className={controlCls}>
             {type === 'money' ? (
               <CustomInput
                 value={fixControlledValue(value)}
                 defaultValue={defaultValue}
                 type={type}
-                ref={el => this.inputRef = el}
+                ref={el => (this.inputRef = el)}
                 maxLength={maxLength}
                 placeholder={placeholder}
-                onChange={this.onInputChange}
+                onChange={this.handleOnChange}
                 onFocus={this.onInputFocus}
                 onBlur={this.onInputBlur}
                 disabled={disabled}
@@ -262,33 +301,45 @@ class InputItem extends React.Component<InputItemProps, any> {
                 moneyKeyboardAlign={moneyKeyboardAlign}
               />
             ) : (
-                <Input
-                  {...patternProps}
-                  {...restProps}
-                  {...classNameProps}
-                  value={fixControlledValue(value)}
-                  defaultValue={defaultValue}
-                  ref={el => this.inputRef = el}
-                  style={style}
-                  type={inputType}
-                  maxLength={maxLength}
-                  name={name}
-                  placeholder={placeholder}
-                  onChange={this.onInputChange}
-                  onFocus={this.onInputFocus}
-                  onBlur={this.onInputBlur}
-                  readOnly={!editable}
-                  disabled={disabled}
-                />
-              )}
+              <Input
+                {...patternProps}
+                {...restProps}
+                {...classNameProps}
+                value={fixControlledValue(value)}
+                defaultValue={defaultValue}
+                ref={(el: any) => (this.inputRef = el)}
+                style={style}
+                type={inputType}
+                maxLength={maxLength}
+                name={name}
+                placeholder={placeholder}
+                onChange={this.onInputChange}
+                onFocus={this.onInputFocus}
+                onBlur={this.onInputBlur}
+                readOnly={!editable}
+                disabled={disabled}
+              />
+            )}
           </div>
-          {clear && editable && !disabled && (value && `${value}`.length > 0) ?
+          {clear &&
+          editable &&
+          !disabled &&
+          (value && `${value}`.length > 0) ? (
             <TouchFeedback activeClassName={`${prefixCls}-clear-active`}>
               <div className={`${prefixCls}-clear`} onClick={this.clearInput} />
             </TouchFeedback>
-            : null}
-          {error ? (<div className={`${prefixCls}-error-extra`} onClick={this.onErrorClick} />) : null}
-          {extra !== '' ? <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>{extra}</div> : null}
+          ) : null}
+          {error ? (
+            <div
+              className={`${prefixCls}-error-extra`}
+              onClick={this.onErrorClick}
+            />
+          ) : null}
+          {extra !== '' ? (
+            <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>
+              {extra}
+            </div>
+          ) : null}
         </div>
       </div>
     );

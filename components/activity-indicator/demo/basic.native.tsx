@@ -1,10 +1,19 @@
+import {
+  ActivityIndicator,
+  Button,
+  Flex,
+  WhiteSpace,
+  WingBlank,
+} from 'antd-mobile';
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { WhiteSpace, WingBlank, Button, Flex, ActivityIndicator } from 'antd-mobile';
+import { StyleSheet, Text, View } from 'react-native';
 
-export default class ActivityIndicatorExample extends React.Component<any, any> {
+export default class ActivityIndicatorExample extends React.Component<
+  any,
+  any
+> {
   closeTimer: any;
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       animating: false,

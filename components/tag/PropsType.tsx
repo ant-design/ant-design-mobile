@@ -1,4 +1,4 @@
-interface TagProps {
+export interface TagPropsType {
   disabled?: boolean;
   selected?: boolean;
   closable?: boolean;
@@ -6,7 +6,4 @@ interface TagProps {
   onChange?: (selected: boolean) => void;
   onClose?: () => void;
   afterClose?: () => void;
-  style?: any;
 }
-
-export default TagProps;

@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { TabBarProps } from './PropsType';
-import TabBarItem from './TabBarItem.native';
 import TabBarStyle, { ITabBarStyle } from './style/index.native';
+import TabBarItem from './TabBarItem.native';
 
-export interface ITabBarNativeProps extends TabBarProps {
+export interface TabBarNativeProps extends TabBarProps {
   styles?: ITabBarStyle;
 }
 
 const TabBarStyles = StyleSheet.create<any>(TabBarStyle);
 
-class TabBar extends React.Component <ITabBarNativeProps, any> {
+class TabBar extends React.Component<TabBarNativeProps, any> {
   static defaultProps = {
     barTintColor: 'white',
     tintColor: '#108ee9',
@@ -20,12 +20,12 @@ class TabBar extends React.Component <ITabBarNativeProps, any> {
 
   static Item: any;
 
-  getPanes(content) {
+  getPanes(content: boolean) {
     const { tintColor, unselectedTintColor, children } = this.props;
     const styles = this.props.styles!;
     // ios 规则： selected 为多个则只选中最后一个， selected 为 0 个则选中第一个;
     let selectedIndex = 0;
-    [].concat(children).forEach((child: any, idx) => {
+    [].concat(children as any).forEach((child: any, idx: number) => {
       if (child.props.selected) {
         selectedIndex = idx;
       }
@@ -36,18 +36,24 @@ class TabBar extends React.Component <ITabBarNativeProps, any> {
         newChildren.push(
           <View
             key={idx}
-            style={[ styles.contentItem, idx === selectedIndex ? styles.contentItemSelected : undefined ]}
+            // tslint:disable-next-line:jsx-no-multiline-js
+            style={[
+              styles.contentItem,
+              idx === selectedIndex ? styles.contentItemSelected : undefined,
+            ]}
           >
             {child.props.children}
           </View>,
         );
       } else {
-        newChildren.push(React.cloneElement(child, {
-          key: idx,
-          tintColor,
-          unselectedTintColor,
-          styles,
-        }));
+        newChildren.push(
+          React.cloneElement(child, {
+            key: idx,
+            tintColor,
+            unselectedTintColor,
+            styles,
+          }),
+        );
       }
     });
 
@@ -58,10 +64,10 @@ class TabBar extends React.Component <ITabBarNativeProps, any> {
     const styles = this.props.styles!;
     return (
       <View style={styles.tabbar}>
-        <View style={styles.content}>
-          {this.getPanes(true)}
-        </View>
-        <View style={[styles.tabs, { backgroundColor: this.props.barTintColor }]}>
+        <View style={styles.content}>{this.getPanes(true)}</View>
+        <View
+          style={[styles.tabs, { backgroundColor: this.props.barTintColor }]}
+        >
           {this.getPanes(false)}
         </View>
       </View>

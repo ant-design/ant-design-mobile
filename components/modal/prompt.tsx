@@ -1,40 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from './Modal';
 import closest from '../_util/closest';
+import Modal from './Modal';
+import { CallbackOrActions } from './PropsType';
 
 export default function prompt(
-  title, message, callbackOrActions,
-  type = 'default', defaultValue = '', placeholders = ['', ''],
+  title: React.ReactType,
+  message: React.ReactType,
+  callbackOrActions: CallbackOrActions,
+  type = 'default',
+  defaultValue = '',
+  placeholders = ['', ''],
   platform = 'ios',
 ) {
   let closed = false;
 
-  defaultValue = typeof defaultValue === 'string' ? defaultValue :
-    typeof defaultValue === 'number' ? `${defaultValue}` : '';
+  defaultValue =
+    typeof defaultValue === 'string'
+      ? defaultValue
+      : typeof defaultValue === 'number' ? `${defaultValue}` : '';
 
   if (!callbackOrActions) {
     // console.log('Must specify callbackOrActions');
     return {
-      close: () => { },
+      close: () => {},
     };
   }
 
   const prefixCls = 'am-modal';
 
-  let data: any = {
+  const data: any = {
     text: defaultValue,
   };
 
-  function onChange(e) {
+  function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     const target = e.target;
     const inputType = target.getAttribute('type');
-    data[inputType] = target.value;
+    if (inputType !== null) {
+      data[inputType] = target.value;
+    }
   }
 
   let inputDom;
 
-  const focusFn = function (input) {
+  const focusFn = (input: HTMLInputElement | null) => {
     setTimeout(() => {
       if (input) {
         input.focus();
@@ -106,14 +115,14 @@ export default function prompt(
       );
   }
 
-  let content = (
+  const content = (
     <div>
       {message}
       {inputDom}
     </div>
   );
 
-  let div = document.createElement('div');
+  const div = document.createElement('div');
   document.body.appendChild(div);
 
   function close() {
@@ -123,14 +132,15 @@ export default function prompt(
     }
   }
 
-  function handleConfirm(callback) {
+  function handleConfirm(callback?: (...args: any[]) => void) {
     if (typeof callback !== 'function') {
       return;
     }
     const { text = '', password = '' } = data;
     const callbackArgs =
-      type === 'login-password' ? [text, password] :
-        type === 'secure-text' ? [password] : [text];
+      type === 'login-password'
+        ? [text, password]
+        : type === 'secure-text' ? [password] : [text];
 
     return callback(...callbackArgs);
   }
@@ -138,8 +148,16 @@ export default function prompt(
   let actions;
   if (typeof callbackOrActions === 'function') {
     actions = [
-      { text: '取消' },
-      { text: '确定', onPress: () => { handleConfirm(callbackOrActions); } },
+      {
+        text: '取消',
+        onPress: () => {},
+      },
+      {
+        text: '确定',
+        onPress: () => {
+          handleConfirm(callbackOrActions);
+        },
+      },
     ];
   } else {
     actions = callbackOrActions.map(item => {
@@ -152,17 +170,22 @@ export default function prompt(
     });
   }
 
-  const footer = actions.map((button) => {
-    const orginPress = button.onPress || function () { };
+  const footer = actions.map(button => {
+    // tslint:disable-next-line:only-arrow-functions
+    const orginPress = button.onPress || function() {};
     button.onPress = () => {
-      if (closed) { return; }
+      if (closed) {
+        return;
+      }
 
-      const res = orginPress();
+      const res: any = orginPress();
       if (res && res.then) {
-        res.then(() => {
-          closed = true;
-          close();
-        }).catch(() => { });
+        res
+          .then(() => {
+            closed = true;
+            close();
+          })
+          .catch(() => {});
       } else {
         closed = true;
         close();
@@ -171,12 +194,12 @@ export default function prompt(
     return button;
   });
 
-  function onWrapTouchStart(e) {
+  function onWrapTouchStart(e: React.TouchEvent<HTMLDivElement>) {
     // exclude input element for focus
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
     }
-    const pNode = closest(e.target, `.${prefixCls}-content`);
+    const pNode = closest(e.currentTarget, `.${prefixCls}-content`);
     if (!pNode) {
       e.preventDefault();
     }
@@ -197,7 +220,8 @@ export default function prompt(
       wrapProps={{ onTouchStart: onWrapTouchStart }}
     >
       <div className={`${prefixCls}-propmt-content`}>{content}</div>
-    </Modal>, div,
+    </Modal>,
+    div,
   );
 
   return {

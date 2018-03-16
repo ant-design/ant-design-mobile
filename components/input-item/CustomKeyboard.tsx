@@ -1,16 +1,38 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 import TouchFeedback from 'rmc-feedback';
+import { Omit } from '../_util/types';
 
-export class KeyboardItem extends React.Component<any, any> {
+export type HTMLTableDataProps = Omit<
+  React.HTMLProps<HTMLTableDataCellElement>,
+  'onClick'
+>;
+
+export interface KeyboardItemProps extends HTMLTableDataProps {
+  prefixCls?: string;
+  tdRef?: React.Ref<HTMLTableDataCellElement>;
+  onClick: (
+    event: React.MouseEvent<HTMLTableDataCellElement>,
+    value: string,
+  ) => void;
+}
+export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
   static defaultProps = {
     prefixCls: 'am-number-keyboard',
     onClick: () => {},
     disabled: false,
   };
 
-  render () {
-    const { prefixCls, onClick, className, disabled, children, tdRef, ...restProps } = this.props;
+  render() {
+    const {
+      prefixCls,
+      onClick,
+      className,
+      disabled,
+      children,
+      tdRef,
+      ...restProps,
+    } = this.props;
     let value = children;
     if (className === 'keyboard-delete') {
       value = 'delete';
@@ -21,16 +43,21 @@ export class KeyboardItem extends React.Component<any, any> {
     }
 
     const wrapCls = classnames(`${prefixCls}-item`, className);
-    return (<TouchFeedback activeClassName={`${prefixCls}-item-active`}>
-      <td
-        ref={tdRef}
-        onClick={(e) => { onClick(e, value); }}
-        className={wrapCls}
-        {...restProps}
-      >
-        {children}
-      </td>
-    </TouchFeedback>);
+    return (
+      <TouchFeedback activeClassName={`${prefixCls}-item-active`}>
+        <td
+          ref={tdRef}
+          // tslint:disable-next-line:jsx-no-multiline-js
+          onClick={e => {
+            onClick(e, value as string);
+          }}
+          className={wrapCls}
+          {...restProps}
+        >
+          {children}
+        </td>
+      </TouchFeedback>
+    );
   }
 }
 
@@ -40,11 +67,14 @@ class CustomKeyboard extends React.Component<any, any> {
   };
 
   linkedInput: any;
-  antmKeyboard: any;
+  antmKeyboard: HTMLDivElement | null;
   confirmDisabled: boolean;
-  confirmKeyboardItem: any;
+  confirmKeyboardItem: HTMLTableDataCellElement | null;
 
-  onKeyboardClick = (e, value) => {
+  onKeyboardClick = (
+    e: React.MouseEvent<HTMLTableDataCellElement>,
+    value: string,
+  ) => {
     e.nativeEvent.stopImmediatePropagation();
     if (value === 'confirm' && this.confirmDisabled) {
       return null;
@@ -55,45 +85,73 @@ class CustomKeyboard extends React.Component<any, any> {
     }
   }
 
-  renderKeyboardItem = (item, index) => {
-    return (<KeyboardItem onClick={this.onKeyboardClick} key={`item-${item}-${index}`}>{item}</KeyboardItem>);
+  renderKeyboardItem = (item: string, index: number) => {
+    return (
+      <KeyboardItem
+        onClick={this.onKeyboardClick}
+        key={`item-${item}-${index}`}
+      >
+        {item}
+      </KeyboardItem>
+    );
   }
   render() {
     const { prefixCls, confirmLabel } = this.props;
 
-    const wrapperCls = classnames(`${prefixCls}-wrapper`, `${prefixCls}-wrapper-hide`);
+    const wrapperCls = classnames(
+      `${prefixCls}-wrapper`,
+      `${prefixCls}-wrapper-hide`,
+    );
 
-    return (<div
-      className={wrapperCls}
-      ref={el => this.antmKeyboard = el}
-    >
-      <table>
-        <tbody>
-          <tr>
-            {['1', '2', '3'].map((item, index) => { return this.renderKeyboardItem(item, index); })}
-            <KeyboardItem className="keyboard-delete" rowSpan={2} onClick={this.onKeyboardClick} />
-          </tr>
-          <tr>
-            {['4', '5', '6'].map((item, index) => { return this.renderKeyboardItem(item, index); })}
-          </tr>
-          <tr>
-            {['7', '8', '9'].map((item, index) => { return this.renderKeyboardItem(item, index); })}
-            <KeyboardItem
-              className="keyboard-confirm"
-              rowSpan={2}
-              onClick={this.onKeyboardClick}
-              tdRef={el => this.confirmKeyboardItem = el}
-            >
-              {confirmLabel}
-            </KeyboardItem>
-          </tr>
-          <tr>
-            {['.', '0'].map((item, index) => { return this.renderKeyboardItem(item, index); })}
-            <KeyboardItem className="keyboard-hide" onClick={this.onKeyboardClick} />
-          </tr>
-        </tbody>
-      </table>
-    </div>);
+    return (
+      <div className={wrapperCls} ref={el => (this.antmKeyboard = el)}>
+        <table>
+          <tbody>
+            <tr>
+              {['1', '2', '3'].map((item, index) =>
+              // tslint:disable-next-line:jsx-no-multiline-js
+                this.renderKeyboardItem(item, index),
+              )}
+              <KeyboardItem
+                className="keyboard-delete"
+                rowSpan={2}
+                onClick={this.onKeyboardClick}
+              />
+            </tr>
+            <tr>
+              {['4', '5', '6'].map((item, index) =>
+              // tslint:disable-next-line:jsx-no-multiline-js
+                this.renderKeyboardItem(item, index),
+              )}
+            </tr>
+            <tr>
+              {['7', '8', '9'].map((item, index) =>
+              // tslint:disable-next-line:jsx-no-multiline-js
+                this.renderKeyboardItem(item, index),
+              )}
+              <KeyboardItem
+                className="keyboard-confirm"
+                rowSpan={2}
+                onClick={this.onKeyboardClick}
+                tdRef={el => (this.confirmKeyboardItem = el)}
+              >
+                {confirmLabel}
+              </KeyboardItem>
+            </tr>
+            <tr>
+              {['.', '0'].map((item, index) =>
+              // tslint:disable-next-line:jsx-no-multiline-js
+                this.renderKeyboardItem(item, index),
+              )}
+              <KeyboardItem
+                className="keyboard-hide"
+                onClick={this.onKeyboardClick}
+              />
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
   }
 }
 

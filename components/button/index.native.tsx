@@ -1,15 +1,22 @@
-/* tslint:disable:jsx-no-multiline-js */
+// tslint:disable:no-empty
 import React from 'react';
-import { TouchableHighlight, Text, StyleSheet, View, ActivityIndicator } from 'react-native';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  TouchableHighlightProperties,
+  View,
+} from 'react-native';
+import { ButtonPropsType } from './PropsType';
 import buttonStyle from './style/index.native';
-import { ButtonProps as BasePropsType } from './PropsType';
 
-export interface ButtonProps extends BasePropsType {
-  onPressIn?: (x?: any) => void;
-  onPressOut?: (x?: any) => void;
-  onShowUnderlay?: (x?: any) => void;
-  onHideUnderlay?: (x?: any) => void;
+export interface ButtonProps
+  extends ButtonPropsType,
+    TouchableHighlightProperties {
   styles?: typeof buttonStyle;
+  activeStyle?: boolean;
+  onClick?: (_?: any) => void;
 }
 
 const buttonStyles = StyleSheet.create<any>(buttonStyle);
@@ -20,20 +27,17 @@ export default class Button extends React.Component<ButtonProps, any> {
     disabled: false,
     activeStyle: {},
     loading: false,
-    onClick: (_x?: any) => {
-    },
-    onPressIn: (_x?: any) => {
-    },
-    onPressOut: (_x?: any) => {
-    },
-    onShowUnderlay: (_x?: any) => {
-    },
-    onHideUnderlay: (_x?: any) => {
-    },
+
+    onClick: (_?: any) => {},
+    onPressIn: (_?: any) => {},
+    onPressOut: (_?: any) => {},
+    onShowUnderlay: (_?: any) => {},
+    onHideUnderlay: (_?: any) => {},
+
     styles: buttonStyles,
   };
 
-  constructor(props) {
+  constructor(props: ButtonProps) {
     super(props);
     this.state = {
       pressIn: false,
@@ -41,25 +45,25 @@ export default class Button extends React.Component<ButtonProps, any> {
     };
   }
 
-  onPressIn = (...arg) => {
+  onPressIn = (...arg: any[]) => {
     this.setState({ pressIn: true });
     if (this.props.onPressIn) {
       (this.props.onPressIn as any)(...arg);
     }
   }
-  onPressOut = (...arg) => {
+  onPressOut = (...arg: any[]) => {
     this.setState({ pressIn: false });
     if (this.props.onPressOut) {
       (this.props.onPressOut as any)(...arg);
     }
   }
-  onShowUnderlay = (...arg) => {
+  onShowUnderlay = (...arg: any[]) => {
     this.setState({ touchIt: true });
     if (this.props.onShowUnderlay) {
       (this.props.onShowUnderlay as any)(...arg);
     }
   }
-  onHideUnderlay = (...arg) => {
+  onHideUnderlay = (...arg: any[]) => {
     this.setState({ touchIt: false });
     if (this.props.onHideUnderlay) {
       (this.props.onHideUnderlay as any)(...arg);
@@ -70,17 +74,34 @@ export default class Button extends React.Component<ButtonProps, any> {
     // TODO: replace `TouchableHighlight` with `TouchableWithoutFeedback` in version 1.1.0
     // for using setNativeProps to improve performance
     const {
-      size = 'large', type = 'default', disabled, activeStyle, onClick, style,
-      styles, loading, ...restProps,
+      size = 'large',
+      type = 'default',
+      disabled,
+      activeStyle,
+      onClick,
+      style,
+      styles,
+      loading,
+      ...restProps,
     } = this.props;
-    const _styles = styles!;
+    // can not understand this line.
+    // tslint:disable-next-line:variable-name
+    const _styles: any = styles!;
 
-    ['activeOpacity', 'underlayColor', 'onPress', 'onPressIn',
-      'onPressOut', 'onShowUnderlay', 'onHideUnderlay'].forEach((prop) => {
-        if (restProps.hasOwnProperty(prop)) {
-          delete restProps[prop];
-        }
-      });
+    //  unnecessary see line: 134
+    // [
+    //   'activeOpacity',
+    //   'underlayColor',
+    //   'onPress',
+    //   'onPressIn',
+    //   'onPressOut',
+    //   'onShowUnderlay',
+    //   'onHideUnderlay',
+    // ].forEach(prop => {
+    //   if (restProps.hasOwnProperty(prop)) {
+    //     delete restProps[prop];
+    //   }
+    // });
 
     const textStyle = [
       _styles[`${size}RawText`],
@@ -104,33 +125,34 @@ export default class Button extends React.Component<ButtonProps, any> {
     ) as any).backgroundColor;
 
     const indicatorColor = (StyleSheet.flatten(
-      this.state.pressIn ? _styles[`${type}HighlightText`] : _styles[`${type}RawText`],
+      this.state.pressIn
+        ? _styles[`${type}HighlightText`]
+        : _styles[`${type}RawText`],
     ) as any).color;
 
     return (
       <TouchableHighlight
+        style={wrapperStyle}
+        disabled={disabled}
+        {...restProps}
         activeOpacity={1}
         underlayColor={underlayColor}
-        style={wrapperStyle}
         onPress={(e?: any) => onClick && onClick(e)}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
         onShowUnderlay={this.onShowUnderlay}
         onHideUnderlay={this.onHideUnderlay}
-        disabled={disabled}
-        {...restProps}
       >
         <View style={_styles.container}>
-          {
-            loading ? (
-              <ActivityIndicator
-                style={_styles.indicator}
-                animating
-                color={indicatorColor}
-                size="small"
-              />
-            ) : null
-          }
+          {loading ? (
+          // tslint:disable-next-line:jsx-no-multiline-js
+            <ActivityIndicator
+              style={_styles.indicator}
+              animating
+              color={indicatorColor}
+              size="small"
+            />
+          ) : null}
           <Text style={textStyle}>{this.props.children}</Text>
         </View>
       </TouchableHighlight>

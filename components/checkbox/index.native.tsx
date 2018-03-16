@@ -1,6 +1,6 @@
-import Checkbox from './Checkbox';
-import AgreeItem from './AgreeItem';
-import CheckboxItem from './CheckboxItem';
+import AgreeItem from './AgreeItem.native';
+import Checkbox from './Checkbox.native';
+import CheckboxItem from './CheckboxItem.native';
 
 Checkbox.AgreeItem = AgreeItem;
 Checkbox.CheckboxItem = CheckboxItem;

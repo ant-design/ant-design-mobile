@@ -1,10 +1,11 @@
-import React from 'react';
 import classnames from 'classnames';
-import { FlexItemProps as BasePropsType } from './PropsType';
+import React from 'react';
+import { FlexItemPropsType } from './PropsType';
 
-export interface FlexItemProps extends BasePropsType {
+export interface FlexItemProps extends FlexItemPropsType {
   prefixCls?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export default class FlexItem extends React.Component<FlexItemProps, any> {
@@ -12,10 +13,12 @@ export default class FlexItem extends React.Component<FlexItemProps, any> {
     prefixCls: 'am-flexbox',
   };
   render() {
-    let { children, className, prefixCls, style, ...restProps } = this.props;
+    const { children, className, prefixCls, style, ...restProps } = this.props;
     const wrapCls = classnames(`${prefixCls}-item`, className);
     return (
-      <div className={wrapCls} style={style} {...restProps}>{children}</div>
+      <div className={wrapCls} style={style} {...restProps}>
+        {children}
+      </div>
     );
   }
 }

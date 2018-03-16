@@ -15,24 +15,26 @@ declare module 'rc-slider';
 declare module 'rn-topview';
 
 declare module 'rc-notification';
+declare module 'rmc-notification';
 
 declare module 'react-native-camera-roll-picker';
-
-declare module 'array-tree-filter';
-
-declare module 'react-native-drawer-layout';
 
 declare module 'rc-drawer';
 
 declare module 'rmc-dialog';
-
+declare module 'rmc-nuka-carousel';
 declare module 'react-native-menu';
-
-declare module 'react-native-collapsible/Accordion';
+declare module 'rmc-tooltip';
+declare module 'rmc-pull-to-refresh';
+declare module 'rc-slider/lib/Range';
+declare module 'react-native/Libraries/StyleSheet/normalizeColor';
+declare module 'react-native/Libraries/StyleSheet/setNormalizedColorAlpha';
+declare module 'rc-slider/lib/Slider';
+declare module 'rmc-steps';
 
 declare var process: {
   env: {
-    NODE_ENV: string,
-    DISABLE_ANTD_MOBILE_UPGRADE: string,
-  }
+    NODE_ENV: string;
+    DISABLE_ANTD_MOBILE_UPGRADE: string;
+  };
 };

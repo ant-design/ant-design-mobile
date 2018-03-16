@@ -1,16 +1,14 @@
 import React from 'react';
 import RcSteps from 'rmc-steps';
 import Icon from '../icon';
+import { StepsPropsType } from './PropsType';
 
-export interface StepsProps {
+export interface StepsProps extends StepsPropsType {
   prefixCls?: string;
   iconPrefix?: string;
   direction?: string;
   labelPlacement?: string;
-  children: any;
   status?: string;
-  size?: string;
-  current?: number;
 }
 
 export default class Steps extends React.Component<StepsProps, any> {
@@ -23,7 +21,7 @@ export default class Steps extends React.Component<StepsProps, any> {
     direction: 'vertical',
     current: 0,
   };
-  stepRefs: any;
+  stepRefs: any[];
   stepsRef: any;
 
   componentDidMount() {
@@ -42,13 +40,16 @@ export default class Steps extends React.Component<StepsProps, any> {
   }
   render() {
     this.stepRefs = [];
-    const { children, status, size  } = this.props;
+    const { children, status, size } = this.props;
     const current = this.props.current as number;
     // flattern the array at first https://github.com/ant-design/ant-design-mobile/issues/934
-    let newChildren: Array<any> = React.Children.map(children, item => item);
+    let newChildren: any[] = React.Children.map(children, item => item);
     newChildren = React.Children.map(newChildren, (item: any, index) => {
       let className = item.props.className;
-      if (index < newChildren.length - 1 && newChildren[index + 1].props.status === 'error') {
+      if (
+        index < newChildren.length - 1 &&
+        newChildren[index + 1].props.status === 'error'
+      ) {
         className = className ? `${className} error-tail` : 'error-tail';
       }
 
@@ -60,17 +61,36 @@ export default class Steps extends React.Component<StepsProps, any> {
         } else if (index > current) {
           // 对应 state: wait
           icon = 'ellipsis';
-          className = className ? `${className} ellipsis-item` : 'ellipsis-item';
+          className = className
+            ? `${className} ellipsis-item`
+            : 'ellipsis-item';
         }
-        if (status === 'error' && index === current || item.props.status === 'error') {
+        if (
+          (status === 'error' && index === current) ||
+          item.props.status === 'error'
+        ) {
           icon = 'cross-circle-o';
         }
       }
-      icon = typeof icon === 'string' ? (
-        <Icon type={icon} size={size === 'small' ? (status === 'wait' ? 'xxs' : 'xs') : 'md'} />
-      ) : icon;
-      return React.cloneElement(item, { icon, className, ref: c => this.stepRefs[index] = c });
+      icon =
+        typeof icon === 'string' ? (
+          <Icon
+            type={icon}
+            size={size === 'small' ? (status === 'wait' ? 'xxs' : 'xs') : 'md'}
+          />
+        ) : (
+          icon
+        );
+      return React.cloneElement(item, {
+        icon,
+        className,
+        ref: (c: any) => (this.stepRefs[index] = c),
+      });
     });
-    return <RcSteps ref={el => this.stepsRef = el} {...this.props}>{newChildren}</RcSteps>;
+    return (
+      <RcSteps ref={(el: any) => (this.stepsRef = el)} {...this.props}>
+        {newChildren}
+      </RcSteps>
+    );
   }
 }

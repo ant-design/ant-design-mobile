@@ -1,18 +1,21 @@
 import React from 'react';
 import MListView from 'rmc-list-view';
-import tsPropsType from './PropsType';
 import handleProps from './handleProps';
 import IndexedList from './Indexed';
+import { ListViewPropsType } from './PropsType';
 
-export interface ListViewPropsType extends tsPropsType {
-  onQuickSearch?: Function;
+export interface ListViewProps extends ListViewPropsType {
+  onQuickSearch?: (sectionID: any, topId?: any) => void;
   quickSearchBarStyle?: React.CSSProperties;
-  quickSearchBarTop?: Object;
+  quickSearchBarTop?: {
+    value: string;
+    label: string;
+  };
   delayTime?: number;
   delayActivityIndicator?: any;
 }
 
-export default class ListView extends React.Component<ListViewPropsType, any> {
+export default class ListView extends React.Component<ListViewProps, any> {
   static defaultProps = {
     prefixCls: 'am-list-view',
     listPrefixCls: 'am-list',
@@ -22,11 +25,17 @@ export default class ListView extends React.Component<ListViewPropsType, any> {
 
   listviewRef: any;
 
-  scrollTo = (...args) => this.listviewRef.scrollTo(...args);
+  scrollTo = (...args: any[]) => this.listviewRef.scrollTo(...args);
   getInnerViewNode = () => this.listviewRef.getInnerViewNode();
 
   render() {
     const { restProps, extraProps } = handleProps(this.props, false);
-    return <MListView ref={el => this.listviewRef = el} {...restProps} {...extraProps} />;
+    return (
+      <MListView
+        ref={(el: any) => (this.listviewRef = el)}
+        {...restProps}
+        {...extraProps}
+      />
+    );
   }
 }

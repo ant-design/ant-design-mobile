@@ -1,7 +1,9 @@
-function formatIt(date, form) {
-  const pad = n => n < 10 ? `0${n}` : n;
-  let dateStr = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
-  let timeStr = `${pad(date.getHours())}:${pad(date.getMinutes())}`;
+function formatIt(date: Date, form: string) {
+  const pad = (n: number) => (n < 10 ? `0${n}` : n);
+  const dateStr = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(
+    date.getDate(),
+  )}`;
+  const timeStr = `${pad(date.getHours())}:${pad(date.getMinutes())}`;
   if (form === 'YYYY-MM-DD') {
     return dateStr;
   }
@@ -11,7 +13,7 @@ function formatIt(date, form) {
   return `${dateStr} ${timeStr}`;
 }
 
-export function formatFn(instance, value) {
+export function formatFn(instance: any, value: Date) {
   const formatsEnum = {
     date: 'YYYY-MM-DD',
     time: 'HH:mm',
@@ -25,5 +27,5 @@ export function formatFn(instance, value) {
   if (type === 'function') {
     return format(value);
   }
-  return formatIt(value, formatsEnum[instance.props.mode]);
+  return formatIt(value, (formatsEnum as any)[instance.props.mode]);
 }

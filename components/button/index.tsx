@@ -1,29 +1,35 @@
-import React from 'react';
 import classnames from 'classnames';
-import Icon from '../icon';
-import { ButtonProps as BasePropsType } from './PropsType';
+import React, { CSSProperties, MouseEventHandler } from 'react';
 import TouchFeedback from 'rmc-feedback';
+import Icon from '../icon';
+import { ButtonPropsType } from './PropsType';
 
-export interface ButtonProps extends BasePropsType {
+export interface ButtonProps extends ButtonPropsType {
   prefixCls?: string;
   className?: string;
   role?: string;
   inline?: boolean;
   icon?: string;
   activeClassName?: string;
+  activeStyle?: boolean | CSSProperties;
+  style?: React.CSSProperties;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
-function isString(str) {
+function isString(str: any) {
   return typeof str === 'string';
 }
 
 // Insert one space between two chinese characters automatically.
-function insertSpace(child) {
+function insertSpace(child: any) {
   if (isString(child.type) && isTwoCNChar(child.props.children)) {
-    return React.cloneElement(child, {},
-      child.props.children.split('').join(' '));
+    return React.cloneElement(
+      child,
+      {},
+      child.props.children.split('').join(' '),
+    );
   }
   if (isString(child)) {
     if (isTwoCNChar(child)) {
@@ -46,8 +52,18 @@ class Button extends React.Component<ButtonProps, any> {
 
   render() {
     const {
-      children, className, prefixCls, type, size, inline,
-      disabled, icon, loading, activeStyle, activeClassName, onClick,
+      children,
+      className,
+      prefixCls,
+      type,
+      size,
+      inline,
+      disabled,
+      icon,
+      loading,
+      activeStyle,
+      activeClassName,
+      onClick,
       ...restProps,
     } = this.props;
 
@@ -67,16 +83,21 @@ class Button extends React.Component<ButtonProps, any> {
 
     let iconEl;
     if (typeof iconType === 'string') {
-      iconEl =
+      iconEl = (
         <Icon
           aria-hidden="true"
           type={iconType}
           size={size === 'small' ? 'xxs' : 'md'}
           className={`${prefixCls}-icon`}
-        />;
+        />
+      );
     } else if (iconType) {
       const rawCls = iconType.props && iconType.props.className;
-      const cls = classnames('am-icon', `${prefixCls}-icon`, size === 'small' ? 'am-icon-xxs' : 'am-icon-md');
+      const cls = classnames(
+        'am-icon',
+        `${prefixCls}-icon`,
+        size === 'small' ? 'am-icon-xxs' : 'am-icon-md',
+      );
       iconEl = React.cloneElement(iconType, {
         className: rawCls ? `${rawCls} ${cls}` : cls,
       });
@@ -84,7 +105,9 @@ class Button extends React.Component<ButtonProps, any> {
     // use div, button native is buggy @yiminghe
     return (
       <TouchFeedback
-        activeClassName={activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
+        // tslint:disable-next-line:jsx-no-multiline-js
+        activeClassName={
+          activeClassName || (activeStyle ? `${prefixCls}-active` : undefined)}
         disabled={disabled}
         activeStyle={activeStyle}
       >

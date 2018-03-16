@@ -1,11 +1,17 @@
 import React from 'react';
+export type InputEventHandler = (value?: string) => void;
 
-interface InputItemProps {
-  style?: any;
+export interface InputItemPropsType {
   /** web only */
   moneyKeyboardAlign?: string;
-  onClick?: Function;
-  type?: 'text' | 'bankCard' | 'phone' | 'password' | 'number' | 'digit' | 'money';
+  type?:
+    | 'text'
+    | 'bankCard'
+    | 'phone'
+    | 'password'
+    | 'number'
+    | 'digit'
+    | 'money';
   editable?: boolean;
   disabled?: boolean;
   name?: string;
@@ -14,22 +20,18 @@ interface InputItemProps {
   placeholder?: string;
   clear?: boolean;
   maxLength?: number;
-  onChange?: Function;
-  onBlur?: Function;
-  onFocus?: Function;
   extra?: React.ReactNode;
-  onExtraClick?: (e?: any) => void;
   error?: boolean;
-  onErrorClick?: (e?: any) => void;
-  onErrorPress?: Function;
-  size?: 'large' | 'small';
+  // can not find out where it used
+  // onErrorPress?: Function;
+  // size?: 'large' | 'small';
   labelNumber?: number;
   labelPosition?: 'left' | 'top';
   textAlign?: 'left' | 'center';
-  children?: any;
   updatePlaceholder?: boolean;
   styles?: any;
   locale?: object;
+  onChange?: InputEventHandler;
+  onFocus?: InputEventHandler;
+  onBlur?: InputEventHandler;
 }
-
-export default InputItemProps;

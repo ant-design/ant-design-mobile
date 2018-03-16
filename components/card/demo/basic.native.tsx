@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text } from 'react-native';
 import { Card, WhiteSpace, WingBlank } from 'antd-mobile';
+import React from 'react';
+import { Text, View } from 'react-native';
 
 export default class BasicCardExample extends React.Component<any, any> {
   render() {
@@ -19,7 +19,10 @@ export default class BasicCardExample extends React.Component<any, any> {
                 <Text style={{ marginLeft: 16 }}>Card Content</Text>
               </View>
             </Card.Body>
-            <Card.Footer content="footer content" extra="footer extra content" />
+            <Card.Footer
+              content="footer content"
+              extra="footer extra content"
+            />
           </Card>
         </WingBlank>
         <WhiteSpace size="lg" />

@@ -1,24 +1,36 @@
 import React from 'react';
 
-interface DatePickerProps {
-  value?: any;
-  mode?: string;
-  minDate?: any;
-  maxDate?: any;
-  onChange?: (x: any) => void;
+export interface DatePickerPropsType {
+  value?: Date;
+  mode?: 'datetime' | 'date' | 'year' | 'month' | 'time';
+  minDate?: Date;
+  maxDate?: Date;
+  onChange?: (value: Date) => void;
   onValueChange?: (vals: any, index: number) => void;
   visible?: boolean;
   onDismiss?: () => void;
-  locale?: any;
+  locale?: {
+    okText: string;
+    dismissText: string;
+    extra: string;
+    DatePickerLocale: {
+      year: string;
+      month: string;
+      day: string;
+      hour: string;
+      minute: string;
+      am?: string;
+      pm?: string;
+    };
+  };
   minuteStep?: number;
   disabled?: boolean;
-  format?: (x: any) => void;
+  format?: string | ((value: Date) => string);
   extra?: string;
-  children?: any;
+  children?: React.ReactNode;
   /** React.ReactElement only for web */
-  dismissText?: string | React.ReactElement<any>;
+  dismissText?: React.ReactType;
   /** React.ReactElement only for web */
-  okText?: string | React.ReactElement<any>;
+  okText?: React.ReactType;
+  title?: React.ReactType;
 }
-
-export default DatePickerProps;

@@ -1,34 +1,41 @@
 /* tslint:disable:jsx-no-multiline-js */
-import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { getComponentLocale } from '../_util/getLocale';
 import Button from '../button';
 import Flex from '../flex';
-import PaginationProps from './PropsType';
-import { getComponentLocale } from '../_util/getLocale';
-
-export default class Pagination extends React.Component<PaginationProps, any> {
+import { PaginationPropsType, PaginationState } from './PropsType';
+export interface PaginationProps extends PaginationPropsType {
+  style?: React.CSSProperties;
+  prefixCls?: string;
+  className?: string;
+}
+export default class Pagination extends React.Component<
+  PaginationProps,
+  PaginationState
+> {
   static defaultProps = {
     prefixCls: 'am-pagination',
     mode: 'button',
     current: 1,
     total: 0,
     simple: false,
-    onChange: () => { },
+    onChange: () => {},
   };
 
   static contextTypes = {
     antLocale: PropTypes.object,
   };
 
-  constructor(props) {
+  constructor(props: PaginationProps) {
     super(props);
     this.state = {
       current: props.current,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: PaginationProps) {
     if (nextProps.current !== this.state.current) {
       this.setState({
         current: nextProps.current,
@@ -36,7 +43,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     }
   }
 
-  onChange(p) {
+  onChange(p: number) {
     this.setState({
       current: p,
     });
@@ -48,19 +55,39 @@ export default class Pagination extends React.Component<PaginationProps, any> {
   render() {
     const { prefixCls, className, style, mode, total, simple } = this.props;
     const { current } = this.state;
-    const locale = getComponentLocale(this.props, this.context, 'Pagination', () => require('./locale/zh_CN'));
+    const locale = getComponentLocale(
+      this.props,
+      this.context,
+      'Pagination',
+      () => require('./locale/zh_CN'),
+    );
     const { prevText, nextText } = locale;
 
     let markup = (
       <Flex>
-        <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-prev`}>
-          <Button inline disabled={current <= 1} onClick={() => this.onChange(current - 1)}>{prevText}</Button>
+        <Flex.Item
+          className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-prev`}
+        >
+          <Button
+            inline
+            disabled={current <= 1}
+            onClick={() => this.onChange(current - 1)}
+          >
+            {prevText}
+          </Button>
         </Flex.Item>
-        {this.props.children ? (<Flex.Item>{this.props.children}</Flex.Item>) : (!simple &&
-          <Flex.Item className={`${prefixCls}-wrap`} aria-live="assertive">
-            <span className="active">{current}</span>/<span>{total}</span>
-          </Flex.Item>)}
-        <Flex.Item className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-next`}>
+        {this.props.children ? (
+          <Flex.Item>{this.props.children}</Flex.Item>
+        ) : (
+          !simple && (
+            <Flex.Item className={`${prefixCls}-wrap`} aria-live="assertive">
+              <span className="active">{current}</span>/<span>{total}</span>
+            </Flex.Item>
+          )
+        )}
+        <Flex.Item
+          className={`${prefixCls}-wrap-btn ${prefixCls}-wrap-btn-next`}
+        >
           <Button
             inline
             disabled={current >= total}
@@ -84,7 +111,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
           <div
             key={`dot-${i}`}
             className={classnames(`${prefixCls}-wrap-dot`, {
-              [`${prefixCls}-wrap-dot-active`]: (i + 1) === current,
+              [`${prefixCls}-wrap-dot-active`]: i + 1 === current,
             })}
           >
             <span />
@@ -95,10 +122,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     }
     const cls = classnames(prefixCls, className);
     return (
-      <div
-        className={cls}
-        style={style}
-      >
+      <div className={cls} style={style}>
         {markup}
       </div>
     );

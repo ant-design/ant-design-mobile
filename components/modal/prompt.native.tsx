@@ -1,16 +1,23 @@
 import React from 'react';
 import topView from 'rn-topview';
 import PromptContainer from './PromptContainer.native';
+import { CallbackOrActions } from './PropsType';
 
 export default function prompt(
-  title, message, callbackOrActions, type = 'default', defaultValue = '', placeholders = ['', ''],
+  title: React.ReactType,
+  message: React.ReactType,
+  callbackOrActions: CallbackOrActions,
+  type = 'default',
+  defaultValue = '',
+  placeholders = ['', ''],
 ) {
   if (!callbackOrActions) {
+    // tslint:disable-next-line:no-console
     console.error('Must specify callbackOrActions');
     return;
   }
 
-  const onAnimationEnd = (visible) => {
+  const onAnimationEnd = (visible: boolean) => {
     if (!visible) {
       topView.remove();
     }

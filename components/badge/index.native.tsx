@@ -1,15 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { BadgePropsTypes } from './PropsType';
 import BadgeStyle, { IBadgeStyle } from './style/index.native';
-import BadgeProps from './PropsType';
 
-export interface IBadgeNativeProps extends BadgeProps {
+export interface BadgeNativeProps extends BadgePropsTypes {
   styles?: IBadgeStyle;
+  style?: StyleProp<ViewStyle>;
 }
 
 const BadgeStyles = StyleSheet.create<any>(BadgeStyle);
 
-export default class Badge extends React.Component<IBadgeNativeProps, any> {
+export default class Badge extends React.Component<BadgeNativeProps, any> {
   static defaultProps = {
     size: 'small',
     overflowCount: 99,
@@ -19,30 +20,47 @@ export default class Badge extends React.Component<IBadgeNativeProps, any> {
   };
 
   render() {
+    // tslint:disable:prefer-const
     let {
-      styles, style,
-      children, text, size, overflowCount, dot, corner, ...restProps, // todo: hot
+      styles,
+      style,
+      children,
+      text,
+      size,
+      overflowCount,
+      dot,
+      corner,
+      ...restProps, // todo: hot
     } = this.props;
     styles = styles!;
-    text = typeof text === 'number' && text > (overflowCount as number) ? `${overflowCount}+` : text;
+    text =
+      typeof text === 'number' && text > (overflowCount as number)
+        ? `${overflowCount}+`
+        : text;
 
     // dot mode don't need text
     if (dot) {
       text = '';
     }
-
+    // fake styles
+    const fakeStyles = (styles as any) as { [key: string]: ViewStyle };
     const badgeCls = corner ? 'textCorner' : 'textDom';
     const contentDom = !dot ? (
-      <View {...restProps} style={[styles[badgeCls], styles[`${badgeCls}${size}`]]}>
+      <View
+        {...restProps}
+        style={[styles[badgeCls], fakeStyles[`${badgeCls}${size}`]]}
+      >
         <Text style={[styles.text]}>{text}</Text>
       </View>
-    ) : <View {...restProps} style={[styles.dot, styles[`dotSize${size}`]]} />;
+    ) : (
+      <View {...restProps} style={[styles.dot, fakeStyles[`dotSize${size}`]]} />
+    );
 
     return (
-      <View style={[ styles.wrap, style ]}>
-        <View style={[styles[`${badgeCls}Wrap`]]}>
+      <View style={[styles.wrap, style]}>
+        <View style={[fakeStyles[`${badgeCls}Wrap`]]}>
           {children}
-          {(text || dot) ? contentDom : null}
+          {text || dot ? contentDom : null}
         </View>
       </View>
     );

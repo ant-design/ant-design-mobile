@@ -1,15 +1,25 @@
+// tslint:disable:jsx-no-multiline-js
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback, Platform, StyleSheet } from 'react-native';
+import {
+  Platform,
+  StyleProp,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle,
+} from 'react-native';
+import { TagPropsType } from './PropsType';
 import TagStyle, { ITagStyle } from './style/index.native';
-import TagProps from './PropsType';
 
-export interface ITagNativeProps extends TagProps {
+export interface TagNativeProps extends TagPropsType {
   styles?: ITagStyle;
+  style?: StyleProp<ViewStyle>;
 }
 
 const TagStyles = StyleSheet.create<any>(TagStyle);
 
-export default class Tag extends React.Component<ITagNativeProps, any> {
+export default class Tag extends React.Component<TagNativeProps, any> {
   static defaultProps = {
     disabled: false,
     small: false,
@@ -21,9 +31,9 @@ export default class Tag extends React.Component<ITagNativeProps, any> {
     styles: TagStyles,
   };
 
-  closeDom: any;
+  closeDom: View | null;
 
-  constructor(props) {
+  constructor(props: TagNativeProps) {
     super(props);
 
     this.state = {
@@ -32,7 +42,7 @@ export default class Tag extends React.Component<ITagNativeProps, any> {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: TagNativeProps) {
     if (this.props.selected !== nextProps.selected) {
       this.setState({
         selected: nextProps.selected,
@@ -46,38 +56,55 @@ export default class Tag extends React.Component<ITagNativeProps, any> {
       return;
     }
     const isSelect: boolean = this.state.selected;
-    this.setState({
-      selected: !isSelect,
-    }, () => {
-      if (onChange) {
-        onChange(!isSelect);
-      }
-    });
+    this.setState(
+      {
+        selected: !isSelect,
+      },
+      () => {
+        if (onChange) {
+          onChange(!isSelect);
+        }
+      },
+    );
   }
 
   onTagClose = () => {
     if (this.props.onClose) {
       this.props.onClose();
     }
-    this.setState({
-      closed: true,
-    }, this.props.afterClose);
+    this.setState(
+      {
+        closed: true,
+      },
+      this.props.afterClose,
+    );
   }
 
   onPressIn = () => {
     const styles = this.props.styles!;
-    this.closeDom.setNativeProps({
-      style: [styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid, {
-        backgroundColor: '#888',
-      }],
-    });
+    if (this.closeDom) {
+      this.closeDom.setNativeProps({
+        style: [
+          styles.close,
+          Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid,
+          {
+            backgroundColor: '#888',
+          },
+        ],
+      });
+    }
   }
 
   onPressOut = () => {
     const styles = this.props.styles!;
-    this.closeDom.setNativeProps({
-      style: [styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid],
-    });
+    if (this.closeDom) {
+      this.closeDom.setNativeProps({
+        style: [
+          styles.close,
+          Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid,
+        ],
+      });
+    }
   }
 
   render() {
@@ -103,26 +130,39 @@ export default class Tag extends React.Component<ITagNativeProps, any> {
     const sizeWrapStyle = small ? styles.wrapSmall : {};
     const sizeTextStyle = small ? styles.textSmall : {};
 
-    const closableDom = closable && !small && !disabled ? (
-      <TouchableWithoutFeedback
-        onPressIn={this.onPressIn}
-        onPressOut={this.onPressOut}
-        onPress={this.onTagClose}
-      >
-        <View
-          ref={component => this.closeDom = component}
-          style={[styles.close, Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid]}
+    const closableDom =
+      closable && !small && !disabled ? (
+        <TouchableWithoutFeedback
+          onPressIn={this.onPressIn}
+          onPressOut={this.onPressOut}
+          onPress={this.onTagClose}
         >
-          <Text style={[styles.closeText, Platform.OS === 'android' ? styles.closeTransform : {}]}>×</Text>
-        </View>
-      </TouchableWithoutFeedback>
-    ) : null;
+          <View
+            ref={component => ((this.closeDom as any) = component)}
+            style={[
+              styles.close,
+              Platform.OS === 'ios' ? styles.closeIOS : styles.closeAndroid,
+            ]}
+          >
+            <Text
+              style={[
+                styles.closeText,
+                Platform.OS === 'android' ? styles.closeTransform : {},
+              ]}
+            >
+              ×
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+      ) : null;
 
     return !this.state.closed ? (
-      <View style={[ styles.tag, style ]}>
+      <View style={[styles.tag, style]}>
         <TouchableWithoutFeedback onPress={this.onClick}>
           <View style={[styles.wrap, sizeWrapStyle, wrapStyle]}>
-            <Text style={[styles.text, sizeTextStyle, textStyle]}>{children} </Text>
+            <Text style={[styles.text, sizeTextStyle, textStyle]}>
+              {children}{' '}
+            </Text>
           </View>
         </TouchableWithoutFeedback>
         {closableDom}

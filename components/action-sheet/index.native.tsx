@@ -1,29 +1,33 @@
 import React from 'react';
-import { Share, Platform, ActionSheetIOS } from 'react-native';
+import {
+  ActionSheetIOS,
+  ActionSheetIOSOptions,
+  Platform,
+  Share,
+} from 'react-native';
 import topView from 'rn-topview';
 import ActionSheetAndroidContainer from './AndroidContainer.native';
 
-let instance;
+let instance: ActionSheetAndroidContainer | null;
 
-const saveInstance = (i) => {
-  instance = i;
-};
-
-const onAnimationEnd = (visible) => {
+const onAnimationEnd = (visible: boolean) => {
   if (!visible) {
     topView.remove();
   }
 };
 
 export default {
-  showActionSheetWithOptions(config, callback) {
+  showActionSheetWithOptions(
+    config: ActionSheetIOSOptions,
+    callback: ((index: number) => void),
+  ) {
     if (Platform.OS === 'ios') {
       ActionSheetIOS.showActionSheetWithOptions(config, callback);
     } else {
       topView.set(
         <ActionSheetAndroidContainer
           visible
-          ref={saveInstance}
+          ref={ref => (instance = ref)}
           onAnimationEnd={onAnimationEnd}
           config={config}
           callback={callback}
@@ -32,7 +36,11 @@ export default {
     }
   },
 
-  showShareActionSheetWithOptions(config: any, failureCallback?: Function, successCallback?: Function) {
+  showShareActionSheetWithOptions(
+    config: any,
+    failureCallback?: (arg0: any) => void,
+    successCallback?: (arg0: boolean, activityType?: string) => void,
+  ) {
     const content: any = {};
     const options: any = {};
     content.message = config.message;
@@ -51,21 +59,24 @@ export default {
     }
     // promise is not called in Android
     // https://github.com/facebook/react-native/blob/master/Libraries/Share/Share.js#L80
-    Share.share(content, options).then((result: any) => {
-      if (result.action === Share.sharedAction) { // completed successCallback(completed, method)
-         if (successCallback) {
-           successCallback(true, result.activityType);
-         }
-      } else if (result.action === Share.dismissedAction) {
-        if (successCallback) {
-          successCallback(false);
+    Share.share(content, options)
+      .then((result: any) => {
+        if (result.action === Share.sharedAction) {
+          // completed successCallback(completed, method)
+          if (successCallback) {
+            successCallback(true, result.activityType);
+          }
+        } else if (result.action === Share.dismissedAction) {
+          if (successCallback) {
+            successCallback(false);
+          }
         }
-      }
-    }).catch(error => {
-      if (failureCallback) {
-        failureCallback(error);
-      }
-    });
+      })
+      .catch(error => {
+        if (failureCallback) {
+          failureCallback(error);
+        }
+      });
   },
 
   close() {

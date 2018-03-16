@@ -1,20 +1,24 @@
 import React from 'react';
+import { StyleProp, TextStyle } from 'react-native';
 import Modal from './Modal';
 import modalStyle from './style/index.native';
 
-export type OperationButtonType = {
+export interface OperationButtonType {
   text: string;
   onPress?: () => void;
-  style?: any;
-};
+  style?: StyleProp<TextStyle>;
+}
 
 export interface OperationContainerProps {
-  actions: Array<OperationButtonType>;
+  actions: OperationButtonType[];
   onAnimationEnd?: (visible: boolean) => void;
 }
 
-export default class OperationContainer extends React.Component<OperationContainerProps, any> {
-  constructor(props) {
+export default class OperationContainer extends React.Component<
+  OperationContainerProps,
+  any
+> {
+  constructor(props: OperationContainerProps) {
     super(props);
     this.state = {
       visible: true,
@@ -29,8 +33,9 @@ export default class OperationContainer extends React.Component<OperationContain
 
   render() {
     const { actions, onAnimationEnd } = this.props;
-    const footer = actions.map((button) => {
-      const orginPress = button.onPress || function () {};
+    const footer = actions.map(button => {
+      // tslint:disable-next-line:only-arrow-functions
+      const orginPress = button.onPress || function() {};
       button.onPress = () => {
         const res = orginPress();
         if (res && (res as any).then) {

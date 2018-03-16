@@ -1,13 +1,12 @@
 import React, { ReactNode } from 'react';
-
-export interface ListProps {
-  renderHeader?: Function | JSX.Element;
-  renderFooter?: Function | JSX.Element;
-  children?: JSX.Element | JSX.Element[];
-  style?: React.CSSProperties | {} | Array<{}>;
+// export type ListType = JSX.Element
+export interface ListPropsType {
+  renderHeader?: () => React.ReactType | JSX.Element;
+  renderFooter?: () => React.ReactType | JSX.Element;
+  children?: false | JSX.Element | JSX.Element[];
 }
 
-export interface ListItemProps {
+export interface ListItemPropsType {
   align?: 'top' | 'middle' | 'bottom';
   disabled?: boolean;
   multipleLine?: boolean;
@@ -16,8 +15,6 @@ export interface ListItemProps {
   extra?: ReactNode;
   arrow?: 'horizontal' | 'down' | 'up' | 'empty' | '';
   wrap?: boolean;
-  onClick?: (e?: any) => void;
-  style?: React.CSSProperties | {} | Array<{}>;
   activeStyle?: React.CSSProperties;
   error?: boolean;
   platform?: 'android' | 'ios';

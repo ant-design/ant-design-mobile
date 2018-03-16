@@ -1,13 +1,11 @@
 import React from 'react';
 
-interface NavBarProps {
+export interface NavBarProps extends React.HTMLProps<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
   mode?: 'dark' | 'light';
   icon?: React.ReactNode;
-  leftContent?: any;
-  rightContent?: any;
-  onLeftClick?: () => void;
+  leftContent?: React.ReactNode;
+  rightContent?: React.ReactNode;
+  onLeftClick?: React.MouseEventHandler<HTMLDivElement>;
 }
-
-export default NavBarProps;

@@ -1,9 +1,9 @@
-import React from 'react';
-import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { Carousel } from 'antd-mobile';
+import React from 'react';
+import { StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
 
 export default class BasicCarouselExample extends React.Component<any, any> {
-  onselectedIndexChange(index) {
+  onselectedIndexChange(index: number) {
     /* tslint:disable: no-console */
     console.log('change to', index);
   }
@@ -22,7 +22,7 @@ export default class BasicCarouselExample extends React.Component<any, any> {
             <View style={[styles.container, { backgroundColor: 'red' }]}>
               <Text>Carousel 1</Text>
             </View>
-            <View style={[styles.container, , { backgroundColor: 'blue' }]}>
+            <View style={[styles.container, { backgroundColor: 'blue' }]}>
               <Text>Carousel 2</Text>
             </View>
             <View style={[styles.container, { backgroundColor: 'yellow' }]}>
@@ -36,24 +36,29 @@ export default class BasicCarouselExample extends React.Component<any, any> {
             </View>
           </Carousel>
           <Text>Carousel will adjust height based on content</Text>
+          <Text>{React.Children.count(this.props.children)}</Text>
         </View>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create<{
+  wrapper: ViewStyle;
+  container: ViewStyle;
+  text: TextStyle;
+}>({
   wrapper: {
     backgroundColor: '#fff',
-  } as ViewStyle,
+  },
   container: {
     flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
     height: 150,
-  } as ViewStyle,
+  },
   text: {
     color: '#fff',
     fontSize: 36,
-  } as ViewStyle,
+  },
 });

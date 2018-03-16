@@ -1,43 +1,42 @@
 import React from 'react';
+import { StyleProp, TextStyle } from 'react-native';
 
-export interface ModalProps {
-  title?: string;
+export interface ModalPropsType {
+  title?: React.ReactType;
   visible: boolean;
   maskClosable?: boolean;
   closable?: boolean;
-  footer?: Array<{}>;
+  footer?: Action[];
   onClose?: () => void;
   transparent?: boolean;
   popup?: boolean;
-  style?: {};
   animated?: boolean;
-  bodyStyle?: {};
   animationType?: any;
   onAnimationEnd?: (visible: boolean) => void;
   animateAppear?: boolean;
   operation?: boolean;
 }
 
-export type Action = {
-  text: string,
-  onPress?: Function,
-  style?: {},
-};
+export interface Action {
+  text: string;
+  onPress?: () => void | Promise<any>;
+  style?: React.CSSProperties | StyleProp<TextStyle> | string;
+}
 
 export type Callback = (valueOrLogin: string, password?: string) => void;
-
+export type CallbackOrActions = Callback | Action[];
 export abstract class ModalComponent<P, S> extends React.Component<P, S> {
   static alert: (
-    title: string | JSX.Element,
-    message: string | JSX.Element,
+    title: React.ReactType,
+    message: React.ReactType,
     actions?: Action[],
     platform?: string,
   ) => { close: () => void };
 
   static prompt: (
-    title: string | JSX.Element,
-    message: string | JSX.Element,
-    callbackOrActions: Callback | Action[],
+    title: React.ReactType,
+    message: React.ReactType,
+    callbackOrActions: CallbackOrActions,
     type?: 'default' | 'secure-text' | 'login-password',
     defaultValue?: string,
     placeholders?: string[],

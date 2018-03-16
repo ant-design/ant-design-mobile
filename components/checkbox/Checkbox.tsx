@@ -1,13 +1,15 @@
-import React from 'react';
-import RcCheckbox from 'rc-checkbox';
-import { CheckboxProps as BasePropsType } from './PropsType';
 import classnames from 'classnames';
+import RcCheckbox from 'rc-checkbox';
+import React from 'react';
 
-export interface CheckboxProps extends BasePropsType {
+import { CheckboxPropsType } from './PropsType';
+
+export interface CheckboxProps extends CheckboxPropsType {
   prefixCls?: string;
   className?: string;
   name?: string;
   wrapLabel?: boolean;
+  style?: React.CSSProperties;
 }
 
 export default class Checkbox extends React.Component<CheckboxProps, any> {
@@ -26,7 +28,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     // Todo: wait for https://github.com/developit/preact-compat/issues/422, then we can remove class below
     if ('class' in restProps) {
       /* tslint:disable:no-string-literal */
-      delete restProps['class'];
+      delete (restProps as any)['class'];
     }
     const mark = (
       <label className={wrapCls} style={style}>

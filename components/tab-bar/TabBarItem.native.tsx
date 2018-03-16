@@ -1,27 +1,29 @@
 import React from 'react';
-import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import {
+  Image,
+  ImageRequireSource,
+  ImageStyle,
+  ImageURISource,
+  StyleProp,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 
 export interface TabBarItemProps {
   badge?: string | number;
   onPress?: () => void;
   selected?: boolean;
-  icon?: any;
-  selectedIcon?: any;
-  style?: any;
-  children: any;
+  icon?: ImageURISource | ImageURISource[] | ImageRequireSource;
+  selectedIcon?: ImageURISource | ImageURISource[] | ImageRequireSource;
   title: string;
   tintColor?: string;
   unselectedTintColor?: string;
   /*react-native android only*/
-  iconStyle?: any;
-  /*react-native ios only*/
-  systemIcon?: any;
+  iconStyle?: StyleProp<ImageStyle>;
   renderAsOriginal?: boolean;
   /* react-native only */
   styles?: any;
-  /*web only*/
-  rootPrefixCls?: string;
-  className?: string;
 }
 
 export default class TabBarItem extends React.Component<TabBarItemProps, any> {
@@ -30,8 +32,16 @@ export default class TabBarItem extends React.Component<TabBarItemProps, any> {
   };
   render() {
     const {
-      title, selected, tintColor, unselectedTintColor, icon, selectedIcon,
-      onPress, badge, styles, iconStyle,
+      title,
+      selected,
+      tintColor,
+      unselectedTintColor,
+      icon,
+      selectedIcon,
+      onPress,
+      badge,
+      styles,
+      iconStyle,
     } = this.props;
     const itemSelectedStyle = selected ? styles.barItemSelected : null;
     const badgeDom = badge ? (
@@ -39,14 +49,28 @@ export default class TabBarItem extends React.Component<TabBarItemProps, any> {
         <Text style={[styles.badgeText]}>{badge}</Text>
       </View>
     ) : null;
+    // icon
+    const source =
+      selected && selectedIcon !== undefined
+        ? selectedIcon
+        : icon !== undefined ? icon : null;
     return (
       <TouchableWithoutFeedback onPress={onPress}>
         <View style={[styles.barItem, itemSelectedStyle]}>
           <View>
-            <Image source={selected ? selectedIcon : icon} style={[styles.barIcon, iconStyle]} />
+            {source === null ? null : (
+            // tslint:disable-next-line:jsx-no-multiline-js
+              <Image source={source} style={[styles.barIcon, iconStyle]} />
+            )}
             {badgeDom}
           </View>
-          <Text style={[ styles.barItemTitle, { color: selected ? tintColor : unselectedTintColor } ]}>
+          <Text
+            // tslint:disable-next-line:jsx-no-multiline-js
+            style={[
+              styles.barItemTitle,
+              { color: selected ? tintColor : unselectedTintColor },
+            ]}
+          >
             {title}
           </Text>
         </View>

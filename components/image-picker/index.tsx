@@ -1,6 +1,6 @@
 /* tslint:disable:no-bitwise */
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import Flex from '../flex';
 import { ImagePickerPropTypes as BasePropsType } from './PropsType';
@@ -10,9 +10,12 @@ export interface ImagePickerPropTypes extends BasePropsType {
   className?: string;
 }
 
-function noop() { }
+function noop() {}
 
-export default class ImagePicker extends React.Component<ImagePickerPropTypes, any> {
+export default class ImagePicker extends React.Component<
+  ImagePickerPropTypes,
+  any
+> {
   static defaultProps = {
     prefixCls: 'am-image-picker',
     files: [],
@@ -25,36 +28,36 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     accept: 'image/*',
   };
 
-  fileSelectorInput: any;
+  fileSelectorInput: HTMLInputElement | null;
 
   // http://stackoverflow.com/questions/7584794/accessing-jpeg-exif-rotation-data-in-javascript-on-the-client-side
-  getOrientation = (file, callback) => {
+  getOrientation = (file: any, callback: (_: number) => void) => {
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = e => {
       const view = new DataView((e.target as any).result);
-      if (view.getUint16(0, false) !== 0xFFD8) {
+      if (view.getUint16(0, false) !== 0xffd8) {
         return callback(-2);
       }
-      let length = view.byteLength;
+      const length = view.byteLength;
       let offset = 2;
       while (offset < length) {
         const marker = view.getUint16(offset, false);
         offset += 2;
-        if (marker === 0xFFE1) {
-          let tmp = view.getUint32(offset += 2, false);
+        if (marker === 0xffe1) {
+          const tmp = view.getUint32((offset += 2), false);
           if (tmp !== 0x45786966) {
             return callback(-1);
           }
-          let little = view.getUint16(offset += 6, false) === 0x4949;
+          const little = view.getUint16((offset += 6), false) === 0x4949;
           offset += view.getUint32(offset + 4, little);
-          let tags = view.getUint16(offset, little);
+          const tags = view.getUint16(offset, little);
           offset += 2;
           for (let i = 0; i < tags; i++) {
-            if (view.getUint16(offset + (i * 12), little) === 0x0112) {
-              return callback(view.getUint16(offset + (i * 12) + 8, little));
+            if (view.getUint16(offset + i * 12, little) === 0x0112) {
+              return callback(view.getUint16(offset + i * 12 + 8, little));
             }
           }
-        } else if ((marker & 0xFF00) !== 0xFF00) {
+        } else if ((marker & 0xff00) !== 0xff00) {
           break;
         } else {
           offset += view.getUint16(offset, false);
@@ -82,7 +85,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     return imgRotation;
   }
 
-  removeImage = (index) => {
+  removeImage = (index: number) => {
     const newImages: any[] = [];
     const { files = [] } = this.props;
     files.forEach((image, idx) => {
@@ -95,7 +98,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     }
   }
 
-  addImage = (imgItem) => {
+  addImage = (imgItem: any) => {
     const { files = [] } = this.props;
     const newImages = files.concat(imgItem);
     if (this.props.onChange) {
@@ -103,7 +106,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     }
   }
 
-  onImageClick = (index) => {
+  onImageClick = (index: number) => {
     if (this.props.onImageClick) {
       this.props.onImageClick(index, this.props.files);
     }
@@ -117,12 +120,14 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
         this.parseFile(files[i], i);
       }
     }
-    fileSelectorEl.value = '';
+    if (fileSelectorEl) {
+      fileSelectorEl.value = '';
+    }
   }
 
-  parseFile = (file, index) => {
+  parseFile = (file: any, index: number) => {
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = e => {
       const dataURL = (e.target as any).result;
       if (!dataURL) {
         if (this.props.onFail) {
@@ -132,7 +137,7 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       }
 
       let orientation = 1;
-      this.getOrientation(file, (res) => {
+      this.getOrientation(file, res => {
         // -2: not jpeg , -1: not defined
         if (res > 0) {
           orientation = res;
@@ -148,7 +153,14 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
   }
   render() {
     const {
-      prefixCls, style, className, files = [], selectable, onAddImageClick, multiple, accept,
+      prefixCls,
+      style,
+      className,
+      files = [],
+      selectable,
+      onAddImageClick,
+      multiple,
+      accept,
     } = this.props;
 
     const imgItemList: any[] = [];
@@ -162,18 +174,24 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
       };
       imgItemList.push(
         <Flex.Item key={`item-${index}`}>
-          <div key={index} className={`${prefixCls}-item`} >
+          <div key={index} className={`${prefixCls}-item`}>
             <div
               className={`${prefixCls}-item-remove`}
               role="button"
               aria-label="Click and Remove this image"
-              onClick={() => { this.removeImage(index); }}
+              // tslint:disable-next-line:jsx-no-multiline-js
+              onClick={() => {
+                this.removeImage(index);
+              }}
             />
             <div
               className={`${prefixCls}-item-content`}
               role="button"
               aria-label="Image can be clicked"
-              onClick={() => { this.onImageClick(index); }}
+              // tslint:disable-next-line:jsx-no-multiline-js
+              onClick={() => {
+                this.onImageClick(index);
+              }}
               style={imgStyle}
             />
           </div>
@@ -194,7 +212,10 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
               ref={(input) => { if (input) { this.fileSelectorInput = input; } }}
               type="file"
               accept={accept}
-              onChange={() => { this.onFileChange(); }}
+              // tslint:disable-next-line:jsx-no-multiline-js
+              onChange={() => {
+                this.onFileChange();
+              }}
               multiple={multiple}
             />
           </div>
@@ -206,21 +227,19 @@ export default class ImagePicker extends React.Component<ImagePickerPropTypes, a
     const length = allEl.length;
     if (length !== 0 && length % 4 !== 0) {
       const blankCount = 4 - length % 4;
-      let fillBlankEl: Array<any> = [];
+      const fillBlankEl: any[] = [];
       for (let i = 0; i < blankCount; i++) {
         fillBlankEl.push(<Flex.Item key={`blank-${i}`} />);
       }
       allEl = allEl.concat(fillBlankEl);
     }
-    const flexEl: Array<Array<any>> = [];
+    const flexEl: any[][] = [];
     for (let i = 0; i < allEl.length / 4; i++) {
       const rowEl = allEl.slice(i * 4, i * 4 + 4);
       flexEl.push(rowEl);
     }
     const renderEl = flexEl.map((item, index) => (
-      <Flex key={`flex-${index}`}>
-        {item}
-      </Flex>
+      <Flex key={`flex-${index}`}>{item}</Flex>
     ));
 
     return (

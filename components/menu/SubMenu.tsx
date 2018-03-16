@@ -1,9 +1,9 @@
 /* tslint:disable:jsx-no-multiline-js */
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
+import Checkbox from '../checkbox';
 import List from '../list';
 import Radio from '../radio';
-import Checkbox from '../checkbox';
 import { DataItem } from './PropsType';
 
 export interface PropsType {
@@ -17,14 +17,23 @@ export interface PropsType {
 }
 
 export default function SubMenu(props: PropsType) {
-  const onClick = (dataItem) => {
+  const onClick = (dataItem: DataItem) => {
     if (props.onSel) {
       props.onSel(dataItem);
     }
   };
 
-  const { subMenuPrefixCls, radioPrefixCls, subMenuData, showSelect, selItem, multiSelect } = props;
-  const selected = dataItem => (showSelect && (selItem.length > 0 && selItem.indexOf(dataItem.value) !== -1));
+  const {
+    subMenuPrefixCls,
+    radioPrefixCls,
+    subMenuData,
+    showSelect,
+    selItem,
+    multiSelect,
+  } = props;
+  const selected = (dataItem: DataItem) =>
+    showSelect &&
+    (selItem.length > 0 && selItem.indexOf(dataItem.value) !== -1);
 
   const ItemComponent = !multiSelect ? Radio : Checkbox;
 
@@ -37,11 +46,13 @@ export default function SubMenu(props: PropsType) {
             [`${subMenuPrefixCls}-item-disabled`]: dataItem.disabled,
           })}
           key={idx}
-          extra={<ItemComponent
-            checked={selected(dataItem)}
-            disabled={dataItem.disabled}
-            onChange={() => onClick(dataItem)}
-          />}
+          extra={
+            <ItemComponent
+              checked={selected(dataItem)}
+              disabled={dataItem.disabled}
+              onChange={() => onClick(dataItem)}
+            />
+          }
         >
           {dataItem.label}
         </List.Item>

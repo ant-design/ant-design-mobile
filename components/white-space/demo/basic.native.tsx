@@ -1,10 +1,16 @@
+// tslint:disable:jsx-no-multiline-js
 import { WhiteSpace } from 'antd-mobile';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 
-const PlaceHolder = (props) => (
+const PlaceHolder = (props: any) => (
   <View
-    style={{ backgroundColor: '#fff', height: 30, alignItems: 'center', justifyContent: 'center' }}
+    style={{
+      backgroundColor: '#fff',
+      height: 30,
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
     {...props}
   >
     <Text style={{ color: '#bbb' }}>Block</Text>

@@ -1,6 +1,11 @@
 import React from 'react';
-
-export default class View extends React.Component<any, any> {
+export interface ViewProps<T> extends React.HTMLProps<T> {
+  Component?: string;
+}
+export default class View extends React.Component<
+  ViewProps<HTMLDivElement>,
+  any
+> {
   static defaultProps = {
     Component: 'div',
   };
@@ -18,7 +23,7 @@ export default class View extends React.Component<any, any> {
       });
       props.style = style;
     }
-    const { Component, ...restProps } = props;
-    return <Component {...restProps}/>;
+    const { Component = 'div', ...restProps } = props;
+    return <Component {...restProps} />;
   }
 }

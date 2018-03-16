@@ -1,10 +1,17 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { WhiteSpace, WingBlank } from 'antd-mobile';
+// tslint:disable:jsx-no-multiline-js
 
-const PlaceHolder = (props) => (
+import { WhiteSpace, WingBlank } from 'antd-mobile';
+import React from 'react';
+import { Text, View } from 'react-native';
+
+const PlaceHolder = (props: any) => (
   <View
-    style={{ backgroundColor: '#fff', height: 30, alignItems: 'center', justifyContent: 'center' }}
+    style={{
+      backgroundColor: '#fff',
+      height: 30,
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
     {...props}
   >
     <Text style={{ color: '#bbb' }}>Block</Text>
@@ -16,13 +23,19 @@ export default class WingBlankExample extends React.Component<any, any> {
     return (
       <View>
         <WhiteSpace />
-        <WingBlank><PlaceHolder /></WingBlank>
+        <WingBlank>
+          <PlaceHolder />
+        </WingBlank>
 
         <WhiteSpace size="lg" />
-        <WingBlank size="md"><PlaceHolder /></WingBlank>
+        <WingBlank size="md">
+          <PlaceHolder />
+        </WingBlank>
 
         <WhiteSpace size="lg" />
-        <WingBlank size="sm"><PlaceHolder /></WingBlank>
+        <WingBlank size="sm">
+          <PlaceHolder />
+        </WingBlank>
       </View>
     );
   }

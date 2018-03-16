@@ -1,8 +1,17 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 import TouchFeedback from 'rmc-feedback';
 
-export default class Item extends React.Component<any, any> {
+export interface PopoverItemProps {
+  className?: string;
+  prefixCls?: string;
+  icon?: React.ReactNode;
+  disabled?: boolean;
+  firstItem?: string;
+  activeStyle?: React.CSSProperties;
+  style?: React.CSSProperties;
+}
+export default class Item extends React.Component<PopoverItemProps, any> {
   static defaultProps = {
     prefixCls: 'am-popover',
     disabled: false,
@@ -10,7 +19,16 @@ export default class Item extends React.Component<any, any> {
   static myName = 'PopoverItem';
 
   render() {
-    const { children, className, prefixCls, icon, disabled, firstItem, activeStyle, ...restProps } = this.props;
+    const {
+      children,
+      className,
+      prefixCls,
+      icon,
+      disabled,
+      firstItem,
+      activeStyle,
+      ...restProps,
+    } = this.props;
     const cls = classnames(`${prefixCls}-item`, className, {
       [`${prefixCls}-item-disabled`]: disabled,
     });
@@ -21,10 +39,19 @@ export default class Item extends React.Component<any, any> {
     }
 
     return (
-      <TouchFeedback disabled={disabled} activeClassName={activeClass} activeStyle={activeStyle} >
+      <TouchFeedback
+        disabled={disabled}
+        activeClassName={activeClass}
+        activeStyle={activeStyle}
+      >
         <div className={cls} {...restProps}>
           <div className={`${prefixCls}-item-container`}>
-            {icon ? <span className={`${prefixCls}-item-icon`} aria-hidden="true">{icon}</span> : null}
+            {icon ? (
+            // tslint:disable-next-line:jsx-no-multiline-js
+              <span className={`${prefixCls}-item-icon`} aria-hidden="true">
+                {icon}
+              </span>
+            ) : null}
             <span className={`${prefixCls}-item-content`}>{children}</span>
           </div>
         </div>

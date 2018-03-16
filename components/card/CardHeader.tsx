@@ -1,10 +1,12 @@
-import React from 'react';
 import classnames from 'classnames';
-import { CardHeaderProps as BasePropsType } from './PropsType';
+import React, { CSSProperties } from 'react';
+import { CardHeaderPropsType } from './PropsType';
 
-export interface CardHeaderProps extends BasePropsType {
+export interface CardHeaderProps extends CardHeaderPropsType {
   prefixCls?: string;
   className?: string;
+  style?: CSSProperties;
+  thumbStyle?: CSSProperties;
 }
 
 export default class CardHeader extends React.Component<CardHeaderProps, any> {
@@ -14,16 +16,32 @@ export default class CardHeader extends React.Component<CardHeaderProps, any> {
   };
 
   render() {
-    const { prefixCls, className, title, thumb, thumbStyle, extra, ...restProps } = this.props;
+    const {
+      prefixCls,
+      className,
+      title,
+      thumb,
+      thumbStyle,
+      extra,
+      ...restProps,
+    } = this.props;
     const wrapCls = classnames(`${prefixCls}-header`, className);
 
     return (
       <div className={wrapCls} {...restProps}>
         <div className={`${prefixCls}-header-content`}>
-          {typeof thumb === 'string' ? <img style={thumbStyle} src={thumb} /> : thumb}
+          {typeof thumb === 'string' ? (
+          // tslint:disable-next-line:jsx-no-multiline-js
+            <img style={thumbStyle} src={thumb} />
+          ) : (
+            thumb
+          )}
           {title}
         </div>
-        {extra ? <div className={`${prefixCls}-header-extra`}>{extra}</div> : null}
+        {extra ? (
+        // tslint:disable-next-line:jsx-no-multiline-js
+          <div className={`${prefixCls}-header-extra`}>{extra}</div>
+        ) : null}
       </div>
     );
   }

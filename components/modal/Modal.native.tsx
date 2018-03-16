@@ -1,23 +1,30 @@
 import React from 'react';
 import {
-  View, Text, Modal,
-  TouchableHighlight,
   Dimensions,
+  LayoutChangeEvent,
+  Modal,
+  StyleProp,
   StyleSheet,
+  Text,
+  TouchableHighlight,
   TouchableWithoutFeedback,
+  View,
+  ViewStyle,
 } from 'react-native';
-import modalStyle, { IModalStyle } from './style/index.native';
-import { ModalProps } from './PropsType';
 import RCModal from 'rmc-dialog/lib/Modal';
+import { ModalPropsType } from './PropsType';
+import modalStyle, { IModalStyle } from './style/index.native';
 
 const maxHeight = StyleSheet.create({
-  'maxHeight': {
+  maxHeight: {
     maxHeight: Dimensions.get('window').height,
   },
 }).maxHeight;
 
-export interface IModalNativeProps extends ModalProps {
+export interface IModalNativeProps extends ModalPropsType {
   styles?: IModalStyle;
+  style?: StyleProp<ViewStyle>;
+  bodyStyle?: StyleProp<ViewStyle>;
 }
 
 const modalStyles = StyleSheet.create<any>(modalStyle);
@@ -30,8 +37,7 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
     style: {},
     bodyStyle: {},
     animationType: 'fade',
-    onClose() {
-    },
+    onClose() {},
     footer: [],
     transparent: false,
     popup: false,
@@ -43,9 +49,9 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
   static operation: any;
   static prompt: any;
 
-  root: any;
+  root: View | null;
 
-  onFooterLayout = (e) => {
+  onFooterLayout = (e: LayoutChangeEvent) => {
     if (this.root) {
       this.root.setNativeProps({
         style: [{ paddingBottom: e.nativeEvent.layout.height }, maxHeight],
@@ -53,14 +59,26 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
     }
   }
 
-  saveRoot = (root) => {
+  saveRoot = (root: any) => {
     this.root = root;
   }
 
   render() {
-    let {
-      title, closable, footer, children, style, animateAppear, maskClosable,
-      popup, transparent, visible, onClose, bodyStyle, onAnimationEnd, operation,
+    const {
+      title,
+      closable,
+      footer,
+      children,
+      style,
+      animateAppear,
+      maskClosable,
+      popup,
+      transparent,
+      visible,
+      onClose,
+      bodyStyle,
+      onAnimationEnd,
+      operation,
     } = this.props;
 
     const styles = this.props.styles!;
@@ -71,10 +89,11 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
       btnGroupStyle = styles.buttonGroupH;
       horizontalFlex = { flex: 1 };
     }
-    const buttonWrapStyle = footer && footer.length === 2 ? styles.buttonWrapH : styles.buttonWrapV;
+    const buttonWrapStyle =
+      footer && footer.length === 2 ? styles.buttonWrapH : styles.buttonWrapV;
     let footerDom;
     if (footer && footer.length) {
-      const footerButtons = footer.map((button: any, i) => {
+      const footerButtons = footer.map((button, i) => {
         let buttonStyle = {};
         if (operation) {
           buttonStyle = styles.buttonTextOperation;
@@ -82,16 +101,21 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
         if (button.style) {
           buttonStyle = button.style;
           if (typeof buttonStyle === 'string') {
-            const styleMap = {
-              'cancel': {},
-              'default': {},
-              'destructive': { color: 'red' },
+            const styleMap: {
+              [key: string]: object;
+            } = {
+              cancel: {},
+              default: {},
+              destructive: { color: 'red' },
             };
             buttonStyle = styleMap[buttonStyle] || {};
           }
         }
-        const noneBorder = footer && footer.length === 2 && i === 1 ? { borderRightWidth: 0 } : {};
-        const onPressFn = function() {
+        const noneBorder =
+          footer && footer.length === 2 && i === 1
+            ? { borderRightWidth: 0 }
+            : {};
+        const onPressFn = () => {
           if (button.onPress) {
             button.onPress();
           }
@@ -100,15 +124,25 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
           }
         };
         return (
-          <TouchableHighlight key={i} style={horizontalFlex} underlayColor="#ddd" onPress={onPressFn}>
+          <TouchableHighlight
+            key={i}
+            style={horizontalFlex}
+            underlayColor="#ddd"
+            onPress={onPressFn}
+          >
             <View style={[buttonWrapStyle, noneBorder]}>
-              <Text style={[styles.buttonText, buttonStyle]}>{button.text || `按钮${i}`}</Text>
+              <Text style={[styles.buttonText, buttonStyle]}>
+                {button.text || `按钮${i}`}
+              </Text>
             </View>
           </TouchableHighlight>
         );
       });
       footerDom = (
-        <View style={[btnGroupStyle, styles.footer]} onLayout={this.onFooterLayout}>
+        <View
+          style={[btnGroupStyle, styles.footer]}
+          onLayout={this.onFooterLayout}
+        >
           {footerButtons}
         </View>
       );
@@ -163,18 +197,29 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
           <RCModal
             onClose={onClose}
             animationType={animType}
-            style={[styles.popupContainer, styles[`popup${aType}`], style]}
+            // tslint:disable-next-line:jsx-no-multiline-js
+            style={[
+              styles.popupContainer,
+              (styles as any)[`popup${aType}`],
+              style,
+            ]}
             visible={visible}
             onAnimationEnd={onAnimationEnd}
             animateAppear={animateAppear}
             maskClosable={maskClosable}
           >
-            <View ref={this.saveRoot} style={bodyStyle}>{children}</View>
+            <View ref={this.saveRoot} style={bodyStyle}>
+              {children}
+            </View>
           </RCModal>
         </View>
       );
     }
-    if (animType === 'slide-up' || animType === 'slide-down' || animType === 'slide') {
+    if (
+      animType === 'slide-up' ||
+      animType === 'slide-down' ||
+      animType === 'slide'
+    ) {
       animType = 'slide';
     }
     return (
@@ -184,9 +229,7 @@ class AntmModal extends React.Component<IModalNativeProps, any> {
           animationType={animType}
           onRequestClose={onClose}
         >
-          <View style={style}>
-            {children}
-          </View>
+          <View style={style}>{children}</View>
         </Modal>
       </View>
     );

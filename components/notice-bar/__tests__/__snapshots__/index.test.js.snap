@@ -29,7 +29,7 @@ exports[`NoticeBar renders correctly 1`] = `
         class="am-notice-bar-marquee"
         style="position:relative;right:0;white-space:nowrap;display:inline-block"
       >
-        foo 
+        foo
       </div>
     </div>
   </div>

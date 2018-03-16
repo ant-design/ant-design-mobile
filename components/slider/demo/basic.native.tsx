@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, Text } from 'react-native';
 import { Slider } from 'antd-mobile';
+import React from 'react';
+import { Text, View } from 'react-native';
 
 export default class BasicSliderExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       changingValue: 0.25,
@@ -13,19 +13,19 @@ export default class BasicSliderExample extends React.Component<any, any> {
     };
   }
 
-  handleChange = (value) => {
+  handleChange = (value: any) => {
     this.setState({
       changingValue: value,
     });
   }
 
-  onAfterChange = (value) => {
+  onAfterChange = (value: any) => {
     this.setState({
       changedValue: value,
     });
   }
 
-  minMaxChange = (value) => {
+  minMaxChange = (value: any) => {
     this.setState({
       minMaxValue: value,
     });
@@ -46,7 +46,11 @@ export default class BasicSliderExample extends React.Component<any, any> {
 
         <View style={{ marginTop: 20 }}>
           <Text>min: 0, max: 1, current Value: {this.state.minMaxValue}</Text>
-          <Slider min={0} max={1} onAfterChange={(value) => this.minMaxChange(value)} />
+          <Slider
+            min={0}
+            max={1}
+            onAfterChange={(value: any) => this.minMaxChange(value)}
+          />
         </View>
 
         <View style={{ marginTop: 20 }}>
@@ -56,24 +60,33 @@ export default class BasicSliderExample extends React.Component<any, any> {
 
         <View style={{ marginTop: 20 }}>
           <Text>disabled</Text>
-          <Slider disabled  defaultValue={0.25} />
+          <Slider disabled defaultValue={0.25} />
         </View>
 
         <View style={{ marginTop: 20 }}>
           <Text>onChange value: {this.state.changingValue}</Text>
-          <Slider defaultValue={0.25} onChange={(value) => this.handleChange(value)} />
+          <Slider
+            defaultValue={0.25}
+            onChange={(value: any) => this.handleChange(value)}
+          />
         </View>
 
         <View style={{ marginTop: 20 }}>
           <Text>onAfterChange value: {this.state.changedValue}</Text>
-          <Slider defaultValue={0.15} onAfterChange={(value) => this.onAfterChange(value)} />
+          <Slider
+            defaultValue={0.15}
+            onAfterChange={(value: any) => this.onAfterChange(value)}
+          />
         </View>
 
         <View style={{ marginTop: 20 }}>
           <Text>custom color: </Text>
-          <Slider defaultValue={0.15} minimumTrackTintColor="red" maximumTrackTintColor="blue" />
+          <Slider
+            defaultValue={0.15}
+            minimumTrackTintColor="red"
+            maximumTrackTintColor="blue"
+          />
         </View>
-
       </View>
     );
   }

@@ -1,10 +1,11 @@
-import React from 'react';
 import classnames from 'classnames';
-import BasePropsType from './PropsType';
+import React from 'react';
+import { WingBlankPropsType } from './PropsType';
 
-export interface WingBlankProps extends BasePropsType {
+export interface WingBlankProps extends WingBlankPropsType {
   prefixCls?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export default class WingBlank extends React.Component<WingBlankProps, any> {
@@ -18,7 +19,9 @@ export default class WingBlank extends React.Component<WingBlankProps, any> {
     const wrapCls = classnames(prefixCls, `${prefixCls}-${size}`, className);
 
     return (
-      <div className={wrapCls} style={style}>{children}</div>
+      <div className={wrapCls} style={style}>
+        {children}
+      </div>
     );
   }
 }

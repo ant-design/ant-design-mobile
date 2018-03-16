@@ -1,8 +1,5 @@
-interface AccordionProps {
-  style?: any;
-  activeKey?: string | Array<string>;
-  defaultActiveKey?: string | Array<string>;
+export interface AccordionPropsTypes {
+  activeKey?: string | string[];
+  defaultActiveKey?: string | string[];
   onChange?: (x: any) => void;
 }
-
-export default AccordionProps;
