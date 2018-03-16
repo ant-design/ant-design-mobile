@@ -282,9 +282,7 @@ exports[`renders ./components/notice-bar/demo/basic.native.tsx correctly 1`] = `
           "height": 36,
           "overflow": "hidden",
         },
-        Object {
-          "backgroundColor": "transparent",
-        },
+        undefined,
       ]
     }
   >
