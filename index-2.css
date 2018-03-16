@@ -1,4 +1,96 @@
 
+.ant-advanced-search-form .ant-form-item {
+  margin-bottom: 24px;
+}
+.show-help-enter,
+.show-help-appear {
+  -webkit-animation-duration: 0.15s;
+          animation-duration: 0.15s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+.show-help-leave {
+  -webkit-animation-duration: 0.15s;
+          animation-duration: 0.15s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+.show-help-enter.show-help-enter-active,
+.show-help-appear.show-help-appear-active {
+  -webkit-animation-name: antShowHelpIn;
+          animation-name: antShowHelpIn;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+.show-help-leave.show-help-leave-active {
+  -webkit-animation-name: antShowHelpOut;
+          animation-name: antShowHelpOut;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+  pointer-events: none;
+}
+.show-help-enter,
+.show-help-appear {
+  opacity: 0;
+  -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.show-help-leave {
+  -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+@-webkit-keyframes antShowHelpIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes antShowHelpIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes antShowHelpOut {
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+}
+@keyframes antShowHelpOut {
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+}
+@-webkit-keyframes diffZoomIn1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
 @keyframes diffZoomIn1 {
   0% {
     -webkit-transform: scale(0);
@@ -855,11 +947,6 @@ textarea.ant-input-number {
   display: inline-block;
   width: 20px;
   height: 20px;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-  -webkit-animation: antRotate 1.2s infinite linear;
-          animation: antRotate 1.2s infinite linear;
 }
 .ant-spin-dot i {
   width: 9px;
@@ -899,6 +986,13 @@ textarea.ant-input-number {
   bottom: 0;
   -webkit-animation-delay: 1.2s;
           animation-delay: 1.2s;
+}
+.ant-spin-dot-spin {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-animation: antRotate 1.2s infinite linear;
+          animation: antRotate 1.2s infinite linear;
 }
 .ant-spin-sm .ant-spin-dot {
   width: 14px;
@@ -1381,6 +1475,8 @@ textarea.ant-pagination-options-quick-jumper input {
   border-radius: 4px;
   -webkit-transition: all .3s;
   transition: all .3s;
+  min-height: 32px;
+  height: auto;
   line-height: 1.5;
   padding: 0;
   display: block;
@@ -1451,6 +1547,7 @@ textarea.ant-mention-wrapper .ant-mention-editor {
 }
 .ant-mention-wrapper .public-DraftEditorPlaceholder-root {
   position: absolute;
+  pointer-events: none;
 }
 .ant-mention-wrapper .public-DraftEditorPlaceholder-root .public-DraftEditorPlaceholder-inner {
   color: #bfbfbf;
@@ -4021,7 +4118,7 @@ a.ant-notification-notice-close:focus {
   -webkit-animation: loadingCircle 1s infinite linear;
           animation: loadingCircle 1s infinite linear;
   text-align: center;
-  background: transprent;
+  background: transparent;
   z-index: 1;
   display: none;
   font-size: 12px;
@@ -4156,9 +4253,9 @@ a.ant-notification-notice-close:focus {
   margin: 0;
   padding: 0;
   list-style: none;
-  overflow: hidden;
   position: relative;
   border-radius: 4px 4px 0 0;
+  clear: both;
 }
 .ant-table-body {
   -webkit-transition: opacity .3s;
@@ -4170,7 +4267,6 @@ a.ant-notification-notice-close:focus {
   border-spacing: 0;
   text-align: left;
   border-radius: 4px 4px 0 0;
-  overflow: hidden;
 }
 .ant-table-thead > tr > th {
   background: #fafafa;
@@ -4180,6 +4276,12 @@ a.ant-notification-notice-close:focus {
   color: rgba(0, 0, 0, 0.85);
   font-weight: 500;
   border-bottom: 1px solid #e8e8e8;
+}
+.ant-table-thead > tr > th:first-child {
+  border-top-left-radius: 4px;
+}
+.ant-table-thead > tr > th:last-child {
+  border-top-right-radius: 4px;
 }
 .ant-table-thead > tr > th[colspan] {
   text-align: center;
@@ -4207,6 +4309,9 @@ a.ant-notification-notice-close:focus {
 }
 .ant-table-thead > tr > th .ant-table-filter-selected.anticon-filter {
   color: #1890ff;
+}
+.ant-table-thead > tr > th.ant-table-column-has-filters {
+  overflow: hidden;
 }
 .ant-table-tbody > tr > td {
   border-bottom: 1px solid #e8e8e8;
@@ -4347,10 +4452,11 @@ a.ant-notification-notice-close:focus {
   width: 14px;
   height: 6px;
   cursor: pointer;
+  position: relative;
 }
 .ant-table-column-sorter-up:hover .anticon,
 .ant-table-column-sorter-down:hover .anticon {
-  color: rgba(0, 0, 0, 0.65);
+  color: #69c0ff;
 }
 .ant-table-column-sorter-up.on .anticon-caret-up,
 .ant-table-column-sorter-down.on .anticon-caret-up,
@@ -4367,10 +4473,10 @@ a.ant-notification-notice-close:focus {
   left: 0;
 }
 .ant-table-column-sorter-up:after {
-  top: -30px;
+  bottom: -2px;
 }
 .ant-table-column-sorter-down:after {
-  bottom: -30px;
+  top: 2px;
 }
 .ant-table-column-sorter .anticon-caret-up,
 .ant-table-column-sorter .anticon-caret-down {
@@ -4624,6 +4730,9 @@ tr.ant-table-expanded-row:hover {
 .ant-table-fixed-left table {
   border-radius: 4px 0 0 0;
 }
+.ant-table-fixed-left .ant-table-thead > tr > th:last-child {
+  border-top-right-radius: 0;
+}
 .ant-table-fixed-right {
   right: 0;
   -webkit-box-shadow: -6px 0 6px -4px rgba(0, 0, 0, 0.15);
@@ -4637,6 +4746,9 @@ tr.ant-table-expanded-row:hover {
   color: transparent;
   pointer-events: none;
 }
+.ant-table-fixed-right .ant-table-thead > tr > th:first-child {
+  border-top-left-radius: 0;
+}
 .ant-table.ant-table-scroll-position-left .ant-table-fixed-left {
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -4647,7 +4759,7 @@ tr.ant-table-expanded-row:hover {
 }
 .ant-table-middle > .ant-table-title,
 .ant-table-middle > .ant-table-footer {
-  padding: 10.66666667px 8px;
+  padding: 12px 8px;
 }
 .ant-table-middle > .ant-table-content > .ant-table-header > table > .ant-table-thead > tr > th,
 .ant-table-middle > .ant-table-content > .ant-table-body > table > .ant-table-thead > tr > th,
@@ -4665,7 +4777,7 @@ tr.ant-table-expanded-row:hover {
 .ant-table-middle > .ant-table-content > .ant-table-fixed-right > .ant-table-header > table > .ant-table-tbody > tr > td,
 .ant-table-middle > .ant-table-content > .ant-table-fixed-left > .ant-table-body-outer > .ant-table-body-inner > table > .ant-table-tbody > tr > td,
 .ant-table-middle > .ant-table-content > .ant-table-fixed-right > .ant-table-body-outer > .ant-table-body-inner > table > .ant-table-tbody > tr > td {
-  padding: 10.66666667px 8px;
+  padding: 12px 8px;
 }
 .ant-table-small {
   border: 1px solid #e8e8e8;
@@ -4742,6 +4854,9 @@ tr.ant-table-expanded-row:hover {
   border-bottom: 1px solid #e8e8e8;
   border-right: 1px solid #e8e8e8;
 }
+.ant-table-small.ant-table-bordered .ant-table-content {
+  border-right: 1px solid #e8e8e8;
+}
 .ant-table-small.ant-table-bordered .ant-table-footer {
   border: 0;
   border-top: 1px solid #e8e8e8;
@@ -4753,6 +4868,10 @@ tr.ant-table-expanded-row:hover {
 .ant-table-small.ant-table-bordered .ant-table-placeholder {
   border-left: 0;
   border-bottom: 0;
+}
+.ant-table-small.ant-table-bordered .ant-table-thead > tr > th:last-child,
+.ant-table-small.ant-table-bordered .ant-table-tbody > tr > td:last-child {
+  border-right: none;
 }
 /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
 /* stylelint-disable no-duplicate-selectors */
@@ -5054,7 +5173,7 @@ tr.ant-table-expanded-row:hover {
   border: 0;
   height: auto;
   border-radius: 0;
-  padding: 3px 0;
+  padding: 3px 1px;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -5612,10 +5731,9 @@ span.ant-transfer-list-search-action {
 .ant-select-tree-child-tree-open {
   display: block;
 }
-li.ant-select-tree-treenode-disabled > span,
+li.ant-select-tree-treenode-disabled > span:not(.ant-select-tree-switcher),
 li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper,
-li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper span,
-li.ant-select-tree-treenode-disabled > span.ant-select-tree-switcher {
+li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper span {
   color: rgba(0, 0, 0, 0.25);
   cursor: not-allowed;
 }
@@ -6060,10 +6178,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .ant-tree-child-tree-open {
   display: block;
 }
-li.ant-tree-treenode-disabled > span,
+li.ant-tree-treenode-disabled > span:not(.ant-tree-switcher),
 li.ant-tree-treenode-disabled > .ant-tree-node-content-wrapper,
-li.ant-tree-treenode-disabled > .ant-tree-node-content-wrapper span,
-li.ant-tree-treenode-disabled > span.ant-tree-switcher {
+li.ant-tree-treenode-disabled > .ant-tree-node-content-wrapper span {
   color: rgba(0, 0, 0, 0.25);
   cursor: not-allowed;
 }
@@ -6527,7 +6644,14 @@ li.ant-tree-treenode-disabled > .ant-tree-node-content-wrapper:hover {
   position: static;
 }
 .ant-upload-list-picture-card .ant-upload-list-item-name {
+  margin: 8px 0 0;
+  padding: 0;
+  text-align: center;
+  line-height: 1.5;
   display: none;
+}
+.ant-upload-list-picture-card .anticon-picture + .ant-upload-list-item-name {
+  display: block;
 }
 .ant-upload-list-picture-card .ant-upload-list-item-uploading.ant-upload-list-item {
   background-color: #fafafa;
