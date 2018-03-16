@@ -120,10 +120,7 @@ export default class TextareaItem extends React.Component<TextareaItemProps, Tex
           focus: false,
         });
       }
-    }, 100);
-    this.setState({
-      focus: false,
-    });
+    }, 200);
     const value = e.target.value;
     if (this.props.onBlur) {
       this.props.onBlur(value);
