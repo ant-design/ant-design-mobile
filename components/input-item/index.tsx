@@ -290,7 +290,7 @@ class InputItem extends React.Component<InputItemProps, any> {
                 ref={el => (this.inputRef = el)}
                 maxLength={maxLength}
                 placeholder={placeholder}
-                onChange={this.handleOnChange}
+                onChange={this.onInputChange}
                 onFocus={this.onInputFocus}
                 onBlur={this.onInputBlur}
                 disabled={disabled}
