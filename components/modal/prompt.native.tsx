@@ -4,8 +4,8 @@ import PromptContainer from './PromptContainer.native';
 import { CallbackOrActions } from './PropsType';
 
 export default function prompt(
-  title: React.ReactType,
-  message: React.ReactType,
+  title: JSX.Element,
+  message: JSX.Element,
   callbackOrActions: CallbackOrActions,
   type = 'default',
   defaultValue = '',
