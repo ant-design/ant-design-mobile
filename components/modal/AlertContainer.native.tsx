@@ -10,8 +10,8 @@ export interface AlertButtonType {
 }
 
 export interface AlertContainerProps {
-  title: React.ReactType;
-  content: React.ReactType;
+  title: JSX.Element;
+  content: JSX.Element;
   actions: AlertButtonType[];
   onAnimationEnd?: (visible: boolean) => void;
 }

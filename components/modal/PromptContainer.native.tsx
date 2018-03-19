@@ -12,8 +12,8 @@ import { CallbackOrActions } from './PropsType';
 import promptStyle, { IPromptStyle } from './style/prompt.native';
 
 export interface PropmptContainerProps {
-  title: React.ReactType;
-  message?: React.ReactType;
+  title: JSX.Element;
+  message?: JSX.Element;
   type?: 'default' | 'login-password' | 'secure-text';
   defaultValue?: string;
   actions: CallbackOrActions;
@@ -94,7 +94,7 @@ export default class PropmptContainer extends React.Component<
       });
     }
 
-    const footer = callbacks.map(button => {
+    const footer = (callbacks as any).map((button: any) => {
       // tslint:disable-next-line:only-arrow-functions
       const orginPress = button.onPress || function() {};
       button.onPress = () => {
@@ -133,8 +133,7 @@ export default class PropmptContainer extends React.Component<
         onAnimationEnd={onAnimationEnd}
       >
         <KeyboardAvoidingView behavior="padding">
-          {message &&
-            message.length && <Text style={styles.message}>{message}</Text>}
+          {message && <Text style={styles.message}>{message}</Text>}
           <View style={styles.inputGroup}>
             {type !== 'secure-text' && (
               <View style={firstStyle}>

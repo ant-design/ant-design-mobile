@@ -3,8 +3,8 @@ import topView from 'rn-topview';
 import AlertContainer from './AlertContainer.native';
 
 export default function a(
-  title: React.ReactType,
-  content: React.ReactType,
+  title: JSX.Element,
+  content: JSX.Element,
   actions = [{ text: '确定' }],
 ) {
   const onAnimationEnd = (visible: boolean) => {
