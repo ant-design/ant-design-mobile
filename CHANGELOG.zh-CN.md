@@ -15,6 +15,15 @@ toc: false
 
 ---
 
+### 2.1.8
+
+`2018-03-19`
+
+
+- **Bug Fix**
+
+  - 🐞  修复 `InputItem[type="money"]` onChange 回调参数格式改变的 bug。([#2403](https://github.com/ant-design/ant-design-mobile/pull/2403))
+
 ### 2.1.7
 
 `2018-03-16`
