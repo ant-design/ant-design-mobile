@@ -5,8 +5,8 @@ import Modal from './Modal';
 import { Action } from './PropsType';
 
 export default function alert(
-  title: JSX.Element,
-  message: JSX.Element,
+  title: string | JSX.Element,
+  message: string | JSX.Element,
   actions = [{ text: '确定' }],
   platform = 'ios',
 ) {
