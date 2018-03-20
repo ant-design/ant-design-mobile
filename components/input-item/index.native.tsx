@@ -105,7 +105,11 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       this.props.onFocus(this.props.value);
     }
   }
-
+  focus = () => {
+    if (this.inputRef) {
+      this.inputRef.focus();
+    }
+  }
   render() {
     const {
       type,

@@ -35,6 +35,12 @@ class Input extends React.Component<TextInputProps, any> {
     }
   }
 
+  focus = () => {
+    if (this.inputRef) {
+      this.inputRef.focus();
+    }
+  }
+
   render() {
     return (
       <TextInput
