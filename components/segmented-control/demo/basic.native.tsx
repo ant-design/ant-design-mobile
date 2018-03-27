@@ -1,14 +1,14 @@
 /* tslint:disable:no-console */
-import React from 'react';
-import { View, Text } from 'react-native';
 import { SegmentedControl, WhiteSpace } from 'antd-mobile';
+import React from 'react';
+import { Text, View } from 'react-native';
 
 export default class BasicTagExample extends React.Component<any, any> {
-  onChange = (e) => {
+  onChange = (e: any) => {
     console.log(`selectedIndex:${e.nativeEvent.selectedSegmentIndex}`);
   }
 
-  onValueChange = (value) => {
+  onValueChange = (value: any) => {
     console.log(value);
   }
 
@@ -16,10 +16,7 @@ export default class BasicTagExample extends React.Component<any, any> {
     return (
       <View style={{ paddingTop: 60, paddingHorizontal: 20 }}>
         <Text>Disabled</Text>
-        <SegmentedControl
-          values={['Segment1', 'Segment2']}
-          disabled
-        />
+        <SegmentedControl values={['Segment1', 'Segment2']} disabled />
         <WhiteSpace size="lg" />
         <Text>TintColor and Style</Text>
         <SegmentedControl

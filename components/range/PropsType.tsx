@@ -1,13 +1,11 @@
-export interface RangeProps {
+export interface RangePropsType {
   onChange?: (value?: number) => void;
   onAfterChange?: (value?: number) => void;
   defaultValue?: number;
-  tipFormatter?: Function | null;
+  tipFormatter?: ((value?: number) => React.ReactNode);
   value?: number;
   min?: number;
   max?: number;
   step?: number;
   disabled?: boolean;
 }
-
-export default RangeProps;

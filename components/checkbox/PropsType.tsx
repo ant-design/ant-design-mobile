@@ -1,22 +1,17 @@
-// import React from 'react';
-
-export interface CheckboxProps {
-  style?: {};
+export interface OnChangeParams {
+  target: {
+    checked: boolean;
+  };
+}
+export interface CheckboxPropsType {
   defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;
-  onChange?: Function;
+  onChange?: (params: OnChangeParams) => void;
 }
 
-export interface CheckboxItemProps extends CheckboxProps {
-  children?: any;
-  extra?: any;
-  onClick?: () => any;
-  checkboxProps?: Object;
+export interface CheckboxItemPropsType extends CheckboxPropsType {
+  extra?: React.ReactNode;
   prefixCls?: string;
-}
-
-export interface AgreeItemPropsType extends CheckboxProps {
-  children?: any;
-  prefixCls?: string;
+  onClick?: (e?: any) => void;
 }

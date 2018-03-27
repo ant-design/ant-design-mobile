@@ -1,13 +1,14 @@
-import React from 'react';
 import classnames from 'classnames';
-import CardHeader from './CardHeader';
+import React from 'react';
 import CardBody from './CardBody';
 import CardFooter from './CardFooter';
-import { CardProps as BasePropsType } from './PropsType';
+import CardHeader from './CardHeader';
+import { CardPropsType } from './PropsType';
 
-export interface CardProps extends BasePropsType {
+export interface CardProps
+  extends CardPropsType,
+    React.HTMLProps<HTMLDivElement> {
   prefixCls?: string;
-  className?: string;
 }
 
 export default class Card extends React.Component<CardProps, any> {
@@ -26,8 +27,6 @@ export default class Card extends React.Component<CardProps, any> {
       [`${prefixCls}-full`]: full,
     });
 
-    return (
-      <div className={wrapCls} {...resetProps} />
-    );
+    return <div className={wrapCls} {...resetProps} />;
   }
 }

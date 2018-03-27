@@ -6,13 +6,15 @@ export interface DataItem {
   [key: string]: any;
 }
 
-export interface GridProps {
+export interface GridPropsType {
   data?: Array<DataItem | undefined>;
   hasLine?: boolean;
   columnNum?: number;
   isCarousel?: boolean;
   carouselMaxRow?: number;
-  itemStyle?: any;
   onClick?: (dataItem: DataItem | undefined, itemIndex: number) => void;
-  renderItem?: (dataItem: DataItem | undefined, itemIndex: number) => React.ReactElement<any>;
+  renderItem?: (
+    dataItem: DataItem | undefined,
+    itemIndex: number,
+  ) => React.ReactElement<any>;
 }

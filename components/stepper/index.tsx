@@ -1,10 +1,10 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
 import RMCInputNumber from 'rmc-input-number';
-import BasePropsType from './PropsType';
 import Icon from '../icon';
+import { StepPropsType } from './PropsType';
 
-export interface StepProps extends BasePropsType {
+export interface StepProps extends StepPropsType {
   prefixCls?: string;
   showNumber?: boolean;
   className?: string;
@@ -19,7 +19,7 @@ export default class Stepper extends React.Component<StepProps, any> {
     focusOnUpDown: false,
   };
 
-  stepperRef: any;
+  stepperRef: RMCInputNumber | null;
 
   render() {
     const { className, showNumber, ...restProps } = this.props;
@@ -32,7 +32,7 @@ export default class Stepper extends React.Component<StepProps, any> {
         upHandler={<Icon type="plus" size="xxs" />}
         downHandler={<Icon type="minus" size="xxs" />}
         {...restProps}
-        ref={el => this.stepperRef = el}
+        ref={el => (this.stepperRef = el)}
         className={stepperClass}
       />
     );

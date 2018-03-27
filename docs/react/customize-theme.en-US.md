@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 3
 title: Customize Theme
 ---
 

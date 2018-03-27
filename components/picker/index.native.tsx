@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+import { StyleSheet } from 'react-native';
 import AbstractPicker, { getDefaultProps } from './AbstractPicker';
+import { PickerPropsType } from './PropsType';
 import pickerStyle, { IPickerStyle } from './style/index.native';
-import tsPropsType from './PropsType';
 
-export interface IPickerNativeProps extends tsPropsType {
+export interface PickerNativeProps extends PickerPropsType {
   styles?: IPickerStyle;
 }
 

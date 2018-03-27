@@ -1,14 +1,13 @@
-export interface RadioProps {
-  style?: any;
+export interface RadioPropsType {
   defaultChecked?: boolean;
   checked?: boolean;
   disabled?: boolean;
-  onChange?: Function;
+  onChange?: (e: { target: { checked: boolean } }) => void;
   name?: string;
   wrapLabel?: boolean;
 }
 
-export interface RadioItemProps extends RadioProps {
-  radioProps?: Object;
+export interface RadioItemPropsType extends RadioPropsType {
+  radioProps?: object;
   onClick?: () => any;
 }

@@ -1,5 +1,4 @@
-
-export function hasClass(node, className) {
+export function hasClass(node: HTMLElement, className: string) {
   if (node.classList) {
     return node.classList.contains(className);
   }
@@ -7,7 +6,7 @@ export function hasClass(node, className) {
   return ` ${originClass} `.indexOf(` ${className} `) > -1;
 }
 
-export function addClass(node, className) {
+export function addClass(node: HTMLElement, className: string) {
   if (node.classList) {
     node.classList.add(className);
   } else {
@@ -17,7 +16,7 @@ export function addClass(node, className) {
   }
 }
 
-export function removeClass(node, className) {
+export function removeClass(node: HTMLElement, className: string) {
   if (node.classList) {
     node.classList.remove(className);
   } else {

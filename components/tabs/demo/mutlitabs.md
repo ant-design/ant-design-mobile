@@ -1,7 +1,7 @@
 ---
 order: 9
 title:
-  zh-CN: '超出界面宽度，多于5个标签'
+  zh-CN: '自定义个数，超出界面宽度，多于5个标签'
   en-US: 'Overflow, more than 5 tabs'
 ---
 
@@ -33,7 +33,7 @@ class Demo extends React.Component {
     return (
       <div>
         <WhiteSpace />
-        <Tabs tabs={tabs}>
+        <Tabs tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
           {this.renderContent}
         </Tabs>
         <WhiteSpace />

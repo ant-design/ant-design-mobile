@@ -13,7 +13,7 @@ title:
 
 Including situations like no button, confirm button and multiple buttons.
 
-````jsx
+```jsx
 import { Modal, Button, WhiteSpace, WingBlank, Toast } from 'antd-mobile';
 
 const alert = Modal.alert;
@@ -36,38 +36,53 @@ const App = () => (
     <Button onClick={showAlert}>customized buttons</Button>
 
     <WhiteSpace size="lg" />
-    <Button onClick={() => alert('Delete', 'Are you sure???', [
-      { text: 'Cancel', onPress: () => console.log('cancel') },
-      { text: 'Ok', onPress: () => console.log('ok') },
-    ])}
-    >confirm</Button>
+    <Button
+      onClick={() =>
+        alert('Delete', 'Are you sure???', [
+          { text: 'Cancel', onPress: () => console.log('cancel') },
+          { text: 'Ok', onPress: () => console.log('ok') },
+        ])
+      }
+    >
+      confirm
+    </Button>
 
     <WhiteSpace size="lg" />
-    <Button onClick={() => alert('Much Buttons', <div>More than two buttons</div>, [
-      { text: 'Button1', onPress: () => console.log('第0个按钮被点击了') },
-      { text: 'Button2', onPress: () => console.log('第1个按钮被点击了') },
-      { text: 'Button3', onPress: () => console.log('第2个按钮被点击了') },
-    ])}
-    >more than two buttons</Button>
+    <Button
+      onClick={() =>
+        alert('Much Buttons', <div>More than two buttons</div>, [
+          { text: 'Button1', onPress: () => console.log('第0个按钮被点击了') },
+          { text: 'Button2', onPress: () => console.log('第1个按钮被点击了') },
+          { text: 'Button3', onPress: () => console.log('第2个按钮被点击了') },
+        ])
+      }
+    >
+      more than two buttons
+    </Button>
 
     <WhiteSpace size="lg" />
 
-    <Button onClick={() => alert('Delete', 'Are you sure???', [
-      { text: 'Cancel', onPress: () => console.log('cancel') },
-      {
-        text: 'Ok',
-        onPress: () => new Promise((resolve) => {
-          Toast.info('onPress Promise', 1);
-          setTimeout(resolve, 1000);
-        }),
-      },
-    ])}
-    >promise</Button>
+    <Button
+      onClick={() =>
+        alert('Delete', 'Are you sure???', [
+          { text: 'Cancel', onPress: () => console.log('cancel') },
+          {
+            text: 'Ok',
+            onPress: () =>
+              new Promise((resolve) => {
+                Toast.info('onPress Promise', 1);
+                setTimeout(resolve, 1000);
+              }),
+          },
+        ])
+      }
+    >
+      promise
+    </Button>
 
     <WhiteSpace size="lg" />
   </WingBlank>
 );
 
 ReactDOM.render(<App />, mountNode);
-
-````
+```

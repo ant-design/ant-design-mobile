@@ -3,6 +3,7 @@ import React from 'react';
 import RMCCascader from 'rmc-cascader/lib/Cascader';
 import RMCMultiPicker from 'rmc-picker/lib/MultiPicker';
 import RMCPicker from 'rmc-picker/lib/Picker';
+import { PickerData } from '../picker/PropsType';
 
 function getDefaultProps() {
   return {
@@ -11,8 +12,7 @@ function getDefaultProps() {
     cols: 3,
     cascade: true,
     value: [],
-    onChange() {
-    },
+    onChange() {},
   };
 }
 
@@ -22,7 +22,7 @@ export interface IPickerView {
   cols?: number;
   cascade?: boolean;
   value?: any[];
-  data?: any;
+  data?: PickerData[] | PickerData[][];
   styles?: any;
   onChange?: (value?: any) => void;
   onScrollChange?: (value?: any) => void;
@@ -35,7 +35,7 @@ export default class PickerView extends React.Component<IPickerView, any> {
 
   getCol = () => {
     const { data, pickerPrefixCls, indicatorStyle, itemStyle } = this.props;
-    return data.map((col, index) => {
+    return (data as PickerData[][]).map((col, index) => {
       return (
         <RMCPicker
           key={index}
@@ -56,6 +56,7 @@ export default class PickerView extends React.Component<IPickerView, any> {
     });
   }
   render() {
+    // tslint:disable-next-line:no-this-assignment
     const { props } = this;
     let picker;
     if (props.cascade) {
@@ -63,7 +64,7 @@ export default class PickerView extends React.Component<IPickerView, any> {
         <RMCCascader
           prefixCls={props.prefixCls}
           pickerPrefixCls={props.pickerPrefixCls}
-          data={props.data}
+          data={props.data as PickerData[]}
           value={props.value}
           onChange={props.onChange}
           onScrollChange={props.onScrollChange}

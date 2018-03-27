@@ -1,25 +1,34 @@
+// tslint:disable:jsx-no-multiline-js
 import React from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
-import styles, { vars as variables, IActionSheetStyle } from './style/index.native';
+import {
+  ActionSheetIOSOptions,
+  Text,
+  TouchableHighlight,
+  View,
+} from 'react-native';
 import Modal from 'rmc-dialog/lib/Modal';
+import styles, {
+  ActionSheetStyle,
+  vars as variables,
+} from './style/index.native';
 
-export interface IActionSheetNativeProps {
+export interface ActionSheetNativeProps {
   onAnimationEnd?: (visible: boolean) => void;
   visible?: boolean;
-  config?: any;
+  config: ActionSheetIOSOptions;
   callback?: (index: number) => void;
-  styles?: IActionSheetStyle;
+  styles?: ActionSheetStyle;
 }
 
-class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
-  constructor(props) {
+class ActionSheetAndroid extends React.Component<ActionSheetNativeProps, any> {
+  constructor(props: ActionSheetNativeProps) {
     super(props);
     this.state = {
       visible: this.props.visible || false,
     };
   }
 
-  confirm(index) {
+  confirm(index: number) {
     const { callback } = this.props;
     if (callback) {
       callback(index);
@@ -28,11 +37,19 @@ class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
       visible: false,
     });
   }
-
+  close = () => {
+    this.setState({
+      visible: false,
+    });
+  }
   render() {
     const { config, onAnimationEnd } = this.props;
     const {
-      title, message, options, destructiveButtonIndex, cancelButtonIndex,
+      title,
+      message,
+      options,
+      destructiveButtonIndex,
+      cancelButtonIndex,
     } = config;
 
     const titleMsg = !!title && (
@@ -41,22 +58,31 @@ class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
       </View>
     );
 
-    const content = (
-      options as Array<string>).map((item, index) => (
-        <View key={index} style={[cancelButtonIndex === index ? styles.cancelBtn : undefined]}>
-          <TouchableHighlight
-            style={[ styles.btn ]}
-            underlayColor={variables.fill_tap}
-            onPress={() => this.confirm(index)}
+    const content = (options as string[]).map((item, index) => (
+      <View
+        key={index}
+        style={[cancelButtonIndex === index ? styles.cancelBtn : undefined]}
+      >
+        <TouchableHighlight
+          style={[styles.btn]}
+          underlayColor={variables.fill_tap}
+          onPress={() => this.confirm(index)}
+        >
+          <Text
+            style={[
+              destructiveButtonIndex === index
+                ? styles.destructiveBtn
+                : undefined,
+            ]}
           >
-            <Text style={[ destructiveButtonIndex === index ? styles.destructiveBtn : undefined ]}>
-              {item}
-            </Text>
-          </TouchableHighlight>
-          {cancelButtonIndex === index ? <View style={styles.cancelBtnMask}/> : null}
-        </View>
-      ),
-    );
+            {item}
+          </Text>
+        </TouchableHighlight>
+        {cancelButtonIndex === index ? (
+          <View style={styles.cancelBtnMask} />
+        ) : null}
+      </View>
+    ));
     return (
       <View style={styles.container}>
         <Modal
@@ -71,7 +97,11 @@ class ActionSheetAndroid extends React.Component<IActionSheetNativeProps, any> {
         >
           <View>
             {titleMsg}
-            {!!message && <View style={styles.message} key="1"><Text>{message}</Text></View>}
+            {!!message && (
+              <View style={styles.message} key="1">
+                <Text>{message}</Text>
+              </View>
+            )}
             <View>{content}</View>
           </View>
         </Modal>

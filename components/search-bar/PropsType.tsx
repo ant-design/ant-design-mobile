@@ -1,22 +1,21 @@
-function noop() { }
+function noop() {}
 
-export interface SearchBarProps {
-  style?: any;
+export interface SearchBarPropsType {
   defaultValue?: string;
   value?: string;
   placeholder?: string;
-  onSubmit?: Function;
-  onChange?: Function;
+  onSubmit?: (value: string) => void;
+  onChange?: (value: string) => void;
   onFocus?: () => void;
   onBlur?: () => void;
-  onCancel?: Function;
+  onCancel?: (value: string) => void;
   showCancelButton?: boolean;
   cancelText?: string;
   disabled?: boolean;
   styles?: any;
   autoFocus?: boolean;
   focused?: boolean;
-  onClear?: Function;
+  onClear?: (value: string) => void;
   maxLength?: number;
 }
 

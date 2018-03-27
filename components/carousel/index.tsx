@@ -1,14 +1,27 @@
-import React from 'react';
 import classnames from 'classnames';
+import React, { CSSProperties } from 'react';
 import ReactCarousel from 'rmc-nuka-carousel';
-import BasePropsType from './PropsType';
+import { CarouselPropsType } from './PropsType';
 
-export interface CarouselProps extends BasePropsType {
+export interface CarouselProps extends CarouselPropsType {
   className?: string;
   prefixCls?: string;
+  beforeChange?: (from: number, to: number) => void;
+  afterChange?: (current: number) => void;
+  swipeSpeed?: number;
+  easing?: () => void;
+  style?: CSSProperties;
+  dotStyle?: CSSProperties;
+  dotActiveStyle?: CSSProperties;
+}
+export interface CarouselState {
+  selectedIndex?: number;
 }
 
-export default class Carousel extends React.Component<CarouselProps, any> {
+export default class Carousel extends React.Component<
+  CarouselProps,
+  CarouselState
+> {
   static defaultProps = {
     prefixCls: 'am-carousel',
     dots: true,
@@ -21,29 +34,43 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     dotActiveStyle: {},
   };
 
-  constructor(props) {
+  constructor(props: CarouselProps) {
     super(props);
     this.state = {
       selectedIndex: this.props.selectedIndex,
     };
   }
 
-  onChange = (index) => {
-    this.setState({
-      selectedIndex: index,
-    }, () => {
-      if (this.props.afterChange) {
-        this.props.afterChange(index);
-      }
-    });
+  onChange = (index: number) => {
+    this.setState(
+      {
+        selectedIndex: index,
+      },
+      () => {
+        if (this.props.afterChange) {
+          this.props.afterChange(index);
+        }
+      },
+    );
   }
 
   render() {
     const {
-      infinite, selectedIndex, beforeChange, afterChange, dots, ...restProps,
+      infinite,
+      selectedIndex,
+      beforeChange,
+      afterChange,
+      dots,
+      ...restProps,
     } = this.props;
 
-    const { prefixCls, dotActiveStyle, dotStyle, className, vertical } = restProps;
+    const {
+      prefixCls,
+      dotActiveStyle,
+      dotStyle,
+      className,
+      vertical,
+    } = restProps;
 
     const newProps = {
       ...restProps,
@@ -55,31 +82,38 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     let Decorators: any[] = [];
 
     if (dots) {
-      Decorators = [{
-        component: ({ slideCount, slidesToScroll, currentSlide }) => {
-          const arr: number[] = [];
-          for (let i = 0; i < slideCount; i += slidesToScroll) {
-            arr.push(i);
-          }
-          const dotDom = arr.map(index => {
-            const dotCls = classnames(`${prefixCls}-wrap-dot`, {
-              [`${prefixCls}-wrap-dot-active`]: index === currentSlide,
+      Decorators = [
+        {
+          component: ({
+            slideCount,
+            slidesToScroll,
+            currentSlide,
+          }: {
+            slideCount: number;
+            slidesToScroll: number;
+            currentSlide: number;
+          }) => {
+            const arr: number[] = [];
+            for (let i = 0; i < slideCount; i += slidesToScroll) {
+              arr.push(i);
+            }
+            const dotDom = arr.map(index => {
+              const dotCls = classnames(`${prefixCls}-wrap-dot`, {
+                [`${prefixCls}-wrap-dot-active`]: index === currentSlide,
+              });
+              const currentDotStyle =
+                index === currentSlide ? dotActiveStyle : dotStyle;
+              return (
+                <div className={dotCls} key={index}>
+                  <span style={currentDotStyle} />
+                </div>
+              );
             });
-            const _dotStyle = index === currentSlide ? dotActiveStyle : dotStyle;
-            return (
-              <div className={dotCls} key={index}>
-                <span style={_dotStyle} />
-              </div>
-            );
-          });
-          return (
-            <div className={`${prefixCls}-wrap`}>
-              {dotDom}
-            </div>
-          );
+            return <div className={`${prefixCls}-wrap`}>{dotDom}</div>;
+          },
+          position: 'BottomCenter',
         },
-        position: 'BottomCenter',
-      }];
+      ];
     }
 
     const wrapCls = classnames(prefixCls, className, {

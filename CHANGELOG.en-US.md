@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title: Change Log
 timeline: true
 toc: false
@@ -15,6 +15,34 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+
+### 2.1.8
+
+`2018-03-19`
+
+
+- **Bug Fix**
+
+  - 🐞  Fix `InputItem[type="money"]` onChange handler arguments change from value to event object. ([#2403](https://github.com/ant-design/ant-design-mobile/pull/2403))
+
+
+### 2.1.7
+
+`2018-03-16`
+
+
+- **Bug Fix**
+
+  - 🐞  Fix `Grid` no border usage.
+  - 🐞  Fix `Modal.prompt` onPress return promise. ([#2243](https://github.com/ant-design/ant-design-mobile/pull/2243))
+  - 🐞  Fix `ImagePicker` throw Error when readd pic after delete。([#2302](https://github.com/ant-design/ant-design-mobile/pull/2302))
+  - 🐞  Fix `Carousel` `autoplayInterval` usage. ([#2369](https://github.com/ant-design/ant-design-mobile/issues/2369))
+  - 🐞  Fix RN `Modal.Alert` content not align center. ([#2347](https://github.com/ant-design/ant-design-mobile/pull/2347))
+
+- **Enhancement**
+
+  - 📝  Refactor all TypeScript Interface definition. [#2323](https://github.com/ant-design/ant-design-mobile/pull/2323)。
+  - 📝  Add [Demo](https://github.com/ant-design/ant-design-mobile/commit/e210a6db81af48d2e0aa1881c4a192ca4a10dfb2) about custom `Tabs` page number.
 
 ### 2.1.6
 

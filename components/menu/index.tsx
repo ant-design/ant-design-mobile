@@ -1,11 +1,11 @@
 /* tslint:disable:jsx-no-multiline-js */
-import React from 'react';
 import classnames from 'classnames';
-import List from '../list';
-import Flex from '../flex';
-import SubMenu from './SubMenu';
+import React from 'react';
 import Button from '../button';
-import { MenuProps, ValueType, DataItem } from './PropsType';
+import Flex from '../flex';
+import List from '../list';
+import { DataItem, MenuProps, ValueType } from './PropsType';
+import SubMenu from './SubMenu';
 
 export interface StateType {
   value?: ValueType;
@@ -22,9 +22,9 @@ export default class Menu extends React.Component<MenuProps, StateType> {
     MenuSelectContanerPrefixCls: 'am-menu-select-container',
     data: [],
     level: 2,
-    onChange: () => { },
-    onOk: () => { },
-    onCancel: () => { },
+    onChange: () => {},
+    onOk: () => {},
+    onCancel: () => {},
     multiSelect: false,
   };
 
@@ -75,9 +75,11 @@ export default class Menu extends React.Component<MenuProps, StateType> {
   getNewFsv(props: MenuProps) {
     const { value, data } = props;
     let firstValue = '';
-    if (value && value.length) {  // if has init path, chose init first value
+    if (value && value.length) {
+      // if has init path, chose init first value
       firstValue = value[0] as string; // this is a contract
-    } else if (data && data.length && !data[0].isLeaf) {  // chose the first menu item if it's not leaf.
+    } else if (data && data.length && !data[0].isLeaf) {
+      // chose the first menu item if it's not leaf.
       firstValue = data[0].value;
     }
 
@@ -104,7 +106,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
           return [firstLevelSelectValue, [dataItem.value]];
         } else {
           /* if level is 1, or first level isn't changed when level is 2, just do add or delete for submenu array  */
-          const chosenValues = (level === 2) ? value[1] as string[] : value; // FIXME: hack type
+          const chosenValues = level === 2 ? (value[1] as string[]) : value; // FIXME: hack type
           const existIndex = chosenValues.indexOf(dataItem.value);
           if (existIndex === -1) {
             chosenValues.push(dataItem.value);
@@ -115,11 +117,15 @@ export default class Menu extends React.Component<MenuProps, StateType> {
         }
       } else {
         /* if value is not exist before, init value */
-        return (level === 2) ? [firstLevelSelectValue, [dataItem.value]] : [dataItem.value];
+        return level === 2
+          ? [firstLevelSelectValue, [dataItem.value]]
+          : [dataItem.value];
       }
     }
 
-    return (level === 2) ? [this.state.firstLevelSelectValue, dataItem.value] : [dataItem.value];
+    return level === 2
+      ? [this.state.firstLevelSelectValue, dataItem.value]
+      : [dataItem.value];
   }
 
   onClickSubMenuItem = (dataItem: DataItem) => {
@@ -136,9 +142,14 @@ export default class Menu extends React.Component<MenuProps, StateType> {
 
   render() {
     const {
-      className, style, data = [],
-      prefixCls, level, multiSelect,
-      multiSelectMenuBtnsCls, MenuSelectContanerPrefixCls,
+      className,
+      style,
+      data = [],
+      prefixCls,
+      level,
+      multiSelect,
+      multiSelectMenuBtnsCls,
+      MenuSelectContanerPrefixCls,
     } = this.props;
     const { firstLevelSelectValue, value, height } = this.state;
     let subMenuData = data; // menu only has one level as init
@@ -146,9 +157,12 @@ export default class Menu extends React.Component<MenuProps, StateType> {
     if (level === 2) {
       let parent = data;
       if (firstLevelSelectValue && firstLevelSelectValue !== '') {
-        parent = data.filter(dataItem => dataItem.value === firstLevelSelectValue);
+        parent = data.filter(
+          dataItem => dataItem.value === firstLevelSelectValue,
+        );
       }
 
+      // tslint:disable-next-line:prefer-conditional-expression
       if (parent[0] && parent[0].children && parent[0].isLeaf !== true) {
         subMenuData = parent[0].children;
       } else {
@@ -156,7 +170,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
       }
     }
 
-    let subValue = value && (value.length > 0) && [...value] || [];
+    let subValue = (value && value.length > 0 && [...value]) || [];
     if (level === 2 && subValue.length > 1) {
       subValue.shift();
       if (multiSelect) {
@@ -165,19 +179,25 @@ export default class Menu extends React.Component<MenuProps, StateType> {
       }
     }
 
-    const parentValue = (value && (value.length > 1) && level === 2) ? value[0] : null;
-    const subSelInitItem = subMenuData.filter(dataItem => subValue.indexOf(dataItem.value) !== -1).map((item) => {
-      return item.value;
-    });
+    const parentValue =
+      value && value.length > 1 && level === 2 ? value[0] : null;
+    const subSelInitItem = subMenuData
+      .filter(dataItem => subValue.indexOf(dataItem.value) !== -1)
+      .map(item => {
+        return item.value;
+      });
 
     let showSelect = true;
     if (level === 2 && parentValue !== firstLevelSelectValue) {
       showSelect = false;
     }
 
-    const heightStyle = height !== undefined ? {
-      height: `${height}px`,
-    } : {};
+    const heightStyle =
+      height !== undefined
+        ? {
+            height: `${height}px`,
+          }
+        : {};
 
     return (
       <Flex
@@ -197,12 +217,16 @@ export default class Menu extends React.Component<MenuProps, StateType> {
             [MenuSelectContanerPrefixCls as string]: true,
           })}
         >
-          {level === 2 &&
+          {level === 2 && (
             <Flex.Item>
               <List role="tablist">
                 {data.map((dataItem, index) => (
                   <List.Item
-                    className={dataItem.value === firstLevelSelectValue ? `${prefixCls}-selected` : ''}
+                    className={
+                      dataItem.value === firstLevelSelectValue
+                        ? `${prefixCls}-selected`
+                        : ''
+                    }
                     onClick={() => this.onClickFirstLevelItem(dataItem)}
                     key={`listitem-1-${index}`}
                     role="tab"
@@ -213,7 +237,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
                 ))}
               </List>
             </Flex.Item>
-          }
+          )}
           <Flex.Item
             role="tabpanel"
             aria-hidden="false"
@@ -230,10 +254,8 @@ export default class Menu extends React.Component<MenuProps, StateType> {
             />
           </Flex.Item>
         </Flex>
-        {multiSelect &&
-          (<div
-            className={multiSelectMenuBtnsCls}
-          >
+        {multiSelect && (
+          <div className={multiSelectMenuBtnsCls}>
             <Button
               inline
               className={`${multiSelectMenuBtnsCls}-btn`}
@@ -249,7 +271,8 @@ export default class Menu extends React.Component<MenuProps, StateType> {
             >
               确定
             </Button>
-          </div>)}
+          </div>
+        )}
       </Flex>
     );
   }

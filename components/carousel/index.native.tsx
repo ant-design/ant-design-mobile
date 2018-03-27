@@ -1,26 +1,62 @@
-/* tslint:disable:jsx-no-multiline-js */
-
 import React from 'react';
 import {
-  View,
-  Text,
-  ScrollView,
+  LayoutChangeEvent,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
   Platform,
+  ScrollView,
+  StyleProp,
   StyleSheet,
+  Text,
+  View,
+  ViewStyle,
 } from 'react-native';
+import { CarouselPropsType } from './PropsType';
 import CarouselStyle from './style';
-import BasePropsType from './PropsType';
 
-export interface CarouselProps extends BasePropsType {
+export interface CarouselProps extends CarouselPropsType {
   bounces?: boolean;
-  onScrollBeginDrag?: Function;
-  onMomentumScrollEnd?: Function;
+  onScrollBeginDrag?: (
+    event: NativeSyntheticEvent<NativeScrollEvent>,
+    state: CarouselState,
+    carousel: Carousel,
+  ) => void;
+  onMomentumScrollEnd?: (
+    event: NativeSyntheticEvent<NativeScrollEvent>,
+    state: CarouselState,
+    carousel: Carousel,
+  ) => void;
   styles?: any;
+  style?: StyleProp<ViewStyle>;
+  dotStyle?: StyleProp<ViewStyle>;
+  dotActiveStyle?: StyleProp<ViewStyle>;
+  pagination?: (props: PaginationProps) => React.ReactNode;
+  afterChange?: (index: number) => void;
+}
+export interface CarouselOffset {
+  x: number;
+  y: number;
+}
+export interface CarouselState {
+  width: number;
+  selectedIndex: number;
+  isScrolling: boolean;
+  autoplayEnd: boolean;
+  loopJump: boolean;
+  offset: CarouselOffset;
 }
 
+export interface PaginationProps {
+  styles: any;
+  vertical?: boolean;
+  current: number;
+  count: number;
+  dotStyle?: StyleProp<ViewStyle>;
+  dotActiveStyle?: StyleProp<ViewStyle>;
+}
 const CarouselStyles = StyleSheet.create<any>(CarouselStyle);
 
-const defaultPagination = (props) => {
+const defaultPagination = (props: PaginationProps) => {
   const { styles, current, vertical, count, dotStyle, dotActiveStyle } = props;
   const positionStyle = vertical ? 'paginationY' : 'paginationX';
   const flexDirection = vertical ? 'column' : 'row';
@@ -29,6 +65,7 @@ const defaultPagination = (props) => {
     arr.push(
       <View
         key={`dot-${i}`}
+        // tslint:disable-next-line:jsx-no-multiline-js
         style={[
           styles.pointStyle,
           styles.spaceStyle,
@@ -46,7 +83,7 @@ const defaultPagination = (props) => {
   );
 };
 
-class Carousel extends React.Component<CarouselProps, any> {
+class Carousel extends React.Component<CarouselProps, CarouselState> {
   static defaultProps: CarouselProps = {
     bounces: true,
     infinite: false,
@@ -63,14 +100,14 @@ class Carousel extends React.Component<CarouselProps, any> {
   };
 
   private scrollviewRef: any;
-  private autoplayTimer;
-  private androidScrollEndTimer;
-  private scrollEndTimter;
+  private autoplayTimer: number;
+  private androidScrollEndTimer: number;
+  private scrollEndTimter: number;
 
-  constructor(props) {
+  constructor(props: CarouselProps) {
     super(props);
     const { children, selectedIndex } = this.props;
-    const count = children ? children.length || 1 : 0;
+    const count = this.getChildrenCount(children);
     const index = count > 1 ? Math.min(selectedIndex as number, count - 1) : 0;
     this.state = {
       width: 0,
@@ -81,7 +118,10 @@ class Carousel extends React.Component<CarouselProps, any> {
       offset: { x: 0, y: 0 },
     };
   }
-
+  getChildrenCount = (children: React.ReactNode) => {
+    const count = children ? React.Children.count(children) || 1 : 0;
+    return count;
+  }
   componentDidMount() {
     this.autoplay();
   }
@@ -105,15 +145,15 @@ class Carousel extends React.Component<CarouselProps, any> {
   autoplay = () => {
     const { children, autoplay, infinite, autoplayInterval } = this.props;
     const { isScrolling, autoplayEnd, selectedIndex } = this.state;
-    const count = children ? children.length || 1 : 0;
-    if ( !Array.isArray(children) || !autoplay || isScrolling || autoplayEnd ) {
+    const count = this.getChildrenCount(children);
+    if (!Array.isArray(children) || !autoplay || isScrolling || autoplayEnd) {
       return;
     }
 
     clearTimeout(this.autoplayTimer);
 
     this.autoplayTimer = setTimeout(() => {
-      if (!infinite && (selectedIndex === count - 1)) {
+      if (!infinite && selectedIndex === count - 1) {
         // !infinite && last one, autoplay end
         return this.setState({ autoplayEnd: true });
       }
@@ -121,22 +161,26 @@ class Carousel extends React.Component<CarouselProps, any> {
     }, autoplayInterval);
   }
 
-  onScrollBegin = (e) => {
-    this.setState({
-      isScrolling: true,
-    }, () => {
-      if (this.props.onScrollBeginDrag) {
-        this.props.onScrollBeginDrag(e, this.state, this);
-      }
-    });
+  onScrollBegin = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    this.setState(
+      {
+        isScrolling: true,
+      },
+      () => {
+        if (this.props.onScrollBeginDrag) {
+          this.props.onScrollBeginDrag(e, this.state, this);
+        }
+      },
+    );
   }
 
-  onScrollEnd = (e) => {
+  onScrollEnd = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     this.setState({ isScrolling: false });
     // android incompatible
     if (!e.nativeEvent.contentOffset) {
-      const position = e.nativeEvent.position;
-      e.nativeEvent.contentOffset = {
+      // kind of hack ? see: line 282
+      const position = (e.nativeEvent as any).position;
+      (e.nativeEvent as any).contentOffset = {
         x: position * this.state.width,
       };
     }
@@ -152,33 +196,40 @@ class Carousel extends React.Component<CarouselProps, any> {
     });
   }
 
-  onScrollEndDrag = (e) => {
+  onScrollEndDrag = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const { offset, selectedIndex } = this.state;
-    const previousOffset = offset.x;
-    const newOffset = e.nativeEvent.x;
-    const count = this.props.children ? this.props.children.length || 1 : 0;
+    const { children } = this.props;
 
-    if (previousOffset === newOffset && (selectedIndex === 0 || selectedIndex === count - 1)) {
+    const previousOffset = offset.x;
+    const newOffset = e.nativeEvent.contentOffset.x;
+    const count = this.getChildrenCount(children);
+
+    if (
+      previousOffset === newOffset &&
+      (selectedIndex === 0 || selectedIndex === count - 1)
+    ) {
       this.setState({
         isScrolling: false,
       });
     }
   }
 
-  updateIndex = (offset) => {
-    let state = this.state;
+  updateIndex = (offset: CarouselOffset) => {
+    const state = this.state;
     let selectedIndex = state.selectedIndex;
-    let diff = offset.x - state.offset.x;
-    let step = state.width;
+    const diff = offset.x - state.offset.x;
+    const step = state.width;
     let loopJump = false;
-    let count = this.props.children ? this.props.children.length || 1 : 0;
+    const { children } = this.props;
+
+    const count = this.getChildrenCount(children);
 
     // Do nothing if offset no change.
     if (!diff) {
       return;
     }
 
-    selectedIndex = parseInt(selectedIndex + Math.round(diff / step), 10);
+    selectedIndex = selectedIndex + Math.round(diff / step);
 
     if (this.props.infinite) {
       if (selectedIndex <= -1) {
@@ -206,15 +257,15 @@ class Carousel extends React.Component<CarouselProps, any> {
 
   scrollNextPage = () => {
     const { children, infinite } = this.props;
-    const count = children ? children.length || 1 : 0;
+    const count = this.getChildrenCount(children);
     if (this.state.isScrolling || count < 2) {
       return;
     }
 
-    let state = this.state;
-    let diff = (infinite ? 1 : 0) + this.state.selectedIndex + 1;
-    let x = diff * state.width;
-    let y = 0;
+    const state = this.state;
+    const diff = (infinite ? 1 : 0) + this.state.selectedIndex + 1;
+    const x = diff * state.width;
+    const y = 0;
 
     this.scrollviewRef.scrollTo({ x, y });
 
@@ -230,73 +281,85 @@ class Carousel extends React.Component<CarouselProps, any> {
           nativeEvent: {
             position: diff,
           },
-        });
+        } as any);
       }, 0);
     }
   }
 
-  renderContent = (pages) => {
-      const others = {
-        onScrollBeginDrag: this.onScrollBegin,
-        onMomentumScrollEnd: this.onScrollEnd,
-        onScrollEndDrag: this.onScrollEndDrag,
-      };
-      return (
-        <ScrollView
-          ref={el => this.scrollviewRef = el}
-          {...this.props}
-          horizontal
-          pagingEnabled
-          bounces={!!this.props.bounces}
-          scrollEventThrottle={100}
-          removeClippedSubviews={false}
-          automaticallyAdjustContentInsets={false}
-          directionalLockEnabled
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={this.props.style}
-          contentOffset={this.state.offset}
-          {...others}
-        >
-          {pages}
-        </ScrollView>
-      );
+  renderContent = (pages: React.ReactNode) => {
+    const others = {
+      onScrollBeginDrag: this.onScrollBegin,
+      onMomentumScrollEnd: this.onScrollEnd,
+      onScrollEndDrag: this.onScrollEndDrag,
+    };
+    return (
+      <ScrollView
+        ref={el => (this.scrollviewRef = el)}
+        {...this.props}
+        horizontal
+        pagingEnabled
+        bounces={!!this.props.bounces}
+        scrollEventThrottle={100}
+        removeClippedSubviews={false}
+        automaticallyAdjustContentInsets={false}
+        directionalLockEnabled
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={this.props.style}
+        contentOffset={this.state.offset}
+        {...others}
+      >
+        {pages}
+      </ScrollView>
+    );
   }
 
-  renderDots = (index) => {
-    const { children, vertical, styles, pagination, dotStyle, dotActiveStyle } = this.props;
-    const count = children ? children.length || 1 : 0;
-    return pagination ? pagination({
-      styles,
+  renderDots = (index: number) => {
+    const {
+      children,
       vertical,
-      current: index,
-      count,
+      styles,
+      pagination,
       dotStyle,
       dotActiveStyle,
-    }) : null;
+    } = this.props;
+    const count = this.getChildrenCount(children);
+    return pagination
+      ? pagination({
+          styles,
+          vertical,
+          current: index,
+          count,
+          dotStyle,
+          dotActiveStyle,
+        })
+      : null;
   }
 
-  onLayout = (e) => {
+  onLayout = (e: LayoutChangeEvent) => {
     // for horizontal, get width, scollTo
     const props = this.props;
-    const count = props.children ? props.children.length || 1 : 0;
-    const selectedIndex = count > 1 ? Math.min(props.selectedIndex as number, count - 1) : 0;
+    const count = this.getChildrenCount(props.children);
+    const selectedIndex =
+      count > 1 ? Math.min(props.selectedIndex as number, count - 1) : 0;
     const width = e.nativeEvent.layout.width;
     const offsetX = width * (selectedIndex + (props.infinite ? 1 : 0));
-    this.setState({
-      width,
-      offset: { x: offsetX, y: 0 },
-    }, () => {
-      if (Platform.OS === 'android') {
-        this.scrollviewRef.scrollTo({ y: 0, x: offsetX }, false);
-      }
-    });
+    this.setState(
+      {
+        width,
+        offset: { x: offsetX, y: 0 },
+      },
+      () => {
+        if (Platform.OS === 'android') {
+          this.scrollviewRef.scrollTo({ y: 0, x: offsetX }, false);
+        }
+      },
+    );
   }
 
   render() {
-    let state = this.state;
-    let { dots, infinite, children } = this.props;
-    let pages: any = [];
+    const state = this.state;
+    const { dots, infinite, children } = this.props;
 
     if (!children) {
       return (
@@ -307,19 +370,28 @@ class Carousel extends React.Component<CarouselProps, any> {
     }
 
     const pageStyle = { width: state.width };
-    const count = children ? children.length || 1 : 0;
+    const count = this.getChildrenCount(children);
+    let pages: React.ReactFragment;
+
     // For make infinite at least count > 1
     if (count > 1) {
-      pages = Object.keys(children);
+      // TODO: infinite
+      const childrenArray = React.Children.toArray(children);
+
       if (infinite) {
-        pages.unshift(count - 1 + '');
-        pages.push('0');
+        childrenArray.unshift(childrenArray[count - 1]);
+        childrenArray.push(childrenArray[0]);
       }
-      pages = pages.map((page, i) => {
-        return (<View style={pageStyle} key={i}>{children[page]}</View>);
+
+      pages = childrenArray.map((page, i) => {
+        return (
+          <View style={pageStyle} key={i}>
+            {page}
+          </View>
+        );
       });
     } else {
-      pages = (<View style={pageStyle}>{children}</View>);
+      pages = <View style={pageStyle}>{children}</View>;
     }
 
     return (

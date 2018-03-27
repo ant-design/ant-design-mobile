@@ -3,13 +3,12 @@ import React from 'react';
 export interface DataItem {
   label?: React.ReactNode;
   value?: any;
-  children?: any;
   isLeaf?: boolean;
   disabled?: boolean;
   [key: string]: any;
 }
 
-export type ValueType = (string | string[])[];
+export type ValueType = Array<string | string[]>;
 
 export interface MenuProps {
   /** web only */

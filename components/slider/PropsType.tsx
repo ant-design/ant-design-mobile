@@ -1,8 +1,8 @@
-export interface SliderProps {
+export interface SliderPropsType {
   onChange?: (value?: number) => void;
   onAfterChange?: (value?: number) => void;
   defaultValue?: number;
-  tipFormatter?: Function | null;
+  tipFormatter?: (value?: string) => React.ReactNode;
   value?: number;
   min?: number;
   max?: number;
@@ -10,5 +10,3 @@ export interface SliderProps {
   disabled?: boolean;
   handle?: any;
 }
-
-export default SliderProps;

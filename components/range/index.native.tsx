@@ -1,8 +1,9 @@
 import React from 'react';
-import RangeProps from './PropsType';
+import { RangePropsType } from './PropsType';
 
-export default class Range extends React.Component<RangeProps, any> {
+export default class Range extends React.Component<RangePropsType, any> {
   componentDidMount() {
+    // tslint:disable-next-line:no-console
     console.warn('TODO for react-native');
   }
 

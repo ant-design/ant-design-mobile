@@ -1,6 +1,6 @@
 /* tslint:disable:no-console */
+import { Button, Toast, WhiteSpace, WingBlank } from 'antd-mobile';
 import React from 'react';
-import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 import { DeviceEventEmitter } from 'react-native';
 
 function showToast() {
@@ -37,7 +37,7 @@ export default class ToastExample extends React.Component<any, any> {
     });
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     (DeviceEventEmitter as any).removeAllListeners('navigatorBack');
     if (this.timer) {
       clearTimeout(this.timer);

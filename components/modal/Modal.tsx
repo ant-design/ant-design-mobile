@@ -1,17 +1,19 @@
+import classnames from 'classnames';
 import React from 'react';
 import Dialog from 'rmc-dialog';
-import classnames from 'classnames';
-import { ModalProps as BasePropsType, ModalComponent } from './PropsType';
 import TouchFeedback from 'rmc-feedback';
+import { Action, ModalComponent, ModalPropsType } from './PropsType';
 
-export interface ModalProps extends BasePropsType {
+export interface ModalProps extends ModalPropsType {
   prefixCls?: string;
   transitionName?: string;
   maskTransitionName?: string;
   className?: string;
   wrapClassName?: string;
-  wrapProps?: {};
+  wrapProps?: Partial<React.HTMLProps<HTMLDivElement>>;
   platform?: string;
+  style?: React.CSSProperties;
+  bodyStyle?: React.CSSProperties;
 }
 
 export default class Modal extends ModalComponent<ModalProps, any> {
@@ -22,19 +24,21 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     animationType: 'slide-down',
     animated: true,
     style: {},
-    onShow() { },
+    onShow() {},
     footer: [],
     closable: false,
     operation: false,
     platform: 'ios',
   };
 
-  renderFooterButton(button, prefixCls, i) {
+  renderFooterButton(button: Action, prefixCls: string | undefined, i: number) {
     let buttonStyle = {};
     if (button.style) {
       buttonStyle = button.style;
       if (typeof buttonStyle === 'string') {
-        const styleMap = {
+        const styleMap: {
+          [key: string]: object;
+        } = {
           cancel: {},
           default: {},
           destructive: { color: 'red' },
@@ -43,7 +47,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       }
     }
 
-    const onClickFn = function (e) {
+    const onClickFn = (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
       if (button.onPress) {
         button.onPress();
@@ -52,7 +56,12 @@ export default class Modal extends ModalComponent<ModalProps, any> {
 
     return (
       <TouchFeedback activeClassName={`${prefixCls}-button-active`} key={i}>
-        <a className={`${prefixCls}-button`} role="button" style={buttonStyle} onClick={onClickFn}>
+        <a
+          className={`${prefixCls}-button`}
+          role="button"
+          style={buttonStyle}
+          onClick={onClickFn}
+        >
           {button.text || `Button`}
         </a>
       </TouchFeedback>
@@ -60,29 +69,50 @@ export default class Modal extends ModalComponent<ModalProps, any> {
   }
 
   render() {
-    let {
-      prefixCls, className, wrapClassName, transitionName, maskTransitionName, style, platform,
-      footer = [], operation, animated, transparent, popup, animationType, ...restProps,
+    const {
+      prefixCls,
+      className,
+      wrapClassName,
+      transitionName,
+      maskTransitionName,
+      style,
+      platform,
+      footer = [],
+      operation,
+      animated,
+      transparent,
+      popup,
+      animationType,
+      ...restProps,
     } = this.props;
 
     const btnGroupClass = classnames(
-      `${prefixCls}-button-group-${footer.length === 2 && !operation ? 'h' : 'v'}`,
+      `${prefixCls}-button-group-${
+        footer.length === 2 && !operation ? 'h' : 'v'
+      }`,
       `${prefixCls}-button-group-${operation ? 'operation' : 'normal'}`,
     );
-    const footerDom = footer.length ? <div className={btnGroupClass} role="group">
-      {footer.map((button: any, i) => this.renderFooterButton(button, prefixCls, i))}
-    </div> : null;
+    const footerDom = footer.length ? (
+      <div className={btnGroupClass} role="group">
+        {footer.map((button, i) =>
+        // tslint:disable-next-line:jsx-no-multiline-js
+          this.renderFooterButton(button, prefixCls, i),
+        )}
+      </div>
+    ) : null;
 
     let transName;
     let maskTransName;
     if (animated) {
+      // tslint:disable-next-line:prefer-conditional-expression
       if (transparent) {
         transName = maskTransName = 'am-fade';
       } else {
         transName = maskTransName = 'am-slide-up';
       }
       if (popup) {
-        transName = animationType === 'slide-up' ? 'am-slide-up' : 'am-slide-down';
+        transName =
+          animationType === 'slide-up' ? 'am-slide-up' : 'am-slide-down';
         maskTransName = 'am-fade';
       }
     }

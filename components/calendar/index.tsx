@@ -1,30 +1,36 @@
-import React from 'react';
-import Icon from '../icon';
 import PropTypes from 'prop-types';
-import tsPropsType from './PropsType';
+import React from 'react';
 import { Calendar as RMCalendar } from 'rmc-calendar';
 import { getComponentLocale } from '../_util/getLocale';
+import Icon from '../icon';
+import { CalendarProps } from './PropsType';
 
-export default class Calendar extends React.Component<tsPropsType, any> {
+export default class Calendar extends React.Component<CalendarProps, any> {
   static defaultProps = {
     prefixCls: 'am-calendar',
     timePickerPrefixCls: 'am-picker',
     timePickerPickerPrefixCls: 'am-picker-col',
-  } as tsPropsType;
+  };
 
   static contextTypes = {
     antLocale: PropTypes.object,
   };
 
   render() {
+    // tslint:disable-next-line:no-this-assignment
     const { props, context } = this;
-    const locale = getComponentLocale(props, context, 'Calendar', () => require('./locale/zh_CN'));
+    const locale = getComponentLocale(props, context, 'Calendar', () =>
+      require('./locale/zh_CN'),
+    );
     const Header = RMCalendar.DefaultHeader;
 
     return (
       <RMCalendar
         locale={locale}
-        renderHeader={headerProps => <Header {...headerProps} closeIcon={<Icon type="cross"/>} />}
+        // tslint:disable-next-line:jsx-no-multiline-js
+        renderHeader={headerProps => (
+          <Header {...headerProps} closeIcon={<Icon type="cross" />} />
+        )}
         {...props}
       />
     );

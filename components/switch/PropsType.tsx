@@ -1,5 +1,4 @@
-interface SwitchProps {
-  style?: {};
+export interface SwitchPropsType {
   checked?: boolean;
   disabled?: boolean;
   onChange?: (checked: boolean) => void;
@@ -7,5 +6,3 @@ interface SwitchProps {
   name?: string;
   onClick?: (checked?: boolean) => void;
 }
-
-export default SwitchProps;

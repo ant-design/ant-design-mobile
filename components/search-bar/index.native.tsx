@@ -1,20 +1,32 @@
 /* tslint:disable:jsx-no-multiline-js */
-import React from 'react';
-import { View, TextInput, Text, Image, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import { SearchBarProps, SearchBarState, defaultProps } from './PropsType';
-import SearchBarStyle, { ISearchBarStyle } from './style/index.native';
+import React from 'react';
+import {
+  Image,
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextInput,
+  TextStyle,
+  View,
+} from 'react-native';
 import { getComponentLocale } from '../_util/getLocale';
+import { defaultProps, SearchBarPropsType, SearchBarState } from './PropsType';
+import SearchBarStyle, { ISearchBarStyle } from './style/index.native';
 
-export interface ISearchBarNativeProps extends SearchBarProps {
+export interface SearchBarNativeProps extends SearchBarPropsType {
   styles: ISearchBarStyle;
-  onChangeText?: Function;
-  onSubmitEditing?: Function;
+  onChangeText?: (text: string) => void;
+  onSubmitEditing?: (event: { nativeEvent: { text: string } }) => void;
+  style?: StyleProp<TextStyle>;
 }
 
 const SearchBarStyles = StyleSheet.create<any>(SearchBarStyle);
 
-export default class SearchBar extends React.Component<ISearchBarNativeProps, SearchBarState> {
+export default class SearchBar extends React.Component<
+  SearchBarNativeProps,
+  SearchBarState
+> {
   static defaultProps = {
     ...defaultProps,
     styles: SearchBarStyles,
@@ -24,9 +36,9 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
     antLocale: PropTypes.object,
   };
 
-  inputRef: any;
+  inputRef: TextInput | null;
 
-  constructor(props) {
+  constructor(props: SearchBarNativeProps) {
     super(props);
     let value;
     if ('value' in props) {
@@ -42,7 +54,7 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: SearchBarNativeProps) {
     if ('value' in nextProps) {
       this.setState({
         value: nextProps.value,
@@ -50,14 +62,13 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
     }
   }
 
-  onSubmit = (e) => {
-    e.preventDefault();
+  onSubmit = (_: { nativeEvent: { text: string } }) => {
     if (this.props.onSubmit) {
-      this.props.onSubmit(this.state.value);
+      this.props.onSubmit(this.state.value || '');
     }
   }
 
-  onChangeText = (value) => {
+  onChangeText = (value: string) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
@@ -68,7 +79,7 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
 
   onCancel = () => {
     if (this.props.onCancel) {
-      this.props.onCancel(this.state.value);
+      this.props.onCancel(this.state.value || '');
     }
   }
 
@@ -91,15 +102,28 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
   }
   render() {
     const {
-      showCancelButton, styles, value: propsValue, cancelText,
-      onChangeText, onChange, onSubmitEditing, disabled,
+      showCancelButton,
+      styles,
+      value: propsValue,
+      cancelText,
+      onChangeText,
+      onChange,
+      onSubmitEditing,
+      disabled,
       ...restProps,
     } = this.props;
 
-    const _locale = getComponentLocale(this.props, this.context, 'SearchBar', () => require('./locale/zh_CN'));
+    // tslint:disable-next-line:variable-name
+    const _locale = getComponentLocale(
+      this.props,
+      this.context,
+      'SearchBar',
+      () => require('./locale/zh_CN'),
+    );
 
     const { style } = restProps;
     const { value, focus } = this.state;
+    // tslint:disable-next-line:variable-name
     const _showCancelButton = showCancelButton || focus;
 
     return (
@@ -110,7 +134,7 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
             onChangeText={this.onChangeText}
             style={[styles.input, style]}
             editable={!disabled}
-            ref={el => this.inputRef = el}
+            ref={el => ((this.inputRef as any) = el)}
             onSubmitEditing={this.onSubmit}
             clearButtonMode="always"
             underlineColorAndroid="transparent"
@@ -124,14 +148,13 @@ export default class SearchBar extends React.Component<ISearchBarNativeProps, Se
           style={styles.search}
           resizeMode="stretch"
         />
-        {
-          _showCancelButton &&
-            <View style={styles.cancelTextContainer}>
-              <Text style={styles.cancelText} onPress={this.onCancel}>
+        {_showCancelButton && (
+          <View style={styles.cancelTextContainer}>
+            <Text style={styles.cancelText} onPress={this.onCancel}>
               {cancelText || _locale.cancelText}
-              </Text>
-            </View>
-        }
+            </Text>
+          </View>
+        )}
       </View>
     );
   }

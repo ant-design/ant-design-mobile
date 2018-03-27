@@ -1,10 +1,12 @@
-import React from 'react';
 import classnames from 'classnames';
-import BasePropsType from './PropsType';
+import React from 'react';
+import { ProgressPropsType } from './PropsType';
 
-export interface ProgressProps extends BasePropsType {
+export interface ProgressProps extends ProgressPropsType {
   prefixCls?: string;
   className?: string;
+  style?: React.CSSProperties;
+  barStyle?: React.CSSProperties;
 }
 
 export default class Progress extends React.Component<ProgressProps, any> {
@@ -16,8 +18,8 @@ export default class Progress extends React.Component<ProgressProps, any> {
     appearTransition: false,
   };
 
-  barRef: any;
-  private noAppearTransition: any;
+  barRef: HTMLDivElement | null;
+  private noAppearTransition: boolean;
 
   componentWillReceiveProps() {
     this.noAppearTransition = true;
@@ -25,14 +27,26 @@ export default class Progress extends React.Component<ProgressProps, any> {
   componentDidMount() {
     if (this.props.appearTransition) {
       setTimeout(() => {
-        this.barRef.style.width = `${this.props.percent}%`;
+        if (this.barRef) {
+          this.barRef.style.width = `${this.props.percent}%`;
+        }
       }, 10);
     }
   }
   render() {
-    const { className, prefixCls, position, unfilled, style = {}, barStyle = {} } = this.props;
+    const {
+      className,
+      prefixCls,
+      position,
+      unfilled,
+      style = {},
+      barStyle = {},
+    } = this.props;
     const percentStyle = {
-      width: this.noAppearTransition || !this.props.appearTransition ? `${this.props.percent}%` : 0,
+      width:
+        this.noAppearTransition || !this.props.appearTransition
+          ? `${this.props.percent}%`
+          : 0,
       height: 0,
     };
 
@@ -50,7 +64,11 @@ export default class Progress extends React.Component<ProgressProps, any> {
         aria-valuemin={0}
         aria-valuemax={100}
       >
-        <div ref={el => this.barRef = el} className={`${prefixCls}-bar`} style={{ ...barStyle, ...percentStyle }} />
+        <div
+          ref={el => (this.barRef = el)}
+          className={`${prefixCls}-bar`}
+          style={{ ...barStyle, ...percentStyle }}
+        />
       </div>
     );
   }

@@ -1,16 +1,16 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import {
-  View,
-  Text,
   Image,
-  TouchableWithoutFeedback,
-  TouchableOpacity,
   StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
 } from 'react-native';
+import ImageRoll from './ImageRoll.native';
 import { ImagePickerPropTypes } from './PropsType';
 import imagePickerStyle, { IImagePickerStyle } from './style/index.native';
-import ImageRoll from './ImageRoll.native';
 
 export interface ImagePickerNativeProps extends ImagePickerPropTypes {
   styles?: IImagePickerStyle;
@@ -18,10 +18,15 @@ export interface ImagePickerNativeProps extends ImagePickerPropTypes {
 
 const imagePickerStyles = StyleSheet.create<any>(imagePickerStyle);
 
-export default class ImagePicker extends React.Component<ImagePickerNativeProps, any> {
+export default class ImagePicker extends React.Component<
+  ImagePickerNativeProps,
+  any
+> {
   static defaultProps = {
     styles: imagePickerStyles,
-    onChange() { },
+    // tslint:disable-next-line:no-empty
+    onChange() {},
+    // tslint:disable-next-line:no-empty
     onFail() {},
     files: [],
     selectable: true,
@@ -30,7 +35,7 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
   plusText: any;
   plusWrap: any;
 
-  constructor(props) {
+  constructor(props: ImagePickerNativeProps) {
     super(props);
     this.state = {
       visible: false,
@@ -61,7 +66,7 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
     });
   }
 
-  addImage(imageObj) {
+  addImage(imageObj: any) {
     if (!imageObj.url) {
       imageObj.url = imageObj.uri;
       delete imageObj.uri;
@@ -95,7 +100,7 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
     }
   }
 
-  onImageClick(index) {
+  onImageClick(index: number) {
     if (this.props.onImageClick) {
       this.props.onImageClick(index, this.props.files);
     }
@@ -106,13 +111,20 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
     const styles = this.props.styles!;
     const filesView = files.map((item: any, index) => (
       <View key={index} style={[styles.item, styles.size]}>
-        <TouchableOpacity onPress={() => this.onImageClick(index)} activeOpacity={0.6}>
+        <TouchableOpacity
+          onPress={() => this.onImageClick(index)}
+          activeOpacity={0.6}
+        >
           <Image
             source={{ uri: item.url }}
             style={[styles.size, styles.image]}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.removeImage(index)} style={styles.closeWrap} activeOpacity={0.6}>
+        <TouchableOpacity
+          onPress={() => this.removeImage(index)}
+          style={styles.closeWrap}
+          activeOpacity={0.6}
+        >
           <Text style={styles.closeText}>×</Text>
         </TouchableOpacity>
       </View>
@@ -127,22 +139,25 @@ export default class ImagePicker extends React.Component<ImagePickerNativeProps,
     return (
       <View style={styles.container}>
         {filesView}
-        {
-          selectable && (
-            <TouchableWithoutFeedback
-              onPress={this.showPicker}
-              onPressIn={this.onPressIn}
-              onPressOut={this.onPressOut}
+        {selectable && (
+          <TouchableWithoutFeedback
+            onPress={this.showPicker}
+            onPressIn={this.onPressIn}
+            onPressOut={this.onPressOut}
+          >
+            <View
+              ref={conponent => (this.plusWrap = conponent)}
+              style={[
+                styles.item,
+                styles.size,
+                styles.plusWrap,
+                styles.plusWrapNormal,
+              ]}
             >
-              <View
-                ref={conponent => this.plusWrap = conponent}
-                style={[styles.item, styles.size, styles.plusWrap, styles.plusWrapNormal]}
-              >
-                <Text style={[styles.plusText]}>+</Text>
-              </View>
-            </TouchableWithoutFeedback>
-          )
-        }
+              <Text style={[styles.plusText]}>+</Text>
+            </View>
+          </TouchableWithoutFeedback>
+        )}
         {this.state.visible ? imageRollEl : null}
       </View>
     );

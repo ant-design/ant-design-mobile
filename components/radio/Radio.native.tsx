@@ -1,21 +1,30 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Image, Text, View, StyleSheet } from 'react-native';
-import { RadioProps } from './PropsType';
+import {
+  Image,
+  ImageStyle,
+  StyleProp,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
+import { RadioPropsType } from './PropsType';
 import RadioStyle, { IRadioStyle } from './style/index.native';
 
-export interface IRadioNativeProps extends RadioProps {
+export interface RadioNativeProps extends RadioPropsType {
   styles?: IRadioStyle;
+  style?: StyleProp<ImageStyle>;
 }
 
 const RadioStyles = StyleSheet.create<any>(RadioStyle);
 
-export default class Radio extends React.Component<IRadioNativeProps, any> {
+export default class Radio extends React.Component<RadioNativeProps, any> {
   static RadioItem: any;
   static defaultProps = {
     styles: RadioStyles,
   };
 
-  constructor(props: RadioProps, context: any) {
+  constructor(props: RadioNativeProps, context: any) {
     super(props, context);
 
     this.state = {
@@ -23,7 +32,7 @@ export default class Radio extends React.Component<IRadioNativeProps, any> {
     };
   }
 
-  componentWillReceiveProps(nextProps: RadioProps): void {
+  componentWillReceiveProps(nextProps: RadioNativeProps): void {
     if ('checked' in nextProps) {
       this.setState({
         checked: !!nextProps.checked,
@@ -49,19 +58,23 @@ export default class Radio extends React.Component<IRadioNativeProps, any> {
     const { style, disabled, children } = this.props;
     const styles = this.props.styles!;
 
-    let checked = this.state.checked;
+    const checked = this.state.checked;
     let imgSrc = undefined as any;
     if (checked) {
-      if (disabled) {
-        imgSrc = require('./image/checked_disable.png');
-      } else {
-        imgSrc = require('./image/checked.png');
-      }
+      imgSrc = disabled
+        ? require('./image/checked_disable.png')
+        : require('./image/checked.png');
     }
-    return (<TouchableWithoutFeedback onPress={this.handleClick}>
+    return (
+      <TouchableWithoutFeedback onPress={this.handleClick}>
         <View style={[styles.wrapper]}>
           <Image source={imgSrc} style={[styles.icon, style]} />
-          {typeof children === 'string' ? <Text>{this.props.children}</Text> : children}
+          {typeof children === 'string' ? (
+          // tslint:disable-next-line:jsx-no-multiline-js
+            <Text>{this.props.children}</Text>
+          ) : (
+            children
+          )}
         </View>
       </TouchableWithoutFeedback>
     );

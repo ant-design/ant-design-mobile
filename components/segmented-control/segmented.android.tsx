@@ -1,17 +1,28 @@
 import React from 'react';
-import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
-import setNormalizedColorAlpha from 'react-native/Libraries/StyleSheet/setNormalizedColorAlpha';
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+  ViewStyle,
+} from 'react-native';
 import normalizeColor from 'react-native/Libraries/StyleSheet/normalizeColor';
-import SegmentedControlProps from './PropsType';
+import setNormalizedColorAlpha from 'react-native/Libraries/StyleSheet/setNormalizedColorAlpha';
+import { SegmentedControlPropsType } from './PropsType';
 import AndroidStyle, { ISegmentControlStyle } from './style/index.native';
 
-export interface ISegmentControlNativeProps extends SegmentedControlProps {
+export interface SegmentControlNativeProps extends SegmentedControlPropsType {
   styles?: ISegmentControlStyle;
+  style?: StyleProp<ViewStyle>;
 }
 
 const AndroidStyles = StyleSheet.create<any>(AndroidStyle);
 
-export default class SegmentedControl extends React.Component<ISegmentControlNativeProps, any> {
+export default class SegmentedControl extends React.Component<
+  SegmentControlNativeProps,
+  any
+> {
   static defaultProps = {
     selectedIndex: 0,
     disabled: false,
@@ -23,14 +34,14 @@ export default class SegmentedControl extends React.Component<ISegmentControlNat
     styles: AndroidStyles,
   };
 
-  constructor(props) {
+  constructor(props: SegmentControlNativeProps) {
     super(props);
     this.state = {
       selectedIndex: props.selectedIndex,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: SegmentControlNativeProps) {
     if (nextProps.selectedIndex !== this.props.selectedIndex) {
       this.setState({
         selectedIndex: nextProps.selectedIndex,
@@ -38,7 +49,7 @@ export default class SegmentedControl extends React.Component<ISegmentControlNat
     }
   }
 
-  onPress(e, index, value) {
+  onPress(e: any, index: number, value: string) {
     const { disabled, onChange, onValueChange } = this.props;
     if (!disabled) {
       e.nativeEvent.selectedSegmentIndex = index;
@@ -68,14 +79,19 @@ export default class SegmentedControl extends React.Component<ISegmentControlNat
         itemRadius = styles.itemRightRadius;
       }
 
-      const itemStyle = [styles.item, itemRadius, {
-        backgroundColor: idx === selectedIndex ? tintColor : 'transparent',
-        borderColor: tintColor,
-      }];
+      const itemStyle = [
+        styles.item,
+        itemRadius,
+        {
+          backgroundColor: idx === selectedIndex ? tintColor : 'transparent',
+          borderColor: tintColor,
+        },
+      ];
 
-      const underlayColor = idx === selectedIndex ? tintColor : setNormalizedColorAlpha(
-        normalizeColor(tintColor), 0.3,
-      );
+      const underlayColor =
+        idx === selectedIndex
+          ? tintColor
+          : setNormalizedColorAlpha(normalizeColor(tintColor), 0.3);
 
       return (
         <TouchableHighlight
@@ -86,7 +102,13 @@ export default class SegmentedControl extends React.Component<ISegmentControlNat
           style={itemStyle}
           activeOpacity={1}
         >
-          <Text style={[styles.itemText, { color: idx === selectedIndex ? '#fff' : tintColor }]}>
+          <Text
+            // tslint:disable-next-line:jsx-no-multiline-js
+            style={[
+              styles.itemText,
+              { color: idx === selectedIndex ? '#fff' : tintColor },
+            ]}
+          >
             {value}
           </Text>
         </TouchableHighlight>
@@ -95,15 +117,10 @@ export default class SegmentedControl extends React.Component<ISegmentControlNat
 
     const enabledOpacity = !disabled ? 1 : 0.5;
     const segmentedStyle = {
-      ...style,
       opacity: enabledOpacity,
       borderColor: tintColor,
     };
 
-    return (
-      <View style={[styles.segment, segmentedStyle, style]}>
-        {items}
-      </View>
-    );
+    return <View style={[styles.segment, segmentedStyle, style]}>{items}</View>;
   }
 }

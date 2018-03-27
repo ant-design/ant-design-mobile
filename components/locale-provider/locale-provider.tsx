@@ -1,17 +1,20 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 export interface LocaleProviderProps {
   locale: {
-    Pagination?: Object,
-    DatePicker?: Object,
-    DatePickerView?: Object,
-    InputItem?: Object,
+    Pagination?: object;
+    DatePicker?: object;
+    DatePickerView?: object;
+    InputItem?: object;
   };
   children?: React.ReactElement<any>;
 }
 
-export default class LocaleProvider extends React.Component<LocaleProviderProps, any> {
+export default class LocaleProvider extends React.Component<
+  LocaleProviderProps,
+  any
+> {
   static propTypes = {
     locale: PropTypes.object,
   };

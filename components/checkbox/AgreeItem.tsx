@@ -1,17 +1,21 @@
-import React from 'react';
 import classnames from 'classnames';
-import Checkbox from './Checkbox';
-import { AgreeItemPropsType as BasePropsType } from './PropsType';
+import React from 'react';
 import getDataAttr from '../_util/getDataAttr';
+import Checkbox from './Checkbox';
+import { CheckboxPropsType } from './PropsType';
 
-export interface AgreeItemPropsType extends BasePropsType {
+export interface AgreeItemPropsType extends CheckboxPropsType {
   prefixCls?: string;
   className?: string;
   name?: string;
   wrapLabel?: boolean;
+  style?: React.CSSProperties;
 }
 
-export default class AgreeItem extends React.Component<AgreeItemPropsType, any> {
+export default class AgreeItem extends React.Component<
+  AgreeItemPropsType,
+  any
+> {
   static defaultProps = {
     prefixCls: 'am-checkbox',
   };
@@ -21,8 +25,10 @@ export default class AgreeItem extends React.Component<AgreeItemPropsType, any> 
     const { prefixCls, className } = restProps;
     const wrapCls = classnames(`${prefixCls}-agree`, className);
 
-    return (<div {...getDataAttr(restProps)} className={wrapCls} style={style}>
-      <Checkbox {...restProps} className={`${prefixCls}-agree-label`} />
-    </div>);
+    return (
+      <div {...getDataAttr(restProps)} className={wrapCls} style={style}>
+        <Checkbox {...restProps} className={`${prefixCls}-agree-label`} />
+      </div>
+    );
   }
 }

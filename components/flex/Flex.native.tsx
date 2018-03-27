@@ -1,12 +1,18 @@
 import React from 'react';
-import { View, TouchableWithoutFeedback } from 'react-native';
-import { FlexProps as BasePropsType } from './PropsType';
+import {
+  StyleProp,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle,
+} from 'react-native';
+import { FlexPropsType } from './PropsType';
 
-export interface FlexProps extends BasePropsType {
-  onPress?: (e?: any) => void;
-  onLongPress?: any;
-  onPressIn?: any;
-  onPressOut?: any;
+export interface FlexProps extends FlexPropsType {
+  onPress?: () => void;
+  onLongPress?: () => void;
+  onPressIn?: () => void;
+  onPressOut?: () => void;
+  style?: StyleProp<ViewStyle>;
 }
 
 export default class Flex extends React.Component<FlexProps, any> {
@@ -20,7 +26,7 @@ export default class Flex extends React.Component<FlexProps, any> {
   };
 
   render() {
-    let {
+    const {
       style,
       direction,
       wrap,
@@ -29,8 +35,8 @@ export default class Flex extends React.Component<FlexProps, any> {
       children,
       ...restProps,
     } = this.props;
-    let transferConst = [justify, align];
-    transferConst = transferConst.map(el => {
+    const transferConst = [justify, align];
+    const transferConstStyle = transferConst.map(el => {
       let tempTxt;
       switch (el) {
         case 'start':
@@ -52,11 +58,11 @@ export default class Flex extends React.Component<FlexProps, any> {
 
       return tempTxt;
     });
-    const flexStyle = {
+    const flexStyle: any = {
       flexDirection: direction,
       flexWrap: wrap,
-      justifyContent: transferConst[0],
-      alignItems: transferConst[1],
+      justifyContent: transferConstStyle[0],
+      alignItems: transferConstStyle[1],
     };
 
     const inner = (

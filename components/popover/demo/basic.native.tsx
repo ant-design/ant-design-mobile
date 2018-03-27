@@ -1,11 +1,11 @@
-import React from 'react';
-import { StyleSheet, View, Text, ViewStyle, Platform } from 'react-native';
 import { Popover } from 'antd-mobile';
+import React from 'react';
+import { Platform, StyleSheet, Text, View, ViewStyle } from 'react-native';
 
 const Item = Popover.Item;
 
 export default class PopoverExample extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       // visible: false,
@@ -17,7 +17,7 @@ export default class PopoverExample extends React.Component<any, any> {
   //     this.refs.mc.refs.menuContext.toggleMenu('m');
   //   }, 2000);
   // }
-  onSelect = (value) => {
+  onSelect = (value: any) => {
     this.setState({
       // visible: false,
       selected: value,
@@ -30,30 +30,44 @@ export default class PopoverExample extends React.Component<any, any> {
   // }
   render() {
     let overlay = [1, 2, 3].map((i, index) => (
-      <Item key={index} value={`option ${i}`}><Text>option {i}</Text></Item>
+      <Item key={index} value={`option ${i}`}>
+        <Text>option {i}</Text>
+      </Item>
     ));
     overlay = overlay.concat([
-      <Item key="4" value="disabled" disabled><Text style={{ color: '#ddd' }}>disabled opt</Text></Item>,
-      <Item key="6" value="button ct" style={{ backgroundColor: '#efeff4' }}><Text>关闭</Text></Item>,
+      <Item key="4" value="disabled" disabled>
+        <Text style={{ color: '#ddd' }}>disabled opt</Text>
+      </Item>,
+      <Item key="6" value="button ct" style={{ backgroundColor: '#efeff4' }}>
+        <Text>关闭</Text>
+      </Item>,
     ]);
-    return (<View>
+    return (
       <View>
-        <Text style={{ marginTop: 30, marginLeft: 100 }}>选择了：{this.state.selected}</Text>
+        <View>
+          <Text style={{ marginTop: 30, marginLeft: 100 }}>
+            选择了：{this.state.selected}
+          </Text>
+        </View>
+        <View style={styles.menuContainer}>
+          <Popover
+            name="m"
+            style={{ backgroundColor: '#eee' }}
+            overlay={overlay}
+            contextStyle={styles.contextStyle}
+            // tslint:disable-next-line:jsx-no-multiline-js
+            overlayStyle={[
+              styles.overlayStyle,
+              Platform.OS === 'android' && styles.androidOverlayStyle,
+            ]}
+            triggerStyle={styles.triggerStyle}
+            onSelect={this.onSelect}
+          >
+            <Text>菜单</Text>
+          </Popover>
+        </View>
       </View>
-      <View style={styles.menuContainer}>
-        <Popover
-          name="m"
-          style={{ backgroundColor: '#eee' }}
-          overlay={overlay}
-          contextStyle={styles.contextStyle}
-          overlayStyle={[styles.overlayStyle, Platform.OS === 'android' && styles.androidOverlayStyle]}
-          triggerStyle={styles.triggerStyle}
-          onSelect={this.onSelect}
-        >
-          <Text>菜单</Text>
-        </Popover>
-      </View>
-    </View>);
+    );
   }
 }
 

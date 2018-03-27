@@ -1,11 +1,13 @@
+// tslint:disable:jsx-no-multiline-js
+
 import React from 'react';
 import {
-  View,
-  Text,
-  Image,
   ActivityIndicator,
   Animated,
+  Image,
   StyleSheet,
+  Text,
+  View,
 } from 'react-native';
 import ToastContainerStyle, { IToastStyle } from './style/index.native';
 
@@ -25,14 +27,13 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
   static defaultProps = {
     duration: 3,
     mask: true,
-    onClose() {
-    },
+    onClose() {},
     styles: ToastContainerStyles,
   };
 
-  anim: any;
+  anim: Animated.CompositeAnimation | null;
 
-  constructor(props) {
+  constructor(props: ToastProps) {
     super(props);
     this.state = {
       fadeAnim: new Animated.Value(0),
@@ -47,19 +48,11 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
       this.anim = null;
     }
     const animArr = [
-      timing(
-        this.state.fadeAnim,
-        { toValue: 1, duration: 200 },
-      ),
+      timing(this.state.fadeAnim, { toValue: 1, duration: 200 }),
       Animated.delay(duration * 1000),
     ];
     if (duration > 0) {
-      animArr.push(
-        timing(
-          this.state.fadeAnim,
-          { toValue: 0, duration: 200 },
-        ),
-      );
+      animArr.push(timing(this.state.fadeAnim, { toValue: 0, duration: 200 }));
     }
     this.anim = Animated.sequence(animArr);
     this.anim.start(() => {
@@ -85,7 +78,9 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
   render() {
     const { type = '', content, mask } = this.props;
     const styles = this.props.styles!;
-    const iconType = {
+    const iconType: {
+      [key: string]: any;
+    } = {
       success: require('./images/success.png'),
       fail: require('./images/fail.png'),
       offline: require('./images/offline.png'),
@@ -93,26 +88,33 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
 
     let iconDom: React.ReactElement<any> | null = null;
     if (type === 'loading') {
-      iconDom = <ActivityIndicator
-        animating
-        style={[styles.centering]}
-        color="white"
-        size="large"
-      />;
+      iconDom = (
+        <ActivityIndicator
+          animating
+          style={[styles.centering]}
+          color="white"
+          size="large"
+        />
+      );
     } else if (type === 'info') {
       iconDom = null;
     } else {
-      iconDom = <Image
-        source={iconType[type]}
-        style={styles.image}
-      />;
+      iconDom = <Image source={iconType[type]} style={styles.image} />;
     }
 
     return (
-      <View style={[styles.container]} pointerEvents={mask ? undefined : 'box-none'}>
+      <View
+        style={[styles.container]}
+        pointerEvents={mask ? undefined : 'box-none'}
+      >
         <View style={[styles.innerContainer]}>
           <Animated.View style={{ opacity: this.state.fadeAnim }}>
-            <View style={[styles.innerWrap, iconDom ? styles.iconToast : styles.textToast]}>
+            <View
+              style={[
+                styles.innerWrap,
+                iconDom ? styles.iconToast : styles.textToast,
+              ]}
+            >
               {iconDom}
               <Text style={styles.content}>{content}</Text>
             </View>

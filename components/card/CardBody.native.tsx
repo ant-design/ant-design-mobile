@@ -1,9 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
-import { CardBodyProps as BasePropsType } from './PropsType';
+import { StyleProp, View, ViewStyle } from 'react-native';
 
-export interface CardBodyProps extends BasePropsType {
+export interface CardBodyProps {
   styles?: any;
+  style?: StyleProp<ViewStyle>;
 }
 
 export default class CardBody extends React.Component<CardBodyProps, any> {
@@ -12,9 +12,7 @@ export default class CardBody extends React.Component<CardBodyProps, any> {
   };
 
   render() {
-    let { style, styles, ...restProps } = this.props;
-    return (
-      <View style={[styles.body, style]} {...restProps} />
-    );
+    const { style, styles, ...restProps } = this.props;
+    return <View style={[styles.body, style]} {...restProps} />;
   }
 }

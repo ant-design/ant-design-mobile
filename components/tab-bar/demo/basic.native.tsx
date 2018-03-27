@@ -2,27 +2,24 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { TabBar, SearchBar } from 'antd-mobile';
 
-export default class BasicTabBarExample extends React.Component <any, any> {
-  constructor(props) {
+export default class BasicTabBarExample extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       selectedTab: 'redTab',
     };
   }
 
-  renderContent(pageText) {
+  renderContent(pageText: any) {
     return (
       <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'white' }}>
-        <SearchBar
-          placeholder="Search"
-          showCancelButton
-        />
+        <SearchBar placeholder="Search" showCancelButton />
         <Text style={{ margin: 50 }}>{pageText}</Text>
       </View>
     );
   }
 
-  onChangeTab(tabName) {
+  onChangeTab(tabName: any) {
     this.setState({
       selectedTab: tabName,
     });
@@ -75,5 +72,4 @@ export default class BasicTabBarExample extends React.Component <any, any> {
       </TabBar>
     );
   }
-
 }

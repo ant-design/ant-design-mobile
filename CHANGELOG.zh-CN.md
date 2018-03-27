@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title: 更新日志
 timeline: true
 toc: false
@@ -14,6 +14,33 @@ toc: false
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+
+### 2.1.8
+
+`2018-03-19`
+
+
+- **Bug Fix**
+
+  - 🐞  修复 `InputItem[type="money"]` onChange 回调参数格式改变的 bug。([#2403](https://github.com/ant-design/ant-design-mobile/pull/2403))
+
+### 2.1.7
+
+`2018-03-16`
+
+
+- **Bug Fix**
+
+  - 🐞  修复 `Grid` 无边框。
+  - 🐞  修复 `Modal.prompt` onPress 返回 promise 的问题。([#2243](https://github.com/ant-design/ant-design-mobile/pull/2243))
+  - 🐞  修复 `ImagePicker` 在删除后再添加抛异常的问题。([#2302](https://github.com/ant-design/ant-design-mobile/pull/2302))
+  - 🐞  修复 `Carousel` `autoplayInterval` 的使用问题。([#2369](https://github.com/ant-design/ant-design-mobile/issues/2369))
+  - 🐞  修复 RN `Modal.Alert` 内容不居中的问题。([#2347](https://github.com/ant-design/ant-design-mobile/pull/2347))
+
+- **Enhancement**
+
+  - 📝  重构并完善所有 TypeScript 类型定义 [#2323](https://github.com/ant-design/ant-design-mobile/pull/2323)。
+  - 📝  增加自定义 `Tabs` 个数的 [Demo](https://github.com/ant-design/ant-design-mobile/commit/e210a6db81af48d2e0aa1881c4a192ca4a10dfb2)。
 
 ### 2.1.6
 

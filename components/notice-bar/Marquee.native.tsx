@@ -1,14 +1,15 @@
 import React from 'react';
 import {
-  Text,
-  View,
   Animated,
   Easing,
+  LayoutChangeEvent,
   StyleProp,
+  Text,
   TextStyle,
+  View,
 } from 'react-native';
 
-export interface MarqueeProp {
+export interface MarqueeProps {
   text: React.ReactNode;
   loop?: boolean;
   leading?: number;
@@ -19,7 +20,7 @@ export interface MarqueeProp {
   maxWidth?: number;
 }
 
-class Marquee extends React.PureComponent<MarqueeProp, any> {
+class Marquee extends React.PureComponent<MarqueeProps, any> {
   static defaultProps = {
     text: '',
     loop: false,
@@ -33,7 +34,7 @@ class Marquee extends React.PureComponent<MarqueeProp, any> {
   twidth = 0;
   width = 0;
 
-  constructor(props) {
+  constructor(props: MarqueeProps) {
     super(props);
 
     this.texts = {};
@@ -42,7 +43,7 @@ class Marquee extends React.PureComponent<MarqueeProp, any> {
     };
   }
 
-  onLayout = (e) => {
+  onLayout = (e: LayoutChangeEvent) => {
     if (this.twidth) {
       return;
     }
@@ -58,20 +59,24 @@ class Marquee extends React.PureComponent<MarqueeProp, any> {
     }
   }
 
-  onLayoutContainer = (e) => {
+  onLayoutContainer = (e: LayoutChangeEvent) => {
     if (!this.width) {
       this.width = e.nativeEvent.layout.width;
-      this.setState({
-        left: new Animated.Value(0),
-      }, () => {
-        this.tryStart();
-      });
+      this.setState(
+        {
+          left: new Animated.Value(0),
+        },
+        () => {
+          this.tryStart();
+        },
+      );
     }
   }
 
   startMove = () => {
     const { fps = 40, loop } = this.props;
     const SPPED = 1 / fps * 1000;
+    // tslint:disable-next-line:no-this-assignment
     const { width, twidth, props } = this;
     Animated.timing(this.state.left, {
       toValue: -twidth + width,
@@ -98,7 +103,7 @@ class Marquee extends React.PureComponent<MarqueeProp, any> {
   render() {
     const { style, text, maxWidth } = this.props;
 
-    const textChildren =
+    const textChildren = (
       <Text
         onLayout={this.onLayout}
         numberOfLines={1}
@@ -106,11 +111,22 @@ class Marquee extends React.PureComponent<MarqueeProp, any> {
         style={style}
       >
         {text}
-      </Text>;
+      </Text>
+    );
 
     return (
-      <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }} onLayout={this.onLayoutContainer}>
-        <Animated.View style={{ flexDirection: 'row', left: this.state.left, width: maxWidth }}>
+      <View
+        style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}
+        onLayout={this.onLayoutContainer}
+      >
+        <Animated.View
+          // tslint:disable-next-line:jsx-no-multiline-js
+          style={{
+            flexDirection: 'row',
+            left: this.state.left,
+            width: maxWidth,
+          }}
+        >
           {textChildren}
         </Animated.View>
       </View>

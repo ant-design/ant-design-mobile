@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
+import { List, Radio, WhiteSpace } from 'antd-mobile';
 import React from 'react';
-import { View, Text } from 'react-native';
-import { WhiteSpace, Radio, List } from 'antd-mobile';
+import { Text, View } from 'react-native';
 const RadioItem = Radio.RadioItem;
 
 export default class BasicRadioExample extends React.Component<any, any> {
@@ -16,7 +16,7 @@ export default class BasicRadioExample extends React.Component<any, any> {
         <View style={{ padding: 10 }}>
           <Radio
             checked={this.state.part1Value === 1}
-            onChange={(event) => {
+            onChange={(event: any) => {
               if (event.target.checked) {
                 this.setState({ part1Value: 1 });
               }
@@ -28,7 +28,7 @@ export default class BasicRadioExample extends React.Component<any, any> {
           <WhiteSpace />
           <Radio
             checked={this.state.part1Value === 2}
-            onChange={(event) => {
+            onChange={(event: any) => {
               if (event.target.checked) {
                 this.setState({ part1Value: 2 });
               }
@@ -39,12 +39,14 @@ export default class BasicRadioExample extends React.Component<any, any> {
         </View>
 
         <List style={{ marginTop: 12 }}>
-          <Text style={{ marginTop: 12 }}>Form radio, radio in general list.</Text>
+          <Text style={{ marginTop: 12 }}>
+            Form radio, radio in general list.
+          </Text>
           <RadioItem
             checked={this.state.part2Value === 1}
-            onChange={(event) => {
+            onChange={(event: any) => {
               if (event.target.checked) {
-              this.setState({ part2Value: 1 });
+                this.setState({ part2Value: 1 });
               }
             }}
           >
@@ -52,7 +54,7 @@ export default class BasicRadioExample extends React.Component<any, any> {
           </RadioItem>
           <RadioItem
             checked={this.state.part2Value === 2}
-            onChange={(event) => {
+            onChange={(event: any) => {
               if (event.target.checked) {
                 this.setState({ part2Value: 2 });
               }
@@ -61,7 +63,9 @@ export default class BasicRadioExample extends React.Component<any, any> {
             Use Ant Desgin Component
           </RadioItem>
           <RadioItem disabled>Set disabled</RadioItem>
-          <RadioItem disabled checked>Set disabled</RadioItem>
+          <RadioItem disabled checked>
+            Set disabled
+          </RadioItem>
         </List>
       </View>
     );

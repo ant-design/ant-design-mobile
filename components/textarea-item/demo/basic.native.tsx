@@ -1,17 +1,20 @@
 /* tslint:disable:no-console */
+import { List, TextareaItem } from 'antd-mobile';
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { TextareaItem, List } from 'antd-mobile';
 
-export default class BasicTextAreaItemExample extends React.Component<any, any> {
-  constructor(props) {
+export default class BasicTextAreaItemExample extends React.Component<
+  any,
+  any
+> {
+  constructor(props: any) {
     super(props);
     this.state = {
       val: '默认带value',
     };
   }
 
-  onChange = (val) => {
+  onChange = (val: any) => {
     // console.log(val);
     this.setState({ val });
   }

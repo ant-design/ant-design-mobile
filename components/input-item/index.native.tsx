@@ -1,18 +1,39 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { View, Image, Text, TouchableWithoutFeedback, StyleSheet, Platform, TouchableOpacity } from 'react-native';
-import Input from './Input.native';
+import {
+  GestureResponderEvent,
+  Image,
+  StyleSheet,
+  Text,
+  TextInputProperties
+  TouchableWithoutFeedback,
+  View,
+  Platform,
+  TouchableOpacity
+} from 'react-native';
 import variables from '../style/themes/default.native';
-import BasePropsType from './PropsType';
+import Input from './Input.native';
+import { InputItemPropsType } from './PropsType';
 import InputItemStyle from './style/index.native';
+import { Omit } from '../_util/types';
 
-export interface InputItemProps extends BasePropsType {
+/**
+ * React Native TextInput Props except these props
+ */
+export type TextInputProps = Omit<
+  TextInputProperties,
+  'onChange' | 'onFocus' | 'onBlur'
+>;
+
+export interface InputItemProps extends InputItemPropsType, TextInputProps {
   last?: boolean;
+  onExtraClick?: (event: GestureResponderEvent) => void;
+  onErrorClick?: (event: GestureResponderEvent) => void;
 }
 
-const noop: any = () => { };
+const noop = () => {};
 
-function fixControlledValue(value) {
+function fixControlledValue(value?: string) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
@@ -33,7 +54,6 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     onExtraClick: noop,
     error: false,
     onErrorClick: noop,
-    size: 'large',
     labelNumber: 4,
     labelPosition: 'left',
     textAlign: 'left',
@@ -41,9 +61,9 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     styles: InputItemStyles,
   };
 
-  inputRef: any;
+  inputRef: Input | null;
 
-  onChange = (text) => {
+  onChange = (text: string) => {
     const { onChange, type } = this.props;
     const maxLength = this.props.maxLength as number;
     switch (type) {
@@ -95,8 +115,18 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
   render() {
     const {
-      type, editable, clear, children, error, extra, labelNumber, last,
-      onExtraClick, onErrorClick, styles, ...restProps,
+      type,
+      editable,
+      clear,
+      children,
+      error,
+      extra,
+      labelNumber,
+      last,
+      onExtraClick,
+      onErrorClick,
+      styles,
+      ...restProps,
     } = this.props;
     const { value, defaultValue, style } = restProps;
 
@@ -120,13 +150,26 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     };
 
     const extraStyle = {
-      width: typeof extra === 'string' && (extra as string).length > 0 ?
-        (extra as string).length * variables.font_size_heading : 0,
+      width:
+        typeof extra === 'string' && (extra as string).length > 0
+          ? (extra as string).length * variables.font_size_heading
+          : 0,
     };
 
-    const keyboardTypeArray = ['default', 'email-address',
-      'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation',
-      'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search'];
+    const keyboardTypeArray = [
+      'default',
+      'email-address',
+      'numeric',
+      'phone-pad',
+      'ascii-capable',
+      'numbers-and-punctuation',
+      'url',
+      'number-pad',
+      'name-phone-pad',
+      'decimal-pad',
+      'twitter',
+      'web-search',
+    ];
 
     let keyboardType: any = 'default';
 
@@ -142,27 +185,27 @@ export default class InputItem extends React.Component<InputItemProps, any> {
 
     return (
       <View style={[styles.container, containerStyle, style]}>
-        {
-          children ? (
-            typeof children === 'string' ? <Text style={[styles.text, textStyle]}>{children}</Text> :
-              <View style={textStyle}>{children}</View>
-          ) : null
-        }
+        {children ? (
+          typeof children === 'string' ? (
+            <Text style={[styles.text, textStyle]}>{children}</Text>
+          ) : (
+            <View style={textStyle}>{children}</View>
+          )
+        ) : null}
         <Input
           clearButtonMode={clear ? 'while-editing' : 'never'}
           underlineColorAndroid="transparent"
-          ref={el => this.inputRef = el}
+          ref={el => (this.inputRef = el)}
           {...restProps}
           {...valueProps}
           style={[styles.input, error ? { color: '#f50' } : null]}
           keyboardType={keyboardType}
-          onChange={(event) => this.onChange(event.nativeEvent.text)}
+          onChange={event => this.onChange(event.nativeEvent.text)}
           secureTextEntry={type === 'password'}
           onBlur={this.onInputBlur}
           onFocus={this.onInputFocus}
         />
-        {
-          (editable && clear && Platform.OS === 'android') &&
+        {(editable && clear && Platform.OS === 'android') && (
           <TouchableOpacity
             style={[styles.clear]}
             onPress={this.onInputClear}
@@ -173,23 +216,31 @@ export default class InputItem extends React.Component<InputItemProps, any> {
               style={{ width: 12, height: 12 }}
             />
           </TouchableOpacity>
-        }
-        {extra ? <TouchableWithoutFeedback onPress={onExtraClick}>
-          <View>
-            {typeof extra === 'string' ? <Text style={[styles.extra, extraStyle]}>{extra}</Text> : extra}
-          </View>
-        </TouchableWithoutFeedback> : null}
-        {
-          error &&
+        )}
+        {extra ? (
+          <TouchableWithoutFeedback onPress={onExtraClick}>
+            <View>
+              {typeof extra === 'string' ? (
+                <Text style={[styles.extra, extraStyle]}>{extra}</Text>
+              ) : (
+                extra
+              )}
+            </View>
+          </TouchableWithoutFeedback>
+        ) : null}
+        {error && (
           <TouchableWithoutFeedback onPress={onErrorClick}>
             <View style={[styles.errorIcon]}>
               <Image
                 source={require('../style/images/error.png')}
-                style={{ width: variables.icon_size_xs, height: variables.icon_size_xs }}
+                style={{
+                  width: variables.icon_size_xs,
+                  height: variables.icon_size_xs,
+                }}
               />
             </View>
           </TouchableWithoutFeedback>
-        }
+        )}
       </View>
     );
   }

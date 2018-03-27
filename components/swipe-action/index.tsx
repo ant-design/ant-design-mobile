@@ -1,11 +1,13 @@
-import React from 'react';
-import Swipeout from 'rc-swipeout';
 import classnames from 'classnames';
-import BasePropsType from './PropsType';
+import Swipeout from 'rc-swipeout';
+import React from 'react';
+import { SwipeActionPropsType } from './PropsType';
 
-export interface SwipeActionProps extends BasePropsType {
+export interface SwipeActionProps
+  extends SwipeActionPropsType<React.CSSProperties> {
   prefixCls?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 class SwipeAction extends React.Component<SwipeActionProps, any> {
@@ -15,18 +17,27 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
     disabled: false,
     left: [],
     right: [],
-    onOpen() { },
-    onClose() { },
+    onOpen() {},
+    onClose() {},
   };
 
   render() {
     const {
-      className, style, prefixCls, left = [], right = [], autoClose, disabled, onOpen, onClose, children,
+      className,
+      style,
+      prefixCls,
+      left = [],
+      right = [],
+      autoClose,
+      disabled,
+      onOpen,
+      onClose,
+      children,
     } = this.props;
 
     const wrapClass = classnames(prefixCls, className);
 
-    return (left.length || right.length) ? (
+    return left.length || right.length ? (
       <div style={style} className={className}>
         <Swipeout
           prefixCls={prefixCls}
@@ -41,8 +52,10 @@ class SwipeAction extends React.Component<SwipeActionProps, any> {
         </Swipeout>
       </div>
     ) : (
-        <div style={style} className={wrapClass}>{children}</div>
-      );
+      <div style={style} className={wrapClass}>
+        {children}
+      </div>
+    );
   }
 }
 

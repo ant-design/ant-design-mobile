@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 3
 title: 定制主题
 ---
 

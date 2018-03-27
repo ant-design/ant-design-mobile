@@ -1,20 +1,25 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { getComponentLocale } from '../_util/getLocale';
 import Button from '../button';
 import Flex from '../flex';
-import PaginationProps from './PropsType';
-import PaginationStyle, { IPaginationStyle }  from './style/index.native';
-import { getComponentLocale } from '../_util/getLocale';
 import zh_CN from './locale/zh_CN';
+import { PaginationPropsType, PaginationState } from './PropsType';
+import PaginationStyle, { IPaginationStyle } from './style/index.native';
 
-export interface IPaginationNativeProps extends PaginationProps {
+export interface PaginationNativeProps extends PaginationPropsType {
   styles?: IPaginationStyle;
+  style?: StyleProp<ViewStyle>;
+  indicatorStyle?: StyleProp<ViewStyle>;
 }
 
 const PaginationStyles = StyleSheet.create<any>(PaginationStyle);
 
-export default class Pagination extends React.Component<IPaginationNativeProps, any> {
+export default class Pagination extends React.Component<
+  PaginationNativeProps,
+  PaginationState
+> {
   static defaultProps = {
     mode: 'button',
     current: 1,
@@ -25,18 +30,18 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
     styles: PaginationStyles,
   };
 
- static contextTypes = {
+  static contextTypes = {
     antLocale: PropTypes.object,
   };
 
-  constructor(props) {
+  constructor(props: PaginationNativeProps) {
     super(props);
     this.state = {
       current: props.current,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: PaginationNativeProps) {
     if (nextProps.current !== this.state.current) {
       this.setState({
         current: nextProps.current,
@@ -44,7 +49,7 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
     }
   }
 
-  onChange(p) {
+  onChange(p: number) {
     this.setState({
       current: p,
     });
@@ -57,7 +62,12 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
     const { style, mode, total, simple } = this.props;
     const styles = this.props.styles!;
 
-    const locale = getComponentLocale(this.props, this.context, 'Pagination', () => zh_CN);
+    const locale = getComponentLocale(
+      this.props,
+      this.context,
+      'Pagination',
+      () => zh_CN,
+    );
     const { prevText, nextText } = locale;
 
     const { current } = this.state;
@@ -68,7 +78,9 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
           <Text style={[styles.totalStyle]}>/{total}</Text>
         </View>
       </Flex.Item>
-    ) : <Flex.Item />;
+    ) : (
+      <Flex.Item />
+    );
     let markup = (
       <Flex>
         <Flex.Item>
@@ -103,16 +115,21 @@ export default class Pagination extends React.Component<IPaginationNativeProps, 
         arr.push(
           <View
             key={`dot-${i}`}
-            style={[ styles.pointStyle, styles.spaceStyle, (i + 1) === current && styles.pointActiveStyle ]}
+            // tslint:disable-next-line:jsx-no-multiline-js
+            style={[
+              styles.pointStyle,
+              styles.spaceStyle,
+              i + 1 === current && styles.pointActiveStyle,
+            ]}
           />,
         );
       }
-      markup = <View style={[styles.indicatorStyle, this.props.indicatorStyle]}>{arr}</View>;
+      markup = (
+        <View style={[styles.indicatorStyle, this.props.indicatorStyle]}>
+          {arr}
+        </View>
+      );
     }
-    return (
-      <View style={[styles.container, style]}>
-        {markup}
-      </View>
-    );
+    return <View style={[styles.container, style]}>{markup}</View>;
   }
 }

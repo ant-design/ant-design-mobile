@@ -1,39 +1,43 @@
 import React from 'react';
 import {
-  View,
+  Image,
+  StyleProp,
+  StyleSheet,
   Text,
   TouchableWithoutFeedback,
-  Image,
-  StyleSheet,
+  View,
   ViewStyle,
-  StyleProp,
 } from 'react-native';
+import Marquee, { MarqueeProps } from './Marquee.native';
+import { NoticeBarPropsType } from './PropsType';
 import NoticeStyle, { INoticeBarStyle } from './style/index.native';
-import Marquee, { MarqueeProp } from './Marquee.native';
-import NoticeBarProps from './PropsType';
 
-export interface INoticeNativeProps extends NoticeBarProps {
+export interface NoticeNativeProps extends NoticeBarPropsType {
   styles?: INoticeBarStyle;
-  marqueeProps?: MarqueeProp;
+  marqueeProps?: MarqueeProps;
   style?: StyleProp<ViewStyle>;
 }
 
 const NoticeStyles = StyleSheet.create<any>(NoticeStyle);
 
-export default class NoticeBar extends React.Component<INoticeNativeProps, any> {
+export default class NoticeBar extends React.Component<NoticeNativeProps, any> {
   static defaultProps = {
     mode: '',
     onClick() {},
     icon: (
       <Image
-        source={{ uri: 'https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png' }}
+        // tslint:disable-next-line:jsx-no-multiline-js
+        source={{
+          uri:
+            'https://zos.alipayobjects.com/rmsportal/UgviADRsIpznkjSEXWEaPTlKtPCMSlth.png',
+        }}
         style={{ width: 14, height: 12 }}
       />
     ),
     styles: NoticeStyles,
   };
 
-  constructor(props) {
+  constructor(props: NoticeNativeProps) {
     super(props);
     this.state = {
       show: true,
@@ -58,7 +62,7 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
 
     let operationDom: any = null;
     if (mode === 'closable') {
-      operationDom =  (
+      operationDom = (
         <TouchableWithoutFeedback onPress={this.onClick}>
           <View style={styles.actionWrap}>
             {action ? action : <Text style={[styles.close]}>×</Text>}
@@ -82,10 +86,14 @@ export default class NoticeBar extends React.Component<INoticeNativeProps, any> 
         {operationDom}
       </View>
     );
-    return this.state.show ? mode === 'closable' ? main : (
-      <TouchableWithoutFeedback onPress={this.onClick}>
-        {main}
-      </TouchableWithoutFeedback>
+    return this.state.show ? (
+      mode === 'closable' ? (
+        main
+      ) : (
+        <TouchableWithoutFeedback onPress={this.onClick}>
+          {main}
+        </TouchableWithoutFeedback>
+      )
     ) : null;
   }
 }

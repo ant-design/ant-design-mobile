@@ -1,21 +1,20 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  ActivityIndicator,
-  StyleSheet,
-} from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicatorPropTypes } from './PropsType';
 import indicatorStyle, { IActivityIndicatorStyle } from './style/index.native';
-import PropTypes from './PropsType';
 
-export interface IActivityIndicatorNativeProps extends PropTypes {
+export interface ActivityIndicatorNativeProps
+  extends ActivityIndicatorPropTypes {
   styles?: IActivityIndicatorStyle;
   color?: string;
 }
 
 const indicatorStyles = StyleSheet.create<any>(indicatorStyle);
 
-export default class RNActivityIndicator extends React.Component<IActivityIndicatorNativeProps, any> {
+export default class RNActivityIndicator extends React.Component<
+  ActivityIndicatorNativeProps,
+  any
+> {
   static defaultProps = {
     animating: true,
     color: 'gray',
@@ -30,11 +29,11 @@ export default class RNActivityIndicator extends React.Component<IActivityIndica
       <View style={[styles.container]}>
         <View style={[styles.innerContainer, { height: 89 }]}>
           <View style={[styles.wrapper]}>
-            <ActivityIndicator
-              color="white"
-              size="large"
-            />
-            {this.props.text && (<Text style={[styles.toast]}>{this.props.text}</Text>)}
+            <ActivityIndicator color="white" size="large" />
+            {this.props.text && (
+            // tslint:disable-next-line:jsx-no-multiline-js
+              <Text style={[styles.toast]}>{this.props.text}</Text>
+            )}
           </View>
         </View>
       </View>
@@ -45,21 +44,16 @@ export default class RNActivityIndicator extends React.Component<IActivityIndica
     const { styles, color, size, text } = this.props;
     const { spinner, tip } = styles!;
     return (
-      <View style={spinner} >
-        <ActivityIndicator
-          color={color}
-          size={size}
-        />
-        {text && (<Text style={[tip]}>{text}</Text>)}
+      <View style={spinner}>
+        <ActivityIndicator color={color} size={size} />
+        {text && <Text style={[tip]}>{text}</Text>}
       </View>
     );
   }
 
   render() {
     if (this.props.animating) {
-      return (
-        this.props.toast ? this._renderToast() : this._renderSpinner()
-      );
+      return this.props.toast ? this._renderToast() : this._renderSpinner();
     }
     return null;
   }

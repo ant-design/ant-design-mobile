@@ -1,14 +1,14 @@
 import React from 'react';
 import {
-  View,
-  Text,
-  StatusBar,
   Modal,
+  StatusBar,
   StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
-import varibles from '../style/themes/default.native';
 import CameraRollPicker from 'react-native-camera-roll-picker';
+import varibles from '../style/themes/default.native';
 
 export interface ImageRollProps {
   onCancel: () => void;
@@ -42,24 +42,34 @@ const styles = StyleSheet.create({
 });
 
 export default class ImageRoll extends React.Component<ImageRollProps, any> {
-  onSelected = (images) => {
+  onSelected = (images: any[], _: any) => {
     this.props.onSelected(images[0]);
     this.props.onCancel();
   }
 
   render() {
     return (
-      <Modal animationType="slide" visible onRequestClose={() => {}} transparent={false}>
+      <Modal
+        animationType="slide"
+        visible
+        // tslint:disable-next-line:no-empty
+        onRequestClose={() => {}}
+        transparent={false}
+      >
         <View style={{ flex: 1 }}>
           <StatusBar barStyle="light-content" />
-          <View style={styles.statusBarBg}/>
+          <View style={styles.statusBarBg} />
           <View style={[styles.naviBar]}>
             <Text style={[styles.barTitle]}>Photos</Text>
             <TouchableOpacity onPress={this.props.onCancel}>
               <Text style={styles.rightBtn}>Cancel</Text>
             </TouchableOpacity>
           </View>
-          <CameraRollPicker selected={[]} callback={this.onSelected} maximum={1} />
+          <CameraRollPicker
+            selected={[]}
+            callback={this.onSelected}
+            maximum={1}
+          />
         </View>
       </Modal>
     );

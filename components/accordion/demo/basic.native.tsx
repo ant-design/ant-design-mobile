@@ -1,10 +1,10 @@
 /* tslint:disable:no-console */
+import { Accordion, List } from 'antd-mobile';
 import React from 'react';
 import { View } from 'react-native';
-import { Accordion, List } from 'antd-mobile';
 
 export default class AccordionExmple extends React.Component<any, any> {
-  onChange = (key) => {
+  onChange = (key: string) => {
     console.log(key);
   }
   render() {
@@ -18,9 +18,12 @@ export default class AccordionExmple extends React.Component<any, any> {
               <List.Item>Content 3</List.Item>
             </List>
           </Accordion.Panel>
-          <Accordion.Panel header="Title 2">this is panel content2 or other</Accordion.Panel>
+          <Accordion.Panel header="Title 2">
+            this is panel content2 or other
+          </Accordion.Panel>
           <Accordion.Panel header="Title 3">
-            Text text text text text text text text text text text text text text text
+            Text text text text text text text text text text text text text
+            text text
           </Accordion.Panel>
         </Accordion>
       </View>

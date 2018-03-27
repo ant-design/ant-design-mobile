@@ -1,9 +1,9 @@
 /* tslint:disable:no-console */
-import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
 import { Tabs } from 'antd-mobile';
+import React from 'react';
+import { ScrollView, Text, View } from 'react-native';
 
-const renderContent = (tab, index) => {
+const renderContent = (tab: any, index: any) => {
   const style = {
     paddingVertical: 40,
     justifyContent: 'center',
@@ -12,15 +12,15 @@ const renderContent = (tab, index) => {
     backgroundColor: '#ddd',
   } as any;
   const content = [1, 2, 3, 4, 5, 6, 7, 8].map(i => {
-    return <View key={`${index}_${i}`} style={style}>
-      <Text>
-        {tab.title} - {i}
-      </Text>
-    </View>;
+    return (
+      <View key={`${index}_${i}`} style={style}>
+        <Text>
+          {tab.title} - {i}
+        </Text>
+      </View>
+    );
   });
-  return <ScrollView style={{ backgroundColor: '#fff' }}>
-    {content}
-  </ScrollView>;
+  return <ScrollView style={{ backgroundColor: '#fff' }}>{content}</ScrollView>;
 };
 
 export default class BasicTabsExample extends React.Component<any, any> {
@@ -49,39 +49,25 @@ export default class BasicTabsExample extends React.Component<any, any> {
     } as any;
     return (
       <View style={{ flex: 1 }}>
-        <Tabs
-          tabs={tabs}
-          initialPage={1}
-        >
+        <Tabs tabs={tabs} initialPage={1}>
           <View style={style}>
-            <Text>
-              Content of First Tab
-            </Text>
+            <Text>Content of First Tab</Text>
           </View>
           <View style={style}>
-            <Text>
-              Content of Second Tab
-            </Text>
+            <Text>Content of Second Tab</Text>
           </View>
           <View style={style}>
-            <Text>
-              Content of Third Tab
-            </Text>
+            <Text>Content of Third Tab</Text>
           </View>
         </Tabs>
         <View style={{ flex: 2 }}>
-          <Tabs
-            tabs={tabs2}
-            initialPage={1}
-            tabBarPosition="top"
-          >
+          <Tabs tabs={tabs2} initialPage={1} tabBarPosition="top">
             {renderContent}
           </Tabs>
         </View>
       </View>
     );
   }
-
 }
 
 export const title = 'Tabs';

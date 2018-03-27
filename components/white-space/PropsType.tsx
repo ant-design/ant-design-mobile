@@ -1,7 +1,3 @@
-export interface WhiteSpaceProps {
+export interface WhiteSpacePropsType {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  onClick?: () => void;
-  style?: any;
 }
-
-export default WhiteSpaceProps;
