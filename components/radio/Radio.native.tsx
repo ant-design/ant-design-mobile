@@ -54,7 +54,7 @@ export default class Radio extends React.Component<RadioNativeProps, any> {
     }
   }
 
-  render(): JSX.Element {
+  render(): React.ReactNode {
     const { style, disabled, children } = this.props;
     const styles = this.props.styles!;
 

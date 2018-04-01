@@ -35,7 +35,7 @@ export default class AgreeItem extends React.Component<
     checkBox.handleClick();
   }
 
-  render(): JSX.Element {
+  render(): React.ReactNode {
     // tslint:disable:prefer-const
     let {
       style,

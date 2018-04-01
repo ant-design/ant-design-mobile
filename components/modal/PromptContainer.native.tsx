@@ -12,8 +12,8 @@ import { CallbackOrActions } from './PropsType';
 import promptStyle, { IPromptStyle } from './style/prompt.native';
 
 export interface PropmptContainerProps {
-  title: JSX.Element;
-  message?: JSX.Element;
+  title: React.ReactNode;
+  message?: React.ReactNode;
   type?: 'default' | 'login-password' | 'secure-text';
   defaultValue?: string;
   actions: CallbackOrActions;

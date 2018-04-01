@@ -61,7 +61,7 @@ export default class Checkbox extends React.Component<
     }
   }
 
-  render(): JSX.Element {
+  render(): React.ReactNode {
     const { style, disabled, children, styles } = this.props;
     const checked = this.state.checked;
     let imgSrc;

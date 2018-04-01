@@ -40,7 +40,7 @@ export default class Result extends React.Component<ResultNativeProps, any> {
     } = this.props;
     const styles = this.props.styles!;
 
-    let imgContent: JSX.Element | null = null;
+    let imgContent: React.ReactNode | null = null;
     if (img) {
       imgContent = <View style={styles.imgWrap}>{img}</View>;
     } else if (imgUrl) {

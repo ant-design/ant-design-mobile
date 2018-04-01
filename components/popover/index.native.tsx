@@ -12,7 +12,7 @@ export interface PopoverProps extends PopoverPropsType {
   triggerStyle?: StyleProp<ViewStyle>;
   overlayStyle?: StyleProp<ViewStyle>;
   contextStyle?: StyleProp<ViewStyle>;
-  renderOverlayComponent?: (values: any) => JSX.Element;
+  renderOverlayComponent?: (values: any) => React.ReactNode;
   name?: string;
 }
 export default class Popover extends React.Component<PopoverProps, any> {
