@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleProp, TextStyle } from 'react-native';
 
 export interface ModalPropsType {
-  title?: JSX.Element;
+  title?: React.ReactNode;
   visible: boolean;
   maskClosable?: boolean;
   closable?: boolean;
@@ -27,15 +27,15 @@ export type Callback = (valueOrLogin: string, password?: string) => void;
 export type CallbackOrActions = Callback | Action[];
 export abstract class ModalComponent<P, S> extends React.Component<P, S> {
   static alert: (
-    title: JSX.Element,
-    message: JSX.Element,
+    title: React.ReactNode,
+    message: React.ReactNode,
     actions?: Action[],
     platform?: string,
   ) => { close: () => void };
 
   static prompt: (
-    title: JSX.Element,
-    message: JSX.Element,
+    title: React.ReactNode,
+    message: React.ReactNode,
     callbackOrActions: CallbackOrActions,
     type?: 'default' | 'secure-text' | 'login-password',
     defaultValue?: string,

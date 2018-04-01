@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
-// export type ListType = JSX.Element
+// export type ListType = React.ReactNode
 export interface ListPropsType {
-  renderHeader?: () => React.ReactType | JSX.Element;
-  renderFooter?: () => React.ReactType | JSX.Element;
-  children?: false | JSX.Element | JSX.Element[];
+  renderHeader?: () => React.ReactType | React.ReactNode;
+  renderFooter?: () => React.ReactType | React.ReactNode;
+  children?: false | React.ReactNode | React.ReactNode[];
 }
 
 export interface ListItemPropsType {

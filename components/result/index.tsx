@@ -31,7 +31,7 @@ export default class Result extends React.Component<ResultProps, any> {
       buttonType,
     } = this.props;
 
-    let imgContent: JSX.Element | null = null;
+    let imgContent: React.ReactNode | null = null;
     if (img) {
       imgContent = <div className={`${prefixCls}-pic`}>{img}</div>;
     } else if (imgUrl) {
