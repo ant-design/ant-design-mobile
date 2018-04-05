@@ -29,8 +29,8 @@ export interface DatePickerPropsType {
   extra?: string;
   children?: React.ReactNode;
   /** React.ReactElement only for web */
-  dismissText?: string | JSX.Element;
+  dismissText?: React.ReactNode;
   /** React.ReactElement only for web */
-  okText?: string | JSX.Element;
-  title?: string | JSX.Element;
+  okText?: React.ReactNode;
+  title?: React.ReactNode;
 }
