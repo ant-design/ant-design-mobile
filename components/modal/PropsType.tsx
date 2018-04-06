@@ -18,7 +18,7 @@ export interface ModalPropsType<T> {
 export interface Action<T> {
   text: string;
   onPress?: () => void | Promise<any>;
-  style?: T & string;
+  style?: T | string;
 }
 
 export type Callback = (valueOrLogin: string, password?: string) => void;
