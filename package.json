@@ -162,7 +162,7 @@
     "site-cdn": "cdn-tools run -c ./scripts/cdn-config.js",
     "analysis": "npm run dist && node ./scripts/analysis",
     "deploy":
-      "npm run clean && npm run site && npm run site-cdn && bisheng gh-pages --push-only",
+      "npm run clean && npm run site && bisheng gh-pages --push-only",
     "pub": "cross-env BABEL_ENV=dist antd-tools run pub",
     "rn-start": "node node_modules/react-native/local-cli/cli.js start",
     "ios": "concurrently \"npm run watch-tsc\" \"npm run _ios\"",
