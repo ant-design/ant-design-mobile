@@ -63,7 +63,7 @@
     "@types/react-dom": "16.0.3",
     "@types/react-native": "^0.52.8",
     "@types/react-native-collapsible": "^0.8.0",
-    "@types/react-native-drawer-layout": "^1.3.3",
+    "@types/react-native-drawer-layout": "1.3.3",
     "antd": "3.x",
     "antd-mobile-demo-data": "^0.2.0",
     "antd-tools": "^4.0.2",
