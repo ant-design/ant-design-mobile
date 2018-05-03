@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleProp, Text, ViewStyle } from 'react-native';
 import { IconPropsType } from './PropsType';
 

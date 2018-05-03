@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
-import React from 'react';
+import * as React from 'react';
 import { RadioPropsType } from './PropsType';
 
 export interface RadioProps extends RadioPropsType {

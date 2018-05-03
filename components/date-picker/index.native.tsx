@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import PropTypes from 'prop-types';
-import React from 'react';
+import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
 import PopupDatePicker from 'rmc-date-picker/lib/Popup';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { ImageStyle, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import List from '../list/index.native';
 import Checkbox from './Checkbox.native';

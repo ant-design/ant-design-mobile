@@ -1,5 +1,5 @@
 import { Button, Progress, WhiteSpace } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { Text, View, ViewStyle } from 'react-native';
 
 export default class BasicProgressExample extends React.Component<any, any> {

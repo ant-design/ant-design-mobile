@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { render, mount, shallow } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
 import Progress from '../index';

@@ -1,5 +1,5 @@
 /* eslint react/no-danger: 0 */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CopyToClipboard from 'react-copy-to-clipboard';

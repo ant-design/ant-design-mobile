@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import * as React from 'react';
 
 export interface DrawerProps {
   onOpenChange?: (isOpen: boolean) => void;
@@ -8,15 +8,15 @@ export interface DrawerProps {
 }
 
 export interface DrawerWebProps extends DrawerProps {
-  sidebarStyle?: CSSProperties;
-  contentStyle?: CSSProperties;
-  overlayStyle?: CSSProperties;
-  dragHandleStyle?: CSSProperties;
+  sidebarStyle?: React.CSSProperties;
+  contentStyle?: React.CSSProperties;
+  overlayStyle?: React.CSSProperties;
+  dragHandleStyle?: React.CSSProperties;
   docked?: boolean;
   transitions?: boolean;
   touch?: boolean;
   dragToggleDistance?: number;
   prefixCls?: string;
   className?: string;
-  style?: CSSProperties;
+  style?: React.CSSProperties;
 }

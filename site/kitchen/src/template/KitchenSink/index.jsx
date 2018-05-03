@@ -1,7 +1,7 @@
 /* eslint arrow-body-style: 0 */
 /* eslint no-console:0 */
 
-import React from 'react';
+import * as React from 'react';
 
 import List from 'antd-mobile/lib/list';
 import 'antd-mobile/lib/list/style';

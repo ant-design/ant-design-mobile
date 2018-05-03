@@ -1,5 +1,5 @@
 /* tslint:disable:jsx-no-multiline-js */
-import React from 'react';
+import * as React from 'react';
 import RMCCascader from 'rmc-cascader/lib/Cascader';
 import RMCMultiPicker from 'rmc-picker/lib/MultiPicker';
 import RMCPicker from 'rmc-picker/lib/Picker';

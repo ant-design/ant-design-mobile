@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import RMCInputNumber from 'rmc-input-number';
 import Icon from '../icon';
 import { StepPropsType } from './PropsType';

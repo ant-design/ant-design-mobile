@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import CardBody from './CardBody';
 import CardFooter from './CardFooter';

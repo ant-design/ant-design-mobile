@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcSteps from 'rmc-steps';
 import Icon from '../icon';
 import { StepsPropsType } from './PropsType';

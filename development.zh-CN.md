@@ -96,7 +96,7 @@ import './index.less';
 - `components/button/index.tsx`
 
 ```jsx
-import React from 'react';
+import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 
 // 可独立到 components/button/style/index.tsx
@@ -125,7 +125,7 @@ export default Button;
 
 ```jsx
 import { Button } from 'antm';
-import React from 'react';
+import * as React from 'react';
 import { Text, View } from 'react-native';
 
 class BasicButtonExample extends React.Component {

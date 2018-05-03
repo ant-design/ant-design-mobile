@@ -1,6 +1,6 @@
 /* tslint:disable:no-console */
 import { DatePickerView } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { Text, View } from 'react-native';
 
 export default class DatePickerViewExample extends React.Component {

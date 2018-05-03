@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Platform, StyleProp, ViewStyle } from 'react-native';
 import RMCInputNumber from 'rmc-input-number/lib/index.ios';
 import styles from 'rmc-input-number/lib/styles';

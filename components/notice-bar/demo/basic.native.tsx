@@ -1,7 +1,7 @@
 // tslint:disable:jsx-no-multiline-js
 /* tslint:disable:no-console */
 import { NoticeBar, WhiteSpace } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { Image, Text, View } from 'react-native';
 
 export default class NoticeBarExample extends React.Component<any, any> {

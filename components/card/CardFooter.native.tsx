@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleProp, Text, View, ViewStyle } from 'react-native';
 import { CardFooterPropsType } from './PropsType';
 

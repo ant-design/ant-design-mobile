@@ -1,6 +1,6 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import Header from './Header';
 import Footer from './Footer';

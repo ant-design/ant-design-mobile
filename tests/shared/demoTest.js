@@ -1,5 +1,5 @@
 import glob from 'glob';
-import React from 'react';
+import * as React from 'react';
 import { render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
 import renderer from 'react-test-renderer';

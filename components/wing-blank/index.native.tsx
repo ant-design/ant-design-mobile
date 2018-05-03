@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 import varibles from '../style/themes/default.native';
 

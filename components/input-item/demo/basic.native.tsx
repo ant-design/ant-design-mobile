@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import { Button, InputItem, List } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { ScrollView, Text } from 'react-native';
 
 declare var jest: any;

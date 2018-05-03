@@ -1,5 +1,5 @@
 import Swipeout from 'rc-swipeout/lib/Swipeout';
-import React from 'react';
+import * as React from 'react';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { SwipeActionPropsType } from './PropsType';
 

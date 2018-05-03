@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { View, Text, Platform } from 'react-native';
 import { ActionSheet, Button } from 'antd-mobile';
 

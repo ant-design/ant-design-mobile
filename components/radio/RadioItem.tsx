@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import List from '../list';
 import { RadioItemPropsType } from './PropsType';
 import Radio from './Radio';

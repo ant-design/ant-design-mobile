@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 // tslint:disable:no-empty
 import { List } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { Image, ScrollView, View } from 'react-native';
 
 const Item = List.Item;

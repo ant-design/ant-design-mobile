@@ -1,5 +1,5 @@
 /* eslint react/no-danger: 0 */
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'bisheng/router';
 
 export default function NotFound() {

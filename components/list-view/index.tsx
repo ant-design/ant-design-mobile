@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import MListView from 'rmc-list-view';
 import handleProps from './handleProps';
 import IndexedList from './Indexed';

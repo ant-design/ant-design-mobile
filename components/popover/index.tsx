@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Tooltip from 'rmc-tooltip';
 import Item from './Item';
 import { PopoverPropsType } from './PropsType';

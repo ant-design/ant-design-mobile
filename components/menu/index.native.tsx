@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { MenuProps } from './PropsType';
 
 export default class Menu extends React.Component<MenuProps, any> {

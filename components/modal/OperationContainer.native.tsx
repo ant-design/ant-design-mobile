@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleProp, TextStyle } from 'react-native';
 import Modal from './Modal';
 import modalStyle from './style/index.native';

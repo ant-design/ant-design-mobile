@@ -1,5 +1,5 @@
 import { Popover } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { Platform, StyleSheet, Text, View, ViewStyle } from 'react-native';
 
 const Item = Popover.Item;

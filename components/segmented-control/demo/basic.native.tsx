@@ -1,6 +1,6 @@
 /* tslint:disable:no-console */
 import { SegmentedControl, WhiteSpace } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { Text, View } from 'react-native';
 
 export default class BasicTagExample extends React.Component<any, any> {

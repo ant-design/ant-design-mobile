@@ -8,7 +8,7 @@ import {
   SearchBar,
   WhiteSpace,
 } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { View } from 'react-native';
 import enUS from '../en_US';
 

@@ -1,5 +1,5 @@
 import { List, Picker } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { View } from 'react-native';
 
 import { district } from 'antd-mobile-demo-data';

@@ -1,5 +1,5 @@
 /* tslint:disable:jsx-no-multiline-js */
-import React from 'react';
+import * as React from 'react';
 import { LayoutChangeEvent, StyleSheet, View } from 'react-native';
 import { StepsPropsType } from './PropsType';
 import RNStepsItem from './StepsItem.native';

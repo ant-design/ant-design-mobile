@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { ActivityIndicatorPropTypes } from './PropsType';
 import indicatorStyle, { IActivityIndicatorStyle } from './style/index.native';

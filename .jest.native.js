@@ -43,4 +43,9 @@ module.exports = {
   transformIgnorePatterns: [
     `node_modules/(?!(${transformPackages.join('|')})/)`,
   ],
+  globals: {
+    'ts-jest': {
+      tsConfigFile: './tsconfig.test.json',
+    }
+  },
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Text } from 'react-native';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';

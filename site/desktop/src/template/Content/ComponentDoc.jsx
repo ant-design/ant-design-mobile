@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StickyContainer, Sticky } from 'react-sticky';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';

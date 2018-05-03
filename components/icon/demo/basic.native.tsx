@@ -1,5 +1,5 @@
 import { Grid, Icon } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 
 const list = [
   'check-circle',

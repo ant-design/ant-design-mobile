@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
 import Accordion from '../index';

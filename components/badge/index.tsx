@@ -1,12 +1,12 @@
 import classnames from 'classnames';
-import React, { CSSProperties } from 'react';
+import * as React from 'react';
 import { BadgePropsTypes } from './PropsType';
 
 export interface BadgeProps extends BadgePropsTypes {
   prefixCls?: string;
   className?: string;
   hot?: boolean;
-  style?: CSSProperties;
+  style?: React.CSSProperties;
 }
 
 export default class Badge extends React.Component<BadgeProps, any> {

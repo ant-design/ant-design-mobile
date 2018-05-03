@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { BadgePropsTypes } from './PropsType';
 import BadgeStyle, { IBadgeStyle } from './style/index.native';

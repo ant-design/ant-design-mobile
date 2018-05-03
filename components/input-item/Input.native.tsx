@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { TextInput, TextInputProperties } from 'react-native';
 
 export interface TextInputProps extends TextInputProperties {

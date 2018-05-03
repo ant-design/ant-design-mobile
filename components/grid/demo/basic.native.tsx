@@ -1,5 +1,5 @@
 import { Grid } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
 const data = Array.from(new Array(9)).map((_val, i) => ({

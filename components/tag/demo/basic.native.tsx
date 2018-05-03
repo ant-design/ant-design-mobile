@@ -1,7 +1,7 @@
 // tslint:disable:jsx-no-multiline-js
 /* tslint:disable:no-console */
 import { Tag, WhiteSpace } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { View } from 'react-native';
 
 function onChange(selected: any) {

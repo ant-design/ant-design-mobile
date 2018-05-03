@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import { FlexPropsType as BasePropsType } from './PropsType';
 
 export interface FlexProps extends BasePropsType {

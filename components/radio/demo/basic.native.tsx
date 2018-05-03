@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import { List, Radio, WhiteSpace } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { Text, View } from 'react-native';
 const RadioItem = Radio.RadioItem;
 

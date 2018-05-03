@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import topView from 'rn-topview';
 import PromptContainer from './PromptContainer.native';
 import { CallbackOrActions } from './PropsType';

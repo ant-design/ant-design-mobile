@@ -1,5 +1,5 @@
 import RcRange from 'rc-slider/lib/Range';
-import React from 'react';
+import * as React from 'react';
 import { RangePropsType } from './PropsType';
 
 export interface RangeProps extends RangePropsType {

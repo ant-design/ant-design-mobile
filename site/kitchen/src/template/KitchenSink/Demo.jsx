@@ -1,6 +1,6 @@
 /* eslint react/no-danger: 0 */
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import WhiteSpace from 'antd-mobile/lib/white-space';
 import 'antd-mobile/lib/white-space/style';
 import Button from 'antd-mobile/lib/button';

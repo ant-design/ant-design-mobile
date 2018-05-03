@@ -1,5 +1,5 @@
 import { Carousel } from 'antd-mobile';
-import React from 'react';
+import * as React from 'react';
 import { StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
 
 export default class BasicCarouselExample extends React.Component<any, any> {
