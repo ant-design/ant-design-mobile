@@ -205,7 +205,8 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     let valueAfterChange;
     // 删除键
     if (KeyboardItemValue === 'delete') {
-      valueAfterChange = value.substring(0, value.length - 1);
+      const _value = (typeof value === 'number' ? value.toString() : value);
+      valueAfterChange = _value.substring(0, _value.length - 1);
       onChange({ target: { value: valueAfterChange } });
       // 确认键
     } else if (KeyboardItemValue === 'confirm') {
