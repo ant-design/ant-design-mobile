@@ -14,7 +14,6 @@ export interface NumberInputProps {
   editable?: boolean;
   moneyKeyboardAlign?: 'left' | 'right' | string;
   value?: string;
-  defaultValue?: string;
   prefixCls?: string;
   keyboardPrefixCls?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -205,8 +204,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     let valueAfterChange;
     // 删除键
     if (KeyboardItemValue === 'delete') {
-      const _value = (typeof value === 'number' ? value.toString() : value);
-      valueAfterChange = _value.substring(0, _value.length - 1);
+      valueAfterChange = value.substring(0, value.length - 1);
       onChange({ target: { value: valueAfterChange } });
       // 确认键
     } else if (KeyboardItemValue === 'confirm') {
