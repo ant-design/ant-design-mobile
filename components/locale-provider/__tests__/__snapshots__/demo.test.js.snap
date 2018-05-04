@@ -138,7 +138,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
               <div
                 class="am-list-extra"
               >
-                请选择
+                please select
               </div>
               <div
                 aria-hidden="true"
@@ -220,7 +220,7 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
       <div
         class="am-search-cancel am-search-cancel-show"
       >
-        取消
+        Cancel
       </div>
     </form>
   </div>
