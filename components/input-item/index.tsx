@@ -305,6 +305,7 @@ class InputItem extends React.Component<InputItemProps, any> {
                 {...restProps}
                 {...classNameProps}
                 value={normalizeValue(value)}
+                defaultValue={undefined}
                 ref={(el: any) => (this.inputRef = el)}
                 style={style}
                 type={inputType}

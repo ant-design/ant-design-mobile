@@ -30,6 +30,7 @@ class H5NumberInputExample extends React.Component {
           <InputItem
             {...getFieldProps('money3')}
             type={type}
+            defaultValue={100}
             placeholder="start from left"
             clear
             moneyKeyboardAlign="left"
