@@ -20,3 +20,5 @@ Support WEB, React-Native.
 percent | percent value of progress | number | 0
 position | position of progress bar, optional：`fixed` `normal` | string | `fixed`
 unfilled | whether to fill unfinished part of progress | boolean | true
+style | the style of container | object | {}
+barStyle | the style of bar | object | {}
