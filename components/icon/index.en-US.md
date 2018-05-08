@@ -40,7 +40,7 @@ example：
 built-in icon： <Icon type="check" size="md" color="red" />
 customized icon：<Icon type={'\ue601'} size={55} /> (具体参看 demo)
 ```
-> Note: You can find some unicode charactors in [https://ant.design/components/icon/](https://ant.design/components/icon/) by using Chrome Developer Tool to inspect icons.
+> Note: You can find some unicode characters in [https://ant.design/components/icon/](https://ant.design/components/icon/) by using Chrome Developer Tool to inspect icons.
 
 ## API
 
