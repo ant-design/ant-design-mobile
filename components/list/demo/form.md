@@ -33,7 +33,7 @@ class BasicInput extends React.Component {
     if (value && value.length > 4) {
       callback();
     } else {
-      callback(new Error('At least four charactors for account'));
+      callback(new Error('At least four characters for account'));
     }
   }
   render() {
