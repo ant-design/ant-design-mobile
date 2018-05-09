@@ -14,7 +14,6 @@ export interface NumberInputProps {
   editable?: boolean;
   moneyKeyboardAlign?: 'left' | 'right' | string;
   value?: string;
-  defaultValue?: string;
   prefixCls?: string;
   keyboardPrefixCls?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;

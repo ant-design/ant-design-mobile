@@ -57,6 +57,7 @@ class BasicInputExample extends React.Component {
             placeholder="controled input"
           >受控组件</InputItem>
           <InputItem
+            defaultValue="Title"
             placeholder="please input content"
             data-seed="logId"
           >非受控组件</InputItem>

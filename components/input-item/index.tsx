@@ -24,11 +24,11 @@ export interface InputItemProps extends InputItemPropsType, HTMLInputProps {
 
 function noop() {}
 
-function fixControlledValue(value?: string) {
+function normalizeValue(value?: string) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
-  return value;
+  return value + '';
 }
 
 class InputItem extends React.Component<InputItemProps, any> {
@@ -63,7 +63,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     super(props);
     this.state = {
       placeholder: props.placeholder,
-      value: props.value || props.defaultValue || '',
+      value: normalizeValue(props.value || props.defaultValue),
     };
   }
 
@@ -213,7 +213,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       moneyKeyboardAlign,
       ...restProps,
     } = this.props;
-    const { defaultValue, name, disabled, maxLength } = restProps;
+    const { name, disabled, maxLength } = restProps;
     const { value } = this.state;
 
     // tslint:disable-next-line:variable-name
@@ -284,8 +284,7 @@ class InputItem extends React.Component<InputItemProps, any> {
           <div className={controlCls}>
             {type === 'money' ? (
               <CustomInput
-                value={fixControlledValue(value)}
-                defaultValue={defaultValue}
+                value={normalizeValue(value)}
                 type={type}
                 ref={el => (this.inputRef = el)}
                 maxLength={maxLength}
@@ -305,8 +304,8 @@ class InputItem extends React.Component<InputItemProps, any> {
                 {...patternProps}
                 {...restProps}
                 {...classNameProps}
-                value={fixControlledValue(value)}
-                defaultValue={defaultValue}
+                value={normalizeValue(value)}
+                defaultValue={undefined}
                 ref={(el: any) => (this.inputRef = el)}
                 style={style}
                 type={inputType}
