@@ -32,7 +32,7 @@
     "classnames": "^2.2.1",
     "normalize.css": "^7.0.0",
     "rc-checkbox": "~2.0.0",
-    "rc-collapse": "~1.7.0",
+    "rc-collapse": "~1.9.1",
     "rc-drawer": "~0.4.9",
     "rc-slider": "~8.2.0",
     "rc-swipeout": "~2.0.0",
