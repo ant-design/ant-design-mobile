@@ -127,7 +127,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       this.setState({ value: this.props.value });
     }
     if (onChange) {
-      onChange(value);
+      setTimeout(() => onChange(value));
     }
   }
   onInputFocus = (value: string) => {
