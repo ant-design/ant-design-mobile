@@ -87,20 +87,6 @@ export default class Button extends React.Component<ButtonProps, any> {
     // tslint:disable-next-line:variable-name
     const _styles: any = styles!;
 
-    [
-      'activeOpacity',
-      'underlayColor',
-      'onPress',
-      'onPressIn',
-      'onPressOut',
-      'onShowUnderlay',
-      'onHideUnderlay',
-    ].forEach(prop => {
-      if (restProps.hasOwnProperty(prop)) {
-        delete (restProps as any)[prop];
-      }
-    });
-
     const textStyle = [
       _styles[`${size}RawText`],
       _styles[`${type}RawText`],
@@ -130,16 +116,16 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     return (
       <TouchableHighlight
+        style={wrapperStyle}
+        disabled={disabled}
+        {...restProps}
         activeOpacity={1}
         underlayColor={underlayColor}
-        style={wrapperStyle}
         onPress={(e?: any) => onClick && onClick(e)}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
         onShowUnderlay={this.onShowUnderlay}
         onHideUnderlay={this.onHideUnderlay}
-        disabled={disabled}
-        {...restProps}
       >
         <View style={_styles.container}>
           {loading ? (
