@@ -49,7 +49,7 @@ export default function operation(
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
     }
-    const pNode = closest(e.currentTarget, `.am-modal-footer`);
+    const pNode = closest(e.target as Element, `.am-modal-footer`);
     if (!pNode) {
       e.preventDefault();
     }
