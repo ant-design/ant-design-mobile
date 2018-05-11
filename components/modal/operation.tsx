@@ -21,7 +21,7 @@ export default function operation(
     }
   }
 
-  const footer = actions.map((button: Action) => {
+  const footer = actions.map((button: Action<React.CSSProperties>) => {
     // tslint:disable-next-line:only-arrow-functions
     const orginPress = button.onPress || function() {};
     button.onPress = () => {

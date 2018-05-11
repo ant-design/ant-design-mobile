@@ -1,18 +1,13 @@
 /* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import { ScrollView, StyleProp, Text, TextStyle } from 'react-native';
+import { ScrollView, Text, TextStyle } from 'react-native';
 import Modal from './Modal.native';
-
-export interface AlertButtonType {
-  text: string;
-  onPress?: () => void | Promise<any>;
-  style?: StyleProp<TextStyle>;
-}
+import { Action } from './PropsType';
 
 export interface AlertContainerProps {
-  title: JSX.Element;
-  content: JSX.Element;
-  actions: AlertButtonType[];
+  title: React.ReactNode;
+  content: React.ReactNode;
+  actions: Action<TextStyle>[];
   onAnimationEnd?: (visible: boolean) => void;
 }
 

@@ -10,6 +10,7 @@ import {
   TouchableWithoutFeedback,
   View,
   ViewStyle,
+  TextStyle,
 } from 'react-native';
 import RCModal from 'rmc-dialog/lib/Modal';
 import { ModalPropsType } from './PropsType';
@@ -21,7 +22,7 @@ const maxHeight = StyleSheet.create({
   },
 }).maxHeight;
 
-export interface IModalNativeProps extends ModalPropsType {
+export interface IModalNativeProps extends ModalPropsType<TextStyle> {
   styles?: IModalStyle;
   style?: StyleProp<ViewStyle>;
   bodyStyle?: StyleProp<ViewStyle>;

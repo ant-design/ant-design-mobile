@@ -5,9 +5,9 @@ import Modal from './Modal';
 import { CallbackOrActions } from './PropsType';
 
 export default function prompt(
-  title: JSX.Element,
-  message: JSX.Element,
-  callbackOrActions: CallbackOrActions,
+  title: React.ReactNode,
+  message: React.ReactNode,
+  callbackOrActions: CallbackOrActions<React.CSSProperties>,
   type = 'default',
   defaultValue = '',
   placeholders = ['', ''],

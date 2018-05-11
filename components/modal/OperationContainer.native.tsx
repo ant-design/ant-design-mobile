@@ -1,16 +1,11 @@
 import React from 'react';
-import { StyleProp, TextStyle } from 'react-native';
-import Modal from './Modal';
+import { TextStyle } from 'react-native';
+import Modal from './Modal.native';
 import modalStyle from './style/index.native';
-
-export interface OperationButtonType {
-  text: string;
-  onPress?: () => void;
-  style?: StyleProp<TextStyle>;
-}
+import { Action } from './PropsType';
 
 export interface OperationContainerProps {
-  actions: OperationButtonType[];
+  actions: Action<TextStyle>[];
   onAnimationEnd?: (visible: boolean) => void;
 }
 

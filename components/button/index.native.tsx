@@ -84,24 +84,8 @@ export default class Button extends React.Component<ButtonProps, any> {
       loading,
       ...restProps,
     } = this.props;
-    // can not understand this line.
     // tslint:disable-next-line:variable-name
     const _styles: any = styles!;
-
-    //  unnecessary see line: 134
-    // [
-    //   'activeOpacity',
-    //   'underlayColor',
-    //   'onPress',
-    //   'onPressIn',
-    //   'onPressOut',
-    //   'onShowUnderlay',
-    //   'onHideUnderlay',
-    // ].forEach(prop => {
-    //   if (restProps.hasOwnProperty(prop)) {
-    //     delete restProps[prop];
-    //   }
-    // });
 
     const textStyle = [
       _styles[`${size}RawText`],
