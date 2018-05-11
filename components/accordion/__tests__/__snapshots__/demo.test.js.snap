@@ -6,15 +6,16 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
 >
   <div
     class="am-accordion my-accordion"
+    role="tablist"
   >
     <div
       class="am-accordion-item"
-      role="tablist"
     >
       <div
         aria-expanded="false"
         class="am-accordion-header"
         role="tab"
+        tabindex="0"
       >
         <i
           class="arrow"
@@ -24,12 +25,12 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
     </div>
     <div
       class="am-accordion-item pad"
-      role="tablist"
     >
       <div
         aria-expanded="false"
         class="am-accordion-header"
         role="tab"
+        tabindex="0"
       >
         <i
           class="arrow"
@@ -39,12 +40,12 @@ exports[`renders ./components/accordion/demo/accordion.md correctly 1`] = `
     </div>
     <div
       class="am-accordion-item pad"
-      role="tablist"
     >
       <div
         aria-expanded="false"
         class="am-accordion-header"
         role="tab"
+        tabindex="0"
       >
         <i
           class="arrow"
@@ -65,12 +66,12 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
   >
     <div
       class="am-accordion-item am-accordion-item-active"
-      role="tablist"
     >
       <div
         aria-expanded="true"
         class="am-accordion-header"
-        role="tab"
+        role="button"
+        tabindex="0"
       >
         <i
           class="arrow"
@@ -79,7 +80,6 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
       </div>
       <div
         class="am-accordion-content am-accordion-content-active"
-        role="tabpanel"
       >
         <div
           class="am-accordion-content-box"
@@ -148,12 +148,12 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-accordion-item pad"
-      role="tablist"
     >
       <div
         aria-expanded="false"
         class="am-accordion-header"
-        role="tab"
+        role="button"
+        tabindex="0"
       >
         <i
           class="arrow"
@@ -163,12 +163,12 @@ exports[`renders ./components/accordion/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="am-accordion-item pad"
-      role="tablist"
     >
       <div
         aria-expanded="false"
         class="am-accordion-header"
-        role="tab"
+        role="button"
+        tabindex="0"
       >
         <i
           class="arrow"
