@@ -131,7 +131,7 @@ exports[`renders ./components/input-item/demo/basic.md correctly 1`] = `
               data-seed="logId"
               placeholder="please input content"
               type="text"
-              value=""
+              value="Title"
             />
           </div>
         </div>
@@ -610,15 +610,15 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
               class="fake-input-container fake-input-container-left"
             >
               <div
-                class="fake-input-placeholder"
-              >
-                start from left
-              </div>
-              <div
                 class="fake-input"
-              />
+              >
+                100
+              </div>
             </div>
           </div>
+          <div
+            class="am-input-clear"
+          />
         </div>
       </div>
       <div

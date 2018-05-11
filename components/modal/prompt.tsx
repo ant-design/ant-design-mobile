@@ -199,7 +199,7 @@ export default function prompt(
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
     }
-    const pNode = closest(e.currentTarget, `.${prefixCls}-content`);
+    const pNode = closest(e.target as Element, `.${prefixCls}-content`);
     if (!pNode) {
       e.preventDefault();
     }

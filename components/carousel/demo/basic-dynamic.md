@@ -1,21 +1,19 @@
 ---
-order: 0
+order: 1
 title:
-  zh-CN: 基本
-  en-US: Basic
+  zh-CN: 子元素数量变化
+  en-US: Dynamic child elements
 ---
 
-When using `Carousel` in web projects, you may have problem about how to deal with variable item height.
-
-> [issues/1002](https://github.com/ant-design/ant-design-mobile/issues/1002#issuecomment-287301262)、[nuka-carousel/issues/103](https://github.com/FormidableLabs/nuka-carousel/issues/103)
 
 ````jsx
-import { Carousel, WingBlank } from 'antd-mobile';
+import { Carousel, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 
 class App extends React.Component {
   state = {
     data: ['1', '2', '3'],
     imgHeight: 176,
+    slideIndex: 2,
   }
   componentDidMount() {
     // simulate img loading
@@ -25,18 +23,35 @@ class App extends React.Component {
       });
     }, 100);
   }
+  componentDidUpdate() {
+    // After the new child element is rendered, change the slideIndex
+    // https://github.com/FormidableLabs/nuka-carousel/issues/327
+    if (this.state.slideIndex !== this.state.data.length - 1) {
+      /* eslint react/no-did-update-set-state: 0 */
+      this.setState({ slideIndex: this.state.data.length - 1 });
+    }
+  }
   render() {
     return (
       <WingBlank>
+        <Button
+          onClick={() => {
+            this.setState({
+              data: this.state.data.concat('AiyWuByWklrrUDlFignR'),
+            });
+          }}
+        >Click me to add child</Button>
+        <WhiteSpace />
         <Carousel
           autoplay={false}
           infinite
+          selectedIndex={this.state.slideIndex}
           beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
           afterChange={index => console.log('slide to', index)}
         >
-          {this.state.data.map(val => (
+          {this.state.data.map((val, index) => (
             <a
-              key={val}
+              key={val + index}
               href="http://www.alipay.com"
               style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
             >

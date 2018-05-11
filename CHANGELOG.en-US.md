@@ -16,6 +16,15 @@ toc: false
 
 ---
 
+### 2.1.8
+
+`2018-03-19`
+
+
+- **Bug Fix**
+
+  - 🐞  Fix `InputItem[type="money"]` onChange handler arguments change from value to event object. ([#2403](https://github.com/ant-design/ant-design-mobile/pull/2403))
+
 
 ### 2.1.7
 
