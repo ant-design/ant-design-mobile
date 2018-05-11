@@ -88,37 +88,37 @@ class InputItem extends React.Component<InputItemProps, any> {
   }
 
   onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value;
+    const { value } = e.target;
     const { type } = this.props;
 
+    let newValue = value;
     switch (type) {
-      case 'text':
-        break;
       case 'bankCard':
-        value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
+        newValue = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
       case 'phone':
-        value = value.replace(/\D/g, '').substring(0, 11);
-        const valueLen = value.length;
+        newValue = value.replace(/\D/g, '').substring(0, 11);
+        const valueLen = newValue.length;
         if (valueLen > 3 && valueLen < 8) {
-          value = `${value.substr(0, 3)} ${value.substr(3)}`;
+          newValue = `${newValue.substr(0, 3)} ${newValue.substr(3)}`;
         } else if (valueLen >= 8) {
-          value = `${value.substr(0, 3)} ${value.substr(3, 4)} ${value.substr(
+          newValue = `${newValue.substr(0, 3)} ${newValue.substr(3, 4)} ${newValue.substr(
             7,
           )}`;
         }
         break;
       case 'number':
-        value = value.replace(/\D/g, '');
+        newValue = value.replace(/\D/g, '');
         break;
+      case 'text':
       case 'password':
-        break;
       default:
         break;
     }
-    this.handleOnChange(value);
+    this.handleOnChange(newValue, newValue !== value);
   }
-  handleOnChange = (value: string) => {
+
+  handleOnChange = (value: string, isMutated: boolean = false) => {
     const { onChange } = this.props;
 
     if (!('value' in this.props)) {
@@ -127,7 +127,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       this.setState({ value: this.props.value });
     }
     if (onChange) {
-      setTimeout(() => onChange(value));
+      isMutated ? setTimeout(() => onChange(value)) : onChange(value);
     }
   }
   onInputFocus = (value: string) => {
