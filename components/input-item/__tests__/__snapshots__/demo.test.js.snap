@@ -610,7 +610,9 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
               class="fake-input-container fake-input-container-left"
             >
               <div
+                aria-label="100"
                 class="fake-input"
+                role="textbox"
               >
                 100
               </div>
@@ -644,7 +646,9 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
                 start from right
               </div>
               <div
+                aria-label="start from right"
                 class="fake-input"
+                role="textbox"
               />
             </div>
           </div>
@@ -673,7 +677,9 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
                 money format
               </div>
               <div
+                aria-label="money format"
                 class="fake-input"
+                role="textbox"
               />
             </div>
           </div>

@@ -20,6 +20,8 @@ export interface NumberInputProps {
   onFocus?: InputEventHandler;
   onBlur?: InputEventHandler;
   confirmLabel: any;
+  backspaceLabel: any;
+  cancelKeyboardLabel: any;
   maxLength?: number;
   type?: string;
   style?: React.CSSProperties;
@@ -61,7 +63,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     }
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     this.renderCustomKeyboard();
   }
 
@@ -88,13 +90,21 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   getComponent() {
-    const { keyboardPrefixCls, confirmLabel } = this.props;
+    const {
+      confirmLabel,
+      backspaceLabel,
+      cancelKeyboardLabel,
+      keyboardPrefixCls,
+    } = this.props;
+
     return (
       <CustomKeyboard
         ref={this.saveRef}
         onClick={this.onKeyboardClick}
         preixCls={keyboardPrefixCls}
         confirmLabel={confirmLabel}
+        backspaceLabel={backspaceLabel}
+        cancelKeyboardLabel={cancelKeyboardLabel}
       />
     );
   }
@@ -113,7 +123,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   renderCustomKeyboard() {
-    if (IS_REACT_16 || customNumberKeyboard) {
+    if (IS_REACT_16) {
       return;
     }
     customNumberKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
@@ -267,12 +277,11 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       return null;
     }
 
-    const portal = (
+    return (
       <Portal getContainer={() => this.getContainer()}>
         {this.getComponent()}
       </Portal>
     );
-    return portal;
   }
 
   render() {
@@ -294,6 +303,8 @@ class NumberInput extends React.Component<NumberInputProps, any> {
           <div className="fake-input-placeholder">{placeholder}</div>
         )}
         <div
+          role="textbox"
+          aria-label={value || placeholder}
           className={fakeInputCls}
           ref={el => (this.inputRef = el)}
           onClick={preventKeyboard ? () => {} : this.onFakeInputClick}

@@ -13,10 +13,6 @@ export default class Portal extends React.Component<PortalProps, any> {
     this.container = this.props.getContainer();
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
-
   render() {
     if (this.props.children) {
       return createPortal(this.props.children, this.container);
