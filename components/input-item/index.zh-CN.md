@@ -53,4 +53,4 @@ subtitle: 文本输入
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| focus (`Web Only`)    | 使 input 聚焦  | (): void |  -  |
+| focus    | 使 input 聚焦  | (): void |  -  |
