@@ -47,7 +47,7 @@ class App extends React.Component {
     });
   }
 
-  onWrapTouchStart = (e) => {
+  wrapOnTouchStart = (e) => {
     // fix touch to scroll background page on iOS
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
@@ -70,7 +70,7 @@ class App extends React.Component {
           onClose={this.onClose('modal1')}
           title="Title"
           footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal1')(); } }]}
-          wrapProps={{ onTouchStart: this.onWrapTouchStart }}
+          wrapProps={{ onTouchStart: this.wrapOnTouchStart }}
         >
           <div style={{ height: 100, overflow: 'scroll' }}>
             scoll content...<br />
