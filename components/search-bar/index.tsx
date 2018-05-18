@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
 import TouchFeedback from 'rmc-feedback';
 import getDataAttr from '../_util/getDataAttr';
 import { getComponentLocale } from '../_util/getLocale';
@@ -16,6 +17,11 @@ export default class SearchBar extends React.Component<
   SearchBarState
 > {
   static defaultProps = defaultProps;
+
+  static contextTypes = {
+    antLocale: PropTypes.object,
+  };
+
   rightBtnInitMarginleft: string | null;
   firstFocus: boolean;
   blurFromOnClear: boolean;
