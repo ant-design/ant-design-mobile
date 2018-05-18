@@ -96,7 +96,12 @@ class CustomKeyboard extends React.Component<any, any> {
     );
   }
   render() {
-    const { prefixCls, confirmLabel } = this.props;
+    const {
+      prefixCls,
+      confirmLabel,
+      backspaceLabel,
+      cancelKeyboardLabel,
+    } = this.props;
 
     const wrapperCls = classnames(
       `${prefixCls}-wrapper`,
@@ -113,6 +118,8 @@ class CustomKeyboard extends React.Component<any, any> {
                 this.renderKeyboardItem(item, index),
               )}
               <KeyboardItem
+                role="button"
+                aria-label={backspaceLabel}
                 className="keyboard-delete"
                 rowSpan={2}
                 onClick={this.onKeyboardClick}
@@ -144,6 +151,8 @@ class CustomKeyboard extends React.Component<any, any> {
                 this.renderKeyboardItem(item, index),
               )}
               <KeyboardItem
+                role="button"
+                aria-label={cancelKeyboardLabel}
                 className="keyboard-hide"
                 onClick={this.onKeyboardClick}
               />

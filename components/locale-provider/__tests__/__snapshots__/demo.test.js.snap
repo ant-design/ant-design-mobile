@@ -174,7 +174,9 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
               money input
             </div>
             <div
+              aria-label="money input"
               class="fake-input"
+              role="textbox"
             />
           </div>
         </div>

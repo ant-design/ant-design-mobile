@@ -224,9 +224,16 @@ class InputItem extends React.Component<InputItemProps, any> {
       () => require('./locale/zh_CN'),
     );
 
-    const { confirmLabel } = _locale;
+    const {
+      confirmLabel,
+      backspaceLabel,
+      cancelKeyboardLabel,
+    } = _locale;
 
-    const { placeholder, focus } = this.state;
+    const {
+      focus,
+      placeholder,
+    } = this.state;
 
     const wrapCls = classnames(
       `${prefixListCls}-item`,
@@ -297,6 +304,8 @@ class InputItem extends React.Component<InputItemProps, any> {
                 prefixCls={prefixCls}
                 style={style}
                 confirmLabel={confirmLabel}
+                backspaceLabel={backspaceLabel}
+                cancelKeyboardLabel={cancelKeyboardLabel}
                 moneyKeyboardAlign={moneyKeyboardAlign}
               />
             ) : (
