@@ -43,6 +43,7 @@ subtitle: 文本输入
 | prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
 | name (`web only`)   | input 的 name        | String |  无  |
 | moneyKeyboardAlign (`web only`)   | 文字排版起始方向, 只有 `type='money'` 支持， 可选为 `'left'`, `'right'`       | String |  'right'  |
+| moneyKeyboardWrapProps (`web only`)   | 自定义金额虚拟键盘属性  | Object | {} |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置, 当`type`为`money`，可以自定义确认按钮的文案。 | Object: { confirmLabel } |  无 |
 
 > 更多 react-native `InputItem` 属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)

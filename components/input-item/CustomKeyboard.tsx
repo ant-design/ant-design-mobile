@@ -95,12 +95,14 @@ class CustomKeyboard extends React.Component<any, any> {
       </KeyboardItem>
     );
   }
+
   render() {
     const {
       prefixCls,
       confirmLabel,
       backspaceLabel,
       cancelKeyboardLabel,
+      wrapProps,
     } = this.props;
 
     const wrapperCls = classnames(
@@ -109,7 +111,7 @@ class CustomKeyboard extends React.Component<any, any> {
     );
 
     return (
-      <div className={wrapperCls} ref={el => (this.antmKeyboard = el)}>
+      <div className={wrapperCls} ref={el => (this.antmKeyboard = el)} {...wrapProps}>
         <table>
           <tbody>
             <tr>

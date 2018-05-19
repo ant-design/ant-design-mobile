@@ -50,6 +50,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     labelNumber: 5,
     updatePlaceholder: false,
     moneyKeyboardAlign: 'right',
+    moneyKeyboardWrapProps: {},
   };
 
   static contextTypes = {
@@ -130,6 +131,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       isMutated ? setTimeout(() => onChange(value)) : onChange(value);
     }
   }
+
   onInputFocus = (value: string) => {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
@@ -193,6 +195,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       this.inputRef.focus();
     }
   }
+
   render() {
     const {
       prefixCls,
@@ -205,12 +208,9 @@ class InputItem extends React.Component<InputItemProps, any> {
       className,
       extra,
       labelNumber,
-      onExtraClick,
-      onErrorClick,
-      updatePlaceholder,
       type,
-      locale,
       moneyKeyboardAlign,
+      moneyKeyboardWrapProps,
       ...restProps,
     } = this.props;
     const { name, disabled, maxLength } = restProps;
@@ -307,6 +307,7 @@ class InputItem extends React.Component<InputItemProps, any> {
                 backspaceLabel={backspaceLabel}
                 cancelKeyboardLabel={cancelKeyboardLabel}
                 moneyKeyboardAlign={moneyKeyboardAlign}
+                moneyKeyboardWrapProps={moneyKeyboardWrapProps}
               />
             ) : (
               <Input

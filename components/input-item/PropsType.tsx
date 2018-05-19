@@ -4,6 +4,7 @@ export type InputEventHandler = (value?: string) => void;
 export interface InputItemPropsType {
   /** web only */
   moneyKeyboardAlign?: string;
+  moneyKeyboardWrapProps?: object;
   type?:
     | 'text'
     | 'bankCard'
