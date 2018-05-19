@@ -34,4 +34,5 @@ export interface InputItemPropsType {
   onChange?: (value: string) => void;
   onFocus?: InputEventHandler;
   onBlur?: InputEventHandler;
+  onVirtualKeyboardConfirm?: InputEventHandler;
 }
