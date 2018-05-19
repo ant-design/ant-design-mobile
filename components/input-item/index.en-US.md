@@ -35,6 +35,7 @@ Properties | Description | Type | Default
 | onErrorClick   | callback that is called when the error icon is clicked  | (e: Object): void |   |
 | extra       | the right content of `InputItem`   | string or node |  ''  |
 | onExtraClick      | callback that is called when the extra content is clicked | (e: Object): void |  |
+| onVirtualKeyboardConfirm | callback that is called when "confirm" button of virtual keyboard is clicked | (val: string): void |  |
 | labelNumber  | number of label text, valid value is 2 to 7 | number | `5` |
 | updatePlaceholder (`web only`) | whether to replace the placeholder with cleared content | bool | false|
 | prefixListCls (`web only`)    |   the class name prefix of list      | String |  `am-list`  |

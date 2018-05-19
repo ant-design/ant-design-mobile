@@ -22,6 +22,7 @@ export interface NumberInputProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: InputEventHandler;
   onBlur?: InputEventHandler;
+  onVirtualKeyboardConfirm?: InputEventHandler;
   confirmLabel: any;
   backspaceLabel: any;
   cancelKeyboardLabel: any;
@@ -34,6 +35,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     onChange: () => {},
     onFocus: () => {},
     onBlur: () => {},
+    onVirtualKeyboardConfirm: () => {},
     placeholder: '',
     disabled: false,
     editable: true,
@@ -56,6 +58,10 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       this.setState({ value: value.target.value });
     }
     this.props.onChange!(value);
+  }
+
+  onConfirm = (value: any) => {
+    this.props.onVirtualKeyboardConfirm!(value);
   }
 
   componentWillReceiveProps(nextProps: NumberInputProps) {
@@ -252,6 +258,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       valueAfterChange = value;
       onChange({ target: { value: valueAfterChange } });
       this.onInputBlur(value);
+      this.onConfirm(value);
       // 收起键
     } else if (KeyboardItemValue === 'hide') {
       valueAfterChange = value;

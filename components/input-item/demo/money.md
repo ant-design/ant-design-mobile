@@ -70,6 +70,7 @@ class H5NumberInputExample extends React.Component {
             type={type}
             placeholder="money format"
             ref={el => this.customFocusInst = el}
+            onVirtualKeyboardConfirm={(v) => console.log('onVirtualKeyboardConfirm:', v)}
             clear
             moneyKeyboardWrapProps={moneyKeyboardWrapProps}
           >数字键盘</InputItem>
