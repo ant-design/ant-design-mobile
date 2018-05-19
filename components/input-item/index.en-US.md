@@ -18,7 +18,7 @@ Support WEB, React-Native.
 
 **`InputItem` must wrapped by a [List](https://mobile.ant.design/components/list)**
 
-Properties | Descrition | Type | Default
+Properties | Description | Type | Default
 -----------|------------|------|--------
 | type    | can be `bankCard`; `phone`(which the maxLength is 11 and setting will be ignored); `password`; `number`(in order to evoke the 'numeric keyboard with decimal', this type is not a native number, but `<input type="text" pattern="[0-9]*"/>`); `digit`(represent the native type number); `money`(analog numeric keyboard with decimal,`Web Only`); As well as other standard html input type values. | String |  `text`  |
 | value | the value of input (see [react doc](https://facebook.github.io/react/docs/forms.html) for more information about controled component)  | String | |
@@ -40,6 +40,7 @@ Properties | Descrition | Type | Default
 | prefixListCls (`web only`)    |   the class name prefix of list      | String |  `am-list`  |
 | name (`web only`)   | the name of input       | String |   |
 | moneyKeyboardAlign (`web only`)   | text align direction, only `type='money'` support this api， could be `'left'`, `'right'`       | String |  'right'  |
+| moneyKeyboardWrapProps (`web only`)   | custom money virtual keyboard props  | Object | {} |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置,  when`type`is`money`，can cunstom the keyboard confirm item's label | Object: { confirmLabel } |  无 |
 
 > More available react-native `InputItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)
