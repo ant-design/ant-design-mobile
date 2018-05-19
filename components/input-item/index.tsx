@@ -47,6 +47,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     onExtraClick: noop,
     error: false,
     onErrorClick: noop,
+    onVirtualKeyboardConfirm: noop,
     labelNumber: 5,
     updatePlaceholder: false,
     moneyKeyboardAlign: 'right',
@@ -299,6 +300,7 @@ class InputItem extends React.Component<InputItemProps, any> {
                 onChange={this.onInputChange}
                 onFocus={this.onInputFocus}
                 onBlur={this.onInputBlur}
+                onVirtualKeyboardConfirm={this.props.onVirtualKeyboardConfirm}
                 disabled={disabled}
                 editable={editable}
                 prefixCls={prefixCls}
