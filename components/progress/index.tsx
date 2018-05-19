@@ -67,7 +67,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
         <div
           ref={el => (this.barRef = el)}
           className={`${prefixCls}-bar`}
-          style={{ ...barStyle, ...percentStyle }}
+          style={{ ...percentStyle,...barStyle,  }}
         />
       </div>
     );
