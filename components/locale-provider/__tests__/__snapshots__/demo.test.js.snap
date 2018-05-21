@@ -4,37 +4,39 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
 <div
   class="am-wingblank am-wingblank-lg"
 >
-  <div
-    class="am-segment"
-    role="tablist"
-  >
+  <div>
     <div
-      aria-disabled="false"
-      aria-selected="true"
-      class="am-segment-item am-segment-item-selected"
-      role="tab"
-      style="color:#fff;background-color:;border-color:"
+      class="am-list-item am-list-item-middle"
     >
       <div
-        class="am-segment-item-inner"
-      />
-      切换到英文
-    </div>
-    <div
-      aria-disabled="false"
-      aria-selected="false"
-      class="am-segment-item"
-      role="tab"
-      style="color:;background-color:transparent;border-color:"
-    >
+        class="am-list-line"
+      >
+        <div
+          class="am-list-content"
+        >
+          Choose language
+        </div>
+        <div
+          class="am-list-extra"
+        >
+          English
+        </div>
+        <div
+          aria-hidden="true"
+          class="am-list-arrow am-list-arrow-horizontal"
+        />
+      </div>
       <div
-        class="am-segment-item-inner"
+        class="am-list-ripple"
+        style="display:none"
       />
-      Change to Chinese
     </div>
   </div>
   <div
-    class="am-whitespace am-whitespace-md"
+    class="am-whitespace am-whitespace-xl"
+  />
+  <div
+    class="am-whitespace am-whitespace-xl"
   />
   <div>
     <div
