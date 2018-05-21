@@ -116,6 +116,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     return (
       <TouchableHighlight
+        {...restProps}
         style={wrapperStyle}
         disabled={disabled}
         activeOpacity={1}
@@ -125,7 +126,6 @@ export default class Button extends React.Component<ButtonProps, any> {
         onPressOut={this.onPressOut}
         onShowUnderlay={this.onShowUnderlay}
         onHideUnderlay={this.onHideUnderlay}
-        {...restProps}
       >
         <View style={_styles.container}>
           {loading ? (
