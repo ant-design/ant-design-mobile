@@ -5,11 +5,11 @@ import {
   Image,
   StyleSheet,
   Text,
-  TextInputProperties
+  TextInputProperties,
   TouchableWithoutFeedback,
   View,
   Platform,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import variables from '../style/themes/default.native';
 import Input from './Input.native';
@@ -33,7 +33,7 @@ export interface InputItemProps extends InputItemPropsType, TextInputProps {
 
 const noop = () => {};
 
-function fixControlledValue(value?: string) {
+function normalizeValue(value?: string) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
@@ -109,10 +109,12 @@ export default class InputItem extends React.Component<InputItemProps, any> {
   }
 
   onInputClear = () => {
-    this.inputRef.inputRef.clear();
+    if (this.inputRef) {
+      this.inputRef.clear();
+    }
     this.onChange('');
   }
-  
+
   // this is instance method for user to use
   focus = () => {
     if (this.inputRef) {
@@ -140,7 +142,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     let valueProps;
     if ('value' in this.props) {
       valueProps = {
-        value: fixControlledValue(value),
+        value: normalizeValue(value),
       };
     } else {
       valueProps = {
@@ -212,7 +214,8 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           onBlur={this.onInputBlur}
           onFocus={this.onInputFocus}
         />
-        {(editable && clear && Platform.OS === 'android') && (
+        {/* 只在有 value 的 受控模式 下展示 自定义的 安卓 clear 按钮 */}
+        {(editable && clear && value && Platform.OS === 'android') ? (
           <TouchableOpacity
             style={[styles.clear]}
             onPress={this.onInputClear}
@@ -223,7 +226,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
               style={{ width: 12, height: 12 }}
             />
           </TouchableOpacity>
-        )}
+        ) : null}
         {extra ? (
           <TouchableWithoutFeedback onPress={onExtraClick}>
             <View>

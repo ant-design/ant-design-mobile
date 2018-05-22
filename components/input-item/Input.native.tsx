@@ -43,6 +43,12 @@ class Input extends React.Component<TextInputProps, any> {
     }
   }
 
+  clear = () => {
+    if (this.inputRef) {
+      this.inputRef.clear();
+    }
+  }
+
   render() {
     return (
       <TextInput
