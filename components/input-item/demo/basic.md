@@ -22,7 +22,7 @@ class BasicInputExample extends React.Component {
     // this.autoFocusInst.focus();
   }
   handleClick = () => {
-    this.customFocusInst.focus();
+    this.inputRef.focus();
   }
   render() {
     const { getFieldProps } = this.props.form;
@@ -39,7 +39,7 @@ class BasicInputExample extends React.Component {
             {...getFieldProps('focus')}
             clear
             placeholder="click the button below to focus"
-            ref={el => this.customFocusInst = el}
+            ref={el => this.inputRef = el}
           >标题</InputItem>
           <List.Item>
             <div

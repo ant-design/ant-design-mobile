@@ -105,11 +105,14 @@ export default class InputItem extends React.Component<InputItemProps, any> {
       this.props.onFocus(this.props.value);
     }
   }
+
+  // this is instance method for user to use
   focus = () => {
     if (this.inputRef) {
       this.inputRef.focus();
     }
   }
+
   render() {
     const {
       type,

@@ -22,9 +22,10 @@ export default class BasicInputItemExample extends React.Component<any, any> {
       phone: '',
       password: '',
       number: '',
-      focused: false,
     };
   }
+
+  inputRef: any;
 
   render() {
     return (
@@ -91,21 +92,14 @@ export default class BasicInputItemExample extends React.Component<any, any> {
           <InputItem
             clear
             placeholder="点击下方按钮该输入框会获取光标"
-            focused={this.state.focused}
-            onFocus={() => {
-              this.setState({
-                focused: false,
-              });
-            }}
+            ref={(el: any) => (this.inputRef = el)}
           >
             标题
           </InputItem>
           <List.Item>
             <Button
               onClick={() => {
-                this.setState({
-                  focused: true,
-                });
+                this.inputRef.focus();
               }}
               type="primary"
             >

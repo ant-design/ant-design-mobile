@@ -10,6 +10,8 @@ class Input extends React.Component<TextInputProps, any> {
 
   constructor(props: TextInputProps) {
     super(props);
+
+    // todos: remove focused in next major version.
     this.state = {
       focused: props.focused || false,
     };

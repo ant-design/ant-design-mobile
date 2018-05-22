@@ -191,6 +191,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     this.focus();
   }
 
+  // this is instance method for user to use
   focus = () => {
     if (this.inputRef) {
       this.inputRef.focus();

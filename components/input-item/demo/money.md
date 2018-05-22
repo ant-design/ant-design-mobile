@@ -69,7 +69,7 @@ class H5NumberInputExample extends React.Component {
             })}
             type={type}
             placeholder="money format"
-            ref={el => this.customFocusInst = el}
+            ref={el => this.inputRef = el}
             onVirtualKeyboardConfirm={v => console.log('onVirtualKeyboardConfirm:', v)}
             clear
             moneyKeyboardWrapProps={moneyKeyboardWrapProps}
@@ -77,7 +77,7 @@ class H5NumberInputExample extends React.Component {
           <List.Item>
             <div
               style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
-              onClick={() => this.customFocusInst.focus()}
+              onClick={() => this.inputRef.focus()}
             >
               click to focus
             </div>

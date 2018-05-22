@@ -7,7 +7,6 @@ export type HTMLInputProps = Omit<
   'onFocus' | 'onBlur'
 >;
 export interface InputProps extends HTMLInputProps {
-  focused?: boolean;
   onFocus?: InputEventHandler;
   onBlur?: InputEventHandler;
 }
