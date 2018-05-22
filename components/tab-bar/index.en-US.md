@@ -38,4 +38,4 @@ Properties | Descrition | Type | Default
 | selectedIcon  |  the icon of selected | Image Source(rn) \ web ref demo |      |
 | title  |  title | String |      |
 | key  |  unique identification | String |   无   |
-| iconStyle  |  icon style (`rn android only`)（ios more API reference [tabbarios](https://facebook.github.io/react-native/docs/tabbarios.html） | String | { width: 28, height: 28 }     |
+| iconStyle  |  icon style (`rn android only`) (ios more API reference [tabbarios](https://facebook.github.io/react-native/docs/tabbarios.html)) | String | { width: 28, height: 28 }     |

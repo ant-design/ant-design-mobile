@@ -38,11 +38,13 @@ subtitle: 文本输入
 | onErrorClick       | 点击报错 icon 触发的回调函数  | (e: Object): void |  无  |
 | extra       | 右边注释   | string or node |  ''  |
 | onExtraClick      | extra 点击事件触发的回调函数 | (e: Object): void |  无  |
+| onVirtualKeyboardConfirm | 虚拟键盘点击确认时的回调函数 | (val: string): void |  无  |
 | labelNumber  | 标签的文字个数，可用`2-7`之间的数字 | number | `5` |
 | updatePlaceholder (`web only`) | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |
 | prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
 | name (`web only`)   | input 的 name        | String |  无  |
 | moneyKeyboardAlign (`web only`)   | 文字排版起始方向, 只有 `type='money'` 支持， 可选为 `'left'`, `'right'`       | String |  'right'  |
+| moneyKeyboardWrapProps (`web only`)   | 自定义金额虚拟键盘属性  | Object | {} |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置, 当`type`为`money`，可以自定义确认按钮的文案。 | Object: { confirmLabel } |  无 |
 
 > 更多 react-native `InputItem` 属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)
@@ -53,4 +55,4 @@ subtitle: 文本输入
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| focus (`Web Only`)    | 使 input 聚焦  | (): void |  -  |
+| focus    | 使 input 聚焦  | (): void |  -  |

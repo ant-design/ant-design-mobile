@@ -1,3 +1,10 @@
+/**
+ * 此脚本作用：把 静态资源(js/css) 上传到 alipay cdn 上，加速页面显示。
+ * 需要配合 tnpm 的 @alipay/cdn-tools 工具，在 `npm run site` 命令构建完网站后使用。
+ *
+ * 由于有 安全风险，开源版本去掉此功能。可咨询作者 @扬远/@zhang740
+ */
+
 const fs = require('fs');
 const path = require('path');
 

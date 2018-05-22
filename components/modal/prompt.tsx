@@ -5,9 +5,9 @@ import Modal from './Modal';
 import { CallbackOrActions } from './PropsType';
 
 export default function prompt(
-  title: JSX.Element,
-  message: JSX.Element,
-  callbackOrActions: CallbackOrActions,
+  title: React.ReactNode,
+  message: React.ReactNode,
+  callbackOrActions: CallbackOrActions<React.CSSProperties>,
   type = 'default',
   defaultValue = '',
   placeholders = ['', ''],
@@ -41,6 +41,14 @@ export default function prompt(
     }
   }
 
+  // hotfix issue: https://github.com/ant-design/ant-design-mobile/issues/2177
+  function onClick(e: React.MouseEvent<HTMLInputElement>) {
+    const target = e.currentTarget || e.target;
+    if (target) {
+      target.focus();
+    }
+  }
+
   let inputDom;
 
   const focusFn = (input: HTMLInputElement | null) => {
@@ -61,6 +69,7 @@ export default function prompt(
                 type="text"
                 defaultValue={data.text}
                 ref={input => focusFn(input)}
+                onClick={onClick}
                 onChange={onChange}
                 placeholder={placeholders[0]}
               />
@@ -71,6 +80,7 @@ export default function prompt(
               <input
                 type="password"
                 defaultValue={data.password}
+                onClick={onClick}
                 onChange={onChange}
                 placeholder={placeholders[1]}
               />
@@ -88,6 +98,7 @@ export default function prompt(
                 type="password"
                 defaultValue={data.password}
                 ref={input => focusFn(input)}
+                onClick={onClick}
                 onChange={onChange}
                 placeholder={placeholders[0]}
               />
@@ -106,6 +117,7 @@ export default function prompt(
                 type="text"
                 defaultValue={data.text}
                 ref={input => focusFn(input)}
+                onClick={onClick}
                 onChange={onChange}
                 placeholder={placeholders[0]}
               />
@@ -199,7 +211,7 @@ export default function prompt(
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
     }
-    const pNode = closest(e.currentTarget, `.${prefixCls}-content`);
+    const pNode = closest(e.target as Element, `.${prefixCls}-content`);
     if (!pNode) {
       e.preventDefault();
     }

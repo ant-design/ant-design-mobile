@@ -38,6 +38,8 @@ subtitle: 图标
 - 打开 iOS 项目 `info.plist` 文件，添加 `Fonts provided by application`，指定一个 item 的值为 `anticon.ttf`， 将 `anticon.ttf` 拖进项目；
 - Android 项目将 `anticon.ttf` 放在 `android/app/src/main/assets/fonts/` 目录下;
 
+> 另外，在 [pull/2270](https://github.com/ant-design/ant-design-mobile/pull/2270) 里提出了另一种利用 `react-native link` / rpm 的使用方式，可以关注下。
+
 使用方式：
 
 ```html

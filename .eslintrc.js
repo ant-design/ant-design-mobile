@@ -1,5 +1,3 @@
-'use strict';
-
 const eslintrc = {
   extends: ['eslint-config-airbnb'],
   env: {
@@ -21,7 +19,7 @@ const eslintrc = {
     'markdown',
     'react',
     'babel',
-    'jsx-a11y'
+    'jsx-a11y',
   ],
   rules: {
     'class-methods-use-this': 0,
@@ -39,7 +37,7 @@ const eslintrc = {
     'import/extensions': 0,
     'import/no-extraneous-dependencies': 0,
     'react/no-string-refs': 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx", ".md"] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx', '.md'] }],
     'react/no-array-index-key': 0,
     'react/no-find-dom-node': 0,
     'react/require-extension': 0,
@@ -51,7 +49,7 @@ const eslintrc = {
     'jsx-a11y/anchor-is-valid': 0,
     'react/jsx-no-comment-textnodes': 0,
     'object-curly-newline': 0,
-  }
+  },
 };
 
 if (process.env.RUN_ENV === 'DEMO') {
@@ -62,7 +60,7 @@ if (process.env.RUN_ENV === 'DEMO') {
     AlipayJSBridge: true,
     $: true,
     dd: true,
-    process: true
+    process: true,
   };
 
   Object.assign(eslintrc.rules, {

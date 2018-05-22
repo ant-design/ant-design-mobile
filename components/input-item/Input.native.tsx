@@ -10,6 +10,8 @@ class Input extends React.Component<TextInputProps, any> {
 
   constructor(props: TextInputProps) {
     super(props);
+
+    // todos: remove focused in next major version.
     this.state = {
       focused: props.focused || false,
     };
@@ -31,6 +33,12 @@ class Input extends React.Component<TextInputProps, any> {
 
   componentDidUpdate() {
     if (this.inputRef && this.props.focused) {
+      this.inputRef.focus();
+    }
+  }
+
+  focus = () => {
+    if (this.inputRef) {
       this.inputRef.focus();
     }
   }

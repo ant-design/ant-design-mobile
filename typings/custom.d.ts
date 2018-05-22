@@ -19,7 +19,7 @@ declare module 'rmc-notification';
 
 declare module 'react-native-camera-roll-picker';
 
-declare module 'rc-drawer';
+declare module 'rmc-drawer';
 
 declare module 'rmc-dialog';
 declare module 'rmc-nuka-carousel';

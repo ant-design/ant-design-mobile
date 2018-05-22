@@ -7,7 +7,6 @@ toc: false
 
 `antd-mobile` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
 
-
 #### Release Schedule
 
 * Weekly release: patch version at the end of every week for routine bugfix (anytime for urgent bugfix).
@@ -15,6 +14,39 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+
+### 2.1.9
+
+`2018-05-21`
+
+- **Feature**
+
+  - 🌟 `InputItem` add custom `onVirtualKeyboardConfirm` prop, supporting confirm callback of virtual keyboard([#2551](https://github.com/ant-design/ant-design-mobile/pull/2551))
+  - 🌟 `InputItem` add custom `moneyKeyboardWrapProps` prop, by which can solve the click penetrate problem ([#2550](https://github.com/ant-design/ant-design-mobile/pull/2550))
+  - 🌟 [React Native] support focus callback for `InputItem` under React Native ([#2381](https://github.com/ant-design/ant-design-mobile/issues/2381))
+  - 🌟 support Russian language ([#2400](https://github.com/ant-design/ant-design-mobile/pull/2400))
+
+
+- **Bug Fix**
+
+  - 🐞 Fix `TextareaItem`、`InputItem` invalid `clear` prop([#2372](https://github.com/ant-design/ant-design-mobile/issues/2372))
+  - 🐞 Fix `SearchBar` appear error style when using with `TabBar`([#2447](https://github.com/ant-design/ant-design-mobile/issues/2447))
+  - 🐞 Fix `InputItem` can not delete the default value when defaultValue or value is number on the type of `money` ([#2493](https://github.com/ant-design/ant-design-mobile/issues/2493))
+  - 🐞 Fix `Accordion` can not read expand and folding status in Preact under talkback mode in Android ([#2491](https://github.com/ant-design/ant-design-mobile/issues/2491))
+  - 🐞 Fix `InputItem` misplaced cursor in UC Browser on the type of `bankCard`([#2441](https://github.com/ant-design/ant-design-mobile/issues/2441))
+  - 🐞 Fix `Modal` can not close ([#2486](https://github.com/ant-design/ant-design-mobile/issues/2486))
+  - 🐞 Fix `Picker`、`SearchBar` I18n ([#2502](https://github.com/ant-design/ant-design-mobile/issues/2502))
+  - 🐞 Fix `InputItem` aria support when using virtual keyboard([#2419](https://github.com/ant-design/ant-design-mobile/issues/2419), [#2418](https://github.com/ant-design/ant-design-mobile/issues/2418))
+  - 🐞 Fix component definition ([5a2d0d](https://github.com/ant-design/ant-design-mobile/commit/5a2d0d57a796ca739cb22306d48377ea5a2c27c3))
+
+
+- **Enhancement**
+
+  - 📝 Update `Carousel` demo([#2434](https://github.com/ant-design/ant-design-mobile/issues/2434))
+  - 📝 Update `Progress` api docs
+  - 📝 Update `LocaleProvider` demo
+  - 📝 Add `tabbar` using with `ListView` demo
+  - 📝 change the dep of `rc-drawer` to `rmc-drawer` ([3fd1a5d](https://github.com/ant-design/ant-design-mobile/commit/3fd1a5d97273d32195da0a863ecc81b32e2b0d07)
 
 ### 2.1.8
 

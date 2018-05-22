@@ -3,6 +3,7 @@ order: 0
 title:
   zh-CN: 国际化
   en-US: i18n
+  ru-Ru: i18n
 ---
 
 Wrap your app with `LocaleProvider`, and apply the corresponding language package.
@@ -10,9 +11,10 @@ Wrap your app with `LocaleProvider`, and apply the corresponding language packag
 ````jsx
 import {
   Pagination, LocaleProvider, List, DatePicker, WhiteSpace, InputItem, WingBlank,
-  SegmentedControl, Picker, SearchBar,
+  Picker, SearchBar,
 } from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US';
+import ruRU from 'antd-mobile/lib/locale-provider/ru_RU';
 
 const maxDate = new Date(2018, 11, 3, 22, 0);
 const minDate = new Date(2015, 7, 6, 8, 30);
@@ -74,28 +76,50 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isEnglish: true,
+      locale: 'English',
     };
   }
 
-  onChange = (e) => {
-    const index = e.nativeEvent.selectedSegmentIndex;
+  onChange = (value) => {
     this.setState({
-      isEnglish: index === 0,
+      locale: value[0],
     });
   }
 
   render() {
-    const locale = this.state.isEnglish ? enUS : undefined;
+    const { locale } = this.state;
+    const languages = [
+      {
+        value: '中国',
+        label: '中国',
+        language: undefined,
+      },
+      {
+        value: 'English',
+        label: 'English',
+        language: enUS,
+      },
+      {
+        value: 'Русский',
+        label: 'Русский',
+        language: ruRU,
+      },
+    ];
+    const currentLocale = languages.find(item => item.value === locale).language;
+
     return (
       <WingBlank>
-        <SegmentedControl
-          values={['切换到英文', 'Change to Chinese']}
-          selectedIndex={this.state.isEnglish ? 0 : 1}
+        <Picker
+          data={languages}
           onChange={this.onChange}
-        />
-        <WhiteSpace />
-        <LocaleProvider locale={locale}>
+          cols={1}
+          value={[locale]}
+        >
+          <List.Item arrow="horizontal">Choose language</List.Item>
+        </Picker>
+        <WhiteSpace size="xl" />
+        <WhiteSpace size="xl" />
+        <LocaleProvider locale={currentLocale}>
           <Page />
         </LocaleProvider>
       </WingBlank>

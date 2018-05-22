@@ -134,9 +134,6 @@ export default class TextareaItem extends React.Component<
         });
       }
     }, 100);
-    this.setState({
-      focus: false,
-    });
     const value = e.currentTarget.value;
     if (this.props.onBlur) {
       this.props.onBlur(value);
@@ -246,7 +243,6 @@ export default class TextareaItem extends React.Component<
               <div
                 className={`${prefixCls}-clear`}
                 onClick={this.clearInput}
-                onTouchStart={this.clearInput}
               />
             </TouchFeedback>
           )}

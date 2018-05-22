@@ -15,6 +15,39 @@ toc: false
 
 ---
 
+### 2.1.9
+
+`2018-05-21`
+
+- **Feature**
+
+  - 🌟 `InputItem` 支持自定义 `onVirtualKeyboardConfirm` 属性, 提供虚拟键盘确认按钮回调([#2551](https://github.com/ant-design/ant-design-mobile/pull/2551))
+  - 🌟 `InputItem` 支持自定义 `moneyKeyboardWrapProps` 属性, 以解决虚拟键盘点透问题([#2550](https://github.com/ant-design/ant-design-mobile/pull/2550))
+  - 🌟 [React Native] `InputItem` 在RN下支持 `focus` 回调 ([#2381](https://github.com/ant-design/ant-design-mobile/issues/2381))
+  - 🌟 多语言支持Russian language ([#2400](https://github.com/ant-design/ant-design-mobile/pull/2400))
+
+
+- **Bug Fix**
+
+  - 🐞 修复 `TextareaItem`、`InputItem` 设置 `clear` 属性清除内容无效问题([#2372](https://github.com/ant-design/ant-design-mobile/issues/2372))
+  - 🐞 修复 `TabBar` 嵌套 `SearchBar` 样式异常问题([#2447](https://github.com/ant-design/ant-design-mobile/issues/2447))
+  - 🐞 修复 `InputItem` 在 `money` 类型下默认值设置问题([#2493](https://github.com/ant-design/ant-design-mobile/issues/2493))
+  - 🐞 修复 `Accordion` 组件在Android上读不出展开折叠状态问题([#2491](https://github.com/ant-design/ant-design-mobile/issues/2491))
+  - 🐞 修复 `InputItem` 在 `bankCard` 类型下，在UC浏览器光标错位问题([#2441](https://github.com/ant-design/ant-design-mobile/issues/2441))
+  - 🐞 修复 `Modal` 弹窗无法关闭的问题([#2486](https://github.com/ant-design/ant-design-mobile/issues/2486))
+  - 🐞 修复 `Picker`、`SearchBar` 多语言支持问题 ([#2502](https://github.com/ant-design/ant-design-mobile/issues/2502))
+  - 🐞 修复 `InputItem` 在 `money` 类型下，虚拟键盘无障碍化问题([#2419](https://github.com/ant-design/ant-design-mobile/issues/2419)、[#2418](https://github.com/ant-design/ant-design-mobile/issues/2418))
+  - 🐞 修复组件类型定义 ([5a2d0d](https://github.com/ant-design/ant-design-mobile/commit/5a2d0d57a796ca739cb22306d48377ea5a2c27c3))
+
+
+- **Enhancement**
+
+  - 📝 更新 `Carousel` 使用文档([#2434](https://github.com/ant-design/ant-design-mobile/issues/2434))
+  - 📝 更新 `Progress` api 文档
+  - 📝 更新 `LocaleProvider` 使用文档
+  - 📝 增加 `tabbar` 中内嵌使用 `ListView` 使用文档
+  - 📝 变更依赖 `rc-drawer` 为 `rmc-drawer` ([3fd1a5d](https://github.com/ant-design/ant-design-mobile/commit/3fd1a5d97273d32195da0a863ecc81b32e2b0d07))
+
 ### 2.1.8
 
 `2018-03-19`

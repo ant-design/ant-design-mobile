@@ -27,7 +27,7 @@ $ npm run lint
 ├── docs                    other docs
 ├── rn-kitchen-sink         RN demo project source code
 ├── scripts                 scripts for development
-├── site                    offical web site source code
+├── site                    offical website source code
 ├── tests                   test code
 ├── tsconfig.json           TypeScript config
 ├── typings                 mistake defined for TypeScript
@@ -53,7 +53,7 @@ component name separate with `-`, such as `date-picker`，and file Extensions sh
 
 ### Web Components specification
 
-- `components/button/index.web.tsx`
+- `components/button/index.tsx`
 
 ```js
 import React from 'react';
@@ -70,7 +70,7 @@ class Button extends React.Component {
 export default Button;
 ```
 
-- `components/button/style/index.web.tsx`
+- `components/button/style/index.tsx`
 
 ```js
 import '../../style/';
@@ -93,13 +93,13 @@ import './index.less';
 
 general we do not distinguish Android and Ios, so no suffix.
 
-- `components/button/index.tsx`
+- `components/button/index.native.tsx`
 
 ```jsx
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-// just a example, may extract style to components/button/style/index.tsx
+// just a example, may extract style to components/button/style/index.native.tsx
 const styles = StyleSheet.create({
   button: {
     borderRadius: 4,
@@ -121,10 +121,10 @@ class Button extends React.Component {
 export default Button;
 ```
 
-- `components/button/demo/basic.tsx`
+- `components/button/demo/basic.native.tsx`
 
 ```jsx
-import { Button } from 'antm';
+import { Button } from 'antd-mobile';
 import * as React from 'react';
 import { Text, View } from 'react-native';
 

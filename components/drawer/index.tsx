@@ -1,4 +1,4 @@
-import RcDrawer from 'rc-drawer';
+import RmcDrawer from 'rmc-drawer';
 import React from 'react';
 import { DrawerWebProps } from './PropsType';
 
@@ -8,6 +8,6 @@ export default class Drawer extends React.Component<DrawerWebProps, any> {
     enableDragHandle: false,
   };
   render() {
-    return <RcDrawer {...this.props} />;
+    return <RmcDrawer {...this.props} />;
   }
 }

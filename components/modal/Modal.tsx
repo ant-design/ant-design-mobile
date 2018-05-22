@@ -2,9 +2,32 @@ import classnames from 'classnames';
 import React from 'react';
 import Dialog from 'rmc-dialog';
 import TouchFeedback from 'rmc-feedback';
-import { Action, ModalComponent, ModalPropsType } from './PropsType';
+import { Action, ModalPropsType, CallbackOrActions } from './PropsType';
+export abstract class ModalComponent<P, S> extends React.Component<P, S> {
+  static alert: (
+    title: React.ReactNode,
+    message: React.ReactNode,
+    actions?: Action<React.CSSProperties>[],
+    platform?: string,
+  ) => { close: () => void };
 
-export interface ModalProps extends ModalPropsType {
+  static prompt: (
+    title: React.ReactNode,
+    message: React.ReactNode,
+    callbackOrActions: CallbackOrActions<React.CSSProperties>,
+    type?: 'default' | 'secure-text' | 'login-password',
+    defaultValue?: string,
+    placeholders?: string[],
+    platform?: string,
+  ) => { close: () => void };
+
+  static operation: (
+    actions?: Action<React.CSSProperties>[],
+    platform?: string,
+  ) => { close: () => void };
+}
+
+export interface ModalProps extends ModalPropsType<React.CSSProperties> {
   prefixCls?: string;
   transitionName?: string;
   maskTransitionName?: string;
@@ -31,7 +54,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     platform: 'ios',
   };
 
-  renderFooterButton(button: Action, prefixCls: string | undefined, i: number) {
+  renderFooterButton(button: Action<React.CSSProperties>, prefixCls: string | undefined, i: number) {
     let buttonStyle = {};
     if (button.style) {
       buttonStyle = button.style;

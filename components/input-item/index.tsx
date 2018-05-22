@@ -24,11 +24,11 @@ export interface InputItemProps extends InputItemPropsType, HTMLInputProps {
 
 function noop() {}
 
-function fixControlledValue(value?: string) {
+function normalizeValue(value?: string) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
-  return value;
+  return value + '';
 }
 
 class InputItem extends React.Component<InputItemProps, any> {
@@ -47,9 +47,11 @@ class InputItem extends React.Component<InputItemProps, any> {
     onExtraClick: noop,
     error: false,
     onErrorClick: noop,
+    onVirtualKeyboardConfirm: noop,
     labelNumber: 5,
     updatePlaceholder: false,
     moneyKeyboardAlign: 'right',
+    moneyKeyboardWrapProps: {},
   };
 
   static contextTypes = {
@@ -63,7 +65,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     super(props);
     this.state = {
       placeholder: props.placeholder,
-      value: props.value || props.defaultValue || '',
+      value: normalizeValue(props.value || props.defaultValue),
     };
   }
 
@@ -88,37 +90,37 @@ class InputItem extends React.Component<InputItemProps, any> {
   }
 
   onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value;
+    const { value } = e.target;
     const { type } = this.props;
 
+    let newValue = value;
     switch (type) {
-      case 'text':
-        break;
       case 'bankCard':
-        value = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
+        newValue = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
       case 'phone':
-        value = value.replace(/\D/g, '').substring(0, 11);
-        const valueLen = value.length;
+        newValue = value.replace(/\D/g, '').substring(0, 11);
+        const valueLen = newValue.length;
         if (valueLen > 3 && valueLen < 8) {
-          value = `${value.substr(0, 3)} ${value.substr(3)}`;
+          newValue = `${newValue.substr(0, 3)} ${newValue.substr(3)}`;
         } else if (valueLen >= 8) {
-          value = `${value.substr(0, 3)} ${value.substr(3, 4)} ${value.substr(
+          newValue = `${newValue.substr(0, 3)} ${newValue.substr(3, 4)} ${newValue.substr(
             7,
           )}`;
         }
         break;
       case 'number':
-        value = value.replace(/\D/g, '');
+        newValue = value.replace(/\D/g, '');
         break;
+      case 'text':
       case 'password':
-        break;
       default:
         break;
     }
-    this.handleOnChange(value);
+    this.handleOnChange(newValue, newValue !== value);
   }
-  handleOnChange = (value: string) => {
+
+  handleOnChange = (value: string, isMutated: boolean = false) => {
     const { onChange } = this.props;
 
     if (!('value' in this.props)) {
@@ -127,9 +129,10 @@ class InputItem extends React.Component<InputItemProps, any> {
       this.setState({ value: this.props.value });
     }
     if (onChange) {
-      onChange(value);
+      isMutated ? setTimeout(() => onChange(value)) : onChange(value);
     }
   }
+
   onInputFocus = (value: string) => {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
@@ -188,11 +191,13 @@ class InputItem extends React.Component<InputItemProps, any> {
     this.focus();
   }
 
+  // this is instance method for user to use
   focus = () => {
     if (this.inputRef) {
       this.inputRef.focus();
     }
   }
+
   render() {
     const {
       prefixCls,
@@ -205,15 +210,12 @@ class InputItem extends React.Component<InputItemProps, any> {
       className,
       extra,
       labelNumber,
-      onExtraClick,
-      onErrorClick,
-      updatePlaceholder,
       type,
-      locale,
       moneyKeyboardAlign,
+      moneyKeyboardWrapProps,
       ...restProps,
     } = this.props;
-    const { defaultValue, name, disabled, maxLength } = restProps;
+    const { name, disabled, maxLength } = restProps;
     const { value } = this.state;
 
     // tslint:disable-next-line:variable-name
@@ -224,9 +226,16 @@ class InputItem extends React.Component<InputItemProps, any> {
       () => require('./locale/zh_CN'),
     );
 
-    const { confirmLabel } = _locale;
+    const {
+      confirmLabel,
+      backspaceLabel,
+      cancelKeyboardLabel,
+    } = _locale;
 
-    const { placeholder, focus } = this.state;
+    const {
+      focus,
+      placeholder,
+    } = this.state;
 
     const wrapCls = classnames(
       `${prefixListCls}-item`,
@@ -284,8 +293,7 @@ class InputItem extends React.Component<InputItemProps, any> {
           <div className={controlCls}>
             {type === 'money' ? (
               <CustomInput
-                value={fixControlledValue(value)}
-                defaultValue={defaultValue}
+                value={normalizeValue(value)}
                 type={type}
                 ref={el => (this.inputRef = el)}
                 maxLength={maxLength}
@@ -293,20 +301,24 @@ class InputItem extends React.Component<InputItemProps, any> {
                 onChange={this.onInputChange}
                 onFocus={this.onInputFocus}
                 onBlur={this.onInputBlur}
+                onVirtualKeyboardConfirm={this.props.onVirtualKeyboardConfirm}
                 disabled={disabled}
                 editable={editable}
                 prefixCls={prefixCls}
                 style={style}
                 confirmLabel={confirmLabel}
+                backspaceLabel={backspaceLabel}
+                cancelKeyboardLabel={cancelKeyboardLabel}
                 moneyKeyboardAlign={moneyKeyboardAlign}
+                moneyKeyboardWrapProps={moneyKeyboardWrapProps}
               />
             ) : (
               <Input
                 {...patternProps}
                 {...restProps}
                 {...classNameProps}
-                value={fixControlledValue(value)}
-                defaultValue={defaultValue}
+                value={normalizeValue(value)}
+                defaultValue={undefined}
                 ref={(el: any) => (this.inputRef = el)}
                 style={style}
                 type={inputType}

@@ -6,21 +6,26 @@ import CustomKeyboard from './CustomKeyboard';
 import Portal from './Portal';
 import { InputEventHandler } from './PropsType';
 
-const IS_REACT_16 = !!ReactDOM.createPortal;
+let instanceArr: any = [];
 let customNumberKeyboard: CustomKeyboard | null = null;
+const IS_REACT_16 = !!ReactDOM.createPortal;
+
 export interface NumberInputProps {
   placeholder?: string;
   disabled?: boolean;
   editable?: boolean;
   moneyKeyboardAlign?: 'left' | 'right' | string;
+  moneyKeyboardWrapProps?: object;
   value?: string;
-  defaultValue?: string;
   prefixCls?: string;
   keyboardPrefixCls?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: InputEventHandler;
   onBlur?: InputEventHandler;
+  onVirtualKeyboardConfirm?: InputEventHandler;
   confirmLabel: any;
+  backspaceLabel: any;
+  cancelKeyboardLabel: any;
   maxLength?: number;
   type?: string;
   style?: React.CSSProperties;
@@ -30,6 +35,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     onChange: () => {},
     onFocus: () => {},
     onBlur: () => {},
+    onVirtualKeyboardConfirm: () => {},
     placeholder: '',
     disabled: false,
     editable: true,
@@ -54,6 +60,10 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     this.props.onChange!(value);
   }
 
+  onConfirm = (value: any) => {
+    this.props.onVirtualKeyboardConfirm!(value);
+  }
+
   componentWillReceiveProps(nextProps: NumberInputProps) {
     if ('value' in nextProps) {
       this.setState({
@@ -62,7 +72,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     }
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     this.renderCustomKeyboard();
   }
 
@@ -83,38 +93,60 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   saveRef = (el: CustomKeyboard | null) => {
-    if (IS_REACT_16) {
+    if (IS_REACT_16 && el) {
       customNumberKeyboard = el;
+      instanceArr.push({ el, container: this.container });
     }
   }
 
   getComponent() {
-    const { keyboardPrefixCls, confirmLabel } = this.props;
+    const {
+      confirmLabel,
+      backspaceLabel,
+      cancelKeyboardLabel,
+      keyboardPrefixCls,
+      moneyKeyboardWrapProps,
+    } = this.props;
+
     return (
       <CustomKeyboard
         ref={this.saveRef}
         onClick={this.onKeyboardClick}
-        preixCls={keyboardPrefixCls}
+        prefixCls={keyboardPrefixCls}
         confirmLabel={confirmLabel}
+        backspaceLabel={backspaceLabel}
+        cancelKeyboardLabel={cancelKeyboardLabel}
+        wrapProps={moneyKeyboardWrapProps}
       />
     );
   }
 
   getContainer() {
-    let container = document.querySelector(
-      `#${this.props.keyboardPrefixCls}-container`,
-    );
-    if (!container) {
-      container = document.createElement('div');
-      container.setAttribute('id', `${this.props.keyboardPrefixCls}-container`);
-      document.body.appendChild(container);
+    const { keyboardPrefixCls } = this.props;
+
+    if (IS_REACT_16) {
+      if (!this.container) {
+        const container = document.createElement('div');
+        container.setAttribute('id', `${keyboardPrefixCls}-container-${(new Date().getTime())}`);
+        document.body.appendChild(container);
+        this.container = container;
+      }
+    } else {
+      let container = document.querySelector(
+        `#${keyboardPrefixCls}-container`,
+      );
+      if (!container) {
+        container = document.createElement('div');
+        container.setAttribute('id', `${keyboardPrefixCls}-container`);
+        document.body.appendChild(container);
+      }
+      this.container = container;
     }
-    this.container = container;
-    return container;
+    return this.container;
   }
 
   renderCustomKeyboard() {
-    if (IS_REACT_16 || customNumberKeyboard) {
+    if (IS_REACT_16) {
       return;
     }
     customNumberKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
@@ -129,6 +161,16 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     if (ev.target !== this.inputRef) {
       this.onInputBlur(value);
     }
+  }
+
+  removeCurrentExtraKeyboard = () => {
+    instanceArr = instanceArr.filter((item: any) => {
+      const { el, container } = item;
+      if (el && container && el !== customNumberKeyboard) {
+        (container as any).parentNode.removeChild(container);
+      }
+      return el === customNumberKeyboard;
+    });
   }
 
   unLinkInput = () => {
@@ -146,6 +188,10 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     }
     // for unmount
     this.removeBlurListener();
+
+    if (IS_REACT_16) {
+      this.removeCurrentExtraKeyboard();
+    }
   }
 
   onInputBlur = (value: string) => {
@@ -212,6 +258,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       valueAfterChange = value;
       onChange({ target: { value: valueAfterChange } });
       this.onInputBlur(value);
+      this.onConfirm(value);
       // 收起键
     } else if (KeyboardItemValue === 'hide') {
       valueAfterChange = value;
@@ -268,12 +315,11 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       return null;
     }
 
-    const portal = (
+    return (
       <Portal getContainer={() => this.getContainer()}>
         {this.getComponent()}
       </Portal>
     );
-    return portal;
   }
 
   render() {
@@ -295,6 +341,8 @@ class NumberInput extends React.Component<NumberInputProps, any> {
           <div className="fake-input-placeholder">{placeholder}</div>
         )}
         <div
+          role="textbox"
+          aria-label={value || placeholder}
           className={fakeInputCls}
           ref={el => (this.inputRef = el)}
           onClick={preventKeyboard ? () => {} : this.onFakeInputClick}

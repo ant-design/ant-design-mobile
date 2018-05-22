@@ -5,8 +5,8 @@ import Modal from './Modal';
 import { Action } from './PropsType';
 
 export default function alert(
-  title: JSX.Element,
-  message: JSX.Element,
+  title: React.ReactNode,
+  message: React.ReactNode,
   actions = [{ text: '确定' }],
   platform = 'ios',
 ) {
@@ -29,7 +29,7 @@ export default function alert(
     }
   }
 
-  const footer = actions.map((button: Action) => {
+  const footer = actions.map((button: Action<React.CSSProperties>) => {
     // tslint:disable-next-line:only-arrow-functions
     const orginPress = button.onPress || function() {};
     button.onPress = () => {
@@ -59,7 +59,7 @@ export default function alert(
     if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
       return;
     }
-    const pNode = closest(e.currentTarget, `.${prefixCls}-footer`);
+    const pNode = closest(e.target as Element, `.${prefixCls}-footer`);
     if (!pNode) {
       e.preventDefault();
     }

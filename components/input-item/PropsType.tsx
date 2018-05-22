@@ -4,6 +4,7 @@ export type InputEventHandler = (value?: string) => void;
 export interface InputItemPropsType {
   /** web only */
   moneyKeyboardAlign?: string;
+  moneyKeyboardWrapProps?: object;
   type?:
     | 'text'
     | 'bankCard'
@@ -31,7 +32,8 @@ export interface InputItemPropsType {
   updatePlaceholder?: boolean;
   styles?: any;
   locale?: object;
-  onChange?: InputEventHandler;
+  onChange?: (value: string) => void;
   onFocus?: InputEventHandler;
   onBlur?: InputEventHandler;
+  onVirtualKeyboardConfirm?: InputEventHandler;
 }

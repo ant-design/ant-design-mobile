@@ -50,7 +50,7 @@ describe('Drawer', () => {
   //     expect(arg).toBe(false);
   //   }
   //   // 注意：如果用 enzyme 的 shallow 方法、setProps 不起作用，
-  //   // 也许是代码都是在 rc-drawer 里的缘故？（比如 Button 组件 shallow + setProps 是正常的）
+  //   // 也许是代码都是在 rmc-drawer 里的缘故？（比如 Button 组件 shallow + setProps 是正常的）
   //   const wrapper = mount(
   //     <Drawer
   //       sidebar={<span>sidebar content</span>}

@@ -53,7 +53,7 @@ $ npm run lint
 
 ### web 组件规范
 
-- `components/button/index.web.tsx`
+- `components/button/index.tsx`
 
 ```js
 import * as React from 'react';
@@ -70,7 +70,7 @@ class Button extends React.Component {
 export default Button;
 ```
 
-- `components/button/style/index.web.tsx`
+- `components/button/style/index.tsx`
 
 ```js
 import '../../style/';
@@ -93,13 +93,13 @@ import './index.less';
 
 无特殊情况（iOS Android 代码完全一致）不用带后缀.
 
-- `components/button/index.tsx`
+- `components/button/index.native.tsx`
 
 ```jsx
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-// 可独立到 components/button/style/index.tsx
+// 可独立到 components/button/style/index.native.tsx
 const styles = StyleSheet.create({
   button: {
     borderRadius: 4,
@@ -121,10 +121,10 @@ class Button extends React.Component {
 export default Button;
 ```
 
-- `components/button/demo/basic.tsx`
+- `components/button/demo/basic.native.tsx`
 
 ```jsx
-import { Button } from 'antm';
+import { Button } from 'antd-mobile';
 import React from 'react';
 import { Text, View } from 'react-native';
 

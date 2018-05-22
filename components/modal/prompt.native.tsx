@@ -2,11 +2,12 @@ import React from 'react';
 import topView from 'rn-topview';
 import PromptContainer from './PromptContainer.native';
 import { CallbackOrActions } from './PropsType';
+import { TextStyle } from 'react-native';
 
 export default function prompt(
-  title: JSX.Element,
-  message: JSX.Element,
-  callbackOrActions: CallbackOrActions,
+  title: React.ReactNode,
+  message: React.ReactNode,
+  callbackOrActions: CallbackOrActions<TextStyle>,
   type = 'default',
   defaultValue = '',
   placeholders = ['', ''],
