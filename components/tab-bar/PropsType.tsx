@@ -4,6 +4,8 @@ export interface TabBarProps {
   barTintColor?: string;
   tintColor?: string;
   unselectedTintColor?: string;
+  /*web only*/
+  tabBarPosition?: 'top' | 'bottom';
 
   /** default: false */
   animated?: boolean;

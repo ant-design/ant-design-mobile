@@ -25,6 +25,7 @@ Properties | Descrition | Type | Default
 | hidden       | whether it is hidden  | Boolean | false           |
 | prefixCls(`web only`) | prefix className  | String   | 'am-tab-bar'      |
 | noRenderContent(`web only`) | can't render content  | Boolean   |   false   |
+| tabBarPosition(`web only`) | tabbar position | 'top' \ 'bottom' | 'bottom' |
 
 ### TabBar.Item
 

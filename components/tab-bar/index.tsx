@@ -39,6 +39,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
     placeholder: '正在加载',
     animated: false,
     swipeable: false,
+    tabBarPosition: 'bottom',
   };
 
   public static Item = Item;
@@ -58,6 +59,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
       tintColor,
       unselectedTintColor,
       hidden,
+      tabBarPosition,
     } = this.props;
     const tabsData = this.getTabs();
 
@@ -81,7 +83,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
     });
     let cls = `${prefixCls}-bar`;
     if (hidden) {
-      cls += ` ${prefixCls}-bar-hidden`;
+      cls += ` ${prefixCls}-bar-hidden-${tabBarPosition}`;
     }
 
     return (
@@ -98,6 +100,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
       animated,
       swipeable,
       noRenderContent,
+      tabBarPosition,
     } = this.props;
     const tabs = this.getTabs();
     let activeIndex = 0;
@@ -112,7 +115,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
         <Tabs
           tabs={tabs}
           renderTabBar={this.renderTabBar}
-          tabBarPosition="bottom"
+          tabBarPosition={tabBarPosition}
           page={activeIndex < 0 ? undefined : activeIndex}
           animated={animated}
           swipeable={swipeable}
