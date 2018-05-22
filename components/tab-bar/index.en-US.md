@@ -24,6 +24,7 @@ Properties | Descrition | Type | Default
 | prefixCls| prefix className  | String   | 'am-tab-bar'      |
 | noRenderContent| can't render content  | Boolean   |   false   |
 | prerenderingSiblingsNumber| pre-render nearby sibling, Infinity: render all the siblings, 0: render current page  | number |   1   |
+| tabBarPosition | tabbar position | 'top'\|'bottom' | 'bottom' |
 
 ### TabBar.Item
 

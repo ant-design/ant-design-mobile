@@ -16,14 +16,21 @@
     .hairline('top');
     width: 100%;
     display: flex;
-    transition: bottom .2s;
+    transition-duration: .2s;
+    transition-property: height bottom;
     z-index: 100;
     justify-content: space-around;
     align-items: center;
     bottom: 0;
 
-    &-hidden {
+    &-hidden-top {
+      bottom: @tab-bar-height;
+      height: 0;
+    }
+
+    &-hidden-bottom {
       bottom: -@tab-bar-height;
+      height: 0;
     }
 
     .@{tabbar-prefix-cls}-tab {
