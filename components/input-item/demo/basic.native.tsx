@@ -6,6 +6,8 @@ import { ScrollView, Text } from 'react-native';
 declare var jest: any;
 
 export default class BasicInputItemExample extends React.Component<any, any> {
+  inputRef: any;
+
   constructor(props: any) {
     super(props);
     this.state = {
@@ -24,8 +26,6 @@ export default class BasicInputItemExample extends React.Component<any, any> {
       number: '',
     };
   }
-
-  inputRef: any;
 
   render() {
     return (

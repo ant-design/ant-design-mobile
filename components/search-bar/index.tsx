@@ -6,6 +6,20 @@ import getDataAttr from '../_util/getDataAttr';
 import { getComponentLocale } from '../_util/getLocale';
 import { defaultProps, SearchBarPropsType, SearchBarState } from './PropsType';
 
+function onNextFrame(cb: () => void) {
+  if (window.requestAnimationFrame) {
+    return window.requestAnimationFrame(cb);
+  }
+  return window.setTimeout(cb, 1);
+}
+function clearNextFrameAction(nextFrameId: number) {
+  if (window.cancelAnimationFrame) {
+    window.cancelAnimationFrame(nextFrameId);
+  } else {
+    window.clearTimeout(nextFrameId);
+  }
+}
+
 export interface SearchBarProps extends SearchBarPropsType {
   prefixCls?: string;
   className?: string;
@@ -97,7 +111,7 @@ export default class SearchBar extends React.Component<
 
   componentWillUnmount() {
     if (this.onBlurTimeout) {
-      clearTimeout(this.onBlurTimeout);
+      clearNextFrameAction(this.onBlurTimeout);
       this.onBlurTimeout = null;
     }
   }
@@ -139,7 +153,7 @@ export default class SearchBar extends React.Component<
   }
 
   onBlur = () => {
-    this.onBlurTimeout = setTimeout(() => {
+    this.onBlurTimeout = onNextFrame(() => {
       if (!this.blurFromOnClear) {
         if (document.activeElement !== this.inputRef) {
           this.setState({
@@ -148,7 +162,7 @@ export default class SearchBar extends React.Component<
         }
       }
       this.blurFromOnClear = false;
-    }, 50);
+    });
     if (this.props.onBlur) {
       this.props.onBlur();
     }
