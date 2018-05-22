@@ -45,7 +45,7 @@ export default class Steps extends React.Component<StepsProps, any> {
     // flattern the array at first https://github.com/ant-design/ant-design-mobile/issues/934
     const filterChildren: any[] = [];
     if (children && children.length) {
-      children.forEach( (item: any) => {
+      children.forEach((item: any) => {
         if (React.isValidElement(item)) {
           filterChildren.push(item);
         }
