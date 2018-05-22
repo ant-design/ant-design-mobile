@@ -26,6 +26,11 @@ export default {
     fontSize: variables.input_font_size,
     color: variables.color_text_base,
   },
+  clear: {
+    backgroundColor: variables.color_icon_base,
+    borderRadius: 15,
+    padding: 2,
+  },
   extra: {
     marginLeft: variables.h_spacing_sm,
     fontSize: variables.font_size_subhead,

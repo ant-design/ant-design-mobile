@@ -5,9 +5,11 @@ import {
   Image,
   StyleSheet,
   Text,
-  TextInputProperties,
+  TextInputProperties
   TouchableWithoutFeedback,
   View,
+  Platform,
+  TouchableOpacity
 } from 'react-native';
 import variables from '../style/themes/default.native';
 import Input from './Input.native';
@@ -106,6 +108,11 @@ export default class InputItem extends React.Component<InputItemProps, any> {
     }
   }
 
+  onInputClear = () => {
+    this.inputRef.inputRef.clear();
+    this.onChange('');
+  }
+  
   // this is instance method for user to use
   focus = () => {
     if (this.inputRef) {
@@ -116,6 +123,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
   render() {
     const {
       type,
+      editable,
       clear,
       children,
       error,
@@ -204,6 +212,18 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           onBlur={this.onInputBlur}
           onFocus={this.onInputFocus}
         />
+        {(editable && clear && Platform.OS === 'android') && (
+          <TouchableOpacity
+            style={[styles.clear]}
+            onPress={this.onInputClear}
+            hitSlop={{ top: 5, left: 5, bottom: 5, right: 5 }}
+          >
+            <Image
+              source={require('../style/images/cross_w.png')}
+              style={{ width: 12, height: 12 }}
+            />
+          </TouchableOpacity>
+        )}
         {extra ? (
           <TouchableWithoutFeedback onPress={onExtraClick}>
             <View>
