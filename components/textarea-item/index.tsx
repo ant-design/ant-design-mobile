@@ -133,7 +133,7 @@ export default class TextareaItem extends React.Component<
           focus: false,
         });
       }
-    }, 100);
+    }, 210);
     const value = e.currentTarget.value;
     if (this.props.onBlur) {
       this.props.onBlur(value);
