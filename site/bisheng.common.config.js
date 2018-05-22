@@ -127,4 +127,7 @@ module.exports = {
       '1.x': 'http://1x.mobile.ant.design',
     },
   },
+  devServerConfig: {
+    disableHostCheck: true,
+  },
 };
