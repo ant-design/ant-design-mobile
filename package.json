@@ -45,7 +45,7 @@
     "react-native-menu": "^0.23.0",
     "rmc-calendar": "^1.0.0",
     "rmc-cascader": "~5.0.0",
-    "rmc-date-picker": "~6.0.7",
+    "rmc-date-picker": "^6.0.8",
     "rmc-dialog": "^1.0.1",
     "rmc-drawer": "^0.4.11",
     "rmc-feedback": "^2.0.0",
