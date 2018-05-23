@@ -3,6 +3,8 @@ import React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import { Omit } from '../_util/types';
 
+const IS_IOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+
 export type HTMLTableDataProps = Omit<
   React.HTMLProps<HTMLTableDataCellElement>,
   'onClick'
@@ -11,6 +13,7 @@ export type HTMLTableDataProps = Omit<
 export interface KeyboardItemProps extends HTMLTableDataProps {
   prefixCls?: string;
   tdRef?: React.Ref<HTMLTableDataCellElement>;
+  iconOnly?: boolean;
   onClick: (
     event: React.MouseEvent<HTMLTableDataCellElement>,
     value: string,
@@ -31,6 +34,8 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
       disabled,
       children,
       tdRef,
+      label,
+      iconOnly,
       ...restProps,
     } = this.props;
     let value = children;
@@ -55,6 +60,7 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
           {...restProps}
         >
           {children}
+          {iconOnly && <i className="sr-only">{label}</i>}
         </td>
       </TouchFeedback>
     );
@@ -120,11 +126,10 @@ class CustomKeyboard extends React.Component<any, any> {
                 this.renderKeyboardItem(item, index),
               )}
               <KeyboardItem
-                role="button"
-                aria-label={backspaceLabel}
                 className="keyboard-delete"
                 rowSpan={2}
                 onClick={this.onKeyboardClick}
+                {...this.getAriaAttr(backspaceLabel)}
               />
             </tr>
             <tr>
@@ -153,16 +158,23 @@ class CustomKeyboard extends React.Component<any, any> {
                 this.renderKeyboardItem(item, index),
               )}
               <KeyboardItem
-                role="button"
-                aria-label={cancelKeyboardLabel}
                 className="keyboard-hide"
                 onClick={this.onKeyboardClick}
+                {...this.getAriaAttr(cancelKeyboardLabel)}
               />
             </tr>
           </tbody>
         </table>
       </div>
     );
+  }
+
+  getAriaAttr(label: string) {
+    if (IS_IOS) {
+      return { label, iconOnly: true };
+    } else {
+      return { role: 'button', 'aria-label': label };
+    }
   }
 }
 
