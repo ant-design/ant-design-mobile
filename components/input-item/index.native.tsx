@@ -75,10 +75,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
         text = text.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
       case 'phone':
-        text = text.replace(/\D/g, '');
-        if (maxLength > 0) {
-          text = text.substring(0, 11);
-        }
+        text = text.replace(/\D/g, '').substring(0, 11);
         const valueLen = text.length;
         if (valueLen > 3 && valueLen < 8) {
           text = `${text.substr(0, 3)} ${text.substr(3)}`;
