@@ -23,6 +23,7 @@ subtitle: 选择器
 | cols    | 列数        | Number |  `3`  |
 | onChange | 选中后的回调，可使用[rc-form](https://github.com/react-component/form) | (val): void | - |
 | onPickerChange | 每列数据选择变化后的回调函数   | (val): void | - |
+| onVisibleChange  | 当显隐状态变化时回调函数    | (visible: bool): void |  -   |
 | itemStyle | 每列样式  |   Object   | -  |
 | indicatorStyle  | indicator 样式 | Object | - |
 | children| 通常是 `List.Item` | Object |  `List.Item`  |
