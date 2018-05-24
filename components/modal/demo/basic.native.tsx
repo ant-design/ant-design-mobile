@@ -1,7 +1,7 @@
 /* tslint:disable:no-console */
 import { Button, Modal, WhiteSpace, WingBlank } from 'antd-mobile';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 
 export default class BasicModalExample extends React.Component<any, any> {
   constructor(props: any) {
@@ -83,7 +83,7 @@ export default class BasicModalExample extends React.Component<any, any> {
       { text: 'Ok', onPress: () => console.log('ok') },
     ];
     return (
-      <View style={{ paddingTop: 30, marginTop: 64 }}>
+      <ScrollView style={{ marginTop: 20 }}>
         <WingBlank>
           <Button onClick={() => this.setState({ visible: true })}>
             showModal
@@ -156,7 +156,7 @@ export default class BasicModalExample extends React.Component<any, any> {
             close modal
           </Button>
         </Modal>
-      </View>
+      </ScrollView>
     );
   }
 }
