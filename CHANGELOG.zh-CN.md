@@ -15,6 +15,31 @@ toc: false
 
 ---
 
+### 2.1.10
+
+`2018-05-24`
+
+- **Feature**
+
+  - 🌟 RN `InputItem` 支持自定义 `focus` 属性 ([#2408](https://github.com/ant-design/ant-design-mobile/pull/2408))
+  - 🌟 RN `InputItem` android下增加清除按钮([#2358](https://github.com/ant-design/ant-design-mobile/pull/2358))
+
+
+- **Bug Fix**
+
+  - 🐞 修复 `InputItem` 数字键盘无障碍模式焦点穿透问题([#2568](https://github.com/ant-design/ant-design-mobile/pull/2568))
+  - 🐞 修复 `Modal` 弹窗输入框无法聚焦问题([#2177](https://github.com/ant-design/ant-design-mobile/issues/2177))
+  - 🐞 修复RN `DatePicker` `month` 模式下取值错误问题([#0a701](https://github.com/ant-design/ant-design-mobile/commit/0a701dd205c636804f7e63d7b7d3a2283aad293b))
+  - 🐞 修复RN `InputItem` 下 `type` 为 `phone`类型输入字符不为数字问题([#4ab82](https://github.com/ant-design/ant-design-mobile/commit/4ab82fadc55268cef8558f0423d5ba2f6e4b38d5))
+
+
+- **Enhancement**
+
+  - 📝 更新 RN `Icon` 使用文档
+  - 📝 更新 RN `Picker` 文档, 增加 `onVisibleChange` 自定义属性
+  - 📝 更新 RN `Range` 使用文档
+  - 📝 更新 RN `LocaleProvider` 使用文档
+
 ### 2.1.9
 
 `2018-05-21`

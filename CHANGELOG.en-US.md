@@ -15,6 +15,31 @@ toc: false
 
 ---
 
+### 2.1.10
+
+`2018-05-24`
+
+- **Feature**
+
+  - 🌟 RN `InputItem` add custom `focus` prop ([#2408](https://github.com/ant-design/ant-design-mobile/pull/2408))
+  - 🌟 RN `InputItem` add clear button for android([#2358](https://github.com/ant-design/ant-design-mobile/pull/2358))
+
+
+- **Bug Fix**
+
+  - 🐞 Fix `InputItem` error focus in aria mode([#2568](https://github.com/ant-design/ant-design-mobile/pull/2568))
+  - 🐞 Fix input embeded `Modal` can not focus ([#2177](https://github.com/ant-design/ant-design-mobile/issues/2177))
+  - 🐞 Fix RN `DatePicker` mode month([#0a701](https://github.com/ant-design/ant-design-mobile/commit/0a701dd205c636804f7e63d7b7d3a2283aad293b))
+  - 🐞 Fix RN `InputItem` error input content on the type of `phone`([#4ab82](https://github.com/ant-design/ant-design-mobile/commit/4ab82fadc55268cef8558f0423d5ba2f6e4b38d5))
+
+
+- **Enhancement**
+
+  - 📝 Update RN `Icon` demo
+  - 📝 Update RN `Picker` docs, add `onVisibleChange` prop
+  - 📝 Update RN `Range` demo
+  - 📝 Update RN `LocaleProvider` demo
+
 ### 2.1.9
 
 `2018-05-21`
