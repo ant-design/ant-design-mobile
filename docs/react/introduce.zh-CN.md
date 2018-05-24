@@ -138,7 +138,6 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
 
 ##### 更多增强 (非必须):
 
-> 如何自定义主题？[见此文档](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/theme-config.zh-CN.md)，
 > 基于 antd-mobile 的自定义 UI 库：[web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
 
@@ -181,8 +180,8 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 
    ```jsx
    import { Button } from 'antd-mobile';
-   ``` 
-   
+   ```
+
    > 说明：有人反映通过 `react-native init` 创建的项目在使用时可能会报 [Unable to resolve module `react-dom`](https://github.com/ant-design/ant-design-mobile/issues/2054) 的错误 ，此时不妨安装 [babel-plugin-module-resolver](https://www.npmjs.com/package/babel-plugin-module-resolver) 试试~
 
 - 手动引入
@@ -194,7 +193,7 @@ AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
 ##### 更多增强 (非必须):
 
 > [自定义 RN 主题和单个组件样式](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
-
+> 比如 [#1853](https://github.com/ant-design/ant-design-mobile/issues/1853)
 
 ## 版本
 

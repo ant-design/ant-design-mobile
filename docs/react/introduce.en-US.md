@@ -138,7 +138,6 @@ The following two ways used to load the **only components you used**, select one
 
 ##### More enhanced (optional):
 
-> [Custom theme](https://github.com/ant-design/ant-design-mobile/blob/master/docs/react/theme-config.en-US.md).
 > Your custom UI library based on antd-mobile: [web-custom-ui](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui) / [web-custom-ui-pro](https://github.com/ant-design/antd-mobile-samples/tree/master/web-custom-ui-pro)
 
 
@@ -182,7 +181,7 @@ The following two ways used to load the **only components you used**, select one
    ```jsx
    import { Button } from 'antd-mobile';
    ```
-   
+
    > Note: Some people reflected that it would be [unable to resolve module `react-dom`](https://github.com/ant-design/ant-design-mobile/issues/2054) in a project created with `react-native init`. If you encounter the same problem, you might try to install [babel-plugin-module-resolver](https://www.npmjs.com/package/babel-plugin-module-resolver).
 
 - Manually import
@@ -194,7 +193,7 @@ The following two ways used to load the **only components you used**, select one
 ##### More enhanced (optional):
 
 > [Custom theme and single component style](https://github.com/ant-design/antd-mobile-samples/tree/master/rn-custom-ui)
-
+> Like [#1853](https://github.com/ant-design/ant-design-mobile/issues/1853)
 
 ## Version
 
