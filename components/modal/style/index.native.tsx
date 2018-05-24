@@ -94,6 +94,7 @@ export default {
   buttonWrapH: {
     height: variables.modal_button_height,
     flexGrow: 1,
+    justifyContent: 'center',
     borderColor: variables.border_color_base,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderRightWidth: StyleSheet.hairlineWidth,
