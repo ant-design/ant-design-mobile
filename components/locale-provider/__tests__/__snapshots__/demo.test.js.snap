@@ -158,35 +158,6 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
     <div
       class="am-whitespace am-whitespace-md"
     />
-    <div
-      class="am-list-item am-input-item am-list-item-middle"
-    >
-      <div
-        class="am-list-line"
-      >
-        <div
-          class="am-input-control"
-        >
-          <div
-            class="fake-input-container"
-          >
-            <div
-              class="fake-input-placeholder"
-            >
-              money input
-            </div>
-            <div
-              aria-label="money input"
-              class="fake-input"
-              role="textbox"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="am-whitespace am-whitespace-md"
-    />
     <form
       action="#"
       class="am-search"
@@ -227,6 +198,35 @@ exports[`renders ./components/locale-provider/demo/basic.md correctly 1`] = `
         Cancel
       </div>
     </form>
+    <div
+      class="am-whitespace am-whitespace-md"
+    />
+    <div
+      class="am-list-item am-input-item am-list-item-middle"
+    >
+      <div
+        class="am-list-line"
+      >
+        <div
+          class="am-input-control"
+        >
+          <div
+            class="fake-input-container"
+          >
+            <div
+              class="fake-input-placeholder"
+            >
+              money input
+            </div>
+            <div
+              aria-label="money input"
+              class="fake-input"
+              role="textbox"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

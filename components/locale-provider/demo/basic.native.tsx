@@ -1,16 +1,11 @@
-import {
-  Button,
-  DatePicker,
-  List,
-  LocaleProvider,
-  Pagination,
-  Picker,
-  SearchBar,
-  WhiteSpace,
-} from 'antd-mobile';
 import React from 'react';
 import { View } from 'react-native';
+import {
+  Pagination, LocaleProvider, List, DatePicker, WhiteSpace, WingBlank,
+  Picker, SearchBar,
+} from 'antd-mobile';
 import enUS from '../en_US';
+import ruRU from '../ru_RU';
 
 const maxDate = new Date(2018, 11, 3, 22, 0);
 const minDate = new Date(2015, 7, 6, 8, 30);
@@ -45,11 +40,11 @@ const Page = () => (
     <List style={{ backgroundColor: 'white' }}>
       <DatePicker
         mode="date"
-        title="选择日期"
+        title="Select date"
         minDate={minDate}
         maxDate={maxDate}
       >
-        <List.Item arrow="horizontal">日期</List.Item>
+        <List.Item arrow="horizontal">DatePicker</List.Item>
       </DatePicker>
       <Picker data={seasons} cascade={false}>
         <List.Item arrow="horizontal">picker</List.Item>
@@ -64,26 +59,52 @@ export default class LocaleProviderExample extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      isEnglish: true,
+      locale: 'English',
     };
   }
-  handleClick = () => {
+
+  onChange = (value: any) => {
     this.setState({
-      isEnglish: !this.state.isEnglish,
+      locale: value[0],
     });
   }
+
   render() {
-    const locale = this.state.isEnglish ? enUS : undefined;
+    const { locale } = this.state;
+    const languages: Array<any> = [
+      {
+        value: '中国',
+        label: '中国',
+        language: undefined,
+      },
+      {
+        value: 'English',
+        label: 'English',
+        language: enUS,
+      },
+      {
+        value: 'Русский',
+        label: 'Русский',
+        language: ruRU,
+      },
+    ];
+    const currentLocale = languages.find(item => item.value === locale).language;
+
     return (
-      <View style={{ marginTop: 30 }}>
-        <Button type="primary" onClick={this.handleClick}>
-          {this.state.isEnglish ? 'change to chinese' : '切换到英文'}
-        </Button>
+      <WingBlank>
+        <Picker
+          data={languages}
+          onChange={this.onChange}
+          cols={1}
+          value={[locale]}
+        >
+          <List.Item arrow="horizontal">Choose language</List.Item>
+        </Picker>
         <WhiteSpace />
-        <LocaleProvider locale={locale}>
+        <LocaleProvider locale={currentLocale}>
           <Page />
         </LocaleProvider>
-      </View>
+      </WingBlank>
     );
   }
 }

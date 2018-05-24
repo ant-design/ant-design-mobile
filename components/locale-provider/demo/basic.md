@@ -10,7 +10,7 @@ Wrap your app with `LocaleProvider`, and apply the corresponding language packag
 
 ````jsx
 import {
-  Pagination, LocaleProvider, List, DatePicker, WhiteSpace, InputItem, WingBlank,
+  Pagination, LocaleProvider, List, DatePicker, WhiteSpace, WingBlank, InputItem,
   Picker, SearchBar,
 } from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US';
@@ -66,9 +66,9 @@ const Page = () => (
       </Picker>
     </List>
     <WhiteSpace />
-    <InputItem type="money" placeholder="money input" />
-    <WhiteSpace />
     <SearchBar placeholder="Search" showCancelButton />
+    <WhiteSpace />
+    <InputItem type="money" placeholder="money input" />
   </div>
 );
 

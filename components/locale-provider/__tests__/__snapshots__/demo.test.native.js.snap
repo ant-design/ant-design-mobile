@@ -3,85 +3,149 @@
 exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`] = `
 <View
   style={
-    Object {
-      "marginTop": 30,
-    }
+    Array [
+      Object {
+        "marginLeft": 15,
+        "marginRight": 15,
+      },
+      undefined,
+    ]
   }
 >
   <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        Array [
-          Object {
-            "alignItems": "center",
-            "borderRadius": 5,
-            "borderWidth": 1,
-            "justifyContent": "center",
-          },
-          Object {
-            "height": 47,
-            "paddingLeft": 15,
-            "paddingRight": 15,
-          },
-          Object {
-            "backgroundColor": "#108ee9",
-            "borderColor": "#108ee9",
-          },
-          false,
-          false,
-          false,
-          undefined,
-        ],
-      ]
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    style={undefined}
   >
     <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ]
       }
+      testID={undefined}
+      tvParallaxProperties={undefined}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
+      <View
         style={
           Array [
             Object {
-              "fontSize": 18,
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "flexDirection": "row",
+              "flexGrow": 1,
+              "paddingLeft": 15,
             },
-            Object {
-              "color": "#ffffff",
-            },
-            false,
-            false,
+            undefined,
           ]
         }
       >
-        change to chinese
-      </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderBottomColor": "#dddddd",
+                "borderBottomWidth": 0.5,
+                "flex": 1,
+                "flexDirection": "row",
+                "minHeight": 44,
+                "paddingRight": 15,
+                "paddingVertical": 6,
+              },
+              false,
+              false,
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontSize": 17,
+                    "textAlignVertical": "center",
+                  },
+                ]
+              }
+            >
+              Choose language
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+              numberOfLines={1}
+              style={
+                Array [
+                  Object {
+                    "color": "#888888",
+                    "fontSize": 17,
+                    "textAlign": "right",
+                    "textAlignVertical": "center",
+                  },
+                ]
+              }
+            >
+              English
+            </Text>
+          </View>
+          <Image
+            source={1}
+            style={
+              Object {
+                "height": 13,
+                "marginLeft": 8,
+                "marginTop": 3,
+                "width": 8,
+              }
+            }
+          />
+        </View>
+      </View>
     </View>
   </View>
   <View
@@ -469,7 +533,7 @@ exports[`renders ./components/locale-provider/demo/basic.native.tsx correctly 1`
                       ]
                     }
                   >
-                    日期
+                    DatePicker
                   </Text>
                 </View>
                 <View
