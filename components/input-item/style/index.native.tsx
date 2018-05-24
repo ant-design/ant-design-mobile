@@ -1,4 +1,4 @@
-import { StyleSheet } from  'react-native';
+import { StyleSheet } from 'react-native';
 import variables from '../../style/themes/default.native';
 
 export default {
@@ -25,6 +25,9 @@ export default {
     backgroundColor: 'transparent',
     fontSize: variables.input_font_size,
     color: variables.color_text_base,
+  },
+  inputErrorColor: {
+    color: '#f50',
   },
   clear: {
     backgroundColor: variables.color_icon_base,

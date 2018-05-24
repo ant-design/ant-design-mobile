@@ -204,7 +204,7 @@ export default class InputItem extends React.Component<InputItemProps, any> {
           ref={el => (this.inputRef = el)}
           {...restProps}
           {...valueProps}
-          style={[styles.input, error ? { color: '#f50' } : null]}
+          style={[styles.input, error ? styles.inputErrorColor : null]}
           keyboardType={keyboardType}
           onChange={event => this.onChange(event.nativeEvent.text)}
           secureTextEntry={type === 'password'}
