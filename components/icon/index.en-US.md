@@ -19,7 +19,11 @@ Each icon has its own semantic naming，the naming rules are as follows:
 
 ### Tips
 
-Now, we only support the built-in 'check-circle', 'check', 'check-circle-o', 'cross-circle', 'cross', 'cross-circle-o', 'up' , 'left', 'right', 'ellipsis', 'loading' these icon types, **no longer support other custom types of icon**. If you need to use your custom icon type, there are several ways:
+Now, we only support the built-in 'check-circle', 'check', 'check-circle-o', 'cross-circle', 'cross', 'cross-circle-o', 'up' , 'left', 'right', 'ellipsis', 'loading' these icon types.
+
+> Note: `loading`(Deprecated) icon is not animated, it is recommended to use RN `ActivityIndicator` instead.
+
+**No longer support other custom types of icon**. If you need to use your custom icon type, there are several ways:
 
 1. view svg icon document for 1.x => 2.0 in [/docs/react/upgrade-notes](/docs/react/upgrade-notes#1.x-=>-2.0)
 2. Use your own iconfont file
