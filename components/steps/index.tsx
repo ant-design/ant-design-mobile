@@ -2,7 +2,6 @@ import React from 'react';
 import RcSteps from 'rmc-steps';
 import Icon from '../icon';
 import { StepsPropsType } from './PropsType';
-
 export interface StepsProps extends StepsPropsType {
   prefixCls?: string;
   iconPrefix?: string;
@@ -42,13 +41,21 @@ export default class Steps extends React.Component<StepsProps, any> {
     this.stepRefs = [];
     const { children, status, size } = this.props;
     const current = this.props.current as number;
+
     // flattern the array at first https://github.com/ant-design/ant-design-mobile/issues/934
-    let newChildren: any[] = React.Children.map(children, item => item);
-    newChildren = React.Children.map(newChildren, (item: any, index) => {
+    const filterChildren: any[] = [];
+    if (children && children.length) {
+      children.forEach((item: any) => {
+        if (React.isValidElement(item)) {
+          filterChildren.push(item);
+        }
+      });
+    }
+    const newChildren = React.Children.map(filterChildren, (item: any, index) => {
       let className = item.props.className;
       if (
-        index < newChildren.length - 1 &&
-        newChildren[index + 1].props.status === 'error'
+        index < filterChildren.length - 1 &&
+        filterChildren[index + 1].props.status === 'error'
       ) {
         className = className ? `${className} error-tail` : 'error-tail';
       }
