@@ -164,18 +164,6 @@ class InputItem extends React.Component<InputItemProps, any> {
     }
   }
 
-  onExtraClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (this.props.onExtraClick) {
-      this.props.onExtraClick(e);
-    }
-  }
-
-  onErrorClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (this.props.onErrorClick) {
-      this.props.onErrorClick(e);
-    }
-  }
-
   clearInput = () => {
     if (this.props.type !== 'password' && this.props.updatePlaceholder) {
       this.setState({
@@ -199,6 +187,9 @@ class InputItem extends React.Component<InputItemProps, any> {
   }
 
   render() {
+    const props = { ...this.props };
+    delete props.updatePlaceholder;
+
     const {
       prefixCls,
       prefixListCls,
@@ -211,10 +202,13 @@ class InputItem extends React.Component<InputItemProps, any> {
       extra,
       labelNumber,
       type,
+      onExtraClick,
+      onErrorClick,
       moneyKeyboardAlign,
       moneyKeyboardWrapProps,
+      onVirtualKeyboardConfirm,
       ...restProps,
-    } = this.props;
+    } = props;
     const { name, disabled, maxLength } = restProps;
     const { value } = this.state;
 
@@ -301,7 +295,7 @@ class InputItem extends React.Component<InputItemProps, any> {
                 onChange={this.onInputChange}
                 onFocus={this.onInputFocus}
                 onBlur={this.onInputBlur}
-                onVirtualKeyboardConfirm={this.props.onVirtualKeyboardConfirm}
+                onVirtualKeyboardConfirm={onVirtualKeyboardConfirm}
                 disabled={disabled}
                 editable={editable}
                 prefixCls={prefixCls}
@@ -344,11 +338,11 @@ class InputItem extends React.Component<InputItemProps, any> {
           {error ? (
             <div
               className={`${prefixCls}-error-extra`}
-              onClick={this.onErrorClick}
+              onClick={onErrorClick}
             />
           ) : null}
           {extra !== '' ? (
-            <div className={`${prefixCls}-extra`} onClick={this.onExtraClick}>
+            <div className={`${prefixCls}-extra`} onClick={onExtraClick}>
               {extra}
             </div>
           ) : null}
