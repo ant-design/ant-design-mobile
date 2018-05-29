@@ -32,7 +32,7 @@ export default class BasicTextAreaItemExample extends React.Component<
 
           <TextareaItem rows={4} placeholder="多行带计数" count={100} />
 
-          <TextareaItem rows={4} placeholder="高度自适应" autoHeight />
+          <TextareaItem rows={4} placeholder="高度自适应" autoHeight style={{ paddingVertical: 5 }} />
 
           <TextareaItem value={this.state.val} onChange={this.onChange} />
 

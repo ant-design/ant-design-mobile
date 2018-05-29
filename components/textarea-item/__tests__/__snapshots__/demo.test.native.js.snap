@@ -213,7 +213,9 @@ exports[`renders ./components/textarea-item/demo/basic.native.tsx correctly 1`] 
                 Object {
                   "height": 96,
                 },
-                undefined,
+                Object {
+                  "paddingVertical": 5,
+                },
               ]
             }
             underlineColorAndroid="transparent"
