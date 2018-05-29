@@ -83,6 +83,7 @@ class Marquee extends React.PureComponent<MarqueeProps, any> {
       duration: twidth * SPPED,
       easing: Easing.linear,
       delay: props.leading,
+      isInteraction: false,
     }).start(() => {
       if (loop) {
         this.moveToHeader();
@@ -95,6 +96,7 @@ class Marquee extends React.PureComponent<MarqueeProps, any> {
       toValue: 0,
       duration: 0,
       delay: this.props.trailing,
+      isInteraction: false,
     }).start(() => {
       this.startMove();
     });
