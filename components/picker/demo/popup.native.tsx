@@ -1,8 +1,19 @@
 import { List, Picker } from 'antd-mobile';
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import { district } from 'antd-mobile-demo-data';
+
+const CustomChildren = (props: any) => (
+  <TouchableOpacity onPress={props.onClick}>
+    <View
+      style={{ height: 36, paddingLeft: 15, flexDirection: 'row', alignItems: 'center' }}
+    >
+      <Text style={{ flex: 1 }}>{props.children}</Text>
+      <Text style={{ textAlign: 'right', color: '#888', marginRight: 15 }}>{props.extra}</Text>
+    </View>
+  </TouchableOpacity>
+);
 
 export default class PopupExample extends React.Component<any, any> {
   constructor(props: any) {
@@ -10,6 +21,7 @@ export default class PopupExample extends React.Component<any, any> {
     this.state = {
       data: [],
       value: [],
+      pickerValue: [],
     };
   }
   onClick = () => {
@@ -37,6 +49,16 @@ export default class PopupExample extends React.Component<any, any> {
             <List.Item arrow="horizontal" last onClick={this.onClick}>
               省市选择(异步加载)
             </List.Item>
+          </Picker>
+          <Picker
+            title="选择地区"
+            data={district}
+            cols={2}
+            value={this.state.pickerValue}
+            onChange={(v: any) => this.setState({ pickerValue: v })}
+            onOk={(v: any) => this.setState({ pickerValue: v })}
+          >
+            <CustomChildren>Customized children</CustomChildren>
           </Picker>
         </List>
       </View>
