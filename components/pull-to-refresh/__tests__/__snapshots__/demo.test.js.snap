@@ -17,6 +17,7 @@ exports[`renders ./components/pull-to-refresh/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-pull-to-refresh am-pull-to-refresh-down"
+    damping="60"
     style="height:0;overflow:auto"
   >
     <div
@@ -27,7 +28,9 @@ exports[`renders ./components/pull-to-refresh/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-pull-to-refresh-indicator"
-        />
+        >
+          下拉可以刷新
+        </div>
         <div />
       </div>
     </div>
@@ -57,6 +60,7 @@ exports[`renders ./components/pull-to-refresh/demo/basic-listview.md correctly 1
     >
       <div
         class="am-pull-to-refresh am-pull-to-refresh-down"
+        damping="100"
       >
         <div
           class="am-pull-to-refresh-content-wrapper"
@@ -66,7 +70,9 @@ exports[`renders ./components/pull-to-refresh/demo/basic-listview.md correctly 1
           >
             <div
               class="am-pull-to-refresh-indicator"
-            />
+            >
+              下拉可以刷新
+            </div>
             <div>
               <div
                 class="am-list-header"
