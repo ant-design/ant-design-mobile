@@ -45,6 +45,7 @@ class Demo extends React.Component {
         direction: {this.state.down ? 'down' : 'up'}
       </Button>
       <PullToRefresh
+        damping={60}
         ref={el => this.ptr = el}
         style={{
           height: this.state.height,

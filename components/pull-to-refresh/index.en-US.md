@@ -21,4 +21,4 @@ Properties | Descrition | Type | Default
 | refreshing | Whether the view should be indicating an active refresh | bool | false |
 | onRefresh | required, Called when the view starts refreshing. | () => void | - |
 | indicator  | indicator config `{ activate: ReactNode, deactivate: ReactNode, release: ReactNode, finish: ReactNode }` | Object | - |
-| damping | pull damping, can be `on` or `off` or a number(suggest less than 200) | String or number | 'off' |
+| damping | pull damping, suggest less than 200 | number | 100 |
