@@ -11,7 +11,7 @@ export default class BasicCardExample extends React.Component<any, any> {
             <Card.Header
               title="This is title"
               thumbStyle={{ width: 30, height: 30 }}
-              thumb="http://gravatar.com/avatar/e9c13fb979736b16033acbce4c710ca1.png?size=32"
+              thumb="https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg"
               extra="this is extra"
             />
             <Card.Body>
@@ -30,7 +30,7 @@ export default class BasicCardExample extends React.Component<any, any> {
           <Card.Header
             title="Full Column"
             thumbStyle={{ width: 30, height: 30 }}
-            thumb="http://gravatar.com/avatar/e9c13fb979736b16033acbce4c710ca1.png?size=32"
+            thumb="https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg"
             extra="this is extra"
           />
           <Card.Body>

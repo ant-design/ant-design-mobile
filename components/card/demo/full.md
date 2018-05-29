@@ -23,7 +23,7 @@ ReactDOM.render(
     <Card full>
       <Card.Header
         title="This is title"
-        thumb="https://cloud.githubusercontent.com/assets/1698185/18039916/f025c090-6dd9-11e6-9d86-a4d48a1bf049.png"
+        thumb="https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg"
         extra={<span>this is extra</span>}
       />
       <Card.Body>
