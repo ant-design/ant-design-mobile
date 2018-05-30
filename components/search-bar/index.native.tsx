@@ -108,8 +108,8 @@ export default class SearchBar extends React.Component<
       cancelText,
       onChangeText,
       onChange,
-      onSubmitEditing,
       disabled,
+      style,
       ...restProps,
     } = this.props;
 
@@ -121,7 +121,6 @@ export default class SearchBar extends React.Component<
       () => require('./locale/zh_CN'),
     );
 
-    const { style } = restProps;
     const { value, focus } = this.state;
     // tslint:disable-next-line:variable-name
     const _showCancelButton = showCancelButton || focus;
@@ -130,15 +129,15 @@ export default class SearchBar extends React.Component<
       <View style={styles.wrapper}>
         <View style={styles.inputWrapper}>
           <TextInput
-            value={value}
-            onChangeText={this.onChangeText}
-            style={[styles.input, style]}
-            editable={!disabled}
-            ref={el => ((this.inputRef as any) = el)}
-            onSubmitEditing={this.onSubmit}
             clearButtonMode="always"
             underlineColorAndroid="transparent"
+            editable={!disabled}
             {...restProps}
+            style={[styles.input, style]}
+            ref={el => ((this.inputRef as any) = el)}
+            value={value}
+            onChangeText={this.onChangeText}
+            onSubmitEditing={this.onSubmit}
             onFocus={this.onFocus}
             onBlur={this.onBlur}
           />
