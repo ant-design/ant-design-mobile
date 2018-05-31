@@ -15,6 +15,24 @@ toc: false
 
 ---
 
+### 2.1.11
+
+`2018-05-31`
+
+- **Bug Fix**
+
+  - 🐞 修复 `InputItem` 的 unknown-prop 提示 ([#2565](https://github.com/ant-design/ant-design-mobile/pull/2565) [#2601](https://github.com/ant-design/ant-design-mobile/issues/2601))
+  - 🐞 修复 `Steps` 可能包含 null 子元素问题 ([#2329](https://github.com/ant-design/ant-design-mobile/issues/2329))
+  - 🐞 RN: 修复 `Modal` 按钮垂直对齐问题 ([#2325](https://github.com/ant-design/ant-design-mobile/pull/2325))
+  - 🐞 RN: 修复 `NoticeBar` 动画问题 ([#2267](https://github.com/ant-design/ant-design-mobile/issues/2267))
+  - 🐞 RN: 修复 `SearchBar` 样式覆盖问题 ([#2593](https://github.com/ant-design/ant-design-mobile/issues/2593))
+
+- **Enhancement**
+
+  - 📝 RN: 提示将拆分出单独的 `antd-mobile-rn` 包 ([#2556](https://github.com/ant-design/ant-design-mobile/issues/2556))
+  - 📝 工作流: 新增自动锁定 issue 的脚本 ([86fb0787e9e13754](https://github.com/ant-design/ant-design-mobile/commit/86fb0787e9e137548ef03517e1ca9fa2e061ceaa))
+  - 📝 示例: 更新 `Card` `TextareaItem` `PullToRefresh` `Picker` 组件示例
+
 ### 2.1.10
 
 `2018-05-24`

@@ -15,6 +15,24 @@ toc: false
 
 ---
 
+### 2.1.11
+
+`2018-05-31`
+
+- **Bug Fix**
+
+  - 🐞 Fix `InputItem`'s unknown-prop warning ([#2565](https://github.com/ant-design/ant-design-mobile/pull/2565) [#2601](https://github.com/ant-design/ant-design-mobile/issues/2601))
+  - 🐞 Fix `Steps` may have null children ([#2329](https://github.com/ant-design/ant-design-mobile/issues/2329))
+  - 🐞 RN: fix `Modal` footer button vertical alignment ([#2325](https://github.com/ant-design/ant-design-mobile/pull/2325))
+  - 🐞 RN: fix `NoticeBar` Animate ([#2267](https://github.com/ant-design/ant-design-mobile/issues/2267))
+  - 🐞 RN: fix `SearchBar` style ([#2593](https://github.com/ant-design/ant-design-mobile/issues/2593))
+
+- **Enhancement**
+
+  - 📝 RN: add a hint of `antd-mobile-rn` package ([#2556](https://github.com/ant-design/ant-design-mobile/issues/2556))
+  - 📝 Workflow: add lock-issue script ([86fb0787e9e13754](https://github.com/ant-design/ant-design-mobile/commit/86fb0787e9e137548ef03517e1ca9fa2e061ceaa))
+  - 📝 Demo: update `Card` `TextareaItem` `PullToRefresh` `Picker` demo
+
 ### 2.1.10
 
 `2018-05-24`
