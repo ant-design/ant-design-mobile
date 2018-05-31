@@ -25,6 +25,7 @@ Properties | Descrition | Type | Default
 | hidden       | whether it is hidden  | Boolean | false           |
 | prefixCls(`web only`) | prefix className  | String   | 'am-tab-bar'      |
 | noRenderContent(`web only`) | can't render content  | Boolean   |   false   |
+| prerenderingSiblingsNumber(`web only`) | pre-render nearby sibling, Infinity: render all the siblings, 0: render current page  | number |   1   |
 
 ### TabBar.Item
 
