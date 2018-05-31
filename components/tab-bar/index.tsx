@@ -26,8 +26,8 @@ export interface AntTabbarProps extends TabBarProps {
   className?: string;
   hidden?: boolean;
   placeholder?: React.ReactNode;
-  /*web only*/
   noRenderContent?: boolean;
+  prerenderingSiblingsNumber?: number;
 }
 class AntTabBar extends React.Component<AntTabbarProps, any> {
   static defaultProps: AntTabbarProps = {
@@ -39,6 +39,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
     placeholder: '正在加载',
     animated: false,
     swipeable: false,
+    prerenderingSiblingsNumber: 1,
   };
 
   public static Item = Item;
@@ -98,6 +99,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
       animated,
       swipeable,
       noRenderContent,
+      prerenderingSiblingsNumber,
     } = this.props;
     const tabs = this.getTabs();
     let activeIndex = 0;
@@ -117,6 +119,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
           animated={animated}
           swipeable={swipeable}
           noRenderContent={noRenderContent}
+          prerenderingSiblingsNumber={prerenderingSiblingsNumber}
         >
           {children}
         </Tabs>
