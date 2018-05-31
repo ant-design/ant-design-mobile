@@ -12,7 +12,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import { CarouselPropsType } from './PropsType';
-import CarouselStyle from './style';
+import CarouselStyle from './style/index.native';
 
 export interface CarouselProps extends CarouselPropsType {
   bounces?: boolean;
