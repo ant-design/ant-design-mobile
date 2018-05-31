@@ -20,6 +20,10 @@ A configurable Mobile UI specification and React-based implementation.
 
 [中文 README](README.zh-CN.md)
 
+<p style="color: red">
+Note: In antd-mobile@2.2.0, React Native components will be transferred to the separate `antd-mobile-rn` package. Ref: <a href="https://github.com/ant-design/ant-design-mobile/issues/2556">#2556</a>
+</p>
+
 ## Features
 
 - Follow Ant Design Mobile UI specification.
