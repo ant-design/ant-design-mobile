@@ -26,6 +26,8 @@ subtitle: 标签栏
 | hidden (`web only`)      | 是否隐藏  | Boolean | false           |
 | prefixCls(`web only`) | 样式前缀  | String   | 'am-tab-bar'      |
 | noRenderContent(`web only`) | 不渲染内容部分  | Boolean   |   false   |
+| prerenderingSiblingsNumber(`web only`) | 预加载相邻的tab内容, Infinity: 加载所有的tab内容, 0: 仅加载当前tab内容, 当页面较复杂时，建议设为0，提升页面加载性能  | number |   1   |
+
 
 ### TabBar.Item
 
