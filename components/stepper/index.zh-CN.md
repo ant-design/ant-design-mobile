@@ -26,3 +26,4 @@ subtitle: 步进器
 | readOnly     | input 只读       | Boolean      |      false      |
 | showNumber(`web only`)    | 是否显示数值，默认不显示  | Boolean      |      false      |
 | styles(`rn only`)    | react native 组件样式  | ReactNative StyleSheet      |  -   |
+| inputStyle(`rn only`)    | react native 显示数字样式  | ReactNative StyleSheet      |  -   |

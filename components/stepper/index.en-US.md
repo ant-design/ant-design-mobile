@@ -25,3 +25,4 @@ Properties | Descrition | Type | Default
 | readOnly     | Specifies the `Stepper` is read only       | Boolean      |      false      |
 | showNumber(`web only`)    | Whether to display number value  | Boolean      |      false      |
 | styles(`rn only`)    | the styles of React-Native component  | ReactNative StyleSheet      |  -   |
+| inputStyle(`rn only`)    | react native numeral style  | ReactNative StyleSheet      |  -   |
