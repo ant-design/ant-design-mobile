@@ -17,18 +17,13 @@ declare module 'rn-topview';
 declare module 'rc-notification';
 declare module 'rmc-notification';
 
-declare module 'react-native-camera-roll-picker';
-
 declare module 'rmc-drawer';
 
 declare module 'rmc-dialog';
 declare module 'rmc-nuka-carousel';
-declare module 'react-native-menu';
 declare module 'rmc-tooltip';
 declare module 'rmc-pull-to-refresh';
 declare module 'rc-slider/lib/Range';
-declare module 'react-native/Libraries/StyleSheet/normalizeColor';
-declare module 'react-native/Libraries/StyleSheet/setNormalizedColorAlpha';
 declare module 'rc-slider/lib/Slider';
 declare module 'rmc-steps';
 
