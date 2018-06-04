@@ -6,21 +6,21 @@
 // 色彩
 // ---
 // 文字色
-@color-text-base: #000;                  // 基本
+@color-text-base: #333;                  // 基本
 @color-text-base-inverse: #fff;          // 基本 - 反色
 @color-text-secondary: #a4a9b0;          // 辅助色
-@color-text-placeholder: #bbb;           // 文本框提示
+@color-text-placeholder: #ccc;           // 文本框提示
 @color-text-disabled: #bbb;              // 失效
-@color-text-caption: #888;               // 辅助描述
+@color-text-caption: #999;               // 辅助描述
 @color-text-paragraph: #333;             // 段落
 @color-link: @brand-primary;             // 链接
 
 // 背景色
 @fill-base: #fff;                           // 组件默认背景
-@fill-body: #f5f5f9;                        // 页面背景
+@fill-body: #f5f5f5;                        // 页面背景
 @fill-tap: #ddd;                            // 组件默认背景 - 按下
 @fill-disabled: #ddd;                       // 通用失效背景
-@fill-mask: rgba(0, 0, 0, 0.4);              // 遮罩背景
+@fill-mask: rgba(0, 0, 0, 0.65);            // 遮罩背景
 @color-icon-base: #ccc;                      // 许多小图标的背景，比如一些小圆点，加减号
 @fill-grey: #f7f7f7;
 
@@ -29,31 +29,31 @@
 
 // 全局/品牌色
 @brand-primary: #108ee9;
-@brand-primary-tap: #0e80d2;
+@brand-primary-tap: #0b71ba;
 @brand-success: #6abf47;
-@brand-warning: #ffc600;
-@brand-error: #f4333c;
-@brand-important: #ff5b05;  // 用于小红点
-@brand-wait: #108ee9;
+@brand-warning: #e8a010;
+@brand-error: #ff3b30;
+@brand-important: #f24724;  // 用于小红点
+@brand-wait: #0ba194;
 
 // 边框色
-@border-color-base: #ddd;
+@border-color-base: #eee;
 
 // 字体尺寸
 // ---
 @font-size-icontext: 10 * @hd;
 @font-size-caption-sm: 12 * @hd;
 @font-size-base: 14 * @hd;
-@font-size-subhead: 15 * @hd;
-@font-size-caption: 16 * @hd;
+@font-size-subhead: 14 * @hd;
+@font-size-caption: 14 * @hd;
 @font-size-heading: 17 * @hd;
 
 // 圆角
 // ---
-@radius-xs: 2 * @hd;
-@radius-sm: 3 * @hd;
-@radius-md: 5 * @hd;
-@radius-lg: 7 * @hd;
+@radius-xs: 1 * @hd;
+@radius-sm: 1 * @hd;
+@radius-md: 2 * @hd;
+@radius-lg: 8 * @hd;
 @radius-circle: 50%;
 
 // 边框尺寸
@@ -66,14 +66,14 @@
 // ---
 // 水平间距
 @h-spacing-sm: 5 * @hd;
-@h-spacing-md: 8 * @hd;
+@h-spacing-md: 10 * @hd;
 @h-spacing-lg: 15 * @hd;
 
 // 垂直间距
 @v-spacing-xs: 3 * @hd;
-@v-spacing-sm: 6 * @hd;
-@v-spacing-md: 9 * @hd;
-@v-spacing-lg: 15 * @hd;
+@v-spacing-sm: 8 * @hd;
+@v-spacing-md: 8 * @hd;
+@v-spacing-lg: 16 * @hd;
 @v-spacing-xl: 21 * @hd;
 
 // 高度
@@ -83,7 +83,7 @@
 
 // 图标尺寸
 // ---
-@icon-size-xxs: 15 * @hd;
+@icon-size-xxs: 16 * @hd;
 @icon-size-xs: 18 * @hd;
 @icon-size-sm: 21 * @hd;
 @icon-size-md: 22 * @hd;       // 导航条上的图标、grid的图标大小
@@ -103,8 +103,8 @@
 @button-height: 47 * @hd;
 @button-font-size: 18 * @hd;
 
-@button-height-sm: 30 * @hd;
-@button-font-size-sm: 13 * @hd;
+@button-height-sm: 26 * @hd;
+@button-font-size-sm: 14 * @hd;
 
 @primary-button-fill: @brand-primary;
 @primary-button-fill-tap: @brand-primary-tap;
@@ -115,7 +115,7 @@
 @warning-button-fill: #e94f4f;
 @warning-button-fill-tap: #d24747;
 
-@link-button-fill-tap: #ddd;
+@link-button-fill-tap: #1284d6;
 @link-button-font-size: 16 * @hd;
 
 // menu
@@ -129,7 +129,7 @@
 // list
 @list-title-height: 30 * @hd;
 @list-item-height-sm: 35 * @hd;
-@list-item-height: 44 * @hd;
+@list-item-height: 46 * @hd;
 
 // input
 @input-label-width: 17 * @hd;       // InputItem、TextareaItem 文字长度基础值
@@ -139,8 +139,8 @@
 
 // tabs
 @tabs-color: @brand-primary;
-@tabs-height: 43.5 * @hd;
-@tabs-font-size-heading: 15 * @hd;
+@tabs-height: 44 * @hd;
+@tabs-font-size-heading: 16 * @hd;
 @tabs-ink-bar-height: @border-width-lg;
 
 // segmented-control
@@ -153,27 +153,27 @@
 @tab-bar-height: 50 * @hd;
 
 // toast
-@toast-fill: rgba(58, 58, 58, 0.9); // toast, activity-indicator 的背景颜色
+@toast-fill: rgba(0, 0, 0, 0.9); // toast, activity-indicator 的背景颜色
 
 // search-bar
-@search-bar-fill: #efeff4;
-@search-bar-height: 44 * @hd;
-@search-bar-input-height: 28 * @hd;
-@search-bar-font-size: 15 * @hd;
-@search-color-icon: #bbb; // input search icon 的背景色
+@search-bar-fill: #fff;
+@search-bar-height: 46 * @hd;
+@search-bar-input-height: 30 * @hd;
+@search-bar-font-size: 14 * @hd;
+@search-color-icon: #b2b2b2; // input search icon 的背景色
 
 // notice-bar
-@notice-bar-fill: #fefcec;
+@notice-bar-fill: #fefceb;
 @notice-bar-height: 36 * @hd;
-@notice-bar-color: #f76a24;
+@notice-bar-color: #f96a0e;
 
 // switch
-@switch-fill: #4dd865;
+@switch-fill: #108ee9;
 @switch-fill-android: @brand-primary;
 
 // tag
-@tag-height: 25 * @hd;
-@tag-height-sm: 15 * @hd;
+@tag-height: 20 * @hd;
+@tag-height-sm: 16 * @hd;
 @tag-color: @brand-primary;
 
 // keyboard
