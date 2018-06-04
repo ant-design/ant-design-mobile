@@ -11,8 +11,7 @@
     "types": [
       "classnames",
       "react",
-      "react-dom",
-      "react-native"
+      "react-dom"
     ]
   },
   "exclude": [
