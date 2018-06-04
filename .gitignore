@@ -26,16 +26,6 @@ lib
 elasticsearch-*
 config/base.yaml
 _data
-rn-kitchen-sink/ios/build
-rn-kitchen-sink/ios/bundle
-rn-kitchen-sink/android/bundle
-rn-kitchen-sink/android/.gradle
-rn-kitchen-sink/android/app/build
-rn-kitchen-sink/android/build
-rn-kitchen-sink/android/local.properties
-rn-kitchen-sink/android/app/src/main/res/drawable*
-rn-kitchen-sink/app/*.ipa
-rn-kitchen-sink/app/*.apk
 xcuserdata
 components/**/*.jsx
 components/**/*.js
@@ -47,8 +37,4 @@ npm-debug.log*
 coverage
 /es/
 package-lock.json
-*.web.js
-*.web.jsx
-*.web.tsx
-*.web.ts
 .cdnkey
