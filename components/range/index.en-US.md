@@ -13,10 +13,7 @@ A `Range` component for selecting particular value in range, eg: controls the di
 - By default, the minimum value in the left and maximum value in the right of `Silder` .
 - Generally `Slider` is positioned horizontally.
 
-
 ## Common API
-
-Support WEB.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------

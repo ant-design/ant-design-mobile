@@ -9,8 +9,6 @@ subtitle: 长列表
 
 ## API
 
-适用平台：WEB
-
 > 注意: 我们使用 [react-native@0.26 ListView](http://facebook.github.io/react-native/releases/0.26/docs/listview.html) 的一些 API，尽管 react-native ListView 已经被官方标记为 `DEPRECATED`，但我们的 `WEB` 版本仍然正常工作。
 
 
@@ -34,11 +32,11 @@ subtitle: 长列表
 | scrollEventThrottle | 控制在滚动过程中，scroll事件被调用的频率 | number | 50 |
 | onLayout | 当组件挂载或者布局变化的时候调用 | ({nativeEvent:{ layout:{ width, height }}}) => {} | - |
 | ---- |
-| renderBodyComponent (`web only`) | 自定义 body 的包裹组件 | () => renderable | - |
-| renderSectionWrapper (`web only`) | 渲染自定义的区块包裹组件 | (sectionID) => renderable | - |
-| renderSectionBodyWrapper (`web only`) | 渲染自定义的区块 body 包裹组件 | (sectionID) => renderable | - |
-| useBodyScroll (`web only`) | 使用 html 的 `body` 作为滚动容器 | bool | false |
-| pullToRefresh (`web only`) | 使用 pullToRefresh， 你需要和 `PullToRefresh` 组件一起使用 | bool | false |
+| renderBodyComponent  | 自定义 body 的包裹组件 | () => renderable | - |
+| renderSectionWrapper  | 渲染自定义的区块包裹组件 | (sectionID) => renderable | - |
+| renderSectionBodyWrapper  | 渲染自定义的区块 body 包裹组件 | (sectionID) => renderable | - |
+| useBodyScroll  | 使用 html 的 `body` 作为滚动容器 | bool | false |
+| pullToRefresh  | 使用 pullToRefresh， 你需要和 `PullToRefresh` 组件一起使用 | bool | false |
 
 ### 方法
 

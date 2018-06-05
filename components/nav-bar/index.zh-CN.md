@@ -16,8 +16,6 @@ subtitle: 导航栏
 
 ## API
 
-适用平台：WEB
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | mode   | 模式   | string |  'dark' enum{'dark', 'light'} |

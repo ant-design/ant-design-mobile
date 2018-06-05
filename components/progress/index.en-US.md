@@ -13,10 +13,8 @@ Progress Bar to indicate your task's progress.
 
 ## API
 
-Support WEB, React-Native.
-
-属性 | 说明 | 类型 | 默认值
-----|-----|------|------
+Properties | Descrition | Type | Default
+-----------|------------|------|--------
 percent | percent value of progress | number | 0
 position | position of progress bar, optional：`fixed` `normal` | string | `fixed`
 unfilled | whether to fill unfinished part of progress | boolean | true

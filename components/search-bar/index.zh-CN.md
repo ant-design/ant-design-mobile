@@ -14,8 +14,6 @@ subtitle: 搜索栏
 
 ## API
 
-适用平台：WEB、React-Native
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | defaultValue |    搜索框的默认值     | String |    |
@@ -29,8 +27,8 @@ subtitle: 搜索栏
 | showCancelButton    |    是否一直显示`取消`按钮     | bool |  `false`  |
 | cancelText    |   定制`取消`按钮的文字     | String |  `取消`  |
 | disabled    |  设置禁用   | bool |  `false`  |
-| onClear(`web only`)    |    点击 clear 图标触发  | (val: string): void |    |
-| maxLength(`web only`)      |  最多允许输入的字符个数    | number | -  |
+| onClear    |    点击 clear 图标触发  | (val: string): void |    |
+| maxLength      |  最多允许输入的字符个数    | number | -  |
 
 注：RN 版本更多 API 请参考 [http://facebook.github.io/react-native/docs/textinput.html](http://facebook.github.io/react-native/docs/textinput.html)
 
@@ -39,4 +37,4 @@ subtitle: 搜索栏
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| focus (`Web Only`)    | 使 SearchBar 聚焦  | (): void |  -  |
+| focus     | 使 SearchBar 聚焦  | (): void |  -  |

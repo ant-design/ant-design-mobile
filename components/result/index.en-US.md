@@ -14,8 +14,6 @@ Result page contains feedback like illustrations, icons and text.
 
 ## API
 
-Support: Web, React-Native
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 imgUrl | image url | string / Image Source(rn)  | -

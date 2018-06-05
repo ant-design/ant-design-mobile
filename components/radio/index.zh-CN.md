@@ -9,8 +9,6 @@ subtitle: 单选框
 
 ## API
 
-适用平台：WEB、React-Native
-
 ### Radio
 
 属性 | 说明 | 类型 | 默认值

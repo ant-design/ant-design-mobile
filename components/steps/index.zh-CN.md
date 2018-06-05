@@ -25,8 +25,6 @@ subtitle: 步骤条
 
 ### Steps
 
-适用平台：WEB、React-Native
-
 整体步骤条。
 
 属性 | 说明 | 类型 | 默认值

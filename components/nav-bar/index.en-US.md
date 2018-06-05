@@ -15,8 +15,6 @@ Located above the app content area, below the system status bar, and provides na
 
 ## API
 
-Support WEB.
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | mode   | style mode  | string |  'dark' enum{'dark', 'light'} |

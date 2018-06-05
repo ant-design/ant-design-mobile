@@ -25,8 +25,6 @@ Steps is typically used for displaying the progress of a task, or guiding users 
 
 ### Steps
 
-Support WEB, React-Native.
-
 The Steps container.
 
 Properties | Descrition | Type | Default

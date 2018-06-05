@@ -13,8 +13,6 @@ subtitle: 标签
 
 ## API
 
-适用平台：WEB、React-Native
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | small   |  小号标签  |   Boolean    |  `false`  |

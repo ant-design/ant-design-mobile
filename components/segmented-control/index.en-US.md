@@ -12,15 +12,12 @@ title: SegmentedControl
 - Generally there should be no more than 5 segments in one line, each segment has 2-4 words and needs simplified texts.
 - Keep the length of the text consistent as much as possible.
 
-
 ## API
-
-Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| prefixCls(`web only`)  | prefix class        | String |  `am-segment`  |
-| className(`web only`) | class name of component        | String |    |
+| prefixCls  | prefix class        | String |  `am-segment`  |
+| className | class name of component        | String |    |
 | style | style of component        | Object | `{}`   |
 | tintColor  | accent color of the control       | String |  `#2DB7F5`  |
 | disabled  | whether the user is able to interact with the control  | Boolean |  false  |

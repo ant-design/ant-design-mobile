@@ -16,8 +16,6 @@ subtitle: 活动指示器
 
 ## API
 
-适用平台：WEB、React-Native
-
 ```jsx
 <ActivityIndicator />
 <ActivityIndicator color="white" />
@@ -35,4 +33,3 @@ subtitle: 活动指示器
 |  size  | spinner大小，可选`small`/`large` | string  | small  |
 |  toast  | loading样式类型 | boolean  | false  |
 |  text  | loading文本 | string |  -   |
-|  color (`RN only`)  | spinner颜色 | string  | gray  |

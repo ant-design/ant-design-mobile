@@ -14,8 +14,6 @@ subtitle: 徽标数
 
 ## API
 
-适用平台：WEB、React-Native。
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 size | 大小，可选 `large` `small` | string | `small`
@@ -23,4 +21,4 @@ text | 展示的数字或文案，当为数字时候，大于 overflowCount <br/
 corner | 置于角落 | boolean | `false`
 dot | 不展示数字，只有一个小红点 | boolean | `false`
 overflowCount | 展示封顶的数字值 | number | `99`
-hot `WEB only` | 营销样式 | boolean | `false`
+hot | 营销样式 | boolean | `false`

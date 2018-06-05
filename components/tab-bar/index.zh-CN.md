@@ -14,8 +14,6 @@ subtitle: 标签栏
 
 ## API
 
-适用平台：WEB、React-Native
-
 ### TabBar
 
 属性 | 说明 | 类型 | 默认值
@@ -23,22 +21,20 @@ subtitle: 标签栏
 | barTintColor        | tabbar 背景色                     | String   | `white`            |
 | tintColor         | 选中的字体颜色                               | String | `#108ee9`         |
 | unselectedTintColor       | 未选中的字体颜色  | String | '#888'           |
-| hidden (`web only`)      | 是否隐藏  | Boolean | false           |
-| prefixCls(`web only`) | 样式前缀  | String   | 'am-tab-bar'      |
-| noRenderContent(`web only`) | 不渲染内容部分  | Boolean   |   false   |
-| prerenderingSiblingsNumber(`web only`) | 预加载相邻的tab内容, Infinity: 加载所有的tab内容, 0: 仅加载当前tab内容, 当页面较复杂时，建议设为0，提升页面加载性能  | number |   1   |
-
+| hidden      | 是否隐藏  | Boolean | false           |
+| prefixCls| 样式前缀  | String   | 'am-tab-bar'      |
+| noRenderContent| 不渲染内容部分  | Boolean   |   false   |
+| prerenderingSiblingsNumber| 预加载相邻的tab内容, Infinity: 加载所有的tab内容, 0: 仅加载当前tab内容, 当页面较复杂时，建议设为0，提升页面加载性能  | number |   1   |
 
 ### TabBar.Item
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | badge  | 徽标数  | Number \ String           | 无     |
-| dot(`Web Only`)  | 是否在右上角显示小红点（在设置badge的情况下失效）  | Boolean            |  false  |
+| dot | 是否在右上角显示小红点（在设置badge的情况下失效）  | Boolean            |  false  |
 | onPress  | bar 点击触发，需要自己改变组件 state & selecte={true} | Function | `(){}`     |
 | selected  | 是否选中 | Boolean | false     |
 | icon  | 默认展示图片 | Image Source(rn) \ web 方式见 demo |      |
 | selectedIcon  |  选中后的展示图片 | Image Source(rn) \ web 方式见 demo |      |
 | title  |  标题文字 | String |      |
 | key  |  唯一标识 | String |   无   |
-| iconStyle  |  icon 样式 (`rn android only`) (ios 更多API请参考 [tabbarios](https://facebook.github.io/react-native/docs/tabbarios.html)) | String | { width: 28, height: 28 }     |

@@ -12,12 +12,10 @@ Component to display a system message, event notice and etc. Which is under the 
 
 ## API
 
-Support WEB, React-Native.
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | mode    | Type of NoticeBar, options: `closable` `link`   | String |  ''  |
 | icon    | Set the icon at the start position  |  ReactNode | `<Icon type={require('./trips.svg')} size="xxs" />`|
 | onClick | A callback function, can be executed when you close the notice or click on the operating area   | (): void |   |
-| marqueeProps | marquee params       | Object | `{loop: false, leading: 500, trailing: 800, fps: 40, style: {}}`  |
+| marqueeProps | marquee params | Object | `{loop: false, leading: 500, trailing: 800, fps: 40, style: {}}`  |
 | action | text which is used to replace icon | ReactElement | |

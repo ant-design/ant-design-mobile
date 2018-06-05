@@ -14,15 +14,12 @@ subtitle: 分段器
 - 单独放置一行时，分段数最多为 5 个；文案需要精简，一般 2-4 个字。
 - 尽可能保持文案长度一致。
 
-
 ## API
-
-适用平台：WEB、React-Native
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| prefixCls(`web only`)  | 样式前缀        | String |  `am-segment`  |
-| className(`web only`) | 样式类        | String |    |
+| prefixCls  | 样式前缀        | String |  `am-segment`  |
+| className | 样式类        | String |    |
 | style | 自定义样式        | Object | `{}`   |
 | tintColor  | 组件主色调        | String |  `#2DB7F5`  |
 | disabled  | 是否启用        | Boolean |  false  |

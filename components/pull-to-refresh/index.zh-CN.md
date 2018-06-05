@@ -13,8 +13,6 @@ subtitle: 拉动刷新
 
 ## API
 
-适用平台：WEB
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | direction  | 拉动方向，可以是 `up` 或 `down` | String | `down` |

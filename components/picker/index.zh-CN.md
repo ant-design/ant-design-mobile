@@ -13,8 +13,6 @@ subtitle: 选择器
 
 ## API
 
-适用平台：WEB、React-Native
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | data    | 数据源        | `Array<{value, label, children: Array}>` |   -  |

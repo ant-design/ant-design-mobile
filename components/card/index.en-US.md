@@ -12,8 +12,6 @@ Card can be used to organize information and operations, usually also as an entr
 
 ## API
 
-Support WEB, React-Native.
-
 ### Card
 
 Properties | Descrition | Type | Default

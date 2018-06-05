@@ -4,14 +4,9 @@ type: Layout
 title: Flex
 ---
 
-
 Flex is a wrap of  Flexible Box.
 
-
-
 ## API
-
-Support WEB, React-Native.
 
 ### Flex
 
@@ -21,7 +16,7 @@ Properties | Descrition | Type | Default
 | wrap    |  the wrap way of sub-elements，option `nowrap`,`wrap`,`wrap-reverse`,RN only support `nowrap`,`wrap`  | String  | `nowrap` |
 | justify  | the way of alignment for sub-elements of main axis, option `start`,`end`,`center`,`between`,`around`    | String   | `start` |
 | align    | the way of alignment for sub-elements of cross-axis, option `start`,`center`,`end`,`baseline`,`stretch` RN only support `start`,`end`,`center`,`stretch`  | String   | `center` |
-| alignContent(`web only`) | the way of alignment when have multiple axes,  option `start`,`end`,`center`,`between`,`around`,`stretch`    | String  | `stretch` |
+| alignContent | the way of alignment when have multiple axes,  option `start`,`end`,`center`,`between`,`around`,`stretch`    | String  | `stretch` |
 
 ### Flex.Item
 

@@ -15,8 +15,6 @@ The modal box pops up from the bottom, providing more than two actions related t
 
 ## API
 
-Support WEB, React-Native.
-
 #### static showActionSheetWithOptions(options: Object, callback: Function)
 
 Display a action sheet. The `options` object must contain one or more of:
@@ -26,9 +24,9 @@ Display a action sheet. The `options` object must contain one or more of:
 - destructiveButtonIndex (int) - index of destructive button in `options`
 - title (string) - a title to show above the action sheet
 - message (string/React.element) - a message to show below the title
-- maskClosable (bool)(`web only`) - Whether it's allowed to close when you click the mask (default true)
+- maskClosable (bool) - Whether it's allowed to close when you click the mask (default true)
 
-The `callback` function support returns Promise (`web only`)
+The `callback` function support returns Promise
 
 #### static showShareActionSheetWithOptions(options: Object, callback: Function)
 
@@ -36,26 +34,11 @@ Display shareable action sheet. The `options` object must contain one or more of
 
 - options (array of `{icon: ReactNode, title: string}`) - a list of share buttons (required)
     - It can be a two-dimensional array, can display multi-line buttons, e.g. `[[{icon,title},...],...]` means two rows and two columns. In this case there are two parameters on `callback`, the first for the `column` sequence, the second for the `line`.
-- cancelButtonText (string)(`web only`) - the text of cancel button, default `取消`
+- cancelButtonText (string) - the text of cancel button, default `取消`
 - title (string) - a title to show above the action sheet
 - message (string/React.element) - a message to show below the title
-- maskClosable (bool)(`web only`) - Whether it's allowed to close when you click the mask (default true)
+- maskClosable (bool) - Whether it's allowed to close when you click the mask (default true)
 
-The `callback` function support returns Promise (`web only`)
-
-#### static showShareActionSheetWithOptions(options: Object, failureCallback: Function, successCallback: Function)
-
-`React-Native only, react-native@version >= 0.39`
-
-Display shareable action sheet.
-
-- **options:**
-  - message(`string`): a message to share
-  - title(`string`): title of the message
-  - url(`string`): an URL to share `iOS only`
-  - excludedActivityTypes(`array`): the activities to exclude from the ActionSheet `iOS only`
-- **Callback**: (`iOS only`, see [react-native/share](https://github.com/facebook/react-native/blob/master/Libraries/Share/Share.js#L80))
-  - failureCallback(error): callback is called if share failed;
-  - successCallback(completed, method): callback is called if share successed;
+The `callback` function support returns Promise
 
 #### static close() - (web、android only) programmatically close.

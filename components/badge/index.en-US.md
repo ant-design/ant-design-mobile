@@ -13,8 +13,6 @@ The red dot at corner for notification and getting user attention.
 
 ## API
 
-Support WEB, React-Native.
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 size | size of badge, optional: `large` `small` | string | `small`
@@ -22,4 +20,4 @@ text | text or number inside badge | string\|number | -
 corner | whether is badge at corner position | boolean | `false`
 dot | show badge as a red dot | boolean | `false`
 overflowCount | max count to show | number | `99`
-hot `WEB only` | hot commercial style | boolean | `false`
+hot | hot commercial style | boolean | `false`

@@ -13,8 +13,6 @@ Show a seires of operations on a panel.
 
 ## API
 
-Support WEB.
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | data    | `Menu` data (children will be ignored when `isLeaf` is true). | `Array<{label: ReactNode, value, disabled?, children<data>?, isLeaf?}>` | [] |

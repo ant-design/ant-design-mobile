@@ -13,8 +13,6 @@ Normally located below NavBar, the activation status is exited by the Cancel but
 
 ## API
 
-Support WEB, React-Native.
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | defaultValue |  the uncontrolled default value    | String |    |
@@ -28,8 +26,8 @@ Properties | Descrition | Type | Default
 | showCancelButton |  Whether the `Cancel` button is always displayed  | bool |  `false`  |
 | cancelText  |  Customize the text of the `Cancel` button   | String |  `取消`  |
 | disabled    |   Set disabled  | bool |  `false`  |
-| onClear(`web only`)  |  Click the clear icon to trigger   | (val: string): void |    |
-| maxLength(`web only`)      |  The maxlength attribute limits the number of characters that SearchBar can accept    | number | -  |
+| onClear  |  Click the clear icon to trigger   | (val: string): void |    |
+| maxLength      |  The maxlength attribute limits the number of characters that SearchBar can accept    | number | -  |
 
 Note: RN version more API please refer to [http://facebook.github.io/react-native/docs/textinput.html](http://facebook.github.io/react-native/docs/textinput.html)
 
@@ -37,4 +35,4 @@ Note: RN version more API please refer to [http://facebook.github.io/react-nativ
 
 Property | Description | Type | Default
 ----|-----|------|------
-| focus (`Web Only`)    | Force focus back onto the search input node  | (): void |  -  |
+| focus     | Force focus back onto the search input node  | (): void |  -  |

@@ -12,10 +12,7 @@ A lightweight feedback or tips, used to display content that does not interrupt 
 - Only one Toast is allowed at a time.
 - Toast with Icon, 4-6 words is recommended.; Toast without Icon, the number of words should not exceed 14.
 
-
 ## API
-
-Support WEB, React-Native.
 
 - `Toast.success(content, duration, onClose, mask)`
 - `Toast.fail(content, duration, onClose, mask)`

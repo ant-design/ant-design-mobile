@@ -14,8 +14,6 @@ subtitle: 卡片
 
 ## API
 
-适用平台：WEB、React-Native
-
 ### Card
 
 属性 | 说明 | 类型 | 默认值

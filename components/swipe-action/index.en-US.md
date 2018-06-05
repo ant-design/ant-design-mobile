@@ -14,10 +14,7 @@ Call out oprations from one side of screen with gesture.
 1. Only one row can be swiped at a time.
 2. Can hide oprations by clicking outside of buttons or swiping the list backforwards.
 
-
 ## API
-
-Support WEB, React-Native.
 
 ### SwipeAction
 
@@ -38,4 +35,4 @@ Properties | Descrition | Type | Default
 | text       | text of button    | String | `Click` |
 | style       | style of button     | Object | `` |
 | onPress       | callback function that is triggered when button will be pressed   | (): void | `function() {}` |
-| className(`web only`) | class name of button | String | |
+| className | class name of button | String | |
