@@ -3,7 +3,7 @@ import React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import { Omit } from '../_util/types';
 
-const IS_IOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+const IS_IOS = typeof window !== 'undefined' && /iphone|ipad|ipod/i.test(window.navigator.userAgent);
 
 export type HTMLTableDataProps = Omit<
   React.HTMLProps<HTMLTableDataCellElement>,
