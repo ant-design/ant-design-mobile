@@ -1,4 +1,4 @@
-declare module 'antd-mobile';
+declare module 'classnames';
 
 declare module 'antd-mobile-demo-data';
 
@@ -27,9 +27,9 @@ declare module 'rc-slider/lib/Range';
 declare module 'rc-slider/lib/Slider';
 declare module 'rmc-steps';
 
-declare var process: {
-  env: {
-    NODE_ENV: string;
-    DISABLE_ANTD_MOBILE_UPGRADE: string;
-  };
-};
+// declare var process: {
+//   env: {
+//     NODE_ENV: string;
+//     DISABLE_ANTD_MOBILE_UPGRADE: string;
+//   };
+// };
