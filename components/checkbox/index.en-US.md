@@ -8,8 +8,6 @@ Checkbox
 
 ## API
 
-Support WEB, React-Native.
-
 ### Checkbox
 
 Properties | Descrition | Type | Default

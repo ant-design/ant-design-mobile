@@ -12,8 +12,6 @@ A long list can be divided into several pages by `Pagination`, and only one page
 
 ## API
 
-Support WEB, React-Native.
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 |  mode  | the mode of `Pagination` which can be one of `button`,`number`,`pointer` | string | `button`  |

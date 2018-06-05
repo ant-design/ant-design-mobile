@@ -13,8 +13,6 @@ subtitle: 菜单
 
 ## API
 
-适用平台：WEB
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | data    |  数据(isLeaf 设置后 children 无效)  | `Array<{label: ReactNode, value, disabled?, children<data>?, isLeaf?}>` | [] |

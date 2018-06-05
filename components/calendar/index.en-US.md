@@ -11,8 +11,6 @@ Used to select a date range.
 
 ## API
 
-Support WEB.
-
 Properties | Descrition | Type | Default | Required
 -----------|------------|------|--------|--------
 enterDirection|enter direction |'horizontal' \| 'vertical'| vertical|false

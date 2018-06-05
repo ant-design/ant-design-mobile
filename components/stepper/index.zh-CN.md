@@ -12,8 +12,6 @@ subtitle: 步进器
 
 ## API
 
-适用平台：WEB、React-Native
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | min     | 最小值   | Number | -Infinity        |
@@ -24,6 +22,4 @@ subtitle: 步进器
 | onChange     | 变化时回调函数      | (): void      |            |
 | disabled     | 禁用       | Boolean      |      false      |
 | readOnly     | input 只读       | Boolean      |      false      |
-| showNumber(`web only`)    | 是否显示数值，默认不显示  | Boolean      |      false      |
-| styles(`rn only`)    | react native 组件样式  | ReactNative StyleSheet      |  -   |
-| inputStyle(`rn only`)    | react native 显示数字样式  | ReactNative StyleSheet      |  -   |
+| showNumber  | 是否显示数值，默认不显示  | Boolean      |      false      |

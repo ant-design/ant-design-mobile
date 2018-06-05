@@ -5,19 +5,14 @@ title: InputItem
 subtitle: 文本输入
 ---
 
-
 用于接受单行文本。
-
 
 ### 规则
 - 支持通过键盘或者剪切板输入文本。
 - 通过光标可以在水平方向进行移动。
 - 对特定格式的文本进行处理，eg：隐藏密码。
 
-
 ## API
-
-适用平台：WEB、React-Native
 
 **`InputItem` 必须用 [List](https://mobile.ant.design/components/list) 组件包裹才能正常使用**
 
@@ -40,14 +35,12 @@ subtitle: 文本输入
 | onExtraClick      | extra 点击事件触发的回调函数 | (e: Object): void |  无  |
 | onVirtualKeyboardConfirm | 虚拟键盘点击确认时的回调函数 | (val: string): void |  无  |
 | labelNumber  | 标签的文字个数，可用`2-7`之间的数字 | number | `5` |
-| updatePlaceholder (`web only`) | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |
-| prefixListCls (`web only`)    |   列表 className 前缀      | String |  `am-list`  |
-| name (`web only`)   | input 的 name        | String |  无  |
-| moneyKeyboardAlign (`web only`)   | 文字排版起始方向, 只有 `type='money'` 支持， 可选为 `'left'`, `'right'`       | String |  'right'  |
-| moneyKeyboardWrapProps (`web only`)   | 自定义金额虚拟键盘属性  | Object | {} |
+| updatePlaceholder  | 当清除内容时，是否将清除前的内容替换到 placeholder 中 | bool |  false  |
+| prefixListCls     |   列表 className 前缀      | String |  `am-list`  |
+| name    | input 的 name        | String |  无  |
+| moneyKeyboardAlign    | 文字排版起始方向, 只有 `type='money'` 支持， 可选为 `'left'`, `'right'`       | String |  'right'  |
+| moneyKeyboardWrapProps    | 自定义金额虚拟键盘属性  | Object | {} |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置, 当`type`为`money`，可以自定义确认按钮的文案。 | Object: { confirmLabel } |  无 |
-
-> 更多 react-native `InputItem` 属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)
 
 > 注意: `InputItem` 当 `type=number` 时不支持输入负号, 你可以利用 `type=text` 来自己实现。
 

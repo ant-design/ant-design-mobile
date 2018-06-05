@@ -11,10 +11,7 @@ A foundational component for inputting text into the app via a keyboard.
 - The cursor can be moved horizontally.
 - Handle text with a specific format, eg: hide password.
 
-
 ## API
-
-Support WEB, React-Native.
 
 **`InputItem` must wrapped by a [List](https://mobile.ant.design/components/list)**
 
@@ -37,14 +34,12 @@ Properties | Description | Type | Default
 | onExtraClick      | callback that is called when the extra content is clicked | (e: Object): void |  |
 | onVirtualKeyboardConfirm | callback that is called when "confirm" button of virtual keyboard is clicked | (val: string): void |  |
 | labelNumber  | number of label text, valid value is 2 to 7 | number | `5` |
-| updatePlaceholder (`web only`) | whether to replace the placeholder with cleared content | bool | false|
-| prefixListCls (`web only`)    |   the class name prefix of list      | String |  `am-list`  |
-| name (`web only`)   | the name of input       | String |   |
-| moneyKeyboardAlign (`web only`)   | text align direction, only `type='money'` support this api， could be `'left'`, `'right'`       | String |  'right'  |
-| moneyKeyboardWrapProps (`web only`)   | custom money virtual keyboard props  | Object | {} |
+| updatePlaceholder  | whether to replace the placeholder with cleared content | bool | false|
+| prefixListCls     |   the class name prefix of list      | String |  `am-list`  |
+| name    | the name of input       | String |   |
+| moneyKeyboardAlign    | text align direction, only `type='money'` support this api， could be `'left'`, `'right'`       | String |  'right'  |
+| moneyKeyboardWrapProps    | custom money virtual keyboard props  | Object | {} |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置,  when`type`is`money`，can cunstom the keyboard confirm item's label | Object: { confirmLabel } |  无 |
-
-> More available react-native `InputItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)
 
 > Note: `InputItem` does not support negative number if `type` is text, you can use `type=text` to do that.
 

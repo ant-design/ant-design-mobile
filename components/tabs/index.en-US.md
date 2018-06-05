@@ -4,7 +4,6 @@ type: Navigation
 title: Tabs
 ---
 
-
 A `Tabs` is used to allow users to switch between different views.
 
 ### Rule
@@ -12,18 +11,15 @@ A `Tabs` is used to allow users to switch between different views.
 - Generally a `Tabs` should have 2-4 tab pane, the title of each tab pane should be concise，normally has 2-4 words..
 - In the secondary page of iOS, it is not recommended to use left and right swipe to switch tab, which conflicts with back swipe gestrue in iOS. eg:  tabs in details page.
 
-
 ## API
-
-Support WEB, React-Native.
 
 ### Tabs
 
 Properties | Descrition | Type | Default | Required
 -----------|------------|------|--------|--------
-prefixCls | prefix class (`web only`) | string |  rmc-tabs | false
+prefixCls | prefix class  | string |  rmc-tabs | false
 tabs | tabs data | Models.TabData[] |  | true
-tabBarPosition | TabBar's position | 'top' \| 'bottom' \| 'left' `(web only)` \| 'right' `(web only)` |  top | false
+tabBarPosition | TabBar's position | 'top' \| 'bottom' \| 'left' \| 'right' |  top | false
 renderTabBar | replace the TabBar | ((props: TabBarPropsType) => React.ReactNode) \| false |  | false
 initialPage | the tab when inital, index or key | number \| string |  | false
 page | current tab, index or key | number \| string |  | false
@@ -36,7 +32,7 @@ onTabClick  | on tab click | (tab: Models.TabData, index: number) => void |  | f
 destroyInactiveTab | destroy inactive tab | boolean |  false | false
 distanceToChangeTab | distance to change tab, width ratio | number |  0.3 | false
 usePaged | use paged | boolean |  true | false
-tabDirection | tab paging direction `(web only)` | 'horizontal' \| 'vertical' |  horizontal | false
+tabDirection | tab paging direction | 'horizontal' \| 'vertical' |  horizontal | false
 tabBarUnderlineStyle | style of the default tab bar's underline | React.CSSProperties \| any |  | false
 tabBarBackgroundColor | color of the default tab bar's background | string |  | false
 tabBarActiveTextColor | color of the default tab bar's text when active | string |  | false
@@ -52,7 +48,7 @@ goToTab | call this function to switch Tab | (index: number) => boolean | | true
 tabs | tabs data | Models.TabData[] | | true
 activeTab | current tab | number | | true
 animated | Whether to change tabs with animation | boolean | | true
-prefixCls | prefix class (`web only`) | string | am-tabs-default-bar | false
+prefixCls | prefix class  | string | am-tabs-default-bar | false
 renderTab | render for replace the tab of tabbar | (tab: Models.TabData) => React.ReactNode | | false
 page | the size for the tab of tabbar | number | 5 | false
 onTabClick  | on tab click | (tab: Models.TabData, index: number) => void |  | false

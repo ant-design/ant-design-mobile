@@ -13,10 +13,7 @@ subtitle: 对话框
 - 操作按钮最多到 3 个（竖排），一般为 1-2 个（横排）；3 个以上建议使用组件 ActionSheet 来完成。
 - 一般将用户最可能点击的按钮，放在右侧。另外，取消按钮应当始终放在左侧。
 
-
 ## API
-
-适用平台：WEB、React-Native
 
 ### Modal
 
@@ -31,11 +28,11 @@ subtitle: 对话框
 | animationType | 可选: 'slide-down/up'(`web version`) / 'fade' / 'slide' | String | fade |
 | title | 标题 | React.Element | 无 |
 | footer | 底部内容 | Array [{text, onPress}] | [] |
-| platform (`Web Only`) | 设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios` | String | `ios'`|
-| transitionName (`Web only`) | Modal 主内容动画 className | String | |
-| maskTransitionName (`Web only`) | mask 动画 className | String | |
-| className (`Web only`) | 手动设置 Modal 的 className | String | |
-| wrapClassName (`Web only`) | 手动设置 Modal wrap 的 className | String | |
+| platform  | 设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios` | String | `ios'`|
+| transitionName  | Modal 主内容动画 className | String | |
+| maskTransitionName  | mask 动画 className | String | |
+| className  | 手动设置 Modal 的 className | String | |
+| wrapClassName  | 手动设置 Modal wrap 的 className | String | |
 
 ### Modal.alert(title, message, actions?, platform?)
 
@@ -44,7 +41,7 @@ subtitle: 对话框
 | title | 标题  | String 或 React.Element | 无  |
 | message  | 提示信息  | String 或 React.Element  | 无  |
 | actions | 按钮组, [{text, onPress, style}] | Array | 无  |
-| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
+| platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
 
 `Modal.alert(title, message, actions?, platform?).close()` 可以在外部关闭 Alert
 
@@ -58,8 +55,7 @@ subtitle: 对话框
 | type | prompt 的样式 | String (`default`, `secure-text`, `login-password`)|  `default`  |
 | defaultValue | 默认值(input 为 password 类型不支持) | String | -  |
 | placeholders | ['', '']  | String[] | -  |
-| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
-
+| platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
 
 `Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?, platform?).close()` 可以在外部关闭 prompt`
 
@@ -68,6 +64,6 @@ subtitle: 对话框
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | actions | 按钮组, [{text, onPress, style}] | Array | 无  |
-| platform (`web only`) |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
+| platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
 
 `Modal.operation(actions?, platform?).close()` 可以在外部关闭 operation`

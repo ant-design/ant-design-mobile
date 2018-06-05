@@ -14,8 +14,6 @@ Use to show important information for the system, and ask for user feedback. eg:
 
 ## API
 
-Support WEB, React-Native.
-
 ### Modal
 
 Properties | Descrition | Type | Default
@@ -29,11 +27,11 @@ Properties | Descrition | Type | Default
 | animationType | Options: 'slide-down/up'(`web version`) / 'fade' / 'slide' | String | fade |
 | title | title | React.Element | - |
 | footer | footer content | Array [{text, onPress}] | [] |
-| platform (`web only`) | set the special style depends on platform, Options `android`, `ios` | String | `ios` |
-| transitionName (`web only`) | Modal animation css class name | String | |
-| maskTransitionName (`web only`) | mask animation css class name | String | |
-| className (`web only`) | additional className for dialog | String | |
-| wrapClassName (`web only`) | additional className for dialog wrap | String | |
+| platform  | set the special style depends on platform, Options `android`, `ios` | String | `ios` |
+| transitionName  | Modal animation css class name | String | |
+| maskTransitionName  | mask animation css class name | String | |
+| className  | additional className for dialog | String | |
+| wrapClassName  | additional className for dialog wrap | String | |
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )
 
@@ -42,10 +40,11 @@ Properties | Descrition | Type | Default
 | title | title | String or React.Element | -  |
 | message | message  | String or React.Element  | -  |
 | actions | button group, [{text, onPress, style}]  | Array | -  |
+| platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
 
 call `Modal.alert(title, message, actions?).close()`  can close Alert Modal outside anywhere as you wish.
 
-### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?) ( Support Platform：WEB )
+### Modal.prompt(title, message, callbackOrActions, type?, defaultValue?)
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
@@ -55,13 +54,15 @@ Properties | Descrition | Type | Default
 | type  | prompt style | String (`default`, `secure-text`, `login-password`)|  `default`  |
 | defaultValue  | Default(input whick type is password is not supported) | String | -  |
 | placeholders  | ['', '']  | String[] | -  |
+| platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
 
 call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?).close()` can close prompt Modal outside anywhere as you wish.
 
-### Modal.operation(actions?) ( Support Platform：WEB、React-Native )
+### Modal.operation(actions?)
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | actions | button group, [{text, onPress, style}]  | Array | -  |
+| platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
 
 call Modal.operation(actions?).close()` can close Operation Modal outside anywhere as you wish.

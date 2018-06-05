@@ -4,17 +4,13 @@ type: Data Entry
 title: TextareaItem
 ---
 
-
 A foundational component for inputting multi-line text into the app via a keyboard.
 
 ### Rule
 - Support text input via keyboard or clipboard.
 - The cursor can be moved horizontally.
 
-
 ## API
-
-Support WEB, React-Native.
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
@@ -33,14 +29,12 @@ Properties | Descrition | Type | Default
 | onErrorClick   | callback that is called when the error icon is clicked   | (): void |    |
 | autoHeight | auto adjust height (only use one of `autoHeight` and `rows` properties) | bool  | false  |
 | labelNumber  | number of label text, valid value is 2 to 7 | number | `5` |
-| name (`Web Only`)    | the name of textarea      | String |   -  |
-| prefixListCls (`Web Only`)    |   the class name prefix of list      | String |  `am-list`  |
-| title (`Web Only`)    | the description of textarea        | String/node |  '' |
-
-> More available react-native `TextareaItem` API can be found at [react-native TextInput](http://facebook.github.io/react-native/docs/textinput.html)
+| name   | the name of textarea      | String |   -  |
+| prefixListCls   |   the class name prefix of list      | String |  `am-list`  |
+| title   | the description of textarea        | String/node |  '' |
 
 ## TextareaItem methods
 
 Property | Description | Type | Default
 ----|-----|------|------
-| focus (`Web Only`)    | Force focus back onto the input node  | - |  -  |
+| focus   | Force focus back onto the input node  | - |  -  |

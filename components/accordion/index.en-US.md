@@ -15,15 +15,13 @@ You can collapse / expand the content area.
 
 ### Accordion
 
-Support WEB, React-Native.
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | activeKey | current active Panel key | Array or String   | The first panel key on accordion mode|
 | defaultActiveKey | default active key | String   | null |
 | onChange    | called when collapse Panel is changed | (key: string): void |  noop  |
-| accordion (`web only`) | accordion mode | Boolean | false  |
-| openAnimation (`web only`)  |  set the custom switch animation, disable the animation can be set to `{}` | Object | ref `rc-collapse/lib/openAnimationFactory.js` |
+| accordion | accordion mode | Boolean | false  |
+| openAnimation  |  set the custom switch animation, disable the animation can be set to `{}` | Object | ref `rc-collapse/lib/openAnimationFactory.js` |
 
 ### Accordion.Panel
 

@@ -14,8 +14,6 @@ title: ActivityIndicator
 
 ## API
 
-Support WEB, React-Native.
-
 ```jsx
 <ActivityIndicator />
 <ActivityIndicator color="white" />
@@ -33,4 +31,3 @@ Properties | Descrition | Type | Default
 |  size  | Size of the indicator (`small`/`large`) | string  | small  |
 |  toast  | Whether to use toast style | boolean  | false  |
 |  text  | loading text behind the indicator | string |  -   |
-|  color (`RN only`)  | The foreground color of the spinner (default is gray). | string  | gray  |

@@ -12,8 +12,6 @@ Instantly reload the content by triggering.
 
 ## API
 
-Support WEB
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | direction  | pull direction, can be `up` or `down` | String | `down` |

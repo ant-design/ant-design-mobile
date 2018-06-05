@@ -12,8 +12,6 @@ Tag for categorizing or markuping, can be used to make classification or mark th
 
 ## API
 
-Support WEB, React-Native.
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | small   |  Whether to show a smaller size  |   Boolean    |  `false`  |

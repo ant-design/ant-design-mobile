@@ -15,8 +15,6 @@ subtitle: 结果页
 
 ## API
 
-适用平台：WEB、React-Native
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 imgUrl | 插图 url | string / Image Source(rn)  | -

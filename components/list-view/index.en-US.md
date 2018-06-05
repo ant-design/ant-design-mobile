@@ -8,8 +8,6 @@ It is suitable for displaying the long list data type of the same kind, and has 
 
 ## API
 
-Support WEB.
-
 > Note: We use some APIs of [react-native@0.26 ListView](http://facebook.github.io/react-native/releases/0.26/docs/listview.html), although react-native ListView has been officially marked as `DEPRECATED` now, but our `WEB` version is still working properly.
 
 
@@ -33,11 +31,11 @@ Properties | Descrition | Type | Default
 | scrollEventThrottle | This controls how often the scroll event will be fired while scrolling | number | 50 |
 | onLayout | Invoked on mount and layout changes with | ({nativeEvent:{ layout:{ width, height }}}) => {} | - |
 | ---- |
-| renderBodyComponent (`web only`) | render listview body wrapper component | () => renderable | - |
-| renderSectionWrapper (`web only`) | | render listview section wrapper component | (sectionID) => renderable | - |
-| renderSectionBodyWrapper (`web only`) | render listview section body wrapper component | (sectionID) => renderable | - |
-| useBodyScroll (`web only`) | use html `body`'s scroll | bool | false |
-| pullToRefresh (`web only`) | Whether enable pullToRefresh, you need use it with `PullToRefresh` component | bool | false |
+| renderBodyComponent  | render listview body wrapper component | () => renderable | - |
+| renderSectionWrapper  | | render listview section wrapper component | (sectionID) => renderable | - |
+| renderSectionBodyWrapper  | render listview section body wrapper component | (sectionID) => renderable | - |
+| useBodyScroll  | use html `body`'s scroll | bool | false |
+| pullToRefresh  | Whether enable pullToRefresh, you need use it with `PullToRefresh` component | bool | false |
 
 ### Methods
 

@@ -8,8 +8,6 @@ PickerView's functions like Picker, but it is rendered directly in the area inst
 
 ## API
 
-Support WEB, React-Native.
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | data    | data source       | `Array<{value, label}>` / `Array<Array<{value, label}>>` |   -  |
@@ -17,9 +15,8 @@ Properties | Descrition | Type | Default
 | cascade    | whether cascade        | Boolean |  true  |
 | cols    | col numbers   | Number |  `3`  |
 | onChange | selected callback function, can use [rc-form](https://github.com/react-component/form) | (val): void | - |
-| prefixCls (`Web Only`)   | prefix class        | string |  am-picker  |
-| pickerPrefixCls (`Web Only`)   | picker prefix class        | string |  am-picker-col  |
-| styles  (`Web Only`)  | additional style        | Object |  {}  |
+| prefixCls    | prefix class        | string |  am-picker  |
+| pickerPrefixCls    | picker prefix class        | string |  am-picker-col  |
 | cascade  | whether is cascade mode | Boolean | true |
 | itemStyle | style to apply to each of the item labels  |   Object   | -  |
 | indicatorStyle  | style of indicator | Object | - |

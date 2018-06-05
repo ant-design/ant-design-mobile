@@ -8,8 +8,6 @@ Radio.
 
 ## API
 
-Support WEB, React-Native.
-
 ### Radio
 
 Properties | Descrition | Type | Default

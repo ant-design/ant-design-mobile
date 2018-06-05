@@ -12,8 +12,6 @@ Choose from a set of data, e.g. Country choice.
 
 ## API
 
-Support WEB, React-Native.
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | data    | data source      | `Array<{value, label, children: Array}>` |   -  |

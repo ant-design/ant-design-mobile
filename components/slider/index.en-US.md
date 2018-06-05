@@ -10,10 +10,7 @@ A Slider component for selecting particular value in range, eg: controls the dis
 - By default, the minimum value in the left and maximum value in the right of `Silder` .
 - Generally `Slider` is positioned horizontally.
 
-
-## Common API
-
-Support Web, React-Native.
+## API
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
@@ -27,11 +24,11 @@ Properties | Descrition | Type | Default
 | onAfterChange    |  Function     | Noop    | Fired when `ontouchend` is fired. |
 | maximumTrackTintColor (`iOS`)   |  String     | `#108ee9`    | The color used for the track to the right of the button. Overrides the default blue gradient image on iOS. ( Also can custom theme to define color in web) |
 | minimumTrackTintColor (iOS)   |  String     | `#ddd`    | The color used for the track to the left of the button. Overrides the default blue gradient image on iOS. ( Also can custom theme to define color in web) |
-| marks (`web only`)     |  Object{Number:String}     | { }    | Tick mark of Slider, type of key must be number, and must in closed interval min, max. |
-| dots (`web only`)     |  Boolean     | false    | Whether the thumb can be dragged over tick only. |
-| included (`web only`)    |  Boolean     | true    | Make effect when `marks` not null，`true` means containment and `false` means coordinative |
-| minimumTrackStyle(`web`)    |  Object     |   | The style used for the track to the left of the button.(`will be deprecate, please use trackStyle instead`)|
-| maximumTrackStyle(`web`)    |  Object     |    | The style used for the track to the right of the button.（`will be deprecate, please use railStyle instead`）  |
-| handleStyle(`web`)    |  Object     |    | The style used for handle.  |
-| trackStyle(`web`)    | Object     |    | The style used for the track to the left of the button. |
-| railStyle(`web`)    |  Object     |   | The style used for the track to the right of the button. |
+| marks   |  Object{Number:String}     | { }    | Tick mark of Slider, type of key must be number, and must in closed interval min, max. |
+| dots   |  Boolean     | false    | Whether the thumb can be dragged over tick only. |
+| included  |  Boolean     | true    | Make effect when `marks` not null，`true` means containment and `false` means coordinative |
+| minimumTrackStyle  |  Object     |   | The style used for the track to the left of the button.(`will be deprecate, please use trackStyle instead`)|
+| maximumTrackStyle  |  Object     |    | The style used for the track to the right of the button.（`will be deprecate, please use railStyle instead`）  |
+| handleStyle  |  Object     |    | The style used for handle.  |
+| trackStyle  | Object     |    | The style used for the track to the left of the button. |
+| railStyle  |  Object     |   | The style used for the track to the right of the button. |
