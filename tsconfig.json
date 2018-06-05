@@ -7,12 +7,7 @@
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports":true,
     "target": "es6",
-    "noImplicitAny": true,
-    "types": [
-      "classnames",
-      "react",
-      "react-dom"
-    ]
+    "noImplicitAny": true
   },
   "exclude": [
     "node_modules",

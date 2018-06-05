@@ -81,7 +81,7 @@ export default class Marquee extends React.Component<MarqueeProps, any> {
 
   _startAnimation() {
     if (this._marqueeTimer) {
-      clearTimeout(this._marqueeTimer);
+      window.clearTimeout(this._marqueeTimer);
     }
     const fps = this.props.fps;
     const TIMEOUT = 1 / fps! * 1000;
@@ -102,24 +102,24 @@ export default class Marquee extends React.Component<MarqueeProps, any> {
       }
 
       if (isRoundOver && this.props.trailing) {
-        this._marqueeTimer = setTimeout(() => {
+        this._marqueeTimer = window.setTimeout(() => {
           this.setState({
             animatedWidth,
           });
 
-          this._marqueeTimer = setTimeout(animate, TIMEOUT);
+          this._marqueeTimer = window.setTimeout(animate, TIMEOUT);
         }, this.props.trailing);
       } else {
         this.setState({
           animatedWidth,
         });
 
-        this._marqueeTimer = setTimeout(animate, TIMEOUT);
+        this._marqueeTimer = window.setTimeout(animate, TIMEOUT);
       }
     };
 
     if (this.state.overflowWidth !== 0) {
-      this._marqueeTimer = setTimeout(animate, timeout);
+      this._marqueeTimer = window.setTimeout(animate, timeout);
     }
   }
 

@@ -84,7 +84,7 @@ class InputItem extends React.Component<InputItemProps, any> {
 
   componentWillUnmount() {
     if (this.debounceTimeout) {
-      clearTimeout(this.debounceTimeout);
+      window.clearTimeout(this.debounceTimeout);
       this.debounceTimeout = null;
     }
   }
@@ -149,7 +149,7 @@ class InputItem extends React.Component<InputItemProps, any> {
   onInputBlur = (value: string) => {
     if (this.inputRef) {
       // this.inputRef may be null if customKeyboard unmount
-      this.debounceTimeout = setTimeout(() => {
+      this.debounceTimeout = window.setTimeout(() => {
         if (
           document.activeElement !== (this.inputRef && this.inputRef.inputRef)
         ) {

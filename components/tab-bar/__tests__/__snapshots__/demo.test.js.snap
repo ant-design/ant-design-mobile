@@ -271,26 +271,7 @@ exports[`renders ./components/tab-bar/demo/listview-tabbar.md correctly 1`] = `
         </div>
         <div
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
-        >
-          <div
-            class="am-tab-bar-item"
-          >
-            <div
-              style="background-color:white;height:100%;text-align:center"
-            >
-              <div
-                style="padding-top:60px"
-              >
-                Clicked “Koubei” tab， show “Koubei” information
-              </div>
-              <a
-                style="display:block;margin-top:40px;margin-bottom:20px;color:#108ee9"
-              >
-                Click to show/hide tab-bar
-              </a>
-            </div>
-          </div>
-        </div>
+        />
         <div
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
         />
