@@ -1,11 +1,9 @@
 ---
 order: 1
-title: 在 create-react(-native)-app 中使用
+title: 在 create-react-app 中使用
 ---
 
-[create-react-app](https://github.com/facebookincubator/create-react-app) (Web 项目) / [create-react-native-app](https://github.com/react-community/create-react-native-app)(React Native 项目) 是业界最优秀的 React 相关应用开发工具之一，本文档尝试以此工具来使用 antd-mobile 组件。
-
-## Web 项目
+[create-react-app](https://github.com/facebookincubator/create-react-app) 是业界最优秀的 React 相关应用开发工具之一，本文档尝试以此工具来使用 antd-mobile 组件。
 
 ### 安装和初始化
 
@@ -79,9 +77,3 @@ npm install babel-plugin-import --save-dev
 
 含 `css-moules` 和 `自定义主题` 的 [antd-mobile-sample/create-react-app](https://github.com/ant-design/antd-mobile-samples/tree/master/create-react-app)
 
-
-## React Native 项目
-
-完整步骤请查看此处文档： [antd-mobile-sample/create-react-native-app](https://github.com/ant-design/antd-mobile-samples/tree/master/create-react-native-app)
-
-> Note: 单个组件改写部分样式的方法可以参考 (1.x)： [ant-design-mobile/issues/1174](https://github.com/ant-design/ant-design-mobile/issues/1174#issuecomment-295256831)，(2.x): [ant-design-mobile/pull/1629](https://github.com/ant-design/ant-design-mobile/pull/1629)

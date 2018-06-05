@@ -158,9 +158,6 @@
       "npm run lint-staged:demo"
     ]
   },
-  "config": {
-    "port": 8001
-  },
   "typings": "lib/index.d.ts",
   "pre-commit": [
     "lint-staged"
