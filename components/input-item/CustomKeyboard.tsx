@@ -3,8 +3,6 @@ import React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import { Omit } from '../_util/types';
 
-const IS_IOS = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
-
 export type HTMLTableDataProps = Omit<
   React.HTMLProps<HTMLTableDataCellElement>,
   'onClick'
@@ -76,6 +74,18 @@ class CustomKeyboard extends React.Component<any, any> {
   antmKeyboard: HTMLDivElement | null;
   confirmDisabled: boolean;
   confirmKeyboardItem: HTMLTableDataCellElement | null;
+
+  constructor(props: any) {
+    super(props);
+
+    this.state = { isIOS: false };
+  }
+
+  componentDidMount() {
+    this.setState({
+      isIOS: /iphone|ipad|ipod/i.test(window.navigator.userAgent),
+    });
+  }
 
   onKeyboardClick = (
     e: React.MouseEvent<HTMLTableDataCellElement>,
@@ -169,8 +179,8 @@ class CustomKeyboard extends React.Component<any, any> {
     );
   }
 
-  getAriaAttr(label: string) {
-    if (IS_IOS) {
+  getAriaAttr = (label: string) => {
+    if (this.state.isIOS) {
       return { label, iconOnly: true };
     } else {
       return { role: 'button', 'aria-label': label };
