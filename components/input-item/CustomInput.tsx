@@ -5,6 +5,7 @@ import { addClass, removeClass } from '../_util/class';
 import CustomKeyboard from './CustomKeyboard';
 import Portal from './Portal';
 import { InputEventHandler } from './PropsType';
+import { canUseDOM } from '../_util/exenv';
 
 let instanceArr: any = [];
 let customNumberKeyboard: CustomKeyboard | null = null;
@@ -311,7 +312,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   renderPortal() {
-    if (!IS_REACT_16) {
+    if (!IS_REACT_16 || !canUseDOM) {
       return null;
     }
 
