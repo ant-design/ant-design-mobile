@@ -6,8 +6,9 @@ module.exports = {
   messages: {
     'app.header.search': 'Search...',
     'app.header.menu.home': 'Home',
-    'app.header.menu.components': 'Components',
+    'app.header.menu.components': 'Web Components',
     'app.header.menu.design': 'Specification',
+    'app.header.menu.rn': 'React Native Components',
     'app.header.menu.pc': 'Desktop',
     'app.header.lang': '中文',
     'app.home.slogan': 'Mobile Design Specification',

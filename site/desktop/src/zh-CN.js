@@ -6,8 +6,9 @@ module.exports = {
   messages: {
     'app.header.search': '全文本搜索...',
     'app.header.menu.home': '首页',
-    'app.header.menu.components': '组件',
+    'app.header.menu.components': 'Web 组件',
     'app.header.menu.design': '规范',
+    'app.header.menu.rn': 'React Native 组件',
     'app.header.menu.pc': '桌面版',
     'app.header.lang': 'EN',
     'app.home.slogan': '移动端设计规范',
