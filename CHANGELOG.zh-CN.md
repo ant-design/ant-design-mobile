@@ -15,6 +15,38 @@ toc: false
 
 ---
 
+### 2.2.0
+
+`2018-06-19`
+
+注意：根据之前的 [2.1.x 最后版本计划](https://github.com/ant-design/ant-design-mobile/issues/2556)，我们已经分离 react native 组件代码到单独的 [ant-design-mobile-rn](https://github.com/ant-design/ant-design-mobile-rn) 仓库，并且已经发布了 `antd-mobile-rn` beta 包。如果使用 react native 组件，请这样修改 `package.json` 文件：
+
+```diff
+  ...
+  "dependencies": {
+-   "antd-mobile": "^2.1.11",
++   "antd-mobile-rn": "next",
+    "react": "16.3.1",
+    ...
+  },
+  ...
+```
+
+然后，重装 node_modules 即可。
+
+- **Feature**
+
+  - 🌟 新增 `prerenderingSiblingsNumber` 属性给 `TabBar` ([#2607](https://github.com/ant-design/ant-design-mobile/pull/2607))
+  - 🌟 完善 ssr 支持 ([#2605](https://github.com/ant-design/ant-design-mobile/issues/2605))
+
+- **Bug Fix**
+
+  - 🐞 修复 `Popover` ts 类型错误 ([#2571](https://github.com/ant-design/ant-design-mobile/issues/2571))
+
+- **Enhancement**
+
+  - 📝 更新 `Stepper` API 文档 ([#2573](https://github.com/ant-design/ant-design-mobile/issues/2573))
+
 ### 2.1.11
 
 `2018-05-31`

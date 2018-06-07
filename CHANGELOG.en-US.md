@@ -15,6 +15,38 @@ toc: false
 
 ---
 
+### 2.2.0
+
+`2018-06-19`
+
+Note: According to the previous [2.1.x final version plan](https://github.com/ant-design/ant-design-mobile/issues/2556), we have separated the react native components into a separate [ant-design-mobile-rn](https://github.com/ant-design/ant-design-mobile-rn) repo, and the `antd-mobile-rn` beta npm package has been released. If you use the react native components, modify your `package.json` file like so:
+
+```diff
+  ...
+  "dependencies": {
+-   "antd-mobile": "^2.1.11",
++   "antd-mobile-rn": "next",
+    "react": "16.3.1",
+    ...
+  },
+  ...
+```
+
+Then reinstall node_modules.
+
+- **Feature**
+
+  - 🌟 add `prerenderingSiblingsNumber` prop for `TabBar` ([#2607](https://github.com/ant-design/ant-design-mobile/pull/2607))
+  - 🌟 add ssr support ([#2605](https://github.com/ant-design/ant-design-mobile/issues/2605))
+
+- **Bug Fix**
+
+  - 🐞 Fix `Popover` ts type ([#2571](https://github.com/ant-design/ant-design-mobile/issues/2571))
+
+- **Enhancement**
+
+  - 📝 Update `Stepper` API doc ([#2573](https://github.com/ant-design/ant-design-mobile/issues/2573))
+
 ### 2.1.11
 
 `2018-05-31`
