@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import Swipeout from 'rc-swipeout';
-import React from 'react';
+import * as React from 'react';
 import { SwipeActionPropsType } from './PropsType';
 
 export interface SwipeActionProps

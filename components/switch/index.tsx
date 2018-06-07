@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import { SwitchPropsType } from './PropsType';
 
 export interface SwitchProps extends SwitchPropsType {

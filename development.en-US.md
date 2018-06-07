@@ -53,7 +53,7 @@ component name separate with `-`, such as `date-picker`，and file Extensions sh
 - `components/button/index.tsx`
 
 ```js
-import React from 'react';
+import * as React from 'react';
 
 class Button extends React.Component {
   static propTypes = {};

@@ -1,5 +1,5 @@
 import RcSlider from 'rc-slider/lib/Slider';
-import React from 'react';
+import * as React from 'react';
 import { SliderPropsType } from './PropsType';
 
 export interface SliderProps extends SliderPropsType {

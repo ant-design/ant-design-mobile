@@ -36,4 +36,9 @@ module.exports = {
   ],
   transformIgnorePatterns,
   testEnvironment: 'jsdom',
+  globals: {
+    'ts-jest': {
+      tsConfigFile: './tsconfig.test.json',
+    }
+  },
 };

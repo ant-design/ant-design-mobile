@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import Icon from '../icon';
 import Marquee, { MarqueeProps } from './Marquee';
 import { NoticeBarPropsType } from './PropsType';

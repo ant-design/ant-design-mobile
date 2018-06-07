@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import getDataAttr from '../_util/getDataAttr';
 import Tabs from '../tabs';
 import { TabBarItemProps, TabBarProps } from './PropsType';

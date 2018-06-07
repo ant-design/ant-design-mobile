@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { InputEventHandler } from './PropsType';
 import { Omit } from '../_util/types';
 

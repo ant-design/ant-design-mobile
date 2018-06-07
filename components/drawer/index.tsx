@@ -1,5 +1,5 @@
 import RmcDrawer from 'rmc-drawer';
-import React from 'react';
+import * as React from 'react';
 import { DrawerWebProps } from './PropsType';
 
 export default class Drawer extends React.Component<DrawerWebProps, any> {
