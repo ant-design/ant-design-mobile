@@ -115,7 +115,7 @@
   "scripts": {
     "lint": "npm run tslint && npm run srclint && npm run demolint && npm run stylelint",
     "srclint": "eslint site scripts --ext '.js,.jsx'",
-    "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
+    "tslint": "npm run tsc && antd-tools run ts-lint",
     "tslint-fix": "antd-tools run ts-lint-fix && npm run compile && rm -rf lib",
     "demolint": "cross-env RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "stylelint": "stylelint \"{site,components}/**/*.less\" --syntax less",
