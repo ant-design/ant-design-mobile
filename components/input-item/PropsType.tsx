@@ -2,7 +2,6 @@ import React from 'react';
 export type InputEventHandler = (value?: string) => void;
 
 export interface InputItemPropsType {
-  /** web only */
   moneyKeyboardAlign?: string;
   moneyKeyboardWrapProps?: object;
   type?:
@@ -30,7 +29,6 @@ export interface InputItemPropsType {
   labelPosition?: 'left' | 'top';
   textAlign?: 'left' | 'center';
   updatePlaceholder?: boolean;
-  styles?: any;
   locale?: object;
   onChange?: (value: string) => void;
   onFocus?: InputEventHandler;

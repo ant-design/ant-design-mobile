@@ -13,7 +13,7 @@ subtitle: 走马灯
 ----|-----|------|------
 | selectedIndex |  手动设置当前显示的索引  |  number  |  0  |
 | dots | 是否显示面板指示点 | Boolean   | true |
-| vertical | 垂直显示(web 为内容，rn 为 pagination) | Boolean   | false |
+| vertical | 垂直显示 | Boolean   | false |
 | autoplay | 是否自动切换 | Boolean   | false |
 | autoplayInterval | 自动切换的时间间隔 | Number | 3000 |
 | infinite | 是否循环播放 | Boolean   | false |

@@ -22,8 +22,6 @@ Properties | Descrition | Type | Default
 | disabled    |  Boolean     | false    | If true, the slider will not be interactable. |
 | onChange    |  Function     | Noop    | Callback function that is called when the user changes the slider's value. |
 | onAfterChange    |  Function     | Noop    | Fired when `ontouchend` is fired. |
-| maximumTrackTintColor (`iOS`)   |  String     | `#108ee9`    | The color used for the track to the right of the button. Overrides the default blue gradient image on iOS. ( Also can custom theme to define color in web) |
-| minimumTrackTintColor (iOS)   |  String     | `#ddd`    | The color used for the track to the left of the button. Overrides the default blue gradient image on iOS. ( Also can custom theme to define color in web) |
 | marks   |  Object{Number:String}     | { }    | Tick mark of Slider, type of key must be number, and must in closed interval min, max. |
 | dots   |  Boolean     | false    | Whether the thumb can be dragged over tick only. |
 | included  |  Boolean     | true    | Make effect when `marks` not null，`true` means containment and `false` means coordinative |

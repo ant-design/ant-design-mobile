@@ -9,9 +9,6 @@ subtitle: 长列表
 
 ## API
 
-> 注意: 我们使用 [react-native@0.26 ListView](http://facebook.github.io/react-native/releases/0.26/docs/listview.html) 的一些 API，尽管 react-native ListView 已经被官方标记为 `DEPRECATED`，但我们的 `WEB` 版本仍然正常工作。
-
-
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
 | dataSource | [ListView.DataSource (cn)](https://reactnative.cn/docs/0.26/listviewdatasource.html) / [ListView.DataSource (us)](http://facebook.github.io/react-native/releases/0.26/docs/listviewdatasource.html) 实例 | ListViewDataSource | - |
@@ -45,8 +42,6 @@ subtitle: 长列表
 
 
 ## ListView.IndexedList
-
-适用平台：WEB。
 
 此组件常用于 “通讯录”/“城市列表” 等场景中，支持索引导航功能。
 

@@ -41,4 +41,4 @@ Display shareable action sheet. The `options` object must contain one or more of
 
 The `callback` function support returns Promise
 
-#### static close() - (web、android only) programmatically close.
+#### static close() - programmatically close.

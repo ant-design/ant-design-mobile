@@ -23,7 +23,6 @@ export interface IPickerView {
   cascade?: boolean;
   value?: any[];
   data?: PickerData[] | PickerData[][];
-  styles?: any;
   onChange?: (value?: any) => void;
   onScrollChange?: (value?: any) => void;
   indicatorStyle?: any;

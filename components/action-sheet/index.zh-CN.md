@@ -42,4 +42,4 @@ subtitle: 动作面板
 
 `callback`函数支持返回 Promise
 
-#### static close() - (web, android only) programmatically close.
+#### static close() - programmatically close.

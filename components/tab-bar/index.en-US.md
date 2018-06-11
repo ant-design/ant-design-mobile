@@ -33,7 +33,7 @@ Properties | Descrition | Type | Default
 | dot | show red dot on right-top（invalid when set badge number）  | Boolean            |  false  |
 | onPress  | on press the bar, need change component by yourself. state & selecte={true} | Function | `(){}`     |
 | selected  | whether it is selected | Boolean | false     |
-| icon  | the default icon | Image Source(rn) \ web ref demo |      |
-| selectedIcon  |  the icon of selected | Image Source(rn) \ web ref demo |      |
+| icon  | the default icon | ref demo |      |
+| selectedIcon  |  the icon of selected | ref demo |      |
 | title  |  title | String |      |
 | key  |  unique identification | String |   无   |

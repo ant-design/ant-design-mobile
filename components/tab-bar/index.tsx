@@ -21,7 +21,6 @@ export class Item extends React.Component<TabBarItemProps, any> {
   }
 }
 export interface AntTabbarProps extends TabBarProps {
-  /*web only*/
   prefixCls?: string;
   className?: string;
   hidden?: boolean;

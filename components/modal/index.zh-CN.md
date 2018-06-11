@@ -25,7 +25,7 @@ subtitle: 对话框
 | onClose | 点击 x 或 mask 回调 | (): void | 无 |
 | transparent | 是否背景透明 | Boolean | false |
 | popup | 是否弹窗模式 | Boolean | false |
-| animationType | 可选: 'slide-down/up'(`web version`) / 'fade' / 'slide' | String | fade |
+| animationType | 可选: 'slide-down / up' / 'fade' / 'slide' | String | fade |
 | title | 标题 | React.Element | 无 |
 | footer | 底部内容 | Array [{text, onPress}] | [] |
 | platform  | 设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios` | String | `ios'`|

@@ -34,7 +34,7 @@ subtitle: 标签栏
 | dot | 是否在右上角显示小红点（在设置badge的情况下失效）  | Boolean            |  false  |
 | onPress  | bar 点击触发，需要自己改变组件 state & selecte={true} | Function | `(){}`     |
 | selected  | 是否选中 | Boolean | false     |
-| icon  | 默认展示图片 | Image Source(rn) \ web 方式见 demo |      |
-| selectedIcon  |  选中后的展示图片 | Image Source(rn) \ web 方式见 demo |      |
+| icon  | 默认展示图片 | 见 demo |      |
+| selectedIcon  |  选中后的展示图片 | 见 demo |      |
 | title  |  标题文字 | String |      |
 | key  |  唯一标识 | String |   无   |

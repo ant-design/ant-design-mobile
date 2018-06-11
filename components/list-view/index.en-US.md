@@ -8,9 +8,6 @@ It is suitable for displaying the long list data type of the same kind, and has 
 
 ## API
 
-> Note: We use some APIs of [react-native@0.26 ListView](http://facebook.github.io/react-native/releases/0.26/docs/listview.html), although react-native ListView has been officially marked as `DEPRECATED` now, but our `WEB` version is still working properly.
-
-
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | dataSource | An instance of [ListView.DataSource](http://facebook.github.io/react-native/releases/0.26/docs/listviewdatasource.html) to use | ListViewDataSource | - |
@@ -44,8 +41,6 @@ Properties | Descrition | Type | Default
 
 
 ## ListView.IndexedList
-
-Support WEB.
 
 This component is often used in the "Contacts" / "city list" scenes, support for index navigation.
 

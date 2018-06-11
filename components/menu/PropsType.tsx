@@ -11,7 +11,6 @@ export interface DataItem {
 export type ValueType = Array<string | string[]>;
 
 export interface MenuProps {
-  /** web only */
   prefixCls?: string;
   subMenuPrefixCls?: string;
   radioPrefixCls?: string;

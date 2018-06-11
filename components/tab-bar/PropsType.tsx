@@ -9,8 +9,6 @@ export interface TabBarProps {
   animated?: boolean;
   /** default: false */
   swipeable?: boolean;
-  /** rn android only**/
-  styles?: any;
 }
 export type TabIcon = React.ReactElement<any> | { uri: string };
 export interface TabBarItemProps {
@@ -20,10 +18,7 @@ export interface TabBarItemProps {
   icon?: TabIcon;
   selectedIcon?: TabIcon;
   title: string;
-  /*web only*/
   dot?: boolean;
-  /*web only*/
   prefixCls?: string;
-  /*web only*/
   style?: React.CSSProperties;
 }

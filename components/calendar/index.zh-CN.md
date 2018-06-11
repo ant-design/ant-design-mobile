@@ -20,7 +20,7 @@ locale | 本地化 | Models.Locale | | false
 onCancel | 关闭时回调 | () => void | | false
 onConfirm | 确认时回调 | (startDateTime?: Date, endDateTime?: Date) => void | | false
 pickTime|是否选择时间 | boolean | false | false
-prefixCls|(web only) 样式前缀 | string | rmc-calendar | false
+prefixCls| 样式前缀 | string | rmc-calendar | false
 renderShortcut | 替换快捷选择栏 需要设置showShortcut: true | (select: (startDate?: Date, endDate?: Date) => void) => React.ReactNode | | false
 renderHeader | 替换标题栏 | () => React.ReactNode | | false
 showShortcut | 快捷日期选择 | boolean | false | false

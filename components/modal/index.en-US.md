@@ -24,7 +24,7 @@ Properties | Descrition | Type | Default
 | onClose | Callback for clicking close icon x or mask | (): void | - |
 | transparent | transparent mode or full screen mode | Boolean | false |
 | popup | popup mode | Boolean | false |
-| animationType | Options: 'slide-down/up'(`web version`) / 'fade' / 'slide' | String | fade |
+| animationType | Options: 'slide-down / up' / 'fade' / 'slide' | String | fade |
 | title | title | React.Element | - |
 | footer | footer content | Array [{text, onPress}] | [] |
 | platform  | set the special style depends on platform, Options `android`, `ios` | String | `ios` |

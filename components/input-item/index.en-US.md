@@ -17,7 +17,7 @@ A foundational component for inputting text into the app via a keyboard.
 
 Properties | Description | Type | Default
 -----------|------------|------|--------
-| type    | can be `bankCard`; `phone`(which the maxLength is 11 and setting will be ignored); `password`; `number`(in order to evoke the 'numeric keyboard with decimal', this type is not a native number, but `<input type="text" pattern="[0-9]*"/>`); `digit`(represent the native type number); `money`(analog numeric keyboard with decimal,`Web Only`); As well as other standard html input type values. | String |  `text`  |
+| type    | can be `bankCard`; `phone`(which the maxLength is 11 and setting will be ignored); `password`; `number`(in order to evoke the 'numeric keyboard with decimal', this type is not a native number, but `<input type="text" pattern="[0-9]*"/>`); `digit`(represent the native type number); `money`(analog numeric keyboard with decimal); As well as other standard html input type values. | String |  `text`  |
 | value | the value of input (see [react doc](https://facebook.github.io/react/docs/forms.html) for more information about controled component)  | String | |
 | defaultValue | provides an initial value that will change when the user starts typing. | String |  -  |
 | placeholder  | the string that will be rendered before text input has been entered. | String | ''  |

@@ -12,7 +12,6 @@ export interface SearchBarPropsType {
   showCancelButton?: boolean;
   cancelText?: string;
   disabled?: boolean;
-  styles?: any;
   autoFocus?: boolean;
   focused?: boolean;
   onClear?: (value: string) => void;

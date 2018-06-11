@@ -18,7 +18,7 @@ locale|locale|Models.Locale||false
 onCancel|on cancel|() => void||false
 onConfirm|on confirm|(startDateTime?: Date, endDateTime?: Date) => void||false
 pickTime|pick time|boolean| false|false
-prefixCls|(web only) prefix class|string| rmc-calendar|false
+prefixCls| prefix class|string| rmc-calendar|false
 renderShortcut|replace shortcut. need showShortcut: true|(select: (startDate?: Date, endDate?: Date) => void) => React.ReactNode||false
 renderHeader|replace header|() => React.ReactNode||false
 showShortcut|show shortcut|boolean| false|false
