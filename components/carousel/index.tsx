@@ -61,7 +61,7 @@ export default class Carousel extends React.Component<
       beforeChange,
       afterChange,
       dots,
-      ...restProps,
+      ...restProps
     } = this.props;
 
     const {

@@ -30,7 +30,7 @@ export default class Flex extends React.Component<FlexProps, any> {
       children,
       prefixCls,
       style,
-      ...restProps,
+      ...restProps
     } = this.props;
 
     const wrapCls = classnames(prefixCls, className, {

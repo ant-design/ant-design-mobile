@@ -106,7 +106,7 @@ export default class Modal extends ModalComponent<ModalProps, any> {
       transparent,
       popup,
       animationType,
-      ...restProps,
+      ...restProps
     } = this.props;
 
     const btnGroupClass = classnames(

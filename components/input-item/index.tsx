@@ -207,7 +207,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       moneyKeyboardAlign,
       moneyKeyboardWrapProps,
       onVirtualKeyboardConfirm,
-      ...restProps,
+      ...restProps
     } = props;
     const { name, disabled, maxLength } = restProps;
     const { value } = this.state;

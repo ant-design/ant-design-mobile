@@ -27,7 +27,7 @@ export default class RadioItem extends React.Component<RadioItemProps, any> {
       disabled,
       radioProps,
       onClick,
-      ...otherProps,
+      ...otherProps
     } = this.props;
     const { prefixCls, className, children } = otherProps;
     const wrapCls = classnames(`${prefixCls}-item`, className, {

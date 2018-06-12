@@ -186,7 +186,7 @@ export default class TextareaItem extends React.Component<
       onErrorClick,
       autoHeight,
       defaultValue,
-      ...otherProps,
+      ...otherProps
     } = this.props;
     const { disabled } = otherProps;
     const { value, focus } = this.state;

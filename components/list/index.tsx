@@ -26,7 +26,7 @@ export default class List extends React.Component<ListProps, any> {
       style,
       renderHeader,
       renderFooter,
-      ...restProps,
+      ...restProps
     } = this.props;
     const wrapCls = classnames(prefixCls, className);
 

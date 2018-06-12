@@ -11,7 +11,7 @@ export default function handleProps(props: ListViewProps, isIndexed: boolean) {
     renderFooter,
     renderSectionHeader,
     renderBodyComponent,
-    ...restProps,
+    ...restProps
   } = props;
   const listPrefixCls = props.listPrefixCls;
 

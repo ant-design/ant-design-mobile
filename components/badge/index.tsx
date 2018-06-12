@@ -30,7 +30,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       dot,
       corner,
       hot,
-      ...restProps,
+      ...restProps
     } = this.props;
     overflowCount = overflowCount as number;
     text =
