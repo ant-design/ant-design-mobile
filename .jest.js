@@ -36,4 +36,8 @@ module.exports = {
   ],
   transformIgnorePatterns,
   testEnvironment: 'jsdom',
+  reporters: [
+    'default',
+    'jest-spec-reporter'
+  ],
 };

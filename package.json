@@ -88,6 +88,7 @@
     "eslint-tinker": "~0.4.1",
     "glob": "^7.1.1",
     "jest": "^21.0.0",
+    "jest-spec-reporter": "^1.0.3",
     "jsonml.js": "^0.1.0",
     "lesshint": "^4.0.2",
     "lint-staged": "^7.0.0",
