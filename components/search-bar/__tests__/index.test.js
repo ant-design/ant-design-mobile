@@ -1,14 +1,8 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import { mount } from 'enzyme';
 import SearchBar from '../index';
 
 describe('SearchBar', () => {
-  it('renders correctly', () => {
-    const wrapper = render(<SearchBar placeholder="搜索" />);
-    expect(renderToJson(wrapper)).toMatchSnapshot();
-  });
-
   describe('test some events', () => {
     let handler;
     let wrapper;

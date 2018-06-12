@@ -1,14 +1,8 @@
 import React from 'react';
-import { render, shallow } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 import Switch from '../index';
 
-describe('SegmentedControl', () => {
-  it('renders correctly', () => {
-    const wrapper = render(<Switch checked />);
-    expect(renderToJson(wrapper)).toMatchSnapshot();
-  });
-
+describe('Switch', () => {
   it('check api', () => {
     const onChange = jest.fn();
     const wrapper = shallow(<Switch checked onChange={onChange} />);

@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import { mount } from 'enzyme';
 import Menu from '../index';
 
 describe('Menu', () => {
@@ -25,11 +24,6 @@ describe('Menu', () => {
     },
   ];
 
-  it('renders correctly', () => {
-    const wrapper = render(<Menu data={data} />);
-    expect(renderToJson(wrapper)).toMatchSnapshot();
-  });
-
   it('controll by value', () => {
     const wrapper = mount(<Menu data={data} value={['2', '22']} />);
     expect(wrapper.find('.am-list-item').at(1).hasClass('am-menu-selected')).toBe(true);
@@ -47,11 +41,6 @@ describe('Menu', () => {
   });
 
   describe('level 1', () => {
-    it('renders correctly', () => {
-      const wrapper = render(<Menu data={data} level="1" />);
-      expect(renderToJson(wrapper)).toMatchSnapshot();
-    });
-
     it('controll by value', () => {
       const wrapper = mount(<Menu data={data} level="1" value={['2']} />);
       expect(wrapper.find('.am-list-item').at(1).hasClass('am-sub-menu-item-selected')).toBe(true);

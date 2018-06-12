@@ -1,16 +1,8 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import { mount } from 'enzyme';
 import NavBar from '../index';
 
 describe('NavBar', () => {
-  it('renders correctly', () => {
-    const wrapper = render(
-      <NavBar leftContent="返回" mode="light" rightContent={'i'}>NavBar</NavBar>,
-    );
-    expect(renderToJson(wrapper)).toMatchSnapshot();
-  });
-
   it('trigger event correctly', () => {
     const onLeftClick = (e) => {
       // console.log('onLeftClick');

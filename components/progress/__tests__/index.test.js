@@ -1,16 +1,8 @@
 import React from 'react';
-import { render, mount, shallow } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import { mount, shallow } from 'enzyme';
 import Progress from '../index';
 
 describe('Progress', () => {
-  it('match snapshot', () => {
-    const wrapper = render(
-      <Progress percent={30} position="fixed" />,
-    );
-    expect(renderToJson(wrapper)).toMatchSnapshot();
-  });
-
   it('renders fixed correctly', () => {
     const wrapper = shallow(
       <Progress percent={30} position="fixed" />,

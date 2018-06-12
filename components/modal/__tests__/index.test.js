@@ -1,7 +1,7 @@
 // import React from 'react';
-// import Button from '../index';
+// import Modal from '../index';
 
-describe('Button', () => {
+describe('Modal', () => {
   // No need to render Snapshot again, because of `./demo.test.js`
   it('trigger event correctly', () => {
     // todos: write test!

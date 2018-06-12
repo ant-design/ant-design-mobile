@@ -1,14 +1,8 @@
 import React from 'react';
-import { render, shallow } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 import NoticeBar from '../index';
 
 describe('NoticeBar', () => {
-  it('renders correctly', () => {
-    const wrapper = render(<NoticeBar>foo</NoticeBar>);
-    expect(renderToJson(wrapper)).toMatchSnapshot();
-  });
-
   describe('onClick', () => {
     let handleClick;
     let wrapper;

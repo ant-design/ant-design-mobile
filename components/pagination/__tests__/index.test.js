@@ -1,16 +1,8 @@
 import React from 'react';
-import { render, mount, shallow } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import { mount, shallow } from 'enzyme';
 import Pagination from '../index';
 
 describe('Pagination', () => {
-  it('match snapshot', () => {
-    const wrapper = render(
-      <Pagination total={5} current={3} />,
-    );
-    expect(renderToJson(wrapper)).toMatchSnapshot();
-  });
-
   it('renders correctly', () => {
     const wrapper = shallow(
       <Pagination total={5} current={3} />,

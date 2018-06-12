@@ -1,22 +1,9 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import { mount } from 'enzyme';
 import Accordion from '../index';
 
 describe('Accordion', () => {
-  it('match snapshot', () => {
-    const wrapper = render(
-      <Accordion>
-        <Accordion.Panel header="标题一">
-          内容一
-        </Accordion.Panel>
-        <Accordion.Panel header="标题二">
-          内容二
-        </Accordion.Panel>
-      </Accordion>,
-    );
-    expect(renderToJson(wrapper)).toMatchSnapshot();
-  });
+  // No need to render Snapshot again, because of `./demo.test.js`
 
   it('renders correctly', () => {
     const wrapper = mount(

@@ -1,7 +1,7 @@
 // import React from 'react';
-// import Button from '../index';
+// import Tabs from '../index';
 
-describe('Button', () => {
+describe('Tabs', () => {
   // No need to render Snapshot again, because of `./demo.test.js`
   it('trigger event correctly', () => {
     // todos: write test!

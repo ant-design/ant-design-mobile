@@ -1,14 +1,8 @@
 import React from 'react';
-import { render, shallow } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 import Tag from '../index';
 
 describe('SegmentedControl', () => {
-  it('renders correctly', () => {
-    const wrapper = render(<Tag>Basic</Tag>);
-    expect(renderToJson(wrapper)).toMatchSnapshot();
-  });
-
   it('small size does not have closeDom', () => {
     const wrapper = shallow(<Tag small closable>Basic</Tag>);
     expect(wrapper.find('.am-tag-close')).toHaveLength(0);

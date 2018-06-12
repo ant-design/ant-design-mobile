@@ -1,14 +1,8 @@
 import React from 'react';
-import { render, shallow } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 import SegmentedControl from '../index';
 
 describe('SegmentedControl', () => {
-  it('renders correctly', () => {
-    const wrapper = render(<SegmentedControl values={['切换一', '切换二']} />);
-    expect(renderToJson(wrapper)).toMatchSnapshot();
-  });
-
   it('check api', () => {
     const onValueChange = jest.fn();
     const onChange = jest.fn();
