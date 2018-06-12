@@ -1,11 +1,9 @@
 import glob from 'glob';
-import React from 'react';
 import { render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import renderer from 'react-test-renderer';
 import MockDate from 'mockdate';
 
-export function webDemoTest(component, options = {}) {
+export default function webDemoTest(component, options = {}) {
   const files = glob.sync(`./components/${component}/demo/*.md`);
 
   files.forEach((file) => {

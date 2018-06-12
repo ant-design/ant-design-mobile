@@ -1,3 +1,3 @@
-import { webDemoTest } from '../../../tests/shared/demoTest';
+import webDemoTest from '../../../tests/shared/demoTest';
 
 webDemoTest('pagination');
