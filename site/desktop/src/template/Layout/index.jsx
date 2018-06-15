@@ -63,10 +63,6 @@ export default class Layout extends React.Component {
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <div className="page-wrapper">
-          <p style={{ backgroundColor: '#e6f7ff', textAlign: 'center', padding: '10px 0' }}>
-            Note: In antd-mobile@2.2.0, React Native components will be transferred to the separate
-            <span style={{ color: 'red' }}> antd-mobile-rn </span> package. Ref: <a href="https://github.com/ant-design/ant-design-mobile/issues/2556">#2556</a>
-          </p>
           <Header {...restProps} isFirstScreen={isFirstScreen} />
           {cloneElement(children, { isFirstScreen, onEnterChange: this.onEnterChange })}
           <Footer {...restProps} />

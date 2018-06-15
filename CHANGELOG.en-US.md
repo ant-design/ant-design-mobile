@@ -17,7 +17,7 @@ toc: false
 
 ### 2.2.0
 
-`2018-06-19`
+`2018-06-15`
 
 Note: According to the previous [2.1.x final version plan](https://github.com/ant-design/ant-design-mobile/issues/2556), we have separated the react native components into a separate [ant-design-mobile-rn](https://github.com/ant-design/ant-design-mobile-rn) repo, and the `antd-mobile-rn` beta npm package has been released. If you use the react native components, modify your `package.json` file like so:
 
@@ -25,7 +25,7 @@ Note: According to the previous [2.1.x final version plan](https://github.com/an
   ...
   "dependencies": {
 -   "antd-mobile": "^2.1.11",
-+   "antd-mobile-rn": "next",
++   "antd-mobile-rn": "^2.2.0",
     "react": "16.3.1",
     ...
   },
@@ -46,6 +46,7 @@ Then reinstall node_modules.
 - **Enhancement**
 
   - 📝 Update `Stepper` API doc ([#2573](https://github.com/ant-design/ant-design-mobile/issues/2573))
+  - Improve test
 
 ### 2.1.11
 
