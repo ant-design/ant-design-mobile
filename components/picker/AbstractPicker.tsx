@@ -149,7 +149,7 @@ export default abstract class AbstractPicker extends React.Component<
       data,
       cols,
       onOk,
-      ...restProps,
+      ...restProps
     } = this.props;
 
     // tslint:disable-next-line:variable-name

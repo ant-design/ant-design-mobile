@@ -27,7 +27,7 @@ export default class Item extends React.Component<PopoverItemProps, any> {
       disabled,
       firstItem,
       activeStyle,
-      ...restProps,
+      ...restProps
     } = this.props;
     const cls = classnames(`${prefixCls}-item`, className, {
       [`${prefixCls}-item-disabled`]: disabled,

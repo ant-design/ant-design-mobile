@@ -19,7 +19,7 @@ export default class NavBar extends React.Component<NavBarProps, any> {
       onLeftClick,
       leftContent,
       rightContent,
-      ...restProps,
+      ...restProps
     } = this.props;
 
     return (

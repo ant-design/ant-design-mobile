@@ -114,7 +114,7 @@ class ListItem extends React.Component<ListItemProps, any> {
       extra,
       arrow,
       onClick,
-      ...restProps,
+      ...restProps
     } = this.props;
     const { platform, ...otherProps } = restProps;
     const { coverRippleStyle, RippleClicked } = this.state;

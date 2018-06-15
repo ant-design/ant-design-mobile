@@ -163,14 +163,14 @@ export default class Grid extends React.Component<GridProps, any> {
       square,
       activeStyle,
       activeClassName,
-      ...restProps,
+      ...restProps
     } = this.props;
     let {
       columnNum,
       carouselMaxRow,
       onClick,
       renderItem,
-      ...restPropsForCarousel,
+      ...restPropsForCarousel
     } = restProps;
 
     const { initialSlideWidth } = this.state;

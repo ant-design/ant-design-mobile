@@ -35,7 +35,7 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
       tdRef,
       label,
       iconOnly,
-      ...restProps,
+      ...restProps
     } = this.props;
     let value = children;
     if (className === 'keyboard-delete') {

@@ -34,7 +34,7 @@ export default class CheckboxItem extends React.Component<
       disabled,
       checkboxProps,
       onClick,
-      ...restProps,
+      ...restProps
     } = this.props;
     const { prefixCls, className, children } = restProps;
     const wrapCls = classnames(`${prefixCls}-item`, className, {
