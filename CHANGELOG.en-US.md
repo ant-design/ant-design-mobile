@@ -19,7 +19,7 @@ toc: false
 
 `2018-06-15`
 
-Note: According to the previous [2.1.x final version plan](https://github.com/ant-design/ant-design-mobile/issues/2556), we have separated the react native components into a separate [ant-design-mobile-rn](https://github.com/ant-design/ant-design-mobile-rn) repo, and the `antd-mobile-rn` beta npm package has been released. If you use the react native components, modify your `package.json` file like so:
+Note: According to the previous [2.1.x final version plan](https://github.com/ant-design/ant-design-mobile/issues/2556), we have separated the react native components into a separate [ant-design-mobile-rn](https://github.com/ant-design/ant-design-mobile-rn) repo, and the `antd-mobile-rn` npm package has been released. If you use the react native components, modify your `package.json` file like so:
 
 ```diff
   ...

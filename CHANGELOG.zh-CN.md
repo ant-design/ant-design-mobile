@@ -19,7 +19,7 @@ toc: false
 
 `2018-06-15`
 
-注意：根据之前的 [2.1.x 最后版本计划](https://github.com/ant-design/ant-design-mobile/issues/2556)，我们已经分离 react native 组件代码到单独的 [ant-design-mobile-rn](https://github.com/ant-design/ant-design-mobile-rn) 仓库，并且已经发布了 `antd-mobile-rn` beta 包。如果使用 react native 组件，请这样修改 `package.json` 文件：
+注意：根据之前的 [2.1.x 最后版本计划](https://github.com/ant-design/ant-design-mobile/issues/2556)，我们已经分离 react native 组件代码到单独的 [ant-design-mobile-rn](https://github.com/ant-design/ant-design-mobile-rn) 仓库，并且已经发布了 `antd-mobile-rn` 包。如果使用 react native 组件，请这样修改 `package.json` 文件：
 
 ```diff
   ...
