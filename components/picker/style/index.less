@@ -21,6 +21,7 @@
     z-index: @picker-zindex;
     -webkit-overflow-scrolling: touch;
     outline: 0;
+    transform: translateZ(1px);
   }
 
   &-mask {
@@ -32,6 +33,7 @@
     background-color: @fill-mask;
     height: 100%;
     z-index: @picker-zindex;
+    transform: translateZ(1px);
 
     &-hidden {
       display: none;
