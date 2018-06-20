@@ -22,7 +22,6 @@ A configurable Mobile UI specification and React-based implementation.
 
 - Follow Ant Design Mobile UI specification.
 - Configurable UI style for different products.
-- Support web and native usages based on React Native.
 - Develop in TypeScript.
 
 ## Demo
