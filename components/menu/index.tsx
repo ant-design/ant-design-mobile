@@ -1,9 +1,11 @@
 /* tslint:disable:jsx-no-multiline-js */
 import classnames from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../button';
 import Flex from '../flex';
 import List from '../list';
+import { getComponentLocale } from '../_util/getLocale';
 import { DataItem, MenuProps, ValueType } from './PropsType';
 import SubMenu from './SubMenu';
 
@@ -28,6 +30,10 @@ export default class Menu extends React.Component<MenuProps, StateType> {
     multiSelect: false,
   };
 
+  static contextTypes = {
+    antLocale: PropTypes.object,
+  };
+
   constructor(props: MenuProps) {
     super(props);
     this.state = {
@@ -36,6 +42,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
       height: props.height,
     };
   }
+
   componentWillReceiveProps(nextProps: MenuProps) {
     if (nextProps.value !== this.props.value) {
       this.setState({
@@ -192,6 +199,14 @@ export default class Menu extends React.Component<MenuProps, StateType> {
       showSelect = false;
     }
 
+    // tslint:disable-next-line:variable-name
+    const _locale = getComponentLocale(
+      this.props,
+      this.context,
+      'Menu',
+      () => require('./locale/zh_CN'),
+    );
+
     const heightStyle =
       height !== undefined
         ? {
@@ -261,7 +276,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
               className={`${multiSelectMenuBtnsCls}-btn`}
               onClick={this.onMenuCancel}
             >
-              取消
+              {_locale.cancelText}
             </Button>
             <Button
               inline
@@ -269,7 +284,7 @@ export default class Menu extends React.Component<MenuProps, StateType> {
               className={`${multiSelectMenuBtnsCls}-btn`}
               onClick={this.onMenuOk}
             >
-              确定
+              {_locale.okText}
             </Button>
           </div>
         )}
