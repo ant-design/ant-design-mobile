@@ -1,0 +1,4 @@
+export default {
+  okText: 'Ok',
+  cancelText: 'Avbryt',
+};

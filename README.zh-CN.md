@@ -22,7 +22,6 @@ Ant Design 移动端设计规范。`antd-mobile` 是 Ant Design 的移动规范�
 
 - 基于 Ant Design 移动设计规范。
 - 规则化的视觉样式配置，适应各类产品风格。
-- 基于 React Native 的多平台支持。
 - 使用 TypeScript 开发，提供类型定义文件。
 
 ## 演示
