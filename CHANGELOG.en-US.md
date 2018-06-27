@@ -15,6 +15,26 @@ toc: false
 
 ---
 
+### 2.2.1
+
+`2018-06-27`
+
+- **Feature**
+
+  - 🌟 `TabBar` add tabBarPosition on TabBar [#2564](https://github.com/ant-design/ant-design-mobile/pull/2564)
+  - 🌟 `Menu` & `PullToRefresh` support locale [#2669](https://github.com/ant-design/ant-design-mobile/pull/2669)
+
+- **Bug Fix**
+
+  - 🐞 `Picker` add translateZ on wrap and mask [#2653](https://github.com/ant-design/ant-design-mobile/pull/2653)
+  - 🐞 `Tabs` fix underline render error on some webview [#2674](https://github.com/ant-design/ant-design-mobile/pull/2674)
+  - 🐞 `PopOver` (iOS) fix event onVisibleChange not trigger when click mask [#2659](https://github.com/ant-design/ant-design-mobile/issues/2659)
+  - 🐞 `Calendar` fix error [#2655](https://github.com/ant-design/ant-design-mobile/issues/2655)
+
+- **Enhancement**
+
+  - 📝 Update Jest [#2657](https://github.com/ant-design/ant-design-mobile/pull/2657)
+
 ### 2.2.0
 
 `2018-06-15`
