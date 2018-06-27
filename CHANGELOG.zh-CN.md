@@ -28,8 +28,8 @@ toc: false
 
   - 🐞 Fix `Picker` 在`wrap`和`mask`元素上增加`translateZ`属性 https://github.com/ant-design/ant-design-mobile/pull/2653
   - 🐞 Fix `Tabs` 修复WebView上的`underline`渲染报错 https://github.com/ant-design/ant-design-mobile/pull/2674
-  -  🐞 Fix 修复未引入fastclick时，点击popover 遮罩层不触发onVisibleChange的BUG https://github.com/ant-design/ant-design-mobile/issues/2659
-  -  🐞 Fix 修复日历组件在某些情况下的报错 https://github.com/ant-design/ant-design-mobile/issues/2655
+  - 🐞 Fix 修复未引入fastclick时，点击popover 遮罩层不触发onVisibleChange的BUG https://github.com/ant-design/ant-design-mobile/issues/2659
+  - 🐞 Fix 修复日历组件在某些情况下的报错 https://github.com/ant-design/ant-design-mobile/issues/2655
 
 - **Enhancement**
 

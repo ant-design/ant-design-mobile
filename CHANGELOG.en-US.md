@@ -28,8 +28,8 @@ toc: false
 
   - 🐞 `Picker` add translateZ on wrap and mask https://github.com/ant-design/ant-design-mobile/pull/2653
   - 🐞 `Tabs` fix underline render error on some webview https://github.com/ant-design/ant-design-mobile/pull/2674
-  -  🐞 `PopOver` (iOS) fix event onVisibleChange not trigger when click mask https://github.com/ant-design/ant-design-mobile/issues/2659
-  -  🐞 `Calendar` fix error https://github.com/ant-design/ant-design-mobile/issues/2655
+  - 🐞 `PopOver` (iOS) fix event onVisibleChange not trigger when click mask https://github.com/ant-design/ant-design-mobile/issues/2659
+  - 🐞 `Calendar` fix error https://github.com/ant-design/ant-design-mobile/issues/2655
 
 - **Enhancement**
 
