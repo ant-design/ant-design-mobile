@@ -397,3 +397,221 @@ exports[`renders ./components/tab-bar/demo/listview-tabbar.md correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders ./components/tab-bar/demo/top-tabbar.md correctly 1`] = `
+<div
+  style="height:400px"
+>
+  <div
+    class="am-tab-bar"
+  >
+    <div
+      class="am-tabs am-tabs-horizontal am-tabs-top"
+    >
+      <div
+        class="am-tabs-tab-bar-wrap"
+      >
+        <div
+          class="am-tab-bar-bar"
+          style="background-color:white"
+        >
+          <div
+            class="am-tab-bar-tab"
+            data-seed="logId"
+          >
+            <div
+              class="am-tab-bar-tab-icon"
+              style="color:#949494"
+            >
+              <span
+                class="am-badge am-tab-bar-tab-badge tab-badge"
+              >
+                 
+                <div
+                  style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat"
+                />
+                 
+                <sup
+                  class="am-badge-text"
+                >
+                  1
+                </sup>
+              </span>
+            </div>
+            <p
+              class="am-tab-bar-tab-title"
+              style="color:#949494"
+            >
+              Life
+            </p>
+          </div>
+          <div
+            class="am-tab-bar-tab"
+            data-seed="logId1"
+          >
+            <div
+              class="am-tab-bar-tab-icon"
+              style="color:#33A3F4"
+            >
+              <span
+                class="am-badge am-tab-bar-tab-badge tab-badge"
+              >
+                 
+                <div
+                  style="width:22px;height:22px;background:url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat"
+                />
+                 
+                <sup
+                  class="am-badge-text"
+                >
+                  new
+                </sup>
+              </span>
+            </div>
+            <p
+              class="am-tab-bar-tab-title"
+              style="color:#33A3F4"
+            >
+              Koubei
+            </p>
+          </div>
+          <div
+            class="am-tab-bar-tab"
+          >
+            <div
+              class="am-tab-bar-tab-icon"
+              style="color:#949494"
+            >
+              <span
+                class="am-badge am-tab-bar-tab-badge tab-dot"
+              >
+                <div
+                  style="width:22px;height:22px;background:url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat"
+                />
+                <sup
+                  class="am-badge-dot"
+                />
+              </span>
+            </div>
+            <p
+              class="am-tab-bar-tab-title"
+              style="color:#949494"
+            >
+              Friend
+            </p>
+          </div>
+          <div
+            class="am-tab-bar-tab"
+          >
+            <div
+              class="am-tab-bar-tab-icon"
+              style="color:#949494"
+            >
+              <img
+                alt="My"
+                class="am-tab-bar-tab-image"
+                src="https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg"
+              />
+            </div>
+            <p
+              class="am-tab-bar-tab-title"
+              style="color:#949494"
+            >
+              My
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-tabs-content-wrap"
+        style="touch-action:pan-x pan-y;position:relative;left:-100%"
+      >
+        <div
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        >
+          <div
+            class="am-tab-bar-item"
+          >
+            <div
+              style="background-color:white;height:100%;text-align:center"
+            >
+              <div
+                style="padding-top:60px"
+              >
+                Clicked “Life” tab， show “Life” information
+              </div>
+              <a
+                style="display:block;margin-top:40px;margin-bottom:20px;color:#108ee9"
+              >
+                Click to show/hide tab-bar
+              </a>
+              <a
+                style="display:block;margin-bottom:600px;color:#108ee9"
+              >
+                Click to switch fullscreen
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+        >
+          <div
+            class="am-tab-bar-item"
+          >
+            <div
+              style="background-color:white;height:100%;text-align:center"
+            >
+              <div
+                style="padding-top:60px"
+              >
+                Clicked “Koubei” tab， show “Koubei” information
+              </div>
+              <a
+                style="display:block;margin-top:40px;margin-bottom:20px;color:#108ee9"
+              >
+                Click to show/hide tab-bar
+              </a>
+              <a
+                style="display:block;margin-bottom:600px;color:#108ee9"
+              >
+                Click to switch fullscreen
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        >
+          <div
+            class="am-tab-bar-item"
+          >
+            <div
+              style="background-color:white;height:100%;text-align:center"
+            >
+              <div
+                style="padding-top:60px"
+              >
+                Clicked “Friend” tab， show “Friend” information
+              </div>
+              <a
+                style="display:block;margin-top:40px;margin-bottom:20px;color:#108ee9"
+              >
+                Click to show/hide tab-bar
+              </a>
+              <a
+                style="display:block;margin-bottom:600px;color:#108ee9"
+              >
+                Click to switch fullscreen
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
