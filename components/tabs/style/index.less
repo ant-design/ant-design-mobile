@@ -143,6 +143,8 @@
     &-underline {
       position: absolute;
       border: 1px @tabs-color solid;
+      // force GPU acceleration
+      transform: translate3d(0, 0, 0);
     }
 
     &-animated &-content {
