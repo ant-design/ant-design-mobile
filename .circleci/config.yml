@@ -1,0 +1,41 @@
+version: 2
+jobs:
+    publish:
+        docker:
+            - image: circleci/node:8
+        working_directory: ~/workspace
+        steps:
+            - checkout
+            - restore_cache:
+                key: antd-mobile-{{ checksum "package.json" }}
+            - run:
+                name: Install dependencies
+                command: npm i
+            - run:
+                name: Publish to npm
+                command: |
+                    echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+                    npm version $CIRCLE_TAG
+                    npm run pub
+            - run:
+                name: Deploy site
+                command: |
+                    if [[ $CIRCLE_TAG =~ ^[0-9]+(\.[0-9]+)*$ ]]; then
+                      echo "Do not deploy site when tagging beta vesion"
+                    else
+                      npm run deploy
+                    fi
+            - save_cache:
+                key: antd-mobile-{{ checksum "package.json" }}
+                paths:
+                    - "node_modules"
+workflows:
+    version: 2
+    tagged-build:
+        jobs:
+            - publish:
+                filters:
+                    branches:
+                        ignore: /.*/
+                    tags:
+                        only: /.*/
