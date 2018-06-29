@@ -29,3 +29,5 @@ export default class Tabs extends React.PureComponent<TabsProps, {}> {
     return <RMCTabs renderTabBar={this.renderTabBar} {...this.props} />;
   }
 }
+
+Tabs.Tabpane = class Tabpane extends React.Component{}
