@@ -2,7 +2,7 @@ import { CascaderValue } from 'rmc-cascader/lib/CascaderTypes';
 import { IPopupPickerProps } from 'rmc-picker/lib/PopupPickerTypes';
 export interface PickerData {
   value: string | number;
-  label: string;
+  label: string | JSX.Element;
   children?: PickerData[];
 }
 export interface PickerPropsType extends IPopupPickerProps {
