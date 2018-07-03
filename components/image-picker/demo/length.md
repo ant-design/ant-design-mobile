@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 3
 title:
   zh-CN: 简单的图片选择组件
   en-US: 'Simple image picker'
@@ -44,6 +44,7 @@ class ImagePickerExample extends React.Component {
           onChange={this.onSegChange}
         />
         <ImagePicker
+          length="6"
           files={files}
           onChange={this.onChange}
           onImageClick={(index, fs) => console.log(index, fs)}
