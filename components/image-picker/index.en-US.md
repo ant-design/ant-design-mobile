@@ -18,4 +18,4 @@ Properties | Descrition | Type | Default
 | selectable | whether to show selector button  | boolean |  true |
 | multiple | whether support choose multi images at once  | boolean |  false |
 | accept | File type accept  | string |  image/* |
-| length | 单行的图片数量  | string | number | 4 |
+| length | Number of images in line  | string \| number | 4 |
