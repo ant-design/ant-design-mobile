@@ -16,5 +16,6 @@ Properties | Descrition | Type | Default
 | onAddImageClick | Callback is called when the selector button is clicked   | (): void |   |
 | onFail | failed selection | (msg: string): void |   |
 | selectable | whether to show selector button  | boolean |  true |
-| multiple| whether support choose multi images at once  | boolean |  false |
-| accept| File type accept  | string |  image/* |
+| multiple | whether support choose multi images at once  | boolean |  false |
+| accept | File type accept  | string |  image/* |
+| length | Number of images in line  | string \| number | 4 |

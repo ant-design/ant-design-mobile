@@ -26,6 +26,7 @@ export default class ImagePicker extends React.Component<
     selectable: true,
     multiple: false,
     accept: 'image/*',
+    length: 4,
   };
 
   fileSelectorInput: HTMLInputElement | null;
@@ -164,6 +165,10 @@ export default class ImagePicker extends React.Component<
     } = this.props;
 
     const imgItemList: any[] = [];
+    let count = parseInt('' + this.props.length, 10);
+    if (count <= 0) {
+      count = 4;
+    }
 
     const wrapCls = classnames(`${prefixCls}`, className);
 
@@ -172,8 +177,13 @@ export default class ImagePicker extends React.Component<
         backgroundImage: `url(${image.url})`,
         transform: `rotate(${this.getRotation(image.orientation)}deg)`,
       };
+      const itemStyle = {};
+
       imgItemList.push(
-        <Flex.Item key={`item-${index}`}>
+        <Flex.Item
+          key={`item-${index}`}
+          style={itemStyle}
+        >
           <div key={index} className={`${prefixCls}-item`}>
             <div
               className={`${prefixCls}-item-remove`}
@@ -225,8 +235,8 @@ export default class ImagePicker extends React.Component<
 
     let allEl = selectable ? imgItemList.concat([selectEl]) : imgItemList;
     const length = allEl.length;
-    if (length !== 0 && length % 4 !== 0) {
-      const blankCount = 4 - length % 4;
+    if (length !== 0 && length % count !== 0) {
+      const blankCount = count - length % count;
       const fillBlankEl: any[] = [];
       for (let i = 0; i < blankCount; i++) {
         fillBlankEl.push(<Flex.Item key={`blank-${i}`} />);
@@ -234,8 +244,8 @@ export default class ImagePicker extends React.Component<
       allEl = allEl.concat(fillBlankEl);
     }
     const flexEl: any[][] = [];
-    for (let i = 0; i < allEl.length / 4; i++) {
-      const rowEl = allEl.slice(i * 4, i * 4 + 4);
+    for (let i = 0; i < allEl.length / count; i++) {
+      const rowEl = allEl.slice(i * count, i * count + count);
       flexEl.push(rowEl);
     }
     const renderEl = flexEl.map((item, index) => (
