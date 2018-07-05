@@ -145,5 +145,5 @@ $ npm run test -- -u
 Run specific test:
 
 ```bash
-$ npm run test -- components/button/__tests__/index.test.js -t 'pressIn'
+$ npm run test -- components/button/__tests__/index.test.js
 ```
