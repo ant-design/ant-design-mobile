@@ -14,6 +14,17 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+### 2.2.2
+
+`2018-07-12`
+- **Feature**
+
+  - 🌟 `Tabs`: support Barrier Free Access [PR](https://github.com/react-component/m-tabs/pull/25)
+  - 🌟 `ImagePicker`: support customized length [#2619](https://github.com/ant-design/ant-design-mobile/issues/2619) [#2668](https://github.com/ant-design/ant-design-mobile/issues/2668)
+- **Bug Fix**
+
+  - 🐞 `Picker`: fix get wrong value when `prop.value` has `undefined` [#2695](https://github.com/react-component/m-cascader/pull/18)
+  - 🐞 `Flex`: fix style when `direction=column`  [#2683](https://github.com/ant-design/ant-design-mobile/pull/2711)
 
 ### 2.2.1
 
