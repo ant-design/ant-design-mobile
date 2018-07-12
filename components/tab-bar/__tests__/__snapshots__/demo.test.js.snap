@@ -15,7 +15,10 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
         style="touch-action:pan-x pan-y;position:relative;left:-100%"
       >
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-0-0"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         >
           <div
             class="am-tab-bar-item"
@@ -42,7 +45,10 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="false"
+          aria-labelledby="m-tabs-0-1"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+          role="tabpanel"
         >
           <div
             class="am-tab-bar-item"
@@ -69,7 +75,10 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-0-2"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         >
           <div
             class="am-tab-bar-item"
@@ -96,7 +105,10 @@ exports[`renders ./components/tab-bar/demo/basic.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-0-3"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         />
       </div>
       <div
@@ -233,7 +245,10 @@ exports[`renders ./components/tab-bar/demo/listview-tabbar.md correctly 1`] = `
         style="touch-action:pan-x pan-y;position:relative;left:0%"
       >
         <div
+          aria-hidden="false"
+          aria-labelledby="m-tabs-1-0"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+          role="tabpanel"
         >
           <div
             class="am-tab-bar-item"
@@ -270,13 +285,22 @@ exports[`renders ./components/tab-bar/demo/listview-tabbar.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-1-1"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         />
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-1-2"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         />
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-1-3"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         />
       </div>
       <div
@@ -527,7 +551,10 @@ exports[`renders ./components/tab-bar/demo/top-tabbar.md correctly 1`] = `
         style="touch-action:pan-x pan-y;position:relative;left:-100%"
       >
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-2-0"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         >
           <div
             class="am-tab-bar-item"
@@ -554,7 +581,10 @@ exports[`renders ./components/tab-bar/demo/top-tabbar.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="false"
+          aria-labelledby="m-tabs-2-1"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+          role="tabpanel"
         >
           <div
             class="am-tab-bar-item"
@@ -581,7 +611,10 @@ exports[`renders ./components/tab-bar/demo/top-tabbar.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-2-2"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         >
           <div
             class="am-tab-bar-item"
@@ -608,7 +641,10 @@ exports[`renders ./components/tab-bar/demo/top-tabbar.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-2-3"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         />
       </div>
     </div>

@@ -14,10 +14,14 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-tabs-default-bar-content"
+          role="tablist"
           style="touch-action:pan-y"
         >
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-0-0"
+            role="tab"
             style="width:33.333333333333336%"
           >
             <span
@@ -32,7 +36,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
             </span>
           </div>
           <div
+            aria-selected="true"
             class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            id="m-tabs-0-1"
+            role="tab"
             style="width:33.333333333333336%"
           >
             <span
@@ -47,7 +54,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
             </span>
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-0-2"
+            role="tab"
             style="width:33.333333333333336%"
           >
             <span
@@ -71,7 +81,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       style="touch-action:pan-x pan-y;transform:translate3d(-100%, 0px, 1px);-webkit-transform:translate3d(-100%, 0px, 1px);-moz-transform:translate3d(-100%, 0px, 1px)"
     >
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-0-0"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
@@ -80,7 +93,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
+        aria-hidden="false"
+        aria-labelledby="m-tabs-0-1"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
@@ -89,7 +105,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-0-2"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
@@ -110,7 +129,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       style="touch-action:pan-x pan-y;transform:translate3d(-100%, 0px, 1px);-webkit-transform:translate3d(-100%, 0px, 1px);-moz-transform:translate3d(-100%, 0px, 1px)"
     >
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-1-0"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
@@ -119,7 +141,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
+        aria-hidden="false"
+        aria-labelledby="m-tabs-1-1"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
@@ -128,7 +153,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
         </div>
       </div>
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-1-2"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
@@ -146,10 +174,14 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       >
         <div
           class="am-tabs-default-bar-content"
+          role="tablist"
           style="touch-action:pan-y"
         >
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-1-0"
+            role="tab"
             style="width:33.333333333333336%"
           >
             <span>
@@ -157,7 +189,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
             </span>
           </div>
           <div
+            aria-selected="true"
             class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            id="m-tabs-1-1"
+            role="tab"
             style="width:33.333333333333336%"
           >
             <span>
@@ -165,7 +200,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
             </span>
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-1-2"
+            role="tab"
             style="width:33.333333333333336%"
           >
             <span>
@@ -206,22 +244,32 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
         >
           <div
             class="am-tabs-default-bar-content"
+            role="tablist"
             style="touch-action:pan-y"
           >
             <div
+              aria-selected="true"
               class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+              id="m-tabs-2-0"
+              role="tab"
               style="width:33.333333333333336%"
             >
               First Tab
             </div>
             <div
+              aria-selected="false"
               class="am-tabs-default-bar-tab"
+              id="m-tabs-2-1"
+              role="tab"
               style="width:33.333333333333336%"
             >
               Second Tab
             </div>
             <div
+              aria-selected="false"
               class="am-tabs-default-bar-tab"
+              id="m-tabs-2-2"
+              role="tab"
               style="width:33.333333333333336%"
             >
               Third Tab
@@ -238,7 +286,10 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
         style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
       >
         <div
+          aria-hidden="false"
+          aria-labelledby="m-tabs-2-0"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+          role="tabpanel"
         >
           <div
             style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
@@ -247,7 +298,10 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-2-1"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         >
           <div
             style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
@@ -256,7 +310,10 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-2-2"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         />
       </div>
     </div>
@@ -281,58 +338,86 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
       >
         <div
           class="am-tabs-default-bar-content"
+          role="tablist"
           style="touch-action:pan-y;transform:translate3d(0%, 0px, 0px);-webkit-transform:translate3d(0%, 0px, 0px);-moz-transform:translate3d(0%, 0px, 0px)"
         >
           <div
+            aria-selected="true"
             class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            id="m-tabs-3-0"
+            role="tab"
             style="width:33.333333333333336%"
           >
             1st Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-3-1"
+            role="tab"
             style="width:33.333333333333336%"
           >
             2nd Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-3-2"
+            role="tab"
             style="width:33.333333333333336%"
           >
             3rd Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-3-3"
+            role="tab"
             style="width:33.333333333333336%"
           >
             4th Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-3-4"
+            role="tab"
             style="width:33.333333333333336%"
           >
             5th Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-3-5"
+            role="tab"
             style="width:33.333333333333336%"
           >
             6th Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-3-6"
+            role="tab"
             style="width:33.333333333333336%"
           >
             7th Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-3-7"
+            role="tab"
             style="width:33.333333333333336%"
           >
             8th Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-3-8"
+            role="tab"
             style="width:33.333333333333336%"
           >
             9th Tab
@@ -352,7 +437,10 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
       style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
     >
       <div
+        aria-hidden="false"
+        aria-labelledby="m-tabs-3-0"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
@@ -363,7 +451,10 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
         </div>
       </div>
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-3-1"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:150px;background-color:#fff"
@@ -374,25 +465,46 @@ exports[`renders ./components/tabs/demo/mutlitabs.md correctly 1`] = `
         </div>
       </div>
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-3-2"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       />
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-3-3"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       />
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-3-4"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       />
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-3-5"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       />
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-3-6"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       />
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-3-7"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       />
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-3-8"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       />
     </div>
   </div>
@@ -419,22 +531,32 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
       >
         <div
           class="am-tabs-default-bar-content"
+          role="tablist"
           style="touch-action:pan-y"
         >
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-4-0"
+            role="tab"
             style="width:33.333333333333336%"
           >
             First Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-4-1"
+            role="tab"
             style="width:33.333333333333336%"
           >
             Second Tab
           </div>
           <div
+            aria-selected="true"
             class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            id="m-tabs-4-2"
+            role="tab"
             style="width:33.333333333333336%"
           >
             Third Tab
@@ -451,10 +573,16 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
       style="touch-action:pan-x pan-y;position:relative;left:-200%"
     >
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-4-0"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       />
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-4-1"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
@@ -463,7 +591,10 @@ exports[`renders ./components/tabs/demo/noanim.md correctly 1`] = `
         </div>
       </div>
       <div
+        aria-hidden="false"
+        aria-labelledby="m-tabs-4-2"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
@@ -502,22 +633,32 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
             >
               <div
                 class="am-tabs-default-bar-content"
+                role="tablist"
                 style="touch-action:pan-y"
               >
                 <div
+                  aria-selected="true"
                   class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+                  id="m-tabs-5-0"
+                  role="tab"
                   style="width:33.333333333333336%"
                 >
                   First Tab
                 </div>
                 <div
+                  aria-selected="false"
                   class="am-tabs-default-bar-tab"
+                  id="m-tabs-5-1"
+                  role="tab"
                   style="width:33.333333333333336%"
                 >
                   Second Tab
                 </div>
                 <div
+                  aria-selected="false"
                   class="am-tabs-default-bar-tab"
+                  id="m-tabs-5-2"
+                  role="tab"
                   style="width:33.333333333333336%"
                 >
                   Third Tab
@@ -536,7 +677,10 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
         style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
       >
         <div
+          aria-hidden="false"
+          aria-labelledby="m-tabs-5-0"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+          role="tabpanel"
         >
           <div
             style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
@@ -545,7 +689,10 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-5-1"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         >
           <div
             style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
@@ -554,7 +701,10 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
           </div>
         </div>
         <div
+          aria-hidden="true"
+          aria-labelledby="m-tabs-5-2"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+          role="tabpanel"
         />
       </div>
     </div>
@@ -584,22 +734,32 @@ exports[`renders ./components/tabs/demo/vertical.md correctly 1`] = `
       >
         <div
           class="am-tabs-default-bar-content"
+          role="tablist"
           style="touch-action:pan-x"
         >
           <div
+            aria-selected="true"
             class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            id="m-tabs-6-0"
+            role="tab"
             style="height:33.333333333333336%"
           >
             1 Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-6-1"
+            role="tab"
             style="height:33.333333333333336%"
           >
             2 Tab
           </div>
           <div
+            aria-selected="false"
             class="am-tabs-default-bar-tab"
+            id="m-tabs-6-2"
+            role="tab"
             style="height:33.333333333333336%"
           >
             3 Tab
@@ -616,7 +776,10 @@ exports[`renders ./components/tabs/demo/vertical.md correctly 1`] = `
       style="touch-action:pan-x pan-y;transform:translate3d(0px, 0%, 1px);-webkit-transform:translate3d(0px, 0%, 1px);-moz-transform:translate3d(0px, 0%, 1px)"
     >
       <div
+        aria-hidden="false"
+        aria-labelledby="m-tabs-6-0"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
@@ -625,7 +788,10 @@ exports[`renders ./components/tabs/demo/vertical.md correctly 1`] = `
         </div>
       </div>
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-6-1"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       >
         <div
           style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
@@ -634,7 +800,10 @@ exports[`renders ./components/tabs/demo/vertical.md correctly 1`] = `
         </div>
       </div>
       <div
+        aria-hidden="true"
+        aria-labelledby="m-tabs-6-2"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
+        role="tabpanel"
       />
     </div>
   </div>
