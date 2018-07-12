@@ -145,5 +145,5 @@ $ npm run test -- -u
 只运行某文件的某个测试：
 
 ```bash
-$ npm run test -- components/button/__tests__/index.test.js -t 'pressIn'
+$ npm run test -- components/button/__tests__/index.test.js
 ```
