@@ -2,14 +2,14 @@ import { CascaderValue } from 'rmc-cascader/lib/CascaderTypes';
 import { IPopupPickerProps } from 'rmc-picker/lib/PopupPickerTypes';
 export interface PickerData {
   value: string | number;
-  label: string;
+  label: React.ReactNode;
   children?: PickerData[];
 }
 export interface PickerPropsType extends IPopupPickerProps {
   data: PickerData[] | PickerData[][];
   cascade?: boolean;
   value?: Array<string | number>;
-  format?: (values: string[]) => string;
+  format?: (values: React.ReactNode[]) => string;
   cols?: number;
   extra?: string;
   onChange?: (date?: CascaderValue) => void;
