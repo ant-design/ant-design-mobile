@@ -16,6 +16,7 @@ subtitle: 图片选择器
 | onImageClick    | 点击图片触发的回调  | (index: number, files: Object): void |   |
 | onAddImageClick  | 自定义选择图片的方法  | (): void |   |
 | onFail | 选择失败  | (msg: string): void |   |
-| selectable| 是否显示添加按钮  | boolean |  true |
-| multiple| 是否支持多选  | boolean |  false |
-| accept| 图片类型  | string |  image/* |
+| selectable | 是否显示添加按钮  | boolean |  true |
+| multiple | 是否支持多选  | boolean |  false |
+| accept | 图片类型  | string |  image/* |
+| length | 单行的图片数量  | string \| number | 4 |
