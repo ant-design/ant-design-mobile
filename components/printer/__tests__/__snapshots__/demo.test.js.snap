@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/printer/demo/basic.md correctly 1`] = `
+<div>
+  <div class="am-printer-content-bg" prefixcls="am-printer" initialanim="true"></div>
+  <div class="am-printer-component-cntr" style="height: 440px;">
+    <div class="am-printer-shadow">
+      <img src="https://gw.alipayobjects.com/zos/rmsportal/DccDetWzhnADThjhTGyo.png">
+    </div>
+    <div class="am-printer-moving-cntr am-printer-anim-init-cntr">
+      <div class="am-printer-anim-cntr am-printer-push-up" style="top: 0px;">
+        <div class="am-printer-up">
+          <div class="am-printer-up-ctnr">
+            <div class="am-printer-content-ctnr">
+              <div list="[object Object],[object Object],[object Object],[object Object]">
+                <div class="am-list-item am-list-item-middle">
+                  <div class="am-list-line">
+                    <div class="am-list-content">Auguest Bill</div>
+                    <div class="am-list-extra">7,000.00</div>
+                    <div class="am-list-arrow am-list-arrow-horizontal" aria-hidden="true"></div>
+                  </div>
+                  <div class="am-list-ripple" style="display: none;"></div>
+                </div>
+                <div class="am-list-item am-list-item-middle">
+                  <div class="am-list-line">
+                    <div class="am-list-content">Refund</div>
+                    <div class="am-list-extra">-2,000.00</div>
+                    <div class="am-list-arrow am-list-arrow-horizontal" aria-hidden="true"></div>
+                  </div>
+                  <div class="am-list-ripple" style="display: none;"></div>
+                </div>
+                <div class="am-list-item am-list-item-middle">
+                  <div class="am-list-line">
+                    <div class="am-list-content">Paid</div>
+                    <div class="am-list-extra">-1,000.00</div>
+                    <div class="am-list-arrow am-list-arrow-horizontal" aria-hidden="true"></div>
+                  </div>
+                  <div class="am-list-ripple" style="display: none;"></div>
+                </div>
+                <div class="am-list-item am-list-item-middle">
+                  <div class="am-list-line">
+                    <div class="am-list-content">Unpaid</div>
+                    <div class="am-list-extra">2,300.00</div>
+                    <div class="am-list-arrow am-list-arrow-horizontal" aria-hidden="true"></div>
+                  </div>
+                  <div class="am-list-ripple" style="display: none;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="am-printer-divider-cntr">
+            <img src="https://gw.alipayobjects.com/zos/rmsportal/xUwjaISefFdAFfOfbBOR.png">
+          </div>
+        </div>
+        <div class="am-printer-down-cntr">
+          <div class="down-ctnr down-overdue-wrap">
+            <div class="down-overdue"></div>
+            <div class="down-animate"></div>
+            <div class="down-remain-title">Auguest Amount</div>
+            <div class="down-remian-amount">8,800.00</div>
+            <div class="down-message">Before Aug. 10th, min payment: $800</div>
+          </div>
+          <div class="am-printer-button">
+            <svg class="am-printer-button-up arrow-rotate-down am-icon am-icon-down am-icon-xxs" color="#108EE9">
+              <use xlink:href="#down"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/printer/demo/tabs.md correctly 1`] = `
+<div class="am-tabs am-tabs-horizontal am-tabs-top">
+  <div class="am-tabs-tab-bar-wrap">
+    <div class="am-tabs-default-bar am-tabs-default-bar-top" style="background-color: rgb(16, 142, 233);">
+      <div role="tablist" class="am-tabs-default-bar-content" style="touch-action: pan-y;">
+        <div id="m-tabs-0-0" role="tab" aria-selected="true" class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+          style="color: rgb(255, 255, 255); width: 33.3333%;">Billed</div>
+        <div id="m-tabs-0-1" role="tab" class="am-tabs-default-bar-tab" style="color: rgb(255, 255, 255); width: 33.3333%;">UnBilled</div>
+        <div id="m-tabs-0-2" role="tab" class="am-tabs-default-bar-tab" style="color: rgb(255, 255, 255); width: 33.3333%;">UnAccounted</div>
+        <div class="am-tabs-default-bar-underline" style="width: 33.3333%; left: 0%;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="am-tabs-content-wrap" style="touch-action: pan-x pan-y; position: relative; left: 0%;">
+    <div class="am-tabs-pane-wrap am-tabs-pane-wrap-active" role="tabpanel" aria-labelledby="m-tabs-0-0">
+      <div>
+        <div>
+          <div class="am-printer-content-bg" prefixcls="am-printer" initialanim="true"></div>
+          <div class="am-printer-component-cntr" style="height: 440px;">
+            <div class="am-printer-shadow">
+              <img src="https://gw.alipayobjects.com/zos/rmsportal/DccDetWzhnADThjhTGyo.png">
+            </div>
+            <div class="am-printer-moving-cntr am-printer-anim-init-cntr">
+              <div class="am-printer-anim-cntr am-printer-push-up" style="top: 0px;">
+                <div class="am-printer-up">
+                  <div class="am-printer-up-ctnr">
+                    <div class="am-printer-content-ctnr">
+                      <div list="[object Object],[object Object],[object Object],[object Object]">
+                        <div class="am-list-item am-list-item-middle">
+                          <div class="am-list-line">
+                            <div class="am-list-content">Auguest Bill</div>
+                            <div class="am-list-extra">7,000.00</div>
+                            <div class="am-list-arrow am-list-arrow-horizontal" aria-hidden="true"></div>
+                          </div>
+                          <div class="am-list-ripple" style="display: none;"></div>
+                        </div>
+                        <div class="am-list-item am-list-item-middle">
+                          <div class="am-list-line">
+                            <div class="am-list-content">Refund</div>
+                            <div class="am-list-extra">-2,000.00</div>
+                            <div class="am-list-arrow am-list-arrow-horizontal" aria-hidden="true"></div>
+                          </div>
+                          <div class="am-list-ripple" style="display: none;"></div>
+                        </div>
+                        <div class="am-list-item am-list-item-middle">
+                          <div class="am-list-line">
+                            <div class="am-list-content">Paid</div>
+                            <div class="am-list-extra">-1,000.00</div>
+                            <div class="am-list-arrow am-list-arrow-horizontal" aria-hidden="true"></div>
+                          </div>
+                          <div class="am-list-ripple" style="display: none;"></div>
+                        </div>
+                        <div class="am-list-item am-list-item-middle">
+                          <div class="am-list-line">
+                            <div class="am-list-content">Unpaid</div>
+                            <div class="am-list-extra">2,300.00</div>
+                            <div class="am-list-arrow am-list-arrow-horizontal" aria-hidden="true"></div>
+                          </div>
+                          <div class="am-list-ripple" style="display: none;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="am-printer-divider-cntr">
+                    <img src="https://gw.alipayobjects.com/zos/rmsportal/xUwjaISefFdAFfOfbBOR.png">
+                  </div>
+                </div>
+                <div class="am-printer-down-cntr">
+                  <div class="down-ctnr down-overdue-wrap">
+                    <div class="down-overdue"></div>
+                    <div class="down-animate"></div>
+                    <div class="down-remain-title">Amount</div>
+                    <div class="down-remian-amount">8,800.00</div>
+                    <div class="down-message">Before Aug. 10th, min payment: $800</div>
+                  </div>
+                  <div class="am-printer-button">
+                    <svg class="am-printer-button-up arrow-rotate-down am-icon am-icon-down am-icon-xxs" color="#108EE9">
+                      <use xlink:href="#down"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive" role="tabpanel" aria-hidden="true" aria-labelledby="m-tabs-0-1"></div>
+    <div class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive" role="tabpanel" aria-hidden="true" aria-labelledby="m-tabs-0-2"></div>
+  </div>
+</div>
+`;
