@@ -18,20 +18,18 @@ const currMonthInfo = {
 
 const PrinterExample = () => (
   <Printer id="disable" initialAnim disable height="240">
-    <Down title={currMonthInfo.title} desc={currMonthInfo.desc} amount={currMonthInfo.amount} prefixCls="down" overDue />
+    <Down title={currMonthInfo.title} desc={currMonthInfo.desc} amount={currMonthInfo.amount} prefixCls="down" />
   </Printer>
 );
 
 const Down = (props) => {
-  const { prefixCls, title, amount, desc, overDue } = props;
+  const { prefixCls, title, amount, desc } = props;
   const wrapClassNames = classnames({
     [`${prefixCls}-ctnr`]: true,
-    [`${prefixCls}-overdue-wrap`]: overDue,
   });
 
   return (
     <div className={wrapClassNames} >
-      <div className={`${prefixCls}-overdue`} />
       <div className={`${prefixCls}-animate`} />
       <div className={`${prefixCls}-remain-title`}>
         { title }

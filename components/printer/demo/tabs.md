@@ -33,14 +33,12 @@ const tabs = [
 class PrinterWithTabsExample extends React.Component {
   constructor(props) {
     super(props);
-    this.tabSelect = this.tabSelect.bind(this);
     this.state = {
       switchTabs: [false, false, false],
     };
   }
 
-  tabSelect(tab, key: number) {
-    console.log(key);
+  tabSelect = (tab, key: number) => {
     const tempSwitchTabs = this.state.switchTabs;
     tempSwitchTabs[key] = !this.state.switchTabs[key];
     this.setState({
@@ -64,19 +62,19 @@ class PrinterWithTabsExample extends React.Component {
         <div>
           <Printer switchCls={this.state.switchTabs[0]} initialAnim>
             <Up list={monthList} />
-            <Down title={currMonthInfo.title} desc={currMonthInfo.desc} amount={currMonthInfo.amount} prefixCls="down" overDue />
+            <Down title={currMonthInfo.title} desc={currMonthInfo.desc} amount={currMonthInfo.amount} prefixCls="down" />
           </Printer>
         </div>
         <div>
           <Printer switchCls={this.state.switchTabs[1]} >
             <Up list={monthList} />
-            <Down title={currMonthInfo.title} desc={currMonthInfo.desc} amount={currMonthInfo.amount} prefixCls="down" overDue />
+            <Down title={currMonthInfo.title} desc={currMonthInfo.desc} amount={currMonthInfo.amount} prefixCls="down" />
           </Printer>
         </div>
         <div>
           <Printer switchCls={this.state.switchTabs[2]} >
             <Up list={monthList} />
-            <Down title={currMonthInfo.title} desc={currMonthInfo.desc} amount={currMonthInfo.amount} prefixCls="down" overDue />
+            <Down title={currMonthInfo.title} desc={currMonthInfo.desc} amount={currMonthInfo.amount} prefixCls="down" />
           </Printer>
         </div>
       </Tabs>
@@ -111,15 +109,13 @@ class Up extends React.Component {
 
 // Down Component
 const Down = (props) => {
-  const { prefixCls, title, amount, desc, overDue } = props;
+  const { prefixCls, title, amount, desc } = props;
   const wrapClassNames = classnames({
     [`${prefixCls}-ctnr`]: true,
-    [`${prefixCls}-overdue-wrap`]: overDue,
   });
 
   return (
     <div className={wrapClassNames} >
-      <div className={`${prefixCls}-overdue`} />
       <div className={`${prefixCls}-animate`} />
       <div className={`${prefixCls}-remain-title`}>
         { title }

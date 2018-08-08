@@ -53,8 +53,6 @@ export default class Printer extends React.Component<PrinterProps, any> {
   firstLoad: boolean;
   upCntrRef: any;
   downCntrRef: any;
-  setUpRef: any;
-  setDownRef: any;
   height: number;
 
   constructor(props: PrinterProps) {
@@ -65,17 +63,16 @@ export default class Printer extends React.Component<PrinterProps, any> {
     this.top = 0;
     this.contentHeigth = 0;
     this.firstLoad = true;
-    this.moreBtnClick = this.moreBtnClick.bind(this);
-
     this.upCntrRef = null; // up container
-    this.setUpRef = (element: any) => {
-      this.upCntrRef = element;
-    };
-    this.setDownRef = (element: any) => {
-      this.downCntrRef = element;
-    };
+
   }
 
+  setUpRef = (element: any) => {
+    this.upCntrRef = element;
+  }
+  setDownRef = (element: any) => {
+    this.downCntrRef = element;
+  }
   // when change the tab, the printer go back to the initial position
   componentWillReceiveProps() {
     if (this.state.show) {
@@ -91,7 +88,7 @@ export default class Printer extends React.Component<PrinterProps, any> {
     // this.height = this.upCntrRef.clientHeight + this.downCntrRef.clientHeight + 30;
   }
 
-  moreBtnClick() {
+  moreBtnClick = () => {
     if (this.state.show) {
       this.top = 0;
       if (this.props.onPushUp) {
@@ -164,7 +161,7 @@ export default class Printer extends React.Component<PrinterProps, any> {
     if (kids === null || kids.length === 0) {
       upChildren = null;
       downChildren = <div style={{ paddingTop: 50, color: 'red' }}>
-      You should pass two Components in tag "Printer"</div>;
+      You should have two Components in tag "Printer"</div>;
     } else if (disable === true && kids && kids.length === 1) {
       upChildren = null;
       downChildren = kids && kids.length > 0 ? kids[0] : null;

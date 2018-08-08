@@ -27,7 +27,7 @@ const currMonthInfo = {
 const PrinterExample = () => (
   <Printer initialAnim>
     <Up list={monthList} />
-    <Down title={currMonthInfo.title} desc={currMonthInfo.desc} amount={currMonthInfo.amount} prefixCls="down" overDue />
+    <Down title={currMonthInfo.title} desc={currMonthInfo.desc} amount={currMonthInfo.amount} />
   </Printer>
 );
 
@@ -62,11 +62,9 @@ const Down = (props) => {
   const prefixCls = 'down';
   const wrapClassNames = classnames({
     [`${prefixCls}-ctnr`]: true,
-    [`${prefixCls}-overdue-wrap`]: props.overDue,
   });
   return (
     <div className={wrapClassNames} >
-      <div className={`${prefixCls}-overdue`} />
       <div className={`${prefixCls}-animate`} />
       <div className={`${prefixCls}-remain-title`}>
         { props.title }
