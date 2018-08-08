@@ -23,9 +23,18 @@
 
   &-moving-cntr {
     position: relative;
-    margin-top: -25px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    transform: translateY(-100%);
+    transition: all 0.4s cubic-bezier(0, 1.21, 1, 1.02);
+  }
+
+  &-moving-cntr-disable {
+    position: relative;
+    margin-top: 40px;
     padding-bottom: 20px;
   }
+
   &-shadow {
     position: relative;
     z-index: 10;
@@ -64,11 +73,7 @@
   &-anim-init-cntr {
     height: auto;
     position: relative;
-    top: @am-amount-posi;
-    animation: initAnim 0.8s 1;
-    animation-delay: 0.8s;
-    animation-timing-function: cubic-bezier(0, 1.21, 1, 1.01);
-    animation-fill-mode: forwards;
+    transition: all 0.4s cubic-bezier(0, 1.21, 1, 1.02);
   }
 
   &-anim-cntr {
@@ -78,15 +83,6 @@
     border-radius: 0 0 @raduis @raduis;
     box-shadow: 0 0 16px rgba(153, 153, 153, 0.2);
   }
-}
-
-@keyframes initAnim {
-  0% { top: @am-amount-posi; }
-  65% { top: -6px; }
-  75% { top: -10px; }
-  85% { top: -7px; }
-  90% { top: -5px; }
-  100% { top: -6px; }
 }
 
 @keyframes initAnim-repeat {
@@ -124,20 +120,20 @@
     margin: 0 @marginTwoSide;
     border-radius: 0 0 @raduis @raduis;
     box-shadow: 0 0 16px rgba(153, 153, 153, 0.2);
-    // animation-timing-function: ease-out;
   }
 
   &-pull-down {
     position: relative;
     transition: top 0.4s cubic-bezier(0, 1.21, 1, 1.01);
     animation-fill-mode: none;
+    transition-delay: 0;
   }
 
   &-push-up {
     position: relative;
-    top: 0;
     transition: top 0.4s cubic-bezier(0, 1.21, 1, 1.01);
     animation-fill-mode: none;
+    transition-delay: 0;
   }
 
   &-divider-cntr {

@@ -46,25 +46,36 @@ export default class Printer extends React.Component<PrinterProps, any> {
     firstLoad: PropTypes.bool,
     onDropdown: PropTypes.func,
     onPushUp: PropTypes.func,
+    top: PropTypes.number,
+    initialAnim: PropTypes.bool,
   };
 
-  top: number;
   contentHeigth: number;
   firstLoad: boolean;
   upCntrRef: any;
   downCntrRef: any;
+  summaryHeight: number;
   height: number;
+  timer: any;
 
   constructor(props: PrinterProps) {
     super(props);
-    this.state = {
-      show: false,
-    };
-    this.top = 0;
-    this.contentHeigth = 0;
-    this.firstLoad = true;
-    this.upCntrRef = null; // up container
+    if (this.props.initialAnim) {
+      this.state = {
+        show: false,
+        top: 0,
+      };
+    } else {
+      this.state = {
+        show: false,
+        top: this.summaryHeight,
+      };
+    }
 
+    this.contentHeigth = 0;
+    this.summaryHeight = 0;
+    this.firstLoad = true;
+    // this.upCntrRef = null; // up container
   }
 
   setUpRef = (element: any) => {
@@ -75,34 +86,43 @@ export default class Printer extends React.Component<PrinterProps, any> {
   }
   // when change the tab, the printer go back to the initial position
   componentWillReceiveProps() {
-    if (this.state.show) {
-      this.top = 0;
-      this.setState({
-        show: false,
-      });
-    }
+    this.setState({
+      show: false,
+      top: this.summaryHeight,
+    });
   }
 
   componentDidMount() {
     this.contentHeigth = this.upCntrRef.clientHeight + 5;
-    // this.height = this.upCntrRef.clientHeight + this.downCntrRef.clientHeight + 30;
+    this.summaryHeight = this.downCntrRef.clientHeight - 55;
+
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    this.timer = setTimeout(() => {
+      if (this.props.initialAnim) {
+        this.setState({
+          top: this.summaryHeight,
+        });
+      }
+    }, 500);
   }
 
   moreBtnClick = () => {
     if (this.state.show) {
-      this.top = 0;
       if (this.props.onPushUp) {
         this.props.onPushUp();
       }
       this.setState({
+        top: this.summaryHeight,
         show: !this.state.show,
       });
     } else {
-      this.top = this.contentHeigth;
       if (this.props.onDropdown) {
         this.props.onDropdown();
       }
       this.setState({
+        top: this.contentHeigth + this.summaryHeight,
         show: !this.state.show,
       });
     }
@@ -127,6 +147,7 @@ export default class Printer extends React.Component<PrinterProps, any> {
 
     const movingCont = classnames({
       [`${prefixCls}-moving-cntr`]: true,
+      // [`${prefixCls}-moving-cntr-disable`]: disable,
       [`${prefixCls}-anim-init-cntr`]: initialAnim && this.firstLoad,
     });
 
@@ -177,8 +198,8 @@ export default class Printer extends React.Component<PrinterProps, any> {
           <div className={`${prefixCls}-shadow`} >
             <img src="https://gw.alipayobjects.com/zos/rmsportal/DccDetWzhnADThjhTGyo.png" />
           </div>
-          <div className={movingCont} >
-            <div className={animationClass} style={{ top: this.top }}>
+          <div className={movingCont} style={{ 'top': this.state.top }}>
+            <div className={animationClass} >
               <div className={`${prefixCls}-up`} >
                 <div className={`${prefixCls}-up-ctnr`} ref={this.setUpRef}>
                   <div className={`${prefixCls}-content-ctnr`}>
