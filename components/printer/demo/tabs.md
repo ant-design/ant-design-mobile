@@ -8,7 +8,6 @@ Printer
 
 ````jsx
 import { Printer, List, Tabs } from 'antd-mobile';
-import classnames from 'classnames';
 
 const Item = List.Item;
 const monthList = [
@@ -28,7 +27,6 @@ const tabs = [
   { title: 'UnBilled' },
   { title: 'UnAccounted' },
 ];
-
 
 class PrinterWithTabsExample extends React.Component {
   constructor(props) {
@@ -110,12 +108,9 @@ class Up extends React.Component {
 // Down Component
 const Down = (props) => {
   const { prefixCls, title, amount, desc } = props;
-  const wrapClassNames = classnames({
-    [`${prefixCls}-ctnr`]: true,
-  });
 
   return (
-    <div className={wrapClassNames} >
+    <div className={`${prefixCls}-ctnr`} >
       <div className={`${prefixCls}-animate`} />
       <div className={`${prefixCls}-remain-title`}>
         { title }
@@ -127,7 +122,6 @@ const Down = (props) => {
     </div>
   );
 };
-
 
 ReactDOM.render(<PrinterWithTabsExample />, mountNode);
 ````

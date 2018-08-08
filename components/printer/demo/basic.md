@@ -8,7 +8,6 @@ Printer
 
 ````jsx
 import { Printer, List } from 'antd-mobile';
-import classnames from 'classnames';
 
 const Item = List.Item;
 
@@ -56,15 +55,12 @@ class Up extends React.Component {
   }
 }
 
-
 // Down Component
 const Down = (props) => {
   const prefixCls = 'down';
-  const wrapClassNames = classnames({
-    [`${prefixCls}-ctnr`]: true,
-  });
+
   return (
-    <div className={wrapClassNames} >
+    <div className={`${prefixCls}-ctnr`} >
       <div className={`${prefixCls}-animate`} />
       <div className={`${prefixCls}-remain-title`}>
         { props.title }
@@ -77,10 +73,8 @@ const Down = (props) => {
   );
 };
 
-
 ReactDOM.render(<PrinterExample />, mountNode);
 ````
-
 ````css
 .am-list-content {
   font-size: 16px !important;
@@ -137,7 +131,6 @@ ReactDOM.render(<PrinterExample />, mountNode);
   position: relative;
   font-size: 14px;
   color: #999999;
-
 }
 
 ````

@@ -8,7 +8,6 @@ Printer
 
 ````jsx
 import { Printer } from 'antd-mobile';
-import classnames from 'classnames';
 
 const currMonthInfo = {
   title: 'Auguest Amount',
@@ -24,12 +23,9 @@ const PrinterExample = () => (
 
 const Down = (props) => {
   const { prefixCls, title, amount, desc } = props;
-  const wrapClassNames = classnames({
-    [`${prefixCls}-ctnr`]: true,
-  });
 
   return (
-    <div className={wrapClassNames} >
+    <div className={`${prefixCls}-ctnr`} >
       <div className={`${prefixCls}-animate`} />
       <div className={`${prefixCls}-remain-title`}>
         { title }
