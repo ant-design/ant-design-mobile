@@ -16,7 +16,7 @@ export interface AbstractPickerProps extends PickerPropsType {
 export function getDefaultProps() {
   const defaultFormat = (values: ReactNode[]) => {
     // label is JSX.Element or other
-    if (typeof values[0] !== 'string') {
+    if (values.length > 0 && typeof values[0] !== 'string') {
       return values;
     }
     return values.join(',');
