@@ -15,6 +15,18 @@ toc: false
 
 ---
 
+### 2.2.3
+
+`2018-08-09`
+- **Feature**
+
+  - 🌟 `ImagePicker` 支持自定义数量([#2700](https://github.com/ant-design/ant-design-mobile/pull/2700))
+  - 🌟 `Picker` label属性支持传入ReactNode([#2720](https://github.com/ant-design/ant-design-mobile/pull/2720))
+
+  - **Enhancement**
+
+  - 📝 更新`DatePicker`文档 ([#2657](https://github.com/ant-design/ant-design-mobile/pull/2657))
+
 ### 2.2.2
 
 `2018-07-12`
