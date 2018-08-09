@@ -9,7 +9,7 @@ export interface PickerPropsType extends IPopupPickerProps {
   data: PickerData[] | PickerData[][];
   cascade?: boolean;
   value?: Array<string | number>;
-  format?: (values: React.ReactNode[]) => string;
+  format?: (values: React.ReactNode[]) => string | React.ReactNode[];
   cols?: number;
   extra?: string;
   onChange?: (date?: CascaderValue) => void;

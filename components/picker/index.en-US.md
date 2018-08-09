@@ -16,7 +16,7 @@ Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | data    | data source      | `Array<{value, label, children: Array}>` |   -  |
 | value   | the value, the format is `[value1, value2, value3]`, corresponds to the level value of the data source   | Array  | - |
-| format  | a function that formats the selected value  | (labels: React.ReactNode[]): any | `(labels) => { return labels.join(','); } ` |
+| format  | a function that formats the selected object  | (labels: React.ReactNode[]): any | if label is string: `(labels) => { return labels.join(',');}` else: `(labels) => { return labels;} ` |
 | cols    | col numbers   | Number |  `3`  |
 | onChange | selected callback function, can use [rc-form](https://github.com/react-component/form) | (val): void | - |
 | onPickerChange | trigger on each column of selected data is changed  | (val): void | - |
