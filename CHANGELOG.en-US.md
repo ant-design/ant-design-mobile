@@ -14,6 +14,19 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+
+### 2.2.3
+
+`2018-08-09`
+- **Feature**
+
+  - 🌟 `ImagePicker` support customized length ([#2700](https://github.com/ant-design/ant-design-mobile/pull/2700))
+  - 🌟 `Picker` support using label prop with ReactNode ([#2720](https://github.com/ant-design/ant-design-mobile/pull/2720))
+
+  - **Enhancement**
+
+  - 📝 更新`DatePicker`文档 ([#2657](https://github.com/ant-design/ant-design-mobile/pull/2657))
+
 ### 2.2.2
 
 `2018-07-12`
