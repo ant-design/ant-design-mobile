@@ -23,9 +23,7 @@ subtitle: 图标
 
 现在，我们只支持内置的 'check-circle', 'check', 'check-circle-o', 'cross-circle', 'cross', 'cross-circle-o', 'up', 'down', 'left', 'right', 'ellipsis', 'loading' 这些 icon 类型。
 
-> 注意: `loading`(废弃) icon 没有动画，建议自己使用 RN `ActivityIndicator` 来代替
-
-**不再默认支持其他自定义类型的 icon**，你如果需要用你自定义的 icon 类型，有这几种方法：
+**不再支持 自定义 icon**，如果需要用自定义的 icon 类型，有这几种方法：
 
 1. 查看 [/docs/react/upgrade-notes](/docs/react/upgrade-notes#1.x-=>-2.0) 中 1.x => 2.0 的 svg icon 文档介绍
 2. 使用自己的 iconfont 文件
