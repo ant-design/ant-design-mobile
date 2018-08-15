@@ -1,0 +1,35 @@
+@import '../../style/mixins';
+@import '../../style/themes/default';
+
+@prefixCls: am-sticky;
+
+.@{prefixCls} {
+  &-top-ios {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 99;
+  }
+
+  &-sticking {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    box-shadow: 0 0 10px #eee;
+    display: block;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    transition: all 2s ease 0;
+    margin-left: -64px;
+    padding-left: 64px;
+    border-top: 1px solid #ddd;
+  }
+
+  &-default {
+    height: auto;
+  }
+
+  &-fixwarp {
+    background: #999;
+  }
+}
