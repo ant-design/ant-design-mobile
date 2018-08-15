@@ -16,8 +16,8 @@ Properties | Descrition | Type | Default
 -----------|------------|------|--------
 | mode  | mode value, can be a `date` or `time` or `datetime` or `year` or `month` | String | `date` |
 | value | the currently selected value | Date | - |
-| minDate   | minimum date | Date  |  2000-1-1  |
-| maxDate   | maximum date | Date  |  2030-1-1  |
+| minDate   | minimum date | Date  | `new Date(2000, 1, 1, 0, 0, 0)` |
+| maxDate   | maximum date | Date  | `new Date(2030, 1, 1, 23, 59, 59)` |
 | use12Hours | 12 hours display mode | Boolean | false |
 | minuteStep |   The amount of time, in minutes, between each minute item.    | Number | 1 |
 | locale   | international, can override the configuration of the global `[LocaleProvider](https://mobile.ant.design/components/locale-provider)` | Object: {DatePickerLocale: {year, month, day, hour, minute, am?, pm?}, okText, dismissText} |  -  |

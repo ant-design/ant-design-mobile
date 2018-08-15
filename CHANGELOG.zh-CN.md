@@ -15,6 +15,18 @@ toc: false
 
 ---
 
+### 2.2.2
+
+`2018-07-12`
+- **Feature**
+
+  - 🌟 `Tabs` 无障碍模式优化 [PR](https://github.com/react-component/m-tabs/pull/25)
+  - 🌟 `ImagePicker` 支持自定义每行的元素个数 [#2619](https://github.com/ant-design/ant-design-mobile/issues/2619) [#2668](https://github.com/ant-design/ant-design-mobile/issues/2668)
+- **Bug Fix**
+
+  - 🐞 `Picker` 修复传入的值含有`undefined`时，最终获取值的错误问题 [#2695](https://github.com/react-component/m-cascader/pull/18)
+  - 🐞 `Flex` 修复`direction=column`时，组件样式错位的问题 [#2683](https://github.com/ant-design/ant-design-mobile/pull/2711)
+
 ### 2.2.1
 
 `2018-06-27`
