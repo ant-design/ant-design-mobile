@@ -1,0 +1,356 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/sticky/demo/basic.md correctly 1`] = `
+<div>
+  <div class="cntr">
+    <div class="am-sticky-default am-sticky-top-ios" style="top: 0px;">
+      <div class="am-list my-list" style="">
+        <div class="am-list-body">
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">
+                <strong>Default</strong>
+              </div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="middle">
+      <div class="am-list my-list" style="">
+        <div class="am-list-body">
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/printer/demo/stickTop.md correctly 1`] = `
+<div>
+  <div class="cntr">
+    <div class="am-sticky-default am-sticky-top-ios" style="top: 100px;">
+      <div class="am-list my-list" style="">
+        <div class="am-list-body">
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">
+                <strong>StickTop 100</strong>
+              </div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="middle">
+      <div class="am-list my-list" style="">
+        <div class="am-list-body">
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/printer/demo/disable.md correctly 1`] = `
+<div>
+  <div class="cntr">
+    <div class="test">
+      <div class="am-list my-list" style="">
+        <div class="am-list-body">
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">
+                <strong>disable </strong>
+              </div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="middle">
+      <div class="am-list my-list" style="">
+        <div class="am-list-body">
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+          <div class="am-list-item am-list-item-middle">
+            <div class="am-list-line">
+              <div class="am-list-content">Snack</div>
+              <div class="am-list-extra">$35.70</div>
+            </div>
+            <div class="am-list-ripple" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
