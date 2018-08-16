@@ -22,8 +22,6 @@ Sticky 组件当页面滚动到指定位置时，触发吸附效果，其在没�
 | offSticky()     | 取消吸顶时触发的回调函数 | (): void | - |
 
 
-更多 API 可查看 [rmc-tooltip](https://github.com/react-component/m-tooltip#api)
-
 ##### 注意事项
 
 * iOS 平台使用CSS(position:sticky)实现，但是sticky的所有父类容器中存在overflow: hidden 或者auto, 则不能使用，请添加参数isHidden

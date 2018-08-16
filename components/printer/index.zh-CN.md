@@ -20,4 +20,3 @@ subtitle: 打印机
 | onDropdrop   | 下拉Printer时的回调函数 | (): void | - |
 | onPushUp     | 收回Printer时的回调函数 | (): void | - |
 
-更多 API 可查看 [rmc-tooltip](https://github.com/react-component/m-tooltip#api)

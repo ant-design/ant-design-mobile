@@ -19,5 +19,3 @@ Properties | Descrition | Type | Default
 | initialAnim  | initial animation | Boolean  | false |
 | onDropdrop   | callback function when dropdown | (): void | - |
 | onPushUp     | callback function when push up | (): void | - |
-
-more available API can be found at [rmc-tooltip](https://github.com/react-component/m-tooltip#api)

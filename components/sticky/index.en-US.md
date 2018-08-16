@@ -19,6 +19,4 @@ Properties | Descrition | Type | Default
 | onSticky()   | callback function when on sticking | (): void | - |
 | offSticky()     | callback function when off sticking | (): void | - |
 
-more available API can be found at [rmc-tooltip](https://github.com/react-component/m-tooltip#api)
-
 * At iOS platform, the component was implemented by using position: sticky, which is not compatible if the ancestor container has the property (overflow: hidden or overflow: auto).
