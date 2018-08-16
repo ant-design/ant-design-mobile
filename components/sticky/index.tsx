@@ -81,7 +81,6 @@ export default class Sticky extends React.Component<StickyProps, any> {
     return top;
   }
 
-  // 滚动
   handleScroll(e: Event ) {
     if (!e.target) {
       return;
