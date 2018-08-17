@@ -32,7 +32,7 @@ function normalizeValue(value?: string) {
 }
 
 class InputItem extends React.Component<InputItemProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<InputItemProps> = {
     prefixCls: 'am-input',
     prefixListCls: 'am-list',
     type: 'text',
