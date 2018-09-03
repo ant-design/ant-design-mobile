@@ -32,9 +32,16 @@ export interface IPickerView {
 export default class PickerView extends React.Component<IPickerView, any> {
   static defaultProps = getDefaultProps();
 
+  isMultiPicker = () => {
+    if (!this.props.data) { return false; }
+    return Array.isArray(this.props.data[0]);
+  }
   getCol = () => {
     const { data, pickerPrefixCls, indicatorStyle, itemStyle } = this.props;
-    return (data as PickerData[][]).map((col, index) => {
+
+    const formattedData = this.isMultiPicker() ? data : [data];
+
+    return (formattedData as PickerData[][]).map((col, index) => {
       return (
         <RMCPicker
           key={index}
