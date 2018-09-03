@@ -6,7 +6,7 @@ title:
 ---
 
 ````jsx
-import { PickerView } from 'antd-mobile';
+import { PickerView, WhiteSpace } from 'antd-mobile';
 
 const seasons = [
   [
@@ -30,6 +30,18 @@ const seasons = [
     },
   ],
 ];
+
+const season = [
+  {
+    label: '春',
+    value: '春',
+  },
+  {
+    label: '夏',
+    value: '夏',
+  },
+];
+
 class PickerViewExample extends React.Component {
   state = {
     value: null,
@@ -45,13 +57,20 @@ class PickerViewExample extends React.Component {
   }
   render() {
     return (
-      <PickerView
-        onChange={this.onChange}
-        onScrollChange={this.onScrollChange}
-        value={this.state.value}
-        data={seasons}
-        cascade={false}
-      />
+      <div>
+        <PickerView
+          onChange={this.onChange}
+          onScrollChange={this.onScrollChange}
+          value={this.state.value}
+          data={seasons}
+          cascade={false}
+        />
+        <WhiteSpace /><WhiteSpace />
+        <PickerView
+          data={season}
+          cascade={false}
+        />
+      </div>
     );
   }
 }
