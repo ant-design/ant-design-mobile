@@ -1,0 +1,58 @@
+version: 2
+jobs:
+    publish:
+        docker:
+            - image: circleci/node:8
+        working_directory: ~/workspace
+        steps:
+            - checkout
+            - restore_cache:
+                key: antd-mobile-{{ checksum "package.json" }}
+            - run:
+                name: Install dependencies
+                command: npm i
+
+            - run:
+                name: Bump version
+                command: |
+                  npm version $CIRCLE_TAG
+                  git config --global user.name "circle-bot"
+                  git config --global user.email "duxiaodong@darlin.me"
+                  git status
+                  git commit -am"bump version $CIRCLE_TAG [skip ci]"
+                  git status
+
+            - run:
+                name: Publish to npm
+                command: |
+                    echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+                    # TODO: 这里不要 push 代码，也不要打 tag
+                    npm run pub
+                    echo "Publish success!!"
+            - run:
+                name: Push to github
+                command: |
+                    git push -q "https://$GITHUB_TOKEN@github.com/ant-design/ant-design-mobile.git" $(git rev-parse --abbrev-ref HEAD):master
+                    echo "Push success!!"
+            - run:
+                name: Deploy site
+                command: |
+                    if [[ $CIRCLE_TAG =~ ^[0-9]+(\.[0-9]+)*$ ]]; then
+                      npm run deploy
+                    else
+                      echo "Do not deploy site when tagging beta vesion"
+                    fi
+            - save_cache:
+                key: antd-mobile-{{ checksum "package.json" }}
+                paths:
+                    - "node_modules"
+workflows:
+    version: 2
+    tagged-build:
+        jobs:
+            - publish:
+                filters:
+                    branches:
+                        ignore: /.*/
+                    tags:
+                        only: /.*/
