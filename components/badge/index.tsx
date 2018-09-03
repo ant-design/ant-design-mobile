@@ -10,7 +10,7 @@ export interface BadgeProps extends BadgePropsTypes {
 }
 
 export default class Badge extends React.Component<BadgeProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<BadgeProps> = {
     prefixCls: 'am-badge',
     size: 'small',
     overflowCount: 99,

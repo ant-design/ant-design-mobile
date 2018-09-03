@@ -14,7 +14,7 @@ export interface IconProps extends IconPropsType, SvgProps {
 }
 
 export default class Icon extends React.Component<IconProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<IconProps> = {
     size: 'md',
   };
   componentDidMount() {

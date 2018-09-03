@@ -3,7 +3,7 @@ import React from 'react';
 import { NavBarProps } from './PropsType';
 
 export default class NavBar extends React.Component<NavBarProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<NavBarProps> = {
     prefixCls: 'am-navbar',
     mode: 'dark',
     onLeftClick: () => {},

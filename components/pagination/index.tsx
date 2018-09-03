@@ -15,7 +15,7 @@ export default class Pagination extends React.Component<
   PaginationProps,
   PaginationState
 > {
-  static defaultProps = {
+  static defaultProps: Partial<PaginationProps> = {
     prefixCls: 'am-pagination',
     mode: 'button',
     current: 1,

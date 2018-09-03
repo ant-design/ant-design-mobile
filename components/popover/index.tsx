@@ -43,11 +43,9 @@ function recursiveCloneChildren(
 }
 
 export default class Popover extends React.Component<PopOverPropsType, any> {
-  static defaultProps = {
+  static defaultProps: Partial<PopOverPropsType> = {
     prefixCls: 'am-popover',
     placement: 'bottomRight',
-    align: { overflow: { adjustY: 0, adjustX: 0 } },
-    trigger: ['click'],
   };
   static Item = Item;
 

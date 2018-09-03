@@ -40,14 +40,13 @@ export interface ModalProps extends ModalPropsType<React.CSSProperties> {
 }
 
 export default class Modal extends ModalComponent<ModalProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<ModalProps> = {
     prefixCls: 'am-modal',
     transparent: false,
     popup: false,
     animationType: 'slide-down',
     animated: true,
     style: {},
-    onShow() {},
     footer: [],
     closable: false,
     operation: false,

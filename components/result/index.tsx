@@ -11,9 +11,8 @@ export interface ResultProps extends ResultPropsType {
 }
 
 export default class Result extends React.Component<ResultProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<ResultProps> = {
     prefixCls: 'am-result',
-    buttonType: '',
     onButtonClick: () => {},
   };
 

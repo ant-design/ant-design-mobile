@@ -30,7 +30,7 @@ export interface IPickerView {
 }
 
 export default class PickerView extends React.Component<IPickerView, any> {
-  static defaultProps = getDefaultProps();
+  static defaultProps: Partial<IPickerView> = getDefaultProps();
 
   getCol = () => {
     const { data, pickerPrefixCls, indicatorStyle, itemStyle } = this.props;

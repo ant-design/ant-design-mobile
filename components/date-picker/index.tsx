@@ -17,7 +17,7 @@ export interface PropsType extends DatePickerPropsType {
   onVisibleChange?: (visible: boolean) => void;
 }
 export default class DatePicker extends React.Component<PropsType, any> {
-  static defaultProps = {
+  static defaultProps: Partial<PropsType> = {
     mode: 'datetime',
     prefixCls: 'am-picker',
     pickerPrefixCls: 'am-picker-col',

@@ -22,13 +22,11 @@ export default class Carousel extends React.Component<
   CarouselProps,
   CarouselState
 > {
-  static defaultProps = {
+  static defaultProps: Partial<CarouselProps> = {
     prefixCls: 'am-carousel',
     dots: true,
-    arrows: false,
     autoplay: false,
     infinite: false,
-    cellAlign: 'center',
     selectedIndex: 0,
     dotStyle: {},
     dotActiveStyle: {},

@@ -12,9 +12,8 @@ export interface NoticeWebProps extends NoticeBarPropsType {
 }
 
 export default class NoticeBar extends React.Component<NoticeWebProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<NoticeWebProps> = {
     prefixCls: 'am-notice-bar',
-    mode: '',
     icon: <Icon type="voice" size="xxs" />,
     onClick() {},
   };

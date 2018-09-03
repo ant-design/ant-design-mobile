@@ -14,7 +14,7 @@ export interface FlexProps extends BasePropsType {
 export default class Flex extends React.Component<FlexProps, any> {
   static Item: any;
 
-  static defaultProps = {
+  static defaultProps: Partial<FlexProps> = {
     prefixCls: 'am-flexbox',
     align: 'center',
   };

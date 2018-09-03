@@ -10,7 +10,7 @@ export interface SwitchProps extends SwitchPropsType {
 }
 
 export default class Switch extends React.Component<SwitchProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<SwitchProps> = {
     prefixCls: 'am-switch',
     name: '',
     checked: false,

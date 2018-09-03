@@ -41,7 +41,7 @@ function insertSpace(child: any) {
 }
 
 class Button extends React.Component<ButtonProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<ButtonProps> = {
     prefixCls: 'am-button',
     size: 'large',
     inline: false,

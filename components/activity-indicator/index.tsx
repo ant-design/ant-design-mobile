@@ -12,11 +12,10 @@ export default class ActivityIndicator extends React.Component<
   ActivityIndicatorProps,
   any
 > {
-  static defaultProps = {
+  static defaultProps: Partial<ActivityIndicatorProps> = {
     prefixCls: 'am-activity-indicator',
     animating: true,
     size: 'small',
-    panelColor: 'rgba(34,34,34,0.6)',
     toast: false,
   };
 

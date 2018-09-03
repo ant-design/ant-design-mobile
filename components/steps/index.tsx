@@ -13,7 +13,7 @@ export interface StepsProps extends StepsPropsType {
 export default class Steps extends React.Component<StepsProps, any> {
   static Step = (RcSteps as any).Step;
 
-  static defaultProps = {
+  static defaultProps: Partial<StepsProps> = {
     prefixCls: 'am-steps',
     iconPrefix: 'ant',
     labelPlacement: 'vertical',

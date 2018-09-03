@@ -10,7 +10,7 @@ export interface ProgressProps extends ProgressPropsType {
 }
 
 export default class Progress extends React.Component<ProgressProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<ProgressProps> = {
     prefixCls: 'am-progress',
     percent: 0,
     position: 'fixed',

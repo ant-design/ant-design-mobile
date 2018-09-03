@@ -8,13 +8,12 @@ export default class DatePickerView extends React.Component<
   DatePickerProps,
   any
 > {
-  static defaultProps = {
+  static defaultProps: Partial<DatePickerProps> = {
     mode: 'datetime',
     extra: '请选择',
     prefixCls: 'am-picker',
     pickerPrefixCls: 'am-picker-col',
     minuteStep: 1,
-    use12Hours: false,
   };
 
   static contextTypes = {

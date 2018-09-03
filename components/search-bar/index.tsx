@@ -30,7 +30,7 @@ export default class SearchBar extends React.Component<
   SearchBarProps,
   SearchBarState
 > {
-  static defaultProps = defaultProps;
+  static defaultProps: Partial<SearchBarProps> = defaultProps;
 
   static contextTypes = {
     antLocale: PropTypes.object,
