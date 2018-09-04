@@ -133,6 +133,44 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
   <div
     class="am-whitespace am-whitespace-md"
   />
+  <a
+    aria-disabled="false"
+    class="am-button am-button-small am-button-inline am-button-icon"
+    role="button"
+    style="margin-right:4px"
+  >
+    <svg
+      aria-hidden="true"
+      class="am-button-icon am-icon am-icon-check-circle-o am-icon-xxs"
+    >
+      <use
+        href="#check-circle-o"
+      />
+    </svg>
+    <span>
+      with icon and inline
+    </span>
+  </a>
+  <a
+    aria-disabled="false"
+    class="am-button am-button-small am-button-inline am-button-icon"
+    role="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="am-button-icon am-icon am-icon-check-circle-o am-icon-xxs"
+    >
+      <use
+        href="#check-circle-o"
+      />
+    </svg>
+    <span>
+      with icon and inline
+    </span>
+  </a>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
   <div
     class="am-whitespace am-whitespace-md"
   />
