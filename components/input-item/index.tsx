@@ -52,6 +52,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     updatePlaceholder: false,
     moneyKeyboardAlign: 'right',
     moneyKeyboardWrapProps: {},
+    moneyKeyboardHeader: null,
   };
 
   static contextTypes = {
@@ -206,6 +207,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       onErrorClick,
       moneyKeyboardAlign,
       moneyKeyboardWrapProps,
+      moneyKeyboardHeader,
       onVirtualKeyboardConfirm,
       ...restProps
     } = props;
@@ -305,6 +307,7 @@ class InputItem extends React.Component<InputItemProps, any> {
                 cancelKeyboardLabel={cancelKeyboardLabel}
                 moneyKeyboardAlign={moneyKeyboardAlign}
                 moneyKeyboardWrapProps={moneyKeyboardWrapProps}
+                moneyKeyboardHeader={moneyKeyboardHeader}
               />
             ) : (
               <Input

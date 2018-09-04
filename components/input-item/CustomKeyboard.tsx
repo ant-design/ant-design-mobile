@@ -78,7 +78,7 @@ class CustomKeyboard extends React.Component<any, any> {
 
   onKeyboardClick = (
     e: React.MouseEvent<HTMLTableDataCellElement>,
-    value: string,
+    value: string = '',
   ) => {
     e.nativeEvent.stopImmediatePropagation();
     if (value === 'confirm' && this.confirmDisabled) {
@@ -108,6 +108,7 @@ class CustomKeyboard extends React.Component<any, any> {
       backspaceLabel,
       cancelKeyboardLabel,
       wrapProps,
+      header,
     } = this.props;
 
     const wrapperCls = classnames(
@@ -117,6 +118,7 @@ class CustomKeyboard extends React.Component<any, any> {
 
     return (
       <div className={wrapperCls} ref={el => (this.antmKeyboard = el)} {...wrapProps}>
+        {React.cloneElement(header, { onClick: this.onKeyboardClick })}
         <table>
           <tbody>
             <tr>

@@ -40,9 +40,11 @@ subtitle: 文本输入
 | name    | input 的 name        | String |  无  |
 | moneyKeyboardAlign    | 文字排版起始方向, 只有 `type='money'` 支持， 可选为 `'left'`, `'right'`       | String |  'right'  |
 | moneyKeyboardWrapProps    | 自定义金额虚拟键盘属性  | Object | {} |
+| moneyKeyboardHeader    | 自定义金额虚拟键盘头部  | ReactNode | null |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置, 当`type`为`money`，可以自定义确认按钮的文案。 | Object: { confirmLabel } |  无 |
 
 > 注意: `InputItem` 当 `type=number` 时不支持输入负号, 你可以利用 `type=text` 来自己实现。
+> 注意: 使用 `moneyKeyboardHeader` 时，页面中只能有一个 `type=money` 的 `InputItem`。
 
 ## InputItem methods
 

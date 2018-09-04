@@ -17,6 +17,7 @@ export interface NumberInputProps {
   editable?: boolean;
   moneyKeyboardAlign?: 'left' | 'right' | string;
   moneyKeyboardWrapProps?: object;
+  moneyKeyboardHeader?: React.ReactNode,
   value?: string;
   prefixCls?: string;
   keyboardPrefixCls?: string;
@@ -107,6 +108,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       cancelKeyboardLabel,
       keyboardPrefixCls,
       moneyKeyboardWrapProps,
+      moneyKeyboardHeader,
     } = this.props;
 
     return (
@@ -118,6 +120,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
         backspaceLabel={backspaceLabel}
         cancelKeyboardLabel={cancelKeyboardLabel}
         wrapProps={moneyKeyboardWrapProps}
+        header={moneyKeyboardHeader}
       />
     );
   }
