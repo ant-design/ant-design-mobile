@@ -4,6 +4,7 @@ import React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import { TextAreaItemPropsType } from './PropsType';
 import { Omit } from '../_util/types';
+import { IS_IOS } from '../_util/exenv';
 export type HTMLTextAreaProps = Omit<
   React.HTMLProps<HTMLInputElement>,
   | 'onChange'
@@ -216,8 +217,17 @@ export default class TextareaItem extends React.Component<
     const characterLength = countSymbols(value);
     const lengthCtrlProps: any = {};
     if (count! > 0) {
-      lengthCtrlProps.maxLength =
-        count! - characterLength + (value ? value.length : 0);
+      // Note: If in the iOS environment of dev-tools, It will fail.
+      if (IS_IOS) {
+        const entValue = value ? value.replace(regexAstralSymbols, '_') : '';
+        const entLen = entValue ? entValue.split('_').length - 1 : 0;
+        lengthCtrlProps.maxLength =
+          count! + entLen - characterLength + (value ? value.length : 0);
+      } else {
+        lengthCtrlProps.maxLength =
+          count! - characterLength + (value ? value.length : 0);
+      }
+
     }
     return (
       <div className={wrapCls}>
