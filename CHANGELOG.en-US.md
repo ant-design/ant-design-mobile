@@ -15,6 +15,20 @@ toc: false
 
 ---
 
+### 2.2.4
+
+`2018-09-06`
+- **Feature**
+
+  - 🌟 `InputItem` add `moneyKeyboardHeader` property([#2820](https://github.com/ant-design/ant-design-mobile/pull/2820))
+  - 🌟 `PickerView` accept one-dimensional array as data property([#2815](https://github.com/ant-design/ant-design-mobile/pull/2815))
+
+- **Bug Fix**
+
+  - 🐞 `Popup` Popup should be compatible with bottom safe area [#2810](https://github.com/ant-design/ant-design-mobile/pull/2810)
+  - 🐞 `Button` fix button with icon and inline style [#2822](https://github.com/ant-design/ant-design-mobile/pull/2822)
+  - 🐞 `TextareaItem` fix line break cause by textareaItem word count corrupt for iOS  [#2825](https://github.com/ant-design/ant-design-mobile/pull/2825)
+
 ### 2.2.3
 
 `2018-08-09`
@@ -23,7 +37,7 @@ toc: false
   - 🌟 `ImagePicker` support customized length ([#2700](https://github.com/ant-design/ant-design-mobile/pull/2700))
   - 🌟 `Picker` support using label prop with ReactNode ([#2720](https://github.com/ant-design/ant-design-mobile/pull/2720))
 
-  - **Enhancement**
+- **Enhancement**
 
   - 📝 更新`DatePicker`文档 ([#2657](https://github.com/ant-design/ant-design-mobile/pull/2657))
 

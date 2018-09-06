@@ -15,6 +15,20 @@ toc: false
 
 ---
 
+### 2.2.4
+
+`2018-09-06`
+- **Feature**
+
+  - 🌟 `InputItem` 支持自定义金额虚拟键盘头部内容([#2820](https://github.com/ant-design/ant-design-mobile/pull/2820))
+  - 🌟 `PickerView` data属性支持传入一维数组([#2815](https://github.com/ant-design/ant-design-mobile/pull/2815))
+
+- **Bug Fix**
+
+  - 🐞 `Popup` 修复 popup 在 iPhoneX 底部安全区域问题 [#2810](https://github.com/ant-design/ant-design-mobile/pull/2810)
+  - 🐞 `Button` 修复 `inline` 和 `icon` 同时设定时的样式错误 [#2822](https://github.com/ant-design/ant-design-mobile/pull/2822)
+  - 🐞 `TextareaItem` 修复 ios 文字长度计算的错误 [#2825](https://github.com/ant-design/ant-design-mobile/pull/2825)
+
 ### 2.2.3
 
 `2018-08-09`
@@ -23,7 +37,7 @@ toc: false
   - 🌟 `ImagePicker` 支持自定义数量([#2700](https://github.com/ant-design/ant-design-mobile/pull/2700))
   - 🌟 `Picker` label属性支持传入ReactNode([#2720](https://github.com/ant-design/ant-design-mobile/pull/2720))
 
-  - **Enhancement**
+- **Enhancement**
 
   - 📝 更新`DatePicker`文档 ([#2657](https://github.com/ant-design/ant-design-mobile/pull/2657))
 
