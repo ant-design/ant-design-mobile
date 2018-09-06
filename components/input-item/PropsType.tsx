@@ -4,6 +4,7 @@ export type InputEventHandler = (value?: string) => void;
 export interface InputItemPropsType {
   moneyKeyboardAlign?: string;
   moneyKeyboardWrapProps?: object;
+  moneyKeyboardHeader?: React.ReactNode;
   type?:
     | 'text'
     | 'bankCard'
