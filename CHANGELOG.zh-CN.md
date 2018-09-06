@@ -26,7 +26,7 @@ toc: false
 - **Bug Fix**
 
   - 🐞 `Popup` 修复 popup 在 iPhoneX 底部安全区域问题 [#2810](https://github.com/ant-design/ant-design-mobile/pull/2810)
-  - 🐞 `Button` 修复 `inline` 和 `icon` 同时设定是的样式错误 [#2822](https://github.com/ant-design/ant-design-mobile/pull/2822)
+  - 🐞 `Button` 修复 `inline` 和 `icon` 同时设定时的样式错误 [#2822](https://github.com/ant-design/ant-design-mobile/pull/2822)
   - 🐞 `TextareaItem` 修复 ios 文字长度计算的错误 [#2825](https://github.com/ant-design/ant-design-mobile/pull/2825)
 
 ### 2.2.3
