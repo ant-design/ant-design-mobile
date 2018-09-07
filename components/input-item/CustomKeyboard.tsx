@@ -118,7 +118,7 @@ class CustomKeyboard extends React.Component<any, any> {
 
     return (
       <div className={wrapperCls} ref={el => (this.antmKeyboard = el)} {...wrapProps}>
-        {React.cloneElement(header, { onClick: this.onKeyboardClick })}
+        { header && React.cloneElement(header, { onClick: this.onKeyboardClick }) }
         <table>
           <tbody>
             <tr>
