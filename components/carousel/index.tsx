@@ -3,6 +3,8 @@ import React, { CSSProperties } from 'react';
 import ReactCarousel from 'rmc-nuka-carousel';
 import { CarouselPropsType } from './PropsType';
 
+type IFrameOverFlow = 'visible' | 'hidden';
+
 export interface CarouselProps extends CarouselPropsType {
   className?: string;
   prefixCls?: string;
@@ -13,6 +15,9 @@ export interface CarouselProps extends CarouselPropsType {
   style?: CSSProperties;
   dotStyle?: CSSProperties;
   dotActiveStyle?: CSSProperties;
+  frameOverflow?: IFrameOverFlow;
+  cellSpacing?: number;
+  slideWidth?: string | number;
 }
 export interface CarouselState {
   selectedIndex?: number;
