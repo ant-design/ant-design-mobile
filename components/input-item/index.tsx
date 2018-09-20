@@ -119,6 +119,7 @@ class InputItem extends React.Component<InputItemProps, any> {
         break;
     }
     this.handleOnChange(newValue, newValue !== value);
+    this.adjustCaretPosition(e.target, value, newValue, [' '], /\D/g)
   }
 
   handleOnChange = (value: string, isMutated: boolean = false) => {
@@ -131,6 +132,45 @@ class InputItem extends React.Component<InputItemProps, any> {
     }
     if (onChange) {
       isMutated ? setTimeout(() => onChange(value)) : onChange(value);
+    }
+  }
+
+  adjustCaretPosition = (el: HTMLInputElement, rawVal: string, ctrlVal: string, placeholderChars: Array<string>, maskReg: RegExp) => {
+    const { type } = this.props;
+
+    const calcPos = () => {
+      // calculate the position of the caret
+      const preVal = this.state.value || '';
+      const editLength = rawVal.length - preVal.length;
+      const isAddition = editLength > 0;
+      let pos = el.selectionEnd || 0;
+      if (isAddition) {
+        const additionStr = rawVal.substr(pos - editLength, editLength);
+        let ctrlCharCount = additionStr.replace(maskReg, '').length;
+        pos -= (editLength - ctrlCharCount);
+        let placeholderCharCount = 0;
+        while (ctrlCharCount > 0) {
+          if (placeholderChars.indexOf(ctrlVal.charAt(pos - ctrlCharCount + placeholderCharCount)) === -1) {
+            ctrlCharCount--;
+          } else {
+            placeholderCharCount++;
+          }
+        }
+        pos += placeholderCharCount;
+      }
+      setTimeout(() => el.selectionStart = el.selectionEnd = pos);
+    }
+
+    switch (type) {
+      case 'bankCard':
+      case 'phone':
+      case 'number':
+        calcPos();
+        break;
+      case 'text':
+      case 'password':
+      default:
+        break;
     }
   }
 
