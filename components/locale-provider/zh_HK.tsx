@@ -1,4 +1,4 @@
-import DatePickerView from '../date-picker-view/locale/en_US';
+import DatePickerView from '../date-picker-view/locale/zh_HK';
 import DatePicker from '../date-picker/locale/zh_HK';
 import InputItem from '../input-item/locale/zh_HK';
 import Pagination from '../pagination/locale/zh_HK';
