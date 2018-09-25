@@ -15,8 +15,8 @@ import {
 } from 'antd-mobile';
 import enUS from 'antd-mobile/lib/locale-provider/en_US';
 import ruRU from 'antd-mobile/lib/locale-provider/ru_RU';
-import zh_HK from 'antd-mobile/lib/locale-provider/zh_HK';
-import zh_MO from 'antd-mobile/lib/locale-provider/zh_MO';
+import zhHK from 'antd-mobile/lib/locale-provider/zh_HK';
+import zhMO from 'antd-mobile/lib/locale-provider/zh_MO';
 
 const maxDate = new Date(2018, 11, 3, 22, 0);
 const minDate = new Date(2015, 7, 6, 8, 30);
@@ -109,13 +109,13 @@ class App extends React.Component {
       {
         value: '中国-香港',
         label: '中国香港繁体',
-        language: zh_HK,
+        language: zhHK,
       },
       {
         value: '中国-澳门',
         label: '中国澳门繁体',
-        language: zh_HK,
-      }
+        language: zhMO,
+      },
     ];
     const currentLocale = languages.find(item => item.value === locale).language;
 
