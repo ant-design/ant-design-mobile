@@ -121,18 +121,17 @@ class InputItem extends React.Component<InputItemProps, any> {
         break;
     }
 
-    this.setState({ value: ctrlValue }, () => {
-      switch (type) {
-        case 'bankCard':
-        case 'phone':
-        case 'number':
-          // controlled input type needs to adjust the position of the caret
-          el.selectionStart = el.selectionEnd = this.calcPos(prePos || 0, preCtrlVal, rawVal, ctrlValue, [' '], /\D/g);
-          break;
-        default:
-          break;
-      }
-    });
+    this.setState({ value: ctrlValue });
+    switch (type) {
+      case 'bankCard':
+      case 'phone':
+      case 'number':
+        // controlled input type needs to adjust the position of the caret
+        setTimeout(() => el.selectionStart = el.selectionEnd = this.calcPos(prePos || 0, preCtrlVal, rawVal, ctrlValue, [' '], /\D/g));
+        break;
+      default:
+        break;
+    }
   }
 
   onInputFocus = (value: string) => {
