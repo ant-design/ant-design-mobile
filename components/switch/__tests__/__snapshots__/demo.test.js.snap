@@ -21,7 +21,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          On
+          Off
         </div>
         <div
           class="am-list-extra"
@@ -30,11 +30,10 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
             class="am-switch"
           >
             <input
-              checked=""
               class="am-switch-checkbox"
               name=""
               type="checkbox"
-              value="on"
+              value="off"
             />
             <div
               class="checkbox"
@@ -56,7 +55,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
         <div
           class="am-list-content"
         >
-          Off
+          On (with rc-form)
         </div>
         <div
           class="am-list-extra"
@@ -65,10 +64,11 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
             class="am-switch"
           >
             <input
+              checked=""
               class="am-switch-checkbox"
               name=""
               type="checkbox"
-              value="off"
+              value="on"
             />
             <div
               class="checkbox"
