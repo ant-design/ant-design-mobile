@@ -66,8 +66,8 @@
 
   &-actions {
     position: absolute;
-    top: 16px;
-    right: 60px;
+    top: 6px;
+    right: 20px;
     text-align: right;
     >i,
     >form {
@@ -81,13 +81,22 @@
     transition: all .24s;
     z-index: 1000;
     cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    display: inline-block;
     .anticon {
-      font-size: 14Px;
+      font-size: 14px;
       font-weight: bold;
-      padding: 8Px;
       background-color: rgba(256, 256, 256, 0.6);
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
+      color: #697b8c;
+      vertical-align: -0.12em;
+      svg {
+        width: 16px;
+        height: 16px;
+      }
     }
     &:hover {
       color: @primary-color;
@@ -101,7 +110,7 @@
   }
 
   &-codepen {
-    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/bsyXYJlnerAkEMGKtTpa.svg") center / 14px no-repeat;
+    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/OtZslpOjYXijshDERXwc.svg") center / 14px no-repeat;
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -113,7 +122,7 @@
   }
 
   &-riddle {
-    background: transparent url("https://zos.alipayobjects.com/rmsportal/WpXYyalbBFqfZEV.svg") center / 14px no-repeat;
+    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/DlHbxMCyeuyOrqOdbgik.svg") center / 14px no-repeat;
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -127,7 +136,7 @@
   .highlight-wrapper:hover &-code-copy,
   .highlight-wrapper:hover &-codepen,
   .highlight-wrapper:hover &-riddle {
-    opacity: .66;
+    opacity: 1;
   }
 }
 
@@ -188,16 +197,15 @@
 
 .code-box .fullscreen {
   position: absolute;
-  right: 16Px;
-  bottom: -48px;
+  top: 22px;
+  right: 16px;
   cursor: pointer;
-  font-size: 14Px;
-  font-weight: bold;
-  border: 1Px solid #ededed;
-  padding: 8Px;
-  border-radius: 16Px;
-  background-color: rgba(256, 256, 256, 0.6);
+  line-height: 1;
+  width: 16px;
+  height: 16px;
   z-index: 1000;
+  background: transparent url('https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg') 0 0 no-repeat;
+  background-size: cover;
 }
 
 .code-box .highlight-wrapper {
@@ -211,7 +219,7 @@
   position: relative;
   margin: 0;
   overflow: auto;
-  padding: 5Px;
+  padding: 20px 5px 5px;
 
   &:not(:first-child) {
     border-top: 1Px dashed #e9e9e9;
