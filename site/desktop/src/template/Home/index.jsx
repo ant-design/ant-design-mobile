@@ -81,7 +81,7 @@ class Home extends React.Component {
                   dangerouslySetInnerHTML={{ __html: 'Ant Design Mobile of Angular >' }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="http://ng.mobile.ant.design/"
+                  href="//ng.mobile.ant.design/"
                 />
               </div>
             </div>
