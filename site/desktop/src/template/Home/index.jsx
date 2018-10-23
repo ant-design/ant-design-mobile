@@ -76,6 +76,14 @@ class Home extends React.Component {
                   />
                 </div>
               </div>
+              <div className="ant-angular">
+                <a
+                  dangerouslySetInnerHTML={{ __html: 'Ant Design Mobile of Angular >' }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="//ng.mobile.ant.design/"
+                />
+              </div>
             </div>
           </section>
           <section className="home-s2">
