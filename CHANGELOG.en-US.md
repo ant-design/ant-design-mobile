@@ -14,14 +14,23 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+### 2.2.6
+
+`2018-10-25`
+- **Bug Fix**
+  - `Carousel` add property declaration [#2848](https://github.com/ant-design/ant-design-mobile/pull/2848)
+- **Enhancement**
+
+  - 🌟 `Switch` Update Demo [Commit](https://github.com/ant-design/ant-design-mobile/commit/3c8a5e92c43899582c335ddc2d352b1e916ea9e9)
+  - 🌟 Site update [#2894](https://github.com/ant-design/ant-design-mobile/pull/2894) , [#2903](https://github.com/ant-design/ant-design-mobile/pull/2903)
 
 ### 2.2.4
 
 `2018-09-06`
 - **Feature**
 
-  - 🌟 `InputItem` add `moneyKeyboardHeader` property([#2820](https://github.com/ant-design/ant-design-mobile/pull/2820))
-  - 🌟 `PickerView` accept one-dimensional array as data property([#2815](https://github.com/ant-design/ant-design-mobile/pull/2815))
+  - 🌟 `InputItem` add `moneyKeyboardHeader` property [#2820](https://github.com/ant-design/ant-design-mobile/pull/2820)
+  - 🌟 `PickerView` accept one-dimensional array as data property [#2815](https://github.com/ant-design/ant-design-mobile/pull/2815)
 
 - **Bug Fix**
 
@@ -39,7 +48,7 @@ toc: false
 
 - **Enhancement**
 
-  - 📝 更新`DatePicker`文档 ([#2657](https://github.com/ant-design/ant-design-mobile/pull/2657))
+  - 📝 `DatePicker` Update Doc ([#2657](https://github.com/ant-design/ant-design-mobile/pull/2657))
 
 ### 2.2.2
 

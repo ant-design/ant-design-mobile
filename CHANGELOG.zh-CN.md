@@ -15,13 +15,23 @@ toc: false
 
 ---
 
+### 2.2.6
+
+`2018-10-25`
+- **Bug Fix**
+  - `Carousel` 增加TS属性声明 [#2848](https://github.com/ant-design/ant-design-mobile/pull/2848)
+- **Enhancement**
+
+  - 🌟 `Switch` 优化Switch组件示例 [Commit](https://github.com/ant-design/ant-design-mobile/commit/3c8a5e92c43899582c335ddc2d352b1e916ea9e9)
+  - 🌟 官网优化 [#2894](https://github.com/ant-design/ant-design-mobile/pull/2894)、[#2903](https://github.com/ant-design/ant-design-mobile/pull/2903)
+
 ### 2.2.4
 
 `2018-09-06`
 - **Feature**
 
-  - 🌟 `InputItem` 支持自定义金额虚拟键盘头部内容([#2820](https://github.com/ant-design/ant-design-mobile/pull/2820))
-  - 🌟 `PickerView` data属性支持传入一维数组([#2815](https://github.com/ant-design/ant-design-mobile/pull/2815))
+  - 🌟 `InputItem` 支持自定义金额虚拟键盘头部内容 [#2820](https://github.com/ant-design/ant-design-mobile/pull/2820)
+  - 🌟 `PickerView` data属性支持传入一维数组 [#2815](https://github.com/ant-design/ant-design-mobile/pull/2815)
 
 - **Bug Fix**
 
