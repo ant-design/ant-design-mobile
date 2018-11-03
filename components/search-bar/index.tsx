@@ -67,7 +67,9 @@ export default class SearchBar extends React.Component<
       const initBtn = window.getComputedStyle(this.rightBtnRef);
       this.rightBtnInitMarginleft = initBtn.marginLeft;
     }
-    this.componentDidUpdate();
+    this.timer = setTimeout(() => {
+      this.componentDidUpdate();
+    }, 100)
   }
 
   componentDidUpdate() {
@@ -110,6 +112,7 @@ export default class SearchBar extends React.Component<
   }
 
   componentWillUnmount() {
+    clearTimeout(this.timer);
     if (this.onBlurTimeout) {
       clearNextFrameAction(this.onBlurTimeout);
       this.onBlurTimeout = null;
