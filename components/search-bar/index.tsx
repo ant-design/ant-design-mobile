@@ -45,6 +45,7 @@ export default class SearchBar extends React.Component<
   private syntheticPhContainerRef: HTMLSpanElement | null;
   private syntheticPhRef: HTMLDivElement | null;
   private inputContainerRef: HTMLFormElement | null;
+  private renderTimeout: number | null;
 
   constructor(props: SearchBarProps) {
     super(props);
@@ -67,9 +68,9 @@ export default class SearchBar extends React.Component<
       const initBtn = window.getComputedStyle(this.rightBtnRef);
       this.rightBtnInitMarginleft = initBtn.marginLeft;
     }
-    this.timer = setTimeout(() => {
+    this.renderTimeout = window.setTimeout(() => {
       this.componentDidUpdate();
-    }, 100)
+    }, 200)
   }
 
   componentDidUpdate() {
@@ -112,7 +113,10 @@ export default class SearchBar extends React.Component<
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timer);
+    if (this.renderTimeout) {
+      window.clearTimeout(this.renderTimeout);
+      this.renderTimeout = null;
+    }
     if (this.onBlurTimeout) {
       clearNextFrameAction(this.onBlurTimeout);
       this.onBlurTimeout = null;
