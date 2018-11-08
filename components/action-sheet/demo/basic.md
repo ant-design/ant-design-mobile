@@ -85,9 +85,42 @@ class Test extends React.Component {
     });
   }
 
+  showActionSheetBadge = () => {
+    const BUTTONS = ['Operation1', 'Operation2', 'Operation3', 'Operation4', 'Operation5', 'Delete', 'Cancel'];
+    const BADGES = [{
+      index: 1,
+      dot: true,
+    }, {
+      index: 2,
+      text: 3100,
+    }, {
+      index: 3,
+      text: '推荐',
+    }, {
+      index: 4,
+      text: '···',
+    }];
+    ActionSheet.showActionSheetWithOptions({
+      options: BUTTONS,
+      cancelButtonIndex: BUTTONS.length - 1,
+      destructiveButtonIndex: BUTTONS.length - 2,
+      badges: BADGES,
+      // title: 'title',
+      message: 'I am description, description, description',
+      maskClosable: true,
+      'data-seed': 'logId',
+      wrapProps,
+    },
+    (buttonIndex) => {
+      this.setState({ clicked: BUTTONS[buttonIndex] });
+    });
+  }
+
   render() {
     return (<WingBlank>
       <Button onClick={this.showActionSheet}>showActionSheet</Button>
+      <WhiteSpace />
+      <Button onClick={this.showActionSheetBadge}>showActionSheet&Badge</Button>
       <WhiteSpace />
       <Button onClick={this.showShareActionSheet}>showShareActionSheet</Button>
       <WhiteSpace />

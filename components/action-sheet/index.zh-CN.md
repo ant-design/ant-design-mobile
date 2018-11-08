@@ -21,6 +21,7 @@ subtitle: 动作面板
 显示 action sheet，`options`对象必须包含以下的一个或者多个：
 
 - options (array of strings) - 按钮标题列表 (required)
+- badges (array of `{...Badges, index: number}`) -  徽标数列表
 - cancelButtonIndex (int) - 按钮列表中取消按钮的索引位置
 - destructiveButtonIndex (int) - 按钮列表中破坏性按钮（一般为删除）的索引位置
 - title (string) - 顶部标题
