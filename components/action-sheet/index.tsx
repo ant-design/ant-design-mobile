@@ -123,7 +123,7 @@ function createActionSheet(
         badges.forEach(( element: BadgesOption ) => {
           if (element.index >= 0) {
             badgesMap[element.index] = (
-              <Badge {...element} className={`${prefixCls}-button-list-badge`}/>
+              <Badge {...element} />
             );
           }
         });
@@ -142,15 +142,22 @@ function createActionSheet(
                 onClick: () => cb(index),
                 role: 'button',
               };
+              let bContent = <div {...itemProps}>
+                {item}
+              </div>;
+              // 仅在设置徽标的情况下修改dom结构
+              if (badgesMap[index]) {
+                bContent = <div {...itemProps} className={`${itemProps.className} ${prefixCls}-button-list-badge`}>
+                  <span className={`${prefixCls}-button-list-item-content`}>{item}</span>
+                  {badgesMap[index]}
+                </div>;
+              }
               let bItem = (
                 <TouchFeedback
                   key={index}
                   activeClassName={`${prefixCls}-button-list-item-active`}
                 >
-                  <div {...itemProps}>
-                    <span className={`${prefixCls}-button-list-item-content`}>{item}</span>
-                    { badgesMap[index] }
-                  </div>
+                  {bContent}
                 </TouchFeedback>
               );
               if (
@@ -163,7 +170,7 @@ function createActionSheet(
                     activeClassName={`${prefixCls}-button-list-item-active`}
                   >
                     <div {...itemProps}>
-                      <span className={`${prefixCls}-button-list-item-content`}>{item}</span>
+                      {item}
                       {cancelButtonIndex === index ? (
                         <span className={`${prefixCls}-cancel-button-mask`} />
                       ) : null}
