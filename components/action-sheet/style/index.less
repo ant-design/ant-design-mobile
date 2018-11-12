@@ -37,25 +37,42 @@
 
     &-item {
       font-size: @actionsheet-item-font-size;
-      padding: 0;
+      padding: 0 8 * @hd;
       margin: 0;
       position: relative;
       height: @actionsheet-item-height;
       line-height: @actionsheet-item-height;
       box-sizing: border-box;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
       .hairline('top');
       &&-active {
         background-color: @fill-tap;
       }
     }
-
+    &-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .am-badge {
+        margin-left: 8 * @hd;
+        flex-shrink: 0;
+      }
+    }
+    &-item-content {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     .@{ActionSheetPrefixCls}-cancel-button {
-      margin-top: @v-spacing-sm;
+      padding-top: @v-spacing-sm;
       position: relative;
 
       &-mask {
         position: absolute;
-        top: -@v-spacing-sm;
+        top: 0;
         left: 0;
         width: 100%;
         height: @v-spacing-sm;

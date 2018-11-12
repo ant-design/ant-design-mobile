@@ -20,6 +20,7 @@ The modal box pops up from the bottom, providing more than two actions related t
 Display a action sheet. The `options` object must contain one or more of:
 
 - options (array of strings) - a list of button titles (required)
+- badges (array of `{...Badges, index: number}`) -  a list of badges
 - cancelButtonIndex (int) - index of cancel button in `options`
 - destructiveButtonIndex (int) - index of destructive button in `options`
 - title (string) - a title to show above the action sheet

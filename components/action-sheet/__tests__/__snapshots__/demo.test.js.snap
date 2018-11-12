@@ -22,6 +22,18 @@ exports[`renders ./components/action-sheet/demo/basic.md correctly 1`] = `
     role="button"
   >
     <span>
+      showActionSheet&Badge
+    </span>
+  </a>
+  <div
+    class="am-whitespace am-whitespace-md"
+  />
+  <a
+    aria-disabled="false"
+    class="am-button"
+    role="button"
+  >
+    <span>
       showShareActionSheet
     </span>
   </a>
