@@ -6,6 +6,7 @@ import Picker from '../picker/locale/sv_SE';
 import SearchBar from '../search-bar/locale/sv_SE';
 import Menu from '../menu/locale/sv_SE';
 import PullToRefresh from '../pull-to-refresh/locale/sv_SE';
+import Calendar from '../calendar/locale/sv_SE';
 
 export default {
   locale: 'sv',
@@ -17,4 +18,5 @@ export default {
   SearchBar,
   Menu,
   PullToRefresh,
+  Calendar,
 };
