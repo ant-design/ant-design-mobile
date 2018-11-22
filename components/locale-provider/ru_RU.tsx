@@ -6,7 +6,6 @@ import Picker from '../picker/locale/ru_RU';
 import SearchBar from '../search-bar/locale/ru_RU';
 import Menu from '../menu/locale/ru_RU';
 import PullToRefresh from '../pull-to-refresh/locale/ru_RU';
-import Calendar from '../calendar/locale/ru_RU';
 
 export default {
   locale: 'ru',
@@ -18,5 +17,4 @@ export default {
   SearchBar,
   Menu,
   PullToRefresh,
-  Calendar,
 };
