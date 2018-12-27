@@ -25,7 +25,7 @@ subtitle: 文本输入
 | editable    | 是否可编辑        | bool |  true  |
 | disabled    | 是否禁用        | bool |  false  |
 | clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
-| maxLength      |  最大长度      | number |  无  |
+| maxLength      |  最大长度      | number |  无。除money类型外，仅当text, email, search, password, tel, or url 有效。具体可以查看文档 https://developer.mozilla.org/zh-TW/docs/Web/HTML/Element/input，以及相关issue https://github.com/ant-design/ant-design-mobile/issues/2966  |
 | onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
 | onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
 | onFocus    | focus 事件触发的回调函数 | (val: string): void |  -  |
