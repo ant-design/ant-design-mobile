@@ -24,7 +24,7 @@ Properties | Description | Type | Default
 | editable    | whether is editable        | bool |  true  |
 | disabled    | whether is disabled       | bool |  false  |
 | clear      |  whether to display clear(it takes effect only `editable` is `true` and `disabled` is `false` has been set) | bool | false  |
-| maxLength      |  limits the maximum number of characters that can be entered      | number |    |
+| maxLength      |  limits the maximum number of characters that can be entered      | number |  valid for "text, email, search, password, tel, or url" . https://developer.mozilla.org/zh-TW/docs/Web/HTML/Element/input, https://github.com/ant-design/ant-design-mobile/issues/2966 |
 | onChange    | callback that is called when the text input's text changes | (val: string): void |  -  |
 | onBlur     | callback that is called when the text input is blurred | (val: string): void |   -  |
 | onFocus    | callback that is called when the text input is focused | (val: string): void |  -  |
