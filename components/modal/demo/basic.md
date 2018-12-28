@@ -71,6 +71,7 @@ class App extends React.Component {
           title="Title"
           footer={[{ text: 'Ok', onPress: () => { console.log('ok'); this.onClose('modal1')(); } }]}
           wrapProps={{ onTouchStart: this.onWrapTouchStart }}
+          afterClose={() => { alert('afterClose'); }}
         >
           <div style={{ height: 100, overflow: 'scroll' }}>
             scoll content...<br />
@@ -89,6 +90,7 @@ class App extends React.Component {
           visible={this.state.modal2}
           onClose={this.onClose('modal2')}
           animationType="slide-up"
+          afterClose={() => { alert('afterClose'); }}
         >
           <List renderHeader={() => <div>委托买入</div>} className="popup-list">
             {['股票名称', '股票代码', '买入价格'].map((i, index) => (
