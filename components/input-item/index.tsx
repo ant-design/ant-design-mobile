@@ -161,6 +161,10 @@ class InputItem extends React.Component<InputItemProps, any> {
       }, 200);
     }
     if (this.props.onBlur) {
+      // fix ios12 wechat browser click failure after input
+      if (document.body) {
+        document.body.scrollTop = document.body.scrollTop;
+      }
       this.props.onBlur(value);
     }
   }
