@@ -91,46 +91,46 @@ class InputItem extends React.Component<InputItemProps, any> {
   }
 
   onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
+    const el = e.target;
+    const { value: rawVal, selectionEnd: prePos } = el;
+    const { value: preCtrlVal } = this.state;
     const { type } = this.props;
 
-    let newValue = value;
+    let ctrlValue = rawVal;
     switch (type) {
       case 'bankCard':
-        newValue = value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
+        ctrlValue = rawVal.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
         break;
       case 'phone':
-        newValue = value.replace(/\D/g, '').substring(0, 11);
-        const valueLen = newValue.length;
+        ctrlValue = rawVal.replace(/\D/g, '').substring(0, 11);
+        const valueLen = ctrlValue.length;
         if (valueLen > 3 && valueLen < 8) {
-          newValue = `${newValue.substr(0, 3)} ${newValue.substr(3)}`;
+          ctrlValue = `${ctrlValue.substr(0, 3)} ${ctrlValue.substr(3)}`;
         } else if (valueLen >= 8) {
-          newValue = `${newValue.substr(0, 3)} ${newValue.substr(3, 4)} ${newValue.substr(
+          ctrlValue = `${ctrlValue.substr(0, 3)} ${ctrlValue.substr(3, 4)} ${ctrlValue.substr(
             7,
           )}`;
         }
         break;
       case 'number':
-        newValue = value.replace(/\D/g, '');
+        ctrlValue = rawVal.replace(/\D/g, '');
         break;
       case 'text':
       case 'password':
       default:
         break;
     }
-    this.handleOnChange(newValue, newValue !== value);
-  }
 
-  handleOnChange = (value: string, isMutated: boolean = false) => {
-    const { onChange } = this.props;
-
-    if (!('value' in this.props)) {
-      this.setState({ value });
-    } else {
-      this.setState({ value: this.props.value });
-    }
-    if (onChange) {
-      isMutated ? setTimeout(() => onChange(value)) : onChange(value);
+    this.setState({ value: ctrlValue });
+    switch (type) {
+      case 'bankCard':
+      case 'phone':
+      case 'number':
+        // controlled input type needs to adjust the position of the caret
+        setTimeout(() => el.selectionStart = el.selectionEnd = this.calcPos(prePos || 0, preCtrlVal, rawVal, ctrlValue, [' '], /\D/g));
+        break;
+      default:
+        break;
     }
   }
 
@@ -185,6 +185,28 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (this.inputRef) {
       this.inputRef.focus();
     }
+  }
+
+  // calculate the position of the caret
+  calcPos = (prePos: number, preCtrlVal: string, rawVal: string, ctrlVal: string, placeholderChars: Array<string>, maskReg: RegExp) => {
+    const editLength = rawVal.length - preCtrlVal.length;
+    const isAddition = editLength > 0;
+    let pos = prePos;
+    if (isAddition) {
+      const additionStr = rawVal.substr(pos - editLength, editLength);
+      let ctrlCharCount = additionStr.replace(maskReg, '').length;
+      pos -= (editLength - ctrlCharCount);
+      let placeholderCharCount = 0;
+      while (ctrlCharCount > 0) {
+        if (placeholderChars.indexOf(ctrlVal.charAt(pos - ctrlCharCount + placeholderCharCount)) === -1) {
+          ctrlCharCount--;
+        } else {
+          placeholderCharCount++;
+        }
+      }
+      pos += placeholderCharCount;
+    }
+    return pos
   }
 
   render() {
