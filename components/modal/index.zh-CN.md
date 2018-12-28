@@ -19,6 +19,7 @@ subtitle: 对话框
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
+| afterClose | Modal 完全关闭后的回调 | function | 无 |
 | visible | 对话框是否可见 | Boolean | false |
 | closable | 是否显示关闭按钮 | Boolean | false |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean | true |
