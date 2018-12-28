@@ -11,7 +11,7 @@ export interface GridProps extends GridPropsType {
   className?: string;
   square?: boolean;
   activeClassName?: string;
-  activeStyle?: object;
+  activeStyle?: boolean | React.CSSProperties;
   itemStyle?: React.CSSProperties;
 }
 
