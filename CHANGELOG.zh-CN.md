@@ -14,6 +14,19 @@ toc: false
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+### 2.2.7
+
+`2018-12-28`
+- **Bug Fix**
+
+  - 🐞 `InputItem` 修复了`InputItem`格式化文本后光标位置移动到末尾的问题 [#2854](https://github.com/ant-design/ant-design-mobile/pull/2854)
+  - 🐞 `Grid` 修复activeStyle声明类型错误 [#2996](https://github.com/ant-design/ant-design-mobile/issues/2996) 
+
+- **Enhancement**
+
+  - 📝 更新`Modal`和`InputItem`的文档 [#3023](https://github.com/ant-design/ant-design-mobile/pull/3023) [#3014](https://github.com/ant-design/ant-design-mobile/pull/3014)
+  - 🌟 依赖升级 [#3013](https://github.com/ant-design/ant-design-mobile/issues/3013) [#3004](https://github.com/ant-design/ant-design-mobile/issues/3004)
+
 
 ### 2.2.6
 

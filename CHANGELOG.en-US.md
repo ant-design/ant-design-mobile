@@ -14,6 +14,19 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+### 2.2.7
+
+`2018-12-28`
+- **Bug Fix**
+
+  - 🐞 `InputItem` Fixed an issue where the cursor position moved to the end after the `InputItem` formatted the text [#2854](https://github.com/ant-design/ant-design-mobile/pull/2854)
+  - 🐞 `Grid` Fix activeStyle declaration type error [#2996](https://github.com/ant-design/ant-design-mobile/issues/2996) 
+
+- **Enhancement**
+
+    - 📝 Update `Modal`和`InputItem` document [#3023](https://github.com/ant-design/ant-design-mobile/pull/3023) [#3014](https://github.com/ant-design/ant-design-mobile/pull/3014)
+    - 🌟 Dependency update [#3013](https://github.com/ant-design/ant-design-mobile/issues/3013) [#3004](https://github.com/ant-design/ant-design-mobile/issues/3004)
+
 ### 2.2.6
 
 `2018-10-25`
