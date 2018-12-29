@@ -34,4 +34,29 @@ describe('InputItem', () => {
     number.find('input').simulate('change', { target: { value: '1a23 4-5.6  7w890' } });
     expect(number.state('value')).toBe('1234567890');
   });
+
+  it('trigger async onChange correctly', () => {
+    const handleClick = jest.fn();
+    const bankCard = mount((
+      <InputItem
+        type="bankCard"
+        onChange={handleClick}
+      >测试异步onChange</InputItem>
+    ));
+    bankCard.find('input').simulate('change', { target: { value: '1a23 4-5.6  7w890' } });
+    setTimeout(() => expect(handleClick).toBeCalledWith('1234 5678 90'));
+  });
+
+  it('trigger sync onChange correctly', () => {
+    const handleClick = jest.fn();
+    const bankCard = mount((
+      <InputItem
+        type="bankCard"
+        onChange={handleClick}
+        value="1234 5678 90"
+      >测试同步onChange</InputItem>
+    ));
+    bankCard.find('input').simulate('change', { target: { value: '1234 5678 90' } });
+    expect(handleClick).toBeCalledWith('1234 5678 90');
+  });
 });
