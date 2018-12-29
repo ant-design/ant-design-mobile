@@ -137,6 +137,13 @@ export default class TextareaItem extends React.Component<
     }, 100);
     const value = e.currentTarget.value;
     if (this.props.onBlur) {
+      // fix autoFocus item blur with flash
+      setTimeout(() => {
+        // fix ios12 wechat browser click failure after input
+        if (document.body) {
+          document.body.scrollTop = document.body.scrollTop;
+        }
+      },100);
       this.props.onBlur(value);
     }
   }
