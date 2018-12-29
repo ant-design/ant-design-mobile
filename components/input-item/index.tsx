@@ -135,7 +135,7 @@ class InputItem extends React.Component<InputItemProps, any> {
 
     const { onChange } = this.props;
     if (onChange) {
-      onChange(ctrlValue);
+      rawVal !== ctrlValue ? setTimeout(() => onChange(ctrlValue)) : onChange(ctrlValue);
     }
   }
 
