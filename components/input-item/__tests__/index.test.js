@@ -6,13 +6,16 @@ describe('InputItem', () => {
   // No need to render Snapshot again, because of `./demo.test.js`
 
   it('format bankCard correctly', () => {
+    const handleClick = jest.fn();
     const bankCard = mount((
       <InputItem
         type="bankCard"
+        onChange={handleClick}
       >银行卡</InputItem>
     ));
     bankCard.find('input').simulate('change', { target: { value: '1a23 4-5.6  7w890' } });
     expect(bankCard.state('value')).toBe('1234 5678 90');
+    expect(handleClick).toBeCalledWith('1234 5678 90');
   });
 
   it('format phone correctly', () => {
