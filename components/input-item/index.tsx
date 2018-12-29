@@ -132,6 +132,11 @@ class InputItem extends React.Component<InputItemProps, any> {
       default:
         break;
     }
+
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange(ctrlValue);
+    }
   }
 
   onInputFocus = (value: string) => {
