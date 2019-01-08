@@ -93,7 +93,7 @@ class InputItem extends React.Component<InputItemProps, any> {
   onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const el = e.target;
     const { value: rawVal, selectionEnd: prePos } = el;
-    const { value: preCtrlVal } = this.state;
+    const { value: preCtrlVal = '' } = this.state;
     const { type } = this.props;
 
     let ctrlValue = rawVal;
