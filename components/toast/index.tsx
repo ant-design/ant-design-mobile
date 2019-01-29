@@ -29,7 +29,7 @@ function getMessageInstance(
 }
 
 function notice(
-  content: string,
+  content: React.ReactNode,
   type: string,
   duration = 3,
   onClose: (() => void) | undefined,
@@ -80,11 +80,11 @@ function notice(
 export default {
   SHORT: 3,
   LONG: 8,
-  show(content: string, duration?: number, mask?: boolean) {
+  show(content: React.ReactNode, duration?: number, mask?: boolean) {
     return notice(content, 'info', duration, () => {}, mask);
   },
   info(
-    content: string,
+    content: React.ReactNode,
     duration?: number,
     onClose?: () => void,
     mask?: boolean,
@@ -92,7 +92,7 @@ export default {
     return notice(content, 'info', duration, onClose, mask);
   },
   success(
-    content: string,
+    content: React.ReactNode,
     duration?: number,
     onClose?: () => void,
     mask?: boolean,
@@ -100,7 +100,7 @@ export default {
     return notice(content, 'success', duration, onClose, mask);
   },
   fail(
-    content: string,
+    content: React.ReactNode,
     duration?: number,
     onClose?: () => void,
     mask?: boolean,
@@ -108,7 +108,7 @@ export default {
     return notice(content, 'fail', duration, onClose, mask);
   },
   offline(
-    content: string,
+    content: React.ReactNode,
     duration?: number,
     onClose?: () => void,
     mask?: boolean,
@@ -116,7 +116,7 @@ export default {
     return notice(content, 'offline', duration, onClose, mask);
   },
   loading(
-    content: string,
+    content: React.ReactNode,
     duration?: number,
     onClose?: () => void,
     mask?: boolean,
