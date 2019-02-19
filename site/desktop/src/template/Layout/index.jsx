@@ -2,6 +2,7 @@ import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { addLocaleData, IntlProvider } from 'react-intl';
+import { BackTop, Tooltip } from 'antd';
 import Header from './Header';
 import Footer from './Footer';
 import enLocale from '../../en-US';
@@ -66,6 +67,9 @@ export default class Layout extends React.Component {
           <Header {...restProps} isFirstScreen={isFirstScreen} />
           {cloneElement(children, { isFirstScreen, onEnterChange: this.onEnterChange })}
           <Footer {...restProps} />
+          <Tooltip title={() => <p><a style={{ color: '#ffc600' }} target="_blank" rel="noopener noreferrer" href="https://www.yuque.com/yuanfei.gyf/public/dv2z7r">欢迎加入 Ant Design Mobile <span aria-label="Smile" role="img">😊</span></a></p>}>
+            <BackTop />
+          </Tooltip>
         </div>
       </IntlProvider>
     );
