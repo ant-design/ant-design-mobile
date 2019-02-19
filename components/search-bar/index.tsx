@@ -284,13 +284,13 @@ export default class SearchBar extends React.Component<
             <a onClick={this.onClear} className={clearCls} />
           </TouchFeedback>
         </div>
-        <div
+        <span
           className={cancelCls}
           onClick={this.onCancel}
           ref={el => (this.rightBtnRef = el)}
         >
           {this.props.cancelText || cancelText}
-        </div>
+        </span>
       </form>
     );
   }
