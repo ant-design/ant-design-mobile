@@ -9,7 +9,7 @@ export interface ButtonProps extends ButtonPropsType {
   className?: string;
   role?: string;
   inline?: boolean;
-  icon?: string;
+  icon?: React.ReactNode;
   activeClassName?: string;
   activeStyle?: boolean | CSSProperties;
   style?: React.CSSProperties;
