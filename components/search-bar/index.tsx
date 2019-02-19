@@ -41,7 +41,7 @@ export default class SearchBar extends React.Component<
   blurFromOnClear: boolean;
   onBlurTimeout: number | null;
   inputRef: HTMLInputElement | null;
-  private rightBtnRef: HTMLDivElement | null;
+  private rightBtnRef: HTMLSpanElement | null;
   private syntheticPhContainerRef: HTMLSpanElement | null;
   private syntheticPhRef: HTMLDivElement | null;
   private inputContainerRef: HTMLFormElement | null;
