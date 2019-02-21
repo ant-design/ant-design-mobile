@@ -20,3 +20,4 @@ subtitle: 图片选择器
 | multiple | 是否支持多选  | boolean |  false |
 | accept | 图片类型  | string |  image/* |
 | length | 单行的图片数量  | string \| number | 4 |
+| capture | 是否指定通过相机拍照上传 | boolean | false |
