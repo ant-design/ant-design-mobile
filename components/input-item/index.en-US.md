@@ -42,7 +42,10 @@ Properties | Description | Type | Default
 | moneyKeyboardHeader    | custom money virtual keyboard header  | ReactNode | null |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置,  when`type`is`money`，can cunstom the keyboard confirm item's label | Object: { confirmLabel } |  无 |
 
+> Note: Do not set `value` asynchronously in the `onChange` event of the controlled component, otherwise Chinese input may cause problems, [related issue](https://github.com/facebook/react/issues/3926).
+>
 > Note: `InputItem` does not support negative number if `type` is text, you can use `type=text` to do that.
+>
 > Note: When use `moneyKeyboardHeader`, only one `InputItem` which `type=money` is allowed on one page.
 
 ## InputItem Instance methods
