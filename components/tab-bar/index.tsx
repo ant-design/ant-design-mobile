@@ -63,7 +63,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
     } = this.props;
     const tabsData = this.getTabs();
 
-    const content = tabsData.map((cProps, index) => {
+    const content = Array.isArray(tabsData) ? tabsData.map((cProps, index) => {
       return (
         <Tab
           key={index}
@@ -80,7 +80,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
           onClick={() => cProps.onPress && cProps.onPress()}
         />
       );
-    });
+    }) : null;
     let cls = `${prefixCls}-bar`;
     if (hidden) {
       cls += ` ${prefixCls}-bar-hidden-${tabBarPosition}`;
@@ -105,11 +105,13 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
     } = this.props;
     const tabs = this.getTabs();
     let activeIndex = 0;
-    tabs.forEach((tab, index) => {
-      if (tab.selected) {
-        activeIndex = index;
-      }
-    });
+    if (Array.isArray(tabs)) {
+      tabs.forEach((tab, index) => {
+        if (tab.selected) {
+          activeIndex = index;
+        }
+      });
+    }
 
     return (
       <div className={prefixCls}>
