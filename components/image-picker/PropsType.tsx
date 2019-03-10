@@ -11,4 +11,5 @@ export interface ImagePickerPropTypes {
   multiple?: boolean;
   accept?: string;
   length?: number | string;
+  capture?: boolean;
 }
