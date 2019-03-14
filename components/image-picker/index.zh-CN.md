@@ -20,4 +20,4 @@ subtitle: 图片选择器
 | multiple | 是否支持多选  | boolean |  false |
 | accept | 图片类型  | string |  image/* |
 | length | 单行的图片数量  | string \| number | 4 |
-| capture | 是否指定通过相机拍照上传 | boolean | false |
+| capture | 图片捕获设置, 具体请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input)中关于capture的说明 | boolean \| string | false |
