@@ -19,3 +19,4 @@ Properties | Descrition | Type | Default
 | multiple | whether support choose multi images at once  | boolean |  false |
 | accept | File type accept  | string |  image/* |
 | length | Number of images in line  | string \| number | 4 |
+| capture | Image capture setting, please refer to the description of capture in [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input) | boolean \| string | false |
