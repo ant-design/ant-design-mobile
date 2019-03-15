@@ -117,9 +117,19 @@ export default class ImagePicker extends React.Component<
     const fileSelectorEl = this.fileSelectorInput;
     if (fileSelectorEl && fileSelectorEl.files && fileSelectorEl.files.length) {
       const files = fileSelectorEl.files;
-      for (let i = 0; i < files.length; i++) {
-        this.parseFile(files[i], i);
+      const imageParsePromiseList = []
+      for (let i = 0; i++; i < files.length) {
+        imageParsePromiseList.push(this.parseFile(files[i], i))
       }
+      Promise.all(imageParsePromiseList)
+        .then(imageItems => this.addImage(imageItems))
+        .catch(
+          error => {
+            if (this.props.onFail) {
+              this.props.onFail(error);
+            }
+          },
+        )
     }
     if (fileSelectorEl) {
       fileSelectorEl.value = '';
@@ -127,30 +137,30 @@ export default class ImagePicker extends React.Component<
   }
 
   parseFile = (file: any, index: number) => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const dataURL = (e.target as any).result;
-      if (!dataURL) {
-        if (this.props.onFail) {
-          this.props.onFail(`Fail to get the ${index} image`);
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = e => {
+        const dataURL = (e.target as any).result;
+        if (!dataURL) {
+          reject(`Fail to get the ${index} image`)
+          return;
         }
-        return;
-      }
 
-      let orientation = 1;
-      this.getOrientation(file, res => {
-        // -2: not jpeg , -1: not defined
-        if (res > 0) {
-          orientation = res;
-        }
-        this.addImage({
-          url: dataURL,
-          orientation,
-          file,
+        let orientation = 1;
+        this.getOrientation(file, res => {
+          // -2: not jpeg , -1: not defined
+          if (res > 0) {
+            orientation = res;
+          }
+          resolve({
+            url: dataURL,
+            orientation,
+            file,
+          })
         });
-      });
-    };
-    reader.readAsDataURL(file);
+      };
+      reader.readAsDataURL(file);
+    })
   }
   render() {
     const {
