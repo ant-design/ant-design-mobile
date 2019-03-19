@@ -172,6 +172,7 @@ export default class ImagePicker extends React.Component<
       onAddImageClick,
       multiple,
       accept,
+      capture,
     } = this.props;
 
     const imgItemList: any[] = [];
@@ -237,6 +238,7 @@ export default class ImagePicker extends React.Component<
                 this.onFileChange();
               }}
               multiple={multiple}
+              capture={capture}
             />
           </div>
         </TouchFeedback>
