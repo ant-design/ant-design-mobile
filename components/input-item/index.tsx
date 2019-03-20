@@ -128,6 +128,7 @@ class InputItem extends React.Component<InputItemProps, any> {
         case 'number':
           // controlled input type needs to adjust the position of the caret
           try {
+            // set selection may throw error (https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setSelectionRange)
             el.selectionStart = el.selectionEnd = this.calcPos(prePos || 0, preCtrlVal, rawVal, ctrlValue, [' '], /\D/g);
           } catch (error) {
             console.warn('Set selection error:', error);
