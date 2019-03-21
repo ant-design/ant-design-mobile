@@ -25,10 +25,10 @@ First reference [entry html page settings](/docs/react/introduce#3.-Usage), conf
 
 #### Use modularized antd-mobile
 
-- Import [react-app-rewired](https://github.com/timarney/react-app-rewired) and modify the `scripts` field in package.json.
+- Import [react-app-rewired](https://github.com/timarney/react-app-rewired) and modify the `scripts` field in package.json. Due to new [react-app-rewired@2.x](https://github.com/timarney/react-app-rewired#alternatives) issue, you shall need [customize-cra](https://github.com/arackaf/customize-cra) along with react-app-rewired.
 
 ```bash
-$ npm install react-app-rewired --save-dev
+$ npm install react-app-rewired customize-cra --save-dev
 ```
 
 ```diff
@@ -59,11 +59,18 @@ npm install babel-plugin-import --save-dev
 ```
 
 ```diff
-+ const { injectBabelPlugin } = require('react-app-rewired');
-  module.exports = function override(config, env) {
-+   config = injectBabelPlugin(['import', { libraryName: 'antd-mobile', style: 'css' }], config);
-    return config;
-  };
++ const { override, fixBabelImports } = require('customize-cra');
+
+- module.exports = function override(config, env) {
+-   // do stuff with the webpack config...
+-   return config;
+- };
++ module.exports = override(
++   fixBabelImports('import', {
++     libraryName: 'antd-mobile',
++     style: 'css',
++   }),
++ );
 ```
 
 - change importation like below:
