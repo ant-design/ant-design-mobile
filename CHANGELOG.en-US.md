@@ -15,7 +15,25 @@ toc: false
 
 ---
 
+### 2.2.10
+
+`2019-03-21`
+
+- **Feature**
+
+  - 🌟 `ImagePicker` 添加了对批量添加图片的支持，一次性把所有添加的图片都返回，只触发一次 onChange [#3115](https://github.com/ant-design/ant-design-mobile/pull/3115)
+  - 🌟 `ImagePicker` 添加了对 capture 属性的支持,移动设备可以指定通过相机拍照上传图片 [#3114](https://github.com/ant-design/ant-design-mobile/pull/3114)
+
+- **Bug Fix**
+
+  - 🐞 `TabBar` Fixed error caused by empty props.children [#3113](https://github.com/ant-design/ant-design-mobile/pull/3113)
+  - 🐞 `Flex` Fixed wrong classname with css [#3106](https://github.com/ant-design/ant-design-mobile/pull/3106)
+  - 🐞 `InputItem` Fixed display after input blur by click `complete` [#3017](https://github.com/ant-design/ant-design-mobile/pull/3017)
+  - 🐞 `InputItem` Fixed `setSelection` error on some browsers [#3124](https://github.com/ant-design/ant-design-mobile/pull/3124)
+
 ### 2.2.9
+
+---
 
 `2019-02-19`
 
