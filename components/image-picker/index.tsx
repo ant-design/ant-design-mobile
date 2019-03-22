@@ -118,7 +118,7 @@ export default class ImagePicker extends React.Component<
     if (fileSelectorEl && fileSelectorEl.files && fileSelectorEl.files.length) {
       const files = fileSelectorEl.files;
       const imageParsePromiseList = []
-      for (let i = 0; i++; i < files.length) {
+      for (let i = 0; i < files.length; i++) {
         imageParsePromiseList.push(this.parseFile(files[i], i))
       }
       Promise.all(imageParsePromiseList)
