@@ -38,3 +38,4 @@ coverage
 /es/
 package-lock.json
 .cdnkey
+.history/
