@@ -5,6 +5,10 @@ export interface DatePickerPropsType {
   mode?: 'datetime' | 'date' | 'year' | 'month' | 'time';
   minDate?: Date;
   maxDate?: Date;
+  minHour?: number;
+  maxHour?: number;
+  minMinute?: number;
+  maxMinute?: number;
   onChange?: (value: Date) => void;
   onValueChange?: (vals: any, index: number) => void;
   visible?: boolean;
