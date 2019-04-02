@@ -25,10 +25,10 @@ $ npm start
 
 #### 按需加载
 
-- 引入 [react-app-rewired](https://github.com/timarney/react-app-rewired) 并修改 package.json 里的启动配置:
+- 引入 [react-app-rewired](https://github.com/timarney/react-app-rewired) 并修改 package.json 里的启动配置。。由于新的 [react-app-rewired@2.x](https://github.com/timarney/react-app-rewired#alternatives) 版本的关系，你需要还需要安装 [customize-cra](https://github.com/arackaf/customize-cra)。
 
 ```bash
-$ npm install react-app-rewired --save-dev
+$ npm install react-app-rewired customize-cra --save-dev
 ```
 
 ```diff
@@ -59,11 +59,18 @@ npm install babel-plugin-import --save-dev
 ```
 
 ```diff
-+ const { injectBabelPlugin } = require('react-app-rewired');
-  module.exports = function override(config, env) {
-+   config = injectBabelPlugin(['import', { libraryName: 'antd-mobile', style: 'css' }], config);
-    return config;
-  };
++ const { override, fixBabelImports } = require('customize-cra');
+
+- module.exports = function override(config, env) {
+-   // do stuff with the webpack config...
+-   return config;
+- };
++ module.exports = override(
++   fixBabelImports('import', {
++     libraryName: 'antd-mobile',
++     style: 'css',
++   }),
++ );
 ```
 
 - 更改引用方式
