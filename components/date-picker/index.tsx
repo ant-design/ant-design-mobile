@@ -85,7 +85,7 @@ export default class DatePicker extends React.Component<PropsType, any> {
      *
      */
 
-    const dataPicker = (
+    const datePicker = (
       <RCDatePicker
         minuteStep={props.minuteStep}
         locale={DatePickerLocale}
@@ -103,7 +103,7 @@ export default class DatePicker extends React.Component<PropsType, any> {
 
     return (
       <PopupDatePicker
-        datePicker={dataPicker}
+        datePicker={datePicker}
         WrapComponent="div"
         transitionName="am-slide-up"
         maskTransitionName="am-fade"
