@@ -17,7 +17,7 @@ export interface ModalPropsType<T> {
 
 export interface Action<T> {
   text: string;
-  onPress?: (val?: string) => void | Promise<any>;
+  onPress?: (...args: any[]) => void | Promise<any>;
   style?: T | string;
 }
 
