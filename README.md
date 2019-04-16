@@ -14,7 +14,7 @@ English | [简体中文](./README.zh-CN.md)
 [![Dependency Status](https://david-dm.org/ant-design/ant-design-mobile.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design-mobile)
 [![CDNJS](https://img.shields.io/cdnjs/v/antd-mobile.svg?style=flat-square)](https://cdnjs.com/libraries/antd-mobile)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/ant-design/ant-design-mobile.svg)](http://isitmaintained.com/project/ant-design/ant-design-mobile "Percentage of issues still open")
-[![Join the chat at https://gitter.im/ant-design/ant-design](https://img.shields.io/gitter/room/ant-design/ant-design.svg?style=flat-square)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/ant-design/ant-design-mobile](https://img.shields.io/gitter/room/ant-design/ant-design-mobile.svg?style=flat-square)](https://gitter.im/ant-design/ant-design-mobile?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A configurable Mobile UI specification and React-based implementation.
 
