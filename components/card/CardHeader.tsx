@@ -1,12 +1,12 @@
 import classnames from 'classnames';
-import React, { CSSProperties } from 'react';
+import * as React from 'react';
 import { CardHeaderPropsType } from './PropsType';
 
 export interface CardHeaderProps extends CardHeaderPropsType {
   prefixCls?: string;
   className?: string;
-  style?: CSSProperties;
-  thumbStyle?: CSSProperties;
+  style?: React.CSSProperties;
+  thumbStyle?: React.CSSProperties;
 }
 
 export default class CardHeader extends React.Component<CardHeaderProps, any> {

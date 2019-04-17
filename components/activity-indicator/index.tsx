@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import { ActivityIndicatorPropTypes } from './PropsType';
 
 export interface ActivityIndicatorProps extends ActivityIndicatorPropTypes {

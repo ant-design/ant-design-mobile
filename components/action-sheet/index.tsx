@@ -1,7 +1,7 @@
 /* tslint:disable:jsx-no-multiline-js */
 import classnames from 'classnames';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Dialog from 'rmc-dialog';
 import TouchFeedback from 'rmc-feedback';
 import getDataAttr from '../_util/getDataAttr';

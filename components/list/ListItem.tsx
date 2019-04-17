@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import classnames from 'classnames';
-import React, { MouseEventHandler } from 'react';
+import * as React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import {
   BriefProps as BriefBasePropsType,
@@ -12,7 +12,7 @@ export interface ListItemProps extends ListItemBasePropsType {
   className?: string;
   role?: string;
   style?: React.CSSProperties;
-  onClick?: MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export interface BriefProps extends BriefBasePropsType {

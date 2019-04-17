@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../button';
 import Flex from '../flex';
