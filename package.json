@@ -138,7 +138,7 @@
     "site": "cross-env NODE_ENV=production concurrently \"cross-env DEMO_ENV=react bisheng build -c ./site/bisheng.desktop.config.js\" \"cross-env DEMO_ENV=preact bisheng build -c ./site/bisheng.kitchen.config.js\"",
     "site-cdn": "cdn-tools run -c ./scripts/cdn-config.js",
     "analysis": "npm run dist && node ./scripts/analysis",
-    "deploy": "npm run clean && npm run site && bisheng gh-pages --push-only",
+    "deploy": "npm run clean && npm run site && cp CNAME _site && bisheng gh-pages --push-only",
     "pub": "cross-env BABEL_ENV=dist antd-tools run pub --skip-tag",
     "lint-staged": "lint-staged",
     "lint-staged:ts": "npm run tsc && node node_modules/tslint/bin/tslint -c node_modules/antd-tools/lib/tslint.json components/**/*.tsx",
