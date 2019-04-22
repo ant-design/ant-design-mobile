@@ -1,6 +1,6 @@
 /* tslint:disable:jsx-no-multiline-js */
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import { getComponentLocale } from '../_util/getLocale';

@@ -35,6 +35,7 @@
     "babel-runtime": "6.x",
     "classnames": "^2.2.1",
     "normalize.css": "^7.0.0",
+    "prop-types": "^15.7.2",
     "rc-checkbox": "~2.0.0",
     "rc-collapse": "~1.9.1",
     "rc-slider": "~8.2.0",

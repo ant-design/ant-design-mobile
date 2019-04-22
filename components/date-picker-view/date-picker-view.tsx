@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import RCDatePicker from 'rmc-date-picker/lib/DatePicker';
 import { getComponentLocale } from '../_util/getLocale';
