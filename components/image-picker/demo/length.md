@@ -49,6 +49,7 @@ class ImagePickerExample extends React.Component {
           onImageClick={(index, fs) => console.log(index, fs)}
           selectable={files.length < 7}
           onAddImageClick={this.onAddImageClick}
+          disableDelete
         />
       </div>
     );
