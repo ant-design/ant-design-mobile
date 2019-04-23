@@ -4,6 +4,7 @@ const cnLocale = require('./zh-CN');
 
 const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
+const themerTmpl = './template/Themer/index';
 
 function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
@@ -81,6 +82,12 @@ module.exports = {
     }, {
       path: '/components/:children',
       component: contentTmpl,
+    }, {
+      path: '/themer',
+      component: themerTmpl,
+    }, {
+      path: '/themer-cn',
+      component: themerTmpl,
     }],
   },
 };

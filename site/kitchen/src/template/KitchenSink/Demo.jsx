@@ -19,7 +19,6 @@ import { getQuery } from '../../../../utils';
   if (!pageData) {
     throw 404; // eslint-disable-line no-throw-literal
   }
-
   const locale = getQuery('lang') || 'en-US';
   const pageDataPromise = typeof pageData === 'function' ?
     pageData() : (pageData[locale] || pageData.index[locale] || pageData.index)();

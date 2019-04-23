@@ -96,6 +96,7 @@ export default class App extends React.Component {
 
   render() {
     const { picked, themeConfig: config } = this.props;
+    console.log('this.props', this.props);
     const { appLocale } = this.state;
     const lists = {};
     picked.components

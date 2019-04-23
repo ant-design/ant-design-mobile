@@ -113,6 +113,10 @@ export default class Header extends React.Component {
       activeMenuItem = 'docs/react';
     }
 
+    if (location.pathname === 'themer' || location.pathname === 'themer-cn') {
+      activeMenuItem = 'themer';
+    }
+
     const { locale } = this.context.intl;
     const isZhCN = locale === 'zh-CN';
     const excludedSuffix = isZhCN ? 'en-US.md' : 'zh-CN.md';
@@ -166,10 +170,10 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="rn">
-          <a href="//rn.mobile.ant.design">
-            <FormattedMessage id="app.header.menu.rn" />
-          </a>
+        <Menu.Item key="themer">
+          <Link to={utils.getLocalizedPathname('/themer', isZhCN)}>
+            <FormattedMessage id="app.header.menu.themer" />
+          </Link>
         </Menu.Item>
         {/* <Menu.Item key="pc">
           <a href="//ant.design">

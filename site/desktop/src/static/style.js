@@ -17,3 +17,4 @@ require('./colors.less');
 require('./new-version-info-modal.less');
 require('./motion.less');
 require('./nprogress.less');
+require('./themer.less');
