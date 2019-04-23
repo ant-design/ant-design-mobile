@@ -207,7 +207,7 @@ export default abstract class AbstractPicker extends React.Component<
         {children &&
           typeof children !== 'string' &&
           React.isValidElement(children) &&
-          React.cloneElement<object, object>(children, {
+          React.cloneElement<{extra?: string}>(children, {
             extra: this.getSel() || extra || _locale.extra,
           })}
       </RMCPopupCascader>
