@@ -1,18 +1,18 @@
-import React, { ReactNode } from 'react';
+import * as React from 'react'
 // export type ListType = JSX.Element
 export interface ListPropsType {
-  renderHeader?: () => ReactNode | ReactNode;
-  renderFooter?: () => ReactNode | ReactNode;
-  children?: ReactNode;
+  renderHeader?: () => React.ReactNode | React.ReactNode;
+  renderFooter?: () => React.ReactNode | React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export interface ListItemPropsType {
   align?: 'top' | 'middle' | 'bottom';
   disabled?: boolean;
   multipleLine?: boolean;
-  children?: ReactNode;
-  thumb?: ReactNode | null;
-  extra?: ReactNode;
+  children?: React.ReactNode;
+  thumb?: React.ReactNode | null;
+  extra?: React.ReactNode;
   arrow?: 'horizontal' | 'down' | 'up' | 'empty' | '';
   wrap?: boolean;
   activeStyle?: React.CSSProperties;
@@ -21,7 +21,7 @@ export interface ListItemPropsType {
 }
 
 export interface BriefProps {
-  children?: ReactNode;
+  children?: React.ReactNode;
   wrap?: boolean;
   style?: React.CSSProperties | {} | Array<{}>;
 }
