@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { CSSProperties } from 'react';
+import * as React from 'react';
 import ReactCarousel from 'rmc-nuka-carousel';
 import { CarouselPropsType } from './PropsType';
 
@@ -12,9 +12,9 @@ export interface CarouselProps extends CarouselPropsType {
   afterChange?: (current: number) => void;
   swipeSpeed?: number;
   easing?: () => void;
-  style?: CSSProperties;
-  dotStyle?: CSSProperties;
-  dotActiveStyle?: CSSProperties;
+  style?: React.CSSProperties;
+  dotStyle?: React.CSSProperties;
+  dotActiveStyle?: React.CSSProperties;
   frameOverflow?: IFrameOverFlow;
   cellSpacing?: number;
   slideWidth?: string | number;

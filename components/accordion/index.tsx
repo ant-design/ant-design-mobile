@@ -1,5 +1,5 @@
 import RcCollapse, { Panel } from 'rc-collapse';
-import React, { CSSProperties } from 'react';
+import * as React from 'react';
 import { AccordionPropsTypes } from './PropsType';
 
 export interface AccordionProps extends AccordionPropsTypes {
@@ -7,7 +7,7 @@ export interface AccordionProps extends AccordionPropsTypes {
   prefixCls?: string;
   openAnimation?: any;
   accordion?: boolean;
-  style?: CSSProperties;
+  style?: React.CSSProperties;
 }
 
 export default class Accordion extends React.Component<AccordionProps, any> {
