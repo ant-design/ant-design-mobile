@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import * as PropTypes from 'prop-types';
+import * as React from 'react';
 import { Calendar as RMCalendar } from 'rmc-calendar';
 import { getComponentLocale } from '../_util/getLocale';
 import Icon from '../icon';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 export interface ViewProps<T> extends React.HTMLProps<T> {
   Component?: string;
 }

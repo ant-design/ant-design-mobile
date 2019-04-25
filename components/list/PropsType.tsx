@@ -23,5 +23,5 @@ export interface ListItemPropsType {
 export interface BriefProps {
   children?: React.ReactNode;
   wrap?: boolean;
-  style?: React.CSSProperties | {} | Array<{}>;
+  style?: React.CSSProperties;
 }

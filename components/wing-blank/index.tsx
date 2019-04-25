@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import { WingBlankPropsType } from './PropsType';
 
 export interface WingBlankProps extends WingBlankPropsType {

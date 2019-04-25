@@ -14,7 +14,7 @@ module.exports = {
     'app.home.slogan': '移动端设计规范',
     'app.home.epitomize': '一个基于 Preact / React / React Native 的 UI 组件库',
     'app.home.centerStart': '开始探索',
-    'app.home.qrtip': '扫描演示',
+    'app.home.qrtip': '扫码演示',
     'app.home.s2_title': '懂你所需',
     'app.home.s2_des1': '组件丰富 | 功能全面',
     'app.home.s2_des10': '提供了 40+ 基础组件、覆盖各类场景，组件特性丰富、满足各种功能需求。',

@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { CSSProperties, MouseEventHandler } from 'react';
+import * as React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import Icon from '../icon';
 import { ButtonPropsType } from './PropsType';
@@ -11,9 +11,9 @@ export interface ButtonProps extends ButtonPropsType {
   inline?: boolean;
   icon?: React.ReactNode;
   activeClassName?: string;
-  activeStyle?: boolean | CSSProperties;
+  activeStyle?: boolean | React.CSSProperties;
   style?: React.CSSProperties;
-  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;

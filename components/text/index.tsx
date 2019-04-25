@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import View, { ViewProps } from '../view';
 
 export default class Text extends React.Component<

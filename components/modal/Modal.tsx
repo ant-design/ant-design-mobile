@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import Dialog from 'rmc-dialog';
 import TouchFeedback from 'rmc-feedback';
 import { Action, ModalPropsType, CallbackOrActions } from './PropsType';

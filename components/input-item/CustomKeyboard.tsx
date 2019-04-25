@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import { Omit } from '../_util/types';
 import { IS_IOS } from '../_util/exenv';
