@@ -129,7 +129,11 @@ class InputItem extends React.Component<InputItemProps, any> {
           // controlled input type needs to adjust the position of the caret
           try {
             // set selection may throw error (https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setSelectionRange)
-            el.selectionStart = el.selectionEnd = this.calcPos(prePos || 0, preCtrlVal, rawVal, ctrlValue, [' '], /\D/g);
+            let pos = this.calcPos(prePos || 0, preCtrlVal, rawVal, ctrlValue, [' '], /\D/g);
+            if ((type === 'phone' && (pos === 4 || pos === 9)) || (type === 'bankCard' && (pos > 0 && pos % 5 === 0))) {
+              pos -= 1;
+            }
+            el.selectionStart = el.selectionEnd = pos;
           } catch (error) {
             console.warn('Set selection error:', error);
           }
