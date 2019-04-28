@@ -15,6 +15,34 @@ toc: false
 
 ---
 
+### 2.2.12
+
+`2019-04-28`
+
+- **Feature**
+
+  - 🌟 `ImagePicker` 添加了 `disableDelete` 配置 [#3185](https://github.com/ant-design/ant-design-mobile/pull/3185)
+
+- **Enhancement**
+
+  - 📝 更新按需加载的文档 [#3132](https://github.com/ant-design/ant-design-mobile/pull/3132)
+  - 🔧 `deploy` 添加CNAME [#3172](https://github.com/ant-design/ant-design-mobile/pull/3172)
+  - 🌟 `InputItem` 优化光标定位逻辑 [#3189](https://github.com/ant-design/ant-design-mobile/pull/3189)
+  - 🌟 `@types/react` `@types/react-dom` 依赖升级 [#3186](https://github.com/ant-design/ant-design-mobile/pull/3186)
+  - 🌟 `React import` 优化 [#3179](https://github.com/ant-design/ant-design-mobile/pull/3179)
+  - 🌟 `TypeScript` 依赖升级 [#3181](https://github.com/ant-design/ant-design-mobile/pull/3181)
+  - 🌟 添加了 IPhoneX `safe-area` 的支持 [#3180](https://github.com/ant-design/ant-design-mobile/pull/3180)
+
+- **Bug Fix**
+
+  - 🐞 `Typo` 修复了 `datePicker` 与官网的文本错误 [#3139](https://github.com/ant-design/ant-design-mobile/pull/3139) [#3187](https://github.com/ant-design/ant-design-mobile/pull/3187)
+  - 🐞 `Modal` 添加了缺失的 `onPresss` 参数定义 [#3136](https://github.com/ant-design/ant-design-mobile/pull/3136)
+  - 🐞 `gitter` 修复了文档中的链接错误 [US](https://github.com/ant-design/ant-design-mobile/commit/b32b3e3ef382d8496e67e1ce1928b22d3b301dfb) [CN](https://github.com/ant-design/ant-design-mobile/commit/6f0a04536e8d028e2111697820e8700142156f40)
+  - 🐞 `Tabs` 修复了 `height` 的样式错误 [#3188](https://github.com/ant-design/ant-design-mobile/pull/3188)
+  - 🐞 `List` 修复了 `typescript` 定义的错误 [#3183](https://github.com/ant-design/ant-design-mobile/pull/3183)
+
+---
+
 ### 2.2.10
 
 `2019-03-21`

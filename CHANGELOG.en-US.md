@@ -15,6 +15,34 @@ toc: false
 
 ---
 
+### 2.2.12
+
+`2019-04-28`
+
+- **Feature**
+
+  - 🌟 `ImagePicker` Add `disableDelete` config [#3185](https://github.com/ant-design/ant-design-mobile/pull/3185)
+
+- **Enhancement**
+
+  - 📝 Update modularized Doc [#3132](https://github.com/ant-design/ant-design-mobile/pull/3132)
+  - 🔧 `deploy` Add CNAME [#3172](https://github.com/ant-design/ant-design-mobile/pull/3172)
+  - 🌟 `InputItem` Optimize cursor position [#3189](https://github.com/ant-design/ant-design-mobile/pull/3189)
+  - 🌟 `@types/react` `@types/react-dom` Update [#3186](https://github.com/ant-design/ant-design-mobile/pull/3186)
+  - 🌟 `React import` Optimize [#3179](https://github.com/ant-design/ant-design-mobile/pull/3179)
+  - 🌟 `TypeScript` Update [#3181](https://github.com/ant-design/ant-design-mobile/pull/3181)
+  - 🌟 Add IPhoneX `safe-area` support [#3180](https://github.com/ant-design/ant-design-mobile/pull/3180)
+
+- **Bug Fix**
+
+  - 🐞 `Typo` Fixed `datePicker` and `site` error [#3139](https://github.com/ant-design/ant-design-mobile/pull/3139) [#3187](https://github.com/ant-design/ant-design-mobile/pull/3187)
+  - 🐞 `Modal` Add `onPresss` parameter declaration [#3136](https://github.com/ant-design/ant-design-mobile/pull/3136)
+  - 🐞 `gitter` Fixed link error in Doc [US](https://github.com/ant-design/ant-design-mobile/commit/b32b3e3ef382d8496e67e1ce1928b22d3b301dfb) [CN](https://github.com/ant-design/ant-design-mobile/commit/6f0a04536e8d028e2111697820e8700142156f40)
+  - 🐞 `Tabs` Fixed `height` style error [#3188](https://github.com/ant-design/ant-design-mobile/pull/3188)
+  - 🐞 `List` Fixed `typescript` declaration error [#3183](https://github.com/ant-design/ant-design-mobile/pull/3183)
+
+---
+
 ### 2.2.10
 
 `2019-03-21`
