@@ -269,11 +269,6 @@ exports[`renders ./components/image-picker/demo/length.md correctly 1`] = `
             class="am-image-picker-item"
           >
             <div
-              aria-label="Click and Remove this image"
-              class="am-image-picker-item-remove"
-              role="button"
-            />
-            <div
               aria-label="Image can be clicked"
               class="am-image-picker-item-content"
               role="button"
@@ -287,11 +282,6 @@ exports[`renders ./components/image-picker/demo/length.md correctly 1`] = `
           <div
             class="am-image-picker-item"
           >
-            <div
-              aria-label="Click and Remove this image"
-              class="am-image-picker-item-remove"
-              role="button"
-            />
             <div
               aria-label="Image can be clicked"
               class="am-image-picker-item-content"

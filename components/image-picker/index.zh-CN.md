@@ -21,3 +21,4 @@ subtitle: 图片选择器
 | accept | 图片类型  | string |  image/* |
 | length | 单行的图片数量  | string \| number | 4 |
 | capture | 图片捕获设置, 具体请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input)中关于capture的说明 | boolean \| string | false |
+| disableDelete | 是否隐藏删除按钮 | boolean | false |

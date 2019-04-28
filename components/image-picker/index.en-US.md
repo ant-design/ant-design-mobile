@@ -20,3 +20,4 @@ Properties | Descrition | Type | Default
 | accept | File type accept  | string |  image/* |
 | length | Number of images in line  | string \| number | 4 |
 | capture | Image capture setting, please refer to the description of capture in [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input) | boolean \| string | false |
+| disableDelete | whether to hide delete icon | boolean | false |

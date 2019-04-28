@@ -27,6 +27,7 @@ export default class ImagePicker extends React.Component<
     multiple: false,
     accept: 'image/*',
     length: 4,
+    disableDelete: false,
   };
 
   fileSelectorInput: HTMLInputElement | null;
@@ -173,6 +174,7 @@ export default class ImagePicker extends React.Component<
       multiple,
       accept,
       capture,
+      disableDelete,
     } = this.props;
 
     const imgItemList: any[] = [];
@@ -196,7 +198,7 @@ export default class ImagePicker extends React.Component<
           style={itemStyle}
         >
           <div key={index} className={`${prefixCls}-item`}>
-            <div
+            { !disableDelete && <div
               className={`${prefixCls}-item-remove`}
               role="button"
               aria-label="Click and Remove this image"
@@ -204,7 +206,7 @@ export default class ImagePicker extends React.Component<
               onClick={() => {
                 this.removeImage(index);
               }}
-            />
+            />}
             <div
               className={`${prefixCls}-item-content`}
               role="button"

@@ -56,6 +56,26 @@ describe('ImagePicker', () => {
     expect(wrapper.find('.am-image-picker-upload-btn').length).toBe(1);
   });
 
+  it('disableDelete', () => {
+    const files = [{
+      url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg',
+      id: '2121',
+    }, {
+      url: 'https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg',
+      id: '2122',
+    }, {
+      url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg',
+      id: '2123',
+    }];
+    const wrapperCant = mount(
+      <ImagePicker
+        files={files}
+        disableDelete
+      />,
+    );
+    // have no delect icon
+    expect(wrapperCant.find('.am-image-picker-item-remove').length).toBe(0);
+  });
   it('renders length', () => {
     const files = [{
       url: 'https://zos.alipayobjects.com/rmsportal/PZUUCKTRIHWiZSY.jpeg',
