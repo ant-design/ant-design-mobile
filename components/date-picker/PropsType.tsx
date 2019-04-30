@@ -27,7 +27,6 @@ export interface DatePickerPropsType {
   disabled?: boolean;
   format?: string | ((value: Date) => string);
   extra?: string;
-  children?: React.ReactNode;
   dismissText?: React.ReactNode;
   okText?: React.ReactNode;
   title?: React.ReactNode;

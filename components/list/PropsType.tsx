@@ -1,16 +1,14 @@
-import * as React from 'react'
-// export type ListType = JSX.Element
+import * as React from 'react';
+
 export interface ListPropsType {
-  renderHeader?: () => React.ReactNode | React.ReactNode;
-  renderFooter?: () => React.ReactNode | React.ReactNode;
-  children?: React.ReactNode;
+  renderHeader?: (() => React.ReactNode) | React.ReactNode;
+  renderFooter?: (() => React.ReactNode) | React.ReactNode;
 }
 
 export interface ListItemPropsType {
   align?: 'top' | 'middle' | 'bottom';
   disabled?: boolean;
   multipleLine?: boolean;
-  children?: React.ReactNode;
   thumb?: React.ReactNode | null;
   extra?: React.ReactNode;
   arrow?: 'horizontal' | 'down' | 'up' | 'empty' | '';
@@ -21,7 +19,6 @@ export interface ListItemPropsType {
 }
 
 export interface BriefProps {
-  children?: React.ReactNode;
   wrap?: boolean;
   style?: React.CSSProperties;
 }
