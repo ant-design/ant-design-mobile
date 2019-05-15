@@ -121,7 +121,7 @@ class InputItem extends React.Component<InputItemProps, any> {
         break;
     }
 
-    this.handleOnChange(ctrlValue, ctrlValue !== rawVal, () => {
+    this.handleOnChange(ctrlValue, e, ctrlValue !== rawVal, () => {
       switch (type) {
         case 'bankCard':
         case 'phone':
@@ -144,7 +144,7 @@ class InputItem extends React.Component<InputItemProps, any> {
     });
   }
 
-  handleOnChange = (value: string, isMutated: boolean = false, adjustPos: Function = noop) => {
+  handleOnChange = (value: string, inputEvent: object, isMutated: boolean = false, adjustPos: Function = noop) => {
     const { onChange } = this.props;
 
     if (!('value' in this.props)) {
@@ -155,11 +155,11 @@ class InputItem extends React.Component<InputItemProps, any> {
     if (onChange) {
       if (isMutated) {
         setTimeout(() => {
-          onChange(value);
+          onChange(value, inputEvent);
           adjustPos();
         });
       } else {
-        onChange(value);
+        onChange(value, inputEvent);
         adjustPos();
       }
     } else {
