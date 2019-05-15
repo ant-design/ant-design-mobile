@@ -62,8 +62,8 @@ function notice(
       ) : (
         <div className={`${prefixCls}-text`} role="alert" aria-live="assertive">
           <div>{content}</div>
-         </div>
-        ),
+        </div>
+      ),
       closable: true,
       onClose() {
         if (onClose) {
@@ -81,7 +81,7 @@ export default {
   SHORT: 3,
   LONG: 8,
   show(content: React.ReactNode, duration?: number, mask?: boolean) {
-    return notice(content, 'info', duration, () => { }, mask);
+    return notice(content, 'info', duration, () => {}, mask);
   },
   info(
     content: React.ReactNode,
