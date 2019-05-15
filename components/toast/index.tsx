@@ -32,7 +32,7 @@ function notice(
   content: React.ReactNode,
   type: string,
   duration = 3,
-  onClose: (() => void) | undefined,
+  onClose: (() => void) | undefined | null,
   mask = true,
 ) {
   const iconTypes: { [key: string]: string } = {
@@ -60,10 +60,10 @@ function notice(
           <div className={`${prefixCls}-text-info`}>{content}</div>
         </div>
       ) : (
-        <div className={`${prefixCls}-text`} role="alert" aria-live="assertive">
-          <div>{content}</div>
-        </div>
-      ),
+          <div className={`${prefixCls}-text`} role="alert" aria-live="assertive">
+            <div>{content}</div>
+          </div>
+        ),
       closable: true,
       onClose() {
         if (onClose) {
@@ -81,7 +81,7 @@ export default {
   SHORT: 3,
   LONG: 8,
   show(content: React.ReactNode, duration?: number, mask?: boolean) {
-    return notice(content, 'info', duration, () => {}, mask);
+    return notice(content, 'info', duration, () => { }, mask);
   },
   info(
     content: React.ReactNode,
