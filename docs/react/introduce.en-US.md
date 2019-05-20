@@ -176,10 +176,10 @@ If you'd like to help us improve antd-mobile, just create a [Pull Request](https
 
 ## Need Help?
 
-For questions on how to use antd, please post questions to [stackoverflow](http://stackoverflow.com/questions/tagged/antd) using the `antd`/`antd-mobile` tag. If you're not finding what you need on stackoverflow, you can find us on [gitter](https://gitter.im/ant-design/ant-design-english?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) as well.
+For questions on how to use antd, please post questions to [stackoverflow](http://stackoverflow.com/questions/tagged/antd) using the `antd`/`antd-mobile` tag. If you're not finding what you need on stackoverflow, you can find us on [gitter](https://gitter.im/ant-design/ant-design-mobile?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) as well.
 
 As always, we encourage experienced users to help those who are not familiar with `antd`!
 
 1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)
 2. [Segment Fault](https://segmentfault.com/t/antd)
-3. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+3. [![Join the chat at https://gitter.im/ant-design/ant-design-mobile](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design-mobile?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
