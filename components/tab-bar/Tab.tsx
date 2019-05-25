@@ -70,7 +70,7 @@ class Tab extends React.PureComponent<TabProps, any> {
       selected,
       unselectedTintColor,
       tintColor,
-      titleStyle
+      titleStyle,
     } = this.props;
     const iconColor = selected ? tintColor : unselectedTintColor;
     return (
