@@ -15,6 +15,7 @@ export interface TabProps {
   dataAttrs?: {
     [key: string]: string;
   };
+  titleStyle?: React.CSSProperties;
 }
 class Tab extends React.PureComponent<TabProps, any> {
   renderIcon = () => {
@@ -69,6 +70,7 @@ class Tab extends React.PureComponent<TabProps, any> {
       selected,
       unselectedTintColor,
       tintColor,
+      titleStyle
     } = this.props;
     const iconColor = selected ? tintColor : unselectedTintColor;
     return (
@@ -82,7 +84,7 @@ class Tab extends React.PureComponent<TabProps, any> {
         </div>
         <p
           className={`${prefixCls}-title`}
-          style={{ color: selected ? tintColor : unselectedTintColor }}
+          style={{ color: selected ? tintColor : unselectedTintColor,...titleStyle }}
         >
           {title}
         </p>
