@@ -22,4 +22,5 @@ export interface TabBarItemProps {
   dot?: boolean;
   prefixCls?: string;
   style?: React.CSSProperties;
+  titleStyle?: React.CSSProperties;
 }
