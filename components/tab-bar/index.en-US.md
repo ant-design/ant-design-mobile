@@ -37,4 +37,5 @@ Properties | Descrition | Type | Default
 | icon  | the default icon | ref demo |      |
 | selectedIcon  |  the icon of selected | ref demo |      |
 | title  |  title | String |      |
+| title  |  title style | css |      |
 | key  |  unique identification | String |   无   |

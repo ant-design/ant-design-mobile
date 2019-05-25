@@ -38,4 +38,5 @@ subtitle: 标签栏
 | icon  | 默认展示图片 | 见 demo |      |
 | selectedIcon  |  选中后的展示图片 | 见 demo |      |
 | title  |  标题文字 | String |      |
+| titleStyle  |  标题文字样式 | css |   无   |
 | key  |  唯一标识 | String |   无   |
