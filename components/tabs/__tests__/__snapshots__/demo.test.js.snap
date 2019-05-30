@@ -248,8 +248,8 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
             style="touch-action:pan-y"
           >
             <div
-              aria-selected="true"
-              class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+              aria-selected="false"
+              class="am-tabs-default-bar-tab"
               id="m-tabs-2-0"
               role="tab"
               style="width:33.333333333333336%"
@@ -257,8 +257,8 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
               First Tab
             </div>
             <div
-              aria-selected="false"
-              class="am-tabs-default-bar-tab"
+              aria-selected="true"
+              class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
               id="m-tabs-2-1"
               role="tab"
               style="width:33.333333333333336%"
@@ -276,39 +276,27 @@ exports[`renders ./components/tabs/demo/fixedheight.md correctly 1`] = `
             </div>
             <div
               class="am-tabs-default-bar-underline"
-              style="width:33.333333333333336%;left:0%"
+              style="width:33.333333333333336%;left:33.333333333333336%"
             />
           </div>
         </div>
       </div>
       <div
         class="am-tabs-content-wrap am-tabs-content-wrap-animated"
-        style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
+        style="touch-action:pan-x pan-y;transform:translate3d(-100%, 0px, 1px);-webkit-transform:translate3d(-100%, 0px, 1px);-moz-transform:translate3d(-100%, 0px, 1px)"
       >
         <div
-          aria-hidden="false"
-          aria-labelledby="m-tabs-2-0"
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
-          role="tabpanel"
-        >
-          <div
-            style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
-          >
-            Content of first tab
-          </div>
-        </div>
-        <div
           aria-hidden="true"
-          aria-labelledby="m-tabs-2-1"
+          aria-labelledby="m-tabs-2-0"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
           role="tabpanel"
-        >
-          <div
-            style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
-          >
-            Content of second tab
-          </div>
-        </div>
+        />
+        <div
+          aria-hidden="false"
+          aria-labelledby="m-tabs-2-1"
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+          role="tabpanel"
+        />
         <div
           aria-hidden="true"
           aria-labelledby="m-tabs-2-2"
@@ -637,8 +625,8 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
                 style="touch-action:pan-y"
               >
                 <div
-                  aria-selected="true"
-                  class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+                  aria-selected="false"
+                  class="am-tabs-default-bar-tab"
                   id="m-tabs-5-0"
                   role="tab"
                   style="width:33.333333333333336%"
@@ -646,8 +634,8 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
                   First Tab
                 </div>
                 <div
-                  aria-selected="false"
-                  class="am-tabs-default-bar-tab"
+                  aria-selected="true"
+                  class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
                   id="m-tabs-5-1"
                   role="tab"
                   style="width:33.333333333333336%"
@@ -665,7 +653,7 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
                 </div>
                 <div
                   class="am-tabs-default-bar-underline"
-                  style="width:33.333333333333336%;left:0%"
+                  style="width:33.333333333333336%;left:33.333333333333336%"
                 />
               </div>
             </div>
@@ -674,32 +662,20 @@ exports[`renders ./components/tabs/demo/sticky.md correctly 1`] = `
       </div>
       <div
         class="am-tabs-content-wrap am-tabs-content-wrap-animated"
-        style="touch-action:pan-x pan-y;transform:translate3d(0%, 0px, 1px);-webkit-transform:translate3d(0%, 0px, 1px);-moz-transform:translate3d(0%, 0px, 1px)"
+        style="touch-action:pan-x pan-y;transform:translate3d(-100%, 0px, 1px);-webkit-transform:translate3d(-100%, 0px, 1px);-moz-transform:translate3d(-100%, 0px, 1px)"
       >
         <div
-          aria-hidden="false"
-          aria-labelledby="m-tabs-5-0"
-          class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
-          role="tabpanel"
-        >
-          <div
-            style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
-          >
-            Content of first tab
-          </div>
-        </div>
-        <div
           aria-hidden="true"
-          aria-labelledby="m-tabs-5-1"
+          aria-labelledby="m-tabs-5-0"
           class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
           role="tabpanel"
-        >
-          <div
-            style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
-          >
-            Content of second tab
-          </div>
-        </div>
+        />
+        <div
+          aria-hidden="false"
+          aria-labelledby="m-tabs-5-1"
+          class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+          role="tabpanel"
+        />
         <div
           aria-hidden="true"
           aria-labelledby="m-tabs-5-2"
@@ -738,8 +714,8 @@ exports[`renders ./components/tabs/demo/vertical.md correctly 1`] = `
           style="touch-action:pan-x"
         >
           <div
-            aria-selected="true"
-            class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
+            aria-selected="false"
+            class="am-tabs-default-bar-tab"
             id="m-tabs-6-0"
             role="tab"
             style="height:33.333333333333336%"
@@ -747,8 +723,8 @@ exports[`renders ./components/tabs/demo/vertical.md correctly 1`] = `
             1 Tab
           </div>
           <div
-            aria-selected="false"
-            class="am-tabs-default-bar-tab"
+            aria-selected="true"
+            class="am-tabs-default-bar-tab am-tabs-default-bar-tab-active"
             id="m-tabs-6-1"
             role="tab"
             style="height:33.333333333333336%"
@@ -766,39 +742,27 @@ exports[`renders ./components/tabs/demo/vertical.md correctly 1`] = `
           </div>
           <div
             class="am-tabs-default-bar-underline"
-            style="height:33.333333333333336%;top:0%"
+            style="height:33.333333333333336%;top:33.333333333333336%"
           />
         </div>
       </div>
     </div>
     <div
       class="am-tabs-content-wrap am-tabs-content-wrap-animated"
-      style="touch-action:pan-x pan-y;transform:translate3d(0px, 0%, 1px);-webkit-transform:translate3d(0px, 0%, 1px);-moz-transform:translate3d(0px, 0%, 1px)"
+      style="touch-action:pan-x pan-y;transform:translate3d(0px, -100%, 1px);-webkit-transform:translate3d(0px, -100%, 1px);-moz-transform:translate3d(0px, -100%, 1px)"
     >
       <div
-        aria-hidden="false"
-        aria-labelledby="m-tabs-6-0"
-        class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
-        role="tabpanel"
-      >
-        <div
-          style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
-        >
-          Content of first tab
-        </div>
-      </div>
-      <div
         aria-hidden="true"
-        aria-labelledby="m-tabs-6-1"
+        aria-labelledby="m-tabs-6-0"
         class="am-tabs-pane-wrap am-tabs-pane-wrap-inactive"
         role="tabpanel"
-      >
-        <div
-          style="display:flex;align-items:center;justify-content:center;height:250px;background-color:#fff"
-        >
-          Content of second tab
-        </div>
-      </div>
+      />
+      <div
+        aria-hidden="false"
+        aria-labelledby="m-tabs-6-1"
+        class="am-tabs-pane-wrap am-tabs-pane-wrap-active"
+        role="tabpanel"
+      />
       <div
         aria-hidden="true"
         aria-labelledby="m-tabs-6-2"
