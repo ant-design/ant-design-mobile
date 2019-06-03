@@ -67,9 +67,23 @@ exports[`renders ./components/modal/demo/basic.md correctly 1`] = `
     class="am-button"
     role="button"
   >
+    <svg
+      class="am-icon am-icon-up am-icon-md"
+    >
+      <use
+        href="#up"
+      />
+    </svg>
     <span>
       basic
     </span>
+    <svg
+      class="am-icon am-icon-up am-icon-md"
+    >
+      <use
+        href="#up"
+      />
+    </svg>
   </a>
   <div
     class="am-whitespace am-whitespace-md"
