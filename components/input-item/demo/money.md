@@ -73,6 +73,7 @@ class H5NumberInputExample extends React.Component {
             onVirtualKeyboardConfirm={v => console.log('onVirtualKeyboardConfirm:', v)}
             clear
             moneyKeyboardWrapProps={moneyKeyboardWrapProps}
+            autoAdjustHeight={true}
           >数字键盘</InputItem>
           <List.Item>
             <div

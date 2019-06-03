@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { addClass, removeClass } from '../_util/class';
+import { addClass, removeClass, hasClass } from '../_util/class';
 import CustomKeyboard from './CustomKeyboard';
 import Portal from './Portal';
 import { InputEventHandler } from './PropsType';
@@ -10,7 +10,6 @@ import { canUseDOM } from '../_util/exenv';
 let instanceArr: any = [];
 let customNumberKeyboard: CustomKeyboard | null = null;
 const IS_REACT_16 = !!ReactDOM.createPortal;
-
 export interface NumberInputProps {
   placeholder?: string;
   disabled?: boolean;
@@ -31,6 +30,7 @@ export interface NumberInputProps {
   maxLength?: number;
   type?: string;
   style?: React.CSSProperties;
+  autoAdjustHeight?: boolean;
 }
 class NumberInput extends React.Component<NumberInputProps, any> {
   static defaultProps = {
@@ -43,12 +43,15 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     editable: true,
     prefixCls: 'am-input',
     keyboardPrefixCls: 'am-number-keyboard',
+    autoAdjustHeight: false,
   };
   container: Element;
   inputRef: HTMLDivElement | null;
+  keyboardHeight: number | null;
 
   constructor(props: NumberInputProps) {
     super(props);
+    this.keyboardHeight = null;
     this.state = {
       focus: false,
       value: props.value || '',
@@ -127,7 +130,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
 
   getContainer() {
     const { keyboardPrefixCls } = this.props;
-
     if (IS_REACT_16) {
       if (!this.container) {
         const container = document.createElement('div');
@@ -189,6 +191,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
         customNumberKeyboard.antmKeyboard,
         `${this.props.keyboardPrefixCls}-wrapper-hide`,
       );
+      this.fixedBody();
     }
     // for unmount
     this.removeBlurListener();
@@ -241,11 +244,71 @@ class NumberInput extends React.Component<NumberInputProps, any> {
               );
             }
           }
+          // 页面向上推，保证输入框可见
+          setTimeout(() => {
+            this.fixedBody();
+          }, 0);
         }
       },
     );
   }
+  fixedBody = () => {
+    // 保险起见，让用户主动开启。键盘的使用场景比较复杂。
+    if (!this.props.autoAdjustHeight) {
+      return;
+    }
+    const keyBoardWrappers = document.querySelectorAll(`.${this.props.keyboardPrefixCls}-wrapper`);
+    const { focus } = this.state;
+    // 取最后一个
+    const keyBoardWrapper = keyBoardWrappers[keyBoardWrappers.length - 1];
+    if (keyBoardWrapper) {
+      if (focus) {
+        // 当重复操作当前输入框时，键盘状态循环变化：show-hide-show-hide...
+        // 当键盘处于hide态时，样式设置了transition-duration=0.2s。会导致样式获取不到最新的。因此延时300ms获取正常的值。
+        setTimeout(() => {
+          const wrapperOffset = keyBoardWrapper.getBoundingClientRect();
+          if (this.inputRef) {
+            const inputOffset = this.inputRef.getBoundingClientRect();
+            // 输入框被键盘挡着
+            if (inputOffset.top > wrapperOffset.top) {
+              const bodyStyles = window.getComputedStyle(document.body);
+              const paddingBottom = bodyStyles.paddingBottom && bodyStyles.paddingBottom.replace('px', '') || '0';
 
+              const keyboardStyles = window.getComputedStyle(keyBoardWrapper);
+              let keyboardHeight = keyboardStyles.height && keyboardStyles.height.replace('px', '') || '0';
+              this.keyboardHeight = parseInt(keyboardHeight, 10) || 0;
+              // // 重设paddingBottom让页面整体向上抬
+              document.body.style.paddingBottom = (parseInt(paddingBottom, 10) + this.keyboardHeight) + 'px';
+              // // 页面滚动
+              document.body.scrollTop = document.body.scrollTop + this.keyboardHeight;
+            }
+          }
+        }, 300);
+      } else {
+        // 键盘已经被隐藏，恢复
+        if (this.keyboardHeight) {
+          // 恢复padding
+          const bodyStyles = window.getComputedStyle(document.body);
+          const paddingBottom = bodyStyles.paddingBottom && bodyStyles.paddingBottom.replace('px', '') || '0';
+          document.body.style.paddingBottom = (parseInt(paddingBottom, 10) - this.keyboardHeight) + 'px';
+          // 恢复scrollTop
+          document.body.scrollTop = document.body.scrollTop - this.keyboardHeight;
+        }
+        // 隐藏键盘不可见
+        this.keyboardHeight = 0;
+      }
+    } else {
+      // 键盘不存在，恢复
+      if (this.keyboardHeight) {
+        // 恢复padding
+        const bodyStyles = window.getComputedStyle(document.body);
+        const paddingBottom = bodyStyles.paddingBottom && bodyStyles.paddingBottom.replace('px', '') || '0';
+        document.body.style.paddingBottom = (parseInt(paddingBottom, 10) - this.keyboardHeight) + 'px';
+        // 恢复scrollTop
+        document.body.scrollTop = document.body.scrollTop - this.keyboardHeight;
+      }
+    }
+  }
   onKeyboardClick = (KeyboardItemValue: string) => {
     const { maxLength } = this.props;
     const { value } = this.state;
