@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { addClass, removeClass, hasClass } from '../_util/class';
+import { addClass, removeClass } from '../_util/class';
 import CustomKeyboard from './CustomKeyboard';
 import Portal from './Portal';
 import { InputEventHandler } from './PropsType';
@@ -275,7 +275,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
               const paddingBottom = bodyStyles.paddingBottom && bodyStyles.paddingBottom.replace('px', '') || '0';
 
               const keyboardStyles = window.getComputedStyle(keyBoardWrapper);
-              let keyboardHeight = keyboardStyles.height && keyboardStyles.height.replace('px', '') || '0';
+              const keyboardHeight = keyboardStyles.height && keyboardStyles.height.replace('px', '') || '0';
               this.keyboardHeight = parseInt(keyboardHeight, 10) || 0;
               // // 重设paddingBottom让页面整体向上抬
               document.body.style.paddingBottom = (parseInt(paddingBottom, 10) + this.keyboardHeight) + 'px';
