@@ -260,7 +260,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     const keyBoardWrappers = document.querySelectorAll(`.${this.props.keyboardPrefixCls}-wrapper`);
     const { focus } = this.state;
     // 取最后一个
-    const keyBoardWrapper = keyBoardWrappers[keyBoardWrappers.length - 1];
+    const keyBoardWrapper = keyBoardWrappers.length ? keyBoardWrappers[keyBoardWrappers.length - 1] : null;
     if (keyBoardWrapper) {
       if (focus) {
         // 当重复操作当前输入框时，键盘状态循环变化：show-hide-show-hide...
@@ -296,16 +296,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
         }
         // 隐藏键盘不可见
         this.keyboardHeight = 0;
-      }
-    } else {
-      // 键盘不存在，恢复
-      if (this.keyboardHeight) {
-        // 恢复padding
-        const bodyStyles = window.getComputedStyle(document.body);
-        const paddingBottom = bodyStyles.paddingBottom && bodyStyles.paddingBottom.replace('px', '') || '0';
-        document.body.style.paddingBottom = (parseInt(paddingBottom, 10) - this.keyboardHeight) + 'px';
-        // 恢复scrollTop
-        document.body.scrollTop = document.body.scrollTop - this.keyboardHeight;
       }
     }
   }
