@@ -10,6 +10,14 @@ import { canUseDOM } from '../_util/exenv';
 let instanceArr: any = [];
 let customNumberKeyboard: CustomKeyboard | null = null;
 const IS_REACT_16 = !!ReactDOM.createPortal;
+function getBodyScrollTop () {
+  const el = document.scrollingElement || document.documentElement;
+  return el && el.scrollTop || 0;
+}
+function setBodyScrollTop(scrollTop: number) {
+  const el = document.scrollingElement || document.documentElement;
+  el.scrollTop = scrollTop;
+}
 export interface NumberInputProps {
   placeholder?: string;
   disabled?: boolean;
@@ -277,13 +285,13 @@ class NumberInput extends React.Component<NumberInputProps, any> {
               const keyboardStyles = window.getComputedStyle(keyBoardWrapper);
               const keyboardHeight = keyboardStyles.height && keyboardStyles.height.replace('px', '') || '0';
               this.keyboardHeight = parseInt(keyboardHeight, 10) || 0;
-              // // 重设paddingBottom让页面整体向上抬
+              // 重设paddingBottom让页面整体向上抬
               document.body.style.paddingBottom = (parseInt(paddingBottom, 10) + this.keyboardHeight) + 'px';
-              // // 页面滚动
-              document.body.scrollTop = document.body.scrollTop + this.keyboardHeight;
+              // 页面滚动
+              setBodyScrollTop(getBodyScrollTop() + this.keyboardHeight);
             }
           }
-        }, 300);
+        }, 250);
       } else {
         // 键盘已经被隐藏，恢复
         if (this.keyboardHeight) {
@@ -291,8 +299,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
           const bodyStyles = window.getComputedStyle(document.body);
           const paddingBottom = bodyStyles.paddingBottom && bodyStyles.paddingBottom.replace('px', '') || '0';
           document.body.style.paddingBottom = (parseInt(paddingBottom, 10) - this.keyboardHeight) + 'px';
-          // 恢复scrollTop
-          document.body.scrollTop = document.body.scrollTop - this.keyboardHeight;
         }
         // 隐藏键盘不可见
         this.keyboardHeight = 0;
