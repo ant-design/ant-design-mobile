@@ -18,6 +18,7 @@ export interface InputItemProps extends InputItemPropsType, HTMLInputProps {
   prefixCls?: string;
   prefixListCls?: string;
   className?: string;
+  autoAdjustHeight?: boolean;
   onErrorClick?: React.MouseEventHandler<HTMLDivElement>;
   onExtraClick?: React.MouseEventHandler<HTMLDivElement>;
 }
