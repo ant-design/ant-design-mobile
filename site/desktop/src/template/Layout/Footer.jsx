@@ -53,7 +53,7 @@ const Footer = () => (
           <div className="footer-center">
             <h2><FormattedMessage id="app.footer.community" /></h2>
             <div>
-              <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design">
+              <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design-mobile">
                 <FormattedMessage id="app.footer.discuss" />
               </a>
             </div>
