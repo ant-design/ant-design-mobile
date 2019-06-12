@@ -10,7 +10,7 @@ It is suitable for displaying the long list data type of the same kind, and has 
 
 Properties | Descrition | Type | Default
 -----------|------------|------|--------
-| dataSource | An instance of [ListView.DataSource](http://facebook.github.io/react-native/releases/0.26/docs/listviewdatasource.html) to use | ListViewDataSource | - |
+| dataSource | An instance of [ListView.DataSource](https://facebook.github.io/react-native/docs/listviewdatasource) to use | ListViewDataSource | - |
 | initialListSize | How many rows to render on initial component mount. | number | - |
 | onEndReached | Called when all rows have been rendered and the list has been scrolled to within `onEndReachedThreshold` of the bottom. | (event?) => {} | - |
 | onEndReachedThreshold | Threshold in pixels (virtual, not physical) for calling `onEndReached`. | number | 1000 |
