@@ -11,9 +11,9 @@ title:
 import { Tabs, WhiteSpace } from 'antd-mobile';
 
 const tabs = [
-  { title: 'First Tab' },
-  { title: 'Second Tab' },
-  { title: 'Third Tab' },
+  { title: 'First Tab', key: 't1' },
+  { title: 'Second Tab', key: 't2' },
+  { title: 'Third Tab', key: 't3' },
 ];
 
 const TabExample = () => (
@@ -21,7 +21,7 @@ const TabExample = () => (
     <WhiteSpace />
     <div style={{ height: 200 }}>
       <Tabs tabs={tabs}
-        initalPage={'t2'}
+        initialPage={'t2'}
       >
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
           Content of first tab

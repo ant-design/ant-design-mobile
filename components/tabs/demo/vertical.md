@@ -11,16 +11,16 @@ use react-sticky
 import { Tabs, WhiteSpace } from 'antd-mobile';
 
 const tabs = [
-  { title: '1 Tab' },
-  { title: '2 Tab' },
-  { title: '3 Tab' },
+  { title: '1 Tab', key: 't1' },
+  { title: '2 Tab', key: 't2' },
+  { title: '3 Tab', key: 't3' },
 ];
 
 const TabExample = () => (
   <div style={{ height: 200 }}>
     <WhiteSpace />
     <Tabs tabs={tabs}
-      initalPage={'t2'}
+      initialPage={'t2'}
       tabBarPosition="left"
       tabDirection="vertical"
     >
