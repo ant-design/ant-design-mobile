@@ -92,7 +92,16 @@ class InputItem extends React.Component<InputItemProps, any> {
 
   onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const el = e.target;
-    const { value: rawVal, selectionEnd: prePos } = el;
+    const { value: rawVal } = el;
+
+    let prePos = 0;
+    try {
+      // some input type do not support selection, see https://html.spec.whatwg.org/multipage/input.html#do-not-apply
+      prePos = el.selectionEnd || 0;
+    } catch (error) {
+      console.warn('Get selection error:', error);
+    }
+
     const { value: preCtrlVal = '' } = this.state;
     const { type } = this.props;
 
@@ -128,8 +137,8 @@ class InputItem extends React.Component<InputItemProps, any> {
         case 'number':
           // controlled input type needs to adjust the position of the caret
           try {
-            // set selection may throw error (https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setSelectionRange)
-            let pos = this.calcPos(prePos || 0, preCtrlVal, rawVal, ctrlValue, [' '], /\D/g);
+            // some input type do not support selection, see https://html.spec.whatwg.org/multipage/input.html#do-not-apply
+            let pos = this.calcPos(prePos, preCtrlVal, rawVal, ctrlValue, [' '], /\D/g);
             if ((type === 'phone' && (pos === 4 || pos === 9)) || (type === 'bankCard' && (pos > 0 && pos % 5 === 0))) {
               pos -= 1;
             }
