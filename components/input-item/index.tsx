@@ -18,6 +18,7 @@ export interface InputItemProps extends InputItemPropsType, HTMLInputProps {
   prefixCls?: string;
   prefixListCls?: string;
   className?: string;
+  autoAdjustHeight?: boolean;
   onErrorClick?: React.MouseEventHandler<HTMLDivElement>;
   onExtraClick?: React.MouseEventHandler<HTMLDivElement>;
 }
@@ -280,6 +281,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       moneyKeyboardWrapProps,
       moneyKeyboardHeader,
       onVirtualKeyboardConfirm,
+      autoAdjustHeight,
       ...restProps
     } = props;
     const { name, disabled, maxLength } = restProps;
@@ -379,6 +381,7 @@ class InputItem extends React.Component<InputItemProps, any> {
                 moneyKeyboardAlign={moneyKeyboardAlign}
                 moneyKeyboardWrapProps={moneyKeyboardWrapProps}
                 moneyKeyboardHeader={moneyKeyboardHeader}
+                autoAdjustHeight={autoAdjustHeight}
               />
             ) : (
               <Input
