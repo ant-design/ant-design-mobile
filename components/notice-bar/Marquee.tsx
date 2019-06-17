@@ -9,7 +9,7 @@ import * as ReactDOM from 'react-dom';
 
 export interface MarqueeProps {
   prefixCls?: string;
-  text: string;
+  text?: string;
   loop?: boolean;
   leading?: number;
   trailing?: number;
