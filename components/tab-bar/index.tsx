@@ -45,11 +45,15 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
   public static Item = Item;
 
   getTabs = () => {
-    return React.Children.map(this.props.children, (c: any) => {
-      return {
-        ...(c.props as TabBarItemProps),
-      };
+    const tabs = [] as TabBarItemProps[];
+    React.Children.forEach(this.props.children, (c: any) => {
+      if (c) {
+        tabs.push({
+          ...(c.props as TabBarItemProps),
+        });
+      }
     });
+    return tabs;
   }
 
   renderTabBar = () => {
