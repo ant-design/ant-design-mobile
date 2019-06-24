@@ -12,6 +12,7 @@ export default function prompt(
   defaultValue = '',
   placeholders = ['', ''],
   platform = 'ios',
+  inputTypes = ['', ''],
 ) {
   let closed = false;
 
@@ -66,7 +67,7 @@ export default function prompt(
           <div className={`${prefixCls}-input`}>
             <label>
               <input
-                type="text"
+                type={inputTypes[0] || 'text'}
                 defaultValue={data.text}
                 ref={input => focusFn(input)}
                 onClick={onClick}
@@ -78,7 +79,7 @@ export default function prompt(
           <div className={`${prefixCls}-input`}>
             <label>
               <input
-                type="password"
+                type={inputTypes[1] || 'password'}
                 defaultValue={data.password}
                 onClick={onClick}
                 onChange={onChange}

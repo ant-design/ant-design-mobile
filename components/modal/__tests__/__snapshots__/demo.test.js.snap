@@ -192,5 +192,14 @@ exports[`renders ./components/modal/demo/prompt.md correctly 1`] = `
   <div
     class="am-whitespace am-whitespace-lg"
   />
+  <a
+    aria-disabled="false"
+    class="am-button"
+    role="button"
+  >
+    <span>
+      custom-input-type
+    </span>
+  </a>
 </div>
 `;
