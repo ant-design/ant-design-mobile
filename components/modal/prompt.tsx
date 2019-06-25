@@ -48,7 +48,11 @@ export default function prompt(
       target.focus();
     }
   }
-
+  
+  function onBlurFixWechat () {
+    document.body.scrollTop = document.body.scrollTop; 
+  }
+  
   let inputDom;
 
   const focusFn = (input: HTMLInputElement | null) => {
@@ -71,6 +75,7 @@ export default function prompt(
                 ref={input => focusFn(input)}
                 onClick={onClick}
                 onChange={onChange}
+                onBlur={onBlurFixWechat}
                 placeholder={placeholders[0]}
               />
             </label>
@@ -82,6 +87,7 @@ export default function prompt(
                 defaultValue={data.password}
                 onClick={onClick}
                 onChange={onChange}
+                onBlur={onBlurFixWechat}
                 placeholder={placeholders[1]}
               />
             </label>
@@ -100,6 +106,7 @@ export default function prompt(
                 ref={input => focusFn(input)}
                 onClick={onClick}
                 onChange={onChange}
+                onBlur={onBlurFixWechat}
                 placeholder={placeholders[0]}
               />
             </label>
@@ -119,6 +126,7 @@ export default function prompt(
                 ref={input => focusFn(input)}
                 onClick={onClick}
                 onChange={onChange}
+                onBlur={onBlurFixWechat}
                 placeholder={placeholders[0]}
               />
             </label>
