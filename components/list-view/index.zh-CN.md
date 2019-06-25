@@ -11,7 +11,7 @@ subtitle: 长列表
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-| dataSource | [ListView.DataSource (cn)](https://reactnative.cn/docs/0.26/listviewdatasource.html) / [ListView.DataSource (us)](http://facebook.github.io/react-native/releases/0.26/docs/listviewdatasource.html) 实例 | ListViewDataSource | - |
+| dataSource | [ListView.DataSource](https://facebook.github.io/react-native/docs/listviewdatasource) 实例 | ListViewDataSource | - |
 | initialListSize | 指定在组件刚挂载的时候渲染多少行数据，用这个属性来确保首屏显示合适数量的数据 | number | - |
 | onEndReached | 当所有的数据都已经渲染过，并且列表被滚动到距离最底部不足`onEndReachedThreshold`个像素的距离时调用 | (event?) => {} | - |
 | onEndReachedThreshold | 调用`onEndReached`之前的临界值，单位是像素 | number | 1000 |

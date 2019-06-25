@@ -11,6 +11,15 @@ let instanceArr: any = [];
 let customNumberKeyboard: CustomKeyboard | null = null;
 const IS_REACT_16 = !!ReactDOM.createPortal;
 
+function getBodyScrollTop () {
+  const el = document.scrollingElement || document.documentElement;
+  return el && el.scrollTop || 0;
+}
+function setBodyScrollTop(scrollTop: number) {
+  const el = document.scrollingElement || document.documentElement;
+  el.scrollTop = scrollTop;
+}
+
 export interface NumberInputProps {
   placeholder?: string;
   disabled?: boolean;
@@ -31,6 +40,7 @@ export interface NumberInputProps {
   maxLength?: number;
   type?: string;
   style?: React.CSSProperties;
+  autoAdjustHeight?: boolean;
 }
 class NumberInput extends React.Component<NumberInputProps, any> {
   static defaultProps = {
@@ -43,8 +53,9 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     editable: true,
     prefixCls: 'am-input',
     keyboardPrefixCls: 'am-number-keyboard',
+    autoAdjustHeight: false,
   };
-  container: Element;
+  container: HTMLDivElement;
   inputRef: HTMLDivElement | null;
 
   constructor(props: NumberInputProps) {
@@ -138,7 +149,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     } else {
       let container = document.querySelector(
         `#${keyboardPrefixCls}-container`,
-      );
+      ) as HTMLDivElement;
       if (!container) {
         container = document.createElement('div');
         container.setAttribute('id', `${keyboardPrefixCls}-container`);
@@ -185,6 +196,9 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       customNumberKeyboard.linkedInput === this
     ) {
       customNumberKeyboard.linkedInput = null;
+      if (this.props.autoAdjustHeight) {
+        this.getContainer().style.height = '0';
+      }
       addClass(
         customNumberKeyboard.antmKeyboard,
         `${this.props.keyboardPrefixCls}-wrapper-hide`,
@@ -222,6 +236,19 @@ class NumberInput extends React.Component<NumberInputProps, any> {
         if (customNumberKeyboard) {
           customNumberKeyboard.linkedInput = this;
           if (customNumberKeyboard.antmKeyboard) {
+            if (this.props.autoAdjustHeight) {
+              const keyBoardHeight = customNumberKeyboard.antmKeyboard.offsetHeight;
+              this.getContainer().style.height = `${keyBoardHeight}px`;
+              if (this.inputRef) {
+                const { bottom } = this.inputRef.getBoundingClientRect();
+                const clientHeight = window.innerHeight;
+                // 计算输入框距离视窗的底部距离
+                const distance = clientHeight - bottom;
+                if (distance < keyBoardHeight) {
+                  setBodyScrollTop(getBodyScrollTop() + keyBoardHeight - distance);
+                }
+              }
+            }
             removeClass(
               customNumberKeyboard.antmKeyboard,
               `${this.props.keyboardPrefixCls}-wrapper-hide`,

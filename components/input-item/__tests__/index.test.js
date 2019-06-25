@@ -59,4 +59,60 @@ describe('InputItem', () => {
     bankCard.find('input').simulate('change', { target: { value: '1234 5678 90' } });
     expect(handleClick).toBeCalledWith('1234 5678 90');
   });
+
+  it('type=money trigger click', () => {
+    const originGetComputedStyle = global.window.getComputedStyle;
+    global.window.getComputedStyle = function () {
+      return {
+        height: '200px',
+      };
+    };
+    jest.useFakeTimers();
+    const div = global.document.createElement('div');
+    div.style.padddingTop = '1000px';
+    div.setAttribute('id', 'test');
+    global.document.body.appendChild(div);
+    const customKeyboard = mount((
+      <InputItem
+        type="money"
+        autoAdjustHeight
+      >数字键盘</InputItem>
+    ), { attachTo: div });
+    // 模拟位置，单测中getBoundingClientRect返回的值全是0
+    document.querySelector('div[role="textbox"]').getBoundingClientRect = function () {
+      return {
+        top: 1000,
+      };
+    };
+    document.querySelector('.am-number-keyboard-wrapper').getBoundingClientRect = function () {
+      return {
+        top: 500,
+      };
+    };
+    // 模拟输入框点击，拉起键盘
+    customKeyboard.find('div[role="textbox"]').simulate('click', {});
+    //  触发点击，让键盘收起
+    setTimeout(() => {
+      document.dispatchEvent(new Event('click'));
+      global.window.getComputedStyle = originGetComputedStyle;
+    }, 1000);
+    jest.runAllTimers();
+  });
+
+  it('type=money autoAdjustHeight=false', () => {
+    jest.useFakeTimers();
+    const div = global.document.createElement('div');
+    div.style.padddingTop = '1000px';
+    div.setAttribute('id', 'test');
+    global.document.body.appendChild(div);
+    const customKeyboard = mount((
+      <InputItem
+        type="money"
+        autoAdjustHeight={false}
+      >数字键盘</InputItem>
+    ), { attachTo: div });
+    // 模拟输入框点击，拉起键盘
+    customKeyboard.find('div[role="textbox"]').simulate('click', {});
+    jest.runAllTimers();
+  });
 });
