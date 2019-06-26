@@ -50,7 +50,7 @@ export default function prompt(
   }
   
   function onBlurFixWechat () {
-    document.body.scrollTop = document.body.scrollTop; 
+    document.body.scrollTop = document.body.scrollTop;
   }
   
   let inputDom;
