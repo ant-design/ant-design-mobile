@@ -48,11 +48,11 @@ export default function prompt(
       target.focus();
     }
   }
-  
-  function onBlurFixWechat () {
+
+  function onBlurFixWechat() {
     document.body.scrollTop = document.body.scrollTop;
   }
-  
+
   let inputDom;
 
   const focusFn = (input: HTMLInputElement | null) => {
