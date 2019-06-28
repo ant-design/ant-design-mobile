@@ -121,7 +121,7 @@ export default class Demo extends React.Component {
         'rc-form@1/dist/rc-form.min.js',
         'antd-mobile@2/dist/antd-mobile.min.js',
         'array-tree-filter@2',
-        'antd-mobile-demo-data@0.2',
+        'antd-mobile-demo-data@0.3',
       ]
         .map(url => `https://unpkg.com/${url}`)
         .concat(['https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js'])
