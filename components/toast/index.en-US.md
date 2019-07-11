@@ -33,4 +33,6 @@ Properties | Descrition | Type | Default
 
 Provides global configuration and global destroy methods:
 
+- `Toast.config({ duration, mask })`
+
 - `Toast.hide()`
