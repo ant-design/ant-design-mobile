@@ -3,6 +3,18 @@ import * as React from 'react';
 import Notification from 'rmc-notification';
 import Icon from '../icon';
 
+const SHORT = 3;
+
+interface IToastConfig {
+  duration: number;
+  mask: boolean;
+}
+
+const config: IToastConfig = {
+  duration: SHORT,
+  mask: true,
+};
+
 let messageInstance: any;
 const prefixCls = 'am-toast';
 
@@ -31,9 +43,9 @@ function getMessageInstance(
 function notice(
   content: React.ReactNode,
   type: string,
-  duration = 3,
+  duration = config.duration,
   onClose: (() => void) | undefined,
-  mask = true,
+  mask = config.mask,
 ) {
   const iconTypes: { [key: string]: string } = {
     info: '',
@@ -78,7 +90,7 @@ function notice(
 }
 
 export default {
-  SHORT: 3,
+  SHORT,
   LONG: 8,
   show(content: React.ReactNode, duration?: number, mask?: boolean) {
     return notice(content, 'info', duration, () => {}, mask);
@@ -127,6 +139,13 @@ export default {
     if (messageInstance) {
       messageInstance.destroy();
       messageInstance = null;
+    }
+  },
+  config(conf: Partial<IToastConfig> = {}) {
+    const { duration = SHORT, mask } = conf;
+    config.duration = duration;
+    if (mask === false) {
+      config.mask = false;
     }
   },
 };

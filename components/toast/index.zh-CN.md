@@ -32,4 +32,6 @@ subtitle: 轻提示
 
 还提供了全局配置和全局销毁方法：
 
+- `Toast.config({ duration, mask })`
+
 - `Toast.hide()`
