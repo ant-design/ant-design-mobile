@@ -187,7 +187,7 @@ export default class ImagePicker extends React.Component<
 
     files.forEach((image: any, index: number) => {
       const imgStyle = {
-        backgroundImage: `url(${image.url})`,
+        backgroundImage: `url("${image.url}")`,
         transform: `rotate(${this.getRotation(image.orientation)}deg)`,
       };
       const itemStyle = {};
