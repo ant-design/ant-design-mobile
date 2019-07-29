@@ -40,8 +40,9 @@ Properties | Description | Type | Default
 | moneyKeyboardAlign    | text align direction, only `type='money'` support this api， could be `'left'`, `'right'`       | String |  'right'  |
 | moneyKeyboardWrapProps    | custom money virtual keyboard props  | Object | {} |
 | moneyKeyboardHeader    | custom money virtual keyboard header  | ReactNode | null |
-| locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置,  when`type`is`money`，can cunstom the keyboard confirm item's label | Object: { confirmLabel } |  无 |
+| locale   | internationalization, can override `[LocaleProvider](https://mobile.ant.design/components/locale-provider)`,  when`type`is`money`，can cunstom the keyboard confirm item's label | Object: { confirmLabel } |   |
 | autoAdjustHeight   | prevent keyboard from covering input element.(only for `type=money`) | bool |  false |
+| disabledKeys   | disable some keyboard item (only for  `type=money`) | array | null |  null |
 
 > Note: Do not set `value` asynchronously in the `onChange` event of the controlled component, otherwise Chinese input may cause problems, [related issue](https://github.com/facebook/react/issues/3926).
 >

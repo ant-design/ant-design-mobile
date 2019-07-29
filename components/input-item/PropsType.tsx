@@ -35,4 +35,5 @@ export interface InputItemPropsType {
   onFocus?: InputEventHandler;
   onBlur?: InputEventHandler;
   onVirtualKeyboardConfirm?: InputEventHandler;
+  disabledKeys?: Array<any> | null,
 }

@@ -41,6 +41,7 @@ export interface NumberInputProps {
   type?: string;
   style?: React.CSSProperties;
   autoAdjustHeight?: boolean;
+  disabledKeys?: Array<any>,
 }
 class NumberInput extends React.Component<NumberInputProps, any> {
   static defaultProps = {
@@ -120,8 +121,8 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       keyboardPrefixCls,
       moneyKeyboardWrapProps,
       moneyKeyboardHeader,
+      disabledKeys,
     } = this.props;
-
     return (
       <CustomKeyboard
         ref={this.saveRef}
@@ -132,6 +133,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
         cancelKeyboardLabel={cancelKeyboardLabel}
         wrapProps={moneyKeyboardWrapProps}
         header={moneyKeyboardHeader}
+        disabledKeys={disabledKeys}
       />
     );
   }

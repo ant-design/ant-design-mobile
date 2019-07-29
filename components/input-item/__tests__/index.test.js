@@ -115,4 +115,23 @@ describe('InputItem', () => {
     customKeyboard.find('div[role="textbox"]').simulate('click', {});
     jest.runAllTimers();
   });
+
+  it('type=money disabledKeys=["."]', () => {
+    jest.useFakeTimers();
+    const div = global.document.createElement('div');
+    div.style.padddingTop = '1000px';
+    div.setAttribute('id', 'test');
+    global.document.body.appendChild(div);
+    const customKeyboard = mount((
+      <InputItem
+        type="money"
+        autoAdjustHeight={false}
+        disabledKeys={['.']}
+      >数字键盘</InputItem>
+    ), { attachTo: div });
+    // 模拟输入框点击，拉起键盘
+    customKeyboard.find('div[role="textbox"]').simulate('click', {});
+    expect(customKeyboard.find('.am-number-keyboard-disabled').length).toBe(1);
+    jest.runAllTimers();
+  });
 });

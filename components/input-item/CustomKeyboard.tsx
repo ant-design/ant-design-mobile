@@ -3,7 +3,22 @@ import * as React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import { Omit } from '../_util/types';
 import { IS_IOS } from '../_util/exenv';
-
+/**
+ * determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+ * @param {array} arr The array to search in
+ * @param {any} item  The value to search for
+ */
+function includes(arr: Array<any>, item: any) {
+  if (!arr || !arr.length || !item) {
+    return false;
+  }
+  for (let i = 0, len = arr.length; i < len; i++) {
+    if (arr[i] === item) {
+      return true;
+    }
+  }
+  return false;
+}
 export type HTMLTableDataProps = Omit<
   React.HTMLProps<HTMLTableDataCellElement>,
   'onClick'
@@ -45,10 +60,12 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
     } else if (className === 'keyboard-confirm') {
       value = 'confirm';
     }
-
-    const wrapCls = classnames(`${prefixCls}-item`, className);
+    const extraCls = {
+      [`${prefixCls}-item-disabled`]: disabled,
+    };
+    const wrapCls = classnames(`${prefixCls}-item`, className, extraCls);
     return (
-      <TouchFeedback activeClassName={`${prefixCls}-item-active`}>
+      <TouchFeedback disabled={disabled} activeClassName={`${prefixCls}-item-active`}>
         <td
           ref={tdRef}
           // tslint:disable-next-line:jsx-no-multiline-js
@@ -69,6 +86,7 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
 class CustomKeyboard extends React.Component<any, any> {
   static defaultProps = {
     prefixCls: 'am-number-keyboard',
+    disabledKeys: null,
   };
 
   linkedInput: any;
@@ -81,6 +99,9 @@ class CustomKeyboard extends React.Component<any, any> {
     value: string = '',
   ) => {
     e.nativeEvent.stopImmediatePropagation();
+    if (this.props.disabledKeys && includes(this.props.disabledKeys, value)) {
+      return null;
+    }
     if (value === 'confirm' && this.confirmDisabled) {
       return null;
     } else {
@@ -91,10 +112,15 @@ class CustomKeyboard extends React.Component<any, any> {
   }
 
   renderKeyboardItem = (item: string, index: number) => {
+    let disabled = false;
+    if (this.props.disabledKeys && includes(this.props.disabledKeys, item)) {
+      disabled = true;
+    }
     return (
       <KeyboardItem
         onClick={this.onKeyboardClick}
         key={`item-${item}-${index}`}
+        disabled={disabled}
       >
         {item}
       </KeyboardItem>
