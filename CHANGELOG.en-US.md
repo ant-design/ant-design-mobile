@@ -14,6 +14,19 @@ toc: false
 - Major version release is not included in this schedule for breadking change and new features.
 
 ---
+### 2.2.15
+
+`2019-07-31`
+
+- **Feature**
+  - 🌟 `Toast` add two method `Toast.config` 、`Toast.hide` [#3304](https://github.com/ant-design/ant-design-mobile/pull/3304)
+
+- **Bug Fix**
+  - 🐞`DatePicker` fix infinite loop when select some date.[#125](https://github.com/react-component/m-picker/pull/125) 、[#191](
+https://github.com/react-component/m-date-picker/pull/191)
+  - 🐞`ImagePicker` fix preview picture not show when the url contains space. [#3311](https://github.com/ant-design/ant-design-mobile/pull/3311)
+  - 🐞fix component demo not render in iOS 9. [#3292](https://github.com/ant-design/ant-design-mobile/pull/3292)
+
 
 ### 2.2.14
 

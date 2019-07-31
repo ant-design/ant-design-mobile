@@ -15,6 +15,19 @@ toc: false
 
 ---
 
+### 2.2.15
+
+`2019-07-31`
+
+- **Feature**
+  - 🌟 `Toast` 增加全局方法 `Toast.config` 、`Toast.hide` [#3304](https://github.com/ant-design/ant-design-mobile/pull/3304)
+
+- **Bug Fix**
+  - 🐞`DatePicker` 修复 时间日期选择器特殊情况下的死循环问题 [#125](https://github.com/react-component/m-picker/pull/125) 、[#191](
+https://github.com/react-component/m-date-picker/pull/191)
+  - 🐞`ImagePicker` 修复特殊图片不显示的bug [#3311](https://github.com/ant-design/ant-design-mobile/pull/3311)
+  - 🐞修复部分demo在ios9下的白屏问题 [#3292](https://github.com/ant-design/ant-design-mobile/pull/3292)
+
 ### 2.2.14
 
 `2019-06-13`
