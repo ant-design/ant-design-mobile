@@ -9,7 +9,7 @@ import { canUseDOM } from '../_util/exenv';
 
 let instanceArr: any = [];
 let customNumberKeyboard: CustomKeyboard | null = null;
-const IS_REACT_16 = !!ReactDOM.createPortal;
+const IS_REACT_16 = false;
 
 function getBodyScrollTop () {
   const el = document.scrollingElement || document.documentElement;
@@ -87,7 +87,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   componentDidUpdate() {
-    this.renderCustomKeyboard();
   }
 
   addBlurListener = () => {
@@ -328,6 +327,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   onFakeInputClick = () => {
+    this.renderCustomKeyboard();
     this.focus();
   }
 
