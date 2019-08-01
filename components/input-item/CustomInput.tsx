@@ -3,9 +3,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { addClass, removeClass } from '../_util/class';
 import CustomKeyboard from './CustomKeyboard';
+import Portal from './Portal';
 import { InputEventHandler, InputKey } from './PropsType';
+import { canUseDOM } from '../_util/exenv';
 
 let customNumberKeyboard: CustomKeyboard | null = null;
+const IS_REACT_16 = !!ReactDOM.createPortal;
 
 function getBodyScrollTop () {
   const el = document.scrollingElement || document.documentElement;
@@ -54,6 +57,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   };
   container: HTMLDivElement;
   inputRef: HTMLDivElement | null;
+  keyBoard: null;
 
   constructor(props: NumberInputProps) {
     super(props);
@@ -100,6 +104,13 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     }
     this.unLinkInput();
   }
+
+  saveRef = (el: CustomKeyboard | null) => {
+    if (IS_REACT_16 && el) {
+      customNumberKeyboard = el;
+    }
+  }
+
   getComponent() {
     const {
       confirmLabel,
@@ -112,6 +123,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     } = this.props;
     return (
       <CustomKeyboard
+        ref={this.saveRef}
         onClick={this.onKeyboardClick}
         prefixCls={keyboardPrefixCls}
         confirmLabel={confirmLabel}
@@ -139,11 +151,19 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   renderCustomKeyboard() {
-    customNumberKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
-      this,
-      this.getComponent(),
-      this.getContainer(),
-    ) as CustomKeyboard;
+    if (IS_REACT_16) {
+      this.keyBoard = (
+        <Portal getContainer={() => this.getContainer()}>
+          {this.getComponent()}
+        </Portal>
+      );
+    } else {
+      customNumberKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
+        this,
+        this.getComponent(),
+        this.getContainer(),
+      ) as CustomKeyboard;
+    }
   }
 
   doBlur = (ev: MouseEvent) => {
@@ -174,6 +194,9 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   onInputBlur = (value: string) => {
+    if (IS_REACT_16) {
+      this.keyBoard = null;
+    }
     const { focus } = this.state;
     if (focus) {
       this.setState({
@@ -302,6 +325,15 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       this.addBlurListener();
     }, 50);
   }
+
+  renderPortal() {
+    if (!IS_REACT_16 || !canUseDOM) {
+      return null;
+    }
+
+    return this.keyBoard;
+  }
+
   render() {
     const { placeholder, disabled, editable, moneyKeyboardAlign } = this.props;
     const { focus, value } = this.state;
@@ -329,6 +361,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
         >
           {value}
         </div>
+        {this.renderPortal()}
       </div>
     );
   }
