@@ -84,11 +84,6 @@ describe('InputItem', () => {
         top: 1000,
       };
     };
-    document.querySelector('.am-number-keyboard-wrapper').getBoundingClientRect = function () {
-      return {
-        top: 500,
-      };
-    };
     // 模拟输入框点击，拉起键盘
     customKeyboard.find('div[role="textbox"]').simulate('click', {});
     //  触发点击，让键盘收起
@@ -131,7 +126,8 @@ describe('InputItem', () => {
     ), { attachTo: div });
     // 模拟输入框点击，拉起键盘
     customKeyboard.find('div[role="textbox"]').simulate('click', {});
-    expect(customKeyboard.find('.am-number-keyboard-disabled').length).toBe(1);
+    expect(global.document.querySelectorAll('.am-number-keyboard-wrapper').length).toBe(1);
+    expect(global.document.querySelectorAll('.am-number-keyboard-item-disabled').length).toBe(2);
     jest.runAllTimers();
   });
 });

@@ -100,7 +100,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     }
     this.unLinkInput();
   }
-
   getComponent() {
     const {
       confirmLabel,
