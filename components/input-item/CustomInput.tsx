@@ -3,13 +3,9 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { addClass, removeClass } from '../_util/class';
 import CustomKeyboard from './CustomKeyboard';
-import Portal from './Portal';
-import { InputEventHandler } from './PropsType';
-import { canUseDOM } from '../_util/exenv';
+import { InputEventHandler, InputKey } from './PropsType';
 
-let instanceArr: any = [];
 let customNumberKeyboard: CustomKeyboard | null = null;
-const IS_REACT_16 = false;
 
 function getBodyScrollTop () {
   const el = document.scrollingElement || document.documentElement;
@@ -41,7 +37,7 @@ export interface NumberInputProps {
   type?: string;
   style?: React.CSSProperties;
   autoAdjustHeight?: boolean;
-  disabledKeys?: Array<any>,
+  disabledKeys?: Array<InputKey> | null,
 }
 class NumberInput extends React.Component<NumberInputProps, any> {
   static defaultProps = {
@@ -105,13 +101,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     this.unLinkInput();
   }
 
-  saveRef = (el: CustomKeyboard | null) => {
-    if (IS_REACT_16 && el) {
-      customNumberKeyboard = el;
-      instanceArr.push({ el, container: this.container });
-    }
-  }
-
   getComponent() {
     const {
       confirmLabel,
@@ -124,7 +113,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     } = this.props;
     return (
       <CustomKeyboard
-        ref={this.saveRef}
         onClick={this.onKeyboardClick}
         prefixCls={keyboardPrefixCls}
         confirmLabel={confirmLabel}
@@ -139,32 +127,19 @@ class NumberInput extends React.Component<NumberInputProps, any> {
 
   getContainer() {
     const { keyboardPrefixCls } = this.props;
-
-    if (IS_REACT_16) {
-      if (!this.container) {
-        const container = document.createElement('div');
-        container.setAttribute('id', `${keyboardPrefixCls}-container-${(new Date().getTime())}`);
-        document.body.appendChild(container);
-        this.container = container;
-      }
-    } else {
-      let container = document.querySelector(
-        `#${keyboardPrefixCls}-container`,
-      ) as HTMLDivElement;
-      if (!container) {
-        container = document.createElement('div');
-        container.setAttribute('id', `${keyboardPrefixCls}-container`);
-        document.body.appendChild(container);
-      }
-      this.container = container;
+    let container = document.querySelector(
+      `#${keyboardPrefixCls}-container`,
+    ) as HTMLDivElement;
+    if (!container) {
+      container = document.createElement('div');
+      container.setAttribute('id', `${keyboardPrefixCls}-container`);
+      document.body.appendChild(container);
     }
+    this.container = container;
     return this.container;
   }
 
   renderCustomKeyboard() {
-    if (IS_REACT_16) {
-      return;
-    }
     customNumberKeyboard = ReactDOM.unstable_renderSubtreeIntoContainer(
       this,
       this.getComponent(),
@@ -177,16 +152,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     if (ev.target !== this.inputRef) {
       this.onInputBlur(value);
     }
-  }
-
-  removeCurrentExtraKeyboard = () => {
-    instanceArr = instanceArr.filter((item: any) => {
-      const { el, container } = item;
-      if (el && container && el !== customNumberKeyboard) {
-        (container as any).parentNode.removeChild(container);
-      }
-      return el === customNumberKeyboard;
-    });
   }
 
   unLinkInput = () => {
@@ -207,10 +172,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     }
     // for unmount
     this.removeBlurListener();
-
-    if (IS_REACT_16) {
-      this.removeCurrentExtraKeyboard();
-    }
   }
 
   onInputBlur = (value: string) => {
@@ -342,19 +303,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       this.addBlurListener();
     }, 50);
   }
-
-  renderPortal() {
-    if (!IS_REACT_16 || !canUseDOM) {
-      return null;
-    }
-
-    return (
-      <Portal getContainer={() => this.getContainer()}>
-        {this.getComponent()}
-      </Portal>
-    );
-  }
-
   render() {
     const { placeholder, disabled, editable, moneyKeyboardAlign } = this.props;
     const { focus, value } = this.state;
@@ -382,7 +330,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
         >
           {value}
         </div>
-        {this.renderPortal()}
       </div>
     );
   }

@@ -13,7 +13,6 @@ export type HTMLInputProps = Omit<
   React.HTMLProps<HTMLInputElement>,
   'onChange' | 'onFocus' | 'onBlur' | 'value' | 'defaultValue' | 'type'
 >;
-
 export interface InputItemProps extends InputItemPropsType, HTMLInputProps {
   prefixCls?: string;
   prefixListCls?: string;
