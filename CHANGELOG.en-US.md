@@ -15,6 +15,27 @@ toc: false
 
 ---
 
+### 2.2.14
+
+`2019-06-13`
+
+- **Feature**
+
+  - 🌟 `InputItem` Add `autoAdjustHeight` config [#3246](https://github.com/ant-design/ant-design-mobile/pull/3246)
+
+- **Enhancement**
+
+  - 📝 `Tab` Update `initalPage` to `initialPage` [#3235](https://github.com/ant-design/ant-design-mobile/pull/3235)
+  - 📝 `ListView` Update `dataSource` link [#3253](https://github.com/ant-design/ant-design-mobile/pull/3253)
+
+- **Bug Fix**
+
+  - 🐞 `Calendar` Fixed element with flexbox can't scroll on Chrome [#3152](https://github.com/ant-design/ant-design-mobile/pull/3252)
+  - 🐞 `Picker` Fixed trigger `onPickerChange` problem [#3174](https://github.com/ant-design/ant-design-mobile/issues/3174)
+  - 🐞 `InputItem` add try catch to getSelection [#3237](https://github.com/ant-design/ant-design-mobile/pull/3237)
+  - 🐞 `Modal` Fixed show problem of using svg with Modal on iOS9 [#3229](https://github.com/ant-design/ant-design-mobile/pull/3229)
+
+
 ### 2.2.12
 
 `2019-04-28`
@@ -35,7 +56,7 @@ toc: false
 
 - **Bug Fix**
 
-  - 🐞 `Typo` Fixed `datePicker` and `site` error [#3139](https://github.com/ant-design/ant-design-mobile/pull/3139) [#3187](https://github.com/ant-design/ant-design-mobile/pull/3187)
+  - 🐞 `Typo` Fixed `datePicker` and `site` error [#3152](https://github.com/ant-design/ant-design-mobile/pull/3252) [#3187](https://github.com/ant-design/ant-design-mobile/pull/3187)
   - 🐞 `Modal` Add `onPresss` parameter declaration [#3136](https://github.com/ant-design/ant-design-mobile/pull/3136)
   - 🐞 `gitter` Fixed link error in Doc [US](https://github.com/ant-design/ant-design-mobile/commit/b32b3e3ef382d8496e67e1ce1928b22d3b301dfb) [CN](https://github.com/ant-design/ant-design-mobile/commit/6f0a04536e8d028e2111697820e8700142156f40)
   - 🐞 `Tabs` Fixed `height` style error [#3188](https://github.com/ant-design/ant-design-mobile/pull/3188)

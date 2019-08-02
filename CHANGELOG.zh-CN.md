@@ -15,6 +15,26 @@ toc: false
 
 ---
 
+### 2.2.14
+
+`2019-06-13`
+
+- **Feature**
+
+  - 🌟 `InputItem` 新增 `autoAdjustHeight`属性 [#3246](https://github.com/ant-design/ant-design-mobile/pull/3246)
+
+- **Enhancement**
+
+  - 📝 `Tab` 把`initalPage`更正为`initialPage` [#3235](https://github.com/ant-design/ant-design-mobile/pull/3235)
+  - 📝 `ListView` 更新 `dataSource` 的解释链接 [#3253](https://github.com/ant-design/ant-design-mobile/pull/3253)
+
+- **Bug Fix**
+
+  - 🐞 `Calendar` 修正chrome下，flexbox被子元素撑开无法滚动的问题 [#3252](https://github.com/ant-design/ant-design-mobile/pull/3252)
+  - 🐞 `Picker` 修复在某些场景下无法触发`onPickerChange`的问题 [#3174](https://github.com/ant-design/ant-design-mobile/issues/3174)
+  - 🐞 `InputItem` 增加 getSelection的`try catch` 逻辑 [#3237](https://github.com/ant-design/ant-design-mobile/pull/3237)
+  - 🐞 `Modal` 修复在iOS9上Svg与Modal同时使用的展示问题 [#3229](https://github.com/ant-design/ant-design-mobile/pull/3229)
+
 ### 2.2.12
 
 `2019-04-28`

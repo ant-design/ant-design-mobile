@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "2.2.13",
+  "version": "2.2.14",
   "description": "基于 React 的移动设计规范实现",
   "homepage": "http://mobile.ant.design",
   "keywords": [
@@ -60,7 +60,7 @@
     "@types/react": "^16.0.36",
     "@types/react-dom": "^16.0.3",
     "antd": "3.x",
-    "antd-mobile-demo-data": "^0.2.0",
+    "antd-mobile-demo-data": "^0.3.0",
     "antd-tools": "^5.2.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-import": "^1.6.2",

@@ -180,4 +180,4 @@ import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.
 
 1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（推荐）
 2. [Segment Fault](https://segmentfault.com/t/antd)
-3. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+3. [![Join the chat at https://gitter.im/ant-design/ant-design-mobile](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design-mobile?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
