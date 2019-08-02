@@ -82,9 +82,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     }
   }
 
-  componentDidUpdate() {
-  }
-
   addBlurListener = () => {
     document.addEventListener('click', this.doBlur, false);
   }
