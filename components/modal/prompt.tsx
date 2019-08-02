@@ -48,7 +48,12 @@ export default function prompt(
       target.focus();
     }
   }
-
+  function onBlurFixWechat() {
+    // https://github.com/ant-design/ant-design-mobile/issues/3137
+    if (/MicroMessenger/.test(navigator.userAgent)) {
+      document.body.scrollTop = document.body.scrollTop;
+    }
+  }
   let inputDom;
 
   const focusFn = (input: HTMLInputElement | null) => {
@@ -72,6 +77,7 @@ export default function prompt(
                 onClick={onClick}
                 onChange={onChange}
                 placeholder={placeholders[0]}
+                onBlur={onBlurFixWechat}
               />
             </label>
           </div>
@@ -83,6 +89,7 @@ export default function prompt(
                 onClick={onClick}
                 onChange={onChange}
                 placeholder={placeholders[1]}
+                onBlur={onBlurFixWechat}
               />
             </label>
           </div>
@@ -101,6 +108,7 @@ export default function prompt(
                 onClick={onClick}
                 onChange={onChange}
                 placeholder={placeholders[0]}
+                onBlur={onBlurFixWechat}
               />
             </label>
           </div>
@@ -120,6 +128,7 @@ export default function prompt(
                 onClick={onClick}
                 onChange={onChange}
                 placeholder={placeholders[0]}
+                onBlur={onBlurFixWechat}
               />
             </label>
           </div>
