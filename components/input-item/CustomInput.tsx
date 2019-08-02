@@ -57,7 +57,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   };
   container: HTMLDivElement;
   inputRef: HTMLDivElement | null;
-  keyBoard: null;
+  keyBoard: React.ReactNode | null;
 
   constructor(props: NumberInputProps) {
     super(props);
