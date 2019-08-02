@@ -44,7 +44,7 @@ function notice(
   content: React.ReactNode,
   type: string,
   duration = config.duration,
-  onClose: (() => void) | undefined,
+  onClose: (() => void) | undefined | null,
   mask = config.mask,
 ) {
   const iconTypes: { [key: string]: string } = {
