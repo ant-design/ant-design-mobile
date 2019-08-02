@@ -1,6 +1,7 @@
 import * as React from 'react';
 export type InputEventHandler = (value?: string) => void;
 
+export type InputKey = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '.';
 export interface InputItemPropsType {
   moneyKeyboardAlign?: string;
   moneyKeyboardWrapProps?: object;
@@ -35,4 +36,5 @@ export interface InputItemPropsType {
   onFocus?: InputEventHandler;
   onBlur?: InputEventHandler;
   onVirtualKeyboardConfirm?: InputEventHandler;
+  disabledKeys?: Array<InputKey> | null | undefined,
 }

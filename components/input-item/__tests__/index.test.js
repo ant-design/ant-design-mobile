@@ -84,11 +84,6 @@ describe('InputItem', () => {
         top: 1000,
       };
     };
-    document.querySelector('.am-number-keyboard-wrapper').getBoundingClientRect = function () {
-      return {
-        top: 500,
-      };
-    };
     // 模拟输入框点击，拉起键盘
     customKeyboard.find('div[role="textbox"]').simulate('click', {});
     //  触发点击，让键盘收起
@@ -113,6 +108,26 @@ describe('InputItem', () => {
     ), { attachTo: div });
     // 模拟输入框点击，拉起键盘
     customKeyboard.find('div[role="textbox"]').simulate('click', {});
+    jest.runAllTimers();
+  });
+
+  it('type=money disabledKeys=["."]', () => {
+    jest.useFakeTimers();
+    const div = global.document.createElement('div');
+    div.style.padddingTop = '1000px';
+    div.setAttribute('id', 'test');
+    global.document.body.appendChild(div);
+    const customKeyboard = mount((
+      <InputItem
+        type="money"
+        autoAdjustHeight={false}
+        disabledKeys={['.']}
+      >数字键盘</InputItem>
+    ), { attachTo: div });
+    // 模拟输入框点击，拉起键盘
+    customKeyboard.find('div[role="textbox"]').simulate('click', {});
+    expect(global.document.querySelectorAll('.am-number-keyboard-wrapper').length).toBe(2);
+    expect(global.document.querySelectorAll('.am-number-keyboard-item-disabled').length).toBe(3);
     jest.runAllTimers();
   });
 });
