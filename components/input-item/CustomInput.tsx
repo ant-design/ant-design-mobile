@@ -41,6 +41,7 @@ export interface NumberInputProps {
   style?: React.CSSProperties;
   autoAdjustHeight?: boolean;
   disabledKeys?: Array<InputKey> | null,
+  dotToMinus?: boolean,
 }
 class NumberInput extends React.Component<NumberInputProps, any> {
   static defaultProps = {
@@ -54,6 +55,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
     prefixCls: 'am-input',
     keyboardPrefixCls: 'am-number-keyboard',
     autoAdjustHeight: false,
+    dotToMinus: false,
   };
   container: HTMLDivElement;
   inputRef: HTMLDivElement | null;
@@ -117,6 +119,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       moneyKeyboardWrapProps,
       moneyKeyboardHeader,
       disabledKeys,
+      dotToMinus,
     } = this.props;
     return (
       <CustomKeyboard
@@ -129,6 +132,7 @@ class NumberInput extends React.Component<NumberInputProps, any> {
         wrapProps={moneyKeyboardWrapProps}
         header={moneyKeyboardHeader}
         disabledKeys={disabledKeys}
+        dotToMinus={dotToMinus}
       />
     );
   }

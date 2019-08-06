@@ -37,4 +37,5 @@ export interface InputItemPropsType {
   onBlur?: InputEventHandler;
   onVirtualKeyboardConfirm?: InputEventHandler;
   disabledKeys?: Array<InputKey> | null | undefined,
+  dotToMinus?: boolean,
 }

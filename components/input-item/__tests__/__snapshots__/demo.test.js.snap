@@ -663,6 +663,37 @@ exports[`renders ./components/input-item/demo/money.md correctly 1`] = `
           <div
             class="am-input-label am-input-label-5"
           >
+            带负号键盘
+          </div>
+          <div
+            class="am-input-control"
+          >
+            <div
+              class="fake-input-container"
+            >
+              <div
+                class="fake-input-placeholder"
+              >
+                keyboard with minus
+              </div>
+              <div
+                aria-label="keyboard with minus"
+                class="fake-input"
+                role="textbox"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="am-list-item am-input-item am-list-item-middle"
+      >
+        <div
+          class="am-list-line"
+        >
+          <div
+            class="am-input-label am-input-label-5"
+          >
             数字键盘
           </div>
           <div
