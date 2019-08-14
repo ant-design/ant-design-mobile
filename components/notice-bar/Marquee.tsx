@@ -43,8 +43,8 @@ export default class Marquee extends React.Component<MarqueeProps, any> {
   }
 
   componentDidUpdate() {
+     this._measureText();
     if (!this._marqueeTimer) {
-      this._measureText();
       this._startAnimation();
     }
   }
