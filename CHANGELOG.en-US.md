@@ -14,9 +14,9 @@ toc: false
 - Major version release is not included in this schedule for breadking change and new features.
 
 ---
-### 2.2.15
+### 2.3.0
 
-`2019-07-31`
+`2019-08-15`
 
 - **Feature**
   - 🌟 `Toast` add two method `Toast.config` 、`Toast.hide` [#3304](https://github.com/ant-design/ant-design-mobile/pull/3304)

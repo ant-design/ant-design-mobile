@@ -15,9 +15,9 @@ toc: false
 
 ---
 
-### 2.2.15
+### 2.3.0
 
-`2019-07-31`
+`2019-08-15`
 
 - **Feature**
   - 🌟 `Toast` 增加全局方法 `Toast.config` 、`Toast.hide` [#3304](https://github.com/ant-design/ant-design-mobile/pull/3304)
