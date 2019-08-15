@@ -14,6 +14,22 @@ toc: false
 - Major version release is not included in this schedule for breadking change and new features.
 
 ---
+### 2.3.0
+
+`2019-08-15`
+
+- **Feature**
+  - 🌟 `Toast` add two method `Toast.config` 、`Toast.hide` [#3304](https://github.com/ant-design/ant-design-mobile/pull/3304)
+  - 🌟 `Input-Item`   add new `disabledKeys` prop for `type='money'`  [#3330](https://github.com/ant-design/ant-design-mobile/pull/3330)
+- **Enhancement**
+  - 📝 `notice-bar`  fix `typescript` error.
+- **Bug Fix**
+  - 🐞`DatePicker` fix infinite loop when select some date.[#125](https://github.com/react-component/m-picker/pull/125) 、[#191](
+https://github.com/react-component/m-date-picker/pull/191)
+  - 🐞`ImagePicker` fix preview picture not show when the url contains space. [#3311](https://github.com/ant-design/ant-design-mobile/pull/3311)
+  - 🐞fix component demo not render in iOS 9. [#3292](https://github.com/ant-design/ant-design-mobile/pull/3292)
+  -  🐞`Modal.prompt` fix prompt can not be focus in Wechat [#3346](https://github.com/ant-design/ant-design-mobile/pull/3346)
+  - `Tabs` support  `null` for tabs's children [#3270](https://github.com/ant-design/ant-design-mobile/pull/3270)
 
 ### 2.2.14
 
