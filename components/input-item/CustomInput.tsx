@@ -307,12 +307,12 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   onFakeInputClick = () => {
-    this.renderCustomKeyboard();
     this.focus();
   }
 
   focus = () => {
     // this focus may invocked by users page button click, so this click may trigger blurEventListener at the same time
+    this.renderCustomKeyboard();
     this.removeBlurListener();
     const { focus } = this.state;
     if (!focus) {
