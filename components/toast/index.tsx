@@ -16,6 +16,7 @@ const config: IToastConfig = {
 };
 
 let messageInstance: any;
+let messageNeedHide: boolean;
 const prefixCls = 'am-toast';
 
 function getMessageInstance(
@@ -51,11 +52,16 @@ function notice(
     loading: 'loading',
   };
   const iconType = iconTypes[type];
-
+  messageNeedHide = false;
   getMessageInstance(mask, notification => {
     if (messageInstance) {
       messageInstance.destroy();
       messageInstance = null;
+    }
+    if (messageNeedHide) {
+      notification.destroy();
+      messageNeedHide = false;
+      return
     }
 
     messageInstance = notification;
@@ -140,6 +146,8 @@ export default {
     if (messageInstance) {
       messageInstance.destroy();
       messageInstance = null;
+    } else {
+      messageNeedHide = true;
     }
   },
   config(conf: Partial<IToastConfig> = {}) {
