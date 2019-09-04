@@ -22,10 +22,6 @@ function getMessageInstance(
   mask: boolean,
   callback: (notification: any) => void,
 ) {
-  if (messageInstance) {
-    messageInstance.destroy();
-    messageInstance = null;
-  }
   (Notification as any).newInstance(
     {
       prefixCls,
@@ -57,6 +53,11 @@ function notice(
   const iconType = iconTypes[type];
 
   getMessageInstance(mask, notification => {
+    if (messageInstance) {
+      messageInstance.destroy();
+      messageInstance = null;
+    }
+
     messageInstance = notification;
 
     notification.notice({
