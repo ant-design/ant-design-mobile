@@ -54,10 +54,15 @@ function notice(
   const iconType = iconTypes[type];
   messageNeedHide = false;
   getMessageInstance(mask, notification => {
+    if (!notification) {
+      return
+    }
+
     if (messageInstance) {
       messageInstance.destroy();
       messageInstance = null;
     }
+
     if (messageNeedHide) {
       notification.destroy();
       messageNeedHide = false;
