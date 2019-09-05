@@ -34,11 +34,15 @@
         &.focus {
           transition: color .2s;
 
-          &:after {
+          &::before {
+            content: "";
+          }
+
+          &::after {
             content: "";
             position: absolute;
-            right: 0;
             top: 10%;
+            right: 0;
             height: 80%;
             border-right: 1.5 * @hd solid @keyboard-confirm-color;
             animation: keyboard-cursor infinite 1s step-start;
@@ -60,6 +64,7 @@
           text-align: left;
           &.focus:after {
             position: relative;
+            top: auto;
           }
         }
         .fake-input-placeholder {
@@ -162,7 +167,7 @@
     opacity: 0;
   }
 
-  to {
+  100% {
     opacity: 1;
   }
 }
