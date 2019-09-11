@@ -166,11 +166,6 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="rn">
-          <a href="//rn.mobile.ant.design">
-            <FormattedMessage id="app.header.menu.rn" />
-          </a>
-        </Menu.Item>
         {/* <Menu.Item key="pc">
           <a href="//ant.design">
             <FormattedMessage id="app.header.menu.pc" />
