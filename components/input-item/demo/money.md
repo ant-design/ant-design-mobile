@@ -56,6 +56,24 @@ class H5NumberInputExample extends React.Component {
             moneyKeyboardWrapProps={moneyKeyboardWrapProps}
           >光标在右</InputItem>
           <InputItem
+            {...getFieldProps('minus', {
+              normalize: (v, prev) => {
+                if (v === '-') {
+                  return v = '-';
+                }
+                if (v && !/^-?[1-9]\d*$/.test(v)) {
+                  return prev;
+                }
+                return v;
+              },
+            })}
+            type={type}
+            placeholder="keyboard with minus"
+            clear
+            moneyKeyboardWrapProps={moneyKeyboardWrapProps}
+            dotToMinus
+          >带负号键盘</InputItem>
+          <InputItem
             {...getFieldProps('money2', {
               normalize: (v, prev) => {
                 if (v && !/^(([1-9]\d*)|0)(\.\d{0,2}?)?$/.test(v)) {

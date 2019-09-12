@@ -285,7 +285,7 @@ class InputItem extends React.Component<InputItemProps, any> {
       disabledKeys,
       ...restProps
     } = props;
-    const { name, disabled, maxLength } = restProps;
+    const { name, disabled, maxLength, dotToMinus } = restProps;
     const { value } = this.state;
 
     // tslint:disable-next-line:variable-name
@@ -384,6 +384,7 @@ class InputItem extends React.Component<InputItemProps, any> {
                 moneyKeyboardHeader={moneyKeyboardHeader}
                 autoAdjustHeight={autoAdjustHeight}
                 disabledKeys={disabledKeys}
+                dotToMinus={dotToMinus}
               />
             ) : (
               <Input

@@ -135,12 +135,15 @@ class CustomKeyboard extends React.Component<any, any> {
       cancelKeyboardLabel,
       wrapProps,
       header,
+      dotToMinus,
     } = this.props;
 
     const wrapperCls = classnames(
       `${prefixCls}-wrapper`,
       `${prefixCls}-wrapper-hide`,
     );
+
+    const symbolPos = dotToMinus ? '-' : '.';
 
     return (
       <div className={wrapperCls} ref={el => (this.antmKeyboard = el)} {...wrapProps}>
@@ -180,7 +183,7 @@ class CustomKeyboard extends React.Component<any, any> {
               </KeyboardItem>
             </tr>
             <tr>
-              {['.', '0'].map((item, index) =>
+              {[symbolPos, '0'].map((item, index) =>
               // tslint:disable-next-line:jsx-no-multiline-js
                 this.renderKeyboardItem(item, index),
               )}
