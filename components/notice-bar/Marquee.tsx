@@ -84,7 +84,7 @@ export default class Marquee extends React.Component<MarqueeProps, any> {
       window.clearTimeout(this._marqueeTimer);
     }
     const fps = this.props.fps;
-    const TIMEOUT = 1 / fps! * 1000;
+    const TIMEOUT = 1 / fps * 1000;
     const isLeading = this.state.animatedWidth === 0;
     const timeout = isLeading ? this.props.leading : TIMEOUT;
 
