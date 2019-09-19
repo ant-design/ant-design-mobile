@@ -5,7 +5,8 @@ import { addClass, removeClass } from '../_util/class';
 import CustomKeyboard from './CustomKeyboard';
 import Portal from './Portal';
 import { InputEventHandler, InputKey } from './PropsType';
-import { canUseDOM } from '../_util/exenv';
+import { canUseDOM, IS_IOS } from '../_util/exenv';
+
 
 let customNumberKeyboard: CustomKeyboard | null = null;
 const IS_REACT_16 = !!ReactDOM.createPortal;
@@ -17,6 +18,14 @@ function getBodyScrollTop () {
 function setBodyScrollTop(scrollTop: number) {
   const el = document.scrollingElement || document.documentElement;
   el.scrollTop = scrollTop;
+}
+
+function getEvtAdapter (): string {
+  const EVENTS = {
+    IOS: 'touchend',
+    ANDROID: 'click',
+  };
+  return IS_IOS ? EVENTS.IOS : EVENTS.ANDROID;
 }
 
 export interface NumberInputProps {
@@ -87,11 +96,11 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   addBlurListener = () => {
-    document.addEventListener('click', this.doBlur, false);
+    document.addEventListener(getEvtAdapter(), this.doBlur, false);
   }
 
   removeBlurListener = () => {
-    document.removeEventListener('click', this.doBlur, false);
+    document.removeEventListener(getEvtAdapter(), this.doBlur, false);
   }
 
   componentWillUnmount() {

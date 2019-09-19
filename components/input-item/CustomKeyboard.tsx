@@ -19,6 +19,15 @@ function includes(arr: Array<any>, item: any) {
   }
   return false;
 }
+
+function getEvtAdapter():string {
+  const EVENTS = {
+    IOS: 'onTouchEnd',
+    ANDROID: 'onClick',
+  };
+  return IS_IOS ? EVENTS.IOS : EVENTS.ANDROID;
+}
+
 export type HTMLTableDataProps = Omit<
   React.HTMLProps<HTMLTableDataCellElement>,
   'onClick'
@@ -64,14 +73,20 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
       [`${prefixCls}-item-disabled`]: disabled,
     };
     const wrapCls = classnames(`${prefixCls}-item`, className, extraCls);
+
+    const handleEvent: any = {};
+    const curEvt = getEvtAdapter();
+    handleEvent[curEvt] = (
+      e : React.MouseEvent<HTMLTableDataCellElement>
+      ) => {
+      onClick(e, value as string);
+    }
     return (
       <TouchFeedback disabled={disabled} activeClassName={`${prefixCls}-item-active`}>
         <td
           ref={tdRef}
           // tslint:disable-next-line:jsx-no-multiline-js
-          onClick={e => {
-            onClick(e, value as string);
-          }}
+          {...handleEvent}
           className={wrapCls}
           {...restProps}
         >
