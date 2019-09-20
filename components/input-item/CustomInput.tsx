@@ -7,7 +7,6 @@ import Portal from './Portal';
 import { InputEventHandler, InputKey } from './PropsType';
 import { canUseDOM } from '../_util/exenv';
 
-
 let customNumberKeyboard: CustomKeyboard | null = null;
 const IS_REACT_16 = !!ReactDOM.createPortal;
 

@@ -19,7 +19,6 @@ function includes(arr: Array<any>, item: any) {
   }
   return false;
 }
-
 export type HTMLTableDataProps = Omit<
   React.HTMLProps<HTMLTableDataCellElement>,
   'onClick'
@@ -65,7 +64,6 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
       [`${prefixCls}-item-disabled`]: disabled,
     };
     const wrapCls = classnames(`${prefixCls}-item`, className, extraCls);
-
     return (
       <TouchFeedback disabled={disabled} activeClassName={`${prefixCls}-item-active`}>
         <td
