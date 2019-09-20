@@ -5,7 +5,7 @@ import { addClass, removeClass } from '../_util/class';
 import CustomKeyboard from './CustomKeyboard';
 import Portal from './Portal';
 import { InputEventHandler, InputKey } from './PropsType';
-import { canUseDOM, IS_IOS } from '../_util/exenv';
+import { canUseDOM } from '../_util/exenv';
 
 
 let customNumberKeyboard: CustomKeyboard | null = null;
@@ -18,14 +18,6 @@ function getBodyScrollTop () {
 function setBodyScrollTop(scrollTop: number) {
   const el = document.scrollingElement || document.documentElement;
   el.scrollTop = scrollTop;
-}
-
-function getEvtAdapter (): string {
-  const EVENTS = {
-    IOS: 'touchend',
-    ANDROID: 'click',
-  };
-  return IS_IOS ? EVENTS.IOS : EVENTS.ANDROID;
 }
 
 export interface NumberInputProps {
@@ -96,11 +88,11 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   addBlurListener = () => {
-    document.addEventListener(getEvtAdapter(), this.doBlur, false);
+    document.addEventListener('touchend', this.doBlur, false);
   }
 
   removeBlurListener = () => {
-    document.removeEventListener(getEvtAdapter(), this.doBlur, false);
+    document.removeEventListener('touchend', this.doBlur, false);
   }
 
   componentWillUnmount() {

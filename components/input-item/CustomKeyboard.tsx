@@ -20,14 +20,6 @@ function includes(arr: Array<any>, item: any) {
   return false;
 }
 
-function getEvtAdapter():string {
-  const EVENTS = {
-    IOS: 'onTouchEnd',
-    ANDROID: 'onClick',
-  };
-  return IS_IOS ? EVENTS.IOS : EVENTS.ANDROID;
-}
-
 export type HTMLTableDataProps = Omit<
   React.HTMLProps<HTMLTableDataCellElement>,
   'onClick'
@@ -38,7 +30,7 @@ export interface KeyboardItemProps extends HTMLTableDataProps {
   tdRef?: React.Ref<HTMLTableDataCellElement>;
   iconOnly?: boolean;
   onClick: (
-    event: React.MouseEvent<HTMLTableDataCellElement>,
+    event: React.TouchEvent<HTMLTableDataCellElement>,
     value: string,
   ) => void;
 }
@@ -74,19 +66,14 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
     };
     const wrapCls = classnames(`${prefixCls}-item`, className, extraCls);
 
-    const handleEvent: any = {};
-    const curEvt = getEvtAdapter();
-    handleEvent[curEvt] = (
-      e : React.MouseEvent<HTMLTableDataCellElement>
-      ) => {
-      onClick(e, value as string);
-    }
     return (
       <TouchFeedback disabled={disabled} activeClassName={`${prefixCls}-item-active`}>
         <td
           ref={tdRef}
           // tslint:disable-next-line:jsx-no-multiline-js
-          {...handleEvent}
+          onTouchEnd = { e => {
+            onClick(e, value as string);
+          }}
           className={wrapCls}
           {...restProps}
         >
@@ -110,7 +97,7 @@ class CustomKeyboard extends React.Component<any, any> {
   confirmKeyboardItem: HTMLTableDataCellElement | null;
 
   onKeyboardClick = (
-    e: React.MouseEvent<HTMLTableDataCellElement>,
+    e: React.TouchEvent<HTMLTableDataCellElement>,
     value: string = '',
   ) => {
     e.nativeEvent.stopImmediatePropagation();
