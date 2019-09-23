@@ -74,7 +74,6 @@ export default function operation(
     div,
   );
 
-  return {
-    close,
-  };
+  Modal.simpleModal = { close };
+  return Modal.simpleModal;
 }

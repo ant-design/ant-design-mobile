@@ -83,7 +83,6 @@ export default function alert(
     div,
   );
 
-  return {
-    close,
-  };
+  Modal.simpleModal = { close };
+  return Modal.simpleModal;
 }

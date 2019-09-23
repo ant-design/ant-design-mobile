@@ -67,3 +67,8 @@ Properties | Descrition | Type | Default
 | platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
 
 call Modal.operation(actions?).close()` can close Operation Modal outside anywhere as you wish.
+
+
+### Modal.close()
+
+call `Modal.close()` can close Alert Modal, Prompt modal, Operation Modal on global

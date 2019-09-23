@@ -68,3 +68,7 @@ subtitle: 对话框
 | platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
 
 `Modal.operation(actions?, platform?).close()` 可以在外部关闭 operation`
+
+### Modal.close()
+
+`Modal.close()` 可以全局关闭Modal.alert, modal.prompt, Modal.operation`

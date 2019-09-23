@@ -54,6 +54,15 @@ export default class Modal extends ModalComponent<ModalProps, any> {
     platform: 'ios',
   };
 
+  static simpleModal: { close: () => void } | null = null;
+
+  static close: () => void = () => {
+    if (Modal.simpleModal) {
+      Modal.simpleModal.close();
+      Modal.simpleModal = null;
+    }
+  }
+
   renderFooterButton(button: Action<React.CSSProperties>, prefixCls: string | undefined, i: number) {
     let buttonStyle = {};
     if (button.style) {

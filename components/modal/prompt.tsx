@@ -245,7 +245,6 @@ export default function prompt(
     div,
   );
 
-  return {
-    close,
-  };
+  Modal.simpleModal = { close };
+  return Modal.simpleModal;
 }
