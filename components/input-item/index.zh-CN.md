@@ -43,7 +43,7 @@ subtitle: 文本输入
 | moneyKeyboardHeader    | 自定义金额虚拟键盘头部  | ReactNode | null |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置, 当`type`为`money`，可以自定义确认按钮的文案。 | Object: { confirmLabel } |  无 |
 | autoAdjustHeight   | 防止输入框被键盘遮挡。(仅 `type=money`时有效) | bool |  false |
-| disabledKeys   | 禁用部分数字按键(仅 `type=money`时有效) | array | null |  null |
+| disabledKeys   | 禁用部分数字按键(仅 `type=money`时有效) | array | null |
 
 > 注意: 不要在受控组件的 `onChange` 事件中异步设置 `value`，否则中文输入可能带来问题，[相关问题参考](https://github.com/facebook/react/issues/3926)。
 >

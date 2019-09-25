@@ -42,7 +42,7 @@ Properties | Description | Type | Default
 | moneyKeyboardHeader    | custom money virtual keyboard header  | ReactNode | null |
 | locale   | internationalization, can override `[LocaleProvider](https://mobile.ant.design/components/locale-provider)`,  when`type`is`money`，can cunstom the keyboard confirm item's label | Object: { confirmLabel } |   |
 | autoAdjustHeight   | prevent keyboard from covering input element.(only for `type=money`) | bool |  false |
-| disabledKeys   | disable some keyboard item (only for  `type=money`) | array | null |  null |
+| disabledKeys   | disable some keyboard item (only for  `type=money`) | array | null |
 
 > Note: Do not set `value` asynchronously in the `onChange` event of the controlled component, otherwise Chinese input may cause problems, [related issue](https://github.com/facebook/react/issues/3926).
 >
