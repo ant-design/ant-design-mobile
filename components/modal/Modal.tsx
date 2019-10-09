@@ -37,6 +37,7 @@ export interface ModalProps extends ModalPropsType<React.CSSProperties> {
   platform?: string;
   style?: React.CSSProperties;
   bodyStyle?: React.CSSProperties;
+  maskStyle?: React.CSSProperties;
 }
 
 export default class Modal extends ModalComponent<ModalProps, any> {
