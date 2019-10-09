@@ -33,7 +33,7 @@ Properties | Descrition | Type | Default
 | maskTransitionName  | mask animation css class name | String | |
 | className  | additional className for dialog | String | |
 | wrapClassName  | additional className for dialog wrap | String | |
-| maskStyle  | additional mask for style | Object | |
+| maskStyle  | additional style for mask | Object | |
 
 ### Modal.alert(title, message, actions?) ( Support Platform：WEB、React-Native )
 
