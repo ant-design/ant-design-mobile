@@ -29,7 +29,7 @@ export interface KeyboardItemProps extends HTMLTableDataProps {
   tdRef?: React.Ref<HTMLTableDataCellElement>;
   iconOnly?: boolean;
   onClick: (
-    event: React.MouseEvent<HTMLTableDataCellElement>,
+    event: React.TouchEvent<HTMLTableDataCellElement>,
     value: string,
   ) => void;
 }
@@ -69,7 +69,7 @@ export class KeyboardItem extends React.Component<KeyboardItemProps, any> {
         <td
           ref={tdRef}
           // tslint:disable-next-line:jsx-no-multiline-js
-          onClick={e => {
+          onTouchEnd = { e => {
             onClick(e, value as string);
           }}
           className={wrapCls}
@@ -95,7 +95,7 @@ class CustomKeyboard extends React.Component<any, any> {
   confirmKeyboardItem: HTMLTableDataCellElement | null;
 
   onKeyboardClick = (
-    e: React.MouseEvent<HTMLTableDataCellElement>,
+    e: React.TouchEvent<HTMLTableDataCellElement>,
     value: string = '',
   ) => {
     e.nativeEvent.stopImmediatePropagation();
