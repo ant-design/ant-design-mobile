@@ -2,6 +2,10 @@ import React from 'react';
 import { mount } from 'enzyme';
 import InputItem from '../index';
 
+beforeEach(() => {
+  global.document.body.innerHTML = '';
+});
+
 describe('InputItem', () => {
   // No need to render Snapshot again, because of `./demo.test.js`
 
@@ -126,8 +130,8 @@ describe('InputItem', () => {
     ), { attachTo: div });
     // 模拟输入框点击，拉起键盘
     customKeyboard.find('div[role="textbox"]').simulate('click', {});
-    expect(global.document.querySelectorAll('.am-number-keyboard-wrapper').length).toBe(2);
-    expect(global.document.querySelectorAll('.am-number-keyboard-item-disabled').length).toBe(3);
+    expect(global.document.querySelectorAll('.am-number-keyboard-wrapper').length).toBe(1);
+    expect(global.document.querySelectorAll('.am-number-keyboard-item-disabled').length).toBe(2);
     jest.runAllTimers();
   });
 });
