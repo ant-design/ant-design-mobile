@@ -15,6 +15,7 @@ export interface DrawerWebProps extends DrawerProps {
   docked?: boolean;
   transitions?: boolean;
   touch?: boolean;
+  enableDragHandle?: boolean;
   dragToggleDistance?: number;
   prefixCls?: string;
   className?: string;
