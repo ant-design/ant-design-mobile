@@ -94,7 +94,7 @@ export default class TextareaItem extends React.Component<
     }
   }
   componentDidUpdate() {
-    if (this.props.autoHeight && this.state.focus) {
+    if (this.props.autoHeight) {
       this.reAlignHeight();
     }
   }
