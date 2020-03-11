@@ -55,6 +55,10 @@ export default class Progress extends React.Component<ProgressProps, any> {
       [`${prefixCls}-hide-outer`]: !unfilled,
     });
 
+    const percentWrapCls = classnames(`${prefixCls}-bar`, {
+      [`${prefixCls}-percent`]: this.props.percent > 0,
+    })
+
     return (
       <div
         style={style}
@@ -66,8 +70,8 @@ export default class Progress extends React.Component<ProgressProps, any> {
       >
         <div
           ref={el => (this.barRef = el)}
-          className={`${prefixCls}-bar`}
-          style={{ ...barStyle, ...percentStyle }}
+          className={percentWrapCls}
+          style={{ ...percentStyle, ...barStyle }}
         />
       </div>
     );

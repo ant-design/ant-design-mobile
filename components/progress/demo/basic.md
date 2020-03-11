@@ -32,7 +32,9 @@ class MyProgress extends React.Component {
     return (
       <div className="progress-container">
         <Progress percent={30} position="fixed" />
-        <div style={{ height: 18 }} />
+        <WhiteSpace size="xl" />
+        <Progress percent={40} position="normal" barStyle={{ height: '10px', backgroundColor: 'red', border: 'none' }} />
+        <WhiteSpace size="xl" />
         <Progress percent={40} position="normal" unfilled={false} appearTransition />
         <div className="show-info">
           <div className="progress"><Progress percent={percent} position="normal" /></div>
