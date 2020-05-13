@@ -17,6 +17,7 @@ exports[`renders ./components/pull-to-refresh/demo/basic.md correctly 1`] = `
   </a>
   <div
     class="am-pull-to-refresh am-pull-to-refresh-down"
+    scale="0.6"
     style="height:0;overflow:auto"
   >
     <div
@@ -59,6 +60,7 @@ exports[`renders ./components/pull-to-refresh/demo/basic-listview.md correctly 1
     >
       <div
         class="am-pull-to-refresh am-pull-to-refresh-down"
+        scale="0.6"
       >
         <div
           class="am-pull-to-refresh-content-wrapper"
