@@ -29,7 +29,7 @@ export default class Icon extends React.Component<IconProps, any> {
       `am-icon-${size}`,
     );
     return (
-      <svg className={cls} {...restProps}>
+      <svg className={cls} {...(restProps as any)}>
         <use xlinkHref={`#${type}`} />
       </svg>
     );
