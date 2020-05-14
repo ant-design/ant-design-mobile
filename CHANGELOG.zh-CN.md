@@ -15,6 +15,13 @@ toc: false
 
 ---
 
+### 2.3.2
+
+`2020-05-13`
+
+- **Enhancement**
+  - 📝 `Switch` 调整样式 [#3606](https://github.com/ant-design/ant-design-mobile/pull/3606)
+
 ### 2.3.0
 
 `2019-08-15`

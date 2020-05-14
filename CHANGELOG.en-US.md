@@ -14,6 +14,13 @@ toc: false
 - Major version release is not included in this schedule for breadking change and new features.
 
 ---
+### 2.3.2
+
+`2020-05-13`
+
+- **Enhancement**
+  - 📝 `Switch` change style [#3606](https://github.com/ant-design/ant-design-mobile/pull/3606)
+
 ### 2.3.0
 
 `2019-08-15`
