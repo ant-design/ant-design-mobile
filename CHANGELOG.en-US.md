@@ -14,6 +14,13 @@ toc: false
 - Major version release is not included in this schedule for breadking change and new features.
 
 ---
+### 2.3.3
+
+`2020-05-19`
+
+- **Bug Fix**
+  - 📝 `InputItem` revert event to click from touchend, which changed by 2.3.2 [#3613](https://github.com/ant-design/ant-design-mobile/pull/3613)
+
 ### 2.3.2
 
 `2020-05-13`

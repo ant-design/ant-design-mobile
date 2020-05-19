@@ -15,6 +15,13 @@ toc: false
 
 ---
 
+### 2.3.3
+
+`2020-05-19`
+
+- **Bug Fix**
+  - 📝 `InputItem` 触发方式回滚到 click，该特性首次在 2.3.2 被引入 [#3613](https://github.com/ant-design/ant-design-mobile/pull/3613)
+
 ### 2.3.2
 
 `2020-05-13`
