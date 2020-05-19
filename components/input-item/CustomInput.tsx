@@ -87,11 +87,11 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   addBlurListener = () => {
-    document.addEventListener('touchend', this.doBlur, false);
+    document.addEventListener('click', this.doBlur, false);
   }
 
   removeBlurListener = () => {
-    document.removeEventListener('touchend', this.doBlur, false);
+    document.removeEventListener('click', this.doBlur, false);
   }
 
   componentWillUnmount() {
