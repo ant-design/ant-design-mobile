@@ -1,47 +1,10 @@
-@import "~antd/lib/style/themes/default.less";
+@import '~antd/lib/style/themes/default.less';
 // For 2.x reset compatibility
 //   import 'antd/style/v2-compatible-reset';
 //     or
 //   @import '~antd/style/v2-compatible-reset.css';
 // unify the setting of elements's margin and padding for browsers
-body,
-div,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-pre,
-code,
-form,
-fieldset,
-legend,
-input,
-textarea,
-p,
-blockquote,
-th,
-td,
-hr,
-button,
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
   margin: 0;
   padding: 0;
 }
@@ -59,7 +22,7 @@ body {
   font-family: @font-family;
   line-height: 1.5;
   color: #314659;
-  font-size: 14px;
+  font-size: 14Px;
   background: #fff;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   overflow-x: hidden;
@@ -68,7 +31,7 @@ body {
 }
 
 a {
-  transition: color 0.3s ease;
+  transition: color .3s ease;
   &:focus {
     text-decoration: underline;
     text-decoration-skip: ink;
@@ -83,16 +46,16 @@ a {
 
 .main-container {
   padding: 0 170px 144px 64px;
-  margin-left: -1px;
+  margin-left: -1Px;
   background: #fff;
-  min-height: 500px;
+  min-height: 500Px;
   overflow: hidden;
-  border-left: 1px solid #e9e9e9;
+  border-left: 1Px solid #e9e9e9;
   position: relative;
 }
 
 .aside-container {
-  padding-bottom: 50px;
+  padding-bottom: 50Px;
   font-family: Lato, @font-family;
   max-height: 100vh;
   overflow: auto;
@@ -100,7 +63,7 @@ a {
   &.ant-menu-inline .ant-menu-submenu-title h4,
   &.ant-menu-inline > .ant-menu-item,
   &.ant-menu-inline .ant-menu-item a {
-    font-size: 14px;
+    font-size: 14Px;
     text-overflow: ellipsis;
     overflow: hidden;
   }
@@ -114,10 +77,10 @@ a {
 }
 
 .aside-container .chinese {
-  font-size: 12px;
-  margin-left: 6px;
+  font-size: 12Px;
+  margin-left: 6Px;
   font-weight: normal;
-  opacity: 0.67;
+  opacity: .67;
 }
 
 .outside-link {
@@ -125,10 +88,10 @@ a {
 }
 
 .outside-link:after {
-  content: "\e691";
-  font-family: "anticon";
-  margin-left: 5px;
-  font-size: 12px;
+  content: '\e691';
+  font-family: 'anticon';
+  margin-left: 5Px;
+  font-size: 12Px;
   color: #aaa;
 }
 
@@ -140,3 +103,4 @@ a {
   -webkit-user-select: initial;
   user-select: initial;
 }
+
