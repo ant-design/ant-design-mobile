@@ -96,7 +96,7 @@
     "mockdate": "^2.0.1",
     "pre-commit": "1.x",
     "preact": "~8.2.6",
-    "preact-compat": "3.18.0",
+    "preact-compat": "3.19.0",
     "qrcode.react": "^0.7.1",
     "raf": "^3.4.0",
     "rc-form": "1.x",
