@@ -1,0 +1,20 @@
+{
+  "name": "@ant-design/mobile-styles",
+  "version": "3.0.0-alpha.0",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alipay-inc.com/antd-mobile/antd-mobile-assets"
+  },
+  "description": "antd-mobile-styles",
+  "main": "dist/antd-mobile-style.css",
+  "files": [
+    "dist/*.css",
+    "es",
+    "lib"
+  ],
+  
+  "dependencies": {
+    "alipay-style": "^0.0.9",
+    "normalize.css": "^8.0.1"
+  }
+}

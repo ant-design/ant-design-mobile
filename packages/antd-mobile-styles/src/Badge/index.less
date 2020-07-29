@@ -1,0 +1,158 @@
+@import (reference) '../base/index.less';
+
+// start
+// 行高，由于这里的字体都比较小，这里的行高用特殊的 1
+@badge-line-height: 1;
+// 背景色
+@badge-bg-color: @color-red-1;
+// 字体颜色
+@badge-font-color: @color-text-base;
+// 圆角
+@badge-border-radius: @corner-radius-lg;
+// end
+
+@badgePrefixCls: amd-badge;
+
+.@{badgePrefixCls} {
+  // 下边的不能改
+  @size: 32 * @rpx;
+  @font-size-caption-sm: 24 * @rpx;
+  @link-button-font-size: 40 * @rpx;
+  @font-size-subhead: 30 * @rpx;
+
+  position: relative;
+  display: inline-block;
+  color: @badge-font-color;
+  font-weight: 500;
+  line-height: @badge-line-height;
+
+  &-stroke {
+    border: 2 * @rpx solid @badge-font-color;
+  }
+
+  &-bubble {
+    position: absolute;
+    z-index: 10;
+    top: -10 * @rpx;
+    display: inline-block;
+    min-width: 32 * @rpx;
+    box-sizing: border-box;
+    padding: 0 4 * @rpx;
+    background-color: @badge-bg-color;
+    border-radius: @badge-border-radius;
+    text-align: center;
+
+    &&-right {
+      top: -10 * 2 * @rpx;
+      right: -24 * 2 * @rpx;
+      border-radius: @badge-border-radius @badge-border-radius
+        @badge-border-radius 0;
+    }
+
+    &&-left {
+      top: -10 * 2 * @rpx;
+      left: -24 * 2 * @rpx;
+      border-radius: @badge-border-radius @badge-border-radius 0;
+    }
+
+    &&-middle {
+      top: -20 * 2 * @rpx;
+      left: 50%;
+      margin-left: -20 * 2 * @rpx;
+    }
+
+    &-text {
+      position: relative;
+      z-index: 1;
+      top: 0;
+      font-size: @font-size-weak;
+      line-height: 32 * @rpx;
+    }
+
+    &-triangle {
+      position: absolute;
+      z-index: 0;
+      width: 0;
+      height: 0;
+    }
+
+    &-left-triangle,
+    &-right-triangle {
+      bottom: -2 * 2 * @rpx;
+      border-top: 6 * 2 * @rpx solid @badge-bg-color;
+      border-right: 4 * 2 * @rpx solid transparent;
+      border-left: 4 * 2 * @rpx solid transparent;
+    }
+
+    &-left-triangle {
+      right: 0;
+      transform: rotate(-45deg);
+    }
+
+    &-right-triangle {
+      left: 0;
+      transform: rotate(45deg);
+    }
+
+    &-middle-triangle {
+      bottom: -3 * 2 * @rpx;
+      left: 50%;
+      border-top: 3 * 2 * @rpx solid @badge-bg-color;
+      border-right: 3 * 2 * @rpx solid transparent;
+      border-left: 3 * 2 * @rpx solid transparent;
+      margin-left: -3 * 2 * @rpx;
+    }
+  }
+
+  &-text {
+    position: absolute;
+    z-index: 10;
+    top: -@size / 2;
+    right: -@size / 2;
+    min-width: @size;
+    height: @size;
+    box-sizing: border-box;
+    padding: 0 4 * @rpx;
+    background-color: @badge-bg-color;
+    border-radius: @badge-border-radius;
+    font-size: @font-size-caption-sm;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: @size;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+    white-space: nowrap;
+
+    a {
+      color: @color-text-base;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &-dot {
+    position: absolute;
+    z-index: 10;
+    top: -10 * @rpx;
+    right: 0;
+    width: 20 * @rpx;
+    height: 20 * @rpx;
+    background: @badge-bg-color;
+    border-radius: @corner-radius-circle;
+    transform: translateX(50%);
+    transform-origin: 0 center;
+  }
+
+  &-not-a-wrapper &-text,
+  &-not-a-wrapper &-bubble,
+  &-not-a-wrapper &-dot {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: block;
+    transform: translateX(0);
+  }
+}

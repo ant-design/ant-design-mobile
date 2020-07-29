@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover snapshot 1`] = `
+<Tooltip
+  align={
+    Object {
+      "offset": Array [
+        -10,
+        0,
+      ],
+      "overflow": Object {
+        "adjustX": 0,
+        "adjustY": 0,
+      },
+    }
+  }
+  arrowContent={null}
+  data-y="111"
+  destroyTooltipOnHide={false}
+  mask={true}
+  onVisibleChange={[Function]}
+  overlay={
+    <div
+      className="amd-popover-inner-wrapper"
+    >
+      <PopoverItem
+        data-seed="logId"
+        disabled={false}
+        firstItem={true}
+        icon={[Function]}
+        onPress={[Function]}
+        value="scan"
+      >
+        Scan
+      </PopoverItem>
+      <PopoverItem
+        disabled={false}
+        firstItem={false}
+        icon={[Function]}
+        onPress={[Function]}
+        value="special"
+      >
+        My Qrcode
+      </PopoverItem>
+      <PopoverItem
+        disabled={false}
+        firstItem={false}
+        icon={[Function]}
+        onPress={[Function]}
+        value="button ct"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": 5,
+            }
+          }
+        >
+          Help
+        </span>
+      </PopoverItem>
+    </div>
+  }
+  placement="bottomRight"
+  prefixCls="amd-popover"
+  visible={true}
+>
+  <div>
+    点击 
+    <More
+      size="md"
+    />
+  </div>
+</Tooltip>
+`;

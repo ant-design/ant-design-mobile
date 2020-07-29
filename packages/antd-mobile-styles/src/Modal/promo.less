@@ -1,0 +1,22 @@
+@import (reference) './base.less';
+
+.@{promoPrefixClass} {
+  width: 630 * @rpx;
+  min-height: 930 * @rpx;
+  background-color: @modal-background;
+
+  &-mask {
+    background-color: @modal-mask-promo;
+  }
+
+  &-close-icon {
+    position: absolute;
+    right: 0;
+    bottom: -48 * @rpx - 60 * @rpx;
+    left: 0;
+    width: 60 * @rpx;
+    height: 60 * @rpx;
+    margin: auto;
+    color: @color-text-weak;
+  }
+}

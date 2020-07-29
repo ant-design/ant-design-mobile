@@ -1,0 +1,35 @@
+// Encoded SVG Background
+.encoded-svg-background-i(@svg) {
+  @url: `encodeURIComponent(@{svg})`;
+
+  background-image: url('data:image/svg+xml;charset=utf-8,@{url}');
+}
+
+.ellipsis() {
+  overflow: hidden;
+  width: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.background(@start: #ffffff, @end: #000000) {
+  background: @end;
+  background-image: linear-gradient(@start, @end);
+}
+
+.iphonex(@rules) {
+  // iphonex
+  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    @rules();
+  }
+
+  // iphonex max
+  @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+    @rules();
+  }
+
+  // iphonexr
+  @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+    @rules();
+  }
+}

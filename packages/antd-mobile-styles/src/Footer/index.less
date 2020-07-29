@@ -1,0 +1,105 @@
+@import (reference) '../base/index.less';
+
+// start
+// 背景
+@footer-background: @color-fill-grey-inverse;
+// 文字颜色
+@footer-text-color: @color-text-weak;
+// 文字大小
+@footer-text-size: @font-size-content;
+// tag 上边距
+@footer-tag-margin-top: @v-spacing-large;
+// tag padding
+@footer-tag-padding-TB: 8 * @rpx;
+@footer-tag-padding-LR: 24 * @rpx;
+// tag 颜色
+@footer-tag-color: @color-text-subtitle;
+// tag 背景
+@footer-tag-background: #f5f5f5;
+// tag 字体大小
+@footer-tag-size: @font-size-subcontent;
+// tag 圆角
+@footer-tag-radius: 24 * @rpx;
+// tag 间距
+@footer-tag-spacing: 40 * @rpx;
+
+// link 下边距
+@footer-link-margin-bottom: @v-spacing-standard;
+// link 字体颜色
+@footer-link-color: @color-brand-1;
+// link 字体大小
+@footer-link-size: @font-size-subcontent;
+// link 间距
+@footer-link-spacing: @v-spacing-large;
+
+// logo 高度
+@footer-logo-height: 36 * @rpx;
+// end
+
+@footerPrefixCls: amd-footer;
+
+.@{footerPrefixCls} {
+  padding: 40 * @rpx;
+  background-color: @footer-background;
+  line-height: @default-line-height;
+  text-align: center;
+
+  .@{footerPrefixCls}-text {
+    color: @footer-text-color;
+    font-size: @footer-text-size;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  ul.@{footerPrefixCls}-tags {
+    padding-top: @footer-tag-margin-top;
+
+    li {
+      display: block;
+      padding: @footer-tag-padding-TB @footer-tag-padding-LR;
+      background-color: @footer-tag-background;
+      border-radius: @footer-tag-radius;
+      color: @footer-tag-color;
+      font-size: @footer-tag-size;
+    }
+
+    li + li {
+      margin-left: @footer-tag-spacing;
+    }
+  }
+
+  ul.@{footerPrefixCls}-links {
+    padding-bottom: @footer-link-margin-bottom;
+
+    li {
+      display: block;
+      color: @footer-link-color;
+      font-size: @footer-link-size;
+    }
+
+    li + li {
+      &::before {
+        display: inline-block;
+        padding: 0 @footer-link-spacing;
+        color: @color-fill-grey-light;
+        content: '|';
+      }
+    }
+  }
+
+  .@{footerPrefixCls}-logo {
+    img {
+      display: block;
+      width: auto;
+      height: @footer-logo-height;
+      padding: 6 * @rpx 3 * @rpx;
+      margin: 0 auto;
+    }
+  }
+}

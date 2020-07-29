@@ -1,0 +1,93 @@
+@import (reference) '../base/index.less';
+
+.amd-tabs-item {
+  position: relative;
+  display: flex;
+  flex: 1 0;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.amd-tabs-basis {
+  position: relative;
+  display: inline-block;
+  min-width: 128 * @rpx;
+  height: 100%;
+  margin-left: 30 * @rpx;
+  line-height: 76 * @rpx;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.amd-tabs-capsule {
+  padding: 16 * @rpx 30 * @rpx;
+  margin: 24 * @rpx 0 24 * @rpx 14 * @rpx;
+  background: @color-divider-background;
+  border-radius: 70 * @rpx;
+
+  .amd-tabs-badge {
+    margin-left: 8 * @rpx;
+    color: #999;
+  }
+}
+
+.amd-tabs-mixin {
+  padding: 24 * @rpx 20 * @rpx;
+  text-align: center;
+
+  &-title {
+    color: @color-text-title;
+    font-size: 34 * @rpx;
+    font-weight: 500;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  &-desc {
+    background: @color-divider-background;
+    border-radius: 20 * @rpx;
+    color: @color-text-subtitle;
+    font-size: 26 * @rpx;
+    line-height: 1.3;
+    text-align: center;
+  }
+}
+
+.amd-tabs-item-active {
+  .amd-tabs-basis {
+    color: @color-brand-1;
+
+    &-decorator {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4 * @rpx;
+      align-self: flex-end;
+      background: @color-brand-1;
+      border-radius: 2 * @rpx;
+    }
+  }
+
+  .amd-tabs-capsule {
+    background: @color-brand-1;
+    color: @color-text-base;
+
+    .amd-tabs-badge {
+      color: inherit;
+      opacity: 0.4;
+    }
+  }
+
+  .amd-tabs-mixin {
+    &-title {
+      color: @color-brand-1;
+    }
+
+    &-desc {
+      background: @color-brand-1;
+      color: @color-text-base;
+    }
+  }
+}

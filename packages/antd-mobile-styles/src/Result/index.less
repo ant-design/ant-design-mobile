@@ -1,0 +1,82 @@
+@import (reference) '../base/index.less';
+
+// start
+// 图片尺寸
+@result-img-size: 128 * @rpx;
+// 主区域背景
+@result-main-background: @color-fill-grey-inverse;
+// 左右边距
+@result-spacing-LR: @h-spacing-large;
+// 主标题颜色
+@result-title-color: @color-text-title;
+// 主标题大小
+@result-title-size: @font-size-title;
+// 描述颜色
+@result-desc-color: @color-text-subtitle;
+// 描述大小
+@result-desc-size: @font-size-content;
+// end
+
+@prefixCls: amd-result;
+
+.@{prefixCls} {
+  @imgSize: @result-img-size;
+
+  text-align: center;
+
+  &-main {
+    padding: 64 * @rpx @result-spacing-LR;
+    background: @result-main-background;
+  }
+
+  &-img {
+    width: @imgSize;
+    height: @imgSize;
+    margin: 0 auto 40 * @rpx;
+
+    // 如果是 Icon，强制设置大小
+    .amd-icon {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-success {
+      color: @color-brand-1;
+    }
+
+    &-error {
+      color: @color-fill-warning;
+    }
+
+    &-info {
+      color: @color-brand-1;
+    }
+
+    &-wait {
+      color: @color-pomonagreen-1;
+    }
+
+    &-warn {
+      color: @color-orange-1;
+    }
+  }
+
+  &-title {
+    color: @result-title-color;
+    font-size: @result-title-size;
+  }
+
+  &-message {
+    margin-top: 16 * @rpx;
+    color: @result-desc-color;
+    font-size: @result-desc-size;
+  }
+
+  &-buttons {
+    margin: 40 * @rpx @result-spacing-LR;
+
+    .amd-button + .amd-button {
+      margin-top: 24 * @rpx;
+    }
+  }
+}

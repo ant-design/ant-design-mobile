@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button active className 1`] = `
+<Touchable
+  disabled={false}
+  onPress={[Function]}
+  onPressIn={[Function]}
+  onPressOut={[Function]}
+>
+  <div
+    aria-disabled={false}
+    className="amd-button amd-button-default a"
+    role="button"
+  >
+    <span
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      button
+    </span>
+  </div>
+</Touchable>
+`;
+
+exports[`Button active className 2`] = `
+<Touchable
+  disabled={false}
+  onPress={[Function]}
+  onPressIn={[Function]}
+  onPressOut={[Function]}
+>
+  <div
+    aria-disabled={false}
+    className="amd-button amd-button-active active amd-button-default a"
+    role="button"
+  >
+    <span
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      button
+    </span>
+  </div>
+</Touchable>
+`;
+
+exports[`Button active className 3`] = `
+<Touchable
+  disabled={false}
+  onPress={[Function]}
+  onPressIn={[Function]}
+  onPressOut={[Function]}
+>
+  <div
+    aria-disabled={false}
+    className="amd-button amd-button-default a"
+    role="button"
+  >
+    <span
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      button
+    </span>
+  </div>
+</Touchable>
+`;
+
+exports[`Button snapshot 1`] = `
+<Touchable
+  disabled={false}
+  onPress={[Function]}
+  onPressIn={[Function]}
+  onPressOut={[Function]}
+>
+  <div
+    aria-disabled={false}
+    className="amd-button amd-button-default a b"
+    data-y="111"
+    role="button"
+  >
+    <span
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      button
+    </span>
+  </div>
+</Touchable>
+`;
+
+exports[`Button snapshot 2`] = `
+<Touchable
+  disabled={false}
+  onPress={[Function]}
+  onPressIn={[Function]}
+  onPressOut={[Function]}
+>
+  <div
+    aria-disabled={false}
+    className="amd-button amd-button-default amd-button-capsule amd-button-capsule-md amd-button-icon"
+    role="button"
+  >
+    <Alipay
+      className=""
+      size="sm"
+    />
+    <span
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      icon
+    </span>
+  </div>
+</Touchable>
+`;

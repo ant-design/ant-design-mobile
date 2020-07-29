@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Touchable snapshot 1`] = `
+<BaseIcon
+  size="md"
+  type="amd-alipay"
+/>
+`;

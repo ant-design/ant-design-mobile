@@ -1,0 +1,7 @@
+**/*.md
+**/package.json
+**/es
+**/lib
+packages/antd-mobile-icons/src/icons/
+.umi/
+.umi-production/

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Steps horizontal snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "current": 3,
+      "direction": "horizontal",
+      "length": 3,
+    }
+  }
+>
+  <div
+    className="amd-steps horizontal"
+  >
+    <Step
+      data-y="1"
+      index={0}
+      key=".0"
+      title="Finished"
+    />
+    <Step
+      description="This is description"
+      index={1}
+      key=".1"
+      title="In Progress"
+    />
+    <Step
+      description="This is description"
+      index={2}
+      key=".2"
+      title="Waiting"
+    />
+  </div>
+</ContextProvider>
+`;
+
+exports[`Steps vertical snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "current": 2,
+      "direction": "vertical",
+      "length": 4,
+    }
+  }
+>
+  <div
+    className="amd-steps vertical"
+  >
+    <Step
+      description="This is description"
+      index={0}
+      key=".0"
+      title="Finished"
+    />
+    <Step
+      description="This is description"
+      index={1}
+      key=".1"
+      title="In Progress"
+    />
+    <Step
+      index={2}
+      key=".2"
+      title="Waiting"
+    />
+    <Step
+      description="This is description"
+      index={3}
+      key=".3"
+      title="Final"
+    />
+  </div>
+</ContextProvider>
+`;

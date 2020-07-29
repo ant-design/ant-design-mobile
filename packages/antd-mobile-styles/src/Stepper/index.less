@@ -1,0 +1,163 @@
+@import (reference) '../base/index.less';
+
+// start
+// 字体大小
+@stepper-font-size: 14 * @rpx;
+// 加减边框
+@stepper-handler-border-width: 2 * @rpx;
+@stepper-handler-border-radius: 4.4 * @rpx;
+@stepper-handler-border-color: @color-fill-grey-light;
+// 文字颜色
+@stepper-text-color: @color-text-title;
+// 加减点击背景
+@stepper-handler-tap-background: #ddd;
+// end
+
+@stepperPrefixCls: amd-stepper;
+
+.@{stepperPrefixCls} {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 63 * @rpx;
+  height: 44 * @rpx;
+  box-sizing: content-box;
+  margin: 0;
+  font-size: @stepper-font-size;
+  vertical-align: middle;
+
+  &-handler-wrap {
+    position: absolute;
+    width: 100%;
+    font-size: 24 * @rpx;
+  }
+
+  &-handler,
+  &-handler-up-inner,
+  &-handler-down-inner {
+    width: 40 * @rpx;
+    height: 40 * @rpx;
+  }
+
+  &-handler {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: content-box;
+    border: @stepper-handler-border-width solid @stepper-handler-border-color;
+    border-radius: @stepper-handler-border-radius;
+    color: @color-brand-1;
+    text-align: center;
+
+    &-active {
+      z-index: 2;
+      background-color: @stepper-handler-tap-background;
+    }
+
+    .amd-icon {
+      width: 24 * @rpx;
+      height: 24 * @rpx;
+      margin: 8 * @rpx auto;
+    }
+  }
+
+  &-handler-up-inner,
+  &-handler-down-inner {
+    right: 2 * @rpx;
+    color: @stepper-text-color;
+    user-select: none;
+  }
+
+  &-input-wrap {
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    height: 44 * @rpx;
+    box-sizing: border-box;
+    border: @stepper-handler-border-width solid @stepper-handler-border-color;
+    border-radius: @stepper-handler-border-radius;
+    text-align: center;
+  }
+
+  &-input {
+    display: none;
+    width: 60 * @rpx;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: @stepper-text-color;
+    font-size: 30 * @rpx;
+    text-align: center;
+    vertical-align: middle;
+
+    &[disabled] {
+      color: @stepper-text-color;
+      opacity: 1;
+    }
+  }
+
+  &.showNumber {
+    width: 152 * @rpx;
+
+    .@{stepperPrefixCls}-input-wrap {
+      display: inline-block;
+    }
+
+    .@{stepperPrefixCls}-input {
+      display: inline-block;
+    }
+
+    .@{stepperPrefixCls}-handler-down-disabled {
+      right: -1px;
+    }
+  }
+
+  &-handler-up {
+    right: 0;
+    cursor: pointer;
+
+    &-inner {
+      &::before {
+        content: '+';
+        text-align: center;
+      }
+    }
+  }
+
+  &-handler-down {
+    left: 0;
+    cursor: pointer;
+
+    &-inner {
+      &::before {
+        content: '-';
+        text-align: center;
+      }
+    }
+  }
+
+  &-handler-down-disabled,
+  &-handler-up-disabled {
+    opacity: @opacity-disabled;
+  }
+
+  &-handler-up-disabled &-handler-active {
+    background: none;
+  }
+
+  &-disabled {
+    .@{stepperPrefixCls}-handler-down,
+    .@{stepperPrefixCls}-handler-up {
+      background: none;
+      opacity: @opacity-disabled;
+    }
+
+    .@{stepperPrefixCls}-handler {
+      opacity: @opacity-disabled;
+    }
+
+    .@{stepperPrefixCls}-input-wrap {
+      opacity: @opacity-disabled;
+    }
+  }
+}

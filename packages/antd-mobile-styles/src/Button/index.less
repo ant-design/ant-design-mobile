@@ -1,0 +1,252 @@
+@import (reference) '../base/index.less';
+
+// start
+
+/* size | 按钮内间距 */
+@button-padding: @size-3;
+
+/* corner-radius| 按钮圆角 */
+@button-corner-radius: @corner-radius-md;
+
+/* font-size | 副标题字号 */
+@button-subtitle-size: @font-size-subcontent;
+
+/* color | 按钮边框宽度 */
+@button-border-size: @border-width-standard;
+
+/* opacity | disable状态不透明度 */
+@button-disabled-opacity: @opacity-disabled;
+
+/* color | 默认按钮文字色 */
+@button-color: @color-fill-grey-dark;
+
+/* color | 默认按钮背景色 */
+@button-background: @color-fill-grey-inverse;
+
+/* color | 默认按钮边框色 */
+@button-border-color: @color-fill-grey-light;
+
+/* color |primary按钮背景色 */
+@button-primary-background: @color-fill-primary;
+
+/* color |primary按钮边框色 */
+@button-primary-border-color: @color-fill-primary;
+
+/* color |primary按钮文字色 */
+@button-primary-color: @color-text-base;
+
+/* color |ghost按钮边框色 */
+@button-ghost-border-color: @color-fill-primary;
+
+/* color |ghost按钮文字色 */
+@button-ghost-color: @color-text-primary;
+
+/* color |warn按钮背景色 */
+@button-warn-background: @color-fill-warning;
+
+/* color |warn按钮边框色 */
+@button-warn-border-color: @color-fill-warning;
+
+/* color |warn按钮文字色 */
+@button-warn-color: @color-text-base;
+
+/* color |warn-ghost按钮边框色 */
+@button-warn-ghost-border-color: @color-fill-warning;
+
+/* color |warn-ghost按钮文字色 */
+@button-warn-ghost-color: @color-text-warning;
+
+/* color |light按钮背景色 */
+@button-light-background: @color-fill-primary-light;
+
+/* color |light按钮边框色 */
+@button-light-border-color: @color-fill-primary-light;
+
+/* color |light按钮文字色 */
+@button-light-color: @color-text-primary;
+
+/* color |text按钮文字色 */
+@button-text-color: @color-fill-primary;
+
+/* size | 胶囊按钮圆角 */
+@button-capsule-corner: @corner-radius-circle;
+
+/* size | 胶囊按钮水平内间距 */
+@button-capsule-padding-h: @size-3;
+
+/* size | 胶囊按钮垂直内间距 */
+@button-capsule-padding-v: @size-1;
+
+/* font-size | 胶囊按钮大字号 */
+@button-capsule-size-l: @font-size-subtitle;
+
+/* font-size | 胶囊按钮中字号 */
+@button-capsule-size-m: @font-size-content;
+
+/* font-size | 胶囊按钮小字号 */
+@button-capsule-size-s: @font-size-subcontent;
+
+// end
+
+@prefixCls: amd-button;
+
+@subtitle-font-opacity: 0.6;
+
+.@{prefixCls} {
+  position: relative;
+  display: flex;
+  height: auto;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: @button-padding;
+  border: @button-border-size solid @button-border-color;
+  background-color: @button-background;
+  border-radius: @button-corner-radius;
+  color: @button-color;
+  font-size: @font-size-title;
+  line-height: @default-line-height;
+  text-align: center;
+  user-select: none;
+
+  &&-disabled {
+    background-color: @button-background;
+    color: @button-color;
+    opacity: @button-disabled-opacity;
+  }
+
+  &-active {
+    // border-color: lighten(@button-border-color, 20%);
+    filter: brightness(0.9);
+
+    > :nth-child(1n + 1) {
+      opacity: @opacity-active;
+    }
+  }
+
+  &-subtitle {
+    @font-size-subtitle: 34 * @rpx;
+
+    font-size: @font-size-subtitle;
+
+    &-subfont {
+      font-size: @button-subtitle-size;
+      opacity: @subtitle-font-opacity;
+    }
+  }
+
+  &-primary,
+  &-primary.@{prefixCls}-disabled {
+    border-color: @button-primary-border-color;
+    background-color: @button-primary-background;
+    color: @button-primary-color;
+
+    .@{prefixCls}-loading {
+      // loading svg
+      circle {
+        stroke: @button-primary-color;
+      }
+    }
+  }
+
+  &-ghost,
+  &-ghost.@{prefixCls}-disabled {
+    border-color: @button-ghost-border-color;
+    background-color: transparent;
+    color: @button-ghost-color;
+  }
+
+  &-ghost&-active {
+    border-color: lighten(@button-ghost-border-color, 20%);
+  }
+
+  &-warn,
+  &-warn.@{prefixCls}-disabled {
+    border-color: @button-warn-border-color;
+    background-color: @button-warn-background;
+    color: @button-warn-color;
+
+    .@{prefixCls}-loading {
+      // loading svg
+      circle {
+        stroke: @button-warn-color;
+      }
+    }
+  }
+
+  &-warn-ghost,
+  &-warn-ghost.@{prefixCls}-disabled {
+    border-color: @button-warn-ghost-border-color;
+    background-color: transparent;
+    color: @button-warn-ghost-color;
+  }
+
+  &-warn-ghost&-active {
+    border-color: lighten(@button-warn-ghost-border-color, 20%);
+  }
+
+  &-light,
+  &-light.@{prefixCls}-disabled {
+    border-color: @button-light-border-color;
+    background-color: @button-light-background;
+    color: @button-light-color;
+  }
+
+  &-capsule {
+    display: inline-flex;
+    padding: @button-capsule-padding-v @button-capsule-padding-h;
+    border-radius: @button-capsule-corner;
+
+    &-lg {
+      min-width: 168 * @rpx;
+      font-size: @button-capsule-size-l;
+    }
+
+    &-md {
+      min-width: 152 * @rpx;
+      font-size: @button-capsule-size-m;
+    }
+
+    &-sm {
+      min-width: 144 * @rpx;
+      font-size: @button-capsule-size-s;
+    }
+
+    &-auto-width {
+      min-width: 0;
+    }
+
+    .@{prefixCls}-loading-container {
+      display: none;
+    }
+  }
+
+  &-loading-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-loading {
+    // 为了保证线条的宽度
+    width: 80 * @rpx;
+    height: 80 * @rpx;
+    margin-right: 16 * @rpx;
+
+    // loading svg
+    circle {
+      stroke: @color-fill-primary;
+    }
+  }
+
+  &-icon {
+    &-inner {
+      margin-right: 10 * @rpx;
+    }
+
+    &-self {
+      margin-right: 10 * @rpx;
+    }
+  }
+}

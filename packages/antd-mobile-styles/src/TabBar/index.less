@@ -1,0 +1,113 @@
+@import (reference) '../base/index.less';
+
+// start
+@tabbar-default-color: @color-text-subtitle;
+// 选项文字大小
+@tabbar-font-size: 22 * @rpx;
+// 图标大小
+@tabbar-icon-size: 44 * @rpx;
+// 选中时颜色
+@tabbar-active-color: @color-brand-1;
+// end
+
+@tabbarPrefixCls: amd-tabbar;
+
+.@{tabbarPrefixCls} {
+  background: @color-fill-grey-inverse;
+
+  &-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  &-list {
+    display: flex;
+    width: 100%;
+    height: 100 * @rpx;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &-item {
+    position: relative;
+    width: 44 * @rpx;
+    height: 76 * @rpx;
+    flex: 1 0;
+
+    &-container {
+      position: relative;
+      display: flex;
+      height: 100%;
+      box-sizing: border-box;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &.@{tabbarPrefixCls}-item-active {
+      .@{tabbarPrefixCls}-item-icon {
+        color: @tabbar-active-color;
+      }
+
+      .@{tabbarPrefixCls}-item-title {
+        color: @tabbar-active-color;
+      }
+
+      .@{tabbarPrefixCls}-item-content {
+        color: @tabbar-active-color;
+      }
+    }
+
+    &-icon {
+      display: inline-block;
+      width: @tabbar-icon-size;
+      height: @tabbar-icon-size;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      color: @tabbar-default-color;
+      text-align: center;
+      // margin-right    : 24 * @rpx;
+
+      svg {
+        display: block;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &-title {
+      color: @tabbar-default-color;
+      font-size: @tabbar-font-size;
+    }
+
+    &-content {
+      color: @tabbar-default-color;
+      font-size: @tabbar-font-size;
+    }
+  }
+
+  &-content-wrap {
+    position: relative;
+    flex: 1;
+
+    .@{tabbarPrefixCls}-content-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+
+      &.@{tabbarPrefixCls}-content-item-active {
+        visibility: visible;
+      }
+    }
+  }
+}

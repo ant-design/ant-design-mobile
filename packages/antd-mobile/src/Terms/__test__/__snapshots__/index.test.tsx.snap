@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Terms basic snapshot 1`] = `
+<ErrorBoundary
+  onError={[Function]}
+>
+  <Terms
+    data-y="111"
+    forwardRef={Object {}}
+    term={
+      <React.Fragment>
+        同意
+        <a>
+          《用户授权协议》
+        </a>
+      </React.Fragment>
+    }
+  >
+    <Button
+      type="primary"
+    >
+      提交
+    </Button>
+  </Terms>
+</ErrorBoundary>
+`;
+
+exports[`Terms checkbox snapshot 1`] = `
+<ErrorBoundary
+  onError={[Function]}
+>
+  <Terms
+    checked={false}
+    forwardRef={Object {}}
+    term={
+      <React.Fragment>
+        同意
+        <a>
+          《用户授权协议》
+        </a>
+      </React.Fragment>
+    }
+  >
+    <Button
+      type="primary"
+    >
+      提交
+    </Button>
+  </Terms>
+</ErrorBoundary>
+`;
+
+exports[`Terms describe snapshot 1`] = `
+<ErrorBoundary
+  onError={[Function]}
+>
+  <Terms
+    describe={true}
+    forwardRef={Object {}}
+    term={
+      <React.Fragment>
+        同意
+        <a>
+          《用户授权协议》
+        </a>
+      </React.Fragment>
+    }
+  >
+    <Button
+      type="primary"
+    >
+      提交
+    </Button>
+  </Terms>
+</ErrorBoundary>
+`;

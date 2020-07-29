@@ -1,0 +1,129 @@
+@import (reference) '../base/index.less';
+
+// start
+// 蒙层
+@popover-mask: @color-product-mask;
+// 圆角
+@popover-radius: @corner-radius-md;
+// 背景
+@popover-background: @color-fill-grey-inverse;
+// 字体颜色
+@popover-font-color: @color-text-title;
+// 字体大小
+@popover-font-size: @font-size-subtitle;
+// end
+
+// Base class
+@popover-arrow-width: 14 * @rpx;
+
+.@{popoverPrefixCls} {
+  position: absolute;
+  z-index: 1999;
+  line-height: @default-line-height;
+
+  &-hidden {
+    display: none;
+  }
+
+  &-mask {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background-color: @popover-mask;
+
+    &-hidden {
+      display: none;
+    }
+  }
+
+  &-placement-top &-arrow,
+  &-placement-topLeft &-arrow,
+  &-placement-topRight &-arrow {
+    bottom: -@popover-arrow-width / 2;
+    transform: rotate(225deg);
+  }
+
+  &-placement-top &-arrow {
+    left: 50%;
+  }
+
+  &-placement-topLeft &-arrow {
+    left: 16 * @rpx;
+  }
+
+  &-placement-topRight &-arrow {
+    right: 16 * @rpx;
+  }
+
+  &-placement-right &-arrow,
+  &-placement-rightTop &-arrow,
+  &-placement-rightBottom &-arrow {
+    left: -@popover-arrow-width / 2;
+    transform: rotate(-45deg);
+  }
+
+  &-placement-right &-arrow {
+    top: 50%;
+  }
+
+  &-placement-rightTop &-arrow {
+    top: 8 * @rpx;
+  }
+
+  &-placement-rightBottom &-arrow {
+    bottom: 16 * @rpx;
+  }
+
+  &-placement-left &-arrow,
+  &-placement-leftTop &-arrow,
+  &-placement-leftBottom &-arrow {
+    right: -@popover-arrow-width / 2;
+    transform: rotate(135deg);
+  }
+
+  &-placement-left &-arrow {
+    top: 50%;
+  }
+
+  &-placement-leftTop &-arrow {
+    top: 16 * @rpx;
+  }
+
+  &-placement-leftBottom &-arrow {
+    bottom: 16 * @rpx;
+  }
+
+  &-placement-bottom &-arrow,
+  &-placement-bottomLeft &-arrow,
+  &-placement-bottomRight &-arrow {
+    top: -@popover-arrow-width / 2;
+  }
+
+  &-placement-bottom &-arrow {
+    left: 50%;
+  }
+
+  &-placement-bottomLeft &-arrow {
+    left: 16 * @rpx;
+  }
+
+  &-placement-bottomRight &-arrow {
+    right: 16 * @rpx;
+  }
+}
+
+// Arrows
+.@{popoverPrefixCls}-arrow {
+  position: absolute;
+  z-index: 0;
+  width: @popover-arrow-width;
+  height: @popover-arrow-width;
+  background-color: #fff;
+  border-radius: 1px;
+  box-shadow: 0 0 4 * @rpx rgba(0, 0, 0, 0.21);
+  transform: rotate(45deg);
+}

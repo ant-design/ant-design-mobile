@@ -1,0 +1,174 @@
+@import (reference) '../base/index.less';
+
+// start
+// 四种不同个颜色的 tag
+@tag-normal-color: @color-brand-1;
+@tag-orange-color: @color-orange-1;
+@tag-tangerine-color: @color-tangerine-1;
+@tag-green-color: @color-pomonagreen-1;
+
+// filling-light 和 icon 的 tag
+@tag-filling-light-normal-background: @color-brand-2;
+@tag-filling-light-orange-background: @color-orange-2;
+@tag-filling-light-tangerine-background: @color-tangerine-2;
+@tag-filling-light-green-background: @color-pomonagreen-2;
+// end
+
+@prefixCls: amd-tag;
+
+.@{prefixCls} {
+  display: inline-flex;
+  align-items: center;
+  padding: 4 * @rpx 8 * @rpx;
+  border-radius: @corner-radius-sm;
+  color: #fff;
+  font-size: @font-size-subcontent;
+  line-height: normal;
+
+  &-filling {
+    &-normal {
+      background-color: @tag-normal-color;
+    }
+
+    &-orange {
+      background-color: @tag-orange-color;
+    }
+
+    &-tangerine {
+      background-color: @tag-tangerine-color;
+    }
+
+    &-green {
+      background-color: @tag-green-color;
+    }
+  }
+
+  &-filling-light {
+    &-normal {
+      background-color: @tag-filling-light-normal-background;
+      color: @tag-normal-color;
+    }
+
+    &-orange {
+      background-color: @tag-filling-light-orange-background;
+      color: @tag-orange-color;
+    }
+
+    &-tangerine {
+      background-color: @tag-filling-light-tangerine-background;
+      color: @tag-tangerine-color;
+    }
+
+    &-green {
+      background-color: @tag-filling-light-green-background;
+      color: @tag-green-color;
+    }
+  }
+
+  &-line {
+    .ruleset() {
+      padding: 4 * @rpx 8 * @rpx 3 * @rpx 8 * @rpx;
+      border: @border-width-standard solid #fff;
+      background-color: @color-fill-grey-inverse;
+    }
+
+    &-normal {
+      .ruleset();
+
+      border-color: @tag-normal-color;
+      color: @tag-normal-color;
+    }
+
+    &-orange {
+      .ruleset();
+
+      border-color: @tag-orange-color;
+      color: @tag-orange-color;
+    }
+
+    &-tangerine {
+      .ruleset();
+
+      border-color: @tag-tangerine-color;
+      color: @tag-tangerine-color;
+    }
+
+    &-green {
+      .ruleset();
+
+      border-color: @tag-green-color;
+      color: @tag-green-color;
+    }
+  }
+
+  &-icon {
+    &-area {
+      overflow: hidden;
+      width: 24 * @rpx;
+      height: 24 * @rpx;
+      margin-right: 6 * @rpx;
+      line-height: 0;
+
+      .amd-icon {
+        width: 24 * @rpx;
+        height: 24 * @rpx;
+      }
+    }
+
+    .ruleset() {
+      padding-right: 6 * @rpx;
+      padding-left: 6 * @rpx;
+    }
+
+    &-normal {
+      .ruleset();
+
+      background-color: @tag-filling-light-normal-background;
+      color: @tag-normal-color;
+    }
+
+    &-orange {
+      .ruleset();
+
+      background-color: @tag-filling-light-orange-background;
+      color: @tag-orange-color;
+    }
+
+    &-tangerine {
+      .ruleset();
+
+      background-color: @tag-filling-light-tangerine-background;
+      color: @tag-tangerine-color;
+    }
+
+    &-green {
+      .ruleset();
+
+      background-color: @tag-filling-light-green-background;
+      color: @tag-green-color;
+    }
+  }
+
+  // 小号tag样式
+  &-sm {
+    padding: 4 * @rpx;
+    font-size: @font-size-weak;
+
+    &.@{prefixCls}-icon {
+      &-normal,
+      &-orange,
+      &-tangerine,
+      &-green {
+        .@{prefixCls}-icon-area {
+          width: 20 * @rpx;
+          height: 20 * @rpx;
+
+          .amd-icon {
+            width: 20 * @rpx;
+            height: 20 * @rpx;
+          }
+        }
+      }
+    }
+  }
+}

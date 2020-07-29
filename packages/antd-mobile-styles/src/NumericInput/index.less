@@ -1,0 +1,77 @@
+@import './custom-keypad';
+
+@prefixCls: amd-numeric-input;
+
+.@{prefixCls} {
+  position: relative;
+  height: 60 * @rpx;
+  line-height: 60 * @rpx;
+
+  .fake-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin-right: 10 * @rpx;
+    color: @color-text-title;
+    font-size: 34 * @rpx;
+    text-align: right;
+    text-decoration: rtl;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &.fake-input-disabled {
+      color: #bbb;
+    }
+
+    &.focus {
+      transition: color 0.2s;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 80%;
+        border-right: 3 * @rpx solid @color-text-title;
+        animation: keyboard-cursor infinite 1s step-start;
+        content: '';
+      }
+    }
+
+    &.fake-input-with-clear {
+      // 减去清除图标的宽度
+      width: ~'calc(100% - 44 * @{rpx})';
+    }
+  }
+
+  .fake-input-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #bbb;
+    text-align: right;
+  }
+
+  &-left {
+    .fake-input {
+      text-align: left;
+
+      &.focus::after {
+        position: relative;
+      }
+    }
+
+    .fake-input-placeholder {
+      text-align: left;
+    }
+  }
+
+  .fake-input-clear {
+    position: relative;
+    vertical-align: text-bottom;
+  }
+}

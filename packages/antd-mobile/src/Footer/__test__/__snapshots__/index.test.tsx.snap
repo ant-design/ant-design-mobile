@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar footer links snapshot 1`] = `
+<div
+  className="amd-footer"
+>
+  <Links
+    links={
+      Array [
+        Object {
+          "onPress": [Function],
+          "value": "蚂蚁借呗",
+        },
+        Object {
+          "onPress": [Function],
+          "value": "备用金",
+        },
+      ]
+    }
+  />
+  <Text>
+    © 2004-2020 Alipay.com. All rights reserved.
+  </Text>
+</div>
+`;
+
+exports[`Avatar footer logo snapshot 1`] = `
+<div
+  className="amd-footer"
+>
+  <Logo
+    src="https://intranetproxy.alipay.com/skylark/lark/0/2020/png/35/1578040656524-338e314f-20fa-4e1e-be89-02730f286e5b.png"
+  />
+  <Text>
+    © 2004-2020 Alipay.com. All rights reserved.
+  </Text>
+</div>
+`;
+
+exports[`Avatar footer snapshot 1`] = `
+<div
+  className="amd-footer"
+  data-y="111"
+>
+  <Text>
+    底部文案置底说明
+  </Text>
+</div>
+`;
+
+exports[`Avatar footer tags snapshot 1`] = `
+<div
+  className="amd-footer"
+>
+  <Text>
+    © 2004-2020 Alipay.com. All rights reserved.
+  </Text>
+  <Tags
+    tags={
+      Array [
+        Object {
+          "onPress": [Function],
+          "value": "蚂蚁借呗",
+        },
+        Object {
+          "onPress": [Function],
+          "value": "备用金",
+        },
+        Object {
+          "onPress": [Function],
+          "value": "花呗收钱",
+        },
+      ]
+    }
+  />
+</div>
+`;

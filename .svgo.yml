@@ -1,0 +1,7 @@
+plugins:
+  - removeXMLNS: true
+  - removeDimensions: true
+  - removeAttrs:
+      attrs:
+        - 'path:fill'
+        - 'svg:class'

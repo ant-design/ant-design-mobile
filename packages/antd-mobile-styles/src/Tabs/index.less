@@ -1,0 +1,61 @@
+@import (reference) '../base/index.less';
+
+.amd-tabs {
+  background: @color-fill-grey-inverse;
+}
+
+.amd-tabs-container {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  align-items: center;
+}
+
+.amd-tabs-list {
+  display: flex;
+  width: 100%;
+  padding-right: 34 * @rpx;
+  padding-left: 4 * @rpx;
+}
+
+.amd-tabs-overLength {
+  .amd-tabs-list {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.amd-tabs-fade {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 72 * @rpx;
+  height: 100%;
+  background: linear-gradient(90deg, #fff 50%, rgba(255, 255, 255, 0) 81%);
+  opacity: 0;
+  pointer-events: none;
+
+  &-left {
+    left: 0;
+  }
+
+  &-right {
+    right: 0;
+    transform: scaleX(-1);
+  }
+
+  &-show {
+    opacity: 1;
+  }
+}
+
+.amd-tabs-basis-wrap {
+  .amd-tabs-container {
+    border-bottom: 1 * @rpx #eee solid;
+  }
+}

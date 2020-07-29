@@ -1,0 +1,45 @@
+@import (reference) '../base/index.less';
+// start
+// loading 尺寸
+@loading-icon-size: 110 * @rpx;
+// 辅助文字尺寸
+@loading-text-size: @font-size-weak;
+// 辅助文字颜色
+@loading-text-color: @color-ironblack-1;
+// end
+
+@prefixCls: amd-loading;
+
+.@{prefixCls} {
+  position: relative;
+  display: inline-table;
+
+  &-spin {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-icon {
+    width: @loading-icon-size;
+    height: @loading-icon-size;
+  }
+
+  &-text {
+    margin-top: 12 * @rpx;
+    color: @loading-text-color;
+    font-size: @loading-text-size;
+  }
+
+  &-container {
+    position: relative;
+    transition: opacity 0.3s;
+  }
+}

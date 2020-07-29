@@ -1,0 +1,81 @@
+@import './base';
+
+@popoverPrefixCls: amd-popover;
+
+.@{popoverPrefixCls}-inner {
+  overflow: hidden; // for popover item active background color not overflow
+  background-color: @popover-background;
+  border-radius: @popover-radius;
+  box-shadow: 0 0 4 * @rpx rgba(0, 0, 0, 0.21);
+  color: @popover-font-color;
+  font-size: @popover-font-size;
+
+  &-wrapper {
+    position: relative;
+    background-color: #fff;
+  }
+}
+
+.@{popoverPrefixCls} .@{popoverPrefixCls}-item {
+  padding: 0 24 * @rpx;
+
+  &-container {
+    position: relative;
+    display: flex;
+    height: 92 * @rpx;
+    box-sizing: border-box;
+    align-items: center;
+    padding-right: 48 * @rpx;
+  }
+
+  &:not(:first-child) {
+    .@{popoverPrefixCls}-item-container {
+      .hairline('top');
+    }
+  }
+
+  &.@{popoverPrefixCls}-item-active {
+    background-color: rgba(0, 0, 0, 0.1);
+
+    .@{popoverPrefixCls}-item-container {
+      .hairline-remove('top');
+    }
+  }
+
+  &.@{popoverPrefixCls}-item-active + .@{popoverPrefixCls}-item {
+    .@{popoverPrefixCls}-item-container {
+      .hairline-remove('top');
+    }
+  }
+
+  &.@{popoverPrefixCls}-item-active.@{popoverPrefixCls}-item-fix-active-arrow {
+    position: relative;
+  }
+
+  &.@{popoverPrefixCls}-item-disabled {
+    color: #bbb;
+
+    &.@{popoverPrefixCls}-item-active {
+      background-color: transparent;
+    }
+  }
+
+  &-content {
+    position: relative;
+    display: block;
+  }
+
+  &-badge {
+    position: relative;
+    display: block;
+    margin-left: 11 * @rpx;
+  }
+
+  &-icon {
+    margin-right: 24 * @rpx;
+
+    svg {
+      display: block;
+    }
+  }
+}

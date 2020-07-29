@@ -1,0 +1,86 @@
+@import (reference) '../base/index.less';
+
+// start
+// guide 蒙层
+@guide-modal-background: @color-marketing-mask;
+// guide 指示器定位
+@guide-modal-indicator-area-bottom: 225 * @rpx;
+// guide 指示器背景
+@guide-modal-indicator-background: @color-fill-grey-base;
+// guide 按钮定位
+@guide-modal-button-bottom: 120 * @rpx;
+// guide 按钮间距
+@guide-modal-button-spacing: @h-spacing-large / 2;
+// end
+
+@prefixCls: amd-guide-modal;
+
+.@{prefixCls} {
+  position: fixed;
+  z-index: 666;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  animation: showModal 0.2s linear 1 both;
+  background: @guide-modal-background;
+
+  &-indicator-area {
+    position: fixed;
+    z-index: 668;
+    bottom: @guide-modal-indicator-area-bottom;
+    width: 100%;
+    height: 9 * @rpx;
+    text-align: center;
+  }
+
+  &-indicator {
+    display: inline-block;
+    width: 6 * @rpx;
+    height: 6 * @rpx;
+    margin-right: 4 * @rpx;
+    margin-left: 4 * @rpx;
+    background-color: @guide-modal-indicator-background;
+    border-radius: 50%;
+    vertical-align: top;
+  }
+
+  &-indicator-active {
+    width: 28 * @rpx;
+    height: 9 * @rpx;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAJCAYAAAAhFky8AAAABGdBTUEAALGPC/xhBQAAAOdJREFUKBW10jkKwkAUgOFMMG4Ra61EXDovIPZWFp5Cb+ARzClEC1uxtLcXWxFLo2IrWun4P0gkECLB5cHHbG/mDckYWuskHBywxww9lIwPg71l9DGHCzlbalhKOpw7iDh7w/wCaxwDzkqpO3sVc3lUUEcTba9PEwpHCrpMF0NL7yceLN+QhRSNG26CTDNudiBP9tiBcdyuKRsncbN/kDc2+KTyaIa44F8hZ0sN63VpBhl0McUJ34a8zhE6SPuFIn84STWSWmig6inQ5uDfVNO/Ql7w1rOiXfKKd7S/CS6Tgo3IC0dVegL3pyTS8PiwkwAAAABJRU5ErkJggg==')
+      no-repeat;
+    background-position: 0 1.5 * @rpx;
+    background-size: 100%;
+    border-radius: 0;
+  }
+
+  &-next-btn-wrap {
+    position: fixed;
+    bottom: @guide-modal-button-bottom;
+    width: 100%;
+    text-align: center;
+  }
+
+  .amd-button&-next-btn {
+    margin: 0 @guide-modal-button-spacing;
+    background-color: transparent;
+    color: @color-text-base;
+  }
+
+  &-step-hide {
+    display: none;
+  }
+}
+
+@keyframes showModal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

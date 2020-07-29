@@ -1,0 +1,59 @@
+@import (reference) '../base/index.less';
+
+// start
+// header 的边距
+@container-header-spacing: @h-spacing-large;
+// 字体颜色
+@container-header-color: @color-fill-grey-dark;
+// 图标颜色
+@container-header-icon-color: @color-text-weak;
+// 字体大小
+@container-header-size: @font-size-subtitle;
+// 边距
+@container-spacing: @h-spacing-large;
+// 圆角
+@container-radius: @corner-radius-lg;
+// 背景
+@container-background: @color-fill-grey-inverse;
+// end
+
+@containerPrefixCls: amd-container;
+
+.@{containerPrefixCls} {
+  margin: 0 @container-spacing;
+  background-color: @container-background;
+  border-radius: @container-radius;
+  line-height: @default-line-height;
+
+  .@{containerPrefixCls}-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: @container-header-spacing;
+
+    .hairline('bottom');
+
+    .@{containerPrefixCls}-header-content {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      color: @container-header-color;
+      font-size: @container-header-size;
+      font-weight: 500;
+      text-align: left;
+
+      img {
+        display: block;
+        width: 48 * @rpx;
+        height: 48 * @rpx;
+        margin-right: @h-spacing-standard;
+      }
+    }
+
+    .@{containerPrefixCls}-header-icon {
+      flex: 1;
+      color: @container-header-icon-color;
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBlock ErrorBlock with error snapshot 1`] = `
+<div
+  className="amd-error-block"
+>
+  <img
+    className="poster"
+    src="https://gw.alipayobjects.com/mdn/rms_997765/afts/img/A*bp-yRoHpmj4AAAAAAAAAAABkARQnAQ"
+  />
+  <div
+    className="text"
+  >
+    页面遇到一些小问题
+  </div>
+</div>
+`;
+
+exports[`ErrorBlock ErrorBlock with error/button snapshot 1`] = `
+<div
+  className="amd-error-block"
+>
+  <img
+    className="poster"
+    src="https://gw.alipayobjects.com/mdn/rms_997765/afts/img/A*x1LaT6Pn5MwAAAAAAAAAAABkARQnAQ"
+  />
+  <div
+    className="text"
+  >
+    请稍等哦，马上出来
+  </div>
+  <div
+    className="content"
+  >
+    <Button
+      capsule={true}
+      capsuleSize="lg"
+      type="ghost"
+    >
+      胶囊按钮
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`ErrorBlock ErrorBlock with error/button/title snapshot 1`] = `
+<Container
+  title="antd-mobile"
+>
+  <div
+    className="amd-error-block amd-error-block-title"
+    data-y="111"
+  >
+    <img
+      className="poster"
+      src="https://gw.alipayobjects.com/mdn/rms_997765/afts/img/A*x1LaT6Pn5MwAAAAAAAAAAABkARQnAQ"
+    />
+    <div
+      className="text"
+    >
+      请稍等哦，马上出来
+    </div>
+    <div
+      className="content"
+    >
+      <Button
+        capsule={true}
+        capsuleSize="lg"
+        type="ghost"
+      >
+        胶囊按钮
+      </Button>
+      <Button
+        capsule={true}
+        capsuleSize="lg"
+        type="ghost"
+      >
+        胶囊按钮
+      </Button>
+    </div>
+  </div>
+</Container>
+`;

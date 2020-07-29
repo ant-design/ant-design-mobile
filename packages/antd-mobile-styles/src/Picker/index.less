@@ -1,0 +1,205 @@
+@import (reference) '../base/index.less';
+
+// start
+// picker 蒙层
+@picker-mask: @color-product-mask;
+// picker 选项的高度
+@picker-item-height: 68 * @rpx;
+// picker 选项字体颜色
+@picker-item-color: @color-text-title;
+// picker 选项字体大小
+@picker-item-size: 32 * @rpx;
+// picker 选项选中字体大小
+@picker-item-active-size: @font-size-list;
+
+// 取消 和 确认按钮颜色
+@picker-header-action-color: @color-brand-1;
+// 取消 和 确认按钮大小
+@picker-header-action-size: @font-size-title;
+// header 的高度
+@picker-header-height: 84 * @rpx;
+// picker 层级
+@picker-zindex: 1000;
+// end
+
+@pickerPopupPrefixCls: amd-picker-popup;
+@pickerColPrefixCls: amd-picker-col;
+@pickerPrefixCls: amd-picker;
+
+.@{pickerPopupPrefixCls} {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: @color-fill-grey-inverse;
+
+  &-wrap {
+    position: fixed;
+    z-index: @picker-zindex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    outline: 0;
+    -webkit-overflow-scrolling: touch;
+    transform: translateZ(1px);
+  }
+
+  &-mask {
+    position: fixed;
+    z-index: @picker-zindex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background-color: @picker-mask;
+    transform: translateZ(1px);
+
+    &-hidden {
+      display: none;
+    }
+  }
+
+  &-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-image: -webkit-linear-gradient(
+      top,
+      #e7e7e7,
+      #e7e7e7,
+      transparent,
+      transparent
+    );
+    background-image: linear-gradient(
+      to bottom,
+      #e7e7e7,
+      #e7e7e7,
+      transparent,
+      transparent
+    );
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    .hairline('bottom');
+
+    & & {
+      &-right {
+        text-align: right;
+      }
+    }
+  }
+
+  &-item {
+    display: flex;
+    height: @picker-header-height;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: @v-spacing-standard @h-spacing-large;
+    color: @picker-header-action-color;
+    font-size: @picker-header-action-size;
+
+    &-active {
+      opacity: @opacity-active;
+    }
+  }
+
+  &-title {
+    flex: 1;
+    color: @color-text-title;
+    text-align: center;
+  }
+
+  & &-close {
+    display: none;
+  }
+}
+
+.@{pickerColPrefixCls} {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 7 * @picker-item-height;
+  flex: 1;
+
+  &-content {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3 * @picker-item-height 0;
+  }
+
+  &-item {
+    height: @picker-item-height;
+    color: @picker-item-color;
+    font-size: @picker-item-size;
+    line-height: @picker-item-height;
+    text-align: center;
+    text-overflow: ellipsis;
+    touch-action: manipulation;
+    white-space: nowrap;
+
+    &-selected {
+      font-size: @picker-item-active-size;
+    }
+  }
+
+  &-mask {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: -webkit-linear-gradient(
+      top,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.6)
+    ),
+      -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.6)
+    ),
+      linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.6)
+    );
+    background-position: top, bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 3 * @picker-item-height;
+  }
+
+  &-indicator {
+    position: absolute;
+    z-index: 3;
+    top: 3 * @picker-item-height;
+    left: 0;
+    width: 100%;
+    height: @picker-item-height;
+    box-sizing: border-box;
+    .hairline('top');
+    .hairline('bottom');
+  }
+}
+
+.@{pickerPrefixCls} {
+  display: flex;
+  align-items: center;
+  // padding: @v-spacing-sm 0;
+
+  &-item {
+    flex: 1;
+    text-align: center;
+  }
+}

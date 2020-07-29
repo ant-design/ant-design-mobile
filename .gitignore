@@ -1,0 +1,14 @@
+.DS_Store
+.nyc_output/
+node_modules/
+dist/
+lib/
+es/
+coverage/
+.umi/
+yarn.lock
+icons/out/
+
+# icons 
+packages/antd-mobile-icons/icons/out
+packages/antd-mobile-icons/src/icons

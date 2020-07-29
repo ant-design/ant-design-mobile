@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorPage ErrorPage with src/text snapshot 1`] = `
+<div
+  className="amd-error-page"
+>
+  <img
+    className="amd-error-page-poster"
+    src="https://gw.alipayobjects.com/zos/basement_prod/df4e7c06-88db-43dd-b171-725bd1cbaa33.svg"
+  />
+  <div
+    className="amd-error-page-text"
+  >
+    付款没成功
+  </div>
+  <div
+    className="amd-error-page-sub-text"
+  />
+  <div
+    className="amd-error-page-content"
+  />
+</div>
+`;
+
+exports[`ErrorPage ErrorPage with src/text/button snapshot 1`] = `
+<div
+  className="amd-error-page"
+>
+  <img
+    className="amd-error-page-poster"
+    src="https://gw.alipayobjects.com/zos/basement_prod/df4e7c06-88db-43dd-b171-725bd1cbaa33.svg"
+  />
+  <div
+    className="amd-error-page-text"
+  >
+    付款没成功
+  </div>
+  <div
+    className="amd-error-page-sub-text"
+  />
+  <div
+    className="amd-error-page-content"
+  >
+    <Button
+      capsule={true}
+      capsuleSize="lg"
+      type="ghost"
+    >
+      返回
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`ErrorPage ErrorPage with src/text/subText/button snapshot 1`] = `
+<div
+  className="amd-error-page"
+  data-y="111"
+>
+  <img
+    className="amd-error-page-poster"
+    src="https://gw.alipayobjects.com/zos/basement_prod/df4e7c06-88db-43dd-b171-725bd1cbaa33.svg"
+  />
+  <div
+    className="amd-error-page-text"
+  >
+    付款没成功
+  </div>
+  <div
+    className="amd-error-page-sub-text"
+  >
+    请重新付款
+  </div>
+  <div
+    className="amd-error-page-content"
+  >
+    <Button
+      capsule={true}
+      capsuleSize="lg"
+      type="ghost"
+    >
+      返回
+    </Button>
+  </div>
+</div>
+`;

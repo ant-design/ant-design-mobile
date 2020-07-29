@@ -1,0 +1,71 @@
+@import (reference) '../base/index.less';
+
+// start
+// modal 背景色
+@modal-background: @color-fill-grey-inverse;
+// 营销蒙层
+@modal-mask-promo: @color-marketing-mask;
+// 产品蒙层
+@modal-mask-product: @color-product-mask;
+// modal 圆角
+@modal-radius: @corner-radius-lg;
+// 标题大小
+@modal-title-size: @font-size-title;
+// 标题颜色
+@modal-title-color: @color-text-title;
+// 内容大小
+@modal-content-size: @font-size-subtitle;
+// 内容颜色
+@modal-content-color: @color-text-title;
+// 关闭图标尺寸
+@modal-close-icon-size: 36 * @rpx;
+// end
+
+@promoPrefixClass: amd-modal-promo;
+@productPrefixClass: amd-modal-product;
+@standardPrefixClass: amd-modal-standard;
+
+.@{promoPrefixClass},
+.@{productPrefixClass},
+.@{standardPrefixClass} {
+  position: relative;
+  border-radius: @modal-radius;
+  line-height: @default-line-height;
+
+  &-mask {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background-color: @modal-mask-product;
+  }
+
+  &-wrap {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow: auto;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    outline: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &-content {
+    overflow: hidden;
+    border-radius: @modal-radius;
+    text-align: center;
+  }
+
+  &-close {
+    display: none;
+  }
+}

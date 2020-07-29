@@ -1,0 +1,41 @@
+@import (reference) '../base/index.less';
+
+// start
+// 协议间距
+@terms-spacing: @h-spacing-large;
+// 普通协议
+@terms-normal-size: 30 * @rpx;
+@terms-normal-color: @color-text-title;
+// 下至协议
+@terms-desc-size: 22 * @rpx;
+@terms-desc-color: @color-text-subtitle;
+
+// 协议颜色
+@terms-link-color: @color-brand-1;
+// end
+
+.amd-terms {
+  padding: @terms-spacing;
+  line-height: @default-line-height;
+
+  .amd-term {
+    display: flex;
+    margin: 0 0 40 * @rpx 0;
+    color: @terms-normal-color;
+    font-size: @terms-normal-size;
+
+    .amd-checkbox {
+      margin-right: 16 * @rpx;
+    }
+
+    a {
+      color: @terms-link-color;
+    }
+
+    &.amd-term-desc {
+      margin: 14 * @rpx 0 0 0;
+      color: @terms-desc-color;
+      font-size: @terms-desc-size;
+    }
+  }
+}

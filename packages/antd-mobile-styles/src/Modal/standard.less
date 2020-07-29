@@ -1,0 +1,80 @@
+@import (reference) './base.less';
+
+.@{standardPrefixClass} {
+  .amd-button-active {
+    & > :nth-child(1n + 1) {
+      opacity: 1;
+    }
+  }
+
+  .amd-button-default {
+    border: none;
+    border-radius: 0;
+    .hairline('top', @color-fill-grey-light);
+  }
+
+  // footer
+  &-buttons-column {
+    .amd-button-default {
+      border-bottom: none;
+      border-radius: 0;
+    }
+  }
+
+  &-buttons-row {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .amd-button-default {
+      flex: 1;
+      .hairline('right', @color-fill-grey-light);
+
+      &:first-child {
+        .hairline-remove('right');
+      }
+    }
+  }
+
+  &-button {
+    &-main-primary {
+      margin: 0 @h-spacing-large @v-spacing-large;
+    }
+
+    // 只有在 primary 按钮配合的时候才需要弱化辅助按钮
+    &-main-primary + &-addon,
+    &-main-primary + &-addon + &-cancel {
+      border: none;
+      margin-top: -8 * @rpx;
+      border-radius: 0;
+      .hairline-remove('all');
+
+      &.amd-button-active {
+        filter: none;
+
+        & > :nth-child(1n + 1) {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  &-close-icon {
+    position: absolute;
+    top: @v-spacing-large;
+    right: @h-spacing-large;
+    width: @modal-close-icon-size;
+    height: @modal-close-icon-size;
+
+    &-dark {
+      color: @color-text-subtitle;
+    }
+
+    &-light {
+      color: @color-fill-grey-inverse;
+    }
+
+    &-none {
+      display: none;
+    }
+  }
+}

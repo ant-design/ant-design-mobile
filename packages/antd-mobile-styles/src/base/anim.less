@@ -1,0 +1,198 @@
+.amd {
+  .effect() {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  }
+
+  &-fade-enter,
+  &-fade-appear {
+    animation-play-state: paused;
+    opacity: 0;
+    .effect();
+  }
+
+  &-fade-leave {
+    .effect();
+
+    animation-play-state: paused;
+  }
+
+  &-fade-enter&-fade-enter-active,
+  &-fade-appear&-fade-appear-active {
+    animation-name: amdFadeIn;
+    animation-play-state: running;
+  }
+
+  &-fade-leave&-fade-leave-active {
+    animation-name: amdFadeOut;
+    animation-play-state: running;
+  }
+
+  @keyframes amdFadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes amdFadeOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &-slide-up-enter,
+  &-slide-up-appear {
+    transform: translate(0, 100%);
+  }
+
+  &-slide-up-enter,
+  &-slide-up-appear,
+  &-slide-up-leave {
+    .effect();
+
+    animation-play-state: paused;
+  }
+
+  &-slide-up-enter&-slide-up-enter-active,
+  &-slide-up-appear&-slide-up-appear-active {
+    animation-name: amdSlideUpIn;
+    animation-play-state: running;
+  }
+
+  &-slide-up-leave&-slide-up-leave-active {
+    animation-name: amdSlideUpOut;
+    animation-play-state: running;
+  }
+
+  @keyframes amdSlideUpIn {
+    0% {
+      transform: translate(0, 100%);
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes amdSlideUpOut {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(0, 100%);
+    }
+  }
+
+  &&-zoom-enter,
+  &&-zoom-leave {
+    display: block;
+  }
+
+  &-zoom-enter,
+  &-zoom-appear {
+    animation-play-state: paused;
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    opacity: 0;
+    .effect();
+  }
+
+  &-zoom-leave {
+    .effect();
+
+    animation-play-state: paused;
+    animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
+  }
+
+  &-zoom-enter&-zoom-enter-active,
+  &-zoom-appear&-zoom-appear-active {
+    animation-name: amdZoomIn;
+    animation-play-state: running;
+  }
+
+  &-zoom-leave&-zoom-leave-active {
+    animation-name: amdZoomOut;
+    animation-play-state: running;
+  }
+
+  @keyframes amdZoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0, 0);
+      transform-origin: 50% 50%;
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+      transform-origin: 50% 50%;
+    }
+  }
+
+  @keyframes amdZoomOut {
+    0% {
+      opacity: 1;
+      transform: scale(1, 1);
+      transform-origin: 50% 50%;
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(0, 0);
+      transform-origin: 50% 50%;
+    }
+  }
+
+  &-slide-down-enter,
+  &-slide-down-appear {
+    transform: translate(0, -100%);
+  }
+
+  &-slide-down-enter,
+  &-slide-down-appear,
+  &-slide-down-leave {
+    .effect();
+
+    animation-play-state: paused;
+  }
+
+  &-slide-down-enter&-slide-down-enter-active,
+  &-slide-down-appear&-slide-down-appear-active {
+    animation-name: amdSlideDownIn;
+    animation-play-state: running;
+  }
+
+  &-slide-down-leave&-slide-down-leave-active {
+    animation-name: amdSlideDownOut;
+    animation-play-state: running;
+  }
+
+  @keyframes amdSlideDownIn {
+    0% {
+      transform: translate(0, -100%);
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes amdSlideDownOut {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(0, -100%);
+    }
+  }
+}

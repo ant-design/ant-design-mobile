@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumericInput snapshot 1`] = `
+<EventInside>
+  <div
+    className="amd-numeric-input amd-numeric-input-left a"
+  >
+    <div
+      className="fake-input-placeholder"
+    />
+    <span
+      style={
+        Object {
+          "border": 0,
+          "height": 0,
+          "overflow": "hidden",
+          "padding": 0,
+          "width": 0,
+        }
+      }
+      tabIndex={-1}
+    />
+    <span
+      onFocus={[Function]}
+      style={
+        Object {
+          "border": 0,
+          "height": 0,
+          "overflow": "hidden",
+          "padding": 0,
+          "width": 0,
+        }
+      }
+      tabIndex={-1}
+    />
+    <Touchable
+      onPress={[Function]}
+    >
+      <div
+        aria-label=""
+        className="fake-input"
+        data-y="111"
+        role="textbox"
+      />
+    </Touchable>
+  </div>
+</EventInside>
+`;

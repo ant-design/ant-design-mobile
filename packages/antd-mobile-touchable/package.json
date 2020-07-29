@@ -1,0 +1,25 @@
+{
+  "name": "@ant-design/mobile-touchable",
+  "version": "3.0.0-alpha.0",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alipay-inc.com/antd-mobile/antd-mobile-assets"
+  },
+  "description": "antd-mobile-touchable",
+  "types": "es/index.d.ts",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  
+  "dependencies": {
+    "@babel/runtime": "^7.5.5"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "files": [
+    "lib",
+    "es",
+    "README.md"
+  ]
+}

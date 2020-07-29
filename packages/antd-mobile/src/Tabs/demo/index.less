@@ -1,0 +1,50 @@
+.has-add-on {
+  display: flex;
+}
+
+.description-container {
+  text-align: center;
+}
+
+.description {
+  padding: 5px;
+  margin-top: 4px;
+  color: #d4d4d4;
+}
+
+.add-on-tab {
+  flex: 2;
+  padding: 10px;
+
+  .amd-tabs-item {
+    .amd-tabs-decorator-container {
+      display: none;
+    }
+  }
+
+  .add-on-active {
+    .description-container {
+      color: #2a7bfb;
+    }
+
+    .description {
+      background: #2a7bfb;
+      border-radius: 60px;
+      color: #fff;
+    }
+
+    .amd-tabs-decorator-container {
+      display: none;
+    }
+  }
+}
+
+.add-on {
+  display: flex;
+  width: 50px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  font-size: 30px;
+}

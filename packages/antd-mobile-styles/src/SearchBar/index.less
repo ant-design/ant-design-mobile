@@ -1,0 +1,151 @@
+@import (reference) '../base/index.less';
+
+@searchPrefixCls: amd-search;
+
+// start
+@search-bar-fill: @color-fill-grey-inverse;
+@search-bar-height: 88 * @rpx;
+@search-bar-input-height: 60 * @rpx;
+@search-bar-input-padding: 68 * @rpx;
+@search-bar-font-size: @font-size-content;
+@search-bar-color-icon: @color-text-subtitle;
+@search-bar-border-radius: 12 * @rpx;
+// end
+
+/* 默认搜索bar */
+.@{searchPrefixCls} {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  height: @search-bar-height;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 14 * @rpx 24 * @rpx;
+
+  &-input {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: @search-bar-input-height;
+    box-sizing: border-box;
+    flex: 1;
+    border: 2 * @rpx solid @color-text-primary;
+    background-clip: padding-box;
+    background-color: @search-bar-fill;
+    border-radius: @search-bar-border-radius;
+
+    .@{searchPrefixCls}-synthetic-ph,
+    input[type='search'] {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .@{searchPrefixCls}-synthetic-ph {
+      z-index: 1;
+      display: block;
+      width: 100%;
+      box-sizing: content-box;
+      line-height: @search-bar-input-height - 4 * @rpx;
+      text-align: center;
+      transition: width 0.3s;
+
+      .amd-icon {
+        display: inline-block;
+        overflow: hidden;
+        margin-right: 8 * @rpx;
+        color: @search-bar-color-icon;
+        vertical-align: -8 * @rpx;
+      }
+
+      &-placeholder {
+        color: @search-bar-color-icon;
+        font-size: @search-bar-font-size;
+      }
+    }
+
+    input[type='search'] {
+      z-index: 2;
+      display: block;
+      width: 100%;
+      height: @search-bar-input-height;
+      padding: 0 @search-bar-input-padding;
+      border: 0;
+      margin-top: -2 * @rpx;
+      background-color: transparent;
+      color: @color-text-subtitle;
+      font-size: @search-bar-font-size;
+      opacity: 0;
+      text-align: left;
+
+      &::placeholder {
+        background: none;
+        // color: @color-text-placeholder;
+        color: transparent;
+        text-align: left;
+        // font-size: @input-font-size;
+      }
+
+      &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+      }
+    }
+
+    .@{searchPrefixCls}-clear {
+      position: absolute;
+      z-index: 3;
+      top: -2 * @rpx;
+      right: @search-bar-input-padding - @search-bar-input-height;
+      display: none;
+      box-sizing: content-box;
+      padding: (@search-bar-input-height - @icon-size-xs) / 2;
+
+      &-show {
+        display: block;
+      }
+
+      .amd-icon {
+        color: @search-bar-color-icon;
+        vertical-align: -8 * @rpx;
+      }
+    }
+  }
+
+  &-cancel {
+    height: @search-bar-height;
+    flex: none;
+    padding-left: 16 * @rpx;
+    color: @color-text-primary;
+    font-size: 32 * @rpx;
+    line-height: @search-bar-height;
+    opacity: 0;
+    text-align: right;
+
+    &-anim {
+      transition: margin-right 0.3s, opacity 0.3s;
+      transition-delay: 0.1s;
+    }
+
+    &-show {
+      opacity: 1;
+    }
+  }
+
+  &.@{searchPrefixCls}-start {
+    .@{searchPrefixCls}-input {
+      input[type='search'] {
+        opacity: 1;
+
+        &::placeholder {
+          // display: none;
+          color: transparent;
+        }
+      }
+
+      .@{searchPrefixCls}-synthetic-ph {
+        width: auto;
+        padding-left: 24 * @rpx;
+      }
+    }
+  }
+}

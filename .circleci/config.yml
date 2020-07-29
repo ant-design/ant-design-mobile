@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  ci:
+    docker:
+      - image: circleci/node:12
+    working_directory: ~/workspace
+    steps:
+      - checkout
+      - restore_cache:
+          key: antd-mobile-{{ checksum "package.json" }}
+      - run:
+          name: Install dependencies
+          command: npm i --registry https://registry.npmjs.org
+
+      - run:
+          name: CI
+          command: |
+            npm run ci
+      - save_cache:
+          key: antd-mobile-{{ checksum "package.json" }}
+          paths:
+            - 'node_modules'

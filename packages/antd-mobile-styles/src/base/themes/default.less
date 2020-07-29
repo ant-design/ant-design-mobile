@@ -1,0 +1,16 @@
+// alipay-style 现在只有变量
+@import (reference) '~alipay-style/style/theme/default.less';
+@import (reference) '~alipay-style/style/theme/components.less';
+
+@rpx: 0.5 * @hd;
+
+// 原有的 env(safe-area-inset-bottom) 不能满足设计上 68 的需求
+@safe-area-inset-bottom: 68 * @rpx;
+
+// 修正后的 line-height
+@default-line-height: 1.4;
+
+// active 的不透明度
+@opacity-active: 0.7;
+
+@DINPro: DINPro, @font-family-alipay-number, PingFang SC, sans-serif;

@@ -1,0 +1,301 @@
+@import (reference) '../base/index.less';
+
+// start
+// title 颜色
+@coupon-title-color: @color-text-title;
+// title 字体大小
+@coupon-title-size: @font-size-subtitle;
+// 描述 颜色
+@coupon-desc-color: @color-text-subtitle;
+// 描述 字体大小
+@coupon-desc-size: @font-size-content;
+// 边距
+@coupon-spacing: @h-spacing-large;
+// 圆角
+@coupon-radius: @corner-radius-lg;
+// 背景
+@coupon-background: @color-fill-grey-inverse;
+// end
+
+@prefixCls: amd-coupon;
+
+.@{prefixCls} {
+  // size
+  @iconSize: 76 * @rpx;
+  @iconSizeWrap: 72 * @rpx;
+  @clip-circle-radius: 16 * @rpx;
+
+  line-height: @default-line-height;
+
+  &-wrap {
+    display: flex;
+    overflow: hidden;
+    margin: 0 @coupon-spacing;
+    border-radius: @coupon-radius;
+
+    .@{prefixCls}-title {
+      color: @coupon-title-color;
+      font-size: @coupon-title-size;
+    }
+
+    .@{prefixCls}-desc {
+      margin-top: @v-spacing-standard;
+      color: @coupon-desc-color;
+      font-size: @coupon-desc-size;
+    }
+
+    h3,
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &-inner {
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex: 1;
+    padding-left: 24 * @rpx;
+
+    > div {
+      display: flex;
+      min-height: 175 * @rpx;
+      align-items: center;
+    }
+
+    &.no-image {
+      padding-left: 40 * @rpx;
+
+      &::before,
+      &::after {
+        clip: auto;
+      }
+    }
+  }
+
+  &-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+  }
+
+  &-ext {
+    &-wrap {
+      position: relative;
+      z-index: 1;
+      width: 192 * @rpx;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  }
+
+  &-tips {
+    flex: 1;
+    color: #999;
+    font-size: 22 * @rpx;
+    line-height: 36 * @rpx;
+
+    &-wrap {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      height: 36 * @rpx;
+      min-height: auto !important;
+      box-sizing: border-box;
+      align-items: initial !important;
+      margin-bottom: 16 * @rpx;
+
+      &.show {
+        height: auto;
+      }
+    }
+
+    &-btn {
+      width: 192 * @rpx;
+      color: @color-text-subtitle;
+      font-size: 22 * @rpx;
+      line-height: 36 * @rpx;
+      text-align: center;
+      vertical-align: middle;
+
+      &::after {
+        display: inline-block;
+        width: 30 * @rpx;
+        height: 16 * @rpx;
+        margin: 6 * @rpx 3 * @rpx 10 * @rpx 11 * @rpx;
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAMAAAB7LJ7rAAAAdVBMVEUAAADNzc3Pz8/Y2Njg4ODNzc3Nzc3Nzc3Nzc3Nzc3Nzc3Q0NDR0dH////Nzc3MzMzMzMzNzc3Nzc3Q0NDV1dXNzc3Nzc3Nzc3MzMzMzMzNzc3Nzc3Ozs7Pz8/Q0NDS0tLb29vMzMzNzc3Nzc3Ozs7Ozs7MzMzcY3VnAAAAJnRSTlMA3DAJBfrnuKaPXiUfAfTy0cu+NRjr4K6gh3NXSEEVEw7Yn3ptKnYBeqMAAACeSURBVCjPdZBZEoIwEEQH2TcFRBBUcH33P6JFIRVDSH/N5CWT6ZY0ccUiN/mIQ2XhXkgjLbT5Fs0jCGV8QLyFY3AGkSyAl0l7CNKp2B0gWdML7I9zefPxr4qoI+3qInPgG06paqd1evlTB029NINjmDlDcf+FVUKUGxFReXqlpN6oObrG+ccOnFonat/oqXtYu50TsPASip3YVWd6/wVRcQ6juluQnwAAAABJRU5ErkJggg==')
+          center center no-repeat;
+        background-size: 100% 100%;
+        content: '';
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &-icon {
+    &-wrap {
+      position: relative;
+      overflow: hidden;
+      width: 160 * @rpx;
+    }
+  }
+
+  &-img {
+    position: relative;
+    top: -2 * @rpx;
+    left: -2 * @rpx;
+    display: block;
+    width: @iconSize;
+    height: @iconSize;
+    background-color: #e7e7e7;
+
+    &-wrap {
+      display: flex;
+      height: 175 * @rpx;
+      box-sizing: border-box;
+      align-items: center;
+      padding: 0 0 0 56 * @rpx;
+    }
+
+    &-inner {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      width: @iconSizeWrap;
+      height: @iconSizeWrap;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+  }
+
+  &-clip {
+    &-wrap {
+      position: absolute;
+      overflow: hidden;
+      width: 100%;
+      height: 50%;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: @coupon-background;
+        content: '';
+      }
+
+      &.top2left {
+        top: 0;
+        left: 0;
+
+        &::before {
+          top: 0;
+          left: 16 * @rpx;
+        }
+
+        &::after {
+          top: 16 * @rpx;
+          left: 0;
+        }
+
+        .@{prefixCls}-clip-inner {
+          top: -16 * @rpx;
+          left: -16 * @rpx;
+        }
+      }
+
+      &.bottom2left {
+        bottom: 0;
+        left: 0;
+
+        &::before {
+          bottom: 0;
+          left: 16 * @rpx;
+        }
+
+        &::after {
+          bottom: 16 * @rpx;
+          left: 0;
+        }
+
+        .@{prefixCls}-clip-inner {
+          bottom: -16 * @rpx;
+          left: -16 * @rpx;
+        }
+      }
+
+      &.top2right {
+        top: 0;
+        right: 0;
+
+        &::before {
+          top: 0;
+          right: 16 * @rpx;
+        }
+
+        &::after {
+          top: 16 * @rpx;
+          right: 0;
+        }
+
+        .@{prefixCls}-clip-inner {
+          top: -16 * @rpx;
+          right: -16 * @rpx;
+        }
+      }
+
+      &.bottom2right {
+        right: 0;
+        bottom: 0;
+
+        &::before {
+          right: 16 * @rpx;
+          bottom: 0;
+        }
+
+        &::after {
+          right: 0;
+          bottom: 16 * @rpx;
+        }
+
+        .@{prefixCls}-clip-inner {
+          right: -16 * @rpx;
+          bottom: -16 * @rpx;
+        }
+      }
+
+      &.disable {
+        .@{prefixCls}-clip-inner {
+          &::before {
+            background-color: @coupon-background;
+            clip: auto;
+          }
+        }
+      }
+    }
+
+    &-inner {
+      position: absolute;
+      overflow: hidden;
+      width: 32 * @rpx;
+      height: 32 * @rpx;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 16px;
+        height: 16px;
+        border: 16px solid @coupon-background;
+        margin-top: -24px;
+        margin-left: -24px;
+        border-radius: 50%;
+        clip: rect(auto, auto, auto, auto);
+        content: '';
+      }
+    }
+  }
+}

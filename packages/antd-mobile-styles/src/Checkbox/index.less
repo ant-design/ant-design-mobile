@@ -1,0 +1,123 @@
+@import (reference) '../base/index.less';
+
+// start
+
+/* size | 大小 */
+@checkbox-size: @icon-size-sm;
+
+/* corner-radius| 圆角 */
+@checkbox-corner-radius: @corner-radius-circle;
+
+/* border-width | 边框宽度 */
+@checkbox-border-width: @border-width-standard;
+
+/* color | 边框颜色 */
+@checkbox-border-color: @color-fill-grey-base;
+
+/* color | check状态背景色 */
+@checkbox-background: @color-fill-primary;
+
+/* color | disabled状态背景色 */
+@checkbox-disabled-background: @color-fill-grey-light;
+
+// end
+
+@checkboxWarpPrefixCls: amd-checkbox;
+@checkboxInnerPrefixCls: ~'@{checkboxWarpPrefixCls}-inner';
+
+.encoded-svg-background(@svg) when (@svg = 'checkbox_check') {
+  @svg-bg-img: '<svg width="22px" height="16px" viewBox="0 0 22 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-11.000000, -14.000000)" fill="#ffffff" fill-rule="nonzero"><g><path d="M18.8574375,25.9363304 L14.4138058,21.4926987 C13.8001225,20.8790154 12.8051453,20.8790154 12.1914621,21.4926987 C11.5777807,22.10638 11.5777807,23.1013541 12.1914621,23.7150354 C12.1914632,23.7150366 12.1914644,23.7150377 12.1914656,23.7150389 L17.4442507,28.9677909 C18.225314,29.7488091 19.4916285,29.7488141 20.2726979,28.9678021 L21.0808125,28.1597054 L21.0808125,28.1597054 L32.5627182,16.6759191 C33.176366,16.0621709 33.1763252,15.0671824 32.5626272,14.4534844 C31.948944,13.8398011 30.9539668,13.8398011 30.3402835,14.4534844 L18.8574375,25.9363304 L18.8574375,25.9363304 Z"></path></g></g></g></svg>';
+  .encoded-svg-background-i(@svg-bg-img);
+}
+
+.encoded-svg-background(@svg) when (@svg = 'checkbox_check_disabled') {
+  @svg-bg-img: '<svg width="22px" height="16px" viewBox="0 0 22 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-11.000000, -14.000000)" fill="#999999" fill-rule="nonzero"><g><path d="M18.8574375,25.9363304 L14.4138058,21.4926987 C13.8001225,20.8790154 12.8051453,20.8790154 12.1914621,21.4926987 C11.5777807,22.10638 11.5777807,23.1013541 12.1914621,23.7150354 C12.1914632,23.7150366 12.1914644,23.7150377 12.1914656,23.7150389 L17.4442507,28.9677909 C18.225314,29.7488091 19.4916285,29.7488141 20.2726979,28.9678021 L21.0808125,28.1597054 L21.0808125,28.1597054 L32.5627182,16.6759191 C33.176366,16.0621709 33.1763252,15.0671824 32.5626272,14.4534844 C31.948944,13.8398011 30.9539668,13.8398011 30.3402835,14.4534844 L18.8574375,25.9363304 L18.8574375,25.9363304 Z"></path></g></g></g></svg>';
+  .encoded-svg-background-i(@svg-bg-img);
+}
+
+/* Default state */
+.@{checkboxWarpPrefixCls} {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 0;
+  line-height: @default-line-height;
+  outline: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &-inner {
+    &::after {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: 22.59 * @rpx;
+      .encoded-svg-background('checkbox_check');
+    }
+
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: @checkbox-size;
+    height: @checkbox-size;
+    box-sizing: border-box;
+    border-width: @checkbox-border-width;
+    border-style: solid;
+    border-color: @checkbox-border-color;
+    background-color: @color-fill-grey-inverse;
+    border-radius: @checkbox-corner-radius;
+    transition: border-color 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+      background-color 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  &-input {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+  }
+}
+
+/* Checked state */
+.@{checkboxWarpPrefixCls}-checked {
+  .@{checkboxInnerPrefixCls} {
+    border-color: @checkbox-background;
+    background-color: @checkbox-background;
+
+    &::after {
+      content: ' ';
+    }
+  }
+}
+
+.@{checkboxWarpPrefixCls}-disabled {
+  &.@{checkboxWarpPrefixCls}-checked {
+    .@{checkboxInnerPrefixCls} {
+      border-color: @checkbox-border-color;
+      background-color: @checkbox-disabled-background;
+
+      &::after {
+        content: ' ';
+        .encoded-svg-background('checkbox_check_disabled');
+      }
+    }
+  }
+
+  .@{checkboxInnerPrefixCls} {
+    border-color: @checkbox-border-color;
+    background-color: @checkbox-disabled-background;
+  }
+
+  .@{checkboxInnerPrefixCls}-input {
+    cursor: default;
+  }
+}

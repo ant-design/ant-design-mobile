@@ -1,0 +1,99 @@
+@import (reference) '../base/index.less';
+
+// start
+// 每一项的高度
+@collapse-header-height: 96 * @rpx;
+// 左右边距
+@collapse-header-padding: @h-spacing-large;
+// 背景色
+@collapse-header-background: @color-fill-grey-inverse;
+// 字体颜色
+@collapse-header-color: @color-text-title;
+// 字体大小
+@collapse-header-size: @font-size-list;
+// 箭头大小
+@collapse-header-icon-size: 36 * @rpx;
+
+// 背景色
+@collapse-content-background: @color-fill-grey-inverse;
+// 字体颜色
+@collapse-content-color: @color-text-title;
+// 字体大小
+@collapse-content-size: @font-size-subtitle;
+// end
+
+@collapsePrefixCls: amd-collapse;
+
+.encoded-svg-background(@svg) when (@svg = 'right') {
+  @svg-bg-img: '<svg width="16" height="26" viewBox="0 0 16 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="UI-KIT_基础元件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="9.9基础元件" transform="translate(-5809.000000, -8482.000000)" fill="#C7C7CC"><polygon id="Disclosure-Indicator" points="5811 8482 5809 8484 5820.5 8495 5809 8506 5811 8508 5825 8495"></polygon></g></g></svg>';
+  .encoded-svg-background-i(@svg-bg-img);
+}
+
+.@{collapsePrefixCls} {
+  position: relative;
+  line-height: @default-line-height;
+
+  .hairline('top');
+
+  &-anim-active {
+    transition: all 0.2s ease-out;
+  }
+
+  & &-item {
+    .@{collapsePrefixCls}-header {
+      position: relative;
+      overflow: hidden;
+      height: @collapse-header-height;
+      box-sizing: content-box;
+      padding-right: @collapse-header-padding;
+      padding-left: @collapse-header-padding;
+      background-color: @collapse-header-background;
+      color: @collapse-header-color;
+      font-size: @collapse-header-size;
+      line-height: @collapse-header-height;
+      .hairline('bottom');
+      .ellipsis();
+
+      i {
+        position: absolute;
+        top: 50%;
+        right: @collapse-header-padding;
+        display: block;
+        width: @collapse-header-icon-size;
+        height: @collapse-header-icon-size;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: translateY(-50%);
+        transition: transform 0.2s ease;
+        .encoded-svg-background('right');
+      }
+
+      &[aria-expanded~='true'] {
+        i {
+          transform: translateY(-50%) rotate(90deg);
+        }
+      }
+    }
+
+    .@{collapsePrefixCls}-content {
+      overflow: hidden;
+      background: @collapse-content-background;
+
+      .@{collapsePrefixCls}-content-box {
+        position: relative;
+        color: @collapse-content-color;
+        font-size: @collapse-content-size;
+        .hairline('bottom');
+
+        .am-list-body {
+          .hairline-remove('top');
+        }
+      }
+
+      &.@{collapsePrefixCls}-content-inactive {
+        display: none;
+      }
+    }
+  }
+}

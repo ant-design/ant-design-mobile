@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch snapshot 1`] = `
+<label
+  className="amd-switch"
+  data-y="111"
+>
+  <input
+    checked={true}
+    className="amd-switch-checkbox"
+    disabled={true}
+    name=""
+    onChange={[Function]}
+    type="checkbox"
+    value="on"
+  />
+  <div
+    className="checkbox checkbox-disabled"
+  />
+</label>
+`;

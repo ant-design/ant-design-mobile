@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Picker snapshot 1`] = `
+<div>
+  <List>
+    <Picker
+      cascade={false}
+      data={
+        Array [
+          Array [
+            Object {
+              "label": "2013",
+              "value": "2013",
+            },
+            Object {
+              "label": "2014",
+              "value": "2014",
+            },
+          ],
+          Array [
+            Object {
+              "label": "春",
+              "value": "春",
+            },
+            Object {
+              "label": "夏",
+              "value": "夏",
+            },
+          ],
+        ]
+      }
+      extra="请选择(可选)"
+      title="选择季节"
+    >
+      <h3
+        key="123"
+      >
+        Multiple
+      </h3>
+    </Picker>
+  </List>
+</div>
+`;

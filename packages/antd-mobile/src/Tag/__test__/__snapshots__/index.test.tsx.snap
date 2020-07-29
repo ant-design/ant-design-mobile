@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag snapshot 1`] = `
+<Touchable>
+  <span
+    className="amd-tag amd-tag-filling-normal a b"
+    data-y="111"
+  >
+    button
+  </span>
+</Touchable>
+`;
+
+exports[`Tag snapshot 2 1`] = `
+<Touchable>
+  <span
+    className="amd-tag amd-tag-line-orange a b"
+    data-count="3"
+  >
+    button
+  </span>
+</Touchable>
+`;

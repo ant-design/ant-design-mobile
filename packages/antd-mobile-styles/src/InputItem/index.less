@@ -1,0 +1,131 @@
+@import (reference) '../base/index.less';
+
+// start
+// 左右 padding
+@input-item-padding-LR: @h-spacing-large;
+// 背景颜色
+@input-item-background: @color-fill-grey-inverse;
+// 高度
+@input-item-height: 96 * @rpx;
+// label 字体颜色
+@input-item-label-color: @color-text-title;
+// label 字体大小
+@input-item-label-size: @font-size-list;
+// input 字体颜色
+@input-item-color: @color-text-title;
+// input 字体大小
+@input-item-size: @font-size-list;
+// input indent
+@input-item-indent: @h-spacing-large;
+// input placeholder 颜色
+@input-item-placeholder-color: @color-text-weak;
+// input 清除 颜色
+@input-item-clear-color: @color-fill-grey-base;
+// input 清除尺寸
+@input-item-clear-size: @size-4;
+// end
+
+@prefixCls: amd-input-item;
+@prefixClsVertical: amd-input-item-vertical;
+
+.@{prefixCls} {
+  padding: 0 @input-item-padding-LR;
+  background-color: @input-item-background;
+
+  &-wrap {
+    display: flex;
+    height: @input-item-height;
+    align-items: center;
+  }
+
+  &-label {
+    flex-grow: 0;
+    color: @input-item-label-color;
+    font-size: @input-item-label-size;
+    white-space: nowrap;
+  }
+
+  input {
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    margin: 0;
+    background: none;
+    color: @input-item-color;
+    font-size: @input-item-size;
+    line-height: normal;
+    text-indent: @input-item-indent;
+
+    &::-webkit-input-placeholder {
+      color: @input-item-placeholder-color;
+    }
+  }
+
+  &-extra {
+    display: flex;
+    overflow: hidden;
+    width: @icon-size-sm;
+    min-width: @icon-size-sm;
+    height: @icon-size-sm;
+    flex-shrink: 0;
+    align-items: center;
+    margin-left: auto;
+    text-align: right;
+  }
+
+  &-clear {
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--h-spacing-large, @h-spacing-large);
+    margin-left: auto;
+  }
+
+  &-clear-no-extra {
+    margin-right: 0;
+  }
+
+  .amd-icon-amd-close-fill {
+    width: @input-item-clear-size;
+    height: @input-item-clear-size;
+    color: @input-item-clear-color;
+  }
+
+  &.@{prefixClsVertical} {
+    padding: var(--h-spacing-large, @h-spacing-large);
+
+    .@{prefixCls}-label {
+      display: block;
+      padding: 0;
+      color: @color-text-subtitle;
+      font-size: @font-size-subtitle;
+    }
+
+    .@{prefixCls}-input {
+      display: block;
+      padding: 0;
+      margin: 6px 0 0 0;
+      text-indent: 0;
+    }
+
+    .@{prefixClsVertical}-left {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .@{prefixClsVertical}-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .@{prefixCls}-clear {
+      display: inline-flex;
+    }
+
+    .@{prefixCls}-extra {
+      display: inline-flex;
+    }
+  }
+}

@@ -1,0 +1,290 @@
+@import (reference) '../base/index.less';
+
+// start
+// header 颜色
+@list-header-color: @color-text-subtitle;
+// header 字体大小
+@list-header-size: @font-size-subtitle;
+// footer 颜色
+@list-footer-color: @color-text-subtitle;
+// footer 字体大小
+@list-footer-size: @font-size-content;
+// 圆角
+@list-radius: @corner-radius-lg;
+// 背景
+@list-background: @color-fill-grey-inverse;
+
+// 主要文字大小
+@list-content-size: @font-size-list;
+// 辅助文字大小
+@list-extra-brief-size: @font-size-subtitle;
+// 主要文字颜色
+@list-content-color: @color-text-title;
+// 辅助文字颜色
+@list-extra-brief-color: @color-text-subtitle;
+// 图片尺寸
+@list-icon-size: 56 * @rpx;
+// 多行，图片尺寸
+@list-multi-icon-size: 80 * @rpx;
+// end
+
+@listPrefixCls: amd-list;
+
+.@{listPrefixCls} {
+  line-height: @default-line-height;
+
+  &-header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: @v-spacing-large @h-spacing-large @v-spacing-standard
+      @h-spacing-large;
+    color: @list-header-color;
+    font-size: @list-header-size;
+  }
+
+  &-footer {
+    padding: @v-spacing-standard @h-spacing-large @v-spacing-large
+      @h-spacing-large;
+    color: @list-footer-color;
+    font-size: @list-footer-size;
+  }
+
+  &-body {
+    position: relative;
+    overflow: hidden;
+
+    div:not(:last-child) {
+      .@{listPrefixCls}-line {
+        .hairline('bottom');
+      }
+    }
+  }
+
+  &-radius {
+    padding: 0 @h-spacing-large;
+
+    .@{listPrefixCls}-body {
+      border-radius: @list-radius;
+      // 见 https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b
+      transform: translate3d(0, 0, 0);
+    }
+
+    .@{listPrefixCls}-header,
+    .@{listPrefixCls}-footer {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+.@{listPrefixCls}-item {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  min-height: 96 * @rpx;
+  align-items: center;
+  padding-left: @h-spacing-large;
+  background-color: @list-background;
+  transition: background-color 200ms;
+  vertical-align: middle;
+
+  .@{listPrefixCls}-ripple {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    background: transparent;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+    transform: scale(0);
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1),
+      background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: box-shadow, transform;
+
+    &.@{listPrefixCls}-ripple-animate {
+      animation: ripple 1s linear;
+      background-color: hsla(0, 0%, 62%, 0.2);
+    }
+  }
+
+  &.@{listPrefixCls}-item-top {
+    .@{listPrefixCls}-line {
+      align-items: flex-start;
+
+      .@{listPrefixCls}-arrow {
+        margin-top: 2 * 2 * @rpx;
+      }
+    }
+  }
+
+  &.@{listPrefixCls}-item-middle {
+    .@{listPrefixCls}-line {
+      align-items: center;
+    }
+  }
+
+  &.@{listPrefixCls}-item-bottom {
+    .@{listPrefixCls}-line {
+      align-items: flex-end;
+    }
+  }
+
+  &.@{listPrefixCls}-item-error {
+    .@{listPrefixCls}-line {
+      .@{listPrefixCls}-extra {
+        color: @color-red-1;
+
+        .@{listPrefixCls}-brief {
+          color: @color-red-1;
+        }
+      }
+    }
+  }
+
+  &.@{listPrefixCls}-item-active {
+    background-color: @color-divider-line;
+  }
+
+  &&-disabled {
+    .@{listPrefixCls}-line {
+      .@{listPrefixCls}-content,
+      .@{listPrefixCls}-extra {
+        filter: brightness(0.9);
+        opacity: @opacity-disabled;
+      }
+    }
+  }
+
+  /* list左图片显示 */
+  .@{listPrefixCls}-thumb {
+    &:first-child {
+      margin-right: @h-spacing-large;
+    }
+
+    .@{listPrefixCls}-item-icon,
+    img {
+      width: @list-icon-size;
+      height: @list-icon-size;
+      vertical-align: middle;
+    }
+
+    // 多行的时候，图片变大
+    &-brief {
+      .@{listPrefixCls}-item-icon,
+      img {
+        width: @list-multi-icon-size;
+        height: @list-multi-icon-size;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .@{listPrefixCls}-line {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    flex: 1;
+    align-self: stretch;
+    padding-top: @h-spacing-large;
+    padding-right: @h-spacing-large;
+    padding-bottom: @h-spacing-large;
+
+    /* list左侧主内容 */
+    .@{listPrefixCls}-content {
+      flex: 1;
+      color: @list-content-color;
+      font-size: @list-content-size;
+      text-align: left;
+      .ellipsis();
+    }
+
+    /* list右补充内容 */
+    .@{listPrefixCls}-extra {
+      flex-basis: 36%;
+      color: @list-extra-brief-color;
+      font-size: @list-extra-brief-size;
+      text-align: right;
+      .ellipsis();
+    }
+
+    .@{listPrefixCls}-title {
+      .ellipsis();
+    }
+
+    /* 辅助性文字 */
+    .@{listPrefixCls}-brief {
+      color: @list-extra-brief-color;
+      font-size: @list-extra-brief-size;
+      .ellipsis();
+    }
+
+    /* list右侧箭头 */
+    .@{listPrefixCls}-arrow {
+      display: block;
+      margin-left: @h-spacing-standard;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      color: @color-text-weak;
+      visibility: hidden;
+
+      &-horizontal {
+        visibility: visible;
+      }
+
+      &-vertical {
+        transform: rotate(90deg);
+        visibility: visible;
+      }
+
+      &-vertical-up {
+        transform: rotate(270deg);
+        visibility: visible;
+      }
+    }
+
+    &-multiple {
+      padding: 12.5 * 2 * @rpx @h-spacing-large 12.5 * 2 * @rpx 0;
+
+      .@{listPrefixCls}-content {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .@{listPrefixCls}-extra {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    &-wrap {
+      .@{listPrefixCls}-content {
+        white-space: normal;
+      }
+
+      .@{listPrefixCls}-extra {
+        white-space: normal;
+      }
+    }
+  }
+
+  select {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    appearance: none;
+    background-color: transparent;
+    font-size: @font-size-list;
+  }
+}
+
+@keyframes ripple {
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}

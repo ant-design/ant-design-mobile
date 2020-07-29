@@ -1,0 +1,182 @@
+@import (reference) '../base/index.less';
+
+// start
+// 标准背景
+@notice-background: @color-golden-3;
+// 标准边框颜色
+@notice-border-color: @color-golden-2;
+// 标准字体颜色
+@notice-color: @color-tangerine-1;
+// 标准字体大小
+@notice-font-size: @font-size-subtitle;
+// 胶囊类背景
+@notice-capsule-background: @color-fill-grey-inverse;
+// 胶囊类图标大小
+@notice-capsule-icon-size: @icon-size-sm;
+
+// error 边框颜色
+@notice-error-border-color: @color-golden-2;
+// error 字体颜色
+@notice-error-color: @color-text-base;
+// error 背景
+@notice-error-background: @color-fill-warning;
+
+// active 边框颜色
+@notice-active-border-color: tint(@color-fill-primary, 72%);
+// active 字体颜色
+@notice-active-color: @color-text-primary;
+// active 背景
+@notice-active-background: tint(@color-fill-primary, 80%);
+
+// end
+
+@noticeBarPrefixCls: amd-notice-bar;
+
+.@{noticeBarPrefixCls} {
+  display: flex;
+  overflow: hidden;
+  box-sizing: border-box;
+  align-items: center;
+  padding: @v-spacing-standard @h-spacing-large;
+  border-width: @border-width-standard 0;
+  border-style: solid;
+  border-color: @notice-border-color;
+  background-color: @notice-background;
+  color: @notice-color;
+  font-size: @notice-font-size;
+  line-height: @default-line-height;
+
+  &-tip {
+    display: block;
+    text-align: center;
+  }
+
+  &-capsule-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-capsule {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    background-color: @notice-capsule-background;
+    border-radius: @corner-radius-circle;
+
+    &-item {
+      display: flex;
+      flex-direction: row-reverse;
+      padding-left: @h-spacing-standard;
+      margin-right: @h-spacing-large;
+    }
+
+    &-img {
+      overflow: hidden;
+      width: @notice-capsule-icon-size;
+      height: @notice-capsule-icon-size;
+      border: @border-width-thick solid @color-fill-grey-inverse;
+      margin-left: -@h-spacing-standard;
+      border-radius: @corner-radius-circle;
+    }
+  }
+
+  &-normal {
+    .@{noticeBarPrefixCls}-marquee-wrap {
+      &::before,
+      &::after {
+        background-color: @notice-background;
+      }
+    }
+  }
+
+  &-error {
+    border-color: @notice-error-border-color;
+    background-color: @notice-error-background;
+    color: @notice-error-color;
+
+    &-scroll-left,
+    &-scroll-right {
+      background: @notice-error-background;
+    }
+
+    .@{noticeBarPrefixCls}-marquee-wrap {
+      &::before,
+      &::after {
+        background-color: @notice-error-background;
+      }
+    }
+  }
+
+  &-active {
+    border-color: @notice-active-border-color;
+    background-color: @notice-active-background;
+    color: @notice-active-color;
+
+    &-scroll-left,
+    &-scroll-right {
+      background-color: @notice-active-background;
+    }
+
+    .@{noticeBarPrefixCls}-marquee-wrap {
+      &::before,
+      &::after {
+        background-color: @notice-active-background;
+      }
+    }
+  }
+
+  &-content {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    flex: 1;
+    vertical-align: middle;
+
+    .@{noticeBarPrefixCls}-marquee-wrap {
+      position: relative;
+
+      &.no-mask {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        display: inline-block;
+        width: 20 * @rpx;
+        height: 44 * @rpx;
+        content: '';
+        opacity: 0.5;
+      }
+
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        right: 0;
+      }
+    }
+  }
+
+  &-icon {
+    display: flex;
+    margin-right: @h-spacing-standard;
+  }
+
+  &-operation {
+    display: flex;
+    margin-left: @h-spacing-standard;
+
+    &-left {
+      margin-right: @h-spacing-standard;
+    }
+  }
+}

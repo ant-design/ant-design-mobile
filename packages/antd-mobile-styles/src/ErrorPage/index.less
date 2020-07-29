@@ -1,0 +1,53 @@
+@import (reference) '../base/index.less';
+
+// start
+// 背景
+@error-page-background: @color-fill-grey-inverse;
+// 字体大小
+@error-page-font-size: @font-size-subtitle;
+// 图片大小
+@error-page-poster-size: 400 * @rpx;
+// 图片上边距
+@error-page-poster-margin-top: 320 * @rpx;
+// 文字上边距
+@error-page-text-margin-top: 40 * @rpx;
+// 副文字上边距
+@error-page-subtext-margin-top: 24 * @rpx;
+// 内容（按钮）上边距
+@error-page-content-margin-top: 40 * @rpx;
+// 按钮间间距
+@error-page-button-spacing: @h-spacing-large;
+// end
+
+.amd-error-page {
+  height: 100vh;
+  background-color: @color-fill-grey-inverse;
+  font-size: @font-size-subtitle;
+  line-height: @default-line-height;
+  text-align: center;
+
+  &-poster {
+    width: auto;
+    height: @error-page-poster-size;
+    margin: @error-page-poster-margin-top 0 @error-page-text-margin-top;
+  }
+
+  &-text {
+    color: #333;
+    font-size: 36 * @rpx;
+    text-align: center;
+  }
+
+  &-sub-text {
+    margin: @error-page-subtext-margin-top 0 @error-page-content-margin-top;
+    color: @color-text-subtitle;
+    font-size: 26 * @rpx;
+    text-align: center;
+  }
+
+  &-content {
+    .amd-button + .amd-button {
+      margin-left: @error-page-button-spacing;
+    }
+  }
+}

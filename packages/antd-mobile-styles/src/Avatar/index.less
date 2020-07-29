@@ -1,0 +1,71 @@
+@import (reference) '../base/index.less';
+
+// start
+// 单头像
+@avatar-img-only-size: 104 * @rpx;
+// 有名字头像
+@avatar-img-with-name-size: 72 * @rpx;
+// 有名字和描述头像
+@avatar-img-with-name-and-desc-size: 120 * @rpx;
+// 名字颜色
+@avatar-name-color: @color-text-title;
+// 名字尺寸， 有名字有描述
+@avatar-name-size: @font-size-title;
+// 名字尺寸， 有名字无描述
+@avatar-name-only-size: @font-size-list;
+// 描述颜色
+@avatar-desc-color: @color-text-subtitle;
+// 描述尺寸
+@avatar-desc-size: @font-size-subtitle;
+// end
+
+.amd-avatar {
+  display: flex;
+  align-items: center;
+  line-height: @default-line-height;
+
+  img {
+    width: @avatar-img-only-size;
+    height: @avatar-img-only-size;
+    border-radius: 50%;
+  }
+
+  &.just-name {
+    img {
+      width: @avatar-img-with-name-size;
+      height: @avatar-img-with-name-size;
+      margin-right: @h-spacing-large;
+    }
+
+    h3 {
+      flex: auto;
+      margin: 0;
+      color: @avatar-name-color;
+      font-size: @avatar-name-only-size;
+      font-weight: 400;
+    }
+  }
+
+  &.with-all {
+    img {
+      width: @avatar-img-with-name-and-desc-size;
+      height: @avatar-img-with-name-and-desc-size;
+      margin-right: @h-spacing-large;
+    }
+
+    h3 {
+      flex: auto;
+      padding-top: 12 * @rpx;
+      margin: 0;
+      color: @avatar-name-color;
+      font-size: @avatar-name-size;
+      font-weight: 400;
+
+      p {
+        margin: 4 * @rpx 0 0 0;
+        color: @avatar-desc-color;
+        font-size: @avatar-desc-size;
+      }
+    }
+  }
+}

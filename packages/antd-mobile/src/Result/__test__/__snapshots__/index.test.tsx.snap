@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button snapshot 1`] = `
+<div
+  className="amd-result"
+  role="alert"
+>
+  <div
+    className="amd-result-main"
+  >
+    <div
+      className="amd-result-img"
+    >
+      <Alipay
+        color="#1677ff"
+        size="lg"
+      />
+    </div>
+    <div
+      className="amd-result-title"
+    >
+      操作成功
+    </div>
+    <div
+      className="amd-result-message"
+    >
+      content
+    </div>
+  </div>
+  <div
+    className="amd-result-buttons"
+  >
+    <Button
+      key="0"
+      type="primary"
+    >
+      Back Home
+    </Button>
+    <Button
+      key="1"
+    >
+      Cancel
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`Button snapshot 2`] = `
+<div>
+  <Result
+    message="content"
+    type="success"
+  />
+  <Result
+    message="content"
+    type="error"
+  />
+  <Result
+    message="content"
+    type="info"
+  />
+  <Result
+    message="content"
+    type="wait"
+  />
+  <Result
+    message="content"
+    type="warn"
+  />
+</div>
+`;

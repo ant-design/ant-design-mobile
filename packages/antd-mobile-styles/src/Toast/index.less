@@ -1,0 +1,92 @@
+@import (reference) '../base/index.less';
+
+@toastPrefixCls: amd-toast;
+
+// start
+// 蒙层
+@toast-mask: @color-product-mask;
+// 背景
+@toast-background: @color-text-weak;
+// 圆角
+@toast-radius: @corner-radius-lg;
+// 文字
+@toast-font-size: @font-size-subtitle;
+@toast-font-color: @color-text-title;
+// 图标
+@toast-icon-size: 74 * @rpx;
+// 宽度
+@toast-width: 280 * @rpx;
+// end
+
+.@{toastPrefixCls} {
+  position: fixed;
+  z-index: 1999;
+  width: 100%;
+  font-size: @font-size-content;
+  line-height: @default-line-height;
+  text-align: center;
+
+  > span {
+    max-width: 50%;
+  }
+
+  &&-mask {
+    top: 0;
+    left: 0;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: @toast-mask;
+    transform: translateZ(1px);
+  }
+
+  &&-nomask {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    max-width: 50%;
+    transform: translateZ(1px);
+
+    .@{toastPrefixCls}-notice {
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+
+  &-notice-content {
+    .@{toastPrefixCls}-text {
+      display: flex;
+      width: @toast-width;
+      box-sizing: border-box;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: @h-spacing-large;
+      background-color: @toast-background;
+      border-radius: @toast-radius;
+      color: @toast-font-color;
+      font-size: @toast-font-size;
+      // opacity: 0.8;
+      text-align: center;
+
+      &.@{toastPrefixCls}-text-icon {
+        min-height: @toast-width;
+
+        .amd-icon {
+          width: @toast-icon-size;
+          height: @toast-icon-size;
+        }
+
+        .@{toastPrefixCls}-loading {
+          width: 80 * @rpx;
+          height: 80 * @rpx;
+        }
+
+        .@{toastPrefixCls}-text-info {
+          margin-top: 16 * @rpx;
+        }
+      }
+    }
+  }
+}

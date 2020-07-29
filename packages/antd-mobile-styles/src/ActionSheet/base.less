@@ -1,0 +1,63 @@
+// start
+
+// 面板背景
+@action-sheet-background: @color-divider-background;
+// 面板圆角
+@action-sheet-border-radius: @corner-radius-lg;
+// title 和 item 的背景
+@action-sheet-item-background: @color-fill-grey-inverse;
+// title 字体颜色
+@action-sheet-title-color: @color-text-subtitle;
+// title 字体大小
+@action-sheet-title-size: @font-size-subtitle;
+// item 字体颜色
+@action-sheet-item-color: @color-text-title;
+// item 字体大小
+@action-sheet-item-size: @font-size-title;
+// cancel 上边距
+@action-sheet-cancel-margin-top: @v-spacing-standard;
+// 层级
+@action-sheet-zindex: 999;
+// mask 背景
+@action-sheet-mask-background: @color-product-mask;
+// standard 背景
+@action-sheet-standard-background: @color-fill-grey-inverse;
+// standard icon size
+@action-sheet-standard-icon-size: 44 * @rpx;
+// standard icon color
+@action-sheet-standard-icon-color: @color-text-title;
+
+// end
+
+.@{ActionSheetPrefixCls} {
+  &-wrap {
+    position: fixed;
+    z-index: @action-sheet-zindex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    outline: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &-mask {
+    position: fixed;
+    z-index: @action-sheet-zindex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background-color: @action-sheet-mask-background;
+
+    &-hidden {
+      display: none;
+    }
+  }
+  // 隐藏掉 dialog 默认的 x 按钮
+  &-close {
+    display: none;
+  }
+}

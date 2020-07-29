@@ -1,0 +1,118 @@
+@import (reference) '../base/index.less';
+
+// start
+// 间隔
+@selector-collapse: @h-spacing-large;
+// 背景
+@selector-background: @color-fill-grey-inverse;
+// 选项背景
+@selector-item-background: @color-divider-background;
+// 选项激活背景
+@selector-item-active-background: @color-brand-2;
+// 选项字体颜色
+@selector-item-color: @color-text-title;
+// 选项字体大小
+@selector-item-size: @font-size-subtitle;
+// 副文案颜色
+@selector-item-sub-color: @color-text-subtitle;
+// 副文案大小
+@selector-item-sub-size: @font-size-content;
+
+// end
+
+@prefixCls: amd-selector;
+
+.@{prefixCls} {
+  @collapse: @selector-collapse;
+
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  padding: @collapse @collapse 0;
+  background-color: @selector-background;
+  line-height: @default-line-height;
+  text-align: center;
+
+  &-item {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 15 * @rpx;
+    margin-right: @collapse;
+    margin-bottom: @collapse;
+    background: @selector-item-background;
+    border-radius: @corner-radius-md;
+    font-size: 0;
+
+    &-text {
+      min-height: 42 * @rpx;
+      color: @selector-item-color;
+      font-size: @selector-item-size;
+      user-select: none;
+    }
+
+    &-sub-text {
+      min-height: 37 * @rpx;
+      color: @selector-item-sub-color;
+      font-size: @selector-item-sub-size;
+      user-select: none;
+    }
+
+    &-badge-active {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: none;
+      width: 39 * @rpx;
+      height: 31 * @rpx;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAAA+CAMAAAC2ow3TAAAAulBMVEUAAAAjif8Wd/8egP8Wd/8Wd/8Yef8lgP8Wd/8WeP8Xd/8Xd/8XeP8Wd/8Wd/8WeP8XeP8XeP8bev8WeP8Xd/8Wd/8WeP8XeP8Xef8Zef8Xef8cfv9Alf8Xd/8Wd/8Wd/8Xd/8XeP8Zef8WeP8Zd/8Xev8Yev8cgP8YeP8Yef8Wd/////+qzf/L4f8ifv++2f8de/+71/8bev/g7f+Btf+exv8gff/T5f98sv/s9P+21P+Pvf9qqP9npv8b1l5mAAAAKnRSTlMAB/EX++NGDfTa98i/sJaIgXQl6NS3nmhXMiwSBOzOxaWQXU8+Nx8bl2Fyj53+AAABhUlEQVRYw63X6U6DQBSGYQFLoSClm9ZuLq1VP9xaaN3v/7ZsTNDJtMwZcs77nyeZ5PvBORLsWtBqQ4xqDiCGdfsQw3wXYljnGFKYcwpIYd4FxLDzBsSwYQtiWBuQwponUOMuVQzzpxDDzo6hxV6qGnupauyl8rFhADEsxeFYS+Vjyz7EsMUUlTGWysUmd4AUNo4hho0aEMPmAcSwFGT1l8rHljOIYYseDrfdvOcFynhLfXrMdr3VwCZXMFrZqz02jgmrBjYKKcv+mXOXtB5giXVgadGYc2lr0djtzNaisZuerUVj9626FqyWui023waLwsYD1cp3H36sKywS64ZQKn4/Xa0pC1UngtomKzWzhaoTQe0rKzWz5VotdfWnmSyE+0uNsNfLc6mZLMTEUnXNZCHRj9kWUKGRFnzDiaBppOU6+jFr0AgLib5UQjNZgactldBMFlJtqUTrzzwvUFHkqCcCr8b/I72Ia43UE4FX5KnHLKsgdZSlsnITj/jxsisI48RXdv8Dhh90eVnVtzQAAAAASUVORK5CYII=');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      border-bottom-right-radius: @corner-radius-md;
+    }
+
+    &&-active {
+      background: @selector-item-active-background;
+
+      & > .@{prefixCls}-item-badge-active {
+        display: block;
+      }
+    }
+
+    &&-disabled {
+      color: @color-fill-grey-dark;
+      cursor: not-allowed;
+      opacity: @opacity-disabled;
+    }
+  }
+
+  &-col-2 {
+    .@{prefixCls}-item {
+      @lineCollapse: @collapse;
+
+      flex-basis: ~'calc((100% - @{lineCollapse}) / 2)';
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-col-3 {
+    .@{prefixCls}-item {
+      @lineCollapse: 2 * @collapse;
+
+      flex-basis: ~'calc((100% - @{lineCollapse}) / 3)';
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+}

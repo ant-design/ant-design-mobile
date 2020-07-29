@@ -1,0 +1,16 @@
+@import (reference) './base.less';
+
+.@{productPrefixClass} {
+  width: 640 * @rpx;
+  min-height: 930 * @rpx;
+  background-color: @modal-background;
+
+  &-close-icon {
+    position: absolute;
+    top: @v-spacing-large;
+    right: @h-spacing-large;
+    width: @modal-close-icon-size;
+    height: @modal-close-icon-size;
+    color: @color-text-subtitle;
+  }
+}

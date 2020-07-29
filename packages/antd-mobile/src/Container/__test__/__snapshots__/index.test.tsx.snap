@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar snapshot 1`] = `
+<div>
+  <h3>
+    Basic
+  </h3>
+  <Container
+    icon={
+      Object {
+        "type": "arrow",
+      }
+    }
+    title="花见花开"
+  >
+    消费信贷体验技术部
+  </Container>
+  <h3>
+    Icon
+  </h3>
+  <Container
+    icon={
+      Object {
+        "type": "close",
+      }
+    }
+    title="人见人爱"
+  >
+    消费信贷体验技术部
+  </Container>
+  <h3>
+    Thumb
+  </h3>
+  <Container
+    icon={
+      Object {
+        "type": "more",
+      }
+    }
+    thumb="https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg"
+    title="人见人爱"
+  >
+    消费信贷体验技术部
+  </Container>
+</div>
+`;

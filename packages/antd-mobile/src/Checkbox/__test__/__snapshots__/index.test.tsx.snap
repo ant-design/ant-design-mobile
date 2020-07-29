@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox snapshot 1`] = `
+<div>
+  <Checkbox
+    checked={true}
+    data-y="111"
+  />
+   checked
+  <br />
+  <Checkbox
+    checked={false}
+  />
+   no checked
+  <br />
+  <Checkbox
+    checked={true}
+    disabled={true}
+  />
+   checked disabled
+  <br />
+  <Checkbox
+    checked={false}
+    disabled={true}
+  />
+   no checked disabled
+  <br />
+</div>
+`;

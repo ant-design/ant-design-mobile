@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapse snapshot 1`] = `
+<ErrorBoundary
+  onError={[Function]}
+>
+  <Collapse
+    defaultActiveKey="0"
+    forwardRef={Object {}}
+    onChange={[Function]}
+  >
+    <Panel
+      header="Title 1"
+    >
+      <List
+        className="my-list"
+      >
+        <Item
+          align="middle"
+          error={false}
+          platform="ios"
+          wrap={false}
+        >
+          content 1
+        </Item>
+        <Item
+          align="middle"
+          error={false}
+          platform="ios"
+          wrap={false}
+        >
+          content 2
+        </Item>
+        <Item
+          align="middle"
+          error={false}
+          platform="ios"
+          wrap={false}
+        >
+          content 3
+        </Item>
+      </List>
+    </Panel>
+    <Panel
+      header="Title 2"
+    >
+      this is panel content2 or other
+    </Panel>
+    <Panel
+      header="Title 3"
+    >
+      text text text text text text text text text text text text text text text
+    </Panel>
+  </Collapse>
+</ErrorBoundary>
+`;

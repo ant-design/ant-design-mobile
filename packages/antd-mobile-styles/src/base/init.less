@@ -1,0 +1,38 @@
+@import (reference) './themes/default.less';
+@import './anim.less';
+
+*,
+*::before,
+*::after {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  // 考虑不要侵犯用户页面的颜色设定
+  // background-color: @color-fill-grey-light;
+  font-size: @font-size-content;
+}
+
+*[contenteditable] {
+  -webkit-user-select: auto !important;
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  background: transparent;
+  outline: none;
+  text-decoration: none;
+}
+
+[class^='amd-'] {
+  font-family: PingFang SC, sans-serif;
+}
+
+// 需要时加在 body 上，阻止页面滚动
+[class^='amd-body-scroll-lock-'] {
+  overflow: hidden !important;
+  height: 100vh !important;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@ant-design/mobile-languages",
+  "version": "3.0.0-alpha.0",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alipay-inc.com/antd-mobile/antd-mobile-assets"
+  },
+  "description": "antd-mobile-languages",
+  "sideEffects": false,
+  "types": "es/index.d.ts",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  
+  "files": [
+    "lib",
+    "es",
+    "README.md"
+  ]
+}

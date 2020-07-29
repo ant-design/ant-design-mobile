@@ -1,0 +1,51 @@
+@import (reference) '../base/index.less';
+
+// start
+// 左右边距
+@error-block-spacing: @h-spacing-large;
+// 文字颜色
+@error-block-text-color: @color-text-subtitle;
+@error-block-text-size: @font-size-subtitle;
+// 图片尺寸
+@error-block-poster-size: 200 * @rpx;
+// 按钮间的间距
+@error-block-spacing-button: @h-spacing-large;
+// 有 title 的时候距离上边距
+@error-block-title-margin-top: 40 * @rpx;
+// 文字上边距
+@error-block-text-margin-top: @v-spacing-large;
+// 内容区（按钮）上边距
+@error-block-content-margin-top: 40 * @rpx;
+// end
+
+.amd-error-block {
+  padding: 0 @error-block-spacing;
+  margin: 0 auto;
+  line-height: @default-line-height;
+
+  &&-title {
+    margin-top: @error-block-title-margin-top;
+  }
+
+  .poster {
+    display: block;
+    width: auto;
+    height: @error-block-poster-size;
+    margin: 0 auto @error-block-text-margin-top;
+  }
+
+  .text {
+    color: @error-block-text-color;
+    font-size: @error-block-text-size;
+    text-align: center;
+  }
+
+  .content {
+    padding: @error-block-content-margin-top 0;
+    text-align: center;
+
+    .amd-button + .amd-button {
+      margin-left: @error-block-spacing-button;
+    }
+  }
+}

@@ -1,0 +1,324 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading snapshot 1`] = `
+<div
+  className="amd-loading"
+>
+  <div
+    className="amd-loading-container"
+  >
+    内容区域 
+  </div>
+</div>
+`;
+
+exports[`Loading snapshot: show=false 1`] = `
+<Loading
+  className=""
+  delay={1000}
+  show={false}
+  text="加载中"
+>
+  <div
+    className="amd-loading"
+  >
+    <div
+      className="amd-loading-container"
+    >
+      内容区域
+       
+    </div>
+  </div>
+</Loading>
+`;
+
+exports[`Loading snapshot: show=true 1`] = `
+<Loading
+  className=""
+  delay={0}
+  show={true}
+  text=""
+>
+  <div
+    className="amd-loading"
+  >
+    <div
+      className="amd-loading-spin"
+    >
+      <div
+        className="amd-loading-icon"
+      >
+        <LoadingIcon>
+          <svg
+            height="100%"
+            preserveAspectRatio="xMidYMid"
+            viewBox="0 0 140 140"
+            width="100%"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <circle
+              cx="70"
+              cy="70"
+              fill="none"
+              r="30"
+              stroke="#1677FF"
+              strokeLinecap="round"
+              strokeWidth="7"
+              transform="rotate(0 70 70)"
+            >
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                type="rotate"
+                values="-90 70 70; 15 70 70;270 70 70"
+              />
+              <animate
+                attributeName="stroke-dasharray"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                values="1 200;50 200;1 200"
+              />
+            </circle>
+            <circle
+              cx="70"
+              cy="70"
+              fill="none"
+              r="50"
+              stroke="#1677FF"
+              strokeLinecap="round"
+              strokeWidth="7"
+              transform="rotate(0 70 70)"
+            >
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                type="rotate"
+                values="180 70 70;360 70 70;900 70 70"
+              />
+              <animate
+                attributeName="stroke-dasharray"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                values="25 500;70 500;25 500"
+              />
+            </circle>
+          </svg>
+        </LoadingIcon>
+      </div>
+    </div>
+    <div
+      className="amd-loading-container"
+    >
+      内容区域 
+    </div>
+  </div>
+</Loading>
+`;
+
+exports[`Loading snapshot: show=true delay=100 1`] = `
+<Loading
+  className=""
+  delay={100}
+  show={false}
+  text=""
+>
+  <div
+    className="amd-loading"
+  >
+    <div
+      className="amd-loading-container"
+    />
+  </div>
+</Loading>
+`;
+
+exports[`Loading snapshot: show=true text="加载中" 1`] = `
+<Loading
+  className=""
+  delay={0}
+  show={true}
+  text="加载中"
+>
+  <div
+    className="amd-loading"
+  >
+    <div
+      className="amd-loading-spin"
+    >
+      <div
+        className="amd-loading-icon"
+      >
+        <LoadingIcon>
+          <svg
+            height="100%"
+            preserveAspectRatio="xMidYMid"
+            viewBox="0 0 140 140"
+            width="100%"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <circle
+              cx="70"
+              cy="70"
+              fill="none"
+              r="30"
+              stroke="#1677FF"
+              strokeLinecap="round"
+              strokeWidth="7"
+              transform="rotate(0 70 70)"
+            >
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                type="rotate"
+                values="-90 70 70; 15 70 70;270 70 70"
+              />
+              <animate
+                attributeName="stroke-dasharray"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                values="1 200;50 200;1 200"
+              />
+            </circle>
+            <circle
+              cx="70"
+              cy="70"
+              fill="none"
+              r="50"
+              stroke="#1677FF"
+              strokeLinecap="round"
+              strokeWidth="7"
+              transform="rotate(0 70 70)"
+            >
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                type="rotate"
+                values="180 70 70;360 70 70;900 70 70"
+              />
+              <animate
+                attributeName="stroke-dasharray"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                values="25 500;70 500;25 500"
+              />
+            </circle>
+          </svg>
+        </LoadingIcon>
+      </div>
+      <div
+        className="amd-loading-text"
+      >
+        加载中
+      </div>
+    </div>
+    <div
+      className="amd-loading-container"
+    >
+      内容区域
+       
+    </div>
+  </div>
+</Loading>
+`;
+
+exports[`Loading snapshot: show=true text="加载中" delay="100" 1`] = `
+<Loading
+  className=""
+  delay={100}
+  show={true}
+  text=""
+>
+  <div
+    className="amd-loading"
+  >
+    <div
+      className="amd-loading-spin"
+    >
+      <div
+        className="amd-loading-icon"
+      >
+        <LoadingIcon>
+          <svg
+            height="100%"
+            preserveAspectRatio="xMidYMid"
+            viewBox="0 0 140 140"
+            width="100%"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <circle
+              cx="70"
+              cy="70"
+              fill="none"
+              r="30"
+              stroke="#1677FF"
+              strokeLinecap="round"
+              strokeWidth="7"
+              transform="rotate(0 70 70)"
+            >
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                type="rotate"
+                values="-90 70 70; 15 70 70;270 70 70"
+              />
+              <animate
+                attributeName="stroke-dasharray"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                values="1 200;50 200;1 200"
+              />
+            </circle>
+            <circle
+              cx="70"
+              cy="70"
+              fill="none"
+              r="50"
+              stroke="#1677FF"
+              strokeLinecap="round"
+              strokeWidth="7"
+              transform="rotate(0 70 70)"
+            >
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                type="rotate"
+                values="180 70 70;360 70 70;900 70 70"
+              />
+              <animate
+                attributeName="stroke-dasharray"
+                dur="1.5s"
+                keyTimes="0;0.5;1"
+                repeatCount="indefinite"
+                values="25 500;70 500;25 500"
+              />
+            </circle>
+          </svg>
+        </LoadingIcon>
+      </div>
+    </div>
+    <div
+      className="amd-loading-container"
+    />
+  </div>
+</Loading>
+`;

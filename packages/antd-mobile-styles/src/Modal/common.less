@@ -1,0 +1,70 @@
+@import (reference) './base.less';
+
+.@{standardPrefixClass} {
+  &-content {
+    width: 560 * @rpx;
+    background-color: @modal-background;
+    text-align: center;
+
+    &-background {
+      width: 100%;
+      height: 320 * @rpx;
+    }
+
+    &-comb {
+      padding: 40 * @rpx @h-spacing-large;
+    }
+
+    &-thumb {
+      width: 160 * @rpx;
+      height: 160 * @rpx;
+      margin: 0 auto @v-spacing-large;
+
+      &-lg {
+        width: 280 * @rpx;
+        height: 280 * @rpx;
+      }
+    }
+
+    &-title {
+      margin-bottom: 16 * @rpx;
+      color: @modal-title-color;
+      font-size: @font-size-title;
+      font-weight: 500;
+    }
+
+    &-content {
+      color: @modal-content-color;
+      font-size: @modal-content-size;
+      // 保留文字换行,即支持 \n
+      white-space: pre-line;
+    }
+
+    &-custom {
+      margin-top: 16 * @rpx;
+    }
+  }
+
+  &-button {
+    &-addon,
+    &-cancel {
+      color: @color-brand-1;
+    }
+
+    &-main {
+      &-normal {
+        color: @color-brand-1;
+      }
+
+      &-bold {
+        color: @color-brand-1;
+        font-weight: 500;
+      }
+
+      &-danger {
+        color: @color-fill-warning;
+        font-weight: 500;
+      }
+    }
+  }
+}

@@ -1,0 +1,177 @@
+// inspired by https://github.com/framework7io/framework7/blob/v2/src/less/mixins.less#L138
+// but more powerful, both support viewport scale and not scale usage.
+
+// 3dppx 高清屏及其以上不再缩放，否则太细了，看不见
+
+@import '../themes/default.less';
+
+@hair-width: 1px;
+
+.scale-hairline-common(@color, @top, @right, @bottom, @left) {
+  position: absolute;
+  z-index: 1;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+  display: block;
+  background-color: @color;
+  content: '';
+}
+
+.hairline(@direction, @color: @color-divider-line) when (@direction = 'top') {
+  &::before {
+    .scale-hairline-common(@color, 0, auto, auto, 0);
+
+    width: 100%;
+    height: @hair-width;
+  }
+
+  html:not([data-scale]) & {
+    @media (min-resolution: 2dppx) {
+      &::before {
+        transform: scaleY(0.5);
+        transform-origin: 50% 50%;
+
+        @media (min-resolution: 3dppx) {
+          // transform: scaleY(0.33);
+        }
+      }
+    }
+  }
+}
+
+.hairline(@direction, @color: @color-divider-line) when (@direction = 'right') {
+  &::after {
+    .scale-hairline-common(@color, 0, 0, auto, auto);
+
+    width: @hair-width;
+    height: 100%;
+  }
+
+  html:not([data-scale]) & {
+    @media (min-resolution: 2dppx) {
+      &::after {
+        transform: scaleX(0.5);
+        transform-origin: 100% 50%;
+
+        @media (min-resolution: 3dppx) {
+          // 3倍以上再缩放的话就太细了，不缩了
+          // transform: scaleX(0.33);
+        }
+      }
+    }
+  }
+}
+
+.hairline(@direction, @color: @color-divider-line)
+when
+(@direction = 'bottom') {
+  &::after {
+    .scale-hairline-common(@color, auto, auto, 0, 0);
+
+    width: 100%;
+    height: @hair-width;
+  }
+
+  html:not([data-scale]) & {
+    @media (min-resolution: 2dppx) {
+      &::after {
+        transform: scaleY(0.5);
+        transform-origin: 50% 100%;
+
+        @media (min-resolution: 3dppx) {
+          // transform: scaleY(0.33);
+        }
+      }
+    }
+  }
+}
+
+.hairline(@direction, @color: @color-divider-line) when (@direction = 'left') {
+  &::before {
+    .scale-hairline-common(@color, 0, auto, auto, 0);
+
+    width: @hair-width;
+    height: 100%;
+  }
+
+  html:not([data-scale]) & {
+    @media (min-resolution: 2dppx) {
+      &::before {
+        transform: scaleX(0.5);
+        transform-origin: 100% 50%;
+
+        @media (min-resolution: 3dppx) {
+          // transform: scaleX(0.33);
+        }
+      }
+    }
+  }
+}
+
+.hairline(@direction, @color: @color-divider-line, @radius: 0)
+when
+(@direction = 'all') {
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: @hair-width solid @color;
+    border-radius: @radius;
+    content: '';
+    pointer-events: none;
+  }
+
+  html:not([data-scale]) & {
+    @media (min-resolution: 2dppx) {
+      &::before {
+        width: 200%;
+        height: 200%;
+        border-radius: @radius * 2;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+
+        @media (min-resolution: 3dppx) {
+          // width: 300%;
+          // height: 300%;
+          // border-radius: @radius * 3;
+          // transform: scale(0.33);
+        }
+      }
+    }
+  }
+}
+
+.hairline-remove(@position) when (@position = 'left') {
+  &::before {
+    display: none !important;
+  }
+}
+
+.hairline-remove(@position) when (@position = 'right') {
+  &::after {
+    display: none !important;
+  }
+}
+
+.hairline-remove(@position) when (@position = 'top') {
+  &::before {
+    display: none !important;
+  }
+}
+
+.hairline-remove(@position) when (@position = 'bottom') {
+  &::after {
+    display: none !important;
+  }
+}
+
+.hairline-remove(@position) when (@position = 'all') {
+  &::before {
+    display: none !important;
+  }
+}

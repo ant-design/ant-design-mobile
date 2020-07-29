@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Selector snapshot 1`] = `
+<div
+  className="amd-selector amd-selector-col-2"
+  role="Selector"
+>
+  <Touchable
+    key="0"
+    onPress={[Function]}
+  >
+    <div
+      className="amd-selector-item amd-selector-item-active "
+    >
+      <div
+        className="amd-selector-item-text"
+      >
+        选项一
+      </div>
+      <div
+        className="amd-selector-item-badge-active"
+      />
+    </div>
+  </Touchable>
+  <Touchable
+    key="1"
+    onPress={[Function]}
+  >
+    <div
+      className="amd-selector-item"
+    >
+      <div
+        className="amd-selector-item-text"
+      >
+        选项二
+      </div>
+      <div
+        className="amd-selector-item-badge-active"
+      />
+    </div>
+  </Touchable>
+</div>
+`;
+
+exports[`Selector snapshot 2`] = `
+<div
+  className="amd-selector amd-selector-col-2"
+  role="Selector"
+>
+  <Touchable
+    key="0"
+    onPress={[Function]}
+  >
+    <div
+      className="amd-selector-item amd-selector-item-active "
+    >
+      <div
+        className="amd-selector-item-text"
+      >
+        选项一
+      </div>
+      <div
+        className="amd-selector-item-badge-active"
+      />
+    </div>
+  </Touchable>
+  <Touchable
+    disabled={true}
+    key="1"
+    onPress={[Function]}
+  >
+    <div
+      aria-disabled={true}
+      className="amd-selector-item amd-selector-item-disabled"
+    >
+      <div
+        className="amd-selector-item-text"
+      >
+        选项二
+      </div>
+      <div
+        className="amd-selector-item-badge-active"
+      />
+    </div>
+  </Touchable>
+</div>
+`;

@@ -1,0 +1,53 @@
+@import (reference) '../base/index.less';
+
+// start
+@scrollbar-indicator-thumb-width: 26 * @rpx;
+@scrollbar-indicator-thumb-color: @color-brand-1;
+@scrollbar-indicator-track-color: #ddd;
+@scrollbar-indicator-track-width: 52 * @rpx;
+@scrollbar-indicator-indicator-height: 6 * @rpx;
+@scrollbar-indicator-indicator-margin-top: 14 * @rpx;
+// end
+
+@scrollbarPrefixCls: amd-scrollbar;
+
+.@{scrollbarPrefixCls} {
+  &-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &-indicator {
+    position: relative;
+    display: block;
+    width: 0;
+    margin-top: @scrollbar-indicator-indicator-margin-top;
+    margin-left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+  }
+
+  &-thumb,
+  &-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: @scrollbar-indicator-indicator-height;
+    margin: 2 * @rpx;
+    border-radius: 2 * @rpx;
+  }
+
+  &-thumb {
+    width: @scrollbar-indicator-thumb-width;
+    background-color: @scrollbar-indicator-thumb-color;
+  }
+
+  &-track {
+    width: @scrollbar-indicator-track-width;
+    background-color: @scrollbar-indicator-track-color;
+  }
+}

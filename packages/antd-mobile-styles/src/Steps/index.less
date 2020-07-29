@@ -1,0 +1,221 @@
+@import (reference) '../base/index.less';
+
+// start
+// 正常颜色
+@steps-normal-color: @color-fill-grey-base;
+// 激活颜色
+@steps-active-color: @color-fill-primary;
+// 出错颜色
+@steps-error-color: @color-text-warning;
+// end
+
+.amd-steps {
+  background-color: @color-fill-grey-inverse;
+  line-height: @default-line-height;
+
+  &.horizontal {
+    overflow: hidden;
+    padding: 40 * @rpx 100 * @rpx 20 * @rpx 100 * @rpx;
+    white-space: nowrap;
+  }
+
+  &.vertical {
+    padding: 40 * @rpx 60 * @rpx 0 60 * @rpx;
+    background-color: @color-fill-grey-inverse;
+  }
+}
+
+.amd-hor-step {
+  display: inline-block;
+  justify-content: space-around;
+  text-align: center;
+  vertical-align: top;
+  white-space: normal;
+
+  &.is-active {
+    .amd-hor-step-icon {
+      background-color: @steps-active-color;
+    }
+  }
+
+  &.is-active + &.is-active {
+    .amd-hor-step-line {
+      background-color: @steps-active-color;
+    }
+  }
+}
+
+.amd-hor-step-line {
+  position: relative;
+  height: 4 * @rpx;
+  margin: 12 * @rpx 0;
+  background-color: @steps-normal-color;
+}
+
+.amd-hor-step:last-child {
+  .amd-hor-step-line {
+    background-color: transparent;
+  }
+}
+
+.amd-hor-step-line.is-active {
+  background-color: @steps-active-color;
+}
+
+.amd-hor-step-icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20 * @rpx;
+  height: 20 * @rpx;
+  background-color: @steps-normal-color;
+  border-radius: @corner-radius-circle;
+  transform: translate(-50%, -50%);
+}
+
+.amd-hor-step-icon.is-active {
+  background-color: @steps-active-color;
+}
+
+.amd-hor-step-text {
+  max-width: 180 * @rpx;
+  padding: 0 10 * @rpx;
+  margin-top: 40 * @rpx;
+  transform: translateX(-50%);
+}
+
+.amd-hor-step-title {
+  color: @color-text-title;
+  font-size: @font-size-subcontent;
+}
+
+.amd-hor-step-description {
+  margin-top: 12 * @rpx;
+  color: @color-text-subtitle;
+  font-size: @font-size-subcontent;
+}
+
+.amd-vertical-step {
+  display: flex;
+}
+
+.amd-vertical-step-left {
+  position: relative;
+  display: flex;
+  // overflow: hidden;
+  width: 48 * @rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 40 * @rpx;
+}
+
+/* line 包含 top 和 bottom 两块， 整体下移20px, 保证和原点无缝衔接 */
+.amd-vertical-step-line {
+  position: relative;
+  width: 4 * @rpx;
+  background-color: @steps-normal-color;
+}
+
+.amd-vertical-step-line-top {
+  position: relative;
+  top: 20 * @rpx;
+  height: 50%;
+  flex: 1;
+
+  &.is-active {
+    top: 40 * @rpx;
+  }
+}
+
+/* 60px 是 amd-vertical-step-text的margin-bottom的40px加上line的下移20px，保证line-top底部和右侧文字底布对齐 */
+.amd-vertical-step-line-bottom {
+  position: relative;
+  top: 20 * @rpx;
+  width: 4 * @rpx;
+  height: 50%;
+  background-color: @steps-normal-color;
+}
+
+.amd-vertical-step-line.is-active {
+  background-color: @steps-active-color;
+}
+
+.amd-vertical-step-line.is-fail {
+  background-color: @steps-normal-color;
+}
+
+.amd-vertical-step-icon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-radius: @corner-radius-circle;
+  color: @steps-active-color;
+  transform: translateX(-50%);
+}
+
+.amd-vertical-step-active-image,
+.amd-vertical-step-image {
+  border-radius: @corner-radius-circle;
+}
+
+.amd-vertical-step-active-image {
+  background-color: @steps-active-color;
+}
+
+.amd-vertical-step-image {
+  background-color: @steps-normal-color;
+}
+
+.amd-vertical-step-icon.is-normal {
+  top: 10 * @rpx;
+  width: 20 * @rpx;
+  height: 20 * @rpx;
+  background-color: @steps-normal-color;
+}
+
+.amd-vertical-step-icon.is-active,
+.amd-vertical-step-icon.is-fail {
+  display: flex;
+}
+
+.amd-vertical-step-icon.is-fail .amd-icon {
+  color: @steps-error-color;
+}
+
+.amd-vertical-step-right {
+  flex: 1;
+  margin-bottom: 24 * @rpx;
+}
+
+.amd-vertical-step-title {
+  margin-bottom: 4 * @rpx;
+  color: @color-text-title;
+  font-size: @font-size-list;
+}
+
+.amd-vertical-step-title.is-active {
+  color: @color-text-primary;
+}
+
+.amd-vertical-step-title.is-fail {
+  color: @steps-error-color;
+}
+
+.amd-vertical-step-description {
+  color: @color-text-subtitle;
+  font-size: @font-size-subtitle;
+}
+
+.amd-vertical-placeholder {
+  height: 40 * @rpx;
+}
+
+.amd-vertical-placeholder-line {
+  position: absolute;
+  left: 50%;
+  width: 4 * @rpx;
+  height: 100%;
+  background-color: @steps-normal-color;
+  transform: translateX(-50%);
+}

@@ -1,0 +1,121 @@
+@import (reference) '../base/index.less';
+
+// start
+// 默认颜色
+@swipeout-default-color: @color-fill-grey-base;
+// 主色
+@swipeout-primary-color: @color-brand-1;
+// 警告色
+@swipeout-warn-color: @color-fill-warning;
+
+// 圆角
+@swipeout-radius: @corner-radius-lg;
+// 圆角是左右间距
+@swipeout-radius-spacing: @h-spacing-large;
+// end
+
+@swipeout-prefix-cls: amd-swipe;
+
+.@{swipeout-prefix-cls} {
+  position: relative;
+  overflow: hidden;
+  line-height: @default-line-height;
+  // 修复圆角的时候下层元素边角透出的问题
+  transform: translate3d(0, 0, 0);
+
+  &-content {
+    position: relative;
+    background-color: @color-fill-grey-inverse;
+  }
+
+  &-cover {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+
+  & .@{swipeout-prefix-cls}-content,
+  & .@{swipeout-prefix-cls}-actions {
+    transition: all 250ms;
+  }
+
+  &-swiping {
+    & .@{swipeout-prefix-cls}-content,
+    & .@{swipeout-prefix-cls}-actions {
+      transition: none;
+    }
+  }
+
+  &-actions {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &-left {
+      left: 0;
+    }
+
+    &-right {
+      right: 0;
+    }
+  }
+
+  &-btn {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+
+    &-type {
+      &-default {
+        background-color: @swipeout-default-color;
+      }
+
+      &-primary {
+        background-color: @swipeout-primary-color;
+      }
+
+      &-warn {
+        background-color: @swipeout-warn-color;
+      }
+    }
+
+    &-text {
+      padding: 27 * @rpx 40 * @rpx;
+      color: @color-text-base;
+      font-size: @font-size-subtitle;
+    }
+  }
+}
+
+.amd-list-radius {
+  .@{swipeout-prefix-cls} {
+    &-actions {
+      border-radius: @swipeout-radius;
+
+      &-left {
+        margin-left: -2 * @rpx;
+      }
+    }
+
+    &-btn {
+      margin-left: 2 * @rpx;
+    }
+
+    &-open {
+      .@{swipeout-prefix-cls}-content {
+        overflow: hidden;
+        margin-right: @swipeout-radius-spacing - 2 * @rpx;
+        margin-left: @swipeout-radius-spacing;
+        border-radius: @swipeout-radius;
+      }
+    }
+  }
+}

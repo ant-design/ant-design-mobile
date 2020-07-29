@@ -1,0 +1,63 @@
+{
+  "name": "@ant-design/mobile",
+  "version": "3.0.0-alpha.0",
+  "description": "基于 React 的移动设计规范实现",
+  "keywords": [
+    "ant",
+    "design",
+    "react",
+    "react-component",
+    "component",
+    "components",
+    "ui",
+    "framework",
+    "frontend",
+    "mobile"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design-mobile"
+  },
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "LICENSE",
+    "*.md"
+  ],
+  "sideEffects": [
+    "**/*.less",
+    "**/*.css"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "dependencies": {
+    "@ant-design/mobile-icons": "3.0.0-alpha.0",
+    "@ant-design/mobile-languages": "3.0.0-alpha.0",
+    "@ant-design/mobile-styles": "3.0.0-alpha.0",
+    "@ant-design/mobile-touchable": "3.0.0-alpha.0",
+    "@babel/runtime": "^7.5.5",
+    "@types/react-swipeable-views": "^0.13.0",
+    "array-tree-filter": "^2.1.0",
+    "classnames": "^2.2.6",
+    "hoist-non-react-statics": "^3.3.2",
+    "invariant": "^2.2.4",
+    "nuka-carousel": "~4.6.6",
+    "rc-checkbox": "^2.1.8",
+    "rc-collapse": "^1.11.8",
+    "rc-swipeout": "^2.0.11",
+    "react-swipeable-views": "^0.13.8",
+    "rmc-cascader": "^5.0.3",
+    "rmc-dialog": "^1.1.1",
+    "rmc-input-number": "^1.0.5",
+    "rmc-notification": "^1.0.0",
+    "rmc-picker": "^5.0.10",
+    "rmc-tooltip": "^1.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  }
+}

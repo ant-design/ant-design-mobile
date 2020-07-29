@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar SearchBar showCancelButton snapshot 1`] = `
+<form
+  action="#"
+  className="amd-search"
+  onSubmit={[Function]}
+>
+  <div
+    className="amd-search-input"
+    style={Object {}}
+  >
+    <div
+      className="amd-search-synthetic-ph"
+    >
+      <span
+        className="amd-search-synthetic-ph-container"
+      >
+        <Search
+          size="xs"
+        />
+        <span
+          className="amd-search-synthetic-ph-placeholder"
+          style={
+            Object {
+              "visibility": "visible",
+            }
+          }
+        >
+          Show Cancel Button
+        </span>
+      </span>
+    </div>
+    <input
+      autoFocus={false}
+      className="amd-search-value"
+      data-y="111"
+      disabled={false}
+      maxLength={24}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      placeholder="Show Cancel Button"
+      type="search"
+      value=""
+    />
+    <Touchable
+      onPress={[Function]}
+    >
+      <a
+        className="amd-search-clear"
+      >
+        <ClearFill
+          size="xs"
+        />
+      </a>
+    </Touchable>
+  </div>
+  <Touchable
+    onPress={[Function]}
+  >
+    <div
+      className="amd-search-cancel amd-search-cancel-show amd-search-cancel-anim"
+    >
+      取消
+    </div>
+  </Touchable>
+</form>
+`;
+
+exports[`SearchBar SearchBar snapshot 1`] = `
+<form
+  action="#"
+  className="amd-search"
+  onSubmit={[Function]}
+>
+  <div
+    className="amd-search-input"
+    style={Object {}}
+  >
+    <div
+      className="amd-search-synthetic-ph"
+    >
+      <span
+        className="amd-search-synthetic-ph-container"
+      >
+        <Search
+          size="xs"
+        />
+        <span
+          className="amd-search-synthetic-ph-placeholder"
+          style={
+            Object {
+              "visibility": "visible",
+            }
+          }
+        >
+          Search
+        </span>
+      </span>
+    </div>
+    <input
+      autoFocus={false}
+      className="amd-search-value"
+      disabled={false}
+      maxLength={8}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      placeholder="Search"
+      type="search"
+      value=""
+    />
+    <Touchable
+      onPress={[Function]}
+    >
+      <a
+        className="amd-search-clear"
+      >
+        <ClearFill
+          size="xs"
+        />
+      </a>
+    </Touchable>
+  </div>
+  <Touchable
+    onPress={[Function]}
+  >
+    <div
+      className="amd-search-cancel amd-search-cancel-anim"
+    >
+      取消
+    </div>
+  </Touchable>
+</form>
+`;

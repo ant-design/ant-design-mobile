@@ -1,0 +1,28 @@
+{
+  "name": "@ant-design/mobile-icons",
+  "version": "3.0.0-alpha.0",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alipay-inc.com/antd-mobile/antd-mobile-assets"
+  },
+  "description": "antd-mobile-icons",
+  "sideEffects": false,
+  "types": "es/index.d.ts",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "dependencies": {
+    "@ant-design/mobile-styles": "3.0.0-alpha.0",
+    "@ant-design/mobile-touchable": "3.0.0-alpha.0",
+    "@babel/runtime": "^7.5.5",
+    "classnames": "^2.2.6"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  
+  "files": [
+    "lib",
+    "es",
+    "README.md"
+  ]
+}
