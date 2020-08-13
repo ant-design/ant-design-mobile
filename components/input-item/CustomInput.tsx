@@ -191,9 +191,6 @@ class NumberInput extends React.Component<NumberInputProps, any> {
   }
 
   onInputBlur = (value: string) => {
-    if (IS_REACT_16) {
-      this.keyBoard = null;
-    }
     const { focus } = this.state;
     if (focus) {
       this.setState({
@@ -202,6 +199,9 @@ class NumberInput extends React.Component<NumberInputProps, any> {
       this.props.onBlur!(value);
       setTimeout(() => {
         this.unLinkInput();
+        if (IS_REACT_16) {
+          this.keyBoard = null;
+        }
       }, 50);
     }
   }
