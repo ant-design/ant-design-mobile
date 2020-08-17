@@ -1,7 +1,9 @@
 {
   "npmClient": "npm",
-  "packages": ["packages/*"],
-  "version": "3.0.0-alpha.0",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "3.0.0-alpha.1",
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org"

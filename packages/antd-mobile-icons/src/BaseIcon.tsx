@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import Touchable from '@ant-design/mobile-touchable'
 import { IconPropsType } from './PropsType'
 
-import '../../antd-mobile-styles/lib/Icon'
+import '@ant-design/mobile-styles/lib/Icon'
 
 const prefixCls = 'amd-icon'
 
