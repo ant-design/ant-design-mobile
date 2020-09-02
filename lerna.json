@@ -8,5 +8,6 @@
     "publish": {
       "registry": "https://registry.npmjs.org"
     }
-  }
+  },
+  "exact": true
 }
