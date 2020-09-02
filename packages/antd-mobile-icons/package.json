@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/mobile-icons",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.2",
   "repository": {
     "type": "git",
     "url": "http://gitlab.alipay-inc.com/antd-mobile/antd-mobile-assets"
@@ -11,8 +11,8 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "dependencies": {
-    "@ant-design/mobile-styles": "3.0.0-alpha.1",
-    "@ant-design/mobile-touchable": "3.0.0-alpha.1",
+    "@ant-design/mobile-styles": "^3.0.0-alpha.2",
+    "@ant-design/mobile-touchable": "^3.0.0-alpha.2",
     "@babel/runtime": "^7.5.5",
     "classnames": "^2.2.6"
   },
