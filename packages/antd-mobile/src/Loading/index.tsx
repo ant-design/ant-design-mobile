@@ -31,25 +31,21 @@ export const Loading: React.FC<LoadingPropsType> = props => {
     // 传入延时为0或非数字，立即展示
     if (realShow && realDelay === 0) {
       setStatus(true)
-      // 如果已有调用，清除之前调用
-      cancelTimer()
     }
     // 传入延时大于0且当前没有在展示中，延时加载
     if (realShow && delay! > 0 && !status) {
-      // 如果已有调用，清除之前调用
-      cancelTimer()
       // 重新做延时调用
       timer.current = window.setTimeout(() => {
         setStatus(true)
-        cancelTimer()
       }, realDelay)
     }
     // 调用隐藏
     if (!realShow) {
-      // 如果之前存在调用展示，清除
-      cancelTimer()
       status && setStatus(false)
     }
+
+    // 清除延时状态
+    return cancelTimer
   }, [realShow])
 
   return (

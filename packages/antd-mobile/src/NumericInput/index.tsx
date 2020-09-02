@@ -21,6 +21,7 @@ import CustomKeypad, { SPECIAL_KEY } from './CustomKeypad'
 import useDocumentEvent from './useDocumentEvent'
 import useGlobalFocus from './useGlobalFocus'
 import { blurExcept } from './globalFocus'
+import scrollToViewIfNeed from './scrollToViewIfNeed'
 
 import '@ant-design/mobile-styles/lib/NumericInput'
 
@@ -85,6 +86,16 @@ export const NumericInput: React.FC<NumericInputPropsType> = props => {
       focusRef.current?.focus()
       setFocus(true)
       onFocus!(value)
+    }
+  }
+
+  const onKeypadRef = (el: HTMLDivElement | null) => {
+    if (el) {
+      scrollToViewIfNeed(focusRef.current, {
+        offsetBottom: el.getBoundingClientRect().height + 10, // 增加 10 的空间
+        behavior: 'smooth',
+        block: 'end',
+      })
     }
   }
 
@@ -157,15 +168,6 @@ export const NumericInput: React.FC<NumericInputPropsType> = props => {
         {value === '' && (
           <div className="fake-input-placeholder">{placeholder}</div>
         )}
-
-        {/* hack, 有一个 focus/blur 元素可以保证与页面中其他的 input 只会有一个处于 focus 状态 */}
-        <span
-          ref={focusRef}
-          // 这里 -1 没有效果，用键盘按 tab 的时候还是会选中此元素
-          tabIndex={-1}
-          style={hiddenStyle}
-        />
-
         {/* hack, 用于接听外部的 focus 事件，然后触发 focus */}
         <span
           ref={forwardRef}
@@ -173,9 +175,12 @@ export const NumericInput: React.FC<NumericInputPropsType> = props => {
           onFocus={focusNextTick}
           style={hiddenStyle}
         />
+        {/* hack，必须要有 tabIndex，使其具备 focus 能力 */}
         <Touchable onPress={doFocus}>
           <div
             role="textbox"
+            ref={focusRef}
+            tabIndex={-1}
             aria-label={value || placeholder}
             className={fakeInputCls}
             {...getDataAttr(props)}
@@ -204,6 +209,7 @@ export const NumericInput: React.FC<NumericInputPropsType> = props => {
               onClear={() => onChange('')}
               onHidePress={doBlur}
               confirmDisabled={confirmDisabled || value === ''}
+              ref={onKeypadRef}
             />,
             dom!,
           )}

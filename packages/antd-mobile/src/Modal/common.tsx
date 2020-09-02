@@ -53,6 +53,7 @@ export function createModal(
       transitionName="amd-zoom"
       maskTransitionName="amd-fade"
       maskClosable={false}
+      className={options.className}
     >
       {content}
     </Dialog>,

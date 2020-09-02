@@ -43,6 +43,7 @@ Properties | Description | Type | Default
 | title | title | string | - |
 | content | content of alert | string | -  |
 | buttonText | text of the alert button | string | '我知道了' |
+| className  | additional className for dialog | string | |
 
 ### Modal.confirm(options, cb).then(cb)
 cb(res), confirm was pressed if res is true, else cancel was pressed
@@ -53,6 +54,7 @@ Properties | Description | Type | Default
 | content | content of alert | string | -  |
 | confirmText | text of the confirm button | string | '是' |
 | cancelText | text of the cancel button | string | '否' |
+| className  | additional className for dialog | string | |
 
 ### Modal.standard(options)
 
@@ -68,3 +70,5 @@ Properties | Description | Type | Default
 | cancelButton | cancel button of the standard modal | {text: string, onPress?} | - |
 | addonButton | addon button of the standard modal | {text: string, onPress?} | - |
 | closeType | type of the notice modal close icon | 'dark'\|'light'|'none' | 'dark' |
+| className  | additional className for dialog | string | |
+| onDismiss  | callback of x icon press | () => void | - |

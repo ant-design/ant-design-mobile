@@ -62,7 +62,7 @@ function renderFooter(options: StandardOptions, prefixCls: string, cb: any) {
             {options.cancelButton.text}
           </Button>
         )}
-        <Close className={closeCls} onPress={cb()} />
+        <Close className={closeCls} onPress={cb(options.onDismiss)} />
       </div>
     </>
   )

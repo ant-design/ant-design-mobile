@@ -50,113 +50,115 @@ const customClsMap: {
   X: prefix + '-x',
 }
 
-const CustomKeypad: React.FC<KeypadProps> = props => {
-  const lang = useCompleteLocale()
+const CustomKeypad = React.forwardRef<HTMLDivElement, KeypadProps>(
+  (props, ref) => {
+    const lang = useCompleteLocale()
 
-  const onKeypadPress = (value: string) => {
-    if (props.disabledKeys && includes(props.disabledKeys, value)) {
-      return
+    const onKeypadPress = (value: string) => {
+      if (props.disabledKeys && includes(props.disabledKeys, value)) {
+        return
+      }
+
+      if (value === SPECIAL_KEY.confirm && props.confirmDisabled) {
+        return null
+      }
+
+      props.onKeypadPress && props.onKeypadPress(value)
     }
 
-    if (value === SPECIAL_KEY.confirm && props.confirmDisabled) {
-      return null
+    const renderKeypadItem = (item: string, index: number) => {
+      const disabled = props.disabledKeys && includes(props.disabledKeys, item)
+
+      let colspan = 1
+      // hack
+      if (item === '0' && props.customKey == null) {
+        colspan = 2
+      }
+
+      return (
+        <KeypadItem
+          onPress={onKeypadPress}
+          key={`item-${item}-${index}`}
+          disabled={disabled}
+          colSpan={colspan}
+          value={item}
+        >
+          {item}
+        </KeypadItem>
+      )
     }
 
-    props.onKeypadPress && props.onKeypadPress(value)
-  }
+    const cls = classnames(`${prefix}-wrapper`, props.className, {
+      [`${prefix}-wrapper-hide`]: !props.active,
+    })
 
-  const renderKeypadItem = (item: string, index: number) => {
-    const disabled = props.disabledKeys && includes(props.disabledKeys, item)
-
-    let colspan = 1
-    // hack
-    if (item === '0' && props.customKey == null) {
-      colspan = 2
+    let defaultHeader
+    if (isReactComponent(props.header)) {
+      // @ts-ignore
+      // 可以封装数字键盘的 header 以便多次使用
+      defaultHeader = <props.header locale={lang.locale} />
+    } else {
+      defaultHeader = props.header
     }
 
+    const customKeyCls = classnames(`${prefix}-custom`, {
+      [`${customClsMap[props.customKey || '']}`]:
+        !!props.customKey && !!customClsMap[props.customKey],
+    })
+
+    // 结构不要轻易变动，使用者有样式复写的
     return (
-      <KeypadItem
-        onPress={onKeypadPress}
-        key={`item-${item}-${index}`}
-        disabled={disabled}
-        colSpan={colspan}
-        value={item}
-      >
-        {item}
-      </KeypadItem>
-    )
-  }
-
-  const cls = classnames(`${prefix}-wrapper`, props.className, {
-    [`${prefix}-wrapper-hide`]: !props.active,
-  })
-
-  let defaultHeader
-  if (isReactComponent(props.header)) {
-    // @ts-ignore
-    // 可以封装数字键盘的 header 以便多次使用
-    defaultHeader = <props.header locale={lang.locale} />
-  } else {
-    defaultHeader = props.header
-  }
-
-  const customKeyCls = classnames(`${prefix}-custom`, {
-    [`${customClsMap[props.customKey || '']}`]:
-      !!props.customKey && !!customClsMap[props.customKey],
-  })
-
-  // 结构不要轻易变动，使用者有样式复写的
-  return (
-    <div className={cls}>
-      <div className={`${prefix}-real-background`}>
-        {props.header && (
-          <div className={`${prefix}-header`}>
-            <div className={`${prefix}-header-content`}>{defaultHeader}</div>
-            <Touchable onPress={props.onHidePress}>
-              <div className={`${prefix}-down-icon`} />
-            </Touchable>
-          </div>
-        )}
-        <table>
-          <tbody>
-            <tr>
-              {['1', '2', '3'].map(renderKeypadItem)}
-              {props.confirm && (
+      <div className={cls} ref={ref}>
+        <div className={`${prefix}-real-background`}>
+          {props.header && (
+            <div className={`${prefix}-header`}>
+              <div className={`${prefix}-header-content`}>{defaultHeader}</div>
+              <Touchable onPress={props.onHidePress}>
+                <div className={`${prefix}-down-icon`} />
+              </Touchable>
+            </div>
+          )}
+          <table>
+            <tbody>
+              <tr>
+                {['1', '2', '3'].map(renderKeypadItem)}
+                {props.confirm && (
+                  <KeypadItem
+                    className={`${prefix}-confirm`}
+                    rowSpan={4}
+                    value={SPECIAL_KEY.confirm}
+                    onPress={onKeypadPress}
+                    disabled={props.confirmDisabled}
+                  >
+                    {props.confirmLabel ?? lang.NumericInput.okText}
+                  </KeypadItem>
+                )}
+              </tr>
+              <tr>{['4', '5', '6'].map(renderKeypadItem)}</tr>
+              <tr>{['7', '8', '9'].map(renderKeypadItem)}</tr>
+              <tr>
                 <KeypadItem
-                  className={`${prefix}-confirm`}
-                  rowSpan={4}
-                  value={SPECIAL_KEY.confirm}
+                  className={customKeyCls}
+                  value={props.customKey}
                   onPress={onKeypadPress}
-                  disabled={props.confirmDisabled}
                 >
-                  {props.confirmLabel ?? lang.NumericInput.okText}
+                  {props.customKey}
                 </KeypadItem>
-              )}
-            </tr>
-            <tr>{['4', '5', '6'].map(renderKeypadItem)}</tr>
-            <tr>{['7', '8', '9'].map(renderKeypadItem)}</tr>
-            <tr>
-              <KeypadItem
-                className={customKeyCls}
-                value={props.customKey}
-                onPress={onKeypadPress}
-              >
-                {props.customKey}
-              </KeypadItem>
-              {['0'].map(renderKeypadItem)}
-              <KeypadItem
-                className={`${prefix}-delete`}
-                value={SPECIAL_KEY.delete}
-                onPress={onKeypadPress}
-                onLongPress={props.onClear}
-              />
-            </tr>
-          </tbody>
-        </table>
+                {['0'].map(renderKeypadItem)}
+                <KeypadItem
+                  className={`${prefix}-delete`}
+                  value={SPECIAL_KEY.delete}
+                  onPress={onKeypadPress}
+                  onLongPress={props.onClear}
+                />
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  },
+)
 
 CustomKeypad.displayName = 'CustomKeypad'
 CustomKeypad.defaultProps = {

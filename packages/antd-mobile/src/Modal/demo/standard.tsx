@@ -106,6 +106,11 @@ export default () => {
           content: 'close',
         })
       },
+      onDismiss() {
+        Modal.alert({
+          content: 'dismiss',
+        })
+      },
     })
   }
   return (
