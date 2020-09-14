@@ -2,10 +2,12 @@
 .nyc_output/
 node_modules/
 dist/
+doc_dist/
 lib/
 es/
 coverage/
 .umi/
+.umi-production/
 yarn.lock
 icons/out/
 
