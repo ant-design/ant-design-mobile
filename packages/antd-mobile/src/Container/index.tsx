@@ -16,7 +16,7 @@ export const Container: React.FC<ContainerPropsType> = props => {
 
   const cls = classNames({
     [`${wrapCls}`]: true,
-    [`${className}`]: true,
+    [`${className}`]: !!className,
   })
 
   let thumbNode = null

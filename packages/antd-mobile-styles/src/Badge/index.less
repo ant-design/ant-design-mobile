@@ -8,7 +8,7 @@
 // 字体颜色
 @badge-font-color: @color-text-base;
 // 圆角
-@badge-border-radius: @corner-radius-lg;
+@badge-border-radius: @corner-radius-circle;
 // end
 
 @badgePrefixCls: amd-badge;
@@ -27,38 +27,40 @@
   line-height: @badge-line-height;
 
   &-stroke {
+    display: block;
     border: 2 * @rpx solid @badge-font-color;
   }
 
   &-bubble {
     position: absolute;
     z-index: 10;
-    top: -10 * @rpx;
+    top: 0;
     display: inline-block;
     min-width: 32 * @rpx;
     box-sizing: border-box;
-    padding: 0 4 * @rpx;
+    padding: 0 8 * @rpx;
     background-color: @badge-bg-color;
     border-radius: @badge-border-radius;
     text-align: center;
 
     &&-right {
-      top: -10 * 2 * @rpx;
-      right: -24 * 2 * @rpx;
+      right: 0;
       border-radius: @badge-border-radius @badge-border-radius
         @badge-border-radius 0;
+      transform: translate3d(50%, -50%, 0);
     }
 
     &&-left {
-      top: -10 * 2 * @rpx;
-      left: -24 * 2 * @rpx;
+      left: 0;
       border-radius: @badge-border-radius @badge-border-radius 0;
+      transform: translate3d(-50%, -50%, 0);
     }
 
     &&-middle {
       top: -20 * 2 * @rpx;
       left: 50%;
-      margin-left: -20 * 2 * @rpx;
+      transform: translate3d(-50%, 0, 0);
+      word-break: keep-all;
     }
 
     &-text {
@@ -110,9 +112,9 @@
     top: -@size / 2;
     right: -@size / 2;
     min-width: @size;
-    height: @size;
+    min-height: @size;
     box-sizing: border-box;
-    padding: 0 4 * @rpx;
+    padding: 0 8 * @rpx;
     background-color: @badge-bg-color;
     border-radius: @badge-border-radius;
     font-size: @font-size-caption-sm;
@@ -122,6 +124,12 @@
     text-align: center;
     text-rendering: optimizeLegibility;
     white-space: nowrap;
+
+    span {
+      display: inline-block;
+      // 最小宽度 - padding
+      min-width: 32 * @rpx - 16 * @rpx;
+    }
 
     a {
       color: @color-text-base;

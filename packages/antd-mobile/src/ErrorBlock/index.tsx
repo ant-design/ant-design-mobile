@@ -25,9 +25,9 @@ export const ErrorBlock: React.FC<ErrorBlockPropsType> = ({
 
   const errorNode = (
     <div {...getDataAttr(rest)} className={wrapperClassName}>
-      <img className="poster" src={error.src} />
-      <div className="text">{error.text}</div>
-      {children && <div className="content">{children}</div>}
+      <img className={`${prefixCls}-poster`} src={error.src} />
+      <div className={`${prefixCls}-text`}>{error.text}</div>
+      {children && <div className={`${prefixCls}-content`}>{children}</div>}
     </div>
   )
 

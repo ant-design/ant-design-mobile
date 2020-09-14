@@ -85,7 +85,6 @@ const GuideModal: TGuideModal = props => {
 
   const goSkip = React.useCallback(() => {
     setIsSkip(true)
-    setActiveStep(stepLen)
   }, [])
 
   const childrenWithProps = useMemo(() => {
@@ -111,6 +110,8 @@ const GuideModal: TGuideModal = props => {
     }
     if (isSkip && outStepEleIds && outStepEleIds[activeStep]) {
       clearOutStep(outStepEleIds[activeStep])
+      // 如果是跳过的话，调整一下 activeStep
+      setActiveStep(stepLen)
     }
   }, [activeStep, outStepEleIds, stepLen, isSkip])
 

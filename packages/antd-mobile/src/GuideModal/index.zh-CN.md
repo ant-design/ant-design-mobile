@@ -26,8 +26,7 @@ nav:
 - outStepEleIds: 需要镂空展示的页面元素id列表，要按步骤展示的镂空元素按顺序传入数组，复制的元素会加上一个 class .amd-guide-modal-clone
 - fatigue: 疲劳度次数。localstorage实现的疲劳度
 - storageKey: localstrorage存储的key，适用于页面含有多个不连贯需要一定条件唤起的遮罩引导区, 注意：**如果页面含有多个独立的引导区，一定要设置该值**，以免localStorage的缓存判断混乱
-- customNext: 是否需要自定义的下一步按钮引导区，不设置则使用antd-mobile的支付宝默认规范的引导样式
-- showSkip: 是否显示跳过功能。只在customNext为false时，使用内置样式是有效
+- 注意镂空的元素是采用 clone 的方式 fixed 定位的，因此会自带 BFC ，这表明被镂空的元素最好也是 BFC 的，不然可能会出现视觉上错位的
 
 
 #### Step

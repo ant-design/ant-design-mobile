@@ -710,6 +710,20 @@
 // 出错颜色
 @steps-error-color: @color-text-warning;
 ```
+### Swiper
+```less
+@swiper-bullet-width: 6 * @rpx;
+@swiper-bullet-height: 6 * @rpx;
+@swiper-bullet-space: 6 * @rpx;
+@swiper-bullet-border-radius: 2 * @rpx;
+@swiper-bullet-active-width: 26 * @rpx;
+@swiper-bullet-active-height: 6 * @rpx;
+@swiper-bullet-primary-background: #ddd;
+@swiper-bullet-primary-active-background: @color-fill-primary;
+@swiper-bullet-light-background: rgba(255, 255, 255, 0.5);
+@swiper-bullet-light-active-background: #fff;
+@swiper-bullets-bottom: 10 * @rpx;
+```
 ### SwipeAction
 ```less
 // 默认颜色

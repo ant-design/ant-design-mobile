@@ -31,16 +31,26 @@ export const Badge: React.FC<BadgePropsType> = props => {
   }
 
   const prefixCls = 'amd-badge'
-  const scrollNumberCls = classnames({
-    [`${prefixCls}-dot`]: dot,
-    [`${prefixCls}-text`]: !dot,
+
+  const strokeCls = classnames({
     [`${prefixCls}-stroke`]: stroke,
   })
-  const bubbleCls = classnames({
-    [`${prefixCls}-bubble`]: true,
-    [`${prefixCls}-bubble-${placement}`]: true,
-    [`${prefixCls}-stroke`]: stroke,
-  })
+
+  const scrollNumberCls = classnames(
+    {
+      [`${prefixCls}-dot`]: dot,
+      [`${prefixCls}-text`]: !dot,
+    },
+    strokeCls,
+  )
+
+  const bubbleCls = classnames(
+    {
+      [`${prefixCls}-bubble`]: true,
+      [`${prefixCls}-bubble-${placement}`]: true,
+    },
+    strokeCls,
+  )
 
   const badgeCls = classnames(prefixCls, className, {
     [`${prefixCls}-not-a-wrapper`]: !children,
@@ -51,7 +61,7 @@ export const Badge: React.FC<BadgePropsType> = props => {
       {children}
       {bubble ? (
         <span className={bubbleCls}>
-          <sup className={`${prefixCls}-bubble-text`}>{text}</sup>
+          <span className={`${prefixCls}-bubble-text`}>{text}</span>
           {placement === 'middle' ? (
             <strong
               className={classnames(
@@ -63,8 +73,9 @@ export const Badge: React.FC<BadgePropsType> = props => {
         </span>
       ) : (
         (text || dot) && (
-          // tslint:disable-next-line:jsx-no-multiline-js
-          <sup className={scrollNumberCls}>{text}</sup>
+          <span className={scrollNumberCls}>
+            <span>{text}</span>
+          </span>
         )
       )}
     </span>

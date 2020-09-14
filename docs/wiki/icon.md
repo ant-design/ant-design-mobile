@@ -1,3 +1,10 @@
+# 内置 Icon
+```tsx | pure
+import { Alipay } from '@ant-design/mobile-icons'
+<Alipay color="red" />
+```
+
+
 # 自定义 Icon
 
 ## svg 生成 meta

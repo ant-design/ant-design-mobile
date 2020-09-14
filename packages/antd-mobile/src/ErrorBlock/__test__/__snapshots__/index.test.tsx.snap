@@ -5,11 +5,11 @@ exports[`ErrorBlock ErrorBlock with error snapshot 1`] = `
   className="amd-error-block"
 >
   <img
-    className="poster"
+    className="amd-error-block-poster"
     src="https://gw.alipayobjects.com/mdn/rms_997765/afts/img/A*bp-yRoHpmj4AAAAAAAAAAABkARQnAQ"
   />
   <div
-    className="text"
+    className="amd-error-block-text"
   >
     页面遇到一些小问题
   </div>
@@ -21,16 +21,16 @@ exports[`ErrorBlock ErrorBlock with error/button snapshot 1`] = `
   className="amd-error-block"
 >
   <img
-    className="poster"
+    className="amd-error-block-poster"
     src="https://gw.alipayobjects.com/mdn/rms_997765/afts/img/A*x1LaT6Pn5MwAAAAAAAAAAABkARQnAQ"
   />
   <div
-    className="text"
+    className="amd-error-block-text"
   >
     请稍等哦，马上出来
   </div>
   <div
-    className="content"
+    className="amd-error-block-content"
   >
     <Button
       capsule={true}
@@ -52,16 +52,16 @@ exports[`ErrorBlock ErrorBlock with error/button/title snapshot 1`] = `
     data-y="111"
   >
     <img
-      className="poster"
+      className="amd-error-block-poster"
       src="https://gw.alipayobjects.com/mdn/rms_997765/afts/img/A*x1LaT6Pn5MwAAAAAAAAAAABkARQnAQ"
     />
     <div
-      className="text"
+      className="amd-error-block-text"
     >
       请稍等哦，马上出来
     </div>
     <div
-      className="content"
+      className="amd-error-block-content"
     >
       <Button
         capsule={true}

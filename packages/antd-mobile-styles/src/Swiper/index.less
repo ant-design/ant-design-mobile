@@ -1,0 +1,55 @@
+@import (reference) '../base/index.less';
+// start
+@swiper-bullet-width: 6 * @rpx;
+@swiper-bullet-height: 6 * @rpx;
+@swiper-bullet-space: 6 * @rpx;
+@swiper-bullet-border-radius: 2 * @rpx;
+@swiper-bullet-active-width: 26 * @rpx;
+@swiper-bullet-active-height: 6 * @rpx;
+@swiper-bullet-primary-background: #ddd;
+@swiper-bullet-primary-active-background: @color-fill-primary;
+@swiper-bullet-light-background: rgba(255, 255, 255, 0.5);
+@swiper-bullet-light-active-background: #fff;
+@swiper-bullets-bottom: 10 * @rpx;
+// end
+@prefixCls: amd-swiper;
+
+.@{prefixCls}-pagination {
+  &-bullets {
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    bottom: @swiper-bullets-bottom;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  &-bullet {
+    width: @swiper-bullet-width;
+    height: @swiper-bullet-height;
+    margin: @swiper-bullet-space / 2;
+    border-radius: @swiper-bullet-border-radius;
+
+    &-active {
+      width: @swiper-bullet-active-width;
+      height: @swiper-bullet-active-height;
+    }
+    // type=primary
+    &-primary {
+      background-color: @swiper-bullet-primary-background;
+    }
+
+    &-primary&-active {
+      background-color: @swiper-bullet-primary-active-background;
+    }
+    // type=light
+    &-light {
+      background-color: @swiper-bullet-light-background;
+    }
+
+    &-light&-active {
+      background-color: @swiper-bullet-light-active-background;
+    }
+  }
+}

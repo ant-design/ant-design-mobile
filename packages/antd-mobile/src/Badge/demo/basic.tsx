@@ -31,7 +31,7 @@ export default () => (
       <Badge text="NEW">
         <div className="text-cover" />
       </Badge>
-      <Badge text="!">
+      <Badge stroke text="!">
         <div className="text-cover" />
       </Badge>
     </div>

@@ -44,7 +44,6 @@
     "classnames": "^2.2.6",
     "hoist-non-react-statics": "^3.3.2",
     "invariant": "^2.2.4",
-    "nuka-carousel": "~4.6.6",
     "rc-checkbox": "^2.1.8",
     "rc-collapse": "^1.11.8",
     "rc-swipeout": "^2.0.11",
@@ -54,7 +53,8 @@
     "rmc-input-number": "^1.0.5",
     "rmc-notification": "^1.0.0",
     "rmc-picker": "^5.0.10",
-    "rmc-tooltip": "^1.0.1"
+    "rmc-tooltip": "^1.0.1",
+    "swiper": "^6.2.0"
   },
   "peerDependencies": {
     "react": "^16.8.0",
