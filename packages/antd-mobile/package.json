@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/mobile",
-  "version": "3.0.0-alpha.2",
+  "version": "3.0.0-alpha.3",
   "description": "基于 React 的移动设计规范实现",
   "keywords": [
     "ant",
@@ -34,9 +34,9 @@
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "dependencies": {
-    "@ant-design/mobile-icons": "^3.0.0-alpha.2",
+    "@ant-design/mobile-icons": "3.0.0-alpha.3",
     "@ant-design/mobile-languages": "^3.0.0-alpha.2",
-    "@ant-design/mobile-styles": "^3.0.0-alpha.2",
+    "@ant-design/mobile-styles": "3.0.0-alpha.3",
     "@ant-design/mobile-touchable": "^3.0.0-alpha.2",
     "@babel/runtime": "^7.5.5",
     "@types/react-swipeable-views": "^0.13.0",
