@@ -2,6 +2,9 @@
 @import './mixins';
 @import './anim';
 
+// 为 body 背景单独加一个 less 变量, 使使用者可以修改
+@am-body-background: @fill-body;
+
 *,
 *:before,
 *:after {
@@ -9,7 +12,7 @@
 }
 
 body {
-  background-color: @fill-body;
+  background-color: @am-body-background;
   font-size: @font-size-base;
 }
 
