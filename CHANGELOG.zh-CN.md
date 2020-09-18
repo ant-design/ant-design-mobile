@@ -15,6 +15,13 @@ toc: false
 
 ---
 
+### 2.3.4
+
+`2020-09-18`
+
+- **Feature**
+  - 📝 `style` 现在可以单独对 body 上的背景做 less (@am-body-background) 替换 [#3713](https://github.com/ant-design/ant-design-mobile/pull/3713)
+
 ### 2.3.3
 
 `2020-05-19`
