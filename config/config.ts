@@ -91,25 +91,9 @@ export default {
     '/components': getComponentMenus('en-US'),
     '/zh-CN/components': getComponentMenus('zh-CN'),
   },
-  styles: [
-    `
-.__dumi-default-previewer-demo {
-  margin: 20px auto;
-  max-width: 375px;
-  height: 667px;
-  overflow-y: auto;
-  border: 12px solid #ccc;
-  border-radius: 42px;
-  box-shadow: 0 0 0 1px #e3e3e3;
-  background: #f5f5f5;
-  padding: 0!important;
-}
-
-.__dumi-default-layout-footer-meta a {
-  display: none!important;
-}
-  `,
-  ],
+  theme: {
+    '@hd': '0.02rem',
+  },
   targets: {
     ios: 8,
   },
