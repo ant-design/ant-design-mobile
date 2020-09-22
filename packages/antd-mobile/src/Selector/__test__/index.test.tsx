@@ -7,11 +7,11 @@ describe('Selector', () => {
   it('snapshot', () => {
     const component = shallow(
       <Selector
+        defaultValue={[1]}
         items={[
           {
             text: '选项一',
             value: 1,
-            active: true,
           },
           {
             text: '选项二',
@@ -23,11 +23,11 @@ describe('Selector', () => {
 
     const component2 = shallow(
       <Selector
+        defaultValue={[1]}
         items={[
           {
             text: '选项一',
             value: 1,
-            active: true,
           },
           {
             text: '选项二',
@@ -46,11 +46,11 @@ describe('Selector', () => {
     const component = shallow(
       <Selector
         activeItemClassName="custom-active"
+        defaultValue={[1]}
         items={[
           {
             text: '选项一',
             value: 1,
-            active: true,
           },
           {
             text: '选项二',
