@@ -13,6 +13,8 @@ nav:
 
 | Properties | Description | Type | Default |
 | --- | --- | --- | --- |
+| value | 选中的 value | SelectorItemType.value[] | - |
+| defaultValue | 初始选中的 value | SelectorItemType.value[] | - |
 | items | 选项 | SelectorItemType[] | - |
 | className | 类名 | string | '' |
 | activeItemClassName | Item 被激活时添加的类名 | string | '' |
@@ -27,6 +29,5 @@ export interface SelectorItemType {
   value: any
   subText?: string
   disabled?: boolean
-  active?: boolean
 }
 ```

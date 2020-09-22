@@ -13,6 +13,8 @@ nav:
 
 | Properties | Description | Type | Default |
 | --- | --- | --- | --- |
+| value | selected value | SelectorItemType.value[] | - |
+| defaultValue | init value | SelectorItemType.value[] | - |
 | items | Options | SelectorItemType[] | - |
 | className | class name | string | '' |
 | activeItemClassName | class name added to active item(s) | string | '' |
@@ -27,6 +29,5 @@ export interface SelectorItemType {
   value: any
   subText?: string
   disabled?: boolean
-  active?: boolean
 }
 ```

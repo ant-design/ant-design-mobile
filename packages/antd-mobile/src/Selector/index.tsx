@@ -8,7 +8,15 @@ import '@ant-design/mobile-styles/lib/Selector'
 const prefixCls = 'amd-selector'
 
 export const Selector: React.FC<SelectorPropsType> = props => {
-  const { items, className, activeItemClassName, multiple, onChange } = props
+  const {
+    items,
+    className,
+    activeItemClassName,
+    multiple,
+    onChange,
+    value,
+    defaultValue,
+  } = props
   useTracker(Selector.displayName)
 
   const col = items.length >= 3 ? 3 : 2
@@ -19,26 +27,60 @@ export const Selector: React.FC<SelectorPropsType> = props => {
     [`${className}`]: !!className,
   })
 
-  const [renderItems, setRenderItems] = React.useState(items)
+  function getNextItems(items, value) {
+    const nextRenderItems: Array<SelectorItemType & {
+      active: boolean
+    }> = items.map(item => {
+      item = { ...item }
+
+      if (value?.indexOf(item.value) !== -1) {
+        item.active = true
+      } else {
+        item.active = false
+      }
+
+      return item
+    })
+
+    return nextRenderItems
+  }
+
+  const [renderItems, setRenderItems] = React.useState(
+    getNextItems(items, value ?? defaultValue),
+  )
+
+  React.useEffect(() => {
+    // 受控模式，配合表单
+    if ('value' in props) {
+      setRenderItems(getNextItems(renderItems, value))
+    }
+  }, [value])
 
   function updateItemState(currentIndex: number) {
-    const nextRenderItems: Array<SelectorItemType> = renderItems.map(
-      (item, index) => {
-        item = { ...item }
+    const nextRenderItems: Array<SelectorItemType & {
+      active: boolean
+    }> = renderItems.map((item, index) => {
+      item = { ...item }
 
-        if (currentIndex === index) {
-          item.active = !item.active
-        } else if (!multiple) {
-          item.active = false
-        }
+      if (currentIndex === index) {
+        item.active = !item.active
+      } else if (!multiple) {
+        item.active = false
+      }
 
-        return item
-      },
-    )
+      return item
+    })
 
-    setRenderItems(nextRenderItems)
-    const selectedItems = nextRenderItems.filter(item => item.active)
-    onChange && onChange(selectedItems)
+    // 非受控模式
+    if (!('value' in props)) {
+      setRenderItems(nextRenderItems)
+    }
+
+    const selectedValues = nextRenderItems
+      .filter(item => item.active)
+      .map(item => item.value)
+
+    onChange?.(selectedValues)
   }
 
   return (

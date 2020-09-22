@@ -5,10 +5,11 @@ export interface SelectorItemType {
   value: any
   subText?: string
   disabled?: boolean
-  active?: boolean
 }
 
 export interface SelectorPropsType extends BasePropsType {
+  value?: any[]
+  defaultValue?: any[]
   items: Array<SelectorItemType>
   className?: string
   activeItemClassName?: string
