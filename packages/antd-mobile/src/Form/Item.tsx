@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Field } from 'rc-field-form'
 import { FormItemPropsType } from './PropsType'
-import { List } from '..'
+import List from '../List'
 import { GroupContext } from './Group'
 
 // 是否为整行交互区域

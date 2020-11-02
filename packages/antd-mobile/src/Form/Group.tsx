@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { FormGroupPropsType } from './PropsType'
-import { List } from '..'
+import List from '../List'
 
 export const GroupContext = React.createContext({
   unstable_noStyle: false,

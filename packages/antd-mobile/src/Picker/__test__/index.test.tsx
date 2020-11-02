@@ -34,12 +34,7 @@ describe('Picker', () => {
     const component = shallow(
       <div>
         <List>
-          <Picker
-            title="选择季节"
-            data={seasons}
-            cascade={false}
-            extra="请选择(可选)"
-          >
+          <Picker title="选择季节" data={seasons} cascade={false}>
             {/* <List.Item arrow="horizontal"> */}
             <h3 key="123">Multiple</h3>
             {/* </List.Item> */}
