@@ -457,28 +457,17 @@
 ```
 ### InputItem
 ```less
-// 左右 padding
-@input-item-padding-LR: @h-spacing-large;
-// 背景颜色
-@input-item-background: @color-fill-grey-inverse;
-// 高度
-@input-item-height: 96 * @rpx;
-// label 字体颜色
-@input-item-label-color: @color-text-title;
-// label 字体大小
-@input-item-label-size: @font-size-list;
+@input-item-height: 48 * @rpx;
 // input 字体颜色
 @input-item-color: @color-text-title;
 // input 字体大小
-@input-item-size: @font-size-list;
-// input indent
-@input-item-indent: @h-spacing-large;
+@input-item-size: @font-size-content;
+// input disabled color
+@input-item-color-disabled: #bbb;
 // input placeholder 颜色
 @input-item-placeholder-color: @color-text-weak;
 // input 清除 颜色
-@input-item-clear-color: @color-fill-grey-base;
-// input 清除尺寸
-@input-item-clear-size: @size-4;
+@input-item-clear-color: @color-text-subtitle;
 ```
 ### List
 ```less

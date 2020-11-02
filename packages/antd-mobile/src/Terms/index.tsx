@@ -8,11 +8,12 @@ import { TermsPropsType } from './PropsType'
 
 import '@ant-design/mobile-styles/lib/Terms'
 
+const prefixCls = 'amd-terms'
 export const Terms: React.FC<TermsPropsType> = ({
+  className,
   term,
-  checked,
-  describe = false,
-  onChange,
+  hasChecked,
+  describe,
   children,
   ...rest
 }) => {
@@ -20,26 +21,29 @@ export const Terms: React.FC<TermsPropsType> = ({
 
   const node = (
     <div
-      className={classnames('amd-term', {
-        'amd-term-desc': describe,
+      className={classnames(`${prefixCls}-term`, {
+        [`${prefixCls}-term-desc`]: describe,
       })}
     >
-      {typeof checked === 'boolean' ? (
-        <Checkbox onChange={onChange} defaultChecked={checked} />
-      ) : null}
-      <label>{term}</label>
+      {hasChecked ? <Checkbox {...rest} /> : null}
+      {term}
     </div>
   )
 
   return (
-    <div {...getDataAttr(rest)} className="amd-terms">
+    <div {...getDataAttr(rest)} className={classnames(prefixCls, className)}>
       {describe ? null : node}
-      <div className="amd-terms-content">{children}</div>
+      <div className={`${prefixCls}-content`}>{children}</div>
       {describe ? node : null}
     </div>
   )
 }
 
 Terms.displayName = 'Terms'
+
+Terms.defaultProps = {
+  hasChecked: false,
+  describe: false,
+}
 
 export default withError(Terms)

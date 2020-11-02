@@ -1,76 +1,402 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Terms basic snapshot 1`] = `
-<ErrorBoundary
-  onError={[Function]}
+<Terms
+  data-y="111"
+  term={
+    <React.Fragment>
+      同意
+      <a>
+        《用户授权协议》
+      </a>
+    </React.Fragment>
+  }
 >
-  <Terms
-    data-y="111"
-    forwardRef={Object {}}
-    term={
-      <React.Fragment>
-        同意
-        <a>
-          《用户授权协议》
-        </a>
-      </React.Fragment>
-    }
+  <ErrorBoundary
+    onError={[Function]}
   >
-    <Button
-      type="primary"
+    <Terms
+      data-y="111"
+      describe={false}
+      hasChecked={false}
+      term={
+        <React.Fragment>
+          同意
+          <a>
+            《用户授权协议》
+          </a>
+        </React.Fragment>
+      }
     >
-      提交
-    </Button>
-  </Terms>
-</ErrorBoundary>
+      <div
+        className="amd-terms"
+        data-y="111"
+      >
+        <div
+          className="amd-terms-term"
+        >
+          同意
+          <a>
+            《用户授权协议》
+          </a>
+        </div>
+        <div
+          className="amd-terms-content"
+        >
+          <Button
+            type="primary"
+          >
+            <ErrorBoundary
+              onError={[Function]}
+            >
+              <Button
+                activeClassName=""
+                capsule={false}
+                capsuleAutoWidth={false}
+                capsuleSize="md"
+                className=""
+                disabled={false}
+                loading={false}
+                subTitle=""
+                type="primary"
+              >
+                <Touchable
+                  disabled={false}
+                  onPress={[Function]}
+                  onPressIn={[Function]}
+                  onPressOut={[Function]}
+                >
+                  <Touchable
+                    disabled={false}
+                    onPress={[Function]}
+                    onPressIn={[Function]}
+                    onPressOut={[Function]}
+                  >
+                    <View
+                      onContextMenu={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                    >
+                      <div
+                        aria-disabled={false}
+                        className="amd-button amd-button-primary"
+                        onContextMenu={[Function]}
+                        onTouchCancel={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        role="button"
+                      >
+                        <span
+                          style={
+                            Object {
+                              "opacity": 1,
+                            }
+                          }
+                        >
+                          提交
+                        </span>
+                      </div>
+                    </View>
+                  </Touchable>
+                </Touchable>
+              </Button>
+            </ErrorBoundary>
+          </Button>
+        </div>
+      </div>
+    </Terms>
+  </ErrorBoundary>
+</Terms>
 `;
 
 exports[`Terms checkbox snapshot 1`] = `
-<ErrorBoundary
-  onError={[Function]}
+<Terms
+  checked={false}
+  hasChecked={true}
+  term={
+    <React.Fragment>
+      同意
+      <a>
+        《用户授权协议》
+      </a>
+    </React.Fragment>
+  }
 >
-  <Terms
-    checked={false}
-    forwardRef={Object {}}
-    term={
-      <React.Fragment>
-        同意
-        <a>
-          《用户授权协议》
-        </a>
-      </React.Fragment>
-    }
+  <ErrorBoundary
+    onError={[Function]}
   >
-    <Button
-      type="primary"
+    <Terms
+      checked={false}
+      describe={false}
+      hasChecked={true}
+      term={
+        <React.Fragment>
+          同意
+          <a>
+            《用户授权协议》
+          </a>
+        </React.Fragment>
+      }
     >
-      提交
-    </Button>
-  </Terms>
-</ErrorBoundary>
+      <div
+        className="amd-terms"
+      >
+        <div
+          className="amd-terms-term"
+        >
+          <Checkbox
+            checked={false}
+          >
+            <ErrorBoundary
+              onError={[Function]}
+            >
+              <Checkbox
+                checked={false}
+              >
+                <Checkbox
+                  checked={false}
+                  defaultChecked={false}
+                  prefixCls="amd-checkbox"
+                  type="checkbox"
+                >
+                  <div
+                    className="amd-checkbox"
+                  >
+                    <ForwardRef(C)
+                      checked={false}
+                      onChange={[Function]}
+                      type="checkbox"
+                    >
+                      <ErrorBoundary
+                        onError={[Function]}
+                      >
+                        <Labelable
+                          checked={false}
+                          forwardRef={null}
+                          onChange={[Function]}
+                          type="checkbox"
+                        >
+                          <label>
+                            <input
+                              checked={false}
+                              onChange={[Function]}
+                              readOnly={true}
+                              style={
+                                Object {
+                                  "border": 0,
+                                  "display": "block",
+                                  "height": 0,
+                                  "overflow": "hidden",
+                                  "padding": 0,
+                                  "width": 0,
+                                }
+                              }
+                              type="checkbox"
+                            />
+                            <div
+                              className="amd-checkbox-fake"
+                            />
+                          </label>
+                        </Labelable>
+                      </ErrorBoundary>
+                    </ForwardRef(C)>
+                  </div>
+                </Checkbox>
+              </Checkbox>
+            </ErrorBoundary>
+          </Checkbox>
+          同意
+          <a>
+            《用户授权协议》
+          </a>
+        </div>
+        <div
+          className="amd-terms-content"
+        >
+          <Button
+            type="primary"
+          >
+            <ErrorBoundary
+              onError={[Function]}
+            >
+              <Button
+                activeClassName=""
+                capsule={false}
+                capsuleAutoWidth={false}
+                capsuleSize="md"
+                className=""
+                disabled={false}
+                loading={false}
+                subTitle=""
+                type="primary"
+              >
+                <Touchable
+                  disabled={false}
+                  onPress={[Function]}
+                  onPressIn={[Function]}
+                  onPressOut={[Function]}
+                >
+                  <Touchable
+                    disabled={false}
+                    onPress={[Function]}
+                    onPressIn={[Function]}
+                    onPressOut={[Function]}
+                  >
+                    <View
+                      onContextMenu={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                    >
+                      <div
+                        aria-disabled={false}
+                        className="amd-button amd-button-primary"
+                        onContextMenu={[Function]}
+                        onTouchCancel={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        role="button"
+                      >
+                        <span
+                          style={
+                            Object {
+                              "opacity": 1,
+                            }
+                          }
+                        >
+                          提交
+                        </span>
+                      </div>
+                    </View>
+                  </Touchable>
+                </Touchable>
+              </Button>
+            </ErrorBoundary>
+          </Button>
+        </div>
+      </div>
+    </Terms>
+  </ErrorBoundary>
+</Terms>
 `;
 
 exports[`Terms describe snapshot 1`] = `
-<ErrorBoundary
-  onError={[Function]}
+<Terms
+  describe={true}
+  term={
+    <React.Fragment>
+      同意
+      <a>
+        《用户授权协议》
+      </a>
+    </React.Fragment>
+  }
 >
-  <Terms
-    describe={true}
-    forwardRef={Object {}}
-    term={
-      <React.Fragment>
-        同意
-        <a>
-          《用户授权协议》
-        </a>
-      </React.Fragment>
-    }
+  <ErrorBoundary
+    onError={[Function]}
   >
-    <Button
-      type="primary"
+    <Terms
+      describe={true}
+      hasChecked={false}
+      term={
+        <React.Fragment>
+          同意
+          <a>
+            《用户授权协议》
+          </a>
+        </React.Fragment>
+      }
     >
-      提交
-    </Button>
-  </Terms>
-</ErrorBoundary>
+      <div
+        className="amd-terms"
+      >
+        <div
+          className="amd-terms-content"
+        >
+          <Button
+            type="primary"
+          >
+            <ErrorBoundary
+              onError={[Function]}
+            >
+              <Button
+                activeClassName=""
+                capsule={false}
+                capsuleAutoWidth={false}
+                capsuleSize="md"
+                className=""
+                disabled={false}
+                loading={false}
+                subTitle=""
+                type="primary"
+              >
+                <Touchable
+                  disabled={false}
+                  onPress={[Function]}
+                  onPressIn={[Function]}
+                  onPressOut={[Function]}
+                >
+                  <Touchable
+                    disabled={false}
+                    onPress={[Function]}
+                    onPressIn={[Function]}
+                    onPressOut={[Function]}
+                  >
+                    <View
+                      onContextMenu={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                    >
+                      <div
+                        aria-disabled={false}
+                        className="amd-button amd-button-primary"
+                        onContextMenu={[Function]}
+                        onTouchCancel={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        role="button"
+                      >
+                        <span
+                          style={
+                            Object {
+                              "opacity": 1,
+                            }
+                          }
+                        >
+                          提交
+                        </span>
+                      </div>
+                    </View>
+                  </Touchable>
+                </Touchable>
+              </Button>
+            </ErrorBoundary>
+          </Button>
+        </div>
+        <div
+          className="amd-terms-term amd-terms-term-desc"
+        >
+          同意
+          <a>
+            《用户授权协议》
+          </a>
+        </div>
+      </div>
+    </Terms>
+  </ErrorBoundary>
+</Terms>
 `;

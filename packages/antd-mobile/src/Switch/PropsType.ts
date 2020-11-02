@@ -1,8 +1,9 @@
-import { BasePropsType } from '../_internal'
+import { BasePropsType, BaseFormItemTypeWithOutFocus } from '../_internal'
 
-export interface SwitchPropsType extends BasePropsType {
-  checked: boolean
-  disabled?: boolean
-  onChange?: (checked: boolean) => void
-  name?: string
+export interface SwitchPropsType
+  extends BasePropsType,
+    BaseFormItemTypeWithOutFocus<boolean> {
+  value?: string // just for html form
+  checked?: boolean
+  defaultChecked?: boolean
 }

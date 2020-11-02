@@ -1,19 +1,10 @@
-import { BasePropsType, IconType } from '../_internal'
-export type InputItemEvent = (v: string | undefined) => void
+import { BasePropsType, BaseFormItemType } from '../_internal'
 
-export interface InputItemPropsType extends BasePropsType {
-  label: string
+export interface InputItemPropsType
+  extends BasePropsType,
+    BaseFormItemType<string> {
   value?: string
   defaultValue?: string
   placeholder?: string
-  extraClassName?: string
-  maxlength?: number
-  disabled?: boolean
-  extra?: IconType
-  vertical?: boolean
-  autoFocus?: boolean
-  onFocus?: InputItemEvent
-  onBlur?: InputItemEvent
-  onChange?: InputItemEvent
-  onPressExtra?: (e?: React.SyntheticEvent) => void
+  clear?: boolean
 }

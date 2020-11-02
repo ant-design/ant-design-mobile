@@ -1,16 +1,29 @@
-import { BasePropsType } from '../_internal'
+import { BasePropsType, BaseFormItemTypeWithOutFocus } from '../_internal'
 
-export interface CheckboxPropsType extends BasePropsType {
-  // use for label
-  id?: string
+import { ListPropsType } from '../List/PropsType'
 
-  // use for form
-  name?: string
+export interface CheckboxPropsType
+  extends BasePropsType,
+    BaseFormItemTypeWithOutFocus<boolean> {
   value?: any
 
   // others
   checked?: boolean
   defaultChecked?: boolean
+}
+
+export interface CheckboxGroupPropsType
+  extends BasePropsType,
+    Omit<BaseFormItemTypeWithOutFocus<any[]>, 'id'>,
+    ListPropsType {
+  value?: any[]
+  defaultValue?: any[]
+
+  // TODO: support options for items
+}
+
+export interface CheckboxItemPropsType extends BasePropsType {
   disabled?: boolean
-  onChange?: (checked: boolean) => void
+  value?: any
+  id?: string
 }

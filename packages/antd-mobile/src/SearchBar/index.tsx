@@ -2,7 +2,7 @@ import * as React from 'react'
 import classnames from 'classnames'
 import { Search, ClearFill } from '@ant-design/mobile-icons'
 import { Touchable, withError } from '../rmc'
-import { useTracker } from '../hooks'
+import { useTracker, useControlledByValue } from '../hooks'
 import { SearchBarPropsType } from './PropsType'
 import { convertRef, getDataAttr } from '../_internal'
 
@@ -17,7 +17,6 @@ export const SearchBar: React.FC<SearchBarPropsType> = props => {
   const {
     placeholder = '',
     onSubmit = noop,
-    onChange = noop,
     onFocus = noop,
     onClear = noop,
     autoFocus = false,
@@ -31,17 +30,9 @@ export const SearchBar: React.FC<SearchBarPropsType> = props => {
     forwardRef,
   } = props
 
-  const { hostRef: inputRef, ref } = convertRef<any>(forwardRef)
+  const { value, onChange } = useControlledByValue(props)
 
-  const [value, setValue] = React.useState(() => {
-    if ('value' in props) {
-      return props.value || ''
-    } else if ('defaultValue' in props) {
-      return props.defaultValue || ''
-    } else {
-      return ''
-    }
-  })
+  const { hostRef: inputRef, ref } = convertRef<any>(forwardRef)
 
   const [focus, setFocus] = React.useState(false)
 
@@ -61,12 +52,6 @@ export const SearchBar: React.FC<SearchBarPropsType> = props => {
       rightBtnInitMarginLeft.current = initBtn.marginLeft
     }
   }, [])
-
-  React.useEffect(() => {
-    if (props.value !== value) {
-      setValue(props.value || '')
-    }
-  }, [props.value])
 
   React.useEffect(() => {
     if (syntheticPhRef && syntheticPhRef.current) {
@@ -108,9 +93,6 @@ export const SearchBar: React.FC<SearchBarPropsType> = props => {
       setFocus(true)
     }
     const value = e.target.value
-    if (!('value' in props)) {
-      setValue(value)
-    }
     onChange?.(value)
   }
 
@@ -127,14 +109,11 @@ export const SearchBar: React.FC<SearchBarPropsType> = props => {
   }
 
   const cancelCbk = () => {
-    props.onCancel?.(value || '')
+    props.onCancel?.(value)
     doClear()
   }
 
   const doClear = (blurFromOnClear = true) => {
-    if (!('value' in props)) {
-      setValue('')
-    }
     onClear && onClear('')
     onChange && onChange('')
     blurFromOnClear && inputRef.current?.blur()
@@ -223,6 +202,10 @@ export const SearchBar: React.FC<SearchBarPropsType> = props => {
 }
 
 SearchBar.displayName = 'SearchBar'
+
+SearchBar.defaultProps = {
+  defaultValue: '',
+}
 
 export default withError(SearchBar, {
   forwardRef: true,

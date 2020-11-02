@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { unstable_NoticeBar as NoticeBar } from '@ant-design/mobile'
 
+import './basic.less'
+
 export default () => (
-  <div>
+  <div className="notice-demo-container">
     <h3>文字超出无限滚动</h3>
     <NoticeBar animateLoop>
       Notice: The arrival time of incomes and transfers of Yu &#39;E Bao will be

@@ -1,31 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stepper snapshot 1`] = `
-<InputNumber
-  className="showNumber"
+<ForwardRef
   data-y="111"
+  defaultValue={0}
   downHandler={
     <Minus
       size="md"
     />
   }
-  focusOnUpDown={false}
   max={10}
   min={1}
-  onBlur={[Function]}
-  onChange={[Function]}
-  onFocus={[Function]}
   parser={[Function]}
   prefixCls="amd-stepper"
-  readOnly={false}
   step={1}
-  style={Object {}}
   upHandler={
     <Add
       size="md"
     />
   }
-  useTouch={false}
   value={1}
 />
 `;

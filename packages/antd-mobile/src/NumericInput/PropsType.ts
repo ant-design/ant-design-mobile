@@ -1,14 +1,15 @@
 import * as React from 'react'
-import { BasePropsType } from '../_internal'
+import { BasePropsType, BaseFormItemType } from '../_internal'
 
 export type NumericEvent = (v: string) => void
 
-export interface NumericInputPropsType extends BasePropsType {
+export interface NumericInputPropsType
+  extends BasePropsType,
+    BaseFormItemType<string> {
   header?: React.ReactNode | React.FC<{ locale?: any }>
   defaultValue?: string
   value?: string
   placeholder?: string
-  disabled?: boolean
   disabledKeys?: string[]
   keypadClassName?: string
   autoFocus?: boolean
@@ -17,9 +18,7 @@ export interface NumericInputPropsType extends BasePropsType {
   confirmDisabled?: boolean
   customKey?: '.' | 'X' | '-'
   onConfirm?: NumericEvent
-  onChange?: (v: string, changed?: boolean) => void
-  onFocus?: NumericEvent
-  onBlur?: NumericEvent
   align?: 'left' | 'right'
   clear?: boolean
+  disabledAutoScroll?: boolean
 }

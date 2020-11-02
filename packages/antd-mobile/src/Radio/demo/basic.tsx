@@ -1,30 +1,45 @@
 import * as React from 'react'
 import {
   unstable_Radio as Radio,
-  unstable_List as List,
+  unstable_Form as Form,
+  unstable_Modal as Modal,
+  unstable_Button as Button,
 } from '@ant-design/mobile'
-
-const { Group, Item } = Radio
+import WhiteSpace from '../../WhiteSpace'
+import WingBlank from '../../WingBlank'
 
 export default () => {
   return (
     <>
-      <Group
-        name="demo1"
-        defaultValue="3"
-        onChange={e => {
-          console.log(e)
-        }}
+      <Form
+        initialValues={{ p1: 1 }}
+        onFinish={values => Modal.alert({ content: JSON.stringify(values) })}
       >
-        <Item value="1" brief="选啥呢">
-          第一个
-        </Item>
-        <Item value="2">第二个</Item>
-        <Item value="3">第三个</Item>
-        <Item value="4" disabled>
-          第四个
-        </Item>
-      </Group>
+        <Form.Group unstable_noStyle>
+          <Form.Item name="p1">
+            <Radio.Group renderHeader="p1: 配合 form, Group 使用">
+              <Radio.Item value={1}>{1}</Radio.Item>
+              <Radio.Item value={2} brief="第二行">
+                {2}
+              </Radio.Item>
+              <Radio.Item value={3} disabled>
+                {3}
+              </Radio.Item>
+              <Radio.Item value={4} disabled>
+                {4}
+              </Radio.Item>
+            </Radio.Group>
+          </Form.Item>
+        </Form.Group>
+
+        <WhiteSpace />
+
+        <WingBlank>
+          <Button type="primary" htmlType="submit">
+            提交
+          </Button>
+        </WingBlank>
+      </Form>
     </>
   )
 }

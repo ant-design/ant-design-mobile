@@ -32,7 +32,7 @@ const TouchableFeedback: React.FC<{
   })
 
   return (
-    <Touchable onPressIn={pressIn} onPressOut={pressOut} {...rest}>
+    <Touchable {...rest} onPressIn={pressIn} onPressOut={pressOut}>
       {childWithCls}
     </Touchable>
   )

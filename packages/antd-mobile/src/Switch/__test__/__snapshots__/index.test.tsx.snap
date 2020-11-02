@@ -1,21 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Switch snapshot 1`] = `
-<label
-  className="amd-switch"
+<Switch
+  checked={true}
   data-y="111"
+  defaultChecked={false}
+  disabled={true}
 >
-  <input
-    checked={true}
-    className="amd-switch-checkbox"
-    disabled={true}
-    name=""
-    onChange={[Function]}
-    type="checkbox"
-    value="on"
-  />
   <div
-    className="checkbox checkbox-disabled"
-  />
-</label>
+    className="amd-switch"
+    data-y="111"
+  >
+    <ForwardRef(C)
+      checked={true}
+      disabled={true}
+      onChange={[Function]}
+      type="checkbox"
+    >
+      <ErrorBoundary
+        onError={[Function]}
+      >
+        <Labelable
+          checked={true}
+          disabled={true}
+          forwardRef={null}
+          onChange={[Function]}
+          type="checkbox"
+        >
+          <label>
+            <input
+              checked={true}
+              disabled={true}
+              onChange={[Function]}
+              readOnly={true}
+              style={
+                Object {
+                  "border": 0,
+                  "display": "block",
+                  "height": 0,
+                  "overflow": "hidden",
+                  "padding": 0,
+                  "width": 0,
+                }
+              }
+              type="checkbox"
+            />
+            <div
+              className="amd-switch-fake amd-switch-fake-disabled amd-switch-fake-checked"
+            />
+          </label>
+        </Labelable>
+      </ErrorBoundary>
+    </ForwardRef(C)>
+  </div>
+</Switch>
 `;

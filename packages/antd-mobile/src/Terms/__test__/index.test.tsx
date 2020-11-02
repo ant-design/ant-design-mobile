@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import { unstable_Button as Button } from '@ant-design/mobile'
 import Terms from '..'
 
 describe('Terms', () => {
   it('basic snapshot', () => {
-    const component = shallow(
+    const component = mount(
       <Terms
         term={
           <>
@@ -23,8 +23,9 @@ describe('Terms', () => {
   })
 
   it('checkbox snapshot', () => {
-    const component = shallow(
+    const component = mount(
       <Terms
+        hasChecked
         checked={false}
         term={
           <>
@@ -40,7 +41,7 @@ describe('Terms', () => {
   })
 
   it('describe snapshot', () => {
-    const component = shallow(
+    const component = mount(
       <Terms
         term={
           <>

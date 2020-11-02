@@ -50,7 +50,7 @@ const KeypadItem: React.FC<KeypadItemProps> = props => {
       }}
       onLongPress={onLongPress}
     >
-      <td className={cls} {...rest}>
+      <td className={cls} {...rest} onContextMenu={e => e.preventDefault()}>
         <span>{props.children}</span>
       </td>
     </Touchable>

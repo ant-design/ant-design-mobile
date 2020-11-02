@@ -9,14 +9,23 @@ nav:
 
 <code src="./demo/basic.tsx" />
 
-### API
+### Single
 
+<code src="./demo/single.tsx" />
+
+### Checkbox.Group
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| checked | 受控组件是否选中 | boolean | - |
-| defaultChecked | 非受控组件是否选中 | boolean | false |
-| disabled | 禁用 | boolean | false |
-| onChange | 变化回调 | (e: React.ChangeEvent\<HTMLInputElement\>) => void | - |
-| id | 单选框 id，和 label 配合扩大点击范围 | string | - |
-| name | 单选框 name | string | - |
-| value | 单选框 value | any | - |
+| radius | 是否有圆角 | boolean | - |
+| renderHeader | header 内容 | React.ReactNode | - |
+| value | 受控 value | any | - |
+| defaultValue | 非受控 defaultValue | any | '' |
+
+> 其他属性见 `Omit<BaseFormItemTypeWithoutFocus, 'id'>`
+
+### Checkbox.Item
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| disabled | 是否禁用 | boolean | false |
+| value | 单选框的值 | any | - |
+| brief | 第二行的内容 | any | - |

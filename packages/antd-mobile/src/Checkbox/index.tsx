@@ -1,27 +1,25 @@
 import * as React from 'react'
-// @ts-ignore
-import RcCheckbox from 'rc-checkbox'
-
 import { withError } from '../rmc'
 import { useTracker } from '../hooks'
+import CheckboxCore from './Checkbox'
+import Group from './Group'
+import Item from './Item'
 import { CheckboxPropsType } from './PropsType'
 
 import '@ant-design/mobile-styles/lib/Checkbox'
 
-const prefixCls = 'amd-checkbox'
-
-export const Checkbox: React.FC<CheckboxPropsType> = props => {
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    return props.onChange?.(e.target.checked)
-  }
+export const Checkbox: React.FC<CheckboxPropsType> & {
+  Group: typeof Group
+  Item: typeof Item
+} = props => {
+  const { children, ...rest } = props
   useTracker(Checkbox.displayName)
-  // TODO: only transfer props in CheckboxPropsType
-
-  // @ts-ignore
-  // onChange with React.ChangeEvent<HTMLInputElement>
-  return <RcCheckbox prefixCls={prefixCls} {...props} onChange={onChange} />
+  return <CheckboxCore {...rest} prefixCls="amd-checkbox" />
 }
 
 Checkbox.displayName = 'Checkbox'
+
+Checkbox.Group = Group
+Checkbox.Item = Item
 
 export default withError(Checkbox)

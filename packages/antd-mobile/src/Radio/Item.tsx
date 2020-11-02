@@ -1,11 +1,7 @@
 import * as React from 'react'
-import classnames from 'classnames'
-import { Check } from '@ant-design/mobile-icons'
-// @ts-ignore
-import RcCheckbox from 'rc-checkbox'
+import Radio from './Radio'
 import { getDataAttr } from '../_internal'
 import List from '../List'
-import { Brief } from '../List/Item'
 import { RadioItemPropsType } from './PropsType'
 
 const prefixCls = 'amd-radio-item'
@@ -15,35 +11,26 @@ export const Item: React.FC<RadioItemPropsType> = props => {
   // @ts-ignore
   const { name, onChange, checkedValue, brief } = props
   const checked = checkedValue === props.value
-  const labelCls = classnames(prefixCls, {
-    [prefixCls + '-disabled']: props.disabled,
-  })
+
   return (
-    <List.Item
-      extra={
-        checked ? (
-          <Check className={prefixCls + '-checked-icon'} size="xs" />
-        ) : (
-          // 必须是 undefined，不然会渲染出节点，导致点击区域减小
-          undefined
-        )
-      }
-    >
-      <label className={labelCls} {...getDataAttr(props)}>
-        <RcCheckbox
-          prefixCls={prefixCls}
-          value={props.value}
-          type="radio"
-          disabled={props.disabled}
-          name={name}
-          onChange={onChange}
-          checked={checked}
-        />
+    <label className={prefixCls} {...getDataAttr(props)}>
+      <List.Item
+        disabled={props.disabled}
+        extra={
+          <Radio
+            value={props.value}
+            disabled={props.disabled}
+            name={name}
+            id={props.id}
+            onChange={bingo => onChange(props.value, bingo)}
+            checked={checked}
+          />
+        }
+        brief={brief}
+      >
         {props.children}
-        {/* 这个 不能直接加在 List.Item 上，会导致 label 覆盖不了，导致点击区域变小 */}
-        {brief && <Brief>{brief}</Brief>}
-      </label>
-    </List.Item>
+      </List.Item>
+    </label>
   )
 }
 

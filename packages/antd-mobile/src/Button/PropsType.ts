@@ -15,4 +15,6 @@ export interface ButtonPropsType extends BasePropsType {
   icon?: IconType
   loading?: boolean
   loadingText?: string
+
+  htmlType?: 'button' | 'submit' | 'reset'
 }

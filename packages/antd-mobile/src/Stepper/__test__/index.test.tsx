@@ -6,7 +6,7 @@ import { Stepper } from '..'
 describe('Stepper', () => {
   it('snapshot', () => {
     const component = shallow(
-      <Stepper showNumber max={10} min={1} value={1} data-y="111" />,
+      <Stepper max={10} min={1} value={1} data-y="111" />,
     )
 
     expect(toJSON(component)).toMatchSnapshot()

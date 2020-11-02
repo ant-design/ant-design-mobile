@@ -10,8 +10,8 @@ nav:
 #### 基本用法
 <code src="./demo/basic.tsx" />
 
-#### 状态展示
-<code src="./demo/status.tsx" />
+#### 单独使用
+<code src="./demo/single.tsx" />
 
 ### API
 
@@ -19,8 +19,21 @@ nav:
 | --- | --- | --- | --- |
 | checked | 受控 checked | boolean | - |
 | defaultChecked | 非受控 checked | boolean | false |
-| disabled | 禁用 | boolean | false |
-| onChange | onChange 回调 | (e: React.ChangeEvent\<HTMLInputElement\>) => void | - |
-| id | 复选框 id，和 label 配合扩大点击范围 | string | - |
-| name | 复选框 name | string | - |
-| value | 复选框 value | any | - |
+
+> 其他属性见 BaseFormItemTypeWithoutFocus
+
+### Checkbox.Group
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| radius | 是否有圆角 | boolean | - |
+| renderHeader | header 内容 | React.ReactNode | - |
+| value | 受控 value | any[] | - |
+| defaultValue | 非受控 defaultValue | any[] | [] |
+
+> 其他属性见 `Omit<BaseFormItemTypeWithoutFocus, 'id'>`
+
+### Checkbox.Item
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| disabled | 是否禁用 | boolean | false |
+| value | 复选框的值 | any | - |

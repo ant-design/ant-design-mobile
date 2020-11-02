@@ -42,7 +42,7 @@ class TabBarDemo extends React.Component<
           textAlign: 'center',
         }}
       >
-        <div style={{ paddingTop: 60 }}>
+        <div style={{ paddingTop: '0.6rem', fontSize: '0.26rem' }}>
           Clicked “{pageText}” tab， show “{pageText}” information
         </div>
       </div>
@@ -52,7 +52,7 @@ class TabBarDemo extends React.Component<
   render() {
     return (
       <div className="demo-tabbar-wrap">
-        <div className="demo-tabbar-1">
+        {/* <div className="demo-tabbar-1">
           <TabBar onChange={handleChange} className="demo-class">
             <Item
               value="home"
@@ -105,7 +105,7 @@ class TabBarDemo extends React.Component<
               }}
             />
           </TabBar>
-        </div>
+        </div> */}
 
         <div className="demo-tabbar-2">
           <TabBar>

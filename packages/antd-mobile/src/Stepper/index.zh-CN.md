@@ -11,6 +11,10 @@ nav:
 
 <code src="./demo/basic.tsx" />
 
+### 单独展示
+
+<code src="./demo/single.tsx" />
+
 
 ### 规则
 

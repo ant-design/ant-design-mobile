@@ -1,10 +1,11 @@
 import * as React from 'react'
-import classname from 'classnames'
-import { getDataAttr, renderIcon } from '../_internal'
-import { Touchable, withError } from '../rmc'
-import { useTracker } from '../hooks'
-import { InputItemPropsType } from './PropsType'
+import classnames from 'classnames'
 import { CloseFill } from '@ant-design/mobile-icons'
+import { getDataAttr } from '../_internal'
+import { withError } from '../rmc'
+import { useTracker, useControlledByValue, useFocus } from '../hooks'
+import { InputItemPropsType } from './PropsType'
+import useCompositionChange from './useCompositionChange'
 
 import '@ant-design/mobile-styles/lib/InputItem'
 
@@ -12,141 +13,106 @@ const prefixCls = 'amd-input-item'
 
 export const InputItem: React.FC<InputItemPropsType> = props => {
   const {
-    className = '',
-    label,
-    extraClassName = '',
-    placeholder = '',
-    maxlength,
-    disabled = false,
-    extra,
-    vertical,
+    id,
+    name,
+    className,
+    placeholder,
+    disabled,
     autoFocus,
-    defaultValue,
-    onPressExtra,
-    value: inputValue,
-  } = props || {}
+    clear,
+    // provide by withError
+    // @ts-ignore
+    forwardRef,
+  } = props
 
   useTracker(InputItem.displayName)
   const dataProps = getDataAttr(props)
-  const [focus, setFocus] = React.useState(false)
-  const [clearFlag, setClearFlag] = React.useState(false)
-  const [value, setValue] = React.useState(inputValue ?? defaultValue ?? '')
-  React.useEffect(() => {
-    // value 模式
-    if (inputValue != null && value !== inputValue) {
-      setValue(inputValue)
-    }
-  }, [inputValue])
-  React.useLayoutEffect(() => {
-    autoFocus && doFocus()
-  }, [])
-  const inputRef = React.useRef<any>(null)
-  const onChange = () => {
-    const v = inputRef.current?.value
-    props.onChange && props.onChange!(v)
-    if (!('value' in props)) {
-      setValue(v)
-    } else {
-      inputValue && setValue(inputValue)
-    }
-    if (v && v.length) {
-      setClearFlag(true)
-    } else {
-      setClearFlag(false)
-    }
+
+  const { value, onChange } = useControlledByValue(props)
+
+  const { focus, onFocus, onBlur } = useFocus(value, props)
+
+  const inputRef = React.createRef<HTMLInputElement>()
+
+  React.useImperativeHandle(forwardRef, () => ({
+    focus: inputRef.current?.focus,
+    blur: inputRef.current?.blur,
+  }))
+
+  const {
+    value: fixedValue,
+    onComposition,
+    onChange: fixedOnChange,
+  } = useCompositionChange(value, onChange)
+
+  // 清除按钮
+  const handleClear = () => {
+    fixedOnChange('')
   }
 
-  const doFocus = () => {
-    const v = inputRef.current?.value
-    inputRef.current?.focus()
-    setFocus(true)
-    props.onFocus && props.onFocus(v)
-  }
-  const doBlur = () => {
-    if (focus) {
-      inputRef.current?.blur()
-      setFocus(false)
-      props.onBlur && props.onBlur(value)
-    }
-  }
+  const showClear = clear && focus && value && value.length > 0
 
-  const itemCls = classname(`${prefixCls}`, `${className}`, {
-    [`${prefixCls}-vertical`]: vertical,
-  })
-  const id = `input-${+new Date()}`
-  const wrapForVertical = () => {
-    const labelComp = (
-      <label htmlFor={id} className={`${prefixCls}-label`}>
-        {label || ''}
-      </label>
-    )
+  const wrap = () => {
+    const inputCls = classnames(`${prefixCls}-input`, {
+      [`${prefixCls}-input-clear`]: showClear,
+    })
     const inputComp = (
       <input
         id={id}
+        name={name}
         ref={inputRef}
-        value={value}
+        value={fixedValue}
+        type="text"
         placeholder={placeholder}
         disabled={disabled}
-        maxLength={maxlength}
-        className={`${prefixCls}-input`}
-        onBlur={doBlur}
-        onFocus={doFocus}
-        onChange={onChange}
+        className={inputCls}
+        autoFocus={autoFocus}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onCompositionStart={onComposition}
+        onCompositionEnd={onComposition}
+        onChange={e => fixedOnChange(e.target.value)}
       />
     )
 
-    const extraCom = renderIcon(extra)
-    const extraComp = extraCom ? (
-      <Touchable onPress={onPressExtra}>
-        <div className={`${prefixCls}-extra ${extraClassName}`}>{extraCom}</div>
-      </Touchable>
-    ) : null
-    const showClear = clearFlag && value && value.length && focus
-    const clearMarginCls = !extraComp ? `${prefixCls}-clear-no-extra` : ''
     const clearComp = showClear ? (
-      <Touchable
-        onPress={() => {
-          setValue('')
-          setTimeout(() => {
-            doFocus()
-          }, 100)
-        }}
-      >
-        <div className={`${prefixCls}-clear ${clearMarginCls}`}>
-          <CloseFill />
-        </div>
-      </Touchable>
+      <CloseFill
+        className={`${prefixCls}-clear`}
+        size="sm"
+        onPress={handleClear}
+      />
     ) : null
-    if (!vertical) {
-      return (
-        <div className={`${prefixCls}-wrap`}>
-          {labelComp}
-          {inputComp}
-          {clearComp}
-          {extraComp}
-        </div>
-      )
-    }
+
     return (
-      <div className={`${prefixCls}-wrap`}>
-        <div className={`${prefixCls}-vertical-left`}>
-          {labelComp}
-          {inputComp}
-        </div>
-        <div className={`${prefixCls}-vertical-right`}>
-          {clearComp}
-          {extraComp}
-        </div>
-      </div>
+      <label>
+        {inputComp}
+        {clearComp}
+      </label>
     )
   }
+
+  const itemCls = classnames(prefixCls, className, {
+    [`${prefixCls}-disabled`]: disabled,
+  })
+
   return (
     <div className={itemCls} {...dataProps}>
-      {wrapForVertical()}
+      {wrap()}
     </div>
   )
 }
 
 InputItem.displayName = 'InputItem'
 
-export default withError(InputItem)
+InputItem.defaultProps = {
+  className: '',
+  disabled: false,
+  placeholder: '',
+  autoFocus: false,
+  defaultValue: '',
+  clear: false,
+}
+
+export default withError(InputItem, {
+  forwardRef: true,
+})

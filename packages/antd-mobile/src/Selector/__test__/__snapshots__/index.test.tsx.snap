@@ -20,6 +20,10 @@ exports[`Selector snapshot 1`] = `
       <div
         className="amd-selector-item-badge-active"
       />
+      <Memo([object Object])
+        checked={true}
+        value="1"
+      />
     </div>
   </Touchable>
   <Touchable
@@ -36,6 +40,10 @@ exports[`Selector snapshot 1`] = `
       </div>
       <div
         className="amd-selector-item-badge-active"
+      />
+      <Memo([object Object])
+        checked={false}
+        value="2"
       />
     </div>
   </Touchable>
@@ -62,6 +70,10 @@ exports[`Selector snapshot 2`] = `
       <div
         className="amd-selector-item-badge-active"
       />
+      <Memo([object Object])
+        checked={true}
+        value="1"
+      />
     </div>
   </Touchable>
   <Touchable
@@ -80,6 +92,11 @@ exports[`Selector snapshot 2`] = `
       </div>
       <div
         className="amd-selector-item-badge-active"
+      />
+      <Memo([object Object])
+        checked={false}
+        disabled={true}
+        value="2"
       />
     </div>
   </Touchable>

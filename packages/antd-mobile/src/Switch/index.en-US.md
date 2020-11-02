@@ -9,11 +9,15 @@ nav:
 
 <code src="./demo/basic.tsx" />
 
+### Single
+
+<code src="./demo/single.tsx" />
+
 ### API
 
 | Properties | Description | Type | Default |
 | --- | --- | --- | --- |
-| checked | whether is checked | boolean | - |
-| disabled | whether is disabled | boolean | false |
-| onChange | The callback function that is triggered when the selected state changes. | (checked: boolean): void |  -  |
-| name | name of `Switch` | string | '' |
+| checked | 受控 checked | boolean | - |
+| defaultChecked | 非受控 defaultChecked | boolean | false |
+
+> and others as BaseFormItemTypeWithOutFocus

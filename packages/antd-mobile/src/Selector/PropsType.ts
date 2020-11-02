@@ -1,18 +1,18 @@
-import { BasePropsType } from '../_internal'
+import { BasePropsType, BaseFormItemTypeWithOutFocus } from '../_internal'
 
-export interface SelectorItemType {
+export interface SelectorItemType<T> {
   text: string
-  value: any
+  value: T
   subText?: string
   disabled?: boolean
 }
 
-export interface SelectorPropsType extends BasePropsType {
-  value?: any[]
-  defaultValue?: any[]
-  items: Array<SelectorItemType>
-  className?: string
+export interface SelectorPropsType<T>
+  extends BasePropsType,
+    Omit<BaseFormItemTypeWithOutFocus<T[]>, 'id'> {
+  items: SelectorItemType<T>[]
   activeItemClassName?: string
   multiple?: boolean
-  onChange?: (v: Array<SelectorItemType>) => void
+  value?: T[]
+  defaultValue?: T[]
 }

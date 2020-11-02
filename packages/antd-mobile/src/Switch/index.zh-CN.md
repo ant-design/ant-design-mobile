@@ -9,11 +9,15 @@ nav:
 
 <code src="./demo/basic.tsx" />
 
+### Single
+
+<code src="./demo/single.tsx" />
+
 ### API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| checked | 是否打开 | boolean | - |
-| disabled | 是否不可修改 | boolean | false |
-| onChange | change 事件触发的回调函数 | (checked: boolean): void |  -  |
-| name | `Switch` 的 name | string | '' |
+| checked | 受控 checked | boolean | - |
+| defaultChecked | 非受控 defaultChecked | boolean | false |
+
+> 其他属性见 BaseFormItemTypeWithOutFocus

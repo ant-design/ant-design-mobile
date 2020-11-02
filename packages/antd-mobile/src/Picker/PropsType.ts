@@ -1,6 +1,9 @@
-import { BasePropsType } from '../_internal'
+import {
+  BasePropsType,
+  BaseFormItemType,
+  BaseFormItemTypeWithOutFocus,
+} from '../_internal'
 import { CascaderValue } from 'rmc-cascader/lib/CascaderTypes'
-import { IPopupPickerProps } from 'rmc-picker/lib/PopupPickerTypes'
 
 export interface PickerData {
   value: string | number
@@ -8,13 +11,21 @@ export interface PickerData {
   children?: PickerData[]
 }
 
-export interface PickerPropsType extends IPopupPickerProps, BasePropsType {
+export interface PickerPropsType
+  extends BasePropsType,
+    BaseFormItemTypeWithOutFocus<CascaderValue> {
+  childClassName?: string
+  // PickerData[][] 形式是 !cascade
   data: PickerData[] | PickerData[][]
   cascade?: boolean
-  value?: Array<string | number>
+  value?: CascaderValue
+  defaultValue?: CascaderValue
   format?: (values: React.ReactNode[]) => string | React.ReactNode[]
   cols?: number
-  extra?: string
-  onChange?: (date?: CascaderValue) => void
+  title?: React.ReactNode
+  okText?: string
+  dismissText?: string
+  onOk?: (value: CascaderValue) => void
+  onDismiss?: () => void
   onPickerChange?: (value: CascaderValue) => void
 }

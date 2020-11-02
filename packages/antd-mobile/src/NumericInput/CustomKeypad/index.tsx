@@ -1,7 +1,7 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import KeypadItem from './KeypadItem'
-import { Touchable } from '../../rmc'
+import { Touchable, EventInside } from '../../rmc'
 import { useCompleteLocale } from '../../hooks'
 import { isReactComponent } from '../../_internal'
 
@@ -108,54 +108,59 @@ const CustomKeypad = React.forwardRef<HTMLDivElement, KeypadProps>(
 
     // 结构不要轻易变动，使用者有样式复写的
     return (
-      <div className={cls} ref={ref}>
-        <div className={`${prefix}-real-background`}>
-          {props.header && (
-            <div className={`${prefix}-header`}>
-              <div className={`${prefix}-header-content`}>{defaultHeader}</div>
-              <Touchable onPress={props.onHidePress}>
-                <div className={`${prefix}-down-icon`} />
-              </Touchable>
-            </div>
-          )}
-          <table>
-            <tbody>
-              <tr>
-                {['1', '2', '3'].map(renderKeypadItem)}
-                {props.confirm && (
+      // 键盘内部的点击事件不对页面元素的 focus 等行为造成影响
+      <EventInside>
+        <div className={cls} ref={ref}>
+          <div className={`${prefix}-real-background`}>
+            {props.header && (
+              <div className={`${prefix}-header`}>
+                <div className={`${prefix}-header-content`}>
+                  {defaultHeader}
+                </div>
+                <Touchable onPress={props.onHidePress}>
+                  <div className={`${prefix}-down-icon`} />
+                </Touchable>
+              </div>
+            )}
+            <table>
+              <tbody>
+                <tr>
+                  {['1', '2', '3'].map(renderKeypadItem)}
+                  {props.confirm && (
+                    <KeypadItem
+                      className={`${prefix}-confirm`}
+                      rowSpan={4}
+                      value={SPECIAL_KEY.confirm}
+                      onPress={onKeypadPress}
+                      disabled={props.confirmDisabled}
+                    >
+                      {props.confirmLabel ?? lang.NumericInput.okText}
+                    </KeypadItem>
+                  )}
+                </tr>
+                <tr>{['4', '5', '6'].map(renderKeypadItem)}</tr>
+                <tr>{['7', '8', '9'].map(renderKeypadItem)}</tr>
+                <tr>
                   <KeypadItem
-                    className={`${prefix}-confirm`}
-                    rowSpan={4}
-                    value={SPECIAL_KEY.confirm}
+                    className={customKeyCls}
+                    value={props.customKey}
                     onPress={onKeypadPress}
-                    disabled={props.confirmDisabled}
                   >
-                    {props.confirmLabel ?? lang.NumericInput.okText}
+                    {props.customKey}
                   </KeypadItem>
-                )}
-              </tr>
-              <tr>{['4', '5', '6'].map(renderKeypadItem)}</tr>
-              <tr>{['7', '8', '9'].map(renderKeypadItem)}</tr>
-              <tr>
-                <KeypadItem
-                  className={customKeyCls}
-                  value={props.customKey}
-                  onPress={onKeypadPress}
-                >
-                  {props.customKey}
-                </KeypadItem>
-                {['0'].map(renderKeypadItem)}
-                <KeypadItem
-                  className={`${prefix}-delete`}
-                  value={SPECIAL_KEY.delete}
-                  onPress={onKeypadPress}
-                  onLongPress={props.onClear}
-                />
-              </tr>
-            </tbody>
-          </table>
+                  {['0'].map(renderKeypadItem)}
+                  <KeypadItem
+                    className={`${prefix}-delete`}
+                    value={SPECIAL_KEY.delete}
+                    onPress={onKeypadPress}
+                    onLongPress={props.onClear}
+                  />
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      </EventInside>
     )
   },
 )

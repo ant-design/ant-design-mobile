@@ -5,24 +5,21 @@ nav:
   path: /components
 ---
 
-### DEMO
+### 展示
 
 <code src="./demo/basic.tsx" />
+
+### 单独使用
+<code src="./demo/single.tsx" />
 
 ### API
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| label | 标题 | string |  |
-| defaultValue? | 默认值 | string | |
-| placeholder? |  | string |  |
-| extra?|右侧自定义图标| IconType| |
-| extraClassName? | 最右侧图标区域class | string | |
-| maxlength? | 输入框最大长度 | interger | |
-| disabled? | 是否禁用输入 | boolean | |
-| vertical? | 是否垂直布局 | string | |
-| autoFocus? | 自动聚焦 | string | |
-| onFoucs? |  | InputItemEvent | |
-| onChange? |  | InputItemEvent | |
-| onBlur? |  | InputItemEvent | |
-| onPressExtra? |  |  | |
+| value | 受控 value | string | - |
+| defaultValue | 非受控 defaultValue  | string | '' |
+| placeholder | 占位 | string | - |
+| onFocus | 获得焦点 | InputItemEvent | - |
+| onBlur | 失去焦点  | InputItemEvent | - |
+
+> 其他属性见 BaseFormItemType

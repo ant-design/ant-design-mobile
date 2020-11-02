@@ -2,7 +2,7 @@ import * as React from 'react'
 import { unstable_Badge as Badge } from '@ant-design/mobile'
 import './basic.less'
 export default () => (
-  <div className="demo-container">
+  <div className="badge-demo-container">
     <h3>基础红点</h3>
     <div className="badge-container">
       <Badge stroke dot />

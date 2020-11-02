@@ -53,9 +53,11 @@ export function withError<P extends object, TRef = {}>(
       throw error
     }, [])
 
+    const forwardRefProps = options?.forwardRef ? { forwardRef: ref } : {}
+
     return (
       <ErrorBoundary onError={handleError}>
-        <BaseComponent {...props} forwardRef={ref} />
+        <BaseComponent {...props} {...forwardRefProps} />
       </ErrorBoundary>
     )
   }

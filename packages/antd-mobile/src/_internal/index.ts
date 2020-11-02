@@ -1,4 +1,8 @@
-export { BasePropsType } from './BasePropsType'
+export {
+  BasePropsType,
+  BaseFormItemType,
+  BaseFormItemTypeWithOutFocus,
+} from './BasePropsType'
 export { IconType } from './IconType'
 export { default as getDataAttr } from './getDataAttr'
 export { default as warning } from './warning'

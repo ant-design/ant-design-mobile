@@ -6,92 +6,65 @@
  * 4. 检查 props.autoFocus 是否能正常工作
  * 5. 检查每次 focus, blur, onChange, onConfirm 事件回调执行次数是否符合预期
  * 6. 多个键盘间不能同时唤起
- * 7. 重复点外部按钮是，应该是能切换键盘显示与否
+ * 7. 重复点外部按钮是，控制台不能有 blur, focus 状态重复切换
  */
 
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 import classnames from 'classnames'
 import { ClearFill } from '@ant-design/mobile-icons'
-import { Touchable, withError, EventInside } from '../rmc'
+import { withError, Labelable, LabelInstance } from '../rmc'
 import { getDataAttr } from '../_internal'
-import { useTracker, useContainer } from '../hooks'
+import {
+  useTracker,
+  useContainer,
+  useControlledByValue,
+  useFocus,
+} from '../hooks'
 import { NumericInputPropsType } from './PropsType'
 import CustomKeypad, { SPECIAL_KEY } from './CustomKeypad'
-import useDocumentEvent from './useDocumentEvent'
-import useGlobalFocus from './useGlobalFocus'
-import { blurExcept } from './globalFocus'
 import scrollToViewIfNeed from './scrollToViewIfNeed'
 
 import '@ant-design/mobile-styles/lib/NumericInput'
 
 const prefixCls = 'amd-numeric-input'
 
-const hiddenStyle = {
-  width: 0,
-  height: 0,
-  overflow: 'hidden',
-  padding: 0,
-  border: 0,
-}
-
 export const NumericInput: React.FC<NumericInputPropsType> = props => {
   const {
     placeholder,
     disabled,
-    defaultValue,
     disabledKeys,
     keypadClassName,
     customKey,
     confirm,
     onConfirm,
-    onFocus,
-    onBlur,
-    autoFocus,
     confirmDisabled,
     confirmLabel,
     clear,
+    disabledAutoScroll,
     // @ts-ignore
     // Provide by withError with forwardRef=true
     forwardRef,
   } = props
-  const [value, setValue] = React.useState(
-    String(props.value ?? defaultValue ?? ''),
-  )
-  const [focus, setFocus] = React.useState(false)
-  const focusRef = React.createRef<any>()
+  const { value, onChange } = useControlledByValue(props)
+  const focusRef = React.createRef<LabelInstance>()
+  const fakeRef = React.createRef<any>()
+
+  const { focus, onFocus, onBlur } = useFocus(value, props)
   const dom = useContainer('numeric-input', focus)
 
   useTracker(NumericInput.displayName)
 
-  React.useEffect(() => {
-    // value 模式
-    if (props.value != null && value !== String(props.value)) {
-      setValue(String(props.value))
-    }
-    // else defaultValue 模式
-  }, [props.value])
+  React.useImperativeHandle(forwardRef, () => ({
+    // 通过 click 达到 focus 的效果
+    focus: doFocus,
 
-  React.useLayoutEffect(() => {
-    autoFocus && doFocus()
-  }, [])
-
-  const doFocus = () => {
-    // hack 先把其他 focus 状态的数字键盘关掉
-    blurExcept(uuid)
-    if (disabled) {
-      return
-    }
-    if (!focus) {
-      focusRef.current?.focus()
-      setFocus(true)
-      onFocus!(value)
-    }
-  }
+    blur: doBlur,
+  }))
 
   const onKeypadRef = (el: HTMLDivElement | null) => {
-    if (el) {
-      scrollToViewIfNeed(focusRef.current, {
+    if (el && !disabledAutoScroll) {
+      scrollToViewIfNeed(fakeRef.current, {
         offsetBottom: el.getBoundingClientRect().height + 10, // 增加 10 的空间
         behavior: 'smooth',
         block: 'end',
@@ -99,35 +72,24 @@ export const NumericInput: React.FC<NumericInputPropsType> = props => {
     }
   }
 
-  // hack
-  // 外部的 focus 命令，先等 document 上的事件发生后，才获取焦点
-  // 以避免 focus 之后立马触发 blur
-  // 100 只是一个经验数字，实测 10 已经有效果了
-  const focusNextTick = () => {
-    setTimeout(doFocus, 100)
+  const doFocus = () => {
+    focusRef.current?.focus()
   }
 
   const doBlur = () => {
-    if (focus) {
-      // 两个焦点都要失效
-      forwardRef?.current?.blur()
-      focusRef.current?.blur()
-      setFocus(false)
-      onBlur!(value)
-    }
+    focusRef.current?.blur()
   }
-
-  const uuid = useGlobalFocus(doBlur, focus)
-  useDocumentEvent(doBlur, focus)
 
   const showClear = (() => {
     return clear && focus && value !== ''
   })()
 
-  const fakeInputCls = classnames('fake-input', {
-    focus,
-    'fake-input-disabled': disabled,
-    'fake-input-with-clear': showClear,
+  const fakePrefix = prefixCls + '-fake'
+
+  const fakeInputCls = classnames(fakePrefix, {
+    [`${fakePrefix}-focus`]: focus,
+    [`${fakePrefix}-disabled`]: disabled,
+    [`${fakePrefix}-with-clear`]: showClear,
   })
 
   const clsStr = classnames({
@@ -135,15 +97,6 @@ export const NumericInput: React.FC<NumericInputPropsType> = props => {
     [`${prefixCls}-left`]: props.align === 'left',
     [`${props.className}`]: !!props.className,
   })
-
-  const onChange = (v: string) => {
-    const changed = v !== value
-
-    if (!('value' in props)) {
-      setValue(v)
-    }
-    props.onChange!(v, changed)
-  }
 
   const onKeypadPress = (v: string) => {
     let valueAfterChange
@@ -153,7 +106,6 @@ export const NumericInput: React.FC<NumericInputPropsType> = props => {
       onChange(valueAfterChange)
     } else if (v === SPECIAL_KEY.confirm) {
       valueAfterChange = value
-      onChange(valueAfterChange)
       doBlur()
       onConfirm!(valueAfterChange)
     } else {
@@ -163,58 +115,57 @@ export const NumericInput: React.FC<NumericInputPropsType> = props => {
   }
 
   return (
-    <EventInside>
-      <div className={clsStr}>
+    <div className={clsStr}>
+      {/* 添加 label 支持 */}
+      <Labelable
+        ref={focusRef}
+        {...Labelable.getProps(props)}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        value={value}
+        autoFocus={props.autoFocus}
+      >
         {value === '' && (
-          <div className="fake-input-placeholder">{placeholder}</div>
+          <div className={fakePrefix + '-placeholder'}>{placeholder}</div>
         )}
-        {/* hack, 用于接听外部的 focus 事件，然后触发 focus */}
-        <span
-          ref={forwardRef}
-          tabIndex={-1}
-          onFocus={focusNextTick}
-          style={hiddenStyle}
-        />
-        {/* hack，必须要有 tabIndex，使其具备 focus 能力 */}
-        <Touchable onPress={doFocus}>
-          <div
-            role="textbox"
-            ref={focusRef}
-            tabIndex={-1}
-            aria-label={value || placeholder}
-            className={fakeInputCls}
-            {...getDataAttr(props)}
-          >
-            {value}
-          </div>
-        </Touchable>
+        <div
+          role="textbox"
+          ref={fakeRef}
+          aria-label={value || placeholder}
+          className={fakeInputCls}
+          {...getDataAttr(props)}
+        >
+          {value}
+        </div>
         {showClear && (
           <ClearFill
-            className="fake-input-clear"
+            className={fakePrefix + '-clear'}
             size="sm"
-            onPress={() => onChange('')}
+            onPress={() => {
+              onChange('')
+            }}
           />
         )}
-        {focus &&
-          createPortal(
-            <CustomKeypad
-              className={keypadClassName}
-              confirm={confirm}
-              confirmLabel={confirmLabel}
-              active={focus}
-              header={props.header}
-              disabledKeys={disabledKeys}
-              customKey={customKey}
-              onKeypadPress={onKeypadPress}
-              onClear={() => onChange('')}
-              onHidePress={doBlur}
-              confirmDisabled={confirmDisabled || value === ''}
-              ref={onKeypadRef}
-            />,
-            dom!,
-          )}
-      </div>
-    </EventInside>
+      </Labelable>
+      {focus &&
+        createPortal(
+          <CustomKeypad
+            className={keypadClassName}
+            confirm={confirm}
+            confirmLabel={confirmLabel}
+            active={focus}
+            header={props.header}
+            disabledKeys={disabledKeys}
+            customKey={customKey}
+            onKeypadPress={onKeypadPress}
+            onClear={() => onChange('')}
+            onHidePress={doBlur}
+            confirmDisabled={confirmDisabled || value === ''}
+            ref={onKeypadRef}
+          />,
+          dom!,
+        )}
+    </div>
   )
 }
 
@@ -223,7 +174,7 @@ NumericInput.defaultProps = {
   className: '',
   keypadClassName: '',
   header: '',
-  defaultValue: undefined,
+  defaultValue: '',
   placeholder: '',
   disabled: false,
   disabledKeys: [],
@@ -236,6 +187,7 @@ NumericInput.defaultProps = {
   onChange: () => null,
   onFocus: () => null,
   onBlur: () => null,
+  disabledAutoScroll: false,
 }
 
 export default withError(NumericInput, {

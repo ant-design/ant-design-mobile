@@ -9,6 +9,14 @@ import '@ant-design/mobile-styles/lib/Button'
 
 const prefixCls = 'amd-button'
 
+const hiddenStyle = {
+  width: 0,
+  height: 0,
+  overflow: 'hidden',
+  padding: 0,
+  border: 0,
+}
+
 export const Button: React.FC<ButtonPropsType> = props => {
   const {
     type,
@@ -23,10 +31,13 @@ export const Button: React.FC<ButtonPropsType> = props => {
     icon,
     loading,
     loadingText,
+    htmlType,
   } = props
   const log = useTracker(Button.displayName, {
     type,
   })
+
+  const buttonRef = React.useRef<any>()
 
   const lang = useCompleteLocale()
 
@@ -64,6 +75,8 @@ export const Button: React.FC<ButtonPropsType> = props => {
       }}
       onPress={e => {
         onPress && onPress(e)
+        // trigger button default as submit, button, reset
+        buttonRef.current?.click()
         log('onPress')
       }}
       disabled={disabled}
@@ -94,6 +107,14 @@ export const Button: React.FC<ButtonPropsType> = props => {
             <div className={`${prefixCls}-subtitle-subfont`}>{subTitle}</div>
           )}
         </span>
+        {htmlType && (
+          <button
+            ref={el => (buttonRef.current = el)}
+            onClick={e => e.stopPropagation()}
+            style={hiddenStyle}
+            type={htmlType}
+          />
+        )}
       </div>
     </Touchable>
   )

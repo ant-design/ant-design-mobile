@@ -58,37 +58,39 @@ export default () => {
   }
 
   return (
-    <div
-      style={{ padding: '0 24px' }}
-      onClick={() => {
-        console.log('should log when button press call')
-      }}
-    >
+    <>
       {view}
-      <h3>changeable</h3>
-      <Button {...addProps} data-y="111">
-        default
-      </Button>
-      <br />
-      <Button type="primary" {...addProps}>
-        primary
-      </Button>
-      <br />
-      <Button type="ghost" {...addProps}>
-        ghost
-      </Button>
-      <br />
-      <Button type="warn" {...addProps}>
-        warn
-      </Button>
-      <br />
-      <Button type="warn-ghost" {...addProps}>
-        warn-ghost
-      </Button>
-      <br />
-      <Button type="light" {...addProps} loadingText="发送中">
-        light
-      </Button>
-    </div>
+      <div
+        style={{ padding: '0 0.24rem' }}
+        onClick={() => {
+          console.log('should log when button press call')
+        }}
+      >
+        <h3>changeable</h3>
+        <Button {...addProps} data-y="111">
+          default
+        </Button>
+        <br />
+        <Button type="primary" {...addProps}>
+          primary
+        </Button>
+        <br />
+        <Button type="ghost" {...addProps}>
+          ghost
+        </Button>
+        <br />
+        <Button type="warn" {...addProps}>
+          warn
+        </Button>
+        <br />
+        <Button type="warn-ghost" {...addProps}>
+          warn-ghost
+        </Button>
+        <br />
+        <Button type="light" {...addProps} loadingText="发送中">
+          light
+        </Button>
+      </div>
+    </>
   )
 }
