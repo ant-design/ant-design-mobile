@@ -1,4 +1,4 @@
-@import (reference) './themes/default.less';
+@import (reference) './variables.less';
 @import './anim.less';
 
 *,
@@ -7,15 +7,8 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-body {
-  // 考虑不要侵犯用户页面的颜色设定
-  // background-color: @color-fill-grey-light;
-  // 移除 font-size
-  // font-size: @font-size-content;
-}
-
 *[contenteditable] {
-  -webkit-user-select: auto !important;
+  user-select: auto !important;
 }
 
 *:focus {

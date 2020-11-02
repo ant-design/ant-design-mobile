@@ -1,0 +1,35 @@
+@import (reference) '../base/index.less';
+
+.amd-form {
+  // 覆盖 list 样式
+  .amd-list {
+    &-thumb:first-child {
+      margin-right: 16 * @rpx;
+    }
+
+    &-extra {
+      flex-basis: auto;
+      margin-left: 24 * @rpx;
+    }
+
+    // List 中覆盖 Selector 背景
+    .amd-selector {
+      background-color: transparent;
+    }
+  }
+
+  // form item default style
+  &-item-default {
+    display: flex;
+
+    &-label {
+      flex-basis: 173 * @rpx;
+      margin-right: 24 * @rpx;
+    }
+
+    &-field {
+      flex-basis: 505 * @rpx;
+      text-align: right;
+    }
+  }
+}

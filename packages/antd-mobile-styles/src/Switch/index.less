@@ -21,7 +21,7 @@
   cursor: pointer;
   vertical-align: middle;
 
-  .checkbox {
+  &-fake {
     position: relative;
     z-index: 0;
     overflow: hidden;
@@ -69,39 +69,19 @@
       transition: all 200ms;
     }
 
-    &.checkbox-disabled {
-      z-index: 3;
+    &-disabled {
+      opacity: @opacity-disabled;
     }
-  }
 
-  input[type='checkbox'] {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0 none;
-    appearance: none;
-    opacity: 0;
+    &-checked {
+      background: @switch-fill;
 
-    &:checked {
-      & + .checkbox {
-        background: @switch-fill;
-
-        &::before {
-          transform: scale(0);
-        }
-
-        &::after {
-          transform: translateX(@switch-width - @switch-height);
-        }
+      &::before {
+        transform: scale(0);
       }
-    }
 
-    &:disabled {
-      & + .checkbox {
-        opacity: @opacity-disabled;
+      &::after {
+        transform: translateX(@switch-width - @switch-height);
       }
     }
   }

@@ -1,4 +1,5 @@
 @import (reference) '../base/index.less';
+
 // start
 @swiper-bullet-width: 6 * @rpx;
 @swiper-bullet-height: 6 * @rpx;
@@ -12,6 +13,7 @@
 @swiper-bullet-light-active-background: #fff;
 @swiper-bullets-bottom: 10 * @rpx;
 // end
+
 @prefixCls: amd-swiper;
 
 .@{prefixCls}-pagination {
@@ -35,6 +37,7 @@
       width: @swiper-bullet-active-width;
       height: @swiper-bullet-active-height;
     }
+
     // type=primary
     &-primary {
       background-color: @swiper-bullet-primary-background;
@@ -43,6 +46,7 @@
     &-primary&-active {
       background-color: @swiper-bullet-primary-active-background;
     }
+
     // type=light
     &-light {
       background-color: @swiper-bullet-light-background;

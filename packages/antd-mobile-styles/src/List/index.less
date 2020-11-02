@@ -31,6 +31,7 @@
 @listPrefixCls: amd-list;
 
 .@{listPrefixCls} {
+  font-size: @font-size-content;
   line-height: @default-line-height;
 
   &-header {
@@ -53,7 +54,7 @@
     position: relative;
     overflow: hidden;
 
-    div:not(:last-child) {
+    :not(:last-child) {
       .@{listPrefixCls}-line {
         .hairline('bottom');
       }
@@ -75,20 +76,8 @@
       padding-left: 0;
     }
   }
-}
 
-.@{listPrefixCls}-item {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  min-height: 96 * @rpx;
-  align-items: center;
-  padding-left: @h-spacing-large;
-  background-color: @list-background;
-  transition: background-color 200ms;
-  vertical-align: middle;
-
-  .@{listPrefixCls}-ripple {
+  &-ripple {
     position: absolute;
     display: inline-block;
     overflow: hidden;
@@ -102,85 +91,70 @@
       color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: box-shadow, transform;
 
-    &.@{listPrefixCls}-ripple-animate {
+    &-animate {
       animation: ripple 1s linear;
       background-color: hsla(0, 0%, 62%, 0.2);
     }
   }
 
-  &.@{listPrefixCls}-item-top {
-    .@{listPrefixCls}-line {
-      align-items: flex-start;
+  /* list右补充内容 */
+  &-extra {
+    flex-basis: 36%;
+    // hack, 修复 extra 为 button 的时候，在某些机器下（5s, 11, xr），下边框不显示或者显示一半的问题
+    // 同时为了居中, 上下都加一样的 padding
+    padding: 2 * @rpx 0;
+    color: @list-extra-brief-color;
+    font-size: @list-extra-brief-size;
+    text-align: right;
+    .ellipsis();
+  }
 
-      .@{listPrefixCls}-arrow {
-        margin-top: 2 * 2 * @rpx;
-      }
+  &-title {
+    .ellipsis();
+  }
+
+  /* 辅助性文字 */
+  &-brief {
+    color: @list-extra-brief-color;
+    font-size: @list-extra-brief-size;
+    .ellipsis();
+  }
+
+  /* list右侧箭头 */
+  &-arrow {
+    display: block;
+    margin-left: @h-spacing-standard;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: @color-text-weak;
+    visibility: hidden;
+
+    &-horizontal {
+      visibility: visible;
+    }
+
+    &-vertical {
+      transform: rotate(90deg);
+      visibility: visible;
+    }
+
+    &-vertical-up {
+      transform: rotate(270deg);
+      visibility: visible;
     }
   }
 
-  &.@{listPrefixCls}-item-middle {
-    .@{listPrefixCls}-line {
-      align-items: center;
-    }
+  /* list左侧主内容 */
+  &-content {
+    flex: 1;
+    color: @list-content-color;
+    font-size: @list-content-size;
+    text-align: left;
+    .ellipsis();
   }
 
-  &.@{listPrefixCls}-item-bottom {
-    .@{listPrefixCls}-line {
-      align-items: flex-end;
-    }
-  }
-
-  &.@{listPrefixCls}-item-error {
-    .@{listPrefixCls}-line {
-      .@{listPrefixCls}-extra {
-        color: @color-red-1;
-
-        .@{listPrefixCls}-brief {
-          color: @color-red-1;
-        }
-      }
-    }
-  }
-
-  &.@{listPrefixCls}-item-active {
-    background-color: @color-divider-line;
-  }
-
-  &&-disabled {
-    .@{listPrefixCls}-line {
-      .@{listPrefixCls}-content,
-      .@{listPrefixCls}-extra {
-        filter: brightness(0.9);
-        opacity: @opacity-disabled;
-      }
-    }
-  }
-
-  /* list左图片显示 */
-  .@{listPrefixCls}-thumb {
-    &:first-child {
-      margin-right: @h-spacing-large;
-    }
-
-    .@{listPrefixCls}-item-icon,
-    img {
-      width: @list-icon-size;
-      height: @list-icon-size;
-      vertical-align: middle;
-    }
-
-    // 多行的时候，图片变大
-    &-brief {
-      .@{listPrefixCls}-item-icon,
-      img {
-        width: @list-multi-icon-size;
-        height: @list-multi-icon-size;
-        vertical-align: middle;
-      }
-    }
-  }
-
-  .@{listPrefixCls}-line {
+  &-line {
     position: relative;
     display: flex;
     overflow: hidden;
@@ -189,60 +163,6 @@
     padding-top: @h-spacing-large;
     padding-right: @h-spacing-large;
     padding-bottom: @h-spacing-large;
-
-    /* list左侧主内容 */
-    .@{listPrefixCls}-content {
-      flex: 1;
-      color: @list-content-color;
-      font-size: @list-content-size;
-      text-align: left;
-      .ellipsis();
-    }
-
-    /* list右补充内容 */
-    .@{listPrefixCls}-extra {
-      flex-basis: 36%;
-      color: @list-extra-brief-color;
-      font-size: @list-extra-brief-size;
-      text-align: right;
-      .ellipsis();
-    }
-
-    .@{listPrefixCls}-title {
-      .ellipsis();
-    }
-
-    /* 辅助性文字 */
-    .@{listPrefixCls}-brief {
-      color: @list-extra-brief-color;
-      font-size: @list-extra-brief-size;
-      .ellipsis();
-    }
-
-    /* list右侧箭头 */
-    .@{listPrefixCls}-arrow {
-      display: block;
-      margin-left: @h-spacing-standard;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-size: contain;
-      color: @color-text-weak;
-      visibility: hidden;
-
-      &-horizontal {
-        visibility: visible;
-      }
-
-      &-vertical {
-        transform: rotate(90deg);
-        visibility: visible;
-      }
-
-      &-vertical-up {
-        transform: rotate(270deg);
-        visibility: visible;
-      }
-    }
 
     &-multiple {
       padding: 12.5 * 2 * @rpx @h-spacing-large 12.5 * 2 * @rpx 0;
@@ -266,6 +186,82 @@
       .@{listPrefixCls}-extra {
         white-space: normal;
       }
+    }
+  }
+
+  /* list左图片显示 */
+  &-thumb {
+    &:first-child {
+      margin-right: @h-spacing-large;
+    }
+
+    .@{listPrefixCls}-item-icon,
+    img {
+      width: @list-icon-size;
+      height: @list-icon-size;
+      vertical-align: middle;
+    }
+
+    // 多行的时候，图片变大
+    &-brief {
+      .@{listPrefixCls}-item-icon,
+      img {
+        width: @list-multi-icon-size;
+        height: @list-multi-icon-size;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.@{listPrefixCls}-item {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  min-height: 96 * @rpx;
+  align-items: center;
+  padding-left: @h-spacing-large;
+  background-color: @list-background;
+  transition: background-color 200ms;
+  vertical-align: middle;
+
+  &-top {
+    .@{listPrefixCls}-line {
+      align-items: flex-start;
+    }
+
+    .@{listPrefixCls}-arrow {
+      margin-top: 2 * 2 * @rpx;
+    }
+  }
+
+  &-middle {
+    .@{listPrefixCls}-line {
+      align-items: center;
+    }
+  }
+
+  &-bottom {
+    .@{listPrefixCls}-line {
+      align-items: flex-end;
+    }
+  }
+
+  &-error {
+    .@{listPrefixCls}-extra {
+      color: @color-red-1;
+    }
+  }
+
+  &-active {
+    background-color: @color-divider-line;
+  }
+
+  &-disabled {
+    .@{listPrefixCls}-content,
+    .@{listPrefixCls}-extra {
+      filter: brightness(0.9);
+      opacity: @opacity-disabled;
     }
   }
 

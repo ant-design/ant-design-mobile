@@ -16,9 +16,10 @@
 
 .amd-terms {
   padding: @terms-spacing;
+  font-size: @font-size-content;
   line-height: @default-line-height;
 
-  .amd-term {
+  &-term {
     display: flex;
     margin: 0 0 40 * @rpx 0;
     color: @terms-normal-color;
@@ -32,7 +33,7 @@
       color: @terms-link-color;
     }
 
-    &.amd-term-desc {
+    &-desc {
       margin: 14 * @rpx 0 0 0;
       color: @terms-desc-color;
       font-size: @terms-desc-size;
