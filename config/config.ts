@@ -84,8 +84,6 @@ export default {
   mode: 'site',
   exportStatic: {},
   hash: true,
-  base: '/ant-design-mobile/',
-  publicPath: '/ant-design-mobile/',
   favicon:
     'https://gw.alipayobjects.com/mdn/rms/afts/img/A*ANrfQaxlbVcAAAAAAAAAAABkARQnAQ',
   logo:

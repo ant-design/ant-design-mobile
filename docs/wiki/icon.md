@@ -18,7 +18,7 @@ const meta = {
   content: '<svg>xxx</svg>',
 }
 
-const CustomIcon = getIconByMeta(meta)
+const CustomIcon = _getIconByMeta(meta)
 
 <CustomIcon />
 ```
