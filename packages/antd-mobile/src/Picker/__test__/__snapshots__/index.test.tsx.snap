@@ -29,7 +29,6 @@ exports[`Picker snapshot 1`] = `
           ],
         ]
       }
-      extra="请选择(可选)"
       title="选择季节"
     >
       <h3

@@ -6,7 +6,6 @@ exports[`Collapse snapshot 1`] = `
 >
   <Collapse
     defaultActiveKey="0"
-    forwardRef={Object {}}
     onChange={[Function]}
   >
     <Panel
