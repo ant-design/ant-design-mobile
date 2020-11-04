@@ -1,5 +1,8 @@
 # 更新日志
 
+## [3.0.0-alpha.6](https://github.com/ant-design/ant-design-mobile/compare/v3.0.0-alpha.5...v3.0.0-alpha.6)(2020-11-04)
+* NumericInput: 更新最新设计稿，同时新增 props.showEmptyHeader
+
 ## [3.0.0-alpha.5](https://github.com/ant-design/ant-design-mobile/compare/v3.0.0-alpha.4...v3.0.0-alpha.5)(2020-11-02)
 
 ### Feature & Breaking Changes
