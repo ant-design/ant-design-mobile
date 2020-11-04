@@ -64,8 +64,8 @@ const App = () => {
           <Form.Item label="有头部提示" name="p6">
             <NumericInput header="自定义头部" placeholder="请输入" />
           </Form.Item>
-          <Form.Item label="内置提示" name="p7">
-            <NumericInput header="支付宝安全保护中" placeholder="请输入" />
+          <Form.Item label="显示空 header" name="p7">
+            <NumericInput showEmptyHeader placeholder="请输入" />
           </Form.Item>
         </Form.Group>
         <input

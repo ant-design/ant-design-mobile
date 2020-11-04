@@ -1,9 +1,10 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import KeypadItem from './KeypadItem'
-import { Touchable, EventInside } from '../../rmc'
+import { EventInside } from '../../rmc'
 import { useCompleteLocale } from '../../hooks'
-import { isReactComponent } from '../../_internal'
+import NumericInputClear from './clear'
+import NumericInputDown from './down'
 
 /**
  * determines whether an array includes a certain value among its entries, returning true or false as appropriate.
@@ -25,6 +26,7 @@ function includes(arr: Array<any>, item: any) {
 export interface KeypadProps {
   className?: string
   header?: React.ReactNode
+  showEmptyHeader?: boolean
   disabledKeys?: string[]
   confirm?: boolean
   confirmLabel?: string
@@ -66,13 +68,23 @@ const CustomKeypad = React.forwardRef<HTMLDivElement, KeypadProps>(
       props.onKeypadPress && props.onKeypadPress(value)
     }
 
+    const invalidCustomKey = () => {
+      return props.customKey == null
+    }
+
     const renderKeypadItem = (item: string, index: number) => {
       const disabled = props.disabledKeys && includes(props.disabledKeys, item)
 
       let colspan = 1
+
       // hack
-      if (item === '0' && props.customKey == null) {
+      if (props.confirm && item === '0') {
         colspan = 2
+      }
+
+      // hack
+      if (props.confirm && item === '0' && invalidCustomKey()) {
+        colspan = 3
       }
 
       return (
@@ -92,73 +104,107 @@ const CustomKeypad = React.forwardRef<HTMLDivElement, KeypadProps>(
       [`${prefix}-wrapper-hide`]: !props.active,
     })
 
-    let defaultHeader
-    if (isReactComponent(props.header)) {
-      // @ts-ignore
-      // 可以封装数字键盘的 header 以便多次使用
-      defaultHeader = <props.header locale={lang.locale} />
-    } else {
-      defaultHeader = props.header
-    }
+    const transparentCls = `${prefix}-transparent`
 
     const customKeyCls = classnames(`${prefix}-custom`, {
       [`${customClsMap[props.customKey || '']}`]:
         !!props.customKey && !!customClsMap[props.customKey],
     })
 
+    const renderWithoutConfirm = () => {
+      return (
+        <>
+          <tr>{['1', '2', '3'].map(renderKeypadItem)}</tr>
+          <tr>{['4', '5', '6'].map(renderKeypadItem)}</tr>
+          <tr>{['7', '8', '9'].map(renderKeypadItem)}</tr>
+          <tr>
+            <KeypadItem
+              className={classnames(customKeyCls, transparentCls)}
+              value={props.customKey}
+              onPress={onKeypadPress}
+            >
+              {props.customKey}
+            </KeypadItem>
+            {['0'].map(renderKeypadItem)}
+            <KeypadItem
+              className={classnames(`${prefix}-delete`, transparentCls)}
+              value={SPECIAL_KEY.delete}
+              onPress={onKeypadPress}
+              onLongPress={props.onClear}
+            >
+              <NumericInputClear className={`${prefix}-delete-icon`} />
+            </KeypadItem>
+          </tr>
+        </>
+      )
+    }
+
+    const renderWithConfirm = () => {
+      return (
+        <>
+          <tr>
+            {['1', '2', '3'].map(renderKeypadItem)}
+            <KeypadItem
+              className={`${prefix}-delete`}
+              value={SPECIAL_KEY.delete}
+              onPress={onKeypadPress}
+              onLongPress={props.onClear}
+            >
+              <NumericInputClear className={`${prefix}-delete-icon`} />
+            </KeypadItem>
+          </tr>
+          <tr>
+            {['4', '5', '6'].map(renderKeypadItem)}
+            {props.confirm && (
+              <KeypadItem
+                className={`${prefix}-confirm`}
+                rowSpan={4}
+                value={SPECIAL_KEY.confirm}
+                onPress={onKeypadPress}
+                disabled={props.confirmDisabled}
+              >
+                {props.confirmLabel ?? lang.NumericInput.okText}
+              </KeypadItem>
+            )}
+          </tr>
+          <tr>{['7', '8', '9'].map(renderKeypadItem)}</tr>
+          <tr>
+            {['0'].map(renderKeypadItem)}
+
+            {!invalidCustomKey() && (
+              <KeypadItem
+                className={customKeyCls}
+                value={props.customKey}
+                onPress={onKeypadPress}
+              >
+                {props.customKey}
+              </KeypadItem>
+            )}
+          </tr>
+        </>
+      )
+    }
+
     // 结构不要轻易变动，使用者有样式复写的
     return (
-      // 键盘内部的点击事件不对页面元素的 focus 等行为造成影响
       <EventInside>
         <div className={cls} ref={ref}>
-          <div className={`${prefix}-real-background`}>
-            {props.header && (
-              <div className={`${prefix}-header`}>
-                <div className={`${prefix}-header-content`}>
-                  {defaultHeader}
-                </div>
-                <Touchable onPress={props.onHidePress}>
-                  <div className={`${prefix}-down-icon`} />
-                </Touchable>
-              </div>
-            )}
-            <table>
-              <tbody>
-                <tr>
-                  {['1', '2', '3'].map(renderKeypadItem)}
-                  {props.confirm && (
-                    <KeypadItem
-                      className={`${prefix}-confirm`}
-                      rowSpan={4}
-                      value={SPECIAL_KEY.confirm}
-                      onPress={onKeypadPress}
-                      disabled={props.confirmDisabled}
-                    >
-                      {props.confirmLabel ?? lang.NumericInput.okText}
-                    </KeypadItem>
-                  )}
-                </tr>
-                <tr>{['4', '5', '6'].map(renderKeypadItem)}</tr>
-                <tr>{['7', '8', '9'].map(renderKeypadItem)}</tr>
-                <tr>
-                  <KeypadItem
-                    className={customKeyCls}
-                    value={props.customKey}
-                    onPress={onKeypadPress}
-                  >
-                    {props.customKey}
-                  </KeypadItem>
-                  {['0'].map(renderKeypadItem)}
-                  <KeypadItem
-                    className={`${prefix}-delete`}
-                    value={SPECIAL_KEY.delete}
-                    onPress={onKeypadPress}
-                    onLongPress={props.onClear}
-                  />
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          {(props.header || props.showEmptyHeader) && (
+            <div className={`${prefix}-header`}>
+              {props.header && (
+                <div className={`${prefix}-header-content`}>{props.header}</div>
+              )}
+              <NumericInputDown
+                className={`${prefix}-header-down`}
+                onPress={props.onHidePress}
+              />
+            </div>
+          )}
+          <table>
+            <tbody>
+              {props.confirm ? renderWithConfirm() : renderWithoutConfirm()}
+            </tbody>
+          </table>
         </div>
       </EventInside>
     )
@@ -172,6 +218,7 @@ CustomKeypad.defaultProps = {
   active: false,
   confirmLabel: undefined,
   confirm: false,
+  showEmptyHeader: false,
   onClear: () => null,
 }
 

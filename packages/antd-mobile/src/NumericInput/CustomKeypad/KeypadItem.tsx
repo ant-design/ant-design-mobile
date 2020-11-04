@@ -35,7 +35,6 @@ const KeypadItem: React.FC<KeypadItemProps> = props => {
     [`${className}`]: !!className,
     [`${prefixCls}-disabled`]: disabled || invalidValue,
     [`${prefixCls}-active`]: active,
-    [`${prefixCls}-invalid`]: invalidValue,
   })
 
   return (

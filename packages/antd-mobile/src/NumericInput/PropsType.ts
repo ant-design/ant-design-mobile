@@ -6,7 +6,8 @@ export type NumericEvent = (v: string) => void
 export interface NumericInputPropsType
   extends BasePropsType,
     BaseFormItemType<string> {
-  header?: React.ReactNode | React.FC<{ locale?: any }>
+  header?: React.ReactNode
+  showEmptyHeader?: boolean
   defaultValue?: string
   value?: string
   placeholder?: string

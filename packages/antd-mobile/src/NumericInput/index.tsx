@@ -155,6 +155,7 @@ export const NumericInput: React.FC<NumericInputPropsType> = props => {
             confirmLabel={confirmLabel}
             active={focus}
             header={props.header}
+            showEmptyHeader={props.showEmptyHeader}
             disabledKeys={disabledKeys}
             customKey={customKey}
             onKeypadPress={onKeypadPress}
@@ -174,6 +175,7 @@ NumericInput.defaultProps = {
   className: '',
   keypadClassName: '',
   header: '',
+  showEmptyHeader: false,
   defaultValue: '',
   placeholder: '',
   disabled: false,

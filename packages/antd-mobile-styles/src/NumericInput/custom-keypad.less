@@ -2,9 +2,9 @@
 
 // start
 // 键盘背景色
-@numeric-input-background: @color-divider-line;
+@numeric-input-background: @color-divider-background;
 // 键盘边框
-@numeric-input-border-color: #ccc;
+@numeric-input-border-color: @color-fill-grey-base;
 // 按键间隔 大屏
 @numeric-input-space-md: 16 * @rpx;
 // 按键间隔 小屏
@@ -16,7 +16,7 @@
 // 按键字体大小
 @numeric-input-item-size: 50 * @rpx;
 // 按键高度
-@numeric-input-item-height: 96 * @rpx;
+@numeric-input-item-height: 114 * @rpx;
 // 按键字体颜色
 @numeric-input-item-color: @color-text-title;
 // 按键字体
@@ -24,15 +24,13 @@
 // 按键字体大小，小屏
 @numeric-input-item-size-sm: 47 * @rpx;
 // 按键高度，小屏
-@numeric-input-item-height-sm: 82 * @rpx;
+@numeric-input-item-height-sm: 90 * @rpx;
 
-// 删除键大小
-@numeric-input-delete-size: 56 * @rpx;
-
-// 删除键大小
 @numeric-input-confirm-size: 36 * @rpx;
 @numeric-input-confirm-color: @color-text-base;
+@numeric-input-confirm-color-disabled: @color-text-subtitle;
 @numeric-input-confirm-background: @color-fill-primary;
+@numeric-input-confirm-background-disabled: @color-fill-grey-inverse;
 
 // end
 
@@ -49,116 +47,119 @@
   }
 }
 
-.@{keyboardPrefixCls}-wrapper {
-  position: fixed;
-  z-index: 10000;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding-bottom: env(safe-area-inset-bottom);
-  border-top: 1 * @rpx solid @numeric-input-border-color;
-  background: @numeric-input-background;
-  transform: translateZ(0);
-  transition-duration: 0.2s;
-  transition-property: bottom;
-  user-select: none;
-  .iphonex({padding-bottom: @safe-area-inset-bottom;});
+.@{keyboardPrefixCls} {
+  &-wrapper {
+    position: fixed;
+    z-index: 10000;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+    background: @numeric-input-background;
+    transform: translateZ(0);
+    transition-duration: 0.2s;
+    transition-property: bottom;
+    user-select: none;
+    .iphonex({padding-bottom: @safe-area-inset-bottom;});
 
-  &.@{keyboardPrefixCls}-wrapper-hide {
-    bottom: -1000 * @rpx;
-  }
-
-  .@{keyboardPrefixCls}-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: @space-md;
-    margin: 0 @space-md;
-
-    .small-screen({padding-bottom: @space-md - @space-sm;});
-
-    &-content {
-      width: 100%;
-      color: @numeric-input-header-color;
-      font-size: @numeric-input-header-size;
-      text-align: center;
+    &&-hide {
+      bottom: -1000 * @rpx;
     }
-  }
 
-  .@{keyboardPrefixCls}-down-icon {
-    .encoded-svg-background('numeric_keypad_down');
-
-    width: 44 * @rpx;
-    height: 44 * @rpx;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 44 * @rpx 44 * @rpx;
-  }
-
-  table {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    border-collapse: separate;
-    border-spacing: @space-md;
-    .small-screen({border-spacing: @space-sm;});
-
-    tr {
+    table {
       width: 100%;
       padding: 0;
       margin: 0;
+      border-collapse: separate;
+      border-spacing: 1px;
 
-      .@{keyboardPrefixCls}-item {
-        position: relative;
-        width: 25%;
-        height: @numeric-input-item-height;
-        box-sizing: border-box;
-        padding: 10 * @rpx;
+      tr {
+        width: 100%;
+        padding: 0;
         margin: 0;
-        background: @color-fill-grey-inverse;
-        border-radius: 4 * @rpx;
-        color: @numeric-input-item-color;
-        font-family: @numeric-input-item-family;
-        font-size: @numeric-input-item-size;
-        text-align: center;
-        user-select: none;
-        .small-screen(
-          {font-size: @numeric-input-item-size-sm; height: @numeric-input-item-height-sm;}
-        );
-
-        &.@{keyboardPrefixCls}-item-active {
-          filter: brightness(0.9);
-
-          & > span {
-            opacity: 0.7;
-          }
-        }
-
-        &.@{keyboardPrefixCls}-item-disabled {
-          opacity: @opacity-disabled;
-        }
-
-        &.@{keyboardPrefixCls}-item-invalid {
-          display: none;
-        }
-
-        &.amd-numeric-keypad-confirm {
-          background-color: @numeric-input-confirm-background;
-          color: @numeric-input-confirm-color;
-          font-size: @numeric-input-confirm-size;
-          font-weight: 500;
-          word-break: break-all;
-        }
-
-        &.amd-numeric-keypad-delete {
-          .encoded-svg-background('numeric_keypad_delete');
-
-          background-position: 50% 50%;
-          background-repeat: no-repeat;
-          background-size: @numeric-input-delete-size @numeric-input-delete-size;
-          color: transparent;
-        }
       }
+    }
+  }
+
+  &-transparent {
+    background: transparent;
+  }
+
+  &-item {
+    position: relative;
+    width: 25%;
+    height: @numeric-input-item-height;
+    box-sizing: border-box;
+    padding: 10 * @rpx;
+    margin: 0;
+    background: @color-fill-grey-inverse;
+    color: @numeric-input-item-color;
+    font-family: @numeric-input-item-family;
+    font-size: @numeric-input-item-size;
+    text-align: center;
+    user-select: none;
+    .small-screen(
+      {font-size: @numeric-input-item-size-sm; height: @numeric-input-item-height-sm;}
+    );
+
+    &-active,
+    &-disabled {
+      opacity: @opacity-disabled;
+
+      & > span {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &-confirm {
+    background-color: @numeric-input-confirm-background;
+    color: @numeric-input-confirm-color;
+    font-size: @numeric-input-confirm-size;
+    font-weight: 500;
+    word-break: break-all;
+
+    &.@{keyboardPrefixCls}-item-disabled {
+      background-color: @numeric-input-confirm-background-disabled;
+      color: @numeric-input-confirm-color-disabled;
+    }
+  }
+
+  &-delete-icon {
+    width: 52 * @rpx;
+    height: 38 * @rpx;
+  }
+
+  &-header {
+    display: flex;
+
+    // hack, 至少可以撑开到刚好一行文字的高度
+    min-height: 70 * @rpx;
+    align-items: center;
+    justify-content: center;
+    // 刚好和 table 的 border-spacing 保持一致
+    margin-top: 1px;
+    background: @color-fill-grey-inverse;
+    color: @numeric-input-header-color;
+
+    &-content {
+      font-size: @numeric-input-header-size;
+      text-align: left;
+    }
+
+    &-down {
+      height: 18 * @rpx;
+    }
+
+    &-content,
+    &-down {
+      width: 100%;
+      padding: 20 * @rpx @h-spacing-large;
+    }
+
+    // hack, 在有 content 的时候, 收起按钮居右
+    &-content + &-down {
+      width: 28 * @rpx;
     }
   }
 }
