@@ -1,5 +1,7 @@
 # antd-mobile-packages
 
+https://next.mobile.ant.design
+
 npm i @ant-design/mobile
 
 import { Button } from '@ant-design/mobile'
