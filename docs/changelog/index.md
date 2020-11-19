@@ -1,7 +1,7 @@
 # 更新日志
 
 ## [3.0.0-alpha.8](https://github.com/ant-design/ant-design-mobile/compare/v3.0.0-alpha.7...v3.0.0-alpha.8)(2020-11-19)
-* Icon: 使用全新的 icon 命名体系，见 [../components/icon]
+* Icon: 使用全新的 icon 命名体系，见 [Icon](../components/icon)
 
 ## [3.0.0-alpha.7](https://github.com/ant-design/ant-design-mobile/compare/v3.0.0-alpha.5...v3.0.0-alpha.7)(2020-11-04)
 * NumericInput: 更新最新设计稿，同时新增 props.showEmptyHeader
