@@ -3,7 +3,7 @@ import {
   unstable_Button as Button,
   unstable_Modal as Modal,
 } from '@ant-design/mobile'
-import { Alipay } from '@ant-design/mobile-icons'
+import { AlipayCircleFill } from '@ant-design/mobile-icons'
 import { useSelect } from '../../_internal/demo'
 
 const fn = (e: any) =>
@@ -47,7 +47,7 @@ export default () => {
   const addProps = {
     subTitle: state.multiLine ? '第二行' : undefined,
     capsule: state.capsule,
-    icon: state.icon ? Alipay : undefined,
+    icon: state.icon ? AlipayCircleFill : undefined,
     disabled: state.disabled,
     loading: state.loading,
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ExclamationOutline</title>
+    <g id="ExclamationOutline" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Toast_error">
+            <rect id="矩形" fill="#FFFFFF" opacity="0" x="0" y="0" width="48" height="48"></rect>
+            <path d="M24.5,34 C25.8807119,34 27,35.1192881 27,36.5 C27,37.8807119 25.8807119,39 24.5,39 C23.1192881,39 22,37.8807119 22,36.5 C22,35.1192881 23.1192881,34 24.5,34 Z M25.6,8 C25.8209139,8 26,8.1790861 26,8.4 L26,30.6 C26,30.8209139 25.8209139,31 25.6,31 L23.4,31 C23.1790861,31 23,30.8209139 23,30.6 L23,8.4 C23,8.1790861 23.1790861,8 23.4,8 L25.6,8 Z" id="形状" fill="#333333" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

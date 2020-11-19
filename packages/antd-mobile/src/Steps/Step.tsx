@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import { CheckFill, CloseFill } from '@ant-design/mobile-icons'
+import { CheckCircleFill, CloseCircleFill } from '@ant-design/mobile-icons'
 import { withError } from '../rmc'
 import { getDataAttr } from '../_internal'
 import { useTracker } from '../hooks'
@@ -22,13 +22,13 @@ export const Step: React.FC<StepPropsType> = ({
 
   let verticalIcon =
     index <= current - 1 ? (
-      <CheckFill size="md" />
+      <CheckCircleFill size="md" />
     ) : (
       <div className="amd-vertical-step-active-image is-normal" />
     )
 
   if (fail) {
-    verticalIcon = <CloseFill size="md" />
+    verticalIcon = <CloseCircleFill size="md" />
   }
 
   if (direction === 'horizontal') {

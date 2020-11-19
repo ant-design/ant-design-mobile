@@ -1,7 +1,7 @@
 # 内置 Icon
 ```tsx | pure
-import { Alipay } from '@ant-design/mobile-icons'
-<Alipay color="red" />
+import { AlipayCircleFill } from '@ant-design/mobile-icons'
+<AlipayCircleFill color="red" />
 ```
 
 

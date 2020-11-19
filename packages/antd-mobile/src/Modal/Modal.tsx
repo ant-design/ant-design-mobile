@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Dialog from 'rmc-dialog'
-import { Close, CloseCircle } from '@ant-design/mobile-icons'
+import { CloseOutline, CloseCircleOutline } from '@ant-design/mobile-icons'
 
 import { withError, Touchable } from '../rmc'
 import { ModalPropsType } from './PropsType'
@@ -31,10 +31,10 @@ const Modal: React.FC<ModalPropsType> = props => {
         <Touchable onPress={props.onClose}>
           <div>
             {props.type === 'product' && (
-              <Close className={prefixCls + '-close-icon'} />
+              <CloseOutline className={prefixCls + '-close-icon'} />
             )}
             {props.type === 'promo' && (
-              <CloseCircle className={prefixCls + '-close-icon'} />
+              <CloseCircleOutline className={prefixCls + '-close-icon'} />
             )}
           </div>
         </Touchable>

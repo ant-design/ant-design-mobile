@@ -67,7 +67,7 @@ exports[`Popover snapshot 1`] = `
 >
   <div>
     点击 
-    <More
+    <MoreOutline
       size="md"
     />
   </div>

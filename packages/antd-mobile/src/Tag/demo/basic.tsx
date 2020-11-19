@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { unstable_Tag as Tag } from '@ant-design/mobile'
-import { Left, Add, Close, Check } from '@ant-design/mobile-icons'
+import { AddOutline } from '@ant-design/mobile-icons'
 import { useSelect } from '../../_internal/demo'
 import './demo.less'
 
@@ -23,7 +23,7 @@ export default () => {
   const addProps = {
     type: state.type,
     size: state.size || undefined,
-    component: state.type === 'icon' ? Add : undefined,
+    component: state.type === 'icon' ? AddOutline : undefined,
   }
 
   return (

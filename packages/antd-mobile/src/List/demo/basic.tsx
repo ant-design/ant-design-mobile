@@ -5,7 +5,7 @@ import {
   unstable_Switch as Switch,
   unstable_Button as Button,
 } from '@ant-design/mobile'
-import { Alipay } from '@ant-design/mobile-icons'
+import { AlipayCircleFill } from '@ant-design/mobile-icons'
 import { useSelect } from '../../_internal/demo'
 const { Item } = List
 
@@ -59,7 +59,7 @@ export default () => {
     ...rest,
     thumb:
       thumb === 'icon'
-        ? Alipay
+        ? AlipayCircleFill
         : thumb === 'image'
         ? 'https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png'
         : undefined,
@@ -81,7 +81,7 @@ export default () => {
         <Item {...addProps} onPress={() => null}>
           基本可变
         </Item>
-        <Item thumb={Alipay} extra="错误信息" error brief="第二行">
+        <Item thumb={AlipayCircleFill} extra="错误信息" error brief="第二行">
           多行
         </Item>
         <Item extra={<Switch checked={c} onChange={v => SetC(v)} />}>

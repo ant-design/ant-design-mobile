@@ -5,13 +5,6 @@ const { template, chain } = require('lodash')
 
 const iconPath = path.resolve(__dirname, `../packages/antd-mobile-icons`)
 
-function getComponentName(iconName) {
-  return chain(iconName)
-    .camelCase()
-    .upperFirst()
-    .value()
-}
-
 async function resolveFiles(cwd) {
   const files = await globby(['*.svg'], {
     cwd: cwd,
@@ -45,7 +38,7 @@ async function main() {
       path.resolve(iconPath, `src/icons/${iconName}.ts`),
       template(iconTpl)({
         type: iconName,
-        componentName: getComponentName(iconName),
+        componentName: iconName,
         content,
       }),
     )
@@ -63,7 +56,7 @@ async function main() {
     template(indexTpl)({
       icons: icons.map(iconName => ({
         type: iconName,
-        componentName: getComponentName(iconName),
+        componentName: iconName,
       })),
     }),
   )

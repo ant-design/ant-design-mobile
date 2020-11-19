@@ -5,7 +5,7 @@ exports[`Stepper snapshot 1`] = `
   data-y="111"
   defaultValue={0}
   downHandler={
-    <Minus
+    <MinusOutline
       size="md"
     />
   }
@@ -15,7 +15,7 @@ exports[`Stepper snapshot 1`] = `
   prefixCls="amd-stepper"
   step={1}
   upHandler={
-    <Add
+    <AddOutline
       size="md"
     />
   }

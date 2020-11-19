@@ -1,15 +1,5 @@
 import * as React from 'react'
 import { unstable_TabBar as TabBar } from '@ant-design/mobile'
-import {
-  Alipay,
-  MoneyCircle,
-  Koubei,
-  KoubeiFill,
-  People,
-  PeopleFill,
-  Person,
-  LogoAlipayFill,
-} from '@ant-design/mobile-icons'
 
 const Item = TabBar.Item
 import './demo.less'
@@ -52,61 +42,6 @@ class TabBarDemo extends React.Component<
   render() {
     return (
       <div className="demo-tabbar-wrap">
-        {/* <div className="demo-tabbar-1">
-          <TabBar onChange={handleChange} className="demo-class">
-            <Item
-              value="home"
-              icon={Alipay}
-              activeIcon={LogoAlipayFill}
-              active={this.state.demo1ActiveTab === 'home'}
-              title="首页"
-              onPress={() => {
-                this.setState({ demo1ActiveTab: 'home' })
-              }}
-            />
-            <Item
-              value="wealth"
-              icon={MoneyCircle}
-              activeIcon={MoneyCircle}
-              active={this.state.demo1ActiveTab === 'wealth'}
-              title="财富"
-              onPress={() => {
-                this.setState({ demo1ActiveTab: 'wealth' })
-              }}
-            />
-            <Item
-              value="koubei"
-              icon={Koubei}
-              activeIcon={KoubeiFill}
-              active={this.state.demo1ActiveTab === 'koubei'}
-              title="口碑"
-              onPress={() => {
-                this.setState({ demo1ActiveTab: 'koubei' })
-              }}
-            />
-            <Item
-              value="friends"
-              icon={People}
-              activeIcon={PeopleFill}
-              active={this.state.demo1ActiveTab === 'friends'}
-              title="朋友"
-              onPress={() => {
-                this.setState({ demo1ActiveTab: 'friends' })
-              }}
-            />
-            <Item
-              value="my"
-              icon={Person}
-              activeIcon={Person}
-              active={this.state.demo1ActiveTab === 'my'}
-              title="我的"
-              onPress={() => {
-                this.setState({ demo1ActiveTab: 'my' })
-              }}
-            />
-          </TabBar>
-        </div> */}
-
         <div className="demo-tabbar-2">
           <TabBar>
             <Item

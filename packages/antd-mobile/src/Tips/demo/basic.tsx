@@ -3,7 +3,7 @@ import {
   unstable_Tips as Tips,
   unstable_Button as Button,
 } from '@ant-design/mobile'
-import { Alipay } from '@ant-design/mobile-icons'
+import { AlipayCircleFill } from '@ant-design/mobile-icons'
 import { useSelect } from '../../_internal/demo'
 import './demo.less'
 
@@ -81,7 +81,7 @@ export default () => {
         onClosePress={() => {
           console.log('close')
         }}
-        icon={Alipay}
+        icon={AlipayCircleFill}
         opText="click me"
         showClose
         show

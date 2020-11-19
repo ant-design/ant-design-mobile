@@ -3,5 +3,5 @@ plugins:
   - removeDimensions: true
   - removeAttrs:
       attrs:
-        - 'path:fill'
+        - 'fill'
         - 'svg:class'

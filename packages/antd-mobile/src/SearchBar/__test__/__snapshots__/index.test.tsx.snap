@@ -16,7 +16,7 @@ exports[`SearchBar SearchBar showCancelButton snapshot 1`] = `
       <span
         className="amd-search-synthetic-ph-container"
       >
-        <Search
+        <SearchOutline
           size="xs"
         />
         <span
@@ -50,7 +50,7 @@ exports[`SearchBar SearchBar showCancelButton snapshot 1`] = `
       <a
         className="amd-search-clear"
       >
-        <ClearFill
+        <CloseCircleFill
           size="xs"
         />
       </a>
@@ -84,7 +84,7 @@ exports[`SearchBar SearchBar snapshot 1`] = `
       <span
         className="amd-search-synthetic-ph-container"
       >
-        <Search
+        <SearchOutline
           size="xs"
         />
         <span
@@ -117,7 +117,7 @@ exports[`SearchBar SearchBar snapshot 1`] = `
       <a
         className="amd-search-clear"
       >
-        <ClearFill
+        <CloseCircleFill
           size="xs"
         />
       </a>

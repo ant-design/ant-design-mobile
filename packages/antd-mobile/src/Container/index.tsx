@@ -3,7 +3,11 @@ import classNames from 'classnames'
 import { withError, Touchable } from '../rmc'
 import { useTracker } from '../hooks'
 import { ContainerPropsType } from './PropsType'
-import { Right, Close, More } from '@ant-design/mobile-icons'
+import {
+  RightOutline,
+  CloseOutline,
+  MoreOutline,
+} from '@ant-design/mobile-icons'
 
 import '@ant-design/mobile-styles/lib/Container'
 
@@ -26,9 +30,9 @@ export const Container: React.FC<ContainerPropsType> = props => {
   }
 
   const Icons = {
-    arrow: <Right size="xs" />,
-    close: <Close size="xs" />,
-    more: <More size="xs" />,
+    arrow: <RightOutline size="xs" />,
+    close: <CloseOutline size="xs" />,
+    more: <MoreOutline size="xs" />,
   }
 
   return (

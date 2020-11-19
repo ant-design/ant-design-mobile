@@ -12,7 +12,7 @@
 import * as React from 'react'
 import { createPortal } from 'react-dom'
 import classnames from 'classnames'
-import { ClearFill } from '@ant-design/mobile-icons'
+import { CloseCircleFill } from '@ant-design/mobile-icons'
 import { withError, Labelable, LabelInstance } from '../rmc'
 import { getDataAttr } from '../_internal'
 import {
@@ -138,7 +138,7 @@ export const NumericInput: React.FC<NumericInputPropsType> = props => {
           {value}
         </div>
         {showClear && (
-          <ClearFill
+          <CloseCircleFill
             className={fakePrefix + '-clear'}
             size="sm"
             onPress={() => {

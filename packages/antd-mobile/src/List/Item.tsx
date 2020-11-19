@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import { Right } from '@ant-design/mobile-icons'
+import { RightOutline } from '@ant-design/mobile-icons'
 import { BriefPropsType, ListItemPropsType } from './PropsType'
 import { Touchable } from '../rmc'
 import { renderIcon, getDataAttr } from '../_internal'
@@ -145,7 +145,9 @@ export const Item: React.FC<ListItemPropsType> = props => {
         {extra !== undefined && (
           <div className={`${prefixCls}-extra`}>{extra}</div>
         )}
-        {arrow && <Right size="xs" className={arrowCls} aria-hidden="true" />}
+        {arrow && (
+          <RightOutline size="xs" className={arrowCls} aria-hidden="true" />
+        )}
       </div>
       <div style={coverRippleStyle} className={rippleCls} />
     </div>

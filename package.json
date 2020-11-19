@@ -13,7 +13,7 @@
     "test": "umi-test --coverage",
     "bootstrap": "lerna bootstrap --hoist",
     "prepub": "npm run ci",
-    "pub": "lerna publish",
+    "pub": "lerna publish --force-publish=*",
     "svgo": "svgo -f ./packages/antd-mobile-icons/icons -o ./packages/antd-mobile-icons/icons/out --config=./.svgo.yml"
   },
   "devDependencies": {

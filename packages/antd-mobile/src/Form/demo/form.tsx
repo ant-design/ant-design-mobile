@@ -14,7 +14,7 @@ import {
   unstable_Picker as Picker,
   unstable_Modal as Modal,
 } from '@ant-design/mobile'
-import { Alipay } from '@ant-design/mobile-icons'
+import { AlipayCircleFill } from '@ant-design/mobile-icons'
 import WhiteSpace from '../../WhiteSpace'
 import WingBlank from '../../WingBlank'
 
@@ -119,7 +119,7 @@ export default () => {
             disabled={disabled}
             label="b1: NumericInput"
             name="b1"
-            extra={<Alipay />}
+            extra={<AlipayCircleFill />}
             rules={[{ required: true }]}
             position="brief"
           >

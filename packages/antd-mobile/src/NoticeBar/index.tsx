@@ -1,6 +1,11 @@
 import classnames from 'classnames'
 import * as React from 'react'
-import { Close, Right, Voice, Help } from '@ant-design/mobile-icons'
+import {
+  CloseOutline,
+  RightOutline,
+  SoundOutline,
+  InformationCircleFill,
+} from '@ant-design/mobile-icons'
 import Marquee from './Marquee'
 import {
   NoticeBarPropsType,
@@ -95,7 +100,7 @@ const Notice: React.FC<NoticeBarPropsType> = props => {
     action,
     actionLeft,
     // 这个在 defaultProps 里居然跑不起来
-    icon = <Voice size="sm" />,
+    icon = <SoundOutline size="sm" />,
     onPress,
     children,
     type,
@@ -130,7 +135,7 @@ const Notice: React.FC<NoticeBarPropsType> = props => {
             <span className="amd-notice-bar-operation-left">
               {actionLeft ? actionLeft : ''}
             </span>
-            {action ? action : <Close size="sm" />}
+            {action ? action : <CloseOutline size="sm" />}
           </div>
         </Touchable>
       )
@@ -145,7 +150,7 @@ const Notice: React.FC<NoticeBarPropsType> = props => {
           <span className="amd-notice-bar-operation-left">
             {actionLeft ? actionLeft : ''}
           </span>
-          {action ? action : <Right size="sm" />}
+          {action ? action : <RightOutline size="sm" />}
         </div>
       )
       break
@@ -155,9 +160,9 @@ const Notice: React.FC<NoticeBarPropsType> = props => {
     icon || icon === null ? (
       icon
     ) : type === 'error' ? (
-      <Help size="sm" />
+      <InformationCircleFill size="sm" />
     ) : (
-      <Voice size="sm" />
+      <SoundOutline size="sm" />
     )
 
   return isShow ? (

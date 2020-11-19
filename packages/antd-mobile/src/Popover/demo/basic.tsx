@@ -1,7 +1,13 @@
 import * as React from 'react'
 import { unstable_Popover as Popover } from '@ant-design/mobile'
 
-import { More, ScanCode, Help, Qr, Gift } from '@ant-design/mobile-icons'
+import {
+  MoreOutline,
+  ScanCodeOutline,
+  InformationCircleOutline,
+  SystemQRcodeOutline,
+  GiftOutline,
+} from '@ant-design/mobile-icons'
 
 const Item = Popover.Item
 
@@ -23,16 +29,26 @@ export default () => {
         mask
         visible={visible}
         overlay={[
-          <Item key="4" value="scan" icon={ScanCode} data-seed="logId">
+          <Item key="4" value="scan" icon={ScanCodeOutline} data-seed="logId">
             Scan
           </Item>,
-          <Item key="5" value="special" badge={{ dot: true }} icon={Qr}>
+          <Item
+            key="5"
+            value="special"
+            badge={{ dot: true }}
+            icon={SystemQRcodeOutline}
+          >
             My Qrcode
           </Item>,
-          <Item key="6" value="button ct" icon={Help}>
+          <Item key="6" value="button ct" icon={InformationCircleOutline}>
             <span>Help</span>
           </Item>,
-          <Item key="7" value="button ct" badge={{ text: 123 }} icon={Gift}>
+          <Item
+            key="7"
+            value="button ct"
+            badge={{ text: 123 }}
+            icon={GiftOutline}
+          >
             <span>Dot</span>
           </Item>,
         ]}
@@ -44,7 +60,7 @@ export default () => {
         onSelect={opt => select(opt)}
       >
         <div>
-          点击 <More />
+          点击 <MoreOutline />
         </div>
       </Popover>
     </div>

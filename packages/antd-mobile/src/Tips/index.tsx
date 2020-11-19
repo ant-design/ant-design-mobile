@@ -2,7 +2,7 @@ import * as React from 'react'
 import classnames from 'classnames'
 import { getDataAttr, renderIcon } from '../_internal'
 import { TipsPropsType } from './PropsType'
-import { Close } from '@ant-design/mobile-icons'
+import { CloseOutline } from '@ant-design/mobile-icons'
 import { Touchable, withError } from '../rmc'
 import { useTracker } from '../hooks'
 
@@ -56,7 +56,7 @@ const Tips: React.FC<TipsPropsType> = props => {
           <Touchable onPress={onClickClose}>
             <div className={`${prefixCls}-close-wrap`}>
               <div className={`${prefixCls}-close`}>
-                <Close color="rgba(255, 255, 255, 0.6)" />
+                <CloseOutline color="rgba(255, 255, 255, 0.6)" />
               </div>
             </div>
           </Touchable>

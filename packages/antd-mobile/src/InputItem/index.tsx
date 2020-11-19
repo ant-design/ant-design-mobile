@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import { CloseFill } from '@ant-design/mobile-icons'
+import { CloseCircleFill } from '@ant-design/mobile-icons'
 import { getDataAttr } from '../_internal'
 import { withError } from '../rmc'
 import { useTracker, useControlledByValue, useFocus } from '../hooks'
@@ -76,7 +76,7 @@ export const InputItem: React.FC<InputItemPropsType> = props => {
     )
 
     const clearComp = showClear ? (
-      <CloseFill
+      <CloseCircleFill
         className={`${prefixCls}-clear`}
         size="sm"
         onPress={handleClear}

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import { Close } from '@ant-design/mobile-icons'
+import { CloseOutline } from '@ant-design/mobile-icons'
 import Button from '../Button'
 import { StandardOptions } from './PropsType'
 import { createModal } from './common'
@@ -62,7 +62,7 @@ function renderFooter(options: StandardOptions, prefixCls: string, cb: any) {
             {options.cancelButton.text}
           </Button>
         )}
-        <Close className={closeCls} onPress={cb(options.onDismiss)} />
+        <CloseOutline className={closeCls} onPress={cb(options.onDismiss)} />
       </div>
     </>
   )

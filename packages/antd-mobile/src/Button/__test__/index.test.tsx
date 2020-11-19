@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
-import { Alipay } from '@ant-design/mobile-icons'
+import { AlipayCircleFill } from '@ant-design/mobile-icons'
 import { Button } from '..'
 
 describe('Button', () => {
@@ -12,7 +12,7 @@ describe('Button', () => {
       </Button>,
     )
     const component2 = shallow(
-      <Button capsule icon={Alipay}>
+      <Button capsule icon={AlipayCircleFill}>
         icon
       </Button>,
     )

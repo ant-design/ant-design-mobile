@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
-import { Alipay } from '@ant-design/mobile-icons'
+import { AlipayCircleFill } from '@ant-design/mobile-icons'
 import { Result } from '..'
 
 describe('Button', () => {
   it('snapshot', () => {
     const component = shallow(
       <Result
-        img={<Alipay color="#1677ff" size="lg" />}
+        img={<AlipayCircleFill color="#1677ff" size="lg" />}
         title="操作成功"
         message="content"
         buttons={[

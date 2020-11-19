@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Add, Minus } from '@ant-design/mobile-icons'
+import { AddOutline, MinusOutline } from '@ant-design/mobile-icons'
 import { withError, InputNumber } from '../rmc'
 import { useTracker } from '../hooks'
 import { StepperPropsType } from './PropsType'
@@ -14,8 +14,8 @@ export const Stepper: React.FC<StepperPropsType> = props => {
   return (
     <InputNumber
       {...restProps}
-      upHandler={<Add />}
-      downHandler={<Minus />}
+      upHandler={<AddOutline />}
+      downHandler={<MinusOutline />}
       prefixCls="amd-stepper"
       className={className}
     />

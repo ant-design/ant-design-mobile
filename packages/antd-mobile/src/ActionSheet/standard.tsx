@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Dialog from 'rmc-dialog'
-import { Close, Left } from '@ant-design/mobile-icons'
+import { CloseOutline, LeftOutline } from '@ant-design/mobile-icons'
 import Touchable from '@ant-design/mobile-touchable'
 import { createGlobalElement } from '../_internal'
 
@@ -77,13 +77,13 @@ const C: React.FC<ActionSheetStandardOptions & {
       <div className={prefixCls + '-header'}>
         <Touchable onPress={prev}>
           <div className={prefixCls + '-back'}>
-            {withSteps && step > 0 && <Left size="sm" />}
+            {withSteps && step > 0 && <LeftOutline size="sm" />}
           </div>
         </Touchable>
         <div className={prefixCls + '-title'}>{props?.title}</div>
         <Touchable onPress={props.onClose}>
           <div className={prefixCls + '-cancel'}>
-            <Close size="sm" />
+            <CloseOutline size="sm" />
           </div>
         </Touchable>
       </div>

@@ -1,11 +1,11 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import {
-  CheckFill,
-  ClearFill,
-  HelpFill,
-  Time5Fill,
-  WarnFill,
+  CheckCircleFill,
+  CloseCircleFill,
+  InformationCircleFill,
+  ClockCircleFill,
+  ExclamationCircleFill,
 } from '@ant-design/mobile-icons'
 import { useTracker } from '../hooks'
 import { withError } from '../rmc'
@@ -33,23 +33,23 @@ export const Result: React.FC<ResultPropsType> = props => {
 
     switch (type) {
       case 'success': {
-        return wrap(<CheckFill />, type)
+        return wrap(<CheckCircleFill />, type)
       }
 
       case 'error': {
-        return wrap(<ClearFill />, type)
+        return wrap(<CloseCircleFill />, type)
       }
 
       case 'info': {
-        return wrap(<HelpFill />, type)
+        return wrap(<InformationCircleFill />, type)
       }
 
       case 'wait': {
-        return wrap(<Time5Fill />, type)
+        return wrap(<ClockCircleFill />, type)
       }
 
       case 'warn': {
-        return wrap(<WarnFill />, type)
+        return wrap(<ExclamationCircleFill />, type)
       }
     }
 

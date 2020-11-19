@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import { Search, ClearFill } from '@ant-design/mobile-icons'
+import { SearchOutline, CloseCircleFill } from '@ant-design/mobile-icons'
 import { Touchable, withError } from '../rmc'
 import { useTracker, useControlledByValue } from '../hooks'
 import { SearchBarPropsType } from './PropsType'
@@ -153,7 +153,7 @@ export const SearchBar: React.FC<SearchBarPropsType> = props => {
             className={`${prefixCls}-synthetic-ph-container`}
             ref={syntheticPhContainerRef}
           >
-            <Search size="xs" />
+            <SearchOutline size="xs" />
             <span
               className={`${prefixCls}-synthetic-ph-placeholder`}
               style={{
@@ -184,7 +184,7 @@ export const SearchBar: React.FC<SearchBarPropsType> = props => {
           }}
         >
           <a className={clearCls}>
-            <ClearFill size="xs" />
+            <CloseCircleFill size="xs" />
           </a>
         </Touchable>
       </div>

@@ -11,7 +11,7 @@ exports[`Button snapshot 1`] = `
     <div
       className="amd-result-img"
     >
-      <Alipay
+      <AlipayCircleFill
         color="#1677ff"
         size="lg"
       />

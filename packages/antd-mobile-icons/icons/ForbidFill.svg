@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ForbidFill</title>
+    <g id="ForbidFill" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="矩形" fill="#FFFFFF" opacity="0" x="0" y="0" width="48" height="48"></rect>
+        <path d="M24,2 C36.1502645,2 46,11.8497355 46,24 C46,36.1502645 36.1502645,46 24,46 C11.8497355,46 2,36.1502645 2,24 C2,11.8497355 11.8497355,2 24,2 Z M33.1,22.5 L14.9,22.5 C14.6790861,22.5 14.5,22.6790861 14.5,22.9 L14.5,22.9 L14.5,25.1 C14.5,25.3209139 14.6790861,25.5 14.9,25.5 L14.9,25.5 L33.1,25.5 C33.3209139,25.5 33.5,25.3209139 33.5,25.1 L33.5,25.1 L33.5,22.9 C33.5,22.6790861 33.3209139,22.5 33.1,22.5 L33.1,22.5 Z" id="形状" fill="#333333" fill-rule="nonzero"></path>
+    </g>
+</svg>

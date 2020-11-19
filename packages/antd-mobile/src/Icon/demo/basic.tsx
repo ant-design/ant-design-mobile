@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Alipay } from '@ant-design/mobile-icons'
+import { AlipayCircleFill } from '@ant-design/mobile-icons'
 
 export default () => (
   <div>
-    <Alipay size="lg" />
-    <Alipay size="sm" />
-    <Alipay color="red" />
+    <AlipayCircleFill size="lg" />
+    <AlipayCircleFill size="sm" />
+    <AlipayCircleFill color="red" />
   </div>
 )

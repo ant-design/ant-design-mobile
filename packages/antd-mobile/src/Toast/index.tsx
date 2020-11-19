@@ -1,6 +1,10 @@
 import classnames from 'classnames'
 import * as React from 'react'
-import { Check, Clear, WarnToast } from '@ant-design/mobile-icons'
+import {
+  CheckOutline,
+  CloseOutline,
+  ExclamationOutline,
+} from '@ant-design/mobile-icons'
 import LoadingIcon from '../Loading/icon'
 // @ts-ignore
 import Notification from 'rmc-notification'
@@ -41,9 +45,9 @@ function notice(
 ) {
   const iconTypes: { [key: string]: any } = {
     info: '',
-    success: <Check />,
-    fail: <Clear />,
-    warn: <WarnToast />,
+    success: <CheckOutline />,
+    fail: <CloseOutline />,
+    warn: <ExclamationOutline />,
     loading: (
       <div className={prefixCls + '-loading'}>
         <LoadingIcon />

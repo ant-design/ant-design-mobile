@@ -3,6 +3,6 @@
 exports[`Touchable snapshot 1`] = `
 <BaseIcon
   size="md"
-  type="amd-alipay"
+  type="amd-AlipayCircleFill"
 />
 `;

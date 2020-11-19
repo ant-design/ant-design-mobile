@@ -113,7 +113,7 @@ exports[`Button snapshot 2`] = `
     className="amd-button amd-button-default amd-button-capsule amd-button-capsule-md amd-button-icon"
     role="button"
   >
-    <Alipay
+    <AlipayCircleFill
       className=""
       size="sm"
     />
