@@ -100,6 +100,9 @@ export default class TextareaItem extends React.Component<
   }
   reAlignHeight = () => {
     const textareaDom = this.textareaRef;
+    // 当执行 textareaDom.style.height = '' 时因为高度变化，在 ios 上输入框设置 autoHeight 时 textarea 会上下跳动，
+    // 所以控制父元素高度不变保证页面不跳动。
+    textareaDom.parentElement.style.height = textareaDom.scrollHeight + 'px'; 
     textareaDom.style.height = ''; // 字数减少时能自动减小高度
     textareaDom.style.height = `${textareaDom.scrollHeight}px`;
   }
