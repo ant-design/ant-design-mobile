@@ -10,6 +10,7 @@ export interface PaginationProps extends PaginationPropsType {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  locale?: { prevText: any, nextText: any };
 }
 export default class Pagination extends React.Component<
   PaginationProps,
