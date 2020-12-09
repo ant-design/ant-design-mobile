@@ -8,6 +8,7 @@ export interface StepProps extends StepPropsType {
   prefixCls?: string;
   showNumber?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export default class Stepper extends React.Component<StepProps, any> {
