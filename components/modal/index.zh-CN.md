@@ -57,6 +57,7 @@ subtitle: 对话框
 | defaultValue | 默认值(input 为 password 类型不支持) | String | -  |
 | placeholders | ['', '']  | String[] | -  |
 | platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
+| inputTypes  |  设定inputType类型，只对'login-password'生效，可选值为 `text`, `password`， 默认为 ['text', 'password']  | String[] | - |
 
 `Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?, platform?).close()` 可以在外部关闭 prompt`
 

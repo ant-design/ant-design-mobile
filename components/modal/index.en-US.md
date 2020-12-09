@@ -56,6 +56,7 @@ Properties | Descrition | Type | Default
 | defaultValue  | Default(input whick type is password is not supported) | String | -  |
 | placeholders  | ['', '']  | String[] | -  |
 | platform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `ios`  | String | `'ios'`|
+| inputTypes  |  inputType config，only for type 'login-password'，optional `text`, `password`， default ['text', 'password']  | String[] | - |
 
 call Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?).close()` can close prompt Modal outside anywhere as you wish.
 

@@ -86,6 +86,17 @@ const App = () => (
     >login-password</Button>
 
     <WhiteSpace size="lg" />
+    <Button onClick={() => prompt(
+      'Login',
+      'Please input login information',
+      (login, password) => console.log(`login: ${login}, password: ${password}`),
+      'login-password',
+      null,
+      ['Please input name', 'Please input password'],
+      null,
+      ['text', 'text'],
+    )}
+    >custom-input-type</Button>
   </WingBlank>
 );
 
