@@ -114,7 +114,7 @@ easy to upgrade:
 </div>
 ```
 
-(more detail: [TabBar Demo](http://mobile.ant.design/components/tab-bar-cn/))
+(more detail: [TabBar Demo](https://mobile.ant.design/components/tab-bar/))
 
 #### Popup
 
