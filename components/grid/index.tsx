@@ -12,7 +12,7 @@ export interface GridProps extends GridPropsType {
   square?: boolean;
   activeClassName?: string;
   activeStyle?: boolean | React.CSSProperties;
-  itemStyle?: React.CSSProperties;
+  itemStyle?: React.CSSProperties[];
 }
 
 export default class Grid extends React.Component<GridProps, any> {
@@ -111,6 +111,15 @@ export default class Grid extends React.Component<GridProps, any> {
       ...itemStyle,
     };
 
+    if(itemStyle.length !== rowCount * columnNum){
+      const laststyle = itemStyle[itemStyle.length - 1]
+      const stylelist = itemStyle
+      for(let i = 0; i < rowCount * columnNum; i++){
+        stylelist[i] = laststyle
+      }
+      itemStyle = stylelist
+    }
+
     for (let i = 0; i < rowCount; i++) {
       const rowArr: any[] = [];
       for (let j = 0; j < columnNum; j++) {
@@ -128,7 +137,7 @@ export default class Grid extends React.Component<GridProps, any> {
               <Flex.Item
                 className={`${prefixCls}-item`}
                 onClick={() => onClick && onClick(el, dataIndex)}
-                style={colStyle}
+                style={itemStyle[dataIndex]}
               >
                 {this.renderItem(el, dataIndex, columnNum, renderItem)}
               </Flex.Item>
@@ -139,7 +148,7 @@ export default class Grid extends React.Component<GridProps, any> {
             <Flex.Item
               key={`griditem-${dataIndex}`}
               className={`${prefixCls}-item ${prefixCls}-null-item`}
-              style={colStyle}
+              style={itemStyle[dataIndex]}
             />
           );
         }
