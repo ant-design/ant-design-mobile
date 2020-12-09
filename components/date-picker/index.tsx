@@ -91,6 +91,10 @@ export default class DatePicker extends React.Component<PropsType, any> {
         locale={DatePickerLocale}
         minDate={props.minDate}
         maxDate={props.maxDate}
+        minHour={props.minHour}
+        maxHour={props.maxHour}
+        minMinute={props.minMinute}
+        maxMinute={props.maxMinute}
         mode={props.mode}
         pickerPrefixCls={props.pickerPrefixCls}
         prefixCls={props.prefixCls}
