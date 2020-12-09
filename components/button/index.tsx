@@ -24,6 +24,9 @@ function isString(str: any) {
 
 // Insert one space between two chinese characters automatically.
 function insertSpace(child: any) {
+  if (child == null) {
+    return;
+  }
   if (isString(child.type) && isTwoCNChar(child.props.children)) {
     return React.cloneElement(
       child,
