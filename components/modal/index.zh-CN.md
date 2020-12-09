@@ -34,6 +34,7 @@ subtitle: 对话框
 | maskTransitionName  | mask 动画 className | String | |
 | className  | 手动设置 Modal 的 className | String | |
 | wrapClassName  | 手动设置 Modal wrap 的 className | String | |
+| maskStyle  | 手动设置 mask 的 style | Object | |
 
 ### Modal.alert(title, message, actions?, platform?)
 
