@@ -12,12 +12,27 @@ exports[`renders ./components/progress/demo/basic.md correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="am-progress-bar"
+      class="am-progress-bar am-progress-percent"
       style="width:30%;height:0"
     />
   </div>
   <div
-    style="height:18px"
+    class="am-whitespace am-whitespace-xl"
+  />
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="40"
+    class="am-progress-outer"
+    role="progressbar"
+  >
+    <div
+      class="am-progress-bar am-progress-percent"
+      style="width:40%;height:10px;background-color:red;border:none"
+    />
+  </div>
+  <div
+    class="am-whitespace am-whitespace-xl"
   />
   <div
     aria-valuemax="100"
@@ -27,7 +42,7 @@ exports[`renders ./components/progress/demo/basic.md correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="am-progress-bar"
+      class="am-progress-bar am-progress-percent"
       style="width:0;height:0"
     />
   </div>
@@ -45,7 +60,7 @@ exports[`renders ./components/progress/demo/basic.md correctly 1`] = `
         role="progressbar"
       >
         <div
-          class="am-progress-bar"
+          class="am-progress-bar am-progress-percent"
           style="width:50%;height:0"
         />
       </div>
