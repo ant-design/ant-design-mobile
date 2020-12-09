@@ -12,7 +12,6 @@ export interface ButtonProps extends ButtonPropsType {
   icon?: React.ReactNode;
   activeClassName?: string;
   activeStyle?: boolean | React.CSSProperties;
-  style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
