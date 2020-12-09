@@ -41,7 +41,7 @@ export default class SearchBar extends React.Component<
   blurFromOnClear: boolean;
   onBlurTimeout: number | null;
   inputRef: HTMLInputElement | null;
-  private rightBtnRef: HTMLDivElement | null;
+  private rightBtnRef: HTMLSpanElement | null;
   private syntheticPhContainerRef: HTMLSpanElement | null;
   private syntheticPhRef: HTMLDivElement | null;
   private inputContainerRef: HTMLFormElement | null;
@@ -291,13 +291,13 @@ export default class SearchBar extends React.Component<
             <a onClick={this.onClear} className={clearCls} />
           </TouchFeedback>
         </div>
-        <div
+        <span
           className={cancelCls}
           onClick={this.onCancel}
           ref={el => (this.rightBtnRef = el)}
         >
           {this.props.cancelText || cancelText}
-        </div>
+        </span>
       </form>
     );
   }
