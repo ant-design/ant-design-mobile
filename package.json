@@ -30,6 +30,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "unpkg": "dist/antd-mobile.min.js",
   "dependencies": {
     "array-tree-filter": "~2.1.0",
     "babel-runtime": "6.x",
