@@ -5,6 +5,7 @@ export interface TabBarProps {
   tintColor?: string;
   unselectedTintColor?: string;
   tabBarPosition?: 'top' | 'bottom';
+  fixedInnerNode?: React.ReactNode;
 
   /** default: false */
   animated?: boolean;

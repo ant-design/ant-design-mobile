@@ -56,6 +56,11 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
     return tabs;
   }
 
+  renderFixedNode = (position: 'before' | 'after') => {
+    const { tabBarPosition, fixedInnerNode } = this.props;
+    return fixedInnerNode && ((tabBarPosition === 'top') === (position === 'after')) ? fixedInnerNode : null;
+  }
+
   renderTabBar = () => {
     const {
       barTintColor,
@@ -91,9 +96,13 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
     }
 
     return (
-      <div className={cls} style={{ backgroundColor: barTintColor }}>
-        {content}
-      </div>
+      <React.Fragment>
+        {this.renderFixedNode('before')}
+        <div className={cls} style={{ backgroundColor: barTintColor }}>
+          {content}
+        </div>
+        {this.renderFixedNode('after')}
+      </React.Fragment>
     );
   }
 
