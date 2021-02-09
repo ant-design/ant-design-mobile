@@ -7,13 +7,13 @@ export interface SwipeActionPropsType<T> {
   disabled?: boolean;
   title?: string;
   left?: Array<{
-    text: string;
+    text: React.ReactNode;
     onPress?: () => void;
     style?: T;
     className?: string;
   }>;
   right?: Array<{
-    text: string;
+    text: React.ReactNode;
     onPress?: () => void;
     style?: T;
     className?: string;

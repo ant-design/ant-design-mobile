@@ -32,7 +32,7 @@ subtitle: 滑动操作
 
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|
-| text       | 按钮文案     | String | `Click` |
+| text       | 按钮文案     | React.ReactNode | `Click` |
 | style       | 按钮样式     | Object | `` |
 | onPress       | 按钮点击事件     | (): void | `function() {}` |
 | className | 按钮样式类 | String | |
