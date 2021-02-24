@@ -99,7 +99,7 @@
     "preact-compat": "3.18.0",
     "qrcode.react": "^0.7.1",
     "raf": "^3.4.0",
-    "rc-form": "1.x",
+    "rc-form": "2.x",
     "react": "^16.0.0",
     "react-copy-to-clipboard": "^5.0.0",
     "react-document-title": "^2.0.1",
