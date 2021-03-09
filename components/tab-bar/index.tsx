@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classnames from 'classnames';
 import getDataAttr from '../_util/getDataAttr';
 import Tabs from '../tabs';
 import { TabBarItemProps, TabBarProps } from './PropsType';
@@ -60,6 +61,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
     const {
       barTintColor,
       prefixCls,
+      className,
       tintColor,
       unselectedTintColor,
       hidden,
@@ -118,7 +120,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
     }
 
     return (
-      <div className={prefixCls}>
+      <div className={classnames(className, prefixCls)}>
         <Tabs
           tabs={tabs}
           renderTabBar={this.renderTabBar}
