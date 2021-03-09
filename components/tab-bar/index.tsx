@@ -61,7 +61,6 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
     const {
       barTintColor,
       prefixCls,
-      className,
       tintColor,
       unselectedTintColor,
       hidden,
@@ -102,6 +101,7 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
   render() {
     const {
       prefixCls,
+      className,
       children,
       animated,
       swipeable,
