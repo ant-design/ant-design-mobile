@@ -129,7 +129,9 @@ class AntTabBar extends React.Component<AntTabbarProps, any> {
           noRenderContent={noRenderContent}
           prerenderingSiblingsNumber={prerenderingSiblingsNumber}
         >
-          {children}
+          {Array.isArray(children)
+            ? children.filter((child) => !!child)
+            : children}
         </Tabs>
       </div>
     );
