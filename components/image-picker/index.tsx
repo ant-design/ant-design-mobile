@@ -187,7 +187,6 @@ export default class ImagePicker extends React.Component<
 
     files.forEach((image: any, index: number) => {
       const imgStyle = {
-        backgroundImage: `url("${image.url}")`,
         transform: `rotate(${this.getRotation(image.orientation)}deg)`,
       };
       const itemStyle = {};
@@ -207,7 +206,7 @@ export default class ImagePicker extends React.Component<
                 this.removeImage(index);
               }}
             />}
-            <div
+            <img
               className={`${prefixCls}-item-content`}
               role="button"
               aria-label="Image can be clicked"
@@ -215,6 +214,7 @@ export default class ImagePicker extends React.Component<
               onClick={() => {
                 this.onImageClick(index);
               }}
+              src={image.url}
               style={imgStyle}
             />
           </div>
