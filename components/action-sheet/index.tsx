@@ -30,6 +30,7 @@ export interface ShareOption {
 export interface ShareActionSheetWithOptions extends ActionSheetOptions {
   options: ShareOption[] | ShareOption[][];
   badges?: BadgesOption[];
+  cancelButtonText?:string;
 }
 export interface BadgesOption extends BadgeProps{
   index: number;
