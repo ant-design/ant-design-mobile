@@ -1,8 +1,3 @@
-import dayjs from 'dayjs'
-import objectSupport from 'dayjs/plugin/objectSupport'
-
-dayjs.extend(objectSupport)
-
 export {default as Button} from './components/button'
 export {default as Dialog} from './components/dialog'
 export {default as Error} from './components/error'
