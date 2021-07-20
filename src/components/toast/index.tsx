@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import {CheckOutlined, CloseOutlined} from '@ant-design/icons'
 import {useUpdateEffect} from 'ahooks'
-import {Loading} from 'antd-mobile'
 import {noop} from '../../utils/noop'
-import {Mask} from 'antd-mobile'
+import {Mask, Loading} from '../..'
+import {resolveContainer} from '../../utils/get-container'
 
 const classPrefix = `am-toast`
 
@@ -29,7 +29,7 @@ export interface ToastProps {
   /** 是否显示 */
   visible?: boolean
   /** 轻提示弹出时的的父容器 */
-  getContainer?: () => HTMLElement
+  getContainer?: HTMLElement | (() => HTMLElement)
 }
 
 const toastArray: Function[] = []
@@ -81,7 +81,7 @@ function show(props: ToastProps) {
   let timer = 0
   const {afterClose = noop, getContainer = () => document.body} = props
   const container = document.createElement('div')
-  const bodyContainer = getContainer()
+  const bodyContainer = resolveContainer(getContainer)
   bodyContainer.appendChild(container)
 
   const TempToast = () => {
