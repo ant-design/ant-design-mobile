@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import {CheckOutlined, CloseOutlined} from '@ant-design/icons'
 import {useUpdateEffect} from 'ahooks'
-import {Loading} from 'antd-mobile'
 import {noop} from '../../utils/noop'
-import {Mask} from 'antd-mobile'
+import Loading from '../loading'
+import Mask from '../mask'
 
 const classPrefix = `am-toast`
 
