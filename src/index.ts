@@ -1,3 +1,5 @@
+import './utils/init'
+
 export {default as Button} from './components/button'
 export {default as Dialog} from './components/dialog'
 export {default as Error} from './components/error'
@@ -42,6 +44,3 @@ export {default as ImageViewer} from './components/image-viewer'
 export {default as Empty} from './components/empty'
 export {default as ActionSheet} from './components/action-sheet'
 export {default as Card} from './components/card'
-
-// https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
-document.addEventListener('touchstart', () => {}, true)
