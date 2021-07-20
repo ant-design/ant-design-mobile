@@ -3,9 +3,9 @@
 /yarn-error.log
 /coverage/
 .DS_Store
-.doc
-.umi
-.umi-production
+.doc/
+.umi/
+.umi-production/
 
 # build
 /dist/

@@ -92,6 +92,9 @@ export default {
   resolve: {
     includes: ['docs', 'src', 'src/components'],
   },
+  alias: {
+    'antd-mobile/lib/index.less': process.cwd() + '/src/index.less',
+  },
   styles: [
     `#root .__dumi-default-mobile-demo-layout {
       padding: 0;

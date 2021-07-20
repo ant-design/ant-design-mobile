@@ -15,7 +15,8 @@
     "lib": ["ES2015", "DOM"],
     "paths": {
       "antd-mobile": ["src/index.ts"],
-      "antd-mobile/src/*": ["src/*"]
+      "antd-mobile/src/*": ["src/*"],
+      "antd-mobile/lib/*": ["src/*"]
     },
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
