@@ -4,7 +4,8 @@ import classNames from 'classnames'
 import {CheckOutlined, CloseOutlined} from '@ant-design/icons'
 import {useUpdateEffect} from 'ahooks'
 import {noop} from '../../utils/noop'
-import {Mask, Loading} from '../..'
+import Loading from '../loading'
+import Mask from '../mask'
 import {resolveContainer} from '../../utils/get-container'
 
 const classPrefix = `am-toast`

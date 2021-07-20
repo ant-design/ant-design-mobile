@@ -1,8 +1,8 @@
 # Error 异常
 
-<code src="./demo/demo1.tsx" />
+<code src="./demos/demo1.tsx" />
 
-<code src="./demo/demo2.tsx" />
+<code src="./demos/demo2.tsx" />
 
 # API
 

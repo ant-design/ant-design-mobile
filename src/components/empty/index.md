@@ -1,6 +1,6 @@
 # Empty 空状态
 
-<code src="./demo/index.tsx" />
+<code src="./demos/index.tsx" />
 
 # API
 
