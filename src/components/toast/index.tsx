@@ -6,6 +6,7 @@ import {useUpdateEffect} from 'ahooks'
 import {noop} from '../../utils/noop'
 import Loading from '../loading'
 import Mask from '../mask'
+import {resolveContainer} from '../../utils/get-container'
 
 const classPrefix = `am-toast`
 
@@ -29,7 +30,7 @@ export interface ToastProps {
   /** 是否显示 */
   visible?: boolean
   /** 轻提示弹出时的的父容器 */
-  getContainer?: () => HTMLElement
+  getContainer?: HTMLElement | (() => HTMLElement)
 }
 
 const toastArray: Function[] = []
@@ -81,7 +82,7 @@ function show(props: ToastProps) {
   let timer = 0
   const {afterClose = noop, getContainer = () => document.body} = props
   const container = document.createElement('div')
-  const bodyContainer = getContainer()
+  const bodyContainer = resolveContainer(getContainer)
   bodyContainer.appendChild(container)
 
   const TempToast = () => {
