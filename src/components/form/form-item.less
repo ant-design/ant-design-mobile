@@ -1,0 +1,40 @@
+@class-prefix: ~'am-form-item';
+
+.@{class-prefix} {
+  display: flex;
+  padding: 0px 6px;
+  border: 1px solid @border-color;
+
+  + .@{class-prefix} {
+    border-top: none;
+  }
+
+  &-label {
+    box-sizing: border-box;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+
+    &-required {
+      margin-right: 4px;
+      color: #e44445;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    &-disable {
+      color: #666;
+      opacity: 0.4;
+    }
+  }
+
+  &-body {
+    margin: 4px;
+  }
+
+  &-footer {
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #e44445;
+  }
+}

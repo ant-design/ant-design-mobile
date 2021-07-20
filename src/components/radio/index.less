@@ -1,0 +1,57 @@
+@class-prefix-radio: ~'am-radio';
+
+.@{class-prefix-radio} {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  input {
+    display: none;
+  }
+  .@{class-prefix-radio}-icon {
+    flex: none;
+    border: 1px solid #ccc;
+    border-radius: 22px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    color: transparent;
+    > span {
+      font-size: 12px;
+      display: block;
+    }
+  }
+  &.@{class-prefix-radio}-checked {
+    .@{class-prefix-radio}-icon {
+      color: #ffffff;
+      border-color: var(--color-primary);
+      background-color: var(--color-primary);
+    }
+  }
+  &.@{class-prefix-radio}-disabled {
+    cursor: not-allowed;
+    .@{class-prefix-radio}-content {
+      color: var(--font-color-weak);
+    }
+    .@{class-prefix-radio}-icon {
+      background-color: #ebedf0;
+    }
+    &.@{class-prefix-radio}-checked {
+      .@{class-prefix-radio}-icon {
+        color: #ccc;
+        border-color: #ccc;
+        background-color: #ebedf0;
+      }
+    }
+  }
+
+  &-content {
+    flex: none;
+    font-size: 17px;
+    padding-left: 8px;
+  }
+}

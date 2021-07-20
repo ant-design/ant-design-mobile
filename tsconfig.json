@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "allowJs": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "typeRoots": ["./src/typings", "./node_modules/@types"],
+    "outDir": "dist",
+    "lib": ["ES2015", "DOM"],
+    "paths": {
+      "antd-mobile": ["src/index.ts"],
+      "antd-mobile/src/*": ["src/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "lib", "es", "dist"]
+}

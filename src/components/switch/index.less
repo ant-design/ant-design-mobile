@@ -1,0 +1,91 @@
+@class-prefix-switch: ~'am-switch';
+
+@switch-width: 51px;
+@switch-height: 31px;
+@switch-border: 2px;
+
+@keyframes loading-rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.@{class-prefix-switch} {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  position: relative;
+  align-self: center;
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+
+  &-checkbox {
+    width: @switch-width;
+    height: @switch-height;
+    box-sizing: border-box;
+    border-radius: 31px;
+    background: #e5e5e5;
+    z-index: 0;
+    &:before {
+      content: ' ';
+      position: absolute;
+      left: @switch-border;
+      top: @switch-border;
+      width: @switch-width - 2 * @switch-border;
+      height: @switch-height - 2 * @switch-border;
+      border-radius: @switch-height - 2 * @switch-border;
+      box-sizing: border-box;
+      background: #fff;
+      z-index: 1;
+      transition: all 200ms;
+      transform: scale(1);
+    }
+  }
+
+  &-handle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: @switch-height - 2 * @switch-border;
+    height: @switch-height - 2 * @switch-border;
+    border-radius: @switch-height - 2 * @switch-border;
+    background: #fff;
+    position: absolute;
+    z-index: 2;
+    top: @switch-border;
+    left: @switch-border;
+    transform: translateX(0);
+    transition: all 200ms;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 11.5px 0 rgba(0, 0, 0, 0.08),
+      -1px 2px 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  /* 选中状态 */
+  &.@{class-prefix-switch}-checked {
+    .@{class-prefix-switch}-checkbox {
+      background: #1677ff;
+      &:before {
+        transform: scale(0);
+      }
+    }
+    .@{class-prefix-switch}-handle {
+      transform: translateX(20px);
+    }
+  }
+
+  /* 禁用状态 */
+  &.@{class-prefix-switch}-disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  /* loading图标 */
+  &-icon {
+    width: 14px;
+    height: 14px;
+    animation: loading-rotate 1s linear infinite;
+  }
+}

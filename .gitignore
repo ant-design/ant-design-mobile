@@ -1,0 +1,19 @@
+/node_modules/
+/npm-debug.log
+/yarn-error.log
+/coverage/
+.DS_Store
+.doc
+.umi
+.umi-production
+
+# build
+/dist/
+/lib/
+/es/
+
+# dumi assets meta data
+/assets.json
+
+/.vscode/
+/.idea/

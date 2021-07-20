@@ -1,0 +1,98 @@
+@import './theme.less';
+
+:root {
+  --color-primary: #1677ff;
+  --color-success: #00b578;
+  --color-warning: #ff8f1f;
+  --color-danger: #ff3141;
+  --color-white: #ffffff;
+  --color-weak: #999999;
+  --color-light: #cccccc;
+  --border-color: #e8e8e8;
+  --font-size-main: 15px;
+  --font-color-main: #333;
+  --font-color-white: #fff;
+  --font-color-weak: #999;
+  --font-color-light: #ccc;
+  --font-color-primary: var(--color-primary);
+  --font-color-danger: var(--color-danger);
+  --font-family: -apple-system, blinkmacsystemfont, 'Helvetica Neue', helvetica,
+    segoe ui, arial, roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB',
+    'Microsoft Yahei', sans-serif;
+  --one-px: 1px;
+
+  color: var(--font-color-main);
+  font-size: var(--font-size-main);
+  font-family: var(--font-family);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+a {
+  color: var(--color-primary);
+  transition: opacity ease-in-out 0.2s;
+  &:active {
+    opacity: 0.8;
+  }
+  &.am-plain-anchor {
+    color: inherit;
+    transition: none;
+    &:active {
+      opacity: unset;
+    }
+  }
+}
+
+body.am-overflow-hidden {
+  overflow: hidden !important;
+}
+
+@import './components/button/index.less';
+@import './components/dialog/index.less';
+@import './components/toast/index.less';
+@import './components/dropdown/index.less';
+@import './components/mask/index.less';
+@import './components/loading/index.less';
+@import './components/list/index.less';
+@import './components/input/index.less';
+@import './components/result/index.less';
+@import './components/steps/index.less';
+@import './components/notice-bar/index.less';
+@import './components/tabs/index.less';
+@import './components/space/index.less';
+@import './components/grid/index.less';
+@import './components/error/index.less';
+@import './components/checkbox/index.less';
+@import './components/radio/index.less';
+@import './components/popup/index.less';
+@import './components/form/index.less';
+@import './components/switch/index.less';
+@import './components/search/index.less';
+@import './components/selector/index.less';
+@import './components/index-bar/index.less';
+@import './components/picker/index.less';
+@import './components/slider/index.less';
+@import './components/cascader/index.less';
+@import './components/tag/index.less';
+@import './components/tab-bar/index.less';
+@import './components/popover/index.less';
+@import './components/desens-text/index.less';
+@import './components/progress-circle/index.less';
+@import './components/infinite-scroll/index.less';
+@import './components/ellipsis/index.less';
+@import './components/divider/index.less';
+@import './components/badge/index.less';
+@import './components/pull-to-refresh/index.less';
+@import './components/image/index.less';
+@import './components/image-viewer/index.less';
+@import './components/empty/index.less';
+@import './components/action-sheet/index.less';
+@import './components/card/index.less';

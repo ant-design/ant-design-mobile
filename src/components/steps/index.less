@@ -1,0 +1,184 @@
+@class-prefix-steps: ~'am-steps';
+@class-prefix-step: ~'am-step';
+
+.@{class-prefix-steps} {
+  width: 100%;
+  &-horizontal {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+
+    .@{class-prefix-step} {
+      &-item-container {
+        flex: 1;
+      }
+
+      &-item-icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+
+      &-icon-dot::before {
+        position: absolute;
+        right: calc(50% + 4px);
+        top: 4px;
+        content: '';
+        height: 1px;
+        width: calc(100% - 8px);
+        background-color: #e5e5e5;
+      }
+
+      &-icon-dot {
+        display: flex;
+        flex-direction: row;
+        background: #e5e5e5;
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+
+        &-process,
+        &-finish {
+          background: var(--color-primary);
+        }
+
+        &-process::before,
+        &-finish::before {
+          background: var(--color-primary);
+        }
+
+        &-error {
+          background: var(--color-danger);
+        }
+
+        &-error::before {
+          background: var(--color-primary);
+        }
+      }
+
+      &-item-content {
+        margin-top: 4px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      /* 去掉前面的横线 */
+      &-item-container:first-child {
+        .@{class-prefix-step}-icon-dot::before {
+          width: 0px;
+        }
+      }
+
+      &-item-description {
+        margin-top: 4px;
+        color: var(--color-weak);
+        font-size: 13px;
+      }
+    }
+  }
+
+  &-vertical {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 25px;
+
+    .@{class-prefix-step} {
+      &-item-container {
+        display: flex;
+
+        /* 最后一个 description 的 border 设置为 0 */
+        &:last-child {
+          & .@{class-prefix-step}-item-description {
+            border: 0;
+          }
+        }
+      }
+
+      &-item-icon {
+        width: 28px;
+
+        &-process {
+          position: relative;
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          background: var(--color-primary);
+          border-radius: 8px;
+        }
+
+        /* 小圆 */
+        &-process::before {
+          position: absolute;
+          left: 6px;
+          top: 6px;
+          content: '';
+          width: 4px;
+          height: 4px;
+          background: var(--color-white);
+          border-radius: 2px;
+        }
+
+        &-wait {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border: 1px solid #e5e5e5;
+          background: var(--color-white);
+          border-radius: 5px;
+          margin-left: 3px;
+        }
+      }
+
+      &-icon-dot {
+        margin-right: 12px;
+
+        &-finish {
+          font-size: 16px;
+          color: var(--color-primary);
+        }
+
+        &-error {
+          font-size: 16px;
+          color: var(--color-danger);
+        }
+      }
+
+      &-item-content {
+        font-size: 14px;
+
+        &-process {
+          color: var(--color-primary);
+        }
+        &-error {
+          color: var(--color-danger);
+        }
+      }
+
+      &-item-description {
+        position: relative;
+        left: -21px;
+        padding-left: 20px;
+        padding-top: 8px;
+        padding-bottom: 20px;
+        color: var(--color-weak);
+        font-size: 13px;
+
+        &-finish {
+          border-left: 2px solid var(--font-color-primary);
+        }
+
+        &-process {
+          border-left: 1px dashed #e5e5e5;
+        }
+
+        &-wait {
+          border-left: 1px dashed #e5e5e5;
+        }
+
+        &-error {
+          color: var(--color-danger);
+        }
+      }
+    }
+  }
+}

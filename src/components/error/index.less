@@ -1,0 +1,60 @@
+@class-prefix-error: ~'am-error';
+
+.@{class-prefix-error} {
+  --color: var(--font-color-main);
+
+  position: relative;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  &-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    & img {
+      height: 100%;
+    }
+  }
+
+  &-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #999;
+    line-height: 1.4;
+    &-title {
+      font-size: 15px;
+    }
+    &-subtitle {
+      margin-top: 8px;
+    }
+  }
+
+  &-content {
+    margin-top: 20px;
+  }
+
+  &-full-page {
+    top: 116px;
+    .@{class-prefix-error}-image {
+      height: 200px;
+    }
+    .@{class-prefix-error}-description {
+      font-size: 13px;
+      &-title {
+        font-size: 20px;
+        color: #333;
+      }
+    }
+  }
+}

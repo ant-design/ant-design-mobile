@@ -1,0 +1,77 @@
+@class-prefix-result: ~'am-result';
+
+.@{class-prefix-result} {
+  --bg-color: var(--color-white);
+  --color: var(--font-color-main);
+  --color-weak: var(--font-color-weak);
+
+  padding: 32px 12px;
+  background-color: var(--bg-color);
+
+  &-icon {
+    box-sizing: border-box;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px auto;
+    padding: 6px;
+
+    .anticon {
+      font-size: 52px;
+    }
+  }
+
+  &-title {
+    color: var(--color);
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &-description {
+    margin-top: 8px;
+    color: var(--color-weak);
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+  }
+}
+
+.@{class-prefix-result}-success {
+  .@{class-prefix-result}-icon {
+    .anticon {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.@{class-prefix-result}-error {
+  .@{class-prefix-result}-icon {
+    .anticon {
+      color: var(--color-danger);
+    }
+  }
+}
+
+.@{class-prefix-result}-info {
+  .@{class-prefix-result}-icon {
+    .anticon {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.@{class-prefix-result}-waiting {
+  .@{class-prefix-result}-icon {
+    .anticon {
+      color: var(--color-success);
+    }
+  }
+}
+
+.@{class-prefix-result}-warning {
+  .@{class-prefix-result}-icon {
+    .anticon {
+      color: var(--color-warning);
+    }
+  }
+}
