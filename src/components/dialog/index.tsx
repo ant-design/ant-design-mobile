@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import {Mask, Button} from 'antd-mobile'
 import {noop} from '../../utils/noop'
+import {resolveContainer} from '../../utils/get-container'
 
 const classPrefix = `am-dialog`
 
@@ -153,8 +154,9 @@ Dialog.show = (props: DialogProps) => {
     ...restProps
   } = props
 
+  const userContainer = resolveContainer(props.getContainer)
   const container = document.createElement('div')
-  document.body.appendChild(container)
+  userContainer.appendChild(container)
   let destroy = noop
 
   const TempDialog = () => {
