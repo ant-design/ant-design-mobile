@@ -16,4 +16,4 @@ jobs:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./dist
           external_repository: ant-design/next.mobile.ant.design
-          publish_branch: master
+          publish_branch: gh-pages
