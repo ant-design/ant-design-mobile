@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {NoticeBar, Button} from 'antd-mobile'
-import 'antd-mobile/lib/index.less'
 import './index.less'
 import {AimOutlined, CloseCircleOutlined} from '@ant-design/icons'
 

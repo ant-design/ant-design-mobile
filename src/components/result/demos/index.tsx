@@ -1,6 +1,5 @@
 import React from 'react'
 import {Result} from 'antd-mobile'
-import 'antd-mobile/lib/index.less'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 import './index.less'
 

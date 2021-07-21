@@ -1,6 +1,5 @@
 import React from 'react'
 import {Button, Dialog, Toast} from 'antd-mobile'
-import 'antd-mobile/lib/index.less'
 import './index.less'
 
 export default () => {

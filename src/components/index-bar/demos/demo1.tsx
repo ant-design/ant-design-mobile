@@ -1,6 +1,5 @@
 import React from 'react'
 import {IndexBar} from 'antd-mobile'
-import 'antd-mobile/lib/index.less'
 
 export default () => {
   const getRandomList = (min: number, max: number): Array<String> => {

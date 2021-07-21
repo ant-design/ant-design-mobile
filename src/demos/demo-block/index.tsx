@@ -1,3 +1,4 @@
+import 'antd-mobile/lib/index.less'
 import {FC} from 'react'
 import styles from './index.less'
 

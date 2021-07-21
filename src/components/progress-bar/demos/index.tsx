@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import 'antd-mobile/lib/index.less'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 import styles from './index.less'
 import {Button, ProgressBar, Space} from 'antd-mobile'
