@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
-import {Mask, Button} from 'antd-mobile'
 import {noop} from '../../utils/noop'
 import {resolveContainer} from '../../utils/get-container'
+import Button from '../button'
+import Mask from '../mask'
 
 const classPrefix = `am-dialog`
 
