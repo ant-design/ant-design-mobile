@@ -1,0 +1,36 @@
+@class-prefix-rate: ~'am-rate';
+
+.@{class-prefix-rate} {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+
+  &-box {
+    position: relative;
+    margin: 5px 5px;
+  }
+
+  &-half,
+  &-whole {
+    height: 100%;
+    line-height: 100%;
+    font-size: 25px;
+    color: var(--color-light);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &-half {
+    width: 50%;
+    position: absolute;
+  }
+
+  &-whole {
+    width: 100%;
+  }
+}
+
+.active {
+  color: rgb(255, 210, 30);
+}
