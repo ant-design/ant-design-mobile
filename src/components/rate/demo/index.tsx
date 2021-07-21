@@ -17,7 +17,7 @@ export default () => {
         <Rate readonly value={2} />
       </DemoBlock>
       <DemoBlock title='清除' padding='0'>
-        <Rate value={3} allowClear={false} />{' '}
+        <Rate value={3} allowClear={false} />
         <div style={{margin: 12}}>allowClear: false</div>
         <Rate value={3} />
         <div style={{margin: 12}}>allowClear: true</div>
