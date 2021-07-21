@@ -17,3 +17,4 @@ jobs:
           publish_dir: ./dist
           external_repository: ant-design/next.mobile.ant.design
           publish_branch: gh-pages
+          cname: next.mobile.ant.design
