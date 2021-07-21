@@ -5,6 +5,7 @@
     "start": "dumi dev",
     "build": "gulp",
     "build-webpack": "export BABEL_ENV=production && webpack --config webpack.config.js",
+    "build-doc": "dumi build",
     "lint": "eslint \"src/**/*.{ts,tsx}\""
   },
   "husky": {
