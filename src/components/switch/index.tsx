@@ -17,7 +17,7 @@ export type SwitchProps = {
 const Switch: FC<SwitchProps> = props => {
   const disabled = props.disabled || props.loading || false
 
-  let [checked, setChecked] = useControllableValue<boolean>(props, {
+  const [checked, setChecked] = useControllableValue<boolean>(props, {
     valuePropName: 'checked',
     defaultValuePropName: 'defaultChecked',
     defaultValue: false,

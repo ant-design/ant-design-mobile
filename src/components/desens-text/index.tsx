@@ -21,7 +21,7 @@ const DesensText = withDefaultProps({
 })<DesensTextProps>(props => {
   const {text, desensText} = props
 
-  let [isDesens, setIsDesens] = useControllableValue<boolean>(props, {
+  const [isDesens, setIsDesens] = useControllableValue<boolean>(props, {
     valuePropName: 'desens',
     defaultValuePropName: 'defaultDesens',
   })

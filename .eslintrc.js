@@ -52,4 +52,12 @@ module.exports = {
       version: 'detect',
     },
   },
+  overrides: [
+    {
+      'files': ['**/demos/**/*'],
+      'rules': {
+        'react/react-in-jsx-scope': 'off',
+      },
+    },
+  ],
 }

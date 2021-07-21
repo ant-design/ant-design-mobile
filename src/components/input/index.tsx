@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  useState,
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-} from 'react'
+import React, {useState, forwardRef, useImperativeHandle, useRef} from 'react'
 import classNames from 'classnames'
 import {useControllableValue} from 'ahooks'
 import {CloseCircleFilled} from '@ant-design/icons'

@@ -2,7 +2,7 @@ import React from 'react'
 import {IndexBar} from 'antd-mobile'
 
 export default () => {
-  const getRandomList = (min: number, max: number): Array<String> => {
+  const getRandomList = (min: number, max: number): string[] => {
     return new Array(Math.floor(Math.random() * (max - min) + min)).fill('')
   }
 

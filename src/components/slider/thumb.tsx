@@ -1,4 +1,4 @@
-import {FC, useRef, RefObject} from 'react'
+import React, {FC, useRef, RefObject} from 'react'
 import {useDrag, subV} from 'react-use-gesture'
 
 const classPrefix = `am-slider`

@@ -1,4 +1,4 @@
-import {FC, ReactNode} from 'react'
+import React, {FC, ReactNode} from 'react'
 import classNames from 'classnames'
 import {ElementProps} from '../../utils/element-props'
 import {RightOutlined} from '@ant-design/icons'

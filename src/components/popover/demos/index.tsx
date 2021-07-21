@@ -24,10 +24,9 @@ export default () => {
   const [direction, setDirection] = useState<Union<typeof directionList>>('top')
 
   useEffect(() => {
-    let timer: any
     let current = 0
 
-    timer = setInterval(() => {
+    const timer = window.setInterval(() => {
       if (current >= directionList.length - 1) {
         current = 0
       } else {
@@ -37,7 +36,7 @@ export default () => {
     }, 2000)
 
     return () => {
-      clearTimeout(timer)
+      window.clearTimeout(timer)
     }
   }, [])
 

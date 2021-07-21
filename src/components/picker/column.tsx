@@ -1,4 +1,4 @@
-import React, {FC, useRef, useEffect} from 'react'
+import React, {FC, useEffect} from 'react'
 import {useSpring, animated} from '@react-spring/web'
 import {useDrag} from 'react-use-gesture'
 import type {PickerColumnItem, PickerValue} from './index'

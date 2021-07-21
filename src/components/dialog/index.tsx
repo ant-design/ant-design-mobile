@@ -38,10 +38,10 @@ export interface DialogProps {
     e: React.MouseEvent
   ) =>
     | void
-    | Boolean
-    | Promise<Boolean>
+    | boolean
+    | Promise<boolean>
     | Promise<void>
-    | Promise<void | Boolean>
+    | Promise<void | boolean>
   /** 取消按钮的状态 */
   cancelProps?: DialogBtnProps
   /** 确认的文字 */
@@ -53,10 +53,10 @@ export interface DialogProps {
     e: React.MouseEvent
   ) =>
     | void
-    | Boolean
-    | Promise<Boolean>
+    | boolean
+    | Promise<boolean>
     | Promise<void>
-    | Promise<void | Boolean>
+    | Promise<void | boolean>
   /** 是否支持点击遮罩关闭对话框 */
   maskClosable?: boolean
   /** 是否展示 */
@@ -240,7 +240,7 @@ Dialog.alert = (props: AlertProps) => {
 }
 Dialog.confirm = (props: DialogProps) => {
   const {onCancel = noop, onOk = noop} = props
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     Dialog.show({
       // 强制显示 OK Btn
       okText: '确认',

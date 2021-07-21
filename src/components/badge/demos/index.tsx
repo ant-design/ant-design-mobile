@@ -1,11 +1,9 @@
-import React, {useState} from 'react'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 import styles from './index.less'
 import {Badge, Space} from 'antd-mobile'
 import {CloseOutlined, ExclamationOutlined} from '@ant-design/icons'
 
 export default () => {
-  const [percent, setPercent] = useState<number>(10)
   return (
     <>
       <DemoBlock title='基本用法'>

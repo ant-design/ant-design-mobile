@@ -1,4 +1,4 @@
-import React, {FC, useMemo} from 'react'
+import React from 'react'
 import {withDefaultProps} from '../../utils/with-default-props'
 import {ElementProps} from '../../utils/element-props'
 import classNames from 'classnames'
@@ -25,7 +25,7 @@ const defaultProps = {
 const Tags = withDefaultProps(defaultProps)<TagProps>(props => {
   const color = colorRecord[props.color] ?? props.color
 
-  let style: any = {
+  const style: any = {
     '--color': props.fill === 'outline' ? 'transparent' : color,
     color: props.fill === 'outline' ? color : '#ffffff',
     borderColor: color,

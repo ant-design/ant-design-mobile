@@ -1,4 +1,4 @@
-import React, {useState, useRef, useLayoutEffect, useMemo, memo} from 'react'
+import React, {useState, useRef, useLayoutEffect, memo} from 'react'
 import classNames from 'classnames'
 import {CloseOutlined, SoundOutlined} from '@ant-design/icons'
 import {usePersistFn, useUpdateLayoutEffect} from 'ahooks'

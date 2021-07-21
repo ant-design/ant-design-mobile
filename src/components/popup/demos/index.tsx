@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 import {Popup, Space, Button} from 'antd-mobile'
 
