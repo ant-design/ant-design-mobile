@@ -59,6 +59,7 @@ export default {
           'form',
           'cascader',
           'search',
+          'rate',
         ],
       },
       {
