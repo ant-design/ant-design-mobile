@@ -8,7 +8,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <DesensText text='18812341234' desensText='188****1234'></DesensText>
+        <DesensText text='18812341234' desensText='188****1234' />
       </DemoBlock>
       <DemoBlock title='受控组件'>
         <DesensText
@@ -16,7 +16,7 @@ export default () => {
           desensText='这是**信息'
           desens={isDesens}
           onChange={setDesens}
-        ></DesensText>
+        />
       </DemoBlock>
     </>
   )

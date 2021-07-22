@@ -1,8 +1,5 @@
 // 找到树的深度
-export function getTreeDeep(
-  treeData: any[],
-  childrenName: string = 'children'
-) {
+export function getTreeDeep(treeData: any[], childrenName = 'children') {
   const walker = (tree: any[]) => {
     let deep = 0
     tree.forEach(item => {

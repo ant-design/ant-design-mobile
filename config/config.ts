@@ -1,3 +1,5 @@
+const pxToRem = require('postcss-pxtorem')
+
 export default {
   mode: 'site',
   title: 'Ant Design Mobile',
@@ -103,9 +105,17 @@ export default {
       background: #f5f5f5;
     }`,
   ],
+  // extraPostCSSPlugins: [
+  //   pxToRem({
+  //     rootValue: 50,
+  //     propList: ['*'],
+  //   }),
+  // ],
   themeConfig: {
     hd: {
-      rules: [],
+      rules: [
+        // {mode: 'vw', options: [100, 750]}
+      ],
     },
   },
 }

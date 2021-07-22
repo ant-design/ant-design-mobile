@@ -1,5 +1,4 @@
 import React from 'react'
-import 'antd-mobile/lib/index.less'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 import styles from './index.less'
 import {ProgressCircle, Space} from 'antd-mobile'

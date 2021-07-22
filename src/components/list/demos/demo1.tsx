@@ -1,5 +1,4 @@
 import {List} from 'antd-mobile'
-import 'antd-mobile/lib/index.less'
 import React from 'react'
 import './demo1.less'
 

@@ -6,6 +6,7 @@ const rename = require('gulp-rename')
 const babel = require('gulp-babel')
 const ts = require('gulp-typescript')
 const del = require('del')
+const tsconfig = require('./tsconfig.json')
 
 const pxMultiplePlugin = require('postcss-px-multiple')({times: 2})
 
@@ -53,14 +54,15 @@ gulp.task('clean', async function () {
 })
 
 gulp.task('cjs', function () {
-  const tsProject = ts.createProject('tsconfig.json', {
+  const tsProject = ts({
+    ...tsconfig.compilerOptions,
     module: 'CommonJS',
   })
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
-      ignore: ['**/demos', '**/__tests__', '**/__test__'],
+      ignore: ['**/demos/**/*', '**/__tests__/**/*', '**/__test__/**/*'],
     })
-    .pipe(tsProject())
+    .pipe(tsProject)
     .pipe(
       babel({
         // configFile: './.babelrc.json',
@@ -70,14 +72,15 @@ gulp.task('cjs', function () {
 })
 
 gulp.task('es', function () {
-  const tsProject = ts.createProject('tsconfig.json', {
+  const tsProject = ts({
+    ...tsconfig.compilerOptions,
     module: 'ESNext',
   })
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
-      ignore: ['**/demos', '**/__tests__', '**/__test__'],
+      ignore: ['**/demos/**/*', '**/__tests__/**/*', '**/__test__/**/*'],
     })
-    .pipe(tsProject())
+    .pipe(tsProject)
     .pipe(
       babel({
         // configFile: '.babelrc',
@@ -87,22 +90,20 @@ gulp.task('es', function () {
 })
 
 gulp.task('declaration', function () {
-  const tsProject = ts.createProject('tsconfig.json', {
+  const tsProject = ts({
+    ...tsconfig.compilerOptions,
+    module: 'ESNext',
     declaration: true,
     emitDeclarationOnly: true,
   })
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
-      ignore: ['**/demos', '**/__tests__', '**/__test__'],
+      ignore: ['**/demos/**/*', '**/__tests__/**/*', '**/__test__/**/*'],
     })
-    .pipe(tsProject())
+    .pipe(tsProject)
     .pipe(gulp.dest('es/'))
     .pipe(gulp.dest('lib/'))
 })
-
-// gulp.task('less', function () {
-//   return gulp.src('./src/index.less').pipe(less()).pipe(gulp.dest('./dist'))
-// })
 
 gulp.task(
   'default',
@@ -117,4 +118,3 @@ gulp.task(
     'assets'
   )
 )
-// exports.default = gulp.series('clean', 'cjs', 'es', 'declaration', 'less')

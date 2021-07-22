@@ -14,7 +14,7 @@ export type SpaceProps = {
 
 const Space: FC<SpaceProps> = props => {
   const {size = 'small', direction = 'horizontal'} = props
-  let style: any = props.style ?? {}
+  const style: any = props.style ?? {}
   let sizeStyle: any
   if (props.size) {
     const [horizontalSize, verticalSize] = Array.isArray(size)

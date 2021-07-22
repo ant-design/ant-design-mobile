@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Popover, Button, Toast} from 'antd-mobile'
 import {UploadOutlined, SafetyOutlined} from '@ant-design/icons'
-import 'antd-mobile/lib/index.less'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 
 const directionList = [
@@ -25,10 +24,9 @@ export default () => {
   const [direction, setDirection] = useState<Union<typeof directionList>>('top')
 
   useEffect(() => {
-    let timer: any
     let current = 0
 
-    timer = setInterval(() => {
+    const timer = window.setInterval(() => {
       if (current >= directionList.length - 1) {
         current = 0
       } else {
@@ -38,7 +36,7 @@ export default () => {
     }, 2000)
 
     return () => {
-      clearTimeout(timer)
+      window.clearTimeout(timer)
     }
   }, [])
 

@@ -14,10 +14,12 @@ export type ProgressBarProps = {
 
 const ProgressBar = withDefaultProps({
   percent: 0,
-  strokeWidth: convertPx(3),
   strokeColor: '#1677FF',
 })<ProgressBarProps>(props => {
-  const {strokeWidth} = props
+  let {strokeWidth} = props
+  if (strokeWidth === undefined) {
+    strokeWidth = convertPx(3)
+  }
 
   const trailStyle = {
     height: `${strokeWidth}px`,

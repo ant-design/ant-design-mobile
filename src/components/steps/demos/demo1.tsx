@@ -1,6 +1,5 @@
 import React from 'react'
 import {Steps} from 'antd-mobile'
-import 'antd-mobile/lib/index.less'
 import {PauseCircleFilled} from '@ant-design/icons'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 

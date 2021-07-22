@@ -1,4 +1,4 @@
-import React, {FC, useRef, useEffect} from 'react'
+import React, {FC, useEffect} from 'react'
 import {useSpring, animated} from '@react-spring/web'
 import {useDrag} from 'react-use-gesture'
 import type {PickerColumnItem, PickerValue} from './index'
@@ -7,8 +7,6 @@ import {rubberbandIfOutOfBounds, bound} from '../../utils/rubberband'
 
 const classPrefix = `am-picker`
 
-const itemHeight = convertPx(34)
-
 interface Props {
   column: PickerColumnItem[]
   value: PickerValue
@@ -16,6 +14,8 @@ interface Props {
 }
 
 export const Column: FC<Props> = props => {
+  const itemHeight = convertPx(34)
+  console.log(itemHeight)
   const {value, onSelect, column} = props
   const [{y}, api] = useSpring(() => ({
     from: {y: 0},

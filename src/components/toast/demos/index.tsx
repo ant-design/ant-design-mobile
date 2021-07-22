@@ -1,7 +1,6 @@
 import React from 'react'
 import {Button, Toast} from 'antd-mobile'
 import {CloudUploadOutlined} from '@ant-design/icons'
-import 'antd-mobile/lib/index.less'
 import './index.less'
 
 export default () => {

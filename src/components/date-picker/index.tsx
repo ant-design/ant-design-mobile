@@ -1,4 +1,4 @@
-import {FC, useMemo, useCallback} from 'react'
+import React, {useMemo, useCallback} from 'react'
 import Picker, {PickerProps} from '../picker'
 import {useControllableValue} from 'ahooks'
 import dayjs from 'dayjs'

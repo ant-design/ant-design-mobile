@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {Input} from 'antd-mobile'
-import 'antd-mobile/lib/index.less'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 
 export default () => {

@@ -2,7 +2,7 @@ import {withDefaultProps} from '../../utils/with-default-props'
 import {useSpring, animated} from '@react-spring/web'
 import {useDrag} from 'react-use-gesture'
 import {getScrollParent} from '../../utils/get-scroll-parent'
-import {useRef, ReactNode, useState} from 'react'
+import React, {useRef, ReactNode, useState} from 'react'
 import {supportsPassive} from '../../utils/supports-passive'
 import {convertPx} from '../../utils/convert-px'
 import {rubberbandIfOutOfBounds} from '../../utils/rubberband'
@@ -34,13 +34,14 @@ export const defaultProps = {
   refreshingText: '加载中……',
   completeText: '刷新成功',
   completeDelay: 500,
-  headHeight: convertPx(40),
-  threshold: convertPx(60),
   onRefresh: () => {},
 }
 
 const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
   props => {
+    const headHeight = props.headHeight ?? convertPx(40)
+    const threshold = props.threshold ?? convertPx(60)
+
     const [status, setStatus] = useState<PullStatus>(PullStatus.idle)
 
     const [springStyles, api] = useSpring(() => ({
@@ -57,7 +58,7 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
     const pullingRef = useRef(false)
 
     async function doRefresh() {
-      api.start({height: props.headHeight})
+      api.start({height: headHeight})
       setStatus(PullStatus.refreshing)
       setStatus(PullStatus.refreshing)
       try {
@@ -118,12 +119,12 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
         }
         event.stopPropagation()
         const height = Math.max(
-          rubberbandIfOutOfBounds(y, 0, 0, props.headHeight * 5, 0.5),
+          rubberbandIfOutOfBounds(y, 0, 0, headHeight * 5, 0.5),
           0
         )
         api.start({height})
         setStatus(
-          height > props.threshold ? PullStatus.thresholdMet : PullStatus.idle
+          height > threshold ? PullStatus.thresholdMet : PullStatus.idle
         )
       },
       {
@@ -139,7 +140,7 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
         <animated.div style={springStyles} className={`${classPrefix}-head`}>
           <div
             className={`${classPrefix}-head-content`}
-            style={{height: props.headHeight}}
+            style={{height: headHeight}}
           >
             {status === PullStatus.idle && props.pullingText}
             {status === PullStatus.thresholdMet && props.releaseText}

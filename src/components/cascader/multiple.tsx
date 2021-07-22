@@ -209,7 +209,7 @@ const Multiple = withDefaultProps({
     if (!text) {
       return
     }
-    let currentLeafKeys: string[] = columnOptions.map(i => i[valueName])
+    const currentLeafKeys: string[] = columnOptions.map(i => i[valueName])
 
     const allSelected = currentLeafKeys.every(i =>
       allSelectedLeafKeys.includes(i)

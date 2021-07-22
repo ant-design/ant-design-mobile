@@ -1,6 +1,6 @@
 # IndexBar 序列
 
-<code src="./demo/demo1.tsx" />
+<code src="./demos/demo1.tsx" />
 
 ## API
 

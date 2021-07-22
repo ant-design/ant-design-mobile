@@ -1,4 +1,4 @@
-import {FC, useMemo} from 'react'
+import React, {FC, useMemo} from 'react'
 import Picker, {PickerProps, PickerColumn} from '.'
 
 export type CascaderOption = {

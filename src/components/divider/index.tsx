@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import {ElementProps} from '../../utils/element-props'
 import {withDefaultProps} from '../../utils/with-default-props'

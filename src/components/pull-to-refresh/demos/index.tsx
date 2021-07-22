@@ -5,7 +5,7 @@ import {useState} from 'react'
 let current = 1
 
 function getNextData() {
-  let ret: string[] = []
+  const ret: string[] = []
   for (let i = 0; i < 18; i++) {
     ret.unshift(current.toString())
     current++

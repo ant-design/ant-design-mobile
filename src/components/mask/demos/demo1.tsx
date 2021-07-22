@@ -1,5 +1,4 @@
 import {Button, Mask} from 'antd-mobile'
-import 'antd-mobile/lib/index.less'
 import React, {useState, FC} from 'react'
 import './demo1.less'
 

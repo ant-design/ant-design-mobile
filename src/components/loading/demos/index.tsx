@@ -1,5 +1,4 @@
 import React from 'react'
-import 'antd-mobile/lib/index.less'
 import {Loading} from 'antd-mobile'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 

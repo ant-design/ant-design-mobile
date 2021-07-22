@@ -1,6 +1,5 @@
 import React from 'react'
 import {Button, Error} from 'antd-mobile'
-import 'antd-mobile/lib/index.less'
 import {useToggle} from 'ahooks'
 
 export default () => {

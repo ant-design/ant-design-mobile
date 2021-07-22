@@ -67,11 +67,13 @@ const ActionSheet = withDefaultProps(defaultProps)<ActionSheetProps>(props => {
         )}
         <div className={`${classPrefix}-button-list`}>
           {props.actions.map((action, index) => (
-            <div className={`${classPrefix}-button-item-wrapper`}>
+            <div
+              key={action.key}
+              className={`${classPrefix}-button-item-wrapper`}
+            >
               <Button
                 block
                 fill='none'
-                key={action.key}
                 disabled={action.disabled}
                 onClick={() => {
                   action.onClick?.()
