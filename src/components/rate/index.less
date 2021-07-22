@@ -1,36 +1,33 @@
 @class-prefix-rate: ~'am-rate';
 
 .@{class-prefix-rate} {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  margin: 10px;
-
+  --star-size: 24px;
+  --active-color: #ffd21e;
+  display: inline-flex;
   &-box {
     position: relative;
-    margin: 5px 5px;
   }
 
-  &-half,
-  &-whole {
-    height: 100%;
-    line-height: 100%;
-    font-size: 25px;
+  &-star {
+    padding: calc(var(--star-size) / 8);
+    line-height: var(--star-size);
+    font-size: var(--star-size);
     color: var(--color-light);
     text-align: center;
     overflow: hidden;
+    cursor: pointer;
+    &-half {
+      padding-right: 0;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &-active {
+      color: var(--active-color);
+    }
+    &-readonly {
+      cursor: unset;
+    }
   }
-
-  &-half {
-    width: 50%;
-    position: absolute;
-  }
-
-  &-whole {
-    width: 100%;
-  }
-}
-
-.active {
-  color: rgb(255, 210, 30);
 }

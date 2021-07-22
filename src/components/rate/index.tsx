@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import {ElementProps} from '../../utils/element-props'
 import {withDefaultProps} from '../../utils/with-default-props'
 import {StarFilled} from '@ant-design/icons'
+import {useControllableValue} from 'ahooks'
 
 const classPrefix = `am-rate`
 
@@ -15,7 +16,10 @@ export type RateProps = {
   readonly?: boolean
   value?: number
   onChange?: (value: number) => void
-} & ElementProps
+} & ElementProps<{
+  '--star-size': string
+  '--active-color': string
+}>
 
 const defaultProps = {
   count: 5,
@@ -27,59 +31,40 @@ const defaultProps = {
 }
 
 const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
-  const [current, setCurrent] = useState(props.value || props.defaultValue)
-  const getStarList = (num: number) => {
-    return Array.from(new Array(num)).map((v, i) => i)
+  const [value, setValue] = useControllableValue<number>(props)
+  const starList = Array(props.count).fill(null)
+  function renderStar(v: number, half: boolean) {
+    return (
+      <div
+        className={classNames(`${classPrefix}-star`, {
+          [`${classPrefix}-star-active`]: value >= v,
+          [`${classPrefix}-star-half`]: half,
+          [`${classPrefix}-star-readonly`]: props.readonly,
+        })}
+        onClick={() => {
+          if (props.readonly) return
+          if (props.allowClear && value === v) {
+            setValue(0)
+          } else {
+            setValue(v)
+          }
+        }}
+      >
+        {props.character}
+      </div>
+    )
   }
   return (
     <div
       style={props.style}
       className={classNames(classPrefix, props.className)}
     >
-      {getStarList(props.count).map((v, i) => {
-        return (
-          <div key={i} className={classNames(`${classPrefix}-box`)}>
-            {props.allowHalf && (
-              <div
-                className={
-                  current >= i + 0.5
-                    ? classNames(`${classPrefix}-half`, 'active')
-                    : classNames(`${classPrefix}-half`)
-                }
-                onClick={() => {
-                  if (!props.readonly) {
-                    if (props.allowClear && current === i + 0.5) {
-                      setCurrent(0)
-                    } else {
-                      setCurrent(i + 0.5)
-                    }
-                  }
-                }}
-              >
-                {props.character}
-              </div>
-            )}
-            <div
-              className={
-                current >= i + 1
-                  ? classNames(`${classPrefix}-whole`, 'active')
-                  : classNames(`${classPrefix}-whole`)
-              }
-              onClick={() => {
-                if (!props.readonly) {
-                  if (props.allowClear && current === i + 1) {
-                    setCurrent(0)
-                  } else {
-                    setCurrent(i + 1)
-                  }
-                }
-              }}
-            >
-              {props.character}
-            </div>
-          </div>
-        )
-      })}
+      {starList.map((_, i) => (
+        <div key={i} className={classNames(`${classPrefix}-box`)}>
+          {props.allowHalf && renderStar(i + 0.5, true)}
+          {renderStar(i + 1, false)}
+        </div>
+      ))}
     </div>
   )
 })

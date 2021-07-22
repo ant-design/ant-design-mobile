@@ -1,4 +1,4 @@
-export interface ElementProps {
+export interface ElementProps<S = {}> {
   className?: string
-  style?: React.CSSProperties
+  style?: React.CSSProperties & S
 }

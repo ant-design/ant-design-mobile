@@ -1,6 +1,6 @@
 # Rate 评分
 
-<code src="./demo/index.tsx" />
+<code src="./demos/index.tsx" />
 
 # API
 
