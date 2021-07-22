@@ -11,8 +11,6 @@ import {convertPx} from '../../utils/convert-px'
 
 const classPrefix = `am-index-bar`
 
-const titleHeight = convertPx(35)
-
 export type IndexBarProps = {
   className?: string
   sticky?: boolean
@@ -24,6 +22,7 @@ const defaultProps = {
 }
 
 const IndexBar = withDefaultProps(defaultProps)<IndexBarProps>(props => {
+  const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
   const [indexes, setIndexes] = useState<string[]>([])
 

@@ -17,13 +17,19 @@ export type ProgressCircleProps = {
 
 const ProgressCircle = withDefaultProps({
   percent: 0,
-  strokeWidth: convertPx(6),
-  size: convertPx(50),
   strokeColor: '#1677FF',
 })<ProgressCircleProps>(props => {
+  let {strokeWidth, size} = props
+  if (strokeWidth === undefined) {
+    strokeWidth = convertPx(6)
+  }
+  if (size === undefined) {
+    size = convertPx(50)
+  }
+
   const contentStyle = {
-    width: `${props.size}px`,
-    height: `${props.size}px`,
+    width: `${size}px`,
+    height: `${size}px`,
   }
 
   return (
@@ -35,8 +41,8 @@ const ProgressCircle = withDefaultProps({
         <RCProgressCircle
           prefixCls={classPrefix}
           percent={props.percent}
-          strokeWidth={props.strokeWidth}
-          trailWidth={props.strokeWidth}
+          strokeWidth={strokeWidth}
+          trailWidth={strokeWidth}
           trailColor='#E5E5E5'
           strokeColor={props.strokeColor}
         />

@@ -7,8 +7,6 @@ import {rubberbandIfOutOfBounds, bound} from '../../utils/rubberband'
 
 const classPrefix = `am-picker`
 
-const itemHeight = convertPx(34)
-
 interface Props {
   column: PickerColumnItem[]
   value: PickerValue
@@ -16,6 +14,8 @@ interface Props {
 }
 
 export const Column: FC<Props> = props => {
+  const itemHeight = convertPx(34)
+  console.log(itemHeight)
   const {value, onSelect, column} = props
   const [{y}, api] = useSpring(() => ({
     from: {y: 0},
