@@ -13,29 +13,21 @@ export interface StepProps {
 const Step: FC<StepProps> = props => {
   const {title, description, icon, status = 'wait'} = props
 
-  const iconClass = classNames(
-    `${classPrefix}-icon-dot`,
-    `${classPrefix}-icon-dot-${status}`
-  )
-
-  const descriptionClass = classNames(
-    `${classPrefix}-item-description`,
-    `${classPrefix}-item-description-${status}`
-  )
-
-  const contentClass = classNames(
-    `${classPrefix}-item-content`,
-    `${classPrefix}-item-content-${status}`
-  )
-
   return (
-    <div className={`${classPrefix}-item-container`}>
-      <div className={`${classPrefix}-item-icon`}>
-        <span className={iconClass}>{icon}</span>
+    <div
+      className={classNames(
+        `${classPrefix}`,
+        `${classPrefix}-status-${status}`
+      )}
+    >
+      <div className='am-step-indicator'>
+        <div className={`${classPrefix}-icon-container`}>{icon}</div>
       </div>
-      <div className={contentClass}>
-        <div className={`${classPrefix}-item-title`}>{title}</div>
-        <div className={descriptionClass}>{description}</div>
+      <div className='am-step-content'>
+        <div className='am-step-title'>{title}</div>
+        {!!description && (
+          <div className='am-step-description'>{description}</div>
+        )}
       </div>
     </div>
   )

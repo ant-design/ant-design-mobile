@@ -1,8 +1,11 @@
 import React from 'react'
 import {Steps} from 'antd-mobile'
-import {PauseCircleFilled} from '@ant-design/icons'
+import {
+  CheckCircleFilled,
+  ClockCircleFilled,
+  DollarCircleFilled,
+} from '@ant-design/icons'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-
 const {Step} = Steps
 
 export default () => {
@@ -58,10 +61,18 @@ export default () => {
           <Step
             title='第一步'
             description='完成人1111'
-            icon={<PauseCircleFilled />}
+            icon={<CheckCircleFilled />}
           />
-          <Step title='第二步' description='完成人1111' />
-          <Step title='第三步' description='完成人1111' status='error' />
+          <Step
+            title='第二步'
+            description='完成人1111'
+            icon={<ClockCircleFilled />}
+          />
+          <Step
+            title='第三步'
+            description='完成人1111'
+            icon={<DollarCircleFilled />}
+          />
         </Steps>
       </DemoBlock>
     </>

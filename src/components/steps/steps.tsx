@@ -1,6 +1,5 @@
 import React from 'react'
 import classNames from 'classnames'
-import {CheckCircleFilled, CloseCircleFilled} from '@ant-design/icons'
 import Step, {StepProps} from './step'
 import {withDefaultProps} from '../../utils/with-default-props'
 import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
@@ -8,12 +7,7 @@ import {attachPropertiesToComponent} from '../../utils/attach-properties-to-comp
 const classPrefix = `am-steps`
 const stepClassPrefix = `am-step`
 
-const defaultIconMap = {
-  error: <CloseCircleFilled />,
-  finish: <CheckCircleFilled />,
-  process: <span className={`${stepClassPrefix}-item-icon-process`} />,
-  wait: <span className={`${stepClassPrefix}-item-icon-wait`} />,
-}
+const defaultIcon = <span className={`${stepClassPrefix}-icon-dot`} />
 
 type Direction = 'horizontal' | 'vertical'
 
@@ -29,7 +23,7 @@ const defaultProps = {
 
 const Steps = withDefaultProps(defaultProps)<StepsProps>(props => {
   const {direction, current} = props
-  const classString = classNames(`${classPrefix}-${direction}`)
+  const classString = classNames(classPrefix, `${classPrefix}-${direction}`)
 
   return (
     <div className={classString}>
@@ -39,18 +33,14 @@ const Steps = withDefaultProps(defaultProps)<StepsProps>(props => {
         }
         const props = child.props as StepProps
         let status = props.status || 'wait'
-        let icon = props.icon
 
-        // 小于当前步骤的默认状态是进行中，大于当前步骤的是表示未完成。
         if (index < current) {
           status = props.status || 'finish'
         } else if (index === current) {
           status = props.status || 'process'
         }
 
-        if (direction === 'vertical') {
-          icon = icon || defaultIconMap[status]
-        }
+        const icon = props.icon ?? defaultIcon
 
         return React.cloneElement(child, {
           status,
