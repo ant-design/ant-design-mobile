@@ -1,8 +1,8 @@
 import React from 'react'
 import {Steps} from 'antd-mobile'
 import {
+  CheckCircleFilled,
   ClockCircleFilled,
-  CompassFilled,
   DollarCircleFilled,
 } from '@ant-design/icons'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
@@ -61,7 +61,7 @@ export default () => {
           <Step
             title='第一步'
             description='完成人1111'
-            icon={<CompassFilled />}
+            icon={<CheckCircleFilled />}
           />
           <Step
             title='第二步'

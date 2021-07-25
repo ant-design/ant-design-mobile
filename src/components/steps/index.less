@@ -122,42 +122,6 @@
       }
 
       &:last-child {
-        .am-step-item-description {
-          border: 0;
-          padding-bottom: 0;
-        }
-      }
-
-      &-icon-dot {
-        margin-right: 12px;
-
-        &-finish {
-          font-size: 16px;
-          color: var(--color-primary);
-        }
-
-        &-error {
-          font-size: 16px;
-          color: var(--color-danger);
-        }
-      }
-
-      &-item-content {
-        font-size: 14px;
-
-        &-process {
-          color: var(--color-primary);
-        }
-        &-error {
-          color: var(--color-danger);
-        }
-      }
-
-      &-item-description {
-        padding: 8px 8px 20px 0;
-      }
-
-      &:last-child {
         .am-step-content {
           padding-bottom: 0;
         }
@@ -179,40 +143,14 @@
   }
 }
 
-.am-step-item-description {
-  font-size: 13px;
-  color: var(--color-weak);
-}
-
 .am-step-icon-container {
   font-size: 18px;
 }
 
-.am-step-icon {
-  &-process {
-    position: relative;
-    display: block;
-    width: 18px;
-    height: 18px;
-    background: var(--color-primary);
-    border-radius: 9px;
-    &::before {
-      position: absolute;
-      left: 6px;
-      top: 6px;
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--color-white);
-      border-radius: 3px;
-    }
-  }
-
-  &-wait {
-    display: block;
-    width: 8px;
-    height: 8px;
-    background: #e5e5e5;
-    border-radius: 4px;
-  }
+.am-step-icon-dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 4px;
 }
