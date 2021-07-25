@@ -1,8 +1,8 @@
 name: Github Pages
 on:
-  push:
-    branches:
-      - v5
+  release:
+    types: [published]
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
