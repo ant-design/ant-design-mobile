@@ -47,7 +47,7 @@ gulp.task('copy-css', function () {
   return gulp
     .src(['./umd/index.css', './umd/index@2x.css'])
     .pipe(gulp.dest('es/'))
-    .pipe(gulp.dest('umd/'))
+    .pipe(gulp.dest('cjs/'))
 })
 
 gulp.task('clean', async function () {
