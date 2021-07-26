@@ -1,0 +1,64 @@
+@class-prefix-text-area: ~'am-text-area';
+
+.@{class-prefix-text-area}-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.@{class-prefix-text-area} {
+  font-family: var(--font-family);
+  resize: none;
+  flex: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0;
+  margin: 0;
+  color: var(--font-color-main);
+  font-size: 17px;
+  line-height: 1.5;
+  background: transparent;
+  border: 0;
+  outline: none;
+  appearance: none;
+  min-height: 1.5em;
+
+  &::placeholder {
+    color: initial;
+    font-family: inherit;
+    opacity: 0.5;
+  }
+
+  &:-webkit-autofill {
+    background-color: transparent;
+  }
+
+  &:disabled {
+    color: var(--font-color-weak);
+    cursor: not-allowed;
+    opacity: 1;
+    -webkit-text-fill-color: var(--font-color-weak);
+  }
+
+  &:read-only {
+    cursor: default;
+  }
+
+  &:invalid {
+    box-shadow: none;
+  }
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &[readonly] {
+    pointer-events: none;
+  }
+}

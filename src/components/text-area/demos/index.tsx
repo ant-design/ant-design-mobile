@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Input} from 'antd-mobile'
+import {TextArea} from 'antd-mobile'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 
 export default () => {
@@ -7,7 +7,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='基本的输入框组件'>
-        <Input
+        <TextArea
           placeholder='请输入内容'
           value={value}
           onChange={val => {
@@ -15,14 +15,22 @@ export default () => {
           }}
         />
       </DemoBlock>
-      <DemoBlock title='带清除按钮'>
-        <Input placeholder='请输入内容' clearable />
+      <DemoBlock title='指定行数'>
+        <TextArea placeholder='请输入内容' rows={5} />
       </DemoBlock>
       <DemoBlock title='禁用状态'>
-        <Input placeholder='请输入内容' value='被禁用的输入框' disabled />
+        <TextArea
+          placeholder='请输入内容'
+          value={'北极星垂地，\n东山月满川。'}
+          disabled
+        />
       </DemoBlock>
       <DemoBlock title='只读状态'>
-        <Input placeholder='请输入内容' value='只读模式的输入框' readOnly />
+        <TextArea
+          placeholder='请输入内容'
+          value={'北极星垂地，\n东山月满川。'}
+          readOnly
+        />
       </DemoBlock>
     </>
   )
