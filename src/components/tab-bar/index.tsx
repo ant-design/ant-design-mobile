@@ -53,7 +53,6 @@ const TabBar: FC<TabBarProps> & {
       {items.map(item => (
         <div
           key={item.key}
-          data-x={{}}
           onClick={() => {
             const {key} = item
             if (key === undefined || key === null) return
