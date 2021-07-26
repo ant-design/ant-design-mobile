@@ -49,6 +49,7 @@ export default {
         title: '数据录入',
         children: [
           'input',
+          'text-area',
           'checkbox',
           'radio',
           'selector',

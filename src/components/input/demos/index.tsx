@@ -24,12 +24,6 @@ export default () => {
       <DemoBlock title='只读状态'>
         <Input placeholder='请输入内容' value='只读模式的输入框' readOnly />
       </DemoBlock>
-      <DemoBlock title='搜索'>
-        <Input placeholder='请输入内容' type='search' />
-      </DemoBlock>
-      <DemoBlock title='日期'>
-        <Input placeholder='请输入内容' type='date' />
-      </DemoBlock>
     </>
   )
 }

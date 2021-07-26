@@ -1,17 +1,14 @@
-@class-prefix-input: ~'am-input';
-
-.@{class-prefix-input}-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.am-text-area-wrapper {
   width: 100%;
   max-width: 100%;
   max-height: 100%;
 }
 
-.@{class-prefix-input} {
+.am-text-area {
+  font-family: var(--font-family);
+  resize: none;
   flex: auto;
-  display: inline-block;
+  display: block;
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
@@ -30,6 +27,7 @@
   &::placeholder {
     color: var(--font-color-light);
     font-family: inherit;
+    opacity: 0.5;
   }
 
   &:-webkit-autofill {
@@ -54,38 +52,15 @@
   &::-ms-clear {
     display: none;
   }
-  &::-webkit-search-cancel-button {
-    display: none;
-  }
-  &::-webkit-search-decoration {
-    display: none;
-  }
-
-  // for ios
-  &[type='date'],
-  &[type='time'],
-  &[type='datetime-local'] {
-    min-height: 1.5em;
-  }
-
-  // for safari
-  &[type='search'] {
-    -webkit-appearance: none;
-  }
 
   &[readonly] {
     pointer-events: none;
   }
 }
 
-.@{class-prefix-input}-clear {
-  flex: none;
-  margin-left: 8px;
-  color: var(--color-light);
-  padding: 3px;
-  cursor: pointer;
-  .anticon {
-    display: block;
-    font-size: 14px;
-  }
+.am-text-area-count {
+  text-align: right;
+  color: var(--font-color-weak);
+  font-size: 17px;
+  padding-top: 8px;
 }
