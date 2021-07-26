@@ -9,8 +9,9 @@
 
 # build
 /dist/
-/lib/
 /es/
+/cjs/
+/umd/
 
 # dumi assets meta data
 /assets.json

@@ -4,7 +4,6 @@
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
-    "build-webpack": "export BABEL_ENV=production && webpack --config webpack.config.js",
     "build-doc": "dumi build",
     "lint": "eslint \"src/**/*.{ts,tsx}\""
   },
@@ -44,7 +43,6 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-transform-async-to-promises": "^0.8.15",
-    "css-loader": "^5.2.7",
     "del": "^5.1.0",
     "dumi": "^1.1.23",
     "dumi-theme-mobile": "^1.1.6",
@@ -52,6 +50,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "file-loader": "^6.2.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-less": "^5.0.0",
@@ -60,9 +59,6 @@
     "gulp-typescript": "^6.0.0-alpha.1",
     "husky": "^4.3.8",
     "less": "^3.13.1",
-    "less-loader": "^7.3.0",
-    "mockdate": "^3.0.5",
-    "mockjs": "^1.1.0",
     "postcss": "^8.3.6",
     "postcss-px-multiple": "^0.1.5",
     "postcss-pxtorem": "^5.1.1",
@@ -70,22 +66,22 @@
     "pretty-quick": "^2.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "style-loader": "^2.0.0",
     "typescript": "^3.9.10",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.10",
-    "webpack-merge": "^4.2.2"
+    "webpack": "^5.46.0",
+    "webpack-stream": "^6.1.2"
   },
   "peerDependencies": {
     "react": "^16.8.6 || ^17.0.0"
   },
-  "main": "./lib/index.js",
+  "main": "./cjs/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
   "typings": "./es/index.d.ts",
+  "unpkg": "./umd/antd-mobile.js",
   "files": [
     "es",
-    "lib",
+    "cjs",
+    "umd",
     "package.json",
     "README.md"
   ],
@@ -93,7 +89,7 @@
     "**/*.css",
     "**/*.less",
     "./es/utils/init.js",
-    "./lib/utils/init.js"
+    "./cjs/utils/init.js"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
