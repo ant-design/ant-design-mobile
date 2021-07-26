@@ -78,6 +78,7 @@
   "types": "./es/index.d.ts",
   "typings": "./es/index.d.ts",
   "unpkg": "./umd/antd-mobile.js",
+  "GravityCDN": "./umd/antd-mobile.js",
   "files": [
     "es",
     "cjs",
