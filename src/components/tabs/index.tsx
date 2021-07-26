@@ -57,7 +57,11 @@ const Tabs: FC<TabsProps> & {
           <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
             <div
               onClick={() => {
-                setActiveKey(pane.key?.toString()!)
+                const {key} = pane
+                if (key === undefined || key === null) {
+                  return
+                }
+                setActiveKey(key.toString())
               }}
               className={classNames(`${classPrefix}-tab`, {
                 [`${classPrefix}-tab-active`]: pane.key === activeKey,

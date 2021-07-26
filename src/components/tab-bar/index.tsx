@@ -54,7 +54,9 @@ const TabBar: FC<TabBarProps> & {
         <div
           key={item.key}
           onClick={() => {
-            setActiveKey(item.key?.toString()!)
+            const {key} = item
+            if (key === undefined || key === null) return
+            setActiveKey(key.toString())
           }}
           className={classNames(`${classPrefix}-item`, item.props.className, {
             [`${classPrefix}-item-active`]: item.key === activeKey,

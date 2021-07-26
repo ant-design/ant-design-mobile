@@ -33,7 +33,7 @@ export interface ToastProps {
   getContainer?: HTMLElement | (() => HTMLElement)
 }
 
-const toastArray: Function[] = []
+const toastArray: (() => void)[] = []
 
 const InternalToast: React.FC<ToastProps> = props => {
   const {maskClickable = true, content, icon = null, position} = props
