@@ -1,0 +1,45 @@
+@class-prefix-uploader: ~'am-uploader';
+
+@uploader-width: 80px;
+@uploader-height: 80px;
+@uploader-space: 12px;
+
+.@{class-prefix-uploader} {
+  &-container {
+    display: flex;
+  }
+  &-card {
+    width: @uploader-width;
+    height: @uploader-height;
+    margin-right: @uploader-space;
+    border-radius: 4px;
+    overflow: hidden;
+
+    img {
+      width: @uploader-width;
+      height: @uploader-height;
+    }
+  }
+
+  &-select-picture {
+    position: relative;
+    background-color: #f5f5f5;
+    text-align: center;
+    line-height: @uploader-height;
+
+    .addition {
+      color: #999;
+      font-size: 32px;
+    }
+
+    .file-input {
+      position: absolute;
+      opacity: 0;
+      left: 0;
+      top: 0;
+      width: @uploader-width;
+      height: @uploader-height;
+      border-radius: 4px;
+    }
+  }
+}

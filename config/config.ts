@@ -60,6 +60,7 @@ export default {
           'cascader',
           'search',
           'rate',
+          'image-uploader',
         ],
       },
       {
