@@ -18,6 +18,16 @@ export default () => {
       <DemoBlock title='指定行数'>
         <TextArea placeholder='请输入内容' rows={5} />
       </DemoBlock>
+      <DemoBlock title='字数统计'>
+        <TextArea defaultValue={'北极星垂地，\n东山月满川。'} showCount />
+      </DemoBlock>
+      <DemoBlock title='字数限制'>
+        <TextArea
+          defaultValue={'北极星垂地，\n东山月满川。'}
+          showCount
+          maxLength={30}
+        />
+      </DemoBlock>
       <DemoBlock title='禁用状态'>
         <TextArea
           placeholder='请输入内容'

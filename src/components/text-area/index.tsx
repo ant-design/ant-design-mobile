@@ -1,7 +1,6 @@
-import React, {forwardRef, useImperativeHandle, useRef, useState} from 'react'
+import React, {forwardRef, useImperativeHandle, useRef} from 'react'
 import classNames from 'classnames'
 import {useControllableValue} from 'ahooks'
-import {withDefaultProps} from '../../utils/with-default-props'
 
 const classPrefix = 'am-text-area'
 
@@ -13,6 +12,9 @@ export type TextAreaProps = Omit<
   'onChange'
 > & {
   onChange?: (val: string) => void
+} & {
+  maxLength?: number
+  showCount?: boolean
 }
 
 export type TextAreaRef = {
@@ -23,6 +25,7 @@ export type TextAreaRef = {
 
 const defaultProps = {
   rows: 2,
+  showCount: false,
 }
 
 // TODO: withDefaultProps 和 forwardRef 配合使用的问题
@@ -75,6 +78,13 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             props.onBlur?.(e)
           }}
         />
+        {props.showCount && (
+          <div className={`${classPrefix}-count`}>
+            {props.maxLength === undefined
+              ? value.length
+              : value.length + '/' + props.maxLength}
+          </div>
+        )}
       </div>
     )
   }
