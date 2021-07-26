@@ -1,4 +1,4 @@
-import React, {forwardRef, useImperativeHandle, useRef} from 'react'
+import React, {forwardRef, useEffect, useImperativeHandle, useRef} from 'react'
 import classNames from 'classnames'
 import {useControllableValue} from 'ahooks'
 
@@ -15,6 +15,12 @@ export type TextAreaProps = Omit<
 } & {
   maxLength?: number
   showCount?: boolean
+  autoSize?:
+    | boolean
+    | {
+        minRows?: number
+        maxRows?: number
+      }
 }
 
 export type TextAreaRef = {
@@ -26,6 +32,7 @@ export type TextAreaRef = {
 const defaultProps = {
   rows: 2,
   showCount: false,
+  autoSize: false,
 }
 
 // TODO: withDefaultProps 和 forwardRef 配合使用的问题
@@ -38,6 +45,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       value: outerValue,
       onChange: outerOnChange,
       rows: rows,
+      autoSize: autoSize,
       ...textAreaProps
     } = props
     const [value, setValue] = useControllableValue<string>(props, {
@@ -56,6 +64,25 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
         nativeTextAreaRef.current?.blur()
       },
     }))
+
+    useEffect(() => {
+      if (!autoSize) return
+      const textArea = nativeTextAreaRef.current
+      if (!textArea) return
+      textArea.style.height = 'auto'
+      let height = textArea.scrollHeight
+      if (typeof autoSize === 'object') {
+        const computedStyle = window.getComputedStyle(textArea)
+        const lineHeight = parseFloat(computedStyle.lineHeight)
+        if (autoSize.minRows) {
+          height = Math.max(height, autoSize.minRows * lineHeight)
+        }
+        if (autoSize.maxRows) {
+          height = Math.min(height, autoSize.maxRows * lineHeight)
+        }
+      }
+      textArea.style.height = `${height}px`
+    }, [value, autoSize])
 
     return (
       <div

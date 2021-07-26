@@ -18,6 +18,12 @@ export default () => {
       <DemoBlock title='指定行数'>
         <TextArea placeholder='请输入内容' rows={5} />
       </DemoBlock>
+      <DemoBlock title='根据内容自动调整高度'>
+        <TextArea
+          placeholder='请输入内容'
+          autoSize={{minRows: 3, maxRows: 5}}
+        />
+      </DemoBlock>
       <DemoBlock title='字数统计'>
         <TextArea defaultValue={'北极星垂地，\n东山月满川。'} showCount />
       </DemoBlock>
