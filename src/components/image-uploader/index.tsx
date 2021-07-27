@@ -1,13 +1,13 @@
-import {PlusOutlined} from '@ant-design/icons'
-import React, {useRef} from 'react'
-import {isPromise} from '../../utils/validate'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {readFileContent, toArray} from './util'
+import { PlusOutlined } from '@ant-design/icons'
+import React from 'react'
+import { isPromise } from '../../utils/validate'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { readFileContent, toArray } from './util'
 
 type FileType = 'image' | 'video' | 'file'
 type FileStatus = 'loading' | 'error' | 'success' | ''
 
-interface FileItem {
+export interface FileItem {
   url?: string
   type?: FileType
   status?: FileStatus
@@ -42,6 +42,8 @@ interface Props {
 const classPrefix = `am-uploader`
 
 const defaultProps: Props = {
+  disabled: false,
+  showUpload: true,
   maxCount: Number.MAX_SAFE_INTEGER,
   maxSize: Number.MAX_SAFE_INTEGER,
   fileList: [],
@@ -49,12 +51,10 @@ const defaultProps: Props = {
 }
 
 const Uploader = withDefaultProps(defaultProps)<Props>(props => {
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  const {fileList = [], maxCount, maxSize} = props
+  const { fileList = [], maxCount, maxSize } = props
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    let {files} = e.target
+    let { files } = e.target
 
     if (!files?.length) return
 
@@ -90,7 +90,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
   }
 
   function readFile(files: File | File[]) {
-    const {maxCount, fileList, resultType} = props
+    const { maxCount, fileList, resultType } = props
 
     if (Array.isArray(files)) {
       const overCount = getOverCount(maxCount!, fileList!, files)
@@ -104,7 +104,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
         files.map(file => readFileContent(file, resultType as any))
       ).then((contents: any) => {
         const newFileList = files.map((file, index) => {
-          const result: FileItem = {file, status: '', content: ''}
+          const result: FileItem = { file, status: '', content: '' }
 
           if (contents[index]) {
             result.content = contents[index]
@@ -169,6 +169,8 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
     }
   }
 
+  const showUpload = props.showUpload && (maxCount && fileList.length <= maxCount)
+
   return (
     <div className={`${classPrefix}-container`}>
       {fileList.map((file, index) => {
@@ -178,21 +180,27 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
           </div>
         )
       })}
-      <span
-        className={`${classPrefix}-card ${classPrefix}-select-picture`}
-        role='button'
-      >
-        <span className={'addition'}>
-          {' '}
-          <PlusOutlined />
+
+      {
+        showUpload &&
+        <span
+          className={`${classPrefix}-card ${classPrefix}-select-picture`}
+          role='button'
+        >
+          <span className={'addition'}>
+            {' '}
+            <PlusOutlined />
+          </span>
+          {
+            !props.disabled &&
+            <input
+              type='file'
+              className={'file-input'}
+              onChange={onChange}
+            />
+          }
         </span>
-        <input
-          ref={inputRef}
-          type='file'
-          className={'file-input'}
-          onChange={onChange}
-        />
-      </span>
+      }
     </div>
   )
 })
