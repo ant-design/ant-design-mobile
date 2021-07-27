@@ -1,8 +1,8 @@
 import {PlusOutlined} from '@ant-design/icons'
-import React from 'react'
+import React, {useRef} from 'react'
 import {isPromise} from '../../utils/validate'
 import {withDefaultProps} from '../../utils/with-default-props'
-import {readFileContent, toArray, UploaderFileListItem} from './util'
+import {readFileContent, toArray} from './util'
 
 type FileType = 'image' | 'video' | 'file'
 type FileStatus = 'loading' | 'error' | 'success' | ''
@@ -20,10 +20,6 @@ type PromiseOrNot<T> = T | Promise<T>
 
 export type UploaderBeforeRead = (
   file: File | File[]
-  // detail: {
-  //   name: string | number
-  //   index: number
-  // }
 ) => PromiseOrNot<File | File[] | undefined>
 
 interface Props {
@@ -53,10 +49,11 @@ const defaultProps: Props = {
 }
 
 const Uploader = withDefaultProps(defaultProps)<Props>(props => {
+  const inputRef = useRef<HTMLInputElement>(null)
+
   const {fileList = [], maxCount, maxSize} = props
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    debugger
     let {files} = e.target
 
     if (!files?.length) return
@@ -70,14 +67,15 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
       if (!result) return
 
       if (isPromise(result)) {
-        result.then(data => {
-          if (data) {
-            readFile(data)
-          } else {
-            readFile(file)
-          }
-        })
-        // .catch(resetInput);
+        result
+          .then(data => {
+            if (data) {
+              readFile(data)
+            } else {
+              readFile(file)
+            }
+          })
+          .catch(console.log) // TODO
         return
       }
     }
@@ -173,11 +171,13 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
 
   return (
     <div className={`${classPrefix}-container`}>
-      <div className={`${classPrefix}-card`}>
-        {props.fileList?.map(file => {
-          return <img src={file.url || file.content} />
-        })}
-      </div>
+      {fileList.map((file, index) => {
+        return (
+          <div key={index} className={`${classPrefix}-card`}>
+            <img src={file.url || file.content} />
+          </div>
+        )
+      })}
       <span
         className={`${classPrefix}-card ${classPrefix}-select-picture`}
         role='button'
@@ -186,7 +186,12 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
           {' '}
           <PlusOutlined />
         </span>
-        <input type='file' className={'file-input'} onChange={onChange} />
+        <input
+          ref={inputRef}
+          type='file'
+          className={'file-input'}
+          onChange={onChange}
+        />
       </span>
     </div>
   )
