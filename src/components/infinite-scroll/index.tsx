@@ -18,6 +18,20 @@ export type InfiniteScrollProps = {
   threshold?: number
 } & ElementProps
 
+const InfiniteScrollContent = ({hasMore}: {hasMore: boolean}) => {
+  return (
+    <>
+      {hasMore ? (
+        <>
+          <span>加载中</span>
+          <Loading size='small' />
+        </>
+      ) : (
+        <span>没有更多了</span>
+      )}
+    </>
+  )
+}
 const InfiniteScroll = withDefaultProps({
   threshold: 250,
 })<InfiniteScrollProps>(props => {
@@ -60,21 +74,24 @@ const InfiniteScroll = withDefaultProps({
       parent.removeEventListener('scroll', onScroll)
     }
   }, [])
-
+  const childs = React.Children.toArray(props.children)
+  const hasChilds = childs.length > 0
+console.log(childs)
   return (
     <div
       className={classNames(classPrefix, props.className)}
       style={props.style}
       ref={elementRef}
     >
-      {props.hasMore ? (
-        <>
-          <span>加载中</span>
-          <Loading size='small' />
-        </>
-      ) : (
-        <span>没有更多了</span>
-      )}
+      {hasChilds &&
+        childs.map(child => {
+          if (!React.isValidElement(child)) return
+          return React.cloneElement(child, {
+            ...child.props,
+            hasMore: props.hasMore,
+          })
+        })}
+      {!hasChilds && <InfiniteScrollContent hasMore={props.hasMore} />}
     </div>
   )
 })
