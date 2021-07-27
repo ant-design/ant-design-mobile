@@ -17,6 +17,7 @@ module.exports = {
   },
   'plugins': ['@typescript-eslint'],
   'rules': {
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
@@ -24,6 +25,7 @@ module.exports = {
     '@typescript-eslint/camelcase': 'off',
     'react/prop-types': 'off',
     'react/jsx-no-target-blank': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
     'no-case-declarations': 'off',
     'no-prototype-builtins': 'off',

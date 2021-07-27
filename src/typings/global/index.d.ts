@@ -8,3 +8,8 @@ declare module '*.less' {
 declare module '*.png'
 
 declare module '*.svg'
+
+interface Window {
+  WebKitMutationObserver: MutationObserver;
+  MozMutationObserver: MutationObserver;
+}
