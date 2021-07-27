@@ -3,6 +3,7 @@ import React from 'react'
 import { isPromise } from '../../utils/validate'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { readFileContent, toArray } from './util'
+import ImageViewer from '../image-viewer'
 
 type FileType = 'image' | 'video' | 'file'
 type FileStatus = 'loading' | 'error' | 'success' | ''
@@ -32,6 +33,7 @@ interface Props {
   capture?: string[]
   maxSize?: number
   maxCount?: number
+  clickPreview?: (index: number) => void
   delete?: (index: number) => void
   onOversize?: (files: FileItem[]) => void // 超出文件大小之后的回调
   onOverCount?: (overCount: number) => void // 超过最大数量的回调，参数是超过的个数
@@ -51,7 +53,7 @@ const defaultProps: Props = {
 }
 
 const Uploader = withDefaultProps(defaultProps)<Props>(props => {
-  const { fileList = [], maxCount, maxSize } = props
+  const { fileList = [], maxCount, maxSize, clickPreview } = props
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     let { files } = e.target
@@ -132,6 +134,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
       })
     }
   }
+
   function onAfterRead(files: FileItem | FileItem[], oversize: boolean) {
     // this.resetInput();
     let validFiles = toArray(files)
@@ -169,13 +172,18 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
     }
   }
 
+  function previewImage(index: number) {
+    ImageViewer.Multi.show({ images: fileList.map(file => file.content!), defaultIndex: index })
+    clickPreview && clickPreview(index)
+  }
+
   const showUpload = props.showUpload && (maxCount && fileList.length <= maxCount)
 
   return (
     <div className={`${classPrefix}-container`}>
       {fileList.map((file, index) => {
         return (
-          <div key={index} className={`${classPrefix}-card`}>
+          <div key={index} className={`${classPrefix}-card`} onClick={() => previewImage(index)}>
             <img src={file.url || file.content} />
           </div>
         )
