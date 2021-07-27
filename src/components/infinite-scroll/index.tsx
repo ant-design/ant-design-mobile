@@ -76,7 +76,7 @@ const InfiniteScroll = withDefaultProps({
   }, [])
   const childs = React.Children.toArray(props.children)
   const hasChilds = childs.length > 0
-console.log(childs)
+
   return (
     <div
       className={classNames(classPrefix, props.className)}
