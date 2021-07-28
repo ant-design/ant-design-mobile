@@ -18,6 +18,20 @@ export type InfiniteScrollProps = {
   threshold?: number
 } & ElementProps
 
+const InfiniteScrollContent = ({hasMore}: {hasMore: boolean}) => {
+  return (
+    <>
+      {hasMore ? (
+        <>
+          <span>加载中</span>
+          <Loading size='small' />
+        </>
+      ) : (
+        <span>没有更多了</span>
+      )}
+    </>
+  )
+}
 const InfiniteScroll = withDefaultProps({
   threshold: 250,
 })<InfiniteScrollProps>(props => {
@@ -67,14 +81,8 @@ const InfiniteScroll = withDefaultProps({
       style={props.style}
       ref={elementRef}
     >
-      {props.hasMore ? (
-        <>
-          <span>加载中</span>
-          <Loading size='small' />
-        </>
-      ) : (
-        <span>没有更多了</span>
-      )}
+      {props.children && props.children}
+      {!props.children && <InfiniteScrollContent hasMore={props.hasMore} />}
     </div>
   )
 })
