@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import {TextArea} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import React, { useState } from 'react'
+import { TextArea } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 export default () => {
   const [value, setValue] = useState('')
@@ -21,7 +21,7 @@ export default () => {
       <DemoBlock title='根据内容自动调整高度'>
         <TextArea
           placeholder='请输入内容'
-          autoSize={{minRows: 3, maxRows: 5}}
+          autoSize={{ minRows: 3, maxRows: 5 }}
         />
       </DemoBlock>
       <DemoBlock title='字数统计'>

@@ -1,10 +1,10 @@
-import {useControllableValue} from 'ahooks'
+import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
-import React, {useMemo} from 'react'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
-import {ElementProps} from '../../utils/element-props'
-import {getTreeDeep} from '../../utils/tree'
-import {withDefaultProps} from '../../utils/with-default-props'
+import React, { useMemo } from 'react'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
+import { ElementProps } from '../../utils/element-props'
+import { getTreeDeep } from '../../utils/tree'
+import { withDefaultProps } from '../../utils/with-default-props'
 import Multiple from './multiple'
 
 const classPrefix = `am-cascader`
@@ -18,7 +18,7 @@ export type CascaderProps = {
   defaultValue?: string[]
   value?: string[]
   onChange?: (value: string[], nodes: CascaderOption[]) => void
-  fieldNames?: {label: string; value: string; children: string}
+  fieldNames?: { label: string; value: string; children: string }
 } & ElementProps
 
 const Cascader = withDefaultProps({
@@ -108,7 +108,7 @@ const Cascader = withDefaultProps({
         <div
           key={i}
           className={classNames(`${classPrefix}-column`)}
-          style={{width}}
+          style={{ width }}
         >
           {renderItems(
             i === 0

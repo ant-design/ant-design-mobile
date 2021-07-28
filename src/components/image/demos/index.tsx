@@ -1,5 +1,5 @@
-import {Image, Space} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Image, Space } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 const demoSrc =
   'https://images.unsplash.com/photo-1608559208454-7af8aaf4be49?ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8N3x8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60'
@@ -26,21 +26,21 @@ export default () => {
             width={64}
             height={64}
             fit='cover'
-            style={{borderRadius: 4}}
+            style={{ borderRadius: 4 }}
           />
           <Image
             src={demoSrc}
             width={64}
             height={64}
             fit='cover'
-            style={{borderRadius: 8}}
+            style={{ borderRadius: 8 }}
           />
           <Image
             src={demoSrc}
             width={64}
             height={64}
             fit='cover'
-            style={{borderRadius: 32}}
+            style={{ borderRadius: 32 }}
           />
         </Space>
       </DemoBlock>

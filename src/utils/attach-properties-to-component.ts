@@ -1,4 +1,4 @@
-import {ComponentType} from 'react'
+import { ComponentType } from 'react'
 
 export function attachPropertiesToComponent<
   C extends ComponentType,

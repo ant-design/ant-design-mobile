@@ -1,5 +1,5 @@
 import React from 'react'
-import {DatePicker, Toast} from 'antd-mobile'
+import { DatePicker, Toast } from 'antd-mobile'
 
 const now = new Date()
 

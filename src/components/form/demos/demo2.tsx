@@ -1,6 +1,6 @@
 import React from 'react'
-import {Form, Input, Button, Dialog, Checkbox, Space} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Form, Input, Button, Dialog, Checkbox, Space } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 export default () => {
   const [form] = Form.useForm()
@@ -40,7 +40,7 @@ export default () => {
             return prevValues.b !== curValues.b
           }}
         >
-          {({getFieldValue}) => {
+          {({ getFieldValue }) => {
             return JSON.stringify(getFieldValue('b'))
           }}
         </Form.Item>

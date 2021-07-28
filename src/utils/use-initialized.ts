@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import { useRef } from 'react'
 
 export function useInitialized(check?: boolean) {
   const initializedRef = useRef(check)

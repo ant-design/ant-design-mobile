@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import React from 'react'
-import {convertPx} from '../../utils/convert-px'
-import {ElementProps} from '../../utils/element-props'
-import {withDefaultProps} from '../../utils/with-default-props'
+import { convertPx } from '../../utils/convert-px'
+import { ElementProps } from '../../utils/element-props'
+import { withDefaultProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-badge`
 
@@ -16,7 +16,7 @@ const Badge = withDefaultProps({
   color: '#FF411C',
   offest: [0, 0],
 })<BadgeProps>(props => {
-  const {content, color, offest, children} = props
+  const { content, color, offest, children } = props
 
   const badgeStyle = children
     ? {

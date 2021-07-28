@@ -1,8 +1,8 @@
-import React, {ReactNode, ReactElement} from 'react'
+import React, { ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
-import {errorConfigRecord} from './error'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {ElementProps} from '../../utils/element-props'
+import { errorConfigRecord } from './error'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { ElementProps } from '../../utils/element-props'
 
 const classPrefix = `am-error`
 

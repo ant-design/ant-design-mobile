@@ -10,7 +10,7 @@ const webpackStream = require('webpack-stream')
 const webpack = require('webpack')
 const tsconfig = require('./tsconfig.json')
 
-const pxMultiplePlugin = require('postcss-px-multiple')({times: 2})
+const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
 
 gulp.task('less', function () {
   return gulp

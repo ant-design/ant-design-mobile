@@ -1,11 +1,11 @@
-import React, {FC, useContext} from 'react'
-import {ElementProps} from '../../utils/element-props'
+import React, { FC, useContext } from 'react'
+import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
-import {useControllableValue} from 'ahooks'
-import {CheckOutlined} from '@ant-design/icons'
-import {Group} from './group'
-import {RadioGroupContext} from './group-context'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
+import { useControllableValue } from 'ahooks'
+import { CheckOutlined } from '@ant-design/icons'
+import { Group } from './group'
+import { RadioGroupContext } from './group-context'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 
 const classPrefix = `am-radio`
 
@@ -29,7 +29,7 @@ const Radio: FC<RadioProps> = props => {
   })
   let disabled = props.disabled
 
-  const {value} = props
+  const { value } = props
   if (groupContext && value) {
     checked = groupContext.value.includes(value)
     setChecked = (checked: boolean) => {

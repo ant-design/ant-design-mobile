@@ -1,8 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
-import Step, {StepProps} from './step'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
+import Step, { StepProps } from './step'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 
 const classPrefix = `am-steps`
 const stepClassPrefix = `am-step`
@@ -22,7 +22,7 @@ const defaultProps = {
 }
 
 const Steps = withDefaultProps(defaultProps)<StepsProps>(props => {
-  const {direction, current} = props
+  const { direction, current } = props
   const classString = classNames(classPrefix, `${classPrefix}-${direction}`)
 
   return (

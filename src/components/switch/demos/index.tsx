@@ -1,12 +1,12 @@
 import React from 'react'
-import {Button, Space, Switch} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {useToggle} from 'ahooks'
+import { Button, Space, Switch } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { useToggle } from 'ahooks'
 import './index.less'
 
 export default () => {
-  const [loading, {toggle}] = useToggle(true)
-  const [checked, {toggle: toggleChecked}] = useToggle(false)
+  const [loading, { toggle }] = useToggle(true)
+  const [checked, { toggle: toggleChecked }] = useToggle(false)
   return (
     <>
       <DemoBlock title='基础用法(非受控)'>

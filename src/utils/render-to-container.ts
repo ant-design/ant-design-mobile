@@ -1,6 +1,6 @@
-import {createPortal} from 'react-dom'
-import {ReactElement} from 'react'
-import {resolveContainer} from './get-container'
+import { createPortal } from 'react-dom'
+import { ReactElement } from 'react'
+import { resolveContainer } from './get-container'
 
 export type GetContainer = HTMLElement | (() => HTMLElement) | null
 

@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import { useRef } from 'react'
 
 const MIN_DISTANCE = 10
 

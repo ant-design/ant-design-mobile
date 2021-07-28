@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom'
-import {ReactElement} from 'react'
+import { ReactElement } from 'react'
 
 export function renderToBody(element: ReactElement) {
   const container = document.createElement('div')

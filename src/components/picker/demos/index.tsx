@@ -1,7 +1,7 @@
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {Picker, Button, Space} from 'antd-mobile'
-import {useState, useEffect} from 'react'
-import {sleep} from 'antd-mobile/src/utils/sleep'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { Picker, Button, Space } from 'antd-mobile'
+import { useState, useEffect } from 'react'
+import { sleep } from 'antd-mobile/src/utils/sleep'
 
 const basicColumns = [
   ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],

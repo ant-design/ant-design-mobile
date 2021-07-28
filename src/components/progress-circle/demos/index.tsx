@@ -1,8 +1,8 @@
 import React from 'react'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 import styles from './index.less'
-import {ProgressCircle, Space} from 'antd-mobile'
-import {CloseOutlined} from '@ant-design/icons'
+import { ProgressCircle, Space } from 'antd-mobile'
+import { CloseOutlined } from '@ant-design/icons'
 
 export default () => {
   return (
@@ -39,7 +39,7 @@ export default () => {
       <DemoBlock title='自定义'>
         <Space size='24px'>
           <ProgressCircle percent={50} strokeColor='#FF3141'>
-            <CloseOutlined style={{color: '#FF3141', fontSize: '18px'}} />
+            <CloseOutlined style={{ color: '#FF3141', fontSize: '18px' }} />
           </ProgressCircle>
           <ProgressCircle percent={100} strokeColor='#00B578'>
             <span className={styles.success}>Done</span>

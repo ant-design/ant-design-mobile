@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
-import {Popover, Button, Toast} from 'antd-mobile'
-import {UploadOutlined, SafetyOutlined} from '@ant-design/icons'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import React, { useEffect, useState } from 'react'
+import { Popover, Button, Toast } from 'antd-mobile'
+import { UploadOutlined, SafetyOutlined } from '@ant-design/icons'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 const directionList = [
   `top`,
@@ -49,8 +49,8 @@ export default () => {
       </DemoBlock>
       <DemoBlock background='gray' title='带菜单的气泡'>
         <Popover.Menu
-          actions={[{text: '菜单1'}, {text: '菜单2', disabled: true}]}
-          onSelect={node => Toast.show({content: `选择了 ${node.text}`})}
+          actions={[{ text: '菜单1' }, { text: '菜单2', disabled: true }]}
+          onSelect={node => Toast.show({ content: `选择了 ${node.text}` })}
           placement={'bottomLeft'}
         >
           <Button>touch me</Button>
@@ -59,11 +59,11 @@ export default () => {
       <DemoBlock background='gray' title='带图标的菜单气泡'>
         <Popover.Menu
           actions={[
-            {text: '菜单1', icon: <UploadOutlined />},
-            {text: '菜单2', icon: <SafetyOutlined />},
+            { text: '菜单1', icon: <UploadOutlined /> },
+            { text: '菜单2', icon: <SafetyOutlined /> },
           ]}
           placement={'topRight'}
-          onSelect={node => Toast.show({content: `选择了 ${node.text}`})}
+          onSelect={node => Toast.show({ content: `选择了 ${node.text}` })}
         >
           <Button>touch me</Button>
         </Popover.Menu>

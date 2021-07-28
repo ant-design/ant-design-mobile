@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import {Slider, Toast} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import React, { useState } from 'react'
+import { Slider, Toast } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 export default () => {
   const marks = {

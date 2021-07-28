@@ -1,6 +1,6 @@
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {Radio, Space} from 'antd-mobile'
-import {useState} from 'react'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { Radio, Space } from 'antd-mobile'
+import { useState } from 'react'
 
 export default () => {
   const [value, setValue] = useState<string>()

@@ -1,8 +1,8 @@
-import React, {FC} from 'react'
-import {useControllableValue} from 'ahooks'
+import React, { FC } from 'react'
+import { useControllableValue } from 'ahooks'
 import classnames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
-import {withDefaultProps} from '../../utils/with-default-props'
+import { ElementProps } from '../../utils/element-props'
+import { withDefaultProps } from '../../utils/with-default-props'
 import EyeIcon from '../../assets/eye.svg'
 import EyeCloseIcon from '../../assets/eye-close.svg'
 
@@ -19,7 +19,7 @@ const classPrefix = `am-desens-text`
 const DesensText = withDefaultProps({
   defaultDesens: true,
 })<DesensTextProps>(props => {
-  const {text, desensText} = props
+  const { text, desensText } = props
 
   const [isDesens, setIsDesens] = useControllableValue<boolean>(props, {
     valuePropName: 'desens',

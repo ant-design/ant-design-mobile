@@ -1,12 +1,15 @@
 import classNames from 'classnames'
-import React, {useEffect, useState, useRef} from 'react'
-import {CSSTransition} from 'react-transition-group'
-import {ElementProps} from '../../utils/element-props'
-import {useInitialized} from '../../utils/use-initialized'
-import {withDefaultProps} from '../../utils/with-default-props'
+import React, { useEffect, useState, useRef } from 'react'
+import { CSSTransition } from 'react-transition-group'
+import { ElementProps } from '../../utils/element-props'
+import { useInitialized } from '../../utils/use-initialized'
+import { withDefaultProps } from '../../utils/with-default-props'
 import Mask from '../mask'
-import {useLockScroll} from '../../utils/use-lock-scroll'
-import {GetContainer, renderToContainer} from '../../utils/render-to-container'
+import { useLockScroll } from '../../utils/use-lock-scroll'
+import {
+  GetContainer,
+  renderToContainer,
+} from '../../utils/render-to-container'
 
 const classPrefix = `am-popup`
 

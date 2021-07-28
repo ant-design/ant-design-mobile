@@ -1,5 +1,5 @@
 import 'antd-mobile/lib/index.less'
-import {FC} from 'react'
+import { FC } from 'react'
 import styles from './index.less'
 
 interface Props {
@@ -14,7 +14,7 @@ export const DemoBlock: FC<Props> = props => {
       <div className={styles.title}>{props.title}</div>
       <div
         className={styles.content}
-        style={{padding: props.padding, background: props.background}}
+        style={{ padding: props.padding, background: props.background }}
       >
         {props.children}
       </div>

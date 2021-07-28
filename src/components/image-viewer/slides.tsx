@@ -1,9 +1,9 @@
-import React, {FC} from 'react'
-import {useDrag} from 'react-use-gesture'
-import {useSpring, animated} from '@react-spring/web'
-import {Slide} from './slide'
-import {convertPx} from '../../utils/convert-px'
-import {bound} from '../../utils/rubberband'
+import React, { FC } from 'react'
+import { useDrag } from 'react-use-gesture'
+import { useSpring, animated } from '@react-spring/web'
+import { Slide } from './slide'
+import { convertPx } from '../../utils/convert-px'
+import { bound } from '../../utils/rubberband'
 
 const classPrefix = `am-image-viewer`
 
@@ -16,9 +16,9 @@ export const Slides: FC<{
 }> = props => {
   const slideWidth = window.innerWidth + convertPx(16)
 
-  const [{x}, api] = useSpring(() => ({
+  const [{ x }, api] = useSpring(() => ({
     x: -props.defaultIndex * slideWidth,
-    config: {tension: 300},
+    config: { tension: 300 },
   }))
 
   const count = props.images.length
@@ -63,7 +63,7 @@ export const Slides: FC<{
           return `${index + 1} / ${count}`
         })}
       </animated.div>
-      <animated.div className={`${classPrefix}-slides-inner`} style={{x}}>
+      <animated.div className={`${classPrefix}-slides-inner`} style={{ x }}>
         {props.images.map(image => (
           <Slide
             key={image}

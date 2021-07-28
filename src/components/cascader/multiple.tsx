@@ -1,9 +1,9 @@
-import {useControllableValue} from 'ahooks'
+import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
-import React, {useMemo} from 'react'
-import {ElementProps} from '../../utils/element-props'
-import {getTreeDeep} from '../../utils/tree'
-import {withDefaultProps} from '../../utils/with-default-props'
+import React, { useMemo } from 'react'
+import { ElementProps } from '../../utils/element-props'
+import { getTreeDeep } from '../../utils/tree'
+import { withDefaultProps } from '../../utils/with-default-props'
 import Checkbox from '../checkbox'
 
 const classPrefix = `am-cascader-multiple`
@@ -20,7 +20,7 @@ export type MultipleProps = {
   onChange?: (value: string[], nodes: CascaderOption[]) => void
 
   selectAllText?: string[]
-  fieldNames?: {label: string; value: string; children: string}
+  fieldNames?: { label: string; value: string; children: string }
 
   expandKeys?: string[]
   defaultExpandKeys?: string[]
@@ -341,7 +341,7 @@ const Multiple = withDefaultProps({
         <div
           key={i}
           className={classNames(`${classPrefix}-column`)}
-          style={{width}}
+          style={{ width }}
         >
           {renderItems(
             i === 0

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Error} from 'antd-mobile'
+import { Button, Error } from 'antd-mobile'
 
 export default () => {
   return (

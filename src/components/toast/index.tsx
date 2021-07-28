@@ -1,12 +1,12 @@
-import React, {useEffect, useMemo, useState, useCallback} from 'react'
+import React, { useEffect, useMemo, useState, useCallback } from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
-import {CheckOutlined, CloseOutlined} from '@ant-design/icons'
-import {useUpdateEffect} from 'ahooks'
-import {noop} from '../../utils/noop'
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons'
+import { useUpdateEffect } from 'ahooks'
+import { noop } from '../../utils/noop'
 import Loading from '../loading'
 import Mask from '../mask'
-import {resolveContainer} from '../../utils/get-container'
+import { resolveContainer } from '../../utils/get-container'
 
 const classPrefix = `am-toast`
 
@@ -36,7 +36,7 @@ export interface ToastProps {
 const toastArray: (() => void)[] = []
 
 const InternalToast: React.FC<ToastProps> = props => {
-  const {maskClickable = true, content, icon = null, position} = props
+  const { maskClickable = true, content, icon = null, position } = props
   const top = useMemo(() => {
     switch (position) {
       case 'top':
@@ -63,7 +63,7 @@ const InternalToast: React.FC<ToastProps> = props => {
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
     >
       <div
-        style={{top}}
+        style={{ top }}
         className={classNames(
           `${classPrefix}-wrap`,
           icon ? `${classPrefix}-wrap-icon` : `${classPrefix}-wrap-text`
@@ -80,14 +80,14 @@ const InternalToast: React.FC<ToastProps> = props => {
 function show(props: ToastProps) {
   let updateConfig: React.Dispatch<React.SetStateAction<ToastProps>> = () => {}
   let timer = 0
-  const {afterClose = noop, getContainer = () => document.body} = props
+  const { afterClose = noop, getContainer = () => document.body } = props
   const container = document.createElement('div')
   const bodyContainer = resolveContainer(getContainer)
   bodyContainer.appendChild(container)
 
   const TempToast = () => {
     const [visible, setVisible] = useState(true)
-    const [state, setState] = useState({duration: 2000, ...props})
+    const [state, setState] = useState({ duration: 2000, ...props })
 
     // clearDOM after animation
     const _afterClose = () => {
@@ -112,8 +112,8 @@ function show(props: ToastProps) {
       nextState =>
         setState(prev =>
           typeof nextState === 'function'
-            ? {...prev, ...nextState(prev)}
-            : {...prev, ...nextState}
+            ? { ...prev, ...nextState(prev) }
+            : { ...prev, ...nextState }
         ),
       [setState]
     )

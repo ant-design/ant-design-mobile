@@ -1,11 +1,11 @@
-import React, {useMemo, useRef} from 'react'
-import {ElementProps} from '../../utils/element-props'
+import React, { useMemo, useRef } from 'react'
+import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
-import Marks, {SliderMarks} from './marks'
+import Marks, { SliderMarks } from './marks'
 import Thumb from './thumb'
-import {useControllableValue} from 'ahooks'
-import {withDefaultProps} from '../../utils/with-default-props'
+import { useControllableValue } from 'ahooks'
+import { withDefaultProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-slider`
 
@@ -35,7 +35,7 @@ const defaultProps = {
 }
 
 const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
-  const {min, max, disabled, marks, ticks, step} = props
+  const { min, max, disabled, marks, ticks, step } = props
 
   function sortValue(val: [number, number]): [number, number] {
     return val.sort((a, b) => a - b)

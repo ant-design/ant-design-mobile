@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {Button, ProgressBar, Space} from 'antd-mobile'
+import React, { useState } from 'react'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { Button, ProgressBar, Space } from 'antd-mobile'
 
 export default () => {
   const [percent, setPercent] = useState<number>(10)
@@ -15,7 +15,7 @@ export default () => {
               onClick={() => {
                 setPercent(pre => pre + 10)
               }}
-              style={{marginRight: '8px'}}
+              style={{ marginRight: '8px' }}
             >
               进度+10
             </Button>

@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, {FC, useEffect, useState} from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 const classPrefix = `am-water-mark`
 

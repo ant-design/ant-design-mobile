@@ -1,6 +1,6 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
+import { ElementProps } from '../../utils/element-props'
 
 const classPrefix = `am-space`
 
@@ -13,7 +13,7 @@ export type SpaceProps = {
 } & ElementProps
 
 const Space: FC<SpaceProps> = props => {
-  const {size = 'small', direction = 'horizontal'} = props
+  const { size = 'small', direction = 'horizontal' } = props
   const style: any = props.style ?? {}
   let sizeStyle: any
   if (props.size) {

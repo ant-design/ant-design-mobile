@@ -1,5 +1,5 @@
-import {Button, Mask} from 'antd-mobile'
-import React, {useState, FC} from 'react'
+import { Button, Mask } from 'antd-mobile'
+import React, { useState, FC } from 'react'
 import './demo1.less'
 
 const Simple: FC = () => {

@@ -1,10 +1,10 @@
-import React, {useState, useRef} from 'react'
+import React, { useState, useRef } from 'react'
 import classNames from 'classnames'
-import Input, {InputRef} from '../input'
-import {ElementProps} from '../../utils/element-props'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {SearchOutlined} from '@ant-design/icons'
-import {useControllableValue} from 'ahooks'
+import Input, { InputRef } from '../input'
+import { ElementProps } from '../../utils/element-props'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { SearchOutlined } from '@ant-design/icons'
+import { useControllableValue } from 'ahooks'
 
 const classPrefix = `am-search`
 

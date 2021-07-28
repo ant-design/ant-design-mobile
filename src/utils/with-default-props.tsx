@@ -1,4 +1,4 @@
-import {FC} from 'react'
+import { FC } from 'react'
 
 export function withDefaultProps<D>(defaultProps: D) {
   return function <P>(C: FC<P & typeof defaultProps>) {

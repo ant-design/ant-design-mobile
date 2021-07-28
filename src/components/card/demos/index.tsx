@@ -1,19 +1,19 @@
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {Card, Toast, Button} from 'antd-mobile'
-import {AntDesignOutlined, RightOutlined} from '@ant-design/icons'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { Card, Toast, Button } from 'antd-mobile'
+import { AntDesignOutlined, RightOutlined } from '@ant-design/icons'
 import styles from './index.less'
 
 export default () => {
   const onClick = () => {
-    Toast.show({content: `点击了卡片`})
+    Toast.show({ content: `点击了卡片` })
   }
 
   const onHeaderClick = () => {
-    Toast.show({content: `点击了卡片Header区域`})
+    Toast.show({ content: `点击了卡片Header区域` })
   }
 
   const onBodyClick = () => {
-    Toast.show({content: `点击了卡片Body区域`})
+    Toast.show({ content: `点击了卡片Body区域` })
   }
   return (
     <>
@@ -31,9 +31,9 @@ export default () => {
       <DemoBlock title='自定义卡片' background='gray'>
         <Card
           title={
-            <div style={{fontWeight: 'normal'}}>
+            <div style={{ fontWeight: 'normal' }}>
               <AntDesignOutlined
-                style={{marginRight: '4px', color: '#1677ff'}}
+                style={{ marginRight: '4px', color: '#1677ff' }}
               />
               卡片标题
             </div>
@@ -41,13 +41,13 @@ export default () => {
           extra={<RightOutlined />}
           onBodyClick={onBodyClick}
           onHeaderClick={onHeaderClick}
-          style={{borderRadius: '16px'}}
+          style={{ borderRadius: '16px' }}
         >
           <div className={styles.content}>卡片内容</div>
           <div className={styles.footer} onClick={e => e.stopPropagation()}>
             <Button
               color='primary'
-              onClick={() => Toast.show({content: `点击了底部按钮`})}
+              onClick={() => Toast.show({ content: `点击了底部按钮` })}
             >
               底部按钮
             </Button>

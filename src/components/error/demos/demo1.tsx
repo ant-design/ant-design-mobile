@@ -1,9 +1,9 @@
 import React from 'react'
-import {Button, Error} from 'antd-mobile'
-import {useToggle} from 'ahooks'
+import { Button, Error } from 'antd-mobile'
+import { useToggle } from 'ahooks'
 
 export default () => {
-  const [fullPage, {toggle}] = useToggle(false)
+  const [fullPage, { toggle }] = useToggle(false)
   return (
     <Error status='default' fullPage={fullPage}>
       <Button color='primary' onClick={() => toggle()}>

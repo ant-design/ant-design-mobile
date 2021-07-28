@@ -1,9 +1,9 @@
-import {withDefaultProps} from '../../utils/with-default-props'
-import React, {useEffect, useRef} from 'react'
-import {useLockFn, usePersistFn} from 'ahooks'
+import { withDefaultProps } from '../../utils/with-default-props'
+import React, { useEffect, useRef } from 'react'
+import { useLockFn, usePersistFn } from 'ahooks'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
-import {getScrollParent} from '../../utils/get-scroll-parent'
+import { ElementProps } from '../../utils/element-props'
+import { getScrollParent } from '../../utils/get-scroll-parent'
 import Loading from '../loading'
 
 function isWindow(element: any | Window): element is Window {
@@ -18,7 +18,7 @@ export type InfiniteScrollProps = {
   threshold?: number
 } & ElementProps
 
-const InfiniteScrollContent = ({hasMore}: {hasMore: boolean}) => {
+const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
   return (
     <>
       {hasMore ? (

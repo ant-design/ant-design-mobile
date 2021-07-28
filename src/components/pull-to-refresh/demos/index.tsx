@@ -1,6 +1,6 @@
-import {PullToRefresh, List} from 'antd-mobile'
-import {sleep} from 'antd-mobile/src/utils/sleep'
-import {useState} from 'react'
+import { PullToRefresh, List } from 'antd-mobile'
+import { sleep } from 'antd-mobile/src/utils/sleep'
+import { useState } from 'react'
 
 let current = 1
 
@@ -22,7 +22,7 @@ export default () => {
         setData([...getNextData(), ...data])
       }}
     >
-      <List style={{minHeight: '100vh'}}>
+      <List style={{ minHeight: '100vh' }}>
         {data.map(item => (
           <List.Item key={item}>{item}</List.Item>
         ))}

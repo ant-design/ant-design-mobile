@@ -1,12 +1,12 @@
-import React, {useState, useEffect, ReactNode, useMemo} from 'react'
-import Popup, {PopupProps} from '../popup'
-import {useControllableValue} from 'ahooks'
+import React, { useState, useEffect, ReactNode, useMemo } from 'react'
+import Popup, { PopupProps } from '../popup'
+import { useControllableValue } from 'ahooks'
 
-import {Column} from './column'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
-import {Cascader} from './cascader'
-import {ElementProps} from '../../utils/element-props'
+import { Column } from './column'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
+import { Cascader } from './cascader'
+import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 
 const classPrefix = `am-picker`

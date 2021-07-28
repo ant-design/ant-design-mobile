@@ -1,16 +1,19 @@
-import {withDefaultProps} from '../../utils/with-default-props'
-import {renderToContainer, GetContainer} from '../../utils/render-to-container'
+import { withDefaultProps } from '../../utils/with-default-props'
+import {
+  renderToContainer,
+  GetContainer,
+} from '../../utils/render-to-container'
 import Mask from '../mask'
-import {Slide} from './slide'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
-import {Slides} from './slides'
+import { Slide } from './slide'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
+import { Slides } from './slides'
 import React, {
   useState,
   forwardRef,
   useImperativeHandle,
   createRef,
 } from 'react'
-import {renderToBody} from '../../utils/render-to-body'
+import { renderToBody } from '../../utils/render-to-body'
 
 const classPrefix = `am-image-viewer`
 

@@ -1,6 +1,11 @@
-import React, {forwardRef, useEffect, useImperativeHandle, useRef} from 'react'
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 import classNames from 'classnames'
-import {useControllableValue} from 'ahooks'
+import { useControllableValue } from 'ahooks'
 
 const classPrefix = 'am-text-area'
 

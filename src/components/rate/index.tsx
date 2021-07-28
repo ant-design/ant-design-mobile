@@ -1,9 +1,9 @@
 import React from 'react'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {StarFilled} from '@ant-design/icons'
-import {useControllableValue} from 'ahooks'
+import { ElementProps } from '../../utils/element-props'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { StarFilled } from '@ant-design/icons'
+import { useControllableValue } from 'ahooks'
 
 const classPrefix = `am-rate`
 

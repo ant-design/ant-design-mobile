@@ -1,6 +1,6 @@
 import React from 'react'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {Empty} from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { Empty } from 'antd-mobile'
 
 export default () => {
   return (
@@ -13,8 +13,8 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='自定义样式' padding='0'>
         <Empty
-          style={{padding: '64px 0'}}
-          imageStyle={{width: 128}}
+          style={{ padding: '64px 0' }}
+          imageStyle={{ width: 128 }}
           description='暂无数据'
         />
       </DemoBlock>

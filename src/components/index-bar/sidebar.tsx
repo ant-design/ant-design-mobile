@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react'
+import React, { FC, useState } from 'react'
 import classNames from 'classnames'
 
 const classPrefix = `am-index-bar`
@@ -31,7 +31,7 @@ export const Sidebar: FC<SidebarProps> = props => {
       }}
       onTouchMove={e => {
         if (!interacting) return
-        const {clientX, clientY} = e.touches[0]
+        const { clientX, clientY } = e.touches[0]
         const target = document.elementFromPoint(
           clientX,
           clientY

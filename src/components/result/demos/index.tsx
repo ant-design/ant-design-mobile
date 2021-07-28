@@ -1,6 +1,6 @@
 import React from 'react'
-import {Result} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Result } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 import './index.less'
 
 export default () => {

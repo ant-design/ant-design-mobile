@@ -1,9 +1,9 @@
 import React from 'react'
-import {Circle as RCProgressCircle} from 'rc-progress'
+import { Circle as RCProgressCircle } from 'rc-progress'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {convertPx} from '../../utils/convert-px'
+import { ElementProps } from '../../utils/element-props'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { convertPx } from '../../utils/convert-px'
 
 const classPrefix = `am-progress`
 
@@ -19,7 +19,7 @@ const ProgressCircle = withDefaultProps({
   percent: 0,
   strokeColor: '#1677FF',
 })<ProgressCircleProps>(props => {
-  let {strokeWidth, size} = props
+  let { strokeWidth, size } = props
   if (strokeWidth === undefined) {
     strokeWidth = convertPx(6)
   }

@@ -1,5 +1,5 @@
-import {Grid} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Grid } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 import styles from './index.less'
 
 export default () => {

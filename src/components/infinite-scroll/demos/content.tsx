@@ -1,6 +1,6 @@
-import {InfiniteScroll, List, Loading} from 'antd-mobile'
-import {useState} from 'react'
-import {sleep} from 'antd-mobile/src/utils/sleep'
+import { InfiniteScroll, List, Loading } from 'antd-mobile'
+import { useState } from 'react'
+import { sleep } from 'antd-mobile/src/utils/sleep'
 
 let count = 0
 
@@ -31,7 +31,7 @@ async function mockRequest() {
   ]
 }
 
-const InfiniteScrollContent = ({hasMore}: {hasMore?: boolean}) => {
+const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
   return (
     <>
       {hasMore ? (

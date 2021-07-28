@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 
 const classPrefix = `am-step`
@@ -11,7 +11,7 @@ export interface StepProps {
 }
 
 const Step: FC<StepProps> = props => {
-  const {title, description, icon, status = 'wait'} = props
+  const { title, description, icon, status = 'wait' } = props
 
   return (
     <div

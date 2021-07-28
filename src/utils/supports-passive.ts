@@ -1,4 +1,4 @@
-import {inBrowser} from './in-browser'
+import { inBrowser } from './in-browser'
 
 export let supportsPassive = false
 

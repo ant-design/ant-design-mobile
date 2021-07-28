@@ -5,14 +5,14 @@ import React, {
   createRef,
   useEffect,
 } from 'react'
-import {ElementProps} from '../../utils/element-props'
-import {withDefaultProps} from '../../utils/with-default-props'
+import { ElementProps } from '../../utils/element-props'
+import { withDefaultProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import Popup from '../popup'
 import Button from '../button'
-import {GetContainer} from '../../utils/render-to-container'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
-import {renderToBody} from '../../utils/render-to-body'
+import { GetContainer } from '../../utils/render-to-container'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
+import { renderToBody } from '../../utils/render-to-body'
 
 const classPrefix = `am-action-sheet`
 

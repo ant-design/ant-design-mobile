@@ -1,5 +1,5 @@
-import {Cascader} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Cascader } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 import React from 'react'
 
 export default () => {
@@ -176,7 +176,7 @@ export default () => {
   return (
     <div>
       <DemoBlock title='单选' padding='0'>
-        <div style={{height: '180px'}}>
+        <div style={{ height: '180px' }}>
           <Cascader
             defaultValue={['A', 'A1', 'A12']}
             options={options3}
@@ -187,7 +187,7 @@ export default () => {
         </div>
       </DemoBlock>
       <DemoBlock title='两列单选' padding='0'>
-        <div style={{height: '180px'}}>
+        <div style={{ height: '180px' }}>
           <Cascader
             defaultValue={['A', 'A1']}
             options={options2}
@@ -198,7 +198,7 @@ export default () => {
         </div>
       </DemoBlock>
       <DemoBlock title='多选' padding='0'>
-        <div style={{height: '180px'}}>
+        <div style={{ height: '180px' }}>
           <Cascader.Multiple
             defaultValue={['A1']}
             defaultExpandKeys={['A', 'A1']}
@@ -210,7 +210,7 @@ export default () => {
         </div>
       </DemoBlock>
       <DemoBlock title='带全选的多选' padding='0'>
-        <div style={{height: '180px'}}>
+        <div style={{ height: '180px' }}>
           <Cascader.Multiple
             defaultValue={['A1']}
             defaultExpandKeys={['A', 'A1']}

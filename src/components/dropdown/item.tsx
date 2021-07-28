@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 
 const classPrefix = `am-dropdown-item`
 

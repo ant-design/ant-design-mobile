@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Dialog, Toast} from 'antd-mobile'
+import { Button, Dialog, Toast } from 'antd-mobile'
 import './index.less'
 
 export default () => {
@@ -65,7 +65,7 @@ export default () => {
                 return new Promise(res => {
                   setTimeout(() => {
                     res(true)
-                    Toast.success({content: '关闭成功'})
+                    Toast.success({ content: '关闭成功' })
                   }, 3000)
                 })
               },
@@ -85,7 +85,7 @@ export default () => {
                 return new Promise(res => {
                   setTimeout(() => {
                     res(false)
-                    Toast.fail({content: '提交失败'})
+                    Toast.fail({ content: '提交失败' })
                   }, 3000)
                 })
               },
@@ -112,7 +112,7 @@ export default () => {
               title: '异步方式调用 alert',
               content: 'then 的回调会在弹窗关闭时调用',
             }).then(() => {
-              Toast.show({content: '已关闭', position: 'bottom'})
+              Toast.show({ content: '已关闭', position: 'bottom' })
             })
           }
         >
@@ -124,7 +124,7 @@ export default () => {
             Dialog.confirm({
               title: '异步方式调用 confirm',
               content: (
-                <div style={{color: 'red'}}>
+                <div style={{ color: 'red' }}>
                   then 的回调函数会在确认时调用
                   <br />
                   catch 的回调函数会在取消时调用
@@ -132,9 +132,9 @@ export default () => {
               ),
             }).then(confirm => {
               if (confirm) {
-                Toast.show({content: '点击了确认', position: 'bottom'})
+                Toast.show({ content: '点击了确认', position: 'bottom' })
               } else {
-                Toast.show({content: '点击了取消', position: 'bottom'})
+                Toast.show({ content: '点击了取消', position: 'bottom' })
               }
             })
           }}

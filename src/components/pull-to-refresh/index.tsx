@@ -1,12 +1,12 @@
-import {withDefaultProps} from '../../utils/with-default-props'
-import {useSpring, animated} from '@react-spring/web'
-import {useDrag} from 'react-use-gesture'
-import {getScrollParent} from '../../utils/get-scroll-parent'
-import React, {useRef, ReactNode, useState} from 'react'
-import {supportsPassive} from '../../utils/supports-passive'
-import {convertPx} from '../../utils/convert-px'
-import {rubberbandIfOutOfBounds} from '../../utils/rubberband'
-import {sleep} from '../../utils/sleep'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { useSpring, animated } from '@react-spring/web'
+import { useDrag } from 'react-use-gesture'
+import { getScrollParent } from '../../utils/get-scroll-parent'
+import React, { useRef, ReactNode, useState } from 'react'
+import { supportsPassive } from '../../utils/supports-passive'
+import { convertPx } from '../../utils/convert-px'
+import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
+import { sleep } from '../../utils/sleep'
 
 const classPrefix = `am-pull-to-refresh`
 
@@ -45,7 +45,7 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
     const [status, setStatus] = useState<PullStatus>(PullStatus.idle)
 
     const [springStyles, api] = useSpring(() => ({
-      from: {height: 0},
+      from: { height: 0 },
       config: {
         tension: 300,
         friction: 30,
@@ -58,7 +58,7 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
     const pullingRef = useRef(false)
 
     async function doRefresh() {
-      api.start({height: headHeight})
+      api.start({ height: headHeight })
       setStatus(PullStatus.refreshing)
       setStatus(PullStatus.refreshing)
       try {
@@ -73,8 +73,8 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
       }
       api.start({
         to: async next => {
-          await next({height: 0})
-          await next({height: 0})
+          await next({ height: 0 })
+          await next({ height: 0 })
           setStatus(PullStatus.idle)
         },
       })
@@ -85,14 +85,14 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
         if (status === PullStatus.refreshing || status === PullStatus.complete)
           return
 
-        const {event} = state
+        const { event } = state
 
         if (state.last) {
           pullingRef.current = false
           if (status === PullStatus.thresholdMet) {
             doRefresh()
           } else {
-            api.start({height: 0})
+            api.start({ height: 0 })
           }
           return
         }
@@ -122,7 +122,7 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
           rubberbandIfOutOfBounds(y, 0, 0, headHeight * 5, 0.5),
           0
         )
-        api.start({height})
+        api.start({ height })
         setStatus(
           height > threshold ? PullStatus.thresholdMet : PullStatus.idle
         )
@@ -131,7 +131,7 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
         useTouch: true,
         axis: 'y',
         domTarget: elementRef,
-        eventOptions: supportsPassive ? {passive: false} : false,
+        eventOptions: supportsPassive ? { passive: false } : false,
       }
     )
 
@@ -140,7 +140,7 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
         <animated.div style={springStyles} className={`${classPrefix}-head`}>
           <div
             className={`${classPrefix}-head-content`}
-            style={{height: headHeight}}
+            style={{ height: headHeight }}
           >
             {status === PullStatus.idle && props.pullingText}
             {status === PullStatus.thresholdMet && props.releaseText}

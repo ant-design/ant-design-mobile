@@ -1,6 +1,6 @@
-import React, {memo} from 'react'
+import React, { memo } from 'react'
 import classNames from 'classnames'
-import {withDefaultProps} from '../../utils/with-default-props'
+import { withDefaultProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-loading`
 

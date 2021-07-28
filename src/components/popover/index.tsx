@@ -8,11 +8,11 @@ import React, {
   ReactElement,
 } from 'react'
 import Tooltip from 'rc-tooltip'
-import {useControllableValue} from 'ahooks'
+import { useControllableValue } from 'ahooks'
 import Button from '../button'
 import classNames from 'classnames'
-import type {TooltipProps} from 'rc-tooltip/lib/Tooltip'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
+import type { TooltipProps } from 'rc-tooltip/lib/Tooltip'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 
 const classPrefix = `am-popover`
 const enterClassName = 'entering'
@@ -43,7 +43,7 @@ export type Action = {
   [key: string]: any
 }
 
-type PopoverPropsWithContent = BasePopoverProps & {content: React.ReactNode}
+type PopoverPropsWithContent = BasePopoverProps & { content: React.ReactNode }
 type PopoverPropsWithActions<T> = BasePopoverProps & {
   actions: T[]
   onSelect?: (text: T) => void
@@ -57,7 +57,7 @@ type PopoverRef = {
 
 const Popover = forwardRef<PopoverRef, PopoverPropsWithContent>(
   (props, ref) => {
-    const {mode = 'light'} = props
+    const { mode = 'light' } = props
 
     const [visible, onVisibleChange] = useControllableValue(props, {
       valuePropName: 'visible',
@@ -121,7 +121,7 @@ const PopMenu = forwardRef<PopoverRef, PopoverPropsWithActions<Action>>(
 
     const onClick = useCallback(
       (e: Action) => {
-        const {onSelect} = props
+        const { onSelect } = props
         if (onSelect) {
           onSelect(e)
         }
@@ -180,7 +180,7 @@ const PopMenu = forwardRef<PopoverRef, PopoverPropsWithActions<Action>>(
     )
   }
 ) as <T extends Action = Action>(
-  props: PopoverPropsWithActions<T> & {ref?: Ref<PopoverRef>}
+  props: PopoverPropsWithActions<T> & { ref?: Ref<PopoverRef> }
 ) => ReactElement
 
 export default attachPropertiesToComponent(Popover, {

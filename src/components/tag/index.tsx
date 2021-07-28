@@ -1,6 +1,6 @@
 import React from 'react'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {ElementProps} from '../../utils/element-props'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 
 const classPrefix = `am-tag`

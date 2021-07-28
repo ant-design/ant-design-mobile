@@ -1,4 +1,4 @@
-import {inBrowser} from './in-browser'
+import { inBrowser } from './in-browser'
 
 type ScrollElement = HTMLElement | Window
 
@@ -22,7 +22,7 @@ export function getScrollParent(
   let node = el
 
   while (node && node !== root && isElement(node)) {
-    const {overflowY} = window.getComputedStyle(node)
+    const { overflowY } = window.getComputedStyle(node)
     if (overflowScrollReg.test(overflowY)) {
       return node
     }

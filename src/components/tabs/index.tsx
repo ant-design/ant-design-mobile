@@ -1,8 +1,8 @@
-import {FC, ReactNode, ReactElement, ComponentProps} from 'react'
+import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
-import {useControllableValue} from 'ahooks'
+import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
+import { ElementProps } from '../../utils/element-props'
 
 const classPrefix = `am-tabs`
 
@@ -57,7 +57,7 @@ const Tabs: FC<TabsProps> & {
           <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
             <div
               onClick={() => {
-                const {key} = pane
+                const { key } = pane
                 if (key === undefined || key === null) {
                   return
                 }
@@ -85,7 +85,7 @@ const Tabs: FC<TabsProps> & {
         }
         if (pane.props.forceRender) {
           return (
-            <div key={pane.key} style={{display: 'none'}}>
+            <div key={pane.key} style={{ display: 'none' }}>
               {pane.props.children}
             </div>
           )

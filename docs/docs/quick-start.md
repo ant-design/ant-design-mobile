@@ -25,5 +25,5 @@ import 'antd-mobile/lib/index@2x.css'
 接下来就可以正常地使用组件了，例如：
 
 ```js
-import {Button} from 'antd-mobile'
+import { Button } from 'antd-mobile'
 ```

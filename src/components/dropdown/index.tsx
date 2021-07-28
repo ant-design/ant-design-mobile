@@ -1,4 +1,4 @@
-import {useClickAway, useControllableValue} from 'ahooks'
+import { useClickAway, useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import React, {
   cloneElement,
@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react'
 import Popup from '../popup'
-import Item, {ItemProps} from './item'
+import Item, { ItemProps } from './item'
 
 const classPrefix = `am-dropdown`
 
@@ -55,7 +55,7 @@ const Dropdown: FC<DropdownProps> & {
     }
   }
 
-  const contents: {[key: string]: ReactNode} = {}
+  const contents: { [key: string]: ReactNode } = {}
   const navs = React.Children.map(props.children, child => {
     if (React.isValidElement(child)) {
       const childProps = {
@@ -89,7 +89,7 @@ const Dropdown: FC<DropdownProps> & {
         className={`${classPrefix}-popup`}
         maskClassName={`${classPrefix}-popup-mask`}
         bodyClassName={`${classPrefix}-popup-body`}
-        style={{top}}
+        style={{ top }}
         forceRender={props.forceRender}
       >
         <div ref={contentRef}>

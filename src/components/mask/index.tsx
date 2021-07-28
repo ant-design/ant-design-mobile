@@ -1,10 +1,10 @@
-import {ElementProps} from '../../utils/element-props'
-import {useInitialized} from '../../utils/use-initialized'
-import {disableBodyScroll, enableBodyScroll} from 'body-scroll-lock'
+import { ElementProps } from '../../utils/element-props'
+import { useInitialized } from '../../utils/use-initialized'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import classNames from 'classnames'
-import React, {useEffect, useRef} from 'react'
-import {createPortal} from 'react-dom'
-import {CSSTransition} from 'react-transition-group'
+import React, { useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
+import { CSSTransition } from 'react-transition-group'
 
 const classPrefix = `am-mask`
 

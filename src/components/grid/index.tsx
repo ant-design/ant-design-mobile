@@ -1,7 +1,7 @@
-import {withDefaultProps} from '../../utils/with-default-props'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import React from 'react'
-import {ElementProps} from '../../utils/element-props'
+import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 
 const classPrefix = `am-grid`
@@ -23,7 +23,7 @@ const Grid = withDefaultProps(defaultProps)<GridProps>(props => {
       ...props.style,
     }
   }
-  const {gap} = props
+  const { gap } = props
   if (gap) {
     const [horizontalGap, verticalGap] = Array.isArray(gap) ? gap : [gap, gap]
     gapStyle = {

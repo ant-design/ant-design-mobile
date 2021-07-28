@@ -1,8 +1,8 @@
-import {useControllableValue} from 'ahooks'
+import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import SpinIcon from '../../assets/spin.svg'
-import {ElementProps} from '../../utils/element-props'
+import { ElementProps } from '../../utils/element-props'
 
 const classPrefix = `am-switch`
 

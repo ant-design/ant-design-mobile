@@ -1,7 +1,7 @@
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 import styles from './index.less'
-import {Badge, Space} from 'antd-mobile'
-import {CloseOutlined, ExclamationOutlined} from '@ant-design/icons'
+import { Badge, Space } from 'antd-mobile'
+import { CloseOutlined, ExclamationOutlined } from '@ant-design/icons'
 
 export default () => {
   return (

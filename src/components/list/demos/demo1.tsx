@@ -1,4 +1,4 @@
-import {List} from 'antd-mobile'
+import { List } from 'antd-mobile'
 import React from 'react'
 import './demo1.less'
 
@@ -27,7 +27,7 @@ export default () => {
         </List.Item>
         <List.Item title='这里是标题'>这里是主信息</List.Item>
       </List>
-      <div style={{background: '#eee', padding: '8px 0', marginTop: 24}}>
+      <div style={{ background: '#eee', padding: '8px 0', marginTop: 24 }}>
         <List mode='card'>
           <List.Item title='这里是标题'>这里是主信息</List.Item>
           <List.Item title='这里是标题'>这里是主信息</List.Item>
