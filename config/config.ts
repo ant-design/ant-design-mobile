@@ -34,6 +34,10 @@ export default {
         title: '快速上手',
         path: '/guide/quick-start',
       },
+      {
+        title: 'FAQ',
+        path: '/guide/faq',
+      },
     ],
     '/components': [
       {
