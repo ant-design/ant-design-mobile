@@ -11,6 +11,8 @@ hero:
 footer: Open-source MIT Licensed | Copyright © 2016-present Alipay.com<br />Powered by [dumi](https://d.umijs.org)
 ---
 
+> 如果你想使用旧版本的 antd-mobile，可以点击这些链接：[v2 文档](https://mobile.ant.design)、[v3 alpha 文档](https://antd-mobile-v3.surge.sh)。
+
 ![npm (tag)](https://img.shields.io/npm/v/antd-mobile/alpha)
 &nbsp;
 ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ant-design/ant-design-mobile)
