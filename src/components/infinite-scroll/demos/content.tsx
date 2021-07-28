@@ -36,8 +36,8 @@ const InfiniteScrollContent = ({hasMore}: {hasMore?: boolean}) => {
     <>
       {hasMore ? (
         <>
+          <span>Loading</span>
           <Loading size='small' />
-          <span>Loading...</span>
         </>
       ) : (
         <span>--- 我是有底线的 ---</span>
@@ -62,7 +62,7 @@ export default () => {
         ))}
       </List>
       <InfiniteScroll loadMore={loadMore} hasMore={hasMore}>
-        <InfiniteScrollContent />
+        <InfiniteScrollContent hasMore={hasMore} />
       </InfiniteScroll>
     </>
   )

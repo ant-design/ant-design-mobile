@@ -74,8 +74,6 @@ const InfiniteScroll = withDefaultProps({
       parent.removeEventListener('scroll', onScroll)
     }
   }, [])
-  const childs = React.Children.toArray(props.children)
-  const hasChilds = childs.length > 0
 
   return (
     <div
@@ -83,15 +81,8 @@ const InfiniteScroll = withDefaultProps({
       style={props.style}
       ref={elementRef}
     >
-      {hasChilds &&
-        childs.map(child => {
-          if (!React.isValidElement(child)) return
-          return React.cloneElement(child, {
-            ...child.props,
-            hasMore: props.hasMore,
-          })
-        })}
-      {!hasChilds && <InfiniteScrollContent hasMore={props.hasMore} />}
+      {props.children && props.children}
+      {!props.children && <InfiniteScrollContent hasMore={props.hasMore} />}
     </div>
   )
 })
