@@ -22,6 +22,6 @@
     "strictNullChecks": true,
     "noImplicitAny": true
   },
-  "include": ["src"],
+  "include": ["src", ".dumi/theme"],
   "exclude": ["node_modules", "lib", "es", "dist"]
 }

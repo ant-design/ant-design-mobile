@@ -1,6 +1,6 @@
 # Button 按钮
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 
@@ -15,3 +15,5 @@
 | loadingText | 加载状态下额外展示的文字     | string                                                           | -         |
 | onClick     | 点击事件                     | (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void | -         |
 | type        | 原生 button 元素的 type 属性 | 'submit' \| 'reset' \| 'button'                                  | -         |
+
+<SupportsNativeAttributes>Button</SupportsNativeAttributes>

@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
 import Loading from '../loading'
+import { getNativeAttributes } from '../../utils/get-native-attributes'
 
 const classPrefix = `am-button`
 
@@ -22,6 +23,7 @@ const Button: FC<ButtonProps> = props => {
   const disabled = props.disabled || props.loading
   return (
     <button
+      {...getNativeAttributes(props)}
       type={props.type}
       onClick={props.onClick}
       className={classNames(

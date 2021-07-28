@@ -3,6 +3,7 @@ import React from 'react'
 import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
+import { getNativeAttributes } from '../../utils/get-native-attributes'
 
 const classPrefix = `am-tabs`
 
@@ -49,12 +50,17 @@ const Tabs: FC<TabsProps> & {
 
   return (
     <div
+      {...getNativeAttributes(props)}
       className={classNames(classPrefix, props.className)}
       style={props.style}
     >
       <div className={`${classPrefix}-tab-list`}>
         {panes.map(pane => (
-          <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
+          <div
+            key={pane.key}
+            {...getNativeAttributes(props)}
+            className={`${classPrefix}-tab-wrapper`}
+          >
             <div
               onClick={() => {
                 const { key } = pane
