@@ -34,6 +34,7 @@ export default () => {
     <>
       <DemoBlock title='基础用法'>
         <ImageUplader
+          deletable={false}
           fileList={fileList}
           onAfterRead={onAfterRead}
           disabled={disabled}

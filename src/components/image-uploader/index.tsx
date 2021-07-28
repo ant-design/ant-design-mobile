@@ -1,4 +1,4 @@
-import { PlusOutlined } from '@ant-design/icons'
+import { CloseOutlined, PlusOutlined } from '@ant-design/icons'
 import React from 'react'
 import { isPromise } from '../../utils/validate'
 import { withDefaultProps } from '../../utils/with-default-props'
@@ -30,11 +30,11 @@ interface Props {
   resultType?: string
   showUpload?: boolean // 是否展示文件上传按钮
   deletable?: boolean // 是否展示删除按钮
-  capture?: string[]
+  capture?: string
   maxSize?: number
   maxCount?: number
-  clickPreview?: (index: number) => void
-  delete?: (index: number) => void
+  onPreview?: (index: number) => void
+  onDelete?: (index: number) => void
   onOversize?: (files: FileItem[]) => void // 超出文件大小之后的回调
   onOverCount?: (overCount: number) => void // 超过最大数量的回调，参数是超过的个数
   onBeforeRead?: UploaderBeforeRead
@@ -45,15 +45,17 @@ const classPrefix = `am-uploader`
 
 const defaultProps: Props = {
   disabled: false,
+  deletable: true,
   showUpload: true,
   maxCount: Number.MAX_SAFE_INTEGER,
   maxSize: Number.MAX_SAFE_INTEGER,
   fileList: [],
+  capture: '',
   resultType: 'dataUrl',
 }
 
 const Uploader = withDefaultProps(defaultProps)<Props>(props => {
-  const { fileList = [], maxCount, maxSize, clickPreview } = props
+  const { fileList = [], maxCount, maxSize, onPreview, onDelete, deletable, capture } = props
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     let { files } = e.target
@@ -174,7 +176,11 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
 
   function previewImage(index: number) {
     ImageViewer.Multi.show({ images: fileList.map(file => file.content!), defaultIndex: index })
-    clickPreview && clickPreview(index)
+    onPreview && onPreview(index)
+  }
+
+  function deteleImage(index: number) {
+    onDelete && onDelete(index)
   }
 
   const showUpload = props.showUpload && (maxCount && fileList.length <= maxCount)
@@ -183,8 +189,14 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
     <div className={`${classPrefix}-container`}>
       {fileList.map((file, index) => {
         return (
-          <div key={index} className={`${classPrefix}-card`} onClick={() => previewImage(index)}>
-            <img src={file.url || file.content} />
+          <div key={index} className={`${classPrefix}-card`}>
+            <img src={file.url || file.content} onClick={() => previewImage(index)} />
+            {
+              deletable &&
+              <span className={`${classPrefix}-card-delete`} onClick={() => deteleImage(index)}>
+                <CloseOutlined style={{ position: 'absolute', left: 4, top: 3 }} />
+              </span>
+            }
           </div>
         )
       })}
@@ -202,6 +214,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
           {
             !props.disabled &&
             <input
+              capture={capture}
               type='file'
               className={'file-input'}
               onChange={onChange}

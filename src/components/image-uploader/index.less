@@ -10,12 +10,25 @@
     flex-wrap: wrap;
   }
   &-card {
+    position: relative;
     width: @uploader-width;
     height: @uploader-height;
     margin-right: @uploader-space;
     margin-bottom: @uploader-space;
     border-radius: 4px;
     overflow: hidden;
+
+    &-delete {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 14px;
+      height: 14px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 0 0 0 12px;
+      font-size: 8px;
+      color: #fff;
+    }
 
     img {
       width: @uploader-width;
