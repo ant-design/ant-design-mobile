@@ -1,4 +1,9 @@
-import React, { FC, useRef } from 'react'
+import React, {
+  forwardRef,
+  ReactNode,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { useDrag } from 'react-use-gesture'
@@ -8,98 +13,128 @@ import { nearest } from '../../utils/nearest'
 
 export type FloatingPanelProps = {
   anchors: number[]
+  children: ReactNode
 } & ElementProps<{
   '--border-radius': string
 }>
 
-const FloatingPanel: FC<FloatingPanelProps> = props => {
-  const { anchors } = props
-  const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
+export type FloatingPanelRef = {
+  setHeight: (
+    height: number,
+    options?: {
+      immediate?: boolean
+    }
+  ) => void
+}
 
-  const possibles = anchors.map(x => -x)
+const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
+  (props, ref) => {
+    const { anchors } = props
+    const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
 
-  const elementRef = useRef<HTMLDivElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
-  const pullingRef = useRef(false)
+    const possibles = anchors.map(x => -x)
 
-  const [{ y }, api] = useSpring(() => ({
-    y: possibles[0],
-    config: { tension: 300 },
-  }))
+    const elementRef = useRef<HTMLDivElement>(null)
+    const headerRef = useRef<HTMLDivElement>(null)
+    const contentRef = useRef<HTMLDivElement>(null)
+    const pullingRef = useRef(false)
 
-  const bounds = {
-    top: possibles[possibles.length - 1],
-    bottom: possibles[0],
-  }
+    const bounds = {
+      top: possibles[possibles.length - 1],
+      bottom: possibles[0],
+    }
 
-  useDrag(
-    state => {
-      const [_, movementY] = state.movement
+    const [{ y }, api] = useSpring(() => ({
+      y: bounds.bottom,
+      config: { tension: 300 },
+    }))
 
-      if (state.first) {
-        const target = state.event.target as Element
-        const header = headerRef.current
-        if (header === target || header?.contains(target)) {
-          pullingRef.current = true
-        } else {
-          const reachedTop = y.get() <= bounds.top
-          const content = contentRef.current
-          if (!content) return
-          if (reachedTop) {
-            if (content.scrollTop <= 0 && state.vxvy[1] > 0) {
+    useDrag(
+      state => {
+        const [_, movementY] = state.movement
+
+        if (state.first) {
+          const target = state.event.target as Element
+          const header = headerRef.current
+          if (header === target || header?.contains(target)) {
+            pullingRef.current = true
+          } else {
+            const reachedTop = y.get() <= bounds.top
+            const content = contentRef.current
+            if (!content) return
+            if (reachedTop) {
+              if (content.scrollTop <= 0 && state.vxvy[1] > 0) {
+                pullingRef.current = true
+              }
+            } else {
               pullingRef.current = true
             }
-          } else {
-            pullingRef.current = true
           }
         }
-      }
-      if (!pullingRef.current) return
-      const { event } = state
-      if (event.cancelable) {
-        event.preventDefault()
-      }
-      event.stopPropagation()
+        if (!pullingRef.current) return
+        const { event } = state
+        if (event.cancelable) {
+          event.preventDefault()
+        }
+        event.stopPropagation()
 
-      let nextY = movementY
-      if (state.last) {
-        pullingRef.current = false
-        nextY = nearest(possibles, movementY)
+        let nextY = movementY
+        if (state.last) {
+          pullingRef.current = false
+          nextY = nearest(possibles, movementY)
+        }
+        api.start({
+          y: nextY,
+        })
+      },
+      {
+        axis: 'y',
+        bounds,
+        rubberband: true,
+        initial: () => [0, y.get()],
+        useTouch: true,
+        domTarget: elementRef,
+        eventOptions: supportsPassive ? { passive: false } : false,
       }
-      api.start({
-        y: nextY,
-      })
-    },
-    {
-      axis: 'y',
-      bounds,
-      rubberband: true,
-      initial: () => [0, y.get()],
-      useTouch: true,
-      domTarget: elementRef,
-      eventOptions: supportsPassive ? { passive: false } : false,
-    }
-  )
+    )
 
-  return (
-    <animated.div
-      ref={elementRef}
-      className={classNames('am-drawer', props.className)}
-      style={{
-        ...props.style,
-        height: maxHeight,
-        y,
-      }}
-    >
-      <div className='am-drawer-header' ref={headerRef}>
-        <div className='am-drawer-bar' />
-      </div>
-      <div className='am-drawer-content' ref={contentRef}>
-        {props.children}
-      </div>
-    </animated.div>
-  )
-}
+    useImperativeHandle(
+      ref,
+      () => ({
+        setHeight: (
+          height: number,
+          options?: {
+            immediate?: boolean
+          }
+        ) => {
+          api.start({
+            y: -height,
+            immediate: options?.immediate,
+          })
+        },
+      }),
+      [api]
+    )
+
+    return (
+      <animated.div
+        ref={elementRef}
+        className={classNames('am-drawer', props.className)}
+        style={{
+          ...props.style,
+          height: maxHeight,
+          y,
+        }}
+      >
+        <div className='am-drawer-header' ref={headerRef}>
+          <div className='am-drawer-bar' />
+        </div>
+        <div className='am-drawer-content' ref={contentRef}>
+          {props.children}
+        </div>
+      </animated.div>
+    )
+  }
+)
 
 export default FloatingPanel
