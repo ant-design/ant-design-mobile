@@ -20,11 +20,11 @@ const data = [
   'Q',
 ]
 
-const thresholds = [100, window.innerHeight * 0.4, window.innerHeight * 0.8]
+const anchors = [100, window.innerHeight * 0.4, window.innerHeight * 0.8]
 
 export default () => {
   return (
-    <FloatingPanel thresholds={thresholds}>
+    <FloatingPanel anchors={anchors}>
       <List>
         {data.map((item, index) => (
           <List.Item key={index}>{item}</List.Item>

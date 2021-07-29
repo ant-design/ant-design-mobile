@@ -6,17 +6,16 @@ import { useSpring, animated } from '@react-spring/web'
 import { supportsPassive } from '../../utils/supports-passive'
 
 export type FloatingPanelProps = {
-  thresholds: number[]
+  anchors: number[]
 } & ElementProps<{
   '--border-radius': string
 }>
 
 const FloatingPanel: FC<FloatingPanelProps> = props => {
-  const { thresholds } = props
-  const maxHeight = thresholds[thresholds.length - 1] ?? window.innerHeight
-  const minHeight = thresholds[0] ?? 0
+  const { anchors } = props
+  const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
 
-  const possibles = thresholds.map(x => -x)
+  const possibles = anchors.map(x => -x)
 
   const elementRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
@@ -28,6 +27,11 @@ const FloatingPanel: FC<FloatingPanelProps> = props => {
     config: { tension: 300 },
   }))
 
+  const bounds = {
+    top: possibles[possibles.length - 1],
+    bottom: possibles[0],
+  }
+
   useDrag(
     state => {
       const [_, movementY] = state.movement
@@ -38,7 +42,7 @@ const FloatingPanel: FC<FloatingPanelProps> = props => {
         if (header === target || header?.contains(target)) {
           pullingRef.current = true
         } else {
-          const reachedTop = y.get() <= possibles[possibles.length - 1]
+          const reachedTop = y.get() <= bounds.top
           const content = contentRef.current
           if (!content) return
           if (reachedTop) {
@@ -52,7 +56,7 @@ const FloatingPanel: FC<FloatingPanelProps> = props => {
       }
       if (!pullingRef.current) return
       const { event } = state
-      if (typeof event.cancelable !== 'boolean' || event.cancelable) {
+      if (event.cancelable) {
         event.preventDefault()
       }
       event.stopPropagation()
@@ -72,10 +76,7 @@ const FloatingPanel: FC<FloatingPanelProps> = props => {
     },
     {
       axis: 'y',
-      bounds: {
-        top: possibles[possibles.length - 1],
-        bottom: possibles[0],
-      },
+      bounds,
       rubberband: true,
       initial: () => [0, y.get()],
       useTouch: true,
