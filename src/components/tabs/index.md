@@ -19,7 +19,7 @@
 | 属性        | 说明                      | 类型      | 默认值 |
 | ----------- | ------------------------- | --------- | ------ |
 | key         | 对应 activeKey            | string    | -      |
-| tab         | 选项卡头显示文字          | ReactNode | -      |
+| title       | 选项卡头显示文字          | ReactNode | -      |
 | forceRender | 被隐藏时是否渲染 DOM 结构 | boolean   | false  |
 
 <SupportsNativeAttributes>Tabs.TabPane</SupportsNativeAttributes>

@@ -37,3 +37,7 @@ $ yarn add antd-mobile-alpha@npm:antd-mobile@alpha
 import { Button } from 'antd-mobile' // v2
 import { Button } from 'antd-mobile-alpha' // v5
 ```
+
+## 构建时报错 `Can't resolve 'antd-mobile/es/xxx/style'` 怎么解决？
+
+关闭 `babel-plugin-import` 即可，antd-mobile v5 是基于 Tree Shaking 做的按需加载，暂时还不支持`babel-plugin-import`。
