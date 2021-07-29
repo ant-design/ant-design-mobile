@@ -24,7 +24,7 @@ type FloatingPanelRef = {
 ```
 
 ```jsx
-;<FloatingPanel ref={ref}>...</FloatingPanel>
+<FloatingPanel ref={ref}>...</FloatingPanel>
 
 ref.current.setHeight(100)
 ```
