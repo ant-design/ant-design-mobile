@@ -3,7 +3,7 @@
     "rootDir": "src",
     "target": "esnext",
     "moduleResolution": "node",
-    "jsx": "preserve",
+    "jsx": "react",
     "allowJs": true,
     "declaration": false,
     "esModuleInterop": true,
@@ -23,5 +23,12 @@
     "noImplicitAny": true
   },
   "include": ["src", ".dumi/theme"],
-  "exclude": ["node_modules", "lib", "es", "dist"]
+  "exclude": ["node_modules", "lib", "es", "dist"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+      "resolveJsonModule": true,
+      "noImplicitAny": false
+    }
+  }
 }
