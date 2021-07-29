@@ -58,7 +58,7 @@ const Tabs: FC<TabsProps> & {
         {panes.map(pane => (
           <div
             key={pane.key}
-            {...getNativeAttributes(props)}
+            {...getNativeAttributes(pane.props)}
             className={`${classPrefix}-tab-wrapper`}
           >
             <div
