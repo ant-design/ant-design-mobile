@@ -18,7 +18,7 @@ export default {
       path: 'https://github.com/ant-design/ant-design-mobile/releases',
     },
     {
-      title: 'GitHUb',
+      title: 'GitHub',
       path: 'https://github.com/ant-design/ant-design-mobile',
     },
   ],
