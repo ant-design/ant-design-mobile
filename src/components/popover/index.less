@@ -116,22 +116,25 @@
 
     &-menu {
       min-width: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       &-with-icon {
         min-width: 140px;
       }
       &-icon {
         margin-right: 12px;
-        font-size: 22px;
-        height: 22px;
+        font-size: 20px;
         line-height: 1;
+        vertical-align: -0.075em;
       }
       cursor: pointer;
       border-bottom: 1px solid #e8e8e8;
 
       & button {
         border-radius: 0;
-        justify-content: flex-start;
-        padding: 10px;
+        padding: 10px 12px;
+        text-align: left;
       }
     }
   }
