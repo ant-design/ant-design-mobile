@@ -6,6 +6,7 @@ import Marks, { SliderMarks } from './marks'
 import Thumb from './thumb'
 import { useControllableValue } from 'ahooks'
 import { withDefaultProps } from '../../utils/with-default-props'
+import { nearest } from '../../utils/nearest'
 
 const classPrefix = `am-slider`
 
@@ -92,11 +93,7 @@ const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
 
     // 显示了刻度点，就只能移动到点上
     if (pointList.length) {
-      value = pointList.reduce((pre, cur) => {
-        return Math.abs(pre - newPosition) > Math.abs(cur - newPosition)
-          ? cur
-          : pre
-      })
+      value = nearest(pointList, newPosition)
     } else {
       const lengthPerStep = 100 / ((max - min) / step!)
       const steps = Math.round(newPosition / lengthPerStep)
