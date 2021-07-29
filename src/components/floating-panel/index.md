@@ -1,4 +1,4 @@
-# Drawer 抽屉
+# FloatingPanel 抽屉
 
 <code src="./demos/index.tsx"></code>
 

@@ -1,4 +1,4 @@
-import { Drawer, List } from 'antd-mobile'
+import { FloatingPanel, List } from 'antd-mobile'
 
 const data = [
   'A',
@@ -24,12 +24,12 @@ const thresholds = [100, window.innerHeight * 0.4, window.innerHeight * 0.8]
 
 export default () => {
   return (
-    <Drawer thresholds={thresholds}>
+    <FloatingPanel thresholds={thresholds}>
       <List>
         {data.map((item, index) => (
           <List.Item key={index}>{item}</List.Item>
         ))}
       </List>
-    </Drawer>
+    </FloatingPanel>
   )
 }

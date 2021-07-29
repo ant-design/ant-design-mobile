@@ -5,13 +5,13 @@ import { useDrag } from 'react-use-gesture'
 import { useSpring, animated } from '@react-spring/web'
 import { supportsPassive } from '../../utils/supports-passive'
 
-export type DrawerProps = {
+export type FloatingPanelProps = {
   thresholds: number[]
 } & ElementProps<{
   '--border-radius': string
 }>
 
-const Drawer: FC<DrawerProps> = props => {
+const FloatingPanel: FC<FloatingPanelProps> = props => {
   const { thresholds } = props
   const maxHeight = thresholds[thresholds.length - 1] ?? window.innerHeight
   const minHeight = thresholds[0] ?? 0
@@ -104,4 +104,4 @@ const Drawer: FC<DrawerProps> = props => {
   )
 }
 
-export default Drawer
+export default FloatingPanel

@@ -107,7 +107,7 @@ export default {
           '/components/popup',
           '/components/tab-bar',
           '/components/divider',
-          '/components/drawer',
+          '/components/floating-panel',
         ],
       },
     ],
