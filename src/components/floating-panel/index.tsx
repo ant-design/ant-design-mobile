@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { useDrag } from 'react-use-gesture'
 import { useSpring, animated } from '@react-spring/web'
 import { supportsPassive } from '../../utils/supports-passive'
+import { nearest } from '../../utils/nearest'
 
 export type FloatingPanelProps = {
   anchors: number[]
@@ -64,11 +65,7 @@ const FloatingPanel: FC<FloatingPanelProps> = props => {
       let nextY = movementY
       if (state.last) {
         pullingRef.current = false
-        nextY = possibles.reduce((pre, cur) => {
-          return Math.abs(pre - movementY) > Math.abs(cur - movementY)
-            ? cur
-            : pre
-        })
+        nextY = nearest(possibles, movementY)
       }
       api.start({
         y: nextY,
