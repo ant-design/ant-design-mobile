@@ -1,0 +1,43 @@
+.am-drawer {
+  --border-radius: 8px;
+  --header-height: 28px;
+
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  background: var(--color-white);
+  position: fixed;
+  top: 100vh;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -100vh;
+    height: 100vh;
+    width: 100vw;
+    background: var(--color-white);
+  }
+  .am-drawer-header {
+    flex: none;
+    height: var(--header-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    user-select: none;
+    //pointer-events: none;
+    .am-drawer-bar {
+      height: 3px;
+      width: 20px;
+      border-radius: 10px;
+      background: var(--color-light);
+    }
+  }
+  .am-drawer-content {
+    flex: 1;
+    overflow-y: scroll;
+  }
+}
