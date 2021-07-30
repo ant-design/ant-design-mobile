@@ -110,7 +110,7 @@ gulp.task('umd', function () {
             filename: 'antd-mobile.js',
             library: {
               type: 'umd',
-              name: 'am',
+              name: 'antdMobile',
             },
           },
           mode: 'production',
