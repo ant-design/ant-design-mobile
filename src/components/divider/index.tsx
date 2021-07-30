@@ -14,7 +14,7 @@ const defaultProps = {
 }
 
 const Divider: FC<DividerProps> = p => {
-  const props = mergeProps(p, defaultProps)
+  const props = mergeProps(defaultProps, p)
   return (
     <div
       style={props.style}

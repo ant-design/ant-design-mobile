@@ -10,9 +10,9 @@ export function withDefaultProps<D>(defaultProps: D) {
   }
 }
 
-export function mergeProps<P, D>(p: P, defaultProps: D): P & D {
+export function mergeProps<P, D>(defaultProps: D, props: P): P & D {
   function customizer(objValue: any, srcValue: any) {
     return isUndefined(srcValue) ? objValue : srcValue
   }
-  return assignWith(assign({}, defaultProps), p, customizer)
+  return assignWith(assign({}, defaultProps), props, customizer)
 }

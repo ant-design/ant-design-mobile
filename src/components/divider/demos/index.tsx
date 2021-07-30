@@ -9,7 +9,7 @@ export default () => {
         <Divider />
       </DemoBlock>
       <DemoBlock title='带内容的分割线'>
-        <Divider contentPosition={undefined}>默认内容在中间</Divider>
+        <Divider>默认内容在中间</Divider>
         <Divider contentPosition='left'>左侧内容</Divider>
         <Divider contentPosition='right'>右侧内容</Divider>
       </DemoBlock>
