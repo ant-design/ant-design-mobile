@@ -1689,34 +1689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.debounce@npm:^4.0.6":
-  version: 4.0.6
-  resolution: "@types/lodash.debounce@npm:4.0.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 64952797f594f4068d2edd1e178a553647ca4ed5716c9b7673f9187d012fe5b5a0141c15ffc82c8f4d29bf13040c53001634a5b43b51a9efdfb6d4fa77ae24aa
-  languageName: node
-  linkType: hard
-
-"@types/lodash.isequal@npm:^4.5.5":
-  version: 4.5.5
-  resolution: "@types/lodash.isequal@npm:4.5.5"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 141df617686010657bb3e46b21facce2dd15b771fdfebd9df2f3d6fd3603d6336b64da4027257402c640f71b65d91eca9305b53d282cf604bcbb88e662034aad
-  languageName: node
-  linkType: hard
-
-"@types/lodash.throttle@npm:^4.1.6":
-  version: 4.1.6
-  resolution: "@types/lodash.throttle@npm:4.1.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 6ee4ca706681cb561b96f0b7a14da2f637783d0fe9af0b68efa8f29bff3b2caa1ad4e13d59ed139a4e4ef10098c825447045145b1b8f63410cdb5dc256b33082
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:*":
+"@types/lodash@npm:^4.14.171":
   version: 4.14.171
   resolution: "@types/lodash@npm:4.14.171"
   checksum: e48668fb030ad7d8c0c7751061bd332ad8704937d976bd4e24fd9e2128f80c17112be11e5c13d39f6a210336dc3549f7fb00eaebb56b94c2bfb89ad64c57d721
@@ -2894,9 +2867,7 @@ __metadata:
     "@react-spring/web": ^9.2.4
     "@types/body-scroll-lock": ^2.6.2
     "@types/classnames": ^2.3.1
-    "@types/lodash.debounce": ^4.0.6
-    "@types/lodash.isequal": ^4.5.5
-    "@types/lodash.throttle": ^4.1.6
+    "@types/lodash": ^4.14.171
     "@types/react": ^17.0.15
     "@types/react-transition-group": ^4.4.2
     "@typescript-eslint/eslint-plugin": ^4.28.5
@@ -2924,6 +2895,7 @@ __metadata:
     gulp-typescript: ^6.0.0-alpha.1
     husky: ^7.0.1
     less: ^3.13.1
+    lodash: ^4.17.21
     pinst: ^2.1.6
     postcss: ^8.3.6
     postcss-px-multiple: ^0.1.5
@@ -7833,7 +7805,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.7.0":
+"lodash@npm:^4.17.21, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 4983720b9abca930a4a46f18db163d7dad8dd00dbed6db0cc7b499b33b717cce69f80928b27bbb1ff2cbd3b19d251ee90669a8b5ea466072ca81c2ebe91e7468
