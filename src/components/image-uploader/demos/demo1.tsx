@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { ImageUplader } from 'antd-mobile'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
-import { FileItem } from '..'
+import React, {useState} from 'react'
+import {ImageUplader} from 'antd-mobile'
+import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import {FileItem} from '..'
 
 export default () => {
   const [disabled, setDisabled] = useState(false)
@@ -18,16 +18,20 @@ export default () => {
     // }
   ])
 
-  function onBeforeUpload(file: File) { }
+  function onBeforeUpload(file: File) {}
 
-  function onChange() { }
+  function onChange() {}
 
   function onAfterRead(files: FileItem[]) {
-    console.log(files)
     setFileList(files)
-    if(files.length >= 2) {
-      setDisabled(true)
-    }
+    // if(files.length >= 2) {
+    //   setDisabled(true)
+    // }
+  }
+
+  function onOversize(files: FileItem[]) {
+    alert(222)
+    console.log(files)
   }
 
   return (
@@ -37,8 +41,6 @@ export default () => {
           deletable={false}
           fileList={fileList}
           onAfterRead={onAfterRead}
-          disabled={disabled}
-          maxCount={1}
         ></ImageUplader>
       </DemoBlock>
     </>

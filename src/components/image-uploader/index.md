@@ -18,7 +18,7 @@
 | maxCount   | 文件上传数量限制                                           | number                  | -      | false    | √        |
 | onPreview  | 点击预览图片                                               | (index: number) => void | -      | false    | √        |
 | onDelete   | 删除图片                                                   | (index: number) => void | -      | false    | √        |
-| onOversize | 超出文件大小之后的回调                                     | (file: File) => void    | -      | false    |
+| onOversize | 超出文件大小之后的回调                                     | (file: File) => void    | -      | false    | √        |
 
 ### FileListItem
 

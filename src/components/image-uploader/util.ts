@@ -1,3 +1,5 @@
+import {FileItem} from '.'
+
 export type UploaderResultType = 'dataUrl' | 'text' | 'file'
 
 export function readFileContent(file: File, resultType: UploaderResultType) {
@@ -21,18 +23,32 @@ export function readFileContent(file: File, resultType: UploaderResultType) {
   })
 }
 
-export type UploaderFileListItem = {
-  url?: string
-  file?: File
-  content?: string
-  status?: '' | 'uploading' | 'done' | 'failed'
-  deletable?: boolean
-}
-
 export function toArray<T>(item: T | T[]): T[] {
   if (Array.isArray(item)) {
     return item
   }
 
   return [item]
+}
+
+export function isOversize(
+  items: FileItem | FileItem[],
+  maxSize: number
+): boolean {
+  return toArray(items).some(item => {
+    if (item.file) {
+      return item.file.size > maxSize
+    }
+    return false
+  })
+}
+
+export function getOverCount(
+  maxCount: number,
+  fileList: FileItem[],
+  files: File[]
+) {
+  const remainCount = maxCount! - fileList?.length!
+
+  return remainCount - files.length
 }

@@ -1,8 +1,8 @@
-import {CloseOutlined, PlusOutlined} from '@ant-design/icons'
+import {CloseOutlined, LoadingOutlined, PlusOutlined} from '@ant-design/icons'
 import React from 'react'
 import {isPromise} from '../../utils/validate'
 import {withDefaultProps} from '../../utils/with-default-props'
-import {readFileContent, toArray} from './util'
+import {getOverCount, isOversize, readFileContent, toArray} from './util'
 import ImageViewer from '../image-viewer'
 
 type FileType = 'image' | 'video' | 'file'
@@ -60,11 +60,12 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
     fileList = [],
     maxCount,
     maxSize,
-    onPreview,
-    onDelete,
     deletable,
     capture,
     accept,
+    onOversize,
+    onPreview,
+    onDelete,
   } = props
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -97,12 +98,6 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
     readFile(file)
   }
 
-  function getOverCount(maxCount: number, fileList: FileItem[], files: File[]) {
-    const remainCount = maxCount! - fileList?.length!
-
-    return remainCount - files.length
-  }
-
   function readFile(files: File | File[]) {
     const {maxCount, fileList, resultType} = props
 
@@ -127,8 +122,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
           return result
         })
 
-        // TODO oversize
-        onAfterRead(newFileList, false)
+        onAfterRead(newFileList, isOversize(newFileList, maxSize!))
       })
     } else {
       readFileContent(files, resultType as any).then(content => {
@@ -141,8 +135,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
           result.content = content
         }
 
-        // TODO
-        onAfterRead(result, false)
+        onAfterRead(result, isOversize(result, maxSize!))
       })
     }
   }
@@ -168,9 +161,8 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
       } else {
         validFiles = []
       }
-      if (props.onOversize) {
-        props.onOversize(oversizeFiles)
-      }
+
+      onOversize && onOversize(oversizeFiles)
     }
 
     const isValidFiles = Array.isArray(validFiles)
@@ -196,38 +188,51 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
     onDelete && onDelete(index)
   }
 
-  const showUpload = props.showUpload && maxCount && fileList.length <= maxCount
+  function renderPreview() {
+    return (
+      <>
+        {fileList.map((file, index) => {
+          return (
+            <div key={index} className={`${classPrefix}-card`}>
+              <img
+                src={file.url || file.content}
+                onClick={() => previewImage(index)}
+              />
+              <div className={`${classPrefix}-card-mask`}>
+                {file.status === 'loading' && (
+                  <span className={`${classPrefix}-card-loading`}>
+                    <LoadingOutlined />
+                    <span className={`${classPrefix}-card-mask-message`}>
+                      上传中...
+                    </span>
+                  </span>
+                )}
+              </div>
+              {deletable && (
+                <span
+                  className={`${classPrefix}-card-delete`}
+                  onClick={() => deteleImage(index)}
+                >
+                  <CloseOutlined
+                    style={{position: 'absolute', left: 4, top: 3}}
+                  />
+                </span>
+              )}
+            </div>
+          )
+        })}
+      </>
+    )
+  }
 
-  return (
-    <div className={`${classPrefix}-container`}>
-      {fileList.map((file, index) => {
-        return (
-          <div key={index} className={`${classPrefix}-card`}>
-            <img
-              src={file.url || file.content}
-              onClick={() => previewImage(index)}
-            />
-            {deletable && (
-              <span
-                className={`${classPrefix}-card-delete`}
-                onClick={() => deteleImage(index)}
-              >
-                <CloseOutlined
-                  style={{position: 'absolute', left: 4, top: 3}}
-                />
-              </span>
-            )}
-          </div>
-        )
-      })}
-
-      {showUpload && (
+  function renderUpload() {
+    return (
+      showUpload && (
         <span
           className={`${classPrefix}-card ${classPrefix}-select-picture`}
           role='button'
         >
           <span className={'addition'}>
-            {' '}
             <PlusOutlined />
           </span>
           {!props.disabled && (
@@ -240,7 +245,16 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
             />
           )}
         </span>
-      )}
+      )
+    )
+  }
+
+  const showUpload = props.showUpload && maxCount && fileList.length < maxCount
+
+  return (
+    <div className={`${classPrefix}-container`}>
+      {renderPreview()}
+      {renderUpload()}
     </div>
   )
 })
