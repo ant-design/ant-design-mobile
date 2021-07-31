@@ -1,8 +1,8 @@
-import { CloseOutlined, PlusOutlined } from '@ant-design/icons'
+import {CloseOutlined, PlusOutlined} from '@ant-design/icons'
 import React from 'react'
-import { isPromise } from '../../utils/validate'
-import { withDefaultProps } from '../../utils/with-default-props'
-import { readFileContent, toArray } from './util'
+import {isPromise} from '../../utils/validate'
+import {withDefaultProps} from '../../utils/with-default-props'
+import {readFileContent, toArray} from './util'
 import ImageViewer from '../image-viewer'
 
 type FileType = 'image' | 'video' | 'file'
@@ -25,7 +25,7 @@ export type UploaderBeforeRead = (
 
 interface Props {
   fileList?: FileItem[]
-  accept?: FileType | 'all'
+  accept?: string
   disabled?: boolean
   resultType?: string
   showUpload?: boolean // 是否展示文件上传按钮
@@ -52,13 +52,23 @@ const defaultProps: Props = {
   fileList: [],
   capture: '',
   resultType: 'dataUrl',
+  accept: 'image/*',
 }
 
 const Uploader = withDefaultProps(defaultProps)<Props>(props => {
-  const { fileList = [], maxCount, maxSize, onPreview, onDelete, deletable, capture } = props
+  const {
+    fileList = [],
+    maxCount,
+    maxSize,
+    onPreview,
+    onDelete,
+    deletable,
+    capture,
+    accept,
+  } = props
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    let { files } = e.target
+    let {files} = e.target
 
     if (!files?.length) return
 
@@ -94,7 +104,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
   }
 
   function readFile(files: File | File[]) {
-    const { maxCount, fileList, resultType } = props
+    const {maxCount, fileList, resultType} = props
 
     if (Array.isArray(files)) {
       const overCount = getOverCount(maxCount!, fileList!, files)
@@ -108,7 +118,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
         files.map(file => readFileContent(file, resultType as any))
       ).then((contents: any) => {
         const newFileList = files.map((file, index) => {
-          const result: FileItem = { file, status: '', content: '' }
+          const result: FileItem = {file, status: '', content: ''}
 
           if (contents[index]) {
             result.content = contents[index]
@@ -175,7 +185,10 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
   }
 
   function previewImage(index: number) {
-    ImageViewer.Multi.show({ images: fileList.map(file => file.content!), defaultIndex: index })
+    ImageViewer.Multi.show({
+      images: fileList.map(file => file.content!),
+      defaultIndex: index,
+    })
     onPreview && onPreview(index)
   }
 
@@ -183,26 +196,32 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
     onDelete && onDelete(index)
   }
 
-  const showUpload = props.showUpload && (maxCount && fileList.length <= maxCount)
+  const showUpload = props.showUpload && maxCount && fileList.length <= maxCount
 
   return (
     <div className={`${classPrefix}-container`}>
       {fileList.map((file, index) => {
         return (
           <div key={index} className={`${classPrefix}-card`}>
-            <img src={file.url || file.content} onClick={() => previewImage(index)} />
-            {
-              deletable &&
-              <span className={`${classPrefix}-card-delete`} onClick={() => deteleImage(index)}>
-                <CloseOutlined style={{ position: 'absolute', left: 4, top: 3 }} />
+            <img
+              src={file.url || file.content}
+              onClick={() => previewImage(index)}
+            />
+            {deletable && (
+              <span
+                className={`${classPrefix}-card-delete`}
+                onClick={() => deteleImage(index)}
+              >
+                <CloseOutlined
+                  style={{position: 'absolute', left: 4, top: 3}}
+                />
               </span>
-            }
+            )}
           </div>
         )
       })}
 
-      {
-        showUpload &&
+      {showUpload && (
         <span
           className={`${classPrefix}-card ${classPrefix}-select-picture`}
           role='button'
@@ -211,17 +230,17 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
             {' '}
             <PlusOutlined />
           </span>
-          {
-            !props.disabled &&
+          {!props.disabled && (
             <input
               capture={capture}
+              accept={accept}
               type='file'
               className={'file-input'}
               onChange={onChange}
             />
-          }
+          )}
         </span>
-      }
+      )}
     </div>
   )
 })
