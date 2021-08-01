@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react'
+import React, { useMemo, useCallback, ReactNode } from 'react'
 import Picker, { PickerProps } from '../picker'
 import { useControllableValue } from 'ahooks'
 import dayjs from 'dayjs'
@@ -21,6 +21,7 @@ export type DatePickerProps = Pick<
   onConfirm?: (value: Date) => void
   min?: Date
   max?: Date
+  children?: (value: Date | null) => ReactNode
 } & ElementProps
 
 const thisYear = new Date().getFullYear()
@@ -31,8 +32,9 @@ const defaultProps = {
 }
 
 const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(props => {
-  const [value, setValue] = useControllableValue<Date>(props, {
+  const [value, setValue] = useControllableValue<Date | null>(props, {
     trigger: 'onConfirm',
+    defaultValue: null,
   })
 
   function columns(selected: string[]) {
@@ -114,7 +116,13 @@ const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(props => {
       onConfirm={onConfirm}
       onSelect={onSelect}
       getContainer={props.getContainer}
-    />
+    >
+      {items =>
+        props.children?.(
+          convertStringArrayToDate(items.map(item => item?.value))
+        )
+      }
+    </Picker>
   )
 })
 
@@ -127,8 +135,10 @@ function convertDateToStringArray(date: Date | undefined | null): string[] {
   ]
 }
 
-function convertStringArrayToDate(value: string[]): Date {
-  const [yearString = '1900', monthString = '1', dateString = '1'] = value
+function convertStringArrayToDate(value: (string | null | undefined)[]): Date {
+  const yearString = value[0] ?? '1900'
+  const monthString = value[1] ?? '1'
+  const dateString = value[2] ?? '1'
   return new Date(
     parseInt(yearString),
     parseInt(monthString) - 1,

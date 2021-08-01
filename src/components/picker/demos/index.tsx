@@ -147,7 +147,6 @@ function AsyncDemo() {
 function RenderChildrenDemo() {
   const [visible, setVisible] = useState(false)
   const [value, setValue] = useState<(string | null)[]>([])
-  console.log('value', value)
   return (
     <Space align='center'>
       <Button
