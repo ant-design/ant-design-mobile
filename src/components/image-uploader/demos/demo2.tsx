@@ -14,6 +14,11 @@ export default () => {
     setFileList(files)
   }
 
+  function onAfterRead(files: FileItem[]) {
+    /// 此时可以自行将文件上传至服务器
+    console.log(files)
+  }
+
   function onDelete(files: FileItem[], index: number) {
     setFileList(files)
   }
@@ -23,6 +28,7 @@ export default () => {
       <DemoBlock title='基础用法'>
         <ImageUplader
           fileList={fileList}
+          onAfterRead={onAfterRead}
           onChange={onChange}
           onDelete={onDelete}
         />

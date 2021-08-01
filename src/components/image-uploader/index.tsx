@@ -1,23 +1,26 @@
-import {CloseOutlined, LoadingOutlined, PlusOutlined} from '@ant-design/icons'
 import React from 'react'
+import {PlusOutlined} from '@ant-design/icons'
 import {isPromise} from '../../utils/validate'
 import {withDefaultProps} from '../../utils/with-default-props'
-import {getOverCount, isOversize, readFileContent, toArray} from './util'
+import {
+  getOverCount,
+  isOversize,
+  PromiseOrNot,
+  readFileContent,
+  toArray,
+} from './util'
 import ImageViewer from '../image-viewer'
+import PreviewItem from './preview-item'
 
-type FileType = 'image' | 'video' | 'file'
 type FileStatus = 'loading' | 'error' | 'success' | ''
 
 export interface FileItem {
   url?: string
-  type?: FileType
   status?: FileStatus
   file?: File
   content?: string
   deletable?: boolean
 }
-
-type PromiseOrNot<T> = T | Promise<T>
 
 export type UploaderBeforeRead = (
   file: File | File[]
@@ -33,8 +36,9 @@ interface Props {
   capture?: string
   maxSize?: number
   maxCount?: number
+  onChange?: (files: FileItem[]) => void
   onPreview?: (index: number) => void
-  onDelete?: (index: number) => void
+  onDelete?: (files: FileItem[], index: number) => void
   onOversize?: (files: FileItem[]) => void // 超出文件大小之后的回调
   onOverCount?: (overCount: number) => void // 超过最大数量的回调，参数是超过的个数
   onBeforeRead?: UploaderBeforeRead
@@ -113,7 +117,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
         files.map(file => readFileContent(file, resultType as any))
       ).then((contents: any) => {
         const newFileList = files.map((file, index) => {
-          const result: FileItem = {file, status: '', content: ''}
+          const result: FileItem = {file, status: '', content: '', deletable}
 
           if (contents[index]) {
             result.content = contents[index]
@@ -122,6 +126,8 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
           return result
         })
 
+        console.log('new:', newFileList)
+
         onAfterRead(newFileList, isOversize(newFileList, maxSize!))
       })
     } else {
@@ -129,6 +135,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
         const result: FileItem = {
           file: files as File,
           status: '',
+          deletable,
         }
 
         if (content) {
@@ -141,7 +148,6 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
   }
 
   function onAfterRead(files: FileItem | FileItem[], oversize: boolean) {
-    // this.resetInput();
     let validFiles = toArray(files)
 
     if (oversize) {
@@ -170,6 +176,10 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
       : Boolean(validFiles)
 
     if (isValidFiles) {
+      if (props.onChange) {
+        props.onChange([...fileList, ...toArray(validFiles)])
+      }
+
       if (props.onAfterRead) {
         props.onAfterRead([...fileList, ...toArray(validFiles)])
       }
@@ -177,6 +187,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
   }
 
   function previewImage(index: number) {
+    console.log('index:', index)
     ImageViewer.Multi.show({
       images: fileList.map(file => file.content!),
       defaultIndex: index,
@@ -185,40 +196,32 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
   }
 
   function deteleImage(index: number) {
-    onDelete && onDelete(index)
+    if (!onDelete) {
+      console.warn('Please add a delete method!')
+    }
+
+    const newFileList = fileList.reduce((total, item, i) => {
+      if (index !== i) {
+        return [...total, item]
+      }
+
+      return total
+    }, [])
+
+    onDelete && onDelete(newFileList, index)
   }
 
-  function renderPreview() {
+  function renderPreviewList() {
     return (
       <>
         {fileList.map((file, index) => {
           return (
-            <div key={index} className={`${classPrefix}-card`}>
-              <img
-                src={file.url || file.content}
-                onClick={() => previewImage(index)}
-              />
-              <div className={`${classPrefix}-card-mask`}>
-                {file.status === 'loading' && (
-                  <span className={`${classPrefix}-card-loading`}>
-                    <LoadingOutlined />
-                    <span className={`${classPrefix}-card-mask-message`}>
-                      上传中...
-                    </span>
-                  </span>
-                )}
-              </div>
-              {deletable && (
-                <span
-                  className={`${classPrefix}-card-delete`}
-                  onClick={() => deteleImage(index)}
-                >
-                  <CloseOutlined
-                    style={{position: 'absolute', left: 4, top: 3}}
-                  />
-                </span>
-              )}
-            </div>
+            <PreviewItem
+              {...file}
+              key={index}
+              previewImage={() => previewImage(index)}
+              deleteImage={() => deteleImage(index)}
+            />
           )
         })}
       </>
@@ -253,7 +256,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
 
   return (
     <div className={`${classPrefix}-container`}>
-      {renderPreview()}
+      {renderPreviewList()}
       {renderUpload()}
     </div>
   )

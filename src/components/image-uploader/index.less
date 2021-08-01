@@ -18,6 +18,11 @@
     border-radius: 4px;
     overflow: hidden;
 
+    &-error {
+      border: red solid 1px;
+      box-sizing: border-box;
+    }
+
     &-delete {
       position: absolute;
       top: 0;
@@ -55,7 +60,7 @@
       font-size: 12px;
     }
 
-    img {
+    &-preview-image {
       width: @uploader-width;
       height: @uploader-height;
     }

@@ -2,6 +2,8 @@ import {FileItem} from '.'
 
 export type UploaderResultType = 'dataUrl' | 'text' | 'file'
 
+export type PromiseOrNot<T> = T | Promise<T>
+
 export function readFileContent(file: File, resultType: UploaderResultType) {
   return new Promise<string | void>(resolve => {
     if (resultType === 'file') {
