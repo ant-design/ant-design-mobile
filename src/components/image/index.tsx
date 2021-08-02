@@ -1,5 +1,5 @@
-import { withDefaultProps } from '../../utils/with-default-props'
-import React, { ReactNode, useState } from 'react'
+import { mergeProps } from '../../utils/with-default-props'
+import React, { FC, ReactNode, useState } from 'react'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { PictureOutlined, DisconnectOutlined } from '@ant-design/icons'
@@ -14,6 +14,7 @@ export type ImageProps = {
   fit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
   placeholder?: ReactNode
   fallback?: ReactNode
+  onClick?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
 } & ElementProps &
   Pick<
@@ -41,7 +42,8 @@ const defaultProps = {
   ),
 }
 
-const Image = withDefaultProps(defaultProps)<ImageProps>(props => {
+const Image: FC<ImageProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
   function renderInner() {
@@ -54,6 +56,8 @@ const Image = withDefaultProps(defaultProps)<ImageProps>(props => {
         <img
           className={`${classPrefix}-img`}
           src={props.src}
+          alt={props.alt}
+          onClick={props.onClick}
           onLoad={() => {
             setLoaded(true)
           }}
@@ -89,6 +93,6 @@ const Image = withDefaultProps(defaultProps)<ImageProps>(props => {
       {renderInner()}
     </div>
   )
-})
+}
 
 export default Image
