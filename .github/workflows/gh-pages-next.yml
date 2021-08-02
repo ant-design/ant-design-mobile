@@ -4,9 +4,19 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
-      - run: yarn install
-      - run: yarn run build-doc
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
+      - name: Run npm scripts
+        run: |
+          node -v
+          yarn -v
+          yarn install
+          yarn run build-doc
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

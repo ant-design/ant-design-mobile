@@ -1,13 +1,25 @@
 name: Check
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - v5
+  pull_request:
 jobs:
   check:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
       - name: Run npm scripts
         run: |
+          node -v
+          yarn -v
           yarn install
           yarn lint
+          yarn test
           yarn build

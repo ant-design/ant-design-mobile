@@ -63,7 +63,7 @@ gulp.task('cjs', function () {
   })
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
-      ignore: ['**/demos/**/*', '**/__tests__/**/*', '**/__test__/**/*'],
+      ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
     .pipe(babel())
@@ -77,7 +77,7 @@ gulp.task('es', function () {
   })
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
-      ignore: ['**/demos/**/*', '**/__tests__/**/*', '**/__test__/**/*'],
+      ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
     .pipe(babel())
@@ -93,7 +93,7 @@ gulp.task('declaration', function () {
   })
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
-      ignore: ['**/demos/**/*', '**/__tests__/**/*', '**/__test__/**/*'],
+      ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
     .pipe(gulp.dest('es/'))
