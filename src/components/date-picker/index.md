@@ -1,6 +1,6 @@
 # DatePicker 日期选择器
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 
@@ -13,4 +13,8 @@
 | min          | 最小值         | Date                  | 十年前 |
 | max          | 最大值         | Date                  | 十年后 |
 
-此外还支持 `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` 属性，同 `Picker`
+此外还支持 `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` 属性，同 `Picker`
+
+## 指令式调用
+
+DatePicker 支持 prompt 方法，具体用法可以参考 [Picker](./picker)

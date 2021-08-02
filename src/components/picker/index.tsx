@@ -5,7 +5,7 @@ import { useControllableValue } from 'ahooks'
 import { Column } from './column'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
-import { Cascader } from './cascader'
+import { Cascader, CascaderProps } from './cascader'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { renderToBody } from '../../utils/render-to-body'
@@ -178,7 +178,41 @@ function prompt(props: Omit<PickerProps, 'value' | 'visible' | 'children'>) {
   })
 }
 
+function promptCascader(
+  props: Omit<CascaderProps, 'value' | 'visible' | 'children'>
+) {
+  return new Promise<PickerValue[] | null>(resolve => {
+    const Wrapper: FC = () => {
+      const [visible, setVisible] = useState(false)
+      useEffect(() => {
+        setVisible(true)
+      }, [])
+      return (
+        <Cascader
+          {...props}
+          visible={visible}
+          onConfirm={val => {
+            resolve(val)
+          }}
+          onClose={() => {
+            props.onClose?.()
+            setVisible(false)
+            resolve(null)
+          }}
+          afterClose={() => {
+            props.afterClose?.()
+            unmount()
+          }}
+        />
+      )
+    }
+    const unmount = renderToBody(<Wrapper />)
+  })
+}
+
 export default attachPropertiesToComponent(Picker, {
-  Cascader,
+  Cascader: attachPropertiesToComponent(Cascader, {
+    prompt: promptCascader,
+  }),
   prompt,
 })

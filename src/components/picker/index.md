@@ -72,3 +72,5 @@ Picker.prompt({
   // ...
 })
 ```
+
+同样地，Picker.Cascader 也支持 prompt 方法，具体用法这里不再赘述。

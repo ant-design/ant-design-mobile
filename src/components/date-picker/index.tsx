@@ -1,10 +1,19 @@
-import React, { useMemo, useCallback, ReactNode } from 'react'
+import React, {
+  useMemo,
+  useCallback,
+  ReactNode,
+  FC,
+  useState,
+  useEffect,
+} from 'react'
 import Picker, { PickerProps } from '../picker'
 import { useControllableValue } from 'ahooks'
 import dayjs from 'dayjs'
 import { generateIntArray } from '../../utils/generate-int-array'
 import { ElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
+import { renderToBody } from '../../utils/render-to-body'
 
 export type DatePickerProps = Pick<
   PickerProps,
@@ -22,7 +31,8 @@ export type DatePickerProps = Pick<
   min?: Date
   max?: Date
   children?: (value: Date | null) => ReactNode
-} & ElementProps
+} & Pick<PickerProps, 'afterShow' | 'afterClose'> &
+  ElementProps
 
 const thisYear = new Date().getFullYear()
 
@@ -116,6 +126,8 @@ const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(props => {
       onConfirm={onConfirm}
       onSelect={onSelect}
       getContainer={props.getContainer}
+      afterShow={props.afterShow}
+      afterClose={props.afterClose}
     >
       {items =>
         props.children?.(
@@ -146,4 +158,38 @@ function convertStringArrayToDate(value: (string | null | undefined)[]): Date {
   )
 }
 
-export default DatePicker
+function prompt(
+  props: Omit<DatePickerProps, 'value' | 'visible' | 'children'>
+) {
+  return new Promise<Date | null>(resolve => {
+    const Wrapper: FC = () => {
+      const [visible, setVisible] = useState(false)
+      useEffect(() => {
+        setVisible(true)
+      }, [])
+      return (
+        <DatePicker
+          {...props}
+          visible={visible}
+          onConfirm={val => {
+            resolve(val)
+          }}
+          onClose={() => {
+            props.onClose?.()
+            setVisible(false)
+            resolve(null)
+          }}
+          afterClose={() => {
+            props.afterClose?.()
+            unmount()
+          }}
+        />
+      )
+    }
+    const unmount = renderToBody(<Wrapper />)
+  })
+}
+
+export default attachPropertiesToComponent(DatePicker, {
+  prompt,
+})
