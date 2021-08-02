@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-divider`
 
@@ -13,7 +13,8 @@ const defaultProps = {
   contentPosition: 'center',
 }
 
-const Divider = withDefaultProps(defaultProps)<DividerProps>(props => {
+const Divider: FC<DividerProps> = p => {
+  const props = mergeProps(defaultProps, p)
   return (
     <div
       style={props.style}
@@ -28,6 +29,6 @@ const Divider = withDefaultProps(defaultProps)<DividerProps>(props => {
       )}
     </div>
   )
-})
+}
 
 export default Divider

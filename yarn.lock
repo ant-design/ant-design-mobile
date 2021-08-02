@@ -2185,7 +2185,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:*":
+"@types/lodash@npm:*, @types/lodash@npm:^4.14.171":
   version: 4.14.171
   resolution: "@types/lodash@npm:4.14.171"
   checksum: e48668fb030ad7d8c0c7751061bd332ad8704937d976bd4e24fd9e2128f80c17112be11e5c13d39f6a210336dc3549f7fb00eaebb56b94c2bfb89ad64c57d721
@@ -3459,6 +3459,7 @@ __metadata:
     "@types/classnames": ^2.3.1
     "@types/jest": ^26.0.19
     "@types/jest-axe": 3.5.0
+    "@types/lodash": ^4.14.171
     "@types/lodash.debounce": ^4.0.6
     "@types/lodash.isequal": ^4.5.5
     "@types/lodash.throttle": ^4.1.6
@@ -3493,6 +3494,7 @@ __metadata:
     jest-environment-jsdom: 26.6.2
     jest-watch-typeahead: 0.6.1
     less: ^3.13.1
+    lodash: ^4.17.21
     pinst: ^2.1.6
     postcss: ^8.3.6
     postcss-px-multiple: ^0.1.5
@@ -9368,7 +9370,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.15, lodash@npm:^4.7.0":
+"lodash@npm:^4.17.15, lodash@npm:^4.17.21, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 4983720b9abca930a4a46f18db163d7dad8dd00dbed6db0cc7b499b33b717cce69f80928b27bbb1ff2cbd3b19d251ee90669a8b5ea466072ca81c2ebe91e7468
