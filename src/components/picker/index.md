@@ -1,6 +1,6 @@
 # Picker 选择器
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 
@@ -31,11 +31,11 @@ type PickerValue = string | null
 | cancelText   | 取消按钮的文字               | string                                                       | 取消   |
 | children     | 所选项的渲染函数             | (items: PickerColumnItem[]) => void                          | -      |
 
-此外还支持 `getContainer` 属性，同 `Popup`
+此外还支持 `getContainer` `afterShow` `afterClose` 属性，同 `Popup`
 
 ### Picker.Cascader
 
-```typescript | pure
+```typescript
 type CascaderOption = {
   label: string
   value: string
@@ -48,3 +48,27 @@ type CascaderOption = {
 | options | 树形的选项数据 | CascaderOption[] | -      |
 
 其他属性同 `Picker`，但不支持 `columns`
+
+## 指令式调用
+
+Picker 支持指令式调用，提供了 `prompt` 方法：
+
+```typescript
+prompt: (props: Omit<PickerProps, 'value' | 'visible' | 'children'>) => Promise<PickerValue[] | null>
+```
+
+`prompt` 方法的返回值是一个 Promise，如果用户点击了确定，从 Promise 中可以解析到 `PickerValue[]`，而如果用户是触发的取消操作，那么 Promise 中的值是 `null`。你可以通过 `await` 或 `.then()` 来获取到其中的值：
+
+```ts
+const value = await Picker.prompt({
+  columns: yourColumnsConfig,
+})
+```
+
+```ts
+Picker.prompt({
+  columns: yourColumnsConfig,
+}).then((value) => {
+  // ...
+})
+```

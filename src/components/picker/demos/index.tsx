@@ -1,6 +1,6 @@
 import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 import { Picker, Button, Space } from 'antd-mobile'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { sleep } from 'antd-mobile/src/utils/sleep'
 
 const basicColumns = [
@@ -194,6 +194,18 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='渲染所选值'>
         <RenderChildrenDemo />
+      </DemoBlock>
+      <DemoBlock title='指令式调用'>
+        <Button
+          onClick={async () => {
+            const value = await Picker.prompt({
+              columns: basicColumns,
+            })
+            console.log(value)
+          }}
+        >
+          弹出 Picker
+        </Button>
       </DemoBlock>
     </>
   )
