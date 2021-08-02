@@ -15,11 +15,15 @@ jobs:
         with:
           node-version: '14'
           cache: 'yarn'
-      - name: Run npm scripts
-        run: |
-          node -v
-          yarn -v
-          yarn install
-          yarn lint
-          yarn test
-          yarn build
+      - name: Node version
+        run: node -v
+      - name: Yarn version
+        run: yarn -v
+      - name: Install
+        run: yarn install
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
+      - name: Build
+        run: yarn build
