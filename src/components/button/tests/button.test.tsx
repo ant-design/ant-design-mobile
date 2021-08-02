@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, testA11y, screen, fireEvent } from '../../../utils/test-utils'
+import { render, testA11y, screen, fireEvent } from 'testing'
 import Button from '../'
 
 const classPrefix = `am-button`

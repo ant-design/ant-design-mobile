@@ -15,7 +15,8 @@
     "paths": {
       "antd-mobile": ["src/index.ts"],
       "antd-mobile/src/*": ["src/*"],
-      "antd-mobile/lib/*": ["src/*"]
+      "antd-mobile/lib/*": ["src/*"],
+      "testing": ["src/tests/testing"]
     },
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,

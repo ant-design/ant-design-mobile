@@ -3,6 +3,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   modulePathIgnorePatterns: [],
+  moduleDirectories: ['node_modules', 'src/tests'],
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest/dist',
   },
