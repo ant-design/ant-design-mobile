@@ -117,7 +117,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
         files.map(file => readFileContent(file, resultType as any))
       ).then((contents: any) => {
         const newFileList = files.map((file, index) => {
-          const result: FileItem = {file, status: '', content: '', deletable}
+          const result: FileItem = {file, status: '', content: ''}
 
           if (contents[index]) {
             result.content = contents[index]
@@ -126,8 +126,6 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
           return result
         })
 
-        console.log('new:', newFileList)
-
         onAfterRead(newFileList, isOversize(newFileList, maxSize!))
       })
     } else {
@@ -135,7 +133,6 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
         const result: FileItem = {
           file: files as File,
           status: '',
-          deletable,
         }
 
         if (content) {
@@ -187,9 +184,8 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
   }
 
   function previewImage(index: number) {
-    console.log('index:', index)
     ImageViewer.Multi.show({
-      images: fileList.map(file => file.content!),
+      images: fileList.map(file => file.content! || file.url!),
       defaultIndex: index,
     })
     onPreview && onPreview(index)
@@ -219,6 +215,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
             <PreviewItem
               {...file}
               key={index}
+              deletable={deletable}
               previewImage={() => previewImage(index)}
               deleteImage={() => deteleImage(index)}
             />
