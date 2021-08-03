@@ -180,67 +180,6 @@ function RenderChildrenDemo() {
   )
 }
 
-const children = {
-  team: [
-    { label: '第一小组', value: '001' },
-    { label: '第二小组', value: '002' },
-    { label: '第三小组', value: '003' },
-  ],
-  type: [
-    { label: '飞机', value: 'aaa' },
-    { label: '大炮', value: 'bbb' },
-    { label: '坦克', value: 'ccc' },
-  ],
-}
-
-function App() {
-  const [visible, setVisible] = React.useState(false)
-  const [click, setClick] = React.useState<'team' | 'type'>('team')
-  const [value, setValue] = React.useState({
-    team: '001',
-    type: 'aaa',
-  })
-  const pickerCol = React.useMemo(() => {
-    return children[click]
-  }, [click])
-  useEffect(() => {
-    setValue({
-      team: '002',
-      type: 'aaa',
-    })
-  }, [])
-  console.log(value[click], pickerCol)
-  return (
-    <>
-      <Button
-        onClick={() => {
-          setVisible(val => true)
-          setClick(_ => 'team')
-        }}
-      >
-        team
-      </Button>
-      <Button
-        onClick={() => {
-          setVisible(val => true)
-          setClick(_ => 'type')
-        }}
-      >
-        type
-      </Button>
-      <Picker
-        columns={[pickerCol]}
-        visible={visible}
-        value={[value[click]]}
-        onClose={() => {
-          setVisible(false)
-        }}
-        // onConfirm={(v) => {console.log('confirm', v)}}
-      />
-    </>
-  )
-}
-
 export default () => {
   return (
     <>
@@ -267,9 +206,6 @@ export default () => {
         >
           弹出 Picker
         </Button>
-      </DemoBlock>
-      <DemoBlock title={'test'}>
-        <App />
       </DemoBlock>
     </>
   )
