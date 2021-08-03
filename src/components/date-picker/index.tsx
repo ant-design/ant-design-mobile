@@ -23,6 +23,8 @@ export type DatePickerProps = Pick<
   | 'confirmText'
   | 'cancelText'
   | 'getContainer'
+  | 'afterShow'
+  | 'afterClose'
 > & {
   value?: Date
   defaultValue?: Date
@@ -31,8 +33,7 @@ export type DatePickerProps = Pick<
   min?: Date
   max?: Date
   children?: (value: Date | null) => ReactNode
-} & Pick<PickerProps, 'afterShow' | 'afterClose'> &
-  ElementProps
+} & ElementProps
 
 const thisYear = new Date().getFullYear()
 
