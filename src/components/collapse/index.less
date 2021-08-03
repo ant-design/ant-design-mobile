@@ -1,0 +1,21 @@
+@class-prefix-collapse: ~'am-collapse';
+
+.@{class-prefix-collapse} {
+  font-size: 17px;
+
+  &-panel {
+    background-color: #ffffff;
+    border-top: 1px solid var(--border-color);
+    &:first-child {
+      border-top: none;
+    }
+    &-button {
+      text-align: left;
+      padding: 12px;
+      font-size: 17px;
+    }
+    &-children {
+      border-top: 1px solid var(--border-color);
+    }
+  }
+}

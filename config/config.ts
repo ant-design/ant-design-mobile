@@ -94,6 +94,7 @@ export default {
           '/components/progress-circle',
           '/components/pull-to-refresh',
           '/components/action-sheet',
+          '/components/collapse',
         ],
       },
       {
