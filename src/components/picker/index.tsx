@@ -113,6 +113,7 @@ const Picker = withDefaultProps({
               column={column}
               value={innerValue[index]}
               onSelect={val => {
+                if (val === innerValue[index]) return
                 setInnerValue(prev => {
                   const nextValue = [...prev]
                   nextValue[index] = val
