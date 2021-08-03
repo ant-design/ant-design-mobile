@@ -9,7 +9,7 @@ const actions: Action[] = [
   { text: '删除', key: 'delete' },
 ]
 
-export function Basic() {
+function Basic() {
   const [visible, setVisible] = useState(false)
   return (
     <>
