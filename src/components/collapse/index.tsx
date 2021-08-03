@@ -1,4 +1,5 @@
 import React, { FC, ReactElement, ComponentProps } from 'react'
+
 import { ElementProps } from '../../utils/element-props'
 import { useControllableValue } from 'ahooks'
 import { Button } from 'antd-mobile'
@@ -78,21 +79,17 @@ const Collapse: React.FC<CollapseProps> & { Panel: typeof CollpasePanel } =
             if (isShowPanel(panel.key as string)) {
               children = (
                 <div className={`${classPrefix}-panel-children`}>
-                  <Button
-                    className={`${classPrefix}-panel-button`}
-                    fill='none'
-                    disabled={panel.props.disabled}
-                    block
-                  >
-                    {panel.props.children}
-                  </Button>
+                  {panel.props.children}
                 </div>
               )
             } else if (panel.props.forceRender) {
               children = (
-                <Button style={{ display: 'none' }}>
+                <div
+                  className={`${classPrefix}-panel-children`}
+                  style={{ display: 'none' }}
+                >
                   {panel.props.children}
-                </Button>
+                </div>
               )
             }
             return (
