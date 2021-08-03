@@ -49,9 +49,7 @@ const Picker = withDefaultProps({
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
-    if (!props.visible) {
-      setInnerValue(value)
-    }
+    setInnerValue(value)
   }, [props.visible])
 
   const columns = useMemo(() => {

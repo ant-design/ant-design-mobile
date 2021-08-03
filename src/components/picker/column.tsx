@@ -33,9 +33,6 @@ export const Column: FC<Props> = props => {
       return
     }
     const finalPosition = targetIndex * -itemHeight
-    if (finalPosition === y.get()) {
-      return
-    }
     api.start({ y: finalPosition, immediate: y.idle })
   }, [value])
 
