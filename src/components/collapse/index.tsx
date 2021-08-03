@@ -25,7 +25,7 @@ export type CollapseProps = {
 
 const Collapse: React.FC<CollapseProps> & { Panel: typeof CollpasePanel } =
   props => {
-    let firstActiveKey = props.defaultActiveKey
+    const firstActiveKey = props.defaultActiveKey
     const panels: ReactElement<ComponentProps<typeof CollpasePanel>>[] = []
     React.Children.forEach(props.children, child => {
       if (!React.isValidElement(child)) return
