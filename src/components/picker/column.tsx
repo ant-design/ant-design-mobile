@@ -29,6 +29,9 @@ export const Column: FC<Props> = props => {
       return
     }
     const targetIndex = column.findIndex(item => item.value === value)
+    if (targetIndex < 0) {
+      return
+    }
     const finalPosition = targetIndex * -itemHeight
     if (finalPosition === y.get()) {
       return
