@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, testA11y, fireEvent, screen } from 'testing'
+import { render, testA11y, fireEvent } from 'testing'
 import ActionSheet, { Action } from '../'
 import Button from '../../button'
 
