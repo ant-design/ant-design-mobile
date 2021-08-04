@@ -11,7 +11,6 @@ import classNames from 'classnames'
 import Popup from '../popup'
 import Button from '../button'
 import { GetContainer } from '../../utils/render-to-container'
-import { getNativeAttributes } from '../../utils/get-native-attributes'
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import { renderToBody } from '../../utils/render-to-body'
 
@@ -51,7 +50,6 @@ const defaultProps = {
 const ActionSheet = withDefaultProps(defaultProps)<ActionSheetProps>(props => {
   return (
     <Popup
-      {...getNativeAttributes(props)}
       visible={props.visible}
       onMaskClick={() => {
         props.onMaskClick?.()
