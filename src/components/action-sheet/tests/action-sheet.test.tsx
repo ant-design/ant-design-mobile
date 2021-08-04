@@ -59,8 +59,9 @@ test('renders WithCancelButtonAndDescription', () => {
   fireEvent.click(getByText('取消按钮和额外描述'))
   expect(baseElement.lastChild).not.toHaveClass('am-popup-hidden')
   fireEvent.click(getByText('取消'))
-  // TODO: error ???
+  // 动画执行完，才隐藏最外层
   // expect(baseElement.lastChild).toHaveClass('am-popup-hidden')
+  expect(baseElement.lastChild?.lastChild).toHaveClass('am-popup-body-hidden')
 })
 
 test('renders Imperative', () => {
