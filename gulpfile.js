@@ -21,39 +21,38 @@ gulp.task('less', function () {
         relativeUrls: true,
       })
     )
-    .pipe(gulp.dest('./umd'))
+    .pipe(gulp.dest('./dist'))
 })
 
 gulp.task('multiply-px', function () {
   return gulp
-    .src('./umd/index.css')
+    .src('./dist/index.css')
     .pipe(postcss([pxMultiplePlugin]))
     .pipe(
       rename({
         suffix: '@2x',
       })
     )
-    .pipe(gulp.dest('./umd'))
+    .pipe(gulp.dest('./dist'))
 })
 
 gulp.task('assets', function () {
   return gulp
     .src('./src/assets/**/*')
-    .pipe(gulp.dest('es/assets'))
-    .pipe(gulp.dest('cjs/assets'))
+    .pipe(gulp.dest('dist/es/assets'))
+    .pipe(gulp.dest('dist/cjs/assets'))
 })
 
 gulp.task('copy-css', function () {
   return gulp
-    .src(['./umd/index.css', './umd/index@2x.css'])
-    .pipe(gulp.dest('es/'))
-    .pipe(gulp.dest('cjs/'))
+    .src(['./dist/index.css', './dist/index@2x.css'])
+    .pipe(gulp.dest('dist/es/'))
+    .pipe(gulp.dest('dist/cjs/'))
+    .pipe(gulp.dest('dist/umd/'))
 })
 
 gulp.task('clean', async function () {
-  await del('cjs/**')
-  await del('es/**')
-  await del('umd/**')
+  await del('dist/**')
 })
 
 gulp.task('cjs', function () {
@@ -67,7 +66,7 @@ gulp.task('cjs', function () {
     })
     .pipe(tsProject)
     .pipe(babel())
-    .pipe(gulp.dest('cjs/'))
+    .pipe(gulp.dest('dist/cjs/'))
 })
 
 gulp.task('es', function () {
@@ -81,7 +80,7 @@ gulp.task('es', function () {
     })
     .pipe(tsProject)
     .pipe(babel())
-    .pipe(gulp.dest('es/'))
+    .pipe(gulp.dest('dist/es/'))
 })
 
 gulp.task('declaration', function () {
@@ -96,13 +95,13 @@ gulp.task('declaration', function () {
       ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
-    .pipe(gulp.dest('es/'))
-    .pipe(gulp.dest('cjs/'))
+    .pipe(gulp.dest('dist/es/'))
+    .pipe(gulp.dest('dist/cjs/'))
 })
 
 gulp.task('umd', function () {
   return gulp
-    .src('es/index.js')
+    .src('dist/es/index.js')
     .pipe(
       webpackStream(
         {
@@ -134,7 +133,13 @@ gulp.task('umd', function () {
         webpack
       )
     )
-    .pipe(gulp.dest('umd/'))
+    .pipe(gulp.dest('dist/umd/'))
+})
+
+gulp.task('copy-files', () => {
+  return gulp
+    .src(['./package.json', './README.md', './LICENSE.txt'])
+    .pipe(gulp.dest('dist/'))
 })
 
 gulp.task(
