@@ -29,10 +29,10 @@ export const Column: FC<Props> = props => {
       return
     }
     const targetIndex = column.findIndex(item => item.value === value)
-    const finalPosition = targetIndex * -itemHeight
-    if (finalPosition === y.get()) {
+    if (targetIndex < 0) {
       return
     }
+    const finalPosition = targetIndex * -itemHeight
     api.start({ y: finalPosition, immediate: y.idle })
   }, [value])
 

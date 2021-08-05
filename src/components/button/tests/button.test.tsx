@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { render, testA11y, screen, fireEvent } from 'testing'
 import Button from '../'
 

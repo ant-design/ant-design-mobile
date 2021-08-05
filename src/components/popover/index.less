@@ -27,7 +27,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: @z-index-popover;
+  z-index: var(--z-index-popover);
   font-weight: normal;
   white-space: normal;
   text-align: left;
@@ -129,7 +129,7 @@
         vertical-align: -0.075em;
       }
       cursor: pointer;
-      border-bottom: 1px solid #e8e8e8;
+      border-bottom: 1px solid var(--border-color);
 
       & button {
         border-radius: 0;

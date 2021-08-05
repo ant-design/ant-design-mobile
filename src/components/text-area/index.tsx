@@ -51,6 +51,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       onChange: outerOnChange,
       rows: rows,
       autoSize: autoSize,
+      showCount,
       ...textAreaProps
     } = props
     const [value, setValue] = useControllableValue<string>(props, {
@@ -110,7 +111,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             props.onBlur?.(e)
           }}
         />
-        {props.showCount && (
+        {showCount && (
           <div className={`${classPrefix}-count`}>
             {props.maxLength === undefined
               ? value.length
