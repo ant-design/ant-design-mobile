@@ -95,8 +95,7 @@
   "sideEffects": [
     "**/*.css",
     "**/*.less",
-    "./es/utils/init.js",
-    "./cjs/utils/init.js"
+    "./*/utils/init.js"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
