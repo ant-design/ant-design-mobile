@@ -1,5 +1,5 @@
-import React from 'react'
-import { withDefaultProps } from '../../utils/with-default-props'
+import React, { CSSProperties, FC } from 'react'
+import { mergeProps } from '../../utils/with-default-props'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 
@@ -22,13 +22,14 @@ const defaultProps = {
   round: false,
 }
 
-const Tags = withDefaultProps(defaultProps)<TagProps>(props => {
+const Tag: FC<TagProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const color = colorRecord[props.color] ?? props.color
 
-  const style: any = {
-    '--color': props.fill === 'outline' ? 'transparent' : color,
-    color: props.fill === 'outline' ? color : '#ffffff',
-    borderColor: color,
+  const style: CSSProperties & {
+    '--color': string
+  } = {
+    '--color': color,
     ...props.style,
   }
   return (
@@ -38,6 +39,7 @@ const Tags = withDefaultProps(defaultProps)<TagProps>(props => {
         classPrefix,
         {
           [`${classPrefix}-round`]: props.round,
+          [`${classPrefix}-outline`]: props.fill === 'outline',
         },
         props.className
       )}
@@ -45,6 +47,6 @@ const Tags = withDefaultProps(defaultProps)<TagProps>(props => {
       {props.children}
     </span>
   )
-})
+}
 
-export default Tags
+export default Tag

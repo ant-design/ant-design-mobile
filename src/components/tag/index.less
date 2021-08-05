@@ -3,7 +3,7 @@
 .@{class-prefix-tag} {
   padding: 2px 4px;
   font-size: 10px;
-  font-weight: 400;
+  font-weight: normal;
   background-color: var(--color);
   color: #ffffff;
   display: inline-block;
@@ -13,5 +13,9 @@
   box-sizing: border-box;
   &-round {
     border-radius: 100px;
+  }
+  &-outline {
+    background: transparent;
+    color: var(--color);
   }
 }
