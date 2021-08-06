@@ -11,12 +11,14 @@ type ListItemProps = {
   description?: string | ReactNode
   prefix?: ReactNode
   extra?: ReactNode
+  clickable?: boolean
   arrow?: boolean | ReactNode
   onClick?: () => void
 } & ElementProps
 
 const ListItem: FC<ListItemProps> = props => {
-  const arrow = props.arrow ?? !!props.onClick
+  const clickable = props.clickable ?? !!props.onClick
+  const arrow = props.arrow === undefined ? clickable : props.arrow
 
   const content = (
     <div className={`${classPrefix}-item-content`}>
@@ -47,26 +49,39 @@ const ListItem: FC<ListItemProps> = props => {
     </div>
   )
 
-  return props.onClick ? (
-    <a
-      className={classNames(
+  return React.createElement(
+    clickable ? 'a' : 'div',
+    {
+      className: classNames(
         `${classPrefix}-item`,
-        `am-plain-anchor`,
-        props.className
-      )}
-      style={props.style}
-      onClick={props.onClick}
-    >
-      {content}
-    </a>
-  ) : (
-    <div
-      className={classNames(`${classPrefix}-item`, props.className)}
-      style={props.style}
-    >
-      {content}
-    </div>
+        props.className,
+        clickable ? ['am-plain-anchor'] : []
+      ),
+      style: props.style,
+      onClick: props.onClick,
+    },
+    content
   )
+  // return props.onClick ? (
+  //   <a
+  //     className={classNames(
+  //       `${classPrefix}-item`,
+  //       `am-plain-anchor`,
+  //       props.className
+  //     )}
+  //     style={props.style}
+  //     onClick={props.onClick}
+  //   >
+  //     {content}
+  //   </a>
+  // ) : (
+  //   <div
+  //     className={classNames(`${classPrefix}-item`, props.className)}
+  //     style={props.style}
+  //   >
+  //     {content}
+  //   </div>
+  // )
 }
 
 type ListProps = {

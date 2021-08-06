@@ -1,6 +1,6 @@
 # List 列表
 
-<code src="./demos/demo1.tsx" />
+<code src="./demos/demo1.tsx"></code>
 
 ## API
 
@@ -19,5 +19,6 @@
 | description | 列表中间下部的描述区域                                        | ReactNode | -                                                    |
 | prefix      | 列表项左侧区域                                                | ReactNode | -                                                    |
 | extra       | 列表项右侧区域                                                | ReactNode | -                                                    |
-| arrow       | 右侧是否显示箭头图标，也支持传入 ReactNode 来自定义图标       | boolean   | 当 onClick 属性存在时，默认为 true，否则默认为 false |
+| clickable   | 是否可以点击                                                  | boolean   | 当 onClick 属性存在时，默认为 true，否则默认为 false |
+| arrow       | 右侧是否显示箭头图标，也支持传入 ReactNode 来自定义图标       | boolean   | 默认和 clickable 的值保持一致                        |
 | onClick     | 列表项的点击事件，当设置了 onClick 属性时，列表项会有点击效果 | boolean   | -                                                    |
