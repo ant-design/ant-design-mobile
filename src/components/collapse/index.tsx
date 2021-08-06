@@ -17,12 +17,21 @@ const CollapsePanel: FC<CollapsePanelProps> = () => {
   return null
 }
 
-export type CollapseProps = {
-  activeKey?: string | string[]
-  defaultActiveKey?: string | string[]
-  accordion?: boolean
-  onChange?: (actionName: string | string[]) => void
-} & ElementProps
+type ValueProps<T> = {
+  activeKey?: T
+  defaultActiveKey?: T
+  onChange?: (activeKey: T) => void
+}
+
+export type CollapseProps = (
+  | ({
+      accordion?: false
+    } & ValueProps<string[]>)
+  | ({
+      accordion: true
+    } & ValueProps<string>)
+) &
+  ElementProps
 
 const Collapse: FC<CollapseProps> = props => {
   const panels: ReactElement<ComponentProps<typeof CollapsePanel>>[] = []
@@ -57,7 +66,10 @@ const Collapse: FC<CollapseProps> = props => {
   }
 
   return (
-    <div className='am-collapse'>
+    <div
+      className={classNames('am-collapse', props.className)}
+      style={props.style}
+    >
       <List>
         {panels.map(panel => {
           let children: ReactNode = null
