@@ -3,6 +3,8 @@ import { ElementProps } from '../../utils/element-props'
 import { useControllableValue } from 'ahooks'
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import List from '../list'
+import { RightOutlined } from '@ant-design/icons'
+import classNames from 'classnames'
 
 export type CollapsePanelProps = {
   key: string
@@ -72,8 +74,8 @@ const Collapse: FC<CollapseProps> = props => {
       <List>
         {panels.map(panel => {
           let children = null
-
-          if (isShowPanel(panel.key as string)) {
+          const active = isShowPanel(panel.key as string)
+          if (active) {
             children = (
               <List.Item>
                 <div className='am-collapse-panel-content'>
@@ -94,9 +96,19 @@ const Collapse: FC<CollapseProps> = props => {
             <React.Fragment key={panel.key}>
               <List.Item
                 // disabled={panel.props.disabled}
+                className='am-collapse-panel-header'
                 onClick={() => {
                   handleClick(panel)
                 }}
+                arrow={
+                  <div
+                    className={classNames('am-collapse-arrow', {
+                      'am-collapse-arrow-active': active,
+                    })}
+                  >
+                    <RightOutlined />
+                  </div>
+                }
               >
                 {panel.props.title}
               </List.Item>

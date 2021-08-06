@@ -11,12 +11,12 @@ type ListItemProps = {
   description?: string | ReactNode
   prefix?: ReactNode
   extra?: ReactNode
-  showArrow?: boolean
+  arrow?: boolean | ReactNode
   onClick?: () => void
 } & ElementProps
 
 const ListItem: FC<ListItemProps> = props => {
-  const showArrow = props.showArrow ?? !!props.onClick
+  const arrow = props.arrow ?? !!props.onClick
 
   const content = (
     <div className={`${classPrefix}-item-content`}>
@@ -39,9 +39,9 @@ const ListItem: FC<ListItemProps> = props => {
       {props.extra && (
         <div className={`${classPrefix}-item-content-extra`}>{props.extra}</div>
       )}
-      {showArrow && (
+      {arrow && (
         <div className={`${classPrefix}-item-content-arrow`}>
-          <RightOutlined />
+          {arrow === true ? <RightOutlined /> : arrow}
         </div>
       )}
     </div>
