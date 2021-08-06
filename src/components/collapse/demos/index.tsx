@@ -5,7 +5,7 @@ import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 export default () => {
   return (
     <>
-      <DemoBlock title='基础用法'>
+      <DemoBlock title='基础用法' padding='0' border='none'>
         <Collapse
           defaultActiveKey={['3']}
           onChange={(actionName: string) =>
@@ -25,7 +25,7 @@ export default () => {
           </Collapse.Panel>
         </Collapse>
       </DemoBlock>
-      <DemoBlock title='手风琴模式'>
+      <DemoBlock title='手风琴模式' padding='0' border='none'>
         <Collapse
           accordion
           defaultActiveKey={['1']}
@@ -46,7 +46,7 @@ export default () => {
           </Collapse.Panel>
         </Collapse>
       </DemoBlock>
-      <DemoBlock title='隐藏依旧显示DOM结构'>
+      <DemoBlock title='隐藏依旧显示DOM结构' padding='0' border='none'>
         <Collapse defaultActiveKey={['1']}>
           <Collapse.Panel key='1' title='第一项' forceRender>
             虽然我隐藏了，但是我的DOM还在
