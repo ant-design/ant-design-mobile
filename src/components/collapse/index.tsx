@@ -42,31 +42,21 @@ const Collapse: FC<CollapseProps> = props => {
       trigger: 'onChange',
     }
   )
-
-  const isShowPanel = (key: string) =>
-    typeof activeKey === 'string'
-      ? key === activeKey
-      : activeKey.includes(key as string)
+  const activeKeyList = Array.isArray(activeKey) ? activeKey : [activeKey]
 
   const handleClick = (
     panel: ReactElement<ComponentProps<typeof CollapsePanel>>
   ) => {
-    if (panel.props.disabled) return
-    let actKey: string | string[]
     const key = panel.key as string
     if (props.accordion) {
-      actKey = activeKey === key ? '' : key
+      setActiveKey(key)
     } else {
-      if (typeof activeKey === 'string') {
-        throw new Error('非手风琴模式，activeKey应该是一个数组而不是字符串')
-      }
-      if (activeKey.includes(key)) {
-        actKey = activeKey.filter(_ => _ !== key)
+      if (activeKeyList.includes(key)) {
+        setActiveKey(activeKeyList.filter(v => v !== key))
       } else {
-        actKey = [...activeKey, key]
+        setActiveKey([...activeKeyList, key])
       }
     }
-    setActiveKey(actKey)
   }
 
   return (
@@ -74,7 +64,7 @@ const Collapse: FC<CollapseProps> = props => {
       <List>
         {panels.map(panel => {
           let children = null
-          const active = isShowPanel(panel.key as string)
+          const active = activeKeyList.includes(panel.key as string)
           if (active) {
             children = (
               <List.Item>
@@ -95,11 +85,16 @@ const Collapse: FC<CollapseProps> = props => {
           return (
             <React.Fragment key={panel.key}>
               <List.Item
-                // disabled={panel.props.disabled}
-                className='am-collapse-panel-header'
-                onClick={() => {
-                  handleClick(panel)
-                }}
+                className={classNames('am-collapse-panel-header', {
+                  'am-collapse-panel-header-disabled': panel.props.disabled,
+                })}
+                onClick={
+                  panel.props.disabled
+                    ? undefined
+                    : () => {
+                        handleClick(panel)
+                      }
+                }
                 arrow={
                   <div
                     className={classNames('am-collapse-arrow', {

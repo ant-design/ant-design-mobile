@@ -1,5 +1,12 @@
 .am-collapse {
   &-panel-header {
+    &-disabled {
+      color: var(--font-color-light);
+      cursor: not-allowed;
+      .am-collapse-arrow {
+        color: var(--font-color-light);
+      }
+    }
   }
   &-arrow {
     transform: rotate(0deg);

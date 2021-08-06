@@ -62,26 +62,6 @@ const ListItem: FC<ListItemProps> = props => {
     },
     content
   )
-  // return props.onClick ? (
-  //   <a
-  //     className={classNames(
-  //       `${classPrefix}-item`,
-  //       `am-plain-anchor`,
-  //       props.className
-  //     )}
-  //     style={props.style}
-  //     onClick={props.onClick}
-  //   >
-  //     {content}
-  //   </a>
-  // ) : (
-  //   <div
-  //     className={classNames(`${classPrefix}-item`, props.className)}
-  //     style={props.style}
-  //   >
-  //     {content}
-  //   </div>
-  // )
 }
 
 type ListProps = {
