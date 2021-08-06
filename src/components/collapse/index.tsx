@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, ComponentProps } from 'react'
+import React, { FC, ReactElement, ComponentProps, ReactNode } from 'react'
 import { ElementProps } from '../../utils/element-props'
 import { useControllableValue } from 'ahooks'
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
@@ -44,10 +44,7 @@ const Collapse: FC<CollapseProps> = props => {
   )
   const activeKeyList = Array.isArray(activeKey) ? activeKey : [activeKey]
 
-  const handleClick = (
-    panel: ReactElement<ComponentProps<typeof CollapsePanel>>
-  ) => {
-    const key = panel.key as string
+  const handleClick = (key: string) => {
     if (props.accordion) {
       setActiveKey(key)
     } else {
@@ -63,8 +60,9 @@ const Collapse: FC<CollapseProps> = props => {
     <div className='am-collapse'>
       <List>
         {panels.map(panel => {
-          let children = null
-          const active = activeKeyList.includes(panel.key as string)
+          let children: ReactNode = null
+          const key = panel.key as string
+          const active = activeKeyList.includes(key)
           if (active) {
             children = (
               <List.Item>
@@ -83,7 +81,7 @@ const Collapse: FC<CollapseProps> = props => {
             )
           }
           return (
-            <React.Fragment key={panel.key}>
+            <React.Fragment key={key}>
               <List.Item
                 className={classNames('am-collapse-panel-header', {
                   'am-collapse-panel-header-disabled': panel.props.disabled,
@@ -92,7 +90,7 @@ const Collapse: FC<CollapseProps> = props => {
                   panel.props.disabled
                     ? undefined
                     : () => {
-                        handleClick(panel)
+                        handleClick(key)
                       }
                 }
                 arrow={
