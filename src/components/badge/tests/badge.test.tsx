@@ -24,9 +24,9 @@ test('renders with color', () => {
   })
 })
 
-test('renders with offest', () => {
+test('renders with offset', () => {
   const { getByText } = render(
-    <Badge offest={[40, -40]} content='新'>
+    <Badge offset={[40, -40]} content='新'>
       test
     </Badge>
   )
