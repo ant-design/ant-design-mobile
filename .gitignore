@@ -9,6 +9,7 @@
 
 # build
 /dist/
+/lib/
 /es/
 /cjs/
 /umd/
