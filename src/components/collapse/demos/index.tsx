@@ -9,6 +9,17 @@ export default () => {
         <Collapse defaultActiveKey={['1']}>
           <Collapse.Panel key='1' title='第一项'>
             这里是第一项的内容
+            <br />
+            这里是第一项的内容
+            <br />
+            这里是第一项的内容
+            <br />
+            这里是第一项的内容
+            <br />
+            这里是第一项的内容
+            <br />
+            这里是第一项的内容
+            <br />
           </Collapse.Panel>
           <Collapse.Panel key='2' title='第二项'>
             这里是第二项的内容

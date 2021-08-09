@@ -5,5 +5,5 @@ export function useInitialized(check?: boolean) {
   if (check) {
     initializedRef.current = true
   }
-  return initializedRef.current
+  return !!initializedRef.current
 }

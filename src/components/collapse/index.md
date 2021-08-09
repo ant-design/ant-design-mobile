@@ -1,17 +1,17 @@
-# Collpase 折叠面板
+# Collapse 折叠面板
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 
 ### Collapse
 
-| 属性             | 说明               | 类型                                           | 默认值 |
-| ---------------- | ------------------ | ---------------------------------------------- | ------ |
-| defaultActiveKey | 默认展开面板的 key | 手风琴模式：string <br/>非手风琴模式：string[] | -      |
-| activeKey        | 当前展开面板的 key | 手风琴模式：string <br/>非手风琴模式：string[] | -      |
-| accordion        | 是否开启手风琴模式 | boolean                                        | false  |
-| onChange         | 切换面板时触发     | (activeKey: 类型与 activeKey 类型一致) => void | -      |
+| 属性             | 说明               | 类型                                                   | 默认值 |
+| ---------------- | ------------------ | ------------------------------------------------------ | ------ |
+| defaultActiveKey | 默认展开面板的 key | 手风琴模式：string \| null <br/>非手风琴模式：string[] | -      |
+| activeKey        | 当前展开面板的 key | 手风琴模式：string \| null <br/>非手风琴模式：string[] | -      |
+| accordion        | 是否开启手风琴模式 | boolean                                                | false  |
+| onChange         | 切换面板时触发     | (activeKey) => void                                    | -      |
 
 ### Collapse.Panel
 
