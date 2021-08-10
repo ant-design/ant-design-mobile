@@ -39,6 +39,7 @@ gulp.task('multiply-px', function () {
 gulp.task('assets', function () {
   return gulp
     .src('./src/assets/**/*')
+    .pipe(gulp.dest('lib/assets'))
     .pipe(gulp.dest('lib/es/assets'))
     .pipe(gulp.dest('lib/cjs/assets'))
 })
