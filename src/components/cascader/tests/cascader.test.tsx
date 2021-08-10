@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { fireEvent, render, testA11y, waitFor, screen } from 'testing'
+import { fireEvent, render, testA11y, waitFor } from 'testing'
 import Cascader from '../'
 
 const classPrefix = `am-cascader`
