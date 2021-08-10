@@ -52,7 +52,7 @@ export default {
           '/components/steps',
           '/components/index-bar',
           '/components/tag',
-          '/components/desens-text',
+          '/components/desense-text',
           '/components/infinite-scroll',
           '/components/popover',
           '/components/ellipsis',

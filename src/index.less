@@ -47,12 +47,13 @@ a {
   &:active {
     opacity: 0.8;
   }
-  &.am-plain-anchor {
-    color: inherit;
-    transition: none;
-    &:active {
-      opacity: unset;
-    }
+}
+
+.am-plain-anchor {
+  color: unset;
+  transition: none;
+  &:active {
+    opacity: unset;
   }
 }
 
@@ -100,7 +101,7 @@ div.am-one-px-tester {
 @import './components/tag/index.less';
 @import './components/tab-bar/index.less';
 @import './components/popover/index.less';
-@import './components/desens-text/index.less';
+@import 'components/desense-text/index.less';
 @import './components/progress-circle/index.less';
 @import './components/infinite-scroll/index.less';
 @import './components/ellipsis/index.less';
