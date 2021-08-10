@@ -38,6 +38,12 @@ import { Button } from 'antd-mobile' // v2
 import { Button } from 'antd-mobile-alpha' // v5
 ```
 
+但是需要注意的是，因为样式可能存在两个版本互相干扰，我们建议这个方案仅仅作为短期过渡，并不推荐长期两个版本并存使用。
+
 ## 构建时报错 `Can't resolve 'antd-mobile/es/xxx/style'` 怎么解决？
 
 关闭 `babel-plugin-import` 即可，antd-mobile v5 是基于 Tree Shaking 做的按需加载，暂时还不支持`babel-plugin-import`。
+
+## 兼容哪些浏览器？
+
+目前的兼容性标准为 iOS >= 10 和 Android >= 5。
