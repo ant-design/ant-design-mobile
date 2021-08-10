@@ -129,19 +129,17 @@ const Picker = withDefaultProps({
     </Popup>
   )
 
-  const label = useMemo(() => {
-    if (!props.children) return null
-    const items = columns.map(
+  const items = useMemo(() => {
+    return columns.map(
       (column, index) =>
         column.find(item => item.value === value[index]) ?? null
     )
-    return props.children(items)
-  }, [value])
+  }, [value, columns])
 
   return (
     <>
       {widget}
-      {label}
+      {props.children?.(items)}
     </>
   )
 })
