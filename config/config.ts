@@ -41,8 +41,12 @@ export default {
     ],
     '/components': [
       {
-        title: '基础组件',
-        children: ['/components/button'],
+        title: '基础',
+        children: [
+          '/components/button',
+          '/components/list',
+          '/components/space',
+        ],
       },
       {
         title: '数据展示',
@@ -50,7 +54,6 @@ export default {
           '/components/notice-bar',
           '/components/water-mark',
           '/components/steps',
-          '/components/index-bar',
           '/components/tag',
           '/components/desense-text',
           '/components/infinite-scroll',
@@ -59,7 +62,6 @@ export default {
           '/components/badge',
           '/components/image',
           '/components/image-viewer',
-          '/components/empty',
           '/components/card',
         ],
       },
@@ -68,6 +70,7 @@ export default {
         children: [
           '/components/input',
           '/components/text-area',
+          '/components/search',
           '/components/checkbox',
           '/components/radio',
           '/components/selector',
@@ -77,7 +80,6 @@ export default {
           '/components/date-picker',
           '/components/form',
           '/components/cascader',
-          '/components/search',
           '/components/rate',
         ],
       },
@@ -86,9 +88,10 @@ export default {
         children: [
           '/components/dialog',
           '/components/loading',
+          '/components/empty',
           '/components/mask',
-          '/components/result',
           '/components/toast',
+          '/components/result',
           '/components/error',
           '/components/progress-bar',
           '/components/progress-circle',
@@ -100,15 +103,14 @@ export default {
       {
         title: '导航和布局',
         children: [
-          '/components/list',
           '/components/tabs',
-          '/components/space',
+          '/components/tab-bar',
           '/components/grid',
           '/components/dropdown',
           '/components/popup',
-          '/components/tab-bar',
-          '/components/divider',
           '/components/floating-panel',
+          '/components/index-bar',
+          '/components/divider',
         ],
       },
     ],
