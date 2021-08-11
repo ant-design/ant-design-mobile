@@ -1,6 +1,5 @@
 import { List } from 'antd-mobile'
 import React from 'react'
-import './demo1.less'
 
 export default () => {
   return (
