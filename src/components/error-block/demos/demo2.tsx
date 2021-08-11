@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button, Error } from 'antd-mobile'
+import { Button, ErrorBlock } from 'antd-mobile'
 
 export default () => {
   return (
     <div className='container'>
-      <Error
+      <ErrorBlock
         image='https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'
         description={
           <span>
@@ -13,7 +13,7 @@ export default () => {
         }
       >
         <Button color='primary'>Create Now</Button>
-      </Error>
+      </ErrorBlock>
     </div>
   )
 }

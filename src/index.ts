@@ -2,7 +2,7 @@ import './utils/init'
 
 export { default as Button } from './components/button'
 export { default as Dialog } from './components/dialog'
-export { default as Error } from './components/error'
+export { default as ErrorBlock } from './components/error-block'
 export { default as Toast } from './components/toast'
 export { default as Dropdown } from './components/dropdown'
 export { default as Mask } from './components/mask'

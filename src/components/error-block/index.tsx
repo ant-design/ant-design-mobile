@@ -4,9 +4,9 @@ import { errorConfigRecord } from './error'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { ElementProps } from '../../utils/element-props'
 
-const classPrefix = `am-error`
+const classPrefix = `am-error-block`
 
-export type ErrorProps = {
+export type ErrorBlockProps = {
   status?: 'default' | 'disconnected' | 'empty' | 'busy'
   title?: ReactNode
   image?: string | ReactElement
@@ -18,7 +18,7 @@ const defaultProps = {
   status: 'default',
 }
 
-const Error = withDefaultProps(defaultProps)<ErrorProps>(props => {
+const ErrorBlock = withDefaultProps(defaultProps)<ErrorBlockProps>(props => {
   const config = errorConfigRecord[props.status]
   const des = 'description' in props ? props.description : config.description
   const title = 'title' in props ? props.title : config.title
@@ -56,4 +56,4 @@ const Error = withDefaultProps(defaultProps)<ErrorProps>(props => {
   )
 })
 
-export default Error
+export default ErrorBlock

@@ -92,7 +92,7 @@ export default {
           '/components/mask',
           '/components/toast',
           '/components/result',
-          '/components/error',
+          '/components/error-block',
           '/components/progress-bar',
           '/components/progress-circle',
           '/components/pull-to-refresh',
