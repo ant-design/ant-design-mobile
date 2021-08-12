@@ -60,21 +60,14 @@ export default () => {
       <DemoBlock title='复杂布局' padding='0' border='none'>
         <List>
           <List.Item
-            onClick={() => {
-              alert('hello')
-            }}
             extra='次要信息'
             title='这里是标题'
             description='这里是描述信息'
+            clickable
           >
             这里是主信息
           </List.Item>
-          <List.Item
-            onClick={() => {
-              alert('hello')
-            }}
-            title='这里是标题'
-          >
+          <List.Item title='这里是标题' clickable>
             这里是主信息
           </List.Item>
           <List.Item title='这里是标题'>这里是主信息</List.Item>
@@ -84,6 +77,7 @@ export default () => {
         <List>
           {users.map(user => (
             <List.Item
+              key={user.name}
               prefix={
                 <Image
                   src={user.avatar}
