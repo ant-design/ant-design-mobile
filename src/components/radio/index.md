@@ -17,6 +17,7 @@ type RadioValue = string | number
 | disabled       | 失效状态                      | boolean                | false  |
 | onChange       | 变化时回调函数                | (val: boolean) => void | -      |
 | value          | 携带的标识值，用于 Group 模式 | RadioValue             | -      |
+| block          | 是否渲染为块级元素            | boolean                | false  |
 
 ### Radio.Group
 

@@ -17,6 +17,7 @@ export type RadioProps = {
   disabled?: boolean
   onChange?: (checked: boolean) => void
   value?: RadioValue
+  block?: boolean
 } & ElementProps
 
 const Radio: FC<RadioProps> = props => {
@@ -48,6 +49,7 @@ const Radio: FC<RadioProps> = props => {
       className={classNames(classPrefix, props.className, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled,
+        [`${classPrefix}-block`]: props.block,
       })}
       style={props.style}
     >

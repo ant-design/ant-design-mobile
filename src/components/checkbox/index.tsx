@@ -18,6 +18,7 @@ export type CheckboxProps = {
   onChange?: (checked: boolean) => void
   value?: CheckboxValue
   indeterminate?: boolean
+  block?: boolean
 } & ElementProps
 
 const Checkbox: FC<CheckboxProps> = props => {
@@ -50,6 +51,7 @@ const Checkbox: FC<CheckboxProps> = props => {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-indeterminate`]: props.indeterminate,
         [`${classPrefix}-disabled`]: disabled,
+        [`${classPrefix}-block`]: props.block,
       })}
       style={props.style}
     >
@@ -67,7 +69,7 @@ const Checkbox: FC<CheckboxProps> = props => {
       />
       <div className={`${classPrefix}-icon`}>
         <CheckOutlined className={`${classPrefix}-icon-checked`} />
-        <div className={`${classPrefix}-indeterminate-checked`}></div>
+        <div className={`${classPrefix}-indeterminate-checked`} />
       </div>
       {props.children && (
         <div className={`${classPrefix}-content`}>{props.children}</div>

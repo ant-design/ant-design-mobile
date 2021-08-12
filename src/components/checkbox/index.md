@@ -1,6 +1,6 @@
 # Checkbox 勾选框
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 
@@ -18,6 +18,7 @@ type CheckboxValue = string | number
 | onChange       | 变化时回调函数                          | (val: boolean) => void | -      |
 | value          | 携带的标识值，用于 Group 模式           | CheckboxValue          | -      |
 | indeterminate  | 设置 indeterminate 状态，只负责样式控制 | boolean                | false  |
+| block          | 是否渲染为块级元素                      | boolean                | false  |
 
 ### Checkbox.Group
 
