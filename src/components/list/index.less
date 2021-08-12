@@ -2,6 +2,7 @@
   background-color: #ffffff;
   overflow: hidden;
   font-size: 17px;
+  --prefix-width: 'auto';
   &-inner {
     margin-bottom: -1px;
   }
@@ -35,6 +36,7 @@
       padding: 12px 12px 12px 0;
       border-bottom: solid 1px var(--border-color);
       &-prefix {
+        width: var(--prefix-width);
         flex: none;
         padding-right: 12px;
       }
