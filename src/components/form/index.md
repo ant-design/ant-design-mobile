@@ -7,9 +7,10 @@
 
 ### Form
 
-| 属性        | 说明             | 类型    | 默认值 |
-| ----------- | ---------------- | ------- | ------ |
-| hasFeedback | 是否展示错误反馈 | boolean | ture   |
+| 属性        | 说明             | 类型                       | 默认值     |
+| ----------- | ---------------- | -------------------------- | ---------- |
+| hasFeedback | 是否展示错误反馈 | boolean                    | ture       |
+| layout      | 布局模式         | 'vertical' \| 'horizontal' | 'vertical' |
 
 其他参数参见 https://www.npmjs.com/package/rc-field-form
 
