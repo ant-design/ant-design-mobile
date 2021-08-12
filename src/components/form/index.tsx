@@ -3,6 +3,8 @@ import { attachPropertiesToComponent } from '../../utils/attach-properties-to-co
 import { FormItem } from './form-item'
 import { useForm } from 'rc-field-form'
 
+export type FormLayout = 'vertical' | 'horizontal'
+
 export default attachPropertiesToComponent(Form, {
   Item: FormItem,
   useForm,

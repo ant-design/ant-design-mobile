@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 import { Field, FormInstance } from 'rc-field-form'
@@ -8,7 +8,8 @@ import type { Meta } from 'rc-field-form/lib/interface'
 
 import { FormContext } from './context'
 import { toArray } from './utils'
-import List from '../list'
+import List, { ListItemProps } from '../list'
+import type { FormLayout } from './index'
 
 type RenderChildren<Values = any> = (
   form: FormInstance<Values>
@@ -20,7 +21,8 @@ type RcFieldProps = Omit<FieldProps, 'children'>
 const classPrefix = `am-form-item`
 
 type FormItemProps = RcFieldProps &
-  ElementProps & {
+  ElementProps &
+  Pick<ListItemProps, 'style'> & {
     label?: string
     help?: string
     hasFeedback?: boolean
@@ -53,6 +55,7 @@ type FormItemLayoutProps = Pick<
 > & {
   htmlFor?: string
   meta?: Meta
+  layout?: FormLayout
 }
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
@@ -68,8 +71,10 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     htmlFor,
   } = props
 
-  const hasFeedback =
-    props.hasFeedback || React.useContext(FormContext).hasFeedback
+  const context = useContext(FormContext)
+
+  const hasFeedback = props.hasFeedback || context.hasFeedback
+  const layout = props.layout || context.layout
 
   const formItemLabelClass = classNames(`${classPrefix}-label`, {
     [`${classPrefix}-label-disable`]: disabled,
@@ -92,7 +97,9 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
 
   return (
     <List.Item
-      title={labelElement}
+      style={style}
+      title={layout === 'vertical' && labelElement}
+      prefix={layout === 'horizontal' && labelElement}
       description={descriptionElement}
       className={classNames(classPrefix, className)}
     >

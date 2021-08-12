@@ -5,15 +5,32 @@ import List from '../list'
 import RcForm from 'rc-field-form'
 import type { FormProps as RcFormProps } from 'rc-field-form'
 import { FormContext, FormContextType, DEFAULT_FORM_CONTEXT } from './context'
+import { mergeProps } from '../../utils/with-default-props'
+import type { FormLayout } from '.'
 
 type FormProps = RcFormProps &
   ElementProps &
   Partial<FormContextType> & {
     footer?: ReactNode
+    layout?: FormLayout
   }
 
-export const Form: FC<FormProps> = props => {
-  const { className, style, hasFeedback, children, ...formProps } = props
+const defaultProps = {
+  hasFeedback: true,
+  layout: 'vertical',
+}
+
+export const Form: FC<FormProps> = p => {
+  const props = mergeProps(defaultProps, p)
+  const {
+    className,
+    style,
+    hasFeedback,
+    children,
+    layout,
+    footer,
+    ...formProps
+  } = props
 
   return (
     <RcForm
@@ -21,16 +38,22 @@ export const Form: FC<FormProps> = props => {
       style={style}
       {...formProps}
     >
-      <List>
+      <List
+        style={{
+          '--prefix-width': '6em',
+          '--align-items': 'start',
+        }}
+      >
         <FormContext.Provider
           value={{
-            hasFeedback: hasFeedback || DEFAULT_FORM_CONTEXT.hasFeedback,
+            hasFeedback: hasFeedback,
+            layout,
           }}
         >
           {children}
         </FormContext.Provider>
       </List>
-      {props.footer && <div className='am-form-footer'>{props.footer}</div>}
+      {footer && <div className='am-form-footer'>{footer}</div>}
     </RcForm>
   )
 }

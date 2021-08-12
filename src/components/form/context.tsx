@@ -1,15 +1,14 @@
 import React from 'react'
-
-/**
- * Form 内部的 Context
- */
+import { FormLayout } from '.'
 
 export type FormContextType = {
   hasFeedback: boolean
+  layout: FormLayout
 }
 
 export const DEFAULT_FORM_CONTEXT: FormContextType = {
   hasFeedback: true,
+  layout: 'vertical',
 }
 
 export const FormContext =

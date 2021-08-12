@@ -5,7 +5,7 @@ import { RightOutlined } from '@ant-design/icons'
 
 const classPrefix = `am-list`
 
-type ListItemProps = {
+export type ListItemProps = {
   title?: string | ReactNode
   children?: ReactNode
   description?: string | ReactNode
@@ -14,7 +14,7 @@ type ListItemProps = {
   clickable?: boolean
   arrow?: boolean | ReactNode
   onClick?: () => void
-} & ElementProps<'--prefix-width'>
+} & ElementProps<'--prefix-width' | '--align-items'>
 
 const ListItem: FC<ListItemProps> = props => {
   const clickable = props.clickable ?? !!props.onClick
@@ -64,9 +64,9 @@ const ListItem: FC<ListItemProps> = props => {
   )
 }
 
-type ListProps = {
+export type ListProps = {
   mode?: 'default' | 'card' // 默认是整宽的列表，card 模式下展示为带 margin 和圆角的卡片
-} & ElementProps<'--prefix-width'>
+} & ElementProps<'--prefix-width' | '--align-items'>
 
 const List: FC<ListProps> & {
   Item: typeof ListItem

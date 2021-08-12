@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Button, Dialog } from 'antd-mobile'
+import { Form, Input, Button, Dialog, TextArea } from 'antd-mobile'
 import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 export default () => {
@@ -12,13 +12,12 @@ export default () => {
   return (
     <>
       <DemoBlock
-        title='基础使用'
+        title='基础用法'
         padding='0'
         border='none'
         background='transparent'
       >
         <Form
-          hasFeedback
           onFinish={onFinish}
           footer={
             <Button block type='submit' color='primary'>
@@ -38,6 +37,32 @@ export default () => {
           </Form.Item>
           <Form.Item name='禁用' disabled>
             <Input placeholder='禁止输入' />
+          </Form.Item>
+        </Form>
+      </DemoBlock>
+      <DemoBlock
+        title='水平布局'
+        padding='0'
+        border='none'
+        background='transparent'
+      >
+        <Form
+          layout='horizontal'
+          footer={
+            <Button block type='submit' color='primary'>
+              提交
+            </Button>
+          }
+        >
+          <Form.Item
+            name='姓名'
+            label='姓名'
+            rules={[{ required: true, message: '姓名不能为空' }]}
+          >
+            <Input onChange={console.log} placeholder='请输入姓名' />
+          </Form.Item>
+          <Form.Item name='address' label='地址'>
+            <TextArea placeholder='请输入地址' maxLength={100} rows={4} />
           </Form.Item>
         </Form>
       </DemoBlock>
