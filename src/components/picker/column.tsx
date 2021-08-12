@@ -34,7 +34,7 @@ export const Column: FC<Props> = props => {
     }
     const finalPosition = targetIndex * -itemHeight
     api.start({ y: finalPosition, immediate: y.idle })
-  }, [value])
+  }, [value, column])
 
   useEffect(() => {
     if (column.length === 0) {
