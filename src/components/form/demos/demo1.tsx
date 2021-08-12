@@ -1,6 +1,8 @@
 import React from 'react'
-import { Form, Input, Button, Dialog, TextArea } from 'antd-mobile'
+import { Form, Input, Button, Dialog, TextArea, DatePicker } from 'antd-mobile'
 import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import dayjs from 'dayjs'
+import { FormImperativeItem } from '../form-imperative-item'
 
 export default () => {
   const onFinish = (values: any) => {
@@ -35,6 +37,17 @@ export default () => {
           <Form.Item name='address' label='地址'>
             <Input placeholder='请输入地址' />
           </Form.Item>
+          <FormImperativeItem
+            name='birthday'
+            label='生日'
+            initialValue={new Date()}
+            renderValue={value => dayjs(value).format('YYYY-MM-DD')}
+          ></FormImperativeItem>
+          {/*<Form.Item name='birthday' label='生日' initialValue={new Date()}>*/}
+          {/*  <DatePicker>*/}
+          {/*    {value => dayjs(value).format('YYYY-MM-DD')}*/}
+          {/*  </DatePicker>*/}
+          {/*</Form.Item>*/}
           <Form.Item name='禁用' disabled>
             <Input placeholder='禁止输入' />
           </Form.Item>

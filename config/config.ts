@@ -79,7 +79,6 @@ export default {
           '/components/picker',
           '/components/date-picker',
           '/components/form',
-          '/components/cascader',
           '/components/rate',
         ],
       },
@@ -112,6 +111,10 @@ export default {
           '/components/index-bar',
           '/components/divider',
         ],
+      },
+      {
+        title: '试验性',
+        children: ['/components/cascader'],
       },
     ],
   },

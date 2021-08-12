@@ -20,9 +20,9 @@ type RcFieldProps = Omit<FieldProps, 'children'>
 
 const classPrefix = `am-form-item`
 
-type FormItemProps = RcFieldProps &
+export type FormItemProps = RcFieldProps &
   ElementProps &
-  Pick<ListItemProps, 'style'> & {
+  Pick<ListItemProps, 'style' | 'onClick'> & {
     label?: string
     help?: string
     hasFeedback?: boolean
@@ -52,6 +52,7 @@ type FormItemLayoutProps = Pick<
   | 'disabled'
   | 'label'
   | 'help'
+  | 'onClick'
 > & {
   htmlFor?: string
   meta?: Meta
@@ -102,6 +103,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       prefix={layout === 'horizontal' && labelElement}
       description={descriptionElement}
       className={classNames(classPrefix, className)}
+      onClick={props.onClick}
     >
       {children}
     </List.Item>
@@ -127,6 +129,7 @@ export const FormItem: FC<FormItemProps> = props => {
     messageVariables,
     trigger = 'onChange',
     validateTrigger,
+    onClick,
     ...fieldProps
   } = props
 
@@ -166,6 +169,7 @@ export const FormItem: FC<FormItemProps> = props => {
         hasFeedback={hasFeedback}
         htmlFor={fieldId}
         meta={meta}
+        onClick={onClick}
       >
         {baseChildren}
       </FormItemLayout>

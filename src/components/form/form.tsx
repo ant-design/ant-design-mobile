@@ -41,7 +41,7 @@ export const Form: FC<FormProps> = p => {
       <List
         style={{
           '--prefix-width': '6em',
-          '--align-items': 'start',
+          '--align-items': 'stretch',
         }}
       >
         <FormContext.Provider
