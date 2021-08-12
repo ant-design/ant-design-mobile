@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
-import {noop} from '../../utils/noop'
-import {resolveContainer} from '../../utils/get-container'
+import { noop } from '../../utils/noop'
+import { resolveContainer } from '../../utils/get-container'
 import Button from '../button'
 import Mask from '../mask'
 
@@ -202,8 +202,8 @@ Dialog.show = (props: DialogProps) => {
         {...restProps}
         visible={visible}
         getContainer={() => container}
-        cancelProps={{loading: cancelLoading, ...cancelProps}}
-        okProps={{loading: okLoading, ...okProps}}
+        cancelProps={{ loading: cancelLoading, ...cancelProps }}
+        okProps={{ loading: okLoading, ...okProps }}
         onCancel={_onCancel}
         onOk={_onOk}
         afterClose={_afterClose}
@@ -224,7 +224,7 @@ Dialog.show = (props: DialogProps) => {
 }
 // 可使用 async/await 的方式
 Dialog.alert = (props: AlertProps) => {
-  const {onCancel = noop} = props
+  const { onCancel = noop } = props
   return new Promise(resolve => {
     Dialog.show({
       ...props,
@@ -239,7 +239,7 @@ Dialog.alert = (props: AlertProps) => {
   })
 }
 Dialog.confirm = (props: DialogProps) => {
-  const {onCancel = noop, onOk = noop} = props
+  const { onCancel = noop, onOk = noop } = props
   return new Promise(resolve => {
     Dialog.show({
       // 强制显示 OK Btn

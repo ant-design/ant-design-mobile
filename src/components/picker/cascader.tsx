@@ -1,5 +1,5 @@
-import React, {FC, useMemo} from 'react'
-import Picker, {PickerProps, PickerColumn} from '.'
+import React, { FC, useMemo } from 'react'
+import Picker, { PickerProps, PickerColumn } from '.'
 
 export type CascaderOption = {
   label: string
@@ -12,9 +12,9 @@ export type CascaderProps = Omit<PickerProps, 'columns'> & {
 }
 
 export const Cascader: FC<CascaderProps> = props => {
-  const {options, ...pickerProps} = props
+  const { options, ...pickerProps } = props
 
-  const {depth, subOptionsRecord} = useMemo(() => {
+  const { depth, subOptionsRecord } = useMemo(() => {
     let depth = 1
     const subOptionsRecord: Record<string, CascaderOption[]> = {}
     function traverse(option: CascaderOption, currentDepth: number) {
@@ -33,7 +33,7 @@ export const Cascader: FC<CascaderProps> = props => {
     options.forEach(option => {
       traverse(option, 1)
     })
-    return {depth, subOptionsRecord}
+    return { depth, subOptionsRecord }
   }, [options])
 
   function columns(value: string[]) {

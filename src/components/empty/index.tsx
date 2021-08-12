@@ -1,6 +1,6 @@
-import React, {ReactNode, FC} from 'react'
+import React, { ReactNode, FC } from 'react'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
+import { ElementProps } from '../../utils/element-props'
 import EmptyIcon from '../../assets/empty-icon.svg'
 
 const classPrefix = `am-empty`

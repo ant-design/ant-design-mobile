@@ -1,6 +1,6 @@
 import React from 'react'
-import {Form, Input, Button, Dialog} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Form, Input, Button, Dialog } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 export default () => {
   const onFinish = (values: any) => {
@@ -16,7 +16,7 @@ export default () => {
           <Form.Item
             name='姓名'
             label='姓名'
-            rules={[{required: true, message: '姓名不能为空'}]}
+            rules={[{ required: true, message: '姓名不能为空' }]}
           >
             <Input onChange={console.log} placeholder='请输入姓名' />
           </Form.Item>

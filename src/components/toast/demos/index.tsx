@@ -1,6 +1,6 @@
 import React from 'react'
-import {Button, Toast} from 'antd-mobile'
-import {CloudUploadOutlined} from '@ant-design/icons'
+import { Button, Toast } from 'antd-mobile'
+import { CloudUploadOutlined } from '@ant-design/icons'
 import './index.less'
 
 export default () => {
@@ -60,7 +60,7 @@ export default () => {
               afterClose: () => clearInterval(timer),
             })
             const timer = setInterval(() => {
-              updateConfig({content: `还剩 ${remain--} 秒`})
+              updateConfig({ content: `还剩 ${remain--} 秒` })
             }, 1000)
           }}
         >

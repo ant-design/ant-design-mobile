@@ -1,8 +1,8 @@
 import React from 'react'
-import {useControllableValue} from 'ahooks'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {CheckboxValue} from '.'
-import {CheckboxGroupContext} from './group-context'
+import { useControllableValue } from 'ahooks'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { CheckboxValue } from '.'
+import { CheckboxGroupContext } from './group-context'
 
 export interface CheckboxGroupProps {
   value?: CheckboxValue[]

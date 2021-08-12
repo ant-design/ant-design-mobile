@@ -5,12 +5,12 @@
     <desc>Created with Sketch.</desc>
     <defs>
         <linearGradient x1="50%" y1="-116.862036%" x2="50%" y2="90.7636478%" id="linearGradient-1">
-            <stop stop-color="#72A7FD" stop-opacity="0.206670161" offset="0%"></stop>
-            <stop stop-color="#72A7FD" stop-opacity="0.114736704" offset="80.0721014%"></stop>
-            <stop stop-color="#72A7FD" stop-opacity="0" offset="100%"></stop>
+            <stop stop-color="#72A7FD" stop-opacity="0.206670161" offset="0%"/>
+            <stop stop-color="#72A7FD" stop-opacity="0.114736704" offset="80.0721014%"/>
+            <stop stop-color="#72A7FD" stop-opacity="0" offset="100%"/>
         </linearGradient>
-        <rect id="path-2" x="7" y="18" width="102.857143" height="176" rx="9.14285714"></rect>
-        <circle id="path-4" cx="37.6457143" cy="37.6457143" r="37.6457143"></circle>
+        <rect id="path-2" x="7" y="18" width="102.857143" height="176" rx="9.14285714"/>
+        <circle id="path-4" cx="37.6457143" cy="37.6457143" r="37.6457143"/>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="02" transform="translate(-179.000000, -364.000000)">

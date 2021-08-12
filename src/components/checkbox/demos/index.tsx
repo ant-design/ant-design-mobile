@@ -1,6 +1,6 @@
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {Checkbox, Space} from 'antd-mobile'
-import {useState} from 'react'
+import React, { useState } from 'react'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { Checkbox, Space } from 'antd-mobile'
 
 export default () => {
   const [value, setValue] = useState<string[]>([])
@@ -45,6 +45,12 @@ export default () => {
             <Checkbox value='banana'>香蕉</Checkbox>
           </Space>
         </Checkbox.Group>
+      </DemoBlock>
+      <DemoBlock title='占满整行宽度'>
+        <Space direction='vertical' block>
+          <Checkbox block>块级元素</Checkbox>
+          <Checkbox>非块级元素</Checkbox>
+        </Space>
       </DemoBlock>
     </>
   )

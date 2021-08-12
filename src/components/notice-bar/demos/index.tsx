@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
-import {NoticeBar, Button} from 'antd-mobile'
+import React, { useState } from 'react'
+import { NoticeBar, Button } from 'antd-mobile'
 import './index.less'
-import {AimOutlined, CloseCircleOutlined} from '@ant-design/icons'
+import { AimOutlined, CloseCircleOutlined } from '@ant-design/icons'
 
 export default () => {
   const [visible, setVisible] = useState([true, true, true, true])
@@ -52,7 +52,7 @@ export default () => {
                   href='https://taobao.com'
                   target='_blank'
                   rel='noreferrer'
-                  style={{marginRight: 8}}
+                  style={{ marginRight: 8 }}
                 >
                   查看详情
                 </a>

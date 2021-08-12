@@ -1,13 +1,13 @@
-import React, {useRef, useState, useEffect} from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import classNames from 'classnames'
-import {Panel} from './panel'
-import {ElementProps} from '../../utils/element-props'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
-import {useThrottleFn} from 'ahooks'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {Sidebar} from './sidebar'
-import {IndexBarContext} from './context'
-import {convertPx} from '../../utils/convert-px'
+import { Panel } from './panel'
+import { ElementProps } from '../../utils/element-props'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
+import { useThrottleFn } from 'ahooks'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { Sidebar } from './sidebar'
+import { IndexBarContext } from './context'
+import { convertPx } from '../../utils/convert-px'
 
 const classPrefix = `am-index-bar`
 
@@ -45,7 +45,7 @@ const IndexBar = withDefaultProps(defaultProps)<IndexBarProps>(props => {
     }
   }
 
-  const {run: checkActiveIndex} = useThrottleFn(
+  const { run: checkActiveIndex } = useThrottleFn(
     () => {
       const body = bodyRef.current
       if (!body) return
@@ -63,7 +63,7 @@ const IndexBar = withDefaultProps(defaultProps)<IndexBarProps>(props => {
         }
       }
     },
-    {wait: 50, trailing: true, leading: true}
+    { wait: 50, trailing: true, leading: true }
   )
 
   useEffect(() => {

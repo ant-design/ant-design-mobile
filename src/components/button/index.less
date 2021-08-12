@@ -4,10 +4,7 @@
   --color: var(--font-color-main);
 
   position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   box-sizing: border-box;
   height: auto;
   padding: 7px 16px;
@@ -44,7 +41,7 @@
   &-default {
     color: var(--font-color-main);
     background-color: #fff;
-    border-color: @border-color;
+    border-color: var(--border-color);
     &.@{class-prefix-button}-fill-outline {
       background-color: transparent;
       border-color: var(--font-color-main);
@@ -82,7 +79,7 @@
   }
 
   &-block {
-    display: flex;
+    display: block;
     width: 100%;
   }
 

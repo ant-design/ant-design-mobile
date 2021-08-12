@@ -1,11 +1,11 @@
-import React, {FC, useContext} from 'react'
-import {ElementProps} from '../../utils/element-props'
+import React, { FC, useContext } from 'react'
+import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
-import {useControllableValue} from 'ahooks'
-import {CheckOutlined} from '@ant-design/icons'
-import {Group} from './group'
-import {RadioGroupContext} from './group-context'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
+import { useControllableValue } from 'ahooks'
+import { CheckOutlined } from '@ant-design/icons'
+import { Group } from './group'
+import { RadioGroupContext } from './group-context'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 
 const classPrefix = `am-radio`
 
@@ -17,6 +17,7 @@ export type RadioProps = {
   disabled?: boolean
   onChange?: (checked: boolean) => void
   value?: RadioValue
+  block?: boolean
 } & ElementProps
 
 const Radio: FC<RadioProps> = props => {
@@ -29,7 +30,7 @@ const Radio: FC<RadioProps> = props => {
   })
   let disabled = props.disabled
 
-  const {value} = props
+  const { value } = props
   if (groupContext && value) {
     checked = groupContext.value.includes(value)
     setChecked = (checked: boolean) => {
@@ -48,6 +49,7 @@ const Radio: FC<RadioProps> = props => {
       className={classNames(classPrefix, props.className, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled,
+        [`${classPrefix}-block`]: props.block,
       })}
       style={props.style}
     >

@@ -1,7 +1,7 @@
-import React, {FC, ReactNode} from 'react'
+import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
-import {RightOutlined} from '@ant-design/icons'
+import { ElementProps } from '../../utils/element-props'
+import { RightOutlined } from '@ant-design/icons'
 
 const classPrefix = `am-list`
 
@@ -11,12 +11,14 @@ type ListItemProps = {
   description?: string | ReactNode
   prefix?: ReactNode
   extra?: ReactNode
-  showArrow?: boolean
+  clickable?: boolean
+  arrow?: boolean | ReactNode
   onClick?: () => void
-} & ElementProps
+} & ElementProps<'--prefix-width'>
 
 const ListItem: FC<ListItemProps> = props => {
-  const showArrow = props.showArrow ?? !!props.onClick
+  const clickable = props.clickable ?? !!props.onClick
+  const arrow = props.arrow === undefined ? clickable : props.arrow
 
   const content = (
     <div className={`${classPrefix}-item-content`}>
@@ -39,39 +41,32 @@ const ListItem: FC<ListItemProps> = props => {
       {props.extra && (
         <div className={`${classPrefix}-item-content-extra`}>{props.extra}</div>
       )}
-      {showArrow && (
+      {arrow && (
         <div className={`${classPrefix}-item-content-arrow`}>
-          <RightOutlined />
+          {arrow === true ? <RightOutlined /> : arrow}
         </div>
       )}
     </div>
   )
 
-  return props.onClick ? (
-    <a
-      className={classNames(
+  return React.createElement(
+    clickable ? 'a' : 'div',
+    {
+      className: classNames(
         `${classPrefix}-item`,
-        `am-plain-anchor`,
-        props.className
-      )}
-      style={props.style}
-      onClick={props.onClick}
-    >
-      {content}
-    </a>
-  ) : (
-    <div
-      className={classNames(`${classPrefix}-item`, props.className)}
-      style={props.style}
-    >
-      {content}
-    </div>
+        props.className,
+        clickable ? ['am-plain-anchor'] : []
+      ),
+      style: props.style,
+      onClick: props.onClick,
+    },
+    content
   )
 }
 
 type ListProps = {
   mode?: 'default' | 'card' // 默认是整宽的列表，card 模式下展示为带 margin 和圆角的卡片
-} & ElementProps
+} & ElementProps<'--prefix-width'>
 
 const List: FC<ListProps> & {
   Item: typeof ListItem

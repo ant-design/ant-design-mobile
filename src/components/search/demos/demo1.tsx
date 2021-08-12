@@ -1,6 +1,6 @@
 import React from 'react'
-import {Search, Toast} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Search, Toast } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 export default () => {
   return (

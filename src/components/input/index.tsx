@@ -1,7 +1,8 @@
-import React, {useState, forwardRef, useImperativeHandle, useRef} from 'react'
+import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
 import classNames from 'classnames'
-import {useControllableValue} from 'ahooks'
-import {CloseCircleFilled} from '@ant-design/icons'
+import { useControllableValue } from 'ahooks'
+import { CloseCircleFilled } from '@ant-design/icons'
+import { ElementProps } from '../../utils/element-props'
 
 const classPrefix = `am-input`
 
@@ -11,12 +12,13 @@ export type InputProps = Omit<
     HTMLInputElement
   >,
   'onChange'
-> & {
-  onChange?: (val: string) => void
-} & {
-  clearable?: boolean
-  onClear?: () => void
-}
+> &
+  ElementProps<'--font-size'> & {
+    onChange?: (val: string) => void
+  } & {
+    clearable?: boolean
+    onClear?: () => void
+  }
 
 export type InputRef = {
   clear: () => void

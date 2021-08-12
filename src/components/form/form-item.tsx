@@ -1,13 +1,13 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
-import {Field, FormInstance} from 'rc-field-form'
-import type {FieldProps} from 'rc-field-form/lib/Field'
+import { ElementProps } from '../../utils/element-props'
+import { Field, FormInstance } from 'rc-field-form'
+import type { FieldProps } from 'rc-field-form/lib/Field'
 import FieldContext from 'rc-field-form/lib/FieldContext'
-import type {Meta} from 'rc-field-form/lib/interface'
+import type { Meta } from 'rc-field-form/lib/interface'
 
-import {FormContext} from './context'
-import {toArray} from './utils'
+import { FormContext } from './context'
+import { toArray } from './utils'
 
 type RenderChildren<Values = any> = (
   form: FormInstance<Values>
@@ -36,7 +36,7 @@ interface MemoInputProps {
 }
 
 const MemoInput = React.memo(
-  ({children}: MemoInputProps) => children as JSX.Element,
+  ({ children }: MemoInputProps) => children as JSX.Element,
   (prev, next) => prev.value === next.value && prev.update === next.update
 )
 
@@ -113,7 +113,7 @@ export const FormItem: FC<FormItemProps> = props => {
     ...fieldProps
   } = props
 
-  const {validateTrigger: contextValidateTrigger} =
+  const { validateTrigger: contextValidateTrigger } =
     React.useContext(FieldContext)
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger
@@ -166,7 +166,7 @@ export const FormItem: FC<FormItemProps> = props => {
     variables.label = label
   }
   if (messageVariables) {
-    variables = {...variables, ...messageVariables}
+    variables = { ...variables, ...messageVariables }
   }
 
   return (
@@ -204,7 +204,7 @@ export const FormItem: FC<FormItemProps> = props => {
         ) {
           childNode = (children as RenderChildren)(context)
         } else if (React.isValidElement(children)) {
-          const childProps = {...children.props, ...control}
+          const childProps = { ...children.props, ...control }
 
           if (!childProps.id) {
             childProps.id = fieldId

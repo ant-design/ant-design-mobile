@@ -1,7 +1,7 @@
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {Picker, Button, Space} from 'antd-mobile'
-import {useState, useEffect} from 'react'
-import {sleep} from 'antd-mobile/src/utils/sleep'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { Picker, Button, Space } from 'antd-mobile'
+import React, { useState, useEffect } from 'react'
+import { sleep } from 'antd-mobile/src/utils/sleep'
 
 const basicColumns = [
   ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],
@@ -147,7 +147,6 @@ function AsyncDemo() {
 function RenderChildrenDemo() {
   const [visible, setVisible] = useState(false)
   const [value, setValue] = useState<(string | null)[]>([])
-  console.log('value', value)
   return (
     <Space align='center'>
       <Button
@@ -195,6 +194,18 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='渲染所选值'>
         <RenderChildrenDemo />
+      </DemoBlock>
+      <DemoBlock title='指令式调用'>
+        <Button
+          onClick={async () => {
+            const value = await Picker.prompt({
+              columns: basicColumns,
+            })
+            console.log(value)
+          }}
+        >
+          弹出 Picker
+        </Button>
       </DemoBlock>
     </>
   )

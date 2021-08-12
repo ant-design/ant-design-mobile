@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {Popup, Space, Button} from 'antd-mobile'
+import React, { useState } from 'react'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { Popup, Space, Button } from 'antd-mobile'
 
 const Stack = () => {
   const [visible1, setVisible1] = useState(false)
@@ -19,9 +19,9 @@ const Stack = () => {
         onMaskClick={() => {
           setVisible1(false)
         }}
-        bodyStyle={{height: '40vh'}}
+        bodyStyle={{ height: '40vh' }}
       >
-        <div style={{padding: '24px'}}>
+        <div style={{ padding: '24px' }}>
           <Space direction='vertical'>
             <div>这是弹出层1</div>
             <Button
@@ -39,9 +39,9 @@ const Stack = () => {
         onMaskClick={() => {
           setVisible2(false)
         }}
-        bodyStyle={{height: '20vh'}}
+        bodyStyle={{ height: '20vh' }}
       >
-        <div style={{padding: '24px'}}>
+        <div style={{ padding: '24px' }}>
           <div>这是弹出层2</div>
         </div>
       </Popup>
@@ -74,7 +74,7 @@ export default () => {
               onMaskClick={() => {
                 setVisible1(false)
               }}
-              bodyStyle={{minHeight: '40vh'}}
+              bodyStyle={{ minHeight: '40vh' }}
             >
               Hello
             </Popup>
@@ -93,7 +93,7 @@ export default () => {
                 setVisible2(false)
               }}
               position='top'
-              bodyStyle={{minHeight: '40vh'}}
+              bodyStyle={{ minHeight: '40vh' }}
             >
               Hello
             </Popup>
@@ -112,7 +112,7 @@ export default () => {
                 setVisible3(false)
               }}
               position='left'
-              bodyStyle={{minWidth: '60vw'}}
+              bodyStyle={{ minWidth: '60vw' }}
             >
               Hello
             </Popup>
@@ -131,7 +131,7 @@ export default () => {
                 setVisible4(false)
               }}
               position='right'
-              bodyStyle={{minWidth: '60vw'}}
+              bodyStyle={{ minWidth: '60vw' }}
             >
               Hello
             </Popup>
@@ -176,7 +176,7 @@ export default () => {
                 setVisible6(false)
               }}
             >
-              <div style={{height: '30vh', overflowY: 'scroll'}}>
+              <div style={{ height: '30vh', overflowY: 'scroll' }}>
                 <h1>Hello</h1>
                 <h1>Hello</h1>
                 <h1>Hello</h1>

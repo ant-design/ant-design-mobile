@@ -1,8 +1,9 @@
-import {FC, ReactNode, ReactElement, ComponentProps} from 'react'
+import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
-import {useControllableValue} from 'ahooks'
+import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
+import { ElementProps } from '../../utils/element-props'
+import { getNativeAttributes } from '../../utils/get-native-attributes'
 
 const classPrefix = `am-tabs`
 
@@ -49,15 +50,24 @@ const Tabs: FC<TabsProps> & {
 
   return (
     <div
+      {...getNativeAttributes(props)}
       className={classNames(classPrefix, props.className)}
       style={props.style}
     >
       <div className={`${classPrefix}-tab-list`}>
         {panes.map(pane => (
-          <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
+          <div
+            key={pane.key}
+            {...getNativeAttributes(pane.props)}
+            className={`${classPrefix}-tab-wrapper`}
+          >
             <div
               onClick={() => {
-                setActiveKey(pane.key?.toString()!)
+                const { key } = pane
+                if (key === undefined || key === null) {
+                  return
+                }
+                setActiveKey(key.toString())
               }}
               className={classNames(`${classPrefix}-tab`, {
                 [`${classPrefix}-tab-active`]: pane.key === activeKey,
@@ -81,7 +91,7 @@ const Tabs: FC<TabsProps> & {
         }
         if (pane.props.forceRender) {
           return (
-            <div key={pane.key} style={{display: 'none'}}>
+            <div key={pane.key} style={{ display: 'none' }}>
               {pane.props.children}
             </div>
           )

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {ImageUplader} from 'antd-mobile'
+import {ImageUploader} from 'antd-mobile'
 import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
 import {FileItem} from '..'
 import Toast from '../../toast'
@@ -42,14 +42,14 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <ImageUplader
+        <ImageUploader
           fileList={fileList}
           onChange={onChange}
           onDelete={onDelete}
         />
       </DemoBlock>
       <DemoBlock title='上传状态'>
-        <ImageUplader
+        <ImageUploader
           fileList={fileList2}
           onChange={onChange2}
           onDelete={onDelete2}

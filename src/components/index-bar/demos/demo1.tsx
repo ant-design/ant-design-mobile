@@ -1,5 +1,5 @@
 import React from 'react'
-import {IndexBar} from 'antd-mobile'
+import { IndexBar } from 'antd-mobile'
 
 export default () => {
   const getRandomList = (min: number, max: number): string[] => {
@@ -16,7 +16,7 @@ export default () => {
   })()
 
   return (
-    <div style={{height: '500px'}}>
+    <div style={{ height: '500px' }}>
       <IndexBar>
         {ItemList.map(item => {
           return (

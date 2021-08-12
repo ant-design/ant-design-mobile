@@ -1,6 +1,6 @@
-import {InfiniteScroll, List} from 'antd-mobile'
-import {useState} from 'react'
-import {sleep} from 'antd-mobile/src/utils/sleep'
+import { InfiniteScroll, List } from 'antd-mobile'
+import { useState } from 'react'
+import { sleep } from 'antd-mobile/src/utils/sleep'
 
 let count = 0
 

@@ -1,7 +1,8 @@
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import React from 'react'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 import styles from './index.less'
-import {Badge, Space} from 'antd-mobile'
-import {CloseOutlined, ExclamationOutlined} from '@ant-design/icons'
+import { Badge, Space } from 'antd-mobile'
+import { CloseOutlined, ExclamationOutlined } from '@ant-design/icons'
 
 export default () => {
   return (
@@ -24,16 +25,16 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='自定义颜色和偏移量'>
         <Space size='24px'>
-          <Badge offest={[40, -40]} color='#108ee9'>
+          <Badge offset={[40, -40]} color='#108ee9'>
             <div className={styles.box} />
           </Badge>
-          <Badge offest={[5, -35]} color='#87d068'>
+          <Badge offset={[0, -40]} color='#87d068'>
             <div className={styles.box} />
           </Badge>
-          <Badge offest={[0, 5]}>
+          <Badge offset={[0, 0]}>
             <div className={styles.box} />
           </Badge>
-          <Badge offest={[35, 5]} color='orange'>
+          <Badge offset={[40, 0]} color='orange'>
             <div className={styles.box} />
           </Badge>
         </Space>

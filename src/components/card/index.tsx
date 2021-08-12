@@ -1,7 +1,7 @@
-import {FC, ReactNode} from 'react'
+import { FC, ReactNode } from 'react'
 import React from 'react'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
+import { ElementProps } from '../../utils/element-props'
 
 const classPrefix = `am-card`
 

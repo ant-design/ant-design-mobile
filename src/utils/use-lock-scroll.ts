@@ -1,7 +1,7 @@
-import {useTouch} from './use-touch'
-import {useEffect, RefObject} from 'react'
-import {getScrollParent} from './get-scroll-parent'
-import {supportsPassive} from '../utils/supports-passive'
+import { useTouch } from './use-touch'
+import { useEffect, RefObject } from 'react'
+import { getScrollParent } from './get-scroll-parent'
+import { supportsPassive } from '../utils/supports-passive'
 
 let totalLockCount = 0
 
@@ -22,7 +22,7 @@ export function useLockScroll(
       event.target as Element,
       rootRef.current!
     ) as HTMLElement
-    const {scrollHeight, offsetHeight, scrollTop} = el
+    const { scrollHeight, offsetHeight, scrollTop } = el
     let status = '11'
 
     if (scrollTop === 0) {
@@ -48,7 +48,7 @@ export function useLockScroll(
     document.addEventListener(
       'touchmove',
       onTouchMove,
-      supportsPassive ? {passive: false} : false
+      supportsPassive ? { passive: false } : false
     )
 
     if (!totalLockCount) {

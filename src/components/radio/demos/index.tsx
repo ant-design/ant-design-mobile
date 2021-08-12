@@ -1,6 +1,6 @@
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {Radio, Space} from 'antd-mobile'
-import {useState} from 'react'
+import React, { useState } from 'react'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { Radio, Space } from 'antd-mobile'
 
 export default () => {
   const [value, setValue] = useState<string>()
@@ -44,6 +44,12 @@ export default () => {
             <Radio value='banana'>香蕉</Radio>
           </Space>
         </Radio.Group>
+      </DemoBlock>
+      <DemoBlock title='占满整行宽度'>
+        <Space direction='vertical' block>
+          <Radio block>块级元素</Radio>
+          <Radio>非块级元素</Radio>
+        </Space>
       </DemoBlock>
     </>
   )

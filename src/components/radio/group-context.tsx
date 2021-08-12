@@ -1,5 +1,5 @@
-import {createContext} from 'react'
-import {RadioValue} from '.'
+import { createContext } from 'react'
+import { RadioValue } from '.'
 
 export const RadioGroupContext = createContext<{
   value: RadioValue[]

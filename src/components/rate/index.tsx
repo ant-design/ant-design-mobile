@@ -1,9 +1,9 @@
 import React from 'react'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {StarFilled} from '@ant-design/icons'
-import {useControllableValue} from 'ahooks'
+import { ElementProps } from '../../utils/element-props'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { StarFilled } from '@ant-design/icons'
+import { useControllableValue } from 'ahooks'
 
 const classPrefix = `am-rate`
 
@@ -16,10 +16,7 @@ export type RateProps = {
   readonly?: boolean
   value?: number
   onChange?: (value: number) => void
-} & ElementProps<{
-  '--star-size': string
-  '--active-color': string
-}>
+} & ElementProps<'--star-size' | '--active-color'>
 
 const defaultProps = {
   count: 5,

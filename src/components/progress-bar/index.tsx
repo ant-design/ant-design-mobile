@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import React from 'react'
-import {convertPx} from '../../utils/convert-px'
-import {ElementProps} from '../../utils/element-props'
-import {withDefaultProps} from '../../utils/with-default-props'
+import { convertPx } from '../../utils/convert-px'
+import { ElementProps } from '../../utils/element-props'
+import { withDefaultProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-progress-bar`
 
@@ -16,7 +16,7 @@ const ProgressBar = withDefaultProps({
   percent: 0,
   strokeColor: '#1677FF',
 })<ProgressBarProps>(props => {
-  let {strokeWidth} = props
+  let { strokeWidth } = props
   if (strokeWidth === undefined) {
     strokeWidth = convertPx(3)
   }

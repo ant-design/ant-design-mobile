@@ -1,0 +1,27 @@
+name: Github Pages Next
+on: workflow_dispatch
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
+      - name: Run npm scripts
+        run: |
+          node -v
+          yarn -v
+          yarn install
+          yarn run build-doc
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./dist
+          external_repository: ant-design/next.mobile.ant.design
+          publish_branch: gh-pages
+          cname: next.mobile.ant.design

@@ -1,13 +1,13 @@
-@class-prefix-list: ~'am-list';
-
-.@{class-prefix-list} {
+.am-list {
   background-color: #ffffff;
   overflow: hidden;
+  font-size: 17px;
+  --prefix-width: 'auto';
   &-inner {
     margin-bottom: -1px;
   }
   &-default {
-    border: solid 1px @border-color;
+    border: solid 1px var(--border-color);
     border-right: none;
     border-left: none;
   }
@@ -15,13 +15,13 @@
     margin: 12px;
     border-radius: 8px;
   }
-  .@{class-prefix-list}-item {
+  .am-list-item {
     display: block;
     padding-left: 12px;
     &-title,
     &-description {
       color: var(--font-color-weak);
-      font-size: 13px;
+      font-size: 15px;
     }
     &-title {
       padding-bottom: 2px;
@@ -34,14 +34,14 @@
       align-items: center;
       justify-content: flex-start;
       padding: 12px 12px 12px 0;
-      border-bottom: solid 1px @border-color;
+      border-bottom: solid 1px var(--border-color);
       &-prefix {
+        width: var(--prefix-width);
         flex: none;
         padding-right: 12px;
       }
       &-main {
         flex: auto;
-        font-size: 17px;
       }
       &-extra {
         flex: none;
@@ -55,9 +55,9 @@
       }
     }
   }
-  > a.@{class-prefix-list}-item {
+  a.am-list-item {
     &:active {
-      background-color: @border-color;
+      background-color: var(--border-color);
     }
   }
 }

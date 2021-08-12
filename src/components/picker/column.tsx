@@ -1,9 +1,9 @@
-import React, {FC, useEffect} from 'react'
-import {useSpring, animated} from '@react-spring/web'
-import {useDrag} from 'react-use-gesture'
-import type {PickerColumnItem, PickerValue} from './index'
-import {convertPx} from '../../utils/convert-px'
-import {rubberbandIfOutOfBounds, bound} from '../../utils/rubberband'
+import React, { FC, useEffect } from 'react'
+import { useSpring, animated } from '@react-spring/web'
+import { useDrag } from 'react-use-gesture'
+import type { PickerColumnItem, PickerValue } from './index'
+import { convertPx } from '../../utils/convert-px'
+import { rubberbandIfOutOfBounds, bound } from '../../utils/rubberband'
 
 const classPrefix = `am-picker`
 
@@ -15,10 +15,9 @@ interface Props {
 
 export const Column: FC<Props> = props => {
   const itemHeight = convertPx(34)
-  console.log(itemHeight)
-  const {value, onSelect, column} = props
-  const [{y}, api] = useSpring(() => ({
-    from: {y: 0},
+  const { value, onSelect, column } = props
+  const [{ y }, api] = useSpring(() => ({
+    from: { y: 0 },
     config: {
       tension: 400,
       mass: 0.8,
@@ -30,11 +29,11 @@ export const Column: FC<Props> = props => {
       return
     }
     const targetIndex = column.findIndex(item => item.value === value)
-    const finalPosition = targetIndex * -itemHeight
-    if (finalPosition === y.get()) {
+    if (targetIndex < 0) {
       return
     }
-    api.start({y: finalPosition, immediate: y.idle})
+    const finalPosition = targetIndex * -itemHeight
+    api.start({ y: finalPosition, immediate: y.idle })
   }, [value])
 
   useEffect(() => {
@@ -58,7 +57,7 @@ export const Column: FC<Props> = props => {
         const position = state.movement[1] + state.vxvy[1] * 50
         const targetIndex = -Math.round(bound(position, min, max) / itemHeight)
         const finalPosition = targetIndex * -itemHeight
-        api.start({y: finalPosition})
+        api.start({ y: finalPosition })
         onSelect(column[targetIndex].value)
       } else {
         const position = state.movement[1]
@@ -76,11 +75,11 @@ export const Column: FC<Props> = props => {
 
   return (
     <div className={`${classPrefix}-column`} {...bind()}>
-      <animated.div style={{y}} className={`${classPrefix}-column-wheel`}>
+      <animated.div style={{ y }} className={`${classPrefix}-column-wheel`}>
         {column.map((item, index) => {
           function handleClick() {
             const finalPosition = index * -itemHeight
-            api.start({y: finalPosition})
+            api.start({ y: finalPosition })
             onSelect(column[index].value)
           }
           return (

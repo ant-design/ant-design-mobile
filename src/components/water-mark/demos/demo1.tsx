@@ -1,5 +1,5 @@
-import {Button, WaterMark} from 'antd-mobile'
-import React, {useState} from 'react'
+import { Button, WaterMark } from 'antd-mobile'
+import React, { useState } from 'react'
 import './demo1.less'
 
 const textProps = {
@@ -16,7 +16,7 @@ const imageProps = {
 }
 
 export default () => {
-  const [props, setProps] = useState<{[key: string]: any}>(textProps)
+  const [props, setProps] = useState<{ [key: string]: any }>(textProps)
 
   return (
     <div className='water-mark-overlay'>

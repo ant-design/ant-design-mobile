@@ -1,8 +1,8 @@
-import {FC, ReactNode, ReactElement, ComponentProps} from 'react'
+import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
-import {useControllableValue} from 'ahooks'
+import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
-import {ElementProps} from '../../utils/element-props'
+import { ElementProps } from '../../utils/element-props'
 
 const classPrefix = `am-tab-bar`
 
@@ -54,7 +54,9 @@ const TabBar: FC<TabBarProps> & {
         <div
           key={item.key}
           onClick={() => {
-            setActiveKey(item.key?.toString()!)
+            const { key } = item
+            if (key === undefined || key === null) return
+            setActiveKey(key.toString())
           }}
           className={classNames(`${classPrefix}-item`, item.props.className, {
             [`${classPrefix}-item-active`]: item.key === activeKey,

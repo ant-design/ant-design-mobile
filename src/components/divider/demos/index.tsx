@@ -1,6 +1,6 @@
 import React from 'react'
-import {Divider} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Divider } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 export default () => {
   return (
@@ -9,7 +9,7 @@ export default () => {
         <Divider />
       </DemoBlock>
       <DemoBlock title='带内容的分割线'>
-        <Divider contentPosition='center'>默认内容在中间</Divider>
+        <Divider>默认内容在中间</Divider>
         <Divider contentPosition='left'>左侧内容</Divider>
         <Divider contentPosition='right'>右侧内容</Divider>
       </DemoBlock>

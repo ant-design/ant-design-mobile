@@ -1,13 +1,14 @@
-import React, {useState, useEffect, ReactNode, useMemo} from 'react'
-import Popup, {PopupProps} from '../popup'
-import {useControllableValue} from 'ahooks'
+import React, { useState, useEffect, ReactNode, useMemo, FC } from 'react'
+import Popup, { PopupProps } from '../popup'
+import { useControllableValue } from 'ahooks'
 
-import {Column} from './column'
-import {withDefaultProps} from '../../utils/with-default-props'
-import {attachPropertiesToComponent} from '../../utils/attach-properties-to-component'
-import {Cascader} from './cascader'
-import {ElementProps} from '../../utils/element-props'
+import { Column } from './column'
+import { withDefaultProps } from '../../utils/with-default-props'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
+import { Cascader, CascaderProps } from './cascader'
+import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
+import { renderToBody } from '../../utils/render-to-body'
 
 const classPrefix = `am-picker`
 
@@ -32,7 +33,7 @@ export type PickerProps = {
   confirmText?: string
   cancelText?: string
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
-} & Pick<PopupProps, 'getContainer'> &
+} & Pick<PopupProps, 'getContainer' | 'afterShow' | 'afterClose'> &
   ElementProps
 
 const Picker = withDefaultProps({
@@ -48,9 +49,7 @@ const Picker = withDefaultProps({
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
-    if (!props.visible) {
-      setInnerValue(value)
-    }
+    setInnerValue(value)
   }, [props.visible])
 
   const columns = useMemo(() => {
@@ -80,6 +79,8 @@ const Picker = withDefaultProps({
       }}
       getContainer={props.getContainer}
       destroyOnClose
+      afterShow={props.afterShow}
+      afterClose={props.afterClose}
     >
       <div
         className={classNames(classPrefix, props.className)}
@@ -128,23 +129,86 @@ const Picker = withDefaultProps({
     </Popup>
   )
 
-  const label = useMemo(() => {
-    if (!props.children) return null
-    const items = columns.map(
+  const items = useMemo(() => {
+    return columns.map(
       (column, index) =>
         column.find(item => item.value === value[index]) ?? null
     )
-    return props.children(items)
-  }, [value])
+  }, [value, columns])
 
   return (
     <>
       {widget}
-      {label}
+      {props.children?.(items)}
     </>
   )
 })
 
+function prompt(props: Omit<PickerProps, 'value' | 'visible' | 'children'>) {
+  return new Promise<PickerValue[] | null>(resolve => {
+    const Wrapper: FC = () => {
+      const [visible, setVisible] = useState(false)
+      useEffect(() => {
+        setVisible(true)
+      }, [])
+      return (
+        <Picker
+          {...props}
+          visible={visible}
+          onConfirm={val => {
+            resolve(val)
+          }}
+          onClose={() => {
+            props.onClose?.()
+            setVisible(false)
+            resolve(null)
+          }}
+          afterClose={() => {
+            props.afterClose?.()
+            unmount()
+          }}
+        />
+      )
+    }
+    const unmount = renderToBody(<Wrapper />)
+  })
+}
+
+function promptCascader(
+  props: Omit<CascaderProps, 'value' | 'visible' | 'children'>
+) {
+  return new Promise<PickerValue[] | null>(resolve => {
+    const Wrapper: FC = () => {
+      const [visible, setVisible] = useState(false)
+      useEffect(() => {
+        setVisible(true)
+      }, [])
+      return (
+        <Cascader
+          {...props}
+          visible={visible}
+          onConfirm={val => {
+            resolve(val)
+          }}
+          onClose={() => {
+            props.onClose?.()
+            setVisible(false)
+            resolve(null)
+          }}
+          afterClose={() => {
+            props.afterClose?.()
+            unmount()
+          }}
+        />
+      )
+    }
+    const unmount = renderToBody(<Wrapper />)
+  })
+}
+
 export default attachPropertiesToComponent(Picker, {
-  Cascader: Cascader,
+  Cascader: attachPropertiesToComponent(Cascader, {
+    prompt: promptCascader,
+  }),
+  prompt,
 })

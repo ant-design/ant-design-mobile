@@ -1,5 +1,5 @@
-import {Tag, Space} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Tag, Space } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 export default () => {
   return (

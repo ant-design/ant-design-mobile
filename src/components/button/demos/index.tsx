@@ -1,6 +1,7 @@
 import React from 'react'
-import {Button, Space} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Button, Space } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { SearchOutlined } from '@ant-design/icons'
 
 export default () => {
   return (
@@ -81,6 +82,14 @@ export default () => {
             Loading
           </Button>
         </Space>
+      </DemoBlock>
+      <DemoBlock title='带图标的按钮'>
+        <Button>
+          <Space>
+            <SearchOutlined />
+            <span>搜索</span>
+          </Space>
+        </Button>
       </DemoBlock>
     </>
   )

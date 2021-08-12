@@ -1,4 +1,4 @@
-import React, {createContext} from 'react'
+import React, { createContext } from 'react'
 
 export const IndexBarContext = createContext<{
   indexes: string[]

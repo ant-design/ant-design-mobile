@@ -1,6 +1,6 @@
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {ImageViewer, Button} from 'antd-mobile'
-import {useState} from 'react'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { ImageViewer, Button } from 'antd-mobile'
+import { useState } from 'react'
 
 const demoImages = [
   'https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80',
@@ -66,7 +66,7 @@ export default () => {
       <DemoBlock title='指令式调用'>
         <Button
           onClick={() => {
-            ImageViewer.Multi.show({images: demoImages})
+            ImageViewer.Multi.show({ images: demoImages })
           }}
         >
           显示图片

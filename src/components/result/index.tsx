@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 import {
   CheckCircleFilled,
@@ -27,7 +27,7 @@ export interface ResultProps {
 }
 
 const Result: FC<ResultProps> = props => {
-  const {className, style, status, title, description} = props
+  const { className, style, status, title, description } = props
   const ResultIcon = ICONS[status]
 
   return (

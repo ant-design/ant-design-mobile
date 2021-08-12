@@ -1,7 +1,7 @@
-import React, {useContext, useEffect} from 'react'
-import {ElementProps} from '../../utils/element-props'
+import React, { useContext, useEffect } from 'react'
+import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
-import {IndexBarContext} from './context'
+import { IndexBarContext } from './context'
 
 const classPrefix = `am-index-bar-anchor`
 
@@ -11,7 +11,7 @@ export type IndexBarAnchorProps = {
 } & ElementProps
 
 export const Panel: React.FC<IndexBarAnchorProps> = props => {
-  const {setIndexes} = useContext(IndexBarContext)
+  const { setIndexes } = useContext(IndexBarContext)
   useEffect(() => {
     setIndexes(val => val.concat([props.index]))
     return () => {

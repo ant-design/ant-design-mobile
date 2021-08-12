@@ -1,5 +1,5 @@
-import React, {FC, useRef, RefObject} from 'react'
-import {useDrag, subV} from 'react-use-gesture'
+import React, { FC, useRef, RefObject } from 'react'
+import { useDrag, subV } from 'react-use-gesture'
 
 const classPrefix = `am-slider`
 
@@ -13,7 +13,7 @@ type ThumbProps = {
 }
 
 const Thumb: FC<ThumbProps> = props => {
-  const {value, min, max, disabled, onDrag} = props
+  const { value, min, max, disabled, onDrag } = props
   const prevValue = useRef(value)
 
   const currentPosition = () => {

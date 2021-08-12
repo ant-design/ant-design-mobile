@@ -1,4 +1,6 @@
-export interface ElementProps<S = {}> {
+import type { CSSProperties } from 'react'
+
+export interface ElementProps<S extends string = never> {
   className?: string
-  style?: React.CSSProperties & S
+  style?: CSSProperties & Record<S, string>
 }

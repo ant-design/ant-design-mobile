@@ -1,11 +1,11 @@
-import {useControllableValue} from 'ahooks'
+import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import React from 'react'
-import {ElementProps} from '../../utils/element-props'
-import {withDefaultProps} from '../../utils/with-default-props'
+import { ElementProps } from '../../utils/element-props'
+import { withDefaultProps } from '../../utils/with-default-props'
 import Space from '../space'
 import Grid from '../grid'
-import {convertPx} from '../../utils/convert-px'
+import { convertPx } from '../../utils/convert-px'
 import selectorCheckMarkImg from '../../assets/selector-check-mark.svg'
 
 const classPrefix = `am-selector`

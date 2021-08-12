@@ -1,6 +1,6 @@
 import React from 'react'
-import {Loading} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
+import { Loading } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 
 export default () => {
   return (
@@ -20,11 +20,11 @@ export default () => {
         <Loading size='large' />
       </DemoBlock>
       <DemoBlock title='自动适配当前文本颜色'>
-        <div style={{color: '#00b578'}}>
+        <div style={{ color: '#00b578' }}>
           <Loading color='currentColor' />
           <span>绿色文字</span>
         </div>
-        <div style={{color: '#ff3141'}}>
+        <div style={{ color: '#ff3141' }}>
           <Loading color='currentColor' />
           <span>红色文字</span>
         </div>

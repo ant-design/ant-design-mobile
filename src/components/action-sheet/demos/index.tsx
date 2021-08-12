@@ -1,12 +1,12 @@
-import React, {useState} from 'react'
-import {ActionSheet, Button, Dialog, Space, Toast} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import type {Action} from '..'
+import React, { useState } from 'react'
+import { ActionSheet, Button, Dialog, Space, Toast } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import type { Action } from '..'
 
 const actions: Action[] = [
-  {text: '复制', key: 'copy'},
-  {text: '修改', key: 'edit'},
-  {text: '删除', key: 'delete'},
+  { text: '复制', key: 'copy' },
+  { text: '修改', key: 'edit' },
+  { text: '删除', key: 'delete' },
 ]
 
 function Basic() {
@@ -41,8 +41,8 @@ function WithCancelButtonAndDescription() {
 
 function ConfigActions() {
   const actions: Action[] = [
-    {text: '复制', key: 'copy'},
-    {text: '修改', key: 'edit', disabled: true},
+    { text: '复制', key: 'copy' },
+    { text: '修改', key: 'edit', disabled: true },
     {
       text: '删除',
       key: 'delete',
@@ -66,15 +66,15 @@ function ConfigActions() {
 
 function Events() {
   const actions: Action[] = [
-    {text: '复制', key: 'copy'},
-    {text: '修改', key: 'edit'},
+    { text: '复制', key: 'copy' },
+    { text: '修改', key: 'edit' },
     {
       text: '删除',
       key: 'delete',
       onClick: async () => {
-        const result = await Dialog.confirm({content: '确定要删除吗？'})
+        const result = await Dialog.confirm({ content: '确定要删除吗？' })
         if (result) {
-          Toast.show({content: `执行了删除操作`})
+          Toast.show({ content: `执行了删除操作` })
         }
       },
     },
@@ -90,11 +90,11 @@ function Events() {
         onClose={() => setVisible(false)}
         onSelect={action => {
           if (action.key === 'edit' || action.key === 'copy') {
-            Toast.show({content: `点击了${action.text}`})
+            Toast.show({ content: `点击了${action.text}` })
           }
         }}
         afterClose={() => {
-          Toast.show({content: `动作面板已关闭`})
+          Toast.show({ content: `动作面板已关闭` })
         }}
       />
     </>

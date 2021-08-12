@@ -1,8 +1,8 @@
-import {ComponentType} from 'react'
+import { ComponentType } from 'react'
 
 export function attachPropertiesToComponent<
   C extends ComponentType,
-  P extends {}
+  P extends Record<string, any>
 >(component: C, properties: P): C & P {
   const ret = component as any
   for (const key in properties) {

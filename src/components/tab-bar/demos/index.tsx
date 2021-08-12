@@ -1,6 +1,6 @@
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {TabBar, Toast} from 'antd-mobile'
-import React, {useState} from 'react'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { TabBar, Toast } from 'antd-mobile'
+import React, { useState } from 'react'
 import {
   HomeOutlined,
   MessageOutlined,

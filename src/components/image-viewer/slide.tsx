@@ -1,6 +1,6 @@
-import React, {FC} from 'react'
-import {useGesture} from 'react-use-gesture'
-import {useSpring, animated} from '@react-spring/web'
+import React, { FC } from 'react'
+import { useGesture } from 'react-use-gesture'
+import { useSpring, animated } from '@react-spring/web'
 
 const classPrefix = `am-image-viewer`
 
@@ -12,11 +12,11 @@ type Props = {
 }
 
 export const Slide: FC<Props> = props => {
-  const [{zoom, x, y}, api] = useSpring(() => ({
+  const [{ zoom, x, y }, api] = useSpring(() => ({
     zoom: 1,
     x: 0,
     y: 0,
-    config: {tension: 300},
+    config: { tension: 300 },
   }))
 
   const bind = useGesture(
@@ -86,7 +86,7 @@ export const Slide: FC<Props> = props => {
       <div className={`${classPrefix}-control`} {...bind()}>
         <animated.div
           className={`${classPrefix}-image-wrapper`}
-          style={{scale: zoom, x, y}}
+          style={{ scale: zoom, x, y }}
         >
           <img src={props.image} draggable={false} />
         </animated.div>

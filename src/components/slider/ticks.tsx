@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 
 const classPrefix = `am-slider`
@@ -11,13 +11,19 @@ type TicksProps = {
   lowerBound: number
 }
 
-const Ticks: FC<TicksProps> = ({points, max, min, upperBound, lowerBound}) => {
+const Ticks: FC<TicksProps> = ({
+  points,
+  max,
+  min,
+  upperBound,
+  lowerBound,
+}) => {
   const range = max - min
   const elements = points.map(point => {
     const offset = `${(Math.abs(point - min) / range) * 100}%`
 
     const isActived = point <= upperBound && point >= lowerBound
-    const style = {left: offset}
+    const style = { left: offset }
 
     const pointClassName = classNames({
       [`${classPrefix}-tick`]: true,

@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 
 const classPrefix = `am-slider-mark`
@@ -15,7 +15,7 @@ type MarksProps = {
   lowerBound: number
 }
 
-const Marks: FC<MarksProps> = ({marks, upperBound, lowerBound, max, min}) => {
+const Marks: FC<MarksProps> = ({ marks, upperBound, lowerBound, max, min }) => {
   const marksKeys = Object.keys(marks)
 
   const range = max - min
