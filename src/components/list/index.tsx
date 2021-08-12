@@ -14,9 +14,7 @@ type ListItemProps = {
   clickable?: boolean
   arrow?: boolean | ReactNode
   onClick?: () => void
-} & ElementProps<{
-  '--prefix-width': string
-}>
+} & ElementProps<'--prefix-width'>
 
 const ListItem: FC<ListItemProps> = props => {
   const clickable = props.clickable ?? !!props.onClick
@@ -68,9 +66,7 @@ const ListItem: FC<ListItemProps> = props => {
 
 type ListProps = {
   mode?: 'default' | 'card' // 默认是整宽的列表，card 模式下展示为带 margin 和圆角的卡片
-} & ElementProps<{
-  '--prefix-width': string
-}>
+} & ElementProps<'--prefix-width'>
 
 const List: FC<ListProps> & {
   Item: typeof ListItem

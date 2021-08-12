@@ -14,9 +14,7 @@ import { nearest } from '../../utils/nearest'
 export type FloatingPanelProps = {
   anchors: number[]
   children: ReactNode
-} & ElementProps<{
-  '--border-radius': string
-}>
+} & ElementProps<'--border-radius'>
 
 export type FloatingPanelRef = {
   setHeight: (
