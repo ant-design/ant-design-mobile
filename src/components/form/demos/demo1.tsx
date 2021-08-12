@@ -41,7 +41,6 @@ export default () => {
           <Form.Item
             name='birthday'
             label='生日'
-            initialValue={new Date()}
             trigger='onConfirm'
             onClick={() => {
               setPickerVisible(true)
@@ -56,7 +55,9 @@ export default () => {
                 e.stopPropagation()
               }}
             >
-              {value => dayjs(value).format('YYYY-MM-DD')}
+              {value =>
+                value ? dayjs(value).format('YYYY-MM-DD') : '请选择日期'
+              }
             </DatePicker>
           </Form.Item>
           <Form.Item name='禁用' disabled>

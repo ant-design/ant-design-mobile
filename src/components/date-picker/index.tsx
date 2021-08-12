@@ -111,7 +111,10 @@ const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(props => {
 
   const onSelect = useCallback(
     (val: string[]) => {
-      props.onSelect?.(convertStringArrayToDate(val))
+      const date = convertStringArrayToDate(val)
+      if (date) {
+        props.onSelect?.(date)
+      }
     },
     [props.onSelect]
   )
@@ -150,7 +153,10 @@ function convertDateToStringArray(date: Date | undefined | null): string[] {
   ]
 }
 
-function convertStringArrayToDate(value: (string | null | undefined)[]): Date {
+function convertStringArrayToDate(
+  value: (string | null | undefined)[]
+): Date | null {
+  if (value.length !== 3) return null
   const yearString = value[0] ?? '1900'
   const monthString = value[1] ?? '1'
   const dateString = value[2] ?? '1'
