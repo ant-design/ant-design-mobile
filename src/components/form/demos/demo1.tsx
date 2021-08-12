@@ -52,6 +52,9 @@ export default () => {
               onClose={() => {
                 setPickerVisible(false)
               }}
+              onClick={e => {
+                e.stopPropagation()
+              }}
             >
               {value => dayjs(value).format('YYYY-MM-DD')}
             </DatePicker>

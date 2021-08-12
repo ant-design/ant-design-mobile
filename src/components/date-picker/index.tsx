@@ -25,6 +25,7 @@ export type DatePickerProps = Pick<
   | 'getContainer'
   | 'afterShow'
   | 'afterClose'
+  | 'onClick'
 > & {
   value?: Date
   defaultValue?: Date
@@ -129,6 +130,7 @@ const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(props => {
       getContainer={props.getContainer}
       afterShow={props.afterShow}
       afterClose={props.afterClose}
+      onClick={props.onClick}
     >
       {items =>
         props.children?.(

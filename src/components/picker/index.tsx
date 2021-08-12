@@ -33,7 +33,7 @@ export type PickerProps = {
   confirmText?: string
   cancelText?: string
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
-} & Pick<PopupProps, 'getContainer' | 'afterShow' | 'afterClose'> &
+} & Pick<PopupProps, 'getContainer' | 'afterShow' | 'afterClose' | 'onClick'> &
   ElementProps
 
 const Picker = withDefaultProps({
@@ -81,6 +81,7 @@ const Picker = withDefaultProps({
       destroyOnClose
       afterShow={props.afterShow}
       afterClose={props.afterClose}
+      onClick={props.onClick}
     >
       <div
         className={classNames(classPrefix, props.className)}

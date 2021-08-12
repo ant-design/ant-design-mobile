@@ -27,6 +27,7 @@ export type PopupProps = {
   bodyStyle?: React.CSSProperties
   maskClassName?: string
   maskStyle?: React.CSSProperties
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & ElementProps
 
 const defaultProps = {
@@ -72,7 +73,7 @@ const Popup: FC<PopupProps> = p => {
   useLockScroll(ref, props.visible)
 
   const node = (
-    <div className={cls} style={props.style}>
+    <div className={cls} style={props.style} onClick={props.onClick}>
       {props.mask && (
         <Mask
           visible={props.visible}
