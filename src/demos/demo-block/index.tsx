@@ -11,7 +11,7 @@ interface Props {
 
 export const DemoBlock: FC<Props> = props => {
   return (
-    <div>
+    <div className={styles.demoBlock}>
       <div className={styles.title}>{props.title}</div>
       <div
         className={styles.content}
