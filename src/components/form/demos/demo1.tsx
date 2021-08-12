@@ -11,8 +11,21 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='基础使用' padding={'0'}>
-        <Form hasFeedback onFinish={onFinish}>
+      <DemoBlock
+        title='基础使用'
+        padding='0'
+        border='none'
+        background='transparent'
+      >
+        <Form
+          hasFeedback
+          onFinish={onFinish}
+          footer={
+            <Button block type='submit' color='primary'>
+              提交
+            </Button>
+          }
+        >
           <Form.Item
             name='姓名'
             label='姓名'
@@ -26,9 +39,6 @@ export default () => {
           <Form.Item name='禁用' disabled>
             <Input placeholder='禁止输入' />
           </Form.Item>
-          <Button block type='submit' color='primary'>
-            提交
-          </Button>
         </Form>
       </DemoBlock>
     </>

@@ -8,6 +8,7 @@ import type { Meta } from 'rc-field-form/lib/interface'
 
 import { FormContext } from './context'
 import { toArray } from './utils'
+import List from '../list'
 
 type RenderChildren<Values = any> = (
   form: FormInstance<Values>
@@ -70,7 +71,6 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const hasFeedback =
     props.hasFeedback || React.useContext(FormContext).hasFeedback
 
-  const formItemClass = classNames(classPrefix, className)
   const formItemLabelClass = classNames(`${classPrefix}-label`, {
     [`${classPrefix}-label-disable`]: disabled,
   })
@@ -78,16 +78,26 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const feedback =
     hasFeedback && meta && meta.errors.length > 0 ? meta.errors[0] : null
 
+  const labelElement = (
+    <label className={formItemLabelClass} htmlFor={htmlFor}>
+      {required && <span className={`${classPrefix}-label-required`}>*</span>}
+      {label}
+      {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
+    </label>
+  )
+
+  const descriptionElement = feedback && (
+    <div className={`${classPrefix}-footer`}>{feedback}</div>
+  )
+
   return (
-    <div className={formItemClass} style={style}>
-      <label className={formItemLabelClass} htmlFor={htmlFor}>
-        {required && <span className={`${classPrefix}-label-required`}>*</span>}
-        {label}
-        {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
-      </label>
-      <div className={`${classPrefix}-body`}>{children}</div>
-      {feedback && <div className={`${classPrefix}-footer`}>{feedback}</div>}
-    </div>
+    <List.Item
+      title={labelElement}
+      description={descriptionElement}
+      className={classNames(classPrefix, className)}
+    >
+      {children}
+    </List.Item>
   )
 }
 
