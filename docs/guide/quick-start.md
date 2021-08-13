@@ -27,3 +27,7 @@ import 'antd-mobile/index@2x.css'
 ```js
 import { Button } from 'antd-mobile'
 ```
+
+## 在线体验
+
+<code src="./codesandbox.tsx" inline></code>
