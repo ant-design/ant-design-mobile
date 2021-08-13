@@ -2,6 +2,7 @@ const gulp = require('gulp')
 const less = require('gulp-less')
 const path = require('path')
 const postcss = require('gulp-postcss')
+const imageInliner = require('postcss-image-inliner')
 const rename = require('gulp-rename')
 const babel = require('gulp-babel')
 const ts = require('gulp-typescript')
@@ -49,7 +50,6 @@ gulp.task('copy-css', function () {
     .src(['./lib/index.css', './lib/index@2x.css'])
     .pipe(gulp.dest('lib/es/'))
     .pipe(gulp.dest('lib/cjs/'))
-    .pipe(gulp.dest('lib/umd/'))
 })
 
 gulp.task('clean', async function () {
@@ -121,7 +121,7 @@ gulp.task('umd', function () {
             rules: [
               {
                 test: /\.(png|svg|jpg|gif|jpeg)$/,
-                use: ['file-loader'],
+                type: 'asset/inline',
               },
             ],
           },
@@ -135,6 +135,20 @@ gulp.task('umd', function () {
       )
     )
     .pipe(gulp.dest('lib/umd/'))
+})
+
+gulp.task('umd-css', function () {
+  return gulp
+    .src(['./lib/index.css', './lib/index@2x.css'])
+    .pipe(
+      postcss([
+        imageInliner({
+          assetPaths: ['./lib'],
+          maxFileSize: 0,
+        }),
+      ])
+    )
+    .pipe(gulp.dest('./lib/umd'))
 })
 
 gulp.task('copy-files', () => {
@@ -155,6 +169,7 @@ gulp.task(
     'less',
     'multiply-px',
     'copy-css',
-    'copy-files'
+    'copy-files',
+    'umd-css'
   )
 )
