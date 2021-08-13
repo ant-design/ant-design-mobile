@@ -30,7 +30,7 @@ export type ActionSheetProps = {
   actions: Action[]
   extra?: React.ReactNode
   cancelText?: string
-  onSelect?: (action: Action, index: number) => void
+  onAction?: (action: Action, index: number) => void
   onClose?: () => void
   afterClose?: () => void
   onMaskClick?: () => void
@@ -77,7 +77,7 @@ const ActionSheet = withDefaultProps(defaultProps)<ActionSheetProps>(props => {
                 disabled={action.disabled}
                 onClick={() => {
                   action.onClick?.()
-                  props.onSelect?.(action, index)
+                  props.onAction?.(action, index)
                   if (props.closeOnSelect) {
                     props.onClose?.()
                   }

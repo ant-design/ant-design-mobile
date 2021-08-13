@@ -88,7 +88,7 @@ function Events() {
         visible={visible}
         actions={actions}
         onClose={() => setVisible(false)}
-        onSelect={action => {
+        onAction={action => {
           if (action.key === 'edit' || action.key === 'copy') {
             Toast.show({ content: `点击了${action.text}` })
           }
