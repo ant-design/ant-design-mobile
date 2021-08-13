@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import { noop } from '../../utils/noop'
@@ -13,27 +13,16 @@ export interface DialogBtnProps {
   disabled?: boolean
 }
 export interface DialogProps {
-  /** Dialog 完全关闭后的回调 */
   afterClose?: () => void
-  /** 顶部图片 url */
   headerImage?: string
-  /** 是否等待图片加载完毕后再弹出对话框，默认为 true */
   waitImageLoad?: boolean
-  /** Dialog 内容样式 */
   bodyStyle?: React.CSSProperties
-  /** Dialog 内容类名 */
   bodyClassName?: string
-  /** Dialog 遮罩样式 */
   maskStyle?: React.CSSProperties
-  /** Dialog 遮罩类名 */
   maskClassName?: string
-  /** 对话框标题 */
   title?: React.ReactNode
-  /** 对话框提示文字 */
   content?: React.ReactNode
-  /** 取消的文字 */
   cancelText?: React.ReactNode
-  /** 点击取消的回调 */
   onCancel?: (
     e: React.MouseEvent
   ) =>
@@ -42,13 +31,9 @@ export interface DialogProps {
     | Promise<boolean>
     | Promise<void>
     | Promise<void | boolean>
-  /** 取消按钮的状态 */
   cancelProps?: DialogBtnProps
-  /** 确认的文字 */
   okText?: React.ReactNode
-  /** 确认按钮的状态 */
   okProps?: DialogBtnProps
-  /** 点击确认的回调 */
   onOk?: (
     e: React.MouseEvent
   ) =>
@@ -57,11 +42,8 @@ export interface DialogProps {
     | Promise<boolean>
     | Promise<void>
     | Promise<void | boolean>
-  /** 是否支持点击遮罩关闭对话框 */
   maskClosable?: boolean
-  /** 是否展示 */
   visible?: boolean
-  /** 自定义挂载父容器、默认为 document.body */
   getContainer?: HTMLElement | (() => HTMLElement) | undefined
 }
 
@@ -163,7 +145,10 @@ Dialog.show = (props: DialogProps) => {
   const TempDialog = () => {
     const [cancelLoading, setCancelLoading] = useState(false)
     const [okLoading, setOkLoading] = useState(false)
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(false)
+    useEffect(() => {
+      setVisible(true)
+    }, [])
     destroy = () => {
       setVisible(false)
       if (afterClose) {
@@ -222,6 +207,7 @@ Dialog.show = (props: DialogProps) => {
 
   return destroy
 }
+
 // 可使用 async/await 的方式
 Dialog.alert = (props: AlertProps) => {
   const { onCancel = noop } = props
@@ -238,6 +224,7 @@ Dialog.alert = (props: AlertProps) => {
     })
   })
 }
+
 Dialog.confirm = (props: DialogProps) => {
   const { onCancel = noop, onOk = noop } = props
   return new Promise(resolve => {

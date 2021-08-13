@@ -5,13 +5,15 @@
     position: relative;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     width: 75%;
+    max-width: 500px;
     font-size: 14px;
     background-color: white;
     border-radius: 8px;
-    transform: translate(-50%, -50%);
+    overflow: hidden;
     .@{class-prefix-dialog}-image > img {
-      width: 75vw;
+      width: 100%;
       border-radius: 4px;
     }
     .@{class-prefix-dialog}-body {
@@ -28,7 +30,7 @@
         max-height: 75vh;
         overflow-x: hidden;
         overflow-y: auto;
-        font-size: 15px;
+        font-size: var(--font-size-main);
         line-height: 1.4;
         color: #333;
         word-break: break-all;
