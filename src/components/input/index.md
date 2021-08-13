@@ -19,6 +19,9 @@ Input 组件是布局无关的，它只包括了最基本的输入框部分，�
 
 ## CSS 变量
 
-| 属性        | 说明 | 默认值 |
-| ----------- | ---- | ------ |
-| --font-size | 字号 | 17px   |
+| 属性                | 说明                 | 默认值             |
+| ------------------- | -------------------- | ------------------ |
+| --font-size         | 字号                 | 17px               |
+| --color             | 文字颜色             | --font-color-main  |
+| --placeholder-color | placeholder 文字颜色 | --font-color-light |
+| --disabled-color    | 禁用状态下的文字颜色 | --font-color-weak  |

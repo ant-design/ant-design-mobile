@@ -1,4 +1,8 @@
 .am-text-area-wrapper {
+  --font-size: 17px;
+  --color: var(--font-color-main);
+  --placeholder-color: var(--font-color-light);
+  --disabled-color: var(--font-color-weak);
   width: 100%;
   max-width: 100%;
   max-height: 100%;
@@ -15,8 +19,8 @@
   max-height: 100%;
   padding: 0;
   margin: 0;
-  color: var(--font-color-main);
-  font-size: 17px;
+  color: var(--color);
+  font-size: var(--font-size);
   line-height: 1.5;
   background: transparent;
   border: 0;
@@ -25,7 +29,7 @@
   min-height: 1.5em;
 
   &::placeholder {
-    color: var(--font-color-light);
+    color: var(--placeholder-color);
     font-family: inherit;
   }
 
@@ -34,10 +38,10 @@
   }
 
   &:disabled {
-    color: var(--font-color-weak);
+    color: var(--disabled-color);
     cursor: not-allowed;
     opacity: 1;
-    -webkit-text-fill-color: var(--font-color-weak);
+    -webkit-text-fill-color: var(--disabled-color);
   }
 
   &:read-only {

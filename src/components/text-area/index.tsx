@@ -6,6 +6,7 @@ import React, {
 } from 'react'
 import classNames from 'classnames'
 import { useControllableValue } from 'ahooks'
+import { ElementProps } from '../../utils/element-props'
 
 const classPrefix = 'am-text-area'
 
@@ -26,7 +27,9 @@ export type TextAreaProps = Omit<
         minRows?: number
         maxRows?: number
       }
-}
+} & ElementProps<
+    '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
+  >
 
 export type TextAreaRef = {
   clear: () => void

@@ -12,13 +12,14 @@ export type InputProps = Omit<
     HTMLInputElement
   >,
   'onChange'
-> &
-  ElementProps<'--font-size'> & {
-    onChange?: (val: string) => void
-  } & {
-    clearable?: boolean
-    onClear?: () => void
-  }
+> & {
+  onChange?: (val: string) => void
+} & {
+  clearable?: boolean
+  onClear?: () => void
+} & ElementProps<
+    '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
+  >
 
 export type InputRef = {
   clear: () => void
