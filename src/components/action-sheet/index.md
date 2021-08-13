@@ -14,7 +14,7 @@
 | onClose          | 关闭时触发                                                            | () => void                               | -             |
 | afterClose       | 完全关闭后触发                                                        | () => void                               | -             |
 | onMaskClick      | 点击遮罩层时触发                                                      | () => void                               | -             |
-| closeOnSelect    | 点击选项后是否关闭                                                    | boolean                                  | false         |
+| closeOnAction    | 点击选项后是否关闭                                                    | boolean                                  | false         |
 | closeOnMaskClick | 点击遮罩层后是否关闭                                                  | boolean                                  | true          |
 | getContainer     | 指定挂载的 HTML 节点，默认为 body，如果为 null 的话，会渲染到当前节点 | HTMLElement \| () => HTMLElement \| null | document.body |
 

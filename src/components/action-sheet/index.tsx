@@ -34,7 +34,7 @@ export type ActionSheetProps = {
   onClose?: () => void
   afterClose?: () => void
   onMaskClick?: () => void
-  closeOnSelect?: boolean
+  closeOnAction?: boolean
   closeOnMaskClick?: boolean
   getContainer?: GetContainer
 } & ElementProps
@@ -43,7 +43,7 @@ const defaultProps = {
   visible: false,
   actions: [],
   cancelText: '',
-  closeOnSelect: false,
+  closeOnAction: false,
   closeOnMaskClick: true,
 }
 
@@ -78,7 +78,7 @@ const ActionSheet = withDefaultProps(defaultProps)<ActionSheetProps>(props => {
                 onClick={() => {
                   action.onClick?.()
                   props.onAction?.(action, index)
-                  if (props.closeOnSelect) {
+                  if (props.closeOnAction) {
                     props.onClose?.()
                   }
                 }}
