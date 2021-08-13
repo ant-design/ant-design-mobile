@@ -1,12 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import { noop } from '../../utils/noop'
 import { resolveContainer } from '../../utils/get-container'
-import Button from '../button'
+import Button, { ButtonProps } from '../button'
 import Mask from '../mask'
+import { mergeProps } from '../../utils/with-default-props'
+import { alert } from './alert'
+import { confirm } from './confirm'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 
 const classPrefix = `am-dialog`
+
+export type Action = {
+  key: string | number
+  text: string
+  disabled?: boolean
+  color?: ButtonProps['color']
+  bold?: boolean
+  onClick?: () => void | Promise<void>
+}
 
 export interface DialogBtnProps {
   loading?: boolean
@@ -23,6 +36,11 @@ export interface DialogProps {
   title?: React.ReactNode
   content?: React.ReactNode
   cancelText?: React.ReactNode
+  actions?: (Action | Action[])[]
+  onAction?: (action: Action) => void | Promise<void>
+  closeOnAction?: boolean
+  onClose?: () => void
+
   onCancel?: (
     e: React.MouseEvent
   ) =>
@@ -42,14 +60,48 @@ export interface DialogProps {
     | Promise<boolean>
     | Promise<void>
     | Promise<void | boolean>
-  maskClosable?: boolean
+
+  closeOnMaskClick?: boolean
   visible?: boolean
   getContainer?: HTMLElement | (() => HTMLElement) | undefined
 }
 
+const defaultProps = {
+  actions: [],
+  closeOnAction: false,
+  closeOnMaskClick: false,
+}
+
 export type AlertProps = Omit<DialogProps, 'okText' | 'okProps' | 'onOk'>
 
-const InternalDialog: React.FC<DialogProps> = props => {
+export const InternalDialog: FC<DialogProps> = p => {
+  const props = mergeProps(defaultProps, p)
+
+  function renderAction(action: Action) {
+    return (
+      <Button
+        key={action.key}
+        onClick={() => {
+          action.onClick?.()
+          props.onAction?.(action)
+          if (props.closeOnAction) {
+            props.onClose?.()
+          }
+        }}
+        className={classNames(`${classPrefix}-button`, {
+          [`${classPrefix}-button-bold`]: action.bold,
+        })}
+        fill='none'
+        block
+        color={action.color ?? 'primary'}
+        // loading={action.loading} TODO
+        disabled={action.disabled}
+      >
+        {action.text}
+      </Button>
+    )
+  }
+
   return (
     <Mask
       visible={props.visible}
@@ -57,7 +109,7 @@ const InternalDialog: React.FC<DialogProps> = props => {
       getContainer={props.getContainer}
       afterClose={props.afterClose}
       onMaskClick={
-        props.maskClosable && !props.cancelProps?.loading
+        props.closeOnMaskClick && !props.cancelProps?.loading
           ? props.onCancel
           : noop
       }
@@ -90,44 +142,22 @@ const InternalDialog: React.FC<DialogProps> = props => {
           )}
         </div>
         <div className={`${classPrefix}-footer`}>
-          <Button
-            onClick={props.cancelProps?.loading ? noop : props.onCancel}
-            className={`${classPrefix}-btn-cancel`}
-            fill='none'
-            block
-            loading={props.cancelProps?.loading}
-            disabled={props.cancelProps?.disabled}
-          >
-            {props.cancelText || (props.okText ? '取消' : '我知道了')}
-          </Button>
-          {Boolean(props.okText) && (
-            <Button
-              onClick={props.okProps?.loading ? noop : props.onOk}
-              loading={props.okProps?.loading}
-              fill='none'
-              block
-              disabled={props.okProps?.disabled}
-              className={`${classPrefix}-btn-ok`}
-            >
-              {props.okText || '确认'}
-            </Button>
-          )}
+          {props.actions.map((row, index) => {
+            const actions = Array.isArray(row) ? row : [row]
+            return (
+              <div className={`${classPrefix}-action-row`} key={index}>
+                {actions.map(renderAction)}
+              </div>
+            )
+          })}
         </div>
       </div>
     </Mask>
   )
 }
 
-type DialogType = {
-  show: (props: DialogProps) => void
-  confirm: (props: DialogProps) => Promise<boolean>
-  alert: (props: DialogProps) => Promise<React.MouseEvent>
-}
-
-const Dialog = {} as DialogType
-
 // 可返回用于销毁此弹窗的方法
-Dialog.show = (props: DialogProps) => {
+function show(props: DialogProps) {
   const {
     afterClose,
     onCancel = noop,
@@ -208,40 +238,8 @@ Dialog.show = (props: DialogProps) => {
   return destroy
 }
 
-// 可使用 async/await 的方式
-Dialog.alert = (props: AlertProps) => {
-  const { onCancel = noop } = props
-  return new Promise(resolve => {
-    Dialog.show({
-      ...props,
-      // 强制不现实 OK Btn
-      okText: undefined,
-      onOk: noop,
-      onCancel: e => {
-        onCancel(e)
-        resolve(e)
-      },
-    })
-  })
-}
-
-Dialog.confirm = (props: DialogProps) => {
-  const { onCancel = noop, onOk = noop } = props
-  return new Promise(resolve => {
-    Dialog.show({
-      // 强制显示 OK Btn
-      okText: '确认',
-      ...props,
-      onCancel: e => {
-        onCancel(e)
-        resolve(false)
-      },
-      onOk: e => {
-        onOk(e)
-        resolve(true)
-      },
-    })
-  })
-}
-
-export default Dialog
+export default attachPropertiesToComponent(InternalDialog, {
+  show,
+  alert,
+  confirm,
+})
