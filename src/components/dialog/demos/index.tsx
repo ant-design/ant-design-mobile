@@ -43,8 +43,12 @@ export default () => {
                 closeOnAction: true,
                 actions: [
                   {
-                    key: 'more',
-                    text: '查看详情',
+                    key: 'online',
+                    text: '在线阅读',
+                  },
+                  {
+                    key: 'download',
+                    text: '下载文件',
                   },
                   [
                     {
@@ -64,7 +68,7 @@ export default () => {
           >
             自定义按钮
           </Button>
-          <DemoDescription content='你可以通过 actions 参数来自定义操作按钮，当传入一个二级数组时，可以在同一行内并排放置多个按钮' />
+          <DemoDescription content='如果你想完全自由地控制按钮区域，那么可以通过 actions 参数来自定义操作按钮，当传入一个二级数组时，可以在同一行内并排放置多个按钮' />
           <Divider />
           <Button
             block
