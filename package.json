@@ -67,6 +67,7 @@
     "jest-environment-jsdom": "26.6.2",
     "jest-watch-typeahead": "0.6.4",
     "less": "^3.13.1",
+    "lorem-ipsum": "^2.0.3",
     "pinst": "^2.1.6",
     "postcss": "^8.3.6",
     "postcss-image-inliner": "^5.0.0",

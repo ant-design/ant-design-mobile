@@ -1,23 +1,21 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import Mask from '../mask'
 import { Action, DialogActionButton } from './dialog-action-button'
 import Image from '../image'
+import Space from '../space'
 
 const classPrefix = `am-dialog`
 
 export interface DialogProps {
   afterClose?: () => void
+  header?: ReactNode
   headerImage?: string
   // waitImageLoad?: boolean
-  bodyStyle?: React.CSSProperties
-  bodyClassName?: string
-  maskStyle?: React.CSSProperties
-  maskClassName?: string
-  title?: React.ReactNode
-  content?: React.ReactNode
-  cancelText?: React.ReactNode
+  title?: ReactNode
+  content?: ReactNode
+  cancelText?: ReactNode
   actions?: (Action | Action[])[]
   onAction?: (action: Action) => void | Promise<void>
   closeOnAction?: boolean
@@ -25,6 +23,10 @@ export interface DialogProps {
   closeOnMaskClick?: boolean
   visible?: boolean
   getContainer?: HTMLElement | (() => HTMLElement) | undefined
+  bodyStyle?: React.CSSProperties
+  bodyClassName?: string
+  maskStyle?: React.CSSProperties
+  maskClassName?: string
 }
 
 const defaultProps = {
@@ -58,20 +60,25 @@ export const Dialog: FC<DialogProps> = p => {
           style={props.bodyStyle}
           className={classNames(`${classPrefix}-body`, props.bodyClassName)}
         >
-          {!!props.title && (
-            <div className={`${classPrefix}-body-title`}>{props.title}</div>
-          )}
-          {!!props.content && (
-            <div className={`${classPrefix}-body-message-wrapper`}>
-              <div
-                className={classNames(`${classPrefix}-body-message`, {
-                  [`${classPrefix}-body-message-with-title`]: !!props.title,
-                })}
-              >
-                {props.content}
+          <Space direction='vertical' block>
+            {!!props.header && (
+              <div className={`${classPrefix}-body-header-wrapper`}>
+                <div className={`${classPrefix}-body-header`}>
+                  {props.header}
+                </div>
               </div>
-            </div>
-          )}
+            )}
+            {!!props.title && (
+              <div className={`${classPrefix}-body-title`}>{props.title}</div>
+            )}
+            {!!props.content && (
+              <div className={`${classPrefix}-body-message-wrapper`}>
+                <div className={`${classPrefix}-body-message`}>
+                  {props.content}
+                </div>
+              </div>
+            )}
+          </Space>
         </div>
         <div className={`${classPrefix}-footer`}>
           {props.actions.map((row, index) => {

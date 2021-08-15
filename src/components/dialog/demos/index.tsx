@@ -2,7 +2,9 @@ import React from 'react'
 import { Button, Dialog, Space, Toast, Divider } from 'antd-mobile'
 import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
 import { DemoDescription } from 'antd-mobile/src/demos/demo-description'
+import { lorem } from 'antd-mobile/src/demos/utils/lorem'
 import { sleep } from '../../../utils/sleep'
+import { ExclamationCircleFilled } from '@ant-design/icons'
 
 export default () => {
   return (
@@ -23,7 +25,7 @@ export default () => {
             block
             onClick={async () => {
               await Dialog.alert({
-                title: '点击遮罩关闭',
+                content: '点击遮罩关闭',
                 closeOnMaskClick: true,
               })
               Toast.show({ content: '已关闭', position: 'bottom' })
@@ -104,27 +106,53 @@ export default () => {
         <Space direction='vertical' block>
           <Button
             block
-            onClick={() =>
-              Dialog.confirm({
-                title: '提示',
-                content: Array(1000).join('6'),
+            onClick={() => {
+              Dialog.alert({
+                header: (
+                  <ExclamationCircleFilled
+                    style={{
+                      fontSize: 64,
+                      color: 'var(--color-warning)',
+                    }}
+                  />
+                ),
+                title: '注意',
+                content: (
+                  <>
+                    <div>请用手机拍摄手持工牌照，注意保持照片清晰</div>
+                    <div>
+                      详情说明请查阅<a>操作指引</a>
+                    </div>
+                  </>
+                ),
               })
-            }
+            }}
           >
-            超长文本
+            自定义内容区域
           </Button>
           <Button
             block
-            onClick={() =>
+            onClick={() => {
               Dialog.alert({
                 headerImage:
                   'https://gw.alipayobjects.com/mdn/rms_efa86a/afts/img/A*SE7kRojatZ0AAAAAAAAAAAAAARQnAQ',
                 title: '手持工牌照示例',
                 content: '请用手机拍摄手持工牌照，注意保持照片清晰',
               })
+            }}
+          >
+            有标题和图片
+          </Button>
+          <Button
+            block
+            onClick={() =>
+              Dialog.confirm({
+                title: '提示',
+                content: lorem.generateParagraphs(7),
+              })
             }
           >
-            有图片
+            超长文本
           </Button>
         </Space>
       </DemoBlock>

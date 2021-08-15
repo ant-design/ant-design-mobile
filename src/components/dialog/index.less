@@ -14,25 +14,29 @@
     overflow: hidden;
     .@{class-prefix-dialog}-body {
       padding: 20px 12px;
+      &-header-wrapper {
+        display: flex;
+        justify-content: center;
+      }
+      &-header {
+      }
       &-title {
         font-weight: bold;
         font-size: 18px;
         line-height: 25px;
         text-align: center;
       }
-      &-message {
+      &-message-wrapper {
         display: flex;
         justify-content: center;
+      }
+      &-message {
         max-height: 75vh;
         overflow-x: hidden;
         overflow-y: auto;
         font-size: var(--font-size-main);
         line-height: 1.4;
         color: #333;
-        word-break: break-all;
-        &-with-title {
-          margin-top: 8px;
-        }
       }
     }
     .@{class-prefix-dialog}-footer {
