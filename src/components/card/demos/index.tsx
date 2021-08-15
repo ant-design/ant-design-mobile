@@ -1,4 +1,4 @@
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import { Card, Toast, Button } from 'antd-mobile'
 import { AntDesignOutlined, RightOutlined } from '@ant-design/icons'
 import styles from './index.less'

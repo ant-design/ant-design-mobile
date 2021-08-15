@@ -1,4 +1,4 @@
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import React, { useState } from 'react'
 import { DesensText } from 'antd-mobile'
 

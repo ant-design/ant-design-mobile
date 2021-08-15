@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ActionSheet, Button, Dialog, Space, Toast } from 'antd-mobile'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import type { Action } from '..'
 
 const actions: Action[] = [

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Popover, Button, Toast } from 'antd-mobile'
 import { UploadOutlined, SafetyOutlined } from '@ant-design/icons'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 
 const directionList = [
   `top`,

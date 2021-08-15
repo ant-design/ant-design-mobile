@@ -1,4 +1,4 @@
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import { TabBar, Toast } from 'antd-mobile'
 import React, { useState } from 'react'
 import {

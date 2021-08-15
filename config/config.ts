@@ -124,6 +124,7 @@ export default {
   },
   alias: {
     'antd-mobile/lib/index.less': process.cwd() + '/src/index.less',
+    'demos': process.cwd() + '/src/demos/index.ts',
   },
   styles: [
     `#root .__dumi-default-mobile-demo-layout {

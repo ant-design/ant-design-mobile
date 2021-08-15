@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Input, Button, Dialog, TextArea, DatePicker } from 'antd-mobile'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import dayjs from 'dayjs'
 
 export default () => {

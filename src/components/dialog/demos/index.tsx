@@ -1,10 +1,8 @@
 import React from 'react'
 import { Button, Dialog, Space, Toast, Divider } from 'antd-mobile'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
-import { DemoDescription } from 'antd-mobile/src/demos/demo-description'
-import { lorem } from 'antd-mobile/src/demos/utils/lorem'
 import { sleep } from '../../../utils/sleep'
 import { ExclamationCircleFilled } from '@ant-design/icons'
+import { DemoBlock, DemoDescription, lorem } from 'demos'
 
 export default () => {
   return (

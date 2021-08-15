@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import { Radio, Space } from 'antd-mobile'
 
 export default () => {

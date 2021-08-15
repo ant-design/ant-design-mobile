@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Input, Button, Dialog, Checkbox, Space } from 'antd-mobile'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 
 export default () => {
   const [form] = Form.useForm()

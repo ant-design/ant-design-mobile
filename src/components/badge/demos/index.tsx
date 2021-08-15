@@ -1,5 +1,5 @@
 import React from 'react'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import styles from './index.less'
 import { Badge, Space } from 'antd-mobile'
 import { CloseOutlined, ExclamationOutlined } from '@ant-design/icons'

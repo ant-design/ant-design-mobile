@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import { Popup, Space, Button } from 'antd-mobile'
 
 const Stack = () => {
