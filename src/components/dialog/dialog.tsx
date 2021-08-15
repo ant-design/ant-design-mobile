@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
-import Button from '../button'
 import classNames from 'classnames'
 import Mask from '../mask'
 import { noop } from '../../utils/noop'
-import { Action, DialogBtnProps } from './index'
+import { DialogBtnProps } from './index'
+import { Action, DialogActionButton } from './dialog-action-button'
 
 const classPrefix = `am-dialog`
 
@@ -58,31 +58,6 @@ const defaultProps = {
 export const Dialog: FC<DialogProps> = p => {
   const props = mergeProps(defaultProps, p)
 
-  function renderAction(action: Action) {
-    return (
-      <Button
-        key={action.key}
-        onClick={() => {
-          action.onClick?.()
-          props.onAction?.(action)
-          if (props.closeOnAction) {
-            props.onClose?.()
-          }
-        }}
-        className={classNames(`${classPrefix}-button`, {
-          [`${classPrefix}-button-bold`]: action.bold,
-        })}
-        fill='none'
-        block
-        color={action.color ?? 'primary'}
-        // loading={action.loading} TODO
-        disabled={action.disabled}
-      >
-        {action.text}
-      </Button>
-    )
-  }
-
   return (
     <Mask
       visible={props.visible}
@@ -127,7 +102,18 @@ export const Dialog: FC<DialogProps> = p => {
             const actions = Array.isArray(row) ? row : [row]
             return (
               <div className={`${classPrefix}-action-row`} key={index}>
-                {actions.map(renderAction)}
+                {actions.map(action => (
+                  <DialogActionButton
+                    key={action.key}
+                    action={action}
+                    onAction={async () => {
+                      await props.onAction?.(action)
+                      if (props.closeOnAction) {
+                        props.onClose?.()
+                      }
+                    }}
+                  />
+                ))}
               </div>
             )
           })}

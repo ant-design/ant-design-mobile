@@ -51,44 +51,44 @@ export default () => {
           >
             有图片
           </Button>
-          {/*<Button*/}
-          {/*  block*/}
-          {/*  onClick={() =>*/}
-          {/*    Dialog.show({*/}
-          {/*      title: '延迟关闭 - 成功',*/}
-          {/*      onCancel: () => {*/}
-          {/*        return new Promise(res => {*/}
-          {/*          setTimeout(() => {*/}
-          {/*            res(true)*/}
-          {/*            Toast.success({ content: '关闭成功' })*/}
-          {/*          }, 3000)*/}
-          {/*        })*/}
-          {/*      },*/}
-          {/*    })*/}
-          {/*  }*/}
-          {/*>*/}
-          {/*  延迟关闭 - 成功*/}
-          {/*</Button>*/}
-          {/*<Button*/}
-          {/*  block*/}
-          {/*  onClick={() =>*/}
-          {/*    Dialog.show({*/}
-          {/*      title: '延迟关闭 - 失败',*/}
-          {/*      okText: '提交',*/}
-          {/*      cancelText: '关闭',*/}
-          {/*      onOk: () => {*/}
-          {/*        return new Promise(res => {*/}
-          {/*          setTimeout(() => {*/}
-          {/*            res(false)*/}
-          {/*            Toast.fail({ content: '提交失败' })*/}
-          {/*          }, 3000)*/}
-          {/*        })*/}
-          {/*      },*/}
-          {/*    })*/}
-          {/*  }*/}
-          {/*>*/}
-          {/*  延迟关闭 - 失败*/}
-          {/*</Button>*/}
+          <Button
+            block
+            onClick={() =>
+              Dialog.alert({
+                title: '延迟关闭 - 成功',
+                onAction: () => {
+                  return new Promise(res => {
+                    setTimeout(() => {
+                      res()
+                      Toast.success({ content: '关闭成功' })
+                    }, 3000)
+                  })
+                },
+              })
+            }
+          >
+            延迟关闭 - 成功
+          </Button>
+          <Button
+            block
+            onClick={() =>
+              Dialog.alert({
+                title: '延迟关闭 - 失败',
+                okText: '提交',
+                cancelText: '关闭',
+                onAction: () => {
+                  return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                      reject()
+                      Toast.fail({ content: '提交失败' })
+                    }, 3000)
+                  })
+                },
+              })
+            }
+          >
+            延迟关闭 - 失败
+          </Button>
           <Button
             block
             onClick={() =>
