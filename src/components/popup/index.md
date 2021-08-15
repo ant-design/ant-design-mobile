@@ -1,6 +1,6 @@
-``# Popup 弹出层
+# Popup 弹出层
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 # API
 
