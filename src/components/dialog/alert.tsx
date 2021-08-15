@@ -1,9 +1,21 @@
 import { show } from './show'
 import { DialogProps } from './index'
+import { mergeProps } from '../../utils/with-default-props'
+import { ReactNode } from 'react'
 
-export function alert(
-  props: Omit<DialogProps, 'visible' | 'closeOnAction' | 'actions'>
-) {
+export type DialogAlertProps = Omit<
+  DialogProps,
+  'visible' | 'closeOnAction' | 'actions'
+> & {
+  confirmText?: ReactNode
+}
+
+const defaultProps = {
+  confirmText: '我知道了',
+}
+
+export function alert(p: DialogAlertProps) {
+  const props = mergeProps(defaultProps, p)
   return new Promise<void>(resolve => {
     show({
       ...props,
@@ -11,7 +23,7 @@ export function alert(
       actions: [
         {
           key: 'confirm',
-          text: '我知道了',
+          text: props.confirmText,
         },
       ],
       onClose: () => {

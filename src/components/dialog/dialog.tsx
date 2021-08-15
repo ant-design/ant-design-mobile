@@ -2,8 +2,6 @@ import React, { FC } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import Mask from '../mask'
-import { noop } from '../../utils/noop'
-import { DialogBtnProps } from './index'
 import { Action, DialogActionButton } from './dialog-action-button'
 
 const classPrefix = `am-dialog`
@@ -23,27 +21,6 @@ export interface DialogProps {
   onAction?: (action: Action) => void | Promise<void>
   closeOnAction?: boolean
   onClose?: () => void
-
-  onCancel?: (
-    e: React.MouseEvent
-  ) =>
-    | void
-    | boolean
-    | Promise<boolean>
-    | Promise<void>
-    | Promise<void | boolean>
-  cancelProps?: DialogBtnProps
-  okText?: React.ReactNode
-  okProps?: DialogBtnProps
-  onOk?: (
-    e: React.MouseEvent
-  ) =>
-    | void
-    | boolean
-    | Promise<boolean>
-    | Promise<void>
-    | Promise<void | boolean>
-
   closeOnMaskClick?: boolean
   visible?: boolean
   getContainer?: HTMLElement | (() => HTMLElement) | undefined
@@ -64,11 +41,7 @@ export const Dialog: FC<DialogProps> = p => {
       destroyOnClose
       getContainer={props.getContainer}
       afterClose={props.afterClose}
-      onMaskClick={
-        props.closeOnMaskClick && !props.cancelProps?.loading
-          ? props.onClose
-          : noop
-      }
+      onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
       style={props.maskStyle}
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
     >

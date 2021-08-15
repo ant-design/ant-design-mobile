@@ -74,8 +74,7 @@ export default () => {
             onClick={() =>
               Dialog.alert({
                 title: '延迟关闭 - 失败',
-                okText: '提交',
-                cancelText: '关闭',
+                confirmText: '提交',
                 onAction: () => {
                   return new Promise((resolve, reject) => {
                     setTimeout(() => {
@@ -91,12 +90,13 @@ export default () => {
           </Button>
           <Button
             block
-            onClick={() =>
-              Dialog.alert({
+            onClick={async () => {
+              await Dialog.alert({
                 title: '点击遮罩关闭',
                 closeOnMaskClick: true,
               })
-            }
+              Toast.show({ content: '已关闭', position: 'bottom' })
+            }}
           >
             点击遮罩关闭
           </Button>
