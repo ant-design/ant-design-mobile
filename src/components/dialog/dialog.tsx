@@ -3,13 +3,14 @@ import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import Mask from '../mask'
 import { Action, DialogActionButton } from './dialog-action-button'
+import Image from '../image'
 
 const classPrefix = `am-dialog`
 
 export interface DialogProps {
   afterClose?: () => void
   headerImage?: string
-  waitImageLoad?: boolean
+  // waitImageLoad?: boolean
   bodyStyle?: React.CSSProperties
   bodyClassName?: string
   maskStyle?: React.CSSProperties
@@ -46,19 +47,21 @@ export const Dialog: FC<DialogProps> = p => {
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
     >
       <div onClick={e => e.stopPropagation()} className={`${classPrefix}-wrap`}>
-        {Boolean(props.headerImage) && (
-          <div className={`${classPrefix}-image`}>
-            <img src={props.headerImage} alt='inside dialog' />
-          </div>
+        {!!props.headerImage && (
+          <Image
+            src={props.headerImage}
+            alt='dialog header image'
+            width='100%'
+          />
         )}
         <div
           style={props.bodyStyle}
           className={classNames(`${classPrefix}-body`, props.bodyClassName)}
         >
-          {Boolean(props.title) && (
+          {!!props.title && (
             <div className={`${classPrefix}-body-title`}>{props.title}</div>
           )}
-          {Boolean(props.content) && (
+          {!!props.content && (
             <div className={`${classPrefix}-body-message-wrapper`}>
               <div
                 className={classNames(`${classPrefix}-body-message`, {

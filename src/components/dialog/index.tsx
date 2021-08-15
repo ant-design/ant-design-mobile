@@ -7,11 +7,6 @@ import { Dialog } from './dialog'
 
 export type { DialogProps } from './dialog'
 
-export interface DialogBtnProps {
-  loading?: boolean
-  disabled?: boolean
-}
-
 // 可返回用于销毁此弹窗的方法
 // function show(props: DialogProps) {
 //   const {
