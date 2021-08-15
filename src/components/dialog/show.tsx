@@ -6,7 +6,7 @@ import React, {
   useState,
 } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
-import { InternalDialog, DialogProps } from './index'
+import { Dialog, DialogProps } from './dialog'
 
 export function show(props: Omit<DialogProps, 'visible'>) {
   type Ref = {
@@ -23,7 +23,7 @@ export function show(props: Omit<DialogProps, 'visible'>) {
       },
     }))
     return (
-      <InternalDialog
+      <Dialog
         {...props}
         visible={visible}
         onClose={() => {

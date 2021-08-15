@@ -7,56 +7,50 @@ export default () => {
     <>
       <DemoBlock title='基础用法'>
         <Space direction='vertical' block>
-          {/*<Button*/}
-          {/*  block*/}
-          {/*  onClick={() =>*/}
-          {/*    Dialog.show({*/}
-          {/*      content: '人在天边月上明，风初紧，吹入画帘旌',*/}
-          {/*      cancelText: '我知道了',*/}
-          {/*    })*/}
-          {/*  }*/}
-          {/*>*/}
-          {/*  无标题弹窗*/}
-          {/*</Button>*/}
-          {/*<Button*/}
-          {/*  block*/}
-          {/*  onClick={() =>*/}
-          {/*    Dialog.show({*/}
-          {/*      content: '操作成功',*/}
-          {/*      cancelText: '我知道了',*/}
-          {/*    })*/}
-          {/*  }*/}
-          {/*>*/}
-          {/*  单行文本自动居中*/}
-          {/*</Button>*/}
-          {/*<Button*/}
-          {/*  block*/}
-          {/*  onClick={() =>*/}
-          {/*    Dialog.show({*/}
-          {/*      cancelText: '取消',*/}
-          {/*      okText: '主操作',*/}
-          {/*      title: '提示',*/}
-          {/*      content: Array(1000).join('6'),*/}
-          {/*      onOk: e => console.log('click ok', e),*/}
-          {/*      onCancel: e => console.log('click cancel', e),*/}
-          {/*    })*/}
-          {/*  }*/}
-          {/*>*/}
-          {/*  超长文本*/}
-          {/*</Button>*/}
-          {/*<Button*/}
-          {/*  block*/}
-          {/*  onClick={() =>*/}
-          {/*    Dialog.show({*/}
-          {/*      headerImage:*/}
-          {/*        'https://gw.alipayobjects.com/mdn/rms_efa86a/afts/img/A*SE7kRojatZ0AAAAAAAAAAAAAARQnAQ',*/}
-          {/*      title: '手持工牌照示例',*/}
-          {/*      content: '请用手机拍摄手持工牌照，注意保持照片清晰',*/}
-          {/*    })*/}
-          {/*  }*/}
-          {/*>*/}
-          {/*  有图片*/}
-          {/*</Button>*/}
+          <Button
+            block
+            onClick={() =>
+              Dialog.alert({
+                content: '人在天边月上明，风初紧，吹入画帘旌',
+              })
+            }
+          >
+            无标题弹窗
+          </Button>
+          <Button
+            block
+            onClick={() =>
+              Dialog.alert({
+                content: '操作成功',
+              })
+            }
+          >
+            单行文本自动居中
+          </Button>
+          <Button
+            block
+            onClick={() =>
+              Dialog.confirm({
+                title: '提示',
+                content: Array(1000).join('6'),
+              })
+            }
+          >
+            超长文本
+          </Button>
+          <Button
+            block
+            onClick={() =>
+              Dialog.alert({
+                headerImage:
+                  'https://gw.alipayobjects.com/mdn/rms_efa86a/afts/img/A*SE7kRojatZ0AAAAAAAAAAAAAARQnAQ',
+                title: '手持工牌照示例',
+                content: '请用手机拍摄手持工牌照，注意保持照片清晰',
+              })
+            }
+          >
+            有图片
+          </Button>
           {/*<Button*/}
           {/*  block*/}
           {/*  onClick={() =>*/}
@@ -95,17 +89,17 @@ export default () => {
           {/*>*/}
           {/*  延迟关闭 - 失败*/}
           {/*</Button>*/}
-          {/*<Button*/}
-          {/*  block*/}
-          {/*  onClick={() =>*/}
-          {/*    Dialog.show({*/}
-          {/*      title: '点击遮罩关闭',*/}
-          {/*      closeOnMaskClick: true,*/}
-          {/*    })*/}
-          {/*  }*/}
-          {/*>*/}
-          {/*  点击遮罩关闭*/}
-          {/*</Button>*/}
+          <Button
+            block
+            onClick={() =>
+              Dialog.alert({
+                title: '点击遮罩关闭',
+                closeOnMaskClick: true,
+              })
+            }
+          >
+            点击遮罩关闭
+          </Button>
           <Button
             block
             onClick={() =>
