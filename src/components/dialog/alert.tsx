@@ -8,6 +8,7 @@ export type DialogAlertProps = Omit<
   'visible' | 'closeOnAction' | 'actions'
 > & {
   confirmText?: ReactNode
+  onConfirm?: () => void | Promise<void>
 }
 
 const defaultProps = {
@@ -26,6 +27,7 @@ export function alert(p: DialogAlertProps) {
           text: props.confirmText,
         },
       ],
+      onAction: props.onConfirm,
       onClose: () => {
         resolve()
       },

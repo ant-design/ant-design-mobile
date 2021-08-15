@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Dialog, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { sleep } from '../../../utils/sleep'
 
 export default () => {
   return (
@@ -11,22 +12,92 @@ export default () => {
             block
             onClick={() =>
               Dialog.alert({
-                content: '人在天边月上明，风初紧，吹入画帘旌',
+                content: '人在天边月上明',
               })
             }
           >
-            无标题弹窗
+            最简单的小对话框
+          </Button>
+          <Button
+            block
+            onClick={async () => {
+              await Dialog.alert({
+                title: '点击遮罩关闭',
+                closeOnMaskClick: true,
+              })
+              Toast.show({ content: '已关闭', position: 'bottom' })
+            }}
+          >
+            点击遮罩关闭
+          </Button>
+        </Space>
+      </DemoBlock>
+
+      <DemoBlock title='操作按钮'>
+        <Space direction='vertical' block>
+          <Button
+            block
+            onClick={() => {
+              Dialog.show({
+                content: '人在天边月上明，风初紧，吹入画帘旌',
+                closeOnAction: true,
+                actions: [
+                  {
+                    key: 'more',
+                    text: '查看详情',
+                  },
+                  [
+                    {
+                      key: 'cancel',
+                      text: '取消',
+                    },
+                    {
+                      key: 'delete',
+                      text: '删除',
+                      bold: true,
+                      color: 'danger',
+                    },
+                  ],
+                ],
+              })
+            }}
+          >
+            自定义按钮
           </Button>
           <Button
             block
             onClick={() =>
-              Dialog.alert({
-                content: '操作成功',
+              Dialog.confirm({
+                content: '是否提交申请',
+                onConfirm: async () => {
+                  await sleep(3000)
+                  Toast.success({ content: '提交成功', position: 'bottom' })
+                },
               })
             }
           >
-            单行文本自动居中
+            异步操作执行成功
           </Button>
+          <Button
+            block
+            onClick={() =>
+              Dialog.confirm({
+                content: '是否提交申请',
+                onConfirm: async () => {
+                  await sleep(3000)
+                  Toast.fail({ content: '提交失败', position: 'bottom' })
+                  throw new Error()
+                },
+              })
+            }
+          >
+            异步操作执行失败
+          </Button>
+        </Space>
+      </DemoBlock>
+
+      <DemoBlock title='内容区域'>
+        <Space direction='vertical' block>
           <Button
             block
             onClick={() =>
@@ -51,55 +122,11 @@ export default () => {
           >
             有图片
           </Button>
-          <Button
-            block
-            onClick={() =>
-              Dialog.alert({
-                title: '延迟关闭 - 成功',
-                onAction: () => {
-                  return new Promise(res => {
-                    setTimeout(() => {
-                      res()
-                      Toast.success({ content: '关闭成功' })
-                    }, 3000)
-                  })
-                },
-              })
-            }
-          >
-            延迟关闭 - 成功
-          </Button>
-          <Button
-            block
-            onClick={() =>
-              Dialog.alert({
-                title: '延迟关闭 - 失败',
-                confirmText: '提交',
-                onAction: () => {
-                  return new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                      reject()
-                      Toast.fail({ content: '提交失败' })
-                    }, 3000)
-                  })
-                },
-              })
-            }
-          >
-            延迟关闭 - 失败
-          </Button>
-          <Button
-            block
-            onClick={async () => {
-              await Dialog.alert({
-                title: '点击遮罩关闭',
-                closeOnMaskClick: true,
-              })
-              Toast.show({ content: '已关闭', position: 'bottom' })
-            }}
-          >
-            点击遮罩关闭
-          </Button>
+        </Space>
+      </DemoBlock>
+
+      <DemoBlock title='获取点击结果'>
+        <Space direction='vertical' block>
           <Button
             block
             onClick={() =>

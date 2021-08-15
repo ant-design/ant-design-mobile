@@ -9,6 +9,8 @@ export type DialogConfirmProps = Omit<
 > & {
   confirmText?: ReactNode
   cancelText?: ReactNode
+  onConfirm?: () => void | Promise<void>
+  onCancel?: () => void | Promise<void>
 }
 
 const defaultProps = {
@@ -31,7 +33,8 @@ export function confirm(p: DialogConfirmProps) {
           {
             key: 'cancel',
             text: props.cancelText,
-            onClick: () => {
+            onClick: async () => {
+              await props.onCancel?.()
               resolve(false)
             },
           },
@@ -39,7 +42,8 @@ export function confirm(p: DialogConfirmProps) {
             key: 'confirm',
             text: props.confirmText,
             bold: true,
-            onClick: () => {
+            onClick: async () => {
+              await props.onConfirm?.()
               resolve(true)
             },
           },
