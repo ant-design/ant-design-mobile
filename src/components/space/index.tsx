@@ -48,7 +48,12 @@ const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
         }}
       >
         {React.Children.map(props.children, child => {
-          return <div className={`${classPrefix}-item`}>{child}</div>
+          return (
+            child !== null &&
+            child !== undefined && (
+              <div className={`${classPrefix}-item`}>{child}</div>
+            )
+          )
         })}
       </div>
     )
