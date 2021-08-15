@@ -1,6 +1,7 @@
 import React from 'react'
-import { Button, Dialog, Space, Toast } from 'antd-mobile'
+import { Button, Dialog, Space, Toast, Divider } from 'antd-mobile'
 import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoDescription } from 'antd-mobile/src/demos/demo-description'
 import { sleep } from '../../../utils/sleep'
 
 export default () => {
@@ -64,6 +65,8 @@ export default () => {
           >
             自定义按钮
           </Button>
+          <DemoDescription content='你可以通过 actions 参数来自定义操作按钮，当传入一个二级数组时，可以在同一行内并排放置多个按钮' />
+          <Divider />
           <Button
             block
             onClick={() =>
@@ -93,6 +96,7 @@ export default () => {
           >
             异步操作执行失败
           </Button>
+          <DemoDescription content='onAction、onConfirm、onCancel、onClick 这些事件函数都支持返回一个 Promise，通过这种方式，可以让按钮在执行异步操作的时候变为加载状态' />
         </Space>
       </DemoBlock>
 
@@ -129,40 +133,33 @@ export default () => {
         <Space direction='vertical' block>
           <Button
             block
-            onClick={() =>
-              Dialog.alert({
-                title: '异步方式调用 alert',
-                content: 'then 的回调会在弹窗关闭时调用',
-              }).then(() => {
-                Toast.show({ content: '已关闭', position: 'bottom' })
+            onClick={async () => {
+              await Dialog.alert({
+                content: '人在天边月上明',
               })
-            }
-          >
-            异步方式 alert
-          </Button>
-          <Button
-            block
-            onClick={() => {
-              Dialog.confirm({
-                title: '异步方式调用 confirm',
-                content: (
-                  <div style={{ color: 'red' }}>
-                    then 的回调函数会在确认时调用
-                    <br />
-                    catch 的回调函数会在取消时调用
-                  </div>
-                ),
-              }).then(confirm => {
-                if (confirm) {
-                  Toast.show({ content: '点击了确认', position: 'bottom' })
-                } else {
-                  Toast.show({ content: '点击了取消', position: 'bottom' })
-                }
-              })
+              Toast.show({ content: '已关闭', position: 'bottom' })
             }}
           >
-            异步方式 confirm
+            等待 alert 完成
           </Button>
+          <DemoDescription content='alert 和 confirm 方法都会返回一个 Promise，你可以通过这个 Promise 实现等待弹窗关闭' />
+          <Divider />
+          <Button
+            block
+            onClick={async () => {
+              const result = Dialog.confirm({
+                content: '人在天边月上明',
+              })
+              if (result) {
+                Toast.show({ content: '点击了确认', position: 'bottom' })
+              } else {
+                Toast.show({ content: '点击了取消', position: 'bottom' })
+              }
+            }}
+          >
+            等待 confirm 完成
+          </Button>
+          <DemoDescription content='confirm 返回的是 Promise<boolean> 你可以通过这个 boolean 来判断用户是点击的确认还是取消' />
         </Space>
       </DemoBlock>
     </>
