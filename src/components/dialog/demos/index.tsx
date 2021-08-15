@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Dialog, Space, Toast, Divider } from 'antd-mobile'
 import { sleep } from '../../../utils/sleep'
 import { ExclamationCircleFilled } from '@ant-design/icons'
@@ -21,12 +21,11 @@ export default () => {
           </Button>
           <Button
             block
-            onClick={async () => {
-              await Dialog.alert({
+            onClick={() => {
+              Dialog.alert({
                 content: '点击遮罩关闭',
                 closeOnMaskClick: true,
               })
-              Toast.show({ content: '已关闭', position: 'bottom' })
             }}
           >
             点击遮罩关闭
@@ -188,6 +187,43 @@ export default () => {
           <DemoDescription content='confirm 返回的是 Promise<boolean> 你可以通过这个 boolean 来判断用户是点击的确认还是取消' />
         </Space>
       </DemoBlock>
+
+      <DemoBlock title='声明式'>
+        <Space direction='vertical' block>
+          <Declarative />
+          <DemoDescription content='你可以手动控制 visible 状态' />
+        </Space>
+      </DemoBlock>
+    </>
+  )
+}
+
+const Declarative = () => {
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Button
+        block
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        显示对话框
+      </Button>
+      <Dialog
+        visible={visible}
+        content='人在天边月上明'
+        closeOnAction
+        onClose={() => {
+          setVisible(false)
+        }}
+        actions={[
+          {
+            key: 'confirm',
+            text: '我知道了',
+          },
+        ]}
+      />
     </>
   )
 }
