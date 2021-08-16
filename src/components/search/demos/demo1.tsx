@@ -42,6 +42,16 @@ export default () => {
           }}
         />
       </DemoBlock>
+      <DemoBlock title='自定义样式'>
+        <Search
+          placeholder='请输入内容'
+          showCancelButton
+          style={{
+            '--border-radius': '100px',
+            '--background': '#ffffff',
+          }}
+        />
+      </DemoBlock>
     </>
   )
 }

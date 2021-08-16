@@ -1,6 +1,6 @@
 # Search 搜索
 
-<code src="./demos/demo1.tsx" />
+<code src="./demos/demo1.tsx"></code>
 
 ## API
 
@@ -17,3 +17,11 @@
 | onBlur           | 输入框失去焦点时触发                         | event: Event            | -      |
 | onClear          | 点击清除按钮后触发                           | event: Event            | -      |
 | onCancel         | 点击取消按钮时触发                           | () => void              | -      |
+
+## CSS 变量
+
+| 属性                | 说明                 | 默认值            |
+| ------------------- | -------------------- | ----------------- |
+| --background        | 背景色               | #f5f5f5           |
+| --border-radius     | 圆角                 | 6px               |
+| --placeholder-color | placeholder 文字颜色 | --font-color-weak |

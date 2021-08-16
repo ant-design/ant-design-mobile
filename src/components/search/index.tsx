@@ -21,7 +21,7 @@ export type SearchProps = {
   onBlur?: () => void
   onClear?: () => void
   onCancel?: () => void
-} & ElementProps
+} & ElementProps<'--background' | '--border-radius' | '--placeholder-color'>
 
 const defaultProps = {
   clearable: true,
