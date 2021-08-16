@@ -55,7 +55,6 @@ export default {
           '/components/water-mark',
           '/components/steps',
           '/components/tag',
-          '/components/desense-text',
           '/components/infinite-scroll',
           '/components/popover',
           '/components/ellipsis',
@@ -114,7 +113,7 @@ export default {
       },
       {
         title: '试验性',
-        children: ['/components/cascader'],
+        children: ['/components/cascader', '/components/desense-text'],
       },
     ],
   },
@@ -127,11 +126,11 @@ export default {
     'demos': process.cwd() + '/src/demos/index.ts',
   },
   styles: [
-    `#root .__dumi-default-mobile-demo-layout {
+    `
+    #root .__dumi-default-mobile-demo-layout {
       padding: 0;
-      min-height: 100vh;
-      background: #f5f5f5;
-    }`,
+    }
+    `,
   ],
   // extraPostCSSPlugins: [
   //   pxToRem({
