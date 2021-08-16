@@ -8,7 +8,7 @@ import { FormContext, FormContextType, DEFAULT_FORM_CONTEXT } from './context'
 import { mergeProps } from '../../utils/with-default-props'
 import type { FormLayout } from '.'
 
-type FormProps = RcFormProps &
+export type FormProps = RcFormProps &
   ElementProps &
   Partial<FormContextType> & {
     footer?: ReactNode
