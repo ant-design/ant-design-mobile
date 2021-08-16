@@ -8,7 +8,9 @@ import React, {
 import { renderToBody } from '../../utils/render-to-body'
 import { Dialog, DialogProps } from './dialog'
 
-export function show(props: Omit<DialogProps, 'visible'>) {
+export type DialogShowProps = Omit<DialogProps, 'visible'>
+
+export function show(props: DialogShowProps) {
   type Ref = {
     close: () => void
   }

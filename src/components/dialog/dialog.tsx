@@ -10,14 +10,13 @@ const classPrefix = `am-dialog`
 
 export interface DialogProps {
   afterClose?: () => void
+  image?: string
   header?: ReactNode
-  headerImage?: string
   // waitImageLoad?: boolean
   title?: ReactNode
   content?: ReactNode
-  cancelText?: ReactNode
   actions?: (Action | Action[])[]
-  onAction?: (action: Action) => void | Promise<void>
+  onAction?: (action: Action, index: number) => void | Promise<void>
   closeOnAction?: boolean
   onClose?: () => void
   closeOnMaskClick?: boolean
@@ -49,12 +48,8 @@ export const Dialog: FC<DialogProps> = p => {
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
     >
       <div onClick={e => e.stopPropagation()} className={`${classPrefix}-wrap`}>
-        {!!props.headerImage && (
-          <Image
-            src={props.headerImage}
-            alt='dialog header image'
-            width='100%'
-          />
+        {!!props.image && (
+          <Image src={props.image} alt='dialog header image' width='100%' />
         )}
         <div
           style={props.bodyStyle}
@@ -85,12 +80,12 @@ export const Dialog: FC<DialogProps> = p => {
             const actions = Array.isArray(row) ? row : [row]
             return (
               <div className={`${classPrefix}-action-row`} key={index}>
-                {actions.map(action => (
+                {actions.map((action, index) => (
                   <DialogActionButton
                     key={action.key}
                     action={action}
                     onAction={async () => {
-                      await props.onAction?.(action)
+                      await props.onAction?.(action, index)
                       if (props.closeOnAction) {
                         props.onClose?.()
                       }

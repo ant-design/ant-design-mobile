@@ -37,7 +37,9 @@
 const handler = ActionSheet.show(props)
 ```
 
-可以通过调用 `ActionSheet` 上的 `show` 方法直接打开动作面板，其中 `props` 参数的类型同上表，但不支持传入 `visible` 属性。当动作面板被关闭后，组件实例会自动销毁。
+可以通过调用 `ActionSheet` 上的 `show` 方法直接打开动作面板，其中 `props` 参数的类型同上表，但不支持传入 `visible` 属性。
+
+当动作面板被关闭后，组件实例会自动销毁。
 
 `show` 方法的返回值为一个组件控制器，包含以下属性：
 

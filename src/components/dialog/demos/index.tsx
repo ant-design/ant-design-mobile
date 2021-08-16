@@ -59,7 +59,7 @@ export default () => {
                       key: 'delete',
                       text: '删除',
                       bold: true,
-                      color: 'danger',
+                      danger: true,
                     },
                   ],
                 ],
@@ -135,7 +135,7 @@ export default () => {
             block
             onClick={() => {
               Dialog.alert({
-                headerImage:
+                image:
                   'https://gw.alipayobjects.com/mdn/rms_efa86a/afts/img/A*SE7kRojatZ0AAAAAAAAAAAAAARQnAQ',
                 title: '手持工牌照示例',
                 content: '请用手机拍摄手持工牌照，注意保持照片清晰',

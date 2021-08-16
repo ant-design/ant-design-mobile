@@ -1,12 +1,12 @@
 import React, { FC, useState } from 'react'
 import classNames from 'classnames'
-import Button, { ButtonProps } from '../button'
+import Button from '../button'
 
 export type Action = {
   key: string | number
   text: string
   disabled?: boolean
-  color?: ButtonProps['color']
+  danger?: boolean
   bold?: boolean
   onClick?: () => void | Promise<void>
 }
@@ -38,7 +38,7 @@ export const DialogActionButton: FC<{
       })}
       fill='none'
       block
-      color={action.color ?? 'primary'}
+      color={action.danger ? 'danger' : 'primary'}
       loading={loading}
       disabled={action.disabled}
     >
