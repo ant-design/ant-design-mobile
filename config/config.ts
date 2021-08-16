@@ -113,7 +113,11 @@ export default {
       },
       {
         title: '试验性',
-        children: ['/components/cascader', '/components/desense-text'],
+        children: [
+          '/components/what-is-experimental',
+          '/components/cascader',
+          '/components/desense-text',
+        ],
       },
     ],
   },
