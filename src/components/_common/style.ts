@@ -1,3 +1,3 @@
-import '../index.css'
+import './index.css'
 import '../../global.css'
 import '../../utils/init'
