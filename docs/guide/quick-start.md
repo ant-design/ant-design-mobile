@@ -32,6 +32,8 @@ import { Button } from 'antd-mobile'
 
 antd-mobile 支持基于 Tree Shaking 的按需加载，大部分的构建工具都支持 Tree Shaking，所以一般来说你无需做额外的配置即可拥有较小的包体积。
 
+<Alert> ⚠️ 下述方法目前还存在问题，仅供开发预览特性</Alert>
+
 但是如果你需要对样式文件也做按需加载，或者是在一些不支持 Tree Shaking 的场景下实现按需加载，那么你可以手动引入部分组件：
 
 ```js
