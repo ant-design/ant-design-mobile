@@ -50,7 +50,7 @@ import 'antd-mobile/button/style@2x'
 ```js
 module.exports = {
   "plugins": [
-    ["import", { "libraryName": "antd-mobile", "libraryDirectory": "es", "style": true}]
+    ["import", { "libraryName": "antd-mobile", "libraryDirectory": "es/components", "style": true}]
   ]
 }
 ```
@@ -60,7 +60,7 @@ module.exports = {
 ```js
 module.exports = {
   "plugins": [
-    ["import", { "libraryName": "antd-mobile", "libraryDirectory": "es", "style": (name) => `${name}/style@2x`}]
+    ["import", { "libraryName": "antd-mobile", "libraryDirectory": "es/components", "style": (name) => `${name}/style@2x`}]
   ]
 }
 ```

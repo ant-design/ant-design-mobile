@@ -35,6 +35,10 @@ export default {
         path: '/guide/quick-start',
       },
       {
+        title: 'CSS 变量',
+        path: '/guide/css-variables',
+      },
+      {
         title: 'FAQ',
         path: '/guide/faq',
       },
