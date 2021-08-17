@@ -1,35 +1,31 @@
 :root {
-  --color-primary: #1677ff;
-  --color-success: #00b578;
-  --color-warning: #ff8f1f;
-  --color-danger: #ff3141;
-  --color-white: #ffffff;
-  --color-weak: #999999;
-  --color-light: #cccccc;
-  --border-color: #eeeeee;
-  --font-size-main: 13px;
-  --font-color-main: #333333;
-  --font-color-white: #ffffff;
-  --font-color-weak: #999999;
-  --font-color-light: #cccccc;
-  --font-color-primary: var(--color-primary);
-  --font-color-danger: var(--color-danger);
-  --font-family: -apple-system, blinkmacsystemfont, 'Helvetica Neue', helvetica,
-    segoe ui, arial, roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB',
-    'Microsoft Yahei', sans-serif;
+  --am-color-primary: #1677ff;
+  --am-color-success: #00b578;
+  --am-color-warning: #ff8f1f;
+  --am-color-danger: #ff3141;
+  --am-color-white: #ffffff;
+  --am-color-weak: #999999;
+  --am-color-light: #cccccc;
+  --am-border-color: #eeeeee;
+  --am-font-size-main: 13px;
+  --am-color-text: #333333;
 
-  --z-index-mask: 1000;
-  --z-index-popup: 1000;
-  --z-index-popover: 1030;
-  --z-index-drawer: 900;
+  --am-font-family: -apple-system, blinkmacsystemfont, 'Helvetica Neue',
+    helvetica, segoe ui, arial, roboto, 'PingFang SC', 'miui',
+    'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+
+  --am-z-index-mask: 1000;
+  --am-z-index-popup: 1000;
+  --am-z-index-popover: 1030;
+  --am-z-index-floating-panel: 900;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
-  color: var(--font-color-main);
-  font-size: var(--font-size-main);
-  font-family: var(--font-family);
+  color: var(--am-color-text);
+  font-size: var(--am-font-size-main);
+  font-family: var(--am-font-family);
 }
 
 * {
@@ -42,7 +38,7 @@ button {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--am-color-primary);
   transition: opacity ease-in-out 0.2s;
   &:active {
     opacity: 0.8;

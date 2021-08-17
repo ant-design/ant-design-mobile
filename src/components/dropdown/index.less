@@ -9,7 +9,7 @@
 
   &-open {
     .@{class-prefix-dropdown}-nav {
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--am-border-color);
     }
   }
 
@@ -37,8 +37,8 @@
         right: 0;
         margin-top: -5px;
         border: 3px solid;
-        border-color: transparent transparent var(--font-color-main)
-          var(--font-color-main);
+        border-color: transparent transparent var(--am-color-text)
+          var(--am-color-text);
         transform: rotate(-45deg);
         content: ' ';
       }
@@ -48,11 +48,11 @@
     }
 
     &-highlight {
-      color: var(--color-primary);
+      color: var(--am-color-primary);
     }
 
     &-active {
-      color: var(--color-primary);
+      color: var(--am-color-primary);
       .@{class-prefix-dropdown}-item-title:after {
         margin-top: -1px;
         transform: rotate(135deg);

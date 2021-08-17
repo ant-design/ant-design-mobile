@@ -5,9 +5,9 @@ import { withDefaultProps } from '../../utils/with-default-props'
 const classPrefix = `am-loading`
 
 const colorRecord: Record<string, string> = {
-  default: 'var(--color-weak)',
-  primary: 'var(--color-primary)',
-  white: 'var(--color-white)',
+  default: 'var(--am-color-weak)',
+  primary: 'var(--am-color-primary)',
+  white: 'var(--am-color-white)',
 }
 
 export interface LoadingProps {

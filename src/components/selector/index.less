@@ -1,7 +1,7 @@
 @class-prefix-selector: ~'am-selector';
 
 .@{class-prefix-selector} {
-  --color: var(--font-color-main);
+  --color: var(--am-color-text);
 
   overflow: hidden;
   font-size: 15px;
@@ -22,7 +22,7 @@
 
     &-active,
     &-multiple-active {
-      color: var(--font-color-primary);
+      color: var(--am-color-primary);
       background-color: #e7f1ff;
     }
 
@@ -33,9 +33,9 @@
       width: 0;
       height: 0;
       border-top: solid 8px transparent;
-      border-bottom: solid 8px var(--color-primary);
+      border-bottom: solid 8px var(--am-color-primary);
       border-left: solid 10px transparent;
-      border-right: solid 10px var(--color-primary);
+      border-right: solid 10px var(--am-color-primary);
       > img {
         position: absolute;
         left: 0;

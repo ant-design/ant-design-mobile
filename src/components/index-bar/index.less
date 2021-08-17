@@ -1,12 +1,12 @@
 @class-prefix-index-bar: ~'am-index-bar';
 
 .@{class-prefix-index-bar} {
-  --color: var(--font-color-main);
+  --color: var(--am-color-text);
   overflow: hidden;
 
   height: 100%;
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--am-color-white);
   --sticy-offset-top: 0;
 
   &-body {
@@ -25,7 +25,7 @@
       justify-content: center;
       height: 35px;
       padding: 0 12px;
-      color: var(--font-color-weak);
+      color: var(--am-color-weak);
       font-size: 13px;
       background-color: #f5f5f5;
     }
@@ -38,7 +38,7 @@
     transform: translateY(-50%);
     z-index: 3;
     overflow: visible;
-    color: var(--font-color-weak);
+    color: var(--am-color-weak);
     font-size: 12px;
     user-select: none;
     touch-action: none;
@@ -49,11 +49,11 @@
       right: 42px;
       width: 47px;
       height: 47px;
-      color: var(--font-color-white);
+      color: var(--am-color-white);
       font-size: 25px;
       line-height: 47px;
       text-align: center;
-      background: var(--color-light);
+      background: var(--am-color-light);
       border-radius: 50%;
       transform: translateY(-50%);
     }
@@ -77,7 +77,7 @@
 
     &-item-active {
       color: #fff;
-      background-color: var(--color-primary);
+      background-color: var(--am-color-primary);
       border-radius: 50%;
     }
 

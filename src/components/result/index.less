@@ -1,9 +1,9 @@
 @class-prefix-result: ~'am-result';
 
 .@{class-prefix-result} {
-  --bg-color: var(--color-white);
-  --color: var(--font-color-main);
-  --color-weak: var(--font-color-weak);
+  --bg-color: var(--am-color-white);
+  --color: var(--am-color-text);
+  --am-color-weak: var(--am-color-weak);
 
   padding: 32px 12px;
   background-color: var(--bg-color);
@@ -29,7 +29,7 @@
 
   &-description {
     margin-top: 8px;
-    color: var(--color-weak);
+    color: var(--am-color-weak);
     font-size: 13px;
     line-height: 1.4;
     text-align: center;
@@ -39,7 +39,7 @@
 .@{class-prefix-result}-success {
   .@{class-prefix-result}-icon {
     .anticon {
-      color: var(--color-primary);
+      color: var(--am-color-primary);
     }
   }
 }
@@ -47,7 +47,7 @@
 .@{class-prefix-result}-error {
   .@{class-prefix-result}-icon {
     .anticon {
-      color: var(--color-danger);
+      color: var(--am-color-danger);
     }
   }
 }
@@ -55,7 +55,7 @@
 .@{class-prefix-result}-info {
   .@{class-prefix-result}-icon {
     .anticon {
-      color: var(--color-primary);
+      color: var(--am-color-primary);
     }
   }
 }
@@ -63,7 +63,7 @@
 .@{class-prefix-result}-waiting {
   .@{class-prefix-result}-icon {
     .anticon {
-      color: var(--color-success);
+      color: var(--am-color-success);
     }
   }
 }
@@ -71,7 +71,7 @@
 .@{class-prefix-result}-warning {
   .@{class-prefix-result}-icon {
     .anticon {
-      color: var(--color-warning);
+      color: var(--am-color-warning);
     }
   }
 }

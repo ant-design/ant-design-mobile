@@ -1,7 +1,7 @@
 @class-prefix-button: ~'am-button';
 
 .@{class-prefix-button} {
-  --color: var(--font-color-main);
+  --color: var(--am-color-text);
 
   position: relative;
   display: inline-block;
@@ -39,12 +39,12 @@
     opacity: 0.1;
   }
   &-default {
-    color: var(--font-color-main);
+    color: var(--am-color-text);
     background-color: #fff;
-    border-color: var(--border-color);
+    border-color: var(--am-border-color);
     &.@{class-prefix-button}-fill-outline {
       background-color: transparent;
-      border-color: var(--font-color-main);
+      border-color: var(--am-color-text);
     }
     &.@{class-prefix-button}-fill-none {
       background-color: transparent;
@@ -52,7 +52,7 @@
     }
   }
   &:not(&-default) {
-    color: var(--font-color-white);
+    color: var(--am-color-white);
     background-color: var(--color);
     border-color: var(--color);
     &.@{class-prefix-button}-fill-outline {
@@ -66,16 +66,16 @@
     }
   }
   &-primary {
-    --color: var(--color-primary);
+    --color: var(--am-color-primary);
   }
   &-success {
-    --color: var(--color-success);
+    --color: var(--am-color-success);
   }
   &-danger {
-    --color: var(--color-danger);
+    --color: var(--am-color-danger);
   }
   &-warning {
-    --color: var(--color-warning);
+    --color: var(--am-color-warning);
   }
 
   &-block {
