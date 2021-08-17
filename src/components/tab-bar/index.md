@@ -1,6 +1,6 @@
 # TabBar 标签栏
 
-<code src="./demos/index.tsx">
+<code src="./demos/index.tsx"></code>
 
 ## API
 
@@ -19,3 +19,4 @@
 | key   | 对应 activeKey | string    | -      |
 | title | 标题           | ReactNode | -      |
 | icon  | 图标           | ReactNode | -      |
+| badge | 徽标           | ReactNode | -      |

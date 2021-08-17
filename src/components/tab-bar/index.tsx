@@ -3,12 +3,12 @@ import React from 'react'
 import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
-
-const classPrefix = `am-tab-bar`
+import Badge from '../badge'
 
 export type TabBarItemProps = {
   icon?: ReactNode
   title?: string
+  badge?: ReactNode
 } & ElementProps
 
 const TabBarItem: FC<TabBarItemProps> = () => {
@@ -47,32 +47,62 @@ const TabBar: FC<TabBarProps> & {
 
   return (
     <div
-      className={classNames(classPrefix, props.className)}
+      className={classNames('am-tab-bar', props.className)}
       style={props.style}
     >
-      {items.map(item => (
-        <div
-          key={item.key}
-          onClick={() => {
-            const { key } = item
-            if (key === undefined || key === null) return
-            setActiveKey(key.toString())
-          }}
-          className={classNames(`${classPrefix}-item`, item.props.className, {
-            [`${classPrefix}-item-active`]: item.key === activeKey,
-          })}
-        >
-          {item.props.icon && (
-            <div className={`${classPrefix}-item-icon`}>{item.props.icon}</div>
-          )}
-          {item.props.title && (
-            <div className={`${classPrefix}-item-title`}>
-              {item.props.title}
-            </div>
-          )}
-          {item.props.children}
-        </div>
-      ))}
+      {items.map(item => {
+        function renderContent() {
+          const iconElement = item.props.icon && (
+            <div className='am-tab-bar-item-icon'>{item.props.icon}</div>
+          )
+          const titleElement = item.props.title && (
+            <div className='am-tab-bar-item-title'>{item.props.title}</div>
+          )
+          if (item.props.badge !== undefined) {
+            if (iconElement) {
+              return (
+                <>
+                  <Badge content={item.props.badge} offset={[0, 6]}>
+                    {iconElement}
+                  </Badge>
+                  {titleElement}
+                </>
+              )
+            } else if (titleElement) {
+              return (
+                <>
+                  <Badge content={item.props.badge} offset={[2, -2]}>
+                    {titleElement}
+                  </Badge>
+                </>
+              )
+            }
+          } else {
+            return (
+              <>
+                {iconElement}
+                {titleElement}
+              </>
+            )
+          }
+          return null
+        }
+        return (
+          <div
+            key={item.key}
+            onClick={() => {
+              const { key } = item
+              if (key === undefined || key === null) return
+              setActiveKey(key.toString())
+            }}
+            className={classNames('am-tab-bar-item', item.props.className, {
+              'am-tab-bar-item-active': item.key === activeKey,
+            })}
+          >
+            {renderContent()}
+          </div>
+        )
+      })}
     </div>
   )
 }
