@@ -20,8 +20,8 @@ const Badge = withDefaultProps({
 
   const badgeStyle = children
     ? {
-        marginTop: `${convertPx(offset[0])}px`,
-        right: `${-convertPx(offset[1])}px`,
+        right: `${-convertPx(offset[0])}px`,
+        top: `${convertPx(offset[1])}px`,
         backgroundColor: color,
       }
     : {

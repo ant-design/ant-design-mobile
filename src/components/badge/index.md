@@ -1,4 +1,4 @@
-# Badge 徽标数
+# Badge 徽标
 
 <code src="./demos/index.tsx"></code>
 
