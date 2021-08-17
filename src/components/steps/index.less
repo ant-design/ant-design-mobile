@@ -1,6 +1,3 @@
-@class-prefix-steps: ~'am-steps';
-@class-prefix-step: ~'am-step';
-
 .am-step {
   --line-to-next-color: #e5e5e5;
   --icon-color: #e5e5e5;
@@ -53,7 +50,7 @@
   }
 }
 
-.@{class-prefix-steps} {
+.am-steps {
   width: 100%;
 
   &-horizontal {
@@ -104,6 +101,7 @@
       align-items: stretch;
 
       .am-step-indicator {
+        flex: none;
         width: 24px;
         margin-right: 8px;
 
@@ -126,18 +124,18 @@
           padding-bottom: 0;
         }
       }
-    }
-
-    .am-step-content {
-      padding-bottom: 14px;
-      .am-step-title {
-        font-size: var(--title-font-size);
-        line-height: 1.5;
-      }
-      .am-step-description {
-        padding-top: 2px;
-        font-size: 15px;
-        color: var(--font-color-weak);
+      .am-step-content {
+        flex: auto;
+        padding-bottom: 14px;
+        .am-step-title {
+          font-size: var(--title-font-size);
+          line-height: 1.5;
+        }
+        .am-step-description {
+          padding-top: 2px;
+          font-size: 15px;
+          color: var(--font-color-weak);
+        }
       }
     }
   }
