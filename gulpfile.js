@@ -10,53 +10,60 @@ const del = require('del')
 const webpackStream = require('webpack-stream')
 const webpack = require('webpack')
 const tsconfig = require('./tsconfig.json')
+const glob = require('glob')
 
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
 
-gulp.task('less', function () {
+function clean() {
+  return del('./lib/**')
+}
+
+function buildStyle() {
   return gulp
-    .src('./src/index.less')
+    .src(
+      [
+        './src/index.less',
+        './src/global.less',
+        './src/components/**/index.less',
+      ],
+      {
+        base: './src/',
+        ignore: ['**/demos/**/*', '**/tests/**/*'],
+      }
+    )
     .pipe(
       less({
         paths: [path.join(__dirname, 'src')],
         relativeUrls: true,
       })
     )
-    .pipe(gulp.dest('./lib'))
-})
-
-gulp.task('multiply-px', function () {
-  return gulp
-    .src('./lib/index.css')
+    .pipe(gulp.dest('./lib/es'))
+    .pipe(gulp.dest('./lib/cjs'))
     .pipe(postcss([pxMultiplePlugin]))
     .pipe(
       rename({
         suffix: '@2x',
       })
     )
-    .pipe(gulp.dest('./lib'))
-})
+    .pipe(gulp.dest('./lib/es'))
+    .pipe(gulp.dest('./lib/cjs'))
+}
 
-gulp.task('assets', function () {
+function copyAssets() {
   return gulp
     .src('./src/assets/**/*')
     .pipe(gulp.dest('lib/assets'))
     .pipe(gulp.dest('lib/es/assets'))
     .pipe(gulp.dest('lib/cjs/assets'))
-})
+}
 
-gulp.task('copy-css', function () {
+function copyCSS() {
   return gulp
-    .src(['./lib/index.css', './lib/index@2x.css'])
-    .pipe(gulp.dest('lib/es/'))
-    .pipe(gulp.dest('lib/cjs/'))
-})
+    .src(['./lib/es/index.css', './lib/es/index@2x.css'])
+    .pipe(gulp.dest('lib/'))
+}
 
-gulp.task('clean', async function () {
-  await del('lib/**')
-})
-
-gulp.task('cjs', function () {
+function tsCJS() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
     module: 'CommonJS',
@@ -68,9 +75,9 @@ gulp.task('cjs', function () {
     .pipe(tsProject)
     .pipe(babel())
     .pipe(gulp.dest('lib/cjs/'))
-})
+}
 
-gulp.task('es', function () {
+function tsES() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
     module: 'ESNext',
@@ -82,9 +89,9 @@ gulp.task('es', function () {
     .pipe(tsProject)
     .pipe(babel())
     .pipe(gulp.dest('lib/es/'))
-})
+}
 
-gulp.task('declaration', function () {
+function tsDeclaration() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
     module: 'ESNext',
@@ -98,9 +105,9 @@ gulp.task('declaration', function () {
     .pipe(tsProject)
     .pipe(gulp.dest('lib/es/'))
     .pipe(gulp.dest('lib/cjs/'))
-})
+}
 
-gulp.task('umd', function () {
+function umdWebpack() {
   return gulp
     .src('lib/es/index.js')
     .pipe(
@@ -135,9 +142,9 @@ gulp.task('umd', function () {
       )
     )
     .pipe(gulp.dest('lib/umd/'))
-})
+}
 
-gulp.task('umd-css', function () {
+function umdCSS() {
   return gulp
     .src(['./lib/index.css', './lib/index@2x.css'])
     .pipe(
@@ -149,27 +156,40 @@ gulp.task('umd-css', function () {
       ])
     )
     .pipe(gulp.dest('./lib/umd'))
-})
+}
 
-gulp.task('copy-files', () => {
+const mergeCommonIntoComponents = (function () {
+  function doTask(folder) {
+    const componentDirs = glob.sync(`./lib/${folder}/components/*/`)
+    let ret = gulp.src(`./lib/${folder}/components/_common/*`)
+    for (const dir of componentDirs) {
+      ret = ret.pipe(gulp.dest(dir))
+    }
+    return ret
+  }
+  const mergeCommonIntoComponentsES = () => doTask('es')
+  const mergeCommonIntoComponentsCJS = () => doTask('cjs')
+  async function removeCommonFolder() {
+    await del(['./lib/es/components/_common', './lib/cjs/components/_common'])
+  }
+  return gulp.series(
+    gulp.parallel(mergeCommonIntoComponentsES, mergeCommonIntoComponentsCJS),
+    removeCommonFolder
+  )
+})()
+
+function copyMetaFiles() {
   return gulp
     .src(['./package.json', './README.md', './LICENSE.txt'])
     .pipe(gulp.dest('lib/'))
-})
+}
 
-gulp.task(
-  'default',
-  gulp.series(
-    'clean',
-    'cjs',
-    'es',
-    'assets',
-    'declaration',
-    'umd',
-    'less',
-    'multiply-px',
-    'copy-css',
-    'copy-files',
-    'umd-css'
-  )
+exports.default = gulp.series(
+  clean,
+  gulp.parallel(tsCJS, tsES, tsDeclaration, buildStyle),
+  mergeCommonIntoComponents,
+  copyCSS,
+  copyAssets,
+  gulp.parallel(umdWebpack, umdCSS),
+  copyMetaFiles
 )
