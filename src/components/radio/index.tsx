@@ -31,7 +31,7 @@ const Radio: FC<RadioProps> = props => {
   let disabled = props.disabled
 
   const { value } = props
-  if (groupContext && value) {
+  if (groupContext && value !== undefined) {
     checked = groupContext.value.includes(value)
     setChecked = (checked: boolean) => {
       if (checked) {
