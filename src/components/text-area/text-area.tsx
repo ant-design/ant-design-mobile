@@ -44,7 +44,7 @@ const defaultProps = {
 }
 
 // TODO: withDefaultProps 和 forwardRef 配合使用的问题
-const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
+export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
   (props: TextAreaProps & typeof defaultProps, ref) => {
     const {
       className,
@@ -127,5 +127,3 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
 )
 
 TextArea.defaultProps = defaultProps
-
-export default TextArea

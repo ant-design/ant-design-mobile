@@ -1,11 +1,9 @@
 import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import React, { useMemo } from 'react'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import { ElementProps } from '../../utils/element-props'
 import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
-import Multiple from './multiple'
 
 const classPrefix = `am-cascader`
 
@@ -21,7 +19,7 @@ export type CascaderProps = {
   fieldNames?: { label: string; value: string; children: string }
 } & ElementProps
 
-const Cascader = withDefaultProps({
+export const Cascader = withDefaultProps({
   options: [],
   fieldNames: {},
 })<CascaderProps>(props => {
@@ -131,8 +129,4 @@ const Cascader = withDefaultProps({
       {renderColumns()}
     </div>
   )
-})
-
-export default attachPropertiesToComponent(Cascader, {
-  Multiple,
 })

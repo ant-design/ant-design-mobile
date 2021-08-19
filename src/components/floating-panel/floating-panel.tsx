@@ -25,7 +25,7 @@ export type FloatingPanelRef = {
   ) => void
 }
 
-const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
+export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
   (props, ref) => {
     const { anchors } = props
     const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
@@ -134,5 +134,3 @@ const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     )
   }
 )
-
-export default FloatingPanel

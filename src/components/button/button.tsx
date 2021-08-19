@@ -19,7 +19,7 @@ export interface ButtonProps {
   type?: 'submit' | 'reset' | 'button'
 }
 
-const Button: FC<ButtonProps> = props => {
+export const Button: FC<ButtonProps> = props => {
   const disabled = props.disabled || props.loading
   return (
     <button
@@ -65,5 +65,3 @@ Button.defaultProps = {
   loading: false,
   type: 'button',
 }
-
-export default Button

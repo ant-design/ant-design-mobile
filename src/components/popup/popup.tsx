@@ -37,7 +37,7 @@ const defaultProps = {
   mask: true,
 }
 
-const Popup: FC<PopupProps> = p => {
+export const Popup: FC<PopupProps> = p => {
   const props = mergeProps(defaultProps, p)
   // 动画执行完，才隐藏最外层
   const [hidden, setHidden] = useState(!props.visible)
@@ -100,5 +100,3 @@ const Popup: FC<PopupProps> = p => {
 
   return renderToContainer(props.getContainer, node)
 }
-
-export default Popup

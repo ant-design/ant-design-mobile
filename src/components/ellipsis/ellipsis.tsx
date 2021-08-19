@@ -16,7 +16,7 @@ const defaultProps = {
   rows: 1,
 }
 
-const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
+export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
   const originRef = useRef<HTMLDivElement>(null)
 
   const [ellipsised, setEllipsised] = useState<string>('')
@@ -102,5 +102,3 @@ function pxToNumber(value: string | null): number {
   const match = value.match(/^\d*(\.\d*)?/)
   return match ? Number(match[0]) : 0
 }
-
-export default Ellipsis

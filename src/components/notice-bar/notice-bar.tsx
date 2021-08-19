@@ -31,7 +31,7 @@ const defaultProps = {
   speed: 50,
 }
 
-const NoticeBar = memo(
+export const NoticeBar = memo(
   withDefaultProps(defaultProps)<NoticeBarProps>(props => {
     const containerRef = useRef<HTMLSpanElement>(null)
     const textRef = useRef<HTMLSpanElement>(null)
@@ -112,5 +112,3 @@ const NoticeBar = memo(
     )
   })
 )
-
-export default NoticeBar

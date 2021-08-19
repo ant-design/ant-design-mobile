@@ -10,7 +10,7 @@ export type EmptyProps = {
   description?: ReactNode
 } & ElementProps
 
-const Empty: FC<EmptyProps> = props => {
+export const Empty: FC<EmptyProps> = props => {
   return (
     <div
       style={props.style}
@@ -30,5 +30,3 @@ const Empty: FC<EmptyProps> = props => {
     </div>
   )
 }
-
-export default Empty

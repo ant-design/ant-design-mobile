@@ -68,7 +68,7 @@ export interface WaterMarkProps {
   fontSize?: number | string
 }
 
-const WaterMark: FC<WaterMarkProps> = props => {
+export const WaterMark: FC<WaterMarkProps> = props => {
   const {
     style,
     className,
@@ -178,5 +178,3 @@ const WaterMark: FC<WaterMarkProps> = props => {
     />
   )
 }
-
-export default WaterMark

@@ -14,7 +14,7 @@ export type SwitchProps = {
   onChange?: (checked: boolean) => void
 } & ElementProps
 
-const Switch: FC<SwitchProps> = props => {
+export const Switch: FC<SwitchProps> = props => {
   const disabled = props.disabled || props.loading || false
 
   const [checked, setChecked] = useControllableValue<boolean>(props, {
@@ -57,5 +57,3 @@ const Switch: FC<SwitchProps> = props => {
     </label>
   )
 }
-
-export default Switch

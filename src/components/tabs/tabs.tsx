@@ -12,7 +12,7 @@ export type TabPaneProps = {
   forceRender?: boolean
 }
 
-const TabPane: FC<TabPaneProps> = () => {
+export const TabPane: FC<TabPaneProps> = () => {
   return null
 }
 
@@ -22,9 +22,7 @@ export type TabsProps = {
   onChange?: (val: string) => void
 } & ElementProps
 
-const Tabs: FC<TabsProps> & {
-  TabPane: typeof TabPane
-} = props => {
+export const Tabs: FC<TabsProps> = props => {
   const childrenRecord: Record<string, ReactNode> = {}
   let firstActiveKey: string | undefined = undefined
 
@@ -101,7 +99,3 @@ const Tabs: FC<TabsProps> & {
     </div>
   )
 }
-
-Tabs.TabPane = TabPane
-
-export default Tabs

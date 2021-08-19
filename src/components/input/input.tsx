@@ -27,7 +27,7 @@ export type InputRef = {
   blur: () => void
 }
 
-const Input = forwardRef<InputRef, InputProps>((props, ref) => {
+export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const {
     clearable,
     onClear,
@@ -95,5 +95,3 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </div>
   )
 })
-
-export default Input

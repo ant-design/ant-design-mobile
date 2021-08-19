@@ -19,7 +19,7 @@ const defaultProps = {
   defaultDesense: true,
 }
 
-const DesenseText: FC<DesenseTextProps> = p => {
+export const DesenseText: FC<DesenseTextProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { text, desenseText } = props
 
@@ -44,5 +44,3 @@ const DesenseText: FC<DesenseTextProps> = p => {
     </span>
   )
 }
-
-export default DesenseText

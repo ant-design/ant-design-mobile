@@ -11,7 +11,7 @@ export type TabBarItemProps = {
   badge?: ReactNode
 } & ElementProps
 
-const TabBarItem: FC<TabBarItemProps> = () => {
+export const TabBarItem: FC<TabBarItemProps> = () => {
   return null
 }
 
@@ -21,9 +21,7 @@ export type TabBarProps = {
   onChange?: (key: string) => void
 } & ElementProps
 
-const TabBar: FC<TabBarProps> & {
-  Item: typeof TabBarItem
-} = props => {
+export const TabBar: FC<TabBarProps> = props => {
   let firstActiveKey: string | undefined = undefined
 
   const items: ReactElement<ComponentProps<typeof TabBarItem>>[] = []
@@ -106,7 +104,3 @@ const TabBar: FC<TabBarProps> & {
     </div>
   )
 }
-
-TabBar.Item = TabBarItem
-
-export default TabBar

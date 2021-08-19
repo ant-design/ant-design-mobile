@@ -19,7 +19,7 @@ export type MaskProps = {
   afterClose?: () => void
 } & ElementProps
 
-const Mask: React.FC<MaskProps> = props => {
+export const Mask: React.FC<MaskProps> = props => {
   const cls = classNames(classPrefix, props.className, {
     [`${classPrefix}-hidden`]: !props.visible,
   })
@@ -91,5 +91,3 @@ Mask.defaultProps = {
   opacity: 'default',
   disableBodyScroll: true,
 }
-
-export default Mask

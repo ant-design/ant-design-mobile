@@ -5,7 +5,6 @@ import {
 } from '../../utils/render-to-container'
 import Mask from '../mask'
 import { Slide } from './slide'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import { Slides } from './slides'
 import React, {
   useState,
@@ -32,29 +31,31 @@ const defaultProps = {
   visible: false,
 }
 
-const ImageViewer = withDefaultProps(defaultProps)<ImageViewerProps>(props => {
-  const node = (
-    <Mask
-      visible={props.visible}
-      disableBodyScroll={false}
-      opacity='dark'
-      afterClose={props.afterClose}
-    >
-      <div className={`${classPrefix}-content`}>
-        {props.image && (
-          <Slide
-            image={props.image}
-            onTap={() => {
-              props.onClose?.()
-            }}
-            maxZoom={props.maxZoom}
-          />
-        )}
-      </div>
-    </Mask>
-  )
-  return renderToContainer(props.getContainer, node)
-})
+export const ImageViewer = withDefaultProps(defaultProps)<ImageViewerProps>(
+  props => {
+    const node = (
+      <Mask
+        visible={props.visible}
+        disableBodyScroll={false}
+        opacity='dark'
+        afterClose={props.afterClose}
+      >
+        <div className={`${classPrefix}-content`}>
+          {props.image && (
+            <Slide
+              image={props.image}
+              onTap={() => {
+                props.onClose?.()
+              }}
+              maxZoom={props.maxZoom}
+            />
+          )}
+        </div>
+      </Mask>
+    )
+    return renderToContainer(props.getContainer, node)
+  }
+)
 
 export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
   images?: string[]
@@ -67,7 +68,7 @@ const multiDefaultProps = {
   defaultIndex: 0,
 }
 
-const MultiImageViewer = withDefaultProps(
+export const MultiImageViewer = withDefaultProps(
   multiDefaultProps
 )<MultiImageViewerProps>(props => {
   const node = (
@@ -95,7 +96,7 @@ const MultiImageViewer = withDefaultProps(
   return renderToContainer(props.getContainer, node)
 })
 
-function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
+export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
   type Ref = {
     close: () => void
   }
@@ -130,7 +131,9 @@ function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
   }
 }
 
-function showMultiImageViewer(props: Omit<MultiImageViewerProps, 'visible'>) {
+export function showMultiImageViewer(
+  props: Omit<MultiImageViewerProps, 'visible'>
+) {
   type Ref = {
     close: () => void
   }
@@ -164,12 +167,3 @@ function showMultiImageViewer(props: Omit<MultiImageViewerProps, 'visible'>) {
     },
   }
 }
-
-const Multi = attachPropertiesToComponent(MultiImageViewer, {
-  show: showMultiImageViewer,
-})
-
-export default attachPropertiesToComponent(ImageViewer, {
-  Multi,
-  show: showImageViewer,
-})

@@ -3,9 +3,7 @@ import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { useControllableValue } from 'ahooks'
 import { CheckOutlined } from '@ant-design/icons'
-import { Group } from './group'
 import { RadioGroupContext } from './group-context'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 
 const classPrefix = `am-radio`
 
@@ -20,7 +18,7 @@ export type RadioProps = {
   block?: boolean
 } & ElementProps
 
-const Radio: FC<RadioProps> = props => {
+export const Radio: FC<RadioProps> = props => {
   const groupContext = useContext(RadioGroupContext)
 
   let [checked, setChecked] = useControllableValue<boolean>(props, {
@@ -74,7 +72,3 @@ const Radio: FC<RadioProps> = props => {
     </label>
   )
 }
-
-export default attachPropertiesToComponent(Radio, {
-  Group,
-})

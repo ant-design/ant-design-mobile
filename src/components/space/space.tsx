@@ -13,7 +13,7 @@ export type SpaceProps = {
   block?: boolean
 } & ElementProps
 
-const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
+export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
   props => {
     const { size, direction, style = {} } = props
     let sizeStyle: any = {}
@@ -59,5 +59,3 @@ const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
     )
   }
 )
-
-export default Space

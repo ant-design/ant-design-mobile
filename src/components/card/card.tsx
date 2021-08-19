@@ -13,7 +13,7 @@ export type CardProps = {
   onHeaderClick?: (event: React.MouseEvent) => void
 } & ElementProps
 
-const Card: FC<CardProps> = props => {
+export const Card: FC<CardProps> = props => {
   const renderHeader = () => {
     if (!(props.title || props.extra)) {
       return null
@@ -51,5 +51,3 @@ const Card: FC<CardProps> = props => {
     </div>
   )
 }
-
-export default Card

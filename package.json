@@ -47,7 +47,9 @@
     "@typescript-eslint/parser": "^4.29.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.13.3",
+    "babel-plugin-replace-import-extension": "^1.1.1",
     "babel-plugin-transform-async-to-promises": "^0.8.15",
+    "css-loader": "^6.2.0",
     "del": "^5.1.0",
     "dumi": "^1.1.24",
     "dumi-theme-mobile": "^1.1.7",
@@ -70,7 +72,6 @@
     "lorem-ipsum": "^2.0.3",
     "pinst": "^2.1.6",
     "postcss": "^8.3.6",
-    "postcss-image-inliner": "^5.0.0",
     "postcss-px-multiple": "^0.1.5",
     "postcss-pxtorem": "^5.1.1",
     "prettier": "^2.3.2",
@@ -78,6 +79,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
+    "style-loader": "^3.2.1",
     "ts-jest": "26.5.6",
     "ts-node": "9.1.1",
     "typescript": "^3.9.10",
@@ -95,8 +97,7 @@
   "GravityCDN": "./umd/antd-mobile.js",
   "sideEffects": [
     "**/*.css",
-    "**/*.less",
-    "./*/utils/init.js"
+    "**/utils/init.js"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

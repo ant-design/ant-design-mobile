@@ -27,7 +27,7 @@ const defaultProps = {
   allowClear: true,
 }
 
-const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
+export const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
   const [value, setValue] = useControllableValue<number>(props)
   const starList = Array(props.count).fill(null)
   function renderStar(v: number, half: boolean) {
@@ -65,5 +65,3 @@ const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
     </div>
   )
 })
-
-export default Rate

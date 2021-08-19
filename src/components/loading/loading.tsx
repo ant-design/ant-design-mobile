@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import classNames from 'classnames'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-loading`
 
@@ -20,7 +20,8 @@ const defaultProps = {
   color: 'default',
 }
 
-const Loading = withDefaultProps(defaultProps)<LoadingProps>(props => {
+export const Loading = memo<LoadingProps>(p => {
+  const props = mergeProps(defaultProps, p)
   const style: any = {
     '--color': colorRecord[props.color] ?? props.color,
   }
@@ -35,5 +36,3 @@ const Loading = withDefaultProps(defaultProps)<LoadingProps>(props => {
     </div>
   )
 })
-
-export default memo(Loading)

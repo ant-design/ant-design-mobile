@@ -1,4 +1,3 @@
-import 'antd-mobile/lib/index.less'
 import React, { FC, useEffect } from 'react'
 import styles from './index.less'
 

@@ -37,7 +37,7 @@ export const defaultProps = {
   onRefresh: () => {},
 }
 
-const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
+export const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
   props => {
     const headHeight = props.headHeight ?? convertPx(40)
     const threshold = props.threshold ?? convertPx(60)
@@ -153,5 +153,3 @@ const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
     )
   }
 )
-
-export default PullToRefresh

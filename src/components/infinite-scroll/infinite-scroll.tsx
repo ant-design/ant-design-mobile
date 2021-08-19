@@ -32,7 +32,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
     </>
   )
 }
-const InfiniteScroll = withDefaultProps({
+export const InfiniteScroll = withDefaultProps({
   threshold: 250,
 })<InfiniteScrollProps>(props => {
   const doLoadMore = useLockFn(async () => {
@@ -86,5 +86,3 @@ const InfiniteScroll = withDefaultProps({
     </div>
   )
 })
-
-export default InfiniteScroll

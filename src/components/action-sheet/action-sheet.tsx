@@ -11,7 +11,6 @@ import classNames from 'classnames'
 import Popup from '../popup'
 import Button from '../button'
 import { GetContainer } from '../../utils/render-to-container'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import { renderToBody } from '../../utils/render-to-body'
 
 const classPrefix = `am-action-sheet`
@@ -47,82 +46,84 @@ const defaultProps = {
   closeOnMaskClick: true,
 }
 
-const ActionSheet = withDefaultProps(defaultProps)<ActionSheetProps>(props => {
-  return (
-    <Popup
-      visible={props.visible}
-      onMaskClick={() => {
-        props.onMaskClick?.()
-        if (props.closeOnMaskClick) {
-          props.onClose?.()
-        }
-      }}
-      afterClose={props.afterClose}
-      className={`${classPrefix}-popup`}
-      getContainer={props.getContainer}
-    >
-      <div className={classNames(classPrefix, props.className)}>
-        {props.extra && (
-          <div className={`${classPrefix}-extra`}>{props.extra}</div>
-        )}
-        <div className={`${classPrefix}-button-list`}>
-          {props.actions.map((action, index) => (
-            <div
-              key={action.key}
-              className={`${classPrefix}-button-item-wrapper`}
-            >
-              <Button
-                block
-                fill='none'
-                disabled={action.disabled}
-                onClick={() => {
-                  action.onClick?.()
-                  props.onAction?.(action, index)
-                  if (props.closeOnAction) {
-                    props.onClose?.()
-                  }
-                }}
-                className={classNames(`${classPrefix}-button-item`, {
-                  [`${classPrefix}-button-item-danger`]: action.danger,
-                })}
+export const ActionSheet = withDefaultProps(defaultProps)<ActionSheetProps>(
+  props => {
+    return (
+      <Popup
+        visible={props.visible}
+        onMaskClick={() => {
+          props.onMaskClick?.()
+          if (props.closeOnMaskClick) {
+            props.onClose?.()
+          }
+        }}
+        afterClose={props.afterClose}
+        className={`${classPrefix}-popup`}
+        getContainer={props.getContainer}
+      >
+        <div className={classNames(classPrefix, props.className)}>
+          {props.extra && (
+            <div className={`${classPrefix}-extra`}>{props.extra}</div>
+          )}
+          <div className={`${classPrefix}-button-list`}>
+            {props.actions.map((action, index) => (
+              <div
+                key={action.key}
+                className={`${classPrefix}-button-item-wrapper`}
               >
-                <div className={`${classPrefix}-button-item-name`}>
-                  {action.text}
-                </div>
-                {action.description && (
-                  <div className={`${classPrefix}-button-item-description`}>
-                    {action.description}
+                <Button
+                  block
+                  fill='none'
+                  disabled={action.disabled}
+                  onClick={() => {
+                    action.onClick?.()
+                    props.onAction?.(action, index)
+                    if (props.closeOnAction) {
+                      props.onClose?.()
+                    }
+                  }}
+                  className={classNames(`${classPrefix}-button-item`, {
+                    [`${classPrefix}-button-item-danger`]: action.danger,
+                  })}
+                >
+                  <div className={`${classPrefix}-button-item-name`}>
+                    {action.text}
                   </div>
-                )}
-              </Button>
-            </div>
-          ))}
-        </div>
-
-        {props.cancelText && (
-          <div className={`${classPrefix}-cancel`}>
-            <div className={`${classPrefix}-button-item-wrapper`}>
-              <Button
-                block
-                fill='none'
-                className={`${classPrefix}-button-item`}
-                onClick={() => {
-                  props.onClose?.()
-                }}
-              >
-                <div className={`${classPrefix}-button-item-name`}>
-                  {props.cancelText}
-                </div>
-              </Button>
-            </div>
+                  {action.description && (
+                    <div className={`${classPrefix}-button-item-description`}>
+                      {action.description}
+                    </div>
+                  )}
+                </Button>
+              </div>
+            ))}
           </div>
-        )}
-      </div>
-    </Popup>
-  )
-})
 
-function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
+          {props.cancelText && (
+            <div className={`${classPrefix}-cancel`}>
+              <div className={`${classPrefix}-button-item-wrapper`}>
+                <Button
+                  block
+                  fill='none'
+                  className={`${classPrefix}-button-item`}
+                  onClick={() => {
+                    props.onClose?.()
+                  }}
+                >
+                  <div className={`${classPrefix}-button-item-name`}>
+                    {props.cancelText}
+                  </div>
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </Popup>
+    )
+  }
+)
+
+export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
   type Ref = {
     close: () => void
   }
@@ -159,7 +160,3 @@ function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
     },
   }
 }
-
-export default attachPropertiesToComponent(ActionSheet, {
-  show: showActionSheet,
-})

@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react'
 import Popup from '../popup'
-import Item, { ItemProps } from './item'
+import Item, { DropdownItemProps } from './item'
 
 const classPrefix = `am-dropdown`
 
@@ -23,7 +23,7 @@ export interface DropdownProps {
 }
 
 const Dropdown: FC<DropdownProps> & {
-  Item: React.FC<ItemProps>
+  Item: React.FC<DropdownItemProps>
 } = props => {
   const [value, onChange] = useControllableValue<string | undefined>(props, {
     valuePropName: 'activeKey',

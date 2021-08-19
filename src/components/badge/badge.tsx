@@ -12,7 +12,7 @@ export type BadgeProps = {
   offset?: [number, number]
 } & ElementProps
 
-const Badge = withDefaultProps({
+export const Badge = withDefaultProps({
   color: '#FF411C',
   offset: [0, 0],
 })<BadgeProps>(props => {
@@ -55,5 +55,3 @@ const Badge = withDefaultProps({
     </div>
   )
 })
-
-export default Badge

@@ -1,5 +1,4 @@
 import { withDefaultProps } from '../../utils/with-default-props'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import React from 'react'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
@@ -15,7 +14,7 @@ const defaultProps = {
   gap: 0,
 }
 
-const Grid = withDefaultProps(defaultProps)<GridProps>(props => {
+export const Grid = withDefaultProps(defaultProps)<GridProps>(props => {
   let gapStyle: any = {}
   if (props.style) {
     gapStyle = {
@@ -53,7 +52,7 @@ export type GridItemProps = {
   span?: number
 } & ElementProps
 
-const GridItem = withDefaultProps({
+export const GridItem = withDefaultProps({
   span: 1,
 })<GridItemProps>(props => {
   let itemStyle: any = props.style ?? {}
@@ -69,8 +68,4 @@ const GridItem = withDefaultProps({
       {props.children}
     </div>
   )
-})
-
-export default attachPropertiesToComponent(Grid, {
-  Item: GridItem,
 })

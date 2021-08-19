@@ -5,12 +5,9 @@ import { ElementProps } from '../../utils/element-props'
 import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
 import Checkbox from '../checkbox'
+import { CascaderOption } from '.'
 
 const classPrefix = `am-cascader-multiple`
-
-export interface CascaderOption {
-  [key: string]: any
-}
 
 export type MultipleProps = {
   options: CascaderOption[]
@@ -27,7 +24,7 @@ export type MultipleProps = {
   onExpand?: (expandedKeys: string[], nodes: CascaderOption[]) => void
 } & ElementProps
 
-const Multiple = withDefaultProps({
+export const Multiple = withDefaultProps({
   options: [],
   fieldNames: {},
   allSelectText: [],
@@ -365,5 +362,3 @@ const Multiple = withDefaultProps({
     </div>
   )
 })
-
-export default Multiple

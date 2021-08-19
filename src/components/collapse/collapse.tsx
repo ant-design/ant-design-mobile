@@ -7,7 +7,6 @@ import React, {
 } from 'react'
 import { ElementProps } from '../../utils/element-props'
 import { useControllableValue } from 'ahooks'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import List from '../list'
 import { RightOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
@@ -21,7 +20,7 @@ export type CollapsePanelProps = {
   forceRender?: boolean
 }
 
-const CollapsePanel: FC<CollapsePanelProps> = () => {
+export const CollapsePanel: FC<CollapsePanelProps> = () => {
   return null
 }
 
@@ -75,7 +74,7 @@ export type CollapseProps = (
 ) &
   ElementProps
 
-const Collapse: FC<CollapseProps> = props => {
+export const Collapse: FC<CollapseProps> = props => {
   const panels: ReactElement<ComponentProps<typeof CollapsePanel>>[] = []
   React.Children.forEach(props.children, child => {
     if (!React.isValidElement(child)) return
@@ -152,7 +151,3 @@ const Collapse: FC<CollapseProps> = props => {
     </div>
   )
 }
-
-export default attachPropertiesToComponent(Collapse, {
-  Panel: CollapsePanel,
-})

@@ -28,7 +28,7 @@ const defaultProps = {
   showCancelButton: false,
 }
 
-const Search = withDefaultProps(defaultProps)<SearchProps>(props => {
+export const Search = withDefaultProps(defaultProps)<SearchProps>(props => {
   const [value, setValue] = useControllableValue<string>(props, {
     defaultValue: '',
   })
@@ -97,5 +97,3 @@ const Search = withDefaultProps(defaultProps)<SearchProps>(props => {
     </div>
   )
 })
-
-export default Search

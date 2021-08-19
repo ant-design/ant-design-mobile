@@ -12,7 +12,7 @@ export type ProgressBarProps = {
   strokeColor?: string
 } & ElementProps
 
-const ProgressBar = withDefaultProps({
+export const ProgressBar = withDefaultProps({
   percent: 0,
   strokeColor: '#1677FF',
 })<ProgressBarProps>(props => {
@@ -46,5 +46,3 @@ const ProgressBar = withDefaultProps({
     </div>
   )
 })
-
-export default ProgressBar

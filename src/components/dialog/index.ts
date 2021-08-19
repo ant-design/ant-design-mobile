@@ -1,4 +1,4 @@
-import React from 'react'
+import './dialog.less'
 import { show } from './show'
 import { alert } from './alert'
 import { confirm } from './confirm'

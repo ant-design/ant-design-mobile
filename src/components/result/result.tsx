@@ -26,7 +26,7 @@ export interface ResultProps {
   style?: React.CSSProperties
 }
 
-const Result: FC<ResultProps> = props => {
+export const Result: FC<ResultProps> = props => {
   const { className, style, status, title, description } = props
   const ResultIcon = ICONS[status]
 
@@ -49,5 +49,3 @@ const Result: FC<ResultProps> = props => {
 Result.defaultProps = {
   description: '',
 }
-
-export default Result

@@ -1,19 +1,10 @@
-import React, {
-  useMemo,
-  useCallback,
-  ReactNode,
-  FC,
-  useState,
-  useEffect,
-} from 'react'
+import React, { useMemo, useCallback, ReactNode } from 'react'
 import Picker, { PickerProps } from '../picker'
 import { useControllableValue } from 'ahooks'
 import dayjs from 'dayjs'
 import { generateIntArray } from '../../utils/generate-int-array'
 import { ElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
-import { renderToBody } from '../../utils/render-to-body'
 
 export type DatePickerProps = Pick<
   PickerProps,
@@ -43,106 +34,108 @@ const defaultProps = {
   max: new Date(new Date().setFullYear(thisYear + 10)),
 }
 
-const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(props => {
-  const [value, setValue] = useControllableValue<Date | null>(props, {
-    trigger: 'onConfirm',
-    defaultValue: null,
-  })
+export const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(
+  props => {
+    const [value, setValue] = useControllableValue<Date | null>(props, {
+      trigger: 'onConfirm',
+      defaultValue: null,
+    })
 
-  function columns(selected: string[]) {
-    const years: string[] = []
-    const minYear = props.min.getFullYear()
-    const minMonth = props.min.getMonth() + 1
-    const minDate = props.min.getDate()
-    const maxYear = props.max.getFullYear()
-    const maxMonth = props.max.getMonth() + 1
-    const maxDate = props.max.getDate()
-    const firstDayInSelectedMonth = dayjs(
-      convertStringArrayToDate([selected[0], selected[1], '1'])
-    )
-    const selectedYear = firstDayInSelectedMonth.year()
-    const selectedMonth = firstDayInSelectedMonth.month() + 1
+    function columns(selected: string[]) {
+      const years: string[] = []
+      const minYear = props.min.getFullYear()
+      const minMonth = props.min.getMonth() + 1
+      const minDate = props.min.getDate()
+      const maxYear = props.max.getFullYear()
+      const maxMonth = props.max.getMonth() + 1
+      const maxDate = props.max.getDate()
+      const firstDayInSelectedMonth = dayjs(
+        convertStringArrayToDate([selected[0], selected[1], '1'])
+      )
+      const selectedYear = firstDayInSelectedMonth.year()
+      const selectedMonth = firstDayInSelectedMonth.month() + 1
 
-    for (let i = minYear; i <= maxYear; i++) {
-      years.push(i.toString())
+      for (let i = minYear; i <= maxYear; i++) {
+        years.push(i.toString())
+      }
+      const months = generateIntArray(1, 12)
+        .filter(v => {
+          if (selectedYear === minYear && v < minMonth) {
+            return false
+          }
+          if (selectedYear === maxYear && v > maxMonth) {
+            return false
+          }
+          return true
+        })
+        .map(v => v.toString())
+      let days: string[] = []
+      days = generateIntArray(1, firstDayInSelectedMonth.daysInMonth())
+        .filter(v => {
+          if (
+            selectedYear === minYear &&
+            selectedMonth === minMonth &&
+            v < minDate
+          ) {
+            return false
+          }
+          if (
+            selectedYear === maxYear &&
+            selectedMonth === maxMonth &&
+            v > maxDate
+          ) {
+            return false
+          }
+          return true
+        })
+        .map(v => v.toString())
+      return [years, months, days]
     }
-    const months = generateIntArray(1, 12)
-      .filter(v => {
-        if (selectedYear === minYear && v < minMonth) {
-          return false
+
+    const pickerValue = useMemo(() => convertDateToStringArray(value), [value])
+
+    const onConfirm = useCallback(
+      (val: string[]) => {
+        setValue(convertStringArrayToDate(val))
+      },
+      [setValue]
+    )
+
+    const onSelect = useCallback(
+      (val: string[]) => {
+        const date = convertStringArrayToDate(val)
+        if (date) {
+          props.onSelect?.(date)
         }
-        if (selectedYear === maxYear && v > maxMonth) {
-          return false
+      },
+      [props.onSelect]
+    )
+
+    return (
+      <Picker
+        columns={columns}
+        value={pickerValue}
+        onCancel={props.onCancel}
+        onClose={props.onClose}
+        visible={props.visible}
+        confirmText={props.confirmText}
+        cancelText={props.cancelText}
+        onConfirm={onConfirm}
+        onSelect={onSelect}
+        getContainer={props.getContainer}
+        afterShow={props.afterShow}
+        afterClose={props.afterClose}
+        onClick={props.onClick}
+      >
+        {items =>
+          props.children?.(
+            convertStringArrayToDate(items.map(item => item?.value))
+          )
         }
-        return true
-      })
-      .map(v => v.toString())
-    let days: string[] = []
-    days = generateIntArray(1, firstDayInSelectedMonth.daysInMonth())
-      .filter(v => {
-        if (
-          selectedYear === minYear &&
-          selectedMonth === minMonth &&
-          v < minDate
-        ) {
-          return false
-        }
-        if (
-          selectedYear === maxYear &&
-          selectedMonth === maxMonth &&
-          v > maxDate
-        ) {
-          return false
-        }
-        return true
-      })
-      .map(v => v.toString())
-    return [years, months, days]
+      </Picker>
+    )
   }
-
-  const pickerValue = useMemo(() => convertDateToStringArray(value), [value])
-
-  const onConfirm = useCallback(
-    (val: string[]) => {
-      setValue(convertStringArrayToDate(val))
-    },
-    [setValue]
-  )
-
-  const onSelect = useCallback(
-    (val: string[]) => {
-      const date = convertStringArrayToDate(val)
-      if (date) {
-        props.onSelect?.(date)
-      }
-    },
-    [props.onSelect]
-  )
-
-  return (
-    <Picker
-      columns={columns}
-      value={pickerValue}
-      onCancel={props.onCancel}
-      onClose={props.onClose}
-      visible={props.visible}
-      confirmText={props.confirmText}
-      cancelText={props.cancelText}
-      onConfirm={onConfirm}
-      onSelect={onSelect}
-      getContainer={props.getContainer}
-      afterShow={props.afterShow}
-      afterClose={props.afterClose}
-      onClick={props.onClick}
-    >
-      {items =>
-        props.children?.(
-          convertStringArrayToDate(items.map(item => item?.value))
-        )
-      }
-    </Picker>
-  )
-})
+)
 
 function convertDateToStringArray(date: Date | undefined | null): string[] {
   if (!date) return []
@@ -166,39 +159,3 @@ function convertStringArrayToDate(
     parseInt(dateString)
   )
 }
-
-function prompt(
-  props: Omit<DatePickerProps, 'value' | 'visible' | 'children'>
-) {
-  return new Promise<Date | null>(resolve => {
-    const Wrapper: FC = () => {
-      const [visible, setVisible] = useState(false)
-      useEffect(() => {
-        setVisible(true)
-      }, [])
-      return (
-        <DatePicker
-          {...props}
-          visible={visible}
-          onConfirm={val => {
-            resolve(val)
-          }}
-          onClose={() => {
-            props.onClose?.()
-            setVisible(false)
-            resolve(null)
-          }}
-          afterClose={() => {
-            props.afterClose?.()
-            unmount()
-          }}
-        />
-      )
-    }
-    const unmount = renderToBody(<Wrapper />)
-  })
-}
-
-export default attachPropertiesToComponent(DatePicker, {
-  prompt,
-})

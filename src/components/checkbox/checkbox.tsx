@@ -3,9 +3,7 @@ import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { useControllableValue } from 'ahooks'
 import { CheckOutlined } from '@ant-design/icons'
-import { Group } from './group'
 import { CheckboxGroupContext } from './group-context'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 
 const classPrefix = `am-checkbox`
 
@@ -21,7 +19,7 @@ export type CheckboxProps = {
   block?: boolean
 } & ElementProps
 
-const Checkbox: FC<CheckboxProps> = props => {
+export const Checkbox: FC<CheckboxProps> = props => {
   const groupContext = useContext(CheckboxGroupContext)
 
   let [checked, setChecked] = useControllableValue<boolean>(props, {
@@ -77,7 +75,3 @@ const Checkbox: FC<CheckboxProps> = props => {
     </label>
   )
 }
-
-export default attachPropertiesToComponent(Checkbox, {
-  Group,
-})

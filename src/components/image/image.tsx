@@ -42,7 +42,7 @@ const defaultProps = {
   ),
 }
 
-const Image: FC<ImageProps> = p => {
+export const Image: FC<ImageProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
@@ -94,5 +94,3 @@ const Image: FC<ImageProps> = p => {
     </div>
   )
 }
-
-export default Image

@@ -26,7 +26,7 @@ export type SelectorProps = {
   onChange?: (v: string[]) => void
 } & ElementProps
 
-const Selector = withDefaultProps({
+export const Selector = withDefaultProps({
   multiple: false,
 })<SelectorProps>(props => {
   const [value, setValue] = useControllableValue<string[]>(props, {
@@ -85,5 +85,3 @@ const Selector = withDefaultProps({
     </div>
   )
 })
-
-export default Selector

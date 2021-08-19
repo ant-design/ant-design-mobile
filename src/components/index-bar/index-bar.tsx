@@ -1,8 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import classNames from 'classnames'
-import { Panel } from './panel'
 import { ElementProps } from '../../utils/element-props'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import { useThrottleFn } from 'ahooks'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { Sidebar } from './sidebar'
@@ -21,7 +19,7 @@ const defaultProps = {
   sticky: true,
 }
 
-const IndexBar = withDefaultProps(defaultProps)<IndexBarProps>(props => {
+export const IndexBar = withDefaultProps(defaultProps)<IndexBarProps>(props => {
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
   const [indexes, setIndexes] = useState<string[]>([])
@@ -113,8 +111,4 @@ const IndexBar = withDefaultProps(defaultProps)<IndexBarProps>(props => {
       </div>
     </IndexBarContext.Provider>
   )
-})
-
-export default attachPropertiesToComponent(IndexBar, {
-  Panel,
 })

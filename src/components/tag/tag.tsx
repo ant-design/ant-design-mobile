@@ -22,7 +22,7 @@ const defaultProps = {
   round: false,
 }
 
-const Tag: FC<TagProps> = p => {
+export const Tag: FC<TagProps> = p => {
   const props = mergeProps(defaultProps, p)
   const color = colorRecord[props.color] ?? props.color
 
@@ -48,5 +48,3 @@ const Tag: FC<TagProps> = p => {
     </span>
   )
 }
-
-export default Tag

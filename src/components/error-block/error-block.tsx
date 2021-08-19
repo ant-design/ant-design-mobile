@@ -18,42 +18,42 @@ const defaultProps = {
   status: 'default',
 }
 
-const ErrorBlock = withDefaultProps(defaultProps)<ErrorBlockProps>(props => {
-  const config = errorConfigRecord[props.status]
-  const des = 'description' in props ? props.description : config.description
-  const title = 'title' in props ? props.title : config.title
-  let imageNode: ReactNode = <img src={config.icon} />
+export const ErrorBlock = withDefaultProps(defaultProps)<ErrorBlockProps>(
+  props => {
+    const config = errorConfigRecord[props.status]
+    const des = 'description' in props ? props.description : config.description
+    const title = 'title' in props ? props.title : config.title
+    let imageNode: ReactNode = <img src={config.icon} />
 
-  if (props.image) {
-    if (typeof props.image === 'string') {
-      imageNode = <img src={props.image} />
-    } else {
-      imageNode = props.image
+    if (props.image) {
+      if (typeof props.image === 'string') {
+        imageNode = <img src={props.image} />
+      } else {
+        imageNode = props.image
+      }
     }
-  }
 
-  return (
-    <div
-      className={classNames(classPrefix, props.className, {
-        [`${classPrefix}-full-page`]: props.fullPage,
-      })}
-      style={props.style}
-    >
-      <div className={`${classPrefix}-image`}>{imageNode}</div>
-      <div className={`${classPrefix}-description`}>
-        {title && (
-          <span className={`${classPrefix}-description-title`}>{title}</span>
-        )}
-        {des && (
-          <span className={`${classPrefix}-description-subtitle`}>{des}</span>
+    return (
+      <div
+        className={classNames(classPrefix, props.className, {
+          [`${classPrefix}-full-page`]: props.fullPage,
+        })}
+        style={props.style}
+      >
+        <div className={`${classPrefix}-image`}>{imageNode}</div>
+        <div className={`${classPrefix}-description`}>
+          {title && (
+            <span className={`${classPrefix}-description-title`}>{title}</span>
+          )}
+          {des && (
+            <span className={`${classPrefix}-description-subtitle`}>{des}</span>
+          )}
+        </div>
+
+        {props.children && (
+          <div className={`${classPrefix}-content`}>{props.children}</div>
         )}
       </div>
-
-      {props.children && (
-        <div className={`${classPrefix}-content`}>{props.children}</div>
-      )}
-    </div>
-  )
-})
-
-export default ErrorBlock
+    )
+  }
+)

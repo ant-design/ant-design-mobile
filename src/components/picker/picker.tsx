@@ -4,11 +4,8 @@ import { useControllableValue } from 'ahooks'
 
 import { Column } from './column'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
-import { Cascader, CascaderProps } from './cascader'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
-import { renderToBody } from '../../utils/render-to-body'
 
 const classPrefix = `am-picker`
 
@@ -36,7 +33,7 @@ export type PickerProps = {
 } & Pick<PopupProps, 'getContainer' | 'afterShow' | 'afterClose' | 'onClick'> &
   ElementProps
 
-const Picker = withDefaultProps({
+export const Picker = withDefaultProps({
   confirmText: '确定',
   cancelText: '取消',
 })<PickerProps>(props => {
@@ -151,73 +148,4 @@ const Picker = withDefaultProps({
       {props.children?.(items)}
     </>
   )
-})
-
-function prompt(props: Omit<PickerProps, 'value' | 'visible' | 'children'>) {
-  return new Promise<PickerValue[] | null>(resolve => {
-    const Wrapper: FC = () => {
-      const [visible, setVisible] = useState(false)
-      useEffect(() => {
-        setVisible(true)
-      }, [])
-      return (
-        <Picker
-          {...props}
-          visible={visible}
-          onConfirm={val => {
-            resolve(val)
-          }}
-          onClose={() => {
-            props.onClose?.()
-            setVisible(false)
-            resolve(null)
-          }}
-          afterClose={() => {
-            props.afterClose?.()
-            unmount()
-          }}
-        />
-      )
-    }
-    const unmount = renderToBody(<Wrapper />)
-  })
-}
-
-function promptCascader(
-  props: Omit<CascaderProps, 'value' | 'visible' | 'children'>
-) {
-  return new Promise<PickerValue[] | null>(resolve => {
-    const Wrapper: FC = () => {
-      const [visible, setVisible] = useState(false)
-      useEffect(() => {
-        setVisible(true)
-      }, [])
-      return (
-        <Cascader
-          {...props}
-          visible={visible}
-          onConfirm={val => {
-            resolve(val)
-          }}
-          onClose={() => {
-            props.onClose?.()
-            setVisible(false)
-            resolve(null)
-          }}
-          afterClose={() => {
-            props.afterClose?.()
-            unmount()
-          }}
-        />
-      )
-    }
-    const unmount = renderToBody(<Wrapper />)
-  })
-}
-
-export default attachPropertiesToComponent(Picker, {
-  Cascader: attachPropertiesToComponent(Cascader, {
-    prompt: promptCascader,
-  }),
-  prompt,
 })

@@ -1,3 +1,4 @@
+import './index.less'
 import { Form } from './form'
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import { FormItem } from './form-item'

@@ -10,7 +10,7 @@ import { nearest } from '../../utils/nearest'
 
 const classPrefix = `am-slider`
 
-type SliderValue = number | [number, number]
+export type SliderValue = number | [number, number]
 
 export type SliderProps = {
   min?: number
@@ -35,7 +35,7 @@ const defaultProps = {
   disabled: false,
 }
 
-const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
+export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
   const { min, max, disabled, marks, ticks, step } = props
 
   function sortValue(val: [number, number]): [number, number] {
@@ -216,5 +216,3 @@ const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     </div>
   )
 })
-
-export default Slider

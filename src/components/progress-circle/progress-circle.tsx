@@ -15,7 +15,7 @@ export type ProgressCircleProps = {
   children?: React.ReactNode
 } & ElementProps
 
-const ProgressCircle = withDefaultProps({
+export const ProgressCircle = withDefaultProps({
   percent: 0,
   strokeColor: '#1677FF',
 })<ProgressCircleProps>(props => {
@@ -51,5 +51,3 @@ const ProgressCircle = withDefaultProps({
     </div>
   )
 })
-
-export default ProgressCircle

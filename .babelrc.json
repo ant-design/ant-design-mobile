@@ -10,6 +10,9 @@
     "@babel/preset-typescript",
     "@babel/preset-react"
   ],
-  "plugins": ["babel-plugin-transform-async-to-promises"],
+  "plugins": [
+    "babel-plugin-transform-async-to-promises",
+    ["replace-import-extension", { "extMapping": { ".less": ".css" } }]
+  ],
   "ignore": ["**/demos"]
 }

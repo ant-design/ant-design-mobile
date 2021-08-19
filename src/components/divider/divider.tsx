@@ -13,7 +13,7 @@ const defaultProps = {
   contentPosition: 'center',
 }
 
-const Divider: FC<DividerProps> = p => {
+export const Divider: FC<DividerProps> = p => {
   const props = mergeProps(defaultProps, p)
   return (
     <div
@@ -30,5 +30,3 @@ const Divider: FC<DividerProps> = p => {
     </div>
   )
 }
-
-export default Divider

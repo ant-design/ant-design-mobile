@@ -1,4 +1,5 @@
 import './utils/init'
+import './global.less'
 
 export { default as Button } from './components/button'
 export { default as Dialog } from './components/dialog'
