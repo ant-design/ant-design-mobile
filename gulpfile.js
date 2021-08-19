@@ -98,6 +98,9 @@ function umdWebpack() {
             },
           },
           mode: 'production',
+          optimization: {
+            usedExports: true,
+          },
           resolve: {
             extensions: ['.js', '.json'],
           },
@@ -168,6 +171,8 @@ function build2xCSS() {
       })
     )
 }
+
+exports.umdWebpack = umdWebpack
 
 exports.default = gulp.series(
   clean,

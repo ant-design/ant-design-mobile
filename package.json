@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "5.0.0-alpha.17",
+  "version": "5.0.0-alpha.18",
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
@@ -94,9 +94,12 @@
   "unpkg": "./umd/antd-mobile.js",
   "GravityCDN": "./umd/antd-mobile.js",
   "sideEffects": [
-    "**/*.css",
-    "**/*.less",
-    "**/global/index.js"
+    "*.css",
+    "*.less",
+    "./es/index.js",
+    "./src/index.ts",
+    "./es/global/index.js",
+    "./src/global/index.ts"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
