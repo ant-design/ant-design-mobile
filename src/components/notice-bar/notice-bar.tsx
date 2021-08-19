@@ -1,15 +1,14 @@
 import React, { useState, useRef, useLayoutEffect, memo } from 'react'
 import classNames from 'classnames'
 import { CloseOutlined, SoundOutlined } from '@ant-design/icons'
-import { usePersistFn, useUpdateLayoutEffect } from 'ahooks'
-import { noop } from '../../utils/noop'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { useUpdateLayoutEffect } from 'ahooks'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-notice-bar`
 
 export interface NoticeBarProps {
   /** 通告栏的类型 */
-  type?: 'default' | 'error' | 'info'
+  color?: 'default' | 'alert' | 'error' | 'info'
   /** 开始滚动的延迟，单位 ms */
   delay?: number
   /** 滚动速度，单位 px/s */
@@ -27,88 +26,83 @@ export interface NoticeBarProps {
 }
 
 const defaultProps = {
+  color: 'default',
   delay: 2000,
   speed: 50,
 }
 
-export const NoticeBar = memo(
-  withDefaultProps(defaultProps)<NoticeBarProps>(props => {
-    const containerRef = useRef<HTMLSpanElement>(null)
-    const textRef = useRef<HTMLSpanElement>(null)
-    const [key, setKey] = useState(0)
-    const onClose = usePersistFn(props.onClose || noop)
-    const speed = props.speed
+export const NoticeBar = memo<NoticeBarProps>(p => {
+  const props = mergeProps(defaultProps, p)
 
-    useLayoutEffect(() => {
-      const container = containerRef.current
+  const containerRef = useRef<HTMLSpanElement>(null)
+  const textRef = useRef<HTMLSpanElement>(null)
+  const [key, setKey] = useState(0)
+
+  const [visible, setVisible] = useState(true)
+
+  const speed = props.speed
+
+  useLayoutEffect(() => {
+    const container = containerRef.current
+    const text = textRef.current
+    if (!container || !text) return
+    if (container.offsetWidth >= text.offsetWidth) return
+    // 需要滚动
+    const timeout = window.setTimeout(() => {
       const text = textRef.current
-      if (!container || !text) return
-      if (container.offsetWidth >= text.offsetWidth) return
-      // 需要滚动
-      const timeout = window.setTimeout(() => {
-        const text = textRef.current
-        // 开始滚动
-        if (text) {
-          text.style.transitionDuration = `${Math.round(
-            text.offsetWidth / speed
-          )}s`
-          text.style.transform = `translateX(-${text.offsetWidth}px)`
-        }
-      }, props.delay)
-      return () => {
-        window.clearTimeout(timeout)
+      // 开始滚动
+      if (text) {
+        text.style.transitionDuration = `${Math.round(
+          text.offsetWidth / speed
+        )}s`
+        text.style.transform = `translateX(-${text.offsetWidth}px)`
       }
-    }, [])
+    }, props.delay)
+    return () => {
+      window.clearTimeout(timeout)
+    }
+  }, [])
 
-    useUpdateLayoutEffect(() => {
-      const container = containerRef.current
-      const text = textRef.current
-      if (!container || !text) return
-      if (container.offsetWidth >= text.offsetWidth) return
-      text.style.transform = `translateX(${container.offsetWidth}px)`
-      text.style.transitionDuration = `${Math.round(
-        (container.offsetWidth + text.offsetWidth) / speed
-      )}s`
-      text.style.transform = `translateX(-${text.offsetWidth}px)`
-    }, [key])
+  useUpdateLayoutEffect(() => {
+    const container = containerRef.current
+    const text = textRef.current
+    if (!container || !text) return
+    if (container.offsetWidth >= text.offsetWidth) return
+    text.style.transform = `translateX(${container.offsetWidth}px)`
+    text.style.transitionDuration = `${Math.round(
+      (container.offsetWidth + text.offsetWidth) / speed
+    )}s`
+    text.style.transform = `translateX(-${text.offsetWidth}px)`
+  }, [key])
 
-    return (
-      <div
-        className={classNames(
-          classPrefix,
-          `${classPrefix}-${props.type || 'default'}`
-        )}
-      >
-        <span className={`${classPrefix}-left`}>
-          {'icon' in props ? props.icon : <SoundOutlined />}
+  return visible ? (
+    <div className={classNames(classPrefix, `am-notice-bar-${props.color}`)}>
+      <span className={`am-notice-bar-left`}>
+        {'icon' in props ? props.icon : <SoundOutlined />}
+      </span>
+      <span ref={containerRef} className={`am-notice-bar-content`}>
+        <span
+          onTransitionEnd={() => setKey(k => k + 1)}
+          key={key}
+          ref={textRef}
+          className={`am-notice-bar-content-inner`}
+        >
+          {props.content}
         </span>
-        <span ref={containerRef} className={`${classPrefix}-content`}>
-          {/* INFO：暂时不做滚动阴影 */}
-          {/* <span
-          className={
-            (containerRef.current?.offsetWidth || 0) <
-            (textRef.current?.offsetWidth || 0)
-              ? `${classPrefix}-shadow`
-              : `${classPrefix}-no-shadow`
-          }
-        > */}
-          <span
-            onTransitionEnd={() => setKey(k => k + 1)}
-            key={key}
-            ref={textRef}
-            className={`${classPrefix}-content-inner`}
-          >
-            {props.content}
-          </span>
-          {/* </span> */}
+      </span>
+      {(props.closeable || props.extra) && (
+        <span className={`am-notice-bar-right`}>
+          {props.extra}
+          {props.closeable && (
+            <CloseOutlined
+              onClick={() => {
+                setVisible(false)
+                props.onClose?.()
+              }}
+            />
+          )}
         </span>
-        {(props.closeable || 'extra' in props) && (
-          <span className={`${classPrefix}-right`}>
-            {props.extra}
-            {props.closeable && <CloseOutlined onClick={onClose} />}
-          </span>
-        )}
-      </div>
-    )
-  })
-)
+      )}
+    </div>
+  ) : null
+})

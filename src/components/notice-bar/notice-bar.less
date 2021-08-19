@@ -1,6 +1,4 @@
-@class-prefix-notice-bar: ~'am-notice-bar';
-
-.@{class-prefix-notice-bar} {
+.am-notice-bar {
   height: 30px;
   font-size: 14px;
   line-height: 30px;
@@ -8,37 +6,40 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  --background-color: #b2b2b2;
+  --border-color: #a0a0a0;
+  --text-color: #ffffff;
 
-  &.@{class-prefix-notice-bar}-default {
-    & > span[role='img'] {
-      color: #ff6010;
-    }
-    background-color: #fff9ed;
-    color: #ff6010;
-    border: 1px solid #fff3e9;
-  }
-  &.@{class-prefix-notice-bar}-error {
-    & > span[role='img'] {
-      color: #ffffff;
-    }
-    background-color: #ff3b30;
-    color: #ffffff;
-    border: 1px solid #d9281e;
-  }
-  &.@{class-prefix-notice-bar}-info {
-    & > span[role='img'] {
-      color: #1677ff;
-    }
-    background-color: #d0e4ff;
-    color: #1677ff;
-    border: 1px solid #bcd8ff;
+  border: solid 1px var(--border-color);
+  border-left: none;
+  border-right: none;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  & > span[role='img'] {
+    color: var(--text-color);
   }
 
-  & .@{class-prefix-notice-bar}-left:not(:empty) {
+  &.am-notice-bar-alert {
+    --background-color: #fff9ed;
+    --border-color: #fff3e9;
+    --text-color: #ff6010;
+  }
+  &.am-notice-bar-error {
+    --background-color: #ff3b30;
+    --border-color: #d9281e;
+    --text-color: #ffffff;
+  }
+  &.am-notice-bar-info {
+    --background-color: #d0e4ff;
+    --border-color: #bcd8ff;
+    --text-color: #1677ff;
+  }
+
+  & .am-notice-bar-left:not(:empty) {
     flex-shrink: 0;
     margin-right: 8px;
   }
-  & .@{class-prefix-notice-bar}-content {
+  & .am-notice-bar-content {
     flex: 1;
     overflow: hidden;
     position: relative;
@@ -46,21 +47,7 @@
     display: flex;
     align-items: center;
 
-    // INFO: 暂时不做阴影，不知道具体数值
-    // & .@{class-prefix-notice-bar}-shadow {
-    //   box-shadow: inset 0px 0px 12px 2px rgba(0, 0, 0, 0.1);
-    //   white-space: nowrap;
-    //   height: calc(100% + 48px);
-    //   padding-top: 48px;
-    //   width: 100%;
-    // }
-    // & .@{class-prefix-notice-bar}-no-shadow {
-    //   white-space: nowrap;
-    //   width: 100%;
-    //   height: 100%;
-    // }
-
-    & .@{class-prefix-notice-bar}-content-inner {
+    & .am-notice-bar-content-inner {
       width: fit-content;
       transition-timing-function: linear;
       position: absolute;
@@ -68,13 +55,8 @@
       white-space: nowrap;
     }
   }
-  & .@{class-prefix-notice-bar}-right {
+  & .am-notice-bar-right {
     flex-shrink: 0;
     margin-left: 12px;
-    & * {
-      outline: none;
-      text-decoration: none;
-      cursor: pointer;
-    }
   }
 }
