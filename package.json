@@ -95,7 +95,7 @@
   "GravityCDN": "./umd/antd-mobile.js",
   "sideEffects": [
     "**/*.css",
-    "**/utils/init.js"
+    "**/global/index.js"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

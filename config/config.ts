@@ -35,12 +35,20 @@ export default {
         path: '/guide/quick-start',
       },
       {
+        title: 'FAQ',
+        path: '/guide/faq',
+      },
+      {
         title: 'CSS 变量',
         path: '/guide/css-variables',
       },
       {
-        title: 'FAQ',
-        path: '/guide/faq',
+        title: '按需加载',
+        path: '/guide/import-on-demand',
+      },
+      {
+        title: '高清适配（试验性）',
+        path: '/guide/hd',
       },
     ],
     '/components': [
