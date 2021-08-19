@@ -95,6 +95,7 @@
   "GravityCDN": "./umd/antd-mobile.js",
   "sideEffects": [
     "**/*.css",
+    "**/*.less",
     "**/global/index.js"
   ],
   "publishConfig": {
