@@ -93,7 +93,7 @@ function umdWebpack() {
           output: {
             filename: 'antd-mobile.js',
             library: {
-              color: 'umd',
+              type: 'umd',
               name: 'antdMobile',
             },
           },
@@ -108,7 +108,7 @@ function umdWebpack() {
             rules: [
               {
                 test: /\.(png|svg|jpg|gif|jpeg)$/,
-                color: 'asset/inline',
+                type: 'asset/inline',
               },
               {
                 test: /\.css$/i,
