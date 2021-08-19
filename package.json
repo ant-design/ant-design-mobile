@@ -7,8 +7,6 @@
     "build-doc": "dumi build",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable",
     "test": "jest --maxWorkers=50%"
   },
   "dependencies": {
@@ -70,7 +68,6 @@
     "jest-watch-typeahead": "0.6.4",
     "less": "^3.13.1",
     "lorem-ipsum": "^2.0.3",
-    "pinst": "^2.1.6",
     "postcss": "^8.3.6",
     "postcss-px-multiple": "^0.1.5",
     "postcss-pxtorem": "^5.1.1",
@@ -80,6 +77,7 @@
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
     "style-loader": "^3.2.1",
+    "through2": "^4.0.2",
     "ts-jest": "26.5.6",
     "ts-node": "9.1.1",
     "typescript": "^3.9.10",

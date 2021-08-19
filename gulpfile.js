@@ -7,6 +7,7 @@ const ts = require('gulp-typescript')
 const del = require('del')
 const webpackStream = require('webpack-stream')
 const webpack = require('webpack')
+const through = require('through2')
 const tsconfig = require('./tsconfig.json')
 
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
@@ -125,9 +126,25 @@ function umdWebpack() {
 }
 
 function copyMetaFiles() {
+  return gulp.src(['./README.md', './LICENSE.txt']).pipe(gulp.dest('./lib/'))
+}
+
+function generatePackageJSON() {
   return gulp
-    .src(['./package.json', './README.md', './LICENSE.txt'])
-    .pipe(gulp.dest('lib/'))
+    .src('./package.json')
+    .pipe(
+      through.obj((file, enc, cb) => {
+        const rawJSON = file.contents.toString()
+        const parsed = JSON.parse(rawJSON)
+        delete parsed.scripts
+        delete parsed.devDependencies
+        delete parsed.publishConfig
+        const stringified = JSON.stringify(parsed, null, 2)
+        file.contents = Buffer.from(stringified)
+        cb(null, file)
+      })
+    )
+    .pipe(gulp.dest('./lib/'))
 }
 
 function create2xFolder() {
@@ -152,13 +169,12 @@ function build2xCSS() {
     )
 }
 
-exports.build2x = gulp.series(create2xFolder, build2xCSS)
-
 exports.default = gulp.series(
   clean,
   gulp.parallel(tsCJS, tsES, tsDeclaration, buildStyle),
   copyAssets,
   copyMetaFiles,
+  generatePackageJSON,
   gulp.series(create2xFolder, build2xCSS),
   gulp.parallel(umdWebpack)
 )
