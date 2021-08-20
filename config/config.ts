@@ -43,6 +43,10 @@ export default {
         path: '/guide/css-variables',
       },
       {
+        title: '主题',
+        path: '/guide/theme',
+      },
+      {
         title: '按需加载',
         path: '/guide/import-on-demand',
       },
