@@ -1,6 +1,6 @@
 import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
 import classNames from 'classnames'
-import { useControllableValue } from 'ahooks'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { CloseCircleFilled } from '@ant-design/icons'
 import { ElementProps } from '../../utils/element-props'
 
@@ -13,6 +13,8 @@ export type InputProps = Omit<
   >,
   'onChange'
 > & {
+  value: string
+  defaultValue: string
   onChange?: (val: string) => void
 } & {
   clearable?: boolean
@@ -38,8 +40,10 @@ export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onChange: outerOnChange,
     ...inputProps
   } = props
-  const [value, setValue] = useControllableValue<string>(props, {
-    defaultValue: '',
+  const [value, setValue] = useNewControllableValue<string>({
+    value: props.value,
+    defaultValue: props.defaultValue,
+    onChange: props.onChange,
   })
   const [hasFocus, setHasFocus] = useState(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
