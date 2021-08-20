@@ -77,7 +77,11 @@ export default () => {
                 content: '是否提交申请',
                 onConfirm: async () => {
                   await sleep(3000)
-                  Toast.success({ content: '提交成功', position: 'bottom' })
+                  Toast.show({
+                    icon: 'success',
+                    content: '提交成功',
+                    position: 'bottom',
+                  })
                 },
               })
             }
@@ -91,7 +95,11 @@ export default () => {
                 content: '是否提交申请',
                 onConfirm: async () => {
                   await sleep(3000)
-                  Toast.fail({ content: '提交失败', position: 'bottom' })
+                  Toast.show({
+                    icon: 'fail',
+                    content: '提交失败',
+                    position: 'bottom',
+                  })
                   throw new Error()
                 },
               })

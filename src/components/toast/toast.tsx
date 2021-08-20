@@ -1,12 +1,8 @@
-import React, { useEffect, useMemo, useState, useCallback } from 'react'
-import ReactDOM from 'react-dom'
+import React, { ReactNode, useMemo } from 'react'
 import classNames from 'classnames'
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons'
-import { useUpdateEffect } from 'ahooks'
-import { noop } from '../../utils/noop'
 import Loading from '../loading'
 import Mask from '../mask'
-import { resolveContainer } from '../../utils/get-container'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-toast`
@@ -21,7 +17,7 @@ export interface ToastProps {
   /** 是否允许背景点击 */
   maskClickable?: boolean
   /** toast 文本内容 */
-  content?: string
+  content?: ReactNode
   /** toast 图标 */
   icon?: 'success' | 'fail' | 'loading' | React.ReactNode
   /** 提示持续时间，若为 0 则不会自动关闭 */
@@ -38,9 +34,7 @@ const defaultProps = {
   maskClickable: true,
 }
 
-const toastArray: (() => void)[] = []
-
-const InternalToast: React.FC<ToastProps> = p => {
+export const InternalToast: React.FC<ToastProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { maskClickable, content, icon, position } = props
 
@@ -54,7 +48,7 @@ const InternalToast: React.FC<ToastProps> = p => {
       case 'loading':
         return <Loading color='white' />
       default:
-        return null
+        return icon
     }
   }, [icon])
 
@@ -98,99 +92,3 @@ const InternalToast: React.FC<ToastProps> = p => {
     </Mask>
   )
 }
-
-// 可返回用于销毁此弹窗的方法
-function show(props: ToastProps) {
-  let updateConfig: React.Dispatch<React.SetStateAction<ToastProps>> = () => {}
-  let timer = 0
-  const { afterClose = noop, getContainer = () => document.body } = props
-  const container = document.createElement('div')
-  const bodyContainer = resolveContainer(getContainer)
-  bodyContainer.appendChild(container)
-
-  const TempToast = () => {
-    const [visible, setVisible] = useState(true)
-    const [state, setState] = useState({ duration: 2000, ...props })
-
-    // clearDOM after animation
-    const _afterClose = () => {
-      afterClose()
-      const unmountResult = ReactDOM.unmountComponentAtNode(container)
-      if (unmountResult && container.parentNode) {
-        container.parentNode.removeChild(container)
-      }
-    }
-
-    // close with animation
-    const destroy = useCallback(() => {
-      setVisible(false)
-    }, [])
-
-    useEffect(() => {
-      _clear()
-      toastArray.push(_afterClose)
-    }, [])
-
-    updateConfig = useCallback(
-      nextState =>
-        setState(prev =>
-          typeof nextState === 'function'
-            ? { ...prev, ...nextState(prev) }
-            : { ...prev, ...nextState }
-        ),
-      [setState]
-    )
-
-    useEffect(() => {
-      if (state.duration !== 0 && 'duration' in state) {
-        timer = window.setTimeout(destroy, state.duration)
-      }
-      return () => {
-        if (timer !== 0) {
-          window.clearTimeout(timer)
-        }
-      }
-    }, [])
-
-    // 当修改 duration 时，重新计时
-    useUpdateEffect(() => {
-      if ('duration' in state) {
-        window.clearTimeout(timer)
-        timer = window.setTimeout(destroy, state.duration)
-      }
-    }, [state.duration])
-
-    return (
-      <InternalToast
-        {...state}
-        getContainer={() => container}
-        visible={visible}
-        afterClose={_afterClose}
-      />
-    )
-  }
-  ReactDOM.render(<TempToast />, container)
-
-  return updateConfig
-}
-
-// 同步的销毁
-function _clear() {
-  let fn = toastArray.pop()
-  while (fn) {
-    fn()
-    fn = toastArray.pop()
-  }
-}
-
-// 针对 toast 还没弹出来就立刻销毁的情况，将销毁放到下一个 event loop 中，避免销毁失败。
-function clear() {
-  setTimeout(_clear)
-}
-
-const Toast = {
-  show,
-  clear,
-}
-
-export default Toast

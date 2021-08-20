@@ -1,6 +1,11 @@
 import './toast.less'
-import Toast from './toast'
+import { clear, show } from './methods'
 
-export type { ToastProps } from './toast'
+export type { ToastShowProps } from './methods'
+
+const Toast = {
+  show,
+  clear,
+}
 
 export default Toast

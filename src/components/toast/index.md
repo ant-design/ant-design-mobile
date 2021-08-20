@@ -2,13 +2,13 @@
 
 <code src="./demos/index.tsx"></code>
 
-# API
+## 指令式 API
 
-Toast 为单例，同一时间只允许弹出一个轻提示，暂不支持多例模式
+Toast 只支持指令式调用。
 
 ### Toast.show
 
-> show 方法的返回值是 updateConfig 方法，可以更新以下属性:
+show 方法支持传入一个 `props` 对象，它包含了以下这些属性：
 
 | 属性          | 说明                                | 类型                                                | 默认值        |
 | ------------- | ----------------------------------- | --------------------------------------------------- | ------------- |
@@ -22,6 +22,10 @@ Toast 为单例，同一时间只允许弹出一个轻提示，暂不支持多�
 | position      | 垂直方向显示位置                    | 'top' \| 'bottom' \| 'center'                       | 'center'      |
 | getContainer  | 自定义轻提示的父容器                | HTMLElement \| (() => HTMLElement) \| undefined     | document.body |
 
+> 同一时间只允许弹出一个轻提示，新出现的 Toast 会将之前正在显示中的 Toast 挤掉。
+
+你也可以直接传入一个字符串，`Toast.show` 会自动把它作为 `content`。
+
 ### Toast.clear
 
-关闭显示中的 Toast
+关闭所有显示中的 Toast。
