@@ -1,4 +1,4 @@
-import { Dropdown } from 'antd-mobile'
+import { Dropdown, Radio, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import React from 'react'
 
@@ -9,14 +9,19 @@ export default () => {
         <Dropdown>
           <Dropdown.Item key='sorter' title='排序'>
             <div style={{ padding: 12 }}>
-              排序内容
-              <br />
-              排序内容
-              <br />
-              排序内容
-              <br />
-              排序内容
-              <br />
+              <Radio.Group defaultValue='default'>
+                <Space direction='vertical' block>
+                  <Radio block value='default'>
+                    综合排序
+                  </Radio>
+                  <Radio block value='nearest'>
+                    距离最近
+                  </Radio>
+                  <Radio block value='top-rated'>
+                    评分最高
+                  </Radio>
+                </Space>
+              </Radio.Group>
             </div>
           </Dropdown.Item>
         </Dropdown>
