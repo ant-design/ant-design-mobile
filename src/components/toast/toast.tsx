@@ -7,6 +7,7 @@ import { noop } from '../../utils/noop'
 import Loading from '../loading'
 import Mask from '../mask'
 import { resolveContainer } from '../../utils/get-container'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-toast`
 
@@ -22,7 +23,7 @@ export interface ToastProps {
   /** toast 文本内容 */
   content?: string
   /** toast 图标 */
-  icon?: React.ReactNode
+  icon?: 'success' | 'fail' | 'loading' | React.ReactNode
   /** 提示持续时间，若为 0 则不会自动关闭 */
   duration?: number
   /** 垂直方向显示位置，默认为 center */
@@ -33,10 +34,30 @@ export interface ToastProps {
   getContainer?: HTMLElement | (() => HTMLElement)
 }
 
+const defaultProps = {
+  maskClickable: true,
+}
+
 const toastArray: (() => void)[] = []
 
-const InternalToast: React.FC<ToastProps> = props => {
-  const { maskClickable = true, content, icon = null, position } = props
+const InternalToast: React.FC<ToastProps> = p => {
+  const props = mergeProps(defaultProps, p)
+  const { maskClickable, content, icon, position } = props
+
+  const iconElement = useMemo(() => {
+    if (icon === null || icon === undefined) return null
+    switch (icon) {
+      case 'success':
+        return <CheckOutlined />
+      case 'fail':
+        return <CloseOutlined />
+      case 'loading':
+        return <Loading color='white' />
+      default:
+        return null
+    }
+  }, [icon])
+
   const top = useMemo(() => {
     switch (position) {
       case 'top':
@@ -69,7 +90,9 @@ const InternalToast: React.FC<ToastProps> = props => {
           icon ? `${classPrefix}-wrap-icon` : `${classPrefix}-wrap-text`
         )}
       >
-        {Boolean(icon) && <div className={`${classPrefix}-icon`}>{icon}</div>}
+        {iconElement && (
+          <div className={`${classPrefix}-icon`}>{iconElement}</div>
+        )}
         {content}
       </div>
     </Mask>
@@ -151,29 +174,6 @@ function show(props: ToastProps) {
   return updateConfig
 }
 
-type ToastPropsWithoutIcon = Omit<ToastProps, 'icon'>
-
-function success(props: ToastPropsWithoutIcon) {
-  return show({
-    icon: <CheckOutlined />,
-    ...props,
-  })
-}
-
-function fail(props: ToastPropsWithoutIcon) {
-  return show({
-    icon: <CloseOutlined />,
-    ...props,
-  })
-}
-
-function loading(props: ToastPropsWithoutIcon) {
-  return show({
-    icon: <Loading color='white' />,
-    ...props,
-  })
-}
-
 // 同步的销毁
 function _clear() {
   let fn = toastArray.pop()
@@ -190,9 +190,6 @@ function clear() {
 
 const Toast = {
   show,
-  success,
-  fail,
-  loading,
   clear,
 }
 

@@ -1,11 +1,10 @@
 import React from 'react'
 import { Button, Toast } from 'antd-mobile'
 import { CloudUploadOutlined } from '@ant-design/icons'
-import './index.less'
 
 export default () => {
   return (
-    <div className='container'>
+    <>
       <div>
         <Button
           block
@@ -33,7 +32,8 @@ export default () => {
         <Button
           block
           onClick={() =>
-            Toast.success({
+            Toast.show({
+              icon: 'success',
               content: '保存成功',
             })
           }
@@ -43,7 +43,8 @@ export default () => {
         <Button
           block
           onClick={() => {
-            Toast.fail({
+            Toast.show({
+              icon: 'fail',
               content: '名称已存在',
             })
           }}
@@ -54,7 +55,8 @@ export default () => {
           block
           onClick={() => {
             let remain = 4
-            const updateConfig = Toast.loading({
+            const updateConfig = Toast.show({
+              icon: 'loading',
               content: `还剩 ${remain + 1} 秒`,
               duration: 5000,
               afterClose: () => clearInterval(timer),
@@ -91,7 +93,7 @@ export default () => {
         <Button
           block
           onClick={() => {
-            Toast.success({
+            Toast.show({
               content: '请耐心等待, 不要退出',
               maskClickable: false,
             })
@@ -120,6 +122,6 @@ export default () => {
           主动关闭提示
         </Button>
       </div>
-    </div>
+    </>
   )
 }
