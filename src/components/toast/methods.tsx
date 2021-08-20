@@ -9,11 +9,8 @@ const toastArray: (() => void)[] = []
 
 export type ToastShowProps = Omit<ToastProps, 'visible'>
 
-export function show(propsOrString: ToastShowProps | string) {
-  const props =
-    typeof propsOrString === 'string'
-      ? { content: propsOrString }
-      : propsOrString
+export function show(p: ToastShowProps | string) {
+  const props = typeof p === 'string' ? { content: p } : p
   let timer = 0
   const { afterClose = noop, getContainer = () => document.body } = props
   const container = document.createElement('div')

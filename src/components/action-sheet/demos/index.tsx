@@ -74,7 +74,7 @@ function Events() {
       onClick: async () => {
         const result = await Dialog.confirm({ content: '确定要删除吗？' })
         if (result) {
-          Toast.show({ content: `执行了删除操作` })
+          Toast.show('执行了删除操作')
         }
       },
     },
@@ -90,11 +90,11 @@ function Events() {
         onClose={() => setVisible(false)}
         onAction={action => {
           if (action.key === 'edit' || action.key === 'copy') {
-            Toast.show({ content: `点击了${action.text}` })
+            Toast.show(`点击了${action.text}`)
           }
         }}
         afterClose={() => {
-          Toast.show({ content: `动作面板已关闭` })
+          Toast.show('动作面板已关闭')
         }}
       />
     </>

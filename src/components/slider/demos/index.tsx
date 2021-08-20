@@ -22,9 +22,7 @@ export default () => {
     } else {
       text = `[${value.join(',')}]`
     }
-    Toast.show({
-      content: `当前选中值为：${text}`,
-    })
+    Toast.show(`当前选中值为：${text}`)
     console.log(value)
   }
 

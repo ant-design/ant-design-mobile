@@ -7,7 +7,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <Rate onChange={val => Toast.show({ content: val.toString() })} />
+        <Rate onChange={val => Toast.show(val.toString())} />
       </DemoBlock>
       <DemoBlock title='半星'>
         <Rate allowHalf defaultValue={2.5} />

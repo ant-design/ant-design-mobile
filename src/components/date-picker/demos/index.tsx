@@ -23,9 +23,7 @@ function BasicDemo() {
         defaultValue={now}
         max={now}
         onConfirm={val => {
-          Toast.show({
-            content: val.toDateString(),
-          })
+          Toast.show(val.toDateString())
         }}
       />
     </>
