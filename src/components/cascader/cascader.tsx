@@ -1,9 +1,9 @@
-import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import React, { useMemo } from 'react'
 import { ElementProps } from '../../utils/element-props'
 import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `am-cascader`
 
@@ -22,14 +22,16 @@ export type CascaderProps = {
 export const Cascader = withDefaultProps({
   options: [],
   fieldNames: {},
+  defaultValue: [],
 })<CascaderProps>(props => {
   const labelName = props.fieldNames.label || 'label'
   const valueName = props.fieldNames.value || 'value'
   const childrenName = props.fieldNames.children || 'children'
 
-  const [value, setValue] = useControllableValue<string[]>(props, {
-    defaultValue: [],
-  }) as [string[], (value: string[], nodes: CascaderOption[]) => void]
+  const [value, setValue] = useNewControllableValue({
+    value: props.value,
+    defaultValue: props.defaultValue,
+  })
 
   const [deep, optionsMap, optionsParentMap] = useMemo(() => {
     const deep = getTreeDeep(props.options, childrenName)
@@ -65,7 +67,8 @@ export const Cascader = withDefaultProps({
     }
 
     const values = parentNodes.map(i => i[valueName])
-    setValue(values, parentNodes)
+    setValue(values)
+    props.onChange?.(values, parentNodes)
   }
 
   const renderItems = (columnOptions: CascaderOption[] = [], index: number) => {

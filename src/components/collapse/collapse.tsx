@@ -6,12 +6,12 @@ import React, {
   useRef,
 } from 'react'
 import { ElementProps } from '../../utils/element-props'
-import { useControllableValue } from 'ahooks'
 import List from '../list'
 import { RightOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
 import { useInitialized } from '../../utils/use-initialized'
 import { useSpring, animated } from '@react-spring/web'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 export type CollapsePanelProps = {
   key: string
@@ -83,14 +83,30 @@ export const Collapse: FC<CollapseProps> = props => {
     panels.push(child)
   })
 
-  const [activeKey, setActiveKey] = useControllableValue<
-    string | null | string[]
-  >(props, {
-    valuePropName: 'activeKey',
-    defaultValuePropName: 'defaultActiveKey',
-    defaultValue: [],
-    trigger: 'onChange',
-  })
+  const [activeKey, setActiveKey] = useNewControllableValue<string[]>(
+    props.accordion
+      ? {
+          value:
+            props.activeKey === undefined
+              ? undefined
+              : props.activeKey === null
+              ? []
+              : [props.activeKey],
+          defaultValue:
+            props.defaultActiveKey === undefined ||
+            props.defaultActiveKey === null
+              ? []
+              : [props.defaultActiveKey],
+          onChange: v => {
+            props.onChange?.(v[0] ?? null)
+          },
+        }
+      : {
+          value: props.activeKey,
+          defaultValue: props.defaultActiveKey ?? [],
+          onChange: props.onChange,
+        }
+  )
   const activeKeyList =
     activeKey === null ? [] : Array.isArray(activeKey) ? activeKey : [activeKey]
 
@@ -106,9 +122,9 @@ export const Collapse: FC<CollapseProps> = props => {
           function handleClick() {
             if (props.accordion) {
               if (active) {
-                setActiveKey(null)
+                setActiveKey([])
               } else {
-                setActiveKey(key)
+                setActiveKey([key])
               }
             } else {
               if (active) {

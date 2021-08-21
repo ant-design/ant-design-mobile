@@ -40,11 +40,7 @@ export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onChange: outerOnChange,
     ...inputProps
   } = props
-  const [value, setValue] = useNewControllableValue<string>({
-    value: props.value,
-    defaultValue: props.defaultValue,
-    onChange: props.onChange,
-  })
+  const [value, setValue] = useNewControllableValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
 
