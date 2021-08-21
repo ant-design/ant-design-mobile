@@ -184,7 +184,7 @@ export default () => {
           <Button
             block
             onClick={async () => {
-              const result = Dialog.confirm({
+              const result = await Dialog.confirm({
                 content: '人在天边月上明',
               })
               if (result) {
