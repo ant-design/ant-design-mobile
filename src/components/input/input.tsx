@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { CloseCircleFilled } from '@ant-design/icons'
 import { ElementProps } from '../../utils/element-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-input`
 
@@ -13,8 +14,8 @@ export type InputProps = Omit<
   >,
   'onChange'
 > & {
-  value: string
-  defaultValue: string
+  value?: string
+  defaultValue?: string
   onChange?: (val: string) => void
 } & {
   clearable?: boolean
@@ -23,13 +24,18 @@ export type InputProps = Omit<
     '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
   >
 
+const defaultProps = {
+  defaultValue: '',
+}
+
 export type InputRef = {
   clear: () => void
   focus: () => void
   blur: () => void
 }
 
-export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
+export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
+  const props = mergeProps(defaultProps, p)
   const {
     clearable,
     onClear,

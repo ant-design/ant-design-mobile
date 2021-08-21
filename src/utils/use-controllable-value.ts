@@ -2,7 +2,7 @@ import { useCallback, useRef } from 'react'
 import { useUpdate } from 'ahooks'
 
 type Options<T> = {
-  value: T | undefined
+  value?: T
   defaultValue: T
   onChange?: (v: T) => void
 }
