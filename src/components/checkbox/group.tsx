@@ -1,8 +1,8 @@
 import React from 'react'
-import { useControllableValue } from 'ahooks'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { CheckboxValue } from '.'
 import { CheckboxGroupContext } from './group-context'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 export interface CheckboxGroupProps {
   value?: CheckboxValue[]
@@ -13,13 +13,12 @@ export interface CheckboxGroupProps {
 
 const defaultProps = {
   disabled: false,
+  defaultValue: [],
 }
 
 export const Group = withDefaultProps(defaultProps)<CheckboxGroupProps>(
   props => {
-    const [value, setValue] = useControllableValue<CheckboxValue[]>(props, {
-      defaultValue: [],
-    })
+    const [value, setValue] = useNewControllableValue(props)
 
     return (
       <CheckboxGroupContext.Provider

@@ -1,8 +1,9 @@
-import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import React, { FC } from 'react'
 import SpinIcon from '../../assets/spin.svg'
 import { ElementProps } from '../../utils/element-props'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-switch`
 
@@ -14,13 +15,18 @@ export type SwitchProps = {
   onChange?: (checked: boolean) => void
 } & ElementProps
 
-export const Switch: FC<SwitchProps> = props => {
+const defaultProps = {
+  defaultChecked: false,
+}
+
+export const Switch: FC<SwitchProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const disabled = props.disabled || props.loading || false
 
-  const [checked, setChecked] = useControllableValue<boolean>(props, {
-    valuePropName: 'checked',
-    defaultValuePropName: 'defaultChecked',
-    defaultValue: false,
+  const [checked, setChecked] = useNewControllableValue({
+    value: props.checked,
+    defaultValue: props.defaultChecked,
+    onChange: props.onChange,
   })
 
   return (

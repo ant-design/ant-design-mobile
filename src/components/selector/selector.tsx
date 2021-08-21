@@ -1,12 +1,12 @@
-import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
-import React from 'react'
+import React, { FC } from 'react'
 import { ElementProps } from '../../utils/element-props'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import Space from '../space'
 import Grid from '../grid'
 import { convertPx } from '../../utils/convert-px'
 import selectorCheckMarkImg from '../../assets/selector-check-mark.svg'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `am-selector`
 
@@ -26,12 +26,14 @@ export type SelectorProps = {
   onChange?: (v: string[]) => void
 } & ElementProps
 
-export const Selector = withDefaultProps({
+const defaultProps = {
   multiple: false,
-})<SelectorProps>(props => {
-  const [value, setValue] = useControllableValue<string[]>(props, {
-    defaultValue: [],
-  }) as [string[], React.Dispatch<string[]>]
+  defaultValue: [],
+}
+
+export const Selector: FC<SelectorProps> = p => {
+  const props = mergeProps(defaultProps, p)
+  const [value, setValue] = useNewControllableValue(props)
 
   const seletorItems = props.options.map(option => {
     const active = (value || []).includes(option.value)
@@ -84,4 +86,4 @@ export const Selector = withDefaultProps({
       )}
     </div>
   )
-})
+}

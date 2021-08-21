@@ -1,9 +1,10 @@
 import React, { FC, useContext } from 'react'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
-import { useControllableValue } from 'ahooks'
 import { CheckOutlined } from '@ant-design/icons'
 import { CheckboxGroupContext } from './group-context'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-checkbox`
 
@@ -19,13 +20,18 @@ export type CheckboxProps = {
   block?: boolean
 } & ElementProps
 
-export const Checkbox: FC<CheckboxProps> = props => {
+const defaultProps = {
+  defaultChecked: false,
+}
+
+export const Checkbox: FC<CheckboxProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const groupContext = useContext(CheckboxGroupContext)
 
-  let [checked, setChecked] = useControllableValue<boolean>(props, {
-    valuePropName: 'checked',
-    defaultValuePropName: 'defaultChecked',
-    defaultValue: false,
+  let [checked, setChecked] = useNewControllableValue({
+    value: props.checked,
+    defaultValue: props.defaultChecked,
+    onChange: props.onChange,
   })
   let disabled = props.disabled
 

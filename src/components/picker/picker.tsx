@@ -1,11 +1,10 @@
 import React, { useState, useEffect, ReactNode, useMemo, FC } from 'react'
 import Popup, { PopupProps } from '../popup'
-import { useControllableValue } from 'ahooks'
-
 import { Column } from './column'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps, withDefaultProps } from '../../utils/with-default-props'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `am-picker`
 
@@ -33,13 +32,19 @@ export type PickerProps = {
 } & Pick<PopupProps, 'getContainer' | 'afterShow' | 'afterClose' | 'onClick'> &
   ElementProps
 
+const defaultProps = {
+  defaultValue: [],
+}
+
 export const Picker = withDefaultProps({
   confirmText: '确定',
   cancelText: '取消',
-})<PickerProps>(props => {
-  const controllable = useControllableValue<PickerValue[]>(props, {
-    trigger: 'onConfirm',
-    defaultValue: [],
+})<PickerProps>(p => {
+  const props = mergeProps(defaultProps, p)
+  const controllable = useNewControllableValue({
+    value: props.value,
+    defaultValue: props.defaultValue,
+    onChange: props.onConfirm,
   })
   const value = controllable[0] as PickerValue[]
   const setValue = controllable[1]
