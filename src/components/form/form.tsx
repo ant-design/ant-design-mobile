@@ -34,7 +34,7 @@ export const Form: FC<FormProps> = p => {
 
   return (
     <RcForm
-      className={classNames('am-form', className)}
+      className={classNames('am-form', `am-form-${layout}`, className)}
       style={style}
       {...formProps}
     >

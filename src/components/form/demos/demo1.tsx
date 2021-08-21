@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
-import { Form, Input, Button, Dialog, TextArea, DatePicker } from 'antd-mobile'
+import {
+  Form,
+  Input,
+  Button,
+  Dialog,
+  TextArea,
+  DatePicker,
+  Selector,
+} from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import dayjs from 'dayjs'
 
@@ -60,7 +68,18 @@ export default () => {
               }
             </DatePicker>
           </Form.Item>
-          <Form.Item name='禁用' disabled>
+          <Form.Item name='favoriteFruits' label='喜爱的水果'>
+            <Selector
+              columns={3}
+              multiple
+              options={[
+                { label: '苹果', value: 'apple' },
+                { label: '橘子', value: 'orange' },
+                { label: '香蕉', value: 'banana' },
+              ]}
+            />
+          </Form.Item>
+          <Form.Item name='disabledField' label='禁用' disabled>
             <Input placeholder='禁止输入' />
           </Form.Item>
         </Form>

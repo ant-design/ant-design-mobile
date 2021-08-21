@@ -1,7 +1,5 @@
-@class-prefix: ~'am-form-item';
-
-.@{class-prefix} {
-  + .@{class-prefix} {
+.am-form-item {
+  + .am-form-item {
     border-top: none;
   }
 
@@ -25,5 +23,16 @@
 
   &-footer {
     color: var(--am-color-danger);
+  }
+}
+
+.am-form-vertical {
+  .am-form-item {
+    &-label {
+      margin-bottom: 4px;
+    }
+    &-footer {
+      margin-top: 4px;
+    }
   }
 }
