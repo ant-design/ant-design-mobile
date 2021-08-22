@@ -14,6 +14,7 @@
     "@react-spring/web": "^9.2.4",
     "@types/body-scroll-lock": "^2.6.2",
     "ahooks": "^2.10.9",
+    "antd-mobile-v5-count": "^1.0.1",
     "body-scroll-lock": "^3.1.5",
     "classnames": "^2.3.1",
     "dayjs": "^1.10.6",

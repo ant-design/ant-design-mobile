@@ -3462,6 +3462,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"antd-mobile-v5-count@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "antd-mobile-v5-count@npm:1.0.1"
+  checksum: 3b44b482d15e05ec83c347a2f527d1f4b5adf2e17c7b5ce904002505fe60e2094fcfe2442604d284788620438437bc87fdc6e363786c5e8bbb705855b23e8d21
+  languageName: node
+  linkType: hard
+
 "antd-mobile@workspace:.":
   version: 0.0.0-use.local
   resolution: "antd-mobile@workspace:."
@@ -3488,6 +3495,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.29.0
     "@typescript-eslint/parser": ^4.29.0
     ahooks: ^2.10.9
+    antd-mobile-v5-count: ^1.0.1
     babel-loader: ^8.2.2
     babel-plugin-import: ^1.13.3
     babel-plugin-replace-import-extension: ^1.1.1
@@ -3517,7 +3525,6 @@ __metadata:
     less: ^3.13.1
     lodash: ^4.17.21
     lorem-ipsum: ^2.0.3
-    pinst: ^2.1.6
     postcss: ^8.3.6
     postcss-px-multiple: ^0.1.5
     postcss-pxtorem: ^5.1.1
@@ -6674,13 +6681,6 @@ __metadata:
     inherits: ^2.0.1
     readable-stream: ^2.0.0
   checksum: 5f1a9bbff02d30cf5b4f12cfef20b47455876f8318b92d275ca39e3c5adf0636d3a0d8f4821a1c245339c47e79a551dce9ce5c7d9236c16347b934dc13d1d408
-  languageName: node
-  linkType: hard
-
-"fromentries@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "fromentries@npm:1.3.2"
-  checksum: 5cc722e4e3fd333ba75f31dd3ef80b4a6c405d8814e86e343b4676c1483c00f4f29b39aca462d268e918b3316a4fb03cea8022458fd8ad965f251362a129783f
   languageName: node
   linkType: hard
 
@@ -11108,17 +11108,6 @@ fsevents@^1.2.7:
   version: 2.0.4
   resolution: "pinkie@npm:2.0.4"
   checksum: 2cb484c9da47b2f420fddffe7cbfeac950106a848343d147c2b2668d12b71aa3d09297bfe37ec32539a27c6dc7db414414f5ee166d6b2ca0d95f6dfe9dde60d7
-  languageName: node
-  linkType: hard
-
-"pinst@npm:^2.1.6":
-  version: 2.1.6
-  resolution: "pinst@npm:2.1.6"
-  dependencies:
-    fromentries: ^1.3.2
-  bin:
-    pinst: bin.js
-  checksum: ac950620de58cec8a2d601b79186e04f7a166c3df82a7a25fe2ca3c1ea38710fa881640e788fa8f81f13b17f38f646d17360c8266f12ae7682bf0ae420786b61
   languageName: node
   linkType: hard
 
