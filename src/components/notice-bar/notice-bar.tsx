@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import { CloseOutlined, SoundOutlined } from '@ant-design/icons'
 import { useUpdateLayoutEffect } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
-import { isDev } from '../../utils/isDev'
 
 const classPrefix = `am-notice-bar`
 

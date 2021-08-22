@@ -15,13 +15,14 @@ footer: Open-source MIT Licensed | Copyright © 2016-present Alipay.com<br />Pow
 
 > 如果你想使用旧版本的 antd-mobile，可以去这里：
 >
-> [v2 文档](https://mobile.ant.design) [v3 alpha 文档](https://antd-mobile-v3.surge.sh)
+> - [v2 文档](https://mobile.ant.design)
+> - [v3 alpha 文档](https://antd-mobile-v3.surge.sh)
 
 ![npm (tag)](https://img.shields.io/npm/v/antd-mobile/alpha)
 &nbsp;
 ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ant-design/ant-design-mobile)
 &nbsp;
-![npm](https://img.shields.io/npm/dw/antd-mobile)
+![npm](https://img.shields.io/npm/dw/antd-mobile-v5-count)
 &nbsp;
 ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/antd-mobile/alpha)
 &nbsp;
