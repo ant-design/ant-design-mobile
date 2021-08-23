@@ -1,9 +1,9 @@
 import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
-import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 import Badge from '../badge'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 export type TabBarItemProps = {
   icon?: ReactNode
@@ -22,7 +22,7 @@ export type TabBarProps = {
 } & ElementProps
 
 export const TabBar: FC<TabBarProps> = props => {
-  let firstActiveKey: string | undefined = undefined
+  let firstActiveKey: string | null = null
 
   const items: ReactElement<ComponentProps<typeof TabBarItem>>[] = []
 
@@ -36,11 +36,10 @@ export const TabBar: FC<TabBarProps> = props => {
     items.push(child)
   })
 
-  const [activeKey, setActiveKey] = useControllableValue<string>(props, {
-    valuePropName: 'activeKey',
-    defaultValuePropName: 'defaultActiveKey',
-    defaultValue: firstActiveKey,
-    trigger: 'onChange',
+  const [activeKey, setActiveKey] = useNewControllableValue({
+    value: props.activeKey,
+    defaultValue: props.defaultActiveKey ?? firstActiveKey,
+    onChange: props.onChange,
   })
 
   return (

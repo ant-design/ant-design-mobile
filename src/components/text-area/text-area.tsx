@@ -5,8 +5,9 @@ import React, {
   useRef,
 } from 'react'
 import classNames from 'classnames'
-import { useControllableValue } from 'ahooks'
 import { ElementProps } from '../../utils/element-props'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'am-text-area'
 
@@ -18,6 +19,8 @@ export type TextAreaProps = Omit<
   'onChange'
 > & {
   onChange?: (val: string) => void
+  value?: string
+  defaultValue?: string
 } & {
   maxLength?: number
   showCount?: boolean
@@ -41,11 +44,13 @@ const defaultProps = {
   rows: 2,
   showCount: false,
   autoSize: false,
+  defaultValue: '',
 }
 
 // TODO: withDefaultProps 和 forwardRef 配合使用的问题
 export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
-  (props: TextAreaProps & typeof defaultProps, ref) => {
+  (p: TextAreaProps, ref) => {
+    const props = mergeProps(defaultProps, p)
     const {
       className,
       style,
@@ -57,9 +62,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       showCount,
       ...textAreaProps
     } = props
-    const [value, setValue] = useControllableValue<string>(props, {
-      defaultValue: '',
-    })
+    const [value, setValue] = useNewControllableValue(props)
     const nativeTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
     useImperativeHandle(ref, () => ({

@@ -1,9 +1,9 @@
 import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
-import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 import { getNativeAttributes } from '../../utils/get-native-attributes'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `am-tabs`
 
@@ -17,14 +17,14 @@ export const TabPane: FC<TabPaneProps> = () => {
 }
 
 export type TabsProps = {
-  activeKey?: string
-  defaultActiveKey?: string
+  activeKey?: string | null
+  defaultActiveKey?: string | null
   onChange?: (val: string) => void
 } & ElementProps
 
 export const Tabs: FC<TabsProps> = props => {
   const childrenRecord: Record<string, ReactNode> = {}
-  let firstActiveKey: string | undefined = undefined
+  let firstActiveKey: string | null = null
 
   const panes: ReactElement<ComponentProps<typeof TabPane>>[] = []
 
@@ -39,11 +39,10 @@ export const Tabs: FC<TabsProps> = props => {
     panes.push(child)
   })
 
-  const [activeKey, setActiveKey] = useControllableValue<string>(props, {
-    valuePropName: 'activeKey',
-    defaultValuePropName: 'defaultActiveKey',
-    defaultValue: firstActiveKey,
-    trigger: 'onChange',
+  const [activeKey, setActiveKey] = useNewControllableValue({
+    value: props.activeKey,
+    defaultValue: props.defaultActiveKey ?? firstActiveKey,
+    onChange: props.onChange,
   })
 
   return (

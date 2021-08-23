@@ -4,9 +4,9 @@ import classNames from 'classnames'
 import Ticks from './ticks'
 import Marks, { SliderMarks } from './marks'
 import Thumb from './thumb'
-import { useControllableValue } from 'ahooks'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `am-slider`
 
@@ -52,10 +52,10 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     props.onAfterChange?.(reverseValue(value))
   }
 
-  const [rawValue, setRawValue] = useControllableValue<SliderValue>(props, {
-    valuePropName: 'value',
-    defaultValuePropName: 'defaultValue',
-    defaultValue: props.range ? [min, min] : min,
+  const [rawValue, setRawValue] = useNewControllableValue<SliderValue>({
+    value: props.value,
+    defaultValue: props.defaultValue ?? (props.range ? [min, min] : min),
+    onChange: props.onChange,
   })
 
   const sliderValue = sortValue(convertValue(rawValue))

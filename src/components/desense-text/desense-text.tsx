@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
-import { useControllableValue } from 'ahooks'
 import classnames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Icon from '@ant-design/icons'
 import { IconEye } from '../icons/icon-eye'
 import { IconEyeClose } from '../icons/icon-eye-close'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 export type DesenseTextProps = {
   desense?: boolean
@@ -23,9 +23,10 @@ export const DesenseText: FC<DesenseTextProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { text, desenseText } = props
 
-  const [isDesense, setIsDesense] = useControllableValue<boolean>(props, {
-    valuePropName: 'desense',
-    defaultValuePropName: 'defaultDesense',
+  const [isDesense, setIsDesense] = useNewControllableValue<boolean>({
+    value: props.desense,
+    defaultValue: props.defaultDesense,
+    onChange: props.onChange,
   })
   return (
     <span

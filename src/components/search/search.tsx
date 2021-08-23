@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, FC } from 'react'
 import classNames from 'classnames'
 import Input, { InputRef } from '../input'
 import { ElementProps } from '../../utils/element-props'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutlined } from '@ant-design/icons'
-import { useControllableValue } from 'ahooks'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `am-search`
 
@@ -26,12 +26,12 @@ export type SearchProps = {
 const defaultProps = {
   clearable: true,
   showCancelButton: false,
+  defaultValue: '',
 }
 
-export const Search = withDefaultProps(defaultProps)<SearchProps>(props => {
-  const [value, setValue] = useControllableValue<string>(props, {
-    defaultValue: '',
-  })
+export const Search: FC<SearchProps> = p => {
+  const props = mergeProps(defaultProps, p)
+  const [value, setValue] = useNewControllableValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const inputRef = useRef<InputRef>(null)
 
@@ -96,4 +96,4 @@ export const Search = withDefaultProps(defaultProps)<SearchProps>(props => {
       )}
     </div>
   )
-})
+}

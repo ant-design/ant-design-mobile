@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { StarFilled } from '@ant-design/icons'
-import { useControllableValue } from 'ahooks'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `am-rate`
 
@@ -28,7 +28,7 @@ const defaultProps = {
 }
 
 export const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
-  const [value, setValue] = useControllableValue<number>(props)
+  const [value, setValue] = useNewControllableValue(props)
   const starList = Array(props.count).fill(null)
   function renderStar(v: number, half: boolean) {
     return (

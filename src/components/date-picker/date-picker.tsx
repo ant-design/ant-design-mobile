@@ -1,10 +1,10 @@
 import React, { useMemo, useCallback, ReactNode } from 'react'
 import Picker, { PickerProps } from '../picker'
-import { useControllableValue } from 'ahooks'
 import dayjs from 'dayjs'
 import { generateIntArray } from '../../utils/generate-int-array'
 import { ElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 export type DatePickerProps = Pick<
   PickerProps,
@@ -36,9 +36,10 @@ const defaultProps = {
 
 export const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(
   props => {
-    const [value, setValue] = useControllableValue<Date | null>(props, {
-      trigger: 'onConfirm',
-      defaultValue: null,
+    const [value, setValue] = useNewControllableValue<Date | null>({
+      value: props.value,
+      defaultValue: props.defaultValue ?? null,
+      onChange: props.onConfirm,
     })
 
     function columns(selected: string[]) {
