@@ -20,7 +20,7 @@ export interface ButtonProps {
 }
 
 export const Button: FC<ButtonProps> = props => {
-  const disabled = props.disabled || props.loading
+  const disabled = props.disabled
   return (
     <button
       {...getNativeAttributes(props)}
