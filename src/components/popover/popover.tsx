@@ -1,8 +1,9 @@
 import React, { forwardRef, useImperativeHandle, ReactElement } from 'react'
 import Tooltip from 'rc-tooltip'
-import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import type { TooltipProps } from 'rc-tooltip/lib/Tooltip'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-popover`
 const enterClassName = 'entering'
@@ -13,6 +14,7 @@ export type BasePopoverProps = {
   destroyOnHide?: boolean
   children: ReactElement
   mode?: 'light' | 'dark'
+  trigger?: string
 } & Pick<
   TooltipProps,
   | 'defaultVisible'
@@ -33,15 +35,19 @@ export type PopoverRef = {
   visible: boolean
 }
 
+const defaultProps = {
+  defaultVisible: false,
+}
+
 export const Popover = forwardRef<PopoverRef, PopoverPropsWithContent>(
-  (props, ref) => {
+  (p, ref) => {
+    const props = mergeProps(defaultProps, p)
     const { mode = 'light' } = props
 
-    const [visible, onVisibleChange] = useControllableValue(props, {
-      valuePropName: 'visible',
-      trigger: 'onVisibleChange',
-      defaultValuePropName: 'defaultVisible',
-      defaultValue: false,
+    const [visible, onVisibleChange] = useNewControllableValue({
+      value: props.visible,
+      defaultValue: props.defaultVisible,
+      onChange: props.onVisibleChange,
     })
 
     useImperativeHandle(
@@ -68,7 +74,7 @@ export const Popover = forwardRef<PopoverRef, PopoverPropsWithContent>(
         getTooltipContainer={props.getContainer || (() => document.body)}
         visible={visible}
         onVisibleChange={onVisibleChange}
-        trigger='click'
+        trigger={props.trigger}
         motion={{
           motionName: {
             appear: enterClassName,
