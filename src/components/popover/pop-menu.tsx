@@ -18,6 +18,7 @@ export type Action = {
   icon?: React.ReactNode
   disabled?: boolean
   key?: string
+  onClick?: () => void
   [key: string]: any
 }
 
