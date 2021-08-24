@@ -3,10 +3,11 @@ import classNames from 'classnames'
 import { CloseOutlined, SoundOutlined } from '@ant-design/icons'
 import { useUpdateLayoutEffect } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
+import { ElementProps } from '../../utils/element-props'
 
 const classPrefix = `am-notice-bar`
 
-export interface NoticeBarProps {
+export type NoticeBarProps = {
   /** 通告栏的类型 */
   color?: 'default' | 'alert' | 'error' | 'info'
   /** 开始滚动的延迟，单位 ms */
@@ -23,7 +24,7 @@ export interface NoticeBarProps {
   extra?: React.ReactNode
   /** 左侧广播图标 */
   icon?: React.ReactNode
-}
+} & ElementProps<'--background-color' | '--border-color' | '--text-color'>
 
 const defaultProps = {
   color: 'default',
