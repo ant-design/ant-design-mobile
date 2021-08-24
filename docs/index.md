@@ -52,7 +52,7 @@ v5 alpha（白杨）是下一个版本的 antd-mobile，目前还在不断完善
 - [Coco-rq](https://github.com/coco-rq)
 - [ttys026](https://github.com/ttys026)
 - [brickspert](https://github.com/brickspert)
-- 蛋酒
+- [zxcchen](https://github.com/zxcchen)
 - [Deturium](https://github.com/deturium)
 - [slr724038822](https://github.com/slr724038822)
 - [quqiuhua](https://github.com/quqiuhua)
