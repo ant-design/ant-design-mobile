@@ -46,7 +46,7 @@ v5（白杨）是下一个版本的 antd-mobile，目前还在不断完善和打
 
 ---
 
-感谢在在内部版本的 v5 中参与建设的各位同学：
+感谢在内部版本的 v5 中参与建设的各位同学：
 
 - [awmleer](https://github.com/awmleer)
 - [Coco-rq](https://github.com/coco-rq)
