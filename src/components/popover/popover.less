@@ -2,8 +2,6 @@
 
 @class-prefix-popover: ~'am-popover';
 
-@white: #ffffff;
-@black: #000000;
 @popover-arrow-width: 6px;
 @popover-distance: @popover-arrow-width;
 @border-radius-base: 4px;
@@ -15,12 +13,12 @@
 
 .@{class-prefix-popover} {
   &-light {
-    --popover-bg: @white;
+    --popover-bg: #ffffff;
   }
 
   &-dark {
     --popover-bg: rgba(0, 0, 0, 0.75);
-    --am-color-text: @white;
+    --am-color-text: #ffffff;
     color: white;
   }
 
@@ -37,7 +35,7 @@
 
   &::after {
     position: absolute;
-    background: fade(@white, 1%);
+    background: fade(#ffffff, 1%);
     content: '';
   }
   &-hidden {
@@ -131,6 +129,10 @@
       cursor: pointer;
       border-bottom: 1px solid var(--am-border-color);
 
+      &:last-child {
+        border-bottom: none;
+      }
+
       & button {
         border-radius: 0;
         padding: 10px 12px;
@@ -176,7 +178,7 @@
     border-right-color: var(--popover-bg);
     border-bottom-color: var(--popover-bg);
     border-left-color: transparent;
-    box-shadow: 3px 3px 7px fade(@black, 7%);
+    box-shadow: 3px 3px 7px fade(#000000, 7%);
   }
   &-placement-top > &-content > &-arrow {
     left: 50%;
@@ -197,7 +199,7 @@
     border-right-color: transparent;
     border-bottom-color: var(--popover-bg);
     border-left-color: var(--popover-bg);
-    box-shadow: -3px 3px 7px fade(@black, 7%);
+    box-shadow: -3px 3px 7px fade(#000000, 7%);
   }
   &-placement-right > &-content > &-arrow {
     top: 50%;
@@ -218,7 +220,7 @@
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-left-color: var(--popover-bg);
-    box-shadow: -2px -2px 5px fade(@black, 6%);
+    box-shadow: -2px -2px 5px fade(#000000, 6%);
   }
   &-placement-bottom > &-content > &-arrow {
     left: 50%;
@@ -239,7 +241,7 @@
     border-right-color: var(--popover-bg);
     border-bottom-color: transparent;
     border-left-color: transparent;
-    box-shadow: 3px -3px 7px fade(@black, 7%);
+    box-shadow: 3px -3px 7px fade(#000000, 7%);
   }
   &-placement-left > &-content > &-arrow {
     top: 50%;
