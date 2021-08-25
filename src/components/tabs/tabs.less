@@ -1,0 +1,45 @@
+@class-prefix-tabs: ~'am-tabs';
+
+.@{class-prefix-tabs} {
+  &-tab-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: solid 1px var(--am-border-color);
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+  }
+  &-tab-wrapper {
+    flex: auto;
+    padding: 0 12px;
+  }
+  &-tab {
+    white-space: nowrap;
+    padding: 8px 0 10px;
+    width: min-content;
+    margin: 0 auto;
+    font-size: 17px;
+    position: relative;
+    cursor: pointer;
+  }
+  &-tab-active {
+    color: var(--am-color-primary);
+    &::after {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--am-color-primary);
+      content: ' ';
+    }
+  }
+  &-content {
+    padding: 12px;
+  }
+}

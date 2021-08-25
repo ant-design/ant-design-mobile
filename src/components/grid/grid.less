@@ -1,0 +1,13 @@
+@class-prefix-grid: ~'am-grid';
+
+.@{class-prefix-grid} {
+  display: grid;
+  grid-gap: 10px;
+  column-gap: var(--horizontal-gap);
+  row-gap: var(--vertical-gap);
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  align-items: stretch;
+  &-item {
+    grid-column-end: span var(--item-span);
+  }
+}

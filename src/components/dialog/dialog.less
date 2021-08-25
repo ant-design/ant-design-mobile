@@ -1,0 +1,67 @@
+@class-prefix-dialog: ~'am-dialog';
+
+.@{class-prefix-dialog}-mask {
+  .@{class-prefix-dialog}-wrap {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    max-width: 500px;
+    font-size: 14px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    .@{class-prefix-dialog}-body {
+      padding: 20px 12px;
+      &-header-wrapper {
+        display: flex;
+        justify-content: center;
+      }
+      &-header {
+      }
+      &-title {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 25px;
+        text-align: center;
+      }
+      &-message-wrapper {
+        display: flex;
+        justify-content: center;
+      }
+      &-message {
+        max-height: 75vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        font-size: var(--am-font-size-main);
+        line-height: 1.4;
+        color: #333;
+      }
+    }
+    .@{class-prefix-dialog}-footer {
+      user-select: none;
+      .am-dialog-action-row {
+        display: flex;
+        align-items: stretch;
+        border-top: 0.5px solid var(--am-border-color);
+        > * {
+          flex: 1;
+        }
+        > .am-dialog-button {
+          padding: 10px;
+          font-size: 18px;
+          line-height: 25px;
+          border-radius: 0;
+          &-bold {
+            font-weight: bold;
+          }
+          border-right: solid 0.5px var(--am-border-color);
+          :last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+}

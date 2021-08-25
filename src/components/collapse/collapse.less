@@ -1,0 +1,23 @@
+.am-collapse {
+  &-panel-header {
+    &-disabled {
+      color: var(--am-color-light);
+      cursor: not-allowed;
+      .am-collapse-arrow {
+        color: var(--am-color-light);
+      }
+    }
+  }
+  &-arrow {
+    transform: rotate(0deg);
+    &-active {
+      transform: rotate(90deg);
+    }
+    transition: all ease 0.2s;
+  }
+  &-panel-content {
+    font-size: var(--am-font-size-main);
+    color: var(--am-color-weak);
+    overflow: hidden;
+  }
+}

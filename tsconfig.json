@@ -1,18 +1,36 @@
 {
   "compilerOptions": {
-    "strictNullChecks": true,
+    "rootDir": "src",
+    "target": "ES6",
     "moduleResolution": "node",
-    "jsx": "preserve",
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "allowSyntheticDefaultImports":true,
-    "target": "es6",
+    "jsx": "react",
+    "allowJs": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "typeRoots": ["./src/typings", "./node_modules/@types"],
+    "lib": ["ES2015", "DOM"],
+    "paths": {
+      "antd-mobile": ["src/index.ts"],
+      "antd-mobile/src/*": ["src/*"],
+      "antd-mobile/lib/*": ["src/*"],
+      "demos": ["src/demos/index.ts"],
+      "testing": ["src/tests/testing"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
     "noImplicitAny": true
   },
-  "exclude": [
-    "node_modules",
-    "lib",
-    "es"
-  ],
-  "compileOnSave": false
+  "include": ["src", ".dumi/theme"],
+  "exclude": ["node_modules", "lib", "es", "dist"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+      "resolveJsonModule": true,
+      "noImplicitAny": false
+    }
+  }
 }

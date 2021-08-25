@@ -1,0 +1,62 @@
+@class-prefix-cascader: ~'am-cascader';
+@class-prefix-cascader-multiple: ~'am-cascader-multiple';
+
+.@{class-prefix-cascader},
+.@{class-prefix-cascader-multiple} {
+  display: flex;
+  height: 100%;
+  font-size: var(--am-font-size-main);
+  background-color: var(--am-color-white);
+
+  &-column {
+    overflow-y: auto;
+    // https://github.com/PolymerElements/iron-list/issues/18
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    &:first-child {
+      background-color: #f5f5f5;
+    }
+    &:nth-child(2) {
+      background-color: #fafafa;
+    }
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    padding: 6px 12px;
+    position: relative;
+  }
+}
+
+.@{class-prefix-cascader} {
+  &-item-active {
+    color: var(--am-color-primary);
+    font-weight: bold;
+    background-color: white;
+  }
+}
+
+.@{class-prefix-cascader-multiple} {
+  &-item-expand {
+    color: var(--am-color-primary);
+    font-weight: bold;
+    background-color: white;
+  }
+
+  &-item-checkbox {
+    margin-right: 8px;
+  }
+
+  &-dot {
+    position: absolute;
+    top: 50%;
+    margin-top: -3px;
+    right: 8px;
+    width: 6px;
+    height: 6px;
+    background: var(--am-color-primary);
+    border-radius: 3px;
+  }
+}

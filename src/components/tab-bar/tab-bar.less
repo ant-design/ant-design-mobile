@@ -1,0 +1,36 @@
+.am-tab-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  min-height: 50px;
+  &-item {
+    flex: 1;
+    color: var(--am-color-weak);
+    white-space: nowrap;
+    padding: 4px 8px;
+    width: min-content;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &-item-icon {
+    font-size: 20px;
+    height: 22px;
+    line-height: 1;
+    margin: 4px 0 1px;
+  }
+
+  &-item-title {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  &-item-active {
+    color: var(--am-color-primary);
+  }
+}

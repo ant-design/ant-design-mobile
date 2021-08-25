@@ -1,0 +1,32 @@
+@class-prefix-toast: ~'am-toast';
+
+.@{class-prefix-toast}-mask {
+  .@{class-prefix-toast}-wrap {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: fit-content;
+    min-width: 96px;
+    max-width: 70%;
+    max-height: 70%;
+    overflow: auto;
+    color: white;
+    text-align: center;
+    word-break: break-all;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    transform: translate(-50%, -50%);
+    pointer-events: all;
+  }
+  .@{class-prefix-toast}-wrap-text {
+    padding: 8px 12px;
+  }
+  .@{class-prefix-toast}-wrap-icon {
+    padding: 16px;
+    .@{class-prefix-toast}-icon {
+      margin-bottom: 8px;
+      font-size: 36px;
+      line-height: 1;
+    }
+  }
+}

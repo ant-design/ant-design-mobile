@@ -1,0 +1,81 @@
+@class-prefix-checkbox: ~'am-checkbox';
+
+.@{class-prefix-checkbox} {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  input {
+    display: none;
+  }
+  .@{class-prefix-checkbox}-icon {
+    flex: none;
+    border: 1px solid #ccc;
+    border-radius: 22px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    color: transparent;
+    > span {
+      font-size: 12px;
+      display: block;
+    }
+  }
+  &.@{class-prefix-checkbox}-block {
+    display: flex;
+  }
+  &.@{class-prefix-checkbox}-checked {
+    .@{class-prefix-checkbox}-icon {
+      color: #ffffff;
+      border-color: var(--am-color-primary);
+      background-color: var(--am-color-primary);
+    }
+  }
+  &.@{class-prefix-checkbox}-disabled {
+    cursor: not-allowed;
+    .@{class-prefix-checkbox}-content {
+      color: var(--am-color-weak);
+    }
+    .@{class-prefix-checkbox}-icon {
+      background-color: #ebedf0;
+    }
+    &.@{class-prefix-checkbox}-checked {
+      .@{class-prefix-checkbox}-icon {
+        color: #ccc;
+        border-color: #ccc;
+        background-color: #ebedf0;
+      }
+    }
+  }
+
+  .@{class-prefix-checkbox}-indeterminate-content {
+    display: none;
+  }
+
+  &.@{class-prefix-checkbox}-indeterminate {
+    .@{class-prefix-checkbox}-icon {
+      border-color: var(--am-color-primary);
+      background-color: #ffffff;
+    }
+    .@{class-prefix-checkbox}-icon-checked {
+      display: none;
+    }
+
+    .@{class-prefix-checkbox}-indeterminate-checked {
+      width: 12px;
+      height: 12px;
+      border-radius: 6px;
+      background-color: var(--am-color-primary);
+    }
+  }
+
+  &-content {
+    flex: none;
+    font-size: 17px;
+    padding-left: 8px;
+  }
+}

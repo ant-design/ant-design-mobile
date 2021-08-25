@@ -1,0 +1,38 @@
+.am-form-item {
+  + .am-form-item {
+    border-top: none;
+  }
+
+  &-label {
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+    color: #666;
+
+    &-required {
+      margin-right: 4px;
+      color: var(--am-color-danger);
+      user-select: none;
+    }
+
+    &-disable {
+      color: #666;
+      opacity: 0.4;
+    }
+  }
+
+  &-footer {
+    color: var(--am-color-danger);
+  }
+}
+
+.am-form-vertical {
+  .am-form-item {
+    &-label {
+      margin-bottom: 4px;
+    }
+    &-footer {
+      margin-top: 4px;
+    }
+  }
+}

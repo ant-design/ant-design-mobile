@@ -1,0 +1,22 @@
+@class-prefix-progress-circle: ~'am-progress-circle';
+
+/*进度圈*/
+.@{class-prefix-progress-circle} {
+  &-wrap {
+    display: inline-block;
+  }
+
+  &-content {
+    position: relative;
+    margin: auto;
+  }
+
+  &-info {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+}
