@@ -36,7 +36,7 @@ $ npm install --save antd-mobile@alpha
 $ yarn add antd-mobile@alpha
 ```
 
-v5 alpha（白杨）是下一个版本的 antd-mobile，目前还在不断完善和打磨中，如果你想在生产环境接入使用，请**务必仔细阅读[常见问题和解答](/guide/faq)**。
+v5（白杨）是下一个版本的 antd-mobile，目前还在不断完善和打磨中，如果你想在生产环境接入使用，请**务必仔细阅读[常见问题和解答](/guide/faq)**。
 
 你可以直接在 Codepen 上[在线体验](https://codepen.io/pen/?template=zYwpMMd)，无需安装和配置环境。
 
