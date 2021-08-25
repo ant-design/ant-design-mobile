@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import classNames from 'classnames'
 import Loading from '../loading'
 import { getNativeAttributes } from '../../utils/get-native-attributes'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `am-button`
 
@@ -19,7 +20,16 @@ export interface ButtonProps {
   type?: 'submit' | 'reset' | 'button'
 }
 
-export const Button: FC<ButtonProps> = props => {
+const defaultProps = {
+  color: 'default',
+  fill: 'solid',
+  block: false,
+  loading: false,
+  type: 'button',
+}
+
+export const Button: FC<ButtonProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const disabled = props.disabled
   return (
     <button
@@ -56,12 +66,4 @@ export const Button: FC<ButtonProps> = props => {
       )}
     </button>
   )
-}
-
-Button.defaultProps = {
-  color: 'default',
-  fill: 'solid',
-  block: false,
-  loading: false,
-  type: 'button',
 }
