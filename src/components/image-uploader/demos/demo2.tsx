@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
-import {ImageUplader} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {FileItem} from '..'
+import React, { useState } from 'react'
+import { ImageUploader } from 'antd-mobile'
+import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { FileItem } from '..'
 
 export default () => {
   const [fileList, setFileList] = useState<FileItem[]>([
@@ -26,7 +26,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <ImageUplader
+        <ImageUploader
           fileList={fileList}
           onAfterRead={onAfterRead}
           onChange={onChange}

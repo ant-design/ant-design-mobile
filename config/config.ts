@@ -95,7 +95,6 @@ export default {
           '/components/date-picker',
           '/components/form',
           '/components/rate',
-          '/components/image-uploader',
         ],
       },
       {
@@ -134,6 +133,7 @@ export default {
           '/components/what-is-experimental',
           '/components/cascader',
           '/components/desense-text',
+          '/components/image-uploader',
         ],
       },
     ],

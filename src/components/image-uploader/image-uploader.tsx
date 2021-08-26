@@ -259,3 +259,5 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     </div>
   )
 }
+
+function devLog(content: string) {}
