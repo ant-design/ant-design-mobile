@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "5.0.0-alpha.21",
+  "version": "5.0.0-beta.0",
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
@@ -8,7 +8,7 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "postinstall": "husky install",
     "test": "jest --maxWorkers=50%",
-    "publish": "npm publish ./lib --tag alpha"
+    "publish": "npm publish ./lib --tag beta"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
