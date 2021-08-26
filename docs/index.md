@@ -44,6 +44,10 @@ v5（白杨）是下一个版本的 antd-mobile，目前还在不断完善和打
 
 如果你想咨询一些使用上的问题，可以[创建一条 discussion](https://github.com/ant-design/ant-design-mobile/discussions)。
 
+如果你想深入参与讨论，可以加入我们的社区钉钉群：
+
+<img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*8G6wSrrp1DoAAAAAAAAAAAAAARQnAQ" alt="社区钉钉群" width="300"></img>
+
 ---
 
 感谢在内部版本的 v5 中参与建设的各位同学：

@@ -14,6 +14,10 @@ export default {
       path: '/components',
     },
     {
+      title: 'Roadmap',
+      path: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
+    },
+    {
       title: '发布日志',
       path: 'https://github.com/ant-design/ant-design-mobile/releases',
     },
