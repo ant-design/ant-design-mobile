@@ -1,7 +1,7 @@
 import React from 'react'
-import {PlusOutlined} from '@ant-design/icons'
-import {isPromise} from '../../utils/validate'
-import {withDefaultProps} from '../../utils/with-default-props'
+import { PlusOutlined } from '@ant-design/icons'
+import { isPromise } from '../../utils/validate'
+import { withDefaultProps } from '../../utils/with-default-props'
 import {
   getOverCount,
   isOversize,
@@ -73,7 +73,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
   } = props
 
   function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    let {files} = e.target
+    let { files } = e.target
 
     if (!files?.length) return
 
@@ -103,7 +103,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
   }
 
   function readFile(files: File | File[]) {
-    const {maxCount, fileList, resultType} = props
+    const { maxCount, fileList, resultType } = props
 
     if (Array.isArray(files)) {
       const overCount = getOverCount(maxCount!, fileList!, files)
@@ -117,7 +117,7 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
         files.map(file => readFileContent(file, resultType as any))
       ).then((contents: any) => {
         const newFileList = files.map((file, index) => {
-          const result: FileItem = {file, status: '', content: ''}
+          const result: FileItem = { file, status: '', content: '' }
 
           if (contents[index]) {
             result.content = contents[index]
