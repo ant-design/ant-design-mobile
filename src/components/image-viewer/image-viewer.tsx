@@ -11,6 +11,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
   createRef,
+  useEffect,
 } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
 
@@ -101,7 +102,10 @@ export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
     close: () => void
   }
   const Wrapper = forwardRef<Ref>((_, ref) => {
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(false)
+    useEffect(() => {
+      setVisible(true)
+    }, [])
     useImperativeHandle(ref, () => ({
       close: () => {
         setVisible(false)
@@ -138,7 +142,10 @@ export function showMultiImageViewer(
     close: () => void
   }
   const Wrapper = forwardRef<Ref>((_, ref) => {
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(false)
+    useEffect(() => {
+      setVisible(true)
+    }, [])
     useImperativeHandle(ref, () => ({
       close: () => {
         setVisible(false)
