@@ -3500,7 +3500,6 @@ __metadata:
     babel-plugin-import: ^1.13.3
     babel-plugin-replace-import-extension: ^1.1.1
     babel-plugin-transform-async-to-promises: ^0.8.15
-    body-scroll-lock: ^3.1.5
     classnames: ^2.3.1
     css-loader: ^6.2.0
     dayjs: ^1.10.6
@@ -4159,13 +4158,6 @@ __metadata:
   version: 5.2.0
   resolution: "bn.js@npm:5.2.0"
   checksum: 7a73bdbba63013a7f9953fbbd6ea3351e4cf36d6fdbb5adf7969fcd65255b9c04f2994b0132d89d74ffe608a0eb5a48322526bee20c0e03e71e502603b420f63
-  languageName: node
-  linkType: hard
-
-"body-scroll-lock@npm:^3.1.5":
-  version: 3.1.5
-  resolution: "body-scroll-lock@npm:3.1.5"
-  checksum: e8de58edc0fd7d483e3971045ff83fe6d722592d5153e9bfc9da2962a179a6522b432a4b35344bc8ae522eec080cc87301ce4ded4878f26254bf42a4f26d27ed
   languageName: node
   linkType: hard
 

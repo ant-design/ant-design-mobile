@@ -1,10 +1,10 @@
 import { ElementProps } from '../../utils/element-props'
 import { useInitialized } from '../../utils/use-initialized'
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import classNames from 'classnames'
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
+import { useLockScroll } from '../../utils/use-lock-scroll'
 
 const classPrefix = `am-mask`
 
@@ -28,16 +28,7 @@ export const Mask: React.FC<MaskProps> = props => {
 
   const ref = useRef<HTMLDivElement>(null)
 
-  // 禁止 body 滚动 https://github.com/willmcpo/body-scroll-lock
-  useEffect(() => {
-    const element = ref.current!
-    if (props.visible && props.disableBodyScroll) {
-      disableBodyScroll(element)
-      return () => {
-        enableBodyScroll(element)
-      }
-    }
-  }, [props.visible, props.disableBodyScroll])
+  useLockScroll(ref, !!(props.visible && props.disableBodyScroll))
 
   function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     if (e.currentTarget === e.target) {
