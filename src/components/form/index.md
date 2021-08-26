@@ -18,7 +18,7 @@
 
 | 属性        | 说明                       | 类型    | 默认值                                       |
 | ----------- | -------------------------- | ------- | -------------------------------------------- |
-| label       | 标签名                     | string  | 若未设置则取 name 字段                       |
+| label       | 标签名                     | string  | --                                           |
 | help        | 提示文本                   | string  | --                                           |
 | required    | 是否必选                   | boolean | false（如有设置 rules，则会根据 rules 判断） |
 | disabled    | 是否禁用                   | boolean | false                                        |
