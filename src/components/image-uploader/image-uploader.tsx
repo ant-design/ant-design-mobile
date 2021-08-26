@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 import { isPromise } from '../../utils/validate'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import {
   getOverCount,
   isOversize,
@@ -26,7 +26,7 @@ export type UploaderBeforeRead = (
   file: File | File[]
 ) => PromiseOrNot<File | File[] | undefined>
 
-interface Props {
+export type ImageUploaderProps = {
   fileList?: FileItem[]
   accept?: string
   disabled?: boolean
@@ -47,21 +47,22 @@ interface Props {
 
 const classPrefix = `am-uploader`
 
-const defaultProps: Props = {
+const defaultProps = {
   disabled: false,
   deletable: true,
   showUpload: true,
   maxCount: Number.MAX_SAFE_INTEGER,
   maxSize: Number.MAX_SAFE_INTEGER,
-  fileList: [],
+  fileList: [] as FileItem[],
   capture: '',
   resultType: 'dataUrl',
   accept: 'image/*',
 }
 
-const Uploader = withDefaultProps(defaultProps)<Props>(props => {
+export const ImageUploader: FC<ImageUploaderProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const {
-    fileList = [],
+    fileList,
     maxCount,
     maxSize,
     deletable,
@@ -257,6 +258,4 @@ const Uploader = withDefaultProps(defaultProps)<Props>(props => {
       {renderUpload()}
     </div>
   )
-})
-
-export default Uploader
+}
