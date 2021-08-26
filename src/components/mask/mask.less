@@ -1,0 +1,34 @@
+@class-prefix-mask: ~'am-mask';
+
+.@{class-prefix-mask} {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--am-z-index-mask);
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  &-hidden {
+    display: none;
+  }
+
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    opacity: 1;
+    transition: opacity 200ms ease-out;
+  }
+
+  &-exit {
+    display: block;
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+  }
+}

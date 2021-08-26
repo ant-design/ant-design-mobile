@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react'
-import Picker, { PickerProps, PickerColumn } from '.'
+import { Picker, PickerProps, PickerColumn } from './picker'
 
 export type CascaderOption = {
   label: string

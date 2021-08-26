@@ -2071,13 +2071,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/body-scroll-lock@npm:^2.6.2":
-  version: 2.6.2
-  resolution: "@types/body-scroll-lock@npm:2.6.2"
-  checksum: c516608f05583ff7a02655f16d0a1699c19956e7313b0318f76251108ac963be05ae33bd2f9dcde5ee756ad84f9bca3164b26c6cee210c7bd0b1f6f75f3f449b
-  languageName: node
-  linkType: hard
-
 "@types/classnames@npm:^2.3.1":
   version: 2.3.1
   resolution: "@types/classnames@npm:2.3.1"
@@ -3462,6 +3455,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"antd-mobile-v5-count@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "antd-mobile-v5-count@npm:1.0.1"
+  checksum: 3b44b482d15e05ec83c347a2f527d1f4b5adf2e17c7b5ce904002505fe60e2094fcfe2442604d284788620438437bc87fdc6e363786c5e8bbb705855b23e8d21
+  languageName: node
+  linkType: hard
+
 "antd-mobile@workspace:.":
   version: 0.0.0-use.local
   resolution: "antd-mobile@workspace:."
@@ -3478,7 +3478,6 @@ __metadata:
     "@testing-library/react": ^12.0.0
     "@testing-library/react-hooks": 3.4.1
     "@testing-library/user-event": 12.1.3
-    "@types/body-scroll-lock": ^2.6.2
     "@types/classnames": ^2.3.1
     "@types/jest": ^26.0.24
     "@types/jest-axe": 3.5.2
@@ -3488,11 +3487,13 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.29.0
     "@typescript-eslint/parser": ^4.29.0
     ahooks: ^2.10.9
+    antd-mobile-v5-count: ^1.0.1
     babel-loader: ^8.2.2
     babel-plugin-import: ^1.13.3
+    babel-plugin-replace-import-extension: ^1.1.1
     babel-plugin-transform-async-to-promises: ^0.8.15
-    body-scroll-lock: ^3.1.5
     classnames: ^2.3.1
+    css-loader: ^6.2.0
     dayjs: ^1.10.6
     del: ^5.1.0
     dumi: ^1.1.24
@@ -3501,7 +3502,6 @@ __metadata:
     eslint-config-prettier: ^8.3.0
     eslint-plugin-react: ^7.24.0
     eslint-plugin-react-hooks: ^4.2.0
-    file-loader: ^6.2.0
     gulp: ^4.0.2
     gulp-babel: ^8.0.0
     gulp-less: ^5.0.0
@@ -3515,7 +3515,7 @@ __metadata:
     jest-watch-typeahead: 0.6.4
     less: ^3.13.1
     lodash: ^4.17.21
-    pinst: ^2.1.6
+    lorem-ipsum: ^2.0.3
     postcss: ^8.3.6
     postcss-px-multiple: ^0.1.5
     postcss-pxtorem: ^5.1.1
@@ -3529,6 +3529,8 @@ __metadata:
     react-test-renderer: ^17.0.2
     react-transition-group: ^4.4.2
     react-use-gesture: ^9.1.3
+    style-loader: ^3.2.1
+    through2: ^4.0.2
     ts-jest: 26.5.6
     ts-node: 9.1.1
     typescript: ^3.9.10
@@ -3999,6 +4001,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-plugin-replace-import-extension@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "babel-plugin-replace-import-extension@npm:1.1.1"
+  checksum: ac029093db7d995ce2c7b080be75e94d662fb18c0960f98ce7909d04a835d7816a4f870b1a591f4a179efd4c1f9e4825e4e7fcec97c297e2b39032c154433a72
+  languageName: node
+  linkType: hard
+
 "babel-plugin-transform-async-to-promises@npm:^0.8.15":
   version: 0.8.15
   resolution: "babel-plugin-transform-async-to-promises@npm:0.8.15"
@@ -4141,13 +4150,6 @@ __metadata:
   version: 5.2.0
   resolution: "bn.js@npm:5.2.0"
   checksum: 7a73bdbba63013a7f9953fbbd6ea3351e4cf36d6fdbb5adf7969fcd65255b9c04f2994b0132d89d74ffe608a0eb5a48322526bee20c0e03e71e502603b420f63
-  languageName: node
-  linkType: hard
-
-"body-scroll-lock@npm:^3.1.5":
-  version: 3.1.5
-  resolution: "body-scroll-lock@npm:3.1.5"
-  checksum: e8de58edc0fd7d483e3971045ff83fe6d722592d5153e9bfc9da2962a179a6522b432a4b35344bc8ae522eec080cc87301ce4ded4878f26254bf42a4f26d27ed
   languageName: node
   linkType: hard
 
@@ -4898,7 +4900,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.19.0, commander@npm:^2.20.0":
+"commander@npm:^2.17.1, commander@npm:^2.19.0, commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: b73428e97de7624323f81ba13f8ed9271de487017432d18b4da3f07cfc528ad754bbd199004bd5d14e0ccd67d1fdfe0ec8dbbd4c438b401df3c4cc387bfd1daa
@@ -5182,6 +5184,24 @@ __metadata:
   bin:
     css-has-pseudo: cli.js
   checksum: 8bfb4c7d426f4b0b660d1a72ed0c652fd58b3b2203f629ebffcb2bdc278e2e9de2319fe3bddde9f0d2de3d7cb42f0905f5de49802bd9a40f512fd782013eb7b9
+  languageName: node
+  linkType: hard
+
+"css-loader@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "css-loader@npm:6.2.0"
+  dependencies:
+    icss-utils: ^5.1.0
+    postcss: ^8.2.15
+    postcss-modules-extract-imports: ^3.0.0
+    postcss-modules-local-by-default: ^4.0.0
+    postcss-modules-scope: ^3.0.0
+    postcss-modules-values: ^4.0.0
+    postcss-value-parser: ^4.1.0
+    semver: ^7.3.5
+  peerDependencies:
+    webpack: ^5.0.0
+  checksum: eacc4ef15790f78c585ccaf77c178cb3ae54f0d830138031927826e503511d884c24e73dbb9309310a29b8e222b98d6adad7b774f1da81fceb2c3aa6326d414c
   languageName: node
   linkType: hard
 
@@ -6431,18 +6451,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-loader@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "file-loader@npm:6.2.0"
-  dependencies:
-    loader-utils: ^2.0.0
-    schema-utils: ^3.0.0
-  peerDependencies:
-    webpack: ^4.0.0 || ^5.0.0
-  checksum: 0f103418c072ec66c081a9908cd7824ee19905e18be16889cb050f5f373998afaf7ca4c2fd2df4cabf703a2cd526aefe59105930e3f8d266a5b35e6d5f5b3cf4
-  languageName: node
-  linkType: hard
-
 "file-uri-to-path@npm:1.0.0":
   version: 1.0.0
   resolution: "file-uri-to-path@npm:1.0.0"
@@ -6657,13 +6665,6 @@ __metadata:
     inherits: ^2.0.1
     readable-stream: ^2.0.0
   checksum: 5f1a9bbff02d30cf5b4f12cfef20b47455876f8318b92d275ca39e3c5adf0636d3a0d8f4821a1c245339c47e79a551dce9ce5c7d9236c16347b934dc13d1d408
-  languageName: node
-  linkType: hard
-
-"fromentries@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "fromentries@npm:1.3.2"
-  checksum: 5cc722e4e3fd333ba75f31dd3ef80b4a6c405d8814e86e343b4676c1483c00f4f29b39aca462d268e918b3316a4fb03cea8022458fd8ad965f251362a129783f
   languageName: node
   linkType: hard
 
@@ -7580,6 +7581,15 @@ fsevents@^1.2.7:
   dependencies:
     safer-buffer: ">= 2.1.2 < 3.0.0"
   checksum: 9b4f24db662b717340ae20ec9ebbaf0648b378a2d0fc64aef83c6bccdd9918b622216c020e177ddf2d02eeff8456a732e85b6d989eb2cd3a40519f3e179b273c
+  languageName: node
+  linkType: hard
+
+"icss-utils@npm:^5.0.0, icss-utils@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "icss-utils@npm:5.1.0"
+  peerDependencies:
+    postcss: ^8.1.0
+  checksum: 4bf5c2e25b106a6c1f58d5f7b35134810aa785455f0c30e31939d873d4110964c5e470862026e0af51608b6d64853c614d9c724018f73cd59974106c0927e982
   languageName: node
   linkType: hard
 
@@ -9378,17 +9388,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"loader-utils@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "loader-utils@npm:2.0.0"
-  dependencies:
-    big.js: ^5.2.2
-    emojis-list: ^3.0.0
-    json5: ^2.1.2
-  checksum: a1c2e48781e1501e126a32c39bc1fb1a7e2f02bd99e5aeb8853ddaf3c121fffefcc4579367f97ca6890b58369e571af1c9ec82e4e20db238d560ab359ff25c33
-  languageName: node
-  linkType: hard
-
 "locate-path@npm:^3.0.0":
   version: 3.0.0
   resolution: "locate-path@npm:3.0.0"
@@ -9486,6 +9485,17 @@ fsevents@^1.2.7:
   bin:
     loose-envify: cli.js
   checksum: 5c3b47bbe5f597a3889fb001a3a98aaea2a3fafa48089c19034de1e0121bf57dbee609d184478514d74d5c5a7e9cfa3d846343455e5123b060040d46c39e91dc
+  languageName: node
+  linkType: hard
+
+"lorem-ipsum@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "lorem-ipsum@npm:2.0.3"
+  dependencies:
+    commander: ^2.17.1
+  bin:
+    lorem-ipsum: dist/bin/lorem-ipsum.bin.js
+  checksum: 0b930e8f864c2c8f9f5168096e9b300756bc95d7f9c95a1ae83e3d978eab5e6452e496a7058b3bcf12b8966117e1c19de46d305ef6165d33aec4a647246c0ded
   languageName: node
   linkType: hard
 
@@ -11085,17 +11095,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pinst@npm:^2.1.6":
-  version: 2.1.6
-  resolution: "pinst@npm:2.1.6"
-  dependencies:
-    fromentries: ^1.3.2
-  bin:
-    pinst: bin.js
-  checksum: ac950620de58cec8a2d601b79186e04f7a166c3df82a7a25fe2ca3c1ea38710fa881640e788fa8f81f13b17f38f646d17360c8266f12ae7682bf0ae420786b61
-  languageName: node
-  linkType: hard
-
 "pirates@npm:^4.0.1":
   version: 4.0.1
   resolution: "pirates@npm:4.0.1"
@@ -11388,6 +11387,50 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"postcss-modules-extract-imports@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "postcss-modules-extract-imports@npm:3.0.0"
+  peerDependencies:
+    postcss: ^8.1.0
+  checksum: 874b94fd94f6e44e27f7a08814b972c472bcf21db708640f09b8d5900ce9ef6c8aa3291bc54be0526ba07efee5da0322ea01ed0deecd831e80ba5bd5de0e784e
+  languageName: node
+  linkType: hard
+
+"postcss-modules-local-by-default@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "postcss-modules-local-by-default@npm:4.0.0"
+  dependencies:
+    icss-utils: ^5.0.0
+    postcss-selector-parser: ^6.0.2
+    postcss-value-parser: ^4.1.0
+  peerDependencies:
+    postcss: ^8.1.0
+  checksum: c0331dbc56cb37174ad5d9cf84c71fd5787a4f0241fafaade870cb6382abdb0e3db233e9e0eb86fc000a7399006fa360391d97341d4ac0f21e4918ad01892cb9
+  languageName: node
+  linkType: hard
+
+"postcss-modules-scope@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "postcss-modules-scope@npm:3.0.0"
+  dependencies:
+    postcss-selector-parser: ^6.0.4
+  peerDependencies:
+    postcss: ^8.1.0
+  checksum: 0b30c7bd28433880baf35f9e076f79fee98d9fe2544d118618429dacedd0a26d26145efd238c72f2c68f936b35729fe45e193e088f7d16fce72dd40bfa6afb69
+  languageName: node
+  linkType: hard
+
+"postcss-modules-values@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "postcss-modules-values@npm:4.0.0"
+  dependencies:
+    icss-utils: ^5.0.0
+  peerDependencies:
+    postcss: ^8.1.0
+  checksum: 43fa6db334e38acb9b835578dccab45a5e9e5951dcbb20647348cdc0ad35ed362e36833facd8dab753fa83ffbecd26d2b3f9d4f06a2f9ae4c5c39abf9a0191e0
+  languageName: node
+  linkType: hard
+
 "postcss-nesting@npm:^7.0.0":
   version: 7.0.1
   resolution: "postcss-nesting@npm:7.0.1"
@@ -11548,7 +11591,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"postcss-selector-parser@npm:^6.0.2":
+"postcss-selector-parser@npm:^6.0.2, postcss-selector-parser@npm:^6.0.4":
   version: 6.0.6
   resolution: "postcss-selector-parser@npm:6.0.6"
   dependencies:
@@ -11609,7 +11652,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.3.6":
+"postcss@npm:^8.2.15, postcss@npm:^8.3.6":
   version: 8.3.6
   resolution: "postcss@npm:8.3.6"
   dependencies:
@@ -13798,6 +13841,15 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"style-loader@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "style-loader@npm:3.2.1"
+  peerDependencies:
+    webpack: ^5.0.0
+  checksum: 898b572015bddf88c7eb2b086f22ca2f4c4dba6b56463ba0aede9a6dfcc86d20e70979633b82385b4d7662da497fe0809000297cc55949423528b5b4a176d85f
+  languageName: node
+  linkType: hard
+
 "style-to-object@npm:^0.3.0":
   version: 0.3.0
   resolution: "style-to-object@npm:0.3.0"
@@ -14051,7 +14103,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"through2@npm:^4.0.0":
+"through2@npm:^4.0.0, through2@npm:^4.0.2":
   version: 4.0.2
   resolution: "through2@npm:4.0.2"
   dependencies:

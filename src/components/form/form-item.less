@@ -1,24 +1,17 @@
-@class-prefix: ~'am-form-item';
-
-.@{class-prefix} {
-  display: flex;
-  padding: 0px 6px;
-  border: 1px solid var(--border-color);
-
-  + .@{class-prefix} {
+.am-form-item {
+  + .am-form-item {
     border-top: none;
   }
 
   &-label {
+    display: block;
+    height: 100%;
     box-sizing: border-box;
-    margin-top: 8px;
-    font-size: 14px;
     color: #666;
 
     &-required {
       margin-right: 4px;
-      color: #e44445;
-      font-size: 14px;
+      color: var(--am-color-danger);
       user-select: none;
     }
 
@@ -28,13 +21,18 @@
     }
   }
 
-  &-body {
-    margin: 4px;
-  }
-
   &-footer {
-    margin-bottom: 8px;
-    font-size: 12px;
-    color: #e44445;
+    color: var(--am-color-danger);
+  }
+}
+
+.am-form-vertical {
+  .am-form-item {
+    &-label {
+      margin-bottom: 4px;
+    }
+    &-footer {
+      margin-top: 4px;
+    }
   }
 }

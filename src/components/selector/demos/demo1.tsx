@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Selector } from 'antd-mobile'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 
 const ItemList = [
   {

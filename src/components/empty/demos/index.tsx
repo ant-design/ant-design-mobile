@@ -1,5 +1,5 @@
 import React from 'react'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import { Empty } from 'antd-mobile'
 
 export default () => {

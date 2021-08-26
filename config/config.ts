@@ -38,6 +38,22 @@ export default {
         title: 'FAQ',
         path: '/guide/faq',
       },
+      {
+        title: 'CSS 变量',
+        path: '/guide/css-variables',
+      },
+      {
+        title: '主题',
+        path: '/guide/theme',
+      },
+      {
+        title: '按需加载',
+        path: '/guide/import-on-demand',
+      },
+      {
+        title: '高清适配（试验性）',
+        path: '/guide/hd',
+      },
     ],
     '/components': [
       {
@@ -55,7 +71,6 @@ export default {
           '/components/water-mark',
           '/components/steps',
           '/components/tag',
-          '/components/desense-text',
           '/components/infinite-scroll',
           '/components/popover',
           '/components/ellipsis',
@@ -79,7 +94,6 @@ export default {
           '/components/picker',
           '/components/date-picker',
           '/components/form',
-          '/components/cascader',
           '/components/rate',
           '/components/image-uploader',
         ],
@@ -114,6 +128,14 @@ export default {
           '/components/divider',
         ],
       },
+      {
+        title: '试验性',
+        children: [
+          '/components/what-is-experimental',
+          '/components/cascader',
+          '/components/desense-text',
+        ],
+      },
     ],
   },
   resolve: {
@@ -122,13 +144,14 @@ export default {
   },
   alias: {
     'antd-mobile/lib/index.less': process.cwd() + '/src/index.less',
+    'demos': process.cwd() + '/src/demos/index.ts',
   },
   styles: [
-    `#root .__dumi-default-mobile-demo-layout {
+    `
+    #root .__dumi-default-mobile-demo-layout {
       padding: 0;
-      min-height: 100vh;
-      background: #f5f5f5;
-    }`,
+    }
+    `,
   ],
   // extraPostCSSPlugins: [
   //   pxToRem({

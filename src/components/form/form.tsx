@@ -1,28 +1,59 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
-
+import List from '../list'
 import RcForm from 'rc-field-form'
 import type { FormProps as RcFormProps } from 'rc-field-form'
-
 import { FormContext, FormContextType, DEFAULT_FORM_CONTEXT } from './context'
-const classPrefix = `am-form`
+import { mergeProps } from '../../utils/with-default-props'
+import type { FormLayout } from '.'
 
-type FormProps = RcFormProps & ElementProps & Partial<FormContextType>
+export type FormProps = RcFormProps &
+  ElementProps &
+  Partial<FormContextType> & {
+    footer?: ReactNode
+    layout?: FormLayout
+  }
 
-export const Form: FC<FormProps> = props => {
-  const { className, style, hasFeedback, children, ...formProps } = props
-  const formClassName = classNames(classPrefix, className)
+const defaultProps = {
+  hasFeedback: true,
+  layout: 'vertical',
+}
+
+export const Form: FC<FormProps> = p => {
+  const props = mergeProps(defaultProps, p)
+  const {
+    className,
+    style,
+    hasFeedback,
+    children,
+    layout,
+    footer,
+    ...formProps
+  } = props
 
   return (
-    <RcForm className={formClassName} style={style} {...formProps}>
-      <FormContext.Provider
-        value={{
-          hasFeedback: hasFeedback || DEFAULT_FORM_CONTEXT.hasFeedback,
+    <RcForm
+      className={classNames('am-form', `am-form-${layout}`, className)}
+      style={style}
+      {...formProps}
+    >
+      <List
+        style={{
+          '--prefix-width': '6em',
+          '--align-items': 'stretch',
         }}
       >
-        {children}
-      </FormContext.Provider>
+        <FormContext.Provider
+          value={{
+            hasFeedback: hasFeedback,
+            layout,
+          }}
+        >
+          {children}
+        </FormContext.Provider>
+      </List>
+      {footer && <div className='am-form-footer'>{footer}</div>}
     </RcForm>
   )
 }

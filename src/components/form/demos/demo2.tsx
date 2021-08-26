@@ -1,24 +1,29 @@
 import React from 'react'
 import { Form, Input, Button, Dialog, Checkbox, Space } from 'antd-mobile'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 
 export default () => {
   const [form] = Form.useForm()
   const onSubmit = () => {
     const values = form.getFieldsValue()
-    Dialog.show({
+    Dialog.alert({
       content: JSON.stringify(values),
     })
   }
 
   return (
-    <DemoBlock title='表单' padding={'0'}>
+    <DemoBlock title='表单' padding='0' border='none' background='transparent'>
       <Form
         form={form}
         initialValues={{
           a: 'aaa',
           b: [],
         }}
+        footer={
+          <Button block color='primary' onClick={onSubmit}>
+            提交
+          </Button>
+        }
       >
         <Form.Item name='a' label='字段A'>
           <Input placeholder='请输入' />
@@ -48,9 +53,6 @@ export default () => {
           <Input placeholder='自定义样式' />
         </Form.Item>
       </Form>
-      <Button block color='primary' onClick={onSubmit}>
-        提交
-      </Button>
     </DemoBlock>
   )
 }

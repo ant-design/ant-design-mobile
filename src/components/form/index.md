@@ -1,15 +1,16 @@
 # Form 表单
 
-<code src="./demos/demo1.tsx" />
-<code src="./demos/demo2.tsx" />
+<code src="./demos/demo1.tsx"></code>
+<code src="./demos/demo2.tsx"></code>
 
 # API
 
 ### Form
 
-| 属性        | 说明             | 类型    | 默认值 |
-| ----------- | ---------------- | ------- | ------ |
-| hasFeedback | 是否展示错误反馈 | boolean | ture   |
+| 属性        | 说明             | 类型                       | 默认值     |
+| ----------- | ---------------- | -------------------------- | ---------- |
+| hasFeedback | 是否展示错误反馈 | boolean                    | ture       |
+| layout      | 布局模式         | 'vertical' \| 'horizontal' | 'vertical' |
 
 其他参数参见 https://www.npmjs.com/package/rc-field-form
 

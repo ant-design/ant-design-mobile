@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "rootDir": "src",
-    "target": "esnext",
+    "target": "ES6",
     "moduleResolution": "node",
     "jsx": "react",
     "allowJs": true,
@@ -16,6 +16,7 @@
       "antd-mobile": ["src/index.ts"],
       "antd-mobile/src/*": ["src/*"],
       "antd-mobile/lib/*": ["src/*"],
+      "demos": ["src/demos/index.ts"],
       "testing": ["src/tests/testing"]
     },
     "allowSyntheticDefaultImports": true,

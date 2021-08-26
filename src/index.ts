@@ -1,4 +1,4 @@
-import './utils/init'
+import './global'
 
 export { default as Button } from './components/button'
 export { default as Dialog } from './components/dialog'
@@ -48,4 +48,4 @@ export { default as Card } from './components/card'
 export { default as Rate } from './components/rate'
 export { default as FloatingPanel } from './components/floating-panel'
 export { default as Collapse } from './components/collapse'
-export {default as ImageUploader} from './components/image-uploader'
+export { default as ImageUploader } from './components/image-uploader'

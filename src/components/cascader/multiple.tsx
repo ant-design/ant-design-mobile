@@ -1,16 +1,13 @@
-import { useControllableValue } from 'ahooks'
 import classNames from 'classnames'
 import React, { useMemo } from 'react'
 import { ElementProps } from '../../utils/element-props'
 import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
 import Checkbox from '../checkbox'
+import { CascaderOption } from '.'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `am-cascader-multiple`
-
-export interface CascaderOption {
-  [key: string]: any
-}
 
 export type MultipleProps = {
   options: CascaderOption[]
@@ -27,27 +24,28 @@ export type MultipleProps = {
   onExpand?: (expandedKeys: string[], nodes: CascaderOption[]) => void
 } & ElementProps
 
-const Multiple = withDefaultProps({
+export const Multiple = withDefaultProps({
   options: [],
   fieldNames: {},
   allSelectText: [],
+  defaultExpandKeys: [],
+  defaultValue: [],
 })<MultipleProps>(props => {
   const labelName = props.fieldNames.label || 'label'
   const valueName = props.fieldNames.value || 'value'
   const childrenName = props.fieldNames.children || 'children'
 
   // 打开的 keys
-  const [expandKeys, onExpand] = useControllableValue<string[]>(props, {
-    valuePropName: 'expandKeys',
-    defaultValuePropName: 'defaultExpandKeys',
-    trigger: 'onExpand',
-    defaultValue: [],
-  }) as [string[], (value: string[], nodes: CascaderOption[]) => void]
+  const [expandKeys, setExpandKeys] = useNewControllableValue({
+    value: props.expandKeys,
+    defaultValue: props.defaultExpandKeys,
+  })
 
   // 选中的 value（聚合后）
-  const [value, setValue] = useControllableValue<string[]>(props, {
-    defaultValue: [],
-  }) as [string[], (value: string[], nodes: CascaderOption[]) => void]
+  const [value, setValue] = useNewControllableValue({
+    value: props.value,
+    defaultValue: props.defaultValue,
+  })
 
   // 获取目标所有叶子节点 key 集合
   const getLeafKeys = (option?: CascaderOption) => {
@@ -149,7 +147,8 @@ const Multiple = withDefaultProps({
 
     const groupOptions = groupKeys.map(i => optionsMap.get(i)!)
 
-    setValue(groupKeys, groupOptions)
+    setValue(groupKeys)
+    props.onChange?.(groupKeys, groupOptions)
   }
 
   const onItemSelect = (option: CascaderOption) => {
@@ -162,7 +161,8 @@ const Multiple = withDefaultProps({
     }
 
     const keys = parentNodes.map(i => i[valueName])
-    onExpand(keys, parentNodes)
+    setExpandKeys(keys)
+    props.onExpand?.(keys, parentNodes)
   }
 
   // 渲染全选节点
@@ -365,5 +365,3 @@ const Multiple = withDefaultProps({
     </div>
   )
 })
-
-export default Multiple

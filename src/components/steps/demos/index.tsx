@@ -5,7 +5,7 @@ import {
   ClockCircleFilled,
   DollarCircleFilled,
 } from '@ant-design/icons'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 const { Step } = Steps
 
 export default () => {

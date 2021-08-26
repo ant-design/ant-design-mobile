@@ -1,29 +1,28 @@
 import React from 'react'
-import { useControllableValue } from 'ahooks'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { RadioValue } from '.'
 import { RadioGroupContext } from './group-context'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 export interface RadioGroupProps {
-  value?: RadioValue
+  value?: RadioValue | null
   onChange?: (val: RadioValue) => void
-  defaultValue?: RadioValue
+  defaultValue?: RadioValue | null
   disabled?: boolean
 }
 
 const defaultProps = {
   disabled: false,
+  defaultValue: null,
 }
 
 export const Group = withDefaultProps(defaultProps)<RadioGroupProps>(props => {
-  const [value, setValue] = useControllableValue<RadioValue>(props, {
-    defaultValue: undefined,
-  })
+  const [value, setValue] = useNewControllableValue(props)
   return (
     <RadioGroupContext.Provider
       // TODO: 性能优化
       value={{
-        value: [value],
+        value: value === null ? [] : [value],
         check: v => {
           setValue(v)
         },

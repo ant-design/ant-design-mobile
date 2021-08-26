@@ -1,74 +1,54 @@
-import React, { useState } from 'react'
-import { NoticeBar, Button } from 'antd-mobile'
-import './index.less'
+import React from 'react'
+import { NoticeBar, Space } from 'antd-mobile'
 import { AimOutlined, CloseCircleOutlined } from '@ant-design/icons'
+import { DemoBlock, lorem } from 'demos'
 
 export default () => {
-  const [visible, setVisible] = useState([true, true, true, true])
-  const close = (index: number) =>
-    setVisible(v => {
-      const temp = [...v]
-      temp[index] = false
-      return temp
-    })
-
   return (
-    <div className='container'>
-      {visible[0] && (
-        <>
-          <NoticeBar content='短公告' />
-          <br />
-        </>
-      )}
-      {visible[1] && (
-        <>
+    <>
+      <DemoBlock
+        title='四种配色'
+        padding='0'
+        border='none'
+        background='transparent'
+      >
+        <Space block direction='vertical' size={8}>
+          <NoticeBar content='默认' color='default' />
+          <NoticeBar content='警告' color='alert' />
+          <NoticeBar content='错误' color='error' />
+          <NoticeBar content='信息' color='info' />
+        </Space>
+      </DemoBlock>
+      <DemoBlock title='超长滚动' padding='0' border='none'>
+        <NoticeBar content={lorem.generateWords(20)} color='alert' />
+      </DemoBlock>
+      <DemoBlock title='可关闭' padding='0' border='none'>
+        <NoticeBar content='这条通知可以关闭' color='alert' closeable />
+      </DemoBlock>
+      <DemoBlock
+        title='自定义'
+        padding='0'
+        border='none'
+        background='transparent'
+      >
+        <Space block direction='vertical' size={8}>
           <NoticeBar
-            closeable
-            icon={null}
-            onClose={() => close(1)}
-            content={'无图标公告，如果超长则默认在 2 秒后开始滚动。'}
-            type='error'
-          />
-          <br />
-        </>
-      )}
-      {visible[2] && (
-        <>
-          <NoticeBar
-            extra={<CloseCircleOutlined onClick={() => close(2)} />}
+            extra={<CloseCircleOutlined />}
             icon={<AimOutlined />}
-            onClose={() => close(2)}
             content={'自定义图标'}
           />
-          <br />
-        </>
-      )}
-      {visible[3] && (
-        <>
           <NoticeBar
             extra={
-              <>
-                <a
-                  href='https://taobao.com'
-                  target='_blank'
-                  rel='noreferrer'
-                  style={{ marginRight: 8 }}
-                >
-                  查看详情
-                </a>
-                <span onClick={() => close(3)}>关闭</span>
-              </>
+              <Space>
+                <span>查看详情</span>
+                <span>关闭</span>
+              </Space>
             }
-            content={'将 delay 设置为 0，可以在组件渲染后立即开始滚动'}
-            delay={0}
-            type='info'
+            content={'自定义右侧功能区'}
+            color='alert'
           />
-          <br />
-        </>
-      )}
-      <Button block onClick={() => setVisible([true, true, true, true])}>
-        恢复显示全部
-      </Button>
-    </div>
+        </Space>
+      </DemoBlock>
+    </>
   )
 }

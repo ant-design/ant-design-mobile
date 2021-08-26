@@ -10,7 +10,7 @@ export interface StepProps {
   status?: 'wait' | 'process' | 'finish' | 'error'
 }
 
-const Step: FC<StepProps> = props => {
+export const Step: FC<StepProps> = props => {
   const { title, description, icon, status = 'wait' } = props
 
   return (
@@ -32,5 +32,3 @@ const Step: FC<StepProps> = props => {
     </div>
   )
 }
-
-export default Step

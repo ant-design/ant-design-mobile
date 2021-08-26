@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Space, Switch } from 'antd-mobile'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import { useToggle } from 'ahooks'
 import './index.less'
 

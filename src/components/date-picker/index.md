@@ -13,7 +13,7 @@
 | min          | 最小值         | Date                  | 十年前 |
 | max          | 最大值         | Date                  | 十年后 |
 
-此外还支持 `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` 属性，同 `Picker`
+此外还支持 `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` 属性，同 `Picker`
 
 ## 指令式调用
 

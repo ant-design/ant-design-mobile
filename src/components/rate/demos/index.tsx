@@ -1,5 +1,5 @@
 import React from 'react'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import { Rate, Space, Toast } from 'antd-mobile'
 import { SmileOutlined } from '@ant-design/icons'
 
@@ -7,7 +7,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <Rate onChange={val => Toast.show({ content: val.toString() })} />
+        <Rate onChange={val => Toast.show(val.toString())} />
       </DemoBlock>
       <DemoBlock title='半星'>
         <Rate allowHalf defaultValue={2.5} />

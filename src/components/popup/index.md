@@ -1,6 +1,6 @@
 # Popup 弹出层
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 # API
 
@@ -19,3 +19,4 @@
 | bodyStyle      | 内容区域样式                                                          | React.CSSProperties                                              | -             |
 | maskClassName  | 遮罩类名                                                              | string                                                           | -             |
 | maskStyle      | 遮罩样式                                                              | React.CSSProperties                                              | -             |
+| onClick        | 点击时触发，常用于阻止事件冒泡                                        | (event) => void                                                  | -             |

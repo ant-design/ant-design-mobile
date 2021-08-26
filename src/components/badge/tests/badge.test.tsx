@@ -31,7 +31,7 @@ test('renders with offset', () => {
     </Badge>
   )
   expect(getByText('新')).toHaveStyle({
-    marginTop: '40px',
-    right: '40px',
+    top: '-40px',
+    right: '-40px',
   })
 })

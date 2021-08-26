@@ -31,7 +31,7 @@ type PickerValue = string | null
 | cancelText   | 取消按钮的文字               | string                                                       | 取消   |
 | children     | 所选项的渲染函数             | (items: PickerColumnItem[]) => void                          | -      |
 
-此外还支持 `getContainer` `afterShow` `afterClose` 属性，同 `Popup`
+此外还支持 `getContainer` `afterShow` `afterClose` `onClick` 属性，同 `Popup`
 
 ### Picker.Cascader
 

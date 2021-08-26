@@ -1,33 +1,36 @@
 import React from 'react'
-import { IndexBar } from 'antd-mobile'
+import { IndexBar, List } from 'antd-mobile'
+import { lorem } from 'demos'
+
+const getRandomList = (min: number, max: number): string[] => {
+  return new Array(Math.floor(Math.random() * (max - min) + min)).fill('')
+}
+
+const charCodeOfA = 'A'.charCodeAt(0)
+const groups = Array(26)
+  .fill('')
+  .map((_, i) => ({
+    title: String.fromCharCode(charCodeOfA + i),
+    items: getRandomList(3, 10).map(() => lorem.generateWords(2)),
+  }))
 
 export default () => {
-  const getRandomList = (min: number, max: number): string[] => {
-    return new Array(Math.floor(Math.random() * (max - min) + min)).fill('')
-  }
-
-  const ItemList = (() => {
-    const charCodeOfA = 'A'.charCodeAt(0)
-    const indexList = Array(26)
-      .fill('')
-      .map((_, i) => String.fromCharCode(charCodeOfA + i))
-
-    return indexList
-  })()
-
   return (
-    <div style={{ height: '500px' }}>
+    <div style={{ height: window.innerHeight }}>
       <IndexBar>
-        {ItemList.map(item => {
+        {groups.map(group => {
+          const { title, items } = group
           return (
             <IndexBar.Panel
-              index={item}
-              title={`标题${item}`}
-              key={`标题${item}`}
+              index={title}
+              title={`标题${title}`}
+              key={`标题${title}`}
             >
-              {getRandomList(3, 10).map(() => (
-                <div key={Math.random()}>文本</div>
-              ))}
+              <List>
+                {items.map((item, index) => (
+                  <List.Item key={index}>{item}</List.Item>
+                ))}
+              </List>
             </IndexBar.Panel>
           )
         })}

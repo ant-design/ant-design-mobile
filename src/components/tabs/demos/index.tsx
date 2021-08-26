@@ -1,4 +1,5 @@
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import React from 'react'
+import { DemoBlock } from 'demos'
 import { Tabs } from 'antd-mobile'
 
 export default () => {

@@ -1,8 +1,8 @@
 # Input 输入框
 
-<code src="./demos/index.tsx"></code>
+Input 组件是布局无关的， 它只包括了最基本的输入框部分，如果你想为它增加边框、标题、或是一些操作按钮，可以配合 List 或 Form 组件使用。
 
-Input 组件是布局无关的，它只包括了最基本的输入框部分，如果你想为它增加边框、标题、或是一些操作按钮，可以配合 List 组件使用。
+<code src="./demos/index.tsx"></code>
 
 ## 属性
 
@@ -19,6 +19,9 @@ Input 组件是布局无关的，它只包括了最基本的输入框部分，�
 
 ## CSS 变量
 
-| 属性        | 说明 | 默认值 |
-| ----------- | ---- | ------ |
-| --font-size | 字号 | 17px   |
+| 属性                | 说明                 | 默认值           |
+| ------------------- | -------------------- | ---------------- |
+| --font-size         | 字号                 | 17px             |
+| --color             | 文字颜色             | --am-color-text  |
+| --placeholder-color | placeholder 文字颜色 | --am-color-light |
+| --disabled-color    | 禁用状态下的文字颜色 | --am-color-weak  |

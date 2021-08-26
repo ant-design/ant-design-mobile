@@ -1,22 +1,20 @@
 {
   "name": "antd-mobile",
-  "version": "5.0.0-alpha.9",
+  "version": "5.0.0-alpha.20",
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
     "build-doc": "dumi build",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable",
-    "test": "jest --maxWorkers=50%"
+    "test": "jest --maxWorkers=50%",
+    "publish": "npm publish ./lib --tag alpha"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@react-spring/web": "^9.2.4",
-    "@types/body-scroll-lock": "^2.6.2",
     "ahooks": "^2.10.9",
-    "body-scroll-lock": "^3.1.5",
+    "antd-mobile-v5-count": "^1.0.1",
     "classnames": "^2.3.1",
     "dayjs": "^1.10.6",
     "lodash": "^4.17.21",
@@ -47,7 +45,9 @@
     "@typescript-eslint/parser": "^4.29.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.13.3",
+    "babel-plugin-replace-import-extension": "^1.1.1",
     "babel-plugin-transform-async-to-promises": "^0.8.15",
+    "css-loader": "^6.2.0",
     "del": "^5.1.0",
     "dumi": "^1.1.24",
     "dumi-theme-mobile": "^1.1.7",
@@ -55,7 +55,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "file-loader": "^6.2.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-less": "^5.0.0",
@@ -68,7 +67,7 @@
     "jest-environment-jsdom": "26.6.2",
     "jest-watch-typeahead": "0.6.4",
     "less": "^3.13.1",
-    "pinst": "^2.1.6",
+    "lorem-ipsum": "^2.0.3",
     "postcss": "^8.3.6",
     "postcss-px-multiple": "^0.1.5",
     "postcss-pxtorem": "^5.1.1",
@@ -77,6 +76,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
+    "style-loader": "^3.2.1",
+    "through2": "^4.0.2",
     "ts-jest": "26.5.6",
     "ts-node": "9.1.1",
     "typescript": "^3.9.10",
@@ -93,9 +94,12 @@
   "unpkg": "./umd/antd-mobile.js",
   "GravityCDN": "./umd/antd-mobile.js",
   "sideEffects": [
-    "**/*.css",
-    "**/*.less",
-    "./*/utils/init.js"
+    "*.css",
+    "*.less",
+    "./es/index.js",
+    "./src/index.ts",
+    "./es/global/index.js",
+    "./src/global/index.ts"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

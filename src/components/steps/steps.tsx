@@ -1,8 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
-import Step, { StepProps } from './step'
+import { StepProps } from './step'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 
 const classPrefix = `am-steps`
 const stepClassPrefix = `am-step`
@@ -21,7 +20,7 @@ const defaultProps = {
   direction: 'horizontal',
 }
 
-const Steps = withDefaultProps(defaultProps)<StepsProps>(props => {
+export const Steps = withDefaultProps(defaultProps)<StepsProps>(props => {
   const { direction, current } = props
   const classString = classNames(classPrefix, `${classPrefix}-${direction}`)
 
@@ -49,8 +48,4 @@ const Steps = withDefaultProps(defaultProps)<StepsProps>(props => {
       })}
     </div>
   )
-})
-
-export default attachPropertiesToComponent(Steps, {
-  Step,
 })

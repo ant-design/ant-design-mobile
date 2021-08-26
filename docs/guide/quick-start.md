@@ -8,22 +8,16 @@ $ npm install --save antd-mobile@alpha
 $ yarn add antd-mobile@alpha
 ```
 
+<Alert> 在 alpha 阶段我们很有可能会在后续的新版本中发布 break change，所以强烈建议使用 lockfile 锁定版本或手动锁定版本</Alert>
+
 ## 引入
 
-需要先在入口文件（例如 `app.ts`）中引入样式文件：
-
-```js
-import 'antd-mobile/index.css'
-```
-
-如果是 2 倍布局的话（例如 750 高清方案），需要引入 2x 版本的样式文件：
-
-```js
-import 'antd-mobile/index@2x.css'
-```
-
-接下来就可以正常地使用组件了，例如：
+直接引入组件即可，antd-mobile 会自动为你加载 css 样式文件：
 
 ```js
 import { Button } from 'antd-mobile'
 ```
+
+## 在线体验
+
+<code src="./codesandbox.tsx" inline></code>

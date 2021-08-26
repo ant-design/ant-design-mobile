@@ -1,4 +1,4 @@
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import { Picker, Button, Space } from 'antd-mobile'
 import React, { useState, useEffect } from 'react'
 import { sleep } from 'antd-mobile/src/utils/sleep'

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Button, Input, List } from 'antd-mobile'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { Input, List } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 
 export default () => {
   const [value, setValue] = useState('')
@@ -58,14 +58,7 @@ export default () => {
             '--prefix-width': '6em',
           }}
         >
-          <List.Item
-            prefix='短信验证码'
-            extra={
-              <Button color='primary' size='small'>
-                发送验证码
-              </Button>
-            }
-          >
+          <List.Item prefix='短信验证码' extra={<a>发送验证码</a>}>
             <Input placeholder='请输入验证码' clearable />
           </List.Item>
         </List>

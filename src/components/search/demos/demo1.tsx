@@ -1,6 +1,6 @@
 import React from 'react'
 import { Search, Toast } from 'antd-mobile'
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 
 export default () => {
   return (
@@ -16,29 +16,29 @@ export default () => {
           placeholder='请输入内容'
           showCancelButton
           onSearch={val => {
-            Toast.show({
-              content: `你搜索了：${val}`,
-            })
+            Toast.show(`你搜索了：${val}`)
           }}
           onFocus={() => {
-            Toast.show({
-              content: '获得焦点',
-            })
+            Toast.show('获得焦点')
           }}
           onBlur={() => {
-            Toast.show({
-              content: '失去焦点',
-            })
+            Toast.show('失去焦点')
           }}
           onClear={() => {
-            Toast.show({
-              content: '清空内容',
-            })
+            Toast.show('清空内容')
           }}
           onCancel={() => {
-            Toast.show({
-              content: '取消搜索',
-            })
+            Toast.show('取消搜索')
+          }}
+        />
+      </DemoBlock>
+      <DemoBlock title='自定义样式'>
+        <Search
+          placeholder='请输入内容'
+          showCancelButton
+          style={{
+            '--border-radius': '100px',
+            '--background': '#ffffff',
           }}
         />
       </DemoBlock>

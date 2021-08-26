@@ -1,8 +1,8 @@
 # TextArea 文本域
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
-# API
+## 属性
 
 | 属性         | 说明                 | 类型                                              | 默认值 |
 | ------------ | -------------------- | ------------------------------------------------- | ------ |
@@ -16,3 +16,12 @@
 | showCount    | 是否显示字数         | boolean                                           | false  |
 
 其他属性和原生 `textarea` 一致
+
+## CSS 变量
+
+| 属性                | 说明                 | 默认值           |
+| ------------------- | -------------------- | ---------------- |
+| --font-size         | 字号                 | 17px             |
+| --color             | 文字颜色             | --am-color-text  |
+| --placeholder-color | placeholder 文字颜色 | --am-color-light |
+| --disabled-color    | 禁用状态下的文字颜色 | --am-color-weak  |

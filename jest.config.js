@@ -14,6 +14,9 @@ module.exports = {
       tsconfig: 'tsconfig.json',
     },
   },
+  moduleNameMapper: {
+    '\\.(css|less)$': '<rootDir>/src/tests/mocks/style-mock.js',
+  },
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',

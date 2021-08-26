@@ -1,4 +1,4 @@
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
+import { DemoBlock } from 'demos'
 import { ImageViewer, Button } from 'antd-mobile'
 import { useState } from 'react'
 

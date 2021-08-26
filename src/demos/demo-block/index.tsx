@@ -1,5 +1,4 @@
-import 'antd-mobile/lib/index.less'
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import styles from './index.less'
 
 interface Props {
@@ -10,6 +9,9 @@ interface Props {
 }
 
 export const DemoBlock: FC<Props> = props => {
+  useEffect(() => {
+    document.body.style.background = '#f5f5f5'
+  }, [])
   return (
     <div className={styles.demoBlock}>
       <div className={styles.title}>{props.title}</div>

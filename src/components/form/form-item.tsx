@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 import { Field, FormInstance } from 'rc-field-form'
@@ -8,6 +8,8 @@ import type { Meta } from 'rc-field-form/lib/interface'
 
 import { FormContext } from './context'
 import { toArray } from './utils'
+import List, { ListItemProps } from '../list'
+import type { FormLayout } from './index'
 
 type RenderChildren<Values = any> = (
   form: FormInstance<Values>
@@ -18,8 +20,9 @@ type RcFieldProps = Omit<FieldProps, 'children'>
 
 const classPrefix = `am-form-item`
 
-type FormItemProps = RcFieldProps &
-  ElementProps & {
+export type FormItemProps = RcFieldProps &
+  ElementProps &
+  Pick<ListItemProps, 'style' | 'onClick'> & {
     label?: string
     help?: string
     hasFeedback?: boolean
@@ -49,9 +52,11 @@ type FormItemLayoutProps = Pick<
   | 'disabled'
   | 'label'
   | 'help'
+  | 'onClick'
 > & {
   htmlFor?: string
   meta?: Meta
+  layout?: FormLayout
 }
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
@@ -67,10 +72,11 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     htmlFor,
   } = props
 
-  const hasFeedback =
-    props.hasFeedback || React.useContext(FormContext).hasFeedback
+  const context = useContext(FormContext)
 
-  const formItemClass = classNames(classPrefix, className)
+  const hasFeedback = props.hasFeedback || context.hasFeedback
+  const layout = props.layout || context.layout
+
   const formItemLabelClass = classNames(`${classPrefix}-label`, {
     [`${classPrefix}-label-disable`]: disabled,
   })
@@ -78,16 +84,29 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const feedback =
     hasFeedback && meta && meta.errors.length > 0 ? meta.errors[0] : null
 
+  const labelElement = (
+    <label className={formItemLabelClass} htmlFor={htmlFor}>
+      {required && <span className={`${classPrefix}-label-required`}>*</span>}
+      {label}
+      {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
+    </label>
+  )
+
+  const descriptionElement = feedback && (
+    <div className={`${classPrefix}-footer`}>{feedback}</div>
+  )
+
   return (
-    <div className={formItemClass} style={style}>
-      <label className={formItemLabelClass} htmlFor={htmlFor}>
-        {required && <span className={`${classPrefix}-label-required`}>*</span>}
-        {label}
-        {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
-      </label>
-      <div className={`${classPrefix}-body`}>{children}</div>
-      {feedback && <div className={`${classPrefix}-footer`}>{feedback}</div>}
-    </div>
+    <List.Item
+      style={style}
+      title={layout === 'vertical' && labelElement}
+      prefix={layout === 'horizontal' && labelElement}
+      description={descriptionElement}
+      className={classNames(classPrefix, className)}
+      onClick={props.onClick}
+    >
+      {children}
+    </List.Item>
   )
 }
 
@@ -110,6 +129,7 @@ export const FormItem: FC<FormItemProps> = props => {
     messageVariables,
     trigger = 'onChange',
     validateTrigger,
+    onClick,
     ...fieldProps
   } = props
 
@@ -149,6 +169,7 @@ export const FormItem: FC<FormItemProps> = props => {
         hasFeedback={hasFeedback}
         htmlFor={fieldId}
         meta={meta}
+        onClick={onClick}
       >
         {baseChildren}
       </FormItemLayout>

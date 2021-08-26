@@ -1,0 +1,33 @@
+@class-prefix-badge: ~'am-badge';
+
+.@{class-prefix-badge}-wrap {
+  display: inline-block;
+  position: relative;
+}
+
+.@{class-prefix-badge} {
+  display: inline-block;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  min-width: 16px;
+  border-radius: 100px;
+  padding: 0 4px;
+  font-size: 9px;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  &-fixed {
+    position: absolute;
+    transform: translate(50%, -50%);
+    //transform-origin: 100% 0%;
+  }
+
+  &-dot {
+    min-width: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+  }
+}

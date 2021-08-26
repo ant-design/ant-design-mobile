@@ -1,5 +1,5 @@
-import { DemoBlock } from 'antd-mobile/src/demos/demo-block'
-import { TabBar, Toast } from 'antd-mobile'
+import { DemoBlock } from 'demos'
+import { TabBar } from 'antd-mobile'
 import React, { useState } from 'react'
 import {
   HomeOutlined,
@@ -7,14 +7,6 @@ import {
   UnorderedListOutlined,
   UserOutlined,
 } from '@ant-design/icons'
-import styles from './index.less'
-import classNames from 'classnames'
-
-const showActiveKey = (key: string) => {
-  Toast.show({
-    content: `当前选中key为：${key}`,
-  })
-}
 
 export default () => {
   const tabs = [
@@ -22,16 +14,19 @@ export default () => {
       key: 'home',
       title: '首页',
       icon: <HomeOutlined />,
+      badge: '',
     },
     {
       key: 'todo',
       title: '我的待办',
       icon: <UnorderedListOutlined />,
+      badge: '5',
     },
     {
       key: 'message',
       title: '我的消息',
       icon: <MessageOutlined />,
+      badge: '99+',
     },
     {
       key: 'personalCenter',
@@ -47,23 +42,35 @@ export default () => {
   return (
     <>
       <DemoBlock title='基本用法' padding='0'>
-        <TabBar onChange={showActiveKey}>
+        <TabBar>
           {tabs.map(item => (
             <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
           ))}
         </TabBar>
       </DemoBlock>
-      <DemoBlock title='没有图标' padding='0'>
-        <TabBar onChange={showActiveKey}>
+      <DemoBlock title='徽标' padding='0'>
+        <TabBar>
+          {tabs.map(item => (
+            <TabBar.Item
+              key={item.key}
+              icon={item.icon}
+              title={item.title}
+              badge={item.badge}
+            />
+          ))}
+        </TabBar>
+      </DemoBlock>
+      <DemoBlock title='仅图标' padding='0'>
+        <TabBar>
+          {tabs.map(item => (
+            <TabBar.Item key={item.key} icon={item.icon} />
+          ))}
+        </TabBar>
+      </DemoBlock>
+      <DemoBlock title='仅标题' padding='0'>
+        <TabBar>
           {tabs.map(item => (
             <TabBar.Item key={item.key} title={item.title} />
-          ))}
-        </TabBar>
-      </DemoBlock>
-      <DemoBlock title='默认选中' padding='0'>
-        <TabBar defaultActiveKey='personalCenter' onChange={showActiveKey}>
-          {tabs.map(item => (
-            <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
           ))}
         </TabBar>
       </DemoBlock>
@@ -71,28 +78,6 @@ export default () => {
         <TabBar activeKey={activeKey} onChange={setActiveKey}>
           {tabs.map(item => (
             <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
-          ))}
-        </TabBar>
-      </DemoBlock>
-      <DemoBlock title='自定义渲染' padding='0'>
-        <TabBar activeKey={activeKey1} onChange={setActiveKey1}>
-          {tabs.map(item => (
-            <TabBar.Item
-              key={item.key}
-              className={classNames({
-                [styles.activeItem]: activeKey1 === item.key,
-              })}
-            >
-              <div className={styles.content}>
-                <div className={styles.icon}>
-                  {item.icon}
-                  {item.key === 'message' ? (
-                    <span className={styles.msgNo}>5</span>
-                  ) : null}
-                </div>
-                <div className={styles.title}>{item.title}</div>
-              </div>
-            </TabBar.Item>
           ))}
         </TabBar>
       </DemoBlock>
