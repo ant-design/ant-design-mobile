@@ -17,9 +17,9 @@ v5 是完全重写的一个版本，所以 v2 和 v5 的差异非常之大，迁
 为了降低迁移成本，你可以通过别名的方式来安装 antd-mobile v5，同时保留 v2 版本：
 
 ```bash
-$ npm install --save antd-mobile-v5@npm:antd-mobile@beta
+$ npm install --save antd-mobile-v5@npm:antd-mobile@next
 # or
-$ yarn add antd-mobile-v5@npm:antd-mobile@beta
+$ yarn add antd-mobile-v5@npm:antd-mobile@next
 ```
 
 对应的 package.json 为：
@@ -27,7 +27,7 @@ $ yarn add antd-mobile-v5@npm:antd-mobile@beta
 ```json
 {
   "antd-mobile": "^2.3.2",
-  "antd-mobile-v5": "npm:antd-mobile@beta"
+  "antd-mobile-v5": "npm:antd-mobile@next"
 }
 ```
 
@@ -37,8 +37,6 @@ $ yarn add antd-mobile-v5@npm:antd-mobile@beta
 import { Button } from 'antd-mobile' // v2
 import { Button } from 'antd-mobile-v5' // v5
 ```
-
-但是需要注意的是，因为**样式可能存在两个版本互相干扰**，我们建议这个方案仅仅作为短期过渡，并**不推荐**长期两个版本并存使用。
 
 ## 兼容哪些浏览器？
 
