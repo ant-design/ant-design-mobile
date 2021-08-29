@@ -30,12 +30,12 @@ export const DesenseText: FC<DesenseTextProps> = p => {
   })
   return (
     <span
-      className={classnames('am-desense-text', props.className)}
+      className={classnames('adm-desense-text', props.className)}
       style={props.style}
     >
       {isDesense ? desenseText : text}
       <a
-        className={classnames('am-desense-text-icon-wrap', 'am-plain-anchor')}
+        className={classnames('adm-desense-text-icon-wrap', 'adm-plain-anchor')}
         onClick={() => {
           setIsDesense(!isDesense)
         }}

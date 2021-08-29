@@ -5,7 +5,7 @@ import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-cascader`
+const classPrefix = `adm-cascader`
 
 export interface CascaderOption {
   [key: string]: any

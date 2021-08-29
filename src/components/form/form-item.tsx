@@ -19,7 +19,7 @@ type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode
 
 type RcFieldProps = Omit<FieldProps, 'children'>
 
-const classPrefix = `am-form-item`
+const classPrefix = `adm-form-item`
 
 export type FormItemProps = RcFieldProps &
   ElementProps &

@@ -44,16 +44,16 @@ export const TabBar: FC<TabBarProps> = props => {
 
   return (
     <div
-      className={classNames('am-tab-bar', props.className)}
+      className={classNames('adm-tab-bar', props.className)}
       style={props.style}
     >
       {items.map(item => {
         function renderContent() {
           const iconElement = item.props.icon && (
-            <div className='am-tab-bar-item-icon'>{item.props.icon}</div>
+            <div className='adm-tab-bar-item-icon'>{item.props.icon}</div>
           )
           const titleElement = item.props.title && (
-            <div className='am-tab-bar-item-title'>{item.props.title}</div>
+            <div className='adm-tab-bar-item-title'>{item.props.title}</div>
           )
           if (item.props.badge !== undefined) {
             if (iconElement) {
@@ -92,8 +92,8 @@ export const TabBar: FC<TabBarProps> = props => {
               if (key === undefined || key === null) return
               setActiveKey(key.toString())
             }}
-            className={classNames('am-tab-bar-item', item.props.className, {
-              'am-tab-bar-item-active': item.key === activeKey,
+            className={classNames('adm-tab-bar-item', item.props.className, {
+              'adm-tab-bar-item-active': item.key === activeKey,
             })}
           >
             {renderContent()}

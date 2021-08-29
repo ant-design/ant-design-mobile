@@ -3,7 +3,7 @@ import React from 'react'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 
-const classPrefix = `am-grid`
+const classPrefix = `adm-grid`
 
 export type GridProps = {
   columns: number

@@ -5,7 +5,7 @@ import { ElementProps } from '../../utils/element-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-switch`
+const classPrefix = `adm-switch`
 
 export type SwitchProps = {
   loading?: boolean

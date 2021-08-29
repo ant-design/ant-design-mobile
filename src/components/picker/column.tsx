@@ -5,7 +5,7 @@ import type { PickerColumnItem, PickerValue } from './index'
 import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds, bound } from '../../utils/rubberband'
 
-const classPrefix = `am-picker`
+const classPrefix = `adm-picker`
 
 interface Props {
   column: PickerColumnItem[]

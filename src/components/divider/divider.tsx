@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-divider`
+const classPrefix = `adm-divider`
 
 export type DividerProps = {
   contentPosition?: 'left' | 'right' | 'center'

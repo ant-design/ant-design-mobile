@@ -5,7 +5,7 @@ import { ElementProps } from '../../utils/element-props'
 import { getNativeAttributes } from '../../utils/get-native-attributes'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-tabs`
+const classPrefix = `adm-tabs`
 
 export type TabPaneProps = {
   title: ReactNode

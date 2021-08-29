@@ -1,4 +1,4 @@
-@class-prefix-dialog: ~'am-dialog';
+@class-prefix-dialog: ~'adm-dialog';
 
 .@{class-prefix-dialog}-mask {
   .@{class-prefix-dialog}-wrap {
@@ -34,21 +34,21 @@
         max-height: 75vh;
         overflow-x: hidden;
         overflow-y: auto;
-        font-size: var(--am-font-size-main);
+        font-size: var(--adm-font-size-main);
         line-height: 1.4;
         color: #333;
       }
     }
     .@{class-prefix-dialog}-footer {
       user-select: none;
-      .am-dialog-action-row {
+      .adm-dialog-action-row {
         display: flex;
         align-items: stretch;
-        border-top: 0.5px solid var(--am-border-color);
+        border-top: 0.5px solid var(--adm-border-color);
         > * {
           flex: 1;
         }
-        > .am-dialog-button {
+        > .adm-dialog-button {
           padding: 10px;
           font-size: 18px;
           line-height: 25px;
@@ -56,7 +56,7 @@
           &-bold {
             font-weight: bold;
           }
-          border-right: solid 0.5px var(--am-border-color);
+          border-right: solid 0.5px var(--adm-border-color);
           :last-child {
             border-right: none;
           }

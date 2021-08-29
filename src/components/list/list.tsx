@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 
-const classPrefix = `am-list`
+const classPrefix = `adm-list`
 
 export type ListProps = {
   mode?: 'default' | 'card' // 默认是整宽的列表，card 模式下展示为带 margin 和圆角的卡片

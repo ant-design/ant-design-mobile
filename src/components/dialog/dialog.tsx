@@ -6,7 +6,7 @@ import { Action, DialogActionButton } from './dialog-action-button'
 import Image from '../image'
 import Space from '../space'
 
-const classPrefix = `am-dialog`
+const classPrefix = `adm-dialog`
 
 export interface DialogProps {
   afterClose?: () => void

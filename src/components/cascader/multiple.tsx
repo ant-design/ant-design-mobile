@@ -7,7 +7,7 @@ import Checkbox from '../checkbox'
 import { CascaderOption } from '.'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-cascader-multiple`
+const classPrefix = `adm-cascader-multiple`
 
 export type MultipleProps = {
   options: CascaderOption[]

@@ -1,12 +1,12 @@
-.am-drawer {
+.adm-drawer {
   --border-radius: 8px;
   --header-height: 28px;
 
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
-  background: var(--am-color-white);
+  background: var(--adm-color-white);
   position: fixed;
-  z-index: var(--am-z-index-floating-panel);
+  z-index: var(--adm-z-index-floating-panel);
   top: 100vh;
   left: 0;
   width: 100vw;
@@ -19,9 +19,9 @@
     bottom: -100vh;
     height: 100vh;
     width: 100vw;
-    background: var(--am-color-white);
+    background: var(--adm-color-white);
   }
-  .am-drawer-header {
+  .adm-drawer-header {
     flex: none;
     height: var(--header-height);
     display: flex;
@@ -30,14 +30,14 @@
     cursor: grab;
     user-select: none;
     //pointer-events: none;
-    .am-drawer-bar {
+    .adm-drawer-bar {
       height: 3px;
       width: 20px;
       border-radius: 10px;
-      background: var(--am-color-light);
+      background: var(--adm-color-light);
     }
   }
-  .am-drawer-content {
+  .adm-drawer-content {
     flex: 1;
     overflow-y: scroll;
   }

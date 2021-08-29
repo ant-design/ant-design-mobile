@@ -5,7 +5,7 @@ import type { TooltipProps } from 'rc-tooltip/lib/Tooltip'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-popover`
+const classPrefix = `adm-popover`
 const enterClassName = 'entering'
 const leaveClassName = 'leaving'
 

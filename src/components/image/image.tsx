@@ -4,7 +4,7 @@ import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { PictureOutlined, DisconnectOutlined } from '@ant-design/icons'
 
-const classPrefix = `am-image`
+const classPrefix = `adm-image`
 
 export type ImageProps = {
   src: string

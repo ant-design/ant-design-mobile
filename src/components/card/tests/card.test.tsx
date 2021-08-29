@@ -3,7 +3,7 @@ import { fireEvent, render, testA11y, waitFor } from 'testing'
 import { AntDesignOutlined, RightOutlined } from '@ant-design/icons'
 import Card from '../'
 
-const classPrefix = `am-card`
+const classPrefix = `adm-card`
 
 it('passes a11y test', async () => {
   await testA11y(<Card>test</Card>)

@@ -5,7 +5,7 @@ import { Slide } from './slide'
 import { convertPx } from '../../utils/convert-px'
 import { bound } from '../../utils/rubberband'
 
-const classPrefix = `am-image-viewer`
+const classPrefix = `adm-image-viewer`
 
 export const Slides: FC<{
   images: string[]

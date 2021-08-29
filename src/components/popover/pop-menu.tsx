@@ -11,7 +11,7 @@ import classNames from 'classnames'
 import Button from '../button'
 import { BasePopoverProps, Popover, PopoverRef } from './popover'
 
-const classPrefix = `am-popover`
+const classPrefix = `adm-popover`
 
 export type Action = {
   text: React.ReactNode

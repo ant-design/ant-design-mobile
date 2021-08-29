@@ -4,7 +4,7 @@ import { convertPx } from '../../utils/convert-px'
 import { ElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-badge`
+const classPrefix = `adm-badge`
 
 export type BadgeProps = {
   content?: React.ReactNode
