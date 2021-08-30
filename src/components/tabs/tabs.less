@@ -1,4 +1,4 @@
-@class-prefix-tabs: ~'am-tabs';
+@class-prefix-tabs: ~'adm-tabs';
 
 .@{class-prefix-tabs} {
   &-tab-list {
@@ -6,7 +6,7 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: solid 1px var(--am-border-color);
+    border-bottom: solid 1px var(--adm-border-color);
     overflow-x: scroll;
     &::-webkit-scrollbar {
       display: none;
@@ -27,7 +27,7 @@
     cursor: pointer;
   }
   &-tab-active {
-    color: var(--am-color-primary);
+    color: var(--adm-color-primary);
     &::after {
       display: block;
       position: absolute;
@@ -35,7 +35,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background: var(--am-color-primary);
+      background: var(--adm-color-primary);
       content: ' ';
     }
   }

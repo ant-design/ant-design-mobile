@@ -1,6 +1,6 @@
 @import './animation.less';
 
-@class-prefix-popover: ~'am-popover';
+@class-prefix-popover: ~'adm-popover';
 
 @popover-arrow-width: 6px;
 @popover-distance: @popover-arrow-width;
@@ -18,14 +18,14 @@
 
   &-dark {
     --popover-bg: rgba(0, 0, 0, 0.75);
-    --am-color-text: #ffffff;
+    --adm-color-text: #ffffff;
     color: white;
   }
 
   position: absolute;
   top: 0;
   left: 0;
-  z-index: var(--am-z-index-popover);
+  z-index: var(--adm-z-index-popover);
   font-weight: normal;
   white-space: normal;
   text-align: left;
@@ -127,7 +127,7 @@
         vertical-align: -0.075em;
       }
       cursor: pointer;
-      border-bottom: 1px solid var(--am-border-color);
+      border-bottom: 1px solid var(--adm-border-color);
 
       &:last-child {
         border-bottom: none;

@@ -8,7 +8,7 @@ import { withDefaultProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-slider`
+const classPrefix = `adm-slider`
 
 export type SliderValue = number | [number, number]
 

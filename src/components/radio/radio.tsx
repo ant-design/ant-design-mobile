@@ -6,7 +6,7 @@ import { RadioGroupContext } from './group-context'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-radio`
+const classPrefix = `adm-radio`
 
 export type RadioValue = string | number
 

@@ -8,7 +8,7 @@ import { convertPx } from '../../utils/convert-px'
 import selectorCheckMarkImg from '../../assets/selector-check-mark.svg'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-selector`
+const classPrefix = `adm-selector`
 
 export interface SelectorOption {
   label: string

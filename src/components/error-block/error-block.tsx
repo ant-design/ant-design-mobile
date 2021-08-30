@@ -4,7 +4,7 @@ import { errorConfigRecord } from './error'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { ElementProps } from '../../utils/element-props'
 
-const classPrefix = `am-error-block`
+const classPrefix = `adm-error-block`
 
 export type ErrorBlockProps = {
   status?: 'default' | 'disconnected' | 'empty' | 'busy'

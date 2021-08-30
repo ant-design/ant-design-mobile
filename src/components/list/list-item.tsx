@@ -3,7 +3,7 @@ import { ElementProps } from '../../utils/element-props'
 import { RightOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
 
-const classPrefix = `am-list`
+const classPrefix = `adm-list`
 
 export type ListItemProps = {
   title?: string | ReactNode
@@ -55,7 +55,7 @@ export const ListItem: FC<ListItemProps> = props => {
       className: classNames(
         `${classPrefix}-item`,
         props.className,
-        clickable ? ['am-plain-anchor'] : []
+        clickable ? ['adm-plain-anchor'] : []
       ),
       style: props.style,
       onClick: props.onClick,

@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
 
-const classPrefix = `am-step`
+const classPrefix = `adm-step`
 
 export interface StepProps {
   title?: React.ReactNode
@@ -20,13 +20,13 @@ export const Step: FC<StepProps> = props => {
         `${classPrefix}-status-${status}`
       )}
     >
-      <div className='am-step-indicator'>
+      <div className='adm-step-indicator'>
         <div className={`${classPrefix}-icon-container`}>{icon}</div>
       </div>
-      <div className='am-step-content'>
-        <div className='am-step-title'>{title}</div>
+      <div className='adm-step-content'>
+        <div className='adm-step-title'>{title}</div>
         {!!description && (
-          <div className='am-step-description'>{description}</div>
+          <div className='adm-step-description'>{description}</div>
         )}
       </div>
     </div>

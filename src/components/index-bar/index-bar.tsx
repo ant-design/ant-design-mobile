@@ -7,7 +7,7 @@ import { Sidebar } from './sidebar'
 import { IndexBarContext } from './context'
 import { convertPx } from '../../utils/convert-px'
 
-const classPrefix = `am-index-bar`
+const classPrefix = `adm-index-bar`
 
 export type IndexBarProps = {
   className?: string

@@ -6,7 +6,7 @@ import { CheckboxGroupContext } from './group-context'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-checkbox`
+const classPrefix = `adm-checkbox`
 
 export type CheckboxValue = string | number
 

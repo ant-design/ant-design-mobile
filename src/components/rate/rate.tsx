@@ -5,7 +5,7 @@ import { withDefaultProps } from '../../utils/with-default-props'
 import { StarFilled } from '@ant-design/icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-rate`
+const classPrefix = `adm-rate`
 
 export type RateProps = {
   allowClear?: boolean

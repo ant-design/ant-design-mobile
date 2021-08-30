@@ -90,7 +90,7 @@ export default () => {
           <div
             style={{
               margin: '32px auto',
-              background: 'var(--am-color-light)',
+              background: 'var(--adm-color-light)',
               height: 100,
               width: 100,
               display: 'flex',

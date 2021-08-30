@@ -121,7 +121,7 @@ export default () => {
                   <ExclamationCircleFilled
                     style={{
                       fontSize: 64,
-                      color: 'var(--am-color-warning)',
+                      color: 'var(--adm-color-warning)',
                     }}
                   />
                 ),

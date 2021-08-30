@@ -50,8 +50,8 @@ const CollapsePanelContent: FC<{
   }, [visible])
 
   return initialized ? (
-    <animated.div className='am-collapse-panel-content' style={style}>
-      <div className='am-collapse-panel-content-inner' ref={innerRef}>
+    <animated.div className='adm-collapse-panel-content' style={style}>
+      <div className='adm-collapse-panel-content-inner' ref={innerRef}>
         <List.Item>{props.children}</List.Item>
       </div>
     </animated.div>
@@ -112,7 +112,7 @@ export const Collapse: FC<CollapseProps> = props => {
 
   return (
     <div
-      className={classNames('am-collapse', props.className)}
+      className={classNames('adm-collapse', props.className)}
       style={props.style}
     >
       <List>
@@ -138,14 +138,14 @@ export const Collapse: FC<CollapseProps> = props => {
           return (
             <React.Fragment key={key}>
               <List.Item
-                className={classNames('am-collapse-panel-header', {
-                  'am-collapse-panel-header-disabled': panel.props.disabled,
+                className={classNames('adm-collapse-panel-header', {
+                  'adm-collapse-panel-header-disabled': panel.props.disabled,
                 })}
                 onClick={panel.props.disabled ? undefined : handleClick}
                 arrow={
                   <div
-                    className={classNames('am-collapse-arrow', {
-                      'am-collapse-arrow-active': active,
+                    className={classNames('adm-collapse-arrow', {
+                      'adm-collapse-arrow-active': active,
                     })}
                   >
                     <RightOutlined />

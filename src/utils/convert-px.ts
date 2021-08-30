@@ -1,5 +1,5 @@
 const tester = document.createElement('div')
-tester.className = 'am-one-px-tester'
+tester.className = 'adm-one-px-tester'
 document.body.appendChild(tester)
 
 export function convertPx(px: number) {

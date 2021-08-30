@@ -8,7 +8,7 @@ import {
   ExclamationCircleFilled,
 } from '@ant-design/icons'
 
-const classPrefix = `am-result`
+const classPrefix = `adm-result`
 
 const ICONS = {
   success: CheckCircleFilled,

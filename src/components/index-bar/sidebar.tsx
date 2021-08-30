@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import classNames from 'classnames'
 
-const classPrefix = `am-index-bar`
+const classPrefix = `adm-index-bar`
 
 type SidebarProps = {
   indexes: string[]

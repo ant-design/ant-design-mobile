@@ -5,7 +5,7 @@ import Loading from '../loading'
 import Mask from '../mask'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-toast`
+const classPrefix = `adm-toast`
 
 export interface ToastProps {
   /** Toast 完全关闭后的回调 */

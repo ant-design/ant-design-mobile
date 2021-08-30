@@ -5,7 +5,7 @@ import { ElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { convertPx } from '../../utils/convert-px'
 
-const classPrefix = `am-progress`
+const classPrefix = `adm-progress`
 
 export type ProgressCircleProps = {
   percent?: number

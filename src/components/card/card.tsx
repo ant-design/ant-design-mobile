@@ -3,7 +3,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 
-const classPrefix = `am-card`
+const classPrefix = `adm-card`
 
 export type CardProps = {
   title?: ReactNode

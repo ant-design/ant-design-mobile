@@ -34,7 +34,7 @@ export const Form: FC<FormProps> = p => {
 
   return (
     <RcForm
-      className={classNames('am-form', `am-form-${layout}`, className)}
+      className={classNames('adm-form', `adm-form-${layout}`, className)}
       style={style}
       {...formProps}
     >
@@ -53,7 +53,7 @@ export const Form: FC<FormProps> = p => {
           {children}
         </FormContext.Provider>
       </List>
-      {footer && <div className='am-form-footer'>{footer}</div>}
+      {footer && <div className='adm-form-footer'>{footer}</div>}
     </RcForm>
   )
 }

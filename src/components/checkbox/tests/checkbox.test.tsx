@@ -10,7 +10,7 @@ import {
 import Checkbox from '../'
 import { CheckboxGroupProps } from '../group'
 
-const classPrefix = `am-checkbox`
+const classPrefix = `adm-checkbox`
 
 it('passes a11y test', async () => {
   await testA11y(<Checkbox>label</Checkbox>)

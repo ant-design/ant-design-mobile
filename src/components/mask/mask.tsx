@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 
-const classPrefix = `am-mask`
+const classPrefix = `adm-mask`
 
 export type MaskProps = {
   visible?: boolean

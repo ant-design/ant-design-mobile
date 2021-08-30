@@ -5,7 +5,7 @@ import { useUpdateLayoutEffect } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
 import { ElementProps } from '../../utils/element-props'
 
-const classPrefix = `am-notice-bar`
+const classPrefix = `adm-notice-bar`
 
 export type NoticeBarProps = {
   /** 通告栏的类型 */
@@ -77,22 +77,22 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
   }, [key])
 
   return visible ? (
-    <div className={classNames(classPrefix, `am-notice-bar-${props.color}`)}>
-      <span className={`am-notice-bar-left`}>
+    <div className={classNames(classPrefix, `adm-notice-bar-${props.color}`)}>
+      <span className={`adm-notice-bar-left`}>
         {'icon' in props ? props.icon : <SoundOutlined />}
       </span>
-      <span ref={containerRef} className={`am-notice-bar-content`}>
+      <span ref={containerRef} className={`adm-notice-bar-content`}>
         <span
           onTransitionEnd={() => setKey(k => k + 1)}
           key={key}
           ref={textRef}
-          className={`am-notice-bar-content-inner`}
+          className={`adm-notice-bar-content-inner`}
         >
           {props.content}
         </span>
       </span>
       {(props.closeable || props.extra) && (
-        <span className={`am-notice-bar-right`}>
+        <span className={`adm-notice-bar-right`}>
           {props.extra}
           {props.closeable && (
             <CloseOutlined
