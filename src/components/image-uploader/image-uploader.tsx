@@ -45,7 +45,7 @@ export type ImageUploaderProps = {
   onAfterRead?: (files: FileItem[]) => void
 }
 
-const classPrefix = `am-uploader`
+const classPrefix = `adm-uploader`
 
 const defaultProps = {
   disabled: false,
@@ -192,7 +192,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     onPreview && onPreview(index)
   }
 
-  function deteleImage(index: number) {
+  function deleteImage(index: number) {
     if (!onDelete) {
       console.warn('Please add a delete method!')
     }
@@ -218,7 +218,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               key={index}
               deletable={deletable}
               previewImage={() => previewImage(index)}
-              deleteImage={() => deteleImage(index)}
+              deleteImage={() => deleteImage(index)}
             />
           )
         })}

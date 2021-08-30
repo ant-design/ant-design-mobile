@@ -1,6 +1,6 @@
-import React, {FC} from 'react'
-import {CloseOutlined, LoadingOutlined} from '@ant-design/icons'
-import {FileItem} from '.'
+import React, { FC } from 'react'
+import { CloseOutlined, LoadingOutlined } from '@ant-design/icons'
+import { FileItem } from '.'
 import classNames from 'classnames'
 
 type Props = {
@@ -8,10 +8,10 @@ type Props = {
   deleteImage: () => void
 } & FileItem
 
-const classPrefix = `am-uploader`
+const classPrefix = `adm-uploader`
 
 const PreviewItem: FC<Props> = props => {
-  const {status, url, content, deletable, previewImage, deleteImage} = props
+  const { status, url, content, deletable, previewImage, deleteImage } = props
 
   function renderLoading() {
     return (
@@ -32,7 +32,7 @@ const PreviewItem: FC<Props> = props => {
     return (
       deletable && (
         <span className={`${classPrefix}-card-delete`} onClick={deleteImage}>
-          <CloseOutlined style={{position: 'absolute', left: 4, top: 3}} />
+          <CloseOutlined style={{ position: 'absolute', left: 4, top: 3 }} />
         </span>
       )
     )
