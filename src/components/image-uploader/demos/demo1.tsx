@@ -1,8 +1,7 @@
-import React, {useState} from 'react'
-import {ImageUploader} from 'antd-mobile'
-import {DemoBlock} from 'antd-mobile/src/demos/demo-block'
-import {FileItem} from '..'
-import Toast from '../../toast'
+import React, { useState } from 'react'
+import { ImageUploader, Toast } from 'antd-mobile'
+import { DemoBlock, sleep } from 'demos'
+import { FileItem } from 'antd-mobile/src/components/image-uploader'
 
 export default () => {
   const [fileList, setFileList] = useState<FileItem[]>([
@@ -14,11 +13,6 @@ export default () => {
   const [fileList2, setFileList2] = useState<FileItem[]>([
     {
       url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      status: 'loading',
-    },
-    {
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      status: 'error',
     },
   ])
 
@@ -36,25 +30,40 @@ export default () => {
 
   function onDelete2(files: FileItem[], index: number) {
     setFileList2(files)
-    Toast.show({content: `亲，你删除了第 ${index} 张图片`})
+    Toast.show({ content: `亲，你删除了第 ${index} 张图片` })
   }
 
   return (
     <>
       <DemoBlock title='基础用法'>
         <ImageUploader
-          fileList={fileList}
+          value={fileList}
           onChange={onChange}
-          onDelete={onDelete}
+          upload={mockUpload}
         />
       </DemoBlock>
       <DemoBlock title='上传状态'>
         <ImageUploader
-          fileList={fileList2}
+          value={fileList2}
           onChange={onChange2}
-          onDelete={onDelete2}
+          upload={mockUploadFail}
         />
       </DemoBlock>
     </>
   )
+}
+
+async function mockUpload(file: File) {
+  await sleep(3000)
+  return {
+    url: URL.createObjectURL(file),
+  }
+}
+
+async function mockUploadFail() {
+  await sleep(3000)
+  throw new Error('Fail to upload')
+  return {
+    url: '',
+  }
 }

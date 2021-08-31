@@ -1,234 +1,211 @@
-import React, { FC } from 'react'
+import React, { FC, useLayoutEffect, useRef, useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
-import { isPromise } from '../../utils/validate'
 import { mergeProps } from '../../utils/with-default-props'
-import {
-  getOverCount,
-  isOversize,
-  PromiseOrNot,
-  readFileContent,
-  toArray,
-} from './util'
+import { PromiseOrNot } from './util'
 import ImageViewer from '../image-viewer'
 import PreviewItem from './preview-item'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePersistFn } from 'ahooks'
 
-type FileStatus = 'loading' | 'error' | 'success' | ''
+export type TaskStatus = 'pending' | 'fail'
 
 export interface FileItem {
-  url?: string
-  status?: FileStatus
-  file?: File
-  content?: string
-  deletable?: boolean
+  url: string
 }
 
-export type UploaderBeforeRead = (
-  file: File | File[]
-) => PromiseOrNot<File | File[] | undefined>
+type Task = {
+  id: number
+  url?: string
+  file: File
+  status: TaskStatus
+}
+
+export type UploadResult = {
+  url: string
+}
 
 export type ImageUploaderProps = {
-  fileList?: FileItem[]
+  defaultValue?: FileItem[]
+  value?: FileItem[]
+  onChange?: (fileList: FileItem[]) => void
+
   accept?: string
-  disabled?: boolean
-  resultType?: string
-  showUpload?: boolean // 是否展示文件上传按钮
-  deletable?: boolean // 是否展示删除按钮
+  disableUpload?: boolean
+  showUpload?: boolean
+  deletable?: boolean
   capture?: string
-  maxSize?: number
+  // maxSize?: number
   maxCount?: number
-  onChange?: (files: FileItem[]) => void
   onPreview?: (index: number) => void
-  onDelete?: (files: FileItem[], index: number) => void
-  onOversize?: (files: FileItem[]) => void // 超出文件大小之后的回调
-  onOverCount?: (overCount: number) => void // 超过最大数量的回调，参数是超过的个数
-  onBeforeRead?: UploaderBeforeRead
-  onAfterRead?: (files: FileItem[]) => void
+  // onDelete?: (files: FileItem[], index: number) => void
+  // onOversize?: (files: FileItem[]) => void
+  onOverCount?: (overCount: number) => void
+  onBeforeUpload?: (file: File[]) => PromiseOrNot<File[]>
+  // onAfterRead?: (files: FileItem[]) => void
+  upload: (file: File) => Promise<UploadResult>
 }
 
-const classPrefix = `adm-uploader`
+const classPrefix = `adm-image-uploader`
 
 const defaultProps = {
-  disabled: false,
+  disableUpload: false,
   deletable: true,
   showUpload: true,
   maxCount: Number.MAX_SAFE_INTEGER,
-  maxSize: Number.MAX_SAFE_INTEGER,
-  fileList: [] as FileItem[],
+  defaultValue: [] as FileItem[],
   capture: '',
-  resultType: 'dataUrl',
   accept: 'image/*',
 }
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const {
-    fileList,
-    maxCount,
-    maxSize,
-    deletable,
-    capture,
-    accept,
-    onOversize,
-    onPreview,
-    onDelete,
-  } = props
+  const [value, setValue] = useNewControllableValue(props)
+  const fileList = useState()
+  const updateValue = usePersistFn(
+    (updater: (prev: FileItem[]) => FileItem[]) => {
+      setValue(updater(value))
+    }
+  )
 
-  function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    let { files } = e.target
+  const [tasks, setTasks] = useState<Task[]>([])
 
-    if (!files?.length) return
+  useLayoutEffect(() => {
+    setTasks(prev =>
+      prev.filter(task => {
+        if (task.url === undefined) return true
+        return !value.some(fileItem => fileItem.url === task.url)
+      })
+    )
+  }, [value])
 
-    const file =
-      files.length === 1 ? files[0] : ([].slice.call(files) as File[])
+  // const getKey = useCreation(() => {
+  //   let count = 0
+  //   const keyMap = new WeakMap<FileItem, number>()
+  //   return function (fileItem: FileItem) {
+  //     let key = keyMap.get(fileItem)
+  //     if (key === undefined) {
+  //       key = count
+  //       count++
+  //       keyMap.set(fileItem, key)
+  //     }
+  //     return key
+  //   }
+  // }, [])
+  const idCountRef = useRef(0)
 
-    if (props.onBeforeRead) {
-      const result = props.onBeforeRead(file)
+  const { maxCount, onPreview } = props
 
-      if (!result) return
+  async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
+    let { files: rawFiles } = e.target
+    if (!rawFiles) return
+    let files = [].slice.call(rawFiles) as File[]
 
-      if (isPromise(result)) {
-        result
-          .then(data => {
-            if (data) {
-              readFile(data)
-            } else {
-              readFile(file)
-            }
+    if (props.onBeforeUpload) {
+      files = await props.onBeforeUpload(files)
+    }
+
+    if (files.length === 0) {
+      return
+    }
+
+    // const overCount = getOverCount(maxCount!, fileList!, files)
+    //
+    // if (overCount > 0) {
+    //   props.onOverCount && props.onOverCount(overCount)
+    //   return
+    // }
+
+    const newTasks = files.map(
+      file =>
+        ({
+          id: idCountRef.current++,
+          status: 'pending',
+          file,
+        } as Task)
+    )
+
+    setTasks(prev => [...prev, ...newTasks])
+
+    await Promise.all(
+      newTasks.map(async currentTask => {
+        try {
+          const result = await props.upload(currentTask.file)
+          setTasks(prev => {
+            return prev.map(task => {
+              if (task.id === currentTask.id) {
+                return {
+                  ...task,
+                  url: result.url,
+                }
+              }
+              return task
+            })
           })
-          .catch(console.log) // TODO
-        return
-      }
-    }
-
-    readFile(file)
-  }
-
-  function readFile(files: File | File[]) {
-    const { maxCount, fileList, resultType } = props
-
-    if (Array.isArray(files)) {
-      const overCount = getOverCount(maxCount!, fileList!, files)
-
-      if (overCount > 0) {
-        props.onOverCount && props.onOverCount(overCount)
-        return
-      }
-
-      Promise.all(
-        files.map(file => readFileContent(file, resultType as any))
-      ).then((contents: any) => {
-        const newFileList = files.map((file, index) => {
-          const result: FileItem = { file, status: '', content: '' }
-
-          if (contents[index]) {
-            result.content = contents[index]
-          }
-
-          return result
-        })
-
-        onAfterRead(newFileList, isOversize(newFileList, maxSize!))
-      })
-    } else {
-      readFileContent(files, resultType as any).then(content => {
-        const result: FileItem = {
-          file: files as File,
-          status: '',
+          updateValue(prev => [
+            ...prev,
+            {
+              url: result.url,
+            },
+          ])
+        } catch (e) {
+          setTasks(prev => {
+            return prev.map(task => {
+              if (task.id === currentTask.id) {
+                return {
+                  ...task,
+                  status: 'fail',
+                }
+              }
+              return task
+            })
+          })
+          throw e
         }
-
-        if (content) {
-          result.content = content
-        }
-
-        onAfterRead(result, isOversize(result, maxSize!))
       })
-    }
-  }
+    )
 
-  function onAfterRead(files: FileItem | FileItem[], oversize: boolean) {
-    let validFiles = toArray(files)
-
-    if (oversize) {
-      let oversizeFiles = toArray(files)
-      if (Array.isArray(files)) {
-        oversizeFiles = []
-        validFiles = []
-        files.forEach(item => {
-          if (item.file) {
-            if (item.file.size > maxSize!) {
-              oversizeFiles.push(item)
-            } else {
-              validFiles.push(item)
-            }
-          }
-        })
-      } else {
-        validFiles = []
-      }
-
-      onOversize && onOversize(oversizeFiles)
-    }
-
-    const isValidFiles = Array.isArray(validFiles)
-      ? Boolean(validFiles.length)
-      : Boolean(validFiles)
-
-    if (isValidFiles) {
-      if (props.onChange) {
-        props.onChange([...fileList, ...toArray(validFiles)])
-      }
-
-      if (props.onAfterRead) {
-        props.onAfterRead([...fileList, ...toArray(validFiles)])
-      }
-    }
+    // const fileItems = files.map((file, index) => {
+    //   const result: FileItem = { file, status: 'pending' }
+    //   return result
+    // })
+    // onAfterRead(fileItems, isOversize(fileItems, maxSize))
   }
 
   function previewImage(index: number) {
     ImageViewer.Multi.show({
-      images: fileList.map(file => file.content! || file.url!),
+      images: value.map(fileItem => fileItem.url),
       defaultIndex: index,
     })
     onPreview && onPreview(index)
   }
 
-  function deleteImage(index: number) {
-    if (!onDelete) {
-      console.warn('Please add a delete method!')
-    }
+  const showUpload = props.showUpload && maxCount && fileList.length < maxCount
 
-    const newFileList = fileList.reduce((total, item, i) => {
-      if (index !== i) {
-        return [...total, item]
-      }
-
-      return total
-    }, [])
-
-    onDelete && onDelete(newFileList, index)
-  }
-
-  function renderPreviewList() {
-    return (
-      <>
-        {fileList.map((file, index) => {
-          return (
-            <PreviewItem
-              {...file}
-              key={index}
-              deletable={deletable}
-              previewImage={() => previewImage(index)}
-              deleteImage={() => deleteImage(index)}
-            />
-          )
-        })}
-      </>
-    )
-  }
-
-  function renderUpload() {
-    return (
-      showUpload && (
+  return (
+    <div className={`${classPrefix}-container`}>
+      {value.map((fileItem, index) => (
+        <PreviewItem
+          key={fileItem.url}
+          url={fileItem.url}
+          deletable={props.deletable}
+          onClick={() => previewImage(index)}
+          onDelete={() => {
+            setValue(value.filter(x => x.url !== fileItem.url))
+          }}
+        />
+      ))}
+      {tasks.map(task => (
+        <PreviewItem
+          key={task.id}
+          file={task.file}
+          deletable={task.status !== 'pending'}
+          status={task.status}
+          onDelete={() => {
+            setValue(value.filter(x => x.url !== task.url))
+          }}
+        />
+      ))}
+      {showUpload && (
         <span
           className={`${classPrefix}-card ${classPrefix}-select-picture`}
           role='button'
@@ -236,28 +213,17 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           <span className={'addition'}>
             <PlusOutlined />
           </span>
-          {!props.disabled && (
+          {!props.disableUpload && (
             <input
-              capture={capture}
-              accept={accept}
+              capture={props.capture}
+              accept={props.accept}
               type='file'
               className={'file-input'}
               onChange={onChange}
             />
           )}
         </span>
-      )
-    )
-  }
-
-  const showUpload = props.showUpload && maxCount && fileList.length < maxCount
-
-  return (
-    <div className={`${classPrefix}-container`}>
-      {renderPreviewList()}
-      {renderUpload()}
+      )}
     </div>
   )
 }
-
-function devLog(content: string) {}
