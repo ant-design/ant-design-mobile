@@ -25,8 +25,10 @@ export type ImageUploaderProps = {
   defaultValue?: FileItem[]
   value?: FileItem[]
   onChange?: (fileList: FileItem[]) => void
-
   accept?: string
+  multiple?: boolean
+  maxCount?: number
+  onCountExceed?: (exceed: number) => void
   disableUpload?: boolean
   showUpload?: boolean
   deletable?: boolean
@@ -42,7 +44,8 @@ const defaultProps = {
   disableUpload: false,
   deletable: true,
   showUpload: true,
-  maxCount: Number.MAX_SAFE_INTEGER,
+  multiple: false,
+  maxCount: 0,
   defaultValue: [] as FileItem[],
   capture: '',
   accept: 'image/*',
@@ -51,7 +54,6 @@ const defaultProps = {
 export const ImageUploader: FC<ImageUploaderProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = useNewControllableValue(props)
-  const fileList = useState()
   const updateValue = usePersistFn(
     (updater: (prev: FileItem[]) => FileItem[]) => {
       setValue(updater(value))
@@ -84,6 +86,12 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
     if (files.length === 0) {
       return
+    }
+
+    const exceed = value.length + files.length - maxCount
+    if (exceed > 0) {
+      files = files.slice(0, maxCount - exceed)
+      props.onCountExceed?.(exceed)
     }
 
     const newTasks = files.map(
@@ -144,7 +152,9 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     onPreview && onPreview(index)
   }
 
-  const showUpload = props.showUpload && maxCount && fileList.length < maxCount
+  const showUpload =
+    props.showUpload &&
+    (maxCount === 0 || value.length + tasks.length < maxCount)
 
   return (
     <div className={classPrefix}>
@@ -183,6 +193,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               <input
                 capture={props.capture}
                 accept={props.accept}
+                multiple={props.multiple}
                 type='file'
                 className={`${classPrefix}-input`}
                 onChange={onChange}
