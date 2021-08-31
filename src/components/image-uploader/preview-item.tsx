@@ -46,7 +46,7 @@ const PreviewItem: FC<Props> = props => {
     return (
       deletable && (
         <span className={`${classPrefix}-cell-delete`} onClick={onDelete}>
-          <CloseOutlined style={{ position: 'absolute', left: 4, top: 3 }} />
+          <CloseOutlined />
         </span>
       )
     )
@@ -56,12 +56,11 @@ const PreviewItem: FC<Props> = props => {
     <div
       className={classNames(
         `${classPrefix}-cell`,
-        props.status === 'fail' && `${classPrefix}-cell-error`
+        props.status === 'fail' && `${classPrefix}-cell-fail`
       )}
     >
       <Image
-        // TODO: 改用 CSS 变量实现
-        className={`${classPrefix}-cell-preview-image`}
+        className={`${classPrefix}-cell-image`}
         src={src}
         onClick={props.onClick}
       />

@@ -1,53 +1,51 @@
-import React, { useState } from 'react'
-import { ImageUploader, Toast } from 'antd-mobile'
-import { DemoBlock, sleep } from 'demos'
+import React, { FC, useState } from 'react'
+import { ImageUploader, Space, Toast } from 'antd-mobile'
+import { DemoBlock, DemoDescription, sleep } from 'demos'
 import { FileItem } from 'antd-mobile/src/components/image-uploader'
 
-export default () => {
+const Basic: FC = () => {
   const [fileList, setFileList] = useState<FileItem[]>([
     {
       url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     },
   ])
 
-  const [fileList2, setFileList2] = useState<FileItem[]>([
+  return (
+    <ImageUploader
+      value={fileList}
+      onChange={setFileList}
+      upload={mockUpload}
+    />
+  )
+}
+
+const UploadStatus: FC = () => {
+  const [fileList, setFileList] = useState<FileItem[]>([
     {
       url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     },
   ])
 
-  function onChange(files: FileItem[]) {
-    setFileList(files)
-  }
+  return (
+    <ImageUploader
+      value={fileList}
+      onChange={setFileList}
+      upload={mockUploadFail}
+    />
+  )
+}
 
-  function onDelete(files: FileItem[]) {
-    setFileList(files)
-  }
-
-  function onChange2(files: FileItem[]) {
-    setFileList2(files)
-  }
-
-  function onDelete2(files: FileItem[], index: number) {
-    setFileList2(files)
-    Toast.show({ content: `亲，你删除了第 ${index} 张图片` })
-  }
-
+export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <ImageUploader
-          value={fileList}
-          onChange={onChange}
-          upload={mockUpload}
-        />
+        <Basic />
       </DemoBlock>
       <DemoBlock title='上传状态'>
-        <ImageUploader
-          value={fileList2}
-          onChange={onChange2}
-          upload={mockUploadFail}
-        />
+        <Space direction='vertical'>
+          <UploadStatus />
+          <DemoDescription content='尝试上传几张图片，可以看到上传中和失败的效果' />
+        </Space>
       </DemoBlock>
     </>
   )

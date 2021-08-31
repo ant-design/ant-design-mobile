@@ -173,10 +173,10 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         ))}
         {showUpload && (
           <span
-            className={`${classPrefix}-cell ${classPrefix}-select-picture`}
+            className={`${classPrefix}-cell ${classPrefix}-upload-button`}
             role='button'
           >
-            <span className={'addition'}>
+            <span className={`${classPrefix}-upload-button-icon`}>
               <PlusOutlined />
             </span>
             {!props.disableUpload && (
@@ -184,7 +184,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
                 capture={props.capture}
                 accept={props.accept}
                 type='file'
-                className={'file-input'}
+                className={`${classPrefix}-input`}
                 onChange={onChange}
               />
             )}
