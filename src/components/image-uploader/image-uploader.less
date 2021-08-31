@@ -1,20 +1,9 @@
-@class-prefix-uploader: ~'adm-image-uploader';
-
-@uploader-width: 80px;
-@uploader-height: 80px;
-@uploader-space: 12px;
-
-.@{class-prefix-uploader} {
-  &-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  &-card {
+.adm-image-uploader {
+  --cell-size: 80px;
+  &-cell {
     position: relative;
-    width: @uploader-width;
-    height: @uploader-height;
-    margin-right: @uploader-space;
-    margin-bottom: @uploader-space;
+    width: var(--cell-size);
+    height: var(--cell-size);
     border-radius: 4px;
     overflow: hidden;
 
@@ -61,8 +50,8 @@
     }
 
     &-preview-image {
-      width: @uploader-width;
-      height: @uploader-height;
+      width: var(--cell-size);
+      height: var(--cell-size);
     }
   }
 
@@ -70,10 +59,11 @@
     position: relative;
     background-color: #f5f5f5;
     text-align: center;
-    line-height: @uploader-height;
+    line-height: var(--cell-size);
+    display: block;
 
     .addition {
-      color: #999;
+      color: #999999;
       font-size: 32px;
     }
 
@@ -82,8 +72,8 @@
       opacity: 0;
       left: 0;
       top: 0;
-      width: @uploader-width;
-      height: @uploader-height;
+      width: var(--cell-size);
+      height: var(--cell-size);
       border-radius: 4px;
     }
   }

@@ -1,11 +1,12 @@
 import React, { FC, useLayoutEffect, useRef, useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 import { mergeProps } from '../../utils/with-default-props'
-import { PromiseOrNot } from './util'
 import ImageViewer from '../image-viewer'
 import PreviewItem from './preview-item'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { usePersistFn } from 'ahooks'
+import Space from '../space'
+import { convertPx } from '../../utils/convert-px'
 
 export type TaskStatus = 'pending' | 'fail'
 
@@ -20,10 +21,6 @@ type Task = {
   status: TaskStatus
 }
 
-export type UploadResult = {
-  url: string
-}
-
 export type ImageUploaderProps = {
   defaultValue?: FileItem[]
   value?: FileItem[]
@@ -34,15 +31,9 @@ export type ImageUploaderProps = {
   showUpload?: boolean
   deletable?: boolean
   capture?: string
-  // maxSize?: number
-  maxCount?: number
   onPreview?: (index: number) => void
-  // onDelete?: (files: FileItem[], index: number) => void
-  // onOversize?: (files: FileItem[]) => void
-  onOverCount?: (overCount: number) => void
-  onBeforeUpload?: (file: File[]) => PromiseOrNot<File[]>
-  // onAfterRead?: (files: FileItem[]) => void
-  upload: (file: File) => Promise<UploadResult>
+  beforeUpload?: (file: File[]) => Promise<File[]> | File[]
+  upload: (file: File) => Promise<FileItem>
 }
 
 const classPrefix = `adm-image-uploader`
@@ -78,42 +69,22 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     )
   }, [value])
 
-  // const getKey = useCreation(() => {
-  //   let count = 0
-  //   const keyMap = new WeakMap<FileItem, number>()
-  //   return function (fileItem: FileItem) {
-  //     let key = keyMap.get(fileItem)
-  //     if (key === undefined) {
-  //       key = count
-  //       count++
-  //       keyMap.set(fileItem, key)
-  //     }
-  //     return key
-  //   }
-  // }, [])
   const idCountRef = useRef(0)
 
   const { maxCount, onPreview } = props
 
   async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
-    let { files: rawFiles } = e.target
+    const { files: rawFiles } = e.target
     if (!rawFiles) return
     let files = [].slice.call(rawFiles) as File[]
 
-    if (props.onBeforeUpload) {
-      files = await props.onBeforeUpload(files)
+    if (props.beforeUpload) {
+      files = await props.beforeUpload(files)
     }
 
     if (files.length === 0) {
       return
     }
-
-    // const overCount = getOverCount(maxCount!, fileList!, files)
-    //
-    // if (overCount > 0) {
-    //   props.onOverCount && props.onOverCount(overCount)
-    //   return
-    // }
 
     const newTasks = files.map(
       file =>
@@ -163,12 +134,6 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         }
       })
     )
-
-    // const fileItems = files.map((file, index) => {
-    //   const result: FileItem = { file, status: 'pending' }
-    //   return result
-    // })
-    // onAfterRead(fileItems, isOversize(fileItems, maxSize))
   }
 
   function previewImage(index: number) {
@@ -182,48 +147,50 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   const showUpload = props.showUpload && maxCount && fileList.length < maxCount
 
   return (
-    <div className={`${classPrefix}-container`}>
-      {value.map((fileItem, index) => (
-        <PreviewItem
-          key={fileItem.url}
-          url={fileItem.url}
-          deletable={props.deletable}
-          onClick={() => previewImage(index)}
-          onDelete={() => {
-            setValue(value.filter(x => x.url !== fileItem.url))
-          }}
-        />
-      ))}
-      {tasks.map(task => (
-        <PreviewItem
-          key={task.id}
-          file={task.file}
-          deletable={task.status !== 'pending'}
-          status={task.status}
-          onDelete={() => {
-            setValue(value.filter(x => x.url !== task.url))
-          }}
-        />
-      ))}
-      {showUpload && (
-        <span
-          className={`${classPrefix}-card ${classPrefix}-select-picture`}
-          role='button'
-        >
-          <span className={'addition'}>
-            <PlusOutlined />
+    <div className={classPrefix}>
+      <Space size={convertPx(12)} wrap>
+        {value.map((fileItem, index) => (
+          <PreviewItem
+            key={fileItem.url}
+            url={fileItem.url}
+            deletable={props.deletable}
+            onClick={() => previewImage(index)}
+            onDelete={() => {
+              setValue(value.filter(x => x.url !== fileItem.url))
+            }}
+          />
+        ))}
+        {tasks.map(task => (
+          <PreviewItem
+            key={task.id}
+            file={task.file}
+            deletable={task.status !== 'pending'}
+            status={task.status}
+            onDelete={() => {
+              setValue(value.filter(x => x.url !== task.url))
+            }}
+          />
+        ))}
+        {showUpload && (
+          <span
+            className={`${classPrefix}-cell ${classPrefix}-select-picture`}
+            role='button'
+          >
+            <span className={'addition'}>
+              <PlusOutlined />
+            </span>
+            {!props.disableUpload && (
+              <input
+                capture={props.capture}
+                accept={props.accept}
+                type='file'
+                className={'file-input'}
+                onChange={onChange}
+              />
+            )}
           </span>
-          {!props.disableUpload && (
-            <input
-              capture={props.capture}
-              accept={props.accept}
-              type='file'
-              className={'file-input'}
-              onChange={onChange}
-            />
-          )}
-        </span>
-      )}
+        )}
+      </Space>
     </div>
   )
 }

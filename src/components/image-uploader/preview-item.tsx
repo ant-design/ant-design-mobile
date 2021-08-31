@@ -30,10 +30,10 @@ const PreviewItem: FC<Props> = props => {
   function renderLoading() {
     return (
       props.status === 'pending' && (
-        <div className={`${classPrefix}-card-mask`}>
-          <span className={`${classPrefix}-card-loading`}>
+        <div className={`${classPrefix}-cell-mask`}>
+          <span className={`${classPrefix}-cell-loading`}>
             <LoadingOutlined />
-            <span className={`${classPrefix}-card-mask-message`}>
+            <span className={`${classPrefix}-cell-mask-message`}>
               上传中...
             </span>
           </span>
@@ -45,7 +45,7 @@ const PreviewItem: FC<Props> = props => {
   function renderDelete() {
     return (
       deletable && (
-        <span className={`${classPrefix}-card-delete`} onClick={onDelete}>
+        <span className={`${classPrefix}-cell-delete`} onClick={onDelete}>
           <CloseOutlined style={{ position: 'absolute', left: 4, top: 3 }} />
         </span>
       )
@@ -55,13 +55,13 @@ const PreviewItem: FC<Props> = props => {
   return (
     <div
       className={classNames(
-        `${classPrefix}-card`,
-        props.status === 'fail' && `${classPrefix}-card-error`
+        `${classPrefix}-cell`,
+        props.status === 'fail' && `${classPrefix}-cell-error`
       )}
     >
       <Image
         // TODO: 改用 CSS 变量实现
-        className={`${classPrefix}-card-preview-image`}
+        className={`${classPrefix}-cell-preview-image`}
         src={src}
         onClick={props.onClick}
       />
