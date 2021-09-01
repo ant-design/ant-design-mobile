@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react'
+import React, { FC, useRef, useState } from 'react'
 import { ElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
@@ -38,8 +38,10 @@ export const Swiper: FC<SwiperProps> = p => {
     return track.offsetWidth
   }
 
+  const [index, setIndex] = useState(props.defaultIndex)
+
   const [{ x }, api] = useSpring(() => ({
-    x: 0,
+    x: bound(index, 0, count - 1) * -100,
     config: { tension: 200, friction: 30 },
   }))
 
@@ -54,6 +56,8 @@ export const Swiper: FC<SwiperProps> = p => {
           0,
           count - 1
         )
+        setIndex(index)
+        props.onIndexChange?.(index)
         api.start({
           x: index * -100,
         })
@@ -88,7 +92,11 @@ export const Swiper: FC<SwiperProps> = p => {
       className={classNames('adm-swiper', props.className)}
       style={props.style}
     >
-      <div className='adm-swiper-track' ref={trackRef} {...bind()}>
+      <div
+        className='adm-swiper-track'
+        ref={trackRef}
+        {...(props.allowTouchMove ? bind() : {})}
+      >
         <animated.div
           className='adm-swiper-track-inner'
           style={{ x: x.to(x => `${x}%`) }}
@@ -111,7 +119,7 @@ export const Swiper: FC<SwiperProps> = p => {
         </animated.div>
       </div>
       <div className='adm-swiper-indicator'>
-        <PageIndicator total={count} current={0} />
+        <PageIndicator total={count} current={index} />
       </div>
     </div>
   )
