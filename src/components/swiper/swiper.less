@@ -1,0 +1,36 @@
+.adm-swiper {
+  --height: auto;
+  --width: 100%;
+  display: block;
+  width: var(--width);
+  height: var(--height);
+  position: relative;
+  overflow: hidden;
+  &-track {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: grab;
+  }
+  &-indicator {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.adm-swiper-slide {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  white-space: unset;
+}
+
+.adm-swiper-item {
+  display: block;
+  width: 100%;
+  height: auto;
+}

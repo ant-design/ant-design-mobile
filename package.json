@@ -23,6 +23,7 @@
     "rc-tooltip": "^5.1.1",
     "react-transition-group": "^4.4.2",
     "react-use-gesture": "^9.1.3",
+    "staged-components": "^1.1.1",
     "use-async-memo": "^1.2.3"
   },
   "devDependencies": {
