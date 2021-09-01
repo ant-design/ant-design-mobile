@@ -60,9 +60,22 @@ export const Swiper: FC<SwiperProps> = staged(p => {
       props.onIndexChange?.(i)
     }
 
+    const draggingRef = useRef(false)
+
     const [{ x }, api] = useSpring(() => ({
       x: bound(current, 0, count - 1) * -100,
       config: { tension: 200, friction: 30 },
+      onRest: () => {
+        if (draggingRef.current) return
+        const rawX = x.get()
+        const totalWidth = 100 * count
+        const standardX = modulus(rawX, totalWidth)
+        if (standardX === rawX) return
+        api.start({
+          x: standardX,
+          immediate: true,
+        })
+      },
     }))
 
     const bind = useDrag(
@@ -70,30 +83,20 @@ export const Swiper: FC<SwiperProps> = staged(p => {
         const width = getWidth()
         if (!width) return
         let [mx] = state.movement
-        const totalWidth = width * count
         if (state.last) {
-          console.log(mx)
-          let index = 0
-          if (loop) {
-            index = modulus(
-              Math.round(modulus(mx + state.vxvy[0] * 100, totalWidth) / width),
-              count
-            )
-          } else {
-            index = bound(
-              Math.round((mx + state.vxvy[0] * 100) / width),
-              0,
-              count - 1
-            )
+          draggingRef.current = false
+          let index = Math.round((mx + state.vxvy[0] * 100) / width)
+          if (!loop) {
+            index = bound(index, 0, count - 1)
           }
           updateCurrent(index)
-
           api.start({
             x: index * 100,
           })
         } else {
+          draggingRef.current = true
           api.start({
-            x: ((loop ? modulus(mx, totalWidth) : mx) * 100) / width,
+            x: (mx * 100) / width,
             immediate: true,
           })
         }
@@ -112,7 +115,7 @@ export const Swiper: FC<SwiperProps> = staged(p => {
             left: (count - 1) * -width,
           }
         },
-        rubberband: !loop,
+        rubberband: true,
         axis: 'x',
         experimental_preventWindowScrollY: true,
       }
@@ -128,41 +131,36 @@ export const Swiper: FC<SwiperProps> = staged(p => {
           ref={trackRef}
           {...(props.allowTouchMove ? bind() : {})}
         >
-          <animated.div
-            className='adm-swiper-track-inner'
-            // style={{ x: x.to(x => `${x}%`) }}
-          >
-            {React.Children.map(props.children, (child, index) => {
-              if (!React.isValidElement(child)) return null
-              if (child.type !== SwiperItem) {
-                devWarning(
-                  'Swiper',
-                  'The children of `Swiper` must be `Swiper.Item` components.'
-                )
-                return null
-              }
-              return (
-                <animated.div
-                  className='adm-swiper-slide'
-                  style={{
-                    x: x.to(x => {
-                      let position = -x + index * 100
-                      if (loop) {
-                        const totalWidth = count * 100
-                        position =
-                          modulus(position + totalWidth / 2, totalWidth) -
-                          totalWidth / 2
-                      }
-                      return `${position}%`
-                    }),
-                    left: `-${index * 100}%`,
-                  }}
-                >
-                  {child}
-                </animated.div>
+          {React.Children.map(props.children, (child, index) => {
+            if (!React.isValidElement(child)) return null
+            if (child.type !== SwiperItem) {
+              devWarning(
+                'Swiper',
+                'The children of `Swiper` must be `Swiper.Item` components.'
               )
-            })}
-          </animated.div>
+              return null
+            }
+            return (
+              <animated.div
+                className='adm-swiper-slide'
+                style={{
+                  x: x.to(x => {
+                    let position = -x + index * 100
+                    if (loop) {
+                      const totalWidth = count * 100
+                      position =
+                        modulus(position + totalWidth / 2, totalWidth) -
+                        totalWidth / 2
+                    }
+                    return `${position}%`
+                  }),
+                  left: `-${index * 100}%`,
+                }}
+              >
+                {child}
+              </animated.div>
+            )
+          })}
         </div>
         <div className='adm-swiper-indicator'>
           <PageIndicator total={count} current={current} />
