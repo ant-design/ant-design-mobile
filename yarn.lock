@@ -3529,6 +3529,7 @@ __metadata:
     react-test-renderer: ^17.0.2
     react-transition-group: ^4.4.2
     react-use-gesture: ^9.1.3
+    staged-components: ^1.1.1
     style-loader: ^3.2.1
     through2: ^4.0.2
     ts-jest: 26.5.6
@@ -13577,6 +13578,15 @@ resolve@^2.0.0-next.3:
   version: 1.2.0
   resolution: "stackframe@npm:1.2.0"
   checksum: 71e2868a529123e9ca1cf510192a7de879b8d92b5829c7f58d5576e1500cbedf22b5d9cc86589c547b6842abcf01cea13979ab8301b51e85bdb6267a6f9288f2
+  languageName: node
+  linkType: hard
+
+"staged-components@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "staged-components@npm:1.1.1"
+  peerDependencies:
+    react: ^16.8.0
+  checksum: 9394c1eab9bfce91ea546bd34211859568b20edeb7dde4c72520b43b63d2d4f94b3aa7f32b1bf798e051060702318bb8b8e31ac6ba9c7f76f47cdaed1870d476
   languageName: node
   linkType: hard
 
