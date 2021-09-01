@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
+import React, { FC, useEffect, useMemo, useRef, useState } from 'react'
 import { ElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
@@ -30,7 +30,25 @@ const defaultProps = {
 export const Swiper: FC<SwiperProps> = staged(p => {
   const props = mergeProps(defaultProps, p)
 
-  const count = React.Children.count(props.children)
+  const { validChildren, count } = useMemo(() => {
+    let count = 0
+    const validChildren = React.Children.map(props.children, child => {
+      if (!React.isValidElement(child)) return null
+      if (child.type !== SwiperItem) {
+        devWarning(
+          'Swiper',
+          'The children of `Swiper` must be `Swiper.Item` components.'
+        )
+        return null
+      }
+      count++
+      return child
+    })
+    return {
+      validChildren,
+      count,
+    }
+  }, [props.children])
 
   if (count === 0) {
     devWarning('Swiper', '`Swiper` needs at least one child.')
@@ -152,15 +170,7 @@ export const Swiper: FC<SwiperProps> = staged(p => {
           ref={trackRef}
           {...(props.allowTouchMove ? bind() : {})}
         >
-          {React.Children.map(props.children, (child, index) => {
-            if (!React.isValidElement(child)) return null
-            if (child.type !== SwiperItem) {
-              devWarning(
-                'Swiper',
-                'The children of `Swiper` must be `Swiper.Item` components.'
-              )
-              return null
-            }
+          {React.Children.map(validChildren, (child, index) => {
             return (
               <animated.div
                 className='adm-swiper-slide'
