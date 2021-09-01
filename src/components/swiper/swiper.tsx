@@ -111,10 +111,10 @@ export const Swiper = forwardRef(
         state => {
           const width = getWidth()
           if (!width) return
-          let [mx] = state.movement
+          const [mx] = state.movement
           if (state.last) {
             draggingRef.current = false
-            let index = Math.round((mx + state.vxvy[0] * 100) / width)
+            const index = Math.round((mx + state.vxvy[0] * 100) / width)
             swipeTo(index)
           } else {
             draggingRef.current = true
