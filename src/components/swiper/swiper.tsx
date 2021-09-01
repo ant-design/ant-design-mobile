@@ -79,7 +79,6 @@ export const Swiper: FC<SwiperProps> = staged(p => {
       x: bound(current, 0, count - 1) * -100,
       config: { tension: 200, friction: 30 },
       onRest: () => {
-        console.log('rest')
         if (draggingRef.current) return
         const rawX = x.get()
         const totalWidth = 100 * count
@@ -122,8 +121,8 @@ export const Swiper: FC<SwiperProps> = staged(p => {
           if (loop) return {}
           const width = getWidth()
           return {
-            right: 0,
-            left: (count - 1) * -width,
+            left: 0,
+            right: (count - 1) * width,
           }
         },
         rubberband: true,
