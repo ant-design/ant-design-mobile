@@ -38,10 +38,10 @@ export const Swiper: FC<SwiperProps> = p => {
     return track.offsetWidth
   }
 
-  const [index, setIndex] = useState(props.defaultIndex)
+  const [current, setCurrent] = useState(props.defaultIndex)
 
   const [{ x }, api] = useSpring(() => ({
-    x: bound(index, 0, count - 1) * -100,
+    x: bound(current, 0, count - 1) * -100,
     config: { tension: 200, friction: 30 },
   }))
 
@@ -53,10 +53,10 @@ export const Swiper: FC<SwiperProps> = p => {
       if (state.last) {
         const index = bound(
           -Math.round((mx + state.vxvy[0] * 100) / width),
-          0,
-          count - 1
+          current - 1,
+          current + 1
         )
-        setIndex(index)
+        setCurrent(index)
         props.onIndexChange?.(index)
         api.start({
           x: index * -100,
@@ -119,7 +119,7 @@ export const Swiper: FC<SwiperProps> = p => {
         </animated.div>
       </div>
       <div className='adm-swiper-indicator'>
-        <PageIndicator total={count} current={index} />
+        <PageIndicator total={count} current={current} />
       </div>
     </div>
   )
