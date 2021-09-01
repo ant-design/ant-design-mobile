@@ -54,6 +54,11 @@ export const Swiper: FC<SwiperProps> = staged(p => {
     }
 
     const [current, setCurrent] = useState(props.defaultIndex)
+    function updateCurrent(index: number) {
+      const i = modulus(index, count)
+      setCurrent(i)
+      props.onIndexChange?.(i)
+    }
 
     const [{ x }, api] = useSpring(() => ({
       x: bound(current, 0, count - 1) * -100,
@@ -64,26 +69,37 @@ export const Swiper: FC<SwiperProps> = staged(p => {
       state => {
         const width = getWidth()
         if (!width) return
-        const [mx] = state.movement
+        let [mx] = state.movement
+        const totalWidth = width * count
         if (state.last) {
-          const index = bound(
-            -Math.round((mx + state.vxvy[0] * 100) / width),
-            current - 1,
-            current + 1
-          )
-          setCurrent(index)
-          props.onIndexChange?.(index)
+          console.log(mx)
+          let index = 0
+          if (loop) {
+            index = modulus(
+              Math.round(modulus(mx + state.vxvy[0] * 100, totalWidth) / width),
+              count
+            )
+          } else {
+            index = bound(
+              Math.round((mx + state.vxvy[0] * 100) / width),
+              0,
+              count - 1
+            )
+          }
+          updateCurrent(index)
+
           api.start({
-            x: index * -100,
+            x: index * 100,
           })
         } else {
           api.start({
-            x: (mx * 100) / width,
+            x: ((loop ? modulus(mx, totalWidth) : mx) * 100) / width,
             immediate: true,
           })
         }
       },
       {
+        transform: ([x, y]) => [-x, y],
         initial: () => {
           const width = getWidth()
           return [(x.get() / 100) * width, 0]
@@ -114,9 +130,9 @@ export const Swiper: FC<SwiperProps> = staged(p => {
         >
           <animated.div
             className='adm-swiper-track-inner'
-            style={{ x: x.to(x => `${x}%`) }}
+            // style={{ x: x.to(x => `${x}%`) }}
           >
-            {React.Children.map(props.children, child => {
+            {React.Children.map(props.children, (child, index) => {
               if (!React.isValidElement(child)) return null
               if (child.type !== SwiperItem) {
                 devWarning(
@@ -125,7 +141,26 @@ export const Swiper: FC<SwiperProps> = staged(p => {
                 )
                 return null
               }
-              return <div className='adm-swiper-slide'>{child}</div>
+              return (
+                <animated.div
+                  className='adm-swiper-slide'
+                  style={{
+                    x: x.to(x => {
+                      let position = -x + index * 100
+                      if (loop) {
+                        const totalWidth = count * 100
+                        position =
+                          modulus(position + totalWidth / 2, totalWidth) -
+                          totalWidth / 2
+                      }
+                      return `${position}%`
+                    }),
+                    left: `-${index * 100}%`,
+                  }}
+                >
+                  {child}
+                </animated.div>
+              )
             })}
           </animated.div>
         </div>
@@ -136,3 +171,8 @@ export const Swiper: FC<SwiperProps> = staged(p => {
     )
   }
 })
+
+function modulus(value: number, division: number) {
+  const remainder = value % division
+  return remainder < 0 ? remainder + division : remainder
+}
