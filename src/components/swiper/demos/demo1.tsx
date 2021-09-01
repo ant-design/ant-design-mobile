@@ -7,7 +7,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <Swiper onIndexChange={console.log}>
+        <Swiper autoplay>
           <Swiper.Item>
             <div className={styles.content} style={{ background: '#ace0ff' }}>
               1

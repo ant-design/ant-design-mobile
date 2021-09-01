@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import { ElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
@@ -54,11 +54,6 @@ export const Swiper: FC<SwiperProps> = staged(p => {
     }
 
     const [current, setCurrent] = useState(props.defaultIndex)
-    function updateCurrent(index: number) {
-      const i = modulus(index, count)
-      setCurrent(i)
-      props.onIndexChange?.(i)
-    }
 
     const draggingRef = useRef(false)
 
@@ -66,6 +61,7 @@ export const Swiper: FC<SwiperProps> = staged(p => {
       x: bound(current, 0, count - 1) * -100,
       config: { tension: 200, friction: 30 },
       onRest: () => {
+        console.log('rest')
         if (draggingRef.current) return
         const rawX = x.get()
         const totalWidth = 100 * count
@@ -89,10 +85,7 @@ export const Swiper: FC<SwiperProps> = staged(p => {
           if (!loop) {
             index = bound(index, 0, count - 1)
           }
-          updateCurrent(index)
-          api.start({
-            x: index * 100,
-          })
+          swipeTo(index)
         } else {
           draggingRef.current = true
           api.start({
@@ -120,6 +113,34 @@ export const Swiper: FC<SwiperProps> = staged(p => {
         experimental_preventWindowScrollY: true,
       }
     )
+
+    function swipeTo(index: number) {
+      const i = modulus(index, count)
+      setCurrent(i)
+      props.onIndexChange?.(i)
+      api.start({
+        x: index * 100,
+      })
+    }
+
+    function swipeNext() {
+      swipeTo(Math.round(x.get() / 100) + 1)
+    }
+
+    function swipePrev() {
+      swipeTo(Math.round(x.get() / 100) - 1)
+    }
+
+    const { autoplay, autoplayInterval } = props
+    useEffect(() => {
+      if (!autoplay) return
+      const interval = window.setInterval(() => {
+        swipeNext()
+      }, autoplayInterval)
+      return () => {
+        window.clearInterval(interval)
+      }
+    }, [autoplay, autoplayInterval])
 
     return (
       <div
