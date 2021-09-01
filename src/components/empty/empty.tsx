@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 import EmptyIcon from '../../assets/empty-icon.svg'
 
-const classPrefix = `am-empty`
+const classPrefix = `adm-empty`
 
 export type EmptyProps = {
   imageStyle?: React.CSSProperties

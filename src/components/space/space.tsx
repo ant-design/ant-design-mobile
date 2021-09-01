@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { ElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-space`
+const classPrefix = `adm-space`
 
 export type SpaceProps = {
   size?: number | number[] | string | string[]

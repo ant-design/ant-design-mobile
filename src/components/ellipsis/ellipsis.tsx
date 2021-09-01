@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { ElementProps } from '../../utils/element-props'
 
-const classPrefix = `am-ellipsis`
+const classPrefix = `adm-ellipsis`
 
 export type EllipsisProps = {
   content: string

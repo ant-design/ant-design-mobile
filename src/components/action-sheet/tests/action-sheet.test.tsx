@@ -3,7 +3,7 @@ import { render, testA11y, fireEvent } from 'testing'
 import ActionSheet, { Action } from '../'
 import Button from '../../button'
 
-const classPrefix = `am-action-sheet`
+const classPrefix = `adm-action-sheet`
 
 const actions: Action[] = [
   { text: '复制', key: 'copy' },
@@ -55,13 +55,13 @@ test('renders WithCancelButtonAndDescription', () => {
     )
   }
   const { getByText, baseElement } = render(<WithCancelButtonAndDescription />)
-  expect(baseElement.lastChild).toHaveClass('am-popup-hidden')
+  expect(baseElement.lastChild).toHaveClass('adm-popup-hidden')
   fireEvent.click(getByText('取消按钮和额外描述'))
-  expect(baseElement.lastChild).not.toHaveClass('am-popup-hidden')
+  expect(baseElement.lastChild).not.toHaveClass('adm-popup-hidden')
   fireEvent.click(getByText('取消'))
   // 动画执行完，才隐藏最外层
-  // expect(baseElement.lastChild).toHaveClass('am-popup-hidden')
-  expect(baseElement.lastChild?.lastChild).toHaveClass('am-popup-body-hidden')
+  // expect(baseElement.lastChild).toHaveClass('adm-popup-hidden')
+  expect(baseElement.lastChild?.lastChild).toHaveClass('adm-popup-body-hidden')
 })
 
 test('renders Imperative', () => {
@@ -80,5 +80,5 @@ test('renders Imperative', () => {
   }
   const { getByText, baseElement } = render(<Imperative />)
   fireEvent.click(getByText('显示'))
-  expect(baseElement.lastChild).toHaveClass('am-popup')
+  expect(baseElement.lastChild).toHaveClass('adm-popup')
 })

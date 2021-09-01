@@ -137,6 +137,7 @@ export default {
           '/components/what-is-experimental',
           '/components/cascader',
           '/components/desense-text',
+          '/components/image-uploader',
         ],
       },
     ],

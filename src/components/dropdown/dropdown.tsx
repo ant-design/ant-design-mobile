@@ -11,7 +11,7 @@ import React, {
 import Popup from '../popup'
 import Item, { DropdownItemProps } from './item'
 
-const classPrefix = `am-dropdown`
+const classPrefix = `adm-dropdown`
 
 export interface DropdownProps {
   forceRender?: boolean

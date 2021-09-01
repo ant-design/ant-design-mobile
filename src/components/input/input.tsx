@@ -5,7 +5,7 @@ import { CloseCircleFilled } from '@ant-design/icons'
 import { ElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-input`
+const classPrefix = `adm-input`
 
 export type InputProps = Omit<
   React.DetailedHTMLProps<

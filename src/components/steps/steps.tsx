@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import { StepProps } from './step'
 import { withDefaultProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-steps`
-const stepClassPrefix = `am-step`
+const classPrefix = `adm-steps`
+const stepClassPrefix = `adm-step`
 
 const defaultIcon = <span className={`${stepClassPrefix}-icon-dot`} />
 

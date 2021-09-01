@@ -33,8 +33,8 @@ export const DialogActionButton: FC<{
         }
         setLoading(false)
       }}
-      className={classNames('am-dialog-button', {
-        'am-dialog-button-bold': action.bold,
+      className={classNames('adm-dialog-button', {
+        'adm-dialog-button-bold': action.bold,
       })}
       fill='none'
       block

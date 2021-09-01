@@ -15,7 +15,7 @@ import React, {
 } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
 
-const classPrefix = `am-image-viewer`
+const classPrefix = `adm-image-viewer`
 
 export type ImageViewerProps = {
   image?: string

@@ -2,7 +2,7 @@ import { render, screen, testA11y, fireEvent, waitFor } from 'testing'
 import * as React from 'react'
 import Collapse from '../'
 
-const classPrefix = `am-collapse`
+const classPrefix = `adm-collapse`
 
 it('passes a11y test', async () => {
   await testA11y(<Collapse>label</Collapse>)

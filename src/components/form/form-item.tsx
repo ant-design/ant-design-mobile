@@ -5,6 +5,7 @@ import { Field, FormInstance } from 'rc-field-form'
 import type { FieldProps } from 'rc-field-form/lib/Field'
 import FieldContext from 'rc-field-form/lib/FieldContext'
 import type { Meta } from 'rc-field-form/lib/interface'
+import { devWarning } from '../../utils/dev-log'
 
 import { FormContext } from './context'
 import { toArray } from './utils'
@@ -18,7 +19,7 @@ type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode
 
 type RcFieldProps = Omit<FieldProps, 'children'>
 
-const classPrefix = `am-form-item`
+const classPrefix = `adm-form-item`
 
 export type FormItemProps = RcFieldProps &
   ElementProps &
@@ -84,13 +85,13 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const feedback =
     hasFeedback && meta && meta.errors.length > 0 ? meta.errors[0] : null
 
-  const labelElement = (
+  const labelElement = label ? (
     <label className={formItemLabelClass} htmlFor={htmlFor}>
       {required && <span className={`${classPrefix}-label-required`}>*</span>}
       {label}
       {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
     </label>
-  )
+  ) : null
 
   const descriptionElement = feedback && (
     <div className={`${classPrefix}-footer`}>{feedback}</div>
@@ -116,7 +117,7 @@ export const FormItem: FC<FormItemProps> = props => {
     className,
     style,
     // FormItem 相关
-    label: displayLabel,
+    label,
     help,
     hasFeedback,
     name,
@@ -130,6 +131,8 @@ export const FormItem: FC<FormItemProps> = props => {
     trigger = 'onChange',
     validateTrigger,
     onClick,
+    shouldUpdate,
+    dependencies,
     ...fieldProps
   } = props
 
@@ -140,13 +143,6 @@ export const FormItem: FC<FormItemProps> = props => {
 
   const updateRef = React.useRef(0)
   updateRef.current += 1
-
-  // 如果 label 未设置，那么尝试使用 name 作为 label
-  const label = displayLabel
-    ? displayLabel
-    : typeof name === 'string'
-    ? name
-    : undefined
 
   function renderLayout(
     baseChildren: React.ReactNode,
@@ -194,6 +190,8 @@ export const FormItem: FC<FormItemProps> = props => {
     <Field
       {...fieldProps}
       name={name}
+      shouldUpdate={shouldUpdate}
+      dependencies={dependencies}
       rules={rules}
       trigger={trigger}
       validateTrigger={mergedValidateTrigger}
@@ -218,13 +216,44 @@ export const FormItem: FC<FormItemProps> = props => {
           '_'
         )
 
-        if (
-          isRenderProps &&
-          (props.shouldUpdate || props.dependencies) &&
-          !name
-        ) {
-          childNode = (children as RenderChildren)(context)
+        if (shouldUpdate && dependencies) {
+          devWarning(
+            'Form.Item',
+            "`shouldUpdate` and `dependencies` shouldn't be used together."
+          )
+        }
+
+        if (isRenderProps) {
+          if ((shouldUpdate || dependencies) && !name) {
+            childNode = (children as RenderChildren)(context)
+          } else {
+            if (!(shouldUpdate || dependencies)) {
+              devWarning(
+                'Form.Item',
+                '`children` of render props only work with `shouldUpdate` or `dependencies`.'
+              )
+            }
+            if (name) {
+              devWarning(
+                'Form.Item',
+                "Do not use `name` with `children` of render props since it's not a field."
+              )
+            }
+          }
+
+          // not render props
+        } else if (dependencies && !name) {
+          devWarning(
+            'Form.Item',
+            'Must set `name` or use render props when `dependencies` is set.'
+          )
         } else if (React.isValidElement(children)) {
+          if (children.props.defaultValue) {
+            devWarning(
+              'Form.Item',
+              '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.'
+            )
+          }
           const childProps = { ...children.props, ...control }
 
           if (!childProps.id) {
@@ -257,6 +286,12 @@ export const FormItem: FC<FormItemProps> = props => {
             </MemoInput>
           )
         } else {
+          if (name) {
+            devWarning(
+              'Form.Item',
+              '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.'
+            )
+          }
           childNode = children
         }
 

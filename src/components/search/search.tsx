@@ -6,7 +6,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutlined } from '@ant-design/icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-search`
+const classPrefix = `adm-search`
 
 export type SearchProps = {
   value?: string

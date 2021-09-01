@@ -3,7 +3,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 
-const classPrefix = `am-tag`
+const classPrefix = `adm-tag`
 
 const colorRecord: Record<string, string> = {
   default: '#666666',

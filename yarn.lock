@@ -3534,6 +3534,7 @@ __metadata:
     ts-jest: 26.5.6
     ts-node: 9.1.1
     typescript: ^3.9.10
+    use-async-memo: ^1.2.3
     webpack: ^5.46.0
     webpack-stream: ^6.1.2
   peerDependencies:
@@ -14713,6 +14714,15 @@ typescript@^3.9.10:
     punycode: 1.3.2
     querystring: 0.2.0
   checksum: 537f785b16f873fdd2b63ccb7a61463b8e41370fdba95385b0102f3ed7b953c300d95b8755ec3b65f3e406372d47d16c3c989e196b25b70f42190da1fc36c56f
+  languageName: node
+  linkType: hard
+
+"use-async-memo@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "use-async-memo@npm:1.2.3"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+  checksum: 3efb60c47d09b6b39b27f93eded8818000c1ad6469d872064889bd26c87fef9142dc72d80856bea30632961f7f6928958d0752754979c22f93cada479e87da2c
   languageName: node
   linkType: hard
 

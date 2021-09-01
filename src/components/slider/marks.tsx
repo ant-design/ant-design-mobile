@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
 
-const classPrefix = `am-slider-mark`
+const classPrefix = `adm-slider-mark`
 
 export type SliderMarks = {
   [key: number]: React.ReactNode

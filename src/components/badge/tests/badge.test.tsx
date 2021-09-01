@@ -2,7 +2,7 @@ import * as React from 'react'
 import { render, testA11y } from 'testing'
 import Badge from '../'
 
-const classPrefix = `am-badge`
+const classPrefix = `adm-badge`
 
 it('passes a11y test', async () => {
   await testA11y(<Badge>test</Badge>)

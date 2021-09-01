@@ -2,12 +2,12 @@ import React, { memo } from 'react'
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-loading`
+const classPrefix = `adm-loading`
 
 const colorRecord: Record<string, string> = {
-  default: 'var(--am-color-weak)',
-  primary: 'var(--am-color-primary)',
-  white: 'var(--am-color-white)',
+  default: 'var(--adm-color-weak)',
+  primary: 'var(--adm-color-primary)',
+  white: 'var(--adm-color-white)',
 }
 
 export interface LoadingProps {

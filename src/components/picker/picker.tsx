@@ -6,7 +6,7 @@ import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-picker`
+const classPrefix = `adm-picker`
 
 export type PickerValue = string | null
 

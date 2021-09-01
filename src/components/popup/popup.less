@@ -1,17 +1,17 @@
-@class-prefix-popup: ~'am-popup';
+@class-prefix-popup: ~'adm-popup';
 
 .@{class-prefix-popup} {
   &-hidden {
     display: none;
   }
   position: fixed;
-  z-index: var(--am-z-index-popup);
+  z-index: var(--adm-z-index-popup);
 }
 
 .@{class-prefix-popup}-body {
   position: fixed;
   background-color: #ffffff;
-  z-index: calc(var(--am-z-index-mask) + 10);
+  z-index: calc(var(--adm-z-index-mask) + 10);
 
   --transform-active: none;
 

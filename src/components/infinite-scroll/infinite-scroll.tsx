@@ -10,7 +10,7 @@ function isWindow(element: any | Window): element is Window {
   return element === window
 }
 
-const classPrefix = `am-infinite-scroll`
+const classPrefix = `adm-infinite-scroll`
 
 export type InfiniteScrollProps = {
   loadMore: () => Promise<void>

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { fireEvent, render, testA11y, waitFor } from 'testing'
 import Cascader from '../'
 
-const classPrefix = `am-cascader`
+const classPrefix = `adm-cascader`
 const options = [
   {
     label: '分类A',
@@ -216,19 +216,19 @@ test('renders with multiple', async () => {
   }
   const { getByText, getByTestId } = render(<MultipleBasic />)
   // 判断 defaultExpandKeys 是否生效
-  expect(getByText('分类A')).toHaveClass('am-cascader-multiple-item-expand')
+  expect(getByText('分类A')).toHaveClass('adm-cascader-multiple-item-expand')
   // multiple 多了一个小圆点
   expect(getByText('分类A').lastElementChild).toHaveClass(
-    'am-cascader-multiple-dot'
+    'adm-cascader-multiple-dot'
   )
-  expect(getByText('分类A-1')).toHaveClass('am-cascader-multiple-item-expand')
+  expect(getByText('分类A-1')).toHaveClass('adm-cascader-multiple-item-expand')
   expect(getByText('分类A-1').lastElementChild).toHaveClass(
-    'am-cascader-multiple-dot'
+    'adm-cascader-multiple-dot'
   )
   // 第三列全勾选
-  expect(getByText('全选2').firstChild).toHaveClass('am-checkbox-checked')
-  expect(getByText('分类A-1-1').firstChild).toHaveClass('am-checkbox-checked')
-  expect(getByText('分类A-1-2').firstChild).toHaveClass('am-checkbox-checked')
+  expect(getByText('全选2').firstChild).toHaveClass('adm-checkbox-checked')
+  expect(getByText('分类A-1-1').firstChild).toHaveClass('adm-checkbox-checked')
+  expect(getByText('分类A-1-2').firstChild).toHaveClass('adm-checkbox-checked')
 
   // 点选第二列的全选
   fireEvent.click(getByText('全选1'))
@@ -238,7 +238,7 @@ test('renders with multiple', async () => {
   fireEvent.click(getByText('分类A-2'))
   fireEvent.click(getByText('全选2'))
   expect(getByText('分类A-2-2').firstChild).not.toHaveClass(
-    'am-checkbox-checked'
+    'adm-checkbox-checked'
   )
   // 判断 onChange 回传的数据是否正确
   expect(getByTestId('res')).toHaveTextContent('["A1"]')

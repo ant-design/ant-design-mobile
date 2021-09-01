@@ -1,7 +1,7 @@
-@class-prefix-button: ~'am-button';
+@class-prefix-button: ~'adm-button';
 
 .@{class-prefix-button} {
-  --color: var(--am-color-text);
+  --color: var(--adm-color-text);
 
   position: relative;
   display: inline-block;
@@ -39,12 +39,12 @@
     opacity: 0.1;
   }
   &-default {
-    color: var(--am-color-text);
-    background-color: var(--am-color-white);
-    border-color: var(--am-border-color);
+    color: var(--adm-color-text);
+    background-color: var(--adm-color-white);
+    border-color: var(--adm-border-color);
     &.@{class-prefix-button}-fill-outline {
       background-color: transparent;
-      border-color: var(--am-color-text);
+      border-color: var(--adm-color-text);
     }
     &.@{class-prefix-button}-fill-none {
       background-color: transparent;
@@ -52,7 +52,7 @@
     }
   }
   &:not(&-default) {
-    color: var(--am-color-white);
+    color: var(--adm-color-white);
     background-color: var(--color);
     border-color: var(--color);
     &.@{class-prefix-button}-fill-outline {
@@ -66,16 +66,16 @@
     }
   }
   &-primary {
-    --color: var(--am-color-primary);
+    --color: var(--adm-color-primary);
   }
   &-success {
-    --color: var(--am-color-success);
+    --color: var(--adm-color-success);
   }
   &-danger {
-    --color: var(--am-color-danger);
+    --color: var(--adm-color-danger);
   }
   &-warning {
-    --color: var(--am-color-warning);
+    --color: var(--adm-color-warning);
   }
 
   &-block {
@@ -111,7 +111,7 @@
     height: 1.4em;
     align-items: center;
     justify-content: center;
-    > .am-loading {
+    > .adm-loading {
       opacity: 0.6;
     }
   }

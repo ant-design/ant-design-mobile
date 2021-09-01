@@ -11,7 +11,7 @@ import {
   renderToContainer,
 } from '../../utils/render-to-container'
 
-const classPrefix = `am-popup`
+const classPrefix = `adm-popup`
 
 export type PopupProps = {
   visible?: boolean

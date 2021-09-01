@@ -13,7 +13,7 @@ import Button from '../button'
 import { GetContainer } from '../../utils/render-to-container'
 import { renderToBody } from '../../utils/render-to-body'
 
-const classPrefix = `am-action-sheet`
+const classPrefix = `adm-action-sheet`
 
 export type Action = {
   key: string | number

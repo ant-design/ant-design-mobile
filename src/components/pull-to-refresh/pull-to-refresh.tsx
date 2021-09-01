@@ -8,7 +8,7 @@ import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { sleep } from '../../utils/sleep'
 
-const classPrefix = `am-pull-to-refresh`
+const classPrefix = `adm-pull-to-refresh`
 
 enum PullStatus {
   idle,

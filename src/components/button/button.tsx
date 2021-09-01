@@ -4,7 +4,7 @@ import Loading from '../loading'
 import { getNativeAttributes } from '../../utils/get-native-attributes'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-button`
+const classPrefix = `adm-button`
 
 export interface ButtonProps {
   color?: 'default' | 'primary' | 'success' | 'warning' | 'danger'

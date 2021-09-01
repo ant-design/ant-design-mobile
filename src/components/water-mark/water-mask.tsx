@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { FC, useEffect, useState } from 'react'
 
-const classPrefix = `am-water-mark`
+const classPrefix = `adm-water-mark`
 
 export interface WaterMarkProps {
   className?: string
