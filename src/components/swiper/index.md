@@ -1,5 +1,7 @@
 # Swiper 走马灯
 
+<code src="./demos/demo1.tsx"></code>
+
 ## Swiper
 
 ### 属性
