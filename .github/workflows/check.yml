@@ -2,7 +2,7 @@ name: Check
 on:
   push:
     branches:
-      - v5
+      - master
   pull_request:
 jobs:
   check:
