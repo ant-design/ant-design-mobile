@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react'
 import { ElementProps, withElementProps } from '../../utils/element-props'
-import classNames from 'classnames'
 import { IndexBarContext } from './context'
 
 const classPrefix = `adm-index-bar-anchor`

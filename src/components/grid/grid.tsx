@@ -1,7 +1,6 @@
 import { withDefaultProps } from '../../utils/with-default-props'
 import React from 'react'
 import { ElementProps, withElementProps } from '../../utils/element-props'
-import classNames from 'classnames'
 
 const classPrefix = `adm-grid`
 

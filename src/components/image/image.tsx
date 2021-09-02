@@ -1,7 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React, { FC, ReactNode, useState } from 'react'
 import { ElementProps, withElementProps } from '../../utils/element-props'
-import classNames from 'classnames'
 import { PictureOutlined, DisconnectOutlined } from '@ant-design/icons'
 
 const classPrefix = `adm-image`

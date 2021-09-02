@@ -1,9 +1,8 @@
-import React, { useState, useEffect, ReactNode, useMemo, FC } from 'react'
+import React, { useState, useEffect, ReactNode, useMemo } from 'react'
 import Popup, { PopupProps } from '../popup'
 import { Column } from './column'
 import { mergeProps, withDefaultProps } from '../../utils/with-default-props'
 import { ElementProps, withElementProps } from '../../utils/element-props'
-import classNames from 'classnames'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `adm-picker`

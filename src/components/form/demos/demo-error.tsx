@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Button, Dialog, Checkbox, Space } from 'antd-mobile'
+import { Form, Input, Button, Dialog } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 export default () => {

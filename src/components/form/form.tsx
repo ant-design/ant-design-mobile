@@ -4,7 +4,7 @@ import { ElementProps } from '../../utils/element-props'
 import List from '../list'
 import RcForm from 'rc-field-form'
 import type { FormProps as RcFormProps } from 'rc-field-form'
-import { FormContext, FormContextType, DEFAULT_FORM_CONTEXT } from './context'
+import { FormContext, FormContextType } from './context'
 import { mergeProps } from '../../utils/with-default-props'
 import type { FormLayout } from '.'
 

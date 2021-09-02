@@ -1,5 +1,4 @@
 import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
-import classNames from 'classnames'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { CloseCircleFilled } from '@ant-design/icons'
 import { ElementProps, withElementProps } from '../../utils/element-props'

@@ -1,5 +1,4 @@
 import React, { useRef, useState, useLayoutEffect } from 'react'
-import classNames from 'classnames'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { ElementProps, withElementProps } from '../../utils/element-props'
 

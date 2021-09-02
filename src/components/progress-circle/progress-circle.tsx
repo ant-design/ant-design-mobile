@@ -1,6 +1,5 @@
 import React from 'react'
 import { Circle as RCProgressCircle } from 'rc-progress'
-import classNames from 'classnames'
 import { ElementProps, withElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { convertPx } from '../../utils/convert-px'

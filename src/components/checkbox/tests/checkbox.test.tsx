@@ -1,12 +1,5 @@
 import * as React from 'react'
-import {
-  fireEvent,
-  render,
-  testA11y,
-  waitFor,
-  screen,
-  userEvent,
-} from 'testing'
+import { fireEvent, render, testA11y, userEvent } from 'testing'
 import Checkbox from '../'
 import { CheckboxGroupProps } from '../group'
 

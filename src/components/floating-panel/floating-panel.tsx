@@ -5,7 +5,6 @@ import React, {
   useRef,
 } from 'react'
 import { ElementProps, withElementProps } from '../../utils/element-props'
-import classNames from 'classnames'
 import { useDrag } from 'react-use-gesture'
 import { useSpring, animated } from '@react-spring/web'
 import { supportsPassive } from '../../utils/supports-passive'
