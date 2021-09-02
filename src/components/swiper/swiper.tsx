@@ -17,6 +17,7 @@ import { useDrag } from 'react-use-gesture'
 import { bound } from '../../utils/rubberband'
 import { PageIndicator } from './page-indicator'
 import { staged } from 'staged-components'
+import { useRefState } from '../../utils/use-ref-state'
 
 export type SwiperRef = {
   swipeTo: (index: number) => void
@@ -89,13 +90,13 @@ export const Swiper = forwardRef(
 
       const [current, setCurrent] = useState(props.defaultIndex)
 
-      const [dragging, setDragging] = useState(false)
+      const [dragging, setDragging, draggingRef] = useRefState(false)
 
       const [{ x }, api] = useSpring(() => ({
         x: bound(current, 0, count - 1) * -100,
         config: { tension: 200, friction: 30 },
         onRest: () => {
-          if (dragging) return
+          if (draggingRef.current) return
           const rawX = x.get()
           const totalWidth = 100 * count
           const standardX = modulus(rawX, totalWidth)
@@ -113,7 +114,9 @@ export const Swiper = forwardRef(
           if (!width) return
           const [mx] = state.movement
           if (state.last) {
-            setDragging(false)
+            window.setTimeout(() => {
+              setDragging(false)
+            })
             const index = Math.round((mx + state.vxvy[0] * 100) / width)
             swipeTo(index)
           } else {
@@ -197,6 +200,12 @@ export const Swiper = forwardRef(
               'adm-swiper-track-allow-touch-move': props.allowTouchMove,
             })}
             ref={trackRef}
+            onClickCapture={e => {
+              if (draggingRef.current) {
+                e.stopPropagation()
+                e.preventDefault()
+              }
+            }}
             {...(props.allowTouchMove ? bind() : {})}
           >
             {React.Children.map(validChildren, (child, index) => {
