@@ -64,6 +64,7 @@ export default () => {
               '--slide-width': '80%',
               '--border-radius': '8px',
             }}
+            defaultIndex={2}
           >
             {items}
           </Swiper>

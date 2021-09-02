@@ -92,21 +92,24 @@ export const Swiper = forwardRef(
 
       const [dragging, setDragging, draggingRef] = useRefState(false)
 
-      const [{ x }, api] = useSpring(() => ({
-        x: bound(current, 0, count - 1) * -100,
-        config: { tension: 200, friction: 30 },
-        onRest: () => {
-          if (draggingRef.current) return
-          const rawX = x.get()
-          const totalWidth = 100 * count
-          const standardX = modulus(rawX, totalWidth)
-          if (standardX === rawX) return
-          api.start({
-            x: standardX,
-            immediate: true,
-          })
-        },
-      }))
+      const [{ x }, api] = useSpring(
+        () => ({
+          x: bound(current, 0, count - 1) * 100,
+          config: { tension: 200, friction: 30 },
+          onRest: () => {
+            if (draggingRef.current) return
+            const rawX = x.get()
+            const totalWidth = 100 * count
+            const standardX = modulus(rawX, totalWidth)
+            if (standardX === rawX) return
+            api.start({
+              x: standardX,
+              immediate: true,
+            })
+          },
+        }),
+        [count]
+      )
 
       const bind = useDrag(
         state => {
