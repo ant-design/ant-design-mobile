@@ -89,13 +89,13 @@ export const Swiper = forwardRef(
 
       const [current, setCurrent] = useState(props.defaultIndex)
 
-      const draggingRef = useRef(false)
+      const [dragging, setDragging] = useState(false)
 
       const [{ x }, api] = useSpring(() => ({
         x: bound(current, 0, count - 1) * -100,
         config: { tension: 200, friction: 30 },
         onRest: () => {
-          if (draggingRef.current) return
+          if (dragging) return
           const rawX = x.get()
           const totalWidth = 100 * count
           const standardX = modulus(rawX, totalWidth)
@@ -113,11 +113,11 @@ export const Swiper = forwardRef(
           if (!width) return
           const [mx] = state.movement
           if (state.last) {
-            draggingRef.current = false
+            setDragging(false)
             const index = Math.round((mx + state.vxvy[0] * 100) / width)
             swipeTo(index)
           } else {
-            draggingRef.current = true
+            setDragging(true)
             api.start({
               x: (mx * 100) / width,
               immediate: true,
@@ -178,14 +178,14 @@ export const Swiper = forwardRef(
 
       const { autoplay, autoplayInterval } = props
       useEffect(() => {
-        if (!autoplay) return
+        if (!autoplay || dragging) return
         const interval = window.setInterval(() => {
           swipeNext()
         }, autoplayInterval)
         return () => {
           window.clearInterval(interval)
         }
-      }, [autoplay, autoplayInterval])
+      }, [autoplay, autoplayInterval, dragging])
 
       return (
         <div
