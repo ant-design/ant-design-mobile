@@ -1,18 +1,25 @@
 .adm-swiper {
   --height: auto;
   --width: 100%;
+  --slide-width: 100%;
+  --border-radius: 0;
   display: block;
   width: var(--width);
   height: var(--height);
   position: relative;
   overflow: hidden;
+  border-radius: var(--border-radius);
   &-track {
-    position: relative;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
     &-allow-touch-move {
       cursor: grab;
+    }
+    &-inner {
+      width: var(--slide-width);
+      overflow: visible;
+      position: relative;
     }
   }
   &-indicator {

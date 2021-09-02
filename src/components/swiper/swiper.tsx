@@ -33,7 +33,7 @@ export type SwiperProps = {
   loop?: boolean
   onIndexChange?: (index: number) => void
   children?: ReactElement[]
-} & ElementProps<'--height' | '--width'>
+} & ElementProps<'--height' | '--width' | '--slide-width' | '--border-radius'>
 
 const defaultProps = {
   defaultIndex: 0,
@@ -199,7 +199,6 @@ export const Swiper = forwardRef(
             className={classNames('adm-swiper-track', {
               'adm-swiper-track-allow-touch-move': props.allowTouchMove,
             })}
-            ref={trackRef}
             onClickCapture={e => {
               if (draggingRef.current) {
                 e.stopPropagation()
@@ -208,28 +207,28 @@ export const Swiper = forwardRef(
             }}
             {...(props.allowTouchMove ? bind() : {})}
           >
-            {React.Children.map(validChildren, (child, index) => {
-              return (
-                <animated.div
-                  className='adm-swiper-slide'
-                  style={{
-                    x: x.to(x => {
-                      let position = -x + index * 100
-                      if (loop) {
-                        const totalWidth = count * 100
-                        position =
-                          modulus(position + totalWidth / 2, totalWidth) -
-                          totalWidth / 2
-                      }
-                      return `${position}%`
-                    }),
-                    left: `-${index * 100}%`,
-                  }}
-                >
-                  {child}
-                </animated.div>
-              )
-            })}
+            <div className='adm-swiper-track-inner' ref={trackRef}>
+              {React.Children.map(validChildren, (child, index) => {
+                return (
+                  <animated.div
+                    className='adm-swiper-slide'
+                    style={{
+                      x: x.to(x => {
+                        let position = -x + index * 100
+                        if (loop) {
+                          const totalWidth = count * 100
+                          position = modulus(position + 100, totalWidth) - 100
+                        }
+                        return `${position}%`
+                      }),
+                      left: `-${index * 100}%`,
+                    }}
+                  >
+                    {child}
+                  </animated.div>
+                )
+              })}
+            </div>
           </div>
           <div className='adm-swiper-indicator'>
             <PageIndicator total={count} current={current} />
