@@ -15,7 +15,7 @@ import { devWarning } from '../../utils/dev-log'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import { bound } from '../../utils/rubberband'
-import { PageIndicator } from './page-indicator'
+import PageIndicator from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 

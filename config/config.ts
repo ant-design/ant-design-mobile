@@ -83,6 +83,7 @@ export default {
           '/components/image-viewer',
           '/components/card',
           '/components/swiper',
+          '/components/page-indicator',
         ],
       },
       {
