@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { StarFilled } from '@ant-design/icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
@@ -51,11 +51,9 @@ export const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
       </div>
     )
   }
-  return (
-    <div
-      style={props.style}
-      className={classNames(classPrefix, props.className)}
-    >
+  return withElementProps(
+    props,
+    <div className={classPrefix}>
       {starList.map((_, i) => (
         <div key={i} className={classNames(`${classPrefix}-box`)}>
           {props.allowHalf && renderStar(i + 0.5, true)}

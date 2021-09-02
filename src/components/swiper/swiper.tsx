@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import { SwiperItem } from './swiper-item'
@@ -196,11 +196,9 @@ export const Swiper = forwardRef(
         }
       }, [autoplay, autoplayInterval, dragging])
 
-      return (
-        <div
-          className={classNames('adm-swiper', props.className)}
-          style={props.style}
-        >
+      return withElementProps(
+        props,
+        <div className='adm-swiper'>
           <div
             className={classNames('adm-swiper-track', {
               'adm-swiper-track-allow-touch-move': props.allowTouchMove,

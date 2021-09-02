@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { useMemo } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
@@ -124,12 +124,8 @@ export const Cascader = withDefaultProps({
     return columns
   }
 
-  return (
-    <div
-      className={classNames(classPrefix, props.className)}
-      style={props.style}
-    >
-      {renderColumns()}
-    </div>
+  return withElementProps(
+    props,
+    <div className={classPrefix}>{renderColumns()}</div>
   )
 })

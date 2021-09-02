@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { useEffect, useState, useRef, FC } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { useInitialized } from '../../utils/use-initialized'
 import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
@@ -53,7 +53,7 @@ export const Popup: FC<PopupProps> = p => {
     props.afterClose?.()
   }
 
-  const cls = classNames(classPrefix, props.className, {
+  const cls = classNames(classPrefix, {
     [`${classPrefix}-hidden`]: hidden,
   })
 
@@ -72,8 +72,9 @@ export const Popup: FC<PopupProps> = p => {
 
   useLockScroll(ref, props.visible)
 
-  const node = (
-    <div className={cls} style={props.style} onClick={props.onClick}>
+  const node = withElementProps(
+    props,
+    <div className={cls} onClick={props.onClick}>
       {props.mask && (
         <Mask
           visible={props.visible}

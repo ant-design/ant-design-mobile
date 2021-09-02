@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import Loading from '../loading'
 import { getNativeAttributes } from '../../utils/get-native-attributes'
 import { mergeProps } from '../../utils/with-default-props'
+import { withElementProps } from '../../utils/element-props'
 
 const classPrefix = `adm-button`
 
@@ -31,7 +32,8 @@ const defaultProps = {
 export const Button: FC<ButtonProps> = p => {
   const props = mergeProps(defaultProps, p)
   const disabled = props.disabled
-  return (
+  return withElementProps(
+    props,
     <button
       {...getNativeAttributes(props)}
       type={props.type}
@@ -48,10 +50,8 @@ export const Button: FC<ButtonProps> = p => {
           [`${classPrefix}-small`]: props.size === 'small',
           [`${classPrefix}-large`]: props.size === 'large',
           [`${classPrefix}-loading`]: props.loading,
-        },
-        props.className
+        }
       )}
-      style={props.style}
       disabled={disabled}
     >
       {props.loading ? (

@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react'
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 
 const classPrefix = `adm-card`
 
@@ -40,12 +40,9 @@ export const Card: FC<CardProps> = props => {
     )
   }
 
-  return (
-    <div
-      className={classNames(classPrefix, props.className)}
-      onClick={props.onClick}
-      style={props.style}
-    >
+  return withElementProps(
+    props,
+    <div className={classPrefix} onClick={props.onClick}>
       {renderHeader()}
       {renderBody()}
     </div>

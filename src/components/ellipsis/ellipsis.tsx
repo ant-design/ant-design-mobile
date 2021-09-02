@@ -1,7 +1,7 @@
 import React, { useRef, useState, useLayoutEffect } from 'react'
 import classNames from 'classnames'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 
 const classPrefix = `adm-ellipsis`
 
@@ -86,12 +86,9 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
     document.body.removeChild(container)
   }, [props.content, props.rows, props.direction])
 
-  return (
-    <div
-      ref={originRef}
-      className={classNames(classPrefix, props.className)}
-      style={props.style}
-    >
+  return withElementProps(
+    props,
+    <div ref={originRef} className={classPrefix}>
       {ellipsised}
     </div>
   )

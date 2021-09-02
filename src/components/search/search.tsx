@@ -1,7 +1,7 @@
 import React, { useState, useRef, FC } from 'react'
 import classNames from 'classnames'
 import Input, { InputRef } from '../input'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutlined } from '@ant-design/icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
@@ -35,12 +35,12 @@ export const Search: FC<SearchProps> = p => {
   const [hasFocus, setHasFocus] = useState(false)
   const inputRef = useRef<InputRef>(null)
 
-  return (
+  return withElementProps(
+    props,
     <div
-      className={classNames(classPrefix, props.className, {
+      className={classNames(classPrefix, {
         [`${classPrefix}-active`]: hasFocus,
       })}
-      style={props.style}
     >
       <form
         className={`${classPrefix}-input-box`}

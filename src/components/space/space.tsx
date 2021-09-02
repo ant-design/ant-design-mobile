@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-space`
@@ -15,7 +15,7 @@ export type SpaceProps = {
 
 export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
   props => {
-    const { size, direction, style = {} } = props
+    const { size, direction } = props
     let sizeStyle: any = {}
     if (size) {
       const [horizontalSize, verticalSize] = Array.isArray(size)
@@ -30,22 +30,16 @@ export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
             : horizontalSize,
       }
     }
-    return (
+    return withElementProps(
+      props,
       <div
-        className={classNames(
-          classPrefix,
-          {
-            [`${classPrefix}-wrap`]: props.wrap,
-            [`${classPrefix}-block`]: props.block,
-            [`${classPrefix}-${direction}`]: true,
-            [`${classPrefix}-align-${props.align}`]: !!props.align,
-          },
-          props.className
-        )}
-        style={{
-          ...sizeStyle,
-          ...style,
-        }}
+        className={classNames(classPrefix, {
+          [`${classPrefix}-wrap`]: props.wrap,
+          [`${classPrefix}-block`]: props.block,
+          [`${classPrefix}-${direction}`]: true,
+          [`${classPrefix}-align-${props.align}`]: !!props.align,
+        })}
+        style={sizeStyle}
       >
         {React.Children.map(props.children, child => {
           return (

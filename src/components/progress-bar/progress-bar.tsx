@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { convertPx } from '../../utils/convert-px'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-progress-bar`
@@ -35,11 +35,9 @@ export const ProgressBar = withDefaultProps({
     transition: 'width 0.3s',
   }
 
-  return (
-    <div
-      className={classNames(classPrefix, props.className)}
-      style={props.style}
-    >
+  return withElementProps(
+    props,
+    <div className={classPrefix}>
       <div className={`${classPrefix}-trail`} style={trailStyle}>
         <div className={classNames(`${classPrefix}-path`)} style={pathStyle} />
       </div>

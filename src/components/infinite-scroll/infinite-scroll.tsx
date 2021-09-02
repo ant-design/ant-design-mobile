@@ -1,8 +1,7 @@
 import { withDefaultProps } from '../../utils/with-default-props'
 import React, { useEffect, useRef } from 'react'
 import { useLockFn, usePersistFn } from 'ahooks'
-import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
 import Loading from '../loading'
 
@@ -75,12 +74,9 @@ export const InfiniteScroll = withDefaultProps({
     }
   }, [])
 
-  return (
-    <div
-      className={classNames(classPrefix, props.className)}
-      style={props.style}
-      ref={elementRef}
-    >
+  return withElementProps(
+    props,
+    <div className={classPrefix} ref={elementRef}>
       {props.children && props.children}
       {!props.children && <InfiniteScrollContent hasMore={props.hasMore} />}
     </div>

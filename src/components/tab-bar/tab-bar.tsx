@@ -1,7 +1,7 @@
 import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import Badge from '../badge'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
@@ -42,11 +42,9 @@ export const TabBar: FC<TabBarProps> = props => {
     onChange: props.onChange,
   })
 
-  return (
-    <div
-      className={classNames('adm-tab-bar', props.className)}
-      style={props.style}
-    >
+  return withElementProps(
+    props,
+    <div className='adm-tab-bar'>
       {items.map(item => {
         function renderContent() {
           const iconElement = item.props.icon && (
@@ -84,7 +82,8 @@ export const TabBar: FC<TabBarProps> = props => {
           }
           return null
         }
-        return (
+        return withElementProps(
+          item.props,
           <div
             key={item.key}
             onClick={() => {
@@ -92,7 +91,7 @@ export const TabBar: FC<TabBarProps> = props => {
               if (key === undefined || key === null) return
               setActiveKey(key.toString())
             }}
-            className={classNames('adm-tab-bar-item', item.props.className, {
+            className={classNames('adm-tab-bar-item', {
               'adm-tab-bar-item-active': item.key === activeKey,
             })}
           >

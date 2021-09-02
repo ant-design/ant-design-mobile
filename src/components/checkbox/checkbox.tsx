@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { CheckOutlined } from '@ant-design/icons'
 import { CheckboxGroupContext } from './group-context'
@@ -49,15 +49,15 @@ export const Checkbox: FC<CheckboxProps> = p => {
     disabled = disabled || groupContext.disabled
   }
 
-  return (
+  return withElementProps(
+    props,
     <label
-      className={classNames(classPrefix, props.className, {
+      className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-indeterminate`]: props.indeterminate,
         [`${classPrefix}-disabled`]: disabled,
         [`${classPrefix}-block`]: props.block,
       })}
-      style={props.style}
     >
       <input
         type='checkbox'

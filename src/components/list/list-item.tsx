@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { RightOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
 
@@ -49,17 +49,18 @@ export const ListItem: FC<ListItemProps> = props => {
     </div>
   )
 
-  return React.createElement(
-    clickable ? 'a' : 'div',
-    {
-      className: classNames(
-        `${classPrefix}-item`,
-        props.className,
-        clickable ? ['adm-plain-anchor'] : []
-      ),
-      style: props.style,
-      onClick: props.onClick,
-    },
-    content
+  return withElementProps(
+    props,
+    React.createElement(
+      clickable ? 'a' : 'div',
+      {
+        className: classNames(
+          `${classPrefix}-item`,
+          clickable ? ['adm-plain-anchor'] : []
+        ),
+        onClick: props.onClick,
+      },
+      content
+    )
   )
 }

@@ -1,6 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React, { FC, ReactNode, useState } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { PictureOutlined, DisconnectOutlined } from '@ant-design/icons'
 
@@ -81,13 +81,13 @@ export const Image: FC<ImageProps> = p => {
     )
   }
 
-  return (
+  return withElementProps(
+    props,
     <div
-      className={classNames(classPrefix, props.className)}
+      className={classPrefix}
       style={{
         width: props.width,
         height: props.height,
-        ...props.style,
       }}
     >
       {renderInner()}

@@ -1,7 +1,7 @@
 import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { getNativeAttributes } from '../../utils/get-native-attributes'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
@@ -10,7 +10,7 @@ const classPrefix = `adm-tabs`
 export type TabPaneProps = {
   title: ReactNode
   forceRender?: boolean
-}
+} & ElementProps
 
 export const TabPane: FC<TabPaneProps> = () => {
   return null
@@ -45,35 +45,35 @@ export const Tabs: FC<TabsProps> = props => {
     onChange: props.onChange,
   })
 
-  return (
-    <div
-      {...getNativeAttributes(props)}
-      className={classNames(classPrefix, props.className)}
-      style={props.style}
-    >
+  return withElementProps(
+    props,
+    <div {...getNativeAttributes(props)} className={classPrefix}>
       <div className={`${classPrefix}-tab-list`}>
-        {panes.map(pane => (
-          <div
-            key={pane.key}
-            {...getNativeAttributes(pane.props)}
-            className={`${classPrefix}-tab-wrapper`}
-          >
+        {panes.map(pane =>
+          withElementProps(
+            pane.props,
             <div
-              onClick={() => {
-                const { key } = pane
-                if (key === undefined || key === null) {
-                  return
-                }
-                setActiveKey(key.toString())
-              }}
-              className={classNames(`${classPrefix}-tab`, {
-                [`${classPrefix}-tab-active`]: pane.key === activeKey,
-              })}
+              key={pane.key}
+              {...getNativeAttributes(pane.props)}
+              className={`${classPrefix}-tab-wrapper`}
             >
-              {pane.props.title}
+              <div
+                onClick={() => {
+                  const { key } = pane
+                  if (key === undefined || key === null) {
+                    return
+                  }
+                  setActiveKey(key.toString())
+                }}
+                className={classNames(`${classPrefix}-tab`, {
+                  [`${classPrefix}-tab-active`]: pane.key === activeKey,
+                })}
+              >
+                {pane.props.title}
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        )}
       </div>
       {panes.map(pane => {
         if (pane.props.children === undefined) {

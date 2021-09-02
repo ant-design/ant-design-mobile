@@ -2,7 +2,7 @@ import React, { useState, useEffect, ReactNode, useMemo, FC } from 'react'
 import Popup, { PopupProps } from '../popup'
 import { Column } from './column'
 import { mergeProps, withDefaultProps } from '../../utils/with-default-props'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
@@ -78,7 +78,52 @@ export const Picker = withDefaultProps({
     )
   }, [props.columns, innerValue])
 
-  const widget = (
+  const pickerElement = withElementProps(
+    props,
+    <div className={classPrefix}>
+      <div className={`${classPrefix}-header`}>
+        <a
+          className={`${classPrefix}-header-button`}
+          onClick={() => {
+            props.onCancel?.()
+            props.onClose?.()
+          }}
+        >
+          {props.cancelText}
+        </a>
+        <a
+          className={`${classPrefix}-header-button`}
+          onClick={() => {
+            setValue(innerValue)
+            props.onClose?.()
+          }}
+        >
+          {props.confirmText}
+        </a>
+      </div>
+      <div className={`${classPrefix}-columns`}>
+        {columns.map((column, index) => (
+          <Column
+            key={index}
+            column={column}
+            value={innerValue[index]}
+            onSelect={val => {
+              setInnerValue(prev => {
+                const nextValue = [...prev]
+                nextValue[index] = val
+                props.onSelect?.(nextValue)
+                return nextValue
+              })
+            }}
+          />
+        ))}
+        <div className={`${classPrefix}-mask ${classPrefix}-mask-top`} />
+        <div className={`${classPrefix}-mask ${classPrefix}-mask-bottom`} />
+      </div>
+    </div>
+  )
+
+  const popupElement = (
     <Popup
       visible={props.visible}
       position='bottom'
@@ -92,50 +137,7 @@ export const Picker = withDefaultProps({
       afterClose={props.afterClose}
       onClick={props.onClick}
     >
-      <div
-        className={classNames(classPrefix, props.className)}
-        style={props.style}
-      >
-        <div className={`${classPrefix}-header`}>
-          <a
-            className={`${classPrefix}-header-button`}
-            onClick={() => {
-              props.onCancel?.()
-              props.onClose?.()
-            }}
-          >
-            {props.cancelText}
-          </a>
-          <a
-            className={`${classPrefix}-header-button`}
-            onClick={() => {
-              setValue(innerValue)
-              props.onClose?.()
-            }}
-          >
-            {props.confirmText}
-          </a>
-        </div>
-        <div className={`${classPrefix}-columns`}>
-          {columns.map((column, index) => (
-            <Column
-              key={index}
-              column={column}
-              value={innerValue[index]}
-              onSelect={val => {
-                setInnerValue(prev => {
-                  const nextValue = [...prev]
-                  nextValue[index] = val
-                  props.onSelect?.(nextValue)
-                  return nextValue
-                })
-              }}
-            />
-          ))}
-          <div className={`${classPrefix}-mask ${classPrefix}-mask-top`} />
-          <div className={`${classPrefix}-mask ${classPrefix}-mask-bottom`} />
-        </div>
-      </div>
+      {pickerElement}
     </Popup>
   )
 
@@ -149,7 +151,7 @@ export const Picker = withDefaultProps({
 
   return (
     <>
-      {widget}
+      {popupElement}
       {props.children?.(items)}
     </>
   )

@@ -1,6 +1,6 @@
 import { withDefaultProps } from '../../utils/with-default-props'
 import React from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 
 const classPrefix = `adm-grid`
@@ -16,12 +16,6 @@ const defaultProps = {
 
 export const Grid = withDefaultProps(defaultProps)<GridProps>(props => {
   let gapStyle: any = {}
-  if (props.style) {
-    gapStyle = {
-      ...gapStyle,
-      ...props.style,
-    }
-  }
   const { gap } = props
   if (gap) {
     const [horizontalGap, verticalGap] = Array.isArray(gap) ? gap : [gap, gap]
@@ -35,9 +29,10 @@ export const Grid = withDefaultProps(defaultProps)<GridProps>(props => {
           : horizontalGap,
     }
   }
-  return (
+  return withElementProps(
+    props,
     <div
-      className={classNames(`${classPrefix}`, props.className)}
+      className={classPrefix}
       style={{
         ...gapStyle,
         '--columns': props.columns,
@@ -55,16 +50,12 @@ export type GridItemProps = {
 export const GridItem = withDefaultProps({
   span: 1,
 })<GridItemProps>(props => {
-  let itemStyle: any = props.style ?? {}
-  itemStyle = {
-    ...itemStyle,
+  const itemStyle: any = {
     '--item-span': props.span,
   }
-  return (
-    <div
-      className={classNames(`${classPrefix}-item`, props.className)}
-      style={itemStyle}
-    >
+  return withElementProps(
+    props,
+    <div className={`${classPrefix}-item`} style={itemStyle}>
       {props.children}
     </div>
   )

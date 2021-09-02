@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { CloseOutlined, SoundOutlined } from '@ant-design/icons'
 import { useUpdateLayoutEffect } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 
 const classPrefix = `adm-notice-bar`
 
@@ -76,7 +76,10 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
     text.style.transform = `translateX(-${text.offsetWidth}px)`
   }, [key])
 
-  return visible ? (
+  if (!visible) return null
+
+  return withElementProps(
+    props,
     <div className={classNames(classPrefix, `adm-notice-bar-${props.color}`)}>
       <span className={`adm-notice-bar-left`}>
         {'icon' in props ? props.icon : <SoundOutlined />}
@@ -105,5 +108,5 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
         </span>
       )}
     </div>
-  ) : null
+  )
 })

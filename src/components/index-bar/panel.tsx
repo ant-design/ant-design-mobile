@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { IndexBarContext } from './context'
 
@@ -18,12 +18,9 @@ export const Panel: React.FC<IndexBarAnchorProps> = props => {
       setIndexes(val => val.filter(x => x !== props.index))
     }
   }, [props.index])
-  return (
-    <div
-      data-index={props.index}
-      className={classNames(`${classPrefix}`, props.className)}
-      style={props.style}
-    >
+  return withElementProps(
+    props,
+    <div data-index={props.index} className={classPrefix}>
       <div className={`${classPrefix}-title`}>{props.title || props.index}</div>
       {props.children}
     </div>

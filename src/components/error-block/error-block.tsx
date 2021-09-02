@@ -2,7 +2,7 @@ import React, { ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import { errorConfigRecord } from './error'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 
 const classPrefix = `adm-error-block`
 
@@ -33,12 +33,12 @@ export const ErrorBlock = withDefaultProps(defaultProps)<ErrorBlockProps>(
       }
     }
 
-    return (
+    return withElementProps(
+      props,
       <div
-        className={classNames(classPrefix, props.className, {
+        className={classNames(classPrefix, {
           [`${classPrefix}-full-page`]: props.fullPage,
         })}
-        style={props.style}
       >
         <div className={`${classPrefix}-image`}>{imageNode}</div>
         <div className={`${classPrefix}-description`}>

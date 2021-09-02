@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { FC } from 'react'
 import SpinIcon from '../../assets/spin.svg'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -29,17 +29,13 @@ export const Switch: FC<SwitchProps> = p => {
     onChange: props.onChange,
   })
 
-  return (
+  return withElementProps(
+    props,
     <label
-      className={classNames(
-        classPrefix,
-        {
-          [`${classPrefix}-checked`]: checked,
-          [`${classPrefix}-disabled`]: disabled,
-        },
-        props.className
-      )}
-      style={props.style}
+      className={classNames(classPrefix, {
+        [`${classPrefix}-checked`]: checked,
+        [`${classPrefix}-disabled`]: disabled,
+      })}
     >
       <input
         type='checkbox'

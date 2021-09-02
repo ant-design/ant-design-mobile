@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 
 const classPrefix = `adm-list`
 
@@ -9,13 +9,9 @@ export type ListProps = {
 } & ElementProps<'--prefix-width' | '--align-items'>
 
 export const List: FC<ListProps> = props => {
-  const className = classNames(
-    classPrefix,
-    `${classPrefix}-${props.mode}`,
-    props.className
-  )
-  return (
-    <div className={className} style={props.style}>
+  return withElementProps(
+    props,
+    <div className={classNames(classPrefix, `${classPrefix}-${props.mode}`)}>
       <div className={`${classPrefix}-inner`}>{props.children}</div>
     </div>
   )

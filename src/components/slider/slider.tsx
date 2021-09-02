@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
 import Marks, { SliderMarks } from './marks'
@@ -167,16 +167,12 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     )
   }
 
-  return (
+  return withElementProps(
+    props,
     <div
-      className={classNames(
-        classPrefix,
-        {
-          [`${classPrefix}-disabled`]: disabled,
-        },
-        props.className
-      )}
-      style={props.style}
+      className={classNames(classPrefix, {
+        [`${classPrefix}-disabled`]: disabled,
+      })}
     >
       <div className={`${classPrefix}-track-container`} onClick={onTrackClick}>
         <div

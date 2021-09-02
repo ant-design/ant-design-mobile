@@ -4,7 +4,7 @@ import React, {
   useImperativeHandle,
   useRef,
 } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { useDrag } from 'react-use-gesture'
 import { useSpring, animated } from '@react-spring/web'
@@ -114,12 +114,12 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       [api]
     )
 
-    return (
+    return withElementProps(
+      props,
       <animated.div
         ref={elementRef}
-        className={classNames('adm-drawer', props.className)}
+        className='adm-drawer'
         style={{
-          ...props.style,
           height: maxHeight,
           y,
         }}

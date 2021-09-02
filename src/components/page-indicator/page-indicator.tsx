@@ -1,5 +1,5 @@
 import React, { memo, ReactElement } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -29,14 +29,13 @@ export const PageIndicator = memo<PageIndicatorProps>(p => {
     )
   }
 
-  return (
+  return withElementProps(
+    props,
     <div
       className={classNames(
         'adm-page-indicator',
-        `adm-page-indicator-color-${props.color}`,
-        props.className
+        `adm-page-indicator-color-${props.color}`
       )}
-      style={props.style}
     >
       {dots}
     </div>

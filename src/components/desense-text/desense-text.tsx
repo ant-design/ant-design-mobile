@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import classnames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Icon from '@ant-design/icons'
 import { IconEye } from '../icons/icon-eye'
@@ -28,11 +28,9 @@ export const DesenseText: FC<DesenseTextProps> = p => {
     defaultValue: props.defaultDesense,
     onChange: props.onChange,
   })
-  return (
-    <span
-      className={classnames('adm-desense-text', props.className)}
-      style={props.style}
-    >
+  return withElementProps(
+    props,
+    <span className='adm-desense-text'>
       {isDesense ? desenseText : text}
       <a
         className={classnames('adm-desense-text-icon-wrap', 'adm-plain-anchor')}

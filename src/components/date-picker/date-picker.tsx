@@ -2,7 +2,7 @@ import React, { useMemo, useCallback, ReactNode } from 'react'
 import Picker, { PickerProps } from '../picker'
 import dayjs from 'dayjs'
 import { generateIntArray } from '../../utils/generate-int-array'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
@@ -112,7 +112,8 @@ export const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(
       [props.onSelect]
     )
 
-    return (
+    return withElementProps(
+      props,
       <Picker
         columns={columns}
         value={pickerValue}

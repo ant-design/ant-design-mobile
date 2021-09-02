@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import List from '../list'
 import { RightOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
@@ -110,11 +110,9 @@ export const Collapse: FC<CollapseProps> = props => {
   const activeKeyList =
     activeKey === null ? [] : Array.isArray(activeKey) ? activeKey : [activeKey]
 
-  return (
-    <div
-      className={classNames('adm-collapse', props.className)}
-      style={props.style}
-    >
+  return withElementProps(
+    props,
+    <div className='adm-collapse'>
       <List>
         {panels.map(panel => {
           const key = panel.key as string

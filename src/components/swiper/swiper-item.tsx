@@ -1,18 +1,14 @@
 import React, { FC } from 'react'
-import { ElementProps } from '../../utils/element-props'
-import classNames from 'classnames'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 
 type Props = {
   onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & ElementProps
 
 export const SwiperItem: FC<Props> = props => {
-  return (
-    <div
-      className={classNames('adm-swiper-item', props.className)}
-      style={props.style}
-      onClick={props.onClick}
-    >
+  return withElementProps(
+    props,
+    <div className='adm-swiper-item' onClick={props.onClick}>
       {props.children}
     </div>
   )

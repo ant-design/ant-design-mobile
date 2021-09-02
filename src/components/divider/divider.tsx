@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-divider`
@@ -15,13 +15,12 @@ const defaultProps = {
 
 export const Divider: FC<DividerProps> = p => {
   const props = mergeProps(defaultProps, p)
-  return (
+  return withElementProps(
+    props,
     <div
-      style={props.style}
       className={classNames(
         classPrefix,
-        `${classPrefix}-${props.contentPosition}`,
-        props.className
+        `${classPrefix}-${props.contentPosition}`
       )}
     >
       {props.children && (

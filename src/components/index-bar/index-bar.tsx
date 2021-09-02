@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { useThrottleFn } from 'ahooks'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { Sidebar } from './sidebar'
@@ -76,6 +76,32 @@ export const IndexBar = withDefaultProps(defaultProps)<IndexBarProps>(props => {
     }
   }
 
+  const element = withElementProps(
+    props,
+    <div
+      className={classNames(`${classPrefix}`, {
+        [`${classPrefix}-sticky`]: props.sticky,
+      })}
+      style={stickyStyle}
+    >
+      <Sidebar
+        indexes={indexes}
+        activeIndex={activeIndex}
+        onActive={index => {
+          scrollTo(index)
+        }}
+      />
+
+      <div
+        className={`${classPrefix}-body`}
+        ref={bodyRef}
+        onScroll={checkActiveIndex}
+      >
+        {props.children}
+      </div>
+    </div>
+  )
+
   return (
     <IndexBarContext.Provider
       value={{
@@ -83,32 +109,7 @@ export const IndexBar = withDefaultProps(defaultProps)<IndexBarProps>(props => {
         setIndexes,
       }}
     >
-      <div
-        className={classNames(
-          `${classPrefix}`,
-          {
-            [`${classPrefix}-sticky`]: props.sticky,
-          },
-          props.className
-        )}
-        style={stickyStyle}
-      >
-        <Sidebar
-          indexes={indexes}
-          activeIndex={activeIndex}
-          onActive={index => {
-            scrollTo(index)
-          }}
-        />
-
-        <div
-          className={`${classPrefix}-body`}
-          ref={bodyRef}
-          onScroll={checkActiveIndex}
-        >
-          {props.children}
-        </div>
-      </div>
+      {element}
     </IndexBarContext.Provider>
   )
 })

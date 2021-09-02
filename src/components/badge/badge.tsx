@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { convertPx } from '../../utils/convert-px'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-badge`
@@ -33,25 +33,19 @@ export const Badge = withDefaultProps({
     [`${classPrefix}-dot`]: !content,
   })
 
-  return children ? (
-    <div
-      className={classNames(`${classPrefix}-wrap`, props.className)}
-      style={props.style}
-    >
-      {children}
+  return withElementProps(
+    props,
+    children ? (
+      <div className={`${classPrefix}-wrap`}>
+        {children}
+        <div className={badgeCls} style={badgeStyle}>
+          {content}
+        </div>
+      </div>
+    ) : (
       <div className={badgeCls} style={badgeStyle}>
         {content}
       </div>
-    </div>
-  ) : (
-    <div
-      className={classNames(badgeCls, props.className)}
-      style={{
-        ...badgeStyle,
-        ...props.style,
-      }}
-    >
-      {content}
-    </div>
+    )
   )
 })

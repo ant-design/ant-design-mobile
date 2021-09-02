@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 
 const classPrefix = `adm-tag`
@@ -30,19 +30,15 @@ export const Tag: FC<TagProps> = p => {
     '--color': string
   } = {
     '--color': color,
-    ...props.style,
   }
-  return (
+  return withElementProps(
+    props,
     <span
       style={style}
-      className={classNames(
-        classPrefix,
-        {
-          [`${classPrefix}-round`]: props.round,
-          [`${classPrefix}-outline`]: props.fill === 'outline',
-        },
-        props.className
-      )}
+      className={classNames(classPrefix, {
+        [`${classPrefix}-round`]: props.round,
+        [`${classPrefix}-outline`]: props.fill === 'outline',
+      })}
     >
       {props.children}
     </span>

@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { FC } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { ElementProps, withElementProps } from '../../utils/element-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Space from '../space'
 import Grid from '../grid'
@@ -35,7 +35,7 @@ export const Selector: FC<SelectorProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = useNewControllableValue(props)
 
-  const seletorItems = props.options.map(option => {
+  const items = props.options.map(option => {
     const active = (value || []).includes(option.value)
     const disabled = option.disabled || props.disabled
     const itemCls = classNames(`${classPrefix}-item`, {
@@ -73,15 +73,13 @@ export const Selector: FC<SelectorProps> = p => {
     )
   })
 
-  return (
-    <div
-      className={classNames(classPrefix, props.className)}
-      style={props.style}
-    >
-      {!props.columns && <Space wrap>{seletorItems}</Space>}
+  return withElementProps(
+    props,
+    <div className={classPrefix}>
+      {!props.columns && <Space wrap>{items}</Space>}
       {props.columns && (
         <Grid columns={props.columns} gap={convertPx(8)}>
-          {seletorItems}
+          {items}
         </Grid>
       )}
     </div>
