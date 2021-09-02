@@ -84,6 +84,23 @@ export default () => {
           <DemoDescription content='通过 indicatorProps 可以控制指示器的外观' />
         </Space>
       </DemoBlock>
+      <DemoBlock title='自定义指示器'>
+        <Space direction='vertical' block>
+          <Swiper
+            indicator={(total, current) => (
+              <div className={styles.customIndicator}>
+                {`${current + 1} / ${total}`}
+              </div>
+            )}
+          >
+            {items}
+          </Swiper>
+          <DemoDescription content='你可以完全自定义指示器的渲染，甚至改变指示器的位置' />
+        </Space>
+      </DemoBlock>
+      <DemoBlock title='无指示器'>
+        <Swiper indicator={() => null}>{items}</Swiper>
+      </DemoBlock>
     </>
   )
 }

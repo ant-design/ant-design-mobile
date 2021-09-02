@@ -33,6 +33,7 @@ export type SwiperProps = {
   loop?: boolean
   onIndexChange?: (index: number) => void
   indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
+  indicator?: (total: number, current: number) => ReactNode
   children?: ReactElement[]
 } & ElementProps<'--height' | '--width' | '--slide-width' | '--border-radius'>
 
@@ -234,13 +235,17 @@ export const Swiper = forwardRef(
               })}
             </div>
           </div>
-          <div className='adm-swiper-indicator'>
-            <PageIndicator
-              {...props.indicatorProps}
-              total={count}
-              current={current}
-            />
-          </div>
+          {props.indicator === undefined ? (
+            <div className='adm-swiper-indicator'>
+              <PageIndicator
+                {...props.indicatorProps}
+                total={count}
+                current={current}
+              />
+            </div>
+          ) : (
+            props.indicator(count, current)
+          )}
         </div>
       )
     }
