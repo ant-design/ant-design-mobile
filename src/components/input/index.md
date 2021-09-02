@@ -10,12 +10,14 @@ Input 组件是布局无关的， 它只包括了最基本的输入框部分，�
 | ------------ | -------------------------------------------- | ----------------------- | ------ |
 | value        | 输入值                                       | string                  | -      |
 | defaultValue | 默认值                                       | string                  | -      |
-| placeholder  | 提示文本                                     | string                  | -      |
-| clearable    | 是否启用清除图标，点击清除图标后会清空输入框 | boolean                 | false  |
 | onChange     | 输入框内容变化时触发                         | (value: string) => void | -      |
+| placeholder  | 提示文本                                     | string                  | -      |
+| disabled     | 是否禁用                                     | boolean                 | false  |
+| readOnly     | 是否只读                                     | boolean                 | false  |
+| clearable    | 是否启用清除图标，点击清除图标后会清空输入框 | boolean                 | false  |
 | onClear      | 点击清除按钮后触发                           | event: Event            | -      |
 
-其他属性和原生 `input` 一致
+此外还支持以下原生属性：`maxLength` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur`
 
 ## CSS 变量
 
