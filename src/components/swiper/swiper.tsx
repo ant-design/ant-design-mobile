@@ -15,7 +15,7 @@ import { devWarning } from '../../utils/dev-log'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import { bound } from '../../utils/rubberband'
-import PageIndicator from '../page-indicator'
+import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 
@@ -32,6 +32,7 @@ export type SwiperProps = {
   autoplayInterval?: number
   loop?: boolean
   onIndexChange?: (index: number) => void
+  indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
   children?: ReactElement[]
 } & ElementProps<'--height' | '--width' | '--slide-width' | '--border-radius'>
 
@@ -234,7 +235,11 @@ export const Swiper = forwardRef(
             </div>
           </div>
           <div className='adm-swiper-indicator'>
-            <PageIndicator total={count} current={current} />
+            <PageIndicator
+              {...props.indicatorProps}
+              total={count}
+              current={current}
+            />
           </div>
         </div>
       )

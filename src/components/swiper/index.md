@@ -6,14 +6,15 @@
 
 ### 属性
 
-| 属性             | 说明                      | 类型                    | 默认值 |
-| ---------------- | ------------------------- | ----------------------- | ------ |
-| defaultIndex     | 初始位置                  | number                  | 0      |
-| allowTouchMove   | 是否允许手势滑动          | boolean                 | true   |
-| autoplay         | 是否自动切换              | boolean                 | false  |
-| autoplayInterval | 自动切换的间隔，单位为 ms | number                  | 3000   |
-| loop             | 是否循环                  | boolean                 | true   |
-| onIndexChange    | 切换时触发                | (index: number) => void | -      |
+| 属性             | 说明                      | 类型                                                                       | 默认值 |
+| ---------------- | ------------------------- | -------------------------------------------------------------------------- | ------ |
+| defaultIndex     | 初始位置                  | number                                                                     | 0      |
+| allowTouchMove   | 是否允许手势滑动          | boolean                                                                    | true   |
+| autoplay         | 是否自动切换              | boolean                                                                    | false  |
+| autoplayInterval | 自动切换的间隔，单位为 ms | number                                                                     | 3000   |
+| loop             | 是否循环                  | boolean                                                                    | true   |
+| onIndexChange    | 切换时触发                | (index: number) => void                                                    | -      |
+| indicatorProps   | 指示器的相关属性          | 支持 [PageIndicator](./page-indicator) 的 `color` `style` `className` 属性 | -      |
 
 ### CSS 变量
 

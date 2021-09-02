@@ -71,6 +71,19 @@ export default () => {
           <DemoDescription content='通过 CSS 变量可以控制滑块的大小、整体的圆角等样式' />
         </Space>
       </DemoBlock>
+      <DemoBlock title='指示器颜色'>
+        <Space direction='vertical' block>
+          <Swiper
+            indicatorProps={{
+              color: 'white',
+            }}
+            defaultIndex={1}
+          >
+            {items}
+          </Swiper>
+          <DemoDescription content='通过 indicatorProps 可以控制指示器的外观' />
+        </Space>
+      </DemoBlock>
     </>
   )
 }
