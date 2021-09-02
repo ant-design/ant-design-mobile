@@ -2,7 +2,6 @@ import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
 import classNames from 'classnames'
 import { ElementProps, withElementProps } from '../../utils/element-props'
-import { getNativeAttributes } from '../../utils/get-native-attributes'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `adm-tabs`
@@ -47,16 +46,12 @@ export const Tabs: FC<TabsProps> = props => {
 
   return withElementProps(
     props,
-    <div {...getNativeAttributes(props)} className={classPrefix}>
+    <div className={classPrefix}>
       <div className={`${classPrefix}-tab-list`}>
         {panes.map(pane =>
           withElementProps(
             pane.props,
-            <div
-              key={pane.key}
-              {...getNativeAttributes(pane.props)}
-              className={`${classPrefix}-tab-wrapper`}
-            >
+            <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
               <div
                 onClick={() => {
                   const { key } = pane

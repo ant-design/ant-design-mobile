@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
 import Loading from '../loading'
-import { getNativeAttributes } from '../../utils/get-native-attributes'
 import { mergeProps } from '../../utils/with-default-props'
 import { withElementProps } from '../../utils/element-props'
 
@@ -35,7 +34,6 @@ export const Button: FC<ButtonProps> = p => {
   return withElementProps(
     props,
     <button
-      {...getNativeAttributes(props)}
       type={props.type}
       onClick={props.onClick}
       className={classNames(

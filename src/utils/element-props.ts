@@ -5,7 +5,6 @@ import classNames from 'classnames'
 export interface ElementProps<S extends string = never> {
   className?: string
   style?: CSSProperties & Partial<Record<S, string>>
-  // id?: string
 }
 
 export function withElementProps<P extends ElementProps>(
@@ -24,14 +23,11 @@ export function withElementProps<P extends ElementProps>(
       ...props.style,
     }
   }
-  // for (const key in props) {
-  //   if (!props.hasOwnProperty(key)) continue
-  //   if (key.startsWith('data-') || key.startsWith('aria-')) {
-  //     p[key] = props[key]
-  //   }
-  // }
-  // if (props.id) {
-  //   p.id = props.id
-  // }
+  for (const key in props) {
+    if (!props.hasOwnProperty(key)) continue
+    if (key.startsWith('data-') || key.startsWith('aria-')) {
+      p[key] = props[key]
+    }
+  }
   return React.cloneElement(element, p)
 }
