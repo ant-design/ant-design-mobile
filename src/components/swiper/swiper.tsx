@@ -193,7 +193,9 @@ export const Swiper = forwardRef(
           style={props.style}
         >
           <div
-            className='adm-swiper-track'
+            className={classNames('adm-swiper-track', {
+              'adm-swiper-track-allow-touch-move': props.allowTouchMove,
+            })}
             ref={trackRef}
             {...(props.allowTouchMove ? bind() : {})}
           >
