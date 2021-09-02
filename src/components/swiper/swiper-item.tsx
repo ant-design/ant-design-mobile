@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { ElementProps } from '../../utils/element-props'
 import classNames from 'classnames'
 
-type Props = {} & ElementProps
+type Props = ElementProps
 
 export const SwiperItem: FC<Props> = props => {
   return (
