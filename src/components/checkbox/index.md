@@ -19,6 +19,7 @@ type CheckboxValue = string | number
 | value          | 携带的标识值，用于 Group 模式           | CheckboxValue          | -      |
 | indeterminate  | 设置 indeterminate 状态，只负责样式控制 | boolean                | false  |
 | block          | 是否渲染为块级元素                      | boolean                | false  |
+| id             | input 元素的 id，常用来配合 label 使用  | string                 | -      |
 
 ### Checkbox.Group
 

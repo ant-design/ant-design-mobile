@@ -31,6 +31,7 @@ export type TextAreaProps = Pick<
         minRows?: number
         maxRows?: number
       }
+  id?: string
 } & ElementProps<
     '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
   >
@@ -116,6 +117,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onBlur={e => {
             props.onBlur?.(e)
           }}
+          id={props.id}
         />
         {showCount && (
           <div className={`${classPrefix}-count`}>

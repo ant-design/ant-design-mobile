@@ -17,6 +17,7 @@ export type RadioProps = {
   onChange?: (checked: boolean) => void
   value?: RadioValue
   block?: boolean
+  id?: string
 } & ElementProps
 
 const defaultProps = {
@@ -68,6 +69,7 @@ export const Radio: FC<RadioProps> = p => {
           e.nativeEvent.stopImmediatePropagation()
         }}
         disabled={disabled}
+        id={props.id}
       />
       <div className={`${classPrefix}-icon`}>
         <CheckOutlined className={`${classPrefix}-icon-checked`} />

@@ -18,6 +18,7 @@ export type CheckboxProps = {
   value?: CheckboxValue
   indeterminate?: boolean
   block?: boolean
+  id?: string
 } & ElementProps
 
 const defaultProps = {
@@ -70,6 +71,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
           e.nativeEvent.stopImmediatePropagation()
         }}
         disabled={disabled}
+        id={props.id}
       />
       <div className={`${classPrefix}-icon`}>
         <CheckOutlined className={`${classPrefix}-icon-checked`} />
