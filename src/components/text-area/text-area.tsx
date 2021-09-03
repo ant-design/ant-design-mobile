@@ -11,17 +11,18 @@ import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-text-area'
 
-export type TextAreaProps = Omit<
+export type TextAreaProps = Pick<
   React.DetailedHTMLProps<
     React.TextareaHTMLAttributes<HTMLTextAreaElement>,
     HTMLTextAreaElement
   >,
-  'onChange'
+  'autoComplete' | 'disabled' | 'readOnly' | 'onFocus' | 'onBlur'
 > & {
   onChange?: (val: string) => void
   value?: string
   defaultValue?: string
-} & {
+  placeholder?: string
+  rows?: number
   maxLength?: number
   showCount?: boolean
   autoSize?:
@@ -47,7 +48,6 @@ const defaultProps = {
   defaultValue: '',
 }
 
-// TODO: withDefaultProps 和 forwardRef 配合使用的问题
 export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
   (p: TextAreaProps, ref) => {
     const props = mergeProps(defaultProps, p)
