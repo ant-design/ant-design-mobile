@@ -1,7 +1,7 @@
 import { withDefaultProps } from '../../utils/with-default-props'
 import React, { useEffect, useRef } from 'react'
 import { useLockFn, usePersistFn } from 'ahooks'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
 import Loading from '../loading'
 
@@ -15,7 +15,7 @@ export type InfiniteScrollProps = {
   loadMore: () => Promise<void>
   hasMore: boolean
   threshold?: number
-} & ElementProps
+} & NativeProps
 
 const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
   return (
@@ -74,7 +74,7 @@ export const InfiniteScroll = withDefaultProps({
     }
   }, [])
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className={classPrefix} ref={elementRef}>
       {props.children && props.children}

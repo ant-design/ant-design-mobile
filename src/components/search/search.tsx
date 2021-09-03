@@ -7,7 +7,7 @@ import React, {
 } from 'react'
 import classNames from 'classnames'
 import Input, { InputRef } from '../input'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutlined } from '@ant-design/icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
@@ -29,7 +29,7 @@ export type SearchProps = {
   onBlur?: () => void
   onClear?: () => void
   onCancel?: () => void
-} & ElementProps<'--background' | '--border-radius' | '--placeholder-color'>
+} & NativeProps<'--background' | '--border-radius' | '--placeholder-color'>
 
 const defaultProps = {
   clearable: true,
@@ -49,7 +49,7 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
     blur: () => inputRef.current?.blur(),
   }))
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div
       className={classNames(classPrefix, {

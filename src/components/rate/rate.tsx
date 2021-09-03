@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { StarFilled } from '@ant-design/icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
@@ -16,7 +16,7 @@ export type RateProps = {
   readonly?: boolean
   value?: number
   onChange?: (value: number) => void
-} & ElementProps<'--star-size' | '--active-color'>
+} & NativeProps<'--star-size' | '--active-color'>
 
 const defaultProps = {
   count: 5,
@@ -51,7 +51,7 @@ export const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
       </div>
     )
   }
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className={classPrefix}>
       {starList.map((_, i) => (

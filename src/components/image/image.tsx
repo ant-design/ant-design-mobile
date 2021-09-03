@@ -1,6 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React, { FC, ReactNode, useState } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { PictureOutlined, DisconnectOutlined } from '@ant-design/icons'
 
 const classPrefix = `adm-image`
@@ -15,7 +15,7 @@ export type ImageProps = {
   fallback?: ReactNode
   onClick?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
-} & ElementProps &
+} & NativeProps &
   Pick<
     React.ImgHTMLAttributes<HTMLImageElement>,
     | 'crossOrigin'
@@ -80,7 +80,7 @@ export const Image: FC<ImageProps> = p => {
     )
   }
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div
       className={classPrefix}

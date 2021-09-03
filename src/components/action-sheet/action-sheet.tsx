@@ -5,7 +5,7 @@ import React, {
   createRef,
   useEffect,
 } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import Popup from '../popup'
@@ -36,7 +36,7 @@ export type ActionSheetProps = {
   closeOnAction?: boolean
   closeOnMaskClick?: boolean
   getContainer?: GetContainer
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   visible: false,
@@ -61,7 +61,7 @@ export const ActionSheet = withDefaultProps(defaultProps)<ActionSheetProps>(
         className={`${classPrefix}-popup`}
         getContainer={props.getContainer}
       >
-        {withElementProps(
+        {withNativeProps(
           props,
           <div className={classPrefix}>
             {props.extra && (

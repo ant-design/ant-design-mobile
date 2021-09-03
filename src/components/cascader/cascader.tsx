@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { useMemo } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
@@ -17,7 +17,7 @@ export type CascaderProps = {
   value?: string[]
   onChange?: (value: string[], nodes: CascaderOption[]) => void
   fieldNames?: { label: string; value: string; children: string }
-} & ElementProps
+} & NativeProps
 
 export const Cascader = withDefaultProps({
   options: [],
@@ -124,7 +124,7 @@ export const Cascader = withDefaultProps({
     return columns
   }
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className={classPrefix}>{renderColumns()}</div>
   )

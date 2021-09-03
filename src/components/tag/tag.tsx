@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 
 const classPrefix = `adm-tag`
@@ -14,7 +14,7 @@ export type TagProps = {
   color?: 'default' | 'primary' | string
   fill?: 'solid' | 'outline'
   round?: boolean
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   color: 'default',
@@ -31,7 +31,7 @@ export const Tag: FC<TagProps> = p => {
   } = {
     '--color': color,
   }
-  return withElementProps(
+  return withNativeProps(
     props,
     <span
       style={style}

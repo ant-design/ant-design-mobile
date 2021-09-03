@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import classNames from 'classnames'
 import Loading from '../loading'
 import { mergeProps } from '../../utils/with-default-props'
-import { withElementProps } from '../../utils/element-props'
+import { withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-button`
 
@@ -31,7 +31,7 @@ const defaultProps = {
 export const Button: FC<ButtonProps> = p => {
   const props = mergeProps(defaultProps, p)
   const disabled = props.disabled
-  return withElementProps(
+  return withNativeProps(
     props,
     <button
       type={props.type}

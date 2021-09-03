@@ -1,4 +1,4 @@
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps } from '../../utils/native-props'
 import { useInitialized } from '../../utils/use-initialized'
 import classNames from 'classnames'
 import React, { useRef } from 'react'
@@ -17,7 +17,7 @@ export type MaskProps = {
   opacity?: 'default' | 'dark' | number
   getContainer?: HTMLElement | (() => HTMLElement) | undefined
   afterClose?: () => void
-} & ElementProps
+} & NativeProps
 
 export const Mask: React.FC<MaskProps> = props => {
   const cls = classNames(classPrefix, props.className, {

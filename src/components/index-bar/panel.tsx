@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { IndexBarContext } from './context'
 
 const classPrefix = `adm-index-bar-anchor`
@@ -7,7 +7,7 @@ const classPrefix = `adm-index-bar-anchor`
 export type IndexBarAnchorProps = {
   index: string
   title?: string
-} & ElementProps
+} & NativeProps
 
 export const Panel: React.FC<IndexBarAnchorProps> = props => {
   const { setIndexes } = useContext(IndexBarContext)
@@ -17,7 +17,7 @@ export const Panel: React.FC<IndexBarAnchorProps> = props => {
       setIndexes(val => val.filter(x => x !== props.index))
     }
   }, [props.index])
-  return withElementProps(
+  return withNativeProps(
     props,
     <div data-index={props.index} className={classPrefix}>
       <div className={`${classPrefix}-title`}>{props.title || props.index}</div>

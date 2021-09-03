@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { FC } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Space from '../space'
 import Grid from '../grid'
@@ -24,7 +24,7 @@ export type SelectorProps = {
   defaultValue?: string[]
   value?: string[]
   onChange?: (v: string[]) => void
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   multiple: false,
@@ -73,7 +73,7 @@ export const Selector: FC<SelectorProps> = p => {
     )
   })
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className={classPrefix}>
       {!props.columns && <Space wrap>{items}</Space>}

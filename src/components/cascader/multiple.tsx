@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { useMemo } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
 import Checkbox from '../checkbox'
@@ -22,7 +22,7 @@ export type MultipleProps = {
   expandKeys?: string[]
   defaultExpandKeys?: string[]
   onExpand?: (expandedKeys: string[], nodes: CascaderOption[]) => void
-} & ElementProps
+} & NativeProps
 
 export const Multiple = withDefaultProps({
   options: [],
@@ -356,7 +356,7 @@ export const Multiple = withDefaultProps({
     return columns
   }
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className={classPrefix}>{renderColumns()}</div>
   )

@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-divider`
 
 export type DividerProps = {
   contentPosition?: 'left' | 'right' | 'center'
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   contentPosition: 'center',
@@ -15,7 +15,7 @@ const defaultProps = {
 
 export const Divider: FC<DividerProps> = p => {
   const props = mergeProps(defaultProps, p)
-  return withElementProps(
+  return withNativeProps(
     props,
     <div
       className={classNames(

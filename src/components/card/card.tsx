@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react'
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-card`
 
@@ -11,7 +11,7 @@ export type CardProps = {
   onClick?: (event: React.MouseEvent) => void
   onBodyClick?: (event: React.MouseEvent) => void
   onHeaderClick?: (event: React.MouseEvent) => void
-} & ElementProps
+} & NativeProps
 
 export const Card: FC<CardProps> = props => {
   const renderHeader = () => {
@@ -40,7 +40,7 @@ export const Card: FC<CardProps> = props => {
     )
   }
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className={classPrefix} onClick={props.onClick}>
       {renderHeader()}

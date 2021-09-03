@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
 import Marks, { SliderMarks } from './marks'
@@ -24,7 +24,7 @@ export type SliderProps = {
   range?: boolean
   onChange?: (value: SliderValue) => void
   onAfterChange?: (value: SliderValue) => void
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   min: 0,
@@ -167,7 +167,7 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     )
   }
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div
       className={classNames(classPrefix, {

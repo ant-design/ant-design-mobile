@@ -1,6 +1,6 @@
 import React, { useRef, useState, useLayoutEffect } from 'react'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-ellipsis`
 
@@ -8,7 +8,7 @@ export type EllipsisProps = {
   content: string
   direction?: 'start' | 'end'
   rows?: number
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   direction: 'end',
@@ -85,7 +85,7 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
     document.body.removeChild(container)
   }, [props.content, props.rows, props.direction])
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div ref={originRef} className={classPrefix}>
       {ellipsised}

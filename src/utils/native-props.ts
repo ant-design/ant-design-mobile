@@ -2,12 +2,12 @@ import React from 'react'
 import type { CSSProperties, ReactElement } from 'react'
 import classNames from 'classnames'
 
-export interface ElementProps<S extends string = never> {
+export interface NativeProps<S extends string = never> {
   className?: string
   style?: CSSProperties & Partial<Record<S, string>>
 }
 
-export function withElementProps<P extends ElementProps>(
+export function withNativeProps<P extends NativeProps>(
   props: P,
   element: ReactElement
 ) {

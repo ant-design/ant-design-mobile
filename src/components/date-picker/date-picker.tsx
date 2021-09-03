@@ -2,7 +2,7 @@ import React, { useMemo, useCallback, ReactNode } from 'react'
 import Picker, { PickerProps } from '../picker'
 import dayjs from 'dayjs'
 import { generateIntArray } from '../../utils/generate-int-array'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
@@ -25,7 +25,7 @@ export type DatePickerProps = Pick<
   min?: Date
   max?: Date
   children?: (value: Date | null) => ReactNode
-} & ElementProps
+} & NativeProps
 
 const thisYear = new Date().getFullYear()
 
@@ -112,7 +112,7 @@ export const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(
       [props.onSelect]
     )
 
-    return withElementProps(
+    return withNativeProps(
       props,
       <Picker
         columns={columns}

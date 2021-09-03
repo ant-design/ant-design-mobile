@@ -4,7 +4,7 @@ import React, {
   useImperativeHandle,
   useRef,
 } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDrag } from 'react-use-gesture'
 import { useSpring, animated } from '@react-spring/web'
 import { supportsPassive } from '../../utils/supports-passive'
@@ -13,7 +13,7 @@ import { nearest } from '../../utils/nearest'
 export type FloatingPanelProps = {
   anchors: number[]
   children: ReactNode
-} & ElementProps<'--border-radius'>
+} & NativeProps<'--border-radius'>
 
 export type FloatingPanelRef = {
   setHeight: (
@@ -113,7 +113,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       [api]
     )
 
-    return withElementProps(
+    return withNativeProps(
       props,
       <animated.div
         ref={elementRef}

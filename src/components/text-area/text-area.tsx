@@ -5,7 +5,7 @@ import React, {
   useRef,
 } from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -32,7 +32,7 @@ export type TextAreaProps = Pick<
         maxRows?: number
       }
   id?: string
-} & ElementProps<
+} & NativeProps<
     '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
   >
 
