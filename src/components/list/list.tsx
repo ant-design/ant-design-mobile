@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from 'antd-mobile/src/utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-list`
 
