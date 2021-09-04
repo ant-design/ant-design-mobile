@@ -101,6 +101,7 @@ export default {
           '/components/date-picker',
           '/components/form',
           '/components/rate',
+          '/components/check-list',
         ],
       },
       {
