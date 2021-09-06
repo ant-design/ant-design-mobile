@@ -35,7 +35,7 @@ export type SwiperProps = {
   onIndexChange?: (index: number) => void
   indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
   indicator?: (total: number, current: number) => ReactNode
-  children?: ReactElement[]
+  children?: ReactElement | ReactElement[]
 } & NativeProps<'--height' | '--width' | '--slide-width' | '--border-radius'>
 
 const defaultProps = {
