@@ -63,8 +63,11 @@ export const SwipeAction: FC<SwipeActionProps> = p => {
     []
   )
 
+  const draggingRef = useRef(false)
+
   const bind = useDrag(
     state => {
+      draggingRef.current = true
       const [mx] = state.movement
       if (state.last) {
         const leftWidth = getLeftWidth()
@@ -79,6 +82,9 @@ export const SwipeAction: FC<SwipeActionProps> = p => {
         }
         api.start({
           x: nearest([-rightWidth, 0, leftWidth], position),
+        })
+        window.setTimeout(() => {
+          draggingRef.current = false
         })
       } else {
         api.start({
@@ -150,7 +156,17 @@ export const SwipeAction: FC<SwipeActionProps> = p => {
 
   return withNativeProps(
     props,
-    <div className='adm-swipe-action' {...bind()} ref={rootRef}>
+    <div
+      className='adm-swipe-action'
+      {...bind()}
+      ref={rootRef}
+      onClickCapture={e => {
+        if (draggingRef.current) {
+          e.stopPropagation()
+          e.preventDefault()
+        }
+      }}
+    >
       <animated.div className='adm-swipe-action-track' style={{ x }}>
         <div
           className='adm-swipe-action-actions adm-swipe-action-actions-left'
@@ -158,7 +174,26 @@ export const SwipeAction: FC<SwipeActionProps> = p => {
         >
           {props.leftActions.map(renderAction)}
         </div>
-        <div className='adm-swipe-action-content'>{props.children}</div>
+        <div
+          className='adm-swipe-action-content'
+          onClickCapture={e => {
+            if (x.goal !== 0) {
+              e.preventDefault()
+              e.stopPropagation()
+              api.start({
+                x: 0,
+              })
+            }
+          }}
+        >
+          <animated.div
+            style={{
+              pointerEvents: x.to(() => (x.goal === 0 ? 'unset' : 'none')),
+            }}
+          >
+            {props.children}
+          </animated.div>
+        </div>
         <div
           className='adm-swipe-action-actions adm-swipe-action-actions-right'
           ref={rightRef}
