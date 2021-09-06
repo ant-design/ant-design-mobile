@@ -1,0 +1,36 @@
+.adm-swipe-action {
+  --background: #ffffff;
+  background: var(--background);
+  cursor: grab;
+  overflow: hidden;
+  &-track {
+    position: relative;
+    overflow: visible;
+  }
+  &-content {
+  }
+  &-actions {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: fit-content;
+    &-right {
+      left: 100%;
+      top: 0;
+      height: 100%;
+    }
+    &-left {
+      right: 100%;
+      top: 0;
+      height: 100%;
+    }
+  }
+  &-action-button.adm-button {
+    --border-radius: 0;
+    --border-width: 0;
+    --text-color: var(--adm-color-white);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
