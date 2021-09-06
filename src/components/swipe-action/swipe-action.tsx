@@ -1,10 +1,11 @@
-import React, { FC, ReactNode, RefObject, useRef } from 'react'
+import React, { FC, ReactNode, RefObject, useEffect, useRef } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import Button from '../button'
 import { nearest } from '../../utils/nearest'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { root } from 'postcss'
 
 type ActionColor =
   | 'light'
@@ -25,17 +26,21 @@ export type SwipeActionProps = {
   rightActions?: Action[]
   leftActions?: Action[]
   onAction?: (action: Action) => void
-  autoClose?: boolean
+  closeOnTouchAway?: boolean
+  closeOnAction?: boolean
 } & NativeProps<'--background'>
 
 const defaultProps = {
   rightActions: [] as Action[],
   leftActions: [] as Action[],
-  autoClose: true,
+  closeOnTouchAway: true,
+  closeOnAction: true,
 }
 
 export const SwipeAction: FC<SwipeActionProps> = p => {
   const props = mergeProps(defaultProps, p)
+
+  const rootRef = useRef<HTMLDivElement>(null)
 
   const leftRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
@@ -65,8 +70,16 @@ export const SwipeAction: FC<SwipeActionProps> = p => {
       if (state.last) {
         const leftWidth = getLeftWidth()
         const rightWidth = getRightWidth()
+        let position = mx + state.vxvy[0] * 50
+        if (mx > 0) {
+          position = Math.max(0, position)
+        } else if (mx < 0) {
+          position = Math.min(0, position)
+        } else {
+          position = 0
+        }
         api.start({
-          x: nearest([-rightWidth, 0, leftWidth], mx),
+          x: nearest([-rightWidth, 0, leftWidth], position),
         })
       } else {
         api.start({
@@ -85,11 +98,30 @@ export const SwipeAction: FC<SwipeActionProps> = p => {
           right: leftWidth,
         }
       },
-      rubberband: true,
+      // rubberband: true,
       axis: 'x',
       experimental_preventWindowScrollY: true,
     }
   )
+
+  useEffect(() => {
+    if (!props.closeOnTouchAway) return
+    function handle(e: Event) {
+      if (x.get() === 0) {
+        return
+      }
+      const root = rootRef.current
+      if (root && !root.contains(e.target as Node)) {
+        api.start({
+          x: 0,
+        })
+      }
+    }
+    document.addEventListener('pointerdown', handle)
+    return () => {
+      document.removeEventListener('pointerdown', handle)
+    }
+  }, [props.closeOnTouchAway])
 
   function renderAction(action: Action) {
     const color = action.color ?? 'light'
@@ -108,7 +140,7 @@ export const SwipeAction: FC<SwipeActionProps> = p => {
 
   return withNativeProps(
     props,
-    <div className='adm-swipe-action' {...bind()}>
+    <div className='adm-swipe-action' {...bind()} ref={rootRef}>
       <animated.div className='adm-swipe-action-track' style={{ x }}>
         <div
           className='adm-swipe-action-actions adm-swipe-action-actions-left'
