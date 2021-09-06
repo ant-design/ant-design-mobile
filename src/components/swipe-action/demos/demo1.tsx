@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { List, SwipeAction } from 'antd-mobile'
-import { DemoBlock } from 'demos'
+import { DemoBlock, lorem } from 'demos'
 import { Action } from 'antd-mobile/src/components/swipe-action'
 
 export default () => {
@@ -9,7 +9,36 @@ export default () => {
       <DemoBlock title='配合列表使用' padding='0' border='none'>
         <WithList />
       </DemoBlock>
-      <DemoBlock title='配合卡片使用' padding='0' border='none'></DemoBlock>
+      <DemoBlock title='自定义内容' padding='0' border='none'>
+        <SwipeAction
+          rightActions={[
+            {
+              key: 'delete',
+              text: '删除',
+              color: 'danger',
+            },
+          ]}
+        >
+          <div style={{ padding: 12 }}>{lorem.generateParagraphs(2)}</div>
+        </SwipeAction>
+      </DemoBlock>
+      <DemoBlock title='手动控制归位逻辑' padding='0' border='none'>
+        <List>
+          <SwipeAction
+            closeOnAction={false}
+            closeOnTouchAway={false}
+            rightActions={[
+              {
+                key: 'delete',
+                text: '删除',
+                color: 'danger',
+              },
+            ]}
+          >
+            <List.Item>A</List.Item>
+          </SwipeAction>
+        </List>
+      </DemoBlock>
     </>
   )
 }

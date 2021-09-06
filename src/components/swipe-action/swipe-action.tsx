@@ -5,7 +5,6 @@ import { useDrag } from 'react-use-gesture'
 import Button from '../button'
 import { nearest } from '../../utils/nearest'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { root } from 'postcss'
 
 type ActionColor =
   | 'light'
@@ -104,6 +103,12 @@ export const SwipeAction: FC<SwipeActionProps> = p => {
     }
   )
 
+  function close() {
+    api.start({
+      x: 0,
+    })
+  }
+
   useEffect(() => {
     if (!props.closeOnTouchAway) return
     function handle(e: Event) {
@@ -112,9 +117,7 @@ export const SwipeAction: FC<SwipeActionProps> = p => {
       }
       const root = rootRef.current
       if (root && !root.contains(e.target as Node)) {
-        api.start({
-          x: 0,
-        })
+        close()
       }
     }
     document.addEventListener('pointerdown', handle)
@@ -131,6 +134,13 @@ export const SwipeAction: FC<SwipeActionProps> = p => {
         className='adm-swipe-action-action-button'
         style={{
           '--background-color': colorRecord[color] ?? color,
+        }}
+        onClick={() => {
+          if (props.closeOnAction) {
+            close()
+          }
+          action.onClick?.()
+          props.onAction?.(action)
         }}
       >
         {action.text}
