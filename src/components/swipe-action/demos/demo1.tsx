@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
-import { List, SwipeAction, Toast } from 'antd-mobile'
+import React, { FC, useRef } from 'react'
+import { Dialog, List, SwipeAction, Toast } from 'antd-mobile'
 import { DemoBlock, lorem } from 'demos'
-import { Action } from 'antd-mobile/src/components/swipe-action'
+import { Action, SwipeActionRef } from 'antd-mobile/src/components/swipe-action'
 
 export default () => {
   return (
@@ -77,9 +77,11 @@ const CustomContent: FC = () => {
 }
 
 const Manual: FC = () => {
+  const ref = useRef<SwipeActionRef>(null)
   return (
     <List>
       <SwipeAction
+        ref={ref}
         closeOnAction={false}
         closeOnTouchAway={false}
         rightActions={[
@@ -87,6 +89,12 @@ const Manual: FC = () => {
             key: 'delete',
             text: '删除',
             color: 'danger',
+            onClick: async () => {
+              await Dialog.confirm({
+                content: '确定要删除吗？',
+              })
+              ref.current?.close()
+            },
           },
         ]}
       >
