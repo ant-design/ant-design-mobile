@@ -71,7 +71,7 @@ const CustomContent: FC = () => {
         },
       ]}
     >
-      <div style={{ padding: 12 }}>{lorem.generateParagraphs(2)}</div>
+      <div style={{ padding: 12 }}>{lorem.generateParagraphs(1)}</div>
     </SwipeAction>
   )
 }

@@ -118,7 +118,7 @@ export default {
           '/components/progress-circle',
           '/components/pull-to-refresh',
           '/components/action-sheet',
-          '/components/collapse',
+          '/components/swipe-action',
         ],
       },
       {
@@ -132,6 +132,7 @@ export default {
           '/components/floating-panel',
           '/components/index-bar',
           '/components/divider',
+          '/components/collapse',
         ],
       },
       {
