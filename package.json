@@ -107,8 +107,5 @@
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  },
-  "resolutions": {
-    "antd-mobile": "portal:/Users/xiaohuoni/ant-design-mobile"
   }
 }
