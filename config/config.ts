@@ -154,6 +154,11 @@ export default {
     'antd-mobile/lib/index.less': process.cwd() + '/src/index.less',
     'demos': process.cwd() + '/src/demos/index.ts',
   },
+  scripts: [
+    `if (location.pathname.startsWith('/~demos/')) {
+      document.body.style.background = '#f5f5f5'
+    }`,
+  ],
   styles: [
     `
     #root .__dumi-default-mobile-demo-layout {
