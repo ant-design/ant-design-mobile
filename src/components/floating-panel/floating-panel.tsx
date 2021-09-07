@@ -3,6 +3,7 @@ import React, {
   ReactNode,
   useImperativeHandle,
   useRef,
+  useState,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDrag } from 'react-use-gesture'
@@ -36,6 +37,8 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     const contentRef = useRef<HTMLDivElement>(null)
     const pullingRef = useRef(false)
 
+    const [dragging, setDragging] = useState(false)
+
     const bounds = {
       top: possibles[possibles.length - 1],
       bottom: possibles[0],
@@ -49,6 +52,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     useDrag(
       state => {
         const [_, movementY] = state.movement
+        setDragging(true)
 
         if (state.first) {
           const target = state.event.target as Element
@@ -79,6 +83,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         if (state.last) {
           pullingRef.current = false
           nextY = nearest(possibles, movementY)
+          setDragging(false)
         }
         api.start({
           y: nextY,
@@ -123,6 +128,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
           y,
         }}
       >
+        {dragging && <div className='adm-drawer-mask' />}
         <div className='adm-drawer-header' ref={headerRef}>
           <div className='adm-drawer-bar' />
         </div>
