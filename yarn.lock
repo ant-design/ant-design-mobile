@@ -2679,6 +2679,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@umijs/deps@npm:3.5.17":
+  version: 3.5.17
+  resolution: "@umijs/deps@npm:3.5.17"
+  dependencies:
+    "@bloomberg/record-tuple-polyfill": 0.0.3
+    chokidar: 3.5.1
+    clipboardy: 2.3.0
+    esbuild: 0.12.15
+    jest-worker: 24.9.0
+    prettier: 2.2.1
+  checksum: 9f9ba3ad28b9753d3fd563049a86c59c8d4b95257cf2db92d94794341e7d7a95651b901d6b377dea7754c88675095e85e40bbcf7f0cdeaa9a5cef4c823e8b431
+  languageName: node
+  linkType: hard
+
 "@umijs/plugin-analytics@npm:^0.2.2":
   version: 0.2.2
   resolution: "@umijs/plugin-analytics@npm:0.2.2"
@@ -2851,6 +2865,15 @@ __metadata:
   dependencies:
     "@umijs/deps": 3.5.13
   checksum: 4da86a83c58aefdbaab11662be496e8d63c8db8e445631e668bab1c9b59d5e418f4d3fd4e664dcd9ceb8fde8275d6dcadc62f8db1a8f0f23327eedcc6ca738c1
+  languageName: node
+  linkType: hard
+
+"@umijs/utils@npm:^3.5.17":
+  version: 3.5.17
+  resolution: "@umijs/utils@npm:3.5.17"
+  dependencies:
+    "@umijs/deps": 3.5.17
+  checksum: 45a9eaf5d326caf9990b6f4d6eebebaf60640fbf6d206b45433fc0506b7531f8f2d28d2cd8826a6e88c1b663aa0db27ccb4c29994ba067544aaaa2bcc9e59302
   languageName: node
   linkType: hard
 
@@ -3535,6 +3558,7 @@ __metadata:
     ts-jest: 26.5.6
     ts-node: 9.1.1
     typescript: ^3.9.10
+    umi-plugin-mobile-dumi: ^0.0.9
     use-async-memo: ^1.2.3
     webpack: ^5.46.0
     webpack-stream: ^6.1.2
@@ -14443,6 +14467,17 @@ typescript@^3.9.10:
   version: 5.0.1
   resolution: "umi-hd@npm:5.0.1"
   checksum: bceff8f3c78f36fd9a623b7a38f191c11142624a2f9d3dff94e972660cb0809be5a6d907a71ef37ed2e1cf1d23ba7c33b87417ec1c7154511c2eb4b29e764121
+  languageName: node
+  linkType: hard
+
+"umi-plugin-mobile-dumi@npm:^0.0.9":
+  version: 0.0.9
+  resolution: "umi-plugin-mobile-dumi@npm:0.0.9"
+  dependencies:
+    "@umijs/utils": ^3.5.17
+  peerDependencies:
+    antd-mobile: ^5.0.0-beta.4
+  checksum: 099f13acaaee5a8d3d2ac07f0cd6d75822475cc7e3804f4e7c5e79659518e94ce88087d55e0d9c3c9ca79b93872493de6a72ffc87bfc5b8ff8dc843c9e496b52
   languageName: node
   linkType: hard
 
