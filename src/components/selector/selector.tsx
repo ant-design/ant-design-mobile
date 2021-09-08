@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Space from '../space'
 import Grid from '../grid'
@@ -10,22 +10,22 @@ import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `adm-selector`
 
-type ValueType = string | number
+type SelectorValue = string | number
 
-export interface SelectorOption<VT> {
+export interface SelectorOption<V> {
   label: ReactNode
-  value: VT
+  value: V
   disabled?: boolean
 }
 
-export type SelectorProps<VT> = {
-  options: SelectorOption<VT>[]
+export type SelectorProps<V> = {
+  options: SelectorOption<V>[]
   columns?: number
   multiple?: boolean
   disabled?: boolean
-  defaultValue?: VT[]
-  value?: VT[]
-  onChange?: (v: VT[]) => void
+  defaultValue?: V[]
+  value?: V[]
+  onChange?: (v: V[]) => void
 } & NativeProps
 
 const defaultProps = {
@@ -33,7 +33,7 @@ const defaultProps = {
   defaultValue: [],
 }
 
-export function Selector<VT extends ValueType>(p: SelectorProps<VT>) {
+export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = useNewControllableValue(props)
 
