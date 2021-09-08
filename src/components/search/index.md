@@ -25,3 +25,7 @@
 | --background        | 背景色               | #f5f5f5          |
 | --border-radius     | 圆角                 | 6px              |
 | --placeholder-color | placeholder 文字颜色 | --adm-color-weak |
+
+## Ref
+
+同 [Input](./input)

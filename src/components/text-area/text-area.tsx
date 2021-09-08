@@ -5,23 +5,24 @@ import React, {
   useRef,
 } from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-text-area'
 
-export type TextAreaProps = Omit<
+export type TextAreaProps = Pick<
   React.DetailedHTMLProps<
     React.TextareaHTMLAttributes<HTMLTextAreaElement>,
     HTMLTextAreaElement
   >,
-  'onChange'
+  'autoComplete' | 'disabled' | 'readOnly' | 'onFocus' | 'onBlur'
 > & {
   onChange?: (val: string) => void
   value?: string
   defaultValue?: string
-} & {
+  placeholder?: string
+  rows?: number
   maxLength?: number
   showCount?: boolean
   autoSize?:
@@ -30,7 +31,8 @@ export type TextAreaProps = Omit<
         minRows?: number
         maxRows?: number
       }
-} & ElementProps<
+  id?: string
+} & NativeProps<
     '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
   >
 
@@ -47,7 +49,6 @@ const defaultProps = {
   defaultValue: '',
 }
 
-// TODO: withDefaultProps 和 forwardRef 配合使用的问题
 export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
   (p: TextAreaProps, ref) => {
     const props = mergeProps(defaultProps, p)
@@ -116,6 +117,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onBlur={e => {
             props.onBlur?.(e)
           }}
+          id={props.id}
         />
         {showCount && (
           <div className={`${classPrefix}-count`}>

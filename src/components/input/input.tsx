@@ -1,7 +1,7 @@
 import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { CloseCircleFilled } from '@ant-design/icons'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-input`
@@ -28,7 +28,7 @@ export type InputProps = Pick<
   clearable?: boolean
   onClear?: () => void
   id?: string
-} & ElementProps<
+} & NativeProps<
     '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
   >
 
@@ -70,7 +70,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     },
   }))
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className={`${classPrefix}-wrapper`}>
       <input

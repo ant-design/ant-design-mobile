@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import classnames from 'classnames'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Icon from '@ant-design/icons'
 import { IconEye } from '../icons/icon-eye'
@@ -13,7 +13,7 @@ export type DesenseTextProps = {
   text?: React.ReactNode
   desenseText?: React.ReactNode
   onChange?: (v: boolean) => void
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   defaultDesense: true,
@@ -28,7 +28,7 @@ export const DesenseText: FC<DesenseTextProps> = p => {
     defaultValue: props.defaultDesense,
     onChange: props.onChange,
   })
-  return withElementProps(
+  return withNativeProps(
     props,
     <span className='adm-desense-text'>
       {isDesense ? desenseText : text}

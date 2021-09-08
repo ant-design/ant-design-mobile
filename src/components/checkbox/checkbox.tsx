@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { CheckOutlined } from '@ant-design/icons'
 import { CheckboxGroupContext } from './group-context'
@@ -18,7 +18,8 @@ export type CheckboxProps = {
   value?: CheckboxValue
   indeterminate?: boolean
   block?: boolean
-} & ElementProps
+  id?: string
+} & NativeProps
 
 const defaultProps = {
   defaultChecked: false,
@@ -49,7 +50,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
     disabled = disabled || groupContext.disabled
   }
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <label
       className={classNames(classPrefix, {
@@ -70,6 +71,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
           e.nativeEvent.stopImmediatePropagation()
         }}
         disabled={disabled}
+        id={props.id}
       />
       <div className={`${classPrefix}-icon`}>
         <CheckOutlined className={`${classPrefix}-icon-checked`} />

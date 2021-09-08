@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-space`
@@ -11,7 +11,7 @@ export type SpaceProps = {
   align?: 'start' | 'end' | 'center' | 'baseline'
   wrap?: boolean
   block?: boolean
-} & ElementProps
+} & NativeProps
 
 export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
   props => {
@@ -30,7 +30,7 @@ export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
             : horizontalSize,
       }
     }
-    return withElementProps(
+    return withNativeProps(
       props,
       <div
         className={classNames(classPrefix, {

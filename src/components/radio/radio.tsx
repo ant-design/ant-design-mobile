@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { CheckOutlined } from '@ant-design/icons'
 import { RadioGroupContext } from './group-context'
@@ -17,7 +17,8 @@ export type RadioProps = {
   onChange?: (checked: boolean) => void
   value?: RadioValue
   block?: boolean
-} & ElementProps
+  id?: string
+} & NativeProps
 
 const defaultProps = {
   defaultChecked: false,
@@ -68,6 +69,7 @@ export const Radio: FC<RadioProps> = p => {
           e.nativeEvent.stopImmediatePropagation()
         }}
         disabled={disabled}
+        id={props.id}
       />
       <div className={`${classPrefix}-icon`}>
         <CheckOutlined className={`${classPrefix}-icon-checked`} />

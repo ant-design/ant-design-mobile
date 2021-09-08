@@ -2,7 +2,7 @@
 
 <code src="./demos/index.tsx"></code>
 
-## API
+## 属性
 
 | 属性        | 说明                         | 类型                                                             | 默认值    |
 | ----------- | ---------------------------- | ---------------------------------------------------------------- | --------- |
@@ -17,3 +17,14 @@
 | type        | 原生 button 元素的 type 属性 | 'submit' \| 'reset' \| 'button'                                  | -         |
 
 <SupportsNativeAttributes>Button</SupportsNativeAttributes>
+
+## CSS 变量
+
+| 属性               | 说明     | 默认值             |
+| ------------------ | -------- | ------------------ |
+| --text-color       | 文字颜色 | --adm-color-text   |
+| --background-color | 背景颜色 | --adm-color-white  |
+| --border-radius    | 圆角大小 | 4px                |
+| --border-width     | 边框宽度 | 1px                |
+| --border-style     | 边框样式 | solid              |
+| --border-color     | 边框颜色 | --adm-border-color |

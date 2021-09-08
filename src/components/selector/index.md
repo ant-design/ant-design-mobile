@@ -1,6 +1,6 @@
 # Selector 选择组
 
-<code src="./demos/demo1.tsx" />
+<code src="./demos/demo1.tsx"></code>
 
 ## API
 

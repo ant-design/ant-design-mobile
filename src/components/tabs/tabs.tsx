@@ -1,7 +1,7 @@
 import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `adm-tabs`
@@ -9,7 +9,7 @@ const classPrefix = `adm-tabs`
 export type TabPaneProps = {
   title: ReactNode
   forceRender?: boolean
-} & ElementProps
+} & NativeProps
 
 export const TabPane: FC<TabPaneProps> = () => {
   return null
@@ -19,7 +19,7 @@ export type TabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (val: string) => void
-} & ElementProps
+} & NativeProps
 
 export const Tabs: FC<TabsProps> = props => {
   const childrenRecord: Record<string, ReactNode> = {}
@@ -44,12 +44,12 @@ export const Tabs: FC<TabsProps> = props => {
     onChange: props.onChange,
   })
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className={classPrefix}>
       <div className={`${classPrefix}-tab-list`}>
         {panes.map(pane =>
-          withElementProps(
+          withNativeProps(
             pane.props,
             <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
               <div

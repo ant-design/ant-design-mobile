@@ -1,12 +1,20 @@
-import React, { useState, useRef, FC } from 'react'
+import React, {
+  useState,
+  useRef,
+  FC,
+  forwardRef,
+  useImperativeHandle,
+} from 'react'
 import classNames from 'classnames'
 import Input, { InputRef } from '../input'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutlined } from '@ant-design/icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `adm-search`
+
+export type SearchRef = InputRef
 
 export type SearchProps = {
   value?: string
@@ -21,7 +29,7 @@ export type SearchProps = {
   onBlur?: () => void
   onClear?: () => void
   onCancel?: () => void
-} & ElementProps<'--background' | '--border-radius' | '--placeholder-color'>
+} & NativeProps<'--background' | '--border-radius' | '--placeholder-color'>
 
 const defaultProps = {
   clearable: true,
@@ -29,13 +37,19 @@ const defaultProps = {
   defaultValue: '',
 }
 
-export const Search: FC<SearchProps> = p => {
+export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = useNewControllableValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const inputRef = useRef<InputRef>(null)
 
-  return withElementProps(
+  useImperativeHandle(ref, () => ({
+    clear: () => inputRef.current?.clear(),
+    focus: () => inputRef.current?.focus(),
+    blur: () => inputRef.current?.blur(),
+  }))
+
+  return withNativeProps(
     props,
     <div
       className={classNames(classPrefix, {
@@ -96,4 +110,4 @@ export const Search: FC<SearchProps> = p => {
       )}
     </div>
   )
-}
+})

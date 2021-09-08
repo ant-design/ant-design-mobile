@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { useEffect, useState, useRef, FC } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useInitialized } from '../../utils/use-initialized'
 import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
@@ -28,7 +28,7 @@ export type PopupProps = {
   maskClassName?: string
   maskStyle?: React.CSSProperties
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   position: 'bottom',
@@ -72,7 +72,7 @@ export const Popup: FC<PopupProps> = p => {
 
   useLockScroll(ref, props.visible)
 
-  const node = withElementProps(
+  const node = withNativeProps(
     props,
     <div className={cls} onClick={props.onClick}>
       {props.mask && (

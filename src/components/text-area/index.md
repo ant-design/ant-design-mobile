@@ -4,18 +4,19 @@
 
 ## 属性
 
-| 属性         | 说明                 | 类型                                              | 默认值 |
-| ------------ | -------------------- | ------------------------------------------------- | ------ |
-| value        | 输入值               | string                                            | -      |
-| defaultValue | 默认值               | string                                            | -      |
-| onChange     | 文本域内容变化时触发 | (value: string) => void                           | -      |
-| placeholder  | 提示文本             | string                                            | -      |
-| autoSize     | 自适应内容高度       | boolean \| { minRows?: number, maxRows?: number } | false  |
-| rows         | 行数                 | number                                            | 2      |
-| maxLength    | 最大字符数           | number                                            | -      |
-| showCount    | 是否显示字数         | boolean                                           | false  |
+| 属性         | 说明                                      | 类型                                              | 默认值 |
+| ------------ | ----------------------------------------- | ------------------------------------------------- | ------ |
+| value        | 输入值                                    | string                                            | -      |
+| defaultValue | 默认值                                    | string                                            | -      |
+| onChange     | 文本域内容变化时触发                      | (value: string) => void                           | -      |
+| placeholder  | 提示文本                                  | string                                            | -      |
+| autoSize     | 自适应内容高度                            | boolean \| { minRows?: number, maxRows?: number } | false  |
+| rows         | 行数                                      | number                                            | 2      |
+| maxLength    | 最大字符数                                | number                                            | -      |
+| showCount    | 是否显示字数                              | boolean                                           | false  |
+| id           | textarea 元素的 id，常用来配合 label 使用 | string                                            | -      |
 
-其他属性和原生 `textarea` 一致
+此外还支持以下原生属性：`autoComplete` `disabled` `readOnly` `onFocus` `onBlur`
 
 ## CSS 变量
 

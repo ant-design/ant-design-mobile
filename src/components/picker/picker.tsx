@@ -2,7 +2,7 @@ import React, { useState, useEffect, ReactNode, useMemo } from 'react'
 import Popup, { PopupProps } from '../popup'
 import { Column } from './column'
 import { mergeProps, withDefaultProps } from '../../utils/with-default-props'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `adm-picker`
@@ -29,7 +29,7 @@ export type PickerProps = {
   cancelText?: string
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
 } & Pick<PopupProps, 'getContainer' | 'afterShow' | 'afterClose' | 'onClick'> &
-  ElementProps
+  NativeProps
 
 const defaultProps = {
   defaultValue: [],
@@ -77,7 +77,7 @@ export const Picker = withDefaultProps({
     )
   }, [props.columns, innerValue])
 
-  const pickerElement = withElementProps(
+  const pickerElement = withNativeProps(
     props,
     <div className={classPrefix}>
       <div className={`${classPrefix}-header`}>

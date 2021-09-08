@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { FC } from 'react'
 import SpinIcon from '../../assets/spin.svg'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -13,7 +13,7 @@ export type SwitchProps = {
   checked?: boolean
   defaultChecked?: boolean
   onChange?: (checked: boolean) => void
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   defaultChecked: false,
@@ -29,7 +29,7 @@ export const Switch: FC<SwitchProps> = p => {
     onChange: props.onChange,
   })
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <label
       className={classNames(classPrefix, {

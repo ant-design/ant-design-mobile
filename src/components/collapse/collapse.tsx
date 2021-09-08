@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
 import { RightOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
@@ -72,7 +72,7 @@ export type CollapseProps = (
       accordion: true
     } & ValueProps<string | null>)
 ) &
-  ElementProps
+  NativeProps
 
 export const Collapse: FC<CollapseProps> = props => {
   const panels: ReactElement<ComponentProps<typeof CollapsePanel>>[] = []
@@ -110,7 +110,7 @@ export const Collapse: FC<CollapseProps> = props => {
   const activeKeyList =
     activeKey === null ? [] : Array.isArray(activeKey) ? activeKey : [activeKey]
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className='adm-collapse'>
       <List>

@@ -1,7 +1,7 @@
 import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import Badge from '../badge'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
@@ -9,7 +9,7 @@ export type TabBarItemProps = {
   icon?: ReactNode
   title?: string
   badge?: ReactNode
-} & ElementProps
+} & NativeProps
 
 export const TabBarItem: FC<TabBarItemProps> = () => {
   return null
@@ -19,7 +19,7 @@ export type TabBarProps = {
   activeKey?: string
   defaultActiveKey?: string
   onChange?: (key: string) => void
-} & ElementProps
+} & NativeProps
 
 export const TabBar: FC<TabBarProps> = props => {
   let firstActiveKey: string | null = null
@@ -42,7 +42,7 @@ export const TabBar: FC<TabBarProps> = props => {
     onChange: props.onChange,
   })
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className='adm-tab-bar'>
       {items.map(item => {
@@ -82,7 +82,7 @@ export const TabBar: FC<TabBarProps> = props => {
           }
           return null
         }
-        return withElementProps(
+        return withNativeProps(
           item.props,
           <div
             key={item.key}

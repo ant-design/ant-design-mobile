@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import classNames from 'classnames'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useThrottleFn } from 'ahooks'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { Sidebar } from './sidebar'
@@ -13,7 +13,7 @@ export type IndexBarProps = {
   className?: string
   sticky?: boolean
   stickyOffsetTop?: number
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   sticky: true,
@@ -76,7 +76,7 @@ export const IndexBar = withDefaultProps(defaultProps)<IndexBarProps>(props => {
     }
   }
 
-  const element = withElementProps(
+  const element = withNativeProps(
     props,
     <div
       className={classNames(`${classPrefix}`, {

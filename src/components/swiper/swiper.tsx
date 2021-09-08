@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import { SwiperItem } from './swiper-item'
@@ -35,8 +35,8 @@ export type SwiperProps = {
   onIndexChange?: (index: number) => void
   indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
   indicator?: (total: number, current: number) => ReactNode
-  children?: ReactElement[]
-} & ElementProps<'--height' | '--width' | '--slide-width' | '--border-radius'>
+  children?: ReactElement | ReactElement[]
+} & NativeProps<'--height' | '--width' | '--slide-width' | '--border-radius'>
 
 const defaultProps = {
   defaultIndex: 0,
@@ -196,7 +196,7 @@ export const Swiper = forwardRef(
         }
       }, [autoplay, autoplayInterval, dragging])
 
-      return withElementProps(
+      return withNativeProps(
         props,
         <div className='adm-swiper'>
           <div

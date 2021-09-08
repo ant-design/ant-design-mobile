@@ -1,6 +1,6 @@
 import React, { ReactNode, FC } from 'react'
 import classNames from 'classnames'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import EmptyIcon from '../../assets/empty-icon.svg'
 
 const classPrefix = `adm-empty`
@@ -8,10 +8,10 @@ const classPrefix = `adm-empty`
 export type EmptyProps = {
   imageStyle?: React.CSSProperties
   description?: ReactNode
-} & ElementProps
+} & NativeProps
 
 export const Empty: FC<EmptyProps> = props => {
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className={classPrefix}>
       <img

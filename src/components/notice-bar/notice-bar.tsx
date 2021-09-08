@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { CloseOutlined, SoundOutlined } from '@ant-design/icons'
 import { useUpdateLayoutEffect } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-notice-bar`
 
@@ -24,7 +24,7 @@ export type NoticeBarProps = {
   extra?: React.ReactNode
   /** 左侧广播图标 */
   icon?: React.ReactNode
-} & ElementProps<'--background-color' | '--border-color' | '--text-color'>
+} & NativeProps<'--background-color' | '--border-color' | '--text-color'>
 
 const defaultProps = {
   color: 'default',
@@ -78,7 +78,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
 
   if (!visible) return null
 
-  return withElementProps(
+  return withNativeProps(
     props,
     <div className={classNames(classPrefix, `adm-notice-bar-${props.color}`)}>
       <span className={`adm-notice-bar-left`}>

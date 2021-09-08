@@ -2,7 +2,7 @@ import React, { ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import { errorConfigRecord } from './error'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-error-block`
 
@@ -12,7 +12,7 @@ export type ErrorBlockProps = {
   image?: string | ReactElement
   description?: ReactNode
   fullPage?: boolean
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   status: 'default',
@@ -33,7 +33,7 @@ export const ErrorBlock = withDefaultProps(defaultProps)<ErrorBlockProps>(
       }
     }
 
-    return withElementProps(
+    return withNativeProps(
       props,
       <div
         className={classNames(classPrefix, {

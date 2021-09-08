@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps } from '../../utils/native-props'
 import List from '../list'
 import RcForm from 'rc-field-form'
 import type { FormProps as RcFormProps } from 'rc-field-form'
@@ -9,7 +9,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import type { FormLayout } from '.'
 
 export type FormProps = RcFormProps &
-  ElementProps &
+  NativeProps &
   Partial<FormContextType> & {
     footer?: ReactNode
     layout?: FormLayout

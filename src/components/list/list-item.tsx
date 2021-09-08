@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { ElementProps, withElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { RightOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
 
@@ -14,7 +14,7 @@ export type ListItemProps = {
   clickable?: boolean
   arrow?: boolean | ReactNode
   onClick?: () => void
-} & ElementProps<'--prefix-width' | '--align-items'>
+} & NativeProps<'--prefix-width' | '--align-items'>
 
 export const ListItem: FC<ListItemProps> = props => {
   const clickable = props.clickable ?? !!props.onClick
@@ -49,7 +49,7 @@ export const ListItem: FC<ListItemProps> = props => {
     </div>
   )
 
-  return withElementProps(
+  return withNativeProps(
     props,
     React.createElement(
       clickable ? 'a' : 'div',

@@ -1,8 +1,15 @@
-@class-prefix-button: ~'adm-button';
+.adm-button {
+  --color: var(--adm-color-white);
 
-.@{class-prefix-button} {
-  --color: var(--adm-color-text);
+  --text-color: var(--adm-color-text);
+  --background-color: var(--adm-color-white);
+  --border-radius: 4px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--adm-border-color);
 
+  color: var(--text-color);
+  background-color: var(--background-color);
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -12,8 +19,8 @@
   font-size: 15px;
   line-height: 1.4;
   text-align: center;
-  border: 1px solid var(--color);
-  border-radius: 4px;
+  border: var(--border-width) var(--border-style) var(--border-color);
+  border-radius: var(--border-radius);
   cursor: pointer;
   transition: opacity ease 0.15s;
   user-select: none;
@@ -38,33 +45,32 @@
   &:active::before {
     opacity: 0.1;
   }
+
   &-default {
-    color: var(--adm-color-text);
-    background-color: var(--adm-color-white);
-    border-color: var(--adm-border-color);
-    &.@{class-prefix-button}-fill-outline {
-      background-color: transparent;
-      border-color: var(--adm-color-text);
+    &.adm-button-fill-outline {
+      --background-color: transparent;
+      --border-color: var(--adm-color-text);
     }
-    &.@{class-prefix-button}-fill-none {
-      background-color: transparent;
-      border-color: transparent;
+    &.adm-button-fill-none {
+      --background-color: transparent;
+      --border-color: transparent;
     }
   }
   &:not(&-default) {
-    color: var(--adm-color-white);
-    background-color: var(--color);
-    border-color: var(--color);
-    &.@{class-prefix-button}-fill-outline {
-      color: var(--color);
-      background-color: transparent;
+    --text-color: var(--adm-color-white);
+    --background-color: var(--color);
+    --border-color: var(--color);
+    &.adm-button-fill-outline {
+      --text-color: var(--color);
+      --background-color: transparent;
     }
-    &.@{class-prefix-button}-fill-none {
-      color: var(--color);
-      background-color: transparent;
-      border-color: transparent;
+    &.adm-button-fill-none {
+      --text-color: var(--color);
+      --background-color: transparent;
+      --border-color: transparent;
     }
   }
+
   &-primary {
     --color: var(--adm-color-primary);
   }
