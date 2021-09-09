@@ -32,7 +32,7 @@ export type ImageUploaderProps = {
   disableUpload?: boolean
   showUpload?: boolean
   deletable?: boolean
-  capture?: string
+  capture?: boolean | string | undefined
   onPreview?: (index: number) => void
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
   upload: (file: File) => Promise<FileItem>
@@ -47,7 +47,6 @@ const defaultProps = {
   multiple: false,
   maxCount: 0,
   defaultValue: [] as FileItem[],
-  capture: '',
   accept: 'image/*',
 }
 
