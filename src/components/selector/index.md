@@ -22,9 +22,9 @@
 | value    | 选项的值 | string \| number | -      |
 | disabled | 是否禁用 | boolean          | false  |
 
-## 范型
+## 泛型
 
-Selector 支持范型，你可以通过下面的这种方式手动控制 `value` `onChange` 等属性的类型：
+Selector 支持泛型，你可以通过下面的这种方式手动控制 `value` `onChange` 等属性的类型：
 
 ```tsx
 <Selector<'a' | 'b' | number>
