@@ -102,6 +102,7 @@ export default {
           '/components/form',
           '/components/rate',
           '/components/check-list',
+          '/components/stepper',
         ],
       },
       {
