@@ -119,7 +119,7 @@ export default {
           '/components/progress-circle',
           '/components/pull-to-refresh',
           '/components/action-sheet',
-          '/components/collapse',
+          '/components/swipe-action',
         ],
       },
       {
@@ -133,6 +133,7 @@ export default {
           '/components/floating-panel',
           '/components/index-bar',
           '/components/divider',
+          '/components/collapse',
         ],
       },
       {
@@ -154,6 +155,11 @@ export default {
     'antd-mobile/lib/index.less': process.cwd() + '/src/index.less',
     'demos': process.cwd() + '/src/demos/index.ts',
   },
+  scripts: [
+    `if (location.pathname.startsWith('/~demos/')) {
+      document.body.style.background = '#f5f5f5'
+    }`,
+  ],
   styles: [
     `
     #root .__dumi-default-mobile-demo-layout {

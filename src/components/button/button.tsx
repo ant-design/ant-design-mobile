@@ -2,11 +2,11 @@ import React, { FC } from 'react'
 import classNames from 'classnames'
 import Loading from '../loading'
 import { mergeProps } from '../../utils/with-default-props'
-import { withNativeProps } from '../../utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-button`
 
-export interface ButtonProps {
+export type ButtonProps = {
   color?: 'default' | 'primary' | 'success' | 'warning' | 'danger'
   fill?: 'solid' | 'outline' | 'none'
   size?: 'mini' | 'small' | 'middle' | 'large'
@@ -18,7 +18,14 @@ export interface ButtonProps {
   className?: string
   style?: React.CSSProperties
   type?: 'submit' | 'reset' | 'button'
-}
+} & NativeProps<
+  | '--text-color'
+  | '--background-color'
+  | '--border-radius'
+  | '--border-width'
+  | '--border-style'
+  | '--border-color'
+>
 
 const defaultProps = {
   color: 'default',
