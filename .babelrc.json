@@ -12,7 +12,7 @@
   ],
   "plugins": [
     "babel-plugin-transform-async-to-promises",
-    ["replace-import-extension", { "extMapping": { ".less": ".css" } }]
+    "./babel-transform-less-to-css"
   ],
   "ignore": ["**/demos"]
 }
