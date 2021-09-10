@@ -158,6 +158,7 @@ export default {
     `if (location.pathname.startsWith('/~demos/')) {
       document.body.style.background = '#f5f5f5'
     }`,
+    'https://s9.cnzz.com/z_stat.php?id=1280306924&web_id=1280306924',
   ],
   styles: [
     `
