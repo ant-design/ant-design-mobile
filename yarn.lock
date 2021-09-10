@@ -3761,6 +3761,7 @@ __metadata:
     "@ant-design/icons": ^4.6.4
     "@babel/cli": ^7.15.4
     "@babel/core": ^7.15.5
+    "@babel/plugin-transform-modules-commonjs": ^7.15.4
     "@babel/preset-env": ^7.15.4
     "@babel/preset-react": ^7.14.5
     "@babel/preset-typescript": ^7.15.0
@@ -3782,7 +3783,6 @@ __metadata:
     antd-mobile-v5-count: ^1.0.1
     babel-loader: ^8.2.2
     babel-plugin-import: ^1.13.3
-    babel-plugin-replace-import-extension: ^1.1.1
     babel-plugin-transform-async-to-promises: ^0.8.15
     classnames: ^2.3.1
     css-loader: ^6.2.0
@@ -4293,13 +4293,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 4e06cb72a5bde563639d0af927b3fc733e20d1ae4e0d0ff09f4d0e3058f2b6e5eebf0d40420f9c9e4bc0d278f53c9e9d097509190c539836cef5fd8179490dff
-  languageName: node
-  linkType: hard
-
-"babel-plugin-replace-import-extension@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "babel-plugin-replace-import-extension@npm:1.1.1"
-  checksum: ac029093db7d995ce2c7b080be75e94d662fb18c0960f98ce7909d04a835d7816a4f870b1a591f4a179efd4c1f9e4825e4e7fcec97c297e2b39032c154433a72
   languageName: node
   linkType: hard
 
