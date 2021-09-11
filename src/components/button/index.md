@@ -16,8 +16,6 @@
 | onClick     | 点击事件                     | (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void | -         |
 | type        | 原生 button 元素的 type 属性 | 'submit' \| 'reset' \| 'button'                                  | -         |
 
-<SupportsNativeAttributes>Button</SupportsNativeAttributes>
-
 ## CSS 变量
 
 | 属性               | 说明     | 默认值             |

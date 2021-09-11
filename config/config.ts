@@ -165,6 +165,9 @@ export default {
     #root .__dumi-default-mobile-demo-layout {
       padding: 0;
     }
+    a[title='站长统计'] {
+      display: none;
+    }
     `,
   ],
   // extraPostCSSPlugins: [
