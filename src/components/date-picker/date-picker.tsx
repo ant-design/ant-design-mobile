@@ -109,8 +109,8 @@ export const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(
         ret.push(months.map(v => v.toString()))
       }
       if (rank >= precisionRankRecord.day) {
-        let lower = isInMinMonth ? minDay : 1
-        let upper = isInMaxMonth
+        const lower = isInMinMonth ? minDay : 1
+        const upper = isInMaxMonth
           ? maxDay
           : firstDayInSelectedMonth.daysInMonth()
         const days = generateIntArray(lower, upper)
