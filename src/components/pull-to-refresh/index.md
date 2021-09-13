@@ -1,6 +1,6 @@
 # PullToRefresh 下拉刷新
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 
@@ -14,3 +14,9 @@
 | completeDelay  | 完成后延迟消失的时间，单位为 ms     | number               | 500          |
 | headHeight     | 头部提示内容区的高度，单位为 px     | number               | 40           |
 | threshold      | 触发刷新需要下拉多少距离，单位为 px | number               | 60           |
+
+## 常见问题
+
+### 是否支持上拉加载更多？
+
+上拉加载更多是另一个组件：[InfiniteScroll](./infinite-scroll)
