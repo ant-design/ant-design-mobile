@@ -23,6 +23,10 @@ DatePicker 支持 prompt 方法，具体用法可以参考 [Picker](./picker)
 
 ## 常见问题
 
-### 为什么没有只选择"年"或"年-月"的模式？
+### 为什么组件的名字叫 "DatePicker" 而不是 "DatetimePicker"？
 
-这种情况直接用 [Picker](./picker) 组件就可以了，数据并不涉及联动，用 Picker 就可以非常简单方便的实现。
+因为 `value` 的类型是 `Date`。
+
+### 为什么没有 "时-分" 或者 "月-日" 选择？
+
+不同于 Picker 组件，DatePicker 的值的类型是 `Date` 对象，所以需要从年开始一直往下选择，只有时、分的参数是不能构建一个 Date 对象的。
