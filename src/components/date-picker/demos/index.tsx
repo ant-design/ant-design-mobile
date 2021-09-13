@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, DatePicker, Space, Toast } from 'antd-mobile'
-import { DemoBlock } from '../../../demos/demo-block'
+import { DemoBlock } from 'demos'
 
 const now = new Date()
 
@@ -55,6 +55,31 @@ function RenderChildrenDemo() {
   )
 }
 
+function Precision() {
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        选择
+      </Button>
+      <DatePicker
+        visible={visible}
+        onClose={() => {
+          setVisible(false)
+        }}
+        precision='minute'
+        onConfirm={val => {
+          Toast.show(val.toString())
+        }}
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -63,6 +88,9 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='渲染所选值'>
         <RenderChildrenDemo />
+      </DemoBlock>
+      <DemoBlock title='选择到分钟'>
+        <Precision />
       </DemoBlock>
     </>
   )

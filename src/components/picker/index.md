@@ -29,7 +29,7 @@ type PickerValue = string | null
 | visible      | 是否显示选择器               | boolean                                                      | false  |
 | confirmText  | 确定按钮的文字               | string                                                       | 确定   |
 | cancelText   | 取消按钮的文字               | string                                                       | 取消   |
-| children     | 所选项的渲染函数             | (items: PickerColumnItem[]) => void                          | -      |
+| children     | 所选项的渲染函数             | (items: PickerColumnItem[]) => ReactNode                     | -      |
 
 此外还支持 `getContainer` `afterShow` `afterClose` `onClick` 属性，同 `Popup`
 

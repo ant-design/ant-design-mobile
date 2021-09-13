@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useLayoutEffect } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import type { PickerColumnItem, PickerValue } from './index'
@@ -24,7 +24,7 @@ export const Column: FC<Props> = props => {
     },
   }))
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!value) {
       return
     }
@@ -36,7 +36,7 @@ export const Column: FC<Props> = props => {
     api.start({ y: finalPosition, immediate: y.idle })
   }, [value, column])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (column.length === 0) {
       if (value !== null) {
         props.onSelect(null)
