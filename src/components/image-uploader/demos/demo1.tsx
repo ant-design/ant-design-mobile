@@ -30,7 +30,7 @@ const UploadStatus: FC = () => {
     <ImageUploader
       value={fileList}
       onChange={setFileList}
-      upload={mockUploadFail}
+      upload={mockUploadFail as any}
     />
   )
 }
@@ -123,7 +123,4 @@ async function mockUpload(file: File) {
 async function mockUploadFail() {
   await sleep(3000)
   throw new Error('Fail to upload')
-  return {
-    url: '',
-  }
 }
