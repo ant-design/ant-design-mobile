@@ -19,10 +19,12 @@ export type CheckboxProps = {
   indeterminate?: boolean
   block?: boolean
   id?: string
+  icon?: (checked: boolean, indeterminate: boolean) => React.ReactNode
 } & NativeProps
 
 const defaultProps = {
   defaultChecked: false,
+  indeterminate: false,
 }
 
 export const Checkbox: FC<CheckboxProps> = p => {
@@ -50,6 +52,23 @@ export const Checkbox: FC<CheckboxProps> = p => {
     disabled = disabled || groupContext.disabled
   }
 
+  const renderIcon = () => {
+    if (props.icon) {
+      return (
+        <div className={`${classPrefix}-custom-icon`}>
+          {props.icon(checked, props.indeterminate)}
+        </div>
+      )
+    }
+
+    return (
+      <div className={`${classPrefix}-icon`}>
+        <CheckOutlined className={`${classPrefix}-icon-checked`} />
+        <div className={`${classPrefix}-indeterminate-checked`} />
+      </div>
+    )
+  }
+
   return withNativeProps(
     props,
     <label
@@ -73,10 +92,8 @@ export const Checkbox: FC<CheckboxProps> = p => {
         disabled={disabled}
         id={props.id}
       />
-      <div className={`${classPrefix}-icon`}>
-        <CheckOutlined className={`${classPrefix}-icon-checked`} />
-        <div className={`${classPrefix}-indeterminate-checked`} />
-      </div>
+
+      {renderIcon()}
       {props.children && (
         <div className={`${classPrefix}-content`}>{props.children}</div>
       )}
