@@ -1,5 +1,16 @@
-export function bound(position: number, min: number, max: number) {
-  return Math.min(Math.max(position, min), max)
+export function bound(
+  position: number,
+  min: number | undefined,
+  max: number | undefined
+) {
+  let ret = position
+  if (min !== undefined) {
+    ret = Math.max(position, min)
+  }
+  if (max !== undefined) {
+    Math.min(ret, max)
+  }
+  return ret
 }
 
 export function rubberband(

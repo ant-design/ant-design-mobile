@@ -7,7 +7,7 @@ hero:
     - text: 快速上手
       link: /guide/quick-start
     - text: 在线体验
-      link: https://codepen.io/pen/?template=zYwpMMd
+      link: https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json
     - text: 组件列表
       link: /components
 footer: Open-source MIT Licensed | Copyright © 2016-present Alipay.com<br />Powered by [dumi](https://d.umijs.org)
@@ -38,7 +38,7 @@ $ yarn add antd-mobile@next
 
 v5（白杨）是下一个版本的 antd-mobile，目前还在不断完善和打磨中，如果你想在生产环境接入使用，请**务必仔细阅读[常见问题和解答](/guide/faq)**。
 
-你可以直接在 Codepen 上[在线体验](https://codepen.io/pen/?template=zYwpMMd)，无需安装和配置环境。
+你可以直接在 Codesandbox 上[在线体验](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json)，无需安装和配置环境。
 
 如果你发现了 bug 或者是希望 antd-mobile 增加一些特性，可以[提交 issue](https://github.com/ant-design/ant-design-mobile/issues/new)。
 
