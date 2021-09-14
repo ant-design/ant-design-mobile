@@ -32,7 +32,7 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
   function setValueWithCheck(v: number) {
     if (isNaN(v)) return
     let target = bound(v, props.min, props.max)
-    if (props.digits) {
+    if (props.digits || props.digits === 0) {
       target = parseFloat(target.toFixed(props.digits))
     }
     setValue(target)
