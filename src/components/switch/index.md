@@ -1,6 +1,6 @@
 # Switch 开关
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 
@@ -13,3 +13,5 @@
 | loading        | 加载状态         | boolean                | false  |
 | disabled       | 禁用状态         | boolean                | false  |
 | onChange       | 变化时回调函数   | (val: boolean) => void | -      |
+| checkedText    | 选中时的内容     | ReactNode              | -      |
+| uncheckedText  | 非选中时的内容   | ReactNode              | -      |

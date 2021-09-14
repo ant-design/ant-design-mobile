@@ -23,18 +23,21 @@
   }
 
   &-checkbox {
-    width: @switch-width;
+    min-width: @switch-width;
     height: @switch-height;
     box-sizing: border-box;
     border-radius: 31px;
     background: #e5e5e5;
     z-index: 0;
+    overflow: hidden;
+    line-height: @switch-height;
+
     &:before {
       content: ' ';
       position: absolute;
       left: @switch-border;
       top: @switch-border;
-      width: @switch-width - 2 * @switch-border;
+      width: calc(100% - 2 * @switch-border);
       height: @switch-height - 2 * @switch-border;
       border-radius: @switch-height - 2 * @switch-border;
       box-sizing: border-box;
@@ -57,10 +60,17 @@
     z-index: 2;
     top: @switch-border;
     left: @switch-border;
-    transform: translateX(0);
     transition: all 200ms;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 11.5px 0 rgba(0, 0, 0, 0.08),
       -1px 2px 2px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &-inner {
+    position: relative;
+    z-index: 1;
+    margin: 0 10px 0 @switch-height - @switch-border + 5px;
+    color: var(--adm-color-weak);
+    transition: margin 200ms;
   }
 
   /* 选中状态 */
@@ -72,7 +82,12 @@
       }
     }
     .@{class-prefix-switch}-handle {
-      transform: translateX(20px);
+      left: calc(100% - (@switch-height - @switch-border));
+    }
+
+    .@{class-prefix-switch}-inner {
+      margin: 0 @switch-height - @switch-border + 5px 0 10px;
+      color: var(--adm-color-white);
     }
   }
 

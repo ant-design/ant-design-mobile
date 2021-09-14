@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import SpinIcon from '../../assets/spin.svg'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
@@ -13,6 +13,8 @@ export type SwitchProps = {
   checked?: boolean
   defaultChecked?: boolean
   onChange?: (checked: boolean) => void
+  checkedText?: ReactNode
+  uncheckedText?: ReactNode
 } & NativeProps
 
 const defaultProps = {
@@ -54,6 +56,9 @@ export const Switch: FC<SwitchProps> = p => {
                 <img src={SpinIcon} className={`${classPrefix}-icon`} />
               ))
           }
+        </div>
+        <div className={`${classPrefix}-inner`}>
+          {checked ? props.checkedText : props.uncheckedText}
         </div>
       </div>
     </label>
