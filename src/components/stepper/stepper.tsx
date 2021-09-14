@@ -19,7 +19,7 @@ export type StepperProps = {
 } & NativeProps
 
 const defaultProps = {
-  defaultValue: 1,
+  defaultValue: 0,
   step: 1,
   disabled: false,
 }
