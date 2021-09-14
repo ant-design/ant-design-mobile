@@ -18,6 +18,8 @@ export type InputProps = Pick<
   | 'type'
   | 'onFocus'
   | 'onBlur'
+  | 'autoCapitalize'
+  | 'autoCorrect'
 > & {
   value?: string
   defaultValue?: string
@@ -97,6 +99,8 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         enterKeyHint={props.enterKeyHint}
         pattern={props.pattern}
         type={props.type}
+        autoCapitalize={props.autoCapitalize}
+        autoCorrect={props.autoCorrect}
       />
       {props.clearable && !!value && hasFocus && (
         <div

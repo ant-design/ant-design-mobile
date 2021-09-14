@@ -18,7 +18,7 @@ Input 组件是布局无关的， 它只包括了最基本的输入框部分，�
 | onClear      | 点击清除按钮后触发                           | event: Event            | -      |
 | id           | input 元素的 id，常用来配合 label 使用       | string                  | -      |
 
-此外还支持以下原生属性：`maxLength` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur`
+此外还支持以下原生属性：`maxLength` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect`
 
 ## CSS 变量
 
