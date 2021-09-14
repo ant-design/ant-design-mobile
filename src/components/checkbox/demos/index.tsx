@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { DemoBlock } from 'demos'
 import { Checkbox, Space } from 'antd-mobile'
+import { CopyOutlined, CopyFilled } from '@ant-design/icons'
 
 export default () => {
   const [value, setValue] = useState<string[]>([])
@@ -51,6 +52,14 @@ export default () => {
           <Checkbox block>块级元素</Checkbox>
           <Checkbox>非块级元素</Checkbox>
         </Space>
+      </DemoBlock>
+      <DemoBlock title='自定义图标'>
+        <Checkbox
+          value='banana'
+          icon={checked => (checked ? <CopyFilled /> : <CopyOutlined />)}
+        >
+          自定义图标
+        </Checkbox>
       </DemoBlock>
     </>
   )
