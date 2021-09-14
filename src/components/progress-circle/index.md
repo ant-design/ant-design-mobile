@@ -1,6 +1,6 @@
 # ProgressCircle 进度圈
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 

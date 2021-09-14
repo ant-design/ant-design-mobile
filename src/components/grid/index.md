@@ -1,6 +1,6 @@
 # Grid 栅格
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 # API
 

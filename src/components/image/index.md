@@ -1,6 +1,6 @@
 # Image 图片
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 

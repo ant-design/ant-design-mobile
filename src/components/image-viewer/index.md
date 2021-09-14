@@ -1,6 +1,6 @@
 # ImageViewer 图片查看器
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 

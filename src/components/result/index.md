@@ -1,6 +1,6 @@
 # Result 结果
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 # API
 

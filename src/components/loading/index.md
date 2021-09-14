@@ -1,6 +1,6 @@
 # Loading 加载中
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 

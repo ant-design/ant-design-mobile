@@ -1,6 +1,6 @@
 # Ellipsis 文本省略
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 

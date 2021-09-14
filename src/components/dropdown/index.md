@@ -1,6 +1,6 @@
 # Dropdown 下拉菜单
 
-<code src="./demos/demo1.tsx" />
+<code src="./demos/demo1.tsx"></code>
 
 # API
 

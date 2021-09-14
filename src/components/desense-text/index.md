@@ -1,6 +1,6 @@
 # DesensText 脱敏
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 # API
 

@@ -1,6 +1,6 @@
 # ProgressBar 进度条
 
-<code src="./demos/index.tsx" />
+<code src="./demos/index.tsx"></code>
 
 ## API
 
