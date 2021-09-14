@@ -18,6 +18,7 @@ export type RadioProps = {
   value?: RadioValue
   block?: boolean
   id?: string
+  icon?: (checked: boolean) => React.ReactNode
 } & NativeProps
 
 const defaultProps = {
@@ -49,6 +50,22 @@ export const Radio: FC<RadioProps> = p => {
     disabled = disabled || groupContext.disabled
   }
 
+  const renderIcon = () => {
+    if (props.icon) {
+      return (
+        <div className={`${classPrefix}-custom-icon`}>
+          {props.icon(checked)}
+        </div>
+      )
+    }
+
+    return (
+      <div className={`${classPrefix}-icon`}>
+        <CheckOutlined className={`${classPrefix}-icon-checked`} />
+      </div>
+    )
+  }
+
   return (
     <label
       className={classNames(classPrefix, props.className, {
@@ -71,9 +88,7 @@ export const Radio: FC<RadioProps> = p => {
         disabled={disabled}
         id={props.id}
       />
-      <div className={`${classPrefix}-icon`}>
-        <CheckOutlined className={`${classPrefix}-icon-checked`} />
-      </div>
+      {renderIcon()}
       {props.children && (
         <div className={`${classPrefix}-content`}>{props.children}</div>
       )}
