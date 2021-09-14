@@ -56,7 +56,13 @@ export default () => {
       <DemoBlock title='自定义图标'>
         <Checkbox
           value='banana'
-          icon={checked => (checked ? <CopyFilled /> : <CopyOutlined />)}
+          icon={checked =>
+            checked ? (
+              <CopyFilled style={{ color: 'var(--adm-color-primary)' }} />
+            ) : (
+              <CopyOutlined style={{ color: 'var(--adm-color-weak)' }} />
+            )
+          }
         >
           自定义图标
         </Checkbox>
