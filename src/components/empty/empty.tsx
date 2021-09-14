@@ -13,19 +13,20 @@ export type EmptyProps = {
 } & NativeProps
 
 const defaultProps = {
-  image: EmptyIcon,
+  image: EmptyIcon as string,
 }
 
-type EmptyType = React.FC<EmptyProps> & {
-  DEFAULT_IMAGE: string
-}
-
-export const Empty: EmptyType = p => {
+export const Empty: React.FC<EmptyProps> = p => {
   const props = mergeProps(defaultProps, p)
 
-  const imageNode: React.ReactNode =
+  const imageNode =
     typeof props.image === 'string' ? (
-      <img src={props.image} alt='empty' />
+      <img
+        className={`${classPrefix}-image`}
+        style={props.imageStyle}
+        src={props.image}
+        alt='empty'
+      />
     ) : (
       props.image
     )
@@ -33,12 +34,7 @@ export const Empty: EmptyType = p => {
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      <div
-        className={classNames(`${classPrefix}-image`)}
-        style={props.imageStyle}
-      >
-        {imageNode}
-      </div>
+      <div className={`${classPrefix}-image-container`}>{imageNode}</div>
       {props.description && (
         <div className={classNames(`${classPrefix}-description`)}>
           {props.description}
@@ -47,5 +43,3 @@ export const Empty: EmptyType = p => {
     </div>
   )
 }
-
-Empty.DEFAULT_IMAGE = EmptyIcon
