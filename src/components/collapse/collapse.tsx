@@ -18,7 +18,7 @@ export type CollapsePanelProps = {
   title: string
   disabled?: boolean
   forceRender?: boolean
-}
+} & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
   return null
@@ -135,23 +135,26 @@ export const Collapse: FC<CollapseProps> = props => {
 
           return (
             <React.Fragment key={key}>
-              <List.Item
-                className={classNames('adm-collapse-panel-header', {
-                  'adm-collapse-panel-header-disabled': panel.props.disabled,
-                })}
-                onClick={panel.props.disabled ? undefined : handleClick}
-                arrow={
-                  <div
-                    className={classNames('adm-collapse-arrow', {
-                      'adm-collapse-arrow-active': active,
-                    })}
-                  >
-                    <RightOutlined />
-                  </div>
-                }
-              >
-                {panel.props.title}
-              </List.Item>
+              {withNativeProps(
+                panel.props,
+                <List.Item
+                  className={classNames('adm-collapse-panel-header', {
+                    'adm-collapse-panel-header-disabled': panel.props.disabled,
+                  })}
+                  onClick={panel.props.disabled ? undefined : handleClick}
+                  arrow={
+                    <div
+                      className={classNames('adm-collapse-arrow', {
+                        'adm-collapse-arrow-active': active,
+                      })}
+                    >
+                      <RightOutlined />
+                    </div>
+                  }
+                >
+                  {panel.props.title}
+                </List.Item>
+              )}
               <CollapsePanelContent
                 visible={active}
                 forceRender={!!panel.props.forceRender}
