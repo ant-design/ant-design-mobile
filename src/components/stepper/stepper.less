@@ -1,0 +1,95 @@
+@class-prefix-stepper: ~'adm-stepper';
+
+@stepper-height: 22px;
+@stepper-width: 80px;
+@stepper-btn-width: 22px;
+@stepper-active-color: #e8e8e8;
+@stepper-border-color: #e5e5e5;
+@stepper-border-radius: 2px;
+@stepper-border: 1px;
+
+.@{class-prefix-stepper} {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  width: @stepper-width;
+
+  input {
+    position: relative;
+    flex: 1;
+    height: @stepper-height;
+    width: 100%;
+    border: 0;
+    outline: none;
+    appearance: none;
+    text-align: center;
+    background: transparent;
+    border-top: @stepper-border solid @stepper-border-color;
+    border-bottom: @stepper-border solid @stepper-border-color;
+
+    &:disabled {
+      cursor: not-allowed;
+      color: var(--adm-color-weak);
+    }
+  }
+
+  button {
+    position: relative;
+    // flex: 1;
+    box-sizing: border-box;
+    width: @stepper-btn-width;
+    height: @stepper-height;
+    margin: 0;
+    padding: 0;
+    color: @stepper-border-color;
+    background: transparent;
+    border: @stepper-border solid @stepper-border-color;
+    cursor: pointer;
+    border-radius: @stepper-border-radius;
+
+    &::before {
+      width: 46%;
+      height: 1px;
+    }
+
+    &::after {
+      width: 1px;
+      height: 46%;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: var(--adm-color-primary);
+      transform: translate(-50%, -50%);
+      content: '';
+      border-radius: 20px;
+    }
+
+    &:active {
+      background-color: @stepper-active-color;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      &::before,
+      &::after {
+        background-color: var(--adm-color-weak);
+      }
+    }
+  }
+
+  &-minus {
+    left: 1px;
+    &::after {
+      display: none;
+    }
+  }
+
+  &-plus {
+    left: -1px;
+  }
+}
