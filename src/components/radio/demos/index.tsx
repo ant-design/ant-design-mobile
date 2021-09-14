@@ -64,17 +64,9 @@ export default () => {
               value='radio1'
               icon={checked =>
                 checked ? (
-                  <CopyFilled
-                    style={{
-                      color: 'var(--adm-color-primary)',
-                    }}
-                  />
+                  <CopyFilled style={{ color: 'var(--adm-color-primary)' }} />
                 ) : (
-                  <CopyOutlined
-                    style={{
-                      color: 'var(--adm-color-weak)',
-                    }}
-                  />
+                  <CopyOutlined style={{ color: 'var(--adm-color-weak)' }} />
                 )
               }
             >
@@ -84,17 +76,9 @@ export default () => {
               value='radio2'
               icon={checked =>
                 checked ? (
-                  <CopyFilled
-                    style={{
-                      color: 'var(--adm-color-primary)',
-                    }}
-                  />
+                  <CopyFilled style={{ color: 'var(--adm-color-primary)' }} />
                 ) : (
-                  <CopyOutlined
-                    style={{
-                      color: 'var(--adm-color-weak)',
-                    }}
-                  />
+                  <CopyOutlined style={{ color: 'var(--adm-color-weak)' }} />
                 )
               }
             >
