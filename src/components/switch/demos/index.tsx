@@ -50,17 +50,14 @@ export default () => {
         <Switch disabled loading={loading} />
       </DemoBlock>
       <DemoBlock title='文字和图标'>
-        <Switch
-          unCheckedChildren='关'
-          checkedChildren='开'
-          style={{ marginRight: 8 }}
-        />
-        <Switch
-          checkedChildren={<CheckOutlined />}
-          unCheckedChildren={<CloseOutlined />}
-          style={{ marginRight: 8 }}
-        />
-        <Switch unCheckedChildren='0' checkedChildren='1' />
+        <Space wrap>
+          <Switch uncheckedText='关' checkedText='开' />
+          <Switch
+            checkedText={<CheckOutlined />}
+            uncheckedText={<CloseOutlined />}
+          />
+          <Switch uncheckedText='0' checkedText='1' />
+        </Space>
       </DemoBlock>
       <DemoBlock title='自定义样式'>
         <Switch className='my-switch' />

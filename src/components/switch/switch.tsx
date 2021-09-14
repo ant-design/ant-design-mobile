@@ -13,8 +13,8 @@ export type SwitchProps = {
   checked?: boolean
   defaultChecked?: boolean
   onChange?: (checked: boolean) => void
-  checkedChildren?: ReactNode
-  unCheckedChildren?: ReactNode
+  checkedText?: ReactNode
+  uncheckedText?: ReactNode
 } & NativeProps
 
 const defaultProps = {
@@ -58,7 +58,7 @@ export const Switch: FC<SwitchProps> = p => {
           }
         </div>
         <div className={`${classPrefix}-inner`}>
-          {checked ? props.checkedChildren : props.unCheckedChildren}
+          {checked ? props.checkedText : props.uncheckedText}
         </div>
       </div>
     </label>
