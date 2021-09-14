@@ -30,6 +30,12 @@ export default () => {
       <DemoBlock title='设置输入范围'>
         <Stepper min={-5} max={5} />
       </DemoBlock>
+      <DemoBlock title='格式化到整数'>
+        <Stepper digits={0} />
+      </DemoBlock>
+      <DemoBlock title='格式化到一位小数'>
+        <Stepper digits={1} />
+      </DemoBlock>
       <DemoBlock title='禁用状态'>
         <Stepper disabled />
       </DemoBlock>

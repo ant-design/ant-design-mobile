@@ -8,7 +8,7 @@ export function bound(
     ret = Math.max(position, min)
   }
   if (max !== undefined) {
-    Math.min(ret, max)
+    ret = Math.min(ret, max)
   }
   return ret
 }

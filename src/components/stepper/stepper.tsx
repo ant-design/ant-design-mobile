@@ -13,6 +13,7 @@ export type StepperProps = {
   min?: number
   max?: number
   step?: number
+  digits?: number
   disabled?: boolean
   onChange?: (value: number) => void
 } & NativeProps
@@ -30,7 +31,10 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
   const [inputValue, setInputValue] = useState(() => value.toString())
   function setValueWithCheck(v: number) {
     if (isNaN(v)) return
-    const target = bound(v, props.min, props.max)
+    let target = bound(v, props.min, props.max)
+    if (props.digits) {
+      target = parseFloat(target.toFixed(props.digits))
+    }
     setValue(target)
     if (!hasFocus) {
       setInputValue(target.toString())
