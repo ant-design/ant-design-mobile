@@ -1,4 +1,6 @@
 import './global.less'
+import { canUseDom } from '../utils/can-use-dom'
 
-// https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
-document.addEventListener('touchstart', () => {}, true)
+if (canUseDom) {
+  document.addEventListener('touchstart', () => {}, true)
+}
