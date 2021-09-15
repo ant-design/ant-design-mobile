@@ -84,6 +84,10 @@ export default {
         title: '高清适配（试验性）',
         path: '/guide/hd',
       },
+      {
+        title: '服务端渲染 / SSR（试验性）',
+        path: '/guide/ssr',
+      },
     ],
     '/components': [
       {
