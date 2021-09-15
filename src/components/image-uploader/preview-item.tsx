@@ -62,6 +62,7 @@ const PreviewItem: FC<Props> = props => {
       <Image
         className={`${classPrefix}-cell-image`}
         src={src}
+        fit='cover'
         onClick={props.onClick}
       />
       {renderLoading()}
