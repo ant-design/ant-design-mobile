@@ -87,10 +87,12 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
       return
     }
 
-    const exceed = value.length + files.length - maxCount
-    if (exceed > 0) {
-      files = files.slice(0, maxCount - exceed)
-      props.onCountExceed?.(exceed)
+    if (maxCount > 0) {
+      const exceed = value.length + files.length - maxCount
+      if (exceed > 0) {
+        files = files.slice(0, maxCount - exceed)
+        props.onCountExceed?.(exceed)
+      }
     }
 
     const newTasks = files.map(
