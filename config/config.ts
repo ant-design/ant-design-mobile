@@ -14,8 +14,16 @@ export default {
       path: '/components',
     },
     {
+      title: '在线体验',
+      path: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json',
+    },
+    {
       title: 'Roadmap',
       path: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
+    },
+    {
+      title: '参与贡献',
+      path: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
     },
     {
       title: '发布日志',
