@@ -15,3 +15,9 @@
 | onChange       | 变化时回调函数   | (val: boolean) => void | -      |
 | checkedText    | 选中时的内容     | ReactNode              | -      |
 | uncheckedText  | 非选中时的内容   | ReactNode              | -      |
+
+## CSS 变量
+
+| 属性            | 说明     | 默认值              |
+| --------------- | -------- | ------------------- |
+| --checked-color | 填充颜色 | --adm-color-primary |

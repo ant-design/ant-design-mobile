@@ -19,3 +19,9 @@
 | defaultValue  | 默认值                                                                                    | number                                        | range ? [0, 0] : 0 |
 | onChange      | 拖拽滑块时触发，并把当前拖拽的值作为参数传入                                              | (value: `number \| [number, number]`) => void | -                  |
 | onAfterChange | 与 `ontouchend` 触发时机一致，把当前值作为参数传入                                        | (value: `number \| [number, number]`) => void | -                  |
+
+## CSS 变量
+
+| 属性         | 说明     | 默认值              |
+| ------------ | -------- | ------------------- |
+| --fill-color | 填充颜色 | --adm-color-primary |
