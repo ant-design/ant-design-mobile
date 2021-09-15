@@ -24,7 +24,7 @@ export type SliderProps = {
   range?: boolean
   onChange?: (value: SliderValue) => void
   onAfterChange?: (value: SliderValue) => void
-} & NativeProps
+} & NativeProps<'--fill-color'>
 
 const defaultProps = {
   min: 0,

@@ -11,6 +11,7 @@
 }
 
 .@{class-prefix-switch} {
+  --checked-color: var(--adm-color-primary);
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
@@ -76,7 +77,7 @@
   /* 选中状态 */
   &.@{class-prefix-switch}-checked {
     .@{class-prefix-switch}-checkbox {
-      background: #1677ff;
+      background: var(--checked-color);
       &:before {
         transform: scale(0);
       }

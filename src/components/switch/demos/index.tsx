@@ -59,8 +59,11 @@ export default () => {
           <Switch uncheckedText='0' checkedText='1' />
         </Space>
       </DemoBlock>
-      <DemoBlock title='自定义样式'>
-        <Switch className='my-switch' />
+      <DemoBlock title='自定义样式（通过 style）'>
+        <Switch defaultChecked style={{ '--checked-color': '#ff8f1f' }} />
+      </DemoBlock>
+      <DemoBlock title='自定义样式（通过 className）'>
+        <Switch defaultChecked className='my-switch' />
       </DemoBlock>
     </>
   )
