@@ -6,31 +6,39 @@ import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-input`
 
+type NativeInputProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>
+
+type EnterKeyHintProps = NativeInputProps extends { enterKeyHint?: unknown }
+  ? {
+      enterKeyHint: NativeInputProps['enterKeyHint']
+    }
+  : {}
+
 export type InputProps = Pick<
-  React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  >,
+  NativeInputProps,
   | 'maxLength'
   | 'autoComplete'
-  | 'enterKeyHint'
   | 'pattern'
   | 'type'
   | 'onFocus'
   | 'onBlur'
   | 'autoCapitalize'
   | 'autoCorrect'
-> & {
-  value?: string
-  defaultValue?: string
-  onChange?: (val: string) => void
-  placeholder?: string
-  disabled?: boolean
-  readOnly?: boolean
-  clearable?: boolean
-  onClear?: () => void
-  id?: string
-} & NativeProps<
+> &
+  EnterKeyHintProps & {
+    value?: string
+    defaultValue?: string
+    onChange?: (val: string) => void
+    placeholder?: string
+    disabled?: boolean
+    readOnly?: boolean
+    clearable?: boolean
+    onClear?: () => void
+    id?: string
+  } & NativeProps<
     '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
   >
 
