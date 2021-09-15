@@ -18,12 +18,30 @@ export default {
       path: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json',
     },
     {
-      title: 'Roadmap',
-      path: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
+      title: '了解更多',
+      children: [
+        {
+          title: 'Roadmap',
+          path: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
+        },
+        {
+          title: '参与贡献',
+          path: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
+        },
+      ],
     },
     {
-      title: '参与贡献',
-      path: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
+      title: '返回旧版',
+      children: [
+        {
+          title: 'v2',
+          path: 'https://mobile.ant.design',
+        },
+        {
+          title: 'v3 alpha',
+          path: 'https://antd-mobile-v3.surge.sh',
+        },
+      ],
     },
     {
       title: '发布日志',
