@@ -3,7 +3,8 @@ import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import type { PickerColumnItem, PickerValue } from './index'
 import { convertPx } from '../../utils/convert-px'
-import { rubberbandIfOutOfBounds, bound } from '../../utils/rubberband'
+import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
+import { bound } from '../../utils/bound'
 
 const classPrefix = `adm-picker`
 

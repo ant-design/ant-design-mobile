@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { bound } from '../../utils/rubberband'
+import { bound } from '../../utils/bound'
 
 const classPrefix = `adm-stepper`
 

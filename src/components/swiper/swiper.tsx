@@ -15,10 +15,10 @@ import { SwiperItem } from './swiper-item'
 import { devWarning } from '../../utils/dev-log'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
-import { bound } from '../../utils/rubberband'
 import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
+import { bound } from '../../utils/bound'
 
 export type SwiperRef = {
   swipeTo: (index: number) => void
