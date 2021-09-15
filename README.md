@@ -30,3 +30,9 @@ $ yarn install
 # 开发
 $ yarn start
 ```
+
+## 贡献者
+
+<a href="https://github.com/ant-design/ant-design-mobile/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ant-design/ant-design-mobile" alt="contributors" />
+</a>
