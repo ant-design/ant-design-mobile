@@ -7,11 +7,14 @@ const classPrefix = `adm-tag`
 
 const colorRecord: Record<string, string> = {
   default: '#666666',
-  primary: '#1677FF',
+  primary: 'var(--adm-color-primary, #1677ff)',
+  success: 'var(--adm-color-success, #00b578)',
+  warning: 'var(--adm-color-warning, #ff8f1f)',
+  danger: 'var(--adm-color-danger, #ff3141)',
 }
 
 export type TagProps = {
-  color?: 'default' | 'primary' | string
+  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger' | string
   fill?: 'solid' | 'outline'
   round?: boolean
 } & NativeProps
