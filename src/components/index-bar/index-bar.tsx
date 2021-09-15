@@ -19,6 +19,7 @@ export type IndexBarProps = {
   className?: string
   sticky?: boolean
   stickyOffsetTop?: number
+  children?: React.ReactNode
 } & NativeProps
 
 export type IndexBarRef = {
