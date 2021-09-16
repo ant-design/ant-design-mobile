@@ -54,16 +54,6 @@ export type InputRef = {
 
 export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
-  const {
-    clearable,
-    onClear,
-    className,
-    style,
-    defaultValue: outerDefaultValue,
-    value: outerValue,
-    onChange: outerOnChange,
-    ...inputProps
-  } = props
   const [value, setValue] = useNewControllableValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
