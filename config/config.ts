@@ -167,6 +167,10 @@ export default {
         ],
       },
       {
+        title: '其他',
+        children: ['/components/config-provider'],
+      },
+      {
         title: '试验性',
         children: [
           '/components/what-is-experimental',

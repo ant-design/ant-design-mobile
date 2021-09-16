@@ -69,5 +69,5 @@ v5（白杨）是下一个版本的 antd-mobile，目前还在不断完善和打
 全部贡献者列表：
 
 <a href="https://github.com/ant-design/ant-design-mobile/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ant-design/ant-design-mobile" alt="contributors" />
+  <img src="https://opencollective.com/ant-design-mobile/contributors.svg?width=960&button=false" alt="contributors" />
 </a>

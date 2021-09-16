@@ -34,5 +34,5 @@ $ yarn start
 ## 贡献者
 
 <a href="https://github.com/ant-design/ant-design-mobile/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ant-design/ant-design-mobile" alt="contributors" />
+  <img src="https://opencollective.com/ant-design-mobile/contributors.svg?width=960&button=false" alt="contributors" />
 </a>

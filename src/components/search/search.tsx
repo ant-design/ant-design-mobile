@@ -11,6 +11,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutlined } from '@ant-design/icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-search`
 
@@ -48,6 +49,8 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
     focus: () => inputRef.current?.focus(),
     blur: () => inputRef.current?.blur(),
   }))
+
+  const { locale } = useConfig()
 
   return withNativeProps(
     props,
@@ -104,7 +107,7 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
               props.onCancel?.()
             }}
           >
-            取消
+            {locale.common.cancel}
           </a>
         </div>
       )}

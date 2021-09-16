@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
 import styles from './index.less'
+import { ConfigProvider } from 'antd-mobile'
+import zhCN from 'antd-mobile/src/locales/zh-CN'
 
 interface Props {
   title: string
@@ -10,19 +12,21 @@ interface Props {
 
 export const DemoBlock: FC<Props> = props => {
   return (
-    <div className={styles.demoBlock}>
-      <div className={styles.title}>{props.title}</div>
-      <div
-        className={styles.content}
-        style={{
-          padding: props.padding,
-          background: props.background,
-          border: props.border,
-        }}
-      >
-        {props.children}
+    <ConfigProvider locale={zhCN}>
+      <div className={styles.demoBlock}>
+        <div className={styles.title}>{props.title}</div>
+        <div
+          className={styles.content}
+          style={{
+            padding: props.padding,
+            background: props.background,
+            border: props.border,
+          }}
+        >
+          {props.children}
+        </div>
       </div>
-    </div>
+    </ConfigProvider>
   )
 }
 
