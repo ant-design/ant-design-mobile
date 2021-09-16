@@ -2,6 +2,7 @@
 
 .@{class-prefix-selector} {
   --color: var(--adm-color-text);
+  --checked-color: #e7f1ff;
 
   overflow: hidden;
   font-size: 15px;
@@ -23,7 +24,7 @@
     &-active,
     &-multiple-active {
       color: var(--adm-color-primary);
-      background-color: #e7f1ff;
+      background-color: var(--checked-color);
     }
 
     .@{class-prefix-selector}-check-mark-wrapper {

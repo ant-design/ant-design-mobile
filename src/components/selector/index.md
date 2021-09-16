@@ -33,3 +33,9 @@ Selector 支持泛型，你可以通过下面的这种方式手动控制 `value`
   onChange={arr => console.log(arr)}
 />
 ```
+
+## CSS 变量
+
+| 属性            | 说明         | 默认值  |
+| --------------- | ------------ | ------- |
+| --checked-color | 填充背景颜色 | #e7f1ff |
