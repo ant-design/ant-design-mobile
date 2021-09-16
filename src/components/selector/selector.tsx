@@ -26,7 +26,7 @@ export type SelectorProps<V> = {
   defaultValue?: V[]
   value?: V[]
   onChange?: (v: V[]) => void
-} & NativeProps
+} & NativeProps<'--checked-color'>
 
 const defaultProps = {
   multiple: false,

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Selector } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import './index.less'
 
 const ItemList = [
   {
@@ -83,6 +84,22 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='避免取消选择'>
         <RadioMode />
+      </DemoBlock>
+      <DemoBlock title='自定义样式（通过 style）'>
+        <Selector
+          style={{ '--checked-color': '#ffe2e5' }}
+          options={ItemList}
+          defaultValue={['1', '2']}
+          multiple={true}
+        />
+      </DemoBlock>
+      <DemoBlock title='自定义样式（通过 className）'>
+        <Selector
+          className='my-selector'
+          options={ItemList}
+          defaultValue={['1', '2']}
+          multiple={true}
+        />
       </DemoBlock>
     </div>
   )
