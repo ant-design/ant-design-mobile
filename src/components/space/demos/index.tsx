@@ -41,7 +41,15 @@ export default () => {
           <Button>按钮3</Button>
         </Space>
       </DemoBlock>
-      <DemoBlock title='对齐方式'>
+
+      <DemoBlock title='渲染为块级元素'>
+        <Space direction='vertical' block>
+          <Button>按钮1</Button>
+          <Button>按钮2</Button>
+          <Button>按钮3</Button>
+        </Space>
+      </DemoBlock>
+      <DemoBlock title='主轴对齐方式'>
         <Space align='end'>
           <Button>1</Button>
           <Button>
@@ -52,11 +60,15 @@ export default () => {
           </Button>
         </Space>
       </DemoBlock>
-      <DemoBlock title='渲染为块级元素'>
-        <Space direction='vertical' block>
-          <Button>按钮1</Button>
-          <Button>按钮2</Button>
-          <Button>按钮3</Button>
+      <DemoBlock title='交叉轴对齐方式'>
+        <Space justify='center' block>
+          <Button>1</Button>
+          <Button>
+            2<br />2
+          </Button>
+          <Button>
+            3<br />3<br />3
+          </Button>
         </Space>
       </DemoBlock>
     </>

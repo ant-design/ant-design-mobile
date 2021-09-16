@@ -9,6 +9,15 @@ export type SpaceProps = {
   size?: number | number[] | string | string[]
   direction?: 'horizontal' | 'vertical'
   align?: 'start' | 'end' | 'center' | 'baseline'
+  justify?:
+    | 'start'
+    | 'end'
+    | 'center'
+    | 'baseline'
+    | 'between'
+    | 'around'
+    | 'evenly'
+    | 'stretch'
   wrap?: boolean
   block?: boolean
 } & NativeProps
@@ -38,6 +47,7 @@ export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
           [`${classPrefix}-block`]: props.block,
           [`${classPrefix}-${direction}`]: true,
           [`${classPrefix}-align-${props.align}`]: !!props.align,
+          [`${classPrefix}-justify-${props.justify}`]: !!props.justify,
         })}
         style={sizeStyle}
       >
