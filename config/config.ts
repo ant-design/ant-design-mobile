@@ -166,10 +166,10 @@ export default {
           '/components/tabs',
         ],
       },
-      {
-        title: '其他',
-        children: ['/components/config-provider'],
-      },
+      // {
+      //   title: '其他',
+      //   children: ['/components/config-provider'],
+      // },
       {
         title: '试验性',
         children: [
