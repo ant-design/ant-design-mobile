@@ -23,7 +23,7 @@ const ConfigContext = React.createContext<
 })
 
 export const globalConfigRef = {
-  key: null as Symbol | null,
+  key: null as symbol | null,
   current: defaultConfig,
 }
 
