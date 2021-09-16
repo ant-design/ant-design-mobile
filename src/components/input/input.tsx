@@ -13,7 +13,7 @@ type NativeInputProps = React.DetailedHTMLProps<
 
 type EnterKeyHintProps = NativeInputProps extends { enterKeyHint?: unknown }
   ? {
-      enterKeyHint: NativeInputProps['enterKeyHint']
+      enterKeyHint?: NativeInputProps['enterKeyHint']
     }
   : {}
 
