@@ -15,16 +15,10 @@
   position: relative;
   width: @stepper-width;
 
-  input {
+  .@{class-prefix-stepper}-input {
     position: relative;
     flex: 1;
     height: @stepper-height;
-    width: 100%;
-    border: 0;
-    outline: none;
-    appearance: none;
-    text-align: center;
-    background: transparent;
     border-top: @stepper-border solid @stepper-border-color;
     border-bottom: @stepper-border solid @stepper-border-color;
 
@@ -32,9 +26,15 @@
       cursor: not-allowed;
       color: var(--adm-color-weak);
     }
+
+    input {
+      font-size: var(--adm-font-size-main);
+      text-align: center;
+    }
   }
 
-  button {
+  .@{class-prefix-stepper}-minus,
+  .@{class-prefix-stepper}-plus {
     position: relative;
     // flex: 1;
     box-sizing: border-box;
@@ -51,6 +51,8 @@
     &::before {
       width: 46%;
       height: 1px;
+      border: none;
+      opacity: initial;
     }
 
     &::after {

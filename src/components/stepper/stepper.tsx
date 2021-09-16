@@ -4,6 +4,8 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { bound } from '../../utils/bound'
+import Input from '../input'
+import Button from '../button'
 
 const classPrefix = `adm-stepper`
 
@@ -85,27 +87,26 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
         [`${classPrefix}-disabled`]: disabled,
       })}
     >
-      <button
-        type='button'
+      <Button
         className={`${classPrefix}-minus`}
         onClick={handleMinus}
         disabled={minusDisabled()}
       />
-      <input
+      <Input
+        className={`${classPrefix}-input`}
         onFocus={() => {
           setHasFocus(true)
         }}
         value={inputValue}
-        onChange={e => {
-          disabled || handleInputChange(e.target.value)
+        onChange={val => {
+          disabled || handleInputChange(val)
         }}
         disabled={disabled}
         onBlur={() => {
           setHasFocus(false)
         }}
       />
-      <button
-        type='button'
+      <Button
         className={`${classPrefix}-plus`}
         onClick={handlePlus}
         disabled={plusDisabled()}
