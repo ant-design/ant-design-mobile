@@ -5,6 +5,7 @@ import { CheckOutlined } from '@ant-design/icons'
 import { CheckboxGroupContext } from './group-context'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { devWarning } from '../../utils/dev-log'
 
 const classPrefix = `adm-checkbox`
 
@@ -28,8 +29,24 @@ const defaultProps = {
 }
 
 export const Checkbox: FC<CheckboxProps> = p => {
-  const props = mergeProps(defaultProps, p)
   const groupContext = useContext(CheckboxGroupContext)
+
+  if (groupContext !== null) {
+    if (p.checked !== undefined) {
+      devWarning(
+        'Checkbox',
+        'When used with `Checkbox.Group`, the `checked` prop of `Checkbox` will not work.'
+      )
+    }
+    if (p.defaultChecked !== undefined) {
+      devWarning(
+        'Checkbox',
+        'When used with `Checkbox.Group`, the `defaultChecked` prop of `Checkbox` will not work.'
+      )
+    }
+  }
+
+  const props = mergeProps(defaultProps, p)
 
   let [checked, setChecked] = useNewControllableValue({
     value: props.checked,
