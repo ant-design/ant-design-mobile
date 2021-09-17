@@ -1,9 +1,12 @@
 import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
+import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { bound } from '../../utils/bound'
+import Input from '../input'
+import Button from '../button'
 
 const classPrefix = `adm-stepper`
 
@@ -85,31 +88,38 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
         [`${classPrefix}-disabled`]: disabled,
       })}
     >
-      <button
-        type='button'
+      <Button
         className={`${classPrefix}-minus`}
         onClick={handleMinus}
         disabled={minusDisabled()}
-      />
-      <input
+        fill='none'
+        color='primary'
+      >
+        <MinusOutlined />
+      </Button>
+      <Input
+        className={`${classPrefix}-input`}
         onFocus={() => {
           setHasFocus(true)
         }}
         value={inputValue}
-        onChange={e => {
-          disabled || handleInputChange(e.target.value)
+        onChange={val => {
+          disabled || handleInputChange(val)
         }}
         disabled={disabled}
         onBlur={() => {
           setHasFocus(false)
         }}
       />
-      <button
-        type='button'
+      <Button
         className={`${classPrefix}-plus`}
         onClick={handlePlus}
         disabled={plusDisabled()}
-      />
+        fill='none'
+        color='primary'
+      >
+        <PlusOutlined />
+      </Button>
     </div>
   )
 })
