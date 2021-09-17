@@ -20,3 +20,60 @@
     }
   }
 }
+
+.adm-doc-previewer {
+  display: flex;
+  height: 700px;
+  @media only screen and (max-width: 1440px) {
+    height: 600px;
+  }
+  @media only screen and (max-width: 960px) {
+    height: 500px;
+  }
+  width: 100%;
+  justify-content: flex-start;
+  align-items: stretch;
+  > .adm-doc-previewer-source {
+    flex: 1;
+    overflow-x: scroll;
+    .__dumi-default-previewer {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border-right: none;
+      .__dumi-default-previewer-actions {
+        border-top: none;
+      }
+      .__dumi-default-previewer-demo {
+        display: none;
+      }
+      .__dumi-default-previewer-desc {
+        display: none;
+      }
+      > * {
+        flex: none;
+      }
+      > .__dumi-default-previewer-source-wrapper {
+        min-height: 0;
+        flex: auto;
+        display: flex;
+        flex-direction: column;
+        background: #f9fafb;
+        > .__dumi-default-tabs {
+          flex: none;
+        }
+        > .__dumi-default-previewer-source {
+          flex: auto;
+          overflow-y: scroll;
+        }
+      }
+      .__dumi-default-icon[role='source'] {
+        display: none;
+      }
+    }
+  }
+  > .adm-doc-previewer-device {
+    flex: 0;
+  }
+}

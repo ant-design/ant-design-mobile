@@ -23,17 +23,9 @@ export const Device: FC<IDeviceProps> = ({ url, className }) => {
   }, [color])
 
   return (
-    <div
-      className={'__dumi-default-device'}
-      data-device-type='iOS'
-      data-mode={mode}
-    >
-      <div className='__dumi-default-device-status'>
-        <span className='__dumi-default-device-status-carrier'>{carrier}</span>
-        <span>10:24</span>
-      </div>
+    <div className={'adm-doc-device'} data-device-type='iOS' data-mode={mode}>
       <iframe title='dumi-previewer' src={url} key={renderKey} />
-      <div className='__dumi-default-device-action'>
+      <div className='adm-doc-device-action'>
         <button
           className='__dumi-default-icon'
           role='refresh'
