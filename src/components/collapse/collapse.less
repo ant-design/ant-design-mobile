@@ -1,9 +1,11 @@
-.adm-collapse {
+@class-prefix-collapse: ~'adm-collapse';
+
+.@{class-prefix-collapse} {
   &-panel-header {
     &-disabled {
       color: var(--adm-color-light);
       cursor: not-allowed;
-      .adm-collapse-arrow {
+      .@{class-prefix-collapse}-arrow {
         color: var(--adm-color-light);
       }
     }

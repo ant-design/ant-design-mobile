@@ -13,6 +13,8 @@ import { useInitialized } from '../../utils/use-initialized'
 import { useSpring, animated } from '@react-spring/web'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
+const classPrefix = `adm-collapse`
+
 export type CollapsePanelProps = {
   key: string
   title: string
@@ -50,8 +52,8 @@ const CollapsePanelContent: FC<{
   }, [visible])
 
   return initialized ? (
-    <animated.div className='adm-collapse-panel-content' style={style}>
-      <div className='adm-collapse-panel-content-inner' ref={innerRef}>
+    <animated.div className={`${classPrefix}-panel-content`} style={style}>
+      <div className={`${classPrefix}-panel-content-inner`} ref={innerRef}>
         <List.Item>{props.children}</List.Item>
       </div>
     </animated.div>
@@ -112,7 +114,7 @@ export const Collapse: FC<CollapseProps> = props => {
 
   return withNativeProps(
     props,
-    <div className='adm-collapse'>
+    <div className={classPrefix}>
       <List>
         {panels.map(panel => {
           const key = panel.key as string
@@ -138,14 +140,15 @@ export const Collapse: FC<CollapseProps> = props => {
               {withNativeProps(
                 panel.props,
                 <List.Item
-                  className={classNames('adm-collapse-panel-header', {
-                    'adm-collapse-panel-header-disabled': panel.props.disabled,
+                  className={classNames(`${classPrefix}-panel-header`, {
+                    [`${classPrefix}-panel-header-disabled`]:
+                      panel.props.disabled,
                   })}
                   onClick={panel.props.disabled ? undefined : handleClick}
                   arrow={
                     <div
-                      className={classNames('adm-collapse-arrow', {
-                        'adm-collapse-arrow-active': active,
+                      className={classNames(`${classPrefix}-arrow`, {
+                        [`${classPrefix}-arrow-active`]: active,
                       })}
                     >
                       <RightOutlined />
