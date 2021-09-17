@@ -3789,7 +3789,7 @@ __metadata:
     dayjs: ^1.10.6
     del: ^5.1.0
     dumi: ^1.1.26
-    dumi-theme-mobile: ^1.1.9
+    dumi-theme-default: ^1.1.11
     eslint: ^7.32.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-react: ^7.25.1
@@ -3813,6 +3813,7 @@ __metadata:
     postcss-pxtorem: ^5.1.1
     prettier: ^2.4.0
     pretty-quick: ^3.1.1
+    qrcode.react: ^1.0.1
     rc-field-form: ^1.21.2
     rc-progress: ^3.1.4
     rc-tooltip: ^5.1.1
@@ -5930,19 +5931,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dumi-theme-mobile@npm:^1.1.9":
-  version: 1.1.9
-  resolution: "dumi-theme-mobile@npm:1.1.9"
+"dumi-theme-default@npm:^1.1.11":
+  version: 1.1.11
+  resolution: "dumi-theme-default@npm:1.1.11"
   dependencies:
-    dumi-theme-default: 1.1.9
-    f2-touchemulator: ^0.0.1
-    lodash.debounce: ^4.0.8
-    qrcode.react: ^1.0.0
-    umi-hd: ^5.0.1
+    prism-react-renderer: ^1.1.1
+    prismjs: ^1.21.0
+    rc-tabs: ^11.7.1
   peerDependencies:
     "@umijs/preset-dumi": 1.x
     react: ^16.13.1 || ^17.0.0
-  checksum: fbfb7a27777280a28436f9d2b969d2069774144fe86a63647ca5647d6cf878e77e62661acdf132287623a48cda544dd0ca5d8c98569f7f3b140b69f7dec1f6d8
+  checksum: d94d7a03e7a359a3d7e18aacb6b03ad89dd896201d269093e300ae5bf226ba47f2636ea2600422dc5f3e491659a6c969476c3679f3ba72ed796a741fdb75f643
   languageName: node
   linkType: hard
 
@@ -6634,13 +6633,6 @@ __metadata:
     snapdragon: ^0.8.1
     to-regex: ^3.0.1
   checksum: ce23be772ff536976902aa0193a6d167abad229ca40fb4c1de2fd71c0116eeae168a02f6508d41382eb918fcbafb66dba61d498754051964a167c98210c62b28
-  languageName: node
-  linkType: hard
-
-"f2-touchemulator@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "f2-touchemulator@npm:0.0.1"
-  checksum: fdc779d1c96251b351914061c2d602e70c58e89b6911e6261f1fc7027664d0a62ea9dae42882b2b3fcab7317ba67100c0186dff5f0fe0eea2b75bdc24cd534d4
   languageName: node
   linkType: hard
 
@@ -12252,7 +12244,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"qrcode.react@npm:^1.0.0":
+"qrcode.react@npm:^1.0.1":
   version: 1.0.1
   resolution: "qrcode.react@npm:1.0.1"
   dependencies:
@@ -14764,13 +14756,6 @@ typescript@^3.9.10:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 744dab471ae59659b1618be636ab56b9c0afbca801e0640c3cdfad0a894315c87d30a290b7063c6a3f1860bf47fe44d9188cb85e46b2bdadda7f207d67e6b4e1
-  languageName: node
-  linkType: hard
-
-"umi-hd@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "umi-hd@npm:5.0.1"
-  checksum: bceff8f3c78f36fd9a623b7a38f191c11142624a2f9d3dff94e972660cb0809be5a6d907a71ef37ed2e1cf1d23ba7c33b87417ec1c7154511c2eb4b29e764121
   languageName: node
   linkType: hard
 

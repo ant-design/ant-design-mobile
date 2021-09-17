@@ -1,0 +1,22 @@
+@import (reference) '../style/variables.less';
+
+@media @v-device-show {
+  .@{prefix}-mobile-previewer {
+    .@{prefix}-previewer-demo {
+      display: none;
+    }
+
+    .@{prefix}-previewer-desc,
+    .@{prefix}-previewer-desc:not([data-title]) + .@{prefix}-previewer-actions {
+      border-top: none;
+    }
+
+    button[role='source'] {
+      margin-right: -8px;
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+  }
+}

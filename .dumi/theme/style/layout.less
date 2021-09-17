@@ -1,0 +1,36 @@
+@import './variables.less';
+
+@media only screen and (max-width: 1440px) {
+  @s-menu-width: 240px;
+
+  .@{prefix}-menu {
+    &[data-mode='site'] {
+      width: @s-menu-width;
+    }
+  }
+
+  .@{prefix}-layout {
+    &[data-site-mode='true'][data-show-sidemenu='true'] {
+      padding-left: @s-menu-width + 50;
+    }
+  }
+}
+
+.@{prefix}-mobile-content {
+  display: flex;
+
+  > article {
+    flex: 1;
+    min-width: 0;
+
+    > .markdown:first-child > *:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .@{prefix}-mobile-demo-layout {
+    padding: 0.16rem;
+  }
+}
