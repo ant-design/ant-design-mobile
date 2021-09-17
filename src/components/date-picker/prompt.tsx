@@ -16,6 +16,7 @@ export function prompt(
           {...props}
           visible={visible}
           onConfirm={val => {
+            props.onConfirm?.(val)
             resolve(val)
           }}
           onClose={() => {
