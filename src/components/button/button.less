@@ -1,4 +1,6 @@
-.adm-button {
+@class-prefix-button: ~'adm-button';
+
+.@{class-prefix-button} {
   --color: var(--adm-color-white);
 
   --text-color: var(--adm-color-text);
@@ -47,11 +49,11 @@
   }
 
   &-default {
-    &.adm-button-fill-outline {
+    &.@{class-prefix-button}-fill-outline {
       --background-color: transparent;
       --border-color: var(--adm-color-text);
     }
-    &.adm-button-fill-none {
+    &.@{class-prefix-button}-fill-none {
       --background-color: transparent;
       --border-color: transparent;
     }
@@ -60,11 +62,11 @@
     --text-color: var(--adm-color-white);
     --background-color: var(--color);
     --border-color: var(--color);
-    &.adm-button-fill-outline {
+    &.@{class-prefix-button}-fill-outline {
       --text-color: var(--color);
       --background-color: transparent;
     }
-    &.adm-button-fill-none {
+    &.@{class-prefix-button}-fill-none {
       --text-color: var(--color);
       --background-color: transparent;
       --border-color: transparent;
