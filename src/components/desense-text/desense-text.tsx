@@ -7,6 +7,8 @@ import { IconEye } from '../icons/icon-eye'
 import { IconEyeClose } from '../icons/icon-eye-close'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
+const classPrefix = 'adm-desense-text'
+
 export type DesenseTextProps = {
   desense?: boolean
   defaultDesense?: boolean
@@ -30,10 +32,10 @@ export const DesenseText: FC<DesenseTextProps> = p => {
   })
   return withNativeProps(
     props,
-    <span className='adm-desense-text'>
+    <span className={classPrefix}>
       {isDesense ? desenseText : text}
       <a
-        className={classnames('adm-desense-text-icon-wrap', 'adm-plain-anchor')}
+        className={classnames(`${classPrefix}-icon-wrap`, 'adm-plain-anchor')}
         onClick={() => {
           setIsDesense(!isDesense)
         }}

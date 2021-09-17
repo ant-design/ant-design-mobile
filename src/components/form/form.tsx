@@ -8,6 +8,8 @@ import { FormContext, FormContextType } from './context'
 import { mergeProps } from '../../utils/with-default-props'
 import type { FormLayout } from '.'
 
+const classPrefix = 'adm-form'
+
 export type FormProps = RcFormProps &
   NativeProps &
   Partial<FormContextType> & {
@@ -34,7 +36,7 @@ export const Form: FC<FormProps> = p => {
 
   return (
     <RcForm
-      className={classNames('adm-form', `adm-form-${layout}`, className)}
+      className={classNames(classPrefix, `${classPrefix}-${layout}`, className)}
       style={style}
       {...formProps}
     >
@@ -53,7 +55,7 @@ export const Form: FC<FormProps> = p => {
           {children}
         </FormContext.Provider>
       </List>
-      {footer && <div className='adm-form-footer'>{footer}</div>}
+      {footer && <div className={`${classPrefix}-footer`}>{footer}</div>}
     </RcForm>
   )
 }

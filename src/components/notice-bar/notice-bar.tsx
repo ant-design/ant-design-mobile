@@ -80,22 +80,22 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
 
   return withNativeProps(
     props,
-    <div className={classNames(classPrefix, `adm-notice-bar-${props.color}`)}>
-      <span className={`adm-notice-bar-left`}>
+    <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)}>
+      <span className={`${classPrefix}-left`}>
         {'icon' in props ? props.icon : <SoundOutlined />}
       </span>
-      <span ref={containerRef} className={`adm-notice-bar-content`}>
+      <span ref={containerRef} className={`${classPrefix}-content`}>
         <span
           onTransitionEnd={() => setKey(k => k + 1)}
           key={key}
           ref={textRef}
-          className={`adm-notice-bar-content-inner`}
+          className={`${classPrefix}-content-inner`}
         >
           {props.content}
         </span>
       </span>
       {(props.closeable || props.extra) && (
-        <span className={`adm-notice-bar-right`}>
+        <span className={`${classPrefix}-right`}>
           {props.extra}
           {props.closeable && (
             <CloseOutlined

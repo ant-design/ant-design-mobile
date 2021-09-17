@@ -1,4 +1,6 @@
-.adm-notice-bar {
+@class-prefix-notice-bar: ~'adm-notice-bar';
+
+.@{class-prefix-notice-bar} {
   height: 30px;
   font-size: 14px;
   line-height: 30px;
@@ -19,27 +21,27 @@
     color: var(--text-color);
   }
 
-  &.adm-notice-bar-alert {
+  &.@{class-prefix-notice-bar}-alert {
     --background-color: #fff9ed;
     --border-color: #fff3e9;
     --text-color: #ff6010;
   }
-  &.adm-notice-bar-error {
+  &.@{class-prefix-notice-bar}-error {
     --background-color: #ff3b30;
     --border-color: #d9281e;
     --text-color: #ffffff;
   }
-  &.adm-notice-bar-info {
+  &.@{class-prefix-notice-bar}-info {
     --background-color: #d0e4ff;
     --border-color: #bcd8ff;
     --text-color: #1677ff;
   }
 
-  & .adm-notice-bar-left:not(:empty) {
+  & .@{class-prefix-notice-bar}-left:not(:empty) {
     flex-shrink: 0;
     margin-right: 8px;
   }
-  & .adm-notice-bar-content {
+  & .@{class-prefix-notice-bar}-content {
     flex: 1;
     overflow: hidden;
     position: relative;
@@ -47,7 +49,7 @@
     display: flex;
     align-items: center;
 
-    & .adm-notice-bar-content-inner {
+    & .@{class-prefix-notice-bar}-content-inner {
       width: fit-content;
       transition-timing-function: linear;
       position: absolute;
@@ -55,7 +57,7 @@
       white-space: nowrap;
     }
   }
-  & .adm-notice-bar-right {
+  & .@{class-prefix-notice-bar}-right {
     flex-shrink: 0;
     margin-left: 12px;
   }

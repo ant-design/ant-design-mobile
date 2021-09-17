@@ -1,5 +1,7 @@
-.adm-form-item {
-  + .adm-form-item {
+@class-prefix-form-item: ~'adm-form-item';
+
+.@{class-prefix-form-item} {
+  + .@{class-prefix-form-item} {
     border-top: none;
   }
 
@@ -27,7 +29,7 @@
 }
 
 .adm-form-vertical {
-  .adm-form-item {
+  .@{class-prefix-form-item} {
     &-label {
       margin-bottom: 4px;
     }
