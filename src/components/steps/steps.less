@@ -1,8 +1,11 @@
-.adm-step {
+@class-prefix-step: ~'adm-step';
+@class-prefix-steps: ~'adm-steps';
+
+.@{class-prefix-step} {
   --line-to-next-color: #e5e5e5;
   --icon-color: #e5e5e5;
 
-  .adm-step-indicator {
+  .@{class-prefix-step}-indicator {
     position: relative;
     &::after {
       content: '';
@@ -10,7 +13,7 @@
       z-index: 0;
       background-color: var(--line-to-next-color);
     }
-    .adm-step-icon-container {
+    .@{class-prefix-step}-icon-container {
       position: absolute;
       z-index: 1;
       background: var(--adm-color-white);
@@ -22,7 +25,7 @@
   }
 
   &:last-child {
-    .adm-step-indicator::after {
+    .@{class-prefix-step}-indicator::after {
       display: none;
     }
   }
@@ -35,7 +38,7 @@
   }
   &-status-process {
     --icon-color: var(--adm-color-primary);
-    .adm-step-title {
+    .@{class-prefix-step}-title {
       color: var(--adm-color-primary);
     }
   }
@@ -44,13 +47,13 @@
   }
   &-status-error {
     --icon-color: var(--adm-color-danger);
-    .adm-step-title {
+    .@{class-prefix-step}-title {
       color: var(--adm-color-danger);
     }
   }
 }
 
-.adm-steps {
+.@{class-prefix-steps} {
   width: 100%;
 
   &-horizontal {
@@ -58,10 +61,10 @@
     justify-content: space-around;
     padding: 8px 0;
 
-    .adm-step {
+    .@{class-prefix-step} {
       flex: 1;
 
-      .adm-step-indicator {
+      .@{class-prefix-step}-indicator {
         width: 100%;
         height: 24px;
         &::after {
@@ -71,7 +74,7 @@
           transform: translateY(-50%);
           width: 100%;
         }
-        .adm-step-icon-container {
+        .@{class-prefix-step}-icon-container {
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
@@ -79,13 +82,13 @@
       }
     }
 
-    .adm-step-content {
+    .@{class-prefix-step}-content {
       text-align: center;
       font-size: 12px;
       padding-top: 2px;
-      .adm-step-title {
+      .@{class-prefix-step}-title {
       }
-      .adm-step-description {
+      .@{class-prefix-step}-description {
         margin-top: 2px;
         color: var(--adm-color-weak);
       }
@@ -96,11 +99,11 @@
     padding: 8px 16px;
     --title-font-size: 17px;
 
-    .adm-step {
+    .@{class-prefix-step} {
       display: flex;
       align-items: stretch;
 
-      .adm-step-indicator {
+      .@{class-prefix-step}-indicator {
         flex: none;
         width: 24px;
         margin-right: 8px;
@@ -112,7 +115,7 @@
           transform: translateX(-50%);
           height: 100%;
         }
-        .adm-step-icon-container {
+        .@{class-prefix-step}-icon-container {
           top: calc(var(--title-font-size) * 1.5 / 2);
           left: 50%;
           transform: translate(-50%, -50%);
@@ -120,18 +123,18 @@
       }
 
       &:last-child {
-        .adm-step-content {
+        .@{class-prefix-step}-content {
           padding-bottom: 0;
         }
       }
-      .adm-step-content {
+      .@{class-prefix-step}-content {
         flex: auto;
         padding-bottom: 14px;
-        .adm-step-title {
+        .@{class-prefix-step}-title {
           font-size: var(--title-font-size);
           line-height: 1.5;
         }
-        .adm-step-description {
+        .@{class-prefix-step}-description {
           padding-top: 2px;
           font-size: 15px;
           color: var(--adm-color-weak);
@@ -141,11 +144,11 @@
   }
 }
 
-.adm-step-icon-container {
+.@{class-prefix-step}-icon-container {
   font-size: 18px;
 }
 
-.adm-step-icon-dot {
+.@{class-prefix-step}-icon-dot {
   display: block;
   width: 8px;
   height: 8px;
