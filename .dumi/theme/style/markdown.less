@@ -24,6 +24,7 @@
     color: @c-heading;
     font-weight: 500;
     line-height: 1.40625;
+    position: relative;
 
     [data-prefers-color='dark'] & {
       color: @c-heading-dark;
@@ -32,11 +33,10 @@
     // anchor link
     &:hover > a[aria-hidden] {
       float: left;
-      margin-top: 0.06em;
-      margin-left: -20px;
-      width: 20px;
-      padding-right: 4px;
-      line-height: 1;
+      margin-left: -1.3em;
+      width: 0.8em;
+      padding-left: 0.5em;
+      line-height: 1.15;
       box-sizing: border-box;
 
       @media @mobile {
@@ -48,7 +48,7 @@
         content: '#';
         display: inline-block;
         vertical-align: middle;
-        font-size: 20px;
+        width: 1em;
       }
 
       span {
