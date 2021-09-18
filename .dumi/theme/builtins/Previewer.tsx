@@ -1,6 +1,6 @@
 import React from 'react'
-import type { IPreviewerProps } from 'dumi-theme-default/src/builtins/Previewer'
-import Previewer from 'dumi-theme-default/src/builtins/Previewer'
+import type { IPreviewerProps } from './preview-default/Previewer'
+import Previewer from './preview-default/Previewer'
 import './Previewer.less'
 import { Device } from '../components/device'
 import { useDemoUrl } from 'dumi/theme'
@@ -13,13 +13,7 @@ export default (props: IPreviewerProps) => {
   return (
     <div className='adm-doc-previewer'>
       <div className='adm-doc-previewer-source'>
-        <Previewer
-          {...props}
-          hideActions={['EXTERNAL']}
-          defaultShowCode
-          compact
-          children={null}
-        />
+        <Previewer {...props} />
       </div>
       <div className='adm-doc-previewer-device'>
         <Device url={props.demoUrl ?? builtinDemoUrl} />

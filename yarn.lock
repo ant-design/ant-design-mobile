@@ -3789,7 +3789,6 @@ __metadata:
     dayjs: ^1.10.6
     del: ^5.1.0
     dumi: ^1.1.26
-    dumi-theme-default: ^1.1.11
     eslint: ^7.32.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-react: ^7.25.1
@@ -3813,9 +3812,12 @@ __metadata:
     postcss-pxtorem: ^5.1.1
     prettier: ^2.4.0
     pretty-quick: ^3.1.1
+    prism-react-renderer: ^1.1.1
+    prismjs: ^1.21.0
     qrcode.react: ^1.0.1
     rc-field-form: ^1.21.2
     rc-progress: ^3.1.4
+    rc-tabs: ^11.7.1
     rc-tooltip: ^5.1.1
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5928,20 +5930,6 @@ __metadata:
     "@umijs/preset-dumi": 1.x
     react: ^16.13.1 || ^17.0.0
   checksum: 9103a33bad298d60f6570f3d6d10bcac7af32a5b6c78e12d0b73c47b573c10f19b889a3cac6ea211d4128bc240a209f3598224016c54f51dc3082c3cd471c42d
-  languageName: node
-  linkType: hard
-
-"dumi-theme-default@npm:^1.1.11":
-  version: 1.1.11
-  resolution: "dumi-theme-default@npm:1.1.11"
-  dependencies:
-    prism-react-renderer: ^1.1.1
-    prismjs: ^1.21.0
-    rc-tabs: ^11.7.1
-  peerDependencies:
-    "@umijs/preset-dumi": 1.x
-    react: ^16.13.1 || ^17.0.0
-  checksum: d94d7a03e7a359a3d7e18aacb6b03ad89dd896201d269093e300ae5bf226ba47f2636ea2600422dc5f3e491659a6c969476c3679f3ba72ed796a741fdb75f643
   languageName: node
   linkType: hard
 
