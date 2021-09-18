@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { context, Link, NavLink } from 'dumi/theme'
 import LocaleSelect from './LocaleSelect'
 import './Navbar.less'
+import p from '../../../package.json'
 
 interface INavbarProps {
   location: any
@@ -31,16 +32,19 @@ const Navbar: FC<INavbarProps> = ({
         onClick={onMobileMenuClick}
       />
       {/* logo & title */}
-      <Link
-        className='__dumi-default-navbar-logo'
-        style={{
-          backgroundImage: logo ? `url('${logo}')` : undefined,
-        }}
-        to={base}
-        data-plaintext={logo === false || undefined}
-      >
-        {title}
-      </Link>
+      <div>
+        <Link
+          className='__dumi-default-navbar-logo'
+          style={{
+            backgroundImage: logo ? `url('${logo}')` : undefined,
+          }}
+          to={base}
+          data-plaintext={logo === false || undefined}
+        >
+          {title}
+        </Link>
+        <div className='__dumi-default-navbar-version'>{`v${p.version}`}</div>
+      </div>
       <nav>
         {navPrefix}
         {/* nav */}

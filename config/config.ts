@@ -3,7 +3,8 @@ const pxToRem = require('postcss-pxtorem')
 export default {
   mode: 'site',
   title: 'Ant Design Mobile',
-  logo: 'https://gw.alipayobjects.com/mdn/rms_2ddd4c/afts/img/A*XGPHS5H4-GkAAAAAAAAAAAAAARQnAQ',
+  logo: 'https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png',
+  favicon: 'https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png',
   navs: [
     {
       title: '指南',
@@ -12,10 +13,6 @@ export default {
     {
       title: '组件',
       path: '/components',
-    },
-    {
-      title: '在线体验',
-      path: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json',
     },
     {
       title: '了解更多',
@@ -42,6 +39,10 @@ export default {
           path: 'https://antd-mobile-v3.surge.sh',
         },
       ],
+    },
+    {
+      title: '在线体验',
+      path: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json',
     },
     {
       title: '发布日志',
