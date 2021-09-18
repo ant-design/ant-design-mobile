@@ -25,6 +25,7 @@ export type PickerProps = {
   onCancel?: () => void
   onClose?: () => void
   visible?: boolean
+  title?: ReactNode
   confirmText?: string
   cancelText?: string
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
@@ -90,6 +91,7 @@ export const Picker = withDefaultProps({
         >
           {props.cancelText}
         </a>
+        <div className={`${classPrefix}-header-title`}>{props.title}</div>
         <a
           className={`${classPrefix}-header-button`}
           onClick={() => {

@@ -79,6 +79,7 @@ function CascaderDemo() {
         选择
       </Button>
       <Picker.Cascader
+        title='级联选择'
         options={options}
         visible={visible}
         onClose={() => {
