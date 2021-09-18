@@ -182,6 +182,9 @@ export default {
       },
     ],
   },
+  repository: {
+    url: 'https://github.com/ant-design/ant-design-mobile',
+  },
   resolve: {
     includes: ['docs', 'src'],
     passivePreview: true,

@@ -10,6 +10,7 @@
   background-color: #f2f5fa;
   box-sizing: border-box;
   transition: left 0.3s;
+  overflow-y: auto;
 
   &[data-hidden] {
     display: none;
@@ -54,50 +55,6 @@
     }
   }
 
-  &-header {
-    position: relative;
-    padding-top: 40px;
-    text-align: center;
-    border-bottom: 1px solid @c-border;
-
-    [data-prefers-color='dark'] & {
-      border-color: @c-border-dark;
-    }
-
-    @media @mobile {
-      display: none;
-    }
-
-    .@{prefix}-menu-logo {
-      display: inline-block;
-      width: 66px;
-      height: 65px;
-      background: url(@img-logo) no-repeat 0 / contain;
-    }
-
-    h1 {
-      margin: 10px 0 0;
-      color: @c-heading;
-      font-weight: 500;
-      line-height: 1.40625;
-    }
-
-    p {
-      margin: 0 0 5px;
-      color: lighten(@c-secondary, 10%);
-
-      // badges
-      > object[data^='https://img.shields.io']
-      {
-        max-height: 20px;
-      }
-
-      + p {
-        margin-bottom: 10px;
-      }
-    }
-  }
-
   &-doc-locale {
     padding: 16px 0;
     text-align: center;
@@ -120,8 +77,6 @@
 
   &-inner {
     width: 100%;
-    height: 100%;
-    overflow: auto;
     overscroll-behavior: contain;
 
     [data-prefers-color='dark'] & {
@@ -137,26 +92,20 @@
 
       li {
         color: @c-text;
-        a,
-        > span {
+        span.adm-doc-group-title {
+          display: inline-block;
+          padding-left: 12px;
+        }
+        a {
           position: relative;
           display: block;
-          padding-right: 24px;
           color: @c-heading;
           line-height: 2.4;
           text-decoration: none;
           outline: none;
-          transition: color 0.3s, background 0.3s;
 
           [data-prefers-color='dark'] & {
             color: @c-heading-dark;
-          }
-
-          span {
-            display: block;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
           }
 
           &:hover,
@@ -168,35 +117,22 @@
             }
           }
 
-          &::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -10px;
-            margin-top: -2.5px;
-            display: inline-block;
-            width: 5px;
-            height: 5px;
-            background-color: @c-primary;
-            border-radius: 50%;
-            opacity: 0;
-            transition: transform 0.2s, opacity 0.2s;
-            transform: scale(0) translateX(-10px);
+          > span {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding: 2px 12px;
+            border-radius: 4px;
           }
-        }
-
-        &.active a,
-        a.active {
-          &::before {
-            opacity: 1;
-            transform: scale(1) translateX(0);
+          &.active > span {
+            background-color: #edf3ff;
           }
         }
 
         // level larger, offset larger, font size smaller
         ul {
           font-size: 0.9em;
-          padding-left: 1em;
         }
       }
     }
@@ -209,7 +145,8 @@
         &:not([href]) {
           padding-top: 24px;
           line-height: 1;
-          font-weight: 500;
+          font-weight: bold;
+          font-size: 18px;
           color: @c-heading !important;
           background: transparent !important;
           cursor: default;
@@ -279,37 +216,18 @@
 
     // menu list
     .@{prefix}-menu-list {
-      padding: 8px 0;
+      padding: 8px 24px;
       margin-bottom: 40px;
 
       > li > a {
         @c-active-bg: #e8ecf4;
 
-        padding-left: 28px;
-
-        &.active {
-          background: linear-gradient(to left, #e8ecf4, rgba(232, 236, 244, 0));
-
-          [data-prefers-color='dark'] & {
-            background: linear-gradient(
-              to left,
-              #3d3d3e,
-              rgba(255, 255, 255, 0.06)
-            );
-          }
-        }
-
         ~ ul {
           margin-top: 8px;
-          margin-left: 28px;
         }
 
         @media @mobile {
           padding-left: 16px;
-
-          ~ ul {
-            margin-left: 16px;
-          }
         }
       }
     }
@@ -326,41 +244,11 @@
     }
 
     .@{prefix}-menu-list {
-      padding: 0;
-
       > li > a {
         position: relative;
 
-        &::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          right: 0;
-          display: block;
-          width: 3px;
-          background-color: @c-primary;
-          visibility: hidden;
-          opacity: 0;
-          transition: all 0.3s;
-          border-radius: 1px;
-        }
-
         &.active {
           z-index: 1;
-          background: linear-gradient(to left, #f8faff, rgba(248, 250, 255, 0));
-
-          [data-prefers-color='dark'] & {
-            background: linear-gradient(
-              to left,
-              #3d3d3e,
-              rgba(255, 255, 255, 0.06)
-            );
-          }
-          &::after {
-            opacity: 1;
-            visibility: visible;
-          }
         }
       }
     }
@@ -368,24 +256,11 @@
     @media @desktop {
       top: @s-nav-height;
       width: @s-site-menu-width;
-      padding-top: 50px;
-      background: transparent;
+      background: #ffffff;
+      padding-top: 32px;
 
       [data-prefers-color='dark'] & {
         background: @c-light-bg-dark;
-      }
-
-      .@{prefix}-menu-nav,
-      .@{prefix}-menu-header {
-        display: none;
-      }
-
-      .@{prefix}-menu-list > li > a {
-        padding-left: 58px;
-
-        ~ ul {
-          margin-left: 58px;
-        }
       }
     }
   }

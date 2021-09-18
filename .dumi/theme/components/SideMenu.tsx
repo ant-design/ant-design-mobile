@@ -2,7 +2,6 @@ import type { FC } from 'react'
 import React, { useContext } from 'react'
 import { context, Link, NavLink } from 'dumi/theme'
 import LocaleSelect from './LocaleSelect'
-import SlugList from './SlugList'
 import './SideMenu.less'
 
 interface INavbarProps {
@@ -17,13 +16,7 @@ const SideMenu: FC<INavbarProps> = ({
   darkPrefix,
 }) => {
   const {
-    config: {
-      logo,
-      title,
-      description,
-      mode,
-      repository: { url: repoUrl },
-    },
+    config: { mode },
     menu,
     nav: navItems,
     base,
@@ -42,30 +35,7 @@ const SideMenu: FC<INavbarProps> = ({
       data-mobile-show={!mobileMenuCollapsed || undefined}
     >
       <div className='__dumi-default-menu-inner'>
-        <div className='__dumi-default-menu-header'>
-          <Link
-            to={base}
-            className='__dumi-default-menu-logo'
-            style={{
-              backgroundImage: logo ? `url('${logo}')` : undefined,
-            }}
-          />
-          <h1>{title}</h1>
-          <p>{description}</p>
-          {/* github star badge */}
-          {/github\.com/.test(repoUrl) && mode === 'doc' && (
-            <p>
-              <object
-                type='image/svg+xml'
-                data={`https://img.shields.io/github/stars${
-                  repoUrl.match(/((\/[^\/]+){2})$/)[1]
-                }?style=social`}
-              />
-            </p>
-          )}
-        </div>
         {/* mobile nav list */}
-
         <div className='__dumi-default-menu-mobile-area'>
           {!!navItems.length && (
             <ul className='__dumi-default-menu-nav-list'>
@@ -102,15 +72,9 @@ const SideMenu: FC<INavbarProps> = ({
           {!isHiddenMenus &&
             menu.map(item => {
               // always use meta from routes to reduce menu data size
-              const hasSlugs = Boolean(meta.slugs?.length)
               const hasChildren = item.children && Boolean(item.children.length)
-              const show1LevelSlugs =
-                meta.toc === 'menu' &&
-                !hasChildren &&
-                hasSlugs &&
-                item.path === location.pathname.replace(/([^^])\/$/, '$1')
               const menuPaths = hasChildren
-                ? item.children.map(i => i.path)
+                ? item.children?.map(i => i.path)
                 : [
                     item.path,
                     // handle menu group which has no index route and no valid children
@@ -119,37 +83,35 @@ const SideMenu: FC<INavbarProps> = ({
                       : null,
                   ]
 
-              return (
-                <li key={item.path || item.title}>
-                  <NavLink
-                    to={item.path}
-                    isActive={() => menuPaths.includes(location.pathname)}
-                  >
-                    {item.title}
-                  </NavLink>
-                  {/* group children */}
-                  {Boolean(item.children && item.children.length) && (
+              if (hasChildren) {
+                return (
+                  <li key={item.path || item.title}>
+                    <NavLink
+                      to={item.path}
+                      isActive={() => menuPaths.includes(location.pathname)}
+                    >
+                      <span className='adm-doc-group-title'>{item.title}</span>
+                    </NavLink>
                     <ul>
-                      {item.children.map(child => (
+                      {item.children?.map(child => (
                         <li key={child.path}>
                           <NavLink to={child.path} exact>
                             <span>{child.title}</span>
                           </NavLink>
-                          {/* group children slugs */}
-                          {Boolean(
-                            meta.toc === 'menu' &&
-                              typeof window !== 'undefined' &&
-                              child.path === location.pathname &&
-                              hasSlugs
-                          ) && <SlugList slugs={meta.slugs} />}
                         </li>
                       ))}
                     </ul>
-                  )}
-                  {/* group slugs */}
-                  {show1LevelSlugs && <SlugList slugs={meta.slugs} />}
-                </li>
-              )
+                  </li>
+                )
+              } else {
+                return (
+                  <li key={item.path}>
+                    <NavLink to={item.path} exact>
+                      <span>{item.title}</span>
+                    </NavLink>
+                  </li>
+                )
+              }
             })}
         </ul>
       </div>
