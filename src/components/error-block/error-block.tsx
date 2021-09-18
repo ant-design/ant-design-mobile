@@ -1,8 +1,9 @@
 import React, { ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
-import { errorConfigRecord } from './error'
+import { iconRecord } from './error'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-error-block`
 
@@ -20,10 +21,13 @@ const defaultProps = {
 
 export const ErrorBlock = withDefaultProps(defaultProps)<ErrorBlockProps>(
   props => {
-    const config = errorConfigRecord[props.status]
-    const des = 'description' in props ? props.description : config.description
-    const title = 'title' in props ? props.title : config.title
-    let imageNode: ReactNode = <img src={config.icon} />
+    const icon = iconRecord[props.status]
+    const { locale } = useConfig()
+    const contentPack = locale.ErrorBlock[props.status]
+    const des =
+      'description' in props ? props.description : contentPack.description
+    const title = 'title' in props ? props.title : contentPack.title
+    let imageNode: ReactNode = <img src={icon} />
 
     if (props.image) {
       if (typeof props.image === 'string') {

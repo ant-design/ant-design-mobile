@@ -1,5 +1,7 @@
 import './global'
 
+export { setDefaultConfig } from './components/config-provider'
+
 export { default as ActionSheet } from './components/action-sheet'
 export { default as Badge } from './components/badge'
 export { default as Button } from './components/button'

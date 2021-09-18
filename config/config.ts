@@ -167,10 +167,10 @@ export default {
           '/components/tabs',
         ],
       },
-      // {
-      //   title: '其他',
-      //   children: ['/components/config-provider'],
-      // },
+      {
+        title: '其他',
+        children: ['/components/config-provider'],
+      },
       {
         title: '试验性',
         children: [
@@ -181,9 +181,6 @@ export default {
         ],
       },
     ],
-  },
-  repository: {
-    url: 'https://github.com/ant-design/ant-design-mobile',
   },
   resolve: {
     includes: ['docs', 'src'],

@@ -2,7 +2,7 @@ import { show } from './show'
 import { DialogProps } from './index'
 import { mergeProps } from '../../utils/with-default-props'
 import { ReactNode } from 'react'
-import { globalConfigRef } from '../config-provider'
+import { getDefaultConfig } from '../config-provider'
 
 export type DialogAlertProps = Omit<
   DialogProps,
@@ -14,7 +14,7 @@ export type DialogAlertProps = Omit<
 
 export function alert(p: DialogAlertProps) {
   const defaultProps = {
-    confirmText: globalConfigRef.current.locale.Dialog.ok,
+    confirmText: getDefaultConfig().locale.Dialog.ok,
   }
   const props = mergeProps(defaultProps, p)
   return new Promise<void>(resolve => {

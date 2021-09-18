@@ -1,11 +1,22 @@
-import { useEffect } from 'react'
+import React from 'react'
+import { DemoBlock } from 'demos'
+import { ConfigProvider, ErrorBlock } from 'antd-mobile'
+import zhCN from 'antd-mobile/src/locales/zh-CN'
+import enUS from 'antd-mobile/src/locales/en-US'
 
 export default () => {
-  useEffect(() => {
-    console.log(1)
-    return () => {
-      console.log(2)
-    }
-  }, [])
-  return null
+  return (
+    <>
+      <DemoBlock title='中文'>
+        <ConfigProvider locale={zhCN}>
+          <ErrorBlock />
+        </ConfigProvider>
+      </DemoBlock>
+      <DemoBlock title='英文'>
+        <ConfigProvider locale={enUS}>
+          <ErrorBlock />
+        </ConfigProvider>
+      </DemoBlock>
+    </>
+  )
 }
