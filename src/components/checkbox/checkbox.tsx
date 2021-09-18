@@ -31,21 +31,6 @@ const defaultProps = {
 export const Checkbox: FC<CheckboxProps> = p => {
   const groupContext = useContext(CheckboxGroupContext)
 
-  if (groupContext !== null) {
-    if (p.checked !== undefined) {
-      devWarning(
-        'Checkbox',
-        'When used with `Checkbox.Group`, the `checked` prop of `Checkbox` will not work.'
-      )
-    }
-    if (p.defaultChecked !== undefined) {
-      devWarning(
-        'Checkbox',
-        'When used with `Checkbox.Group`, the `defaultChecked` prop of `Checkbox` will not work.'
-      )
-    }
-  }
-
   const props = mergeProps(defaultProps, p)
 
   let [checked, setChecked] = useNewControllableValue({
@@ -55,8 +40,25 @@ export const Checkbox: FC<CheckboxProps> = p => {
   })
   let disabled = props.disabled
 
+  const usageWarning = () => {
+    if (p.checked !== undefined) {
+      devWarning(
+        'Checkbox',
+        'When used with `Checkbox.Group`, the `checked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
+      )
+    }
+    if (p.defaultChecked !== undefined) {
+      devWarning(
+        'Checkbox',
+        'When used with `Checkbox.Group`, the `defaultChecked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
+      )
+    }
+  }
+
   const { value } = props
   if (groupContext && value !== undefined) {
+    usageWarning()
+
     checked = groupContext.value.includes(value)
     setChecked = (checked: boolean) => {
       if (checked) {
