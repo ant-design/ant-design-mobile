@@ -52,7 +52,7 @@
     "babel-plugin-transform-async-to-promises": "^0.8.15",
     "css-loader": "^6.2.0",
     "del": "^5.1.0",
-    "dumi": "^1.1.26",
+    "dumi": "^1.1.29",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.25.1",
