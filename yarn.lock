@@ -3004,9 +3004,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@umijs/preset-dumi@npm:1.1.26":
-  version: 1.1.26
-  resolution: "@umijs/preset-dumi@npm:1.1.26"
+"@umijs/preset-dumi@npm:1.1.29":
+  version: 1.1.29
+  resolution: "@umijs/preset-dumi@npm:1.1.29"
   dependencies:
     "@babel/core": ^7.7.2
     "@babel/generator": ^7.7.2
@@ -3022,7 +3022,7 @@ __metadata:
     copy-text-to-clipboard: ^2.2.0
     deepmerge: ^4.2.2
     dumi-assets-types: 1.0.0
-    dumi-theme-default: 1.1.9
+    dumi-theme-default: 1.1.12
     enhanced-resolve: ^4.1.1
     github-slugger: ^1.3.0
     hast-util-has-property: ^1.0.4
@@ -3054,7 +3054,7 @@ __metadata:
     unist-util-visit-parents: ^3.0.1
   peerDependencies:
     umi: 3.x
-  checksum: 75270d14b6199437666ece12857082bd52330a07501d8bf995d9bf8a7e49078b94784c5c03801caa28cf717ea2ff91936b86f4e0c56a50faf4308e44b47f92ea
+  checksum: 753113190f304149760939a138a439a35fa6b732a649b0dfc8f74fdbca3dcd12a4bcec4eb05c128a666c55cb77022df3eb70912f9889a6a498c8b8ff0edf6f10
   languageName: node
   linkType: hard
 
@@ -3788,8 +3788,7 @@ __metadata:
     css-loader: ^6.2.0
     dayjs: ^1.10.6
     del: ^5.1.0
-    dumi: ^1.1.26
-    dumi-theme-default: ^1.1.11
+    dumi: ^1.1.29
     eslint: ^7.32.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-react: ^7.25.1
@@ -3813,9 +3812,12 @@ __metadata:
     postcss-pxtorem: ^5.1.1
     prettier: ^2.4.0
     pretty-quick: ^3.1.1
+    prism-react-renderer: ^1.1.1
+    prismjs: ^1.21.0
     qrcode.react: ^1.0.1
     rc-field-form: ^1.21.2
     rc-progress: ^3.1.4
+    rc-tabs: ^11.7.1
     rc-tooltip: ^5.1.1
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5917,9 +5919,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dumi-theme-default@npm:1.1.9":
-  version: 1.1.9
-  resolution: "dumi-theme-default@npm:1.1.9"
+"dumi-theme-default@npm:1.1.12":
+  version: 1.1.12
+  resolution: "dumi-theme-default@npm:1.1.12"
   dependencies:
     prism-react-renderer: ^1.1.1
     prismjs: ^1.21.0
@@ -5927,33 +5929,19 @@ __metadata:
   peerDependencies:
     "@umijs/preset-dumi": 1.x
     react: ^16.13.1 || ^17.0.0
-  checksum: 9103a33bad298d60f6570f3d6d10bcac7af32a5b6c78e12d0b73c47b573c10f19b889a3cac6ea211d4128bc240a209f3598224016c54f51dc3082c3cd471c42d
+  checksum: 3c0a4c17ac69975fc704f81340385a5a12a491210ecf86bbefeda186c7b910b026cb110dde34069776cb34116f9c11c7a8af79f6d771260732b6eb8448bcc2cf
   languageName: node
   linkType: hard
 
-"dumi-theme-default@npm:^1.1.11":
-  version: 1.1.11
-  resolution: "dumi-theme-default@npm:1.1.11"
+"dumi@npm:^1.1.29":
+  version: 1.1.29
+  resolution: "dumi@npm:1.1.29"
   dependencies:
-    prism-react-renderer: ^1.1.1
-    prismjs: ^1.21.0
-    rc-tabs: ^11.7.1
-  peerDependencies:
-    "@umijs/preset-dumi": 1.x
-    react: ^16.13.1 || ^17.0.0
-  checksum: d94d7a03e7a359a3d7e18aacb6b03ad89dd896201d269093e300ae5bf226ba47f2636ea2600422dc5f3e491659a6c969476c3679f3ba72ed796a741fdb75f643
-  languageName: node
-  linkType: hard
-
-"dumi@npm:^1.1.26":
-  version: 1.1.26
-  resolution: "dumi@npm:1.1.26"
-  dependencies:
-    "@umijs/preset-dumi": 1.1.26
+    "@umijs/preset-dumi": 1.1.29
     umi: ^3.0.0
   bin:
     dumi: bin/dumi.js
-  checksum: f5c6294f41c9a11c5c5992fac064bbd0c6c72e97b5fd169e041e1a254649546498a98eebb4e4d8d6306aa4c0f1f8ce7d3a0a428f8a23d6f8c7e610057a61a2e9
+  checksum: cb4237bcfdddb0a3f04392bc10f26230db044fae9e878c790c8b025fa146f37de2e996a34b21b507f2c76ca3141ecd67750f9fb64d0048fda26b05361651edf3
   languageName: node
   linkType: hard
 

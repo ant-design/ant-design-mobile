@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import type { IPreviewerComponentProps } from 'dumi/theme'
 import { useDemoUrl } from 'dumi/theme'
-import Layout from 'dumi-theme-default/src/layout'
+import Layout from './layout'
 import type { IRouteComponentProps } from '@umijs/types'
 import { Device } from '../components/device'
 import { ACTIVE_MSG_TYPE } from '../builtins/Previewer'
