@@ -165,6 +165,7 @@ export default {
           '/components/popup',
           '/components/tab-bar',
           '/components/tabs',
+          '/components/nav-bar',
         ],
       },
       // {
