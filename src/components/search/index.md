@@ -10,7 +10,8 @@
 | placeholder      | 提示文本                                     | string                  | -      |
 | maxLength        | 输入的最大字符数                             | number \| string        | -      |
 | clearable        | 是否启用清除图标，点击清除图标后会清空输入框 | boolean                 | true   |
-| showCancelButton | 是否在搜索框右侧显示按钮                     | boolean                 | false  |
+| showCancelButton | 是否在搜索框右侧显示取消按钮                 | boolean                 | false  |
+| cancelText       | 取消按钮的文案                               | string                  | 取消   |
 | onSearch         | 输入框回车时触发                             | (value: string) => void | -      |
 | onChange         | 输入框内容变化时触发                         | (value: string) => void | -      |
 | onFocus          | 输入框获得焦点时触发                         | event: Event            | -      |
