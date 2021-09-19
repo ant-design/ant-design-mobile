@@ -1,6 +1,8 @@
 # ErrorBlock 异常
 
-<code src="./demos/demo1.tsx"></code>
+<code src="./demos/demo-basic.tsx"></code>
+
+<code src="./demos/demo-full-page.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
 

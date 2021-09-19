@@ -47,10 +47,10 @@ export const ErrorBlock = withDefaultProps(defaultProps)<ErrorBlockProps>(
         <div className={`${classPrefix}-image`}>{imageNode}</div>
         <div className={`${classPrefix}-description`}>
           {title && (
-            <span className={`${classPrefix}-description-title`}>{title}</span>
+            <div className={`${classPrefix}-description-title`}>{title}</div>
           )}
           {des && (
-            <span className={`${classPrefix}-description-subtitle`}>{des}</span>
+            <div className={`${classPrefix}-description-subtitle`}>{des}</div>
           )}
         </div>
 
