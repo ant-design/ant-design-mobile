@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  FC,
-  forwardRef,
-  useImperativeHandle,
-} from 'react'
+import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
 import classNames from 'classnames'
 import Input, { InputRef } from '../input'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -24,6 +18,7 @@ export type SearchProps = {
   placeholder?: string
   clearable?: boolean
   showCancelButton?: boolean
+  cancelText?: string
   onSearch?: (val: string) => void
   onChange?: (val: string) => void
   onFocus?: () => void
@@ -107,7 +102,7 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
               props.onCancel?.()
             }}
           >
-            {locale.common.cancel}
+            {props.cancelText ?? locale.common.cancel}
           </a>
         </div>
       )}
