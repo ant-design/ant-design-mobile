@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavBar, Toast } from 'antd-mobile'
+import { NavBar, Space, Toast } from 'antd-mobile'
 import {
   ArrowLeftOutlined,
   SearchOutlined,
@@ -10,10 +10,12 @@ import './index.less'
 
 export default () => {
   const right = (
-    <>
-      <SearchOutlined style={{ fontSize: '18px', marginRight: '16px' }} />
-      <EllipsisOutlined style={{ fontSize: '18px' }} />
-    </>
+    <div style={{ fontSize: 18 }}>
+      <Space>
+        <SearchOutlined />
+        <EllipsisOutlined />
+      </Space>
+    </div>
   )
 
   const back = () =>
@@ -27,12 +29,22 @@ export default () => {
       <DemoBlock title='基础使用' padding='0'>
         <NavBar onBack={back}>标题</NavBar>
       </DemoBlock>
-      <DemoBlock title='自定义返回文字' padding='0'>
+      <DemoBlock title='自定义返回按钮的文字' padding='0'>
         <NavBar back='返回' onBack={back}>
           标题
         </NavBar>
       </DemoBlock>
-      <DemoBlock title='自定义返回 Icon' padding='0'>
+      <DemoBlock title='返回按钮不显示图标' padding='0'>
+        <NavBar back='返回' onBack={back} backArrow={false}>
+          标题
+        </NavBar>
+      </DemoBlock>
+      <DemoBlock title='自定义左侧区域' padding='0'>
+        <NavBar back='返回' onBack={back} left='关闭'>
+          标题
+        </NavBar>
+      </DemoBlock>
+      <DemoBlock title='自定义返回图标' padding='0'>
         <NavBar back='返回' backArrow={<ArrowLeftOutlined />} onBack={back}>
           标题
         </NavBar>
@@ -60,6 +72,9 @@ export default () => {
         >
           标题
         </NavBar>
+      </DemoBlock>
+      <DemoBlock title='标题超长自动省略' padding='0'>
+        <NavBar onBack={back}>这是一条很长很长很长很长很长很长的标题</NavBar>
       </DemoBlock>
     </>
   )

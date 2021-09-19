@@ -162,10 +162,10 @@ export default {
           '/components/floating-panel',
           '/components/grid',
           '/components/index-bar',
+          '/components/nav-bar',
           '/components/popup',
           '/components/tab-bar',
           '/components/tabs',
-          '/components/nav-bar',
         ],
       },
       // {

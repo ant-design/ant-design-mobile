@@ -27,16 +27,18 @@ export const NavBar = withDefaultProps(defaultProps)<NavBarProps>(props => {
     props,
     <div className={classNames(classPrefix)}>
       <div className={`${classPrefix}-left`} role='button'>
-        {back !== null ? (
-          <div className={`${classPrefix}-left-back`} onClick={props.onBack}>
-            <span className={`${classPrefix}-left-arrow`}>
-              {backArrow === true ? <LeftOutlined /> : backArrow || null}
-            </span>
-            <span className={`${classPrefix}-left-text`} aria-hidden='true'>
+        {back !== null && (
+          <div className={`${classPrefix}-back`} onClick={props.onBack}>
+            {backArrow && (
+              <span className={`${classPrefix}-back-arrow`}>
+                <LeftOutlined />
+              </span>
+            )}
+            <span className={`${classPrefix}-back-text`} aria-hidden='true'>
               {back}
             </span>
           </div>
-        ) : null}
+        )}
         {props.left}
       </div>
       <div className={`${classPrefix}-title`}>{props.children}</div>
