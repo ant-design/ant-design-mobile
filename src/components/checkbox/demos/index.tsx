@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { DemoBlock } from 'demos'
 import { Checkbox, Space } from 'antd-mobile'
-import { CopyOutlined, CopyFilled } from '@ant-design/icons'
+import { SmileFill, SmileOutline } from 'antd-mobile-icons'
 
 export default () => {
   const [value, setValue] = useState<string[]>([])
@@ -58,9 +58,9 @@ export default () => {
           value='banana'
           icon={checked =>
             checked ? (
-              <CopyFilled style={{ color: 'var(--adm-color-primary)' }} />
+              <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
             ) : (
-              <CopyOutlined style={{ color: 'var(--adm-color-weak)' }} />
+              <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
             )
           }
         >
