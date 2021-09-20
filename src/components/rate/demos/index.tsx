@@ -1,7 +1,7 @@
 import React from 'react'
 import { DemoBlock } from 'demos'
 import { Rate, Space, Toast } from 'antd-mobile'
-import { SmileOutlined } from '@ant-design/icons'
+import { SmileOutline } from 'antd-mobile-icons'
 
 export default () => {
   return (
@@ -29,7 +29,7 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='自定义字符和样式'>
         <Space direction='vertical'>
-          <Rate allowHalf defaultValue={2} character={<SmileOutlined />} />
+          <Rate allowHalf defaultValue={2} character={<SmileOutline />} />
           <Rate allowHalf defaultValue={1.5} character={'A'} />
           <Rate
             allowHalf
