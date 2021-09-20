@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
-import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
+import { MinusOutline, AddOutline } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { withDefaultProps } from '../../utils/with-default-props'
@@ -95,7 +95,7 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
         fill='none'
         color='primary'
       >
-        <MinusOutlined />
+        <MinusOutline fontSize={12} />
       </Button>
       <Input
         className={`${classPrefix}-input`}
@@ -118,7 +118,7 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
         fill='none'
         color='primary'
       >
-        <PlusOutlined />
+        <AddOutline fontSize={12} />
       </Button>
     </div>
   )
