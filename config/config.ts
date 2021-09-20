@@ -95,6 +95,7 @@ export default {
         title: '基础',
         children: [
           '/components/button',
+          '/components/icon',
           '/components/list',
           '/components/space',
         ],
