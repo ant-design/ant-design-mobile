@@ -1,21 +1,21 @@
 import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import {
-  CheckCircleFilled,
-  CloseCircleFilled,
-  InfoCircleFilled,
-  ClockCircleFilled,
-  ExclamationCircleFilled,
-} from '@ant-design/icons'
+  CheckCircleFill,
+  CloseCircleFill,
+  InformationCircleFill,
+  ClockCircleFill,
+  ExclamationCircleFill,
+} from 'antd-mobile-icons'
 
 const classPrefix = `adm-result`
 
 const ICONS = {
-  success: CheckCircleFilled,
-  error: CloseCircleFilled,
-  info: InfoCircleFilled,
-  waiting: ClockCircleFilled,
-  warning: ExclamationCircleFilled,
+  success: CheckCircleFill,
+  error: CloseCircleFill,
+  info: InformationCircleFill,
+  waiting: ClockCircleFill,
+  warning: ExclamationCircleFill,
 }
 
 export interface ResultProps {
