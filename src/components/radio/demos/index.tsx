@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { DemoBlock } from 'demos'
 import { Radio, Space } from 'antd-mobile'
-import { CopyOutlined, CopyFilled } from '@ant-design/icons'
+import { SmileOutline, SmileFill } from 'antd-mobile-icons'
 
 export default () => {
   const [value, setValue] = useState<string>()
@@ -64,9 +64,9 @@ export default () => {
               value='radio1'
               icon={checked =>
                 checked ? (
-                  <CopyFilled style={{ color: 'var(--adm-color-primary)' }} />
+                  <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
                 ) : (
-                  <CopyOutlined style={{ color: 'var(--adm-color-weak)' }} />
+                  <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
                 )
               }
             >
@@ -76,9 +76,9 @@ export default () => {
               value='radio2'
               icon={checked =>
                 checked ? (
-                  <CopyFilled style={{ color: 'var(--adm-color-primary)' }} />
+                  <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
                 ) : (
-                  <CopyOutlined style={{ color: 'var(--adm-color-weak)' }} />
+                  <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
                 )
               }
             >
