@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import React from 'react'
 import classNames from 'classnames'
-import { LeftOutlined } from '@ant-design/icons'
+import { LeftOutline } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
@@ -31,7 +31,7 @@ export const NavBar = withDefaultProps(defaultProps)<NavBarProps>(props => {
           <div className={`${classPrefix}-back`} onClick={props.onBack}>
             {backArrow && (
               <span className={`${classPrefix}-back-arrow`}>
-                {backArrow === true ? <LeftOutlined /> : backArrow}
+                {backArrow === true ? <LeftOutline /> : backArrow}
               </span>
             )}
             <span aria-hidden='true'>{back}</span>

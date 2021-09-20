@@ -1,10 +1,6 @@
 import React from 'react'
 import { NavBar, Space, Toast } from 'antd-mobile'
-import {
-  ArrowLeftOutlined,
-  SearchOutlined,
-  EllipsisOutlined,
-} from '@ant-design/icons'
+import { SearchOutline, MoreOutline, CloseOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 import './index.less'
 
@@ -12,8 +8,8 @@ export default () => {
   const right = (
     <div style={{ fontSize: 18 }}>
       <Space>
-        <SearchOutlined />
-        <EllipsisOutlined />
+        <SearchOutline />
+        <MoreOutline />
       </Space>
     </div>
   )
@@ -39,13 +35,13 @@ export default () => {
           标题
         </NavBar>
       </DemoBlock>
-      <DemoBlock title='自定义左侧区域' padding='0'>
-        <NavBar back='返回' onBack={back} left='关闭'>
+      <DemoBlock title='自定义返回按钮图标' padding='0'>
+        <NavBar back='返回' backArrow={<CloseOutline />} onBack={back}>
           标题
         </NavBar>
       </DemoBlock>
-      <DemoBlock title='自定义返回图标' padding='0'>
-        <NavBar back='返回' backArrow={<ArrowLeftOutlined />} onBack={back}>
+      <DemoBlock title='自定义左侧区域' padding='0'>
+        <NavBar back='返回' onBack={back} left='关闭'>
           标题
         </NavBar>
       </DemoBlock>
