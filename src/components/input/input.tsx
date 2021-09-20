@@ -1,6 +1,6 @@
 import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
-import { CloseCircleFilled } from '@ant-design/icons'
+import { CloseCircleFill } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -111,7 +111,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
             props.onClear?.()
           }}
         >
-          <CloseCircleFilled />
+          <CloseCircleFill />
         </div>
       )}
     </div>
