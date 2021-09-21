@@ -1,7 +1,7 @@
 import React from 'react'
 import { DemoBlock } from 'demos'
 import { Card, Toast, Button } from 'antd-mobile'
-import { AntDesignOutlined, RightOutlined } from '@ant-design/icons'
+import { AntOutline, RightOutline } from 'antd-mobile-icons'
 import styles from './index.less'
 
 export default () => {
@@ -33,13 +33,11 @@ export default () => {
         <Card
           title={
             <div style={{ fontWeight: 'normal' }}>
-              <AntDesignOutlined
-                style={{ marginRight: '4px', color: '#1677ff' }}
-              />
+              <AntOutline style={{ marginRight: '4px', color: '#1677ff' }} />
               卡片标题
             </div>
           }
-          extra={<RightOutlined />}
+          extra={<RightOutline />}
           onBodyClick={onBodyClick}
           onHeaderClick={onHeaderClick}
           style={{ borderRadius: '16px' }}

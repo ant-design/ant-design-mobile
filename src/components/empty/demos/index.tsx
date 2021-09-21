@@ -1,7 +1,7 @@
 import React from 'react'
 import { DemoBlock } from 'demos'
 import { Empty } from 'antd-mobile'
-import { QuestionCircleOutlined } from '@ant-design/icons'
+import { QuestionCircleOutline } from 'antd-mobile-icons'
 
 export default () => {
   return (
@@ -23,7 +23,7 @@ export default () => {
         <Empty
           style={{ padding: '64px 0' }}
           image={
-            <QuestionCircleOutlined
+            <QuestionCircleOutline
               style={{
                 color: 'var(--adm-color-light)',
                 fontSize: 48,

@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { RightOutlined } from '@ant-design/icons'
+import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 
 const classPrefix = `adm-list`
@@ -43,7 +43,7 @@ export const ListItem: FC<ListItemProps> = props => {
       )}
       {arrow && (
         <div className={`${classPrefix}-item-content-arrow`}>
-          {arrow === true ? <RightOutlined /> : arrow}
+          {arrow === true ? <RightOutline /> : arrow}
         </div>
       )}
     </div>
