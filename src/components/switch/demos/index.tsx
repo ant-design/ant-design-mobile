@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Space, Switch } from 'antd-mobile'
-import { CloseOutlined, CheckOutlined } from '@ant-design/icons'
+import { CloseOutline, CheckOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 import { useToggle } from 'ahooks'
 import './index.less'
@@ -53,8 +53,8 @@ export default () => {
         <Space wrap>
           <Switch uncheckedText='关' checkedText='开' />
           <Switch
-            checkedText={<CheckOutlined />}
-            uncheckedText={<CloseOutlined />}
+            checkedText={<CheckOutline />}
+            uncheckedText={<CloseOutline />}
           />
           <Switch uncheckedText='0' checkedText='1' />
         </Space>

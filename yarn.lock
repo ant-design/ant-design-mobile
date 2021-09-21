@@ -3734,10 +3734,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"antd-mobile-icons@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "antd-mobile-icons@npm:0.1.1"
-  checksum: 61a8dd528cd3eb987bc65429dd8ed72cad84bf8e9045011995898a76372b922a64a170ee90f8010f65cce3adac9d44d0b8427bcdb78ae3430df4899344a0546f
+"antd-mobile-icons@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "antd-mobile-icons@npm:0.2.2"
+  checksum: 6b3091e8547eac074a825598537da988e6673563d4da42d835180b32dc182973e7a5ab40daf112352b74451f21caf53c9369020f5925d486b6734daaefd96574
   languageName: node
   linkType: hard
 
@@ -3774,7 +3774,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.31.1
     "@typescript-eslint/parser": ^4.31.1
     ahooks: ^2.10.9
-    antd-mobile-icons: ^0.1.1
+    antd-mobile-icons: ^0.2.2
     antd-mobile-v5-count: ^1.0.1
     babel-loader: ^8.2.2
     babel-plugin-import: ^1.13.3

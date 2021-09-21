@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
-import { CheckOutlined } from '@ant-design/icons'
+import { CheckOutline } from 'antd-mobile-icons'
 import { CheckboxGroupContext } from './group-context'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
@@ -82,7 +82,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
 
     return (
       <div className={`${classPrefix}-icon`}>
-        <CheckOutlined className={`${classPrefix}-icon-checked`} />
+        <CheckOutline className={`${classPrefix}-icon-checked`} />
         <div className={`${classPrefix}-indeterminate-checked`} />
       </div>
     )

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import Input, { InputRef } from '../input'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { SearchOutlined } from '@ant-design/icons'
+import { SearchOutline } from 'antd-mobile-icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { useConfig } from '../config-provider'
 
@@ -65,7 +65,7 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
         }}
       >
         <div className={`${classPrefix}-input-box-icon`}>
-          <SearchOutlined />
+          <SearchOutline />
         </div>
         <Input
           ref={inputRef}

@@ -1,7 +1,7 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React, { FC, ReactNode, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { PictureOutlined, DisconnectOutlined } from '@ant-design/icons'
+import { PictureOutline, PictureWrongOutline } from 'antd-mobile-icons'
 
 const classPrefix = `adm-image`
 
@@ -31,12 +31,12 @@ const defaultProps = {
   fit: 'fill',
   placeholder: (
     <div className={`${classPrefix}-tip`}>
-      <PictureOutlined />
+      <PictureOutline />
     </div>
   ),
   fallback: (
     <div className={`${classPrefix}-tip`}>
-      <DisconnectOutlined />
+      <PictureWrongOutline />
     </div>
   ),
 }

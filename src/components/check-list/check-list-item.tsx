@@ -3,7 +3,7 @@ import List, { ListItemProps } from '../list'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { CheckListContext } from './context'
 import { devWarning } from '../../utils/dev-log'
-import { CheckOutlined } from '@ant-design/icons'
+import { CheckOutline } from 'antd-mobile-icons'
 
 export type CheckListItemProps = Pick<
   ListItemProps,
@@ -26,7 +26,7 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
 
   const extra = (
     <div className='adm-check-list-item-extra'>
-      {active ? <CheckOutlined /> : null}
+      {active ? <CheckOutline /> : null}
     </div>
   )
 
