@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Dialog, Space, Toast, Divider } from 'antd-mobile'
 import { sleep } from '../../../utils/sleep'
-import { ExclamationCircleFilled } from '@ant-design/icons'
+import { ExclamationCircleFill } from 'antd-mobile-icons'
 import { DemoBlock, DemoDescription, lorem } from 'demos'
 
 export default () => {
@@ -118,7 +118,7 @@ export default () => {
             onClick={() => {
               Dialog.alert({
                 header: (
-                  <ExclamationCircleFilled
+                  <ExclamationCircleFill
                     style={{
                       fontSize: 64,
                       color: 'var(--adm-color-warning)',
