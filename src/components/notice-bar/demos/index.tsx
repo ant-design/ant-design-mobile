@@ -1,6 +1,6 @@
 import React from 'react'
 import { NoticeBar, Space } from 'antd-mobile'
-import { AimOutlined, CloseCircleOutlined } from '@ant-design/icons'
+import { CompassOutline, CloseCircleOutline } from 'antd-mobile-icons'
 import { DemoBlock, lorem } from 'demos'
 
 export default () => {
@@ -33,8 +33,8 @@ export default () => {
       >
         <Space block direction='vertical' size={8}>
           <NoticeBar
-            extra={<CloseCircleOutlined />}
-            icon={<AimOutlined />}
+            extra={<CloseCircleOutline />}
+            icon={<CompassOutline />}
             content={'自定义图标'}
           />
           <NoticeBar
