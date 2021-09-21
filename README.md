@@ -1,3 +1,5 @@
+<img src="https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg" alt="logo" width="160" />
+
 # Ant Design Mobile
 
 ![npm (tag)](https://img.shields.io/npm/v/antd-mobile/next)

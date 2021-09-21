@@ -10,7 +10,7 @@ import '../style/layout.less'
 const Hero = (hero: any) => (
   <>
     <div className='__dumi-default-layout-hero'>
-      {hero.image && <img src={hero.image} />}
+      {hero.image && <img src={hero.image} width={400} />}
       <h1>{hero.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: hero.desc }} />
       {hero.actions &&

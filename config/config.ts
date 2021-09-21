@@ -3,8 +3,9 @@ const pxToRem = require('postcss-pxtorem')
 export default {
   mode: 'site',
   title: 'Ant Design Mobile',
-  logo: 'https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png',
-  favicon: 'https://zos.alipayobjects.com/rmsportal/wIjMDnsrDoPPcIV.png',
+  logo: 'https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg',
+  favicon:
+    'https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*ShzFT47r_F8AAAAAAAAAAAAAARQnAQ',
   navs: [
     {
       title: '指南',
@@ -32,7 +33,11 @@ export default {
       children: [
         {
           title: 'v2',
-          path: 'https://mobile.ant.design',
+          path: 'https://antd-mobile-v2.surge.sh',
+        },
+        {
+          title: 'v2 国内站点',
+          path: 'https://antd-mobile-doc-v2.gitee.io',
         },
         {
           title: 'v3 alpha',
