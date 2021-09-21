@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { Button, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { CloudUploadOutlined } from '@ant-design/icons'
+import { UploadOutline } from 'antd-mobile-icons'
 
 export default () => {
   return (
@@ -45,7 +45,7 @@ export default () => {
             onClick={() => {
               Toast.show({
                 content: '上传中',
-                icon: <CloudUploadOutlined />,
+                icon: <UploadOutline />,
               })
             }}
           >
