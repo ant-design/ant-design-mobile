@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Popover, Button, Toast } from 'antd-mobile'
-import { UploadOutlined, SafetyOutlined } from '@ant-design/icons'
+import { UploadOutline, CheckShieldOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 
 const directionList = [
@@ -60,8 +60,8 @@ export default () => {
       <DemoBlock title='带图标的菜单气泡'>
         <Popover.Menu
           actions={[
-            { text: '菜单1', icon: <UploadOutlined /> },
-            { text: '菜单2', icon: <SafetyOutlined /> },
+            { text: '菜单1', icon: <UploadOutline /> },
+            { text: '菜单2', icon: <CheckShieldOutline /> },
           ]}
           placement={'topRight'}
           onSelect={node => Toast.show(`选择了 ${node.text}`)}
