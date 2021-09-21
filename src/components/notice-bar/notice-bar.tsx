@@ -1,6 +1,6 @@
 import React, { useState, useRef, useLayoutEffect, memo } from 'react'
 import classNames from 'classnames'
-import { CloseOutlined, SoundOutlined } from '@ant-design/icons'
+import { CloseOutline, SoundOutline } from 'antd-mobile-icons'
 import { useUpdateLayoutEffect } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -82,7 +82,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
     props,
     <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)}>
       <span className={`${classPrefix}-left`}>
-        {'icon' in props ? props.icon : <SoundOutlined />}
+        {'icon' in props ? props.icon : <SoundOutline />}
       </span>
       <span ref={containerRef} className={`${classPrefix}-content`}>
         <span
@@ -98,7 +98,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
         <span className={`${classPrefix}-right`}>
           {props.extra}
           {props.closeable && (
-            <CloseOutlined
+            <CloseOutline
               onClick={() => {
                 setVisible(false)
                 props.onClose?.()

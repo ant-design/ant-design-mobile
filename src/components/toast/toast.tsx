@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from 'react'
 import classNames from 'classnames'
-import { CheckOutlined, CloseOutlined } from '@ant-design/icons'
+import { CheckOutline, CloseOutline } from 'antd-mobile-icons'
 import Loading from '../loading'
 import Mask from '../mask'
 import { mergeProps } from '../../utils/with-default-props'
@@ -42,9 +42,9 @@ export const InternalToast: React.FC<ToastProps> = p => {
     if (icon === null || icon === undefined) return null
     switch (icon) {
       case 'success':
-        return <CheckOutlined />
+        return <CheckOutline />
       case 'fail':
-        return <CloseOutlined />
+        return <CloseOutline />
       case 'loading':
         return <Loading color='white' />
       default:

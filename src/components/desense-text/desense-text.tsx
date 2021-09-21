@@ -2,9 +2,7 @@ import React, { FC } from 'react'
 import classnames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import Icon from '@ant-design/icons'
-import { IconEye } from '../icons/icon-eye'
-import { IconEyeClose } from '../icons/icon-eye-close'
+import { EyeInvisibleOutline, EyeOutline } from 'antd-mobile-icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = 'adm-desense-text'
@@ -40,7 +38,7 @@ export const DesenseText: FC<DesenseTextProps> = p => {
           setIsDesense(!isDesense)
         }}
       >
-        <Icon component={isDesense ? IconEyeClose : IconEye} />
+        {isDesense ? <EyeInvisibleOutline /> : <EyeOutline />}
       </a>
     </span>
   )

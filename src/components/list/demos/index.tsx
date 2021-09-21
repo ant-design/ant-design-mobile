@@ -2,10 +2,10 @@ import React from 'react'
 import { Image, List } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import {
-  MoneyCollectOutlined,
-  ProfileOutlined,
-  SettingOutlined,
-} from '@ant-design/icons'
+  UnorderedListOutline,
+  PayCircleOutline,
+  SetOutline,
+} from 'antd-mobile-icons'
 
 const users = [
   {
@@ -46,13 +46,13 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='可点击的功能列表' padding='0' border='none'>
         <List>
-          <List.Item prefix={<ProfileOutlined />} onClick={() => {}}>
+          <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
             账单
           </List.Item>
-          <List.Item prefix={<MoneyCollectOutlined />} onClick={() => {}}>
+          <List.Item prefix={<PayCircleOutline />} onClick={() => {}}>
             总资产
           </List.Item>
-          <List.Item prefix={<SettingOutlined />} onClick={() => {}}>
+          <List.Item prefix={<SetOutline />} onClick={() => {}}>
             设置
           </List.Item>
         </List>
