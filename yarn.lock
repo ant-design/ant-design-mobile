@@ -17,38 +17,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ant-design/colors@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@ant-design/colors@npm:6.0.0"
-  dependencies:
-    "@ctrl/tinycolor": ^3.4.0
-  checksum: 130e6af2cab5af6aa1df3ce261ff12fcbbab76ca35a23ef0cfaab252123d6b1796796cc3b17a604134c81dfd276a456494241f8dcf6de01c5bdf7b882926f44d
-  languageName: node
-  linkType: hard
-
-"@ant-design/icons-svg@npm:^4.0.0":
-  version: 4.1.0
-  resolution: "@ant-design/icons-svg@npm:4.1.0"
-  checksum: 88ef2ced4d99278d7fb2c338459e18aca8d78be627545e44127b606c8e0f7d15b0133b22697dc0a33b712419e37152db0b800697824204aafb473e2a79ad6374
-  languageName: node
-  linkType: hard
-
-"@ant-design/icons@npm:^4.6.4":
-  version: 4.6.4
-  resolution: "@ant-design/icons@npm:4.6.4"
-  dependencies:
-    "@ant-design/colors": ^6.0.0
-    "@ant-design/icons-svg": ^4.0.0
-    "@babel/runtime": ^7.11.2
-    classnames: ^2.2.6
-    rc-util: ^5.9.4
-  peerDependencies:
-    react: ">=16.0.0"
-    react-dom: ">=16.0.0"
-  checksum: bf47b9e1b8ccecccac46db63f2e97ce6f253fc030f94b64deb9aa0950145ac01e7929b80455c43ccc4bfbba667d20b132691879e605ff261bb78b82aca442185
-  languageName: node
-  linkType: hard
-
 "@babel/cli@npm:^7.15.7":
   version: 7.15.7
   resolution: "@babel/cli@npm:7.15.7"
@@ -1772,13 +1740,6 @@ __metadata:
   version: 1.4.0
   resolution: "@csstools/convert-colors@npm:1.4.0"
   checksum: c8c8e6b5b3c2ae7e2c4a0ff376b79e09c8e350f3a3973eee8d42372f3e49d41c43172087c426e33fefdb9057de8a6f23cabf31e6201adce3f78d4b25e1722b50
-  languageName: node
-  linkType: hard
-
-"@ctrl/tinycolor@npm:^3.4.0":
-  version: 3.4.0
-  resolution: "@ctrl/tinycolor@npm:3.4.0"
-  checksum: 59a30b5d964edc06bf78bd36389326caffd2e29189270c75467afc160e8f2ddf89a5cbea70ab2463712aa5ca1b770988b7c0ea9dce3eb93f7928e8e5226efa28
   languageName: node
   linkType: hard
 
@@ -3752,7 +3713,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "antd-mobile@workspace:."
   dependencies:
-    "@ant-design/icons": ^4.6.4
     "@babel/cli": ^7.15.7
     "@babel/core": ^7.15.5
     "@babel/plugin-transform-modules-commonjs": ^7.15.4
@@ -12498,7 +12458,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rc-util@npm:^5.0.0, rc-util@npm:^5.12.0, rc-util@npm:^5.2.1, rc-util@npm:^5.3.0, rc-util@npm:^5.5.0, rc-util@npm:^5.5.1, rc-util@npm:^5.8.0, rc-util@npm:^5.9.4":
+"rc-util@npm:^5.0.0, rc-util@npm:^5.12.0, rc-util@npm:^5.2.1, rc-util@npm:^5.3.0, rc-util@npm:^5.5.0, rc-util@npm:^5.5.1, rc-util@npm:^5.8.0":
   version: 5.13.2
   resolution: "rc-util@npm:5.13.2"
   dependencies:
