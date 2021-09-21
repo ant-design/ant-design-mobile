@@ -7,7 +7,7 @@ import React, {
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
-import { RightOutlined } from '@ant-design/icons'
+import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { useInitialized } from '../../utils/use-initialized'
 import { useSpring, animated } from '@react-spring/web'
@@ -151,7 +151,7 @@ export const Collapse: FC<CollapseProps> = props => {
                         [`${classPrefix}-arrow-active`]: active,
                       })}
                     >
-                      <RightOutlined />
+                      <RightOutline />
                     </div>
                   }
                 >
