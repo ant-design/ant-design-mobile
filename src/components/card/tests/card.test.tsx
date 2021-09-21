@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { fireEvent, render, testA11y, waitFor } from 'testing'
-import { AntDesignOutlined, RightOutlined } from '@ant-design/icons'
+import { AppOutline, RightOutline } from 'antd-mobile-icons'
 import Card from '../'
 
 const classPrefix = `adm-card`
@@ -23,11 +23,11 @@ test('renders with event', async () => {
     <Card
       title={
         <div style={{ fontWeight: 'normal' }}>
-          <AntDesignOutlined style={{ marginRight: '4px', color: '#1677ff' }} />
+          <AppOutline style={{ marginRight: '4px', color: '#1677ff' }} />
           卡片标题
         </div>
       }
-      extra={<RightOutlined />}
+      extra={<RightOutline />}
       onBodyClick={onBodyClick}
       onHeaderClick={onHeaderClick}
     >
