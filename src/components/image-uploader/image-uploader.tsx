@@ -1,5 +1,5 @@
 import React, { FC, useLayoutEffect, useRef, useState } from 'react'
-import { PlusOutlined } from '@ant-design/icons'
+import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer from '../image-viewer'
 import PreviewItem from './preview-item'
@@ -188,7 +188,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             role='button'
           >
             <span className={`${classPrefix}-upload-button-icon`}>
-              <PlusOutlined />
+              <AddOutline />
             </span>
             {!props.disableUpload && (
               <input
