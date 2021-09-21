@@ -2,7 +2,7 @@ import React from 'react'
 import { DemoBlock } from 'demos'
 import styles from './index.less'
 import { Badge, Space } from 'antd-mobile'
-import { CloseOutlined, ExclamationOutlined } from '@ant-design/icons'
+import { CloseOutline, ExclamationOutline } from 'antd-mobile-icons'
 
 export default () => {
   return (
@@ -41,10 +41,10 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='自定义徽标内容'>
         <Space size='24px'>
-          <Badge content={<ExclamationOutlined className={styles.badgeIcon} />}>
+          <Badge content={<ExclamationOutline className={styles.badgeIcon} />}>
             <div className={styles.box} />
           </Badge>
-          <Badge content={<CloseOutlined className={styles.badgeIcon} />}>
+          <Badge content={<CloseOutline className={styles.badgeIcon} />}>
             <div className={styles.box} />
           </Badge>
         </Space>
