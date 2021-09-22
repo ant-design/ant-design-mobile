@@ -7,7 +7,18 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <Button onClick={() => Toast.show('Hello World')}>轻提示</Button>
+        <Button
+          onClick={() =>
+            Toast.show({
+              content: 'Hello World',
+              afterClose: () => {
+                console.log('after')
+              },
+            })
+          }
+        >
+          轻提示
+        </Button>
       </DemoBlock>
       <DemoBlock title='图标'>
         <Space wrap>
