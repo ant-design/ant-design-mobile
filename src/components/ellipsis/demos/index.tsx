@@ -14,6 +14,9 @@ export default () => {
       <DemoBlock title='头部省略'>
         <Ellipsis direction='start' content={content} />
       </DemoBlock>
+      <DemoBlock title='中间省略'>
+        <Ellipsis direction='middle' content={content} />
+      </DemoBlock>
       <DemoBlock title='多行省略'>
         <Ellipsis direction='end' rows={3} content={content} />
       </DemoBlock>
