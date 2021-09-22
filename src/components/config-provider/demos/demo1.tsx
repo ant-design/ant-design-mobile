@@ -1,8 +1,8 @@
 import React from 'react'
 import { DemoBlock } from 'demos'
 import { ConfigProvider, ErrorBlock } from 'antd-mobile'
-import zhCN from 'antd-mobile/src/locales/zh-CN'
-import enUS from 'antd-mobile/src/locales/en-US'
+import zhCN from 'antd-mobile/es/locales/zh-CN'
+import enUS from 'antd-mobile/es/locales/en-US'
 
 export default () => {
   return (

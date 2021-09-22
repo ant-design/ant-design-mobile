@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import { ImageUploader, Space, Toast } from 'antd-mobile'
 import { DemoBlock, DemoDescription, sleep } from 'demos'
-import { FileItem } from 'antd-mobile/src/components/image-uploader'
+import { FileItem } from 'antd-mobile/es/components/image-uploader'
 
 const Basic: FC = () => {
   const [fileList, setFileList] = useState<FileItem[]>([

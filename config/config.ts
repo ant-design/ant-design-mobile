@@ -194,7 +194,7 @@ export default {
     passivePreview: true,
   },
   alias: {
-    'antd-mobile/lib/index.less': process.cwd() + '/src/index.less',
+    'antd-mobile/es': process.cwd() + '/src',
     'demos': process.cwd() + '/src/demos/index.ts',
   },
   scripts: [

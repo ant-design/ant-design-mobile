@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Button, Search, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { SearchRef } from 'antd-mobile/src/components/search'
+import { SearchRef } from 'antd-mobile/es/components/search'
 
 export default () => {
   const searchRef = useRef<SearchRef>(null)

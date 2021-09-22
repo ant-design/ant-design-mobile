@@ -1,7 +1,7 @@
 import React from 'react'
 import { DemoBlock } from 'demos'
 import { Button, Dialog, setDefaultConfig, Space } from 'antd-mobile'
-import enUS from 'antd-mobile/src/locales/en-US'
+import enUS from 'antd-mobile/es/locales/en-US'
 import zhCN from '../../../locales/zh-CN'
 
 export default () => {

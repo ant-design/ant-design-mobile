@@ -2,7 +2,7 @@ import React, { FC, useRef, useState } from 'react'
 import { Button, Popup, Space, Swiper, Toast } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
 import styles from './demo1.less'
-import { SwiperRef } from 'antd-mobile/src/components/swiper'
+import { SwiperRef } from 'antd-mobile/es/components/swiper'
 
 const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']
 
