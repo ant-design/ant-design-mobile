@@ -1,3 +1,4 @@
+import React from 'react'
 import { InfiniteScroll, List, Loading } from 'antd-mobile'
 import { useState } from 'react'
 import { sleep } from 'antd-mobile/src/utils/sleep'
@@ -37,7 +38,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
       {hasMore ? (
         <>
           <span>Loading</span>
-          <Loading size='small' />
+          <Loading />
         </>
       ) : (
         <span>--- 我是有底线的 ---</span>

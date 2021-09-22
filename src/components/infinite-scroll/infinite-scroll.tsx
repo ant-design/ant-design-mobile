@@ -23,7 +23,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
       {hasMore ? (
         <>
           <span>加载中</span>
-          <Loading size='small' />
+          <Loading />
         </>
       ) : (
         <span>没有更多了</span>
