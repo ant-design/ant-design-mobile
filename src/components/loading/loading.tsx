@@ -1,5 +1,4 @@
 import React, { memo } from 'react'
-import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-loading`
@@ -11,7 +10,6 @@ const colorRecord: Record<string, string> = {
 }
 
 export interface LoadingProps {
-  size?: 'mini' | 'small' | 'middle' | 'large'
   color?: 'default' | 'primary' | 'white' | string
 }
 
@@ -27,7 +25,7 @@ export const Loading = memo<LoadingProps>(p => {
       style={{
         color: colorRecord[props.color] ?? props.color,
       }}
-      className={classNames(classPrefix, `${classPrefix}-${props.size}`)}
+      className={classPrefix}
     >
       <svg
         height='1em'
@@ -38,30 +36,29 @@ export const Loading = memo<LoadingProps>(p => {
           <g transform='translate(-100.000000, -71.000000)'>
             <g transform='translate(95.000000, 71.000000)'>
               <g transform='translate(5.000000, 0.000000)'>
-                <rect
-                  fill='currentColor'
-                  x='20'
-                  y='36'
-                  width='8'
-                  height='8'
-                  rx='2'
-                />
-                <rect
-                  fill='currentColor'
-                  x='46'
-                  y='36'
-                  width='8'
-                  height='8'
-                  rx='2'
-                />
-                <rect
-                  fill='currentColor'
-                  x='72'
-                  y='36'
-                  width='8'
-                  height='8'
-                  rx='2'
-                />
+                {[0, 1, 2].map(i => (
+                  <rect
+                    key={i}
+                    fill='currentColor'
+                    x={20 + i * 26}
+                    y='36'
+                    width='8'
+                    height='8'
+                    rx='2'
+                  >
+                    <animate
+                      attributeName='y'
+                      from='36'
+                      to='36'
+                      dur='3s'
+                      begin={`${i * 0.3}s`}
+                      repeatCount='indefinite'
+                      values='36; 48; 24; 36; 36'
+                      keyTimes='0; 0.1; 0.3; 0.4; 1'
+                      id='circ-anim'
+                    />
+                  </rect>
+                ))}
               </g>
             </g>
           </g>

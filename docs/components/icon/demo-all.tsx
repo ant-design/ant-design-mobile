@@ -19,8 +19,6 @@ for (let key in Icons) {
   })
 }
 
-console.log('items', items)
-
 export default () => {
   return (
     <div className={styles.container}>
