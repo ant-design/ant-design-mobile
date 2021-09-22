@@ -22,17 +22,51 @@ const defaultProps = {
 
 export const Loading = memo<LoadingProps>(p => {
   const props = mergeProps(defaultProps, p)
-  const style: any = {
-    '--color': colorRecord[props.color] ?? props.color,
-  }
   return (
     <div
-      style={style}
+      style={{
+        color: colorRecord[props.color] ?? props.color,
+      }}
       className={classNames(classPrefix, `${classPrefix}-${props.size}`)}
     >
-      <div className={`${classPrefix}-dot`} />
-      <div className={`${classPrefix}-dot`} />
-      <div className={`${classPrefix}-dot`} />
+      <svg
+        height='1em'
+        viewBox='0 20 100 40'
+        style={{ verticalAlign: '-0.125em' }}
+      >
+        <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
+          <g transform='translate(-100.000000, -71.000000)'>
+            <g transform='translate(95.000000, 71.000000)'>
+              <g transform='translate(5.000000, 0.000000)'>
+                <rect
+                  fill='currentColor'
+                  x='20'
+                  y='36'
+                  width='8'
+                  height='8'
+                  rx='2'
+                />
+                <rect
+                  fill='currentColor'
+                  x='46'
+                  y='36'
+                  width='8'
+                  height='8'
+                  rx='2'
+                />
+                <rect
+                  fill='currentColor'
+                  x='72'
+                  y='36'
+                  width='8'
+                  height='8'
+                  rx='2'
+                />
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
     </div>
   )
 })
