@@ -2,7 +2,10 @@
 
 .@{prefix}-code-block {
   position: relative;
-  font-size: 14px;
+  font-size: 13px;
+  & > .prism-code {
+    font-family: Monaco, Menlo, Consolas, Courier, monospace;
+  }
   background-color: @c-light-bg;
 
   [data-prefers-color='dark'] & {

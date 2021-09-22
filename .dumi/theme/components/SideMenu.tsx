@@ -88,7 +88,9 @@ const SideMenu: FC<INavbarProps> = ({
                   <li key={item.path || item.title}>
                     <NavLink
                       to={item.path}
-                      isActive={() => menuPaths.includes(location.pathname)}
+                      isActive={() =>
+                        menuPaths?.includes(location.pathname) ?? false
+                      }
                     >
                       <span className='adm-doc-group-title'>{item.title}</span>
                     </NavLink>
