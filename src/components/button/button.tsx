@@ -62,7 +62,7 @@ export const Button: FC<ButtonProps> = p => {
       {props.loading ? (
         <>
           <div className={`${classPrefix}-loading-wrapper`}>
-            <Loading color='currentColor' size={props.size} />
+            <Loading color='currentColor' />
             {props.loadingText}
           </div>
         </>

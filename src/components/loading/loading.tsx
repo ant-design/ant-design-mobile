@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-loading`
 
@@ -9,9 +10,9 @@ const colorRecord: Record<string, string> = {
   white: 'var(--adm-color-white)',
 }
 
-export interface LoadingProps {
+export type LoadingProps = {
   color?: 'default' | 'primary' | 'white' | string
-}
+} & NativeProps
 
 const defaultProps = {
   size: 'middle',
@@ -20,7 +21,8 @@ const defaultProps = {
 
 export const Loading = memo<LoadingProps>(p => {
   const props = mergeProps(defaultProps, p)
-  return (
+  return withNativeProps(
+    props,
     <div
       style={{
         color: colorRecord[props.color] ?? props.color,
@@ -29,7 +31,7 @@ export const Loading = memo<LoadingProps>(p => {
     >
       <svg
         height='1em'
-        viewBox='0 20 100 40'
+        viewBox='0 0 100 40'
         style={{ verticalAlign: '-0.125em' }}
       >
         <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
@@ -41,19 +43,19 @@ export const Loading = memo<LoadingProps>(p => {
                     key={i}
                     fill='currentColor'
                     x={20 + i * 26}
-                    y='36'
+                    y='16'
                     width='8'
                     height='8'
                     rx='2'
                   >
                     <animate
                       attributeName='y'
-                      from='36'
-                      to='36'
-                      dur='3s'
-                      begin={`${i * 0.3}s`}
+                      from='16'
+                      to='16'
+                      dur='2s'
+                      begin={`${i * 0.2}s`}
                       repeatCount='indefinite'
-                      values='36; 48; 24; 36; 36'
+                      values='16; 6; 26; 16; 16'
                       keyTimes='0; 0.1; 0.3; 0.4; 1'
                       id='circ-anim'
                     />

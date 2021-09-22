@@ -33,7 +33,7 @@ const PreviewItem: FC<Props> = props => {
       props.status === 'pending' && (
         <div className={`${classPrefix}-cell-mask`}>
           <span className={`${classPrefix}-cell-loading`}>
-            <Loading color='#fff' size='small' />
+            <Loading color='#fff' style={{ fontSize: 16 }} />
             <span className={`${classPrefix}-cell-mask-message`}>
               上传中...
             </span>
