@@ -68,10 +68,7 @@ export default () => {
           <Button loading color='primary' loadingText='加载中'>
             Loading
           </Button>
-          <Button loading size='large'>
-            Loading
-          </Button>
-          <Button size='large'>Loading</Button>
+          <Button loading>Loading</Button>
         </Space>
       </DemoBlock>
       <DemoBlock title='带图标的按钮'>

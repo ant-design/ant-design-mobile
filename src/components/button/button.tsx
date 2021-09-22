@@ -15,8 +15,6 @@ export type ButtonProps = {
   loadingText?: string
   disabled?: boolean
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-  className?: string
-  style?: React.CSSProperties
   type?: 'submit' | 'reset' | 'button'
 } & NativeProps<
   | '--text-color'

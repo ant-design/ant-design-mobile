@@ -199,10 +199,14 @@ export default {
   },
   scripts: [
     `if (location.pathname.startsWith('/~demos/')) {
-      document.body.style.background = '#f5f5f5'
+      document.body.style.background = '#f5f7fa'
     }`,
     'https://s9.cnzz.com/z_stat.php?id=1280306924&web_id=1280306924',
   ],
+  // locales: [
+  //   ['zh-CN', '中文'],
+  //   ['en-US', 'English'],
+  // ],
   styles: [
     `
     #root .__dumi-default-mobile-demo-layout {
