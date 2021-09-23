@@ -22,7 +22,7 @@ These dependencies were not found:
 ...
 ```
 
-那么可以尝试在 `config.js` 中增加一下配置：
+那么可以尝试在 `config.js` 中增加以下配置：
 
 ```js
 {
