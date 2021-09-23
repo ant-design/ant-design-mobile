@@ -221,7 +221,9 @@ export const Swiper = forwardRef(
               {React.Children.map(validChildren, (child, index) => {
                 return (
                   <animated.div
-                    className='adm-swiper-slide'
+                    className={classNames('adm-swiper-slide', {
+                      'adm-swiper-slide-current': current === index
+                    })}
                     style={{
                       x: x.to(x => {
                         let position = -x + index * 100
