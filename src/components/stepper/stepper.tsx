@@ -39,9 +39,6 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
       target = parseFloat(target.toFixed(props.digits))
     }
     setValue(target)
-    if (!hasFocus) {
-      setInputValue(target.toString())
-    }
   }
 
   const [hasFocus, setHasFocus] = useState(false)
@@ -51,6 +48,12 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
       setInputValue(value.toString())
     }
   }, [hasFocus])
+
+  useEffect(() => {
+    if (!hasFocus) {
+      setInputValue(value.toString())
+    }
+  }, [value])
 
   const handleInputChange = (v: string) => {
     setInputValue(v)

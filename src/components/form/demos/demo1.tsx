@@ -8,6 +8,7 @@ import {
   DatePicker,
   Selector,
   Slider,
+  Stepper,
 } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import dayjs from 'dayjs'
@@ -82,6 +83,9 @@ export default () => {
           </Form.Item>
           <Form.Item name='slider-demo' label='滑块选择'>
             <Slider ticks step={10} />
+          </Form.Item>
+          <Form.Item name='stepper-demo' label='数量'>
+            <Stepper />
           </Form.Item>
           <Form.Item name='disabledField' label='禁用' disabled>
             <Input placeholder='禁止输入' />
