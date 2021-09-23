@@ -50,7 +50,7 @@ export default () => {
         </Space>
       </DemoBlock>
       <DemoBlock title='主轴对齐方式'>
-        <Space align='end'>
+        <Space justify='center' block>
           <Button>1</Button>
           <Button>
             2<br />2
@@ -61,7 +61,7 @@ export default () => {
         </Space>
       </DemoBlock>
       <DemoBlock title='交叉轴对齐方式'>
-        <Space justify='center' block>
+        <Space align='end'>
           <Button>1</Button>
           <Button>
             2<br />2
