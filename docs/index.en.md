@@ -1,12 +1,29 @@
-<img src="https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg" alt="logo" width="160" />
-
-# Ant Design Mobile
+---
+title: Ant Design Mobile
+hero:
+  image: https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg
+  title: Ant Design Mobile
+  desc: v5 beta (Poplar)
+  actions:
+    - text: Quick Start
+      link: /guide/quick-start
+    - text: Playground
+      link: https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json
+    - text: Components
+      link: /components
+footer: Open-source MIT Licensed | Copyright © 2016-present Alipay.com<br />Powered by [dumi](https://d.umijs.org)
+---
 
 ![npm (tag)](https://img.shields.io/npm/v/antd-mobile/next)
+&nbsp;
 ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ant-design/ant-design-mobile)
+&nbsp;
 ![npm](https://img.shields.io/npm/dw/antd-mobile-v5-count)
+&nbsp;
 ![npm bundle size (version)](https://img.shields.io/bundlephobia/min/antd-mobile/next)
+&nbsp;
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ant-design/ant-design-mobile/Check/v5)
+&nbsp;
 ![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mobile)
 
 ```bash

@@ -3,7 +3,7 @@ title: Ant Design Mobile
 hero:
   image: https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg
   title: Ant Design Mobile
-  desc: v5 beta (Poplar)
+  desc: v5 beta (白杨)
   actions:
     - text: 快速上手
       link: /guide/quick-start
@@ -46,28 +46,7 @@ v5（白杨）是下一个版本的 antd-mobile，目前还在不断完善和打
 
 ---
 
-感谢在内部版本的 v5 中参与建设的各位同学：
-
-- [awmleer](https://github.com/awmleer)
-- [Coco-rq](https://github.com/coco-rq)
-- [ttys026](https://github.com/ttys026)
-- [brickspert](https://github.com/brickspert)
-- [zxcchen](https://github.com/zxcchen)
-- [Deturium](https://github.com/deturium)
-- [slr724038822](https://github.com/slr724038822)
-- [quqiuhua](https://github.com/quqiuhua)
-- [crazylxr](https://github.com/crazylxr)
-- [mhc568710904](https://github.com/mhc568710904)
-- [ustczy](https://github.com/ustczy)
-- [TaoBufan](https://github.com/taobufan)
-
-也感谢几位 Sponsor 的大力支持：
-
-- [brickspert](https://github.com/brickspert)
-- [chenkan](https://github.com/chenkan)
-- [afc163](https://github.com/afc163)
-
-全部贡献者列表：
+感谢曾参与 antd-mobile 建设的每一位同学：
 
 <a href="https://github.com/ant-design/ant-design-mobile/graphs/contributors">
   <img src="https://opencollective.com/ant-design-mobile/contributors.svg?width=960&button=false" alt="contributors" />

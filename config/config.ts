@@ -1,3 +1,5 @@
+import { components } from './components'
+
 const pxToRem = require('postcss-pxtorem')
 
 export default {
@@ -6,60 +8,116 @@ export default {
   logo: 'https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg',
   favicon:
     'https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*ShzFT47r_F8AAAAAAAAAAAAAARQnAQ',
-  navs: [
-    {
-      title: '指南',
-      path: '/guide',
-    },
-    {
-      title: '组件',
-      path: '/components',
-    },
-    {
-      title: '了解更多',
-      children: [
-        {
-          title: 'Roadmap',
-          path: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
-        },
-        {
-          title: '参与贡献',
-          path: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
-        },
-      ],
-    },
-    {
-      title: '返回旧版',
-      children: [
-        {
-          title: 'v2',
-          path: 'https://antd-mobile-v2.surge.sh',
-        },
-        {
-          title: 'v2 国内站点',
-          path: 'https://antd-mobile-doc-v2.gitee.io',
-        },
-        {
-          title: 'v3 alpha',
-          path: 'https://antd-mobile-v3.surge.sh',
-        },
-      ],
-    },
-    {
-      title: '在线体验',
-      path: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json',
-    },
-    {
-      title: '发布日志',
-      path: 'https://github.com/ant-design/ant-design-mobile/releases',
-    },
-    {
-      title: 'GitHub',
-      path: 'https://github.com/ant-design/ant-design-mobile',
-    },
-  ],
+  navs: {
+    'en': [
+      {
+        title: 'Guide',
+        path: '/guide',
+      },
+      {
+        title: 'Components',
+        path: '/components',
+      },
+      {
+        title: 'Discover More',
+        children: [
+          {
+            title: 'Roadmap',
+            path: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
+          },
+          {
+            title: 'Contributing',
+            path: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
+          },
+        ],
+      },
+      {
+        title: 'Legacy version',
+        children: [
+          {
+            title: 'v2',
+            path: 'https://antd-mobile-v2.surge.sh',
+          },
+          {
+            title: 'v3 alpha',
+            path: 'https://antd-mobile-v3.surge.sh',
+          },
+        ],
+      },
+      {
+        title: 'Playground',
+        path: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json',
+      },
+      {
+        title: 'Releases',
+        path: 'https://github.com/ant-design/ant-design-mobile/releases',
+      },
+      {
+        title: 'GitHub',
+        path: 'https://github.com/ant-design/ant-design-mobile',
+      },
+    ],
+    'zh': [
+      {
+        title: '指南',
+        path: '/zh/guide',
+      },
+      {
+        title: '组件',
+        path: '/zh/components',
+      },
+      {
+        title: '了解更多',
+        children: [
+          {
+            title: 'Roadmap',
+            path: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
+          },
+          {
+            title: '参与贡献',
+            path: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
+          },
+        ],
+      },
+      {
+        title: '返回旧版',
+        children: [
+          {
+            title: 'v2',
+            path: 'https://antd-mobile-v2.surge.sh',
+          },
+          {
+            title: 'v2 国内站点',
+            path: 'https://antd-mobile-doc-v2.gitee.io',
+          },
+          {
+            title: 'v3 alpha',
+            path: 'https://antd-mobile-v3.surge.sh',
+          },
+        ],
+      },
+      {
+        title: '在线体验',
+        path: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json',
+      },
+      {
+        title: '发布日志',
+        path: 'https://github.com/ant-design/ant-design-mobile/releases',
+      },
+      {
+        title: 'GitHub',
+        path: 'https://github.com/ant-design/ant-design-mobile',
+      },
+    ],
+  },
   menus: {
     '/': [
+      {
+        title: 'Home',
+        path: 'index',
+      },
+    ],
+    '/zh': [
       {
         title: '首页',
         path: 'index',
@@ -67,7 +125,7 @@ export default {
     ],
     '/guide': [
       {
-        title: '快速上手',
+        title: 'Quick Start',
         path: '/guide/quick-start',
       },
       {
@@ -75,117 +133,114 @@ export default {
         path: '/guide/faq',
       },
       {
-        title: 'CSS 变量',
+        title: 'CSS Variables',
         path: '/guide/css-variables',
       },
       {
-        title: '主题',
+        title: 'Theme',
         path: '/guide/theme',
       },
       {
-        title: '按需加载',
+        title: 'Load on Demand',
         path: '/guide/import-on-demand',
       },
       {
-        title: '高清适配（试验性）',
+        title: 'HD (Experimental)',
         path: '/guide/hd',
       },
       {
-        title: '服务端渲染 / SSR（试验性）',
+        title: 'SSR (Experimental)',
         path: '/guide/ssr',
+      },
+    ],
+    '/zh/guide': [
+      {
+        title: '快速上手',
+        path: '/zh/guide/quick-start',
+      },
+      {
+        title: 'FAQ',
+        path: '/zh/guide/faq',
+      },
+      {
+        title: 'CSS 变量',
+        path: '/zh/guide/css-variables',
+      },
+      {
+        title: '主题',
+        path: '/zh/guide/theme',
+      },
+      {
+        title: '按需加载',
+        path: '/zh/guide/import-on-demand',
+      },
+      {
+        title: '高清适配（试验性）',
+        path: '/zh/guide/hd',
+      },
+      {
+        title: '服务端渲染 / SSR（试验性）',
+        path: '/zh/guide/ssr',
       },
     ],
     '/components': [
       {
+        title: 'Basic',
+        children: components.basic,
+      },
+      {
+        title: 'Data Display',
+        children: components.dataDisplay,
+      },
+      {
+        title: 'Data Entry',
+        children: components.dataEntry,
+      },
+      {
+        title: 'Feedback',
+        children: components.feedback,
+      },
+      {
+        title: 'Navigation & Layout',
+        children: components.navigationAndLayout,
+      },
+      {
+        title: 'Other',
+        children: components.other,
+      },
+      {
+        title: 'Experimental',
+        children: components.experimental,
+      },
+    ],
+    '/zh/components': [
+      {
         title: '基础',
-        children: [
-          '/components/button',
-          '/components/icon',
-          '/components/list',
-          '/components/space',
-        ],
+        children: components.basic,
       },
       {
         title: '数据展示',
-        children: [
-          '/components/badge',
-          '/components/card',
-          '/components/ellipsis',
-          '/components/image',
-          '/components/image-viewer',
-          '/components/infinite-scroll',
-          '/components/notice-bar',
-          '/components/page-indicator',
-          '/components/popover',
-          '/components/steps',
-          '/components/swiper',
-          '/components/tag',
-          '/components/water-mark',
-        ],
+        children: components.dataDisplay,
       },
       {
         title: '数据录入',
-        children: [
-          '/components/check-list',
-          '/components/checkbox',
-          '/components/date-picker',
-          '/components/form',
-          '/components/input',
-          '/components/picker',
-          '/components/radio',
-          '/components/rate',
-          '/components/search',
-          '/components/selector',
-          '/components/slider',
-          '/components/stepper',
-          '/components/switch',
-          '/components/text-area',
-        ],
+        children: components.dataEntry,
       },
       {
         title: '反馈',
-        children: [
-          '/components/action-sheet',
-          '/components/dialog',
-          '/components/empty',
-          '/components/error-block',
-          '/components/loading',
-          '/components/mask',
-          '/components/progress-bar',
-          '/components/progress-circle',
-          '/components/pull-to-refresh',
-          '/components/result',
-          '/components/swipe-action',
-          '/components/toast',
-        ],
+        children: components.feedback,
       },
       {
         title: '导航和布局',
-        children: [
-          '/components/collapse',
-          '/components/divider',
-          '/components/dropdown',
-          '/components/floating-panel',
-          '/components/grid',
-          '/components/index-bar',
-          '/components/nav-bar',
-          '/components/popup',
-          '/components/tab-bar',
-          '/components/tabs',
-        ],
+        children: components.navigationAndLayout,
       },
       {
         title: '其他',
-        children: ['/components/config-provider'],
+        children: components.other,
       },
       {
         title: '试验性',
-        children: [
-          '/components/what-is-experimental',
-          '/components/cascader',
-          '/components/desense-text',
-          '/components/image-uploader',
-        ],
+        children: components.experimental,
       },
     ],
   },
@@ -203,10 +258,10 @@ export default {
     }`,
     'https://s9.cnzz.com/z_stat.php?id=1280306924&web_id=1280306924',
   ],
-  // locales: [
-  //   ['zh-CN', '中文'],
-  //   ['en-US', 'English'],
-  // ],
+  locales: [
+    ['en', 'English'],
+    ['zh', '中文'],
+  ],
   styles: [
     `
     #root .__dumi-default-mobile-demo-layout {
