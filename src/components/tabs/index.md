@@ -10,7 +10,7 @@
 | ---------------- | ------------------------------------------------ | ----------------------- | ------------------ |
 | activeKey        | 当前激活 `tab` 面板的 `key`                      | `string`                | -                  |
 | defaultActiveKey | 初始化选中面板的 `key`，如果没有设置 `activeKey` | `string`                | 第一个面板的 `key` |
-| onChange         | 切换面板的回调                                   | `(val: string) => void` | -                  |
+| onChange         | 切换面板的回调                                   | `(key: string) => void` | -                  |
 
 ### Tabs.TabPane
 

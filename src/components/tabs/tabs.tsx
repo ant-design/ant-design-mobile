@@ -18,7 +18,7 @@ export const TabPane: FC<TabPaneProps> = () => {
 export type TabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
-  onChange?: (val: string) => void
+  onChange?: (key: string) => void
 } & NativeProps
 
 export const Tabs: FC<TabsProps> = props => {
