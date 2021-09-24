@@ -1,9 +1,10 @@
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useInitialized } from '../../utils/use-initialized'
-import React, { useEffect, useMemo, useRef } from 'react'
-import { createPortal } from 'react-dom'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useSpring, animated } from '@react-spring/web'
+import { renderToContainer } from '../../utils/render-to-container'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-mask`
 
@@ -14,16 +15,26 @@ export type MaskProps = {
   forceRender?: boolean
   disableBodyScroll?: boolean
   opacity?: 'default' | 'dark' | number
-  getContainer?: HTMLElement | (() => HTMLElement) | undefined
+  getContainer?: HTMLElement | (() => HTMLElement) | null
   afterClose?: () => void
 } & NativeProps
 
-export const Mask: React.FC<MaskProps> = props => {
+const defaultProps = {
+  visible: true,
+  destroyOnClose: false,
+  forceRender: false,
+  opacity: 'default',
+  disableBodyScroll: true,
+  getContainer: null,
+}
+
+export const Mask: React.FC<MaskProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const initialized = useInitialized(props.visible || props.forceRender)
 
   const ref = useRef<HTMLDivElement>(null)
 
-  useLockScroll(ref, !!(props.visible && props.disableBodyScroll))
+  useLockScroll(ref, props.visible && props.disableBodyScroll)
 
   function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     if (e.currentTarget === e.target) {
@@ -41,15 +52,25 @@ export const Mask: React.FC<MaskProps> = props => {
     return `rgba(0, 0, 0, ${opacity})`
   }, [props.opacity])
 
-  const [styles, api] = useSpring(() => ({
-    from: { opacity: 0 },
-  }))
+  const [animating, setAnimating] = useState(false)
+
+  const styles = useSpring({
+    opacity: props.visible ? 1 : 0,
+    onStart: () => {
+      setAnimating(true)
+    },
+    onRest: () => {
+      setAnimating(false)
+    },
+  })
+
+  const exited = !animating && !props.visible
 
   useEffect(() => {
-    api.start({
-      opacity: props.visible ? 1 : 0,
-    })
-  }, [props.visible])
+    if (exited) {
+      props.afterClose?.()
+    }
+  }, [exited])
 
   const node = withNativeProps(
     props,
@@ -61,27 +82,12 @@ export const Mask: React.FC<MaskProps> = props => {
         ...props.style,
         background,
         opacity: styles.opacity,
-        display: styles.opacity.to(v => (v === 0 ? 'none' : 'unset')),
+        display: exited ? 'none' : 'unset',
       }}
     >
-      {initialized && props.children}
+      {initialized && !(props.destroyOnClose && exited) && props.children}
     </animated.div>
   )
 
-  if (props.getContainer) {
-    const container =
-      typeof props.getContainer === 'function'
-        ? props.getContainer()
-        : props.getContainer
-    return createPortal(node, container)
-  }
-  return node
-}
-
-Mask.defaultProps = {
-  visible: true,
-  destroyOnClose: false,
-  forceRender: false,
-  opacity: 'default',
-  disableBodyScroll: true,
+  return renderToContainer(props.getContainer, node)
 }
