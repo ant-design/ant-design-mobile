@@ -17,22 +17,22 @@ type PickerColumn = (string | PickerColumnItem)[]
 type PickerValue = string | null
 ```
 
-| 属性         | 说明                         | 类型                                                         | 默认值 |
-| ------------ | ---------------------------- | ------------------------------------------------------------ | ------ |
-| columns      | 配置每一列的选项             | PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[]) | -      |
-| value        | 选中项                       | PickerValue[]                                                | -      |
-| defaultValue | 默认选中项                   | PickerValue[]                                                | -      |
-| onSelect     | 选项改变时触发               | (value: PickerValue[]) => void                               | -      |
-| onConfirm    | 确认时触发                   | (value: PickerValue[]) => void                               | -      |
-| onCancel     | 取消时触发                   | () => void                                                   | -      |
-| onClose      | 确认和取消时都会触发关闭事件 | () => void                                                   | -      |
-| visible      | 是否显示选择器               | boolean                                                      | false  |
-| title        | 标题                         | ReactNode                                                    | -      |
-| confirmText  | 确定按钮的文字               | string                                                       | 确定   |
-| cancelText   | 取消按钮的文字               | string                                                       | 取消   |
-| children     | 所选项的渲染函数             | (items: PickerColumnItem[]) => ReactNode                     | -      |
+| 属性         | 说明                         | 类型                                                           | 默认值   |
+| ------------ | ---------------------------- | -------------------------------------------------------------- | -------- |
+| columns      | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
+| value        | 选中项                       | `PickerValue[]`                                                | -        |
+| defaultValue | 默认选中项                   | `PickerValue[]`                                                | -        |
+| onSelect     | 选项改变时触发               | `(value: PickerValue[]) => void`                               | -        |
+| onConfirm    | 确认时触发                   | `(value: PickerValue[]) => void`                               | -        |
+| onCancel     | 取消时触发                   | `() => void`                                                   | -        |
+| onClose      | 确认和取消时都会触发关闭事件 | `() => void`                                                   | -        |
+| visible      | 是否显示选择器               | `boolean`                                                      | `false`  |
+| title        | 标题                         | `ReactNode`                                                    | -        |
+| confirmText  | 确定按钮的文字               | `string`                                                       | `'确定'` |
+| cancelText   | 取消按钮的文字               | `string`                                                       | `'取消'` |
+| children     | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
-此外还支持 `getContainer` `afterShow` `afterClose` `onClick` 属性，同 `Popup`
+此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick`
 
 ### Picker.Cascader
 
@@ -44,15 +44,15 @@ type CascaderOption = {
 }
 ```
 
-| 属性    | 说明           | 类型             | 默认值 |
-| ------- | -------------- | ---------------- | ------ |
-| options | 树形的选项数据 | CascaderOption[] | -      |
+| 属性    | 说明           | 类型               | 默认值 |
+| ------- | -------------- | ------------------ | ------ |
+| options | 树形的选项数据 | `CascaderOption[]` | -      |
 
 其他属性同 `Picker`，但不支持 `columns`
 
 ## 指令式调用
 
-Picker 支持指令式调用，提供了 `prompt` 方法：
+`Picker` 支持指令式调用，提供了 `prompt` 方法：
 
 ```typescript
 prompt: (props: Omit<PickerProps, 'value' | 'visible' | 'children'>) => Promise<PickerValue[] | null>
@@ -74,4 +74,4 @@ Picker.prompt({
 })
 ```
 
-同样地，Picker.Cascader 也支持 prompt 方法，具体用法这里不再赘述。
+同样地，`Picker.Cascader` 也支持 `prompt` 方法，具体用法这里不再赘述。
