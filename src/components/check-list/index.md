@@ -29,7 +29,7 @@
 | ----- | ------ | -------- | ------ |
 | value | 选项值 | `string` | -      |
 
-此外，还支持 [List.Item](./list) 的以下属性：`'title' | 'children' | 'description' | 'prefix' | 'onClick'`
+此外，还支持 [List.Item](./list) 的以下属性：`title` `children` `description` `prefix` `onClick`
 
 ### CSS 变量
 
