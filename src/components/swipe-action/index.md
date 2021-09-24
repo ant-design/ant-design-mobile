@@ -6,7 +6,7 @@
 
 | 属性             | 说明                         | 类型                       | 默认值 |
 | ---------------- | ---------------------------- | -------------------------- | ------ |
-| rightActions     | 右侧的操作按钮列表           | `Action\[]`                | `[]`   |
+| rightActions     | 右侧的操作按钮列表           | `Action[]`                | `[]`   |
 | leftActions      | 左侧的操作按钮列表           | `Action[]`                 | `[]`   |
 | onAction         | 点击操作按钮时触发           | `(action: Action) => void` | -      |
 | closeOnTouchAway | 是否在点击其他区域时自动归位 | `boolean`                  | `true` |
