@@ -1,10 +1,9 @@
-import { NativeProps } from '../../utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useInitialized } from '../../utils/use-initialized'
-import classNames from 'classnames'
-import React, { useRef } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { CSSTransition } from 'react-transition-group'
 import { useLockScroll } from '../../utils/use-lock-scroll'
+import { useSpring, animated } from '@react-spring/web'
 
 const classPrefix = `adm-mask`
 
@@ -20,10 +19,6 @@ export type MaskProps = {
 } & NativeProps
 
 export const Mask: React.FC<MaskProps> = props => {
-  const cls = classNames(classPrefix, props.className, {
-    [`${classPrefix}-hidden`]: !props.visible,
-  })
-
   const initialized = useInitialized(props.visible || props.forceRender)
 
   const ref = useRef<HTMLDivElement>(null)
@@ -36,33 +31,41 @@ export const Mask: React.FC<MaskProps> = props => {
     }
   }
 
-  const opacity =
-    props.opacity === 'default'
-      ? 0.55
-      : props.opacity === 'dark'
-      ? 0.75
-      : props.opacity
+  const background = useMemo(() => {
+    const opacity =
+      props.opacity === 'default'
+        ? 0.55
+        : props.opacity === 'dark'
+        ? 0.75
+        : props.opacity
+    return `rgba(0, 0, 0, ${opacity})`
+  }, [props.opacity])
 
-  const node = (
-    <CSSTransition
-      in={props.visible}
-      timeout={200}
-      classNames={classPrefix}
-      onExited={props.afterClose}
-      unmountOnExit={props.destroyOnClose}
+  const [styles, api] = useSpring(() => ({
+    from: { opacity: 0 },
+  }))
+
+  useEffect(() => {
+    api.start({
+      opacity: props.visible ? 1 : 0,
+    })
+  }, [props.visible])
+
+  const node = withNativeProps(
+    props,
+    <animated.div
+      className={classPrefix}
+      onClick={handleClick}
+      ref={ref}
+      style={{
+        ...props.style,
+        background,
+        opacity: styles.opacity,
+        display: styles.opacity.to(v => (v === 0 ? 'none' : 'unset')),
+      }}
     >
-      <div
-        className={cls}
-        onClick={handleClick}
-        ref={ref}
-        style={{
-          ...props.style,
-          backgroundColor: `rgba(0, 0, 0, ${opacity})`,
-        }}
-      >
-        {initialized && props.children}
-      </div>
-    </CSSTransition>
+      {initialized && props.children}
+    </animated.div>
   )
 
   if (props.getContainer) {
