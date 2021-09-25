@@ -21,11 +21,11 @@
 
 ## CSS 变量
 
-| 属性                | 说明                   | 默认值             |
-| ------------------- | ---------------------- | ------------------ |
-| --background        | 背景色                 | `#f5f5f5`          |
-| --border-radius     | 圆角                   | `6px`              |
-| --placeholder-color | `placeholder` 文字颜色 | `--adm-color-weak` |
+| 属性                | 说明                   | 默认值                  |
+| ------------------- | ---------------------- | ----------------------- |
+| --background        | 背景色                 | `#f5f5f5`               |
+| --border-radius     | 圆角                   | `6px`                   |
+| --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-weak)` |
 
 ## Ref
 
