@@ -17,6 +17,7 @@ export type MaskProps = {
   disableBodyScroll?: boolean
   opacity?: 'default' | 'dark' | number
   getContainer?: HTMLElement | (() => HTMLElement) | null
+  afterShow?: () => void
   afterClose?: () => void
 } & NativeProps
 
@@ -63,7 +64,9 @@ export const Mask: React.FC<MaskProps> = p => {
     },
     onRest: () => {
       setActive(props.visible)
-      if (!props.visible) {
+      if (props.visible) {
+        props.afterShow?.()
+      } else {
         props.afterClose?.()
       }
     },
