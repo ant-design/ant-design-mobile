@@ -14,12 +14,24 @@ export type BasePopoverProps = {
   destroyOnHide?: boolean
   children: ReactElement
   mode?: 'light' | 'dark'
-  trigger?: string
+  trigger?: 'click'
+  placement:
+    | 'top'
+    | 'left'
+    | 'right'
+    | 'bottom'
+    | 'topLeft'
+    | 'topRight'
+    | 'bottomLeft'
+    | 'bottomRight'
+    | 'leftTop'
+    | 'leftBottom'
+    | 'rightTop'
+    | 'rightBottom'
 } & Pick<
   TooltipProps,
   | 'defaultVisible'
   | 'visible'
-  | 'placement'
   | 'onVisibleChange'
   | 'overlayStyle'
   | 'overlayClassName'
