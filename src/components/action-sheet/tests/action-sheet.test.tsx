@@ -38,32 +38,6 @@ test('renders Basic', () => {
   expect(getByText('复制')).toHaveClass(`${classPrefix}-button-item-name`)
 })
 
-test('renders WithCancelButtonAndDescription', () => {
-  function WithCancelButtonAndDescription() {
-    const [visible, setVisible] = React.useState(false)
-    return (
-      <>
-        <Button onClick={() => setVisible(true)}>取消按钮和额外描述</Button>
-        <ActionSheet
-          extra='请选择你要进行的操作'
-          cancelText='取消'
-          visible={visible}
-          actions={actions}
-          onClose={() => setVisible(false)}
-        />
-      </>
-    )
-  }
-  const { getByText, baseElement } = render(<WithCancelButtonAndDescription />)
-  expect(baseElement.lastChild).toHaveClass('adm-popup-hidden')
-  fireEvent.click(getByText('取消按钮和额外描述'))
-  expect(baseElement.lastChild).not.toHaveClass('adm-popup-hidden')
-  fireEvent.click(getByText('取消'))
-  // 动画执行完，才隐藏最外层
-  // expect(baseElement.lastChild).toHaveClass('adm-popup-hidden')
-  expect(baseElement.lastChild?.lastChild).toHaveClass('adm-popup-body-hidden')
-})
-
 test('renders Imperative', () => {
   function Imperative() {
     return (
