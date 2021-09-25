@@ -1,11 +1,12 @@
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useInitialized } from '../../utils/use-initialized'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useSpring, animated } from '@react-spring/web'
 import { renderToContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
+import { useUpdateEffect } from 'ahooks'
 
 const classPrefix = `adm-mask`
 
@@ -62,7 +63,7 @@ export const Mask: React.FC<MaskProps> = p => {
 
   const exited = !animating && !props.visible
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     if (exited) {
       props.afterClose?.()
     }
