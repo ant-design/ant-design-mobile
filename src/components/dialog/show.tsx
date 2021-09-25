@@ -10,10 +10,11 @@ import { Dialog, DialogProps } from './dialog'
 
 export type DialogShowProps = Omit<DialogProps, 'visible'>
 
+type Ref = {
+  close: () => void
+}
+
 export function show(props: DialogShowProps) {
-  type Ref = {
-    close: () => void
-  }
   const Wrapper = forwardRef<Ref>((_, ref) => {
     const [visible, setVisible] = useState(false)
     useEffect(() => {
