@@ -52,7 +52,7 @@ export const Popup: FC<PopupProps> = p => {
 
   useLockScroll(ref, props.visible)
 
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(props.visible)
 
   const { percent } = useSpring({
     percent: props.visible ? 0 : 100,
