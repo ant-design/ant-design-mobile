@@ -6,7 +6,6 @@ import { useSpring, animated } from '@react-spring/web'
 import { renderToContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
-import { useUpdateEffect } from 'ahooks'
 
 const classPrefix = `adm-mask`
 
@@ -49,25 +48,26 @@ export const Mask: React.FC<MaskProps> = p => {
     return `rgba(0, 0, 0, ${opacity})`
   }, [props.opacity])
 
-  const [animating, setAnimating] = useState(false)
+  const [active, setActive] = useState(props.visible)
 
-  const styles = useSpring({
+  const { opacity } = useSpring({
     opacity: props.visible ? 1 : 0,
+    config: {
+      precision: 0.01,
+      mass: 1,
+      tension: 200,
+      friction: 30,
+    },
     onStart: () => {
-      setAnimating(true)
+      setActive(true)
     },
     onRest: () => {
-      setAnimating(false)
+      setActive(props.visible)
+      if (!props.visible) {
+        props.afterClose?.()
+      }
     },
   })
-
-  const exited = !animating && !props.visible
-
-  useUpdateEffect(() => {
-    if (exited) {
-      props.afterClose?.()
-    }
-  }, [exited])
 
   const node = withNativeProps(
     props,
@@ -77,8 +77,8 @@ export const Mask: React.FC<MaskProps> = p => {
       style={{
         ...props.style,
         background,
-        opacity: styles.opacity,
-        display: exited ? 'none' : 'unset',
+        opacity,
+        display: active ? 'unset' : 'none',
       }}
     >
       {props.onMaskClick && (
@@ -90,7 +90,7 @@ export const Mask: React.FC<MaskProps> = p => {
         />
       )}
       <div className={`${classPrefix}-content`}>
-        {initialized && !(props.destroyOnClose && exited) && props.children}
+        {initialized && active && props.children}
       </div>
     </animated.div>
   )

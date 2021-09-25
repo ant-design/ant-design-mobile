@@ -52,8 +52,7 @@ export const Popup: FC<PopupProps> = p => {
 
   useLockScroll(ref, props.visible)
 
-  const [animating, setAnimating] = useState(false)
-  const exited = !animating && !props.visible
+  const [active, setActive] = useState(false)
 
   const { percent } = useSpring({
     percent: props.visible ? 0 : 100,
@@ -64,10 +63,10 @@ export const Popup: FC<PopupProps> = p => {
       friction: 30,
     },
     onStart: () => {
-      setAnimating(true)
+      setActive(true)
     },
     onRest: () => {
-      setAnimating(false)
+      setActive(props.visible)
       if (props.visible) {
         props.afterShow?.()
       } else {
@@ -81,7 +80,7 @@ export const Popup: FC<PopupProps> = p => {
     <div
       className={classPrefix}
       onClick={props.onClick}
-      style={{ display: exited ? 'none' : 'unset' }}
+      style={{ display: active ? 'unset' : 'none' }}
     >
       {props.mask && (
         <Mask
@@ -114,7 +113,7 @@ export const Popup: FC<PopupProps> = p => {
         }}
         ref={ref}
       >
-        {initialized && !(props.destroyOnClose && exited) && props.children}
+        {initialized && active && props.children}
       </animated.div>
     </div>
   )
