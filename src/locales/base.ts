@@ -23,6 +23,9 @@ export const base = {
       description: 'Want to try a new search?',
     },
   },
+  Mask: {
+    name: 'Mask',
+  },
 }
 
 export type Locale = typeof base

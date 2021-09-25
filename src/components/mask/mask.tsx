@@ -5,6 +5,7 @@ import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useSpring, animated } from '@react-spring/web'
 import { renderToContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-mask`
 
@@ -31,16 +32,11 @@ const defaultProps = {
 export const Mask: React.FC<MaskProps> = p => {
   const props = mergeProps(defaultProps, p)
   const initialized = useInitialized(props.visible || props.forceRender)
+  const { locale } = useConfig()
 
   const ref = useRef<HTMLDivElement>(null)
 
   useLockScroll(ref, props.visible && props.disableBodyScroll)
-
-  function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    if (e.currentTarget === e.target) {
-      props.onMaskClick?.(e)
-    }
-  }
 
   const background = useMemo(() => {
     const opacity =
@@ -76,7 +72,6 @@ export const Mask: React.FC<MaskProps> = p => {
     props,
     <animated.div
       className={classPrefix}
-      onClick={handleClick}
       ref={ref}
       style={{
         ...props.style,
@@ -85,7 +80,17 @@ export const Mask: React.FC<MaskProps> = p => {
         display: exited ? 'none' : 'unset',
       }}
     >
-      {initialized && !(props.destroyOnClose && exited) && props.children}
+      {props.onMaskClick && (
+        <div
+          className={`${classPrefix}-aria-button`}
+          role='button'
+          aria-label={locale.Mask.name}
+          onClick={props.onMaskClick}
+        />
+      )}
+      <div className={`${classPrefix}-content`}>
+        {initialized && !(props.destroyOnClose && exited) && props.children}
+      </div>
     </animated.div>
   )
 

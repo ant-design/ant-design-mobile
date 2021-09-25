@@ -26,6 +26,9 @@ const zhCN = mergeLocale(base, {
       description: '找找其他的吧',
     },
   },
+  Mask: {
+    name: '遮罩层',
+  },
 })
 
 export default zhCN

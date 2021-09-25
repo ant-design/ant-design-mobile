@@ -7,8 +7,8 @@ const Simple: FC = () => {
   const [visible, setVisible] = useState(false)
   return (
     <>
-      <Mask visible={visible} onMaskClick={() => setVisible(false)} />
       <Button onClick={() => setVisible(true)}>显示遮罩层</Button>
+      <Mask visible={visible} onMaskClick={() => setVisible(false)} />
     </>
   )
 }
