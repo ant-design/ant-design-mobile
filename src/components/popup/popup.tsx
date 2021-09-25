@@ -1,6 +1,5 @@
 import classNames from 'classnames'
-import React, { useEffect, useState, useRef, FC } from 'react'
-import { CSSTransition } from 'react-transition-group'
+import React, { useState, useRef, FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useInitialized } from '../../utils/use-initialized'
 import { mergeProps } from '../../utils/with-default-props'
@@ -10,6 +9,7 @@ import {
   GetContainer,
   renderToContainer,
 } from '../../utils/render-to-container'
+import { useSpring, animated } from '@react-spring/web'
 
 const classPrefix = `adm-popup`
 
@@ -39,23 +39,6 @@ const defaultProps = {
 
 export const Popup: FC<PopupProps> = p => {
   const props = mergeProps(defaultProps, p)
-  // 动画执行完，才隐藏最外层
-  const [hidden, setHidden] = useState(!props.visible)
-
-  useEffect(() => {
-    if (props.visible) {
-      setHidden(false)
-    }
-  }, [props.visible])
-
-  const afterClose = () => {
-    setHidden(true)
-    props.afterClose?.()
-  }
-
-  const cls = classNames(classPrefix, {
-    [`${classPrefix}-hidden`]: hidden,
-  })
 
   const bodyCls = classNames(
     `${classPrefix}-body`,
@@ -72,9 +55,33 @@ export const Popup: FC<PopupProps> = p => {
 
   useLockScroll(ref, props.visible)
 
+  const [animating, setAnimating] = useState(false)
+  const exited = !animating && !props.visible
+
+  const { percent } = useSpring({
+    percent: props.visible ? 0 : 100,
+    config: {
+      precision: 0.1,
+      mass: 0.4,
+      tension: 300,
+      friction: 30,
+    },
+    onStart: () => {
+      setAnimating(true)
+    },
+    onRest: () => {
+      setAnimating(false)
+      if (props.visible) {
+        props.afterShow?.()
+      } else {
+        props.afterClose?.()
+      }
+    },
+  })
+
   const node = withNativeProps(
     props,
-    <div className={cls} onClick={props.onClick}>
+    <div onClick={props.onClick} style={{ display: exited ? 'none' : 'unset' }}>
       {props.mask && (
         <Mask
           visible={props.visible}
@@ -84,18 +91,30 @@ export const Popup: FC<PopupProps> = p => {
           disableBodyScroll={false}
         />
       )}
-      <CSSTransition
-        classNames={`${classPrefix}-body`}
-        in={props.visible}
-        timeout={200}
-        onEntered={props.afterShow}
-        onExited={afterClose}
-        unmountOnExit={props.destroyOnClose}
+      <animated.div
+        className={bodyCls}
+        style={{
+          ...props.bodyStyle,
+          transform: percent.to(v => {
+            if (props.position === 'bottom') {
+              return `translate(0, ${v}%)`
+            }
+            if (props.position === 'top') {
+              return `translate(0, -${v}%)`
+            }
+            if (props.position === 'left') {
+              return `translate(-${v}%, 0)`
+            }
+            if (props.position === 'right') {
+              return `translate(${v}%, 0)`
+            }
+            return 'none'
+          }),
+        }}
+        ref={ref}
       >
-        <div className={bodyCls} style={props.bodyStyle} ref={ref}>
-          {initialized && props.children}
-        </div>
-      </CSSTransition>
+        {initialized && !(props.destroyOnClose && exited) && props.children}
+      </animated.div>
     </div>
   )
 
