@@ -81,7 +81,11 @@ export const Popup: FC<PopupProps> = p => {
 
   const node = withNativeProps(
     props,
-    <div onClick={props.onClick} style={{ display: exited ? 'none' : 'unset' }}>
+    <div
+      className={classPrefix}
+      onClick={props.onClick}
+      style={{ display: exited ? 'none' : 'unset' }}
+    >
       {props.mask && (
         <Mask
           visible={props.visible}
