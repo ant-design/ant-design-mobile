@@ -6,35 +6,35 @@
 
 ## Dialog
 
-| 属性             | 说明                                                     | 类型                                         | 默认值          |
-| ---------------- | -------------------------------------------------------- | -------------------------------------------- | --------------- |
-| afterClose       | `Dialog` 完全关闭后的回调                                | `() => void`                                 | -               |
-| image            | 图片 `url`                                               | `string`                                     | -               |
-| header           | 顶部区域                                                 | `string`                                     | -               |
-| title            | 对话框标题                                               | `React.ReactNode`                            | -               |
-| content          | 对话框内容                                               | `React.ReactNode`                            | -               |
-| actions          | 操作按钮列表，可以传入二级数组来实现同一行内并排多个按钮 | `(Action \| Action[])[]`                     | `[]`            |
-| onAction         | 点击操作按钮时触发                                       | `(action: Action, index: number) => void`    | -               |
-| closeOnAction    | 点击操作按钮后后是否关闭                                 | `boolean`                                    | `false`         |
-| onClose          | 关闭时触发                                               | `() => void`                                 | -               |
-| closeOnMaskClick | 是否支持点击遮罩关闭对话框                               | `boolean`                                    | `false`         |
-| visible          | 显示隐藏                                                 | `boolean`                                    | `false`         |
-| getContainer     | 自定义对话框的父容器                                     | `HTMLElement \| (() => HTMLElement) \| null` | `document.body` |
-| bodyStyle        | `Dialog` 内容样式                                        | `React.CSSProperties`                        | -               |
-| bodyClassName    | `Dialog` 内容类名                                        | `string`                                     | -               |
-| maskStyle        | `Dialog` 遮罩样式                                        | `React.CSSProperties`                        | -               |
-| maskClassName    | `Dialog` 遮罩类名                                        | `string`                                     | -               |
+| 属性             | 说明                                                     | 类型                                                       | 默认值  |
+| ---------------- | -------------------------------------------------------- | ---------------------------------------------------------- | ------- |
+| afterClose       | `Dialog` 完全关闭后的回调                                | `() => void`                                               | -       |
+| image            | 图片 `url`                                               | `string`                                                   | -       |
+| header           | 顶部区域                                                 | `React.ReactNode`                                          | -       |
+| title            | 对话框标题                                               | `React.ReactNode`                                          | -       |
+| content          | 对话框内容                                               | `React.ReactNode`                                          | -       |
+| actions          | 操作按钮列表，可以传入二级数组来实现同一行内并排多个按钮 | `(Action \| Action[])[]`                                   | `[]`    |
+| onAction         | 点击操作按钮时触发                                       | `(action: Action, index: number) => void \| Promise<void>` | -       |
+| closeOnAction    | 点击操作按钮后后是否关闭                                 | `boolean`                                                  | `false` |
+| onClose          | 关闭时触发                                               | `() => void`                                               | -       |
+| closeOnMaskClick | 是否支持点击遮罩关闭对话框                               | `boolean`                                                  | `false` |
+| visible          | 显示隐藏                                                 | `boolean`                                                  | `false` |
+| getContainer     | 自定义对话框的父容器                                     | `HTMLElement \| (() => HTMLElement) \| null`               | `null`  |
+| bodyStyle        | `Dialog` 内容样式                                        | `React.CSSProperties`                                      | -       |
+| bodyClassName    | `Dialog` 内容类名                                        | `string`                                                   | -       |
+| maskStyle        | `Dialog` 遮罩样式                                        | `React.CSSProperties`                                      | -       |
+| maskClassName    | `Dialog` 遮罩类名                                        | `string`                                                   | -       |
 
 ### Action
 
-| 属性     | 说明           | 类型               | 默认值  |
-| -------- | -------------- | ------------------ | ------- |
-| key      | 唯一标记       | `string \| number` | -       |
-| text     | 标题           | `string`           | -       |
-| disabled | 是否为禁用状态 | `boolean`          | `false` |
-| danger   | 是否为危险状态 | `boolean`          | `false` |
-| bold     | 是否文字加粗   | `boolean`          | `false` |
-| onClick  | 点击时触发     | `() => void`       | -       |
+| 属性     | 说明           | 类型                          | 默认值  |
+| -------- | -------------- | ----------------------------- | ------- |
+| key      | 唯一标记       | `string \| number`            | -       |
+| text     | 标题           | `string`                      | -       |
+| disabled | 是否为禁用状态 | `boolean`                     | `false` |
+| danger   | 是否为危险状态 | `boolean`                     | `false` |
+| bold     | 是否文字加粗   | `boolean`                     | `false` |
+| onClick  | 点击时触发     | `() => void \| Promise<void>` | -       |
 
 ## 指令式
 
@@ -52,9 +52,9 @@ const handler = ActionSheet.show(props)
 
 `show` 方法的返回值为一个组件控制器，包含以下属性：
 
-| 属性  | 说明       | 类型       |
-| ----- | ---------- | ---------- |
-| close | 关闭对话框 | () => void |
+| 属性  | 说明       | 类型         | 默认值 |
+| ----- | ---------- | ------------ | ------ |
+| close | 关闭对话框 | `() => void` | -      |
 
 `show` 只是一个很基础的方法，在实际业务中，更为常用的是下面的 `alert` 和 `confirm` 方法：
 
