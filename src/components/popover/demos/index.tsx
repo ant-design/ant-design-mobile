@@ -50,8 +50,8 @@ export default () => {
       <DemoBlock title='带菜单的气泡'>
         <Popover.Menu
           actions={[{ text: '菜单1' }, { text: '菜单2', disabled: true }]}
-          onSelect={node => Toast.show(`选择了 ${node.text}`)}
-          placement={'bottomLeft'}
+          onAction={node => Toast.show(`选择了 ${node.text}`)}
+          placement='bottomLeft'
           trigger='click'
         >
           <Button>touch me</Button>
@@ -63,8 +63,8 @@ export default () => {
             { text: '菜单1', icon: <UploadOutline /> },
             { text: '菜单2', icon: <CheckShieldOutline /> },
           ]}
-          placement={'topRight'}
-          onSelect={node => Toast.show(`选择了 ${node.text}`)}
+          placement='topRight'
+          onAction={node => Toast.show(`选择了 ${node.text}`)}
           trigger='click'
         >
           <Button>touch me</Button>
@@ -73,7 +73,7 @@ export default () => {
       <DemoBlock title='深色背景'>
         <Popover
           content='Hello World'
-          placement={'right'}
+          placement='right'
           mode='dark'
           trigger='click'
         >
