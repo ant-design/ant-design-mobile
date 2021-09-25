@@ -43,9 +43,6 @@ export const Popup: FC<PopupProps> = p => {
   const bodyCls = classNames(
     `${classPrefix}-body`,
     props.bodyClassName,
-    {
-      [`${classPrefix}-body-hidden`]: !props.visible,
-    },
     `${classPrefix}-body-position-${props.position}`
   )
 
