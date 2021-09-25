@@ -22,12 +22,12 @@
 
 ## CSS 变量
 
-| 属性                | 说明                   | 默认值              |
-| ------------------- | ---------------------- | ------------------- |
-| --font-size         | 字号                   | `17px`              |
-| --color             | 文字颜色               | `--adm-color-text`  |
-| --placeholder-color | `placeholder` 文字颜色 | `--adm-color-light` |
-| --disabled-color    | 禁用状态下的文字颜色   | `--adm-color-weak`  |
+| 属性                | 说明                   | 默认值                   |
+| ------------------- | ---------------------- | ------------------------ |
+| --font-size         | 字号                   | `17px`                   |
+| --color             | 文字颜色               | `var(--adm-color-text)`  |
+| --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-light)` |
+| --disabled-color    | 禁用状态下的文字颜色   | `var(--adm-color-weak)`  |
 
 ## Ref
 
