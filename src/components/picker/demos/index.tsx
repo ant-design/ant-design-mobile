@@ -1,5 +1,5 @@
 import { DemoBlock } from 'demos'
-import { Picker, Button, Space } from 'antd-mobile'
+import { Picker, Button, Space, CascadePicker } from 'antd-mobile'
 import React, { useState, useEffect } from 'react'
 import { sleep } from 'antd-mobile/es/utils/sleep'
 
@@ -78,7 +78,7 @@ function CascaderDemo() {
       >
         选择
       </Button>
-      <Picker.Cascader
+      <CascadePicker
         title='级联选择'
         options={options}
         visible={visible}

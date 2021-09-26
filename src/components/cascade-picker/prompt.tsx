@@ -1,10 +1,10 @@
-import { Cascader, CascaderProps } from './cascader'
+import { CascadePicker, CascadePickerProps } from './cascade-picker'
 import React, { FC, useEffect, useState } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
-import { PickerValue } from './picker'
+import type { PickerValue } from '../picker'
 
-export function promptCascader(
-  props: Omit<CascaderProps, 'value' | 'visible' | 'children'>
+export function prompt(
+  props: Omit<CascadePickerProps, 'value' | 'visible' | 'children'>
 ) {
   return new Promise<PickerValue[] | null>(resolve => {
     const Wrapper: FC = () => {
@@ -13,7 +13,7 @@ export function promptCascader(
         setVisible(true)
       }, [])
       return (
-        <Cascader
+        <CascadePicker
           {...props}
           visible={visible}
           onConfirm={val => {
