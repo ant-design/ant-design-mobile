@@ -22,6 +22,7 @@
 | onPreview     | 点击预览图片                                                          | `(index: number) => void`                     | -         |
 | beforeUpload  | 文件读取前的回调函数，返回 `false` 可终止文件读取，支持返回 `Promise` | `(file: File[]) => Promise<File[]> \| File[]` | -         |
 | upload        | 上传方法，入参是需要被上传的文件对象，经过异步处理之后，返回上传结果  | `(file: File) => Promise<FileItem>`           | -         |
+| onDelete      | 用户点击删除按钮时触发，返回 `false` 表示阻止删除                     | `(file: FileItem) => boolean \| undefined`    | -         |
 
 ### FileItem
 
