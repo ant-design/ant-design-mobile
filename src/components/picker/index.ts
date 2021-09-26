@@ -3,12 +3,13 @@ import { attachPropertiesToComponent } from '../../utils/attach-properties-to-co
 import { Picker } from './picker'
 import { prompt } from './prompt'
 
+export type { PickerProps } from './picker'
+
 export type {
   PickerValue,
   PickerColumnItem,
   PickerColumn,
-  PickerProps,
-} from './picker'
+} from '../picker-view'
 
 export default attachPropertiesToComponent(Picker, {
   prompt,
