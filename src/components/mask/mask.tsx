@@ -9,13 +9,19 @@ import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-mask`
 
+const opacityRecord = {
+  default: 0.55,
+  thin: 0.35,
+  thick: 0.75,
+}
+
 export type MaskProps = {
   visible?: boolean
   onMaskClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   destroyOnClose?: boolean
   forceRender?: boolean
   disableBodyScroll?: boolean
-  opacity?: 'default' | 'dark' | number
+  opacity?: 'default' | 'thin' | 'thick' | number
   getContainer?: HTMLElement | (() => HTMLElement) | null
   afterShow?: () => void
   afterClose?: () => void
@@ -40,12 +46,7 @@ export const Mask: React.FC<MaskProps> = p => {
   useLockScroll(ref, props.visible && props.disableBodyScroll)
 
   const background = useMemo(() => {
-    const opacity =
-      props.opacity === 'default'
-        ? 0.55
-        : props.opacity === 'dark'
-        ? 0.75
-        : props.opacity
+    const opacity = opacityRecord[props.opacity] ?? props.opacity
     return `rgba(0, 0, 0, ${opacity})`
   }, [props.opacity])
 

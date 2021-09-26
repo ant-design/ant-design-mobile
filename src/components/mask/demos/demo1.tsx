@@ -25,16 +25,30 @@ const WithContent: FC = () => {
   )
 }
 
-const Dark: FC = () => {
+const Thick: FC = () => {
   const [visible, setVisible] = useState(false)
   return (
     <>
       <Mask
         visible={visible}
         onMaskClick={() => setVisible(false)}
-        opacity='dark'
+        opacity='thick'
       />
-      <Button onClick={() => setVisible(true)}>显示深色的遮罩层</Button>
+      <Button onClick={() => setVisible(true)}>显示深一些的遮罩层</Button>
+    </>
+  )
+}
+
+const Thin: FC = () => {
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Mask
+        visible={visible}
+        onMaskClick={() => setVisible(false)}
+        opacity='thin'
+      />
+      <Button onClick={() => setVisible(true)}>显示浅一些的遮罩层</Button>
     </>
   )
 }
@@ -46,7 +60,7 @@ const CustomOpacity: FC = () => {
       <Mask
         visible={visible}
         onMaskClick={() => setVisible(false)}
-        opacity={0.3}
+        opacity={1}
       />
       <Button onClick={() => setVisible(true)}>显示自定义透明度的遮罩层</Button>
     </>
@@ -61,7 +75,8 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='遮罩层的颜色深度'>
         <Space wrap>
-          <Dark />
+          <Thin />
+          <Thick />
           <CustomOpacity />
         </Space>
       </DemoBlock>
