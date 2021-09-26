@@ -1,10 +1,11 @@
-import React, { FC, useLayoutEffect } from 'react'
+import React, { FC, useLayoutEffect, useRef, useState } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
+import { useDebounceFn } from 'ahooks'
 
 const classPrefix = `adm-picker-view`
 
@@ -25,17 +26,18 @@ export const Column: FC<Props> = props => {
     },
   }))
 
+  const draggingRef = useRef(false)
+
+  const [flag, setFlag] = useState({})
+
   useLayoutEffect(() => {
-    if (!value) {
-      return
-    }
+    if (draggingRef.current) return
+    if (!value) return
     const targetIndex = column.findIndex(item => item.value === value)
-    if (targetIndex < 0) {
-      return
-    }
+    if (targetIndex < 0) return
     const finalPosition = targetIndex * -itemHeight
     api.start({ y: finalPosition, immediate: y.idle })
-  }, [value, column])
+  }, [value, column, flag])
 
   useLayoutEffect(() => {
     if (column.length === 0) {
@@ -50,16 +52,34 @@ export const Column: FC<Props> = props => {
     }
   })
 
+  const { run: debouncedUpdateFlag } = useDebounceFn(
+    () => {
+      setFlag({})
+    },
+    {
+      wait: 1000,
+      leading: false,
+      trailing: true,
+    }
+  )
+
+  function scrollSelect(index: number) {
+    const finalPosition = index * -itemHeight
+    api.start({ y: finalPosition })
+    onSelect(column[index].value)
+    debouncedUpdateFlag()
+  }
+
   const bind = useDrag(
     state => {
+      draggingRef.current = true
       const min = -((column.length - 1) * itemHeight)
       const max = 0
       if (state.last) {
+        draggingRef.current = false
         const position = state.movement[1] + state.vxvy[1] * 50
         const targetIndex = -Math.round(bound(position, min, max) / itemHeight)
-        const finalPosition = targetIndex * -itemHeight
-        api.start({ y: finalPosition })
-        onSelect(column[targetIndex].value)
+        scrollSelect(targetIndex)
       } else {
         const position = state.movement[1]
         api.start({
@@ -79,9 +99,8 @@ export const Column: FC<Props> = props => {
       <animated.div style={{ y }} className={`${classPrefix}-column-wheel`}>
         {column.map((item, index) => {
           function handleClick() {
-            const finalPosition = index * -itemHeight
-            api.start({ y: finalPosition })
-            onSelect(column[index].value)
+            draggingRef.current = false
+            scrollSelect(index)
           }
           return (
             <div
