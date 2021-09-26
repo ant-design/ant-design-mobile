@@ -59,13 +59,15 @@
         flex: auto;
         display: flex;
         flex-direction: column;
-        background: #f9fafb;
         > .__dumi-default-tabs {
           flex: none;
         }
         > .__dumi-default-previewer-source {
           flex: auto;
           overflow-y: scroll;
+          .@{prefix}-code-block {
+            background: #ffffff;
+          }
         }
       }
     }

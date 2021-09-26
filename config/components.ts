@@ -23,7 +23,6 @@ export const components = {
   dataEntry: [
     '/components/check-list',
     '/components/checkbox',
-    '/components/date-picker',
     '/components/form',
     '/components/input',
     '/components/picker',
