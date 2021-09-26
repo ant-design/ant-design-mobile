@@ -87,6 +87,7 @@
     "ts-jest": "27.0.5",
     "ts-node": "10.2.1",
     "typescript": "^3.9.10",
+    "umi-plugin-hire": "^1.0.6",
     "webpack": "^5.54.0",
     "webpack-stream": "^7.0.0"
   },
