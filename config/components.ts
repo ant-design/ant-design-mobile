@@ -67,5 +67,6 @@ export const components = {
     '/components/cascader',
     '/components/desense-text',
     '/components/image-uploader',
+    '/components/picker-view',
   ],
 }

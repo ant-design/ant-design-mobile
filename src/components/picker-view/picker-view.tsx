@@ -3,6 +3,7 @@ import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { Column } from './column'
 import { useColumns } from './use-columns'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-picker-view`
 
@@ -20,7 +21,7 @@ export type PickerViewProps = {
   value?: PickerValue[]
   defaultValue?: PickerValue[]
   onChange?: (value: PickerValue[]) => void
-}
+} & NativeProps<'--height'>
 
 const defaultProps = {
   defaultValue: [],
@@ -31,7 +32,8 @@ export const PickerView: FC<PickerViewProps> = p => {
   const [value, setValue] = useNewControllableValue(props)
   const columns = useColumns(props.columns, value)
 
-  return (
+  return withNativeProps(
+    props,
     <div className={`${classPrefix}`}>
       {columns.map((column, index) => (
         <Column
