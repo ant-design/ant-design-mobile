@@ -21,6 +21,7 @@ export type MaskProps = {
   destroyOnClose?: boolean
   forceRender?: boolean
   disableBodyScroll?: boolean
+  color?: 'black' | 'white'
   opacity?: 'default' | 'thin' | 'thick' | number
   getContainer?: HTMLElement | (() => HTMLElement) | null
   afterShow?: () => void
@@ -31,6 +32,7 @@ const defaultProps = {
   visible: true,
   destroyOnClose: false,
   forceRender: false,
+  color: 'black',
   opacity: 'default',
   disableBodyScroll: true,
   getContainer: null,
@@ -47,8 +49,9 @@ export const Mask: React.FC<MaskProps> = p => {
 
   const background = useMemo(() => {
     const opacity = opacityRecord[props.opacity] ?? props.opacity
-    return `rgba(0, 0, 0, ${opacity})`
-  }, [props.opacity])
+    const rgb = props.color === 'white' ? '255, 255, 255' : '0, 0, 0'
+    return `rgba(${rgb}, ${opacity})`
+  }, [props.color, props.opacity])
 
   const [active, setActive] = useState(props.visible)
 

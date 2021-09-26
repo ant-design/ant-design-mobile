@@ -67,6 +67,20 @@ const CustomOpacity: FC = () => {
   )
 }
 
+const White: FC = () => {
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Button onClick={() => setVisible(true)}>显示白色的遮罩层</Button>
+      <Mask
+        color='white'
+        visible={visible}
+        onMaskClick={() => setVisible(false)}
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -79,6 +93,9 @@ export default () => {
           <Thick />
           <CustomOpacity />
         </Space>
+      </DemoBlock>
+      <DemoBlock title='白色的遮罩层'>
+        <White />
       </DemoBlock>
       <DemoBlock title='自定义内容'>
         <WithContent />
