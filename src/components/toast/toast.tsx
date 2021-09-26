@@ -46,7 +46,7 @@ export const InternalToast: React.FC<ToastProps> = p => {
       case 'fail':
         return <CloseOutline />
       case 'loading':
-        return <Loading color='white' />
+        return <Loading color='white' style={{ fontSize: 24 }} />
       default:
         return icon
     }
