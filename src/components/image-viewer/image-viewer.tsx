@@ -38,7 +38,7 @@ export const ImageViewer = withDefaultProps(defaultProps)<ImageViewerProps>(
       <Mask
         visible={props.visible}
         disableBodyScroll={false}
-        opacity='dark'
+        opacity='thick'
         afterClose={props.afterClose}
       >
         <div className={`${classPrefix}-content`}>
@@ -76,7 +76,7 @@ export const MultiImageViewer = withDefaultProps(
     <Mask
       visible={props.visible}
       disableBodyScroll={false}
-      opacity='dark'
+      opacity='thick'
       afterClose={props.afterClose}
     >
       <div className={`${classPrefix}-content`}>
