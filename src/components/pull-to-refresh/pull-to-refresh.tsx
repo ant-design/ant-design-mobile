@@ -148,7 +148,7 @@ export const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
             {status === PullStatus.complete && props.completeText}
           </div>
         </animated.div>
-        <div>{props.children}</div>
+        <div className={`${classPrefix}-content`}>{props.children}</div>
       </animated.div>
     )
   }
