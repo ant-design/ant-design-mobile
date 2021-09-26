@@ -23,7 +23,6 @@ export const components = {
   dataEntry: [
     '/components/check-list',
     '/components/checkbox',
-    '/components/date-picker',
     '/components/form',
     '/components/input',
     '/components/picker',
@@ -68,5 +67,6 @@ export const components = {
     '/components/cascader',
     '/components/desense-text',
     '/components/image-uploader',
+    '/components/picker-view',
   ],
 }

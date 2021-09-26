@@ -1,23 +1,24 @@
 import React, { FC, useMemo } from 'react'
-import { Picker, PickerProps, PickerColumn } from './picker'
+import Picker from '../picker'
+import type { PickerProps, PickerColumn } from '../picker'
 
-export type CascaderOption = {
+export type CascadePickerOption = {
   label: string
   value: string
-  children?: CascaderOption[]
+  children?: CascadePickerOption[]
 }
 
-export type CascaderProps = Omit<PickerProps, 'columns'> & {
-  options: CascaderOption[]
+export type CascadePickerProps = Omit<PickerProps, 'columns'> & {
+  options: CascadePickerOption[]
 }
 
-export const Cascader: FC<CascaderProps> = props => {
+export const CascadePicker: FC<CascadePickerProps> = props => {
   const { options, ...pickerProps } = props
 
   const { depth, subOptionsRecord } = useMemo(() => {
     let depth = 1
-    const subOptionsRecord: Record<string, CascaderOption[]> = {}
-    function traverse(option: CascaderOption, currentDepth: number) {
+    const subOptionsRecord: Record<string, CascadePickerOption[]> = {}
+    function traverse(option: CascadePickerOption, currentDepth: number) {
       if (!option.children) {
         return
       }
