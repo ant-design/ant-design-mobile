@@ -1,4 +1,10 @@
-import React, { FC, useLayoutEffect, useRef, useState } from 'react'
+import React, {
+  FC,
+  InputHTMLAttributes,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer from '../image-viewer'
@@ -32,7 +38,7 @@ export type ImageUploaderProps = {
   disableUpload?: boolean
   showUpload?: boolean
   deletable?: boolean
-  capture?: boolean | string
+  capture?: InputHTMLAttributes<unknown>['capture']
   onPreview?: (index: number) => void
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
   upload: (file: File) => Promise<FileItem>
