@@ -14,7 +14,7 @@ export default () => {
         <PickerView columns={columns} />
       </DemoBlock>
       <DemoBlock title='自定义高度' padding='0'>
-        <PickerView columns={columns} style={{ '--height': '100px' }} />
+        <PickerView columns={columns} style={{ '--height': '500px' }} />
       </DemoBlock>
     </>
   )
