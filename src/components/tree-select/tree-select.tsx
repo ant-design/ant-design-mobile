@@ -5,25 +5,25 @@ import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `adm-cascader`
+const classPrefix = `adm-tree-select`
 
-export interface CascaderOption {
+export interface TreeSelectOption {
   [key: string]: any
 }
 
-export type CascaderProps = {
-  options: CascaderOption[]
+export type TreeSelectProps = {
+  options: TreeSelectOption[]
   defaultValue?: string[]
   value?: string[]
-  onChange?: (value: string[], nodes: CascaderOption[]) => void
+  onChange?: (value: string[], nodes: TreeSelectOption[]) => void
   fieldNames?: { label: string; value: string; children: string }
 } & NativeProps
 
-export const Cascader = withDefaultProps({
+export const TreeSelect = withDefaultProps({
   options: [],
   fieldNames: {},
   defaultValue: [],
-})<CascaderProps>(props => {
+})<TreeSelectProps>(props => {
   const labelName = props.fieldNames.label || 'label'
   const valueName = props.fieldNames.value || 'value'
   const childrenName = props.fieldNames.children || 'children'
@@ -36,12 +36,12 @@ export const Cascader = withDefaultProps({
   const [deep, optionsMap, optionsParentMap] = useMemo(() => {
     const deep = getTreeDeep(props.options, childrenName)
 
-    const optionsMap = new Map<string, CascaderOption>()
-    const optionsParentMap = new Map<string, CascaderOption | undefined>()
+    const optionsMap = new Map<string, TreeSelectOption>()
+    const optionsParentMap = new Map<string, TreeSelectOption | undefined>()
 
     function traverse(
-      current: CascaderOption | undefined,
-      children: CascaderOption[]
+      current: TreeSelectOption | undefined,
+      children: TreeSelectOption[]
     ) {
       children.forEach(item => {
         optionsParentMap.set(item[valueName], current)
@@ -56,10 +56,10 @@ export const Cascader = withDefaultProps({
     return [deep, optionsMap, optionsParentMap]
   }, [props.options])
 
-  const onItemSelect = (node: CascaderOption) => {
+  const onItemSelect = (node: TreeSelectOption) => {
     // 找到父级节点
-    const parentNodes: CascaderOption[] = []
-    let current: CascaderOption | undefined = node
+    const parentNodes: TreeSelectOption[] = []
+    let current: TreeSelectOption | undefined = node
     while (current) {
       parentNodes.unshift(current)
       const next = optionsParentMap.get(current[valueName])
@@ -71,7 +71,10 @@ export const Cascader = withDefaultProps({
     props.onChange?.(values, parentNodes)
   }
 
-  const renderItems = (columnOptions: CascaderOption[] = [], index: number) => {
+  const renderItems = (
+    columnOptions: TreeSelectOption[] = [],
+    index: number
+  ) => {
     return columnOptions.map(item => {
       const isActive = item[valueName] === value[index]
       return (

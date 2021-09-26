@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { fireEvent, render, testA11y, waitFor } from 'testing'
-import Cascader from '../'
+import TreeSelect from '../'
 
-const classPrefix = `adm-cascader`
+const classPrefix = `adm-tree-select`
 const options = [
   {
     label: '分类A',
@@ -138,7 +138,7 @@ const optionsMultiple = [
 
 it('passes a11y test', async () => {
   await testA11y(
-    <Cascader
+    <TreeSelect
       defaultValue={['A', 'A1']}
       options={options}
       onChange={(value, nodes) => {
@@ -153,7 +153,7 @@ test('renders basic', () => {
     const [data, setData] = React.useState<string[]>()
     return (
       <>
-        <Cascader
+        <TreeSelect
           defaultValue={['A', 'A1']}
           options={options}
           onChange={value => {
@@ -177,7 +177,7 @@ test('renders basic', () => {
 
 test('renders with fieldNames', () => {
   const { getByText } = render(
-    <Cascader
+    <TreeSelect
       defaultValue={['A', 'A1']}
       options={optionsList}
       fieldNames={{
@@ -198,7 +198,7 @@ test('renders with multiple', async () => {
     const [data, setData] = React.useState<string[]>()
     return (
       <>
-        <Cascader.Multiple
+        <TreeSelect.Multiple
           defaultValue={['A1']}
           defaultExpandKeys={['A', 'A1']}
           options={optionsMultiple}
@@ -216,14 +216,16 @@ test('renders with multiple', async () => {
   }
   const { getByText, getByTestId } = render(<MultipleBasic />)
   // 判断 defaultExpandKeys 是否生效
-  expect(getByText('分类A')).toHaveClass('adm-cascader-multiple-item-expand')
+  expect(getByText('分类A')).toHaveClass('adm-tree-select-multiple-item-expand')
   // multiple 多了一个小圆点
   expect(getByText('分类A').lastElementChild).toHaveClass(
-    'adm-cascader-multiple-dot'
+    'adm-tree-select-multiple-dot'
   )
-  expect(getByText('分类A-1')).toHaveClass('adm-cascader-multiple-item-expand')
+  expect(getByText('分类A-1')).toHaveClass(
+    'adm-tree-select-multiple-item-expand'
+  )
   expect(getByText('分类A-1').lastElementChild).toHaveClass(
-    'adm-cascader-multiple-dot'
+    'adm-tree-select-multiple-dot'
   )
   // 第三列全勾选
   expect(getByText('全选2').firstChild).toHaveClass('adm-checkbox-checked')

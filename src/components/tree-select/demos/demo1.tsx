@@ -1,4 +1,4 @@
-import { Cascader } from 'antd-mobile'
+import { TreeSelect } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import React from 'react'
 
@@ -177,7 +177,7 @@ export default () => {
     <div>
       <DemoBlock title='单选' padding='0'>
         <div style={{ height: '180px' }}>
-          <Cascader
+          <TreeSelect
             defaultValue={['A', 'A1', 'A12']}
             options={options3}
             onChange={(value, nodes) => {
@@ -188,37 +188,12 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='两列单选' padding='0'>
         <div style={{ height: '180px' }}>
-          <Cascader
+          <TreeSelect
             defaultValue={['A', 'A1']}
             options={options2}
             onChange={(value, nodes) => {
               console.log(value, nodes)
             }}
-          />
-        </div>
-      </DemoBlock>
-      <DemoBlock title='多选' padding='0'>
-        <div style={{ height: '180px' }}>
-          <Cascader.Multiple
-            defaultValue={['A1']}
-            defaultExpandKeys={['A', 'A1']}
-            options={options3}
-            onChange={(value, nodes) => {
-              console.log(value, nodes)
-            }}
-          />
-        </div>
-      </DemoBlock>
-      <DemoBlock title='带全选的多选' padding='0'>
-        <div style={{ height: '180px' }}>
-          <Cascader.Multiple
-            defaultValue={['A1']}
-            defaultExpandKeys={['A', 'A1']}
-            options={options3}
-            onChange={(value, nodes) => {
-              console.log(value, nodes)
-            }}
-            selectAllText={['', '全选', '全选']}
           />
         </div>
       </DemoBlock>
