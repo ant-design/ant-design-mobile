@@ -45,13 +45,13 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
 
   useEffect(() => {
     if (!hasFocus) {
-      setInputValue(value.toString())
+      setInputValue(value == null ? value : value.toString())
     }
   }, [hasFocus])
 
   useEffect(() => {
     if (!hasFocus) {
-      setInputValue(value.toString())
+      setInputValue(value == null ? value : value.toString())
     }
   }, [value])
 
