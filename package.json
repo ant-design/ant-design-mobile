@@ -51,7 +51,7 @@
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-transform-async-to-promises": "^0.8.15",
     "css-loader": "^6.3.0",
-    "del": "^5.1.0",
+    "del": "^6.0.0",
     "dumi": "^1.1.29",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
@@ -68,7 +68,7 @@
     "jest-axe": "^5.0.1",
     "jest-environment-jsdom": "27.2.2",
     "jest-watch-typeahead": "0.6.4",
-    "less": "^3.13.1",
+    "less": "^4.1.1",
     "lorem-ipsum": "^2.0.3",
     "postcss": "^8.3.8",
     "postcss-px-multiple": "^0.1.5",
@@ -88,7 +88,7 @@
     "ts-node": "10.2.1",
     "typescript": "^3.9.10",
     "webpack": "^5.54.0",
-    "webpack-stream": "^6.1.2"
+    "webpack-stream": "^7.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.6 || ^17.0.0"
