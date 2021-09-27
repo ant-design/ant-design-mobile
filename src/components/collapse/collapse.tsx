@@ -41,7 +41,6 @@ const CollapsePanelContent: FC<{
     if (visible) {
       const inner = innerRef.current
       if (!inner) return
-      console.log('inner.offsetHeight', inner.offsetHeight)
       api.start({
         height: inner.offsetHeight,
       })
