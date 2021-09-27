@@ -186,7 +186,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             deletable={task.status !== 'pending'}
             status={task.status}
             onDelete={() => {
-              setValue(value.filter(x => x.url !== task.url))
+              setTasks(tasks.filter(x => x.id !== task.id))
             }}
           />
         ))}
