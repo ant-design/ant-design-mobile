@@ -97,12 +97,10 @@ const DeleteImage: FC = () => {
       value={fileList}
       onChange={setFileList}
       upload={mockUpload}
-      onDelete={async file => {
-        console.log('当前图片', file)
-        const canDelete = await Dialog.confirm({
+      onDelete={() => {
+        return Dialog.confirm({
           content: '是否确认删除',
         })
-        return canDelete
       }}
     />
   )
