@@ -3684,6 +3684,7 @@ __metadata:
     ts-jest: 27.0.5
     ts-node: 10.2.1
     typescript: ^3.9.10
+    umi-plugin-hire: ^1.0.6
     use-async-memo: ^1.2.3
     webpack: ^5.54.0
     webpack-stream: ^7.0.0
@@ -14382,6 +14383,15 @@ typescript@^3.9.10:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 744dab471ae59659b1618be636ab56b9c0afbca801e0640c3cdfad0a894315c87d30a290b7063c6a3f1860bf47fe44d9188cb85e46b2bdadda7f207d67e6b4e1
+  languageName: node
+  linkType: hard
+
+"umi-plugin-hire@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "umi-plugin-hire@npm:1.0.6"
+  peerDependencies:
+    umi: ^3.0.0
+  checksum: 8b4a92d201e244411b0526d9adbedb8f41a60151e09312dc21948ffefd275f7fae74b3d0ae6ec0db061eca97c0108a7c24b17c547f38488f601311de6290fdb2
   languageName: node
   linkType: hard
 
