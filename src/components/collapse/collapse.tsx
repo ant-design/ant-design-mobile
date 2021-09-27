@@ -2,8 +2,8 @@ import React, {
   FC,
   ReactElement,
   ComponentProps,
-  useEffect,
   useRef,
+  useLayoutEffect,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
@@ -37,10 +37,11 @@ const CollapsePanelContent: FC<{
     from: { height: visible ? 'auto' : 0 },
   }))
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (visible) {
       const inner = innerRef.current
       if (!inner) return
+      console.log('inner.offsetHeight', inner.offsetHeight)
       api.start({
         height: inner.offsetHeight,
       })
@@ -52,7 +53,18 @@ const CollapsePanelContent: FC<{
   }, [visible])
 
   return initialized ? (
-    <animated.div className={`${classPrefix}-panel-content`} style={style}>
+    <animated.div
+      className={`${classPrefix}-panel-content`}
+      style={{
+        height: style.height.to(v => {
+          if (style.height.idle && visible) {
+            return 'auto'
+          } else {
+            return v
+          }
+        }),
+      }}
+    >
       <div className={`${classPrefix}-panel-content-inner`} ref={innerRef}>
         <List.Item>{props.children}</List.Item>
       </div>
