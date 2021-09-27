@@ -23,6 +23,16 @@ export default () => {
           </Badge>
         </Space>
       </DemoBlock>
+      <DemoBlock title='显示或隐藏红色小圆点'>
+        <Space size='24px'>
+          <Badge>
+            <div className={styles.box} />
+          </Badge>
+          <Badge hideDot>
+            <div className={styles.box} />
+          </Badge>
+        </Space>
+      </DemoBlock>
       <DemoBlock title='自定义颜色和偏移量'>
         <Space size='24px'>
           <Badge offset={[-40, 40]} color='#108ee9'>

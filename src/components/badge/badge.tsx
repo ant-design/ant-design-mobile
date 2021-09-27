@@ -10,6 +10,7 @@ export type BadgeProps = {
   content?: React.ReactNode
   color?: string
   offset?: [number, number]
+  hideDot?: boolean
 } & NativeProps
 
 export const Badge = withDefaultProps({
@@ -33,19 +34,25 @@ export const Badge = withDefaultProps({
     [`${classPrefix}-dot`]: !content,
   })
 
+  const renderBadgeDot = () => {
+    if (props.hideDot) return null
+
+    return (
+      <div className={badgeCls} style={badgeStyle}>
+        {content}
+      </div>
+    )
+  }
+
   return withNativeProps(
     props,
     children ? (
       <div className={`${classPrefix}-wrap`}>
         {children}
-        <div className={badgeCls} style={badgeStyle}>
-          {content}
-        </div>
+        {renderBadgeDot()}
       </div>
     ) : (
-      <div className={badgeCls} style={badgeStyle}>
-        {content}
-      </div>
+      <>{renderBadgeDot()}</>
     )
   )
 })
