@@ -71,6 +71,19 @@ export default () => {
           <DemoDescription content='通过 CSS 变量可以控制滑块的大小、整体的圆角等样式' />
         </Space>
       </DemoBlock>
+      <DemoBlock title='居中展示'>
+        <Space direction='vertical' block>
+          <Swiper centered loop={false} style={{ '--slide-width': '70%' }}>
+            {items}
+          </Swiper>
+          <DemoDescription content='需要通过 CSS 变量改变控制滑块的大小' />
+        </Space>
+      </DemoBlock>
+      <DemoBlock title='循环居中展示'>
+        <Swiper centered style={{ '--slide-width': '70%' }}>
+          {items}
+        </Swiper>
+      </DemoBlock>
       <DemoBlock title='指示器颜色'>
         <Space direction='vertical' block>
           <Swiper

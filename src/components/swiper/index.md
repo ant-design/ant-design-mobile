@@ -13,6 +13,7 @@
 | autoplay         | 是否自动切换                | `boolean`                                                                  | `false` |
 | autoplayInterval | 自动切换的间隔，单位为 `ms` | `number`                                                                   | `3000`  |
 | loop             | 是否循环                    | `boolean`                                                                  | `true`  |
+| centered         | 是否居中展示                | `boolean`                                                                  | `false` |
 | onIndexChange    | 切换时触发                  | `(index: number) => void`                                                  | -       |
 | indicatorProps   | 指示器的相关属性            | 支持 [PageIndicator](./page-indicator) 的 `color` `style` `className` 属性 | -       |
 
