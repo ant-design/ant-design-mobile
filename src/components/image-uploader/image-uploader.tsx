@@ -42,7 +42,7 @@ export type ImageUploaderProps = {
   onPreview?: (index: number) => void
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
   upload: (file: File) => Promise<FileItem>
-  onDelete?: (file: FileItem) => boolean | undefined
+  onDelete?: (file: FileItem) => boolean | Promise<boolean> | void
 }
 
 const classPrefix = `adm-image-uploader`
@@ -173,9 +173,11 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             url={fileItem.url}
             deletable={props.deletable}
             onClick={() => previewImage(index)}
-            onDelete={() => {
-              const canDelete = props.onDelete?.(fileItem) !== false
-              canDelete && setValue(value.filter(x => x.url !== fileItem.url))
+            onDelete={async () => {
+              const canDelete = await props.onDelete?.(fileItem)
+              if (canDelete === false) return
+
+              setValue(value.filter(x => x.url !== fileItem.url)
             }}
           />
         ))}
