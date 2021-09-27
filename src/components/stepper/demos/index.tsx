@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Stepper } from 'antd-mobile'
+import { Stepper, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 export default () => {
@@ -41,6 +41,16 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='自定义宽度'>
         <Stepper style={{ width: '120px' }} defaultValue={10000} step={10000} />
+      </DemoBlock>
+      <DemoBlock title='获得/失去焦点'>
+        <Stepper
+          onFocus={() => {
+            Toast.show('获得焦点')
+          }}
+          onBlur={() => {
+            Toast.show('失去焦点')
+          }}
+        />
       </DemoBlock>
     </>
   )

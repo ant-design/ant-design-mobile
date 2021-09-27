@@ -19,6 +19,8 @@ export type StepperProps = {
   digits?: number
   disabled?: boolean
   onChange?: (value: number) => void
+  onFocus?: () => void
+  onBlur?: () => void
 } & NativeProps
 
 const defaultProps = {
@@ -104,6 +106,7 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
         className={`${classPrefix}-input`}
         onFocus={() => {
           setHasFocus(true)
+          props.onFocus?.()
         }}
         value={inputValue}
         onChange={val => {
@@ -112,6 +115,7 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
         disabled={disabled}
         onBlur={() => {
           setHasFocus(false)
+          props.onBlur?.()
         }}
       />
       <Button
