@@ -142,7 +142,6 @@ export const Swiper = forwardRef(
               setDragging(false)
             })
             const index = Math.round((mx + state.vxvy[0] * 100) / width)
-            console.log('==========', index)
             swipeTo(index)
           } else {
             setDragging(true)
