@@ -3,6 +3,7 @@ import assign from 'lodash/assign'
 import assignWith from 'lodash/assignWith'
 import isUndefined from 'lodash/isUndefined'
 
+// TODO: deprecated
 export function withDefaultProps<D>(defaultProps: D) {
   return function <P>(C: FC<P & typeof defaultProps>) {
     C.defaultProps = defaultProps

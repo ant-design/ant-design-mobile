@@ -1,27 +1,28 @@
 import classNames from 'classnames'
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
 import Checkbox from '../checkbox'
-import { CascaderOption } from '.'
+import { TreeSelectOption } from '.'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { devWarning } from '../../utils/dev-log'
 
-const classPrefix = `adm-cascader-multiple`
+const classPrefix = `adm-tree-select-multiple`
 
 export type MultipleProps = {
-  options: CascaderOption[]
+  options: TreeSelectOption[]
 
   defaultValue?: string[]
   value?: string[]
-  onChange?: (value: string[], nodes: CascaderOption[]) => void
+  onChange?: (value: string[], nodes: TreeSelectOption[]) => void
 
   selectAllText?: string[]
   fieldNames?: { label: string; value: string; children: string }
 
   expandKeys?: string[]
   defaultExpandKeys?: string[]
-  onExpand?: (expandedKeys: string[], nodes: CascaderOption[]) => void
+  onExpand?: (expandedKeys: string[], nodes: TreeSelectOption[]) => void
 } & NativeProps
 
 export const Multiple = withDefaultProps({
@@ -31,6 +32,9 @@ export const Multiple = withDefaultProps({
   defaultExpandKeys: [],
   defaultValue: [],
 })<MultipleProps>(props => {
+  useEffect(() => {
+    devWarning('TreeSelect', 'TreeSelect.Multiple has been deprecated.')
+  }, [])
   const labelName = props.fieldNames.label || 'label'
   const valueName = props.fieldNames.value || 'value'
   const childrenName = props.fieldNames.children || 'children'
@@ -48,14 +52,14 @@ export const Multiple = withDefaultProps({
   })
 
   // 获取目标所有叶子节点 key 集合
-  const getLeafKeys = (option?: CascaderOption) => {
+  const getLeafKeys = (option?: TreeSelectOption) => {
     const keys: string[] = []
-    const walker = (op?: CascaderOption) => {
+    const walker = (op?: TreeSelectOption) => {
       if (!op) {
         return
       }
       if (op[childrenName]?.length) {
-        op[childrenName].forEach((i: CascaderOption) => walker(i))
+        op[childrenName].forEach((i: TreeSelectOption) => walker(i))
       } else {
         keys.push(op[valueName])
       }
@@ -67,12 +71,12 @@ export const Multiple = withDefaultProps({
   const [deep, optionsMap, optionsParentMap] = useMemo(() => {
     const deep = getTreeDeep(props.options, childrenName)
 
-    const optionsMap = new Map<string, CascaderOption>()
-    const optionsParentMap = new Map<string, CascaderOption | undefined>()
+    const optionsMap = new Map<string, TreeSelectOption>()
+    const optionsParentMap = new Map<string, TreeSelectOption | undefined>()
 
     function traverse(
-      current: CascaderOption | undefined,
-      children: CascaderOption[]
+      current: TreeSelectOption | undefined,
+      children: TreeSelectOption[]
     ) {
       children.forEach(item => {
         optionsParentMap.set(item[valueName], current)
@@ -130,7 +134,7 @@ export const Multiple = withDefaultProps({
           return
         }
         const childrenKeys: string[] =
-          parent[childrenName]?.map((i: CascaderOption) => i[valueName]) || []
+          parent[childrenName]?.map((i: TreeSelectOption) => i[valueName]) || []
         if (childrenKeys.every(i => groupKeys.includes(i))) {
           groupKeys.push(parent[valueName])
           unusedKeys = unusedKeys.concat(childrenKeys)
@@ -151,9 +155,9 @@ export const Multiple = withDefaultProps({
     props.onChange?.(groupKeys, groupOptions)
   }
 
-  const onItemSelect = (option: CascaderOption) => {
-    const parentNodes: CascaderOption[] = []
-    let current: CascaderOption | undefined = option
+  const onItemSelect = (option: TreeSelectOption) => {
+    const parentNodes: TreeSelectOption[] = []
+    let current: TreeSelectOption | undefined = option
     while (current) {
       parentNodes.unshift(current)
       const next = optionsParentMap.get(current[valueName])
@@ -167,7 +171,7 @@ export const Multiple = withDefaultProps({
 
   // 渲染全选节点
   const renderSelectAllItem = (
-    columnOptions: CascaderOption[],
+    columnOptions: TreeSelectOption[],
     index: number
   ) => {
     const text = props.selectAllText?.[index]
@@ -202,7 +206,7 @@ export const Multiple = withDefaultProps({
 
   // 渲染
   const renderSelectAllLeafItem = (
-    columnOptions: CascaderOption[],
+    columnOptions: TreeSelectOption[],
     index: number
   ) => {
     const text = props.selectAllText?.[index]
@@ -245,7 +249,7 @@ export const Multiple = withDefaultProps({
   }
 
   // 渲染节点
-  const renderItem = (option: CascaderOption) => {
+  const renderItem = (option: TreeSelectOption) => {
     const isExpand = expandKeys.includes(option[valueName])
 
     return (
@@ -269,7 +273,7 @@ export const Multiple = withDefaultProps({
   }
 
   // 渲染叶子节点
-  const renderLeafItem = (option: CascaderOption) => {
+  const renderLeafItem = (option: TreeSelectOption) => {
     const isSelected = allSelectedLeafKeys.includes(option[valueName])
 
     return (
@@ -298,7 +302,10 @@ export const Multiple = withDefaultProps({
     )
   }
 
-  const renderItems = (columnOptions: CascaderOption[] = [], index: number) => {
+  const renderItems = (
+    columnOptions: TreeSelectOption[] = [],
+    index: number
+  ) => {
     if (columnOptions.length === 0) {
       return
     }

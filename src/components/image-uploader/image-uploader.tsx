@@ -1,4 +1,10 @@
-import React, { FC, useLayoutEffect, useRef, useState } from 'react'
+import React, {
+  FC,
+  InputHTMLAttributes,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer from '../image-viewer'
@@ -32,7 +38,7 @@ export type ImageUploaderProps = {
   disableUpload?: boolean
   showUpload?: boolean
   deletable?: boolean
-  capture?: boolean | string
+  capture?: InputHTMLAttributes<unknown>['capture']
   onPreview?: (index: number) => void
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
   upload: (file: File) => Promise<FileItem>
@@ -171,7 +177,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               const canDelete = await props.onDelete?.(fileItem)
               if (canDelete === false) return
 
-              setValue(value.filter(x => x.url !== fileItem.url))
+              setValue(value.filter(x => x.url !== fileItem.url)
             }}
           />
         ))}
@@ -182,7 +188,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             deletable={task.status !== 'pending'}
             status={task.status}
             onDelete={() => {
-              setValue(value.filter(x => x.url !== task.url))
+              setTasks(tasks.filter(x => x.id !== task.id))
             }}
           />
         ))}

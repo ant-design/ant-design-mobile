@@ -64,9 +64,9 @@ export const components = {
   other: ['/components/config-provider'],
   experimental: [
     '/components/what-is-experimental',
-    '/components/cascader',
     '/components/desense-text',
     '/components/image-uploader',
     '/components/picker-view',
+    '/components/tree-select',
   ],
 }
