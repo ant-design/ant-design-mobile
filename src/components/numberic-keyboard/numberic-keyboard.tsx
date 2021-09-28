@@ -119,7 +119,7 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
   }
 
   // 渲染 title 和 close button
-  const renderHeader = useCallback(() => {
+  const renderHeader = () => {
     if (!showCloseButton && !title) return null
     return (
       <div
@@ -131,10 +131,10 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
         {showCloseButton && <DownOutlined onClick={onCloseKeyboard} />}
       </div>
     )
-  }, [showCloseButton, title])
+  }
 
   // 渲染基础键盘按键
-  const renderKey = useCallback((key, index) => {
+  const renderKey = (key: string, index: number) => {
     const isNumbericKey = /^\d$/.test(key)
     const className = classNames(`${classPrefix}-key`, {
       'numberic-key': isNumbericKey,
@@ -151,7 +151,7 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
         {key === 'BACKSPACE' ? backspaceIcon : key}
       </div>
     )
-  }, [])
+  }
 
   return (
     <Popup

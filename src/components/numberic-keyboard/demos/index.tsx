@@ -32,7 +32,6 @@ export default () => {
 
   const onClose = (done: boolean) => {
     Toast.show({ content: done ? 'confirmed' : 'closed' })
-    console.log(done ? 'confirmed' : 'closed')
     setVisible('')
   }
 
