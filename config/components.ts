@@ -34,7 +34,7 @@ export const components = {
     '/components/stepper',
     '/components/switch',
     '/components/text-area',
-    '/components/numberic-keyboard',
+    '/components/number-keyboard',
   ],
   feedback: [
     '/components/action-sheet',

@@ -7,9 +7,9 @@ import Popup from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
 import { useControllableValue, useUpdateEffect, useClickAway } from 'ahooks'
 
-const classPrefix = 'adm-numberic-keyboard'
+const classPrefix = 'adm-number-keyboard'
 
-export interface NumbericKeyboardProps {
+export interface NumberKeyboardProps {
   visible?: boolean
   defaultVisible?: boolean
   title?: string
@@ -34,7 +34,7 @@ const defaultProps = {
   confirmText: false,
 }
 
-export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
+export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
   const props = mergeProps(defaultProps, p)
   const {
     title,
@@ -66,7 +66,7 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
   }, keyboardRef)
 
   // 获取数字区域按键列表
-  const getNumberics = useCallback(() => {
+  const getNumbers = useCallback(() => {
     const DEFAULT_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
     const keyList = randomOrder ? shuffle(DEFAULT_KEYS) : DEFAULT_KEYS
 
@@ -81,12 +81,12 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
   }, [customKey, confirmText, randomOrder])
 
   // 记录键盘数字区域按键
-  const [keys, setKeys] = useState(getNumberics)
+  const [keys, setKeys] = useState(getNumbers)
 
   // 每次展示键盘时重新获取按键
   useUpdateEffect(() => {
-    visible && setKeys(getNumberics())
-  }, [visible, getNumberics])
+    visible && setKeys(getNumbers())
+  }, [visible, getNumbers])
 
   const onCloseKeyboard = () => {
     setVisible(false)
@@ -130,10 +130,10 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
 
   // 渲染基础键盘按键
   const renderKey = (key: string, index: number) => {
-    const isNumbericKey = /^\d$/.test(key)
+    const isNumberKey = /^\d$/.test(key)
     const className = classNames(`${classPrefix}-key`, {
-      'numberic-key': isNumbericKey,
-      'sign-key': !isNumbericKey && key,
+      'number-key': isNumberKey,
+      'sign-key': !isNumberKey && key,
       'mid-key': index === 9 && !!confirmText,
     })
 
@@ -157,7 +157,7 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
       mask={false}
       afterClose={afterClose}
       afterShow={afterShow}
-      bodyClassName={`${classPrefix}-popup`}
+      className={`${classPrefix}-popup`}
     >
       <div ref={keyboardRef}>
         {renderHeader()}
@@ -173,7 +173,7 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
             <div className={`${classPrefix}-confirm`}>
               <div
                 className={`${classPrefix}-key extra-key bs-key`}
-                onClick={() => onKeyPress('c')}
+                onClick={() => onKeyPress('BACKSPACE')}
                 title='BACKSPACE'
                 role='button'
               >

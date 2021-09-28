@@ -1,6 +1,6 @@
-@class-prefix-numberic-keyboard: ~'adm-numberic-keyboard';
+@class-prefix-number-keyboard: ~'adm-number-keyboard';
 
-.@{class-prefix-numberic-keyboard} {
+.@{class-prefix-number-keyboard} {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
@@ -13,6 +13,10 @@
   &-popup {
     width: 100%;
     user-select: none;
+    z-index: var(--adm-z-index-keyboard);
+    .adm-popup-body {
+      background-color: #f5f5f5;
+    }
   }
 
   &-wrapper {
@@ -100,7 +104,7 @@
     }
 
     &.extra-key,
-    &.numberic-key {
+    &.number-key {
       background-color: var(--adm-color-white);
       &:active::before {
         opacity: 0.1;
