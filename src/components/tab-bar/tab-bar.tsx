@@ -53,30 +53,27 @@ export const TabBar: FC<TabBarProps> = props => {
           const titleElement = item.props.title && (
             <div className='adm-tab-bar-item-title'>{item.props.title}</div>
           )
-          if (item.props.badge !== undefined) {
-            if (iconElement) {
-              return (
-                <>
-                  <Badge content={item.props.badge} offset={[0, 6]}>
-                    {iconElement}
-                  </Badge>
-                  {titleElement}
-                </>
-              )
-            } else if (titleElement) {
-              return (
-                <>
-                  <Badge content={item.props.badge} offset={[2, -2]}>
-                    {titleElement}
-                  </Badge>
-                </>
-              )
-            }
-          } else {
+          if (iconElement) {
             return (
               <>
-                {iconElement}
+                <Badge
+                  content={item.props.badge}
+                  className='adm-tab-bar-icon-badge'
+                >
+                  {iconElement}
+                </Badge>
                 {titleElement}
+              </>
+            )
+          } else if (titleElement) {
+            return (
+              <>
+                <Badge
+                  content={item.props.badge}
+                  className='adm-tab-bar-title-badge'
+                >
+                  {titleElement}
+                </Badge>
               </>
             )
           }
