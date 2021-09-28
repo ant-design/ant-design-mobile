@@ -1,24 +1,18 @@
-@class-prefix-numberic-keyboard: ~'am-numberic-keyboard';
-// --am-border-color
-.@{class-prefix-numberic-keyboard} {
-  --am-numberic-keyboard-bg-color: #f5f5f5;
+@class-prefix-numberic-keyboard: ~'adm-numberic-keyboard';
 
+.@{class-prefix-numberic-keyboard} {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
 
   &.confirmed-style {
     width: 75%;
-    background-color: var(--am-color-white);
+    background-color: var(--adm-color-white);
   }
 
   &-popup {
     width: 100%;
-    background-color: var(--am-numberic-keyboard-bg-color);
     user-select: none;
-
-    /* for iOS */
-    padding-bottom: constant(safe-area-inset-bottom);
   }
 
   &-wrapper {
@@ -28,13 +22,13 @@
   &-header {
     height: 34px;
     line-height: 34px;
-    border-bottom: 1px solid var(--am-numberic-keyboard-bg-color);
+    border-top: solid 1px #f5f5f5;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 12px;
-    color: var(--am-color-weak);
-    background-color: var(--am-color-white);
+    color: var(--adm-color-weak);
+    background-color: var(--adm-color-white);
 
     .anticon-down {
       font-size: 16px;
@@ -67,9 +61,14 @@
     height: 48px;
     font-size: 22px;
     box-sizing: border-box;
-    border: solid 1px var(--am-numberic-keyboard-bg-color);
-    border-top: none;
+    border: solid 1px #f5f5f5;
+    border-bottom: none;
     border-left: none;
+
+    &:nth-child(3n),
+    &:last-child {
+      border-right: none;
+    }
 
     &::before {
       position: absolute;
@@ -95,17 +94,22 @@
       opacity: 0.1;
     }
 
+    &.extra-key {
+      border-left: solid 1px #f5f5f5;
+      border-right: none;
+    }
+
     &.extra-key,
     &.numberic-key {
-      background-color: var(--am-color-white);
+      background-color: var(--adm-color-white);
       &:active::before {
         opacity: 0.1;
       }
     }
 
     &.ok-key {
-      background-color: var(--am-color-primary);
-      color: var(--am-color-white);
+      background-color: var(--adm-color-primary);
+      color: var(--adm-color-white);
       height: 144px;
       font-size: 16px;
     }

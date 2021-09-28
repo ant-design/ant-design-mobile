@@ -2,24 +2,43 @@ import * as React from 'react'
 import { fireEvent, render, testA11y, waitFor } from 'testing'
 import NumbericKeyboard from '..'
 
-const classPrefix = `am-card`
+const classPrefix = 'adm-numberic-keyboard'
 
 it('passes a11y test', async () => {
   await testA11y(<NumbericKeyboard visible />)
 })
 
-test('renders with title', () => {
-  const { getByText } = render(<NumbericKeyboard visible title='键盘标题' />)
-  expect(getByText('title')).toHaveClass(`${classPrefix}-header-title`)
-  expect(getByText('Card')).toHaveClass(`${classPrefix}-body`)
-})
-
-test('renders with hide button', () => {
+test('renders with title & close button', async () => {
+  let inputValue = ''
   const onClose = jest.fn()
+  const onInput = jest.fn(value => {
+    inputValue = value
+  })
 
-  const { getByText } = render(<NumbericKeyboard title='卡片标题' />)
-  expect(getByText('title')).toHaveClass(`${classPrefix}-header-title`)
-  expect(getByText('Card')).toHaveClass(`${classPrefix}-body`)
+  const { getByTitle, getByText } = render(
+    <NumbericKeyboard
+      visible
+      showCloseButton
+      onClose={onClose}
+      onInput={onInput}
+      title='title'
+    />
+  )
+
+  expect(getByText('title')).toHaveClass(`${classPrefix}-title`)
+
+  // 点击关闭箭头
+  fireEvent.click(getByTitle('CLOSE'))
+  await waitFor(() => {
+    expect(onClose).toBeCalledTimes(1)
+  })
+
+  // 点击数字
+  fireEvent.click(getByText('0'))
+  await waitFor(() => {
+    expect(onInput).toBeCalledTimes(1)
+    expect(inputValue).toEqual('0')
+  })
 })
 
 test('renders with customKey', async () => {
@@ -29,7 +48,7 @@ test('renders with customKey', async () => {
     inputValue = value
   })
 
-  const { getByText } = render(
+  const { getByText, getByTitle } = render(
     <NumbericKeyboard
       customKey='-'
       visible
@@ -38,18 +57,11 @@ test('renders with customKey', async () => {
     />
   )
 
-  // 点击数字
-  fireEvent.click(getByText('0'))
-  await waitFor(() => {
-    expect(onInput).toBeCalledTimes(1)
-    expect(inputValue).toEqual('0')
-  })
-
   // 点击删除
-  // fireEvent.click(getByText('0'))
-  // await waitFor(() => {
-  //   expect(onDelete).toBeCalledTimes(1)
-  // })
+  fireEvent.click(getByTitle('BACKSPACE'))
+  await waitFor(() => {
+    expect(onDelete).toBeCalledTimes(1)
+  })
 
   // 点击自定义按钮
   fireEvent.click(getByText('-'))

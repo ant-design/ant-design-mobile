@@ -1,22 +1,13 @@
 import React, { useState, useCallback, useRef } from 'react'
 import classNames from 'classnames'
-import { DownOutlined } from '@ant-design/icons'
+import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import { shuffle } from '../../utils/shuffle'
 import Popup from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
-import BackspaceIcon from '../../assets/backspace.svg'
 import { useControllableValue, useUpdateEffect, useClickAway } from 'ahooks'
 
-const classPrefix = 'am-numberic-keyboard'
-
-const backspaceIcon = (
-  <img
-    className={classNames(`${classPrefix}-bs-key`)}
-    src={BackspaceIcon}
-    alt='backspace'
-  />
-)
+const classPrefix = 'adm-numberic-keyboard'
 
 export interface NumbericKeyboardProps {
   visible?: boolean
@@ -128,7 +119,11 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
         })}
       >
         {title && <div className={`${classPrefix}-title`}>{title}</div>}
-        {showCloseButton && <DownOutlined onClick={onCloseKeyboard} />}
+        {showCloseButton && (
+          <span onClick={onCloseKeyboard} role='button' title='CLOSE'>
+            <DownOutline />
+          </span>
+        )}
       </div>
     )
   }
@@ -147,8 +142,10 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
         key={key}
         className={className}
         onClick={() => key && onKeyPress(key)}
+        title={key}
+        role='button'
       >
-        {key === 'BACKSPACE' ? backspaceIcon : key}
+        {key === 'BACKSPACE' ? <TextDeletionOutline /> : key}
       </div>
     )
   }
@@ -175,14 +172,17 @@ export const NumbericKeyboard: React.FC<NumbericKeyboardProps> = p => {
           {!!confirmText && (
             <div className={`${classPrefix}-confirm`}>
               <div
-                className={`${classPrefix}-key extra-key`}
-                onClick={() => onKeyPress('BACKSPACE')}
+                className={`${classPrefix}-key extra-key bs-key`}
+                onClick={() => onKeyPress('c')}
+                title='BACKSPACE'
+                role='button'
               >
-                {backspaceIcon}
+                <TextDeletionOutline />
               </div>
               <div
                 className={`${classPrefix}-key extra-key ok-key`}
                 onClick={() => onKeyPress('OK')}
+                role='button'
               >
                 {confirmText}
               </div>
