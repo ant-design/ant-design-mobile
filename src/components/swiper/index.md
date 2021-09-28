@@ -13,7 +13,6 @@
 | autoplay         | 是否自动切换                | `boolean`                                                                  | `false` |
 | autoplayInterval | 自动切换的间隔，单位为 `ms` | `number`                                                                   | `3000`  |
 | loop             | 是否循环                    | `boolean`                                                                  | `true`  |
-| centered         | 是否居中展示                | `boolean`                                                                  | `false` |
 | onIndexChange    | 切换时触发                  | `(index: number) => void`                                                  | -       |
 | indicatorProps   | 指示器的相关属性            | 支持 [PageIndicator](./page-indicator) 的 `color` `style` `className` 属性 | -       |
 
@@ -26,6 +25,7 @@
 | --slide-width   | 滑块宽度             | `100%` |
 | --border-radius | 整体组件的圆角       | `0`    |
 | --track-padding | 轨道区域的 `padding` | `0`    |
+| --track-offset  | 轨道的整体偏移量     | `0`    |
 
 ### Ref
 

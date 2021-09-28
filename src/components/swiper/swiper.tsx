@@ -32,7 +32,6 @@ export type SwiperProps = {
   autoplay?: boolean
   autoplayInterval?: number
   loop?: boolean
-  centered?: boolean
   onIndexChange?: (index: number) => void
   indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
   indicator?: (total: number, current: number) => ReactNode
@@ -43,6 +42,7 @@ export type SwiperProps = {
   | '--slide-width'
   | '--border-radius'
   | '--track-padding'
+  | '--track-offset'
 >
 
 const defaultProps = {
@@ -99,30 +99,20 @@ export const Swiper = forwardRef(
         return track.offsetWidth
       }
 
-      let centeredOffset = 0
-      if (props.centered) {
-        const slideWidth = parseFloat(
-          (props.style && props.style['--slide-width']) || '0'
-        )
-        if (!Number.isNaN(slideWidth) && slideWidth > 0) {
-          centeredOffset = (100 - slideWidth) / (2 * slideWidth)
-        }
-      }
-
       const [current, setCurrent] = useState(props.defaultIndex)
 
       const [dragging, setDragging, draggingRef] = useRefState(false)
 
       const [{ x }, api] = useSpring(
         () => ({
-          x: (bound(current, 0, count - 1) - centeredOffset) * 100,
+          x: bound(current, 0, count - 1) * 100,
           config: { tension: 200, friction: 30 },
           onRest: () => {
             if (draggingRef.current) return
             const rawX = x.get()
             const totalWidth = 100 * count
             const standardX = modulus(rawX, totalWidth)
-            if (standardX === rawX || rawX < 0) return
+            if (standardX === rawX) return
             api.start({
               x: standardX,
               immediate: true,
@@ -161,8 +151,8 @@ export const Swiper = forwardRef(
             if (loop) return {}
             const width = getWidth()
             return {
-              left: 0 - centeredOffset * width,
-              right: (count - 1 - centeredOffset) * width,
+              left: 0,
+              right: (count - 1) * width,
             }
           },
           rubberband: true,
@@ -177,14 +167,14 @@ export const Swiper = forwardRef(
           setCurrent(i)
           props.onIndexChange?.(i)
           api.start({
-            x: (index - centeredOffset) * 100,
+            x: index * 100,
           })
         } else {
           const i = bound(index, 0, count - 1)
           setCurrent(i)
           props.onIndexChange?.(i)
           api.start({
-            x: (i - centeredOffset) * 100,
+            x: i * 100,
           })
         }
       }
@@ -239,7 +229,9 @@ export const Swiper = forwardRef(
                         let position = -x + index * 100
                         if (loop) {
                           const totalWidth = count * 100
-                          position = modulus(position + 100, totalWidth) - 100
+                          position =
+                            modulus(position + totalWidth / 2, totalWidth) -
+                            totalWidth / 2
                         }
                         return `${position}%`
                       }),
