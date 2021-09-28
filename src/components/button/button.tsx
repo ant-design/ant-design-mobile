@@ -35,7 +35,7 @@ const defaultProps = {
 
 export const Button: FC<ButtonProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const disabled = props.disabled
+  const disabled = props.disabled || props.loading
   return withNativeProps(
     props,
     <button
