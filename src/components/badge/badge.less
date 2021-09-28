@@ -17,9 +17,13 @@
   font-size: 9px;
   line-height: 1.2;
   white-space: nowrap;
+  --right: 0;
+  --top: 0;
 
   &-fixed {
     position: absolute;
+    right: var(--right);
+    top: var(--top);
     transform: translate(50%, -50%);
   }
 

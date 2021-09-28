@@ -23,15 +23,3 @@ test('renders with color', () => {
     backgroundColor: 'rgb(16, 142, 233)',
   })
 })
-
-test('renders with offset', () => {
-  const { getByText } = render(
-    <Badge offset={[40, -40]} content='新'>
-      test
-    </Badge>
-  )
-  expect(getByText('新')).toHaveStyle({
-    top: '-40px',
-    right: '-40px',
-  })
-})

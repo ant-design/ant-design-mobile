@@ -25,16 +25,24 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='自定义颜色和偏移量'>
         <Space size='24px'>
-          <Badge offset={[-40, 40]} color='#108ee9' content={Badge.dot}>
+          <Badge
+            color='#108ee9'
+            content={Badge.dot}
+            style={{ '--right': '100%', '--top': '100%' }}
+          >
             <div className={styles.box} />
           </Badge>
-          <Badge offset={[-40, 0]} color='#87d068' content={Badge.dot}>
+          <Badge
+            color='#87d068'
+            content={Badge.dot}
+            style={{ '--right': '100%' }}
+          >
             <div className={styles.box} />
           </Badge>
-          <Badge offset={[0, 0]} content={Badge.dot}>
+          <Badge content={Badge.dot}>
             <div className={styles.box} />
           </Badge>
-          <Badge offset={[0, 40]} color='orange' content={Badge.dot}>
+          <Badge color='orange' content={Badge.dot} style={{ '--top': '100%' }}>
             <div className={styles.box} />
           </Badge>
         </Space>
