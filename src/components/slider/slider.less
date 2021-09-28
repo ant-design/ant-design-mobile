@@ -1,6 +1,7 @@
-@class-prefix-slider: ~'am-slider';
+@class-prefix-slider: ~'adm-slider';
 
 .@{class-prefix-slider} {
+  --fill-color: var(--adm-color-primary);
   padding: 4px 12px;
   list-style: none;
   user-select: none;
@@ -19,7 +20,7 @@
   &-fill {
     position: absolute;
     height: 4px;
-    background-color: #1677ff;
+    background-color: var(--fill-color);
   }
 
   &-ticks {
@@ -38,7 +39,7 @@
     background-color: #f5f5f5;
     border-radius: 50%;
     &-active {
-      background-color: #1677ff;
+      background-color: var(--fill-color);
     }
   }
 

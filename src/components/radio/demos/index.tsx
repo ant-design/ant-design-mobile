@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { DemoBlock } from 'demos'
 import { Radio, Space } from 'antd-mobile'
+import { SmileOutline, SmileFill } from 'antd-mobile-icons'
 
 export default () => {
   const [value, setValue] = useState<string>()
@@ -50,6 +51,41 @@ export default () => {
           <Radio block>块级元素</Radio>
           <Radio>非块级元素</Radio>
         </Space>
+      </DemoBlock>
+      <DemoBlock title='自定义 icon'>
+        <Radio.Group
+          value={value}
+          onChange={(val: string) => {
+            setValue(val)
+          }}
+        >
+          <Space direction='vertical'>
+            <Radio
+              value='radio1'
+              icon={checked =>
+                checked ? (
+                  <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
+                ) : (
+                  <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
+                )
+              }
+            >
+              单选框一
+            </Radio>
+            <Radio
+              value='radio2'
+              icon={checked =>
+                checked ? (
+                  <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
+                ) : (
+                  <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
+                )
+              }
+            >
+              单选框二
+            </Radio>
+          </Space>
+        </Radio.Group>
       </DemoBlock>
     </>
   )

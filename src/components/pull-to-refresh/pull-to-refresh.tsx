@@ -8,7 +8,7 @@ import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { sleep } from '../../utils/sleep'
 
-const classPrefix = `am-pull-to-refresh`
+const classPrefix = `adm-pull-to-refresh`
 
 enum PullStatus {
   idle,
@@ -148,7 +148,7 @@ export const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
             {status === PullStatus.complete && props.completeText}
           </div>
         </animated.div>
-        <div>{props.children}</div>
+        <div className={`${classPrefix}-content`}>{props.children}</div>
       </animated.div>
     )
   }

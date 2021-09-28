@@ -1,0 +1,50 @@
+.adm-swiper {
+  --height: auto;
+  --width: 100%;
+  --slide-width: 100%;
+  --border-radius: 0;
+  --track-padding: 0;
+  display: block;
+  width: var(--width);
+  height: var(--height);
+  position: relative;
+  border-radius: var(--border-radius);
+  z-index: 0;
+  &-track {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: var(--track-padding);
+    &-allow-touch-move {
+      cursor: grab;
+    }
+    &-inner {
+      width: var(--slide-width);
+      overflow: visible;
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  }
+  &-indicator {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.adm-swiper-slide {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  white-space: unset;
+  flex: none;
+}
+
+.adm-swiper-item {
+  display: block;
+  width: 100%;
+  height: auto;
+}

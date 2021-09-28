@@ -1,0 +1,24 @@
+.adm-page-indicator {
+  display: flex;
+  width: fit-content;
+  --active-color: var(--adm-color-primary);
+  --non-active-color: rgba(0, 0, 0, 0.2);
+  &-dot {
+    display: block;
+    width: 3px;
+    height: 3px;
+    border-radius: 1px;
+    background: var(--non-active-color);
+    margin-right: 3px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &-active {
+      width: 13px;
+      background: var(--active-color);
+    }
+  }
+  &-color-white {
+    --active-color: var(--adm-color-white);
+  }
+}

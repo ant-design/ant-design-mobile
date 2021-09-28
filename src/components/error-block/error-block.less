@@ -1,23 +1,13 @@
-@class-prefix-error-block: ~'am-error-block';
+@class-prefix-error-block: ~'adm-error-block';
 
 .@{class-prefix-error-block} {
-  --color: var(--am-color-text);
-
-  position: relative;
-  top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  --color: var(--adm-color-text);
   box-sizing: border-box;
+  text-align: center;
 
   &-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100px;
-    margin-bottom: 20px;
-    overflow: hidden;
+    padding-bottom: 20px;
 
     & img {
       height: 100%;
@@ -25,10 +15,6 @@
   }
 
   &-description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     font-size: 12px;
     color: #999;
     line-height: 1.4;
@@ -45,7 +31,7 @@
   }
 
   &-full-page {
-    top: 116px;
+    padding-top: calc(50vh - 200px);
     .@{class-prefix-error-block}-image {
       height: 200px;
     }

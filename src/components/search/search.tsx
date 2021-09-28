@@ -1,12 +1,15 @@
-import React, { useState, useRef, FC } from 'react'
+import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
 import classNames from 'classnames'
 import Input, { InputRef } from '../input'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { SearchOutlined } from '@ant-design/icons'
+import { SearchOutline } from 'antd-mobile-icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { useConfig } from '../config-provider'
 
-const classPrefix = `am-search`
+const classPrefix = `adm-search`
+
+export type SearchRef = InputRef
 
 export type SearchProps = {
   value?: string
@@ -15,13 +18,14 @@ export type SearchProps = {
   placeholder?: string
   clearable?: boolean
   showCancelButton?: boolean
+  cancelText?: string
   onSearch?: (val: string) => void
   onChange?: (val: string) => void
   onFocus?: () => void
   onBlur?: () => void
   onClear?: () => void
   onCancel?: () => void
-} & ElementProps<'--background' | '--border-radius' | '--placeholder-color'>
+} & NativeProps<'--background' | '--border-radius' | '--placeholder-color'>
 
 const defaultProps = {
   clearable: true,
@@ -29,18 +33,26 @@ const defaultProps = {
   defaultValue: '',
 }
 
-export const Search: FC<SearchProps> = p => {
+export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = useNewControllableValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const inputRef = useRef<InputRef>(null)
 
-  return (
+  useImperativeHandle(ref, () => ({
+    clear: () => inputRef.current?.clear(),
+    focus: () => inputRef.current?.focus(),
+    blur: () => inputRef.current?.blur(),
+  }))
+
+  const { locale } = useConfig()
+
+  return withNativeProps(
+    props,
     <div
-      className={classNames(classPrefix, props.className, {
+      className={classNames(classPrefix, {
         [`${classPrefix}-active`]: hasFocus,
       })}
-      style={props.style}
     >
       <form
         className={`${classPrefix}-input-box`}
@@ -53,7 +65,7 @@ export const Search: FC<SearchProps> = p => {
         }}
       >
         <div className={`${classPrefix}-input-box-icon`}>
-          <SearchOutlined />
+          <SearchOutline />
         </div>
         <Input
           ref={inputRef}
@@ -90,10 +102,10 @@ export const Search: FC<SearchProps> = p => {
               props.onCancel?.()
             }}
           >
-            取消
+            {props.cancelText ?? locale.common.cancel}
           </a>
         </div>
       )}
     </div>
   )
-}
+})

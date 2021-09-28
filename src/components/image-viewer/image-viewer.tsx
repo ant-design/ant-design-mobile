@@ -11,10 +11,11 @@ import React, {
   forwardRef,
   useImperativeHandle,
   createRef,
+  useEffect,
 } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
 
-const classPrefix = `am-image-viewer`
+const classPrefix = `adm-image-viewer`
 
 export type ImageViewerProps = {
   image?: string
@@ -37,7 +38,7 @@ export const ImageViewer = withDefaultProps(defaultProps)<ImageViewerProps>(
       <Mask
         visible={props.visible}
         disableBodyScroll={false}
-        opacity='dark'
+        opacity='thick'
         afterClose={props.afterClose}
       >
         <div className={`${classPrefix}-content`}>
@@ -75,7 +76,7 @@ export const MultiImageViewer = withDefaultProps(
     <Mask
       visible={props.visible}
       disableBodyScroll={false}
-      opacity='dark'
+      opacity='thick'
       afterClose={props.afterClose}
     >
       <div className={`${classPrefix}-content`}>
@@ -101,7 +102,10 @@ export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
     close: () => void
   }
   const Wrapper = forwardRef<Ref>((_, ref) => {
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(false)
+    useEffect(() => {
+      setVisible(true)
+    }, [])
     useImperativeHandle(ref, () => ({
       close: () => {
         setVisible(false)
@@ -138,7 +142,10 @@ export function showMultiImageViewer(
     close: () => void
   }
   const Wrapper = forwardRef<Ref>((_, ref) => {
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(false)
+    useEffect(() => {
+      setVisible(true)
+    }, [])
     useImperativeHandle(ref, () => ({
       close: () => {
         setVisible(false)

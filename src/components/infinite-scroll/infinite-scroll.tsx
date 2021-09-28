@@ -1,8 +1,7 @@
 import { withDefaultProps } from '../../utils/with-default-props'
 import React, { useEffect, useRef } from 'react'
 import { useLockFn, usePersistFn } from 'ahooks'
-import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
 import Loading from '../loading'
 
@@ -10,13 +9,13 @@ function isWindow(element: any | Window): element is Window {
   return element === window
 }
 
-const classPrefix = `am-infinite-scroll`
+const classPrefix = `adm-infinite-scroll`
 
 export type InfiniteScrollProps = {
   loadMore: () => Promise<void>
   hasMore: boolean
   threshold?: number
-} & ElementProps
+} & NativeProps
 
 const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
   return (
@@ -24,7 +23,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
       {hasMore ? (
         <>
           <span>加载中</span>
-          <Loading size='small' />
+          <Loading />
         </>
       ) : (
         <span>没有更多了</span>
@@ -75,12 +74,9 @@ export const InfiniteScroll = withDefaultProps({
     }
   }, [])
 
-  return (
-    <div
-      className={classNames(classPrefix, props.className)}
-      style={props.style}
-      ref={elementRef}
-    >
+  return withNativeProps(
+    props,
+    <div className={classPrefix} ref={elementRef}>
       {props.children && props.children}
       {!props.children && <InfiniteScrollContent hasMore={props.hasMore} />}
     </div>

@@ -1,15 +1,14 @@
 import React, { useRef, useState, useLayoutEffect } from 'react'
-import classNames from 'classnames'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
-const classPrefix = `am-ellipsis`
+const classPrefix = `adm-ellipsis`
 
 export type EllipsisProps = {
   content: string
-  direction?: 'start' | 'end'
+  direction?: 'start' | 'end' | 'middle'
   rows?: number
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   direction: 'end',
@@ -81,17 +80,53 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
           }
         }
       }
-      setEllipsised(check(0, props.content.length))
+
+      function checkMiddle(
+        leftPart: [number, number],
+        rightPart: [number, number]
+      ): string {
+        if (
+          leftPart[1] - leftPart[0] <= 1 &&
+          rightPart[1] - rightPart[0] <= 1
+        ) {
+          return (
+            props.content.slice(0, leftPart[0]) +
+            '...' +
+            props.content.slice(rightPart[1], end)
+          )
+        }
+        const leftPartMiddle = Math.floor((leftPart[0] + leftPart[1]) / 2)
+        const rightPartMiddle = Math.floor((rightPart[0] + rightPart[1]) / 2)
+        container.innerText =
+          props.content.slice(0, leftPartMiddle) +
+          '...' +
+          props.content.slice(rightPartMiddle, end)
+        if (container.offsetHeight <= maxHeight) {
+          return checkMiddle(
+            [leftPartMiddle, leftPart[1]],
+            [rightPart[0], rightPartMiddle]
+          )
+        } else {
+          return checkMiddle(
+            [leftPart[0], leftPartMiddle],
+            [rightPartMiddle, rightPart[1]]
+          )
+        }
+      }
+
+      const middle = Math.floor((0 + end) / 2)
+      setEllipsised(
+        props.direction === 'middle'
+          ? checkMiddle([0, middle], [middle, end])
+          : check(0, props.content.length)
+      )
     }
     document.body.removeChild(container)
   }, [props.content, props.rows, props.direction])
 
-  return (
-    <div
-      ref={originRef}
-      className={classNames(classPrefix, props.className)}
-      style={props.style}
-    >
+  return withNativeProps(
+    props,
+    <div ref={originRef} className={classPrefix}>
       {ellipsised}
     </div>
   )

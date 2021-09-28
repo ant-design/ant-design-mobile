@@ -1,5 +1,6 @@
+import React from 'react'
 import { PullToRefresh, List } from 'antd-mobile'
-import { sleep } from 'antd-mobile/src/utils/sleep'
+import { sleep } from 'antd-mobile/es/utils/sleep'
 import { useState } from 'react'
 
 let current = 1

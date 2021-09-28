@@ -1,11 +1,10 @@
 import React from 'react'
 import { Circle as RCProgressCircle } from 'rc-progress'
-import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { convertPx } from '../../utils/convert-px'
 
-const classPrefix = `am-progress`
+const classPrefix = `adm-progress`
 
 export type ProgressCircleProps = {
   percent?: number
@@ -13,7 +12,7 @@ export type ProgressCircleProps = {
   size?: number
   strokeColor?: string
   children?: React.ReactNode
-} & ElementProps
+} & NativeProps
 
 export const ProgressCircle = withDefaultProps({
   percent: 0,
@@ -32,11 +31,9 @@ export const ProgressCircle = withDefaultProps({
     height: `${size}px`,
   }
 
-  return (
-    <div
-      className={classNames(`${classPrefix}-circle-wrap`, props.className)}
-      style={props.style}
-    >
+  return withNativeProps(
+    props,
+    <div className={`${classPrefix}-circle-wrap`}>
       <div className={`${classPrefix}-circle-content`} style={contentStyle}>
         <RCProgressCircle
           prefixCls={classPrefix}

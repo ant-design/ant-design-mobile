@@ -1,16 +1,9 @@
 import * as React from 'react'
-import {
-  fireEvent,
-  render,
-  testA11y,
-  waitFor,
-  screen,
-  userEvent,
-} from 'testing'
+import { fireEvent, render, testA11y, userEvent } from 'testing'
 import Checkbox from '../'
 import { CheckboxGroupProps } from '../group'
 
-const classPrefix = `am-checkbox`
+const classPrefix = `adm-checkbox`
 
 it('passes a11y test', async () => {
   await testA11y(<Checkbox>label</Checkbox>)

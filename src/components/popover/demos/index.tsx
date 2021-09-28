@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Popover, Button, Toast } from 'antd-mobile'
-import { UploadOutlined, SafetyOutlined } from '@ant-design/icons'
+import { UploadOutline, CheckShieldOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 
 const directionList = [
@@ -50,8 +50,8 @@ export default () => {
       <DemoBlock title='带菜单的气泡'>
         <Popover.Menu
           actions={[{ text: '菜单1' }, { text: '菜单2', disabled: true }]}
-          onSelect={node => Toast.show(`选择了 ${node.text}`)}
-          placement={'bottomLeft'}
+          onAction={node => Toast.show(`选择了 ${node.text}`)}
+          placement='bottomLeft'
           trigger='click'
         >
           <Button>touch me</Button>
@@ -60,11 +60,11 @@ export default () => {
       <DemoBlock title='带图标的菜单气泡'>
         <Popover.Menu
           actions={[
-            { text: '菜单1', icon: <UploadOutlined /> },
-            { text: '菜单2', icon: <SafetyOutlined /> },
+            { text: '菜单1', icon: <UploadOutline /> },
+            { text: '菜单2', icon: <CheckShieldOutline /> },
           ]}
-          placement={'topRight'}
-          onSelect={node => Toast.show(`选择了 ${node.text}`)}
+          placement='topRight'
+          onAction={node => Toast.show(`选择了 ${node.text}`)}
           trigger='click'
         >
           <Button>touch me</Button>
@@ -73,7 +73,7 @@ export default () => {
       <DemoBlock title='深色背景'>
         <Popover
           content='Hello World'
-          placement={'right'}
+          placement='right'
           mode='dark'
           trigger='click'
         >
@@ -90,7 +90,7 @@ export default () => {
           <div
             style={{
               margin: '32px auto',
-              background: 'var(--am-color-light)',
+              background: 'var(--adm-color-light)',
               height: 100,
               width: 100,
               display: 'flex',

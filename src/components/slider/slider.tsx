@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
 import Marks, { SliderMarks } from './marks'
@@ -8,7 +8,7 @@ import { withDefaultProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-slider`
+const classPrefix = `adm-slider`
 
 export type SliderValue = number | [number, number]
 
@@ -24,7 +24,7 @@ export type SliderProps = {
   range?: boolean
   onChange?: (value: SliderValue) => void
   onAfterChange?: (value: SliderValue) => void
-} & ElementProps
+} & NativeProps<'--fill-color'>
 
 const defaultProps = {
   min: 0,
@@ -167,16 +167,12 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     )
   }
 
-  return (
+  return withNativeProps(
+    props,
     <div
-      className={classNames(
-        classPrefix,
-        {
-          [`${classPrefix}-disabled`]: disabled,
-        },
-        props.className
-      )}
-      style={props.style}
+      className={classNames(classPrefix, {
+        [`${classPrefix}-disabled`]: disabled,
+      })}
     >
       <div className={`${classPrefix}-track-container`} onClick={onTrackClick}>
         <div

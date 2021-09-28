@@ -3,9 +3,9 @@ import { useDrag } from 'react-use-gesture'
 import { useSpring, animated } from '@react-spring/web'
 import { Slide } from './slide'
 import { convertPx } from '../../utils/convert-px'
-import { bound } from '../../utils/rubberband'
+import { bound } from '../../utils/bound'
 
-const classPrefix = `am-image-viewer`
+const classPrefix = `adm-image-viewer`
 
 export const Slides: FC<{
   images: string[]

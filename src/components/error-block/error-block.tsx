@@ -1,10 +1,11 @@
 import React, { ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
-import { errorConfigRecord } from './error'
+import { iconRecord } from './error'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useConfig } from '../config-provider'
 
-const classPrefix = `am-error-block`
+const classPrefix = `adm-error-block`
 
 export type ErrorBlockProps = {
   status?: 'default' | 'disconnected' | 'empty' | 'busy'
@@ -12,7 +13,7 @@ export type ErrorBlockProps = {
   image?: string | ReactElement
   description?: ReactNode
   fullPage?: boolean
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   status: 'default',
@@ -20,10 +21,13 @@ const defaultProps = {
 
 export const ErrorBlock = withDefaultProps(defaultProps)<ErrorBlockProps>(
   props => {
-    const config = errorConfigRecord[props.status]
-    const des = 'description' in props ? props.description : config.description
-    const title = 'title' in props ? props.title : config.title
-    let imageNode: ReactNode = <img src={config.icon} />
+    const icon = iconRecord[props.status]
+    const { locale } = useConfig()
+    const contentPack = locale.ErrorBlock[props.status]
+    const des =
+      'description' in props ? props.description : contentPack.description
+    const title = 'title' in props ? props.title : contentPack.title
+    let imageNode: ReactNode = <img src={icon} />
 
     if (props.image) {
       if (typeof props.image === 'string') {
@@ -33,20 +37,20 @@ export const ErrorBlock = withDefaultProps(defaultProps)<ErrorBlockProps>(
       }
     }
 
-    return (
+    return withNativeProps(
+      props,
       <div
-        className={classNames(classPrefix, props.className, {
+        className={classNames(classPrefix, {
           [`${classPrefix}-full-page`]: props.fullPage,
         })}
-        style={props.style}
       >
         <div className={`${classPrefix}-image`}>{imageNode}</div>
         <div className={`${classPrefix}-description`}>
           {title && (
-            <span className={`${classPrefix}-description-title`}>{title}</span>
+            <div className={`${classPrefix}-description-title`}>{title}</div>
           )}
           {des && (
-            <span className={`${classPrefix}-description-subtitle`}>{des}</span>
+            <div className={`${classPrefix}-description-subtitle`}>{des}</div>
           )}
         </div>
 

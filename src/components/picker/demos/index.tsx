@@ -1,7 +1,7 @@
 import { DemoBlock } from 'demos'
 import { Picker, Button, Space } from 'antd-mobile'
 import React, { useState, useEffect } from 'react'
-import { sleep } from 'antd-mobile/src/utils/sleep'
+import { sleep } from 'antd-mobile/es/utils/sleep'
 
 const basicColumns = [
   ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],
@@ -11,7 +11,6 @@ const basicColumns = [
 function BasicDemo() {
   const [visible, setVisible] = useState(false)
   const [value, setValue] = useState<(string | null)[]>(['M'])
-  console.log('value', value)
   return (
     <>
       <Button
@@ -29,64 +28,6 @@ function BasicDemo() {
         }}
         value={value}
         onConfirm={setValue}
-        onSelect={val => {
-          console.log('onSelect', val)
-        }}
-      />
-    </>
-  )
-}
-
-function CascaderDemo() {
-  const [visible, setVisible] = useState(false)
-  const options = [
-    {
-      label: '浙江',
-      value: '浙江',
-      children: [
-        {
-          label: '杭州',
-          value: '杭州',
-        },
-        {
-          label: '宁波',
-          value: '宁波',
-        },
-      ],
-    },
-    {
-      label: '江苏',
-      value: '江苏',
-      children: [
-        {
-          label: '南京',
-          value: '南京',
-        },
-        {
-          label: '苏州',
-          value: '苏州',
-        },
-      ],
-    },
-  ]
-  return (
-    <>
-      <Button
-        onClick={() => {
-          setVisible(true)
-        }}
-      >
-        选择
-      </Button>
-      <Picker.Cascader
-        options={options}
-        visible={visible}
-        onClose={() => {
-          setVisible(false)
-        }}
-        onConfirm={val => {
-          console.log('onConfirm', val)
-        }}
         onSelect={val => {
           console.log('onSelect', val)
         }}
@@ -185,9 +126,6 @@ export default () => {
     <>
       <DemoBlock title='基础用法'>
         <BasicDemo />
-      </DemoBlock>
-      <DemoBlock title='级联选择'>
-        <CascaderDemo />
       </DemoBlock>
       <DemoBlock title='异步获取选项'>
         <AsyncDemo />

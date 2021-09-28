@@ -1,7 +1,7 @@
 import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import Badge from '../badge'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
@@ -9,7 +9,7 @@ export type TabBarItemProps = {
   icon?: ReactNode
   title?: string
   badge?: ReactNode
-} & ElementProps
+} & NativeProps
 
 export const TabBarItem: FC<TabBarItemProps> = () => {
   return null
@@ -19,7 +19,7 @@ export type TabBarProps = {
   activeKey?: string
   defaultActiveKey?: string
   onChange?: (key: string) => void
-} & ElementProps
+} & NativeProps
 
 export const TabBar: FC<TabBarProps> = props => {
   let firstActiveKey: string | null = null
@@ -42,18 +42,16 @@ export const TabBar: FC<TabBarProps> = props => {
     onChange: props.onChange,
   })
 
-  return (
-    <div
-      className={classNames('am-tab-bar', props.className)}
-      style={props.style}
-    >
+  return withNativeProps(
+    props,
+    <div className='adm-tab-bar'>
       {items.map(item => {
         function renderContent() {
           const iconElement = item.props.icon && (
-            <div className='am-tab-bar-item-icon'>{item.props.icon}</div>
+            <div className='adm-tab-bar-item-icon'>{item.props.icon}</div>
           )
           const titleElement = item.props.title && (
-            <div className='am-tab-bar-item-title'>{item.props.title}</div>
+            <div className='adm-tab-bar-item-title'>{item.props.title}</div>
           )
           if (item.props.badge !== undefined) {
             if (iconElement) {
@@ -84,7 +82,8 @@ export const TabBar: FC<TabBarProps> = props => {
           }
           return null
         }
-        return (
+        return withNativeProps(
+          item.props,
           <div
             key={item.key}
             onClick={() => {
@@ -92,8 +91,8 @@ export const TabBar: FC<TabBarProps> = props => {
               if (key === undefined || key === null) return
               setActiveKey(key.toString())
             }}
-            className={classNames('am-tab-bar-item', item.props.className, {
-              'am-tab-bar-item-active': item.key === activeKey,
+            className={classNames('adm-tab-bar-item', {
+              'adm-tab-bar-item-active': item.key === activeKey,
             })}
           >
             {renderContent()}

@@ -1,21 +1,30 @@
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-space`
+const classPrefix = `adm-space`
 
 export type SpaceProps = {
   size?: number | number[] | string | string[]
   direction?: 'horizontal' | 'vertical'
   align?: 'start' | 'end' | 'center' | 'baseline'
+  justify?:
+    | 'start'
+    | 'end'
+    | 'center'
+    | 'baseline'
+    | 'between'
+    | 'around'
+    | 'evenly'
+    | 'stretch'
   wrap?: boolean
   block?: boolean
-} & ElementProps
+} & NativeProps
 
 export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
   props => {
-    const { size, direction, style = {} } = props
+    const { size, direction } = props
     let sizeStyle: any = {}
     if (size) {
       const [horizontalSize, verticalSize] = Array.isArray(size)
@@ -30,22 +39,17 @@ export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
             : horizontalSize,
       }
     }
-    return (
+    return withNativeProps(
+      props,
       <div
-        className={classNames(
-          classPrefix,
-          {
-            [`${classPrefix}-wrap`]: props.wrap,
-            [`${classPrefix}-block`]: props.block,
-            [`${classPrefix}-${direction}`]: true,
-            [`${classPrefix}-align-${props.align}`]: !!props.align,
-          },
-          props.className
-        )}
-        style={{
-          ...sizeStyle,
-          ...style,
-        }}
+        className={classNames(classPrefix, {
+          [`${classPrefix}-wrap`]: props.wrap,
+          [`${classPrefix}-block`]: props.block,
+          [`${classPrefix}-${direction}`]: true,
+          [`${classPrefix}-align-${props.align}`]: !!props.align,
+          [`${classPrefix}-justify-${props.justify}`]: !!props.justify,
+        })}
+        style={sizeStyle}
       >
         {React.Children.map(props.children, child => {
           return (

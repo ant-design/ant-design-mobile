@@ -40,21 +40,18 @@ function copyAssets() {
     .pipe(gulp.dest('lib/cjs/assets'))
 }
 
-function tsCJS() {
-  const tsProject = ts({
-    ...tsconfig.compilerOptions,
-    module: 'CommonJS',
-  })
+function buildCJS() {
   return gulp
-    .src(['src/**/*.{ts,tsx}'], {
-      ignore: ['**/demos/**/*', '**/tests/**/*'],
-    })
-    .pipe(tsProject)
-    .pipe(babel())
+    .src(['lib/es/**/*.js'])
+    .pipe(
+      babel({
+        'plugins': ['@babel/plugin-transform-modules-commonjs'],
+      })
+    )
     .pipe(gulp.dest('lib/cjs/'))
 }
 
-function tsES() {
+function buildES() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
     module: 'ESNext',
@@ -68,7 +65,7 @@ function tsES() {
     .pipe(gulp.dest('lib/es/'))
 }
 
-function tsDeclaration() {
+function buildDeclaration() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
     module: 'ESNext',
@@ -176,7 +173,8 @@ exports.umdWebpack = umdWebpack
 
 exports.default = gulp.series(
   clean,
-  gulp.parallel(tsCJS, tsES, tsDeclaration, buildStyle),
+  buildES,
+  gulp.parallel(buildCJS, buildDeclaration, buildStyle),
   copyAssets,
   copyMetaFiles,
   generatePackageJSON,

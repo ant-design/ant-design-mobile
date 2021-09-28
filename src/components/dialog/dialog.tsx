@@ -5,8 +5,9 @@ import Mask from '../mask'
 import { Action, DialogActionButton } from './dialog-action-button'
 import Image from '../image'
 import Space from '../space'
+import { GetContainer } from '../../utils/render-to-container'
 
-const classPrefix = `am-dialog`
+const classPrefix = `adm-dialog`
 
 export interface DialogProps {
   afterClose?: () => void
@@ -21,7 +22,7 @@ export interface DialogProps {
   onClose?: () => void
   closeOnMaskClick?: boolean
   visible?: boolean
-  getContainer?: HTMLElement | (() => HTMLElement) | undefined
+  getContainer?: GetContainer
   bodyStyle?: React.CSSProperties
   bodyClassName?: string
   maskStyle?: React.CSSProperties

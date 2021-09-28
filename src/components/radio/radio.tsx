@@ -1,12 +1,12 @@
 import React, { FC, useContext } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
-import { CheckOutlined } from '@ant-design/icons'
+import { CheckOutline } from 'antd-mobile-icons'
 import { RadioGroupContext } from './group-context'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-radio`
+const classPrefix = `adm-radio`
 
 export type RadioValue = string | number
 
@@ -17,7 +17,9 @@ export type RadioProps = {
   onChange?: (checked: boolean) => void
   value?: RadioValue
   block?: boolean
-} & ElementProps
+  id?: string
+  icon?: (checked: boolean) => React.ReactNode
+} & NativeProps
 
 const defaultProps = {
   defaultChecked: false,
@@ -48,6 +50,22 @@ export const Radio: FC<RadioProps> = p => {
     disabled = disabled || groupContext.disabled
   }
 
+  const renderIcon = () => {
+    if (props.icon) {
+      return (
+        <div className={`${classPrefix}-custom-icon`}>
+          {props.icon(checked)}
+        </div>
+      )
+    }
+
+    return (
+      <div className={`${classPrefix}-icon`}>
+        <CheckOutline className={`${classPrefix}-icon-checked`} />
+      </div>
+    )
+  }
+
   return (
     <label
       className={classNames(classPrefix, props.className, {
@@ -68,10 +86,9 @@ export const Radio: FC<RadioProps> = p => {
           e.nativeEvent.stopImmediatePropagation()
         }}
         disabled={disabled}
+        id={props.id}
       />
-      <div className={`${classPrefix}-icon`}>
-        <CheckOutlined className={`${classPrefix}-icon-checked`} />
-      </div>
+      {renderIcon()}
       {props.children && (
         <div className={`${classPrefix}-content`}>{props.children}</div>
       )}

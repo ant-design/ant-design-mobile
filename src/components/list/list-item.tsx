@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react'
-import { ElementProps } from '../../utils/element-props'
-import { RightOutlined } from '@ant-design/icons'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 
-const classPrefix = `am-list`
+const classPrefix = `adm-list`
 
 export type ListItemProps = {
   title?: string | ReactNode
@@ -14,7 +14,7 @@ export type ListItemProps = {
   clickable?: boolean
   arrow?: boolean | ReactNode
   onClick?: () => void
-} & ElementProps<'--prefix-width' | '--align-items'>
+} & NativeProps<'--prefix-width' | '--align-items'>
 
 export const ListItem: FC<ListItemProps> = props => {
   const clickable = props.clickable ?? !!props.onClick
@@ -43,23 +43,24 @@ export const ListItem: FC<ListItemProps> = props => {
       )}
       {arrow && (
         <div className={`${classPrefix}-item-content-arrow`}>
-          {arrow === true ? <RightOutlined /> : arrow}
+          {arrow === true ? <RightOutline /> : arrow}
         </div>
       )}
     </div>
   )
 
-  return React.createElement(
-    clickable ? 'a' : 'div',
-    {
-      className: classNames(
-        `${classPrefix}-item`,
-        props.className,
-        clickable ? ['am-plain-anchor'] : []
-      ),
-      style: props.style,
-      onClick: props.onClick,
-    },
-    content
+  return withNativeProps(
+    props,
+    React.createElement(
+      clickable ? 'a' : 'div',
+      {
+        className: classNames(
+          `${classPrefix}-item`,
+          clickable ? ['adm-plain-anchor'] : []
+        ),
+        onClick: props.onClick,
+      },
+      content
+    )
   )
 }

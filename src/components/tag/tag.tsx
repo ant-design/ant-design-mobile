@@ -1,20 +1,23 @@
 import React, { CSSProperties, FC } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 
-const classPrefix = `am-tag`
+const classPrefix = `adm-tag`
 
 const colorRecord: Record<string, string> = {
   default: '#666666',
-  primary: '#1677FF',
+  primary: 'var(--adm-color-primary, #1677ff)',
+  success: 'var(--adm-color-success, #00b578)',
+  warning: 'var(--adm-color-warning, #ff8f1f)',
+  danger: 'var(--adm-color-danger, #ff3141)',
 }
 
 export type TagProps = {
-  color?: 'default' | 'primary' | string
+  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger' | string
   fill?: 'solid' | 'outline'
   round?: boolean
-} & ElementProps
+} & NativeProps
 
 const defaultProps = {
   color: 'default',
@@ -30,19 +33,15 @@ export const Tag: FC<TagProps> = p => {
     '--color': string
   } = {
     '--color': color,
-    ...props.style,
   }
-  return (
+  return withNativeProps(
+    props,
     <span
       style={style}
-      className={classNames(
-        classPrefix,
-        {
-          [`${classPrefix}-round`]: props.round,
-          [`${classPrefix}-outline`]: props.fill === 'outline',
-        },
-        props.className
-      )}
+      className={classNames(classPrefix, {
+        [`${classPrefix}-round`]: props.round,
+        [`${classPrefix}-outline`]: props.fill === 'outline',
+      })}
     >
       {props.children}
     </span>

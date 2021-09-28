@@ -1,6 +1,6 @@
 import classNames from 'classnames'
-import React, { FC } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import React, { ReactNode } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Space from '../space'
 import Grid from '../grid'
@@ -8,34 +8,36 @@ import { convertPx } from '../../utils/convert-px'
 import selectorCheckMarkImg from '../../assets/selector-check-mark.svg'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-selector`
+const classPrefix = `adm-selector`
 
-export interface SelectorOption {
-  label: string
-  value: string
+type SelectorValue = string | number
+
+export interface SelectorOption<V> {
+  label: ReactNode
+  value: V
   disabled?: boolean
 }
 
-export type SelectorProps = {
-  options: SelectorOption[]
+export type SelectorProps<V> = {
+  options: SelectorOption<V>[]
   columns?: number
   multiple?: boolean
   disabled?: boolean
-  defaultValue?: string[]
-  value?: string[]
-  onChange?: (v: string[]) => void
-} & ElementProps
+  defaultValue?: V[]
+  value?: V[]
+  onChange?: (v: V[]) => void
+} & NativeProps<'--checked-color'>
 
 const defaultProps = {
   multiple: false,
   defaultValue: [],
 }
 
-export const Selector: FC<SelectorProps> = p => {
+export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = useNewControllableValue(props)
 
-  const seletorItems = props.options.map(option => {
+  const items = props.options.map(option => {
     const active = (value || []).includes(option.value)
     const disabled = option.disabled || props.disabled
     const itemCls = classNames(`${classPrefix}-item`, {
@@ -73,15 +75,13 @@ export const Selector: FC<SelectorProps> = p => {
     )
   })
 
-  return (
-    <div
-      className={classNames(classPrefix, props.className)}
-      style={props.style}
-    >
-      {!props.columns && <Space wrap>{seletorItems}</Space>}
+  return withNativeProps(
+    props,
+    <div className={classPrefix}>
+      {!props.columns && <Space wrap>{items}</Space>}
       {props.columns && (
         <Grid columns={props.columns} gap={convertPx(8)}>
-          {seletorItems}
+          {items}
         </Grid>
       )}
     </div>

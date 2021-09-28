@@ -1,11 +1,11 @@
 import React, { useState, useRef, useLayoutEffect, memo } from 'react'
 import classNames from 'classnames'
-import { CloseOutlined, SoundOutlined } from '@ant-design/icons'
+import { CloseOutline, SoundOutline } from 'antd-mobile-icons'
 import { useUpdateLayoutEffect } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
-const classPrefix = `am-notice-bar`
+const classPrefix = `adm-notice-bar`
 
 export type NoticeBarProps = {
   /** 通告栏的类型 */
@@ -24,7 +24,7 @@ export type NoticeBarProps = {
   extra?: React.ReactNode
   /** 左侧广播图标 */
   icon?: React.ReactNode
-} & ElementProps<'--background-color' | '--border-color' | '--text-color'>
+} & NativeProps<'--background-color' | '--border-color' | '--text-color'>
 
 const defaultProps = {
   color: 'default',
@@ -76,26 +76,29 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
     text.style.transform = `translateX(-${text.offsetWidth}px)`
   }, [key])
 
-  return visible ? (
-    <div className={classNames(classPrefix, `am-notice-bar-${props.color}`)}>
-      <span className={`am-notice-bar-left`}>
-        {'icon' in props ? props.icon : <SoundOutlined />}
+  if (!visible) return null
+
+  return withNativeProps(
+    props,
+    <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)}>
+      <span className={`${classPrefix}-left`}>
+        {'icon' in props ? props.icon : <SoundOutline />}
       </span>
-      <span ref={containerRef} className={`am-notice-bar-content`}>
+      <span ref={containerRef} className={`${classPrefix}-content`}>
         <span
           onTransitionEnd={() => setKey(k => k + 1)}
           key={key}
           ref={textRef}
-          className={`am-notice-bar-content-inner`}
+          className={`${classPrefix}-content-inner`}
         >
           {props.content}
         </span>
       </span>
       {(props.closeable || props.extra) && (
-        <span className={`am-notice-bar-right`}>
+        <span className={`${classPrefix}-right`}>
           {props.extra}
           {props.closeable && (
-            <CloseOutlined
+            <CloseOutline
               onClick={() => {
                 setVisible(false)
                 props.onClose?.()
@@ -105,5 +108,5 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
         </span>
       )}
     </div>
-  ) : null
+  )
 })

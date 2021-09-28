@@ -1,12 +1,13 @@
 import React, { FC, useContext } from 'react'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
-import { CheckOutlined } from '@ant-design/icons'
+import { CheckOutline } from 'antd-mobile-icons'
 import { CheckboxGroupContext } from './group-context'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { devWarning } from '../../utils/dev-log'
 
-const classPrefix = `am-checkbox`
+const classPrefix = `adm-checkbox`
 
 export type CheckboxValue = string | number
 
@@ -18,15 +19,19 @@ export type CheckboxProps = {
   value?: CheckboxValue
   indeterminate?: boolean
   block?: boolean
-} & ElementProps
+  id?: string
+  icon?: (checked: boolean, indeterminate: boolean) => React.ReactNode
+} & NativeProps
 
 const defaultProps = {
   defaultChecked: false,
+  indeterminate: false,
 }
 
 export const Checkbox: FC<CheckboxProps> = p => {
-  const props = mergeProps(defaultProps, p)
   const groupContext = useContext(CheckboxGroupContext)
+
+  const props = mergeProps(defaultProps, p)
 
   let [checked, setChecked] = useNewControllableValue({
     value: props.checked,
@@ -35,8 +40,25 @@ export const Checkbox: FC<CheckboxProps> = p => {
   })
   let disabled = props.disabled
 
+  const usageWarning = () => {
+    if (p.checked !== undefined) {
+      devWarning(
+        'Checkbox',
+        'When used with `Checkbox.Group`, the `checked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
+      )
+    }
+    if (p.defaultChecked !== undefined) {
+      devWarning(
+        'Checkbox',
+        'When used with `Checkbox.Group`, the `defaultChecked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
+      )
+    }
+  }
+
   const { value } = props
   if (groupContext && value !== undefined) {
+    usageWarning()
+
     checked = groupContext.value.includes(value)
     setChecked = (checked: boolean) => {
       if (checked) {
@@ -49,15 +71,32 @@ export const Checkbox: FC<CheckboxProps> = p => {
     disabled = disabled || groupContext.disabled
   }
 
-  return (
+  const renderIcon = () => {
+    if (props.icon) {
+      return (
+        <div className={`${classPrefix}-custom-icon`}>
+          {props.icon(checked, props.indeterminate)}
+        </div>
+      )
+    }
+
+    return (
+      <div className={`${classPrefix}-icon`}>
+        <CheckOutline className={`${classPrefix}-icon-checked`} />
+        <div className={`${classPrefix}-indeterminate-checked`} />
+      </div>
+    )
+  }
+
+  return withNativeProps(
+    props,
     <label
-      className={classNames(classPrefix, props.className, {
+      className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-indeterminate`]: props.indeterminate,
         [`${classPrefix}-disabled`]: disabled,
         [`${classPrefix}-block`]: props.block,
       })}
-      style={props.style}
     >
       <input
         type='checkbox'
@@ -70,11 +109,10 @@ export const Checkbox: FC<CheckboxProps> = p => {
           e.nativeEvent.stopImmediatePropagation()
         }}
         disabled={disabled}
+        id={props.id}
       />
-      <div className={`${classPrefix}-icon`}>
-        <CheckOutlined className={`${classPrefix}-icon-checked`} />
-        <div className={`${classPrefix}-indeterminate-checked`} />
-      </div>
+
+      {renderIcon()}
       {props.children && (
         <div className={`${classPrefix}-content`}>{props.children}</div>
       )}

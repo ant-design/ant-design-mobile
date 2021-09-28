@@ -1,16 +1,16 @@
 import classNames from 'classnames'
 import React from 'react'
 import { convertPx } from '../../utils/convert-px'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-badge`
+const classPrefix = `adm-badge`
 
 export type BadgeProps = {
   content?: React.ReactNode
   color?: string
   offset?: [number, number]
-} & ElementProps
+} & NativeProps
 
 export const Badge = withDefaultProps({
   color: '#FF411C',
@@ -33,25 +33,19 @@ export const Badge = withDefaultProps({
     [`${classPrefix}-dot`]: !content,
   })
 
-  return children ? (
-    <div
-      className={classNames(`${classPrefix}-wrap`, props.className)}
-      style={props.style}
-    >
-      {children}
+  return withNativeProps(
+    props,
+    children ? (
+      <div className={`${classPrefix}-wrap`}>
+        {children}
+        <div className={badgeCls} style={badgeStyle}>
+          {content}
+        </div>
+      </div>
+    ) : (
       <div className={badgeCls} style={badgeStyle}>
         {content}
       </div>
-    </div>
-  ) : (
-    <div
-      className={classNames(badgeCls, props.className)}
-      style={{
-        ...badgeStyle,
-        ...props.style,
-      }}
-    >
-      {content}
-    </div>
+    )
   )
 })

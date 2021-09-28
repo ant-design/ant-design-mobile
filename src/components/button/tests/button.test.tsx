@@ -2,7 +2,7 @@ import React from 'react'
 import { render, testA11y, screen, fireEvent } from 'testing'
 import Button from '../'
 
-const classPrefix = `am-button`
+const classPrefix = `adm-button`
 
 it('passes a11y test', async () => {
   await testA11y(<Button>test</Button>)
@@ -66,12 +66,6 @@ test('renders with block', () => {
     </Button>
   )
   expect(getByText('Block')).toHaveClass(`${classPrefix}-block`)
-})
-
-test('renders with disabled', () => {
-  const { getByRole } = render(<Button disabled>Disabled</Button>)
-  const button = getByRole('button')
-  expect(button).toBeDisabled()
 })
 
 test('renders with disabled', () => {

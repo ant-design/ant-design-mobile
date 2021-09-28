@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { useGesture } from 'react-use-gesture'
 import { useSpring, animated } from '@react-spring/web'
 
-const classPrefix = `am-image-viewer`
+const classPrefix = `adm-image-viewer`
 
 type Props = {
   image: string

@@ -1,11 +1,11 @@
 import classNames from 'classnames'
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import SpinIcon from '../../assets/spin.svg'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-switch`
+const classPrefix = `adm-switch`
 
 export type SwitchProps = {
   loading?: boolean
@@ -13,7 +13,9 @@ export type SwitchProps = {
   checked?: boolean
   defaultChecked?: boolean
   onChange?: (checked: boolean) => void
-} & ElementProps
+  checkedText?: ReactNode
+  uncheckedText?: ReactNode
+} & NativeProps<'--checked-color'>
 
 const defaultProps = {
   defaultChecked: false,
@@ -29,17 +31,13 @@ export const Switch: FC<SwitchProps> = p => {
     onChange: props.onChange,
   })
 
-  return (
+  return withNativeProps(
+    props,
     <label
-      className={classNames(
-        classPrefix,
-        {
-          [`${classPrefix}-checked`]: checked,
-          [`${classPrefix}-disabled`]: disabled,
-        },
-        props.className
-      )}
-      style={props.style}
+      className={classNames(classPrefix, {
+        [`${classPrefix}-checked`]: checked,
+        [`${classPrefix}-disabled`]: disabled,
+      })}
     >
       <input
         type='checkbox'
@@ -58,6 +56,9 @@ export const Switch: FC<SwitchProps> = p => {
                 <img src={SpinIcon} className={`${classPrefix}-icon`} />
               ))
           }
+        </div>
+        <div className={`${classPrefix}-inner`}>
+          {checked ? props.checkedText : props.uncheckedText}
         </div>
       </div>
     </label>

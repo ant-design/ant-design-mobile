@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
 import Loading from '../loading'
-import { getNativeAttributes } from '../../utils/get-native-attributes'
 import { mergeProps } from '../../utils/with-default-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
-const classPrefix = `am-button`
+const classPrefix = `adm-button`
 
-export interface ButtonProps {
+export type ButtonProps = {
   color?: 'default' | 'primary' | 'success' | 'warning' | 'danger'
   fill?: 'solid' | 'outline' | 'none'
   size?: 'mini' | 'small' | 'middle' | 'large'
@@ -15,10 +15,15 @@ export interface ButtonProps {
   loadingText?: string
   disabled?: boolean
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-  className?: string
-  style?: React.CSSProperties
   type?: 'submit' | 'reset' | 'button'
-}
+} & NativeProps<
+  | '--text-color'
+  | '--background-color'
+  | '--border-radius'
+  | '--border-width'
+  | '--border-style'
+  | '--border-color'
+>
 
 const defaultProps = {
   color: 'default',
@@ -31,9 +36,9 @@ const defaultProps = {
 export const Button: FC<ButtonProps> = p => {
   const props = mergeProps(defaultProps, p)
   const disabled = props.disabled
-  return (
+  return withNativeProps(
+    props,
     <button
-      {...getNativeAttributes(props)}
       type={props.type}
       onClick={props.onClick}
       className={classNames(
@@ -48,16 +53,14 @@ export const Button: FC<ButtonProps> = p => {
           [`${classPrefix}-small`]: props.size === 'small',
           [`${classPrefix}-large`]: props.size === 'large',
           [`${classPrefix}-loading`]: props.loading,
-        },
-        props.className
+        }
       )}
-      style={props.style}
       disabled={disabled}
     >
       {props.loading ? (
         <>
           <div className={`${classPrefix}-loading-wrapper`}>
-            <Loading color='currentColor' size={props.size} />
+            <Loading color='currentColor' />
             {props.loadingText}
           </div>
         </>

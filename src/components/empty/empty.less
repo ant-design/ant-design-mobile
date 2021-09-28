@@ -1,4 +1,4 @@
-@class-prefix-empty: ~'am-empty';
+@class-prefix-empty: ~'adm-empty';
 
 .@{class-prefix-empty} {
   display: flex;
@@ -7,14 +7,17 @@
   justify-content: center;
   padding: 24px 0;
 
-  &-image {
-    display: block;
-    width: 64px;
+  &-image-container {
+    display: flex;
+    justify-content: center;
+    &-image {
+      width: 64px;
+    }
   }
 
   &-description {
     margin-top: 8px;
     font-size: 14px;
-    color: var(--am-color-light);
+    color: var(--adm-color-light);
   }
 }

@@ -1,7 +1,8 @@
-@class-prefix-selector: ~'am-selector';
+@class-prefix-selector: ~'adm-selector';
 
 .@{class-prefix-selector} {
-  --color: var(--am-color-text);
+  --color: var(--adm-color-text);
+  --checked-color: #e7f1ff;
 
   overflow: hidden;
   font-size: 15px;
@@ -22,8 +23,8 @@
 
     &-active,
     &-multiple-active {
-      color: var(--am-color-primary);
-      background-color: #e7f1ff;
+      color: var(--adm-color-primary);
+      background-color: var(--checked-color);
     }
 
     .@{class-prefix-selector}-check-mark-wrapper {
@@ -33,9 +34,9 @@
       width: 0;
       height: 0;
       border-top: solid 8px transparent;
-      border-bottom: solid 8px var(--am-color-primary);
+      border-bottom: solid 8px var(--adm-color-primary);
       border-left: solid 10px transparent;
-      border-right: solid 10px var(--am-color-primary);
+      border-right: solid 10px var(--adm-color-primary);
       > img {
         position: absolute;
         left: 0;

@@ -1,8 +1,8 @@
-@class-prefix-action-sheet: ~'am-action-sheet';
+@class-prefix-action-sheet: ~'adm-action-sheet';
 
 .@{class-prefix-action-sheet} {
   &-popup {
-    > .am-popup-body {
+    > .adm-popup-body {
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
       overflow: hidden;
@@ -11,14 +11,14 @@
   &-extra {
     display: flex;
     justify-content: center;
-    color: var(--am-color-weak);
+    color: var(--adm-color-weak);
     font-size: 15px;
     padding: 18px 16px;
-    border-bottom: 1px solid var(--am-border-color);
+    border-bottom: 1px solid var(--adm-border-color);
   }
   &-button-item-wrapper {
     background-color: #ffffff;
-    border-top: 1px solid var(--am-border-color);
+    border-top: 1px solid var(--adm-border-color);
     &:first-child {
       border-top: none;
     }
@@ -28,17 +28,17 @@
     text-align: center;
     border-radius: 0;
     &-name {
-      color: var(--am-color-text);
+      color: var(--adm-color-text);
       font-size: 18px;
     }
     &-description {
       font-size: 12px;
-      color: var(--am-color-weak);
+      color: var(--adm-color-weak);
       padding-top: 4px;
     }
     &-danger {
       .@{class-prefix-action-sheet}-button-item-name {
-        color: var(--am-color-danger);
+        color: var(--adm-color-danger);
       }
     }
   }

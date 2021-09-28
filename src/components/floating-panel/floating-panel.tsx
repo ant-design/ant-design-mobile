@@ -3,9 +3,9 @@ import React, {
   ReactNode,
   useImperativeHandle,
   useRef,
+  useState,
 } from 'react'
-import { ElementProps } from '../../utils/element-props'
-import classNames from 'classnames'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDrag } from 'react-use-gesture'
 import { useSpring, animated } from '@react-spring/web'
 import { supportsPassive } from '../../utils/supports-passive'
@@ -14,7 +14,7 @@ import { nearest } from '../../utils/nearest'
 export type FloatingPanelProps = {
   anchors: number[]
   children: ReactNode
-} & ElementProps<'--border-radius'>
+} & NativeProps<'--border-radius'>
 
 export type FloatingPanelRef = {
   setHeight: (
@@ -35,6 +35,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     const elementRef = useRef<HTMLDivElement>(null)
     const headerRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
+    const [pulling, setPulling] = useState(false)
     const pullingRef = useRef(false)
 
     const bounds = {
@@ -50,14 +51,13 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     useDrag(
       state => {
         const [_, movementY] = state.movement
-
         if (state.first) {
           const target = state.event.target as Element
           const header = headerRef.current
           if (header === target || header?.contains(target)) {
             pullingRef.current = true
           } else {
-            const reachedTop = y.get() <= bounds.top
+            const reachedTop = y.goal <= bounds.top
             const content = contentRef.current
             if (!content) return
             if (reachedTop) {
@@ -69,16 +69,17 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
             }
           }
         }
+        setPulling(pullingRef.current)
         if (!pullingRef.current) return
         const { event } = state
         if (event.cancelable) {
           event.preventDefault()
         }
         event.stopPropagation()
-
         let nextY = movementY
         if (state.last) {
           pullingRef.current = false
+          setPulling(false)
           nextY = nearest(possibles, movementY)
         }
         api.start({
@@ -114,20 +115,26 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       [api]
     )
 
-    return (
+    return withNativeProps(
+      props,
       <animated.div
         ref={elementRef}
-        className={classNames('am-drawer', props.className)}
+        className='adm-drawer'
         style={{
-          ...props.style,
           height: maxHeight,
           y,
         }}
       >
-        <div className='am-drawer-header' ref={headerRef}>
-          <div className='am-drawer-bar' />
+        <div
+          className='adm-drawer-mask'
+          style={{
+            display: pulling ? 'block' : 'none',
+          }}
+        />
+        <div className='adm-drawer-header' ref={headerRef}>
+          <div className='adm-drawer-bar' />
         </div>
-        <div className='am-drawer-content' ref={contentRef}>
+        <div className='adm-drawer-content' ref={contentRef}>
           {props.children}
         </div>
       </animated.div>

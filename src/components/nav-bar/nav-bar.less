@@ -1,0 +1,53 @@
+@class-prefix-nav-bar: ~'adm-nav-bar';
+
+.@{class-prefix-nav-bar} {
+  --height: 45px;
+  --border-bottom: none;
+  display: flex;
+  align-items: center;
+  height: var(--height);
+  border-bottom: var(--border-bottom);
+  padding: 0 12px;
+  white-space: nowrap;
+
+  &-left,
+  &-right {
+    flex: 1;
+  }
+  &-title {
+    flex: auto;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-back {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+    padding: 6px 0;
+    cursor: pointer;
+    &-arrow {
+      font-size: 18px;
+      margin-right: 6px;
+    }
+  }
+
+  &-left {
+    font-size: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &-title {
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 18px;
+    padding: 0 12px;
+  }
+
+  &-right {
+    text-align: right;
+  }
+}

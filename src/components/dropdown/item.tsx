@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { FC } from 'react'
 
-const classPrefix = `am-dropdown-item`
+const classPrefix = `adm-dropdown-item`
 
 export interface DropdownItemProps {
   key: string

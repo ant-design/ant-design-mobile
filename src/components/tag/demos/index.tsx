@@ -8,10 +8,13 @@ export default () => {
         <Tag>123</Tag>
       </DemoBlock>
 
-      <DemoBlock title='默认提供 2 种通用标签颜色'>
+      <DemoBlock title='默认提供 5 种通用标签颜色'>
         <Space>
           <Tag color='default'>Default</Tag>
           <Tag color='primary'>Primary</Tag>
+          <Tag color='success'>Success</Tag>
+          <Tag color='warning'>Warning</Tag>
+          <Tag color='danger'>Danger</Tag>
         </Space>
       </DemoBlock>
 

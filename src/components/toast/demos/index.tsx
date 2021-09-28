@@ -1,13 +1,24 @@
 import React, { FC, useEffect, useState } from 'react'
 import { Button, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { CloudUploadOutlined } from '@ant-design/icons'
+import { UploadOutline } from 'antd-mobile-icons'
 
 export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <Button onClick={() => Toast.show('Hello World')}>轻提示</Button>
+        <Button
+          onClick={() =>
+            Toast.show({
+              content: 'Hello World',
+              afterClose: () => {
+                console.log('after')
+              },
+            })
+          }
+        >
+          轻提示
+        </Button>
       </DemoBlock>
       <DemoBlock title='图标'>
         <Space wrap>
@@ -45,7 +56,7 @@ export default () => {
             onClick={() => {
               Toast.show({
                 content: '上传中',
-                icon: <CloudUploadOutlined />,
+                icon: <UploadOutline />,
               })
             }}
           >

@@ -1,16 +1,16 @@
 import classNames from 'classnames'
 import React from 'react'
 import { convertPx } from '../../utils/convert-px'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
-const classPrefix = `am-progress-bar`
+const classPrefix = `adm-progress-bar`
 
 export type ProgressBarProps = {
   percent?: number
   strokeWidth?: number
   strokeColor?: string
-} & ElementProps
+} & NativeProps
 
 export const ProgressBar = withDefaultProps({
   percent: 0,
@@ -35,11 +35,9 @@ export const ProgressBar = withDefaultProps({
     transition: 'width 0.3s',
   }
 
-  return (
-    <div
-      className={classNames(classPrefix, props.className)}
-      style={props.style}
-    >
+  return withNativeProps(
+    props,
+    <div className={classPrefix}>
       <div className={`${classPrefix}-trail`} style={trailStyle}>
         <div className={classNames(`${classPrefix}-path`)} style={pathStyle} />
       </div>

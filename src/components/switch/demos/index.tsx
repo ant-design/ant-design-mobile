@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Space, Switch } from 'antd-mobile'
+import { CloseOutline, CheckOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 import { useToggle } from 'ahooks'
 import './index.less'
@@ -48,8 +49,21 @@ export default () => {
       <DemoBlock title='loading状态和禁用状态共存时不显示loading'>
         <Switch disabled loading={loading} />
       </DemoBlock>
-      <DemoBlock title='自定义样式'>
-        <Switch className='my-switch' />
+      <DemoBlock title='文字和图标'>
+        <Space wrap>
+          <Switch uncheckedText='关' checkedText='开' />
+          <Switch
+            checkedText={<CheckOutline />}
+            uncheckedText={<CloseOutline />}
+          />
+          <Switch uncheckedText='0' checkedText='1' />
+        </Space>
+      </DemoBlock>
+      <DemoBlock title='自定义样式（通过 style）'>
+        <Switch defaultChecked style={{ '--checked-color': '#ff8f1f' }} />
+      </DemoBlock>
+      <DemoBlock title='自定义样式（通过 className）'>
+        <Switch defaultChecked className='my-switch' />
       </DemoBlock>
     </>
   )

@@ -1,11 +1,11 @@
 import React from 'react'
 import classNames from 'classnames'
-import { ElementProps } from '../../utils/element-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { StarFilled } from '@ant-design/icons'
+import { StarFill } from 'antd-mobile-icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
-const classPrefix = `am-rate`
+const classPrefix = `adm-rate`
 
 export type RateProps = {
   allowClear?: boolean
@@ -16,12 +16,12 @@ export type RateProps = {
   readonly?: boolean
   value?: number
   onChange?: (value: number) => void
-} & ElementProps<'--star-size' | '--active-color'>
+} & NativeProps<'--star-size' | '--active-color'>
 
 const defaultProps = {
   count: 5,
   allowHalf: false,
-  character: <StarFilled />,
+  character: <StarFill />,
   defaultValue: 0,
   readonly: false,
   allowClear: true,
@@ -51,11 +51,9 @@ export const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
       </div>
     )
   }
-  return (
-    <div
-      style={props.style}
-      className={classNames(classPrefix, props.className)}
-    >
+  return withNativeProps(
+    props,
+    <div className={classPrefix}>
       {starList.map((_, i) => (
         <div key={i} className={classNames(`${classPrefix}-box`)}>
           {props.allowHalf && renderStar(i + 0.5, true)}

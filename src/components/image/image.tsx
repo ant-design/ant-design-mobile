@@ -1,10 +1,9 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React, { FC, ReactNode, useState } from 'react'
-import { ElementProps } from '../../utils/element-props'
-import classNames from 'classnames'
-import { PictureOutlined, DisconnectOutlined } from '@ant-design/icons'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { PictureOutline, PictureWrongOutline } from 'antd-mobile-icons'
 
-const classPrefix = `am-image`
+const classPrefix = `adm-image`
 
 export type ImageProps = {
   src: string
@@ -16,7 +15,7 @@ export type ImageProps = {
   fallback?: ReactNode
   onClick?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
-} & ElementProps &
+} & NativeProps &
   Pick<
     React.ImgHTMLAttributes<HTMLImageElement>,
     | 'crossOrigin'
@@ -32,12 +31,12 @@ const defaultProps = {
   fit: 'fill',
   placeholder: (
     <div className={`${classPrefix}-tip`}>
-      <PictureOutlined />
+      <PictureOutline />
     </div>
   ),
   fallback: (
     <div className={`${classPrefix}-tip`}>
-      <DisconnectOutlined />
+      <PictureWrongOutline />
     </div>
   ),
 }
@@ -81,13 +80,13 @@ export const Image: FC<ImageProps> = p => {
     )
   }
 
-  return (
+  return withNativeProps(
+    props,
     <div
-      className={classNames(classPrefix, props.className)}
+      className={classPrefix}
       style={{
         width: props.width,
         height: props.height,
-        ...props.style,
       }}
     >
       {renderInner()}

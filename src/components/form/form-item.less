@@ -1,5 +1,7 @@
-.am-form-item {
-  + .am-form-item {
+@class-prefix-form-item: ~'adm-form-item';
+
+.@{class-prefix-form-item} {
+  + .@{class-prefix-form-item} {
     border-top: none;
   }
 
@@ -11,7 +13,7 @@
 
     &-required {
       margin-right: 4px;
-      color: var(--am-color-danger);
+      color: var(--adm-color-danger);
       user-select: none;
     }
 
@@ -22,12 +24,12 @@
   }
 
   &-footer {
-    color: var(--am-color-danger);
+    color: var(--adm-color-danger);
   }
 }
 
-.am-form-vertical {
-  .am-form-item {
+.adm-form-vertical {
+  .@{class-prefix-form-item} {
     &-label {
       margin-bottom: 4px;
     }
