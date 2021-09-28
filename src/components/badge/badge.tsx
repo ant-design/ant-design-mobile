@@ -6,8 +6,10 @@ import { withDefaultProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-badge`
 
+export const dot = Symbol()
+
 export type BadgeProps = {
-  content?: React.ReactNode
+  content?: React.ReactNode | typeof dot
   color?: string
   offset?: [number, number]
 } & NativeProps
@@ -17,6 +19,8 @@ export const Badge = withDefaultProps({
   offset: [0, 0],
 })<BadgeProps>(props => {
   const { content, color, offset, children } = props
+
+  const isDot = content === dot
 
   const badgeStyle = children
     ? {
@@ -30,22 +34,24 @@ export const Badge = withDefaultProps({
 
   const badgeCls = classNames(classPrefix, {
     [`${classPrefix}-fixed`]: !!children,
-    [`${classPrefix}-dot`]: !content,
+    [`${classPrefix}-dot`]: isDot,
   })
 
-  return withNativeProps(
-    props,
-    children ? (
-      <div className={`${classPrefix}-wrap`}>
-        {children}
+  const element = content
+    ? withNativeProps(
+        props,
         <div className={badgeCls} style={badgeStyle}>
-          {content}
+          {!isDot && content}
         </div>
-      </div>
-    ) : (
-      <div className={badgeCls} style={badgeStyle}>
-        {content}
-      </div>
-    )
+      )
+    : null
+
+  return children ? (
+    <div className={`${classPrefix}-wrap`}>
+      {children}
+      {element}
+    </div>
+  ) : (
+    element
   )
 })
