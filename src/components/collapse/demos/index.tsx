@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { Collapse, List } from 'antd-mobile'
+import { Collapse, List, Loading, Result } from 'antd-mobile'
 import { DemoBlock, sleep } from 'demos'
 
-const DynamiContent = () => {
-  const [list, setList] = useState<string[]>([])
+const DynamicContent = () => {
+  const [finished, setFinished] = useState(false)
 
   useEffect(() => {
     const loadData = async () => {
       await sleep(1000)
-      setList(['A', 'B', 'C', 'D'])
+      setFinished(true)
     }
     loadData()
   }, [])
 
-  return (
-    <List>
-      {list.map(item => (
-        <List.Item key={item}>{item}</List.Item>
-      ))}
-    </List>
-  )
+  return finished ? <Result status='success' title='处理成功' /> : <Loading />
 }
 
 export default () => {
@@ -78,10 +72,10 @@ export default () => {
       <DemoBlock title='动态内容' padding='0' border='none'>
         <Collapse accordion>
           <Collapse.Panel key='1' title='第一项'>
-            <DynamiContent />
+            <DynamicContent />
           </Collapse.Panel>
           <Collapse.Panel key='2' title='第二项'>
-            <DynamiContent />
+            <DynamicContent />
           </Collapse.Panel>
         </Collapse>
       </DemoBlock>

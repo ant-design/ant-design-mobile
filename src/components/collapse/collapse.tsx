@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  ReactElement,
-  ComponentProps,
-  useRef,
-  useLayoutEffect,
-} from 'react'
+import React, { FC, ReactElement, ComponentProps, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
 import { RightOutline } from 'antd-mobile-icons'
@@ -12,6 +6,7 @@ import classNames from 'classnames'
 import { useInitialized } from '../../utils/use-initialized'
 import { useSpring, animated } from '@react-spring/web'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { useMount, useUpdateLayoutEffect } from 'ahooks'
 
 const classPrefix = `adm-collapse`
 
@@ -33,30 +28,44 @@ const CollapsePanelContent: FC<{
   const { visible } = props
   const innerRef = useRef<HTMLDivElement>(null)
   const initialized = useInitialized(visible || props.forceRender)
-  const [style, api] = useSpring(() => ({
-    from: { height: visible ? 'auto' : 0 },
+  const [{ height }, api] = useSpring(() => ({
+    from: { height: 0 },
   }))
 
-  useLayoutEffect(() => {
+  useMount(() => {
+    if (!visible) return
+    const inner = innerRef.current
+    if (!inner) return
+    api.start({
+      height: inner.offsetHeight,
+      immediate: true,
+    })
+  })
+
+  useUpdateLayoutEffect(() => {
+    const inner = innerRef.current
+    if (!inner) return
     if (visible) {
-      const inner = innerRef.current
-      if (!inner) return
       api.start({
         height: inner.offsetHeight,
       })
     } else {
+      api.start({
+        height: inner.offsetHeight,
+        immediate: true,
+      })
       api.start({
         height: 0,
       })
     }
   }, [visible])
 
-  return initialized ? (
+  return (
     <animated.div
       className={`${classPrefix}-panel-content`}
       style={{
-        height: style.height.to(v => {
-          if (style.height.idle && visible) {
+        height: height.to(v => {
+          if (height.idle && visible) {
             return 'auto'
           } else {
             return v
@@ -65,10 +74,10 @@ const CollapsePanelContent: FC<{
       }}
     >
       <div className={`${classPrefix}-panel-content-inner`} ref={innerRef}>
-        <List.Item>{props.children}</List.Item>
+        <List.Item>{initialized && props.children}</List.Item>
       </div>
     </animated.div>
-  ) : null
+  )
 }
 
 type ValueProps<T> = {
