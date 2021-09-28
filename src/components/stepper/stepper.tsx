@@ -5,12 +5,12 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { bound } from '../../utils/bound'
-import Input from '../input'
+import Input, { InputProps } from '../input'
 import Button from '../button'
 
 const classPrefix = `adm-stepper`
 
-export type StepperProps = {
+export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> & {
   value?: number
   defaultValue?: number
   min?: number
@@ -19,8 +19,6 @@ export type StepperProps = {
   digits?: number
   disabled?: boolean
   onChange?: (value: number) => void
-  onFocus?: () => void
-  onBlur?: () => void
 } & NativeProps
 
 const defaultProps = {
@@ -104,18 +102,18 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
       </Button>
       <Input
         className={`${classPrefix}-input`}
-        onFocus={() => {
+        onFocus={e => {
           setHasFocus(true)
-          props.onFocus?.()
+          props.onFocus?.(e)
         }}
         value={inputValue}
         onChange={val => {
           disabled || handleInputChange(val)
         }}
         disabled={disabled}
-        onBlur={() => {
+        onBlur={e => {
           setHasFocus(false)
-          props.onBlur?.()
+          props.onBlur?.(e)
         }}
       />
       <Button
