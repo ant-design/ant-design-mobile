@@ -51,7 +51,6 @@ const defaultProps = {
   autoplay: false,
   autoplayInterval: 3000,
   loop: true,
-  centered: false,
 }
 
 export const Swiper = forwardRef(
