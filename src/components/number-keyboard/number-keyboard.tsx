@@ -1,11 +1,12 @@
-import React, { useState, useCallback, useRef } from 'react'
+import React, { useRef, useMemo } from 'react'
 import classNames from 'classnames'
 import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import { shuffle } from '../../utils/shuffle'
 import Popup from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
-import { useControllableValue, useUpdateEffect, useClickAway } from 'ahooks'
+import { useClickAway } from 'ahooks'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -14,24 +15,28 @@ export interface NumberKeyboardProps {
   defaultVisible?: boolean
   title?: string
   getContainer?: GetContainer
-  confirmText?: string | false
+  confirmText?: string | null
   customKey?: '-' | '.' | 'X'
   randomOrder?: boolean
   showCloseButton?: boolean
   onInput?: (v: string) => void
   onDelete?: () => void
-  onClose?: (done: boolean) => void
+  onClose?: () => void
+  onConfirm?: () => void
   onBlur?: () => void
   afterShow?: () => void
   afterClose?: () => void
+  closeOnBlur?: boolean
+  closeOnConfirm?: boolean
 }
 
 const defaultProps = {
-  visible: false,
+  defaultVisible: false,
   randomOrder: false,
-  getContainer: document.body,
   showCloseButton: true,
-  confirmText: false,
+  confirmText: null,
+  closeOnBlur: true,
+  closeOnConfirm: true,
 }
 
 export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
@@ -45,66 +50,53 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     showCloseButton,
     onInput,
     onDelete,
-    onClose,
-    onBlur,
-    afterShow,
-    afterClose,
   } = props
 
-  const [visible, setVisible] = useControllableValue(props, {
-    defaultValuePropName: 'defaultVisible',
-    valuePropName: 'visible',
+  const [visible, setVisible] = useNewControllableValue({
+    value: props.visible,
+    defaultValue: props.defaultVisible,
+    onChange: val => {
+      if (!val) {
+        props.onClose?.()
+      }
+    },
   })
 
   const keyboardRef = useRef<HTMLDivElement | null>(null)
   useClickAway(() => {
-    if (visible) {
-      onBlur && onBlur()
-      onClose && onClose(false)
+    if (props.closeOnBlur && visible) {
+      props.onBlur?.()
       setVisible(false)
     }
   }, keyboardRef)
 
-  // 获取数字区域按键列表
-  const getNumbers = useCallback(() => {
-    const DEFAULT_KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-    const keyList = randomOrder ? shuffle(DEFAULT_KEYS) : DEFAULT_KEYS
-
+  const keys = useMemo(() => {
+    const defaultKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    const keyList = randomOrder ? shuffle(defaultKeys) : defaultKeys
+    keyList.push('0')
     if (confirmText) {
       keyList.push(customKey || '')
     } else {
       keyList.splice(9, 0, customKey || '')
       keyList.push('BACKSPACE')
     }
-
     return keyList
-  }, [customKey, confirmText, randomOrder])
-
-  // 记录键盘数字区域按键
-  const [keys, setKeys] = useState(getNumbers)
-
-  // 每次展示键盘时重新获取按键
-  useUpdateEffect(() => {
-    visible && setKeys(getNumbers())
-  }, [visible, getNumbers])
-
-  const onCloseKeyboard = () => {
-    setVisible(false)
-    onClose && onClose(false)
-  }
+  }, [customKey, confirmText, randomOrder, randomOrder && visible])
 
   // 点击键盘按键
   const onKeyPress = (key: string) => {
     switch (key) {
       case 'BACKSPACE':
-        onDelete && onDelete()
+        onDelete?.()
         break
       case 'OK':
-        onClose && onClose(true)
-        setVisible(false)
+        props.onConfirm?.()
+        if (props.closeOnConfirm) {
+          setVisible(false)
+        }
         break
       default:
-        onInput && onInput(key)
+        onInput?.(key)
         break
     }
   }
@@ -120,7 +112,13 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       >
         {title && <div className={`${classPrefix}-title`}>{title}</div>}
         {showCloseButton && (
-          <span onClick={onCloseKeyboard} role='button' title='CLOSE'>
+          <span
+            onClick={() => {
+              setVisible(false)
+            }}
+            role='button'
+            title='CLOSE'
+          >
             <DownOutline />
           </span>
         )}
@@ -155,8 +153,8 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       visible={visible}
       getContainer={getContainer}
       mask={false}
-      afterClose={afterClose}
-      afterShow={afterShow}
+      afterClose={props.afterClose}
+      afterShow={props.afterShow}
       className={`${classPrefix}-popup`}
     >
       <div ref={keyboardRef}>

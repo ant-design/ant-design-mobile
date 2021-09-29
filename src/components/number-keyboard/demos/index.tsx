@@ -6,21 +6,21 @@ export default () => {
   const [visible, setVisible] = useState<any>('')
   const [value, setValue] = useState('')
 
-  const openKeyboard = (e: Event, name: string) => {
+  const openKeyboard = (e: React.MouseEvent, name: string) => {
     setVisible(name)
     e.stopPropagation()
   }
 
   const actions = {
-    onClose: (done: boolean) => {
-      Toast.show({ content: done ? 'confirmed' : 'closed' })
+    onClose: () => {
+      Toast.show('closed')
       setVisible('')
     },
     onInput: (key: string) => {
-      Toast.show({ content: key })
+      Toast.show(key)
     },
     onDelete: () => {
-      Toast.show({ content: 'delete' })
+      Toast.show('delete')
     },
   }
 
