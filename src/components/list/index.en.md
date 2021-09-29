@@ -8,7 +8,7 @@
 
 | Name | Description                          | Type                  | Default     |
 | ---- | ------------------------------------ | --------------------- | ----------- |
-| mode | Support both default and card modes. | `'default' \| 'card'` | `'default'` |
+| mode | Support two modes: default and card. | `'default' \| 'card'` | `'default'` |
 
 ### List.Item
 
