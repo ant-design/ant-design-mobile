@@ -46,7 +46,7 @@ export const ProgressBar = withDefaultProps({
   return (
     <div
       className={classNames(classPrefix, props.className)}
-      style={{ display: 'flex' }}
+      style={{ ...props.style, display: 'flex' }}
     >
       <div className={`${classPrefix}-trail`} style={trailStyle}>
         <div className={classNames(`${classPrefix}-path`)} style={pathStyle} />
