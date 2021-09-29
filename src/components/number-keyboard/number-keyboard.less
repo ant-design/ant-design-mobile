@@ -1,9 +1,11 @@
 @class-prefix-number-keyboard: ~'adm-number-keyboard';
 
 .@{class-prefix-number-keyboard} {
-  display: flex;
-  flex-wrap: wrap;
-  flex: 1;
+  &-main {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+  }
 
   &.confirmed-style {
     width: 75%;
@@ -33,14 +35,13 @@
     padding: 0 12px;
     color: var(--adm-color-weak);
     background-color: var(--adm-color-white);
-
-    .anticon-down {
+    &-close-button {
+      padding: 0 12px;
       font-size: 16px;
-      padding: 0 30px; // 扩大点击范围
     }
     &.with-title {
       justify-content: space-between;
-      .anticon-down {
+      .@{class-prefix-number-keyboard}-header-close-button {
         padding-right: 0;
       }
     }

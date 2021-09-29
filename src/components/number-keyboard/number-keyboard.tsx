@@ -113,6 +113,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
         {title && <div className={`${classPrefix}-title`}>{title}</div>}
         {showCloseButton && (
           <span
+            className={`${classPrefix}-header-close-button`}
             onClick={() => {
               setVisible(false)
             }}
@@ -157,11 +158,11 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       afterShow={props.afterShow}
       className={`${classPrefix}-popup`}
     >
-      <div ref={keyboardRef}>
+      <div ref={keyboardRef} className={classPrefix}>
         {renderHeader()}
         <div className={`${classPrefix}-wrapper`}>
           <div
-            className={classNames(classPrefix, {
+            className={classNames(`${classPrefix}-main`, {
               'confirmed-style': !!confirmText,
             })}
           >
