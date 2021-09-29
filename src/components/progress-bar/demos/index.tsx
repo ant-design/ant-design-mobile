@@ -39,6 +39,9 @@ export default () => {
           <ProgressBar percent={100} strokeWidth={8} />
         </Space>
       </DemoBlock>
+      <DemoBlock title='显示进度百分比'>
+        <ProgressBar percent={60} showPercent />
+      </DemoBlock>
       <DemoBlock title='指定颜色'>
         <ProgressBar percent={100} strokeColor='#FF3141' />
       </DemoBlock>
