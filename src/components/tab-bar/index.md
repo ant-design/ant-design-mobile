@@ -14,9 +14,9 @@
 
 ### TabBar.Item
 
-| 属性  | 说明                                        | 类型                                  | 默认值 |
-| ----- | ------------------------------------------- | ------------------------------------- | ------ |
-| key   | 对应 `activeKey`                            | `string`                              | -      |
-| title | 标题                                        | `ReactNode`                           | -      |
-| icon  | 图标                                        | `ReactNode`                           | -      |
-| badge | 徽标，同 [Badge](./badge) 的 `content` 属性 | `React.ReactNode \| typeof Badge.dot` | -      |
+| 属性  | 说明                                        | 类型                                            | 默认值 |
+| ----- | ------------------------------------------- | ----------------------------------------------- | ------ |
+| key   | 对应 `activeKey`                            | `string`                                        | -      |
+| title | 标题                                        | `ReactNode`                                     | -      |
+| icon  | 图标                                        | `ReactNode \| ((active: boolean) => ReactNode)` | -      |
+| badge | 徽标，同 [Badge](./badge) 的 `content` 属性 | `React.ReactNode \| typeof Badge.dot`           | -      |
