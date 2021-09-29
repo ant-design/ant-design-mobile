@@ -18,7 +18,7 @@
 | onClear      | 点击清除按钮后触发                           | `() => void`              | -       |
 | id           | input 元素的 id，常用来配合 label 使用       | `string`                  | -       |
 
-此外还支持以下原生属性：`maxLength` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect`
+此外还支持以下原生属性：`maxLength` `minLengh` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect`
 
 ## CSS 变量
 
@@ -36,3 +36,11 @@
 | clear | 清空输入内容     | `() => void` |
 | focus | 让输入框获得焦点 | `() => void` |
 | blur  | 让输入框失去焦点 | `() => void` |
+
+## FAQ
+
+### 当 type 为 number 时，maxLength 限制为什么没有生效？
+
+在原生 `input` 中，`maxlength` 只在 `type` 为 `text`, `search`, `url`, `tel`, `email`, `password` 时生效，请参考 [MDN 上的文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-maxlength)。
+
+如果需要对 number 类型对输入框进行限制，可以通过 `max` `min` 属性。
