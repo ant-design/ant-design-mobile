@@ -13,7 +13,7 @@ export type ListItemProps = {
   extra?: ReactNode
   clickable?: boolean
   arrow?: boolean | ReactNode
-  onClick?: () => void
+  onClick?: (e: React.MouseEvent) => void
 } & NativeProps<'--prefix-width' | '--align-items'>
 
 export const ListItem: FC<ListItemProps> = props => {

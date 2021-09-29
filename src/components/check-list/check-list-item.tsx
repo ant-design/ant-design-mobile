@@ -36,13 +36,13 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
       title={props.title}
       description={props.description}
       prefix={props.prefix}
-      onClick={() => {
+      onClick={e => {
         if (active) {
           context.uncheck(props.value)
         } else {
           context.check(props.value)
         }
-        props.onClick?.()
+        props.onClick?.(e)
       }}
       arrow={false}
       clickable

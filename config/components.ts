@@ -66,6 +66,7 @@ export const components = {
     '/components/what-is-experimental',
     '/components/desense-text',
     '/components/image-uploader',
+    '/components/number-keyboard',
     '/components/picker-view',
     '/components/tree-select',
   ],
