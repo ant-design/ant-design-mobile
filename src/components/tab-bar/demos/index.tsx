@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import {
   AppOutline,
   MessageOutline,
+  MessageFill,
   UnorderedListOutline,
   UserOutline,
 } from 'antd-mobile-icons'
@@ -25,7 +26,8 @@ export default () => {
     {
       key: 'message',
       title: '我的消息',
-      icon: <MessageOutline />,
+      icon: (active: boolean) =>
+        active ? <MessageFill /> : <MessageOutline />,
       badge: '99+',
     },
     {
