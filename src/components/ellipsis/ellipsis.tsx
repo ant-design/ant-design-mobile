@@ -42,10 +42,12 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
     container.style.webkitBoxOrient = 'unset'
     container.style.display = 'block'
     const lineHeight = pxToNumber(originStyle.lineHeight)
-    const maxHeight =
-      Math.floor(lineHeight) * props.rows +
-      pxToNumber(originStyle.paddingTop) +
-      pxToNumber(originStyle.paddingBottom)
+    const maxHeight = Math.round(
+      lineHeight * props.rows +
+        pxToNumber(originStyle.paddingTop) +
+        pxToNumber(originStyle.paddingBottom)
+    )
+
     container.innerText = props.content
     document.body.appendChild(container)
     if (container.offsetHeight <= maxHeight) {
@@ -118,7 +120,7 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
       setEllipsised(
         props.direction === 'middle'
           ? checkMiddle([0, middle], [middle, end])
-          : check(0, props.content.length)
+          : check(0, end)
       )
     }
     document.body.removeChild(container)
