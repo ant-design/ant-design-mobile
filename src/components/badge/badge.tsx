@@ -15,9 +15,8 @@ export type BadgeProps = {
 
 export const Badge = withDefaultProps({
   color: '#FF411C',
-  offset: [0, 0],
 })<BadgeProps>(props => {
-  const { content, color, offset, children } = props
+  const { content, color, children } = props
 
   const isDot = content === dot
 
