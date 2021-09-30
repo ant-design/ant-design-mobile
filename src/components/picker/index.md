@@ -73,7 +73,7 @@ type CascadePickerOption = {
 | precision    | 精度             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
 | children     | 所选项的渲染函数 | `(value: Date) => ReactNode`                                   | -       |
 
-此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick`
+此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title`
 
 ## 指令式调用
 

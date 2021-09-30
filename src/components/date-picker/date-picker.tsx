@@ -28,6 +28,7 @@ export type DatePickerProps = Pick<
   | 'afterShow'
   | 'afterClose'
   | 'onClick'
+  | 'title'
 > & {
   value?: Date
   defaultValue?: Date
@@ -188,6 +189,7 @@ export const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(
         afterShow={props.afterShow}
         afterClose={props.afterClose}
         onClick={props.onClick}
+        title={props.title}
       >
         {items =>
           props.children?.(
