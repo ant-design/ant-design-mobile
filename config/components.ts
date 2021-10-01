@@ -60,6 +60,7 @@ export const components = {
     '/components/popup',
     '/components/tab-bar',
     '/components/tabs',
+    '/components/side-bar',
   ],
   other: ['/components/config-provider'],
   experimental: [
