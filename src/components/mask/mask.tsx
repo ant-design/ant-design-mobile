@@ -1,12 +1,19 @@
-import { NativeProps } from '../../utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useInitialized } from '../../utils/use-initialized'
-import classNames from 'classnames'
-import React, { useRef } from 'react'
-import { createPortal } from 'react-dom'
-import { CSSTransition } from 'react-transition-group'
+import React, { useMemo, useRef, useState } from 'react'
 import { useLockScroll } from '../../utils/use-lock-scroll'
+import { useSpring, animated } from '@react-spring/web'
+import { renderToContainer } from '../../utils/render-to-container'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-mask`
+
+const opacityRecord = {
+  default: 0.55,
+  thin: 0.35,
+  thick: 0.75,
+}
 
 export type MaskProps = {
   visible?: boolean
@@ -14,71 +21,86 @@ export type MaskProps = {
   destroyOnClose?: boolean
   forceRender?: boolean
   disableBodyScroll?: boolean
-  opacity?: 'default' | 'dark' | number
-  getContainer?: HTMLElement | (() => HTMLElement) | undefined
+  color?: 'black' | 'white'
+  opacity?: 'default' | 'thin' | 'thick' | number
+  getContainer?: HTMLElement | (() => HTMLElement) | null
+  afterShow?: () => void
   afterClose?: () => void
 } & NativeProps
 
-export const Mask: React.FC<MaskProps> = props => {
-  const cls = classNames(classPrefix, props.className, {
-    [`${classPrefix}-hidden`]: !props.visible,
-  })
-
-  const initialized = useInitialized(props.visible || props.forceRender)
-
-  const ref = useRef<HTMLDivElement>(null)
-
-  useLockScroll(ref, !!(props.visible && props.disableBodyScroll))
-
-  function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    if (e.currentTarget === e.target) {
-      props.onMaskClick?.(e)
-    }
-  }
-
-  const opacity =
-    props.opacity === 'default'
-      ? 0.55
-      : props.opacity === 'dark'
-      ? 0.75
-      : props.opacity
-
-  const node = (
-    <CSSTransition
-      in={props.visible}
-      timeout={200}
-      classNames={classPrefix}
-      onExited={props.afterClose}
-      unmountOnExit={props.destroyOnClose}
-    >
-      <div
-        className={cls}
-        onClick={handleClick}
-        ref={ref}
-        style={{
-          ...props.style,
-          backgroundColor: `rgba(0, 0, 0, ${opacity})`,
-        }}
-      >
-        {initialized && props.children}
-      </div>
-    </CSSTransition>
-  )
-
-  if (props.getContainer) {
-    const container =
-      typeof props.getContainer === 'function'
-        ? props.getContainer()
-        : props.getContainer
-    return createPortal(node, container)
-  }
-  return node
-}
-
-Mask.defaultProps = {
+const defaultProps = {
   visible: true,
   destroyOnClose: false,
   forceRender: false,
+  color: 'black',
   opacity: 'default',
   disableBodyScroll: true,
+  getContainer: null,
+}
+
+export const Mask: React.FC<MaskProps> = p => {
+  const props = mergeProps(defaultProps, p)
+  const initialized = useInitialized(props.visible || props.forceRender)
+  const { locale } = useConfig()
+
+  const ref = useRef<HTMLDivElement>(null)
+
+  useLockScroll(ref, props.visible && props.disableBodyScroll)
+
+  const background = useMemo(() => {
+    const opacity = opacityRecord[props.opacity] ?? props.opacity
+    const rgb = props.color === 'white' ? '255, 255, 255' : '0, 0, 0'
+    return `rgba(${rgb}, ${opacity})`
+  }, [props.color, props.opacity])
+
+  const [active, setActive] = useState(props.visible)
+
+  const { opacity } = useSpring({
+    opacity: props.visible ? 1 : 0,
+    config: {
+      precision: 0.01,
+      mass: 1,
+      tension: 200,
+      friction: 30,
+    },
+    onStart: () => {
+      setActive(true)
+    },
+    onRest: () => {
+      setActive(props.visible)
+      if (props.visible) {
+        props.afterShow?.()
+      } else {
+        props.afterClose?.()
+      }
+    },
+  })
+
+  const node = withNativeProps(
+    props,
+    <animated.div
+      className={classPrefix}
+      ref={ref}
+      style={{
+        ...props.style,
+        background,
+        opacity,
+        display: active ? 'unset' : 'none',
+      }}
+    >
+      {props.onMaskClick && (
+        <div
+          className={`${classPrefix}-aria-button`}
+          role='button'
+          aria-label={locale.Mask.name}
+          onClick={props.onMaskClick}
+        />
+      )}
+      <div className={`${classPrefix}-content`}>
+        {initialized && active && props.children}
+      </div>
+    </animated.div>
+  )
+
+  return renderToContainer(props.getContainer, node)
 }

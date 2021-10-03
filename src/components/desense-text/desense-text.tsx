@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import classnames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import Icon from '@ant-design/icons'
-import { IconEye } from '../icons/icon-eye'
-import { IconEyeClose } from '../icons/icon-eye-close'
+import { EyeInvisibleOutline, EyeOutline } from 'antd-mobile-icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
+
+const classPrefix = 'adm-desense-text'
 
 export type DesenseTextProps = {
   desense?: boolean
@@ -30,15 +30,15 @@ export const DesenseText: FC<DesenseTextProps> = p => {
   })
   return withNativeProps(
     props,
-    <span className='adm-desense-text'>
+    <span className={classPrefix}>
       {isDesense ? desenseText : text}
       <a
-        className={classnames('adm-desense-text-icon-wrap', 'adm-plain-anchor')}
+        className={classnames(`${classPrefix}-icon-wrap`, 'adm-plain-anchor')}
         onClick={() => {
           setIsDesense(!isDesense)
         }}
       >
-        <Icon component={isDesense ? IconEyeClose : IconEye} />
+        {isDesense ? <EyeInvisibleOutline /> : <EyeOutline />}
       </a>
     </span>
   )

@@ -1,10 +1,12 @@
 # Picker 选择器
 
+Picker 系列一共包括了三个组件：`Picker`、`CascadePicker`、`DatePicker`。
+
+## Picker
+
 <code src="./demos/index.tsx"></code>
 
-## API
-
-### Picker
+### 属性
 
 ```typescript | pure
 type PickerColumnItem = {
@@ -17,41 +19,65 @@ type PickerColumn = (string | PickerColumnItem)[]
 type PickerValue = string | null
 ```
 
-| 属性         | 说明                         | 类型                                                         | 默认值 |
-| ------------ | ---------------------------- | ------------------------------------------------------------ | ------ |
-| columns      | 配置每一列的选项             | PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[]) | -      |
-| value        | 选中项                       | PickerValue[]                                                | -      |
-| defaultValue | 默认选中项                   | PickerValue[]                                                | -      |
-| onSelect     | 选项改变时触发               | (value: PickerValue[]) => void                               | -      |
-| onConfirm    | 确认时触发                   | (value: PickerValue[]) => void                               | -      |
-| onCancel     | 取消时触发                   | () => void                                                   | -      |
-| onClose      | 确认和取消时都会触发关闭事件 | () => void                                                   | -      |
-| visible      | 是否显示选择器               | boolean                                                      | false  |
-| confirmText  | 确定按钮的文字               | string                                                       | 确定   |
-| cancelText   | 取消按钮的文字               | string                                                       | 取消   |
-| children     | 所选项的渲染函数             | (items: PickerColumnItem[]) => void                          | -      |
+| 属性         | 说明                         | 类型                                                           | 默认值   |
+| ------------ | ---------------------------- | -------------------------------------------------------------- | -------- |
+| columns      | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
+| value        | 选中项                       | `PickerValue[]`                                                | -        |
+| defaultValue | 默认选中项                   | `PickerValue[]`                                                | -        |
+| onSelect     | 选项改变时触发               | `(value: PickerValue[]) => void`                               | -        |
+| onConfirm    | 确认时触发                   | `(value: PickerValue[]) => void`                               | -        |
+| onCancel     | 取消时触发                   | `() => void`                                                   | -        |
+| onClose      | 确认和取消时都会触发关闭事件 | `() => void`                                                   | -        |
+| visible      | 是否显示选择器               | `boolean`                                                      | `false`  |
+| title        | 标题                         | `ReactNode`                                                    | -        |
+| confirmText  | 确定按钮的文字               | `string`                                                       | `'确定'` |
+| cancelText   | 取消按钮的文字               | `string`                                                       | `'取消'` |
+| children     | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
-此外还支持 `getContainer` `afterShow` `afterClose` `onClick` 属性，同 `Popup`
+此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick`
 
-### Picker.Cascader
+## CascadePicker
+
+<code src="./demos/cascade-picker-demo.tsx"></code>
+
+### 属性
 
 ```typescript
-type CascaderOption = {
+type CascadePickerOption = {
   label: string
   value: string
-  children?: CascaderOption[]
+  children?: CascadePickerOption[]
 }
 ```
 
-| 属性    | 说明           | 类型             | 默认值 |
-| ------- | -------------- | ---------------- | ------ |
-| options | 树形的选项数据 | CascaderOption[] | -      |
+| 属性    | 说明           | 类型                    | 默认值 |
+| ------- | -------------- | ----------------------- | ------ |
+| options | 树形的选项数据 | `CascadePickerOption[]` | -      |
 
-其他属性同 `Picker`，但不支持 `columns`
+其他属性同 `Picker`，但不支持 `columns`。
+
+## DatePicker
+
+<code src="./demos/date-picker-demo.tsx"></code>
+
+### 属性
+
+| 属性         | 说明             | 类型                                                           | 默认值  |
+| ------------ | ---------------- | -------------------------------------------------------------- | ------- |
+| value        | 选中值           | `Date`                                                         | -       |
+| defaultValue | 选中值           | `Date`                                                         | -       |
+| onSelect     | 选项改变时触发   | `(value: Date) => void`                                        | -       |
+| onConfirm    | 确认时触发       | `(value: Date) => void`                                        | -       |
+| min          | 最小值           | `Date`                                                         | 十年前  |
+| max          | 最大值           | `Date`                                                         | 十年后  |
+| precision    | 精度             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
+| children     | 所选项的渲染函数 | `(value: Date) => ReactNode`                                   | -       |
+
+此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title`
 
 ## 指令式调用
 
-Picker 支持指令式调用，提供了 `prompt` 方法：
+`Picker` 支持指令式调用，提供了 `prompt` 方法：
 
 ```typescript
 prompt: (props: Omit<PickerProps, 'value' | 'visible' | 'children'>) => Promise<PickerValue[] | null>
@@ -73,4 +99,14 @@ Picker.prompt({
 })
 ```
 
-同样地，Picker.Cascader 也支持 prompt 方法，具体用法这里不再赘述。
+同样地，`CascadePicker` 和 `DatePicker` 也支持 `prompt` 方法，具体用法这里不再赘述。
+
+## 常见问题
+
+### 为什么组件的名字叫 "DatePicker" 而不是 "DatetimePicker"？
+
+因为 `value` 的类型是 `Date`。
+
+### 为什么没有 "时-分" 或者 "月-日" 选择？
+
+不同于 `Picker` 组件，`DatePicker` 的值的类型是 `Date` 对象，所以需要从年开始一直往下选择，只有时、分的参数是不能构建一个 `Date` 对象的。

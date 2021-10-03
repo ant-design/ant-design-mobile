@@ -7,6 +7,7 @@ import { useForm } from 'rc-field-form'
 export type FormLayout = 'vertical' | 'horizontal'
 
 export type { FormProps } from './form'
+export type { FormInstance } from 'rc-field-form'
 
 export default attachPropertiesToComponent(Form, {
   Item: FormItem,

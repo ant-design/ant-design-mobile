@@ -15,14 +15,15 @@
     "paths": {
       "antd-mobile": ["src/index.ts"],
       "antd-mobile/src/*": ["src/*"],
-      "antd-mobile/lib/*": ["src/*"],
+      "antd-mobile/es/*": ["src/*"],
       "demos": ["src/demos/index.ts"],
       "testing": ["src/tests/testing"]
     },
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "resolveJsonModule": true
   },
   "include": ["src", ".dumi/theme"],
   "exclude": ["node_modules", "lib", "es", "dist"],

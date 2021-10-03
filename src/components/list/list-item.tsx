@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { RightOutlined } from '@ant-design/icons'
+import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 
 const classPrefix = `adm-list`
@@ -13,7 +13,7 @@ export type ListItemProps = {
   extra?: ReactNode
   clickable?: boolean
   arrow?: boolean | ReactNode
-  onClick?: () => void
+  onClick?: (e: React.MouseEvent) => void
 } & NativeProps<'--prefix-width' | '--align-items'>
 
 export const ListItem: FC<ListItemProps> = props => {
@@ -43,7 +43,7 @@ export const ListItem: FC<ListItemProps> = props => {
       )}
       {arrow && (
         <div className={`${classPrefix}-item-content-arrow`}>
-          {arrow === true ? <RightOutlined /> : arrow}
+          {arrow === true ? <RightOutline /> : arrow}
         </div>
       )}
     </div>

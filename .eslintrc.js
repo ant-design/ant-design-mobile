@@ -43,6 +43,15 @@ module.exports = {
         checkLoops: false,
       },
     ],
+    '@typescript-eslint/ban-types': [
+      'error',
+      {
+        extendDefaults: true,
+        types: {
+          '{}': false,
+        },
+      },
+    ],
     // 下面的是临时规则
     'react/display-name': 'off',
   },
@@ -56,6 +65,7 @@ module.exports = {
       'files': ['**/demos/**/*'],
       'rules': {
         'react/react-in-jsx-scope': 'off',
+        'react/display-name': 'off',
       },
     },
   ],

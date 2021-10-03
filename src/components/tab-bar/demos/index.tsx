@@ -1,43 +1,43 @@
 import { DemoBlock } from 'demos'
-import { TabBar } from 'antd-mobile'
+import { Badge, TabBar } from 'antd-mobile'
 import React, { useState } from 'react'
 import {
-  HomeOutlined,
-  MessageOutlined,
-  UnorderedListOutlined,
-  UserOutlined,
-} from '@ant-design/icons'
+  AppOutline,
+  MessageOutline,
+  MessageFill,
+  UnorderedListOutline,
+  UserOutline,
+} from 'antd-mobile-icons'
 
 export default () => {
   const tabs = [
     {
       key: 'home',
       title: '首页',
-      icon: <HomeOutlined />,
-      badge: '',
+      icon: <AppOutline />,
+      badge: Badge.dot,
     },
     {
       key: 'todo',
       title: '我的待办',
-      icon: <UnorderedListOutlined />,
+      icon: <UnorderedListOutline />,
       badge: '5',
     },
     {
       key: 'message',
       title: '我的消息',
-      icon: <MessageOutlined />,
+      icon: (active: boolean) =>
+        active ? <MessageFill /> : <MessageOutline />,
       badge: '99+',
     },
     {
       key: 'personalCenter',
       title: '个人中心',
-      icon: <UserOutlined />,
+      icon: <UserOutline />,
     },
   ]
 
   const [activeKey, setActiveKey] = useState('todo')
-
-  const [activeKey1, setActiveKey1] = useState('home')
 
   return (
     <>

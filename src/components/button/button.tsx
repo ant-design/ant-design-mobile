@@ -15,8 +15,6 @@ export type ButtonProps = {
   loadingText?: string
   disabled?: boolean
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-  className?: string
-  style?: React.CSSProperties
   type?: 'submit' | 'reset' | 'button'
 } & NativeProps<
   | '--text-color'
@@ -37,7 +35,7 @@ const defaultProps = {
 
 export const Button: FC<ButtonProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const disabled = props.disabled
+  const disabled = props.disabled || props.loading
   return withNativeProps(
     props,
     <button
@@ -62,7 +60,7 @@ export const Button: FC<ButtonProps> = p => {
       {props.loading ? (
         <>
           <div className={`${classPrefix}-loading-wrapper`}>
-            <Loading color='currentColor' size={props.size} />
+            <Loading color='currentColor' />
             {props.loadingText}
           </div>
         </>

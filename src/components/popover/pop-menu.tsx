@@ -24,7 +24,7 @@ export type Action = {
 
 type PopoverPropsWithActions<T> = BasePopoverProps & {
   actions: T[]
-  onSelect?: (text: T) => void
+  onAction?: (text: T) => void
 }
 
 export const PopMenu = forwardRef<PopoverRef, PopoverPropsWithActions<Action>>(
@@ -34,13 +34,13 @@ export const PopMenu = forwardRef<PopoverRef, PopoverPropsWithActions<Action>>(
 
     const onClick = useCallback(
       (e: Action) => {
-        const { onSelect } = props
-        if (onSelect) {
-          onSelect(e)
+        const { onAction } = props
+        if (onAction) {
+          onAction(e)
         }
         innerRef.current?.hide()
       },
-      [(props as PopoverPropsWithActions<Action>).onSelect]
+      [(props as PopoverPropsWithActions<Action>).onAction]
     )
 
     const overlay = useMemo(() => {
@@ -59,6 +59,7 @@ export const PopMenu = forwardRef<PopoverRef, PopoverPropsWithActions<Action>>(
                   onClick={() => {
                     if (!ele.disabled) {
                       onClick(ele)
+                      ele.onClick?.()
                     }
                   }}
                   fill='none'

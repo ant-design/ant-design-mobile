@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
-import { ImageUploader, Space, Toast } from 'antd-mobile'
+import { ImageUploader, Space, Toast, Dialog } from 'antd-mobile'
 import { DemoBlock, DemoDescription, sleep } from 'demos'
-import { FileItem } from 'antd-mobile/src/components/image-uploader'
+import { FileItem } from 'antd-mobile/es/components/image-uploader'
 
 const Basic: FC = () => {
   const [fileList, setFileList] = useState<FileItem[]>([
@@ -30,7 +30,7 @@ const UploadStatus: FC = () => {
     <ImageUploader
       value={fileList}
       onChange={setFileList}
-      upload={mockUploadFail}
+      upload={mockUploadFail as any}
     />
   )
 }
@@ -85,6 +85,27 @@ const LimitCount: FC = () => {
   )
 }
 
+const DeleteImage: FC = () => {
+  const [fileList, setFileList] = useState<FileItem[]>([
+    {
+      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    },
+  ])
+
+  return (
+    <ImageUploader
+      value={fileList}
+      onChange={setFileList}
+      upload={mockUpload}
+      onDelete={() => {
+        return Dialog.confirm({
+          content: '是否确认删除',
+        })
+      }}
+    />
+  )
+}
+
 export default () => {
   return (
     <>
@@ -109,6 +130,12 @@ export default () => {
           <DemoDescription content='限制用户最多上传 3 张图片，当达到最大数量时隐藏掉上传按钮' />
         </Space>
       </DemoBlock>
+      <DemoBlock title='删除图片确认'>
+        <Space direction='vertical'>
+          <DeleteImage />
+          <DemoDescription content='当用户删除图片时，进行确认，确认后可删除图片' />
+        </Space>
+      </DemoBlock>
     </>
   )
 }
@@ -123,7 +150,4 @@ async function mockUpload(file: File) {
 async function mockUploadFail() {
   await sleep(3000)
   throw new Error('Fail to upload')
-  return {
-    url: '',
-  }
 }

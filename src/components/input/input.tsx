@@ -1,34 +1,47 @@
 import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
-import { CloseCircleFilled } from '@ant-design/icons'
+import { CloseCircleFill } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-input`
 
+type NativeInputProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>
+
+type EnterKeyHintProps = NativeInputProps extends { enterKeyHint?: unknown }
+  ? {
+      enterKeyHint?: NativeInputProps['enterKeyHint']
+    }
+  : {}
+
 export type InputProps = Pick<
-  React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  >,
+  NativeInputProps,
   | 'maxLength'
+  | 'minLength'
+  | 'max'
+  | 'min'
   | 'autoComplete'
-  | 'enterKeyHint'
   | 'pattern'
   | 'type'
   | 'onFocus'
   | 'onBlur'
-> & {
-  value?: string
-  defaultValue?: string
-  onChange?: (val: string) => void
-  placeholder?: string
-  disabled?: boolean
-  readOnly?: boolean
-  clearable?: boolean
-  onClear?: () => void
-  id?: string
-} & NativeProps<
+  | 'autoCapitalize'
+  | 'autoCorrect'
+> &
+  EnterKeyHintProps & {
+    value?: string
+    defaultValue?: string
+    onChange?: (val: string) => void
+    placeholder?: string
+    disabled?: boolean
+    readOnly?: boolean
+    clearable?: boolean
+    onClear?: () => void
+    id?: string
+  } & NativeProps<
     '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
   >
 
@@ -44,16 +57,6 @@ export type InputRef = {
 
 export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
-  const {
-    clearable,
-    onClear,
-    className,
-    style,
-    defaultValue: outerDefaultValue,
-    value: outerValue,
-    onChange: outerOnChange,
-    ...inputProps
-  } = props
   const [value, setValue] = useNewControllableValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
@@ -93,10 +96,15 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         disabled={props.disabled}
         readOnly={props.readOnly}
         maxLength={props.maxLength}
+        minLength={props.minLength}
+        max={props.max}
+        min={props.min}
         autoComplete={props.autoComplete}
         enterKeyHint={props.enterKeyHint}
         pattern={props.pattern}
         type={props.type}
+        autoCapitalize={props.autoCapitalize}
+        autoCorrect={props.autoCorrect}
       />
       {props.clearable && !!value && hasFocus && (
         <div
@@ -109,7 +117,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
             props.onClear?.()
           }}
         >
-          <CloseCircleFilled />
+          <CloseCircleFill />
         </div>
       )}
     </div>

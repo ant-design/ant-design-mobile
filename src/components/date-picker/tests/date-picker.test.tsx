@@ -1,6 +1,7 @@
 import { render, testA11y, fireEvent, waitFor } from 'testing'
 import * as React from 'react'
 import DatePicker from '../'
+import { sleep } from '../../../utils/sleep'
 
 it('passes a11y test', async () => {
   await testA11y(<DatePicker />)

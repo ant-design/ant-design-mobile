@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
-import { Picker, PickerProps, PickerValue } from './picker'
+import { Picker } from './picker'
+import type { PickerProps, PickerValue } from './index'
 
 export function prompt(
   props: Omit<PickerProps, 'value' | 'visible' | 'children'>

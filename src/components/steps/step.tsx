@@ -20,13 +20,13 @@ export const Step: FC<StepProps> = props => {
         `${classPrefix}-status-${status}`
       )}
     >
-      <div className='adm-step-indicator'>
+      <div className={`${classPrefix}-indicator`}>
         <div className={`${classPrefix}-icon-container`}>{icon}</div>
       </div>
-      <div className='adm-step-content'>
-        <div className='adm-step-title'>{title}</div>
+      <div className={`${classPrefix}-content`}>
+        <div className={`${classPrefix}-title`}>{title}</div>
         {!!description && (
-          <div className='adm-step-description'>{description}</div>
+          <div className={`${classPrefix}-description`}>{description}</div>
         )}
       </div>
     </div>

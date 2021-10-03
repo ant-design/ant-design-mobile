@@ -1,8 +1,14 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, {
+  forwardRef,
+  useRef,
+  useState,
+  useEffect,
+  useImperativeHandle,
+} from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useThrottleFn } from 'ahooks'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { Sidebar } from './sidebar'
 import { IndexBarContext } from './context'
 import { convertPx } from '../../utils/convert-px'
@@ -13,18 +19,26 @@ export type IndexBarProps = {
   className?: string
   sticky?: boolean
   stickyOffsetTop?: number
+  children?: React.ReactNode
 } & NativeProps
+
+export type IndexBarRef = {
+  scrollTo: (index: string) => void
+}
 
 const defaultProps = {
   sticky: true,
 }
 
-export const IndexBar = withDefaultProps(defaultProps)<IndexBarProps>(props => {
+export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
+  const props = mergeProps(defaultProps, p)
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
   const [indexes, setIndexes] = useState<string[]>([])
 
   const [activeIndex, setActiveIndex] = useState(indexes[0])
+
+  useImperativeHandle(ref, () => ({ scrollTo }))
 
   function scrollTo(index: string) {
     const body = bodyRef.current

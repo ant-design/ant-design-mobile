@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Slider, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import './index.less'
 
 export default () => {
   const marks = {
@@ -81,6 +82,20 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='禁用状态' padding='13px'>
         <Slider marks={marks} ticks disabled value={40} />
+      </DemoBlock>
+      <DemoBlock title='自定义样式（通过 style）' padding='13px'>
+        <Slider
+          style={{ '--fill-color': '#00b578' }}
+          defaultValue={40}
+          onAfterChange={toastValue}
+        />
+      </DemoBlock>
+      <DemoBlock title='自定义样式（通过 className）' padding='13px'>
+        <Slider
+          className='my-slider'
+          defaultValue={40}
+          onAfterChange={toastValue}
+        />
       </DemoBlock>
     </>
   )

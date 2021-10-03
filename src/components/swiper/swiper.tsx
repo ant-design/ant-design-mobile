@@ -15,10 +15,10 @@ import { SwiperItem } from './swiper-item'
 import { devWarning } from '../../utils/dev-log'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
-import { bound } from '../../utils/rubberband'
 import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
+import { bound } from '../../utils/bound'
 
 export type SwiperRef = {
   swipeTo: (index: number) => void
@@ -42,6 +42,7 @@ export type SwiperProps = {
   | '--slide-width'
   | '--border-radius'
   | '--track-padding'
+  | '--track-offset'
 >
 
 const defaultProps = {
@@ -227,7 +228,9 @@ export const Swiper = forwardRef(
                         let position = -x + index * 100
                         if (loop) {
                           const totalWidth = count * 100
-                          position = modulus(position + 100, totalWidth) - 100
+                          position =
+                            modulus(position + totalWidth / 2, totalWidth) -
+                            totalWidth / 2
                         }
                         return `${position}%`
                       }),

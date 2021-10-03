@@ -1,12 +1,14 @@
-import React, { FC, ReactNode } from 'react'
+import React, { ReactNode, forwardRef } from 'react'
 import classNames from 'classnames'
 import { NativeProps } from '../../utils/native-props'
 import List from '../list'
 import RcForm from 'rc-field-form'
-import type { FormProps as RcFormProps } from 'rc-field-form'
+import type { FormProps as RcFormProps, FormInstance } from 'rc-field-form'
 import { FormContext, FormContextType } from './context'
 import { mergeProps } from '../../utils/with-default-props'
 import type { FormLayout } from '.'
+
+const classPrefix = 'adm-form'
 
 export type FormProps = RcFormProps &
   NativeProps &
@@ -20,7 +22,7 @@ const defaultProps = {
   layout: 'vertical',
 }
 
-export const Form: FC<FormProps> = p => {
+export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const {
     className,
@@ -34,8 +36,9 @@ export const Form: FC<FormProps> = p => {
 
   return (
     <RcForm
-      className={classNames('adm-form', `adm-form-${layout}`, className)}
+      className={classNames(classPrefix, `${classPrefix}-${layout}`, className)}
       style={style}
+      ref={ref}
       {...formProps}
     >
       <List
@@ -53,7 +56,7 @@ export const Form: FC<FormProps> = p => {
           {children}
         </FormContext.Provider>
       </List>
-      {footer && <div className='adm-form-footer'>{footer}</div>}
+      {footer && <div className={`${classPrefix}-footer`}>{footer}</div>}
     </RcForm>
   )
-}
+})

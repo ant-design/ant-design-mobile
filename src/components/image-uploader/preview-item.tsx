@@ -1,8 +1,9 @@
 import React, { FC, useMemo } from 'react'
-import { CloseOutlined, LoadingOutlined } from '@ant-design/icons'
+import { CloseOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
 import Image from '../image'
+import Loading from '../loading'
 
 type Props = {
   onClick?: () => void
@@ -32,7 +33,7 @@ const PreviewItem: FC<Props> = props => {
       props.status === 'pending' && (
         <div className={`${classPrefix}-cell-mask`}>
           <span className={`${classPrefix}-cell-loading`}>
-            <LoadingOutlined />
+            <Loading color='#fff' style={{ fontSize: 16 }} />
             <span className={`${classPrefix}-cell-mask-message`}>
               上传中...
             </span>
@@ -46,7 +47,7 @@ const PreviewItem: FC<Props> = props => {
     return (
       deletable && (
         <span className={`${classPrefix}-cell-delete`} onClick={onDelete}>
-          <CloseOutlined />
+          <CloseOutline className={`${classPrefix}-cell-delete-icon`} />
         </span>
       )
     )
@@ -62,6 +63,7 @@ const PreviewItem: FC<Props> = props => {
       <Image
         className={`${classPrefix}-cell-image`}
         src={src}
+        fit='cover'
         onClick={props.onClick}
       />
       {renderLoading()}

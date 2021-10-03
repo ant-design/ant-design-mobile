@@ -1,20 +1,13 @@
 import React, { useState, useEffect, ReactNode, useMemo } from 'react'
 import Popup, { PopupProps } from '../popup'
-import { Column } from './column'
 import { mergeProps, withDefaultProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { PickerColumn, PickerColumnItem, PickerValue } from './index'
+import PickerView from '../picker-view'
+import { useColumns } from '../picker-view/use-columns'
 
 const classPrefix = `adm-picker`
-
-export type PickerValue = string | null
-
-export type PickerColumnItem = {
-  label: string
-  value: string
-}
-
-export type PickerColumn = (string | PickerColumnItem)[]
 
 export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
@@ -25,6 +18,7 @@ export type PickerProps = {
   onCancel?: () => void
   onClose?: () => void
   visible?: boolean
+  title?: ReactNode
   confirmText?: string
   cancelText?: string
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
@@ -60,22 +54,7 @@ export const Picker = withDefaultProps({
     }
   }, [value])
 
-  const columns = useMemo(() => {
-    const columns =
-      typeof props.columns === 'function'
-        ? props.columns(innerValue)
-        : props.columns
-    return columns.map(column =>
-      column.map(item =>
-        typeof item === 'string'
-          ? {
-              label: item,
-              value: item,
-            }
-          : item
-      )
-    )
-  }, [props.columns, innerValue])
+  const columns = useColumns(props.columns, innerValue)
 
   const pickerElement = withNativeProps(
     props,
@@ -90,6 +69,7 @@ export const Picker = withDefaultProps({
         >
           {props.cancelText}
         </a>
+        <div className={`${classPrefix}-header-title`}>{props.title}</div>
         <a
           className={`${classPrefix}-header-button`}
           onClick={() => {
@@ -100,24 +80,12 @@ export const Picker = withDefaultProps({
           {props.confirmText}
         </a>
       </div>
-      <div className={`${classPrefix}-columns`}>
-        {columns.map((column, index) => (
-          <Column
-            key={index}
-            column={column}
-            value={innerValue[index]}
-            onSelect={val => {
-              setInnerValue(prev => {
-                const nextValue = [...prev]
-                nextValue[index] = val
-                props.onSelect?.(nextValue)
-                return nextValue
-              })
-            }}
-          />
-        ))}
-        <div className={`${classPrefix}-mask ${classPrefix}-mask-top`} />
-        <div className={`${classPrefix}-mask ${classPrefix}-mask-bottom`} />
+      <div className={`${classPrefix}-body`}>
+        <PickerView
+          columns={columns}
+          value={innerValue}
+          onChange={setInnerValue}
+        />
       </div>
     </div>
   )

@@ -30,7 +30,7 @@ export type Action = {
   key: string | number
   text: ReactNode
   color?: ActionColor | string
-  onClick?: () => void
+  onClick?: (e: React.MouseEvent) => void
 }
 
 export type SwipeActionProps = {
@@ -170,11 +170,11 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
           style={{
             '--background-color': colorRecord[color] ?? color,
           }}
-          onClick={() => {
+          onClick={e => {
             if (props.closeOnAction) {
               close()
             }
-            action.onClick?.()
+            action.onClick?.(e)
             props.onAction?.(action)
           }}
         >

@@ -1,33 +1,26 @@
-import React, {
-  useState,
-  useRef,
-  FC,
-  forwardRef,
-  useImperativeHandle,
-} from 'react'
+import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
 import classNames from 'classnames'
-import Input, { InputRef } from '../input'
+import Input, { InputRef, InputProps } from '../input'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { SearchOutlined } from '@ant-design/icons'
+import { SearchOutline } from 'antd-mobile-icons'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-search`
 
 export type SearchRef = InputRef
 
-export type SearchProps = {
+export type SearchProps = Pick<InputProps, 'onFocus' | 'onBlur' | 'onClear'> & {
   value?: string
   defaultValue?: string
   maxLength?: number
   placeholder?: string
   clearable?: boolean
   showCancelButton?: boolean
+  cancelText?: string
   onSearch?: (val: string) => void
   onChange?: (val: string) => void
-  onFocus?: () => void
-  onBlur?: () => void
-  onClear?: () => void
   onCancel?: () => void
 } & NativeProps<'--background' | '--border-radius' | '--placeholder-color'>
 
@@ -49,6 +42,8 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
     blur: () => inputRef.current?.blur(),
   }))
 
+  const { locale } = useConfig()
+
   return withNativeProps(
     props,
     <div
@@ -67,7 +62,7 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
         }}
       >
         <div className={`${classPrefix}-input-box-icon`}>
-          <SearchOutlined />
+          <SearchOutline />
         </div>
         <Input
           ref={inputRef}
@@ -77,13 +72,13 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
           maxLength={props.maxLength}
           placeholder={props.placeholder}
           clearable={props.clearable}
-          onFocus={() => {
+          onFocus={e => {
             setHasFocus(true)
-            props.onFocus?.()
+            props.onFocus?.(e)
           }}
-          onBlur={() => {
+          onBlur={e => {
             setHasFocus(false)
-            props.onBlur?.()
+            props.onBlur?.(e)
           }}
           onClear={props.onClear}
           type='search'
@@ -104,7 +99,7 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
               props.onCancel?.()
             }}
           >
-            取消
+            {props.cancelText ?? locale.common.cancel}
           </a>
         </div>
       )}

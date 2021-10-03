@@ -1,6 +1,6 @@
 import React, { useState, useRef, useLayoutEffect, memo } from 'react'
 import classNames from 'classnames'
-import { CloseOutlined, SoundOutlined } from '@ant-design/icons'
+import { CloseOutline, SoundOutline } from 'antd-mobile-icons'
 import { useUpdateLayoutEffect } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -80,25 +80,25 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
 
   return withNativeProps(
     props,
-    <div className={classNames(classPrefix, `adm-notice-bar-${props.color}`)}>
-      <span className={`adm-notice-bar-left`}>
-        {'icon' in props ? props.icon : <SoundOutlined />}
+    <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)}>
+      <span className={`${classPrefix}-left`}>
+        {'icon' in props ? props.icon : <SoundOutline />}
       </span>
-      <span ref={containerRef} className={`adm-notice-bar-content`}>
+      <span ref={containerRef} className={`${classPrefix}-content`}>
         <span
           onTransitionEnd={() => setKey(k => k + 1)}
           key={key}
           ref={textRef}
-          className={`adm-notice-bar-content-inner`}
+          className={`${classPrefix}-content-inner`}
         >
           {props.content}
         </span>
       </span>
       {(props.closeable || props.extra) && (
-        <span className={`adm-notice-bar-right`}>
+        <span className={`${classPrefix}-right`}>
           {props.extra}
           {props.closeable && (
-            <CloseOutlined
+            <CloseOutline
               onClick={() => {
                 setVisible(false)
                 props.onClose?.()

@@ -18,6 +18,8 @@ $ yarn add antd-mobile@next
 import { Button } from 'antd-mobile'
 ```
 
+如果你开发的是阿里/蚂蚁内部项目，那么请额外阅读一下[这篇指引](https://yuque.antfin.com/antd-mobile/kfcgs3/md4or5)。
+
 ## 在线体验
 
-<code src="./codesandbox.tsx" inline></code>
+如果你不想在本地配置环境，也可以直接在 [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json) 上进行体验。

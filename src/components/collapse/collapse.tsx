@@ -1,24 +1,21 @@
-import React, {
-  FC,
-  ReactElement,
-  ComponentProps,
-  useEffect,
-  useRef,
-} from 'react'
+import React, { FC, ReactElement, ComponentProps, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
-import { RightOutlined } from '@ant-design/icons'
+import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { useInitialized } from '../../utils/use-initialized'
 import { useSpring, animated } from '@react-spring/web'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { useMount, useUpdateLayoutEffect } from 'ahooks'
+
+const classPrefix = `adm-collapse`
 
 export type CollapsePanelProps = {
   key: string
   title: string
   disabled?: boolean
   forceRender?: boolean
-}
+} & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
   return null
@@ -31,31 +28,56 @@ const CollapsePanelContent: FC<{
   const { visible } = props
   const innerRef = useRef<HTMLDivElement>(null)
   const initialized = useInitialized(visible || props.forceRender)
-  const [style, api] = useSpring(() => ({
-    from: { height: visible ? 'auto' : 0 },
+  const [{ height }, api] = useSpring(() => ({
+    from: { height: 0 },
   }))
 
-  useEffect(() => {
+  useMount(() => {
+    if (!visible) return
+    const inner = innerRef.current
+    if (!inner) return
+    api.start({
+      height: inner.offsetHeight,
+      immediate: true,
+    })
+  })
+
+  useUpdateLayoutEffect(() => {
+    const inner = innerRef.current
+    if (!inner) return
     if (visible) {
-      const inner = innerRef.current
-      if (!inner) return
       api.start({
         height: inner.offsetHeight,
       })
     } else {
+      api.start({
+        height: inner.offsetHeight,
+        immediate: true,
+      })
       api.start({
         height: 0,
       })
     }
   }, [visible])
 
-  return initialized ? (
-    <animated.div className='adm-collapse-panel-content' style={style}>
-      <div className='adm-collapse-panel-content-inner' ref={innerRef}>
-        <List.Item>{props.children}</List.Item>
+  return (
+    <animated.div
+      className={`${classPrefix}-panel-content`}
+      style={{
+        height: height.to(v => {
+          if (height.idle && visible) {
+            return 'auto'
+          } else {
+            return v
+          }
+        }),
+      }}
+    >
+      <div className={`${classPrefix}-panel-content-inner`} ref={innerRef}>
+        <List.Item>{initialized && props.children}</List.Item>
       </div>
     </animated.div>
-  ) : null
+  )
 }
 
 type ValueProps<T> = {
@@ -112,7 +134,7 @@ export const Collapse: FC<CollapseProps> = props => {
 
   return withNativeProps(
     props,
-    <div className='adm-collapse'>
+    <div className={classPrefix}>
       <List>
         {panels.map(panel => {
           const key = panel.key as string
@@ -135,23 +157,27 @@ export const Collapse: FC<CollapseProps> = props => {
 
           return (
             <React.Fragment key={key}>
-              <List.Item
-                className={classNames('adm-collapse-panel-header', {
-                  'adm-collapse-panel-header-disabled': panel.props.disabled,
-                })}
-                onClick={panel.props.disabled ? undefined : handleClick}
-                arrow={
-                  <div
-                    className={classNames('adm-collapse-arrow', {
-                      'adm-collapse-arrow-active': active,
-                    })}
-                  >
-                    <RightOutlined />
-                  </div>
-                }
-              >
-                {panel.props.title}
-              </List.Item>
+              {withNativeProps(
+                panel.props,
+                <List.Item
+                  className={classNames(`${classPrefix}-panel-header`, {
+                    [`${classPrefix}-panel-header-disabled`]:
+                      panel.props.disabled,
+                  })}
+                  onClick={panel.props.disabled ? undefined : handleClick}
+                  arrow={
+                    <div
+                      className={classNames(`${classPrefix}-arrow`, {
+                        [`${classPrefix}-arrow-active`]: active,
+                      })}
+                    >
+                      <RightOutline />
+                    </div>
+                  }
+                >
+                  {panel.props.title}
+                </List.Item>
+              )}
               <CollapsePanelContent
                 visible={active}
                 forceRender={!!panel.props.forceRender}

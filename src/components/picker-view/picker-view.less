@@ -1,0 +1,80 @@
+@class-prefix-picker: ~'adm-picker-view';
+
+.@{class-prefix-picker} {
+  --height: 240px;
+  height: var(--height);
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.@{class-prefix-picker}-column {
+  height: 100%;
+  flex: 1;
+  user-select: none;
+  touch-action: none;
+  position: relative;
+  &-wheel {
+    width: 100%;
+    cursor: grab;
+    position: absolute;
+    top: calc(50% - 17px);
+    left: 0;
+    &::before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: -100vh;
+    }
+    &::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      bottom: -100vh;
+    }
+  }
+  &-item {
+    font-size: 16px;
+    padding: 0 6px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.@{class-prefix-picker}-mask {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: calc(50% - 12px);
+  pointer-events: none;
+  &-top {
+    top: -5px;
+    border-bottom: solid 1px var(--adm-border-color);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 1)
+    );
+  }
+  &-bottom {
+    bottom: -5px;
+    border-top: solid 1px var(--adm-border-color);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 1)
+    );
+  }
+}

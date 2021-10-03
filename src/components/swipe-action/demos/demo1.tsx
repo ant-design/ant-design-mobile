@@ -1,7 +1,7 @@
 import React, { FC, useRef } from 'react'
 import { Dialog, List, SwipeAction, Toast } from 'antd-mobile'
 import { DemoBlock, lorem } from 'demos'
-import { Action, SwipeActionRef } from 'antd-mobile/src/components/swipe-action'
+import { Action, SwipeActionRef } from 'antd-mobile/es/components/swipe-action'
 
 export default () => {
   return (

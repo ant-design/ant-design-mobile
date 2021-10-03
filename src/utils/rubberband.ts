@@ -1,6 +1,4 @@
-export function bound(position: number, min: number, max: number) {
-  return Math.min(Math.max(position, min), max)
-}
+import { bound } from './bound'
 
 export function rubberband(
   distance: number,

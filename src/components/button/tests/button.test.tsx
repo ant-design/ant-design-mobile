@@ -74,12 +74,6 @@ test('renders with disabled', () => {
   expect(button).toBeDisabled()
 })
 
-test('renders with disabled', () => {
-  const { getByRole } = render(<Button disabled>Disabled</Button>)
-  const button = getByRole('button')
-  expect(button).toBeDisabled()
-})
-
 test('renders with loading and loadingText', () => {
   const { getByTestId } = render(
     <Button loading data-testid='btn' loadingText='加载中'>
