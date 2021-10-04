@@ -16,7 +16,7 @@
 | actions          | the list of the operation button, a secondary array can be passed in to realize multiple buttons side by side in the same row | `(Action \| Action[])[]`                                   | `[]`    |
 | onAction         | triggered when the action button is clicked                                                                                   | `(action: Action, index: number) => void \| Promise<void>` | -       |
 | closeOnAction    | whether to close after clicking the operation button                                                                          | `boolean`                                                  | `false` |
-| onClose          | trigger when closed                                                                                                           | `() => void`                                               | -       |
+| onClose          | triggered when closed                                                                                                         | `() => void`                                               | -       |
 | closeOnMaskClick | whether to support clicking the mask to close the dialog box                                                                  | `boolean`                                                  | `false` |
 | visible          | to show or hide                                                                                                               | `boolean`                                                  | `false` |
 | getContainer     | the parent container of the custom dialog                                                                                     | `HTMLElement \| (() => HTMLElement) \| null`               | `null`  |
