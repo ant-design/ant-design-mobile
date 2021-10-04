@@ -9,7 +9,7 @@
 | content | the content of the Badge: if `null` `undefined` `''` or nothing is passed, it would not be displayed; if `Badge.dot` is passed, a small red dot would be displayed | `React.ReactNode \| typeof Badge.dot` | -         |
 | color   | the background color of the Badge                                                                                                                                  | `string`                              | `#FF411C` |
 
-### CSS 变量
+### CSS Variables
 
 | Name    | Description                                         | Default |
 | ------- | --------------------------------------------------- | ------- |
