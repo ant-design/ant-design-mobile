@@ -13,7 +13,7 @@
 | title     | title                                                                                               | `ReactNode`            | -       |
 | right     | the content of the right side                                                                       | `ReactNode`            | -       |
 
-## CSS 变量
+## CSS Variables
 
 | Name            | Description                     | Default |
 | --------------- | ------------------------------- | ------- |

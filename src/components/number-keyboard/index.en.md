@@ -29,7 +29,7 @@ H5 numeric keyboard, can be used with password input box component or custom inp
   Note: The keyboard would be put away when the outer keyboard of the keyboard is clicked, and you can prevent the keyboard from putting away by preventing the element click event from bubbling;
 </Alert>
 
-## CSS 变量
+## CSS Variables
 
 | 属性                | 说明                         | 默认值           |
 | ------------------- | ---------------------------- | ---------------- |
