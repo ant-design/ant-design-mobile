@@ -75,9 +75,9 @@ Other props are the same as `Picker`, but `columns` are not supported.
 
 In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title`
 
-## Imperative Calling
+## Imperative Call
 
-`Picker` supports imperative calling and provides the `prompt` method:
+`Picker` supports Imperative Call and provides the `prompt` method:
 
 ```typescript
 prompt: (props: Omit<PickerProps, 'value' | 'visible' | 'children'>) => Promise<PickerValue[] | null>
