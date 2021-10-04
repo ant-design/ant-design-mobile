@@ -1,4 +1,4 @@
-# Divider 分割线
+# Divider
 
 <code src="./demos/index.tsx"></code>
 
