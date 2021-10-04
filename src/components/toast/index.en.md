@@ -12,15 +12,15 @@ The `show` method supports passing in a `props` object, which contains the follo
 
 | Name          | Description                                                        | Type                                                  | Default         |
 | ------------- | ------------------------------------------------------------------ | ----------------------------------------------------- | --------------- |
-| afterClose    | callback after `Dialog` is completely closed                       | `() => void`                                          | -               |
+| afterClose    | Callback after `Dialog` is completely closed                       | `() => void`                                          | -               |
 | maskStyle     | `Toast` mask style                                                 | `React.CSSProperties`                                 | -               |
 | maskClassName | `Toast` mask class name                                            | `string`                                              | -               |
-| maskClickable | whether allowed to click the background                            | `boolean`                                             | `true`          |
+| maskClickable | Whether allowed to click the background                            | `boolean`                                             | `true`          |
 | content       | `Toast` text content                                               | `React.ReactNode`                                     | -               |
 | icon          | `Toast` icon                                                       | `'success' \| 'fail' \| 'loading' \| React.ReactNode` | -               |
-| duration      | prompt duration, if it is `0`, it will not be closed automatically | `number`                                              | `2000`          |
-| position      | vertical display position                                          | `'top' \| 'bottom' \| 'center'`                       | `'center'`      |
-| getContainer  | the customized parent container of the light prompt                | `HTMLElement \| (() => HTMLElement) \| undefined`     | `document.body` |
+| duration      | Prompt duration, if it is `0`, it will not be closed automatically | `number`                                              | `2000`          |
+| position      | Vertical display position                                          | `'top' \| 'bottom' \| 'center'`                       | `'center'`      |
+| getContainer  | The customized parent container of the light prompt                | `HTMLElement \| (() => HTMLElement) \| undefined`     | `document.body` |
 
 > Only one light reminder is allowed to pop up at the same time, and the newly appeared `Toast` will squeeze out the previously displayed `Toast`.
 

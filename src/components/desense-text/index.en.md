@@ -6,8 +6,8 @@
 
 | Name          | Description                        | Type                        | Default |
 | ------------- | ---------------------------------- | --------------------------- | ------- |
-| text          | not desensitized content           | `ReactNode`                 | --      |
-| desensText    | the content after desensitization  | `ReactNode`                 | --      |
-| desens        | desensitization state              | `boolean`                   | --      |
-| defaultDesens | default desensitization state      | `boolean`                   | `true`  |
-| onChange      | callback to toggle desensitization | `(desens: boolean) => void` | --      |
+| text          | Not desensitized content           | `ReactNode`                 | --      |
+| desensText    | The content after desensitization  | `ReactNode`                 | --      |
+| desens        | Desensitization state              | `boolean`                   | --      |
+| defaultDesens | Default desensitization state      | `boolean`                   | `true`  |
+| onChange      | Callback to toggle desensitization | `(desens: boolean) => void` | --      |

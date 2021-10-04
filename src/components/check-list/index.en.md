@@ -10,10 +10,10 @@ The bottom layer of `CheckList` is implemented based on `List`, which is a list 
 
 | Name         | Description                                | Type                        | Default |
 | ------------ | ------------------------------------------ | --------------------------- | ------- |
-| value        | the selected items                         | `string[]`                  | `[]`    |
-| defaultValue | the default items                          | `string[]`                  | `[]`    |
-| onChange     | triggered when the option changes          | `(value: string[]) => void` | -       |
-| multiple     | whether to allow multiple selection or not | `boolean`                   | `false` |
+| value        | The selected items                         | `string[]`                  | `[]`    |
+| defaultValue | The default items                          | `string[]`                  | `[]`    |
+| onChange     | Triggered when the option changes          | `(value: string[]) => void` | -       |
+| multiple     | Whether to allow multiple selection or not | `boolean`                   | `false` |
 
 In addition, the `mode` attribute of [List](./list) is also supported
 
@@ -27,7 +27,7 @@ The same as [List.Item](./list)
 
 | Name  | Description      | Type     | Default |
 | ----- | ---------------- | -------- | ------- |
-| value | the option value | `string` | -       |
+| value | The option value | `string` | -       |
 
 In addition, the following attributes of [List.Item](./list) are also supported: `title` `children` `description` `prefix` `onClick`
 

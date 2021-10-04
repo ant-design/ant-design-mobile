@@ -8,15 +8,15 @@ The `Input` component is layout-independent. It only includes the most basic inp
 
 | Name         | Description                                                                                   | Type                      | Default |
 | ------------ | --------------------------------------------------------------------------------------------- | ------------------------- | ------- |
-| value        | the input value                                                                               | `string`                  | -       |
-| defaultValue | the default value                                                                             | `string`                  | -       |
-| onChange     | triggered when the input content is changed                                                   | `(value: string) => void` | -       |
-| placeholder  | the prompt text                                                                               | `string`                  | -       |
-| disabled     | whether it is disabled or not                                                                 | `boolean`                 | `false` |
-| readOnly     | whether it is readonly or not                                                                 | `boolean`                 | `false` |
-| clearable    | whether to enable the clear icon, the input box will be cleared after clicking the clear icon | `boolean`                 | `false` |
-| onClear      | triggered after clicking the clear button                                                     | `() => void`              | -       |
-| id           | the id of the input element, usually used with label                                          | `string`                  | -       |
+| value        | The input value                                                                               | `string`                  | -       |
+| defaultValue | The default value                                                                             | `string`                  | -       |
+| onChange     | Triggered when the input content is changed                                                   | `(value: string) => void` | -       |
+| placeholder  | The prompt text                                                                               | `string`                  | -       |
+| disabled     | Whether it is disabled or not                                                                 | `boolean`                 | `false` |
+| readOnly     | Whether it is readonly or not                                                                 | `boolean`                 | `false` |
+| clearable    | Whether to enable the clear icon, the input box will be cleared after clicking the clear icon | `boolean`                 | `false` |
+| onClear      | Triggered after clicking the clear button                                                     | `() => void`              | -       |
+| id           | The id of the input element, usually used with label                                          | `string`                  | -       |
 
 In addition, the following native attributes are supported: `maxLength` `minLengh` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect`
 
@@ -33,9 +33,9 @@ In addition, the following native attributes are supported: `maxLength` `minLeng
 
 | Name  | Description                  | Type         |
 | ----- | ---------------------------- | ------------ |
-| clear | clear the input content      | `() => void` |
-| focus | let the input box get focus  | `() => void` |
-| blur  | let the input box lose focus | `() => void` |
+| clear | Clear the input content      | `() => void` |
+| focus | Let the input box get focus  | `() => void` |
+| blur  | Let the input box lose focus | `() => void` |
 
 ## FAQ
 

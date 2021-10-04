@@ -9,15 +9,15 @@
 | Name            | Description                                                                                  | Type                                                                                                                                                             | Default               |
 | --------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | children        | The element that triggered the popover                                                       | `React.ReactNode`                                                                                                                                                | -                     |
-| placement       | the position of the Popover                                                                  | `'top' \| 'left' \| 'right' \| 'bottom' \| 'topLeft' \| 'topRight' \| 'bottomLeft' \| 'bottomRight' \| 'leftTop' \| 'leftBottom' \| 'rightTop' \| 'rightBottom'` | `'top'`               |
-| defaultVisible  | whether to show or hide by default                                                           | `boolean`                                                                                                                                                        | `false`               |
-| visible         | whether to display pop-up content in controlled mode                                         | `boolean`                                                                                                                                                        | -                     |
-| onVisibleChange | callback when the visible prop is changed                                                    | `(visible: boolean) => void`                                                                                                                                     | -                     |
-| trigger         | event to trigger                                                                             | `'click'`                                                                                                                                                        | -                     |
-| getContainer    | the floating layer renders the parent node, which would be rendered on the `body` by default | `() => HTMLElement`                                                                                                                                              | `() => document.body` |
-| destroyOnHide   | when hiding, whether to destroy the content of `tooltip`                                     | `boolean`                                                                                                                                                        | `false`               |
-| content         | the content of the Popover                                                                   | `React.ReactNode`                                                                                                                                                | -                     |
-| mode            | set bright color mode or black mode                                                          | `'light' \| 'dark'`                                                                                                                                              | `'light'`             |
+| placement       | The position of the Popover                                                                  | `'top' \| 'left' \| 'right' \| 'bottom' \| 'topLeft' \| 'topRight' \| 'bottomLeft' \| 'bottomRight' \| 'leftTop' \| 'leftBottom' \| 'rightTop' \| 'rightBottom'` | `'top'`               |
+| defaultVisible  | Whether to show or hide by default                                                           | `boolean`                                                                                                                                                        | `false`               |
+| visible         | Whether to display pop-up content in controlled mode                                         | `boolean`                                                                                                                                                        | -                     |
+| onVisibleChange | Callback when the visible prop is changed                                                    | `(visible: boolean) => void`                                                                                                                                     | -                     |
+| trigger         | Event to trigger                                                                             | `'click'`                                                                                                                                                        | -                     |
+| getContainer    | The floating layer renders the parent node, which would be rendered on the `body` by default | `() => HTMLElement`                                                                                                                                              | `() => document.body` |
+| destroyOnHide   | When hiding, whether to destroy the content of `tooltip`                                     | `boolean`                                                                                                                                                        | `false`               |
+| content         | The content of the Popover                                                                   | `React.ReactNode`                                                                                                                                                | -                     |
+| mode            | Set bright color mode or black mode                                                          | `'light' \| 'dark'`                                                                                                                                              | `'light'`             |
 
 ### Popover.Menu
 
@@ -25,22 +25,22 @@ Except for `content`, all other attributes are inherited from `Popover`, the uni
 
 | Name     | Description                                                | Type                     | Default |
 | -------- | ---------------------------------------------------------- | ------------------------ | ------- |
-| actions  | menu list, used when the pop-up content is a standard menu | `Action[]`               | -       |
-| onAction | callback of the selected menum, when the menu list is used | `(item: Action) => void` | -       |
+| actions  | Menu list, used when the pop-up content is a standard menu | `Action[]`               | -       |
+| onAction | Callback of the selected menum, when the menu list is used | `(item: Action) => void` | -       |
 
 #### Action
 
 | Name     | Description                                                | Type               | Default                  |
 | -------- | ---------------------------------------------------------- | ------------------ | ------------------------ |
-| text     | menu list, used when the pop-up content is a standard menu | `ReactNode`        | -                        |
-| icon     | callback of the selected menu, when the menu list is used  | `ReactNode`        | `null`                   |
-| key      | the unique identifier of the menu, the default is `index`  | `string \| number` | `actions` 数组的 `index` |
-| disabled | whether disabled                                           | `boolean`          | `false`                  |
+| text     | Menu list, used when the pop-up content is a standard menu | `ReactNode`        | -                        |
+| icon     | Callback of the selected menu, when the menu list is used  | `ReactNode`        | `null`                   |
+| key      | The unique identifier of the menu, the default is `index`  | `string \| number` | `actions` 数组的 `index` |
+| disabled | Whether disabled                                           | `boolean`          | `false`                  |
 
 ### Ref
 
 | Name    | Description                      | Type         |
 | ------- | -------------------------------- | ------------ |
-| show    | show the Popover                 | `() => void` |
-| hide    | hide the Popover                 | `() => void` |
-| visible | whether the Popover is diplaying | `boolean`    |
+| show    | Show the Popover                 | `() => void` |
+| hide    | Hide the Popover                 | `() => void` |
+| visible | Whether the Popover is diplaying | `boolean`    |

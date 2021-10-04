@@ -6,7 +6,7 @@
 
 | Name        | Description       | Type                                                       | Default |
 | ----------- | ----------------- | ---------------------------------------------------------- | ------- |
-| status      | status types      | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning'` | -       |
-| title       | title             | `string`                                                   | -       |
-| description | description       | `string`                                                   | ''      |
-| icon        | customized `icon` | `ReactNode`                                                | -       |
+| status      | Status types      | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning'` | -       |
+| title       | Title             | `string`                                                   | -       |
+| description | Description       | `string`                                                   | ''      |
+| icon        | Customized `icon` | `ReactNode`                                                | -       |

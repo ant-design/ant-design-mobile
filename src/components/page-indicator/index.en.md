@@ -6,9 +6,9 @@
 
 | Name    | Description                      | Type                   | Default     |
 | ------- | -------------------------------- | ---------------------- | ----------- |
-| total   | total page number                | `number`               | -           |
-| current | current page (counting from `0`) | `number`               | -           |
-| color   | color                            | `'primary' \| 'white'` | `'primary'` |
+| total   | Total page number                | `number`               | -           |
+| current | Current page (counting from `0`) | `number`               | -           |
+| color   | Color                            | `'primary' \| 'white'` | `'primary'` |
 
 ## CSS Variables
 

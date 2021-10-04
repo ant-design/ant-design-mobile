@@ -6,21 +6,21 @@
 
 | Name         | Description                            | Type                        | Default |
 | ------------ | -------------------------------------- | --------------------------- | ------- |
-| value        | selected value                         | `(string \| number)[]`      | `[]`    |
-| defaultValue | selected value by default              | `(string \| number)[]`      | `[]`    |
-| columns      | number of the displayed columns        | `number`                    | -       |
-| options      | optional selector                      | `SelectorOption[]`          | -       |
-| multiple     | whether to allow multiple selections   | `boolean`                   | `false` |
-| disabled     | whether to diabled selections globally | `boolean`                   | `false` |
-| onChange     | triggered when the value is changed    | `(value: string[]) => void` | -       |
+| value        | Selected value                         | `(string \| number)[]`      | `[]`    |
+| defaultValue | Selected value by default              | `(string \| number)[]`      | `[]`    |
+| columns      | Number of the displayed columns        | `number`                    | -       |
+| options      | Optional selector                      | `SelectorOption[]`          | -       |
+| multiple     | Whether to allow multiple selections   | `boolean`                   | `false` |
+| disabled     | Whether to diabled selections globally | `boolean`                   | `false` |
+| onChange     | Triggered when the value is changed    | `(value: string[]) => void` | -       |
 
 ## SelectorOption
 
 | Name     | Description         | Type               | Default |
 | -------- | ------------------- | ------------------ | ------- |
-| label    | label text          | `string`           | -       |
-| value    | value of the option | `string \| number` | -       |
-| disabled | whether disabled    | `boolean`          | `false` |
+| label    | Label text          | `string`           | -       |
+| value    | Value of the option | `string \| number` | -       |
+| disabled | Whether disabled    | `boolean`          | `false` |
 
 ## Generics
 

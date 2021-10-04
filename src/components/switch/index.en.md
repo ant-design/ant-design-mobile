@@ -8,13 +8,13 @@
 
 | Name           | Description                                 | Type                     | Default |
 | -------------- | ------------------------------------------- | ------------------------ | ------- |
-| checked        | specify whether it is currently opened      | `boolean`                | `false` |
+| checked        | Specify whether it is currently opened      | `boolean`                | `false` |
 | defaultChecked | Whether to open initially                   | `boolean`                | `false` |
-| loading        | loading status                              | `boolean`                | `false` |
-| disabled       | disabled status                             | `boolean`                | `false` |
-| onChange       | callback function when the value is changed | `(val: boolean) => void` | -       |
-| checkedText    | selected text                               | `ReactNode`              | -       |
-| uncheckedText  | non-selected text                           | `ReactNode`              | -       |
+| loading        | Loading status                              | `boolean`                | `false` |
+| disabled       | Disabled status                             | `boolean`                | `false` |
+| onChange       | Callback function when the value is changed | `(val: boolean) => void` | -       |
+| checkedText    | Selected text                               | `ReactNode`              | -       |
+| uncheckedText  | Non-selected text                           | `ReactNode`              | -       |
 
 ## CSS Variables
 

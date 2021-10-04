@@ -8,12 +8,12 @@
 
 | Name         | Description                                                                                                                 | Type                                       | Default         |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
-| image        | the `url` of the image resource                                                                                             | `string`                                   | -               |
-| maxZoom      | the maximum zoom ratio                                                                                                      | `number`                                   | `3`             |
-| getContainer | to get the specified mounted HTML node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
-| visible      | whether to show or hide                                                                                                     | `boolean`                                  | `false`         |
-| onClose      | triggered when it is closed                                                                                                 | `boolean`                                  | -               |
-| afterClose   | triggered when it is completely closed                                                                                      | `() => void`                               | -               |
+| image        | The `url` of the image resource                                                                                             | `string`                                   | -               |
+| maxZoom      | The maximum zoom ratio                                                                                                      | `number`                                   | `3`             |
+| getContainer | To get the specified mounted HTML node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
+| visible      | Whether to show or hide                                                                                                     | `boolean`                                  | `false`         |
+| onClose      | Triggered when it is closed                                                                                                 | `boolean`                                  | -               |
+| afterClose   | Triggered when it is completely closed                                                                                      | `() => void`                               | -               |
 
 ### ImageViewer.Multi
 
@@ -21,9 +21,9 @@ On the basis of `ImageViewer`, the following props have been added:
 
 | Name          | Description                                 | Type                      | Default |
 | ------------- | ------------------------------------------- | ------------------------- | ------- |
-| images        | url list of image resources                 | `string[]`                | `[]`    |
-| defaultIndex  | which picture would be displayed by default | `number`                  | `0`     |
-| onIndexChange | triggered when the picture is switched      | `(index: number) => void` | -       |
+| images        | Url list of image resources                 | `string[]`                | `[]`    |
+| defaultIndex  | Which picture would be displayed by default | `number`                  | `0`     |
+| onIndexChange | Triggered when the picture is switched      | `(index: number) => void` | -       |
 
 At the same time, the `image` prop is removed.
 
@@ -42,4 +42,4 @@ The return value of the `show` method is a component controller, which contains 
 
 | Name  | Description                       | Type         |
 | ----- | --------------------------------- | ------------ |
-| close | function to close the ImageViewer | `() => void` |
+| close | Function to close the ImageViewer | `() => void` |

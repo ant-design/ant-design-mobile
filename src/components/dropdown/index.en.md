@@ -6,14 +6,14 @@
 
 | Name        | Description                        | Type                          | Default |
 | ----------- | ---------------------------------- | ----------------------------- | ------- |
-| activeKey   | active `Item` `key`                | `string`                      | -       |
-| onChange    | triggered when `activeKey` changes | `(activeKey?: string)=> void` | -       |
-| forceRender | rendering of content forcibly      | `boolean`                     | `false` |
+| activeKey   | Active `Item` `key`                | `string`                      | -       |
+| onChange    | Triggered when `activeKey` changes | `(activeKey?: string)=> void` | -       |
+| forceRender | Rendering of content forcibly      | `boolean`                     | `false` |
 
 ## Dropdown.Item
 
 | Name      | Description      | Type        | Default |
 | --------- | ---------------- | ----------- | ------- |
-| key       | the unique value | `string`    | -       |
-| title     | title            | `ReactNode` | -       |
-| highlight | highlight        | `boolean`   | `false` |
+| key       | The unique value | `string`    | -       |
+| title     | Title            | `ReactNode` | -       |
+| highlight | Highlight        | `boolean`   | `false` |

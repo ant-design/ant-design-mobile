@@ -4,8 +4,8 @@
 
 ## API
 
-| Name      | Description                 | type                           | Default |
+| Name      | Description                 | Type                           | Default |
 | --------- | --------------------------- | ------------------------------ | ------- |
-| content   | the text content            | `string`                       | -       |
-| direction | position omitted            | `'start' \| 'end' \| 'middle'` | `'end'` |
-| rows      | the number to display lines | `number`                       | `1`     |
+| content   | The text content            | `string`                       | -       |
+| direction | Position omitted            | `'start' \| 'end' \| 'middle'` | `'end'` |
+| rows      | The number to display lines | `number`                       | `1`     |

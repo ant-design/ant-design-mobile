@@ -9,8 +9,8 @@
 
 | Name        | Description                    | Type                         | Default      |
 | ----------- | ------------------------------ | ---------------------------- | ------------ |
-| hasFeedback | whether to show error feedback | `boolean`                    | `true`       |
-| layout      | layout mode                    | `'vertical' \| 'horizontal'` | `'vertical'` |
+| hasFeedback | Whether to show error feedback | `boolean`                    | `true`       |
+| layout      | Layout mode                    | `'vertical' \| 'horizontal'` | `'vertical'` |
 
 See for other parameters https://www.npmjs.com/package/rc-field-form
 
@@ -18,9 +18,9 @@ See for other parameters https://www.npmjs.com/package/rc-field-form
 
 | Name        | Description                          | Type      | Default                                                               |
 | ----------- | ------------------------------------ | --------- | --------------------------------------------------------------------- |
-| label       | label name                           | `string`  | --                                                                    |
-| help        | prompt text                          | `string`  | --                                                                    |
-| required    | whether it is required               | `boolean` | `false`（if `rules` is set, it would be judged according to `rules`） |
-| disabled    | whether it is disabled               | `boolean` | `false`                                                               |
-| noStyle     | no styles, only use field management | `boolean` | `false`                                                               |
-| hasFeedback | whether to show error feedback       | `boolean` | `true`                                                                |
+| label       | Label name                           | `string`  | --                                                                    |
+| help        | Prompt text                          | `string`  | --                                                                    |
+| required    | Whether it is required               | `boolean` | `false`（if `rules` is set, it would be judged according to `rules`） |
+| disabled    | Whether it is disabled               | `boolean` | `false`                                                               |
+| noStyle     | No styles, only use field management | `boolean` | `false`                                                               |
+| hasFeedback | Whether to show error feedback       | `boolean` | `true`                                                                |

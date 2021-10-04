@@ -16,8 +16,8 @@ type TreeSelectOption = {
 
 | Name         | Description                                                      | Type                                                    | Default |
 | ------------ | ---------------------------------------------------------------- | ------------------------------------------------------- | ------- |
-| value        | selected options                                                 | `string[]`                                              | `[]`    |
-| defaultValue | selected options by default                                      | `string[]`                                              | `[]`    |
-| onChange     | triggered when `value` is changed                                | `(value: string[], nodes: TreeSelectOption[]) => void`  | -       |
-| options      | cascaded data                                                    | `TreeSelectOption[]`                                    | `[]`    |
-| fieldNames   | the customized fields of `label` `value` `children` in `options` | `{ label?: string; value?: string; children?: string }` | `{}`    |
+| value        | Selected options                                                 | `string[]`                                              | `[]`    |
+| defaultValue | Selected options by default                                      | `string[]`                                              | `[]`    |
+| onChange     | Triggered when `value` is changed                                | `(value: string[], nodes: TreeSelectOption[]) => void`  | -       |
+| options      | Cascaded data                                                    | `TreeSelectOption[]`                                    | `[]`    |
+| fieldNames   | The customized fields of `label` `value` `children` in `options` | `{ label?: string; value?: string; children?: string }` | `{}`    |

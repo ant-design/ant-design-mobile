@@ -6,4 +6,4 @@
 
 | Name            | Description                 | Type                            | Default    |
 | --------------- | --------------------------- | ------------------------------- | ---------- |
-| contentPosition | the position of the content | `'center' \| 'left' \| 'right'` | `'center'` |
+| contentPosition | The position of the content | `'center' \| 'left' \| 'right'` | `'center'` |

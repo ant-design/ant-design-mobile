@@ -12,21 +12,21 @@ type CheckboxValue = string | number
 
 | Name           | Description                                                           | Type                                                            | Default |
 | -------------- | --------------------------------------------------------------------- | --------------------------------------------------------------- | ------- |
-| checked        | to specify whether selected or not currently                          | `boolean`                                                       | `false` |
-| defaultChecked | selected or not initially                                             | `boolean`                                                       | `false` |
-| disabled       | failure state                                                         | `boolean`                                                       | `false` |
-| onChange       | callback function when changing                                       | `(val: boolean) => void`                                        | -       |
-| value          | the value carrying identification, used in `Group` mode               | `CheckboxValue`                                                 | -       |
-| indeterminate  | to set the `indeterminate` state, only responsible for style control  | `boolean`                                                       | `false` |
-| block          | whether to render as a block-level element                            | `boolean`                                                       | `false` |
-| id             | the id of the input element, often used in conjunction with the label | `string`                                                        | -       |
-| icon           | the customized `icon`                                                 | `(checked: boolean, indeterminate: boolean) => React.ReactNode` | -       |
+| checked        | To specify whether selected or not currently                          | `boolean`                                                       | `false` |
+| defaultChecked | Selected or not initially                                             | `boolean`                                                       | `false` |
+| disabled       | Failure state                                                         | `boolean`                                                       | `false` |
+| onChange       | Callback function when changing                                       | `(val: boolean) => void`                                        | -       |
+| value          | The value carrying identification, used in `Group` mode               | `CheckboxValue`                                                 | -       |
+| indeterminate  | To set the `indeterminate` state, only responsible for style control  | `boolean`                                                       | `false` |
+| block          | Whether to render as a block-level element                            | `boolean`                                                       | `false` |
+| id             | The id of the input element, often used in conjunction with the label | `string`                                                        | -       |
+| icon           | The customized `icon`                                                 | `(checked: boolean, indeterminate: boolean) => React.ReactNode` | -       |
 
 ### Checkbox.Group
 
 | Name         | Description                     | Type                               | Default |
 | ------------ | ------------------------------- | ---------------------------------- | ------- |
-| defaultValue | options selected by default     | `CheckboxValue[]`                  | `[]`    |
-| disabled     | to make whole group failure     | `boolean`                          | `false` |
-| value        | to specify the selected option  | `CheckboxValue[]`                  | `[]`    |
-| onChange     | callback function when changing | `(value: CheckboxValue[]) => void` | -       |
+| defaultValue | Options selected by default     | `CheckboxValue[]`                  | `[]`    |
+| disabled     | To make whole group failure     | `boolean`                          | `false` |
+| value        | To specify the selected option  | `CheckboxValue[]`                  | `[]`    |
+| onChange     | Callback function when changing | `(value: CheckboxValue[]) => void` | -       |
