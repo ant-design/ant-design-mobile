@@ -16,7 +16,7 @@
 | checkedText    | selected text                               | `ReactNode`              | -       |
 | uncheckedText  | non-selected text                           | `ReactNode`              | -       |
 
-## CSS variables
+## CSS Variables
 
 | Name            | Description  | Default                    |
 | --------------- | ------------ | -------------------------- |

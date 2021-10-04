@@ -18,7 +18,7 @@
 
 In addition, the following native attributes are supported: `autoComplete` `disabled` `readOnly` `onFocus` `onBlur`
 
-## CSS variables
+## CSS Variables
 
 | Name                | Description                   | Default                  |
 | ------------------- | ----------------------------- | ------------------------ |

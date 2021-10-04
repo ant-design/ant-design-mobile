@@ -16,7 +16,7 @@
 | onIndexChange    | triggered on index is changed                  | `(index: number) => void`                                                  | -       |
 | indicatorProps   | related attributes of the indicator            | support [PageIndicator](./page-indicator) `color` `style` `className` prop | -       |
 
-### CSS variables
+### CSS Variables
 
 | Name            | Description                              | Default |
 | --------------- | ---------------------------------------- | ------- |

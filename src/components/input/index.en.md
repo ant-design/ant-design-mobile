@@ -20,7 +20,7 @@ The `Input` component is layout-independent. It only includes the most basic inp
 
 In addition, the following native attributes are supported: `maxLength` `minLengh` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect`
 
-## CSS variables
+## CSS Variables
 
 | Name                | Description                  | Default                  |
 | ------------------- | ---------------------------- | ------------------------ |

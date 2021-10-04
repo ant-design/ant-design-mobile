@@ -15,7 +15,7 @@
 | extra     | additional operating area, displayed to the left of the close button | `React.ReactNode`                           | -                   |
 | icon      | radio icon on the left                                               | `React.ReactNode`                           | `<SoundOutlined />` |
 
-## CSS 变量
+## CSS Variables
 
 | Name               | Description      | Default   |
 | ------------------ | ---------------- | --------- |

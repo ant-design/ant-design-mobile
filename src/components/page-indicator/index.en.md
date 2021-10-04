@@ -10,7 +10,7 @@
 | current | current page (counting from `0`) | `number`               | -           |
 | color   | color                            | `'primary' \| 'white'` | `'primary'` |
 
-## CSS varibles
+## CSS Variables
 
 | Name               | Description            | Default                    |
 | ------------------ | ---------------------- | -------------------------- |
