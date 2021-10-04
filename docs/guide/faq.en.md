@@ -30,7 +30,7 @@ Then you can try to add the following configuration in `config.js`:
 }
 ```
 
-### 从 v2 如何迁移到 v5？
+### How do I migrate from v2 to v5?
 
 v5 is a completely rewritten version, so the difference between v2 and v5 is very big, and migration means that a lot of component replacements may be required.
 
