@@ -19,7 +19,7 @@
 | onClear          | triggered when the clear button is clicked                                                   | `() => void`                                      | -        |
 | onCancel         | triggered when the cancel button is clicked                                                  | `() => void`                                      | -        |
 
-## CSS variables
+## CSS Variables
 
 | Name                | Description              | Default                 |
 | ------------------- | ------------------------ | ----------------------- |

@@ -15,7 +15,7 @@ PickerView is the content area of Picker.
 
 For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue`, please refer to the document of [Picker](./picker).
 
-## CSS variables
+## CSS Variables
 
 | Name     | Description              | Default |
 | -------- | ------------------------ | ------- |

@@ -20,7 +20,7 @@
 | onChange      | triggered when the slider is dragged, and the current dragged value is passed in as a parameter                                                          | `(value: number \| [number, number]) => void` | -                    |
 | onAfterChange | consistent with the trigger timing of `touchend`, pass the current value as a parameter                                                                  | `(value: number \| [number, number]) => void` | -                    |
 
-## CSS variables
+## CSS Variables
 
 | Name         | Description  | Default                    |
 | ------------ | ------------ | -------------------------- |

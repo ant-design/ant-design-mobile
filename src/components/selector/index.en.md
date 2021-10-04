@@ -34,7 +34,7 @@
 />
 ```
 
-## CSS variables
+## CSS Variables
 
 | Name            | Description             | Default   |
 | --------------- | ----------------------- | --------- |

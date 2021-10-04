@@ -17,7 +17,7 @@ The bottom layer of `CheckList` is implemented based on `List`, which is a list 
 
 In addition, the `mode` attribute of [List](./list) is also supported
 
-### CSS variables
+### CSS Variables
 
 The same as [List.Item](./list)
 
@@ -31,6 +31,6 @@ The same as [List.Item](./list)
 
 In addition, the following attributes of [List.Item](./list) are also supported: `title` `children` `description` `prefix` `onClick`
 
-### CSS variables
+### CSS Variables
 
 The same as [List.Item](./list)

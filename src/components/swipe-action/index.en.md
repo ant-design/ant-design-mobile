@@ -28,7 +28,7 @@
 | close | let the slide bar return to the position                                 | `() => void`                         |
 | show  | slide out the operation button, the `side` parameter defaults to `right` | `(side?: 'left' \| 'right') => void` |
 
-## CSS variables
+## CSS Variables
 
 | Name         | Description      | Default   |
 | ------------ | ---------------- | --------- |
