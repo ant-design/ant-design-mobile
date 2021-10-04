@@ -8,7 +8,15 @@ export type PageIndicatorProps = {
   current: number
   color?: 'primary' | 'white'
   children?: []
-} & NativeProps<'--active-color' | '--non-active-color'>
+} & NativeProps<
+  | '--dot-color'
+  | '--active-dot-color'
+  | '--dot-size'
+  | '--active-dot-size'
+  | '--dot-border-radius'
+  | '--active-dot-border-radius'
+  | '--dot-spacing'
+>
 
 const defaultProps = {
   color: 'primary',
