@@ -4,7 +4,7 @@
 
 ## API
 
-| Prop             | Description                                                                                                                | Type                                       | Default         |
+| Name             | Description                                                                                                                | Type                                       | Default         |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
 | visible          | to show or hide the action sheet                                                                                           | `boolean`                                  | `false`         |
 | actions          | the option list of the the action sheet                                                                                    | `Action[]`                                 | `[]`            |
@@ -20,7 +20,7 @@
 
 ### Action
 
-| Prop        | Description                   | Type               | Default |
+| Name        | Description                   | Type               | Default |
 | ----------- | ----------------------------- | ------------------ | ------- |
 | key         | the unique mark               | `string \| number` | -       |
 | text        | title                         | `string`           | -       |
@@ -43,6 +43,6 @@ When the ActionSheet is closed, the component instance would be automatically de
 
 The return value of the `show` method is a component controller, which contains the following properties :
 
-| Prop  | Description              | Type         |
+| Name  | Description              | Type         |
 | ----- | ------------------------ | ------------ |
 | close | to close the ActionSheet | `() => void` |
