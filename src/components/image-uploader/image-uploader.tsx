@@ -149,7 +149,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           throw e
         }
       })
-    )
+    ).catch(error => console.error(error))
   }
 
   function previewImage(index: number) {
