@@ -146,7 +146,6 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               return task
             })
           })
-          throw e
         }
       })
     )
