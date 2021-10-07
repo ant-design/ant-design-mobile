@@ -113,42 +113,40 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
     setTasks(prev => [...prev, ...newTasks])
 
-    await Promise.all(
-      newTasks.map(async currentTask => {
-        try {
-          const result = await props.upload(currentTask.file)
-          setTasks(prev => {
-            return prev.map(task => {
-              if (task.id === currentTask.id) {
-                return {
-                  ...task,
-                  url: result.url,
-                }
+    newTasks.map(async currentTask => {
+      try {
+        const result = await props.upload(currentTask.file)
+        setTasks(prev => {
+          return prev.map(task => {
+            if (task.id === currentTask.id) {
+              return {
+                ...task,
+                url: result.url,
               }
-              return task
-            })
+            }
+            return task
           })
-          updateValue(prev => [
-            ...prev,
-            {
-              url: result.url,
-            },
-          ])
-        } catch (e) {
-          setTasks(prev => {
-            return prev.map(task => {
-              if (task.id === currentTask.id) {
-                return {
-                  ...task,
-                  status: 'fail',
-                }
+        })
+        updateValue(prev => [
+          ...prev,
+          {
+            url: result.url,
+          },
+        ])
+      } catch (e) {
+        setTasks(prev => {
+          return prev.map(task => {
+            if (task.id === currentTask.id) {
+              return {
+                ...task,
+                status: 'fail',
               }
-              return task
-            })
+            }
+            return task
           })
-        }
-      })
-    )
+        })
+      }
+    })
   }
 
   function previewImage(index: number) {
