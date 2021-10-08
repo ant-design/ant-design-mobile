@@ -42,7 +42,7 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
     container.style.webkitBoxOrient = 'unset'
     container.style.display = 'block'
     const lineHeight = pxToNumber(originStyle.lineHeight)
-    const maxHeight = Math.round(
+    const maxHeight = Math.floor(
       lineHeight * props.rows +
         pxToNumber(originStyle.paddingTop) +
         pxToNumber(originStyle.paddingBottom)
