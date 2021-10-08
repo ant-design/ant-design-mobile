@@ -49,22 +49,6 @@ export const SideBar: FC<SideBarProps> = props => {
     <div className={classNames(classPrefix)}>
       {items.map(item => {
         const active = item.key === activeKey
-        function renderContent() {
-          if (item.props.badge) {
-            return (
-              <Badge content={item.props.badge}>
-                <div className={`${classPrefix}-item-title`}>
-                  {item.props.title}
-                </div>
-              </Badge>
-            )
-          }
-          return (
-            <div className={`${classPrefix}-item-title`}>
-              {item.props.title}
-            </div>
-          )
-        }
         return withNativeProps(
           item.props,
           <div
@@ -80,7 +64,11 @@ export const SideBar: FC<SideBarProps> = props => {
               [`${classPrefix}-item-disabled`]: item.props.disabled,
             })}
           >
-            {renderContent()}
+            <Badge content={item.props.badge}>
+              <div className={`${classPrefix}-item-title`}>
+                {item.props.title}
+              </div>
+            </Badge>
           </div>
         )
       })}
