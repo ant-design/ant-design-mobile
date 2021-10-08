@@ -1,10 +1,7 @@
 import React, { FC, useState } from 'react'
 import classNames from 'classnames'
 import Button from '../button'
-import {
-  NativeProps,
-  withNativeProps,
-} from 'antd-mobile/src/utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 export type Action = {
   key: string | number
