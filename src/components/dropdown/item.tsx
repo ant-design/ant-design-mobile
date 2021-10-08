@@ -8,6 +8,7 @@ export interface DropdownItemProps {
   title: React.ReactNode
   active?: boolean
   highlight?: boolean
+  forceRender?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   className?: string
   style?: React.CSSProperties
