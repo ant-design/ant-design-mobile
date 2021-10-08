@@ -27,14 +27,16 @@
 
 ### Action
 
-| 属性     | 说明           | 类型                          | 默认值  |
-| -------- | -------------- | ----------------------------- | ------- |
-| key      | 唯一标记       | `string \| number`            | -       |
-| text     | 标题           | `string`                      | -       |
-| disabled | 是否为禁用状态 | `boolean`                     | `false` |
-| danger   | 是否为危险状态 | `boolean`                     | `false` |
-| bold     | 是否文字加粗   | `boolean`                     | `false` |
-| onClick  | 点击时触发     | `() => void \| Promise<void>` | -       |
+| 属性      | 说明           | 类型                          | 默认值  |
+| --------- | -------------- | ----------------------------- | ------- |
+| key       | 唯一标记       | `string \| number`            | -       |
+| text      | 标题           | `string`                      | -       |
+| disabled  | 是否为禁用状态 | `boolean`                     | `false` |
+| danger    | 是否为危险状态 | `boolean`                     | `false` |
+| bold      | 是否文字加粗   | `boolean`                     | `false` |
+| style     | `Action` 样式  | `React.CSSProperties`         | -       |
+| className | `Action` 类名  | `string`                      | -       |
+| onClick   | 点击时触发     | `() => void \| Promise<void>` | -       |
 
 ## 指令式
 

@@ -8,6 +8,8 @@ export type Action = {
   disabled?: boolean
   danger?: boolean
   bold?: boolean
+  style?: React.CSSProperties
+  className?: string
   onClick?: () => void | Promise<void>
 }
 
@@ -33,9 +35,14 @@ export const DialogActionButton: FC<{
         }
         setLoading(false)
       }}
-      className={classNames('adm-dialog-button', {
-        'adm-dialog-button-bold': action.bold,
-      })}
+      style={action.style}
+      className={classNames(
+        'adm-dialog-button',
+        {
+          'adm-dialog-button-bold': action.bold,
+        },
+        action.className
+      )}
       fill='none'
       block
       color={action.danger ? 'danger' : 'primary'}
