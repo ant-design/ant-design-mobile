@@ -58,6 +58,7 @@ export const components = {
     '/components/index-bar',
     '/components/nav-bar',
     '/components/popup',
+    '/components/side-bar',
     '/components/tab-bar',
     '/components/tabs',
   ],
