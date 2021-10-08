@@ -1,6 +1,10 @@
 import React, { FC, useState } from 'react'
 import classNames from 'classnames'
 import Button from '../button'
+import {
+  NativeProps,
+  withNativeProps,
+} from 'antd-mobile/src/utils/native-props'
 
 export type Action = {
   key: string | number
@@ -8,10 +12,8 @@ export type Action = {
   disabled?: boolean
   danger?: boolean
   bold?: boolean
-  style?: React.CSSProperties
-  className?: string
   onClick?: () => void | Promise<void>
-}
+} & NativeProps
 
 export const DialogActionButton: FC<{
   action: Action
@@ -21,7 +23,8 @@ export const DialogActionButton: FC<{
 
   const [loading, setLoading] = useState(false)
 
-  return (
+  return withNativeProps(
+    props.action,
     <Button
       key={action.key}
       onClick={async () => {
@@ -35,14 +38,9 @@ export const DialogActionButton: FC<{
         }
         setLoading(false)
       }}
-      style={action.style}
-      className={classNames(
-        'adm-dialog-button',
-        {
-          'adm-dialog-button-bold': action.bold,
-        },
-        action.className
-      )}
+      className={classNames('adm-dialog-button', {
+        'adm-dialog-button-bold': action.bold,
+      })}
       fill='none'
       block
       color={action.danger ? 'danger' : 'primary'}
