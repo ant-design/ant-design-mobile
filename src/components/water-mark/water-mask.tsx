@@ -1,11 +1,10 @@
 import classNames from 'classnames'
 import React, { FC, useEffect, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-water-mark`
 
-export interface WaterMarkProps {
-  className?: string
-  style?: React.CSSProperties
+export type WaterMarkProps = {
   /**
    * 水印之间的水平间距
    */
@@ -66,7 +65,7 @@ export interface WaterMarkProps {
    * 文字大小
    */
   fontSize?: number | string
-}
+} & NativeProps
 
 export const WaterMark: FC<WaterMarkProps> = props => {
   const {
@@ -159,9 +158,10 @@ export const WaterMark: FC<WaterMarkProps> = props => {
     fontSize,
   ])
 
-  return (
+  return withNativeProps(
+    props,
     <div
-      className={classNames(classPrefix, className)}
+      className={classNames(classPrefix)}
       style={{
         zIndex,
         position: 'fixed',
@@ -173,7 +173,6 @@ export const WaterMark: FC<WaterMarkProps> = props => {
         pointerEvents: 'none',
         backgroundRepeat: 'repeat',
         backgroundImage: `url('${base64Url}')`,
-        ...style,
       }}
     />
   )

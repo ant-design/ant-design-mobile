@@ -10,17 +10,16 @@ import React, {
 } from 'react'
 import Popup from '../popup'
 import Item, { DropdownItemProps } from './item'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-dropdown`
 
-export interface DropdownProps {
+export type DropdownProps = {
   forceRender?: boolean
   activeKey?: string
   onChange?: (key?: string) => void
   // mask?: boolean;
-  className?: string
-  style?: React.CSSProperties
-}
+} & NativeProps
 
 const Dropdown: FC<DropdownProps> & {
   Item: React.FC<DropdownItemProps>
@@ -72,12 +71,12 @@ const Dropdown: FC<DropdownProps> & {
     }
   })
 
-  return (
+  return withNativeProps(
+    props,
     <div
-      className={classNames(classPrefix, props.className, {
+      className={classNames(classPrefix, {
         [`${classPrefix}-open`]: !!value,
       })}
-      style={props.style}
       ref={containerRef}
     >
       <div className={`${classPrefix}-nav`} ref={navRef}>
