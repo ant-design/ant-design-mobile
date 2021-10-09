@@ -3,10 +3,10 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
 import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
-import { useInitialized } from '../../utils/use-initialized'
 import { useSpring, animated } from '@react-spring/web'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { useMount, useUpdateLayoutEffect } from 'ahooks'
+import { useShouldRender } from '../../utils/use-should-render'
 
 const classPrefix = `adm-collapse`
 
@@ -27,7 +27,7 @@ const CollapsePanelContent: FC<{
 }> = props => {
   const { visible } = props
   const innerRef = useRef<HTMLDivElement>(null)
-  const initialized = useInitialized(visible || props.forceRender)
+  const shouldRender = useShouldRender(visible, props.forceRender)
   const [{ height }, api] = useSpring(() => ({
     from: { height: 0 },
   }))
@@ -74,7 +74,7 @@ const CollapsePanelContent: FC<{
       }}
     >
       <div className={`${classPrefix}-panel-content-inner`} ref={innerRef}>
-        <List.Item>{initialized && props.children}</List.Item>
+        <List.Item>{shouldRender && props.children}</List.Item>
       </div>
     </animated.div>
   )

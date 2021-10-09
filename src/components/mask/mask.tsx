@@ -1,11 +1,11 @@
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useInitialized } from '../../utils/use-initialized'
 import React, { useMemo, useRef, useState } from 'react'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useSpring, animated } from '@react-spring/web'
 import { renderToContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
+import { useShouldRender } from '../../utils/use-should-render'
 
 const classPrefix = `adm-mask`
 
@@ -40,7 +40,6 @@ const defaultProps = {
 
 export const Mask: React.FC<MaskProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const initialized = useInitialized(props.visible || props.forceRender)
   const { locale } = useConfig()
 
   const ref = useRef<HTMLDivElement>(null)
@@ -76,6 +75,12 @@ export const Mask: React.FC<MaskProps> = p => {
     },
   })
 
+  const shouldRender = useShouldRender(
+    active,
+    props.forceRender,
+    props.destroyOnClose
+  )
+
   const node = withNativeProps(
     props,
     <animated.div
@@ -97,7 +102,7 @@ export const Mask: React.FC<MaskProps> = p => {
         />
       )}
       <div className={`${classPrefix}-content`}>
-        {initialized && active && props.children}
+        {shouldRender && props.children}
       </div>
     </animated.div>
   )
