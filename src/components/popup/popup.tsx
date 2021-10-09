@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import React, { useState, useRef, FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useInitialized } from '../../utils/use-initialized'
 import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
 import { useLockScroll } from '../../utils/use-lock-scroll'
@@ -10,6 +9,7 @@ import {
   renderToContainer,
 } from '../../utils/render-to-container'
 import { useSpring, animated } from '@react-spring/web'
+import { useShouldRender } from '../../utils/use-should-render'
 
 const classPrefix = `adm-popup`
 
@@ -46,13 +46,15 @@ export const Popup: FC<PopupProps> = p => {
     `${classPrefix}-body-position-${props.position}`
   )
 
-  const initialized = useInitialized(props.visible || props.forceRender)
-
   const ref = useRef<HTMLDivElement>(null)
 
-  useLockScroll(ref, props.visible)
-
   const [active, setActive] = useState(props.visible)
+  useLockScroll(ref, active)
+  const shouldRender = useShouldRender(
+    active,
+    props.forceRender,
+    props.destroyOnClose
+  )
 
   const { percent } = useSpring({
     percent: props.visible ? 0 : 100,
@@ -113,7 +115,7 @@ export const Popup: FC<PopupProps> = p => {
         }}
         ref={ref}
       >
-        {initialized && active && props.children}
+        {shouldRender && props.children}
       </animated.div>
     </div>
   )
