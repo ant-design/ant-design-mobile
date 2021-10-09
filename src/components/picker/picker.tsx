@@ -54,7 +54,8 @@ export const Picker = withDefaultProps({
     }
   }, [value])
 
-  const columns = useColumns(props.columns, innerValue)
+  const innerColumns = useColumns(props.columns, innerValue)
+  const columns = useColumns(props.columns, value)
 
   const pickerElement = withNativeProps(
     props,
@@ -82,7 +83,7 @@ export const Picker = withDefaultProps({
       </div>
       <div className={`${classPrefix}-body`}>
         <PickerView
-          columns={columns}
+          columns={innerColumns}
           value={innerValue}
           onChange={val => {
             setInnerValue(val)
@@ -119,10 +120,15 @@ export const Picker = withDefaultProps({
     })
   }, [value, columns])
 
+  const childrenResult = useMemo(
+    () => props.children?.(items),
+    [props.children, items]
+  )
+
   return (
     <>
       {popupElement}
-      {props.children?.(items)}
+      {childrenResult}
     </>
   )
 })

@@ -1,5 +1,5 @@
 import { DemoBlock } from 'demos'
-import { Picker, Button, Space } from 'antd-mobile'
+import { Picker, Button, Space, Toast } from 'antd-mobile'
 import React, { useState, useEffect } from 'react'
 import { sleep } from 'antd-mobile/es/utils/sleep'
 
@@ -28,9 +28,6 @@ function BasicDemo() {
         }}
         value={value}
         onConfirm={setValue}
-        onSelect={val => {
-          console.log('onSelect', val)
-        }}
       />
     </>
   )
@@ -73,12 +70,8 @@ function AsyncDemo() {
         onClose={() => {
           setVisible(false)
         }}
-        onConfirm={val => {
-          console.log('onConfirm', val)
-        }}
         onSelect={val => {
           setKey(val[0])
-          console.log('onSelect', val)
         }}
       />
     </>
@@ -139,7 +132,7 @@ export default () => {
             const value = await Picker.prompt({
               columns: basicColumns,
             })
-            console.log(value)
+            Toast.show(`你选择了 ${value}`)
           }}
         >
           弹出 Picker
