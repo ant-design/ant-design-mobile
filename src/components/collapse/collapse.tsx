@@ -15,7 +15,7 @@ export type CollapsePanelProps = {
   title: string
   disabled?: boolean
   forceRender?: boolean
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -25,7 +25,6 @@ export const CollapsePanel: FC<CollapsePanelProps> = () => {
 const CollapsePanelContent: FC<{
   visible: boolean
   forceRender: boolean
-  onClick?: CollapsePanelProps['onClick']
 }> = props => {
   const { visible } = props
   const innerRef = useRef<HTMLDivElement>(null)
@@ -74,7 +73,6 @@ const CollapsePanelContent: FC<{
           }
         }),
       }}
-      onClick={props.onClick}
     >
       <div className={`${classPrefix}-panel-content-inner`} ref={innerRef}>
         <List.Item>{initialized && props.children}</List.Item>
@@ -142,7 +140,7 @@ export const Collapse: FC<CollapseProps> = props => {
         {panels.map(panel => {
           const key = panel.key as string
           const active = activeKeyList.includes(key)
-          function handleClick() {
+          function handleClick(event: React.MouseEvent<Element, MouseEvent>) {
             if (props.accordion) {
               if (active) {
                 setActiveKey([])
@@ -156,6 +154,8 @@ export const Collapse: FC<CollapseProps> = props => {
                 setActiveKey([...activeKeyList, key])
               }
             }
+
+            panel.props.onClick?.(event)
           }
 
           return (
@@ -184,7 +184,6 @@ export const Collapse: FC<CollapseProps> = props => {
               <CollapsePanelContent
                 visible={active}
                 forceRender={!!panel.props.forceRender}
-                onClick={panel.props.onClick}
               >
                 {panel.props.children}
               </CollapsePanelContent>
