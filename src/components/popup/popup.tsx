@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import React, { useState, useRef, FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useInitialized } from '../../utils/use-initialized'
 import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
 import { useLockScroll } from '../../utils/use-lock-scroll'
@@ -45,8 +44,6 @@ export const Popup: FC<PopupProps> = p => {
     props.bodyClassName,
     `${classPrefix}-body-position-${props.position}`
   )
-
-  const initialized = useInitialized(props.visible || props.forceRender)
 
   const ref = useRef<HTMLDivElement>(null)
 
@@ -113,7 +110,7 @@ export const Popup: FC<PopupProps> = p => {
         }}
         ref={ref}
       >
-        {initialized && active && props.children}
+        {(props.forceRender || active) && props.children}
       </animated.div>
     </div>
   )
