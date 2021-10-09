@@ -87,8 +87,8 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
 
   const labelElement = label ? (
     <label className={formItemLabelClass} htmlFor={htmlFor}>
-      {required && <span className={`${classPrefix}-label-required`}>*</span>}
       {label}
+      {required && <span className={`${classPrefix}-label-required`}>*</span>}
       {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
     </label>
   ) : null

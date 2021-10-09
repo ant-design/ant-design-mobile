@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
 import classNames from 'classnames'
 import Button from '../button'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 export type Action = {
   key: string | number
@@ -9,7 +10,7 @@ export type Action = {
   danger?: boolean
   bold?: boolean
   onClick?: () => void | Promise<void>
-}
+} & NativeProps
 
 export const DialogActionButton: FC<{
   action: Action
@@ -19,7 +20,8 @@ export const DialogActionButton: FC<{
 
   const [loading, setLoading] = useState(false)
 
-  return (
+  return withNativeProps(
+    props.action,
     <Button
       key={action.key}
       onClick={async () => {

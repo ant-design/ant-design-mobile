@@ -84,7 +84,10 @@ export const Picker = withDefaultProps({
         <PickerView
           columns={columns}
           value={innerValue}
-          onChange={setInnerValue}
+          onChange={val => {
+            setInnerValue(val)
+            props.onSelect?.(val)
+          }}
         />
       </div>
     </div>
