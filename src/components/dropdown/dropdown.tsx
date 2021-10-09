@@ -54,6 +54,7 @@ const Dropdown: FC<DropdownProps> & {
     }
   }
 
+  let popupForceRender = false
   const itemChildren: ReactElement<ComponentProps<typeof Item>>[] = []
   const navs = React.Children.map(props.children, child => {
     if (React.isValidElement(child)) {
@@ -65,6 +66,7 @@ const Dropdown: FC<DropdownProps> & {
         active: child.key === value,
       }
       itemChildren.push(child)
+      if (child.props.forceRender) popupForceRender = true
       return cloneElement(child, childProps)
     } else {
       return child
@@ -89,6 +91,7 @@ const Dropdown: FC<DropdownProps> & {
         maskClassName={`${classPrefix}-popup-mask`}
         bodyClassName={`${classPrefix}-popup-body`}
         style={{ top }}
+        forceRender={popupForceRender}
       >
         <div ref={contentRef}>
           {itemChildren.map(itemChild => {
