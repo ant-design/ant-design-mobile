@@ -85,6 +85,7 @@ export const Picker = withDefaultProps({
           columns={columns}
           value={innerValue}
           onChange={setInnerValue}
+          onSelect={props.onSelect}
         />
       </div>
     </div>

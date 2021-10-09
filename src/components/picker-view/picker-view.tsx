@@ -21,6 +21,7 @@ export type PickerViewProps = {
   value?: PickerValue[]
   defaultValue?: PickerValue[]
   onChange?: (value: PickerValue[]) => void
+  onSelect?: (value: PickerValue[]) => void
 } & NativeProps<'--height'>
 
 const defaultProps = {
@@ -44,6 +45,7 @@ export const PickerView: FC<PickerViewProps> = p => {
             const nextValue = [...value]
             nextValue[index] = val
             setValue(nextValue)
+            props.onSelect?.(nextValue)
           }}
         />
       ))}
