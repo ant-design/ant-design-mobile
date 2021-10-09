@@ -1,6 +1,7 @@
 export const base = {
   common: {
     cancel: 'Cancel',
+    search: 'Search',
   },
   Dialog: {
     ok: 'OK',

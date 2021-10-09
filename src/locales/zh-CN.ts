@@ -4,6 +4,7 @@ import { base } from './base'
 const zhCN = mergeLocale(base, {
   common: {
     cancel: '取消',
+    search: '搜索',
   },
   Dialog: {
     ok: '我知道了',

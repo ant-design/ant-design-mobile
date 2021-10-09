@@ -18,7 +18,9 @@ export type SearchProps = Pick<InputProps, 'onFocus' | 'onBlur' | 'onClear'> & {
   placeholder?: string
   clearable?: boolean
   showCancelButton?: boolean
+  showSearchButton?: boolean
   cancelText?: string
+  searchText?: string
   onSearch?: (val: string) => void
   onChange?: (val: string) => void
   onCancel?: () => void
@@ -27,6 +29,7 @@ export type SearchProps = Pick<InputProps, 'onFocus' | 'onBlur' | 'onClear'> & {
 const defaultProps = {
   clearable: true,
   showCancelButton: false,
+  showSearchButton: false,
   defaultValue: '',
 }
 
@@ -84,6 +87,23 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
           type='search'
         />
       </form>
+      {props.showSearchButton && (
+        <div className={`${classPrefix}-suffix`}>
+          <a
+            onMouseDown={e => {
+              e.preventDefault()
+            }}
+            onTouchStart={e => {
+              e.preventDefault()
+            }}
+            onClick={() => {
+              props.onSearch?.(value)
+            }}
+          >
+            {props.searchText ?? locale.common.search}
+          </a>
+        </div>
+      )}
       {props.showCancelButton && hasFocus && (
         <div className={`${classPrefix}-suffix`}>
           <a
