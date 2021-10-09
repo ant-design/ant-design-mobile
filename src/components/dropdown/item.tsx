@@ -9,6 +9,7 @@ export type DropdownItemProps = {
   title: React.ReactNode
   active?: boolean
   highlight?: boolean
+  forceRender?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & NativeProps
 

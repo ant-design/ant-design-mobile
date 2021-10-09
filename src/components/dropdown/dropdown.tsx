@@ -3,7 +3,8 @@ import classNames from 'classnames'
 import React, {
   cloneElement,
   FC,
-  ReactNode,
+  ReactElement,
+  ComponentProps,
   useEffect,
   useRef,
   useState,
@@ -15,7 +16,6 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 const classPrefix = `adm-dropdown`
 
 export type DropdownProps = {
-  forceRender?: boolean
   activeKey?: string
   onChange?: (key?: string) => void
   // mask?: boolean;
@@ -54,7 +54,7 @@ const Dropdown: FC<DropdownProps> & {
     }
   }
 
-  const contents: { [key: string]: ReactNode } = {}
+  const itemChildren: ReactElement<ComponentProps<typeof Item>>[] = []
   const navs = React.Children.map(props.children, child => {
     if (React.isValidElement(child)) {
       const childProps = {
@@ -64,7 +64,7 @@ const Dropdown: FC<DropdownProps> & {
         },
         active: child.key === value,
       }
-      contents[child.key!] = child.props.children
+      itemChildren.push(child)
       return cloneElement(child, childProps)
     } else {
       return child
@@ -89,22 +89,23 @@ const Dropdown: FC<DropdownProps> & {
         maskClassName={`${classPrefix}-popup-mask`}
         bodyClassName={`${classPrefix}-popup-body`}
         style={{ top }}
-        forceRender={props.forceRender}
       >
         <div ref={contentRef}>
-          {Object.keys(contents).map(key => {
-            const isActive = key === value
+          {itemChildren.map(itemChild => {
+            const isActive = itemChild.key === value
             const cls = classNames(`${classPrefix}-content`, {
               [`${classPrefix}-content-hidden`]: !isActive,
             })
-            if (!props.forceRender && !isActive) {
-              return null
+
+            if (isActive || itemChild.props.forceRender) {
+              return (
+                <div className={cls} key={itemChild.key}>
+                  {itemChild.props.children}
+                </div>
+              )
             }
-            return (
-              <div className={cls} key={key}>
-                {contents[key]}
-              </div>
-            )
+
+            return null
           })}
         </div>
       </Popup>
