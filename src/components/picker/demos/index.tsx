@@ -33,51 +33,6 @@ function BasicDemo() {
   )
 }
 
-function AsyncDemo() {
-  const [visible, setVisible] = useState(false)
-  async function mockApi(key: string) {
-    await sleep(1000)
-    return [key + '1', key + '2', key + '3']
-  }
-  const firstColumn = ['A', 'B']
-  const [secondColumnMap, setSecondColumnMap] = useState<
-    Record<string, string[]>
-  >({})
-  const [key, setKey] = useState<string | null>(null)
-  useEffect(() => {
-    if (!key) return
-    if (secondColumnMap[key]) return
-    mockApi(key).then(data => {
-      setSecondColumnMap(map => ({
-        ...map,
-        [key]: data,
-      }))
-    })
-  }, [key])
-
-  return (
-    <>
-      <Button
-        onClick={() => {
-          setVisible(true)
-        }}
-      >
-        选择
-      </Button>
-      <Picker
-        columns={[firstColumn, key ? secondColumnMap[key] ?? [] : []]}
-        visible={visible}
-        onClose={() => {
-          setVisible(false)
-        }}
-        onSelect={val => {
-          setKey(val[0])
-        }}
-      />
-    </>
-  )
-}
-
 function RenderChildrenDemo() {
   const [visible, setVisible] = useState(false)
   const [value, setValue] = useState<(string | null)[]>([])
@@ -119,9 +74,6 @@ export default () => {
     <>
       <DemoBlock title='基础用法'>
         <BasicDemo />
-      </DemoBlock>
-      <DemoBlock title='异步获取选项'>
-        <AsyncDemo />
       </DemoBlock>
       <DemoBlock title='渲染所选值'>
         <RenderChildrenDemo />
