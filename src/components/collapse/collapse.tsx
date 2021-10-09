@@ -15,6 +15,7 @@ export type CollapsePanelProps = {
   title: string
   disabled?: boolean
   forceRender?: boolean
+  destroyOnClose?: boolean
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -24,10 +25,15 @@ export const CollapsePanel: FC<CollapsePanelProps> = () => {
 const CollapsePanelContent: FC<{
   visible: boolean
   forceRender: boolean
+  destroyOnClose: boolean
 }> = props => {
   const { visible } = props
   const innerRef = useRef<HTMLDivElement>(null)
-  const shouldRender = useShouldRender(visible, props.forceRender)
+  const shouldRender = useShouldRender(
+    visible,
+    props.forceRender,
+    props.destroyOnClose
+  )
   const [{ height }, api] = useSpring(() => ({
     from: { height: 0 },
   }))
@@ -181,6 +187,7 @@ export const Collapse: FC<CollapseProps> = props => {
               <CollapsePanelContent
                 visible={active}
                 forceRender={!!panel.props.forceRender}
+                destroyOnClose={!!panel.props.destroyOnClose}
               >
                 {panel.props.children}
               </CollapsePanelContent>
