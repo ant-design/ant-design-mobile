@@ -2699,6 +2699,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/resize-observer-browser@npm:^0.1.6":
+  version: 0.1.6
+  resolution: "@types/resize-observer-browser@npm:0.1.6"
+  checksum: 3362b874c3c787c2460bd60e024ee28b06baf92e76db1b53373ac4ba39e7f336b764449771189113c2bd28624d8d2e943b16c81741d8dd5b068c9b7aafd0fb2f
+  languageName: node
+  linkType: hard
+
 "@types/sax@npm:^1.2.1":
   version: 1.2.3
   resolution: "@types/sax@npm:1.2.3"
@@ -3630,6 +3637,7 @@ __metadata:
     "@types/lodash": ^4.14.174
     "@types/react": ^17.0.24
     "@types/react-transition-group": ^4.4.3
+    "@types/resize-observer-browser": ^0.1.6
     "@typescript-eslint/eslint-plugin": ^4.31.2
     "@typescript-eslint/parser": ^4.31.2
     ahooks: ^2.10.11
