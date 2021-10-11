@@ -50,7 +50,7 @@ export const Column: FC<Props> = props => {
         props.onSelect(firstItem.value)
       }
     }
-  })
+  }, [column, value])
 
   const { run: debouncedUpdateFlag } = useDebounceFn(
     () => {
