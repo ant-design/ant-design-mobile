@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import React, { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useShouldRender } from '../../utils/use-should-render'
 
 const classPrefix = `adm-dropdown-item`
 
@@ -10,6 +11,7 @@ export type DropdownItemProps = {
   active?: boolean
   highlight?: boolean
   forceRender?: boolean
+  destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & NativeProps
 
@@ -30,3 +32,20 @@ const Item: FC<DropdownItemProps> = props => {
 }
 
 export default Item
+
+type DropdownItemChildrenWrapProps = Pick<
+  DropdownItemProps,
+  'active' | 'forceRender' | 'destroyOnClose'
+>
+export const ItemChildrenWrap: FC<DropdownItemChildrenWrapProps> = props => {
+  const { active = false } = props
+  const shouldRender = useShouldRender(
+    active,
+    props.forceRender,
+    props.destroyOnClose
+  )
+  const cls = classNames(`${classPrefix}-content`, {
+    [`${classPrefix}-content-hidden`]: !active,
+  })
+  return shouldRender ? <div className={cls}>{props.children}</div> : null
+}

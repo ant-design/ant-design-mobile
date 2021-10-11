@@ -11,9 +11,10 @@
 
 ## Dropdown.Item
 
-| Name        | Description                                            | Type        | Default |
-| ----------- | ------------------------------------------------------ | ----------- | ------- |
-| key         | The unique value                                       | `string`    | -       |
-| title       | Title                                                  | `ReactNode` | -       |
-| highlight   | Highlight                                              | `boolean`   | `false` |
-| forceRender | Whether to render the content even if it is not active | `boolean`   | `false` |
+| Name           | Description                                            | Type        | Default |
+| -------------- | ------------------------------------------------------ | ----------- | ------- |
+| key            | The unique value                                       | `string`    | -       |
+| title          | Title                                                  | `ReactNode` | -       |
+| highlight      | Highlight                                              | `boolean`   | `false` |
+| forceRender    | Whether to render the content even if it is not active | `boolean`   | `false` |
+| destroyOnClose | Unmount content when not visible                       | `boolean`   | `false` |
