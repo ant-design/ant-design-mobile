@@ -32,31 +32,7 @@ Then you can try to add the following configuration in `config.js`:
 
 ### How do I migrate from v2 to v5?
 
-v5 is a completely rewritten version, so the difference between v2 and v5 is very big, and migration means that a lot of component replacements may be required.
-
-In order to reduce the cost of migration, you can install antd-mobile v5 through aliases while keeping the v2 version:
-
-```bash
-$ npm install --save antd-mobile-v5@npm:antd-mobile@next
-# or
-$ yarn add antd-mobile-v5@npm:antd-mobile@next
-```
-
-The corresponding package.json is:
-
-```json
-{
-  "antd-mobile": "^2.3.2",
-  "antd-mobile-v5": "npm:antd-mobile@next"
-}
-```
-
-In this way, the two versions can coexist temporarily, so that components can be replaced gradually.
-
-```js
-import { Button } from 'antd-mobile' // v2
-import { Button } from 'antd-mobile-v5' // v5
-```
+Please refer to the [migration guide](./migration).
 
 ### Which browsers are compatible?
 

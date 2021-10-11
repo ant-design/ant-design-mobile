@@ -32,31 +32,7 @@ These dependencies were not found:
 
 ### 从 v2 如何迁移到 v5？
 
-v5 是完全重写的一个版本，所以 v2 和 v5 的差异非常之大，迁移意味着可能需要做大量的组件替换。
-
-为了降低迁移成本，你可以通过别名的方式来安装 antd-mobile v5，同时保留 v2 版本：
-
-```bash
-$ npm install --save antd-mobile-v5@npm:antd-mobile@next
-# or
-$ yarn add antd-mobile-v5@npm:antd-mobile@next
-```
-
-对应的 package.json 为：
-
-```json
-{
-  "antd-mobile": "^2.3.2",
-  "antd-mobile-v5": "npm:antd-mobile@next"
-}
-```
-
-这样可以做到两个版本临时并存，从而可以逐步的替换组件。
-
-```js
-import { Button } from 'antd-mobile' // v2
-import { Button } from 'antd-mobile-v5' // v5
-```
+请参考[迁移指南](./migration)。
 
 ### 兼容哪些浏览器？
 

@@ -129,6 +129,10 @@ export default {
         path: '/guide/quick-start',
       },
       {
+        title: 'Migration',
+        path: '/guide/migration',
+      },
+      {
         title: 'FAQ',
         path: '/guide/faq',
       },
@@ -157,6 +161,10 @@ export default {
       {
         title: '快速上手',
         path: '/zh/guide/quick-start',
+      },
+      {
+        title: '迁移指南',
+        path: '/guide/migration',
       },
       {
         title: 'FAQ',
