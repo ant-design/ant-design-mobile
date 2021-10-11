@@ -185,12 +185,12 @@ export const FormItem: FC<FormItemProps> = props => {
     return renderLayout(children) as JSX.Element
   }
 
-  let variables: Record<string, string> = {}
+  let Variables: Record<string, string> = {}
   if (typeof label === 'string') {
-    variables.label = label
+    Variables.label = label
   }
   if (messageVariables) {
-    variables = { ...variables, ...messageVariables }
+    Variables = { ...Variables, ...messageVariables }
   }
 
   return (

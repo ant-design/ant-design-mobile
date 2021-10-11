@@ -1,4 +1,4 @@
-# Ellipsis 文本省略
+# Ellipsis
 
 <code src="./demos/index.tsx"></code>
 
