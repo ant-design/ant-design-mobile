@@ -16,6 +16,7 @@ export type CollapsePanelProps = {
   disabled?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
+  onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -145,7 +146,7 @@ export const Collapse: FC<CollapseProps> = props => {
         {panels.map(panel => {
           const key = panel.key as string
           const active = activeKeyList.includes(key)
-          function handleClick() {
+          function handleClick(event: React.MouseEvent<Element, MouseEvent>) {
             if (props.accordion) {
               if (active) {
                 setActiveKey([])
@@ -159,6 +160,8 @@ export const Collapse: FC<CollapseProps> = props => {
                 setActiveKey([...activeKeyList, key])
               }
             }
+
+            panel.props.onClick?.(event)
           }
 
           return (

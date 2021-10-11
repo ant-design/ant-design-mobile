@@ -87,7 +87,7 @@ export const Picker = withDefaultProps({
           value={innerValue}
           onChange={val => {
             setInnerValue(val)
-            if(props.visible) {
+            if (props.visible) {
               props.onSelect?.(val)
             }
           }}
