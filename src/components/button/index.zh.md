@@ -14,7 +14,7 @@
 | loading     | 是否处于加载状态                 | `boolean`                                                          | `false`     |
 | loadingText | 加载状态下额外展示的文字         | `string`                                                           | -           |
 | onClick     | 点击事件                         | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void` | -           |
-| type        | 原生 `button` 元素的 `type` 属性 | `'submit' \| 'reset' \| 'button'`                                  | -           |
+| type        | 原生 `button` 元素的 `type` 属性 | `'submit' \| 'reset' \| 'button'`                                  | `'button'`  |
 
 ## CSS 变量
 
