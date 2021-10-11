@@ -18,7 +18,7 @@
 | onClear      | 点击清除按钮后触发                           | `() => void`              | -       |
 | id           | input 元素的 id，常用来配合 label 使用       | `string`                  | -       |
 
-此外还支持以下原生属性：`maxLength` `minLengh` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect`
+此外还支持以下原生属性：`maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect`
 
 ## CSS 变量
 
