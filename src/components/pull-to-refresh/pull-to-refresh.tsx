@@ -1,6 +1,6 @@
 import { withDefaultProps } from '../../utils/with-default-props'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
+import { useDrag } from '@use-gesture/react'
 import { getScrollParent } from '../../utils/get-scroll-parent'
 import React, { useRef, ReactNode, useState } from 'react'
 import { supportsPassive } from '../../utils/supports-passive'
@@ -128,9 +128,9 @@ export const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
         )
       },
       {
-        useTouch: true,
+        pointer: { touch: true },
         axis: 'y',
-        domTarget: elementRef,
+        target: elementRef,
         eventOptions: supportsPassive ? { passive: false } : false,
       }
     )

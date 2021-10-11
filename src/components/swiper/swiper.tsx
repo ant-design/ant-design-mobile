@@ -14,7 +14,7 @@ import classNames from 'classnames'
 import { SwiperItem } from './swiper-item'
 import { devWarning } from '../../utils/dev-log'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
+import { useDrag } from '@use-gesture/react'
 import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
@@ -125,24 +125,25 @@ export const Swiper = forwardRef(
         state => {
           const width = getWidth()
           if (!width) return
-          const [mx] = state.movement
+          const [offsetX] = state.offset
+          setDragging(true)
+          api.start({
+            x: (offsetX * 100) / width,
+            immediate: true,
+          })
           if (state.last) {
             window.setTimeout(() => {
               setDragging(false)
             })
-            const index = Math.round((mx + state.vxvy[0] * 100) / width)
+            const index = Math.round(
+              (offsetX + state.velocity[0] * state.direction[0] * 200) / width
+            )
             swipeTo(index)
-          } else {
-            setDragging(true)
-            api.start({
-              x: (mx * 100) / width,
-              immediate: true,
-            })
           }
         },
         {
           transform: ([x, y]) => [-x, y],
-          initial: () => {
+          from: () => {
             const width = getWidth()
             return [(x.get() / 100) * width, 0]
           },
@@ -156,7 +157,11 @@ export const Swiper = forwardRef(
           },
           rubberband: true,
           axis: 'x',
-          experimental_preventWindowScrollY: true,
+          preventScroll: true,
+          preventDefault: true,
+          pointer: {
+            touch: true,
+          },
         }
       )
 

@@ -3160,6 +3160,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@use-gesture/core@npm:10.0.3":
+  version: 10.0.3
+  resolution: "@use-gesture/core@npm:10.0.3"
+  checksum: 1b43f77d4fd309f4cfa519907e767ccbd636ee4b7a2d8249b367b6d35a0e4fbc4bf07b0b952b819b332314cdebddbe458422a63b092a616dea8cc2b7eea1ac6c
+  languageName: node
+  linkType: hard
+
+"@use-gesture/react@npm:^10.0.3":
+  version: 10.0.3
+  resolution: "@use-gesture/react@npm:10.0.3"
+  dependencies:
+    "@use-gesture/core": 10.0.3
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: 8383f6037a872d5974f6c7a3ce3429709735b14b42709c1b8159ca2fa3e1932c6c17d39d81394288712369d8bf8c9958bf00215d2cf6687387b01b4b3946ab8d
+  languageName: node
+  linkType: hard
+
 "@webassemblyjs/ast@npm:1.11.1":
   version: 1.11.1
   resolution: "@webassemblyjs/ast@npm:1.11.1"
@@ -3632,6 +3650,7 @@ __metadata:
     "@types/react-transition-group": ^4.4.3
     "@typescript-eslint/eslint-plugin": ^4.31.2
     "@typescript-eslint/parser": ^4.31.2
+    "@use-gesture/react": ^10.0.3
     ahooks: ^2.10.11
     antd-mobile-icons: ^0.2.2
     antd-mobile-v5-count: ^1.0.1
@@ -3677,7 +3696,6 @@ __metadata:
     react-dom: ^17.0.2
     react-test-renderer: ^17.0.2
     react-transition-group: ^4.4.2
-    react-use-gesture: ^9.1.3
     staged-components: ^1.1.1
     style-loader: ^3.3.0
     through2: ^4.0.2
@@ -12410,15 +12428,6 @@ fsevents@^1.2.7:
     react: ">=16.6.0"
     react-dom: ">=16.6.0"
   checksum: 063c1d6e037bda8d4bc3da3fcb7f0827dca3f4ca1e1be8bb29ce6957ec917eae71853b043de4d720b3302f2ccf9ce99dcd89c88acec4a665888f1e8d492803be
-  languageName: node
-  linkType: hard
-
-"react-use-gesture@npm:^9.1.3":
-  version: 9.1.3
-  resolution: "react-use-gesture@npm:9.1.3"
-  peerDependencies:
-    react: ">= 16.8.0"
-  checksum: acb46284767a19082fb8777a735936380cc543a0a5b3d4b234e64f5af8b27c48624dcaa1b089f2a89e16a859ab88db736d922f8fac5bde4c9b7da486eb81ca52
   languageName: node
   linkType: hard
 
