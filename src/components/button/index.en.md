@@ -14,7 +14,7 @@
 | loading     | Should the button displays as loading state. | `boolean`                                                          | `false`     |
 | loadingText | The extra text displayed in loading state.   | `string`                                                           | -           |
 | onClick     | The click event.                             | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void` | -           |
-| type        | The `type` prop of native `button` element.  | `'submit' \| 'reset' \| 'button'`                                  | -           |
+| type        | The `type` prop of native `button` element.  | `'submit' \| 'reset' \| 'button'`                                  | `'button'`  |
 
 ## CSS Variables
 

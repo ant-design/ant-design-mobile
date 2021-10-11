@@ -23,4 +23,5 @@
 | required    | 是否必选                   | `boolean` | `false`（如有设置 `rules`，则会根据 `rules` 判断） |
 | disabled    | 是否禁用                   | `boolean` | `false`                                            |
 | noStyle     | 不使用样式，只使用字段管理 | `boolean` | `false`                                            |
+| hidden      | 是否隐藏整个字段           | `boolean` | `false`                                            |
 | hasFeedback | 是否展示错误反馈           | `boolean` | `true`                                             |

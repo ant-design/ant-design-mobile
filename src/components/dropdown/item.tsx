@@ -1,26 +1,27 @@
 import classNames from 'classnames'
 import React, { FC } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-dropdown-item`
 
-export interface DropdownItemProps {
+export type DropdownItemProps = {
   key: string
   title: React.ReactNode
   active?: boolean
   highlight?: boolean
+  forceRender?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  className?: string
-  style?: React.CSSProperties
-}
+} & NativeProps
 
 const Item: FC<DropdownItemProps> = props => {
-  const cls = classNames(classPrefix, props.className, {
+  const cls = classNames(classPrefix, {
     [`${classPrefix}-active`]: props.active,
     [`${classPrefix}-highlight`]: props.highlight,
   })
 
-  return (
-    <div className={cls} style={props.style} onClick={props.onClick}>
+  return withNativeProps(
+    props,
+    <div className={cls} onClick={props.onClick}>
       <div className={`${classPrefix}-title`}>
         <span>{props.title}</span>
       </div>
