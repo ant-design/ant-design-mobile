@@ -6,9 +6,9 @@ import classNames from 'classnames'
 const classPrefix = `adm-list`
 
 export type ListItemProps = {
-  title?: string | ReactNode
+  title?: ReactNode
   children?: ReactNode
-  description?: string | ReactNode
+  description?: ReactNode
   prefix?: ReactNode
   extra?: ReactNode
   clickable?: boolean
