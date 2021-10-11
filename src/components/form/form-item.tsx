@@ -30,6 +30,7 @@ export type FormItemProps = RcFieldProps &
     required?: boolean
     noStyle?: boolean
     disabled?: boolean
+    hidden?: boolean
     children: ChildrenType
   }
 
@@ -54,6 +55,7 @@ type FormItemLayoutProps = Pick<
   | 'label'
   | 'help'
   | 'onClick'
+  | 'hidden'
 > & {
   htmlFor?: string
   meta?: Meta
@@ -71,6 +73,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     meta,
     children,
     htmlFor,
+    hidden,
   } = props
 
   const context = useContext(FormContext)
@@ -87,8 +90,8 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
 
   const labelElement = label ? (
     <label className={formItemLabelClass} htmlFor={htmlFor}>
-      {required && <span className={`${classPrefix}-label-required`}>*</span>}
       {label}
+      {required && <span className={`${classPrefix}-label-required`}>*</span>}
       {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
     </label>
   ) : null
@@ -103,7 +106,9 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       title={layout === 'vertical' && labelElement}
       prefix={layout === 'horizontal' && labelElement}
       description={descriptionElement}
-      className={classNames(classPrefix, className)}
+      className={classNames(classPrefix, className, {
+        [`${classPrefix}-hidden`]: hidden,
+      })}
       onClick={props.onClick}
     >
       {children}
@@ -123,6 +128,7 @@ export const FormItem: FC<FormItemProps> = props => {
     name,
     required,
     noStyle,
+    hidden,
     // Field 相关
     disabled,
     rules,
@@ -150,7 +156,7 @@ export const FormItem: FC<FormItemProps> = props => {
     meta?: Meta,
     isRequired?: boolean
   ) {
-    if (noStyle) {
+    if (noStyle && !hidden) {
       return baseChildren
     }
 
@@ -166,6 +172,7 @@ export const FormItem: FC<FormItemProps> = props => {
         htmlFor={fieldId}
         meta={meta}
         onClick={onClick}
+        hidden={hidden}
       >
         {baseChildren}
       </FormItemLayout>

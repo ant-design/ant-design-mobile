@@ -149,7 +149,9 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           throw e
         }
       })
-    )
+    ).catch(error => console.error(error))
+
+    e.target.value = '' // HACK: fix the same file doesn't trigger onChange
   }
 
   function previewImage(index: number) {

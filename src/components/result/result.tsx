@@ -7,6 +7,7 @@ import {
   ClockCircleFill,
   ExclamationCircleFill,
 } from 'antd-mobile-icons'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-result`
 
@@ -18,25 +19,21 @@ const iconRecord = {
   warning: ExclamationCircleFill,
 }
 
-export interface ResultProps {
+export type ResultProps = {
   status: 'success' | 'error' | 'info' | 'waiting' | 'warning'
   title: string
   description?: string
   icon?: ReactNode
-  className?: string
-  style?: React.CSSProperties
-}
+} & NativeProps
 
 export const Result: FC<ResultProps> = props => {
-  const { className, style, status, title, description, icon } = props
+  const { status, title, description, icon } = props
   if (!status) return null
   const resultIcon = icon || React.createElement(iconRecord[status])
 
-  return (
-    <div
-      className={classNames(classPrefix, `${classPrefix}-${status}`, className)}
-      style={style}
-    >
+  return withNativeProps(
+    props,
+    <div className={classNames(classPrefix, `${classPrefix}-${status}`)}>
       <div className={`${classPrefix}-icon`}>{resultIcon}</div>
       <div className={`${classPrefix}-title`}>{title}</div>
       {description ? (

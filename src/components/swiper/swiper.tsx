@@ -228,9 +228,10 @@ export const Swiper = forwardRef(
                         let position = -x + index * 100
                         if (loop) {
                           const totalWidth = count * 100
+                          const flagWidth = totalWidth / 2 - 10
                           position =
-                            modulus(position + totalWidth / 2, totalWidth) -
-                            totalWidth / 2
+                            modulus(position + flagWidth, totalWidth) -
+                            flagWidth
                         }
                         return `${position}%`
                       }),
