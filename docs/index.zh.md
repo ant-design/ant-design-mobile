@@ -6,11 +6,11 @@ hero:
   desc: v5 beta (白杨)
   actions:
     - text: 快速上手
-      link: /guide/quick-start
+      link: /zh/guide/quick-start
     - text: 在线体验
       link: https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json
     - text: 组件列表
-      link: /components
+      link: /zh/components
 footer: Open-source MIT Licensed | Copyright © 2016-present Alipay.com<br />Powered by [dumi](https://d.umijs.org)
 ---
 
