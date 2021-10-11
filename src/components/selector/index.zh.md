@@ -4,15 +4,15 @@
 
 ## 属性
 
-| 属性         | 说明             | 类型                        | 默认值  |
-| ------------ | ---------------- | --------------------------- | ------- |
-| value        | 选中项           | `(string \| number)[]`      | `[]`    |
-| defaultValue | 默认项           | `(string \| number)[]`      | `[]`    |
-| columns      | 行展示数         | `number`                    | -       |
-| options      | 可选项           | `SelectorOption[]`          | -       |
-| multiple     | 是否允许多选     | `boolean`                   | `false` |
-| disabled     | 是否全局禁止选中 | `boolean`                   | `false` |
-| onChange     | 选项改变时触发   | `(value: string[]) => void` | -       |
+| 属性         | 说明             | 类型                                                 | 默认值  |
+| ------------ | ---------------- | ---------------------------------------------------- | ------- |
+| value        | 选中项           | `(string \| number)[]`                               | `[]`    |
+| defaultValue | 默认项           | `(string \| number)[]`                               | `[]`    |
+| columns      | 行展示数         | `number`                                             | -       |
+| options      | 可选项           | `SelectorOption[]`                                   | -       |
+| multiple     | 是否允许多选     | `boolean`                                            | `false` |
+| disabled     | 是否全局禁止选中 | `boolean`                                            | `false` |
+| onChange     | 选项改变时触发   | `(value: string[], items: SelectorOption[]) => void` | -       |
 
 ## SelectorOption
 

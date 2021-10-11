@@ -25,7 +25,7 @@ export type SelectorProps<V> = {
   disabled?: boolean
   defaultValue?: V[]
   value?: V[]
-  onChange?: (v: V[]) => void
+  onChange?: (v: V[], items: SelectorOption<V>[]) => void
 } & NativeProps<'--checked-color'>
 
 const defaultProps = {
@@ -35,7 +35,10 @@ const defaultProps = {
 
 export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = useNewControllableValue({
+    value: props.value,
+    defaultValue: props.defaultValue,
+  })
 
   const items = props.options.map(option => {
     const active = (value || []).includes(option.value)
@@ -55,13 +58,18 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
             return
           }
           if (props.multiple) {
-            setValue(
-              active
-                ? value.filter(v => v !== option.value)
-                : [...value, option.value]
+            const val = active
+              ? value.filter(v => v !== option.value)
+              : [...value, option.value]
+            setValue(val)
+            props.onChange?.(
+              val,
+              props.options.filter(v => val.includes(v.value))
             )
           } else {
-            setValue(active ? [] : [option.value])
+            const val = active ? [] : [option.value]
+            setValue(val)
+            props.onChange?.(val, [option])
           }
         }}
       >

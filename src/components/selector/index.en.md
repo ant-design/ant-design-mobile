@@ -4,15 +4,15 @@
 
 ## API
 
-| Name         | Description                            | Type                        | Default |
-| ------------ | -------------------------------------- | --------------------------- | ------- |
-| value        | Selected value                         | `(string \| number)[]`      | `[]`    |
-| defaultValue | Selected value by default              | `(string \| number)[]`      | `[]`    |
-| columns      | Number of the displayed columns        | `number`                    | -       |
-| options      | Optional selector                      | `SelectorOption[]`          | -       |
-| multiple     | Whether to allow multiple selections   | `boolean`                   | `false` |
-| disabled     | Whether to diabled selections globally | `boolean`                   | `false` |
-| onChange     | Triggered when the value is changed    | `(value: string[]) => void` | -       |
+| Name         | Description                            | Type                                                 | Default |
+| ------------ | -------------------------------------- | ---------------------------------------------------- | ------- |
+| value        | Selected value                         | `(string \| number)[]`                               | `[]`    |
+| defaultValue | Selected value by default              | `(string \| number)[]`                               | `[]`    |
+| columns      | Number of the displayed columns        | `number`                                             | -       |
+| options      | Optional selector                      | `SelectorOption[]`                                   | -       |
+| multiple     | Whether to allow multiple selections   | `boolean`                                            | `false` |
+| disabled     | Whether to diabled selections globally | `boolean`                                            | `false` |
+| onChange     | Triggered when the value is changed    | `(value: string[], items: SelectorOption[]) => void` | -       |
 
 ## SelectorOption
 
