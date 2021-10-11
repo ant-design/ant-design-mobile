@@ -19,20 +19,20 @@ type PickerColumn = (string | PickerColumnItem)[]
 type PickerValue = string | null
 ```
 
-| Name         | Description                             | Type                                                           | Default  |
-| ------------ | --------------------------------------- | -------------------------------------------------------------- | -------- |
-| columns      | Options to configure each column        | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
-| value        | Selected options                        | `PickerValue[]`                                                | -        |
-| defaultValue | Default selected options                | `PickerValue[]`                                                | -        |
-| onSelect     | Triggered when the options are changed  | `(value: PickerValue[]) => void`                               | -        |
-| onConfirm    | Triggered when confirming               | `(value: PickerValue[]) => void`                               | -        |
-| onCancel     | Triggered when cancelling               | `() => void`                                                   | -        |
-| onClose      | Triggered when confirming or cancelling | `() => void`                                                   | -        |
-| visible      | Whether to show or hide the Picker      | `boolean`                                                      | `false`  |
-| title        | Title                                   | `ReactNode`                                                    | -        |
-| confirmText  | Text of the ok button                   | `string`                                                       | `'确定'` |
-| cancelText   | Text of the cancel button               | `string`                                                       | `'取消'` |
-| children     | Render function of the selected options | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
+| Name         | Description                             | Type                                                                  | Default  |
+| ------------ | --------------------------------------- | --------------------------------------------------------------------- | -------- |
+| columns      | Options to configure each column        | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])`        | -        |
+| value        | Selected options                        | `PickerValue[]`                                                       | -        |
+| defaultValue | Default selected options                | `PickerValue[]`                                                       | -        |
+| onSelect     | Triggered when the options are changed  | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => void` | -        |
+| onConfirm    | Triggered when confirming               | `(value: PickerValue[], items: (PickerColumnItem \| null)[]) => void` | -        |
+| onCancel     | Triggered when cancelling               | `() => void`                                                          | -        |
+| onClose      | Triggered when confirming or cancelling | `() => void`                                                          | -        |
+| visible      | Whether to show or hide the Picker      | `boolean`                                                             | `false`  |
+| title        | Title                                   | `ReactNode`                                                           | -        |
+| confirmText  | Text of the ok button                   | `string`                                                              | `'确定'` |
+| cancelText   | Text of the cancel button               | `string`                                                              | `'取消'` |
+| children     | Render function of the selected options | `(items: PickerColumnItem[]) => ReactNode`                            | -        |
 
 In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick`
 

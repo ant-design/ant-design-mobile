@@ -13,8 +13,8 @@ export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
-  onSelect?: (value: PickerValue[]) => void
-  onConfirm?: (value: PickerValue[]) => void
+  onSelect?: (value: PickerValue[], items: (PickerColumnItem | null)[]) => void
+  onConfirm?: (value: PickerValue[], items: (PickerColumnItem | null)[]) => void
   onCancel?: () => void
   onClose?: () => void
   visible?: boolean
@@ -37,7 +37,6 @@ export const Picker = withDefaultProps({
   const controllable = useNewControllableValue({
     value: props.value,
     defaultValue: props.defaultValue,
-    onChange: props.onConfirm,
   })
   const value = controllable[0] as PickerValue[]
   const setValue = controllable[1]
@@ -75,6 +74,14 @@ export const Picker = withDefaultProps({
           className={`${classPrefix}-header-button`}
           onClick={() => {
             setValue(innerValue)
+            props.onConfirm?.(
+              innerValue,
+              innerValue.map((v, index) => {
+                const column = columns[index]
+                if (!column) return null
+                return column.find(item => item.value === v) ?? null
+              })
+            )
             props.onClose?.()
           }}
         >
@@ -88,7 +95,14 @@ export const Picker = withDefaultProps({
           onChange={val => {
             setInnerValue(val)
             if (props.visible) {
-              props.onSelect?.(val)
+              props.onSelect?.(
+                val,
+                val.map((v, index) => {
+                  const column = columns[index]
+                  if (!column) return null
+                  return column.find(item => item.value === v) ?? null
+                })
+              )
             }
           }}
         />
