@@ -23,4 +23,5 @@ See for other parameters https://www.npmjs.com/package/rc-field-form
 | required    | Whether it is required               | `boolean` | `false`（if `rules` is set, it would be judged according to `rules`） |
 | disabled    | Whether it is disabled               | `boolean` | `false`                                                               |
 | noStyle     | No styles, only use field management | `boolean` | `false`                                                               |
+| hidden      | Hide this field                      | `boolean` | `false`                                                               |
 | hasFeedback | Whether to show error feedback       | `boolean` | `true`                                                                |

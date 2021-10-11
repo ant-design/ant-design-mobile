@@ -27,14 +27,16 @@
 
 ### Action
 
-| Name     | Description                       | Type                          | Default |
-| -------- | --------------------------------- | ----------------------------- | ------- |
-| key      | The unique mark                   | `string \| number`            | -       |
-| text     | The title                         | `string`                      | -       |
-| disabled | Whether disabled state or not     | `boolean`                     | `false` |
-| danger   | Whether in dangerous state or not | `boolean`                     | `false` |
-| bold     | Whether the text is bold          | `boolean`                     | `false` |
-| onClick  | Triggered on click                | `() => void \| Promise<void>` | -       |
+| Name      | Description                       | Type                          | Default |
+| --------- | --------------------------------- | ----------------------------- | ------- |
+| key       | The unique mark                   | `string \| number`            | -       |
+| text      | The title                         | `string`                      | -       |
+| disabled  | Whether disabled state or not     | `boolean`                     | `false` |
+| danger    | Whether in dangerous state or not | `boolean`                     | `false` |
+| bold      | Whether the text is bold          | `boolean`                     | `false` |
+| className | Class name of the action button   | `string`                      | -       |
+| style     | Style of the action button        | `React.CSSProperties`         | -       |
+| onClick   | Triggered on click                | `() => void \| Promise<void>` | -       |
 
 ## Imperative
 
