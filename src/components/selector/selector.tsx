@@ -38,6 +38,12 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
   const [value, setValue] = useNewControllableValue({
     value: props.value,
     defaultValue: props.defaultValue,
+    onChange: val => {
+      props.onChange?.(
+        val,
+        props.options.filter(option => val.includes(option.value))
+      )
+    },
   })
 
   const items = props.options.map(option => {
@@ -62,14 +68,9 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
               ? value.filter(v => v !== option.value)
               : [...value, option.value]
             setValue(val)
-            props.onChange?.(
-              val,
-              props.options.filter(v => val.includes(v.value))
-            )
           } else {
             const val = active ? [] : [option.value]
             setValue(val)
-            props.onChange?.(val, [option])
           }
         }}
       >
