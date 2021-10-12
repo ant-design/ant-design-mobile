@@ -33,7 +33,7 @@ Except for `content`, all other attributes are inherited from `Popover`, the uni
 | Name     | Description                                                | Type               | Default                  |
 | -------- | ---------------------------------------------------------- | ------------------ | ------------------------ |
 | text     | Menu list, used when the pop-up content is a standard menu | `ReactNode`        | -                        |
-| icon     | Callback of the selected menu, when the menu list is used  | `ReactNode`        | `null`                   |
+| icon     | The icon of the menu item                                  | `ReactNode`        | `null`                   |
 | key      | The unique identifier of the menu, the default is `index`  | `string \| number` | `actions` 数组的 `index` |
 | disabled | Whether disabled                                           | `boolean`          | `false`                  |
 
