@@ -8,9 +8,9 @@ const classPrefix = `adm-card`
 export type CardProps = {
   title?: ReactNode
   extra?: ReactNode
-  onClick?: (event: React.MouseEvent) => void
-  onBodyClick?: (event: React.MouseEvent) => void
-  onHeaderClick?: (event: React.MouseEvent) => void
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  onBodyClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  onHeaderClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & NativeProps
 
 export const Card: FC<CardProps> = props => {
