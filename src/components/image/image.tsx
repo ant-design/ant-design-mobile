@@ -13,7 +13,7 @@ export type ImageProps = {
   fit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
   placeholder?: ReactNode
   fallback?: ReactNode
-  onClick?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
+  onClick?: (event: React.MouseEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
 } & NativeProps &
   Pick<
