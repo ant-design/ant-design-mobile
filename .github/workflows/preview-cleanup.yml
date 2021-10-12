@@ -1,3 +1,4 @@
+name: Preview Cleanup
 on:
   pull_request:
     branches:
@@ -17,4 +18,4 @@ jobs:
       - name: Destroy preview environment
         uses: okteto/destroy-preview@latest
         with:
-          name: pr-${{ github.event.number }}
+          name: pr-${{ github.event.number }}-awmleer
