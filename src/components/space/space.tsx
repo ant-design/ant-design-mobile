@@ -6,7 +6,6 @@ import { withDefaultProps } from '../../utils/with-default-props'
 const classPrefix = `adm-space`
 
 export type SpaceProps = {
-  size?: number | number[] | string | string[]
   direction?: 'horizontal' | 'vertical'
   align?: 'start' | 'end' | 'center' | 'baseline'
   justify?:
@@ -20,25 +19,11 @@ export type SpaceProps = {
     | 'stretch'
   wrap?: boolean
   block?: boolean
-} & NativeProps
+} & NativeProps<'--gap' | '--vertical-gap' | '--horizontal-gap'>
 
 export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
   props => {
-    const { size, direction } = props
-    let sizeStyle: any = {}
-    if (size) {
-      const [horizontalSize, verticalSize] = Array.isArray(size)
-        ? size
-        : [size, size]
-      sizeStyle = {
-        '--vertical-size':
-          typeof verticalSize === 'number' ? `${verticalSize}px` : verticalSize,
-        '--horizontal-size':
-          typeof horizontalSize === 'number'
-            ? `${horizontalSize}px`
-            : horizontalSize,
-      }
-    }
+    const { direction } = props
     return withNativeProps(
       props,
       <div
@@ -49,7 +34,6 @@ export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
           [`${classPrefix}-align-${props.align}`]: !!props.align,
           [`${classPrefix}-justify-${props.justify}`]: !!props.justify,
         })}
-        style={sizeStyle}
       >
         {React.Children.map(props.children, child => {
           return (

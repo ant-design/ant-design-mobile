@@ -2,13 +2,20 @@
 
 <code src="./demos/index.tsx"></code>
 
-## API
+### Props
 
 | Name      | Description                                                   | Type                                                                                           | Default        |
 | --------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------- |
 | justify   | Align the items on the main axis.                             | `'start' \| 'end' \| 'center' \| 'baseline' \| 'between' \| 'around' \| 'evenly' \| 'stretch'` | -              |
 | align     | Align the items on the cross axis.                            | `'start' \| 'end' \| 'center' \| 'baseline'`                                                   | -              |
 | direction | The spacing direction.                                        | `'vertical' \| 'horizontal'`                                                                   | `'horizontal'` |
-| size      | The spacing size.                                             | `number \| number[] \| string \| string[]`                                                     | `8px`          |
 | wrap      | Should line break automatically, work only with `horizontal`. | `boolean`                                                                                      | `false`        |
 | block     | Should render as block element.                               | `boolean`                                                                                      | `false`        |
+
+### CSS Variables
+
+| Name             | Description                       | Default      |
+| ---------------- | --------------------------------- | ------------ |
+| --gap            | The gap between items.            | `8px`        |
+| --vertical-gap   | The vertical gap between items.   | `var(--gap)` |
+| --horizontal-gap | The horizontal gap between items. | `var(--gap)` |
