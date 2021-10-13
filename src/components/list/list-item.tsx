@@ -12,7 +12,7 @@ export type ListItemProps = {
   prefix?: ReactNode
   extra?: ReactNode
   clickable?: boolean
-  arrow?: boolean | ReactNode
+  arrow?: ReactNode
   onClick?: (e: React.MouseEvent) => void
 } & NativeProps<'--prefix-width' | '--align-items'>
 

@@ -4,14 +4,14 @@
 
 ## API
 
-| Name      | Description                                                                                         | Type                   | Default |
-| --------- | --------------------------------------------------------------------------------------------------- | ---------------------- | ------- |
-| back      | The returned text of the area, if `null` returned, `backArrow` would not be rendered                | `string \| null`       | `''`    |
-| backArrow | Whether to display the arrow of the return area, you can also pass in `ReactNode` for customization | `boolean \| ReactNode` | `true`  |
-| onBack    | Callback after clicking the return area                                                             | `() => void`           | -       |
-| left      | Content on the left, rendered on the right side of the return area                                  | `ReactNode`            | -       |
-| title     | Title                                                                                               | `ReactNode`            | -       |
-| right     | The content of the right side                                                                       | `ReactNode`            | -       |
+| Name      | Description                                                                                         | Type             | Default |
+| --------- | --------------------------------------------------------------------------------------------------- | ---------------- | ------- |
+| back      | The returned text of the area, if `null` returned, `backArrow` would not be rendered                | `string \| null` | `''`    |
+| backArrow | Whether to display the arrow of the return area, you can also pass in `ReactNode` for customization | `ReactNode`      | `true`  |
+| onBack    | Callback after clicking the return area                                                             | `() => void`     | -       |
+| left      | Content on the left, rendered on the right side of the return area                                  | `ReactNode`      | -       |
+| title     | Title                                                                                               | `ReactNode`      | -       |
+| right     | The content of the right side                                                                       | `ReactNode`      | -       |
 
 ## CSS Variables
 

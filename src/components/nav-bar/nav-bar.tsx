@@ -9,7 +9,7 @@ const classPrefix = `adm-nav-bar`
 
 export type NavBarProps = {
   back?: string | null
-  backArrow?: boolean | ReactNode
+  backArrow?: ReactNode
   left?: ReactNode
   right?: ReactNode
   onBack?: () => void
