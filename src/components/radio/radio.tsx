@@ -1,10 +1,10 @@
 import React, { FC, useContext } from 'react'
 import { NativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
-import { CheckOutline } from 'antd-mobile-icons'
 import { RadioGroupContext } from './group-context'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { CheckIcon } from '../checkbox/check-icon'
 
 const classPrefix = `adm-radio`
 
@@ -19,7 +19,7 @@ export type RadioProps = {
   block?: boolean
   id?: string
   icon?: (checked: boolean) => React.ReactNode
-} & NativeProps
+} & NativeProps<'--icon-size' | '--font-size' | '--gap'>
 
 const defaultProps = {
   defaultChecked: false,
@@ -61,7 +61,7 @@ export const Radio: FC<RadioProps> = p => {
 
     return (
       <div className={`${classPrefix}-icon`}>
-        <CheckOutline className={`${classPrefix}-icon-checked`} />
+        <CheckIcon className={`${classPrefix}-icon-checked`} />
       </div>
     )
   }

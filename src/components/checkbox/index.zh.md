@@ -33,6 +33,8 @@ type CheckboxValue = string | number
 
 ## CSS 变量
 
+### Checkbox
+
 | 属性        | 说明                     | 默认值 |
 | ----------- | ------------------------ | ------ |
 | --icon-size | 勾选图标的大小           | `22px` |

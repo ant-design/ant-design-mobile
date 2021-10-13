@@ -87,6 +87,17 @@ export default () => {
           </Space>
         </Radio.Group>
       </DemoBlock>
+      <DemoBlock title='自定义大小'>
+        <Radio
+          style={{
+            '--icon-size': '18px',
+            '--font-size': '14px',
+            '--gap': '6px',
+          }}
+        >
+          小号的勾选框
+        </Radio>
+      </DemoBlock>
     </>
   )
 }

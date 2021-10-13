@@ -33,6 +33,8 @@ type CheckboxValue = string | number
 
 ## CSS Variables
 
+### Checkbox
+
 | Name        | Description                                               | Default |
 | ----------- | --------------------------------------------------------- | ------- |
 | --icon-size | Size of the check icon.                                   | `22px`  |

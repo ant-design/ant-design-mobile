@@ -29,3 +29,13 @@ type RadioValue = string | number
 | disabled     | Disabled for the whole group                | `boolean`                     | `false` |
 | value        | Specified selected option                   | `RadioValue`                  | -       |
 | onChange     | Callback function when the value is changed | `(value: RadioValue) => void` | -       |
+
+## CSS Variables
+
+### Radio
+
+| Name        | Description                                               | Default |
+| ----------- | --------------------------------------------------------- | ------- |
+| --icon-size | Size of the check icon.                                   | `22px`  |
+| --font-size | Font size of the description label.                       | `17px`  |
+| --gap       | The gap between the check icon and the description label. | `8px`   |
