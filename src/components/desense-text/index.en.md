@@ -1,4 +1,4 @@
-# DesensText
+# DesenseText
 
 <code src="./demos/index.tsx"></code>
 
@@ -7,7 +7,7 @@
 | Name          | Description                        | Type                        | Default |
 | ------------- | ---------------------------------- | --------------------------- | ------- |
 | text          | Not desensitized content           | `ReactNode`                 | --      |
-| desensText    | The content after desensitization  | `ReactNode`                 | --      |
-| desens        | Desensitization state              | `boolean`                   | --      |
+| desenseText   | The content after desensitization  | `ReactNode`                 | --      |
+| desense       | Desensitization state              | `boolean`                   | --      |
 | defaultDesens | Default desensitization state      | `boolean`                   | `true`  |
 | onChange      | Callback to toggle desensitization | `(desens: boolean) => void` | --      |
