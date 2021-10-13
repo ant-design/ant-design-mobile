@@ -1,5 +1,4 @@
-import { FC, ReactNode } from 'react'
-import React from 'react'
+import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
@@ -8,6 +7,10 @@ const classPrefix = `adm-card`
 export type CardProps = {
   title?: ReactNode
   extra?: ReactNode
+  headerStyle?: React.CSSProperties
+  headerClassName?: string
+  bodyStyle?: React.CSSProperties
+  bodyClassName?: string
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   onBodyClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   onHeaderClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
@@ -20,7 +23,8 @@ export const Card: FC<CardProps> = props => {
     }
     return (
       <div
-        className={classNames(`${classPrefix}-header`)}
+        className={classNames(`${classPrefix}-header`, props.headerClassName)}
+        style={props.headerStyle}
         onClick={props.onHeaderClick}
       >
         <div className={`${classPrefix}-header-title`}>{props.title}</div>
@@ -34,7 +38,11 @@ export const Card: FC<CardProps> = props => {
       return null
     }
     return (
-      <div className={`${classPrefix}-body`} onClick={props.onBodyClick}>
+      <div
+        className={classNames(`${classPrefix}-body`, props.bodyClassName)}
+        style={props.bodyStyle}
+        onClick={props.onBodyClick}
+      >
         {props.children}
       </div>
     )

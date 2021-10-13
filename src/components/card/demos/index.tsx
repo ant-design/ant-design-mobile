@@ -29,7 +29,7 @@ export default () => {
       <DemoBlock title='没有卡片标题' background='gray'>
         <Card onClick={onClick}>卡片内容</Card>
       </DemoBlock>
-      <DemoBlock title='自定义卡片' background='gray'>
+      <DemoBlock title='自定义卡片内容' background='gray'>
         <Card
           title={
             <div style={{ fontWeight: 'normal' }}>
@@ -51,6 +51,17 @@ export default () => {
               底部按钮
             </Button>
           </div>
+        </Card>
+      </DemoBlock>
+      <DemoBlock title='自定义卡片样式' background='gray'>
+        <Card
+          headerStyle={{
+            color: '#1677ff',
+          }}
+          bodyClassName={styles.customBody}
+          title='卡片标题'
+        >
+          卡片内容
         </Card>
       </DemoBlock>
     </>
