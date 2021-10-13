@@ -2,7 +2,7 @@
 
 <code src="./demos/index.tsx"></code>
 
-## API
+## 属性
 
 ```ts | pure
 type CheckboxValue = string | number
@@ -30,3 +30,11 @@ type CheckboxValue = string | number
 | disabled     | 整组失效       | `boolean`                          | `false` |
 | value        | 指定选中的选项 | `CheckboxValue[]`                  | `[]`    |
 | onChange     | 变化时回调函数 | `(value: CheckboxValue[]) => void` | -       |
+
+## CSS 变量
+
+| 属性        | 说明                     | 默认值 |
+| ----------- | ------------------------ | ------ |
+| --icon-size | 勾选图标的大小           | `22px` |
+| --font-size | 右侧文字描述的大小       | `17px` |
+| --gap       | 图标和文字描述之间的间距 | `8px`  |

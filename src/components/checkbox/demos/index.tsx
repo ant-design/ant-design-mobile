@@ -67,6 +67,17 @@ export default () => {
           自定义图标
         </Checkbox>
       </DemoBlock>
+      <DemoBlock title='自定义大小'>
+        <Checkbox
+          style={{
+            '--icon-size': '18px',
+            '--font-size': '14px',
+            '--gap': '6px',
+          }}
+        >
+          小号的勾选框
+        </Checkbox>
+      </DemoBlock>
     </>
   )
 }

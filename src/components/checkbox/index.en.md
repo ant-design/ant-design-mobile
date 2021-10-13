@@ -2,7 +2,7 @@
 
 <code src="./demos/index.tsx"></code>
 
-## API
+## Props
 
 ```ts | pure
 type CheckboxValue = string | number
@@ -30,3 +30,11 @@ type CheckboxValue = string | number
 | disabled     | To make whole group failure     | `boolean`                          | `false` |
 | value        | To specify the selected option  | `CheckboxValue[]`                  | `[]`    |
 | onChange     | Callback function when changing | `(value: CheckboxValue[]) => void` | -       |
+
+## CSS Variables
+
+| Name        | Description                                               | Default |
+| ----------- | --------------------------------------------------------- | ------- |
+| --icon-size | Size of the check icon.                                   | `22px`  |
+| --font-size | Font size of the description label.                       | `17px`  |
+| --gap       | The gap between the check icon and the description label. | `8px`   |
