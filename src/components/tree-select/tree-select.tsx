@@ -15,7 +15,7 @@ export type TreeSelectProps = {
   options: TreeSelectOption[]
   defaultValue?: string[]
   value?: string[]
-  onChange?: (value: string[], nodes: TreeSelectOption[]) => void
+  onChange?: (value: string[], context: { options: TreeSelectOption[] }) => void
   fieldNames?: { label: string; value: string; children: string }
 } & NativeProps
 
@@ -68,7 +68,9 @@ export const TreeSelect = withDefaultProps({
 
     const values = parentNodes.map(i => i[valueName])
     setValue(values)
-    props.onChange?.(values, parentNodes)
+    props.onChange?.(values, {
+      options: parentNodes,
+    })
   }
 
   const renderItems = (
