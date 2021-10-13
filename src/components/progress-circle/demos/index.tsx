@@ -11,7 +11,7 @@ export default () => {
         <ProgressCircle percent={50}>50%</ProgressCircle>
       </DemoBlock>
       <DemoBlock title='指定线条宽度'>
-        <Space size='24px'>
+        <Space style={{ '--gap': '24px' }}>
           <ProgressCircle percent={75} strokeWidth={4}>
             75%
           </ProgressCircle>
@@ -24,7 +24,7 @@ export default () => {
         </Space>
       </DemoBlock>
       <DemoBlock title='指定画布宽高'>
-        <Space size='24px' align='center'>
+        <Space style={{ '--gap': '24px' }} align='center'>
           <ProgressCircle percent={50} size={40}>
             <span className={styles.small}>50%</span>
           </ProgressCircle>
@@ -37,7 +37,7 @@ export default () => {
         </Space>
       </DemoBlock>
       <DemoBlock title='自定义'>
-        <Space size='24px'>
+        <Space style={{ '--gap': '24px' }}>
           <ProgressCircle percent={50} strokeColor='#FF3141'>
             <CloseOutline style={{ color: '#FF3141', fontSize: '18px' }} />
           </ProgressCircle>

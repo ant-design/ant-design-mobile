@@ -168,7 +168,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   return (
     <div className={classPrefix}>
-      <Space size={convertPx(12)} wrap>
+      <Space className={`${classPrefix}-space`} wrap>
         {value.map((fileItem, index) => (
           <PreviewItem
             key={fileItem.url}

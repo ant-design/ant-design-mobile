@@ -46,21 +46,6 @@ test('renders with direction', () => {
   expect(amSpace).toHaveClass(`${classPrefix}-vertical`)
 })
 
-test('renders with size', () => {
-  const { container } = render(
-    <Space size='24px'>
-      <div>block1</div>
-      <div>block2</div>
-      <div>block3</div>
-    </Space>
-  )
-  const amSpace = container.getElementsByClassName('adm-space')[0]
-  expect(amSpace).toHaveStyle({
-    '--vertical-size': '24px',
-    '--horizontal-size': '24px',
-  })
-})
-
 test('renders with align', () => {
   const align = 'end'
   const { container } = render(
