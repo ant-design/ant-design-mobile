@@ -4,23 +4,29 @@
 
 ## API
 
-| Name         | Description                            | Type                                                 | Default |
-| ------------ | -------------------------------------- | ---------------------------------------------------- | ------- |
-| value        | Selected value                         | `(string \| number)[]`                               | `[]`    |
-| defaultValue | Selected value by default              | `(string \| number)[]`                               | `[]`    |
-| columns      | Number of the displayed columns        | `number`                                             | -       |
-| options      | Optional selector                      | `SelectorOption[]`                                   | -       |
-| multiple     | Whether to allow multiple selections   | `boolean`                                            | `false` |
-| disabled     | Whether to diabled selections globally | `boolean`                                            | `false` |
-| onChange     | Triggered when the value is changed    | `(value: string[], items: SelectorOption[]) => void` | -       |
+```ts | pure
+type SelectorValue = string | number
+```
+
+## Selector
+
+| Name         | Description                            | Type                                                                     | Default |
+| ------------ | -------------------------------------- | ------------------------------------------------------------------------ | ------- |
+| value        | Selected value                         | `SelectorValue[]`                                                        | -       |
+| defaultValue | Selected value by default              | `SelectorValue[]`                                                        | `[]`    |
+| columns      | Number of the displayed columns        | `number`                                                                 | -       |
+| options      | Optional selector                      | `SelectorOption[]`                                                       | -       |
+| multiple     | Whether to allow multiple selections   | `boolean`                                                                | `false` |
+| disabled     | Whether to diabled selections globally | `boolean`                                                                | `false` |
+| onChange     | Triggered when the value is changed    | `(value: SelectorValue[], context: { items: SelectorOption[] }) => void` | -       |
 
 ## SelectorOption
 
-| Name     | Description         | Type               | Default |
-| -------- | ------------------- | ------------------ | ------- |
-| label    | Label text          | `string`           | -       |
-| value    | Value of the option | `string \| number` | -       |
-| disabled | Whether disabled    | `boolean`          | `false` |
+| Name     | Description         | Type            | Default |
+| -------- | ------------------- | --------------- | ------- |
+| label    | Label text          | `string`        | -       |
+| value    | Value of the option | `SelectorValue` | -       |
+| disabled | Whether disabled    | `boolean`       | `false` |
 
 ## Generics
 
