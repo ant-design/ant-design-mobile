@@ -4,7 +4,7 @@ When the `hasMore` prop is `true`, the infinite scroll component will call the d
 
 <code src="./demos/index.tsx"></code>
 
-## API
+### Props
 
 | Name      | Description                                                                               | Type                  | Default |
 | --------- | ----------------------------------------------------------------------------------------- | --------------------- | ------- |
@@ -32,7 +32,7 @@ function loadMore() { // ok
 }
 ```
 
-## Customized Content
+### Customized Content
 
 If necessary, `<InfiniteScroll>` allows custom display content, this content can contain any element, including svg and elements with css animation.
 

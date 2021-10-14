@@ -34,14 +34,14 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
 export const InfiniteScroll = withDefaultProps({
   threshold: 250,
 })<InfiniteScrollProps>(props => {
-  const doLoadMore = useLockFn(async () => {
-    await props.loadMore()
-  })
+  const doLoadMore = useLockFn(() => props.loadMore())
 
   const elementRef = useRef<HTMLDivElement>(null)
 
+  const checkTimeoutRef = useRef<number>()
   const check = usePersistFn(() => {
-    setTimeout(() => {
+    window.clearTimeout(checkTimeoutRef.current)
+    checkTimeoutRef.current = window.setTimeout(() => {
       if (!props.hasMore) return
       const element = elementRef.current
       if (!element) return
