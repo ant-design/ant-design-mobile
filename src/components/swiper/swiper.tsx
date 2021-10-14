@@ -160,7 +160,6 @@ export const Swiper = forwardRef(
           rubberband: true,
           axis: 'x',
           preventScroll: true,
-          preventDefault: true,
           pointer: {
             touch: true,
           },
