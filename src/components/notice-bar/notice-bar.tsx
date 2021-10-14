@@ -50,14 +50,9 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
     if (container.offsetWidth >= text.offsetWidth) return
     // 需要滚动
     const timeout = window.setTimeout(() => {
-      const text = textRef.current
       // 开始滚动
-      if (text) {
-        text.style.transitionDuration = `${Math.round(
-          text.offsetWidth / speed
-        )}s`
-        text.style.transform = `translateX(-${text.offsetWidth}px)`
-      }
+      text.style.transitionDuration = `${Math.round(text.offsetWidth / speed)}s`
+      text.style.transform = `translateX(-${text.offsetWidth}px)`
     }, props.delay)
     return () => {
       window.clearTimeout(timeout)
