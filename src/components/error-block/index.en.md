@@ -6,7 +6,7 @@
 
 <code src="./demos/demo2.tsx"></code>
 
-# API
+### Props
 
 | Name        | Description                          | Type                                                    | Default     |
 | ----------- | ------------------------------------ | ------------------------------------------------------- | ----------- |
@@ -15,3 +15,10 @@
 | description | Description                          | `ReactNode`                                             | -           |
 | image       | Image                                | `string \| ReactElement`                                | -           |
 | fullPage    | Whether it is a whole page exception | `boolean`                                               | `false`     |
+
+### CSS Variables
+
+| Name                     | Description                            | Default |
+| ------------------------ | -------------------------------------- | ------- |
+| --image-height           | Height of the image.                   | `100px` |
+| --image-height-full-page | Height of the image in `fullPage` mode | `200px` |

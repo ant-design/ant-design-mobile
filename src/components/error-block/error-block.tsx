@@ -13,7 +13,7 @@ export type ErrorBlockProps = {
   image?: string | ReactElement
   description?: ReactNode
   fullPage?: boolean
-} & NativeProps
+} & NativeProps<'--image-height' | '--image-height-full-page'>
 
 const defaultProps = {
   status: 'default',

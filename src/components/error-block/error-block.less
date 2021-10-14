@@ -2,11 +2,13 @@
 
 .@{class-prefix-error-block} {
   --color: var(--adm-color-text);
+  --image-height: 100px;
+  --image-height-full-page: 200px;
   box-sizing: border-box;
   text-align: center;
 
   &-image {
-    height: 100px;
+    height: var(--image-height);
     padding-bottom: 20px;
 
     & img {
@@ -31,9 +33,9 @@
   }
 
   &-full-page {
-    padding-top: calc(50vh - 200px);
+    padding-top: calc(50vh - var(--image-height-full-page));
     .@{class-prefix-error-block}-image {
-      height: 200px;
+      height: var(--image-height-full-page);
     }
     .@{class-prefix-error-block}-description {
       font-size: 13px;
