@@ -10,7 +10,7 @@
 | ------------ | ---------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------- |
 | value        | Current number, controlled value                                                               | `number`                                          | -       |
 | onChange     | Callback when value is changed                                                                 | `(value: number) => void`                         | -       |
-| defaultValue | Default value                                                                                  | `number`                                          | `1`     |
+| defaultValue | Default value                                                                                  | `number`                                          | `0`     |
 | min          | Min value                                                                                      | `number`                                          | -       |
 | max          | Max value                                                                                      | `number`                                          | -       |
 | step         | Change the number of steps each time, it can be a decimal                                      | `number`                                          | `1`     |
