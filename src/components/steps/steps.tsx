@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { StepProps } from './step'
 import { withDefaultProps } from '../../utils/with-default-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-steps`
 const stepClassPrefix = `adm-step`
@@ -10,10 +11,10 @@ const defaultIcon = <span className={`${stepClassPrefix}-icon-dot`} />
 
 type Direction = 'horizontal' | 'vertical'
 
-export interface StepsProps {
+export type StepsProps = {
   current?: number
   direction?: Direction
-}
+} & NativeProps
 
 const defaultProps = {
   current: 0,
@@ -24,7 +25,8 @@ export const Steps = withDefaultProps(defaultProps)<StepsProps>(props => {
   const { direction, current } = props
   const classString = classNames(classPrefix, `${classPrefix}-${direction}`)
 
-  return (
+  return withNativeProps(
+    props,
     <div className={classString}>
       {React.Children.map(props.children, (child, index) => {
         if (!React.isValidElement(child)) {
