@@ -12,7 +12,7 @@ const classPrefix = `adm-collapse`
 
 export type CollapsePanelProps = {
   key: string
-  title: string
+  title: React.ReactNode
   disabled?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean

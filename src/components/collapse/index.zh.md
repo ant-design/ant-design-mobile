@@ -18,7 +18,7 @@
 | 属性           | 说明                        | 类型                                                     | 默认值  |
 | -------------- | --------------------------- | -------------------------------------------------------- | ------- |
 | key            | 唯一标识符                  | `string`                                                 | -       |
-| title          | 标题栏左侧内容              | `string \| number`                                       | -       |
+| title          | 标题栏左侧内容              | `ReactNode`                                              | -       |
 | disabled       | 是否为禁用状态              | `boolean`                                                | `false` |
 | forceRender    | 被隐藏时是否渲染 `DOM` 结构 | `boolean`                                                | `false` |
 | destroyOnClose | 不可见时卸载内容            | `boolean`                                                | `false` |
