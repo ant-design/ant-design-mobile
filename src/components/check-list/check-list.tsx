@@ -34,8 +34,7 @@ export const CheckList: FC<CheckListProps> = p => {
     setValue(value.filter(item => item !== val))
   }
 
-  return withNativeProps(
-    props,
+  return (
     <CheckListContext.Provider
       value={{
         value,
@@ -43,7 +42,7 @@ export const CheckList: FC<CheckListProps> = p => {
         uncheck,
       }}
     >
-      <List mode={props.mode}>{props.children}</List>
+      {withNativeProps(props, <List mode={props.mode}>{props.children}</List>)}
     </CheckListContext.Provider>
   )
 }
