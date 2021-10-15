@@ -2,9 +2,9 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+# API
 
-### ImageUploader
+## ImageUploader
 
 | Name          | Description                                                                                                                                                              | Type                                                      | Default   |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | --------- |
@@ -24,7 +24,13 @@
 | upload        | Upload method, the input parameter is the file object that needs to be uploaded, after asynchronous processing, the upload result is returned                            | `(file: File) => Promise<FileItem>`                       | -         |
 | onDelete      | Triggered when the successfully uploaded image is deleted, if it returns false, it means that it is prevented from being deleted, and it supports the return of Promise. | `(file: FileItem) => boolean \| Promise<boolean> \| void` | -         |
 
-### FileItem
+### CSS Variables
+
+| Name        | Description                         | Default |
+| ----------- | ----------------------------------- | ------- |
+| --cell-size | The size of image and upload button | `80px`  |
+
+## FileItem
 
 | Name | Description                         | Type     | Default |
 | ---- | ----------------------------------- | -------- | ------- |

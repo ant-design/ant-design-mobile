@@ -106,6 +106,23 @@ const DeleteImage: FC = () => {
   )
 }
 
+const CustomeSize: FC = () => {
+  const [fileList, setFileList] = useState<FileItem[]>([
+    {
+      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    },
+  ])
+
+  return (
+    <ImageUploader
+      style={{ '--cell-size': '90px' }}
+      value={fileList}
+      onChange={setFileList}
+      upload={mockUpload}
+    />
+  )
+}
+
 export default () => {
   return (
     <>
@@ -135,6 +152,9 @@ export default () => {
           <DeleteImage />
           <DemoDescription content='当用户删除图片时，进行确认，确认后可删除图片' />
         </Space>
+      </DemoBlock>
+      <DemoBlock title='自定义大小'>
+        <CustomeSize />
       </DemoBlock>
     </>
   )
