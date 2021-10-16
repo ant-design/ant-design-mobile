@@ -14,6 +14,7 @@ import { useDrag } from '@use-gesture/react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { supportsPassive } from '../../utils/supports-passive'
 import { bound } from '../../utils/bound'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `adm-tabs`
 
@@ -46,16 +47,24 @@ export const Tabs: FC<TabsProps> = props => {
     panes.push(child)
   })
 
+  let activeCurrent = undefined
   let defaultCurrent = 0
-  if (props.defaultActiveKey !== undefined) {
-    panes.forEach((child, index) => {
-      if (child.key === props.defaultActiveKey) {
-        defaultCurrent = index
-      }
-    })
-  }
+  panes.forEach((child, index) => {
+    if (child.key === props.activeKey) {
+      activeCurrent = index
+    }
+    if (child.key === props.defaultActiveKey) {
+      defaultCurrent = index
+    }
+  })
 
-  const [current, setCurrent] = useState(defaultCurrent)
+  const [current, setCurrent] = useNewControllableValue({
+    value: activeCurrent,
+    defaultValue: defaultCurrent,
+    onChange: v => {
+      props.onChange?.(panes[v]?.key as string)
+    },
+  })
 
   const trackRef = useRef<HTMLDivElement>(null)
 
@@ -141,12 +150,6 @@ export const Tabs: FC<TabsProps> = props => {
               <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
                 <div
                   onClick={() => {
-                    const { key } = pane
-                    if (key === undefined || key === null) {
-                      return
-                    }
-
-                    props.onChange?.(key as string)
                     setCurrent(index)
                   }}
                   className={classNames(`${classPrefix}-tab`, {
