@@ -2,13 +2,13 @@ import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import Badge from '../badge'
+import Badge, { BadgeProps } from '../badge'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 export type TabBarItemProps = {
   icon?: ReactNode | ((active: boolean) => ReactNode)
-  title?: string
-  badge?: ReactNode
+  title?: ReactNode
+  badge?: BadgeProps['content']
 } & NativeProps
 
 export const TabBarItem: FC<TabBarItemProps> = () => {
@@ -16,8 +16,8 @@ export const TabBarItem: FC<TabBarItemProps> = () => {
 }
 
 export type TabBarProps = {
-  activeKey?: string
-  defaultActiveKey?: string
+  activeKey?: string | null
+  defaultActiveKey?: string | null
   onChange?: (key: string) => void
 } & NativeProps
 
