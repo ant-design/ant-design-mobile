@@ -15,7 +15,7 @@ $ npm install --save antd-mobile@next
 $ yarn add antd-mobile@next
 ```
 
-v5(Poplar) is the next major version of antd-mobile, which is still working in progress. If you plan to use it in production, **please read the [FAQ](https://next.mobile.ant.design/guide/faq) chapter first**.
+v5(Poplar) is the next major version of antd-mobile, which is still working in progress. If you plan to use it in production, **please read the [FAQ](https://mobile.ant.design/guide/faq) chapter first**.
 
 You can also play with antd-mobile just in browser with [Codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json). No need to prepare development environment.
 
