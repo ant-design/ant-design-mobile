@@ -1,11 +1,12 @@
 import React, { FC, useLayoutEffect, useRef, useState } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import { convertPx } from '../../utils/convert-px'
-import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
-import { bound } from '../../utils/bound'
-import { PickerColumnItem, PickerValue } from './index'
 import { useDebounceFn } from 'ahooks'
+import { bound } from '../../utils/bound'
+import { convertPx } from '../../utils/convert-px'
+import { canUseDom } from '../../utils/can-use-dom'
+import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
+import { PickerColumnItem, PickerValue } from './index'
 
 const classPrefix = `adm-picker-view`
 
@@ -92,6 +93,7 @@ export const Column: FC<Props> = props => {
       axis: 'y',
       from: () => [0, y.get()],
       filterTaps: true,
+      window: canUseDom ? document.body : undefined,
     }
   )
 
