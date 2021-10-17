@@ -3,7 +3,6 @@ import {
   ReactNode,
   ReactElement,
   ComponentProps,
-  useState,
   useRef,
   useLayoutEffect,
 } from 'react'
@@ -12,7 +11,6 @@ import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { supportsPassive } from '../../utils/supports-passive'
 import { bound } from '../../utils/bound'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
@@ -103,11 +101,7 @@ export const Tabs: FC<TabsProps> = props => {
     {
       from: () => [x.get(), 0],
       axis: 'x',
-      preventScroll: true,
-      pointer: {
-        touch: true,
-      },
-      eventOptions: supportsPassive ? { passive: false } : false,
+      filterTaps: true,
     }
   )
 
