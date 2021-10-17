@@ -18,7 +18,7 @@
 | Name           | Description                                       | Type                                                     | Default |
 | -------------- | ------------------------------------------------- | -------------------------------------------------------- | ------- |
 | key            | The unique identifier                             | `string`                                                 | -       |
-| title          | The content on the left side of the title bar     | `string \| number`                                       | -       |
+| title          | The content on the left side of the title bar     | `ReactNode`                                              | -       |
 | disabled       | Whether disabled or not                           | `boolean`                                                | `false` |
 | forceRender    | Whether to render the `DOM` structure when hidden | `boolean`                                                | `false` |
 | destroyOnClose | Unmount content when not visible                  | `boolean`                                                | `false` |
