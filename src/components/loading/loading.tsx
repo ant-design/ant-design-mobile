@@ -15,7 +15,6 @@ export type LoadingProps = {
 } & NativeProps
 
 const defaultProps = {
-  size: 'middle',
   color: 'default',
 }
 
