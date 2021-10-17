@@ -18,7 +18,7 @@ export type ListItemProps = {
 } & NativeProps<'--prefix-width' | '--align-items'>
 
 export const ListItem: FC<ListItemProps> = props => {
-  const clickable = (!props.disabled && props.clickable) ?? !!props.onClick
+  const clickable = props.clickable ?? !!props.onClick
   const arrow = props.arrow === undefined ? clickable : props.arrow
 
   const content = (
@@ -57,7 +57,7 @@ export const ListItem: FC<ListItemProps> = props => {
   return withNativeProps(
     props,
     React.createElement(
-      clickable ? 'a' : 'div',
+      !props.disabled && clickable ? 'a' : 'div',
       {
         className: classNames(
           `${classPrefix}-item`,
