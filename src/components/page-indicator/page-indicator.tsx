@@ -3,11 +3,12 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 
+const classPrefix = `adm-page-indicator`
+
 export type PageIndicatorProps = {
   total: number
   current: number
   color?: 'primary' | 'white'
-  children?: []
 } & NativeProps<
   | '--dot-color'
   | '--active-dot-color'
@@ -30,8 +31,8 @@ export const PageIndicator = memo<PageIndicatorProps>(p => {
     dots.push(
       <div
         key={i}
-        className={classNames('adm-page-indicator-dot', {
-          'adm-page-indicator-dot-active': props.current === i,
+        className={classNames(`${classPrefix}-dot`, {
+          [`${classPrefix}-dot-active`]: props.current === i,
         })}
       />
     )
@@ -40,10 +41,7 @@ export const PageIndicator = memo<PageIndicatorProps>(p => {
   return withNativeProps(
     props,
     <div
-      className={classNames(
-        'adm-page-indicator',
-        `adm-page-indicator-color-${props.color}`
-      )}
+      className={classNames(classPrefix, `${classPrefix}-color-${props.color}`)}
     >
       {dots}
     </div>
