@@ -16,3 +16,4 @@
 | afterShow         | Triggered after fullly displayed                                                                       | `() => void`                                                    | -           |
 | afterClose        | Triggered when completely closed                                                                       | `() => void`                                                    | -           |
 | disableBodyScroll | Whether to disable `body` scrolling                                                                    | `boolean`                                                       | `true`      |
+| stopPropagation   | Stop the propagation of some events.                                                                   | `PropagationEvent[]`                                            | `['click']` |

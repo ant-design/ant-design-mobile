@@ -6,6 +6,7 @@ import { Action, DialogActionButton } from './dialog-action-button'
 import Image from '../image'
 import Space from '../space'
 import { GetContainer } from '../../utils/render-to-container'
+import { PropagationEvent } from '../../utils/with-stop-propagation'
 
 const classPrefix = `adm-dialog`
 
@@ -27,12 +28,14 @@ export interface DialogProps {
   bodyClassName?: string
   maskStyle?: React.CSSProperties
   maskClassName?: string
+  stopPropagation?: PropagationEvent[]
 }
 
 const defaultProps = {
   actions: [],
   closeOnAction: false,
   closeOnMaskClick: false,
+  stopPropagation: ['click'],
 }
 
 export const Dialog: FC<DialogProps> = p => {
@@ -47,6 +50,7 @@ export const Dialog: FC<DialogProps> = p => {
       onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
       style={props.maskStyle}
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
+      stopPropagation={props.stopPropagation}
     >
       <div onClick={e => e.stopPropagation()} className={`${classPrefix}-wrap`}>
         {!!props.image && (

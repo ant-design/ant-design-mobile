@@ -16,3 +16,4 @@
 | afterShow         | 完全展示后触发                                               | `() => void`                                                    | -           |
 | afterClose        | 完全关闭后触发                                               | `() => void`                                                    | -           |
 | disableBodyScroll | 是否禁用 `body` 滚动                                         | `boolean`                                                       | `true`      |
+| stopPropagation   | 阻止某些事件的冒泡                                           | `PropagationEvent[]`                                            | `['click']` |

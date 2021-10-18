@@ -10,6 +10,10 @@ import {
 } from '../../utils/render-to-container'
 import { useSpring, animated } from '@react-spring/web'
 import { useShouldRender } from '../../utils/use-should-render'
+import {
+  PropagationEvent,
+  withStopPropagation,
+} from '../../utils/with-stop-propagation'
 
 const classPrefix = `adm-popup`
 
@@ -28,6 +32,7 @@ export type PopupProps = {
   maskClassName?: string
   maskStyle?: React.CSSProperties
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  stopPropagation?: PropagationEvent[]
 } & NativeProps
 
 const defaultProps = {
@@ -35,6 +40,7 @@ const defaultProps = {
   visible: false,
   getContainer: () => document.body,
   mask: true,
+  stopPropagation: ['click'],
 }
 
 export const Popup: FC<PopupProps> = p => {
@@ -77,47 +83,51 @@ export const Popup: FC<PopupProps> = p => {
     },
   })
 
-  const node = withNativeProps(
-    props,
-    <div
-      className={classPrefix}
-      onClick={props.onClick}
-      style={{ display: active ? 'unset' : 'none' }}
-    >
-      {props.mask && (
-        <Mask
-          visible={props.visible}
-          onMaskClick={props.onMaskClick}
-          className={props.maskClassName}
-          style={props.maskStyle}
-          disableBodyScroll={false}
-        />
-      )}
-      <animated.div
-        className={bodyCls}
-        style={{
-          ...props.bodyStyle,
-          transform: percent.to(v => {
-            if (props.position === 'bottom') {
-              return `translate(0, ${v}%)`
-            }
-            if (props.position === 'top') {
-              return `translate(0, -${v}%)`
-            }
-            if (props.position === 'left') {
-              return `translate(-${v}%, 0)`
-            }
-            if (props.position === 'right') {
-              return `translate(${v}%, 0)`
-            }
-            return 'none'
-          }),
-        }}
-        ref={ref}
+  const node = withStopPropagation(
+    props.stopPropagation,
+    withNativeProps(
+      props,
+      <div
+        className={classPrefix}
+        onClick={props.onClick}
+        style={{ display: active ? 'unset' : 'none' }}
       >
-        {shouldRender && props.children}
-      </animated.div>
-    </div>
+        {props.mask && (
+          <Mask
+            visible={props.visible}
+            onMaskClick={props.onMaskClick}
+            className={props.maskClassName}
+            style={props.maskStyle}
+            disableBodyScroll={false}
+            stopPropagation={props.stopPropagation}
+          />
+        )}
+        <animated.div
+          className={bodyCls}
+          style={{
+            ...props.bodyStyle,
+            transform: percent.to(v => {
+              if (props.position === 'bottom') {
+                return `translate(0, ${v}%)`
+              }
+              if (props.position === 'top') {
+                return `translate(0, -${v}%)`
+              }
+              if (props.position === 'left') {
+                return `translate(-${v}%, 0)`
+              }
+              if (props.position === 'right') {
+                return `translate(${v}%, 0)`
+              }
+              return 'none'
+            }),
+          }}
+          ref={ref}
+        >
+          {shouldRender && props.children}
+        </animated.div>
+      </div>
+    )
   )
 
   return renderToContainer(props.getContainer, node)

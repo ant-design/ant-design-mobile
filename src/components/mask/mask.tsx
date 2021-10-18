@@ -6,6 +6,10 @@ import { renderToContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import { useShouldRender } from '../../utils/use-should-render'
+import {
+  PropagationEvent,
+  withStopPropagation,
+} from '../../utils/with-stop-propagation'
 
 const classPrefix = `adm-mask`
 
@@ -26,6 +30,7 @@ export type MaskProps = {
   getContainer?: HTMLElement | (() => HTMLElement) | null
   afterShow?: () => void
   afterClose?: () => void
+  stopPropagation?: PropagationEvent[]
 } & NativeProps
 
 const defaultProps = {
@@ -36,6 +41,7 @@ const defaultProps = {
   opacity: 'default',
   disableBodyScroll: true,
   getContainer: null,
+  stopPropagation: ['click'],
 }
 
 export const Mask: React.FC<MaskProps> = p => {
@@ -81,30 +87,33 @@ export const Mask: React.FC<MaskProps> = p => {
     props.destroyOnClose
   )
 
-  const node = withNativeProps(
-    props,
-    <animated.div
-      className={classPrefix}
-      ref={ref}
-      style={{
-        ...props.style,
-        background,
-        opacity,
-        display: active ? 'unset' : 'none',
-      }}
-    >
-      {props.onMaskClick && (
-        <div
-          className={`${classPrefix}-aria-button`}
-          role='button'
-          aria-label={locale.Mask.name}
-          onClick={props.onMaskClick}
-        />
-      )}
-      <div className={`${classPrefix}-content`}>
-        {shouldRender && props.children}
-      </div>
-    </animated.div>
+  const node = withStopPropagation(
+    props.stopPropagation,
+    withNativeProps(
+      props,
+      <animated.div
+        className={classPrefix}
+        ref={ref}
+        style={{
+          ...props.style,
+          background,
+          opacity,
+          display: active ? 'unset' : 'none',
+        }}
+      >
+        {props.onMaskClick && (
+          <div
+            className={`${classPrefix}-aria-button`}
+            role='button'
+            aria-label={locale.Mask.name}
+            onClick={props.onMaskClick}
+          />
+        )}
+        <div className={`${classPrefix}-content`}>
+          {shouldRender && props.children}
+        </div>
+      </animated.div>
+    )
   )
 
   return renderToContainer(props.getContainer, node)
