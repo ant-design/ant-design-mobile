@@ -32,7 +32,7 @@ export interface DialogProps {
 }
 
 const defaultProps = {
-  actions: [],
+  actions: [] as Action[],
   closeOnAction: false,
   closeOnMaskClick: false,
   stopPropagation: ['click'],
