@@ -23,6 +23,9 @@ export const base = {
       description: 'Want to try a new search?',
     },
   },
+  ImageUploader: {
+    uploading: 'Uploading...',
+  },
   Mask: {
     name: 'Mask',
   },

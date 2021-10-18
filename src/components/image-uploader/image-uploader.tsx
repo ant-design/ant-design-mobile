@@ -12,7 +12,6 @@ import PreviewItem from './preview-item'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { usePersistFn } from 'ahooks'
 import Space from '../space'
-import { convertPx } from '../../utils/convert-px'
 
 export type TaskStatus = 'pending' | 'fail'
 

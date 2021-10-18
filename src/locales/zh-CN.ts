@@ -26,6 +26,9 @@ const zhCN = mergeLocale(base, {
       description: '找找其他的吧',
     },
   },
+  ImageUploader: {
+    uploading: '上传中...',
+  },
   Mask: {
     name: '遮罩层',
   },
