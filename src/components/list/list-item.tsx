@@ -22,11 +22,7 @@ export const ListItem: FC<ListItemProps> = props => {
   const arrow = props.arrow === undefined ? clickable : props.arrow
 
   const content = (
-    <div
-      className={classNames(`${classPrefix}-item-content`, {
-        [`${classPrefix}-item-content-disabled`]: props.disabled,
-      })}
-    >
+    <div className={`${classPrefix}-item-content`}>
       {props.prefix && (
         <div className={`${classPrefix}-item-content-prefix`}>
           {props.prefix}
@@ -57,11 +53,12 @@ export const ListItem: FC<ListItemProps> = props => {
   return withNativeProps(
     props,
     React.createElement(
-      !props.disabled && clickable ? 'a' : 'div',
+      clickable ? 'a' : 'div',
       {
         className: classNames(
           `${classPrefix}-item`,
-          clickable ? ['adm-plain-anchor'] : []
+          clickable ? ['adm-plain-anchor'] : [],
+          props.disabled && `${classPrefix}-item-disabled`
         ),
         onClick: props.disabled ? undefined : props.onClick,
       },

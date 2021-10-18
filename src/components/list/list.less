@@ -52,15 +52,22 @@
       color: var(--adm-color-weak);
       font-size: 16px;
     }
-    &-disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
+  }
+  &-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 }
 
 a.adm-list-item {
   &:active {
     background-color: var(--adm-border-color);
+  }
+
+  &.adm-list-item-disabled {
+    &:active {
+      background-color: #ffffff;
+      opacity: 0.5;
+    }
   }
 }
