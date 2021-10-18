@@ -57,6 +57,16 @@ export default () => {
           </List.Item>
         </List>
       </DemoBlock>
+      <DemoBlock title='列表项禁用' padding='0' border='none'>
+        <List>
+          <List.Item disabled clickable prefix={<UnorderedListOutline />}>
+            账单
+          </List.Item>
+          <List.Item disabled prefix={<PayCircleOutline />}>
+            总资产
+          </List.Item>
+        </List>
+      </DemoBlock>
       <DemoBlock title='复杂布局' padding='0' border='none'>
         <List>
           <List.Item

@@ -13,6 +13,7 @@ export type ListItemProps = {
   extra?: ReactNode
   clickable?: boolean
   arrow?: boolean | ReactNode
+  disabled?: boolean
   onClick?: (e: React.MouseEvent) => void
 } & NativeProps<'--prefix-width' | '--align-items'>
 
@@ -56,9 +57,10 @@ export const ListItem: FC<ListItemProps> = props => {
       {
         className: classNames(
           `${classPrefix}-item`,
-          clickable ? ['adm-plain-anchor'] : []
+          clickable ? ['adm-plain-anchor'] : [],
+          props.disabled && `${classPrefix}-item-disabled`
         ),
-        onClick: props.onClick,
+        onClick: props.disabled ? undefined : props.onClick,
       },
       content
     )
