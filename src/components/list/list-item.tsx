@@ -61,6 +61,7 @@ export const ListItem: FC<ListItemProps> = props => {
           props.disabled && `${classPrefix}-item-disabled`
         ),
         onClick: props.disabled ? undefined : props.onClick,
+        disabled: props.disabled,
       },
       content
     )
