@@ -1,7 +1,10 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { FC, ReactNode, useState } from 'react'
+import React, { ReactNode, useState, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { PictureOutline, PictureWrongOutline } from 'antd-mobile-icons'
+import { useInViewport } from 'ahooks'
+import { useInitialized } from '../../utils/use-initialized'
+import { staged } from 'staged-components'
 
 const classPrefix = `adm-image`
 
@@ -13,6 +16,7 @@ export type ImageProps = {
   fit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
   placeholder?: ReactNode
   fallback?: ReactNode
+  lazy?: boolean
   onClick?: (event: React.MouseEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
 } & NativeProps &
@@ -39,12 +43,31 @@ const defaultProps = {
       <PictureWrongOutline />
     </div>
   ),
+  lazy: false,
 }
 
-export const Image: FC<ImageProps> = p => {
+export const Image = staged<ImageProps>(p => {
   const props = mergeProps(defaultProps, p)
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
+
+  const ref = useRef<HTMLDivElement>(null)
+
+  let src: string | undefined = props.src
+  let srcSet: string | undefined = props.srcSet
+
+  if (!props.lazy) {
+    return render()
+  }
+
+  return () => {
+    const inViewport = useInViewport(ref)
+    const initialized = useInitialized(inViewport)
+    src = initialized ? props.src : undefined
+    srcSet = initialized ? props.srcSet : undefined
+    return render()
+  }
+
   function renderInner() {
     if (failed) {
       return props.fallback
@@ -54,7 +77,7 @@ export const Image: FC<ImageProps> = p => {
         {!loaded && props.placeholder}
         <img
           className={`${classPrefix}-img`}
-          src={props.src}
+          src={src}
           alt={props.alt}
           onClick={props.onClick}
           onLoad={() => {
@@ -73,23 +96,26 @@ export const Image: FC<ImageProps> = p => {
           loading={props.loading}
           referrerPolicy={props.referrerPolicy}
           sizes={props.sizes}
-          srcSet={props.srcSet}
+          srcSet={srcSet}
           useMap={props.useMap}
         />
       </>
     )
   }
 
-  return withNativeProps(
-    props,
-    <div
-      className={classPrefix}
-      style={{
-        width: props.width,
-        height: props.height,
-      }}
-    >
-      {renderInner()}
-    </div>
-  )
-}
+  function render() {
+    return withNativeProps(
+      props,
+      <div
+        ref={ref}
+        className={classPrefix}
+        style={{
+          width: props.width,
+          height: props.height,
+        }}
+      >
+        {renderInner()}
+      </div>
+    )
+  }
+})
