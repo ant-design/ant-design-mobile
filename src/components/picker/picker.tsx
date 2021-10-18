@@ -22,7 +22,10 @@ export type PickerProps = {
   confirmText?: string
   cancelText?: string
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
-} & Pick<PopupProps, 'getContainer' | 'afterShow' | 'afterClose' | 'onClick'> &
+} & Pick<
+  PopupProps,
+  'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
+> &
   NativeProps
 
 const defaultProps = {
@@ -109,6 +112,7 @@ export const Picker = withDefaultProps({
       afterShow={props.afterShow}
       afterClose={props.afterClose}
       onClick={props.onClick}
+      stopPropagation={props.stopPropagation}
     >
       {pickerElement}
     </Popup>

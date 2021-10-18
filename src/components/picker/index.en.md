@@ -34,7 +34,7 @@ type PickerValue = string | null
 | cancelText   | Text of the cancel button               | `string`                                                       | `'取消'` |
 | children     | Render function of the selected options | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
-In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick`
+In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
 ## CascadePicker
 
@@ -73,7 +73,7 @@ Other props are the same as `Picker`, but `columns` are not supported.
 | precision    | Precision                                    | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
 | children     | The rendering function of the selected items | `(value: Date) => ReactNode`                                   | -       |
 
-In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title`
+In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 
 ## Imperative Call
 

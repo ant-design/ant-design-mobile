@@ -34,7 +34,7 @@ type PickerValue = string | null
 | cancelText   | 取消按钮的文字               | `string`                                                       | `'取消'` |
 | children     | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
-此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick`
+此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
 ## CascadePicker
 
@@ -73,7 +73,7 @@ type CascadePickerOption = {
 | precision    | 精度             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
 | children     | 所选项的渲染函数 | `(value: Date) => ReactNode`                                   | -       |
 
-此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title`
+此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 
 ## 指令式调用
 

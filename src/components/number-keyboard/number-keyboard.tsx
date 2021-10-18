@@ -3,14 +3,14 @@ import classNames from 'classnames'
 import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import { shuffle } from '../../utils/shuffle'
-import Popup from '../popup'
+import Popup, { PopupProps } from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
 import { useClickAway } from 'ahooks'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = 'adm-number-keyboard'
 
-export interface NumberKeyboardProps {
+export type NumberKeyboardProps = {
   visible?: boolean
   defaultVisible?: boolean
   title?: string
@@ -28,7 +28,7 @@ export interface NumberKeyboardProps {
   afterClose?: () => void
   closeOnBlur?: boolean
   closeOnConfirm?: boolean
-}
+} & Pick<PopupProps, 'stopPropagation'>
 
 const defaultProps = {
   defaultVisible: false,
@@ -157,6 +157,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       afterClose={props.afterClose}
       afterShow={props.afterShow}
       className={`${classPrefix}-popup`}
+      stopPropagation={props.stopPropagation}
     >
       <div ref={keyboardRef} className={classPrefix}>
         {renderHeader()}

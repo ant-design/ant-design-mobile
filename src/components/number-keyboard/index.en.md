@@ -25,9 +25,7 @@ H5 numeric keyboard, can be used with password input box component or custom inp
 | closeOnBlur     | Whether to automatically close when clicking outside the keyboard                                                           | `boolean`                                  | `true`                |
 | closeOnConfirm  | Whether to automatically close when the ok button is clicked                                                                | `boolean`                                  | `true`                |
 
-<Alert type="info">
-  Note: The keyboard would be put away when the outer keyboard of the keyboard is clicked, and you can prevent the keyboard from putting away by preventing the element click event from bubbling;
-</Alert>
+In addition, the following attributes of [Popup](./popup) are supported: `stopPropagation`
 
 ## CSS Variables
 

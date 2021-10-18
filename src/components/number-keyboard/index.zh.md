@@ -25,9 +25,7 @@ H5 数字键盘，可以配合密码输入框组件或自定义的输入框组�
 | closeOnBlur     | 是否在点击键盘以外时自动关闭                                              | `boolean`                                  | `true`                |
 | closeOnConfirm  | 是否在点击确定按钮时自动关闭                                              | `boolean`                                  | `true`                |
 
-<Alert type="info">
-  注意：点击键盘外层键盘会收起，可通过阻止元素 click 事件冒泡，阻止键盘收起；
-</Alert>
+此外还支持 [Popup](./popup) 的以下属性: `stopPropagation`
 
 ## CSS 变量
 
