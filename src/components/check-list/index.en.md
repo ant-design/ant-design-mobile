@@ -8,12 +8,13 @@ The bottom layer of `CheckList` is implemented based on `List`, which is a list 
 
 ### Props
 
-| Name         | Description                                | Type                        | Default |
-| ------------ | ------------------------------------------ | --------------------------- | ------- |
-| value        | The selected items                         | `string[]`                  | `[]`    |
-| defaultValue | The default items                          | `string[]`                  | `[]`    |
-| onChange     | Triggered when the option changes          | `(value: string[]) => void` | -       |
-| multiple     | Whether to allow multiple selection or not | `boolean`                   | `false` |
+| Name         | Description                                | Type                        | Default            |
+| ------------ | ------------------------------------------ | --------------------------- | ------------------ |
+| value        | The selected items                         | `string[]`                  | `[]`               |
+| defaultValue | The default items                          | `string[]`                  | `[]`               |
+| onChange     | Triggered when the option changes          | `(value: string[]) => void` | -                  |
+| multiple     | Whether to allow multiple selection or not | `boolean`                   | `false`            |
+| activeIcon   | The icon displayed when selected           | `ReactNode`                 | `<CheckOutline />` |
 
 In addition, the `mode` attribute of [List](./list) is also supported
 
