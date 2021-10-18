@@ -16,7 +16,6 @@ import { convertPx } from '../../utils/convert-px'
 const classPrefix = `adm-index-bar`
 
 export type IndexBarProps = {
-  className?: string
   sticky?: boolean
   stickyOffsetTop?: number
   children?: React.ReactNode
@@ -83,7 +82,9 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
     checkActiveIndex()
   }, [indexes])
 
-  let stickyStyle: any
+  let stickyStyle: React.CSSProperties &
+    Partial<Record<'--sticy-offset-top', string>> = {}
+
   if (props.stickyOffsetTop) {
     stickyStyle = {
       '--sticy-offset-top': props.stickyOffsetTop + 'px',
