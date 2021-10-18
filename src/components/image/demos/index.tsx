@@ -46,11 +46,11 @@ export default () => {
           />
         </Space>
       </DemoBlock>
-      <DemoBlock title='懒加载'>
-        <Image lazy src={demoSrc2} />
-      </DemoBlock>
       <DemoBlock title='加载失败'>
         <Image src='/404' width={100} height={100} />
+      </DemoBlock>
+      <DemoBlock title='懒加载'>
+        <Image lazy src={demoSrc2} />
       </DemoBlock>
     </>
   )

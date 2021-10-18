@@ -1,9 +1,10 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { FC, ReactNode, useState, useRef } from 'react'
+import React, { ReactNode, useState, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { PictureOutline, PictureWrongOutline } from 'antd-mobile-icons'
 import { useInViewport } from 'ahooks'
 import { useInitialized } from '../../utils/use-initialized'
+import { staged } from 'staged-components'
 
 const classPrefix = `adm-image`
 
@@ -45,19 +46,26 @@ const defaultProps = {
   lazy: false,
 }
 
-export const Image: FC<ImageProps> = p => {
+export const Image = staged<ImageProps>(p => {
   const props = mergeProps(defaultProps, p)
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
 
   const ref = useRef<HTMLDivElement>(null)
-  const inViewport = useInViewport(ref)
-  const initialized = useInitialized(inViewport)
+
   let src: string | undefined = props.src
   let srcSet: string | undefined = props.srcSet
-  if (props.lazy) {
+
+  if (!props.lazy) {
+    return render()
+  }
+
+  return () => {
+    const inViewport = useInViewport(ref)
+    const initialized = useInitialized(inViewport)
     src = initialized ? props.src : undefined
     srcSet = initialized ? props.srcSet : undefined
+    return render()
   }
 
   function renderInner() {
@@ -95,17 +103,19 @@ export const Image: FC<ImageProps> = p => {
     )
   }
 
-  return withNativeProps(
-    props,
-    <div
-      ref={ref}
-      className={classPrefix}
-      style={{
-        width: props.width,
-        height: props.height,
-      }}
-    >
-      {renderInner()}
-    </div>
-  )
-}
+  function render() {
+    return withNativeProps(
+      props,
+      <div
+        ref={ref}
+        className={classPrefix}
+        style={{
+          width: props.width,
+          height: props.height,
+        }}
+      >
+        {renderInner()}
+      </div>
+    )
+  }
+})
