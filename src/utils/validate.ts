@@ -1,4 +1,4 @@
-import { inBrowser } from './in-browser'
+import { canUseDom } from './can-use-dom'
 
 export function isDef<T>(val: T): val is NonNullable<T> {
   return val !== undefined && val !== null
@@ -33,11 +33,11 @@ export function isNumeric(val: string | number): val is string {
 }
 
 export function isAndroid(): boolean {
-  return inBrowser ? /android/.test(navigator.userAgent.toLowerCase()) : false
+  return canUseDom ? /android/.test(navigator.userAgent.toLowerCase()) : false
 }
 
 export function isIOS(): boolean {
-  return inBrowser
+  return canUseDom
     ? /ios|iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase())
     : false
 }
