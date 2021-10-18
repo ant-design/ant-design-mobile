@@ -1,5 +1,6 @@
 export const base = {
   common: {
+    confirm: 'Confirm',
     cancel: 'Cancel',
   },
   Dialog: {

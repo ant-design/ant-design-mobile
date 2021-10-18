@@ -3,6 +3,7 @@ import { base } from './base'
 
 const zhCN = mergeLocale(base, {
   common: {
+    confirm: '确定',
     cancel: '取消',
   },
   Dialog: {

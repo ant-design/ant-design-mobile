@@ -1,11 +1,12 @@
-import React, { useState, useEffect, ReactNode, useMemo } from 'react'
+import React, { useState, useEffect, ReactNode, useMemo, FC } from 'react'
 import Popup, { PopupProps } from '../popup'
-import { mergeProps, withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { PickerColumn, PickerColumnItem, PickerValue } from './index'
 import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-picker`
 
@@ -32,11 +33,16 @@ const defaultProps = {
   defaultValue: [],
 }
 
-export const Picker = withDefaultProps({
-  confirmText: '确定',
-  cancelText: '取消',
-})<PickerProps>(p => {
-  const props = mergeProps(defaultProps, p)
+export const Picker: FC<PickerProps> = p => {
+  const { locale } = useConfig()
+  const props = mergeProps(
+    defaultProps,
+    {
+      confirmText: locale.common.confirm,
+      cancelText: locale.common.cancel,
+    },
+    p
+  )
   const controllable = useNewControllableValue({
     value: props.value,
     defaultValue: props.defaultValue,
@@ -137,4 +143,4 @@ export const Picker = withDefaultProps({
       {childrenResult}
     </>
   )
-})
+}
