@@ -8,12 +8,13 @@
 
 ### 属性
 
-| 属性         | 说明           | 类型                        | 默认值  |
-| ------------ | -------------- | --------------------------- | ------- |
-| value        | 选中项         | `string[]`                  | `[]`    |
-| defaultValue | 默认项         | `string[]`                  | `[]`    |
-| onChange     | 选项改变时触发 | `(value: string[]) => void` | -       |
-| multiple     | 是否允许多选   | `boolean`                   | `false` |
+| 属性         | 说明           | 类型                        | 默认值             |
+| ------------ | -------------- | --------------------------- | ------------------ |
+| value        | 选中项         | `string[]`                  | `[]`               |
+| defaultValue | 默认项         | `string[]`                  | `[]`               |
+| onChange     | 选项改变时触发 | `(value: string[]) => void` | -                  |
+| multiple     | 是否允许多选   | `boolean`                   | `false`            |
+| activeIcon   | 选中图标       | `ReactNode`                 | `<CheckOutline />` |
 
 此外，还支持 [List](./list) 的 `mode` 属性
 
