@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { PullToRefresh, List } from 'antd-mobile'
 import { sleep } from 'antd-mobile/es/utils/sleep'
-import { useState } from 'react'
+import { PullStatus } from 'antd-mobile/es/components/pull-to-refresh'
 
 let current = 1
 
@@ -14,6 +14,13 @@ function getNextData() {
   return ret
 }
 
+const statusRecord: Record<PullStatus, string> = {
+  pulling: '用力拉',
+  canRelease: '松开吧',
+  refreshing: '玩命加载中...',
+  complete: '好啦',
+}
+
 export default () => {
   const [data, setData] = useState(() => getNextData())
   return (
@@ -21,6 +28,9 @@ export default () => {
       onRefresh={async () => {
         await sleep(1000)
         setData([...getNextData(), ...data])
+      }}
+      renderText={status => {
+        return <div>{statusRecord[status]}</div>
       }}
     >
       <List style={{ minHeight: '100vh' }}>
