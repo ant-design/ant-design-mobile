@@ -99,9 +99,12 @@ const Dropdown: FC<DropdownProps> & {
             return (
               <ItemChildrenWrap
                 key={item.key}
+                dataKey={item.key as string}
+                changeActive={changeActive}
                 active={isActive}
                 forceRender={item.props.forceRender}
                 destroyOnClose={item.props.destroyOnClose}
+                closeOnContentClick={item.props.closeOnContentClick}
               >
                 {item.props.children}
               </ItemChildrenWrap>
