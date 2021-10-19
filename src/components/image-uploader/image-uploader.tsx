@@ -12,6 +12,7 @@ import PreviewItem from './preview-item'
 import { useNewControllableValue } from '../../utils/use-controllable-value'
 import { usePersistFn } from 'ahooks'
 import Space from '../space'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 export type TaskStatus = 'pending' | 'fail'
 
@@ -42,7 +43,7 @@ export type ImageUploaderProps = {
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
   upload: (file: File) => Promise<FileItem>
   onDelete?: (file: FileItem) => boolean | Promise<boolean> | void
-}
+} & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
 
@@ -165,7 +166,8 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     props.showUpload &&
     (maxCount === 0 || value.length + tasks.length < maxCount)
 
-  return (
+  return withNativeProps(
+    props,
     <div className={classPrefix}>
       <Space className={`${classPrefix}-space`} wrap>
         {value.map((fileItem, index) => (
@@ -193,13 +195,19 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           />
         ))}
         {showUpload && (
-          <span
-            className={`${classPrefix}-cell ${classPrefix}-upload-button`}
-            role='button'
-          >
-            <span className={`${classPrefix}-upload-button-icon`}>
-              <AddOutline />
-            </span>
+          <div className={`${classPrefix}-upload-button-wrap`}>
+            {props.children ? (
+              props.children
+            ) : (
+              <span
+                className={`${classPrefix}-cell ${classPrefix}-upload-button`}
+                role='button'
+              >
+                <span className={`${classPrefix}-upload-button-icon`}>
+                  <AddOutline />
+                </span>
+              </span>
+            )}
             {!props.disableUpload && (
               <input
                 capture={props.capture}
@@ -210,7 +218,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
                 onChange={onChange}
               />
             )}
-          </span>
+          </div>
         )}
       </Space>
     </div>
