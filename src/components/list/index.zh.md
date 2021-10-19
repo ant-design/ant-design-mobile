@@ -28,6 +28,7 @@
 
 ### List & List.Item
 
-| 属性           | 说明              | 默认值 |
-| -------------- | ----------------- | ------ |
-| --prefix-width | prefix 部分的宽度 | `auto` |
+| 属性                      | 说明              | 默认值                    |
+| ------------------------- | ----------------- | ------------------------- |
+| --prefix-width            | prefix 部分的宽度 | `auto`                    |
+| --active-background-color | 点击时的背景颜色  | `var(--adm-border-color)` |

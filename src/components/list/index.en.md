@@ -28,6 +28,7 @@
 
 ### List & List.Item
 
-| Name           | Description               | Default |
-| -------------- | ------------------------- | ------- |
-| --prefix-width | Width of the prefix part. | `auto`  |
+| Name                      | Description                        | Default                   |
+| ------------------------- | ---------------------------------- | ------------------------- |
+| --prefix-width            | Width of the prefix part.          | `auto`                    |
+| --active-background-color | The background color when clicked. | `var(--adm-border-color)` |

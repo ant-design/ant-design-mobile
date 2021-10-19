@@ -1,6 +1,7 @@
 .adm-list {
   --prefix-width: 'auto';
   --align-items: center;
+  --active-background-color: var(--adm-border-color);
   background-color: #ffffff;
   overflow: hidden;
   font-size: 17px;
@@ -63,7 +64,7 @@
 
 a.adm-list-item {
   &:active {
-    background-color: var(--adm-border-color);
+    background-color: var(--active-background-color);
   }
   &.adm-list-item-disabled {
     &:active {
