@@ -18,11 +18,11 @@
 
 ## CSS Variables
 
-| Name               | Description                     | Default                   |
-| ------------------ | ------------------------------- | ------------------------- |
-| --text-color       | Text color of the button.       | `var(--adm-color-text)`   |
-| --background-color | Background color of the button. | `var(--adm-color-white)`  |
-| --border-radius    | Border radius of the button.    | `4px`                     |
-| --border-width     | Border width of the button.     | `1px`                     |
-| --border-style     | Border style of the button.     | `solid`                   |
-| --border-color     | Border color of the button.     | `var(--adm-border-color)` |
+| Name               | Description                     | Default                   | Global                          |
+| ------------------ | ------------------------------- | ------------------------- | ------------------------------- |
+| --text-color       | Text color of the button.       | `var(--adm-color-text)`   | `--adm-button-text-color`       |
+| --background-color | Background color of the button. | `var(--adm-color-white)`  | `--adm-button-background-color` |
+| --border-radius    | Border radius of the button.    | `4px`                     | `--adm-button-border-radius`    |
+| --border-width     | Border width of the button.     | `1px`                     | `--adm-button-border-width`     |
+| --border-style     | Border style of the button.     | `solid`                   | `--adm-button-border-style`     |
+| --border-color     | Border color of the button.     | `var(--adm-border-color)` | `--adm-button-border-color`     |
