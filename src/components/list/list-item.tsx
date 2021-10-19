@@ -3,7 +3,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 
-const classPrefix = `adm-list`
+const classPrefix = `adm-list-item`
 
 export type ListItemProps = {
   title?: ReactNode
@@ -22,28 +22,26 @@ export const ListItem: FC<ListItemProps> = props => {
   const arrow = props.arrow === undefined ? clickable : props.arrow
 
   const content = (
-    <div className={`${classPrefix}-item-content`}>
+    <div className={`${classPrefix}-content`}>
       {props.prefix && (
-        <div className={`${classPrefix}-item-content-prefix`}>
-          {props.prefix}
-        </div>
+        <div className={`${classPrefix}-content-prefix`}>{props.prefix}</div>
       )}
-      <div className={`${classPrefix}-item-content-main`}>
+      <div className={`${classPrefix}-content-main`}>
         {props.title && (
-          <div className={`${classPrefix}-item-title`}>{props.title}</div>
+          <div className={`${classPrefix}-title`}>{props.title}</div>
         )}
         <div>{props.children}</div>
         {props.description && (
-          <div className={`${classPrefix}-item-description`}>
+          <div className={`${classPrefix}-description`}>
             {props.description}
           </div>
         )}
       </div>
       {props.extra && (
-        <div className={`${classPrefix}-item-content-extra`}>{props.extra}</div>
+        <div className={`${classPrefix}-content-extra`}>{props.extra}</div>
       )}
       {arrow && (
-        <div className={`${classPrefix}-item-content-arrow`}>
+        <div className={`${classPrefix}-content-arrow`}>
           {arrow === true ? <RightOutline /> : arrow}
         </div>
       )}
@@ -56,9 +54,9 @@ export const ListItem: FC<ListItemProps> = props => {
       clickable ? 'a' : 'div',
       {
         className: classNames(
-          `${classPrefix}-item`,
+          `${classPrefix}`,
           clickable ? ['adm-plain-anchor'] : [],
-          props.disabled && `${classPrefix}-item-disabled`
+          props.disabled && `${classPrefix}-disabled`
         ),
         onClick: props.disabled ? undefined : props.onClick,
       },
