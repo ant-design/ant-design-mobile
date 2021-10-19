@@ -10,12 +10,12 @@ In the "CSS Variables" table of the component document, you can check which CSS 
 
 Taking the Input component as an example, we can find a table similar to the following on its documentation:
 
-| Name        | Description | Default          |
-| ----------- | ----------- | ---------------- |
-| --font-size | font size   | 17px             |
-| --color     | font color  | --adm-color-text |
+| Name            | Description                  | Default | Global                       |
+| --------------- | ---------------------------- | ------- | ---------------------------- |
+| --border-radius | Border radius of the button. | `4px`   | `--adm-button-border-radius` |
+| --border-width  | Border width of the button.  | `1px`   | `--adm-button-border-width`  |
 
-This means that it supports the `--font-size` and `--color` variables.
+This means that it supports the `--border-radius` and `--border-width` variables.
 
 Next, we need to set the value of the CSS variable. There are two ways:
 
@@ -24,14 +24,14 @@ Next, we need to set the value of the CSS variable. There are two ways:
 Add a custom `className` to the Input component:
 
 ```jsx
-<Input className='my-input'/>
+<Button className='my-button'/>
 ```
 
 Then set CSS Variables in the CSS file
 
 ```css
-.my-input {
-  --font-size: 32px;
+.my-button {
+  --border-radius: 2px;
 }
 ```
 
@@ -40,7 +40,21 @@ Then set CSS Variables in the CSS file
 Directly through the `style` property of the component, it is simple and rude, suitable for small-scale adjustments:
 
 ```jsx
-<Input style={{
-  '--font-size': '32px'
+<Button style={{
+  '--border-radius': '2px'
 }}/>
 ```
+
+### Method 3: Use the global variables
+
+Let's assume you need to adjust the style of all the Buttons in your project. In this case, setting CSS variables for every Button is unrealistic. But you can use the "global" CSS variables (listed as the last column in the table above).
+
+```css
+:root:root {
+  --adm-button-border-radius: 2px;
+}
+```
+
+In this way, all the Buttons in page will be affected.
+
+Of course, you can also adjust style for only part of the page. All you need to do is bind the global CSS variables to the root dom element of that area.

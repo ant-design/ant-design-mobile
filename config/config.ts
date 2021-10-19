@@ -141,8 +141,8 @@ export default {
         path: '/guide/css-variables',
       },
       {
-        title: 'Theme',
-        path: '/guide/theme',
+        title: 'Theming',
+        path: '/guide/theming',
       },
       {
         title: 'Load on Demand',
@@ -176,7 +176,7 @@ export default {
       },
       {
         title: '主题',
-        path: '/zh/guide/theme',
+        path: '/zh/guide/theming',
       },
       {
         title: '按需加载',

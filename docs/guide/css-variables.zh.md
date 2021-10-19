@@ -10,12 +10,12 @@
 
 以 Input 组件为例，我们可以在它的文档上找到类似于下面这样的表格：
 
-| 属性        | 说明     | 默认值           |
-| ----------- | -------- | ---------------- |
-| --font-size | 字号     | 17px             |
-| --color     | 文字颜色 | --adm-color-text |
+| 属性            | 说明     | 默认值 | 全局变量                     |
+| --------------- | -------- | ------ | ---------------------------- |
+| --border-radius | 圆角大小 | `4px`  | `--adm-button-border-radius` |
+| --border-width  | 边框宽度 | `1px`  | `--adm-button-border-width`  |
 
-这表示了它支持了 `--font-size` 和 `--color` 变量。
+这表示了它支持了 `--border-radius` 和 `--border-width` 变量。
 
 接下来，我们需要设置 CSS 变量的值，有两种方法：
 
@@ -24,14 +24,14 @@
 给 Input 组件加一个自定义的 `className`：
 
 ```jsx
-<Input className='my-input'/>
+<Button className='my-button'/>
 ```
 
 然后在 CSS 文件中设置 CSS 变量
 
 ```css
-.my-input {
-  --font-size: 32px;
+.my-button {
+  --border-radius: 2px;
 }
 ```
 
@@ -40,7 +40,21 @@
 直接通过组件的 `style` 属性，简单粗暴，适合小范围的调整：
 
 ```jsx
-<Input style={{
-  '--font-size': '32px'
+<Button style={{
+  '--border-radius': '2px'
 }}/>
 ```
+
+### 方法三：通过全局变量进行设置
+
+假如你需要对整个项目中所有的 Button 都进行样式的调整，那么对每一个按钮进行 CSS 变量的设置显然是不现实的。在这种情况下，你可以通过"全局 CSS 变量"（也就是上面表格中的最后一列）进行统一的设置：
+
+```css
+:root:root {
+  --adm-button-border-radius: 2px;
+}
+```
+
+这样页面上全部的 Button 都会受到调整。
+
+当然，你也可以"局部性"地进行调整，只需要把对应的 CSS 变量添加到对应的父级节点上。
