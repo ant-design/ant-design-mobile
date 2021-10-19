@@ -23,6 +23,7 @@
 | beforeUpload  | Callback function before file reading, return `false` to terminate file reading, support return `Promise`                                                                | `(file: File[]) => Promise<File[]> \| File[]`             | -         |
 | upload        | Upload method, the input parameter is the file object that needs to be uploaded, after asynchronous processing, the upload result is returned                            | `(file: File) => Promise<FileItem>`                       | -         |
 | onDelete      | Triggered when the successfully uploaded image is deleted, if it returns false, it means that it is prevented from being deleted, and it supports the return of Promise. | `(file: FileItem) => boolean \| Promise<boolean> \| void` | -         |
+| children      | Custom upload button                                                                                                                                                     | `ReactNode`                                               | -         |
 
 ### CSS Variables
 

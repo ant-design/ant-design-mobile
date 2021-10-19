@@ -195,13 +195,19 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           />
         ))}
         {showUpload && (
-          <span
-            className={`${classPrefix}-cell ${classPrefix}-upload-button`}
-            role='button'
-          >
-            <span className={`${classPrefix}-upload-button-icon`}>
-              <AddOutline />
-            </span>
+          <div className={`${classPrefix}-upload-button-wrap`}>
+            {props.children ? (
+              props.children
+            ) : (
+              <span
+                className={`${classPrefix}-cell ${classPrefix}-upload-button`}
+                role='button'
+              >
+                <span className={`${classPrefix}-upload-button-icon`}>
+                  <AddOutline />
+                </span>
+              </span>
+            )}
             {!props.disableUpload && (
               <input
                 capture={props.capture}
@@ -212,7 +218,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
                 onChange={onChange}
               />
             )}
-          </span>
+          </div>
         )}
       </Space>
     </div>

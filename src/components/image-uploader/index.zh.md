@@ -23,6 +23,7 @@
 | beforeUpload  | 文件读取前的回调函数，返回 `false` 可终止文件读取，支持返回 `Promise`         | `(file: File[]) => Promise<File[]> \| File[]`             | -         |
 | upload        | 上传方法，入参是需要被上传的文件对象，经过异步处理之后，返回上传结果          | `(file: File) => Promise<FileItem>`                       | -         |
 | onDelete      | 删除已上传成功的图片时触发，如果返回 `false` 表示阻止删除，支持返回 `Promise` | `(file: FileItem) => boolean \| Promise<boolean> \| void` | -         |
+| children      | 自定义上传按钮                                                                | `ReactNode`                                               | -         |
 
 ### CSS 变量
 
