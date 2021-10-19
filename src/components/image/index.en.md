@@ -1,8 +1,8 @@
 # Image
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
-## API
+## Props
 
 | Name        | Description                                                         | Type                                                             | Default             |
 | ----------- | ------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------- |
@@ -18,3 +18,12 @@
 | onClick     | The click event                                                     | `(event: React.MouseEvent<HTMLImageElement, Event>) => void`     | -                   |
 
 In addition, the following HTML native attributes are also supported: `crossOrigin`、`decoding`、`loading`、`referrerPolicy`、`sizes`、`srcSet`、`useMap`
+
+`width` `height` props is not conflict with `--width` `--height`. These components props is actually based on CSS variables, and exists only as a convenient way to set CSS variables.
+
+## CSS Variables
+
+| Name     | Description          | Default | Global               |
+| -------- | -------------------- | ------- | -------------------- |
+| --width  | The width of image.  | `auto`  | `--adm-image-width`  |
+| --height | The height of image. | `auto`  | `--adm-image-height` |

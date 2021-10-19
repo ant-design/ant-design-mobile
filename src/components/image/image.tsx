@@ -5,6 +5,7 @@ import { PictureOutline, PictureWrongOutline } from 'antd-mobile-icons'
 import { useInViewport } from 'ahooks'
 import { useInitialized } from '../../utils/use-initialized'
 import { staged } from 'staged-components'
+import { toCSSLength } from '../../utils/to-css-length'
 
 const classPrefix = `adm-image`
 
@@ -19,7 +20,7 @@ export type ImageProps = {
   lazy?: boolean
   onClick?: (event: React.MouseEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
-} & NativeProps &
+} & NativeProps<'--width' | '--height'> &
   Pick<
     React.ImgHTMLAttributes<HTMLImageElement>,
     | 'crossOrigin'
@@ -104,16 +105,16 @@ export const Image = staged<ImageProps>(p => {
   }
 
   function render() {
+    const style: ImageProps['style'] = {}
+    if (props.width) {
+      style['--width'] = toCSSLength(props.width)
+    }
+    if (props.height) {
+      style['--height'] = toCSSLength(props.height)
+    }
     return withNativeProps(
       props,
-      <div
-        ref={ref}
-        className={classPrefix}
-        style={{
-          width: props.width,
-          height: props.height,
-        }}
-      >
+      <div ref={ref} className={classPrefix} style={style}>
         {renderInner()}
       </div>
     )
