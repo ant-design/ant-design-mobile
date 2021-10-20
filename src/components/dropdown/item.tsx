@@ -38,7 +38,7 @@ type DropdownItemChildrenWrapProps = {
   onClick?: () => void
 } & Pick<DropdownItemProps, 'active' | 'forceRender' | 'destroyOnClose'>
 export const ItemChildrenWrap: FC<DropdownItemChildrenWrapProps> = props => {
-  const { active = false, closeOnContentClick } = props
+  const { active = false } = props
   const shouldRender = useShouldRender(
     active,
     props.forceRender,
