@@ -22,3 +22,5 @@
 | ------------------------ | -------------------- | ------- |
 | --image-height           | 图片的高度           | `100px` |
 | --image-height-full-page | 整页模式下的图片高度 | `200px` |
+| --image-width            | 图片的宽度           | `auto`  |
+| --image-width-full-page  | 整页模式下的图片宽度 | `auto`  |

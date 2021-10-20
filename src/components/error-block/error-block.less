@@ -4,11 +4,16 @@
   --color: var(--adm-color-text);
   --image-height: 100px;
   --image-height-full-page: 200px;
+  --image-width: auto;
+  --image-width-full-page: auto;
+
   box-sizing: border-box;
   text-align: center;
 
   &-image {
     height: var(--image-height);
+    width: var(--image-width);
+    max-width: 100%;
 
     & img {
       height: 100%;
@@ -36,6 +41,7 @@
     padding-top: calc(50vh - var(--image-height-full-page));
     .@{class-prefix-error-block}-image {
       height: var(--image-height-full-page);
+      width: var(--image-width-full-page);
     }
     .@{class-prefix-error-block}-description {
       margin-top: 20px;

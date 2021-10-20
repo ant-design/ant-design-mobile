@@ -20,5 +20,7 @@
 
 | Name                     | Description                            | Default |
 | ------------------------ | -------------------------------------- | ------- |
-| --image-height           | Height of the image.                   | `100px` |
+| --image-height           | Height of the image                    | `100px` |
 | --image-height-full-page | Height of the image in `fullPage` mode | `200px` |
+| --image-width            | Width of the image                     | `auto`  |
+| --image-width-full-page  | Width of the image in `fullPage` mode  | `auto`  |
