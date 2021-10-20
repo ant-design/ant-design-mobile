@@ -134,7 +134,10 @@ export const Swiper = forwardRef(
             })
           } else {
             const index = Math.round(
-              (offsetX + state.velocity[0] * state.direction[0] * 200) / width
+              (offsetX +
+                Math.min(state.velocity[0] * 2000, width) *
+                  state.direction[0]) /
+                width
             )
             swipeTo(index)
             window.setTimeout(() => {
