@@ -2,10 +2,13 @@
 
 .@{class-prefix-error-block} {
   --color: var(--adm-color-text);
-  --image-height: 100px;
-  --image-height-full-page: 200px;
-  --image-width: auto;
-  --image-width-full-page: auto;
+  --image-height: var(--adm-error-block-image-height, 100px);
+  --image-height-full-page: var(
+    --adm-error-block-image-height-full-page,
+    200px
+  );
+  --image-width: var(--adm-error-block-image-width, auto);
+  --image-width-full-page: var(--adm-error-block-image-width-full-page, auto);
 
   box-sizing: border-box;
   text-align: center;

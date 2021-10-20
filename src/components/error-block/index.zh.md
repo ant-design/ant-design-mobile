@@ -18,9 +18,9 @@
 
 ### CSS 变量
 
-| 属性                     | 说明                 | 默认值  |
-| ------------------------ | -------------------- | ------- |
-| --image-height           | 图片的高度           | `100px` |
-| --image-height-full-page | 整页模式下的图片高度 | `200px` |
-| --image-width            | 图片的宽度           | `auto`  |
-| --image-width-full-page  | 整页模式下的图片宽度 | `auto`  |
+| 属性                     | 说明                 | 默认值  | 全局变量                                   |
+| ------------------------ | -------------------- | ------- | ------------------------------------------ |
+| --image-height           | 图片的高度           | `100px` | `--adm-error-block-image-height`           |
+| --image-height-full-page | 整页模式下的图片高度 | `200px` | `--adm-error-block-image-height-full-page` |
+| --image-width            | 图片的宽度           | `auto`  | `--adm-error-block-image-width`            |
+| --image-width-full-page  | 整页模式下的图片宽度 | `auto`  | `--adm-error-block-image-width-full-page`  |
