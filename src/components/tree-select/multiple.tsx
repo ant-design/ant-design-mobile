@@ -5,7 +5,7 @@ import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
 import Checkbox from '../checkbox'
 import { TreeSelectOption } from '.'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { devWarning } from '../../utils/dev-log'
 
 const classPrefix = `adm-tree-select-multiple`
@@ -40,13 +40,13 @@ export const Multiple = withDefaultProps({
   const childrenName = props.fieldNames.children || 'children'
 
   // 打开的 keys
-  const [expandKeys, setExpandKeys] = useNewControllableValue({
+  const [expandKeys, setExpandKeys] = usePropsValue({
     value: props.expandKeys,
     defaultValue: props.defaultExpandKeys,
   })
 
   // 选中的 value（聚合后）
-  const [value, setValue] = useNewControllableValue({
+  const [value, setValue] = usePropsValue({
     value: props.value,
     defaultValue: props.defaultValue,
   })

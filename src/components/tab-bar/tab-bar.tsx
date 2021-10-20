@@ -3,7 +3,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import Badge, { BadgeProps } from '../badge'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 export type TabBarItemProps = {
   icon?: ReactNode | ((active: boolean) => ReactNode)
@@ -36,7 +36,7 @@ export const TabBar: FC<TabBarProps> = props => {
     items.push(child)
   })
 
-  const [activeKey, setActiveKey] = useNewControllableValue({
+  const [activeKey, setActiveKey] = usePropsValue({
     value: props.activeKey,
     defaultValue: props.defaultActiveKey ?? firstActiveKey,
     onChange: props.onChange,

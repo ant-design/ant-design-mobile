@@ -6,7 +6,7 @@ import { shuffle } from '../../utils/shuffle'
 import Popup, { PopupProps } from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
 import { useClickAway } from 'ahooks'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -52,7 +52,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     onDelete,
   } = props
 
-  const [visible, setVisible] = useNewControllableValue({
+  const [visible, setVisible] = usePropsValue({
     value: props.visible,
     defaultValue: props.defaultVisible,
     onChange: val => {

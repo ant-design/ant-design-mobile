@@ -4,7 +4,7 @@ import Input, { InputRef, InputProps } from '../input'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutline } from 'antd-mobile-icons'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-search`
@@ -32,7 +32,7 @@ const defaultProps = {
 
 export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const inputRef = useRef<InputRef>(null)
 

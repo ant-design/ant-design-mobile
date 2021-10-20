@@ -4,7 +4,7 @@ import List from '../list'
 import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { useMount, useUpdateLayoutEffect } from 'ahooks'
 import { useShouldRender } from '../../utils/use-should-render'
 
@@ -112,7 +112,7 @@ export const Collapse: FC<CollapseProps> = props => {
     panels.push(child)
   })
 
-  const [activeKey, setActiveKey] = useNewControllableValue<string[]>(
+  const [activeKey, setActiveKey] = usePropsValue<string[]>(
     props.accordion
       ? {
           value:

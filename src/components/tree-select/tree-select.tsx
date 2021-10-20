@@ -3,7 +3,7 @@ import React, { useMemo } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-tree-select`
 
@@ -28,7 +28,7 @@ export const TreeSelect = withDefaultProps({
   const valueName = props.fieldNames.value || 'value'
   const childrenName = props.fieldNames.children || 'children'
 
-  const [value, setValue] = useNewControllableValue({
+  const [value, setValue] = usePropsValue({
     value: props.value,
     defaultValue: props.defaultValue,
   })

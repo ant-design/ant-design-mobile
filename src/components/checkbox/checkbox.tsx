@@ -2,7 +2,7 @@ import React, { FC, useContext } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { CheckboxGroupContext } from './group-context'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { devWarning } from '../../utils/dev-log'
 import { CheckIcon } from './check-icon'
@@ -33,7 +33,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
 
   const props = mergeProps(defaultProps, p)
 
-  let [checked, setChecked] = useNewControllableValue({
+  let [checked, setChecked] = usePropsValue({
     value: props.checked,
     defaultValue: props.defaultChecked,
     onChange: props.onChange,

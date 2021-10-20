@@ -7,7 +7,7 @@ type Options<T> = {
   onChange?: (v: T) => void
 }
 
-export function useNewControllableValue<T>(options: Options<T>) {
+export function usePropsValue<T>(options: Options<T>) {
   const { value, defaultValue, onChange } = options
 
   const update = useUpdate()

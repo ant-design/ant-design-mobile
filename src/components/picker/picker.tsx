@@ -2,7 +2,7 @@ import React, { useState, useEffect, ReactNode, useMemo, FC } from 'react'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { PickerColumn, PickerColumnItem, PickerValue } from './index'
 import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
@@ -43,7 +43,7 @@ export const Picker: FC<PickerProps> = p => {
     },
     p
   )
-  const controllable = useNewControllableValue({
+  const controllable = usePropsValue({
     value: props.value,
     defaultValue: props.defaultValue,
     onChange: props.onConfirm,

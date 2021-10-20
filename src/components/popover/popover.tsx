@@ -2,7 +2,7 @@ import React, { forwardRef, useImperativeHandle, ReactElement } from 'react'
 import Tooltip from 'rc-tooltip'
 import classNames from 'classnames'
 import type { TooltipProps } from 'rc-tooltip/lib/Tooltip'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-popover`
@@ -56,7 +56,7 @@ export const Popover = forwardRef<PopoverRef, PopoverPropsWithContent>(
     const props = mergeProps(defaultProps, p)
     const { mode = 'light' } = props
 
-    const [visible, onVisibleChange] = useNewControllableValue({
+    const [visible, onVisibleChange] = usePropsValue({
       value: props.visible,
       defaultValue: props.defaultVisible,
       onChange: props.onVisibleChange,

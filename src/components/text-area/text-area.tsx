@@ -7,7 +7,7 @@ import React, {
 import type { ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps } from '../../utils/native-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-text-area'
@@ -64,7 +64,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       showCount,
       ...textAreaProps
     } = props
-    const [value, setValue] = useNewControllableValue(props)
+    const [value, setValue] = usePropsValue(props)
     const nativeTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
     useImperativeHandle(ref, () => ({

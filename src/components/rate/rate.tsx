@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { StarFill } from 'antd-mobile-icons'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-rate`
 
@@ -28,7 +28,7 @@ const defaultProps = {
 }
 
 export const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   const starList = Array(props.count).fill(null)
   function renderStar(v: number, half: boolean) {
     return (

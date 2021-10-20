@@ -13,7 +13,7 @@ import Popup from '../popup'
 import Item, { DropdownItemProps, ItemChildrenWrap } from './item'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-dropdown`
 
@@ -32,7 +32,7 @@ const Dropdown: FC<DropdownProps> & {
   Item: React.FC<DropdownItemProps>
 } = p => {
   const props = mergeProps(defaultProps, p)
-  const [value, onChange] = useNewControllableValue({
+  const [value, onChange] = usePropsValue({
     value: props.activeKey,
     defaultValue: props.defaultActiveKey,
     onChange: props.onChange,

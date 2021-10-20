@@ -3,7 +3,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List, { ListProps } from '../list'
 import { mergeProps } from '../../utils/with-default-props'
 import { CheckListContext } from './context'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { CheckOutline } from 'antd-mobile-icons'
 
 export type CheckListProps = Pick<ListProps, 'mode'> & {
@@ -23,7 +23,7 @@ const defaultProps = {
 export const CheckList: FC<CheckListProps> = p => {
   const props = mergeProps(defaultProps, p)
 
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
 
   function check(val: string) {
     if (props.multiple) {

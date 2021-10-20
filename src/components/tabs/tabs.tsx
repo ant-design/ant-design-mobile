@@ -2,7 +2,7 @@ import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-tabs`
 
@@ -38,7 +38,7 @@ export const Tabs: FC<TabsProps> = props => {
     panes.push(child)
   })
 
-  const [activeKey, setActiveKey] = useNewControllableValue({
+  const [activeKey, setActiveKey] = usePropsValue({
     value: props.activeKey,
     defaultValue: props.defaultActiveKey ?? firstActiveKey,
     onChange: props.onChange,

@@ -9,7 +9,7 @@ import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer from '../image-viewer'
 import PreviewItem from './preview-item'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { usePersistFn } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -59,7 +59,7 @@ const defaultProps = {
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   const updateValue = usePersistFn(
     (updater: (prev: FileItem[]) => FileItem[]) => {
       setValue(updater(value))

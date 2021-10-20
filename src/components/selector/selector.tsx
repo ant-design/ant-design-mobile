@@ -6,7 +6,7 @@ import Space from '../space'
 import Grid from '../grid'
 import { convertPx } from '../../utils/convert-px'
 import selectorCheckMarkImg from '../../assets/selector-check-mark.svg'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-selector`
 
@@ -35,7 +35,7 @@ const defaultProps = {
 
 export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = useNewControllableValue({
+  const [value, setValue] = usePropsValue({
     value: props.value,
     defaultValue: props.defaultValue,
     onChange: val => {

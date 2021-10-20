@@ -2,7 +2,7 @@ import React, { FC, useContext } from 'react'
 import { NativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { RadioGroupContext } from './group-context'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { CheckIcon } from '../checkbox/check-icon'
 
@@ -29,7 +29,7 @@ export const Radio: FC<RadioProps> = p => {
   const props = mergeProps(defaultProps, p)
   const groupContext = useContext(RadioGroupContext)
 
-  let [checked, setChecked] = useNewControllableValue<boolean>({
+  let [checked, setChecked] = usePropsValue<boolean>({
     value: props.checked,
     defaultValue: props.defaultChecked,
     onChange: props.onChange,

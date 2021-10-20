@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
 import { MinusOutline, AddOutline } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { bound } from '../../utils/bound'
 import Input, { InputProps } from '../input'
@@ -30,7 +30,7 @@ const defaultProps = {
 export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
   const { disabled, step, max, min } = props
 
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   const [inputValue, setInputValue] = useState(() => value.toString())
   function setValueWithCheck(v: number) {
     if (isNaN(v)) return
