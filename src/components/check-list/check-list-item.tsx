@@ -3,13 +3,16 @@ import List, { ListItemProps } from '../list'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { CheckListContext } from './context'
 import { devWarning } from '../../utils/dev-log'
+import classNames from 'classnames'
+
+const classPrefix = `adm-check-list-item`
 
 export type CheckListItemProps = Pick<
   ListItemProps,
-  'title' | 'children' | 'description' | 'prefix' | 'onClick'
+  'title' | 'children' | 'description' | 'prefix' | 'disabled' | 'onClick'
 > & {
   value: string
-  // TODO: support `readonly` and `disabled` props
+  readOnly?: boolean
 } & NativeProps<'--prefix-width' | '--align-items'>
 
 export const CheckListItem: FC<CheckListItemProps> = props => {
@@ -24,7 +27,7 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
   const active = context.value.includes(props.value)
 
   const extra = (
-    <div className='adm-check-list-item-extra'>
+    <div className={`${classPrefix}-extra`}>
       {active ? context.activeIcon : null}
     </div>
   )
@@ -33,9 +36,13 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
     props,
     <List.Item
       title={props.title}
+      className={classNames({
+        [`${classPrefix}-readonly`]: props.readOnly,
+      })}
       description={props.description}
       prefix={props.prefix}
       onClick={e => {
+        if (props.readOnly) return
         if (active) {
           context.uncheck(props.value)
         } else {
@@ -44,8 +51,9 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
         props.onClick?.(e)
       }}
       arrow={false}
-      clickable
+      clickable={!props.readOnly}
       extra={extra}
+      disabled={props.disabled || context.disabled}
     >
       {props.children}
     </List.Item>

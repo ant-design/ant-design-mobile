@@ -10,7 +10,9 @@ export default () => {
         <CheckList defaultValue={['B']}>
           <CheckList.Item value='A'>A</CheckList.Item>
           <CheckList.Item value='B'>B</CheckList.Item>
-          <CheckList.Item value='C'>C</CheckList.Item>
+          <CheckList.Item value='C' disabled>
+            C
+          </CheckList.Item>
         </CheckList>
       </DemoBlock>
       <DemoBlock title='多选' padding='0' border='none'>
@@ -25,6 +27,22 @@ export default () => {
           <CheckList.Item value='A'>A</CheckList.Item>
           <CheckList.Item value='B'>B</CheckList.Item>
           <CheckList.Item value='C'>C</CheckList.Item>
+        </CheckList>
+      </DemoBlock>
+      <DemoBlock title='只读' padding='0' border='none'>
+        <CheckList defaultValue={['B']}>
+          <CheckList.Item readOnly value='A'>
+            A
+          </CheckList.Item>
+          <CheckList.Item readOnly value='B'>
+            B
+          </CheckList.Item>
+        </CheckList>
+      </DemoBlock>
+      <DemoBlock title='整组禁用' padding='0' border='none'>
+        <CheckList disabled>
+          <CheckList.Item value='A'>A</CheckList.Item>
+          <CheckList.Item value='B'>B</CheckList.Item>
         </CheckList>
       </DemoBlock>
     </>

@@ -5,6 +5,9 @@ import { mergeProps } from '../../utils/with-default-props'
 import { CheckListContext } from './context'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckOutline } from 'antd-mobile-icons'
+import classNames from 'classnames'
+
+const classPrefix = `adm-check-list`
 
 export type CheckListProps = Pick<ListProps, 'mode'> & {
   defaultValue?: string[]
@@ -12,6 +15,7 @@ export type CheckListProps = Pick<ListProps, 'mode'> & {
   onChange?: (val: string[]) => void
   multiple?: boolean
   activeIcon?: ReactNode
+  disabled?: boolean
 } & NativeProps<'--prefix-width' | '--align-items'>
 
 const defaultProps = {
@@ -37,7 +41,7 @@ export const CheckList: FC<CheckListProps> = p => {
     setValue(value.filter(item => item !== val))
   }
 
-  const { activeIcon } = props
+  const { activeIcon, disabled } = props
 
   return (
     <CheckListContext.Provider
@@ -46,9 +50,20 @@ export const CheckList: FC<CheckListProps> = p => {
         check,
         uncheck,
         activeIcon,
+        disabled,
       }}
     >
-      {withNativeProps(props, <List mode={props.mode}>{props.children}</List>)}
+      {withNativeProps(
+        props,
+        <List
+          mode={props.mode}
+          className={classNames({
+            [`${classPrefix}-disabled`]: disabled,
+          })}
+        >
+          {props.children}
+        </List>
+      )}
     </CheckListContext.Provider>
   )
 }
