@@ -81,15 +81,11 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const hasFeedback = props.hasFeedback || context.hasFeedback
   const layout = props.layout || context.layout
 
-  const formItemLabelClass = classNames(`${classPrefix}-label`, {
-    [`${classPrefix}-label-disable`]: disabled,
-  })
-
   const feedback =
     hasFeedback && meta && meta.errors.length > 0 ? meta.errors[0] : null
 
   const labelElement = label ? (
-    <label className={formItemLabelClass} htmlFor={htmlFor}>
+    <label className={`${classPrefix}-label`} htmlFor={htmlFor}>
       {label}
       {required && <span className={`${classPrefix}-label-required`}>*</span>}
       {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
@@ -109,6 +105,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       className={classNames(classPrefix, className, {
         [`${classPrefix}-hidden`]: hidden,
       })}
+      disabled={disabled}
       onClick={props.disabled ? undefined : props.onClick}
     >
       {children}
@@ -265,10 +262,6 @@ export const FormItem: FC<FormItemProps> = props => {
 
           if (!childProps.id) {
             childProps.id = fieldId
-          }
-
-          if (disabled) {
-            childProps.disabled = disabled
           }
 
           // We should keep user origin event handler
