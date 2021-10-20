@@ -3,12 +3,15 @@
 .@{class-prefix-button} {
   --color: var(--adm-color-white);
 
-  --text-color: var(--adm-button-text-color, --adm-color-text);
-  --background-color: var(--adm-button-background-color, --adm-color-white);
+  --text-color: var(--adm-button-text-color, var(--adm-color-text));
+  --background-color: var(
+    --adm-button-background-color,
+    var(--adm-color-white)
+  );
   --border-radius: var(--adm-button-border-radius, 4px);
   --border-width: var(--adm-button-border-width, 1px);
   --border-style: var(--adm-button-border-style, solid);
-  --border-color: var(--adm-button-border-color, --adm-border-color);
+  --border-color: var(--adm-button-border-color, var(--adm-border-color));
 
   color: var(--text-color);
   background-color: var(--background-color);
