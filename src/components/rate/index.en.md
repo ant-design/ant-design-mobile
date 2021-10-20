@@ -11,7 +11,7 @@
 | character    | Custom character.                              | `ReactNode`               | `<StarFilled />` |
 | count        | Total number of stars.                         | `number`                  | `5`              |
 | defaultValue | The default value of rate.                     | `number`                  | `0`              |
-| readonly     | The component is uninteractable when `true`.   | `boolean`                 | `false`          |
+| readOnly     | The component is uninteractable when `true`.   | `boolean`                 | `false`          |
 | value        | The value of rate.                             | `number`                  | -                |
 | onChange     | Callback when select.                          | `(value: number) => void` | -                |
 
