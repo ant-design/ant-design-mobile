@@ -19,7 +19,6 @@ import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
-import { supportsPassive } from '../../utils/supports-passive'
 
 export type SwiperRef = {
   swipeTo: (index: number) => void
@@ -163,7 +162,6 @@ export const Swiper = forwardRef(
           pointer: {
             touch: true,
           },
-          eventOptions: supportsPassive ? { passive: false } : false,
         }
       )
 
@@ -220,7 +218,6 @@ export const Swiper = forwardRef(
             onClickCapture={e => {
               if (draggingRef.current) {
                 e.stopPropagation()
-                e.preventDefault()
               }
             }}
             {...(props.allowTouchMove ? bind() : {})}
