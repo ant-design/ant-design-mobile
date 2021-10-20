@@ -8,7 +8,7 @@
 | ---------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------- |
 | value            | Input value                                                                                  | `string`                                          | -        |
 | placeholder      | Hint text                                                                                    | `string`                                          | -        |
-| maxLength        | The max number of the inputing character                                                     | `number \| string`                                | -        |
+| maxLength        | The maximum number of characters the user can enter                                          | `number`                                          | -        |
 | clearable        | Whether to enable the clear icon, the input would be cleared after the clear icon is clicked | `boolean`                                         | `true`   |
 | showCancelButton | Whether to display the cancel button on the right side of the search input                   | `boolean`                                         | `false`  |
 | cancelText       | Text of the cancel button                                                                    | `string`                                          | `'取消'` |

@@ -8,7 +8,7 @@
 | ---------------- | -------------------------------------------- | ------------------------------------------------- | -------- |
 | value            | 输入值                                       | `string`                                          | -        |
 | placeholder      | 提示文本                                     | `string`                                          | -        |
-| maxLength        | 输入的最大字符数                             | `number \| string`                                | -        |
+| maxLength        | 输入的最大字符数                             | `number`                                          | -        |
 | clearable        | 是否启用清除图标，点击清除图标后会清空输入框 | `boolean`                                         | `true`   |
 | showCancelButton | 是否在搜索框右侧显示取消按钮                 | `boolean`                                         | `false`  |
 | cancelText       | 取消按钮的文案                               | `string`                                          | `'取消'` |
