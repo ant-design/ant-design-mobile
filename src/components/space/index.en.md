@@ -17,5 +17,5 @@
 | Name             | Description                       | Default      |
 | ---------------- | --------------------------------- | ------------ |
 | --gap            | The gap between items.            | `8px`        |
-| --vertical-gap   | The vertical gap between items.   | `var(--gap)` |
-| --horizontal-gap | The horizontal gap between items. | `var(--gap)` |
+| --gap-vertical   | The vertical gap between items.   | `var(--gap)` |
+| --gap-horizontal | The horizontal gap between items. | `var(--gap)` |

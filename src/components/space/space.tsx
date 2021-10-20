@@ -19,7 +19,7 @@ export type SpaceProps = {
     | 'stretch'
   wrap?: boolean
   block?: boolean
-} & NativeProps<'--gap' | '--vertical-gap' | '--horizontal-gap'>
+} & NativeProps<'--gap' | '--gap-vertical' | '--gap-horizontal'>
 
 export const Space = withDefaultProps({ direction: 'horizontal' })<SpaceProps>(
   props => {
