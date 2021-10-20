@@ -17,9 +17,8 @@ const classPrefix = `adm-index-bar`
 
 export type IndexBarProps = {
   sticky?: boolean
-  stickyOffsetTop?: number
   children?: React.ReactNode
-} & NativeProps
+} & NativeProps<'--sticky-offset-top'>
 
 export type IndexBarRef = {
   scrollTo: (index: string) => void
@@ -82,22 +81,12 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
     checkActiveIndex()
   }, [indexes])
 
-  let stickyStyle: React.CSSProperties &
-    Partial<Record<'--sticy-offset-top', string>> = {}
-
-  if (props.stickyOffsetTop) {
-    stickyStyle = {
-      '--sticy-offset-top': props.stickyOffsetTop + 'px',
-    }
-  }
-
   const element = withNativeProps(
     props,
     <div
       className={classNames(`${classPrefix}`, {
         [`${classPrefix}-sticky`]: props.sticky,
       })}
-      style={stickyStyle}
     >
       <Sidebar
         indexes={indexes}
