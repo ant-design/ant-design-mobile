@@ -55,9 +55,10 @@
     }
   }
   &-disabled {
-    && {
+    && > .adm-list-item-content > * {
       cursor: not-allowed;
-      opacity: 0.5;
+      opacity: 0.6;
+      pointer-events: none;
     }
   }
 }
