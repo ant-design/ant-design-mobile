@@ -102,6 +102,13 @@ const Dropdown: FC<DropdownProps> & {
                 active={isActive}
                 forceRender={item.props.forceRender}
                 destroyOnClose={item.props.destroyOnClose}
+                onClick={
+                  item.props.closeOnContentClick
+                    ? () => {
+                        changeActive(undefined)
+                      }
+                    : undefined
+                }
               >
                 {item.props.children}
               </ItemChildrenWrap>

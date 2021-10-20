@@ -12,6 +12,7 @@ export type DropdownItemProps = {
   highlight?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
+  closeOnContentClick?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & NativeProps
 
@@ -33,10 +34,9 @@ const Item: FC<DropdownItemProps> = props => {
 
 export default Item
 
-type DropdownItemChildrenWrapProps = Pick<
-  DropdownItemProps,
-  'active' | 'forceRender' | 'destroyOnClose'
->
+type DropdownItemChildrenWrapProps = {
+  onClick?: () => void
+} & Pick<DropdownItemProps, 'active' | 'forceRender' | 'destroyOnClose'>
 export const ItemChildrenWrap: FC<DropdownItemChildrenWrapProps> = props => {
   const { active = false } = props
   const shouldRender = useShouldRender(
@@ -47,5 +47,10 @@ export const ItemChildrenWrap: FC<DropdownItemChildrenWrapProps> = props => {
   const cls = classNames(`${classPrefix}-content`, {
     [`${classPrefix}-content-hidden`]: !active,
   })
-  return shouldRender ? <div className={cls}>{props.children}</div> : null
+
+  return shouldRender ? (
+    <div className={cls} onClick={props.onClick}>
+      {props.children}
+    </div>
+  ) : null
 }
