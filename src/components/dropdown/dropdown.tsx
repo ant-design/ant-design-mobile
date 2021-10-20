@@ -1,4 +1,4 @@
-import { useClickAway, useControllableValue } from 'ahooks'
+import { useClickAway } from 'ahooks'
 import classNames from 'classnames'
 import React, {
   cloneElement,
@@ -12,20 +12,30 @@ import React, {
 import Popup from '../popup'
 import Item, { DropdownItemProps, ItemChildrenWrap } from './item'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import { useNewControllableValue } from '../../utils/use-controllable-value'
 
 const classPrefix = `adm-dropdown`
 
 export type DropdownProps = {
-  activeKey?: string
-  onChange?: (key?: string) => void
+  activeKey?: string | null
+  defaultActiveKey?: string | null
+  onChange?: (key: string | null) => void
   // mask?: boolean;
 } & NativeProps
 
+const defaultProps = {
+  defaultActiveKey: null,
+}
+
 const Dropdown: FC<DropdownProps> & {
   Item: React.FC<DropdownItemProps>
-} = props => {
-  const [value, onChange] = useControllableValue<string | undefined>(props, {
-    valuePropName: 'activeKey',
+} = p => {
+  const props = mergeProps(defaultProps, p)
+  const [value, onChange] = useNewControllableValue({
+    value: props.activeKey,
+    defaultValue: props.defaultActiveKey,
+    onChange: props.onChange,
   })
 
   const navRef = useRef<HTMLDivElement>(null)
@@ -33,7 +43,7 @@ const Dropdown: FC<DropdownProps> & {
 
   // 点击外部区域，关闭
   useClickAway(() => {
-    onChange(undefined)
+    onChange(null)
   }, [navRef, contentRef])
 
   // 计算 navs 的 top 值
@@ -46,9 +56,9 @@ const Dropdown: FC<DropdownProps> & {
     }
   }, [value])
 
-  const changeActive = (key?: string) => {
+  const changeActive = (key: string | null) => {
     if (value === key) {
-      onChange(undefined)
+      onChange(null)
     } else {
       onChange(key)
     }
@@ -105,7 +115,7 @@ const Dropdown: FC<DropdownProps> & {
                 onClick={
                   item.props.closeOnContentClick
                     ? () => {
-                        changeActive(undefined)
+                        changeActive(null)
                       }
                     : undefined
                 }
