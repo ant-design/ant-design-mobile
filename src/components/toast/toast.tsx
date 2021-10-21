@@ -65,7 +65,7 @@ export const InternalToast: React.FC<ToastProps> = p => {
       getContainer={props.getContainer}
       afterClose={props.afterClose}
       style={{
-        pointerEvents: maskClickable ? 'none' : 'all',
+        pointerEvents: maskClickable ? 'none' : 'auto',
         ...props.maskStyle,
       }}
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
