@@ -3766,7 +3766,6 @@ __metadata:
     prismjs: ^1.25.0
     qrcode.react: ^1.0.1
     rc-field-form: ^1.21.2
-    rc-progress: ^3.1.4
     rc-tabs: ^11.10.1
     rc-tooltip: ^5.1.1
     react: ^17.0.2
@@ -12332,19 +12331,6 @@ fsevents@^1.2.7:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: e8c0a0689fca6cb899ff3a2bdc19add737c22e9fa2d6dd9a446e1fa4e356d927041f07a29e3043aac1a53d838768404db66b5eca9dd00186286adba0eb94356b
-  languageName: node
-  linkType: hard
-
-"rc-progress@npm:^3.1.4":
-  version: 3.1.4
-  resolution: "rc-progress@npm:3.1.4"
-  dependencies:
-    "@babel/runtime": ^7.10.1
-    classnames: ^2.2.6
-  peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: 1ccf0038d9f5bf275c24297ac83d4afbd77756ef91494d1e474e915944238becf6115ca11d202cf84d0c59efde0f08a12a08344061c314b31dab65ea13411e77
   languageName: node
   linkType: hard
 

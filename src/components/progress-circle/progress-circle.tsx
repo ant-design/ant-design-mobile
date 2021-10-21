@@ -6,11 +6,8 @@ const classPrefix = `adm-progress-circle`
 
 export type ProgressCircleProps = {
   percent?: number
-  strokeWidth?: number
-  size?: number
-  strokeColor?: string
   children?: React.ReactNode
-} & NativeProps<'--track-width' | '--size' | '--track-color' | '--fill-color'>
+} & NativeProps<'--size' | '--track-width' | '--track-color' | '--fill-color'>
 
 export const ProgressCircle = withDefaultProps({
   percent: 0,
