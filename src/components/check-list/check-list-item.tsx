@@ -25,6 +25,7 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
     return null
   }
   const active = context.value.includes(props.value)
+  const readOnly = props.readOnly || context.readOnly
 
   const extra = (
     <div className={`${classPrefix}-extra`}>
@@ -37,12 +38,12 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
     <List.Item
       title={props.title}
       className={classNames({
-        [`${classPrefix}-readonly`]: props.readOnly,
+        [`${classPrefix}-readonly`]: readOnly,
       })}
       description={props.description}
       prefix={props.prefix}
       onClick={e => {
-        if (props.readOnly) return
+        if (readOnly) return
         if (active) {
           context.uncheck(props.value)
         } else {
@@ -51,7 +52,7 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
         props.onClick?.(e)
       }}
       arrow={false}
-      clickable={!props.readOnly}
+      clickable={!readOnly}
       extra={extra}
       disabled={props.disabled || context.disabled}
     >
