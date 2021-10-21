@@ -5,6 +5,7 @@ import Loading from '../loading'
 import Mask from '../mask'
 import { mergeProps } from '../../utils/with-default-props'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
+import { GetContainer } from '../../utils/render-to-container'
 
 const classPrefix = `adm-toast`
 
@@ -18,7 +19,7 @@ export interface ToastProps {
   duration?: number
   position?: 'top' | 'bottom' | 'center'
   visible?: boolean
-  getContainer?: HTMLElement | (() => HTMLElement)
+  getContainer?: GetContainer
   stopPropagation?: PropagationEvent[]
 }
 
