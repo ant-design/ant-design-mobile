@@ -12,6 +12,8 @@ export type CheckListProps = Pick<ListProps, 'mode'> & {
   onChange?: (val: string[]) => void
   multiple?: boolean
   activeIcon?: ReactNode
+  disabled?: boolean
+  readOnly?: boolean
 } & NativeProps<'--prefix-width' | '--align-items'>
 
 const defaultProps = {
@@ -37,7 +39,7 @@ export const CheckList: FC<CheckListProps> = p => {
     setValue(value.filter(item => item !== val))
   }
 
-  const { activeIcon } = props
+  const { activeIcon, disabled, readOnly } = props
 
   return (
     <CheckListContext.Provider
@@ -46,6 +48,8 @@ export const CheckList: FC<CheckListProps> = p => {
         check,
         uncheck,
         activeIcon,
+        disabled,
+        readOnly,
       }}
     >
       {withNativeProps(props, <List mode={props.mode}>{props.children}</List>)}

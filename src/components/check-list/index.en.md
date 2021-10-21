@@ -15,6 +15,8 @@ The bottom layer of `CheckList` is implemented based on `List`, which is a list 
 | onChange     | Triggered when the option changes          | `(value: string[]) => void` | -                  |
 | multiple     | Whether to allow multiple selection or not | `boolean`                   | `false`            |
 | activeIcon   | The icon displayed when selected           | `ReactNode`                 | `<CheckOutline />` |
+| readOnly     | Is the check list item readonly            | `boolean`                   | `false`            |
+| disabled     | Is the check list disabled                 | `boolean`                   | `false`            |
 
 In addition, the `mode` attribute of [List](./list) is also supported
 
@@ -26,9 +28,11 @@ The same as [List.Item](./list)
 
 ### Props
 
-| Name  | Description      | Type     | Default |
-| ----- | ---------------- | -------- | ------- |
-| value | The option value | `string` | -       |
+| Name     | Description                     | Type      | Default |
+| -------- | ------------------------------- | --------- | ------- |
+| value    | The option value                | `string`  | -       |
+| readOnly | Is the check list item readonly | `boolean` | `false` |
+| disabled | Is the check list item disabled | `boolean` | `false` |
 
 In addition, the following attributes of [List.Item](./list) are also supported: `title` `children` `description` `prefix` `onClick`
 
