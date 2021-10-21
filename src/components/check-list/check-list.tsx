@@ -5,9 +5,6 @@ import { mergeProps } from '../../utils/with-default-props'
 import { CheckListContext } from './context'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckOutline } from 'antd-mobile-icons'
-import classNames from 'classnames'
-
-const classPrefix = `adm-check-list`
 
 export type CheckListProps = Pick<ListProps, 'mode'> & {
   defaultValue?: string[]
@@ -55,18 +52,7 @@ export const CheckList: FC<CheckListProps> = p => {
         readOnly,
       }}
     >
-      {withNativeProps(
-        props,
-        <List
-          mode={props.mode}
-          className={classNames({
-            [`${classPrefix}-disabled`]: disabled,
-            [`${classPrefix}-readonly`]: readOnly,
-          })}
-        >
-          {props.children}
-        </List>
-      )}
+      {withNativeProps(props, <List mode={props.mode}>{props.children}</List>)}
     </CheckListContext.Provider>
   )
 }
