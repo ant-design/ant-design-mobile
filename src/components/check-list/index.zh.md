@@ -15,6 +15,7 @@
 | onChange     | 选项改变时触发 | `(value: string[]) => void` | -                  |
 | multiple     | 是否允许多选   | `boolean`                   | `false`            |
 | activeIcon   | 选中图标       | `ReactNode`                 | `<CheckOutline />` |
+| readOnly     | 是否只读       | `boolean`                   | `false`            |
 | disabled     | 是否禁用       | `boolean`                   | `false`            |
 
 此外，还支持 [List](./list) 的 `mode` 属性
