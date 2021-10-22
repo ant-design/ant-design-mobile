@@ -2,6 +2,8 @@
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ## API
 
 ### 基础参数
@@ -20,3 +22,4 @@
 | fontSize    | 文字大小                                             | `string \| number` | `16`                 |
 | gapX        | 水印之间的水平间距                                   | `number`           | `24`                 |
 | gapY        | 水印之间的垂直间距                                   | `number`           | `48`                 |
+| fullPage    | 是否覆盖整个页面                                     | `boolean`          | `true`               |

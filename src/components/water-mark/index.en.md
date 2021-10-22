@@ -2,6 +2,8 @@
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ## API
 
 ### Basic Props
@@ -20,3 +22,4 @@
 | fontSize    | WaterMark text font size                                                                             | `string \| number` | `16`                 |
 | gapX        | Horizontal spacing between watermarks                                                                | `number`           | `24`                 |
 | gapY        | Vertical spacing between watermarks                                                                  | `number`           | `48`                 |
+| fullPage    | Whether to cover the whole page                                                                      | `boolean`          | `true`               |
