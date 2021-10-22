@@ -119,22 +119,22 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       props,
       <animated.div
         ref={elementRef}
-        className='adm-drawer'
+        className='adm-floating-panel'
         style={{
           height: maxHeight,
           y,
         }}
       >
         <div
-          className='adm-drawer-mask'
+          className='adm-floating-panel-mask'
           style={{
             display: pulling ? 'block' : 'none',
           }}
         />
-        <div className='adm-drawer-header' ref={headerRef}>
-          <div className='adm-drawer-bar' />
+        <div className='adm-floating-panel-header' ref={headerRef}>
+          <div className='adm-floating-panel-bar' />
         </div>
-        <div className='adm-drawer-content' ref={contentRef}>
+        <div className='adm-floating-panel-content' ref={contentRef}>
           {props.children}
         </div>
       </animated.div>
