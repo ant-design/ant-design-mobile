@@ -4,9 +4,7 @@
 
 <code src="./demos/demo2.tsx"></code>
 
-## API
-
-### Basic Props
+### Props
 
 | Name        | Description                                                                                          | Type               | Default              |
 | ----------- | ---------------------------------------------------------------------------------------------------- | ------------------ | -------------------- |
@@ -23,3 +21,9 @@
 | gapX        | Horizontal spacing between watermarks                                                                | `number`           | `24`                 |
 | gapY        | Vertical spacing between watermarks                                                                  | `number`           | `48`                 |
 | fullPage    | Whether to cover the whole page                                                                      | `boolean`          | `true`               |
+
+### CSS Variables
+
+| Name      | Description                       | Default | Global                     |
+| --------- | --------------------------------- | ------- | -------------------------- |
+| --z-index | `z-index` of the water mark layer | `2000`  | `--adm-water-mark-z-index` |

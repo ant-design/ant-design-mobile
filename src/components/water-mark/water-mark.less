@@ -1,9 +1,10 @@
 @class-prefix-water-mark: ~'adm-water-mark';
 
 .@{class-prefix-water-mark} {
-  --z-index: 2000;
+  --z-index: var(--adm-water-mark-z-index, 2000);
 
   position: absolute;
+  z-index: var(--z-index);
   left: 0;
   right: 0;
   top: 0;

@@ -22,7 +22,7 @@ export type WaterMarkProps = {
   fontWeight?: 'normal' | 'light' | 'weight' | number
   fontSize?: number | string
   fullPage?: boolean
-} & NativeProps
+} & NativeProps<'--z-index'>
 
 const defaultProps = {
   fullPage: true,
