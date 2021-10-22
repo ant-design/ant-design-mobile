@@ -9,7 +9,7 @@
 | visible          | 显示隐藏                                                                    | `boolean`                                  | `false`         |
 | actions          | 面板选项列表                                                                | `Action[]`                                 | `[]`            |
 | extra            | 顶部的额外区域                                                              | `ReactNode`                                | -               |
-| cancelText       | 取消按钮文字，如果设置为空则不显示取消按钮                                  | `string`                                   | -               |
+| cancelText       | 取消按钮文字，如果设置为空则不显示取消按钮                                  | `ReactNode`                                | -               |
 | onAction         | 点击选项时触发，禁用或加载状态下不会触发                                    | `(action: Action, index: number) => void`  | -               |
 | onClose          | 关闭时触发                                                                  | `() => void`                               | -               |
 | afterClose       | 完全关闭后触发                                                              | `() => void`                               | -               |

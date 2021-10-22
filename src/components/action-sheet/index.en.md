@@ -9,7 +9,7 @@
 | visible          | To show or hide the action sheet                                                                                           | `boolean`                                  | `false`         |
 | actions          | The option list of the the action sheet                                                                                    | `Action[]`                                 | `[]`            |
 | extra            | The extra area at the top of the the action sheet                                                                          | `ReactNode`                                | -               |
-| cancelText       | The text of the cancel button , if it is null, the cancel button would not be displayed                                    | `string`                                   | -               |
+| cancelText       | The text of the cancel button , if it is null, the cancel button would not be displayed                                    | `ReactNode`                                | -               |
 | onAction         | Triggered when an option is clicked, never triggered when the ActionSheet is disabled or loading                           | `(action: Action, index: number) => void`  | -               |
 | onClose          | Triggered when closed                                                                                                      | `() => void`                               | -               |
 | afterClose       | Triggered when completely closed                                                                                           | `() => void`                               | -               |
