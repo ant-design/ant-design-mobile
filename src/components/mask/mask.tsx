@@ -2,7 +2,10 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import React, { useMemo, useRef, useState } from 'react'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useSpring, animated } from '@react-spring/web'
-import { renderToContainer } from '../../utils/render-to-container'
+import {
+  renderToContainer,
+  GetContainer,
+} from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import { useShouldRender } from '../../utils/use-should-render'
@@ -27,7 +30,7 @@ export type MaskProps = {
   disableBodyScroll?: boolean
   color?: 'black' | 'white'
   opacity?: 'default' | 'thin' | 'thick' | number
-  getContainer?: HTMLElement | (() => HTMLElement) | null
+  getContainer?: GetContainer
   afterShow?: () => void
   afterClose?: () => void
   stopPropagation?: PropagationEvent[]

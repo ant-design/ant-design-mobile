@@ -20,7 +20,7 @@
 | icon            | `Toast` 图标                          | `'success' \| 'fail' \| 'loading' \| React.ReactNode` | -               |
 | duration        | 提示持续时间，若为 `0` 则不会自动关闭 | `number`                                              | `2000`          |
 | position        | 垂直方向显示位置                      | `'top' \| 'bottom' \| 'center'`                       | `'center'`      |
-| getContainer    | 自定义轻提示的父容器                  | `HTMLElement \| (() => HTMLElement) \| undefined`     | `document.body` |
+| getContainer    | 自定义轻提示的父容器                  | `HTMLElement \| (() => HTMLElement) \| null`          | `document.body` |
 | stopPropagation | 阻止某些事件的冒泡                    | `PropagationEvent[]`                                  | `['click']`     |
 
 > 同一时间只允许弹出一个轻提示，新出现的 `Toast` 会将之前正在显示中的 `Toast` 挤掉。
