@@ -17,8 +17,9 @@ The `Input` component is layout-independent. It only includes the most basic inp
 | clearable    | Whether to enable the clear icon, the input box will be cleared after clicking the clear icon | `boolean`                 | `false` |
 | onClear      | Triggered after clicking the clear button                                                     | `() => void`              | -       |
 | id           | The id of the input element, usually used with label                                          | `string`                  | -       |
+| onEnterPress | The callback when Enter key is pressed                                                        | `(e) => void`             | -       |
 
-In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect`
+In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown`
 
 ## CSS Variables
 
