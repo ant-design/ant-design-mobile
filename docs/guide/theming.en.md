@@ -65,11 +65,6 @@ The following are the global CSS variables currently provided by antd-mobile:
   --adm-font-family: -apple-system, blinkmacsystemfont, 'Helvetica Neue',
   helvetica, segoe ui, arial, roboto, 'PingFang SC', 'miui',
   'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
-
-  --adm-z-index-mask: 1000;
-  --adm-z-index-popup: 1000;
-  --adm-z-index-popover: 1030;
-  --adm-z-index-floating-panel: 900;
 }
 ```
 

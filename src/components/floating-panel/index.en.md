@@ -2,7 +2,7 @@
 
 <code src="./demos/index.tsx"></code>
 
-## API
+### Props
 
 | Name    | Description                                     | Type       | Description |
 | ------- | ----------------------------------------------- | ---------- | ----------- |

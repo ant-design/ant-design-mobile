@@ -2,7 +2,7 @@
 
 <code src="./demos/index.tsx"></code>
 
-# API
+### Props
 
 | Name            | Description                                                                                                                   | Type                                                               | Default         |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | --------------- |
@@ -21,3 +21,9 @@
 | maskStyle       | Mask style                                                                                                                    | `React.CSSProperties`                                              | -               |
 | onClick         | Triggered when clicked, used to stop event bubbles usually                                                                    | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void`    | -               |
 | stopPropagation | Stop the propagation of some events.                                                                                          | `PropagationEvent[]`                                               | `['click']`     |
+
+### CSS Variables
+
+| Name      | Description                    | Default | Global                |
+| --------- | ------------------------------ | ------- | --------------------- |
+| --z-index | `z-index` of the popup element | `1000`  | `--adm-popup-z-index` |

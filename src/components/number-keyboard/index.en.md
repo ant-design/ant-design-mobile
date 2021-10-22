@@ -4,7 +4,7 @@ H5 numeric keyboard, can be used with password input box component or custom inp
 
 <code src="./demos/index.tsx"></code>
 
-## API
+### Props
 
 | Name            | Description                                                                                                                 | Type                                       | Default               |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------------- |
@@ -27,7 +27,7 @@ H5 numeric keyboard, can be used with password input box component or custom inp
 
 In addition, the following attributes of [Popup](./popup) are supported: `stopPropagation`
 
-## CSS Variables
+### CSS Variables
 
 | 属性                | 说明                         | 默认值           |
 | ------------------- | ---------------------------- | ---------------- |

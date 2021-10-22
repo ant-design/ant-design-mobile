@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-# API
+### Props
 
 | Name              | Description                                                                                            | Type                                                            | Default     |
 | ----------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | ----------- |
@@ -17,3 +17,9 @@
 | afterClose        | Triggered when completely closed                                                                       | `() => void`                                                    | -           |
 | disableBodyScroll | Whether to disable `body` scrolling                                                                    | `boolean`                                                       | `true`      |
 | stopPropagation   | Stop the propagation of some events.                                                                   | `PropagationEvent[]`                                            | `['click']` |
+
+### CSS Variables
+
+| Name      | Description                   | Default | Global               |
+| --------- | ----------------------------- | ------- | -------------------- |
+| --z-index | `z-index` of the mask element | `1000`  | `--adm-mask-z-index` |

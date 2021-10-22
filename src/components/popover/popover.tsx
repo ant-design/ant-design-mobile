@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import type { TooltipProps } from 'rc-tooltip/lib/Tooltip'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { NativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-popover`
 const enterClassName = 'entering'
@@ -37,7 +38,8 @@ export type BasePopoverProps = {
   | 'overlayClassName'
   | 'align'
   | 'zIndex'
->
+> &
+  NativeProps<'--z-index'>
 
 type PopoverPropsWithContent = BasePopoverProps & { content: React.ReactNode }
 

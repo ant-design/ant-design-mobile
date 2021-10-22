@@ -44,3 +44,9 @@ Except for `content`, all other attributes are inherited from `Popover`, the uni
 | show    | Show the Popover                 | `() => void` |
 | hide    | Hide the Popover                 | `() => void` |
 | visible | Whether the Popover is diplaying | `boolean`    |
+
+### CSS Variables
+
+| Name      | Description                      | Default | Global                  |
+| --------- | -------------------------------- | ------- | ----------------------- |
+| --z-index | `z-index` of the popover element | `1030`  | `--adm-popover-z-index` |

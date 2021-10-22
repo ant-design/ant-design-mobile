@@ -1,12 +1,13 @@
 .adm-drawer {
   --border-radius: 8px;
   --header-height: 28px;
+  --z-index: var(--adm-floating-panel-z-index, 900);
 
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   background: var(--adm-color-white);
   position: fixed;
-  z-index: var(--adm-z-index-floating-panel);
+  z-index: var(--z-index);
   top: 100vh;
   left: 0;
   width: 100vw;

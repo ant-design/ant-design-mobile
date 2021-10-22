@@ -34,7 +34,7 @@ export type MaskProps = {
   afterShow?: () => void
   afterClose?: () => void
   stopPropagation?: PropagationEvent[]
-} & NativeProps
+} & NativeProps<'--z-index'>
 
 const defaultProps = {
   visible: true,

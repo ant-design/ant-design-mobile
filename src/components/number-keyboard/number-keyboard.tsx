@@ -7,6 +7,7 @@ import Popup, { PopupProps } from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
 import { useClickAway } from 'ahooks'
 import { usePropsValue } from '../../utils/use-props-value'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -28,7 +29,8 @@ export type NumberKeyboardProps = {
   afterClose?: () => void
   closeOnBlur?: boolean
   closeOnConfirm?: boolean
-} & Pick<PopupProps, 'stopPropagation'>
+} & Pick<PopupProps, 'stopPropagation'> &
+  NativeProps
 
 const defaultProps = {
   defaultVisible: false,
@@ -159,37 +161,40 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       className={`${classPrefix}-popup`}
       stopPropagation={props.stopPropagation}
     >
-      <div ref={keyboardRef} className={classPrefix}>
-        {renderHeader()}
-        <div className={`${classPrefix}-wrapper`}>
-          <div
-            className={classNames(`${classPrefix}-main`, {
-              'confirmed-style': !!confirmText,
-            })}
-          >
-            {keys.map(renderKey)}
-          </div>
-          {!!confirmText && (
-            <div className={`${classPrefix}-confirm`}>
-              <div
-                className={`${classPrefix}-key extra-key bs-key`}
-                onClick={() => onKeyPress('BACKSPACE')}
-                title='BACKSPACE'
-                role='button'
-              >
-                <TextDeletionOutline />
-              </div>
-              <div
-                className={`${classPrefix}-key extra-key ok-key`}
-                onClick={() => onKeyPress('OK')}
-                role='button'
-              >
-                {confirmText}
-              </div>
+      {withNativeProps(
+        props,
+        <div ref={keyboardRef} className={classPrefix}>
+          {renderHeader()}
+          <div className={`${classPrefix}-wrapper`}>
+            <div
+              className={classNames(`${classPrefix}-main`, {
+                'confirmed-style': !!confirmText,
+              })}
+            >
+              {keys.map(renderKey)}
             </div>
-          )}
+            {!!confirmText && (
+              <div className={`${classPrefix}-confirm`}>
+                <div
+                  className={`${classPrefix}-key extra-key bs-key`}
+                  onClick={() => onKeyPress('BACKSPACE')}
+                  title='BACKSPACE'
+                  role='button'
+                >
+                  <TextDeletionOutline />
+                </div>
+                <div
+                  className={`${classPrefix}-key extra-key ok-key`}
+                  onClick={() => onKeyPress('OK')}
+                  role='button'
+                >
+                  {confirmText}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </Popup>
   )
 }
