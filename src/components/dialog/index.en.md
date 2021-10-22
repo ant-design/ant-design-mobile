@@ -46,7 +46,7 @@ You can use `Dialog` in an imperative way:
 ### Dialog.show
 
 ```ts | pure
-const handler = ActionSheet.show(props)
+const handler = Dialog.show(props)
 ```
 
 You can directly open the dialog box by calling the `show` method on the `Dialog`. The type of the `props` parameter is the same as the above table, but the `visible` prop is not supported.

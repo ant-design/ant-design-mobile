@@ -46,7 +46,7 @@
 ### Dialog.show
 
 ```ts | pure
-const handler = ActionSheet.show(props)
+const handler = Dialog.show(props)
 ```
 
 可以通过调用 `Dialog` 上的 `show` 方法直接打开对话框，其中 `props` 参数的类型同上表，但不支持传入 `visible` 属性。
