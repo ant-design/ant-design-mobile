@@ -1,7 +1,10 @@
 import React, { useState, useRef } from 'react'
 import { ActionSheet, Button, Dialog, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import type { Action, ActionSheetRef } from '..'
+import type {
+  Action,
+  ActionSheetRef,
+} from 'antd-mobile/es/components/action-sheet'
 
 const actions: Action[] = [
   { text: '复制', key: 'copy' },

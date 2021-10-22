@@ -136,20 +136,18 @@ export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
     useEffect(() => {
       setVisible(true)
     }, [])
+    function handleClose() {
+      props.onClose?.()
+      setVisible(false)
+    }
     useImperativeHandle(ref, () => ({
-      close: () => {
-        props.onClose?.()
-        setVisible(false)
-      },
+      close: handleClose,
     }))
     return (
       <ActionSheet
         {...props}
         visible={visible}
-        onClose={() => {
-          props.onClose?.()
-          setVisible(false)
-        }}
+        onClose={handleClose}
         afterClose={() => {
           props.afterClose?.()
           unmount()
