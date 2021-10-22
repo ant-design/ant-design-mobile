@@ -74,7 +74,7 @@ In addition, it supports the following props:
 
 ### Dialog.confirm
 
-`alert` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return value is not a controller object, but `Promise<void>`.
+`confirm` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return value is not a controller object, but `Promise<boolean>`.
 
 In addition, it supports the following props:
 

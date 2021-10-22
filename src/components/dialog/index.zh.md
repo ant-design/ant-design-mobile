@@ -74,7 +74,7 @@ const handler = Dialog.show(props)
 
 ### Dialog.confirm
 
-`alert` 接受的参数同 `show`，但不支持 `closeOnAction` `actions` 属性，它的返回值不是一个控制器对象，而是 `Promise<void>`。
+`confirm` 接受的参数同 `show`，但不支持 `closeOnAction` `actions` 属性，它的返回值不是一个控制器对象，而是 `Promise<boolean>`。
 
 此外，它还额外支持以下属性：
 
