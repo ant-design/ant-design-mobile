@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { ActionSheet, Button, Dialog, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import type { Action } from '..'
+import type { Action, ActionSheetRef } from '..'
 
 const actions: Action[] = [
   { text: '复制', key: 'copy' },
@@ -102,11 +102,29 @@ function Events() {
 }
 
 function Imperative() {
+  const handler = useRef<ActionSheetRef>()
+  const actions: Action[] = [
+    {
+      text: '复制',
+      key: 'copy',
+    },
+    {
+      text: '修改',
+      key: 'edit',
+      onClick: () => {
+        handler.current?.close()
+      },
+    },
+  ]
+
   return (
     <Button
       onClick={() => {
-        ActionSheet.show({
+        handler.current = ActionSheet.show({
           actions,
+          onClose: () => {
+            Toast.show('动作面板关闭')
+          },
         })
       }}
     >
