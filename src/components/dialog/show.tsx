@@ -10,29 +10,28 @@ import { Dialog, DialogProps } from './dialog'
 
 export type DialogShowProps = Omit<DialogProps, 'visible'>
 
-type Ref = {
+export type DialogShowRef = {
   close: () => void
 }
 
 export function show(props: DialogShowProps) {
-  const Wrapper = forwardRef<Ref>((_, ref) => {
+  const Wrapper = forwardRef<DialogShowRef>((_, ref) => {
     const [visible, setVisible] = useState(false)
     useEffect(() => {
       setVisible(true)
     }, [])
+    function handleClose() {
+      props.onClose?.()
+      setVisible(false)
+    }
     useImperativeHandle(ref, () => ({
-      close: () => {
-        setVisible(false)
-      },
+      close: handleClose,
     }))
     return (
       <Dialog
         {...props}
         visible={visible}
-        onClose={() => {
-          props.onClose?.()
-          setVisible(false)
-        }}
+        onClose={handleClose}
         afterClose={() => {
           props.afterClose?.()
           unmount()
@@ -40,7 +39,7 @@ export function show(props: DialogShowProps) {
       />
     )
   })
-  const ref = createRef<Ref>()
+  const ref = createRef<DialogShowRef>()
   const unmount = renderToBody(<Wrapper ref={ref} />)
   return {
     close: () => {
