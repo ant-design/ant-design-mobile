@@ -133,7 +133,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       show: (side: 'left' | 'right' = 'right') => {
         if (side === 'right') {
           api.start({
-            x: getRightWidth(),
+            x: -getRightWidth(),
           })
         } else if (side === 'left') {
           api.start({
