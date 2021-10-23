@@ -51,16 +51,7 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
         [`${classPrefix}-active`]: hasFocus,
       })}
     >
-      <form
-        className={`${classPrefix}-input-box`}
-        action='/'
-        onSubmit={e => {
-          e.preventDefault()
-          e.stopPropagation()
-          inputRef.current?.blur()
-          props.onSearch?.(value)
-        }}
-      >
+      <div className={`${classPrefix}-input-box`}>
         <div className={`${classPrefix}-input-box-icon`}>
           <SearchOutline />
         </div>
@@ -82,8 +73,12 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
           }}
           onClear={props.onClear}
           type='search'
+          onEnterPress={() => {
+            inputRef.current?.blur()
+            props.onSearch?.(value)
+          }}
         />
-      </form>
+      </div>
       {props.showCancelButton && hasFocus && (
         <div className={`${classPrefix}-suffix`}>
           <a
