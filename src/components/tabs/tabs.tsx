@@ -5,7 +5,6 @@ import React, {
   ComponentProps,
   useRef,
   useLayoutEffect,
-  useEffect,
 } from 'react'
 import classNames from 'classnames'
 import {
@@ -102,7 +101,8 @@ export const Tabs: FC<TabsProps> = props => {
     const scrollLeft = activeTabLeft - (containerWidth - activeTabWidth) / 2
     const needScroll =
       containerScrollWidth !== containerWidth &&
-      activeTabLeft + activeTabLeft / 2 > containerWidth / 2
+      (containerScrollLeft !== 0 ||
+        activeTabLeft + activeTabLeft / 2 > containerWidth / 2)
 
     api.start({
       x,
