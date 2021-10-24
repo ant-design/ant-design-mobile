@@ -1,6 +1,19 @@
-import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
-import React from 'react'
+import React, {
+  FC,
+  ReactNode,
+  ReactElement,
+  ComponentProps,
+  useRef,
+  useLayoutEffect,
+  useEffect,
+} from 'react'
 import classNames from 'classnames'
+import {
+  useSpring,
+  animated,
+  AnimationResult,
+  SpringValue,
+} from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 
@@ -22,7 +35,8 @@ export type TabsProps = {
 } & NativeProps
 
 export const Tabs: FC<TabsProps> = props => {
-  const childrenRecord: Record<string, ReactNode> = {}
+  const containerRef = useRef<HTMLDivElement>(null)
+  const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
   const panes: ReactElement<ComponentProps<typeof TabPane>>[] = []
@@ -34,7 +48,7 @@ export const Tabs: FC<TabsProps> = props => {
     if (index === 0) {
       firstActiveKey = key
     }
-    childrenRecord[key] = child.props.children
+    keyToIndexRecord[key] = index
     panes.push(child)
   })
 
@@ -44,10 +58,69 @@ export const Tabs: FC<TabsProps> = props => {
     onChange: props.onChange,
   })
 
+  const [{ x, width }, api] = useSpring(() => ({
+    x: 0,
+    width: 0,
+    config: {
+      tension: 200,
+    },
+  }))
+
+  const [, scrollApi] = useSpring(() => ({
+    scrollLeft: 0,
+    onChange: ({
+      value: { scrollLeft },
+    }: AnimationResult<SpringValue<{ scrollLeft: number }>>) => {
+      if (scrollLeft === 0) return
+      const containerDOM = containerRef.current as HTMLDivElement
+      if (!containerDOM) return
+      containerDOM.scrollLeft = scrollLeft
+    },
+  }))
+
+  useLayoutEffect(() => {
+    const containerDOM = containerRef.current
+    if (!containerDOM) return
+    const activeIndex = keyToIndexRecord[activeKey as string]
+    if (activeIndex === undefined) return
+
+    const activeTabWrapperDOM = containerDOM.children.item(
+      activeIndex
+    ) as HTMLDivElement
+    const activeTabContentDOM = activeTabWrapperDOM.children.item(
+      0
+    ) as HTMLDivElement
+    const activeTabLeft = activeTabWrapperDOM.offsetLeft
+    const activeTabWidth = activeTabWrapperDOM.offsetWidth
+    const activeTabContentWidth = activeTabContentDOM.offsetWidth
+
+    const containerWidth = containerDOM.offsetWidth
+    const containerScrollWidth = containerDOM.scrollWidth
+    const containerScrollLeft = containerDOM.scrollLeft
+
+    const x = activeTabLeft + (activeTabWidth - activeTabContentWidth) / 2
+    const scrollLeft = activeTabLeft - (containerWidth - activeTabWidth) / 2
+    const needScroll =
+      containerScrollWidth !== containerWidth &&
+      activeTabLeft + activeTabLeft / 2 > containerWidth / 2
+
+    api.start({
+      x,
+      width: activeTabContentWidth,
+    })
+
+    if (needScroll) {
+      scrollApi.start({
+        scrollLeft,
+        from: { scrollLeft: containerScrollLeft },
+      })
+    }
+  }, [activeKey, props.children])
+
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      <div className={`${classPrefix}-tab-list`}>
+      <div className={`${classPrefix}-tab-list`} ref={containerRef}>
         {panes.map(pane =>
           withNativeProps(
             pane.props,
@@ -69,6 +142,13 @@ export const Tabs: FC<TabsProps> = props => {
             </div>
           )
         )}
+        <animated.div
+          className={`${classPrefix}-tab-line`}
+          style={{
+            width,
+            x,
+          }}
+        />
       </div>
       {panes.map(pane => {
         if (pane.props.children === undefined) {
