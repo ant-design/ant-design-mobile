@@ -31,6 +31,7 @@ export type InputProps = Pick<
   | 'autoCapitalize'
   | 'autoCorrect'
   | 'onKeyDown'
+  | 'onKeyUp'
 > &
   EnterKeyHintProps & {
     value?: string
@@ -115,6 +116,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         autoCapitalize={props.autoCapitalize}
         autoCorrect={props.autoCorrect}
         onKeyDown={handleKeydown}
+        onKeyUp={props.onKeyUp}
       />
       {props.clearable && !!value && hasFocus && (
         <div
