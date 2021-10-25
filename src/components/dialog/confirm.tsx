@@ -20,7 +20,7 @@ const defaultProps = {
 
 export function confirm(p: DialogConfirmProps) {
   const props = mergeProps(defaultProps, p)
-  return new Promise<boolean>(resolve => {
+  return new Promise<boolean>((resolve, reject) => {
     show({
       ...props,
       closeOnAction: true,
@@ -43,8 +43,12 @@ export function confirm(p: DialogConfirmProps) {
             text: props.confirmText,
             bold: true,
             onClick: async () => {
-              await props.onConfirm?.()
-              resolve(true)
+              try {
+                await props.onConfirm?.()
+                resolve(true)
+              } catch (error) {
+                reject(false)
+              }
             },
           },
         ],
