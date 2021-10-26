@@ -130,23 +130,21 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
       document.body.removeChild(container)
     }
 
-    let observer: ResizeObserver | null = null
-
     if (window.ResizeObserver) {
-      observer = new ResizeObserver(entries => {
-        const [entrie] = entries
-        if (entrie.contentRect.width > 0) {
+      const observer = new ResizeObserver(entries => {
+        const [entry] = entries
+        if (entry.contentRect.width > 0) {
           handler()
         }
       })
 
       observer.observe(origin)
+
+      return () => {
+        observer?.disconnect()
+      }
     } else {
       handler()
-    }
-
-    return () => {
-      observer?.disconnect()
     }
   }, [props.content, props.rows, props.direction])
 
