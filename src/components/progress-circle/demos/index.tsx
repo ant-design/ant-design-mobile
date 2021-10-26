@@ -11,40 +11,45 @@ export default () => {
         <ProgressCircle percent={50}>50%</ProgressCircle>
       </DemoBlock>
       <DemoBlock title='指定线条宽度'>
-        <Space size='24px'>
-          <ProgressCircle percent={75} strokeWidth={4}>
+        <Space style={{ '--gap': '24px' }}>
+          <ProgressCircle percent={75} style={{ '--track-width': '2px' }}>
             75%
           </ProgressCircle>
-          <ProgressCircle percent={75} strokeWidth={6}>
+          <ProgressCircle percent={75} style={{ '--track-width': '3px' }}>
             75%
           </ProgressCircle>
-          <ProgressCircle percent={75} strokeWidth={8}>
+          <ProgressCircle percent={75} style={{ '--track-width': '4px' }}>
             75%
           </ProgressCircle>
         </Space>
       </DemoBlock>
       <DemoBlock title='指定画布宽高'>
-        <Space size='24px' align='center'>
-          <ProgressCircle percent={50} size={40}>
+        <Space style={{ '--gap': '24px' }} align='center'>
+          <ProgressCircle percent={50} style={{ '--size': '40px' }}>
             <span className={styles.small}>50%</span>
           </ProgressCircle>
-          <ProgressCircle percent={75} size={60}>
+          <ProgressCircle percent={75} style={{ '--size': '60px' }}>
             <span className={styles.middle}>75%</span>
           </ProgressCircle>
-          <ProgressCircle percent={100} size={90}>
+          <ProgressCircle percent={100} style={{ '--size': '90px' }}>
             <span className={styles.large}>100%</span>
           </ProgressCircle>
         </Space>
       </DemoBlock>
       <DemoBlock title='自定义'>
-        <Space size='24px'>
-          <ProgressCircle percent={50} strokeColor='#FF3141'>
+        <Space style={{ '--gap': '24px' }}>
+          <ProgressCircle
+            percent={50}
+            style={{
+              '--fill-color': '#FF3141',
+            }}
+          >
             <CloseOutline style={{ color: '#FF3141', fontSize: '18px' }} />
           </ProgressCircle>
-          <ProgressCircle percent={100} strokeColor='#00B578'>
+          <ProgressCircle percent={100} style={{ '--fill-color': '#00B578' }}>
             <span className={styles.success}>Done</span>
           </ProgressCircle>
-          <ProgressCircle percent={30} strokeColor='orange'>
+          <ProgressCircle percent={30} style={{ '--fill-color': 'orange' }}>
             <span className={styles.warning}>
               30
               <br />

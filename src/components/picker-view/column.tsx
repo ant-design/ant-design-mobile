@@ -1,6 +1,6 @@
 import React, { FC, useLayoutEffect, useRef, useState } from 'react'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
+import { useDrag } from '@use-gesture/react'
 import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
@@ -50,7 +50,7 @@ export const Column: FC<Props> = props => {
         props.onSelect(firstItem.value)
       }
     }
-  })
+  }, [column, value])
 
   const { run: debouncedUpdateFlag } = useDebounceFn(
     () => {
@@ -77,11 +77,12 @@ export const Column: FC<Props> = props => {
       const max = 0
       if (state.last) {
         draggingRef.current = false
-        const position = state.movement[1] + state.vxvy[1] * 50
+        const position =
+          state.offset[1] + state.velocity[1] * state.direction[1] * 50
         const targetIndex = -Math.round(bound(position, min, max) / itemHeight)
         scrollSelect(targetIndex)
       } else {
-        const position = state.movement[1]
+        const position = state.offset[1]
         api.start({
           y: rubberbandIfOutOfBounds(position, min, max, itemHeight * 50, 0.2),
         })
@@ -89,7 +90,7 @@ export const Column: FC<Props> = props => {
     },
     {
       axis: 'y',
-      initial: () => [0, y.get()],
+      from: () => [0, y.get()],
       filterTaps: true,
     }
   )

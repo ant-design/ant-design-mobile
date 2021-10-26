@@ -129,6 +129,10 @@ export default {
         path: '/guide/quick-start',
       },
       {
+        title: 'Migration',
+        path: '/guide/migration',
+      },
+      {
         title: 'FAQ',
         path: '/guide/faq',
       },
@@ -137,8 +141,8 @@ export default {
         path: '/guide/css-variables',
       },
       {
-        title: 'Theme',
-        path: '/guide/theme',
+        title: 'Theming',
+        path: '/guide/theming',
       },
       {
         title: 'Load on Demand',
@@ -159,6 +163,10 @@ export default {
         path: '/zh/guide/quick-start',
       },
       {
+        title: '迁移指南',
+        path: '/guide/migration',
+      },
+      {
         title: 'FAQ',
         path: '/zh/guide/faq',
       },
@@ -168,7 +176,7 @@ export default {
       },
       {
         title: '主题',
-        path: '/zh/guide/theme',
+        path: '/zh/guide/theming',
       },
       {
         title: '按需加载',

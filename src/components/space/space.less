@@ -6,12 +6,13 @@
 
 .@{class-prefix-space} {
   display: inline-flex;
-  --vertical-size: 8px;
-  --horizontal-size: 8px;
+  --gap: 8px;
+  --gap-vertical: var(--gap);
+  --gap-horizontal: var(--gap);
   &-vertical {
     flex-direction: column;
     > .@{class-prefix-space}-item {
-      margin-bottom: var(--vertical-size);
+      margin-bottom: var(--gap-vertical);
       &:last-child {
         margin-bottom: 0;
       }
@@ -20,16 +21,16 @@
   &-horizontal {
     flex-direction: row;
     > .@{class-prefix-space}-item {
-      margin-right: var(--horizontal-size);
+      margin-right: var(--gap-horizontal);
       &:last-child {
         margin-right: 0;
       }
     }
     &.@{class-prefix-space}-wrap {
       flex-wrap: wrap;
-      margin-bottom: calc(var(--vertical-size) * -1);
+      margin-bottom: calc(var(--gap-vertical) * -1);
       > .@{class-prefix-space}-item {
-        padding-bottom: var(--vertical-size);
+        padding-bottom: var(--gap-vertical);
       }
     }
   }

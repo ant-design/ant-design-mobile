@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { StarFill } from 'antd-mobile-icons'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-rate`
 
@@ -13,7 +13,7 @@ export type RateProps = {
   character?: React.ReactNode
   count?: number
   defaultValue?: number
-  readonly?: boolean
+  readOnly?: boolean
   value?: number
   onChange?: (value: number) => void
 } & NativeProps<'--star-size' | '--active-color'>
@@ -23,12 +23,12 @@ const defaultProps = {
   allowHalf: false,
   character: <StarFill />,
   defaultValue: 0,
-  readonly: false,
+  readOnly: false,
   allowClear: true,
 }
 
 export const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   const starList = Array(props.count).fill(null)
   function renderStar(v: number, half: boolean) {
     return (
@@ -36,10 +36,10 @@ export const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
         className={classNames(`${classPrefix}-star`, {
           [`${classPrefix}-star-active`]: value >= v,
           [`${classPrefix}-star-half`]: half,
-          [`${classPrefix}-star-readonly`]: props.readonly,
+          [`${classPrefix}-star-readonly`]: props.readOnly,
         })}
         onClick={() => {
-          if (props.readonly) return
+          if (props.readOnly) return
           if (props.allowClear && value === v) {
             setValue(0)
           } else {

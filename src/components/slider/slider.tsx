@@ -6,7 +6,7 @@ import Marks, { SliderMarks } from './marks'
 import Thumb from './thumb'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-slider`
 
@@ -52,7 +52,7 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     props.onAfterChange?.(reverseValue(value))
   }
 
-  const [rawValue, setRawValue] = useNewControllableValue<SliderValue>({
+  const [rawValue, setRawValue] = usePropsValue<SliderValue>({
     value: props.value,
     defaultValue: props.defaultValue ?? (props.range ? [min, min] : min),
     onChange: props.onChange,

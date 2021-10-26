@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import React, { FC, ReactNode } from 'react'
 import SpinIcon from '../../assets/spin.svg'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-switch`
@@ -25,7 +25,7 @@ export const Switch: FC<SwitchProps> = p => {
   const props = mergeProps(defaultProps, p)
   const disabled = props.disabled || props.loading || false
 
-  const [checked, setChecked] = useNewControllableValue({
+  const [checked, setChecked] = usePropsValue({
     value: props.checked,
     defaultValue: props.defaultChecked,
     onChange: props.onChange,

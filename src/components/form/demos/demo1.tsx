@@ -61,9 +61,6 @@ export default () => {
               onClose={() => {
                 setPickerVisible(false)
               }}
-              onClick={e => {
-                e.stopPropagation()
-              }}
             >
               {value =>
                 value ? dayjs(value).format('YYYY-MM-DD') : '请选择日期'

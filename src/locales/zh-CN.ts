@@ -3,6 +3,7 @@ import { base } from './base'
 
 const zhCN = mergeLocale(base, {
   common: {
+    confirm: '确定',
     cancel: '取消',
   },
   Dialog: {
@@ -25,6 +26,9 @@ const zhCN = mergeLocale(base, {
       title: '没有找到你需要的东西',
       description: '找找其他的吧',
     },
+  },
+  ImageUploader: {
+    uploading: '上传中...',
   },
   Mask: {
     name: '遮罩层',

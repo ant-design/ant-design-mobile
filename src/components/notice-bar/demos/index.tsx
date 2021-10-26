@@ -12,7 +12,7 @@ export default () => {
         border='none'
         background='transparent'
       >
-        <Space block direction='vertical' size={8}>
+        <Space block direction='vertical'>
           <NoticeBar content='默认' color='default' />
           <NoticeBar content='警告' color='alert' />
           <NoticeBar content='错误' color='error' />
@@ -31,7 +31,7 @@ export default () => {
         border='none'
         background='transparent'
       >
-        <Space block direction='vertical' size={8}>
+        <Space block direction='vertical'>
           <NoticeBar
             extra={<CloseCircleOutline />}
             icon={<CompassOutline />}

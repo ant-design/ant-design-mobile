@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { useDrag } from 'react-use-gesture'
+import { useDrag } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
 import { Slide } from './slide'
 import { convertPx } from '../../utils/convert-px'
@@ -25,10 +25,13 @@ export const Slides: FC<{
 
   const bind = useDrag(
     state => {
-      const [mx] = state.movement
+      const [offsetX] = state.offset
       if (state.last) {
         const index = bound(
-          -Math.round((mx + state.vxvy[0] * 100) / slideWidth),
+          -Math.round(
+            (offsetX + state.velocity[0] * state.direction[0] * 100) /
+              slideWidth
+          ),
           0,
           count - 1
         )
@@ -37,12 +40,12 @@ export const Slides: FC<{
         })
       } else {
         api.start({
-          x: mx,
+          x: offsetX,
         })
       }
     },
     {
-      initial: () => [x.get(), 0],
+      from: () => [x.get(), 0],
       bounds: () => {
         const index: number = -Math.round(x.get() / slideWidth)
         return {

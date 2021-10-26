@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import { generateIntArray } from '../../utils/generate-int-array'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 type Precision = 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second'
 
@@ -29,6 +29,7 @@ export type DatePickerProps = Pick<
   | 'afterClose'
   | 'onClick'
   | 'title'
+  | 'stopPropagation'
 > & {
   value?: Date
   defaultValue?: Date
@@ -50,7 +51,7 @@ const defaultProps = {
 
 export const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(
   props => {
-    const [value, setValue] = useNewControllableValue<Date | null>({
+    const [value, setValue] = usePropsValue<Date | null>({
       value: props.value,
       defaultValue: props.defaultValue ?? null,
       onChange: props.onConfirm,
@@ -190,6 +191,7 @@ export const DatePicker = withDefaultProps(defaultProps)<DatePickerProps>(
         afterClose={props.afterClose}
         onClick={props.onClick}
         title={props.title}
+        stopPropagation={props.stopPropagation}
       >
         {items =>
           props.children?.(

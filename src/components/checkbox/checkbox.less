@@ -1,6 +1,9 @@
 @class-prefix-checkbox: ~'adm-checkbox';
 
 .@{class-prefix-checkbox} {
+  --icon-size: 22px;
+  --font-size: 17px;
+  --gap: 8px;
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
@@ -11,18 +14,18 @@
   .@{class-prefix-checkbox}-icon {
     flex: none;
     border: 1px solid #ccc;
-    border-radius: 22px;
+    border-radius: var(--icon-size);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 22px;
-    height: 22px;
-    font-size: 12px;
+    width: var(--icon-size);
+    height: var(--icon-size);
     color: transparent;
-    > span {
-      font-size: 12px;
+    &-checked {
       display: block;
+      width: 65%;
+      height: 65%;
     }
   }
   &.@{class-prefix-checkbox}-block {
@@ -41,18 +44,13 @@
       color: var(--adm-color-weak);
     }
     .@{class-prefix-checkbox}-icon {
+      color: #ccc;
+      border-color: #ccc;
       background-color: #ebedf0;
-    }
-    &.@{class-prefix-checkbox}-checked {
-      .@{class-prefix-checkbox}-icon {
-        color: #ccc;
-        border-color: #ccc;
-        background-color: #ebedf0;
-      }
     }
   }
   .@{class-prefix-checkbox}-custom-icon {
-    font-size: 22px;
+    font-size: var(--icon-size);
   }
 
   .@{class-prefix-checkbox}-indeterminate-content {
@@ -69,16 +67,16 @@
     }
 
     .@{class-prefix-checkbox}-indeterminate-checked {
-      width: 12px;
-      height: 12px;
-      border-radius: 6px;
+      width: 60%;
+      height: 60%;
+      border-radius: 100%;
       background-color: var(--adm-color-primary);
     }
   }
 
   &-content {
     flex: none;
-    font-size: 17px;
-    padding-left: 8px;
+    font-size: var(--font-size);
+    padding-left: var(--gap);
   }
 }

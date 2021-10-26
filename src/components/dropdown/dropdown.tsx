@@ -1,4 +1,4 @@
-import { useClickAway, useControllableValue } from 'ahooks'
+import { useClickAway } from 'ahooks'
 import classNames from 'classnames'
 import React, {
   cloneElement,
@@ -10,22 +10,32 @@ import React, {
   useState,
 } from 'react'
 import Popup from '../popup'
-import Item, { DropdownItemProps } from './item'
+import Item, { DropdownItemProps, ItemChildrenWrap } from './item'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-dropdown`
 
 export type DropdownProps = {
-  activeKey?: string
-  onChange?: (key?: string) => void
+  activeKey?: string | null
+  defaultActiveKey?: string | null
+  onChange?: (key: string | null) => void
   // mask?: boolean;
 } & NativeProps
 
+const defaultProps = {
+  defaultActiveKey: null,
+}
+
 const Dropdown: FC<DropdownProps> & {
   Item: React.FC<DropdownItemProps>
-} = props => {
-  const [value, onChange] = useControllableValue<string | undefined>(props, {
-    valuePropName: 'activeKey',
+} = p => {
+  const props = mergeProps(defaultProps, p)
+  const [value, onChange] = usePropsValue({
+    value: props.activeKey,
+    defaultValue: props.defaultActiveKey,
+    onChange: props.onChange,
   })
 
   const navRef = useRef<HTMLDivElement>(null)
@@ -33,7 +43,7 @@ const Dropdown: FC<DropdownProps> & {
 
   // 点击外部区域，关闭
   useClickAway(() => {
-    onChange(undefined)
+    onChange(null)
   }, [navRef, contentRef])
 
   // 计算 navs 的 top 值
@@ -46,15 +56,16 @@ const Dropdown: FC<DropdownProps> & {
     }
   }, [value])
 
-  const changeActive = (key?: string) => {
+  const changeActive = (key: string | null) => {
     if (value === key) {
-      onChange(undefined)
+      onChange(null)
     } else {
       onChange(key)
     }
   }
 
-  const itemChildren: ReactElement<ComponentProps<typeof Item>>[] = []
+  let popupForceRender = false
+  const items: ReactElement<ComponentProps<typeof Item>>[] = []
   const navs = React.Children.map(props.children, child => {
     if (React.isValidElement(child)) {
       const childProps = {
@@ -64,7 +75,8 @@ const Dropdown: FC<DropdownProps> & {
         },
         active: child.key === value,
       }
-      itemChildren.push(child)
+      items.push(child)
+      if (child.props.forceRender) popupForceRender = true
       return cloneElement(child, childProps)
     } else {
       return child
@@ -89,23 +101,28 @@ const Dropdown: FC<DropdownProps> & {
         maskClassName={`${classPrefix}-popup-mask`}
         bodyClassName={`${classPrefix}-popup-body`}
         style={{ top }}
+        forceRender={popupForceRender}
       >
         <div ref={contentRef}>
-          {itemChildren.map(itemChild => {
-            const isActive = itemChild.key === value
-            const cls = classNames(`${classPrefix}-content`, {
-              [`${classPrefix}-content-hidden`]: !isActive,
-            })
-
-            if (isActive || itemChild.props.forceRender) {
-              return (
-                <div className={cls} key={itemChild.key}>
-                  {itemChild.props.children}
-                </div>
-              )
-            }
-
-            return null
+          {items.map(item => {
+            const isActive = item.key === value
+            return (
+              <ItemChildrenWrap
+                key={item.key}
+                active={isActive}
+                forceRender={item.props.forceRender}
+                destroyOnClose={item.props.destroyOnClose}
+                onClick={
+                  item.props.closeOnContentClick
+                    ? () => {
+                        changeActive(null)
+                      }
+                    : undefined
+                }
+              >
+                {item.props.children}
+              </ItemChildrenWrap>
+            )
           })}
         </div>
       </Popup>

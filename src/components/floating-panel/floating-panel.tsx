@@ -6,7 +6,7 @@ import React, {
   useState,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useDrag } from 'react-use-gesture'
+import { useDrag } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
 import { supportsPassive } from '../../utils/supports-passive'
 import { nearest } from '../../utils/nearest'
@@ -14,7 +14,7 @@ import { nearest } from '../../utils/nearest'
 export type FloatingPanelProps = {
   anchors: number[]
   children: ReactNode
-} & NativeProps<'--border-radius'>
+} & NativeProps<'--border-radius' | '--z-index'>
 
 export type FloatingPanelRef = {
   setHeight: (
@@ -50,7 +50,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
 
     useDrag(
       state => {
-        const [_, movementY] = state.movement
+        const [_, offsetY] = state.offset
         if (state.first) {
           const target = state.event.target as Element
           const header = headerRef.current
@@ -61,7 +61,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
             const content = contentRef.current
             if (!content) return
             if (reachedTop) {
-              if (content.scrollTop <= 0 && state.vxvy[1] > 0) {
+              if (content.scrollTop <= 0 && state.direction[1] > 0) {
                 pullingRef.current = true
               }
             } else {
@@ -76,11 +76,11 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
           event.preventDefault()
         }
         event.stopPropagation()
-        let nextY = movementY
+        let nextY = offsetY
         if (state.last) {
           pullingRef.current = false
           setPulling(false)
-          nextY = nearest(possibles, movementY)
+          nextY = nearest(possibles, offsetY)
         }
         api.start({
           y: nextY,
@@ -90,9 +90,9 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         axis: 'y',
         bounds,
         rubberband: true,
-        initial: () => [0, y.get()],
-        useTouch: true,
-        domTarget: elementRef,
+        from: () => [0, y.get()],
+        pointer: { touch: true },
+        target: elementRef,
         eventOptions: supportsPassive ? { passive: false } : false,
       }
     )
@@ -119,22 +119,22 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       props,
       <animated.div
         ref={elementRef}
-        className='adm-drawer'
+        className='adm-floating-panel'
         style={{
           height: maxHeight,
           y,
         }}
       >
         <div
-          className='adm-drawer-mask'
+          className='adm-floating-panel-mask'
           style={{
             display: pulling ? 'block' : 'none',
           }}
         />
-        <div className='adm-drawer-header' ref={headerRef}>
-          <div className='adm-drawer-bar' />
+        <div className='adm-floating-panel-header' ref={headerRef}>
+          <div className='adm-floating-panel-bar' />
         </div>
-        <div className='adm-drawer-content' ref={contentRef}>
+        <div className='adm-floating-panel-content' ref={contentRef}>
           {props.children}
         </div>
       </animated.div>

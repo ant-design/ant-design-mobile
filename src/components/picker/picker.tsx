@@ -1,11 +1,12 @@
-import React, { useState, useEffect, ReactNode, useMemo } from 'react'
+import React, { useState, useEffect, ReactNode, useMemo, FC } from 'react'
 import Popup, { PopupProps } from '../popup'
-import { mergeProps, withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { PickerColumn, PickerColumnItem, PickerValue } from './index'
 import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-picker`
 
@@ -22,19 +23,27 @@ export type PickerProps = {
   confirmText?: string
   cancelText?: string
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
-} & Pick<PopupProps, 'getContainer' | 'afterShow' | 'afterClose' | 'onClick'> &
+} & Pick<
+  PopupProps,
+  'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
+> &
   NativeProps
 
 const defaultProps = {
   defaultValue: [],
 }
 
-export const Picker = withDefaultProps({
-  confirmText: '确定',
-  cancelText: '取消',
-})<PickerProps>(p => {
-  const props = mergeProps(defaultProps, p)
-  const controllable = useNewControllableValue({
+export const Picker: FC<PickerProps> = p => {
+  const { locale } = useConfig()
+  const props = mergeProps(
+    defaultProps,
+    {
+      confirmText: locale.common.confirm,
+      cancelText: locale.common.cancel,
+    },
+    p
+  )
+  const controllable = usePropsValue({
     value: props.value,
     defaultValue: props.defaultValue,
     onChange: props.onConfirm,
@@ -87,7 +96,9 @@ export const Picker = withDefaultProps({
           value={innerValue}
           onChange={val => {
             setInnerValue(val)
-            props.onSelect?.(val)
+            if (props.visible) {
+              props.onSelect?.(val)
+            }
           }}
         />
       </div>
@@ -107,6 +118,7 @@ export const Picker = withDefaultProps({
       afterShow={props.afterShow}
       afterClose={props.afterClose}
       onClick={props.onClick}
+      stopPropagation={props.stopPropagation}
     >
       {pickerElement}
     </Popup>
@@ -131,4 +143,4 @@ export const Picker = withDefaultProps({
       {childrenResult}
     </>
   )
-})
+}

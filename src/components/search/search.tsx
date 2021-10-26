@@ -4,7 +4,7 @@ import Input, { InputRef, InputProps } from '../input'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutline } from 'antd-mobile-icons'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-search`
@@ -32,7 +32,7 @@ const defaultProps = {
 
 export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const inputRef = useRef<InputRef>(null)
 
@@ -51,16 +51,7 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
         [`${classPrefix}-active`]: hasFocus,
       })}
     >
-      <form
-        className={`${classPrefix}-input-box`}
-        action='/'
-        onSubmit={e => {
-          e.preventDefault()
-          e.stopPropagation()
-          inputRef.current?.blur()
-          props.onSearch?.(value)
-        }}
-      >
+      <div className={`${classPrefix}-input-box`}>
         <div className={`${classPrefix}-input-box-icon`}>
           <SearchOutline />
         </div>
@@ -82,8 +73,12 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
           }}
           onClear={props.onClear}
           type='search'
+          onEnterPress={() => {
+            inputRef.current?.blur()
+            props.onSearch?.(value)
+          }}
         />
-      </form>
+      </div>
       {props.showCancelButton && hasFocus && (
         <div className={`${classPrefix}-suffix`}>
           <a

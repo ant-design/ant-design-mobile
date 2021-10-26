@@ -8,7 +8,6 @@ export const components = {
   dataDisplay: [
     '/components/badge',
     '/components/card',
-    '/components/ellipsis',
     '/components/image',
     '/components/image-viewer',
     '/components/infinite-scroll',
@@ -52,7 +51,6 @@ export const components = {
   navigationAndLayout: [
     '/components/collapse',
     '/components/divider',
-    '/components/dropdown',
     '/components/floating-panel',
     '/components/grid',
     '/components/index-bar',
@@ -66,6 +64,8 @@ export const components = {
   experimental: [
     '/components/what-is-experimental',
     '/components/desense-text',
+    '/components/dropdown',
+    '/components/ellipsis',
     '/components/image-uploader',
     '/components/number-keyboard',
     '/components/picker-view',

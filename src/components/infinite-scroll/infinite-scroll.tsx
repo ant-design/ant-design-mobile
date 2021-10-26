@@ -34,25 +34,27 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
 export const InfiniteScroll = withDefaultProps({
   threshold: 250,
 })<InfiniteScrollProps>(props => {
-  const doLoadMore = useLockFn(async () => {
-    await props.loadMore()
-  })
+  const doLoadMore = useLockFn(() => props.loadMore())
 
   const elementRef = useRef<HTMLDivElement>(null)
 
+  const checkTimeoutRef = useRef<number>()
   const check = usePersistFn(() => {
-    if (!props.hasMore) return
-    const element = elementRef.current
-    if (!element) return
-    const parent = getScrollParent(element)
-    if (!parent) return
-    const elementTop = element.getBoundingClientRect().top
-    const current = isWindow(parent)
-      ? window.innerHeight
-      : parent.getBoundingClientRect().bottom
-    if (current >= elementTop - props.threshold) {
-      doLoadMore()
-    }
+    window.clearTimeout(checkTimeoutRef.current)
+    checkTimeoutRef.current = window.setTimeout(() => {
+      if (!props.hasMore) return
+      const element = elementRef.current
+      if (!element) return
+      const parent = getScrollParent(element)
+      if (!parent) return
+      const elementTop = element.getBoundingClientRect().top
+      const current = isWindow(parent)
+        ? window.innerHeight
+        : parent.getBoundingClientRect().bottom
+      if (current >= elementTop - props.threshold) {
+        doLoadMore()
+      }
+    })
   })
 
   // 确保在内容不足时会自动触发加载事件

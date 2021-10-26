@@ -1,5 +1,5 @@
 import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -30,6 +30,8 @@ export type InputProps = Pick<
   | 'onBlur'
   | 'autoCapitalize'
   | 'autoCorrect'
+  | 'onKeyDown'
+  | 'onKeyUp'
 > &
   EnterKeyHintProps & {
     value?: string
@@ -41,6 +43,7 @@ export type InputProps = Pick<
     clearable?: boolean
     onClear?: () => void
     id?: string
+    onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
   } & NativeProps<
     '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
   >
@@ -57,7 +60,7 @@ export type InputRef = {
 
 export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
 
@@ -72,6 +75,13 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
       nativeInputRef.current?.blur()
     },
   }))
+
+  const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (props.onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
+      props.onEnterPress(e)
+    }
+    props.onKeyDown?.(e)
+  }
 
   return withNativeProps(
     props,
@@ -105,6 +115,8 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         type={props.type}
         autoCapitalize={props.autoCapitalize}
         autoCorrect={props.autoCorrect}
+        onKeyDown={handleKeydown}
+        onKeyUp={props.onKeyUp}
       />
       {props.clearable && !!value && hasFocus && (
         <div

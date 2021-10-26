@@ -1,6 +1,6 @@
 import { withDefaultProps } from '../../utils/with-default-props'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
+import { useDrag } from '@use-gesture/react'
 import { getScrollParent } from '../../utils/get-scroll-parent'
 import React, { useRef, ReactNode, useState } from 'react'
 import { supportsPassive } from '../../utils/supports-passive'
@@ -10,27 +10,23 @@ import { sleep } from '../../utils/sleep'
 
 const classPrefix = `adm-pull-to-refresh`
 
-enum PullStatus {
-  idle,
-  thresholdMet,
-  refreshing,
-  complete,
-}
+export type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 
 export type PullToRefreshProps = {
   onRefresh?: () => Promise<any>
   pullingText?: ReactNode
-  releaseText?: ReactNode
+  canReleaseText?: ReactNode
   refreshingText?: ReactNode
   completeText?: ReactNode
   completeDelay?: number
   headHeight?: number
   threshold?: number
+  renderText?: (status: PullStatus) => ReactNode
 }
 
 export const defaultProps = {
   pullingText: '下拉刷新',
-  releaseText: '释放立即刷新',
+  canReleaseText: '释放立即刷新',
   refreshingText: '加载中……',
   completeText: '刷新成功',
   completeDelay: 500,
@@ -42,7 +38,7 @@ export const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
     const headHeight = props.headHeight ?? convertPx(40)
     const threshold = props.threshold ?? convertPx(60)
 
-    const [status, setStatus] = useState<PullStatus>(PullStatus.idle)
+    const [status, setStatus] = useState<PullStatus>('pulling')
 
     const [springStyles, api] = useSpring(() => ({
       from: { height: 0 },
@@ -59,13 +55,12 @@ export const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
 
     async function doRefresh() {
       api.start({ height: headHeight })
-      setStatus(PullStatus.refreshing)
-      setStatus(PullStatus.refreshing)
+      setStatus('refreshing')
       try {
         await props.onRefresh()
-        setStatus(PullStatus.complete)
+        setStatus('complete')
       } catch (e) {
-        setStatus(PullStatus.idle)
+        setStatus('pulling')
         throw e
       }
       if (props.completeDelay > 0) {
@@ -75,21 +70,20 @@ export const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
         to: async next => {
           await next({ height: 0 })
           await next({ height: 0 })
-          setStatus(PullStatus.idle)
+          setStatus('pulling')
         },
       })
     }
 
     useDrag(
       state => {
-        if (status === PullStatus.refreshing || status === PullStatus.complete)
-          return
+        if (status === 'refreshing' || status === 'complete') return
 
         const { event } = state
 
         if (state.last) {
           pullingRef.current = false
-          if (status === PullStatus.thresholdMet) {
+          if (status === 'canRelease') {
             doRefresh()
           } else {
             api.start({ height: 0 })
@@ -123,17 +117,26 @@ export const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
           0
         )
         api.start({ height })
-        setStatus(
-          height > threshold ? PullStatus.thresholdMet : PullStatus.idle
-        )
+        setStatus(height > threshold ? 'canRelease' : 'pulling')
       },
       {
-        useTouch: true,
+        pointer: { touch: true },
         axis: 'y',
-        domTarget: elementRef,
+        target: elementRef,
         eventOptions: supportsPassive ? { passive: false } : false,
       }
     )
+
+    const renderStatusText = () => {
+      if (props.renderText) {
+        return props.renderText?.(status)
+      }
+
+      if (status === 'pulling') return props.pullingText
+      if (status === 'canRelease') return props.canReleaseText
+      if (status === 'refreshing') return props.refreshingText
+      if (status === 'complete') return props.completeText
+    }
 
     return (
       <animated.div ref={elementRef} className={classPrefix}>
@@ -142,10 +145,7 @@ export const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
             className={`${classPrefix}-head-content`}
             style={{ height: headHeight }}
           >
-            {status === PullStatus.idle && props.pullingText}
-            {status === PullStatus.thresholdMet && props.releaseText}
-            {status === PullStatus.refreshing && props.refreshingText}
-            {status === PullStatus.complete && props.completeText}
+            {renderStatusText()}
           </div>
         </animated.div>
         <div className={`${classPrefix}-content`}>{props.children}</div>

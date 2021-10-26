@@ -3,7 +3,7 @@ import React from 'react'
 import classNames from 'classnames'
 import Badge from '../badge'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-side-bar`
 
@@ -38,7 +38,7 @@ export const SideBar: FC<SideBarProps> = props => {
     items.push(child)
   })
 
-  const [activeKey, setActiveKey] = useNewControllableValue({
+  const [activeKey, setActiveKey] = usePropsValue({
     value: props.activeKey,
     defaultValue: props.defaultActiveKey ?? firstActiveKey,
     onChange: props.onChange,

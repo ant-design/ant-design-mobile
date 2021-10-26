@@ -1,5 +1,6 @@
 export const base = {
   common: {
+    confirm: 'Confirm',
     cancel: 'Cancel',
   },
   Dialog: {
@@ -22,6 +23,9 @@ export const base = {
       title: "Hmm, couldn't find that...",
       description: 'Want to try a new search?',
     },
+  },
+  ImageUploader: {
+    uploading: 'Uploading...',
   },
   Mask: {
     name: 'Mask',

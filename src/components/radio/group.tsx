@@ -2,7 +2,7 @@ import React from 'react'
 import { withDefaultProps } from '../../utils/with-default-props'
 import { RadioValue } from '.'
 import { RadioGroupContext } from './group-context'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 export interface RadioGroupProps {
   value?: RadioValue | null
@@ -17,7 +17,7 @@ const defaultProps = {
 }
 
 export const Group = withDefaultProps(defaultProps)<RadioGroupProps>(props => {
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   return (
     <RadioGroupContext.Provider
       // TODO: 性能优化

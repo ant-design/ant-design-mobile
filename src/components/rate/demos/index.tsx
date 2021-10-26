@@ -13,7 +13,7 @@ export default () => {
         <Rate allowHalf defaultValue={2.5} />
       </DemoBlock>
       <DemoBlock title='只读'>
-        <Rate readonly value={4} />
+        <Rate readOnly value={4} />
       </DemoBlock>
       <DemoBlock title='清除'>
         <Space direction='vertical'>

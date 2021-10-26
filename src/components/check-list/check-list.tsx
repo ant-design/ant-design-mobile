@@ -1,26 +1,31 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List, { ListProps } from '../list'
 import { mergeProps } from '../../utils/with-default-props'
 import { CheckListContext } from './context'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
+import { CheckOutline } from 'antd-mobile-icons'
 
 export type CheckListProps = Pick<ListProps, 'mode'> & {
   defaultValue?: string[]
   value?: string[]
   onChange?: (val: string[]) => void
   multiple?: boolean
+  activeIcon?: ReactNode
+  disabled?: boolean
+  readOnly?: boolean
 } & NativeProps<'--prefix-width' | '--align-items'>
 
 const defaultProps = {
   multiple: false,
   defaultValue: [],
+  activeIcon: <CheckOutline />,
 }
 
 export const CheckList: FC<CheckListProps> = p => {
   const props = mergeProps(defaultProps, p)
 
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
 
   function check(val: string) {
     if (props.multiple) {
@@ -34,16 +39,20 @@ export const CheckList: FC<CheckListProps> = p => {
     setValue(value.filter(item => item !== val))
   }
 
-  return withNativeProps(
-    props,
+  const { activeIcon, disabled, readOnly } = props
+
+  return (
     <CheckListContext.Provider
       value={{
         value,
         check,
         uncheck,
+        activeIcon,
+        disabled,
+        readOnly,
       }}
     >
-      <List mode={props.mode}>{props.children}</List>
+      {withNativeProps(props, <List mode={props.mode}>{props.children}</List>)}
     </CheckListContext.Provider>
   )
 }

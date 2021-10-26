@@ -34,13 +34,33 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='指定线条宽度'>
         <Space direction='vertical' block>
-          <ProgressBar percent={50} strokeWidth={2} />
-          <ProgressBar percent={75} strokeWidth={5} />
-          <ProgressBar percent={100} strokeWidth={8} />
+          <ProgressBar
+            percent={50}
+            style={{
+              '--track-width': '2px',
+            }}
+          />
+          <ProgressBar
+            percent={75}
+            style={{
+              '--track-width': '5px',
+            }}
+          />
+          <ProgressBar
+            percent={100}
+            style={{
+              '--track-width': '8px',
+            }}
+          />
         </Space>
       </DemoBlock>
       <DemoBlock title='指定颜色'>
-        <ProgressBar percent={100} strokeColor='#FF3141' />
+        <ProgressBar
+          percent={100}
+          style={{
+            '--fill-color': '#FF3141',
+          }}
+        />
       </DemoBlock>
     </>
   )

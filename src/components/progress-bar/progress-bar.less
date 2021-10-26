@@ -1,0 +1,18 @@
+@class-prefix-progress-bar: ~'adm-progress-bar';
+
+.@{class-prefix-progress-bar} {
+  --track-width: var(--adm-progress-bar-track-width, 3px);
+  --fill-color: var(--adm-progress-bar-fill-color, #1677ff);
+
+  &-trail {
+    background: #e5e5e5;
+    height: var(--track-width);
+    border-radius: var(--track-width);
+  }
+  &-fill {
+    transition: width 0.3s;
+    background: var(--fill-color);
+    height: 100%;
+    border-radius: var(--track-width);
+  }
+}

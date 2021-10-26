@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { useGesture } from 'react-use-gesture'
+import { useGesture } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
 
 const classPrefix = `adm-image-viewer`
@@ -34,19 +34,21 @@ export const Slide: FC<Props> = props => {
             y: 0,
           })
         } else {
-          const [x, y] = state.movement
+          const [x, y] = state.offset
           api.start({
             x,
             y,
+            immediate: true,
           })
         }
       },
       onPinch: state => {
-        const [d, a] = state.movement
+        const [d, a] = state.offset
         // pinch的rubberband不会自动弹回bound，这里手动实现了
         const zoom = state.last ? Math.max(Math.min(d, props.maxZoom), 1) : d
         api.start({
           zoom,
+          immediate: !state.last,
         })
         props.onZoomChange?.(zoom)
         if (state.last && zoom <= 1) {
@@ -60,7 +62,7 @@ export const Slide: FC<Props> = props => {
     {
       drag: {
         // filterTaps: true,
-        initial: () => [x.get(), y.get()],
+        from: () => [x.get(), y.get()],
       },
       pinch: {
         distanceBounds: {
@@ -68,8 +70,7 @@ export const Slide: FC<Props> = props => {
           max: props.maxZoom,
         },
         rubberband: true,
-        transform: ([x, y]) => [x / 200, y / 200],
-        initial: () => [zoom.get(), 0],
+        from: () => [zoom.get(), 0],
       },
     }
   )

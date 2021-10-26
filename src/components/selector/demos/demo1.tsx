@@ -45,7 +45,7 @@ export default () => {
         <Selector
           options={ItemList}
           defaultValue={['1']}
-          onChange={arr => console.log(arr)}
+          onChange={(arr, context) => console.log(arr, context.items)}
         />
       </DemoBlock>
       <DemoBlock title='多选'>
@@ -53,7 +53,7 @@ export default () => {
           options={ItemList}
           defaultValue={['2', '3']}
           multiple={true}
-          onChange={arr => console.log(arr)}
+          onChange={(arr, context) => console.log(arr, context.items)}
         />
       </DemoBlock>
       <DemoBlock title='全局禁止'>

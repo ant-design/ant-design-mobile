@@ -2,10 +2,17 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import React, { useMemo, useRef, useState } from 'react'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useSpring, animated } from '@react-spring/web'
-import { renderToContainer } from '../../utils/render-to-container'
+import {
+  renderToContainer,
+  GetContainer,
+} from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import { useShouldRender } from '../../utils/use-should-render'
+import {
+  PropagationEvent,
+  withStopPropagation,
+} from '../../utils/with-stop-propagation'
 
 const classPrefix = `adm-mask`
 
@@ -23,10 +30,11 @@ export type MaskProps = {
   disableBodyScroll?: boolean
   color?: 'black' | 'white'
   opacity?: 'default' | 'thin' | 'thick' | number
-  getContainer?: HTMLElement | (() => HTMLElement) | null
+  getContainer?: GetContainer
   afterShow?: () => void
   afterClose?: () => void
-} & NativeProps
+  stopPropagation?: PropagationEvent[]
+} & NativeProps<'--z-index'>
 
 const defaultProps = {
   visible: true,
@@ -36,6 +44,7 @@ const defaultProps = {
   opacity: 'default',
   disableBodyScroll: true,
   getContainer: null,
+  stopPropagation: ['click'],
 }
 
 export const Mask: React.FC<MaskProps> = p => {
@@ -81,30 +90,33 @@ export const Mask: React.FC<MaskProps> = p => {
     props.destroyOnClose
   )
 
-  const node = withNativeProps(
-    props,
-    <animated.div
-      className={classPrefix}
-      ref={ref}
-      style={{
-        ...props.style,
-        background,
-        opacity,
-        display: active ? 'unset' : 'none',
-      }}
-    >
-      {props.onMaskClick && (
-        <div
-          className={`${classPrefix}-aria-button`}
-          role='button'
-          aria-label={locale.Mask.name}
-          onClick={props.onMaskClick}
-        />
-      )}
-      <div className={`${classPrefix}-content`}>
-        {shouldRender && props.children}
-      </div>
-    </animated.div>
+  const node = withStopPropagation(
+    props.stopPropagation,
+    withNativeProps(
+      props,
+      <animated.div
+        className={classPrefix}
+        ref={ref}
+        style={{
+          ...props.style,
+          background,
+          opacity,
+          display: active ? 'unset' : 'none',
+        }}
+      >
+        {props.onMaskClick && (
+          <div
+            className={`${classPrefix}-aria-button`}
+            role='button'
+            aria-label={locale.Mask.name}
+            onClick={props.onMaskClick}
+          />
+        )}
+        <div className={`${classPrefix}-content`}>
+          {shouldRender && props.children}
+        </div>
+      </animated.div>
+    )
   )
 
   return renderToContainer(props.getContainer, node)

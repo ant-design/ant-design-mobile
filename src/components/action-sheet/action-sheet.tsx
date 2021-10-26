@@ -28,7 +28,7 @@ export type ActionSheetProps = {
   visible: boolean
   actions: Action[]
   extra?: React.ReactNode
-  cancelText?: string
+  cancelText?: React.ReactNode
   onAction?: (action: Action, index: number) => void
   onClose?: () => void
   afterClose?: () => void
@@ -126,28 +126,28 @@ export const ActionSheet = withDefaultProps(defaultProps)<ActionSheetProps>(
   }
 )
 
+export type ActionSheetRef = {
+  close: () => void
+}
+
 export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
-  type Ref = {
-    close: () => void
-  }
-  const Wrapper = forwardRef<Ref>((_, ref) => {
+  const Wrapper = forwardRef<ActionSheetRef>((_, ref) => {
     const [visible, setVisible] = useState(false)
     useEffect(() => {
       setVisible(true)
     }, [])
+    function handleClose() {
+      props.onClose?.()
+      setVisible(false)
+    }
     useImperativeHandle(ref, () => ({
-      close: () => {
-        setVisible(false)
-      },
+      close: handleClose,
     }))
     return (
       <ActionSheet
         {...props}
         visible={visible}
-        onClose={() => {
-          props.onClose?.()
-          setVisible(false)
-        }}
+        onClose={handleClose}
         afterClose={() => {
           props.afterClose?.()
           unmount()
@@ -155,7 +155,7 @@ export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
       />
     )
   })
-  const ref = createRef<Ref>()
+  const ref = createRef<ActionSheetRef>()
   const unmount = renderToBody(<Wrapper ref={ref} />)
   return {
     close: () => {

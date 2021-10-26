@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Button, Dialog, Space, Toast, Divider } from 'antd-mobile'
 import { sleep } from '../../../utils/sleep'
 import { ExclamationCircleFill } from 'antd-mobile-icons'
 import { DemoBlock, DemoDescription, lorem } from 'demos'
+import { DialogShowRef } from 'antd-mobile/es/components/dialog'
 
 export default () => {
   return (
@@ -206,6 +207,13 @@ export default () => {
           <DemoDescription content='你可以手动控制 visible 状态' />
         </Space>
       </DemoBlock>
+
+      <DemoBlock title='自定义关闭操作'>
+        <Space direction='vertical' block>
+          <Imperative />
+          <DemoDescription content='你可以根据需求，自定义关闭弹窗的时机' />
+        </Space>
+      </DemoBlock>
     </>
   )
 }
@@ -237,5 +245,35 @@ const Declarative = () => {
         ]}
       />
     </>
+  )
+}
+
+function Imperative() {
+  const handler = useRef<DialogShowRef>()
+
+  return (
+    <Button
+      block
+      onClick={() => {
+        handler.current = Dialog.show({
+          content: '人在天边月上明，风初紧，吹入画帘旌',
+          actions: [
+            {
+              key: 'close',
+              text: '关闭',
+              onClick: () => {
+                if (Math.random() > 0.5) {
+                  handler.current?.close()
+                } else {
+                  Toast.show('再试一下')
+                }
+              },
+            },
+          ],
+        })
+      }}
+    >
+      显示对话框
+    </Button>
   )
 }

@@ -6,6 +6,7 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
     border-bottom: solid 1px var(--adm-border-color);
     overflow-x: scroll;
     &::-webkit-scrollbar {
@@ -28,16 +29,13 @@
   }
   &-tab-active {
     color: var(--adm-color-primary);
-    &::after {
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--adm-color-primary);
-      content: ' ';
-    }
+  }
+  &-tab-line {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    color: var(--adm-color-primary);
+    background: var(--adm-color-primary);
   }
   &-content {
     padding: 12px;
