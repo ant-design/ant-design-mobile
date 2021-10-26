@@ -71,7 +71,7 @@ export const Tabs: FC<TabsProps> = props => {
     },
   }))
 
-  function animate(immediate: boolean = false) {
+  function animate(immediate = false) {
     const container = containerRef.current
     if (!container) return
     const activeIndex = keyToIndexRecord[activeKey as string]
