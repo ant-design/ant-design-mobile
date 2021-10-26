@@ -1,10 +1,12 @@
 # TabBar
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
-## API
+<code src="./demos/demo2.tsx"></code>
 
-### TabBar
+## TabBar
+
+### Props
 
 | Name             | Description                                                                 | Type                    | Default                |
 | ---------------- | --------------------------------------------------------------------------- | ----------------------- | ---------------------- |
@@ -12,7 +14,9 @@
 | defaultActiveKey | The initialized `key` of the selected `item`, if the `activeKey` is not set | `string \| null`        | `key` of the 1st `Tab` |
 | onChange         | Callback when switching panel                                               | `(key: string) => void` | -                      |
 
-### TabBar.Item
+## TabBar.Item
+
+### Props
 
 | Name  | Description                                        | Type                                            | Default |
 | ----- | -------------------------------------------------- | ----------------------------------------------- | ------- |
