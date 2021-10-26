@@ -46,6 +46,7 @@ export const Grid = withDefaultProps(defaultProps)<GridProps>(props => {
 
 export type GridItemProps = {
   span?: number
+  onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
 } & NativeProps
 
 type GridItemStyle = React.CSSProperties &
@@ -59,7 +60,11 @@ export const GridItem = withDefaultProps({
   }
   return withNativeProps(
     props,
-    <div className={`${classPrefix}-item`} style={itemStyle}>
+    <div
+      className={`${classPrefix}-item`}
+      style={itemStyle}
+      onClick={props?.onClick}
+    >
       {props.children}
     </div>
   )

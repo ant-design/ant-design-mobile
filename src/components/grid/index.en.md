@@ -13,6 +13,7 @@
 
 ## Grid.Item
 
-| Name | Description | Type     | Default |
-| ---- | ----------- | -------- | ------- |
-| span | Span        | `number` | `1`     |
+| Name    | Description     | Type                                                          | Default |
+| ------- | --------------- | ------------------------------------------------------------- | ------- |
+| span    | Span            | `number`                                                      | `1`     |
+| onClick | The click event | (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void | `1`     |

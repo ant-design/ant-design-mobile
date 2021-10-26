@@ -1,4 +1,5 @@
-import { Grid } from 'antd-mobile'
+import React from 'react'
+import { Grid, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import styles from './index.less'
 
@@ -7,7 +8,11 @@ export default () => {
     <>
       <DemoBlock title='基础用法'>
         <Grid columns={3} gap={8}>
-          <Grid.Item>
+          <Grid.Item
+            onClick={() => {
+              Toast.show(`点击了A`)
+            }}
+          >
             <div className={styles['grid-demo-item-block']}>A</div>
           </Grid.Item>
           <Grid.Item>
