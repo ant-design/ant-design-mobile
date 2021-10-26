@@ -32,7 +32,7 @@ export const ListItem: FC<ListItemProps> = props => {
         {props.title && (
           <div className={`${classPrefix}-title`}>{props.title}</div>
         )}
-        <div>{props.children}</div>
+        {props.children}
         {props.description && (
           <div className={`${classPrefix}-description`}>
             {props.description}
