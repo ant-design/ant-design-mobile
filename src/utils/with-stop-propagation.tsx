@@ -15,7 +15,7 @@ export function withStopPropagation(
     const prop = eventToPropRecord[key]
     props[prop] = function (e: Event) {
       e.stopPropagation()
-      element.props[prop]?.()
+      element.props[prop]?.(e)
     }
   }
   return React.cloneElement(element, props)
