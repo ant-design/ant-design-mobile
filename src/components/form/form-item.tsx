@@ -31,6 +31,7 @@ export type FormItemProps = RcFieldProps &
     noStyle?: boolean
     disabled?: boolean
     hidden?: boolean
+    layout?: FormLayout
     children: ChildrenType
   }
 
@@ -56,10 +57,10 @@ type FormItemLayoutProps = Pick<
   | 'help'
   | 'onClick'
   | 'hidden'
+  | 'layout'
 > & {
   htmlFor?: string
   meta?: Meta
-  layout?: FormLayout
 }
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
@@ -126,6 +127,7 @@ export const FormItem: FC<FormItemProps> = props => {
     required,
     noStyle,
     hidden,
+    layout,
     // Field 相关
     disabled,
     rules,
@@ -170,6 +172,7 @@ export const FormItem: FC<FormItemProps> = props => {
         meta={meta}
         onClick={onClick}
         hidden={hidden}
+        layout={layout}
       >
         {baseChildren}
       </FormItemLayout>
