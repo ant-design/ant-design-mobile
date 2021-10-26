@@ -2778,7 +2778,7 @@ __metadata:
 "@types/resize-observer-browser@npm:^0.1.6":
   version: 0.1.6
   resolution: "@types/resize-observer-browser@npm:0.1.6"
-  checksum: 3362b874c3c787c2460bd60e024ee28b06baf92e76db1b53373ac4ba39e7f336b764449771189113c2bd28624d8d2e943b16c81741d8dd5b068c9b7aafd0fb2f
+  checksum: e99a1e945c377bd70ed628dfc45def7187624a587be8c0e4f86386bc1d7a56e34c1c634d8f972c90865c13686d7f50ee6fec1148ffa4cd7a6568014eb6c28e8f
   languageName: node
   linkType: hard
 
