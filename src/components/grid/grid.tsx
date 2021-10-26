@@ -63,7 +63,7 @@ export const GridItem = withDefaultProps({
     <div
       className={`${classPrefix}-item`}
       style={itemStyle}
-      onClick={props?.onClick}
+      onClick={props.onClick}
     >
       {props.children}
     </div>
