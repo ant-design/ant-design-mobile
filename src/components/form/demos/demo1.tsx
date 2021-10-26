@@ -31,6 +31,7 @@ export default () => {
         background='transparent'
       >
         <Form
+          border={false}
           onFinish={onFinish}
           footer={
             <Button block type='submit' color='primary'>

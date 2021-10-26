@@ -11,6 +11,7 @@
 | ----------- | ------------------------------ | ---------------------------- | ------------ |
 | hasFeedback | Whether to show error feedback | `boolean`                    | `true`       |
 | layout      | Layout mode                    | `'vertical' \| 'horizontal'` | `'vertical'` |
+| border      | Is there a border              | `boolean`                    | `true`       |
 
 See for other parameters https://www.npmjs.com/package/rc-field-form
 

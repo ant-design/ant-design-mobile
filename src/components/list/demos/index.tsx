@@ -38,7 +38,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础用法' padding='0' border='none'>
-        <List>
+        <List border={false}>
           <List.Item>1</List.Item>
           <List.Item>2</List.Item>
           <List.Item>3</List.Item>

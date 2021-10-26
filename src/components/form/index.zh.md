@@ -11,6 +11,7 @@
 | ----------- | ---------------- | ---------------------------- | ------------ |
 | hasFeedback | 是否展示错误反馈 | `boolean`                    | `true`       |
 | layout      | 布局模式         | `'vertical' \| 'horizontal'` | `'vertical'` |
+| border      | 是否有边框       | `boolean`                    | `true`       |
 
 其他参数参见 https://www.npmjs.com/package/rc-field-form
 

@@ -15,11 +15,13 @@ export type FormProps = RcFormProps &
   Partial<FormContextType> & {
     footer?: ReactNode
     layout?: FormLayout
+    border?: boolean
   }
 
 const defaultProps = {
   hasFeedback: true,
   layout: 'vertical',
+  border: true,
 }
 
 export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
@@ -42,6 +44,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
       {...formProps}
     >
       <List
+        border={props.border}
         style={{
           '--prefix-width': '6em',
           '--align-items': 'stretch',

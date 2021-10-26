@@ -6,9 +6,10 @@
 
 ### List
 
-| Name | Description                          | Type                  | Default     |
-| ---- | ------------------------------------ | --------------------- | ----------- |
-| mode | Support two modes: default and card. | `'default' \| 'card'` | `'default'` |
+| Name   | Description                          | Type                  | Default     |
+| ------ | ------------------------------------ | --------------------- | ----------- |
+| mode   | Support two modes: default and card. | `'default' \| 'card'` | `'default'` |
+| border | Is there a border                    | `boolean`             | `true`      |
 
 ### List.Item
 
