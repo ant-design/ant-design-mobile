@@ -8,7 +8,7 @@
 
 | 属性            | 说明                                 | 类型                                                                                                                                                             | 默认值                |
 | --------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| children        | 触发 `popover` 的元素                | `React.ReactNode`                                                                                                                                                | -                     |
+| children        | 触发 `popover` 的元素                | `React.ReactElement`                                                                                                                                             | -                     |
 | placement       | 气泡框位置                           | `'top' \| 'left' \| 'right' \| 'bottom' \| 'topLeft' \| 'topRight' \| 'bottomLeft' \| 'bottomRight' \| 'leftTop' \| 'leftBottom' \| 'rightTop' \| 'rightBottom'` | `'top'`               |
 | defaultVisible  | 默认是否显隐                         | `boolean`                                                                                                                                                        | `false`               |
 | visible         | 受控模式下，是否展示弹出内容         | `boolean`                                                                                                                                                        | -                     |
