@@ -19,18 +19,21 @@ export default () => {
         </Tabs>
       </DemoBlock>
       <DemoBlock title='超长自动滚动' padding='0'>
-        <Tabs>
+        <Tabs defaultActiveKey='2'>
           <Tabs.TabPane title='超长的tab11111111' key='1'>
             1
           </Tabs.TabPane>
-          <Tabs.TabPane title='超长的tab22222' key='2'>
+          <Tabs.TabPane title='超长的tab2' key='2'>
             2
           </Tabs.TabPane>
-          <Tabs.TabPane title='超长的tab3333' key='3'>
+          <Tabs.TabPane title='超长的tab33333333' key='3'>
             3
           </Tabs.TabPane>
-          <Tabs.TabPane title='超长的tab444' key='4'>
+          <Tabs.TabPane title='超长的tab4444' key='4'>
             4
+          </Tabs.TabPane>
+          <Tabs.TabPane title='超长的tab55555' key='5'>
+            5
           </Tabs.TabPane>
         </Tabs>
       </DemoBlock>
