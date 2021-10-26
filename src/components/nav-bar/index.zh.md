@@ -10,7 +10,7 @@
 | backArrow | 是否显示返回区域的箭头，也可以传入 `ReactNode` 进行自定义  | `boolean \| ReactNode` | `true` |
 | onBack    | 点击返回区域后的回调                                       | `() => void`           | -      |
 | left      | 左侧内容，渲染在返回区域的右侧                             | `ReactNode`            | -      |
-| title     | 标题                                                       | `ReactNode`            | -      |
+| children  | 标题                                                       | `ReactNode`            | -      |
 | right     | 右侧内容                                                   | `ReactNode`            | -      |
 
 ## CSS 变量
