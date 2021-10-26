@@ -7,14 +7,11 @@ import React, {
   useLayoutEffect,
 } from 'react'
 import classNames from 'classnames'
-import {
-  useSpring,
-  animated,
-  AnimationResult,
-  SpringValue,
-} from '@react-spring/web'
+import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { bound } from '../../utils/bound'
+import { useUpdateLayoutEffect } from 'ahooks'
 
 const classPrefix = `adm-tabs`
 
@@ -61,66 +58,76 @@ export const Tabs: FC<TabsProps> = props => {
     x: 0,
     width: 0,
     config: {
-      tension: 200,
+      tension: 300,
+      clamp: true,
     },
   }))
 
-  const [, scrollApi] = useSpring(() => ({
+  const [{ scrollLeft }, scrollApi] = useSpring(() => ({
     scrollLeft: 0,
-    onChange: ({
-      value: { scrollLeft },
-    }: AnimationResult<SpringValue<{ scrollLeft: number }>>) => {
-      if (scrollLeft === 0) return
-      const containerDOM = containerRef.current as HTMLDivElement
-      if (!containerDOM) return
-      containerDOM.scrollLeft = scrollLeft
+    config: {
+      tension: 300,
+      clamp: true,
     },
   }))
 
-  useLayoutEffect(() => {
-    const containerDOM = containerRef.current
-    if (!containerDOM) return
+  function animate(immediate: boolean = false) {
+    const container = containerRef.current
+    if (!container) return
     const activeIndex = keyToIndexRecord[activeKey as string]
     if (activeIndex === undefined) return
 
-    const activeTabWrapperDOM = containerDOM.children.item(
+    const activeTabWrapper = container.children.item(
       activeIndex
     ) as HTMLDivElement
-    const activeTabContentDOM = activeTabWrapperDOM.children.item(
-      0
-    ) as HTMLDivElement
-    const activeTabLeft = activeTabWrapperDOM.offsetLeft
-    const activeTabWidth = activeTabWrapperDOM.offsetWidth
-    const activeTabContentWidth = activeTabContentDOM.offsetWidth
+    const activeTab = activeTabWrapper.children.item(0) as HTMLDivElement
+    const activeTabLeft = activeTab.offsetLeft
+    const activeTabWidth = activeTab.offsetWidth
 
-    const containerWidth = containerDOM.offsetWidth
-    const containerScrollWidth = containerDOM.scrollWidth
-    const containerScrollLeft = containerDOM.scrollLeft
+    const containerWidth = container.offsetWidth
+    const containerScrollWidth = container.scrollWidth
+    const containerScrollLeft = container.scrollLeft
 
-    const x = activeTabLeft + (activeTabWidth - activeTabContentWidth) / 2
-    const scrollLeft = activeTabLeft - (containerWidth - activeTabWidth) / 2
-    const needScroll =
-      containerScrollWidth !== containerWidth &&
-      (containerScrollLeft !== 0 ||
-        activeTabLeft + activeTabLeft / 2 > containerWidth / 2)
+    const x = activeTabLeft
 
     api.start({
       x,
-      width: activeTabContentWidth,
+      width: activeTabWidth,
+      immediate,
     })
 
-    if (needScroll) {
-      scrollApi.start({
-        scrollLeft,
-        from: { scrollLeft: containerScrollLeft },
-      })
-    }
-  }, [activeKey, props.children])
+    const maxScrollDistance = containerScrollWidth - containerWidth
+    if (maxScrollDistance <= 0) return
+
+    const scrollLeft = bound(
+      activeTabLeft - (containerWidth - activeTabWidth) / 2,
+      0,
+      containerScrollWidth - containerWidth
+    )
+
+    scrollApi.start({
+      scrollLeft,
+      from: { scrollLeft: containerScrollLeft },
+      immediate,
+    })
+  }
+
+  useUpdateLayoutEffect(() => {
+    animate()
+  }, [activeKey])
+
+  useLayoutEffect(() => {
+    animate(true)
+  }, [props.children])
 
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      <div className={`${classPrefix}-tab-list`} ref={containerRef}>
+      <animated.div
+        className={`${classPrefix}-tab-list`}
+        ref={containerRef}
+        scrollLeft={scrollLeft}
+      >
         {panes.map(pane =>
           withNativeProps(
             pane.props,
@@ -149,7 +156,7 @@ export const Tabs: FC<TabsProps> = props => {
             x,
           }}
         />
-      </div>
+      </animated.div>
       {panes.map(pane => {
         if (pane.props.children === undefined) {
           return null

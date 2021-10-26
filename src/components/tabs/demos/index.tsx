@@ -19,7 +19,7 @@ export default () => {
         </Tabs>
       </DemoBlock>
       <DemoBlock title='超长自动滚动' padding='0'>
-        <Tabs>
+        <Tabs defaultActiveKey='2'>
           <Tabs.TabPane title='超长的tab11111111' key='1'>
             1
           </Tabs.TabPane>
