@@ -19,7 +19,7 @@ export function mergeProps(...items: any[]) {
   }
 
   let ret = assign({}, items[0])
-  for (let i = 0; i < items.length; i++) {
+  for (let i = 1; i < items.length; i++) {
     ret = assignWith(ret, items[i], customizer)
   }
   return ret
