@@ -82,6 +82,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   const { maxCount, onPreview } = props
 
   async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
+    e.persist()
     const { files: rawFiles } = e.target
     if (!rawFiles) return
     let files = [].slice.call(rawFiles) as File[]
