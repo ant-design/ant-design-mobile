@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@react-spring/web": "^9.3.0",
+    "@types/resize-observer-browser": "^0.1.6",
     "@use-gesture/react": "^10.1.1",
     "ahooks": "^2.10.11",
     "antd-mobile-icons": "^0.2.2",
