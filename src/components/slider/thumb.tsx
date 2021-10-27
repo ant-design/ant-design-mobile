@@ -32,7 +32,7 @@ const Thumb: FC<ThumbProps> = props => {
       const x = state.xy[0] - state.initial[0]
       const sliderOffsetWith = props.trackRef.current?.offsetWidth
       if (!sliderOffsetWith) return
-      const diff = (x / Math.ceil(sliderOffsetWith!)) * (max - min)
+      const diff = (x / Math.ceil(sliderOffsetWith)) * (max - min)
       onDrag(prevValue.current + diff, state.first, state.last)
     },
     {

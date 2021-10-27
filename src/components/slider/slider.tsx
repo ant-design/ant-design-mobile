@@ -108,10 +108,11 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     if (dragLockRef.current > 0) return
     event.stopPropagation()
     if (disabled) return
-    const sliderOffsetLeft = trackRef.current!.getBoundingClientRect().left
+    const track = trackRef.current
+    if (!track) return
+    const sliderOffsetLeft = track.getBoundingClientRect().left
     const position =
-      ((event.clientX - sliderOffsetLeft) /
-        Math.ceil(trackRef.current!.offsetWidth)) *
+      ((event.clientX - sliderOffsetLeft) / Math.ceil(track.offsetWidth)) *
         (max - min) +
       min
 
