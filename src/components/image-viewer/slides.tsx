@@ -62,7 +62,7 @@ export const Slides: FC<{
     <div className={`${classPrefix}-slides`} {...bind()}>
       <animated.div className={`${classPrefix}-indicator`}>
         {x.to(v => {
-          const index: number = Math.round(v / slideWidth)
+          const index: number = bound(Math.round(v / slideWidth), 0, count - 1)
           return `${index + 1} / ${count}`
         })}
       </animated.div>
