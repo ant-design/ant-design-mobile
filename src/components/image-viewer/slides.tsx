@@ -17,7 +17,7 @@ export const Slides: FC<{
   const slideWidth = window.innerWidth + convertPx(16)
 
   const [{ x }, api] = useSpring(() => ({
-    x: -props.defaultIndex * slideWidth,
+    x: props.defaultIndex * slideWidth,
     config: { tension: 300 },
   }))
 
@@ -27,30 +27,30 @@ export const Slides: FC<{
     state => {
       const [offsetX] = state.offset
       if (state.last) {
+        const velocityOffset =
+          Math.min(state.velocity[0] * 2000, slideWidth) * state.direction[0]
         const index = bound(
-          -Math.round(
-            (offsetX + state.velocity[0] * state.direction[0] * 100) /
-              slideWidth
-          ),
+          Math.round((offsetX + velocityOffset) / slideWidth),
           0,
           count - 1
         )
         api.start({
-          x: index * -slideWidth,
+          x: index * slideWidth,
         })
       } else {
         api.start({
           x: offsetX,
+          immediate: true,
         })
       }
     },
     {
+      transform: ([x, y]) => [-x, y],
       from: () => [x.get(), 0],
       bounds: () => {
-        const index: number = -Math.round(x.get() / slideWidth)
         return {
-          right: Math.max(index - 1, 0) * -slideWidth,
-          left: Math.min(index + 1, count - 1) * -slideWidth,
+          left: 0,
+          right: (count - 1) * slideWidth,
         }
       },
       rubberband: true,
@@ -62,11 +62,14 @@ export const Slides: FC<{
     <div className={`${classPrefix}-slides`} {...bind()}>
       <animated.div className={`${classPrefix}-indicator`}>
         {x.to(v => {
-          const index: number = -Math.round(v / slideWidth)
+          const index: number = Math.round(v / slideWidth)
           return `${index + 1} / ${count}`
         })}
       </animated.div>
-      <animated.div className={`${classPrefix}-slides-inner`} style={{ x }}>
+      <animated.div
+        className={`${classPrefix}-slides-inner`}
+        style={{ x: x.to(x => -x) }}
+      >
         {props.images.map(image => (
           <Slide
             key={image}
@@ -75,9 +78,9 @@ export const Slides: FC<{
             maxZoom={props.maxZoom}
             onZoomChange={zoom => {
               if (zoom !== 1) {
-                const index: number = -Math.round(x.get() / slideWidth)
+                const index: number = Math.round(x.get() / slideWidth)
                 api.start({
-                  x: index * -slideWidth,
+                  x: index * slideWidth,
                 })
               }
             }}
