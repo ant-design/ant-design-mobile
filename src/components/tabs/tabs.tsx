@@ -13,6 +13,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { bound } from '../../utils/bound'
 import { useUpdateLayoutEffect } from 'ahooks'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
+import { useResizeEffect } from '../../utils/use-resize-effect'
 
 const classPrefix = `adm-tabs`
 
@@ -32,7 +33,8 @@ export type TabsProps = {
 } & NativeProps
 
 export const Tabs: FC<TabsProps> = props => {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const tabListContainerRef = useRef<HTMLDivElement>(null)
+  const rootRef = useRef<HTMLDivElement>(null)
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
@@ -73,7 +75,7 @@ export const Tabs: FC<TabsProps> = props => {
   }))
 
   function animate(immediate = false) {
-    const container = containerRef.current
+    const container = tabListContainerRef.current
     if (!container) return
     const activeIndex = keyToIndexRecord[activeKey as string]
     if (activeIndex === undefined) return
@@ -121,12 +123,17 @@ export const Tabs: FC<TabsProps> = props => {
     animate()
   }, [activeKey])
 
+  useResizeEffect(() => {
+    console.log('resize')
+    animate(true)
+  }, rootRef)
+
   useMutationEffect(
     () => {
       console.log('mutation')
       animate(true)
     },
-    containerRef,
+    tabListContainerRef,
     {
       subtree: true,
       childList: true,
@@ -136,10 +143,10 @@ export const Tabs: FC<TabsProps> = props => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div className={classPrefix} ref={rootRef}>
       <animated.div
         className={`${classPrefix}-tab-list`}
-        ref={containerRef}
+        ref={tabListContainerRef}
         scrollLeft={scrollLeft}
       >
         {panes.map(pane =>
