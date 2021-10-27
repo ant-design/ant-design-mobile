@@ -2722,15 +2722,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-transition-group@npm:^4.4.3":
-  version: 4.4.3
-  resolution: "@types/react-transition-group@npm:4.4.3"
-  dependencies:
-    "@types/react": "*"
-  checksum: 7e45c6bf50cdfdc482d9ce4c302cda65134b3a44306c749d46d2f3256ca8c95cbbc1cbe28c32010b9273f5db78c8d434a8cea3688ac6e5327443b8a8d1c1caac
-  languageName: node
-  linkType: hard
-
 "@types/react@npm:*":
   version: 17.0.14
   resolution: "@types/react@npm:17.0.14"
@@ -3731,7 +3722,6 @@ __metadata:
     "@types/jest-axe": 3.5.3
     "@types/lodash": ^4.14.176
     "@types/react": ^17.0.33
-    "@types/react-transition-group": ^4.4.3
     "@types/resize-observer-browser": ^0.1.6
     "@typescript-eslint/eslint-plugin": ^4.33.0
     "@typescript-eslint/parser": ^4.33.0
