@@ -91,7 +91,7 @@ export const PullToRefresh = withDefaultProps(defaultProps)<PullToRefreshProps>(
           return
         }
 
-        const [x, y] = state.movement
+        const [, y] = state.movement
         if (state.first) {
           const element = elementRef.current
           if (!element) return

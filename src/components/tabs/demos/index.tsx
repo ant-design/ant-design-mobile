@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { DemoBlock } from 'demos'
 import { Tabs } from 'antd-mobile'
 

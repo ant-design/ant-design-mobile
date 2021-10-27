@@ -43,7 +43,7 @@ export const Slide: FC<Props> = props => {
         }
       },
       onPinch: state => {
-        const [d, a] = state.offset
+        const [d] = state.offset
         // pinch的rubberband不会自动弹回bound，这里手动实现了
         const zoom = state.last ? Math.max(Math.min(d, props.maxZoom), 1) : d
         api.start({

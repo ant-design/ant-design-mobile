@@ -24,7 +24,7 @@ export const Group = withDefaultProps(defaultProps)<CheckboxGroupProps>(
       <CheckboxGroupContext.Provider
         // TODO: 性能优化
         value={{
-          value: value!,
+          value: value,
           disabled: props.disabled,
           check: v => {
             setValue([...value, v])

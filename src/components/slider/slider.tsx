@@ -95,7 +95,7 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     if (pointList.length) {
       value = nearest(pointList, newPosition)
     } else {
-      const lengthPerStep = 100 / ((max - min) / step!)
+      const lengthPerStep = 100 / ((max - min) / step)
       const steps = Math.round(newPosition / lengthPerStep)
       value = steps * lengthPerStep * (max - min) * 0.01 + min
     }

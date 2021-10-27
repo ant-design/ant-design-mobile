@@ -10,7 +10,7 @@ export function useResizeEffect(
     const target = targetRef.current
     if (!target) return
     if (window.ResizeObserver) {
-      const observer = new ResizeObserver(entries => {
+      const observer = new ResizeObserver(() => {
         fn()
       })
       observer.observe(target)

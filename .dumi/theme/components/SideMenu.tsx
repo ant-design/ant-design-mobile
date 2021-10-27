@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import React, { useContext } from 'react'
-import { context, Link, NavLink } from 'dumi/theme'
+import { context, NavLink } from 'dumi/theme'
 import LocaleSelect from './LocaleSelect'
 import './SideMenu.less'
 

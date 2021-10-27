@@ -50,8 +50,10 @@ const Dropdown: FC<DropdownProps> & {
   const [top, setTop] = useState<number>()
   const containerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
     if (value) {
-      const rect = containerRef.current!.getBoundingClientRect()
+      const rect = container.getBoundingClientRect()
       setTop(rect.bottom)
     }
   }, [value])

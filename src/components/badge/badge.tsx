@@ -1,6 +1,5 @@
 import classNames from 'classnames'
 import React from 'react'
-import { convertPx } from '../../utils/convert-px'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { withDefaultProps } from '../../utils/with-default-props'
 
