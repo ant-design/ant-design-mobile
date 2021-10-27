@@ -1,3 +1,4 @@
+import React from 'react'
 import { DemoBlock } from 'demos'
 import { ImageViewer, Button } from 'antd-mobile'
 import { useState } from 'react'
