@@ -12,6 +12,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { bound } from '../../utils/bound'
 import { useUpdateLayoutEffect } from 'ahooks'
+import { useMutationEffect } from '../../utils/use-mutation-effect'
 
 const classPrefix = `adm-tabs`
 
@@ -119,6 +120,19 @@ export const Tabs: FC<TabsProps> = props => {
   useUpdateLayoutEffect(() => {
     animate()
   }, [activeKey])
+
+  useMutationEffect(
+    () => {
+      console.log('mutation')
+      animate(true)
+    },
+    containerRef,
+    {
+      subtree: true,
+      childList: true,
+      characterData: true,
+    }
+  )
 
   return withNativeProps(
     props,
