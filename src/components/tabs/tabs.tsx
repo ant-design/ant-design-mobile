@@ -99,26 +99,26 @@ export const Tabs: FC<TabsProps> = props => {
     const maxScrollDistance = containerScrollWidth - containerWidth
     if (maxScrollDistance <= 0) return
 
-    const scrollLeft = bound(
+    const nextScrollLeft = bound(
       activeTabLeft - (containerWidth - activeTabWidth) / 2,
       0,
       containerScrollWidth - containerWidth
     )
 
     scrollApi.start({
-      scrollLeft,
+      scrollLeft: nextScrollLeft,
       from: { scrollLeft: containerScrollLeft },
       immediate,
     })
   }
 
+  useLayoutEffect(() => {
+    animate(true)
+  }, [])
+
   useUpdateLayoutEffect(() => {
     animate()
   }, [activeKey])
-
-  useLayoutEffect(() => {
-    animate(true)
-  }, [props.children])
 
   return withNativeProps(
     props,
