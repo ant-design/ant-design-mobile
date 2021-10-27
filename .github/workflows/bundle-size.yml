@@ -1,4 +1,4 @@
-name: Check
+name: Bundle Size
 on:
   push:
     branches:
@@ -21,7 +21,11 @@ jobs:
         run: yarn -v
       - name: Install
         run: yarn install
-      - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test
+      - name: Build and report bundle size
+        uses: pkg-size/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          build-command: 'yarn build'
+          unchanged-files: hide
+          hide-files: 'lib/2x/**/*'

@@ -98,6 +98,7 @@
   "typings": "./es/index.d.ts",
   "unpkg": "./umd/antd-mobile.js",
   "GravityCDN": "./umd/antd-mobile.js",
+  "files": ["./lib"],
   "sideEffects": [
     "*.css",
     "*.less",
