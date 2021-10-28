@@ -45,12 +45,12 @@ export const InfiniteScroll = withDefaultProps({
       if (!props.hasMore) return
       const element = elementRef.current
       if (!element) return
+      if (!element.offsetParent) return
       const parent = getScrollParent(element)
       if (!parent) return
-      const elementTop = element.getBoundingClientRect().top
-      const current = isWindow(parent)
-        ? window.innerHeight
-        : parent.getBoundingClientRect().bottom
+      const rect = element.getBoundingClientRect()
+      const elementTop = rect.top
+      const current = isWindow(parent) ? window.innerHeight : rect.bottom
       if (current >= elementTop - props.threshold) {
         doLoadMore()
       }
