@@ -43,6 +43,7 @@
     "@types/jest-axe": "3.5.3",
     "@types/lodash": "^4.14.176",
     "@types/react": "^17.0.33",
+    "@types/react-helmet": "^6.1.4",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "babel-loader": "^8.2.3",
@@ -79,6 +80,7 @@
     "rc-tabs": "^11.10.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-test-renderer": "^17.0.2",
     "style-loader": "^3.3.1",
     "through2": "^4.0.2",
@@ -98,7 +100,9 @@
   "typings": "./es/index.d.ts",
   "unpkg": "./umd/antd-mobile.js",
   "GravityCDN": "./umd/antd-mobile.js",
-  "files": ["./lib"],
+  "files": [
+    "./lib"
+  ],
   "sideEffects": [
     "*.css",
     "*.less",

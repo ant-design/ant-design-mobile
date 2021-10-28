@@ -69,6 +69,7 @@ export const components = {
     '/components/image-uploader',
     '/components/number-keyboard',
     '/components/picker-view',
+    '/components/safe-area',
     '/components/tree-select',
   ],
 }
