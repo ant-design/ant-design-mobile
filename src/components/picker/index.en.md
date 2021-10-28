@@ -17,6 +17,10 @@ type PickerColumnItem = {
 type PickerColumn = (string | PickerColumnItem)[]
 
 type PickerValue = string | null
+
+type PickerValueContext = {
+  items: (PickerColumnItem | null)[]
+}
 ```
 
 | Name         | Description                             | Type                                                           | Default  |
@@ -24,8 +28,8 @@ type PickerValue = string | null
 | columns      | Options to configure each column        | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
 | value        | Selected options                        | `PickerValue[]`                                                | -        |
 | defaultValue | Default selected options                | `PickerValue[]`                                                | -        |
-| onSelect     | Triggered when the options are changed  | `(value: PickerValue[]) => void`                               | -        |
-| onConfirm    | Triggered when confirming               | `(value: PickerValue[]) => void`                               | -        |
+| onSelect     | Triggered when the options are changed  | `(value: PickerValue[], context: PickerValueContext) => void`  | -        |
+| onConfirm    | Triggered when confirming               | `(value: PickerValue[], context: PickerValueContext) => void`  | -        |
 | onCancel     | Triggered when cancelling               | `() => void`                                                   | -        |
 | onClose      | Triggered when confirming or cancelling | `() => void`                                                   | -        |
 | visible      | Whether to show or hide the Picker      | `boolean`                                                      | `false`  |
