@@ -19,6 +19,7 @@ const classPrefix = `adm-tabs`
 
 export type TabPaneProps = {
   title: ReactNode
+  disabled?: boolean
   forceRender?: boolean
 } & NativeProps
 
@@ -156,6 +157,7 @@ export const Tabs: FC<TabsProps> = props => {
               <div
                 onClick={() => {
                   const { key } = pane
+                  if (pane.props.disabled) return
                   if (key === undefined || key === null) {
                     return
                   }
@@ -163,6 +165,7 @@ export const Tabs: FC<TabsProps> = props => {
                 }}
                 className={classNames(`${classPrefix}-tab`, {
                   [`${classPrefix}-tab-active`]: pane.key === activeKey,
+                  [`${classPrefix}-tab-disabled`]: pane.props.disabled,
                 })}
               >
                 {pane.props.title}

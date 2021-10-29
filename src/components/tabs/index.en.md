@@ -18,4 +18,5 @@
 | ----------- | ------------------------------------------------- | ----------- | ------- |
 | key         | Corresponding to `activeKey`                      | `string`    | -       |
 | title       | The displayed text of the tab header              | `ReactNode` | -       |
+| disabled    | Whether to disable the tab                        | `boolean`   | `false` |
 | forceRender | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |

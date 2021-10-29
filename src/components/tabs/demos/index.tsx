@@ -10,7 +10,7 @@ export default () => {
           <Tabs.TabPane title='水果' key='fruits'>
             菠萝
           </Tabs.TabPane>
-          <Tabs.TabPane title='蔬菜' key='vegatables'>
+          <Tabs.TabPane title='蔬菜' key='vegetables'>
             西红柿
           </Tabs.TabPane>
           <Tabs.TabPane title='动物' key='animals'>
@@ -40,8 +40,15 @@ export default () => {
       <DemoBlock title='没有内容区' padding='0'>
         <Tabs>
           <Tabs.TabPane title='水果' key='fruits' />
-          <Tabs.TabPane title='蔬菜' key='vegatables' />
+          <Tabs.TabPane title='蔬菜' key='vegetables' />
           <Tabs.TabPane title='动物' key='animals' />
+        </Tabs>
+      </DemoBlock>
+      <DemoBlock title='禁用' padding='0'>
+        <Tabs>
+          <Tabs.TabPane title='水果' key='fruits' />
+          <Tabs.TabPane title='蔬菜' key='vegetables' />
+          <Tabs.TabPane title='动物' key='animals' disabled />
         </Tabs>
       </DemoBlock>
     </>
