@@ -51,6 +51,30 @@ export default () => {
           <Tabs.TabPane title='动物' key='animals' disabled />
         </Tabs>
       </DemoBlock>
+      <DemoBlock title='固定长度模式' padding='0'>
+        <Tabs
+          activeLineMode='fixed'
+          style={{
+            '--fixed-active-line-width': '50px',
+          }}
+        >
+          <Tabs.TabPane title='超长的tab111' key='1'>
+            1
+          </Tabs.TabPane>
+          <Tabs.TabPane title='超长的tab2' key='2'>
+            2
+          </Tabs.TabPane>
+          <Tabs.TabPane title='超长的tab333' key='3'>
+            3
+          </Tabs.TabPane>
+          <Tabs.TabPane title='超长的tab4444' key='4'>
+            4
+          </Tabs.TabPane>
+          <Tabs.TabPane title='超长的tab55555' key='5'>
+            5
+          </Tabs.TabPane>
+        </Tabs>
+      </DemoBlock>
     </>
   )
 }

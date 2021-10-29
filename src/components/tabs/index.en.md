@@ -6,11 +6,12 @@
 
 ### Tabs
 
-| Name             | Description                                                                | Type                    | Default                     |
-| ---------------- | -------------------------------------------------------------------------- | ----------------------- | --------------------------- |
-| activeKey        | The `key` of the currently active `tab` panel                              | `string \| null`        | -                           |
-| defaultActiveKey | The initialized `key` of the selected panel, if the `activeKey` is not set | `string \| null`        | the `key` of the 1st pannel |
-| onChange         | Callback when switching panel                                              | `(key: string) => void` | -                           |
+| Name             | Description                                                                | Type                          | Default                     |
+| ---------------- | -------------------------------------------------------------------------- | ----------------------------- | --------------------------- |
+| activeKey        | The `key` of the currently active `tab` panel                              | `string \| null`              | -                           |
+| defaultActiveKey | The initialized `key` of the selected panel, if the `activeKey` is not set | `string \| null`              | the `key` of the 1st pannel |
+| activeLineMode   | Activate `tab` underline mode                                              | `'auto' \| 'full' \| 'fixed'` | `'auto'`                    |
+| onChange         | Callback when switching panel                                              | `(key: string) => void`       | -                           |
 
 ### Tabs.TabPane
 
@@ -20,3 +21,9 @@
 | title       | The displayed text of the tab header              | `ReactNode` | -       |
 | disabled    | Whether to disable the tab                        | `boolean`   | `false` |
 | forceRender | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
+
+## CSS 变量
+
+| 属性                      | 说明                                  | 默认值 |
+| ------------------------- | ------------------------------------- | ------ |
+| --fixed-active-line-width | The width of the active tab underline | `30px` |
