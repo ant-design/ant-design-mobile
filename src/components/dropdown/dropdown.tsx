@@ -32,7 +32,7 @@ const Dropdown: FC<DropdownProps> & {
   Item: React.FC<DropdownItemProps>
 } = p => {
   const props = mergeProps(defaultProps, p)
-  const [value, onChange] = usePropsValue({
+  const [value, setValue] = usePropsValue({
     value: props.activeKey,
     defaultValue: props.defaultActiveKey,
     onChange: props.onChange,
@@ -43,7 +43,7 @@ const Dropdown: FC<DropdownProps> & {
 
   // 点击外部区域，关闭
   useClickAway(() => {
-    onChange(null)
+    setValue(null)
   }, [navRef, contentRef])
 
   // 计算 navs 的 top 值
@@ -60,9 +60,9 @@ const Dropdown: FC<DropdownProps> & {
 
   const changeActive = (key: string | null) => {
     if (value === key) {
-      onChange(null)
+      setValue(null)
     } else {
-      onChange(key)
+      setValue(key)
     }
   }
 

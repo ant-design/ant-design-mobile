@@ -58,12 +58,10 @@ export const Button: FC<ButtonProps> = p => {
       disabled={disabled}
     >
       {props.loading ? (
-        <>
-          <div className={`${classPrefix}-loading-wrapper`}>
-            <Loading color='currentColor' />
-            {props.loadingText}
-          </div>
-        </>
+        <div className={`${classPrefix}-loading-wrapper`}>
+          <Loading color='currentColor' />
+          {props.loadingText}
+        </div>
       ) : (
         props.children
       )}
