@@ -58,7 +58,7 @@ export const Popover = forwardRef<PopoverRef, PopoverPropsWithContent>(
     const props = mergeProps(defaultProps, p)
     const { mode = 'light' } = props
 
-    const [visible, onVisibleChange] = usePropsValue({
+    const [visible, setVisible] = usePropsValue({
       value: props.visible,
       defaultValue: props.defaultVisible,
       onChange: props.onVisibleChange,
@@ -68,8 +68,8 @@ export const Popover = forwardRef<PopoverRef, PopoverPropsWithContent>(
       ref,
       () => {
         return {
-          show: () => onVisibleChange(true),
-          hide: () => onVisibleChange(false),
+          show: () => setVisible(true),
+          hide: () => setVisible(false),
           visible,
         }
       },
@@ -87,7 +87,7 @@ export const Popover = forwardRef<PopoverRef, PopoverPropsWithContent>(
         prefixCls={classPrefix}
         getTooltipContainer={props.getContainer || (() => document.body)}
         visible={visible}
-        onVisibleChange={onVisibleChange}
+        onVisibleChange={setVisible}
         trigger={props.trigger}
         motion={{
           motionName: {
