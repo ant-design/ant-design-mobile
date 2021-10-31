@@ -46,6 +46,19 @@ test('renders with direction', () => {
   expect(amSpace).toHaveClass(`${classPrefix}-vertical`)
 })
 
+test('renders with justify', () => {
+  const justify = 'center'
+  const { container } = render(
+    <Space justify={justify}>
+      <div>block1</div>
+      <div>block2</div>
+      <div>block3</div>
+    </Space>
+  )
+  const amSpace = container.getElementsByClassName('adm-space')[0]
+  expect(amSpace).toHaveClass(`${classPrefix}-justify-${justify}`)
+})
+
 test('renders with align', () => {
   const align = 'end'
   const { container } = render(

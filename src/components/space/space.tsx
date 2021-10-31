@@ -12,7 +12,6 @@ export type SpaceProps = {
     | 'start'
     | 'end'
     | 'center'
-    | 'baseline'
     | 'between'
     | 'around'
     | 'evenly'
