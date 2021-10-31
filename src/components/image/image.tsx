@@ -57,7 +57,7 @@ export const Image = staged<ImageProps>(p => {
   let src: string | undefined = props.src
   let srcSet: string | undefined = props.srcSet
 
-  if (!props.lazy) {
+  if (!props.lazy || loaded) {
     return render()
   }
 
