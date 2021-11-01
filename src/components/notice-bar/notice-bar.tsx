@@ -62,7 +62,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
     return () => {
       window.clearTimeout(timeout)
     }
-  }, [])
+  }, [props.content])
 
   useUpdateLayoutEffect(() => {
     const container = containerRef.current
