@@ -14,6 +14,7 @@ import { bound } from '../../utils/bound'
 import { useUpdateLayoutEffect } from 'ahooks'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
 import { useResizeEffect } from '../../utils/use-resize-effect'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-tabs`
 
@@ -30,12 +31,19 @@ export const TabPane: FC<TabPaneProps> = () => {
 export type TabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
+  activeLineMode?: 'auto' | 'full' | 'fixed'
   onChange?: (key: string) => void
-} & NativeProps
+} & NativeProps<'--fixed-active-line-width'>
 
-export const Tabs: FC<TabsProps> = props => {
+const defaultProps = {
+  activeLineMode: 'auto',
+}
+
+export const Tabs: FC<TabsProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const tabListContainerRef = useRef<HTMLDivElement>(null)
   const rootRef = useRef<HTMLDivElement>(null)
+  const activeLineRef = useRef<HTMLDivElement>(null)
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
@@ -80,6 +88,8 @@ export const Tabs: FC<TabsProps> = props => {
     if (!container) return
     const activeIndex = keyToIndexRecord[activeKey as string]
     if (activeIndex === undefined) return
+    const activeLine = activeLineRef.current
+    if (!activeLine) return
 
     const activeTabWrapper = container.children.item(
       activeIndex
@@ -87,16 +97,29 @@ export const Tabs: FC<TabsProps> = props => {
     const activeTab = activeTabWrapper.children.item(0) as HTMLDivElement
     const activeTabLeft = activeTab.offsetLeft
     const activeTabWidth = activeTab.offsetWidth
+    const activeTabWrapperLeft = activeTabWrapper.offsetLeft
+    const activeTabWrapperWidth = activeTabWrapper.offsetWidth
 
     const containerWidth = container.offsetWidth
     const containerScrollWidth = container.scrollWidth
     const containerScrollLeft = container.scrollLeft
 
-    const x = activeTabLeft
+    const activeLineWidth = activeLine.offsetWidth
 
+    let x = 0
+    let width = 0
+    if (props.activeLineMode === 'auto') {
+      x = activeTabLeft
+      width = activeTabWidth
+    } else if (props.activeLineMode === 'full') {
+      x = activeTabWrapperLeft
+      width = activeTabWrapperWidth
+    } else {
+      x = activeTabLeft + (activeTabWidth - activeLineWidth) / 2
+    }
     api.start({
       x,
-      width: activeTabWidth,
+      width,
       immediate,
     })
 
@@ -125,13 +148,11 @@ export const Tabs: FC<TabsProps> = props => {
   }, [activeKey])
 
   useResizeEffect(() => {
-    console.log('resize')
     animate(true)
   }, rootRef)
 
   useMutationEffect(
     () => {
-      console.log('mutation')
       animate(true)
     },
     tabListContainerRef,
@@ -174,9 +195,13 @@ export const Tabs: FC<TabsProps> = props => {
           )
         )}
         <animated.div
+          ref={activeLineRef}
           className={`${classPrefix}-tab-line`}
           style={{
-            width,
+            width:
+              props.activeLineMode === 'fixed'
+                ? 'var(--fixed-active-line-width, 30px)'
+                : width,
             x,
           }}
         />
