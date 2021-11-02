@@ -1,17 +1,18 @@
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import {
-  renderToContainer,
   GetContainer,
+  renderToContainer,
 } from '../../utils/render-to-container'
 import Mask from '../mask'
 import { Slide } from './slide'
 import { Slides } from './slides'
 import React, {
-  useState,
-  forwardRef,
-  useImperativeHandle,
   createRef,
+  FC,
+  forwardRef,
   useEffect,
+  useImperativeHandle,
+  useState,
 } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
 
@@ -32,31 +33,31 @@ const defaultProps = {
   visible: false,
 }
 
-export const ImageViewer = withDefaultProps(defaultProps)<ImageViewerProps>(
-  props => {
-    const node = (
-      <Mask
-        visible={props.visible}
-        disableBodyScroll={false}
-        opacity='thick'
-        afterClose={props.afterClose}
-      >
-        <div className={`${classPrefix}-content`}>
-          {props.image && (
-            <Slide
-              image={props.image}
-              onTap={() => {
-                props.onClose?.()
-              }}
-              maxZoom={props.maxZoom}
-            />
-          )}
-        </div>
-      </Mask>
-    )
-    return renderToContainer(props.getContainer, node)
-  }
-)
+export const ImageViewer: FC<ImageViewerProps> = p => {
+  const props = mergeProps(defaultProps, p)
+
+  const node = (
+    <Mask
+      visible={props.visible}
+      disableBodyScroll={false}
+      opacity='thick'
+      afterClose={props.afterClose}
+    >
+      <div className={`${classPrefix}-content`}>
+        {props.image && (
+          <Slide
+            image={props.image}
+            onTap={() => {
+              props.onClose?.()
+            }}
+            maxZoom={props.maxZoom}
+          />
+        )}
+      </div>
+    </Mask>
+  )
+  return renderToContainer(props.getContainer, node)
+}
 
 export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
   images?: string[]
@@ -69,9 +70,9 @@ const multiDefaultProps = {
   defaultIndex: 0,
 }
 
-export const MultiImageViewer = withDefaultProps(
-  multiDefaultProps
-)<MultiImageViewerProps>(props => {
+export const MultiImageViewer: FC<MultiImageViewerProps> = p => {
+  const props = mergeProps(multiDefaultProps, p)
+
   const node = (
     <Mask
       visible={props.visible}
@@ -95,7 +96,7 @@ export const MultiImageViewer = withDefaultProps(
     </Mask>
   )
   return renderToContainer(props.getContainer, node)
-})
+}
 
 export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
   type Ref = {
