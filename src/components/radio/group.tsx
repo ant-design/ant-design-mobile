@@ -1,5 +1,5 @@
-import React from 'react'
-import { withDefaultProps } from '../../utils/with-default-props'
+import React, { FC } from 'react'
+import { mergeProps } from '../../utils/with-default-props'
 import { RadioValue } from '.'
 import { RadioGroupContext } from './group-context'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -16,7 +16,8 @@ const defaultProps = {
   defaultValue: null,
 }
 
-export const Group = withDefaultProps(defaultProps)<RadioGroupProps>(props => {
+export const Group: FC<RadioGroupProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
   return (
     <RadioGroupContext.Provider
@@ -33,4 +34,4 @@ export const Group = withDefaultProps(defaultProps)<RadioGroupProps>(props => {
       {props.children}
     </RadioGroupContext.Provider>
   )
-})
+}
