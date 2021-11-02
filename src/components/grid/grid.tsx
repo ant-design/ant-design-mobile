@@ -1,4 +1,4 @@
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import React, { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { toCSSLength } from '../../utils/to-css-length'
@@ -40,9 +40,9 @@ export type GridItemProps = {
 type GridItemStyle = React.CSSProperties &
   Record<'--item-span', GridItemProps['span']>
 
-export const GridItem = withDefaultProps({
-  span: 1,
-})<GridItemProps>(props => {
+export const GridItem: FC<GridItemProps> = p => {
+  const props = mergeProps({ span: 1 }, p)
+
   const itemStyle: GridItemStyle = {
     '--item-span': props.span,
   }
@@ -56,4 +56,4 @@ export const GridItem = withDefaultProps({
       {props.children}
     </div>
   )
-})
+}
