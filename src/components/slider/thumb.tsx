@@ -37,6 +37,7 @@ const Thumb: FC<ThumbProps> = props => {
     },
     {
       axis: 'x',
+      pointer: { touch: true },
     }
   )
 
