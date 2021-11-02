@@ -2,9 +2,9 @@
 
 <code src="./demos/index.tsx"></code>
 
-## API
+## Tabs
 
-### Tabs
+### Props
 
 | Name             | Description                                                                | Type                          | Default                     |
 | ---------------- | -------------------------------------------------------------------------- | ----------------------------- | --------------------------- |
@@ -13,7 +13,13 @@
 | activeLineMode   | Activate `tab` underline mode                                              | `'auto' \| 'full' \| 'fixed'` | `'auto'`                    |
 | onChange         | Callback when switching panel                                              | `(key: string) => void`       | -                           |
 
-### Tabs.TabPane
+### CSS Variables
+
+| Name                      | Description                           | Default |
+| ------------------------- | ------------------------------------- | ------- |
+| --fixed-active-line-width | The width of the active tab underline | `30px`  |
+
+## Tabs.TabPane
 
 | Name        | Description                                       | Type        | Default |
 | ----------- | ------------------------------------------------- | ----------- | ------- |
@@ -21,9 +27,3 @@
 | title       | The displayed text of the tab header              | `ReactNode` | -       |
 | disabled    | Whether to disable the tab                        | `boolean`   | `false` |
 | forceRender | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
-
-## CSS 变量
-
-| 属性                      | 说明                                  | 默认值 |
-| ------------------------- | ------------------------------------- | ------ |
-| --fixed-active-line-width | The width of the active tab underline | `30px` |
