@@ -56,8 +56,8 @@ export const Tabs: FC<TabsProps> = p => {
     if (index === 0) {
       firstActiveKey = key
     }
-    keyToIndexRecord[key] = index
-    panes.push(child)
+    const length = panes.push(child)
+    keyToIndexRecord[key] = length - 1
   })
 
   const [activeKey, setActiveKey] = usePropsValue({
@@ -87,12 +87,19 @@ export const Tabs: FC<TabsProps> = p => {
     const container = tabListContainerRef.current
     if (!container) return
     const activeIndex = keyToIndexRecord[activeKey as string]
-    if (activeIndex === undefined) return
+    if (activeIndex === undefined) {
+      api.start({
+        x: 0,
+        width: 0,
+        immediate: true,
+      })
+      return
+    }
     const activeLine = activeLineRef.current
     if (!activeLine) return
 
     const activeTabWrapper = container.children.item(
-      activeIndex
+      activeIndex + 1
     ) as HTMLDivElement
     const activeTab = activeTabWrapper.children.item(0) as HTMLDivElement
     const activeTabLeft = activeTab.offsetLeft
@@ -171,6 +178,17 @@ export const Tabs: FC<TabsProps> = p => {
         ref={tabListContainerRef}
         scrollLeft={scrollLeft}
       >
+        <animated.div
+          ref={activeLineRef}
+          className={`${classPrefix}-tab-line`}
+          style={{
+            width:
+              props.activeLineMode === 'fixed'
+                ? 'var(--fixed-active-line-width, 30px)'
+                : width,
+            x,
+          }}
+        />
         {panes.map(pane =>
           withNativeProps(
             pane.props,
@@ -194,17 +212,6 @@ export const Tabs: FC<TabsProps> = p => {
             </div>
           )
         )}
-        <animated.div
-          ref={activeLineRef}
-          className={`${classPrefix}-tab-line`}
-          style={{
-            width:
-              props.activeLineMode === 'fixed'
-                ? 'var(--fixed-active-line-width, 30px)'
-                : width,
-            x,
-          }}
-        />
       </animated.div>
       {panes.map(pane => {
         if (pane.props.children === undefined) {
