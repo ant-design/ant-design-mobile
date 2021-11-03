@@ -1,9 +1,9 @@
 import classNames from 'classnames'
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { MinusOutline, AddOutline } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { bound } from '../../utils/bound'
 import Input, { InputProps } from '../input'
 import Button from '../button'
@@ -27,7 +27,8 @@ const defaultProps = {
   disabled: false,
 }
 
-export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
+export const Stepper: FC<StepperProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const { disabled, step, max, min } = props
 
   const [value, setValue] = usePropsValue(props)
@@ -127,4 +128,4 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
       </Button>
     </div>
   )
-})
+}

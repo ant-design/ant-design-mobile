@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { StarFill } from 'antd-mobile-icons'
 import { usePropsValue } from '../../utils/use-props-value'
 
@@ -27,9 +27,11 @@ const defaultProps = {
   allowClear: true,
 }
 
-export const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
+export const Rate: FC<RateProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
   const starList = Array(props.count).fill(null)
+
   function renderStar(v: number, half: boolean) {
     return (
       <div
@@ -62,4 +64,4 @@ export const Rate = withDefaultProps(defaultProps)<RateProps>(props => {
       ))}
     </div>
   )
-})
+}

@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { withDefaultProps } from '../../utils/with-default-props'
+import React, { FC, useRef, useState } from 'react'
+import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 
@@ -16,7 +16,8 @@ const defaultProps = {
   rows: 1,
 }
 
-export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
+export const Ellipsis: FC<EllipsisProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const rootRef = useRef<HTMLDivElement>(null)
 
   const [ellipsised, setEllipsised] = useState<string>('')
@@ -135,7 +136,7 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
       {ellipsised}
     </div>
   )
-})
+}
 
 function pxToNumber(value: string | null): number {
   if (!value) return 0

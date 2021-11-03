@@ -1,8 +1,8 @@
 import classNames from 'classnames'
-import React, { useEffect, useMemo } from 'react'
+import React, { FC, useEffect, useMemo } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import Checkbox from '../checkbox'
 import { TreeSelectOption } from '.'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -25,13 +25,17 @@ export type MultipleProps = {
   onExpand?: (expandedKeys: string[], nodes: TreeSelectOption[]) => void
 } & NativeProps
 
-export const Multiple = withDefaultProps({
-  options: [],
-  fieldNames: {},
-  allSelectText: [],
-  defaultExpandKeys: [],
-  defaultValue: [],
-})<MultipleProps>(props => {
+export const Multiple: FC<MultipleProps> = p => {
+  const props = mergeProps(
+    {
+      options: [],
+      fieldNames: {},
+      allSelectText: [],
+      defaultExpandKeys: [],
+      defaultValue: [],
+    },
+    p
+  )
   useEffect(() => {
     devWarning('TreeSelect', 'TreeSelect.Multiple has been deprecated.')
   }, [])
@@ -367,4 +371,4 @@ export const Multiple = withDefaultProps({
     props,
     <div className={classPrefix}>{renderColumns()}</div>
   )
-})
+}

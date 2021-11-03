@@ -1,8 +1,8 @@
 import classNames from 'classnames'
-import React, { useMemo } from 'react'
+import React, { FC, useMemo } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-tree-select`
@@ -19,11 +19,14 @@ export type TreeSelectProps = {
   fieldNames?: { label: string; value: string; children: string }
 } & NativeProps
 
-export const TreeSelect = withDefaultProps({
+const defaultProps = {
   options: [],
   fieldNames: {},
   defaultValue: [],
-})<TreeSelectProps>(props => {
+}
+
+export const TreeSelect: FC<TreeSelectProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const labelName = props.fieldNames.label || 'label'
   const valueName = props.fieldNames.value || 'value'
   const childrenName = props.fieldNames.children || 'children'
@@ -133,4 +136,4 @@ export const TreeSelect = withDefaultProps({
     props,
     <div className={classPrefix}>{renderColumns()}</div>
   )
-})
+}
