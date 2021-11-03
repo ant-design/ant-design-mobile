@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react'
-import { withDefaultProps } from '../../utils/with-default-props'
+import React, { useRef, useState, FC } from 'react'
+import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-ellipsis`
 
@@ -16,8 +17,6 @@ export type EllipsisProps = {
 const defaultProps = {
   direction: 'end',
   rows: 1,
-  expandText: '展开',
-  collapseText: '收起',
 }
 
 type EllipsisedValue = {
@@ -26,7 +25,16 @@ type EllipsisedValue = {
   all?: string
 }
 
-export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
+export const Ellipsis: FC<EllipsisProps> = p => {
+  const { locale } = useConfig()
+  const props = mergeProps(
+    defaultProps,
+    {
+      expandText: locale.Ellipsis.expandText,
+      collapseText: locale.Ellipsis.collapseText,
+    },
+    p
+  )
   const rootRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<{
     originContent: EllipsisedValue
@@ -225,7 +233,7 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
       {renderContent()}
     </div>
   )
-})
+}
 
 function pxToNumber(value: string | null): number {
   if (!value) return 0
