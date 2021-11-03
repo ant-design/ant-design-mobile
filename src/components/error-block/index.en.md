@@ -10,7 +10,7 @@
 
 | Name        | Description                          | Type                                                    | Default     |
 | ----------- | ------------------------------------ | ------------------------------------------------------- | ----------- |
-| status      | The Default error type               | `'default' \| 'disconnected' \| 'empty' \| 'forbidden'` | `'default'` |
+| status      | The Default error type               | `'default' \| 'disconnected' \| 'empty' \| 'busy'`      | `'default'` |
 | title       | Title                                | `ReactNode`                                             | -           |
 | description | Description                          | `ReactNode`                                             | -           |
 | image       | Image                                | `string \| ReactElement`                                | -           |
