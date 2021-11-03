@@ -1,4 +1,4 @@
-import { RefObject, useLayoutEffect, DependencyList } from 'react'
+import { RefObject, useLayoutEffect } from 'react'
 import { usePersistFn } from 'ahooks'
 
 export function useResizeEffect<T extends HTMLElement>(

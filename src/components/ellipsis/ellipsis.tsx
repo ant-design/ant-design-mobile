@@ -21,9 +21,8 @@ const defaultProps = {
 }
 
 type EllipsisedValue = {
-  start?: string
-  end?: string
-  all?: string
+  leading?: string
+  tailing?: string
 }
 
 export const Ellipsis: FC<EllipsisProps> = p => {
@@ -77,11 +76,11 @@ export const Ellipsis: FC<EllipsisProps> = p => {
         if (right - left <= 1) {
           if (props.direction === 'end') {
             return {
-              end: props.content.slice(0, left) + '...',
+              leading: props.content.slice(0, left) + '...',
             }
           } else {
             return {
-              start: '...' + props.content.slice(right, end),
+              tailing: '...' + props.content.slice(right, end),
             }
           }
         }
@@ -117,8 +116,8 @@ export const Ellipsis: FC<EllipsisProps> = p => {
           rightPart[1] - rightPart[0] <= 1
         ) {
           return {
-            start: props.content.slice(0, leftPart[0]) + '...',
-            end: '...' + props.content.slice(rightPart[1], end),
+            leading: props.content.slice(0, leftPart[0]) + '...',
+            tailing: '...' + props.content.slice(rightPart[1], end),
           }
         }
         const leftPartMiddle = Math.floor((leftPart[0] + leftPart[1]) / 2)
@@ -175,39 +174,24 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     ) : null
 
   const renderContent = () => {
-    if (expanded || !exceeded) {
+    if (!exceeded) {
+      return props.content
+    }
+    if (expanded) {
       return (
         <>
           {props.content}
           {collapseActionElement}
         </>
       )
-    }
-
-    if (props.direction === 'end') {
-      return (
-        <>
-          {ellipsised.end}
-          {expandActionElement}
-        </>
-      )
-    } else if (props.direction === 'start') {
-      return (
-        <>
-          {expandActionElement}
-          {ellipsised.start}
-        </>
-      )
-    } else if (props.direction === 'middle') {
-      return (
-        <>
-          {ellipsised.start}
-          {expandActionElement}
-          {ellipsised.end}
-        </>
-      )
     } else {
-      return null
+      return (
+        <>
+          {ellipsised.leading}
+          {expandActionElement}
+          {ellipsised.tailing}
+        </>
+      )
     }
   }
 
