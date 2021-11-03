@@ -36,7 +36,6 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     p
   )
   const rootRef = useRef<HTMLDivElement>(null)
-  const actionRef = useRef<HTMLAnchorElement>(null)
   const contentRef = useRef<{
     originContent: EllipsisedValue
     ellipsisedContent: EllipsisedValue
@@ -91,28 +90,27 @@ export const Ellipsis: FC<EllipsisProps> = p => {
         setShowAction(false)
       } else {
         const end = props.content.length
-        const actionTextLength = isExpand
-          ? props.collapseText.length
-          : props.expandText.length
+        const actionText = isExpand ? props.collapseText : props.expandText
 
         function check(left: number, right: number): EllipsisedValue {
           if (right - left <= 1) {
             if (props.direction === 'end') {
               return {
-                end: props.content.slice(0, left - actionTextLength) + '...',
+                end: props.content.slice(0, left) + '...',
               }
             } else {
               return {
-                start:
-                  '...' + props.content.slice(right + actionTextLength, end),
+                start: '...' + props.content.slice(right, end),
               }
             }
           }
           const middle = Math.round((left + right) / 2)
           if (props.direction === 'end') {
-            container.innerText = props.content.slice(0, middle) + '...'
+            container.innerText =
+              props.content.slice(0, middle) + '...' + actionText
           } else {
-            container.innerText = '...' + props.content.slice(middle, end)
+            container.innerText =
+              actionText + '...' + props.content.slice(middle, end)
           }
           if (container.offsetHeight <= maxHeight) {
             if (props.direction === 'end') {
@@ -138,16 +136,16 @@ export const Ellipsis: FC<EllipsisProps> = p => {
             rightPart[1] - rightPart[0] <= 1
           ) {
             return {
-              start: props.content.slice(0, leftPart[0] - 1) + '...',
-              end:
-                '...' +
-                props.content.slice(rightPart[1] + actionTextLength, end),
+              start: props.content.slice(0, leftPart[0]) + '...',
+              end: '...' + props.content.slice(rightPart[1], end),
             }
           }
           const leftPartMiddle = Math.floor((leftPart[0] + leftPart[1]) / 2)
           const rightPartMiddle = Math.floor((rightPart[0] + rightPart[1]) / 2)
           container.innerText =
             props.content.slice(0, leftPartMiddle) +
+            '...' +
+            actionText +
             '...' +
             props.content.slice(rightPartMiddle, end)
           if (container.offsetHeight <= maxHeight) {
@@ -182,7 +180,6 @@ export const Ellipsis: FC<EllipsisProps> = p => {
 
   const actionElement = showAction ? (
     <a
-      ref={actionRef}
       onClick={() => {
         setEllipsised(isExpand ? ellipsisedContent : originContent)
         setIsExpand(!isExpand)
