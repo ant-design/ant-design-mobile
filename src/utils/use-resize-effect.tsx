@@ -1,11 +1,16 @@
-import { RefObject, useLayoutEffect } from 'react'
+import { RefObject, useLayoutEffect, DependencyList } from 'react'
 import { usePersistFn } from 'ahooks'
 
 export function useResizeEffect(
   effect: () => void,
-  targetRef: RefObject<HTMLElement>
+  targetRef: RefObject<HTMLElement>,
+  effects?: DependencyList
 ) {
   const fn = usePersistFn(effect)
+  let layoutEffect: DependencyList = [targetRef]
+  if (effects) {
+    layoutEffect = [...layoutEffect, ...effects]
+  }
   useLayoutEffect(() => {
     const target = targetRef.current
     if (!target) return
@@ -20,5 +25,5 @@ export function useResizeEffect(
     } else {
       fn()
     }
-  }, [targetRef])
+  }, layoutEffect)
 }
