@@ -27,6 +27,7 @@ export type DropdownProps = {
 
 const defaultProps = {
   defaultActiveKey: null,
+  closeOnMaskClick: true,
 }
 
 const Dropdown: FC<DropdownProps> & {

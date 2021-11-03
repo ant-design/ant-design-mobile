@@ -112,32 +112,6 @@ export default () => {
           </Dropdown.Item>
         </Dropdown>
       </DemoBlock>
-      <DemoBlock title='点击遮罩后自动隐藏' padding={'0'}>
-        <Dropdown closeOnMaskClick>
-          <Dropdown.Item key='sorter' title='排序'>
-            <div style={{ padding: 12 }}>
-              排序内容
-              <br />
-              排序内容
-              <br />
-              排序内容
-              <br />
-              排序内容
-              <br />
-            </div>
-          </Dropdown.Item>
-          <Dropdown.Item key='bizop' title='商机筛选'>
-            <div style={{ padding: 12 }}>
-              商机筛选内容
-              <br />
-              商机筛选内容
-              <br />
-              商机筛选内容
-              <br />
-            </div>
-          </Dropdown.Item>
-        </Dropdown>
-      </DemoBlock>
     </div>
   )
 }
