@@ -2,10 +2,9 @@ import { mergeProps } from '../../utils/with-default-props'
 import React, { ReactNode, useState, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { PictureOutline, PictureWrongOutline } from 'antd-mobile-icons'
-import { useInViewport } from 'ahooks'
-import { useInitialized } from '../../utils/use-initialized'
 import { staged } from 'staged-components'
 import { toCSSLength } from '../../utils/to-css-length'
+import { LazyDetector } from './lazy-detector'
 
 const classPrefix = `adm-image`
 
@@ -57,17 +56,10 @@ export const Image = staged<ImageProps>(p => {
   let src: string | undefined = props.src
   let srcSet: string | undefined = props.srcSet
 
-  if (!props.lazy || loaded) {
-    return render()
-  }
+  const [initialized, setInitialized] = useState(!props.lazy)
 
-  return () => {
-    const inViewport = useInViewport(ref)
-    const initialized = useInitialized(inViewport)
-    src = initialized ? props.src : undefined
-    srcSet = initialized ? props.srcSet : undefined
-    return render()
-  }
+  src = initialized ? props.src : undefined
+  srcSet = initialized ? props.srcSet : undefined
 
   function renderInner() {
     if (failed) {
@@ -104,19 +96,24 @@ export const Image = staged<ImageProps>(p => {
     )
   }
 
-  function render() {
-    const style: ImageProps['style'] = {}
-    if (props.width) {
-      style['--width'] = toCSSLength(props.width)
-    }
-    if (props.height) {
-      style['--height'] = toCSSLength(props.height)
-    }
-    return withNativeProps(
-      props,
-      <div ref={ref} className={classPrefix} style={style}>
-        {renderInner()}
-      </div>
-    )
+  const style: ImageProps['style'] = {}
+  if (props.width) {
+    style['--width'] = toCSSLength(props.width)
   }
+  if (props.height) {
+    style['--height'] = toCSSLength(props.height)
+  }
+  return withNativeProps(
+    props,
+    <div ref={ref} className={classPrefix} style={style}>
+      {props.lazy && !initialized && (
+        <LazyDetector
+          onActive={() => {
+            setInitialized(true)
+          }}
+        />
+      )}
+      {renderInner()}
+    </div>
+  )
 })
