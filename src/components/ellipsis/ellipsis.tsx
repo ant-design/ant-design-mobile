@@ -34,7 +34,6 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   const [exceeded, setExceeded] = useState(false)
 
   useResizeEffect(() => {
-    if (expanded) return
     const root = rootRef.current
     if (!root) return
     const originStyle = window.getComputedStyle(root)
