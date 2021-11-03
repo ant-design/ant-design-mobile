@@ -49,16 +49,7 @@ export const Tabs: FC<TabsProps> = p => {
 
   const panes: ReactElement<ComponentProps<typeof TabPane>>[] = []
 
-  React.Children.forEach(props.children, (child, index) => {
-    if (!React.isValidElement(child)) return
-    const key = child.key
-    if (typeof key !== 'string') return
-    if (index === 0) {
-      firstActiveKey = key
-    }
-    keyToIndexRecord[key] = index
-    panes.push(child)
-  })
+  initKeyToIndexRecordAndPanes()
 
   const [activeKey, setActiveKey] = usePropsValue({
     value: props.activeKey,
@@ -82,6 +73,26 @@ export const Tabs: FC<TabsProps> = p => {
       clamp: true,
     },
   }))
+
+  function initKeyToIndexRecordAndPanes() {
+    const children = props.children as (
+      | ReactElement<ComponentProps<typeof TabPane>>
+      | boolean
+    )[]
+    React.Children.forEach(
+      children.filter(item => item !== false),
+      (child, index) => {
+        if (!React.isValidElement(child)) return
+        const key = child.key
+        if (typeof key !== 'string') return
+        if (index === 0) {
+          firstActiveKey = key
+        }
+        keyToIndexRecord[key] = index
+        panes.push(child)
+      }
+    )
+  }
 
   function animate(immediate = false) {
     const container = tabListContainerRef.current
@@ -153,6 +164,7 @@ export const Tabs: FC<TabsProps> = p => {
 
   useMutationEffect(
     () => {
+      initKeyToIndexRecordAndPanes()
       animate(true)
     },
     tabListContainerRef,
