@@ -13,6 +13,9 @@ export default () => {
       <DemoBlock title='带取消按钮的搜索框'>
         <Search placeholder='请输入内容' showCancelButton />
       </DemoBlock>
+      <DemoBlock title='取消按钮长显'>
+        <Search placeholder='请输入内容' showCancelButton={() => true} />
+      </DemoBlock>
       <DemoBlock title='事件监听和 Ref'>
         <Space block direction='vertical'>
           <Search
