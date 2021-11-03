@@ -55,6 +55,7 @@ export const Slides: FC<{
       },
       rubberband: true,
       axis: 'x',
+      pointer: { touch: true },
     }
   )
 

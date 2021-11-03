@@ -92,6 +92,7 @@ export const Column: FC<Props> = props => {
       axis: 'y',
       from: () => [0, y.get()],
       filterTaps: true,
+      pointer: { touch: true },
     }
   )
 
