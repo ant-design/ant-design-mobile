@@ -1,0 +1,65 @@
+name: Bug Report
+description: File a bug report
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: antd-mobile-version
+    attributes:
+      label: Version of antd-mobile
+      description: The exact version of antd-mobile you are using.
+      placeholder: eg. 5.0.0-beta.21
+    validations:
+      required: true
+  - type: dropdown
+    id: operating-system
+    attributes:
+      label: Operating system and its version
+      description: What operating system are you seeing the problem on? Also, we'd like to know its exact version.
+      multiple: true
+      options:
+        - iOS
+        - Android
+        - Others
+    validations:
+      required: false
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and its version
+      description: What browser are you seeing the problem on? Also, we'd like to know its exact version.
+      placeholder: eg. iOS Safari 13.1
+    validations:
+      required: false
+  - type: input
+    id: reproduce
+    attributes:
+      label: Sandbox to reproduce
+      description: 'If possible, please try to attach a sandbox link to reproduce. You can create one from this: https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx'
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/ant-design/ant-design-mobile/blob/master/.github/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

@@ -1,5 +1,5 @@
-import { withDefaultProps } from '../../utils/with-default-props'
-import React, { useEffect, useRef } from 'react'
+import { mergeProps } from '../../utils/with-default-props'
+import React, { FC, useEffect, useRef } from 'react'
 import { useLockFn, usePersistFn } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
@@ -31,9 +31,9 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
     </>
   )
 }
-export const InfiniteScroll = withDefaultProps({
-  threshold: 250,
-})<InfiniteScrollProps>(props => {
+
+export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
+  const props = mergeProps({ threshold: 250 }, p)
   const doLoadMore = useLockFn(() => props.loadMore())
 
   const elementRef = useRef<HTMLDivElement>(null)
@@ -50,7 +50,9 @@ export const InfiniteScroll = withDefaultProps({
       if (!parent) return
       const rect = element.getBoundingClientRect()
       const elementTop = rect.top
-      const current = isWindow(parent) ? window.innerHeight : parent.getBoundingClientRect().bottom
+      const current = isWindow(parent)
+        ? window.innerHeight
+        : parent.getBoundingClientRect().bottom
       if (current >= elementTop - props.threshold) {
         doLoadMore()
       }
@@ -83,4 +85,4 @@ export const InfiniteScroll = withDefaultProps({
       {!props.children && <InfiniteScrollContent hasMore={props.hasMore} />}
     </div>
   )
-})
+}

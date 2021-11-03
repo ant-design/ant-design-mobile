@@ -1,15 +1,6 @@
-import { FC } from 'react'
 import assign from 'lodash/assign'
 import assignWith from 'lodash/assignWith'
 import isUndefined from 'lodash/isUndefined'
-
-// TODO: deprecated
-export function withDefaultProps<D>(defaultProps: D) {
-  return function <P>(C: FC<P & typeof defaultProps>) {
-    C.defaultProps = defaultProps
-    return C as FC<P>
-  }
-}
 
 export function mergeProps<A, B>(a: A, b: B): B & A
 export function mergeProps<A, B, C>(a: A, b: B, c: C): C & B & A

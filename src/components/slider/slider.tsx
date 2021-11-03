@@ -1,10 +1,10 @@
-import React, { useMemo, useRef } from 'react'
+import React, { FC, useMemo, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
 import Marks, { SliderMarks } from './marks'
 import Thumb from './thumb'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
 import { usePropsValue } from '../../utils/use-props-value'
 
@@ -35,7 +35,8 @@ const defaultProps = {
   disabled: false,
 }
 
-export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
+export const Slider: FC<SliderProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const { min, max, disabled, marks, ticks, step } = props
 
   function sortValue(val: [number, number]): [number, number] {
@@ -212,4 +213,4 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
       )}
     </div>
   )
-})
+}

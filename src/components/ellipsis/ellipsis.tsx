@@ -1,4 +1,4 @@
-import React, { useRef, useState, FC } from 'react'
+import React, { FC, useRef, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
@@ -36,6 +36,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     p
   )
   const rootRef = useRef<HTMLDivElement>(null)
+  const actionRef = useRef<HTMLAnchorElement>(null)
   const contentRef = useRef<{
     originContent: EllipsisedValue
     ellipsisedContent: EllipsisedValue
@@ -181,6 +182,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
 
   const actionElement = showAction ? (
     <a
+      ref={actionRef}
       onClick={() => {
         setEllipsised(isExpand ? ellipsisedContent : originContent)
         setIsExpand(!isExpand)

@@ -1,9 +1,9 @@
 import { RefObject, useLayoutEffect, DependencyList } from 'react'
 import { usePersistFn } from 'ahooks'
 
-export function useResizeEffect(
-  effect: () => void,
-  targetRef: RefObject<HTMLElement>,
+export function useResizeEffect<T extends HTMLElement>(
+  effect: (target: T) => void,
+  targetRef: RefObject<T>,
   effects?: DependencyList
 ) {
   const fn = usePersistFn(effect)
@@ -16,14 +16,14 @@ export function useResizeEffect(
     if (!target) return
     if (window.ResizeObserver) {
       const observer = new ResizeObserver(() => {
-        fn()
+        fn(target)
       })
       observer.observe(target)
       return () => {
         observer.disconnect()
       }
     } else {
-      fn()
+      fn(target)
     }
   }, layoutEffect)
 }
