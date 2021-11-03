@@ -20,6 +20,7 @@ const classPrefix = `adm-dropdown`
 export type DropdownProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
+  closeOnMaskClick?: boolean
   onChange?: (key: string | null) => void
   // mask?: boolean;
 } & NativeProps
@@ -104,6 +105,13 @@ const Dropdown: FC<DropdownProps> & {
         bodyClassName={`${classPrefix}-popup-body`}
         style={{ top }}
         forceRender={popupForceRender}
+        onMaskClick={
+          props.closeOnMaskClick
+            ? () => {
+                changeActive(null)
+              }
+            : undefined
+        }
       >
         <div ref={contentRef}>
           {items.map(item => {
