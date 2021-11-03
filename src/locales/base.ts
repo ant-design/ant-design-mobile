@@ -30,10 +30,6 @@ export const base = {
   Mask: {
     name: 'Mask',
   },
-  Ellipsis: {
-    expandText: 'expand',
-    collapseText: 'collapse',
-  },
 }
 
 export type Locale = typeof base

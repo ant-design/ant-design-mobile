@@ -33,10 +33,6 @@ const zhCN = mergeLocale(base, {
   Mask: {
     name: '遮罩层',
   },
-  Ellipsis: {
-    expandText: '展开',
-    collapseText: '收起',
-  },
 })
 
 export default zhCN

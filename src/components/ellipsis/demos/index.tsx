@@ -1,5 +1,5 @@
 import React from 'react'
-import { Ellipsis } from 'antd-mobile'
+import { Ellipsis, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 const content =
@@ -19,6 +19,21 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='多行省略'>
         <Ellipsis direction='end' rows={3} content={content} />
+      </DemoBlock>
+      <DemoBlock title='展开收起'>
+        <Ellipsis
+          direction='end'
+          content={content}
+          expandText='展开'
+          collapseText='收起'
+        />
+      </DemoBlock>
+      <DemoBlock title='仅展开'>
+        <Space block direction='vertical'>
+          <Ellipsis direction='end' content={content} expandText='展开' />
+          <Ellipsis direction='start' content={content} expandText='展开' />
+          <Ellipsis direction='middle' content={content} expandText='展开' />
+        </Space>
       </DemoBlock>
     </div>
   )

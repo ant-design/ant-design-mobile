@@ -3,14 +3,9 @@ import { usePersistFn } from 'ahooks'
 
 export function useResizeEffect<T extends HTMLElement>(
   effect: (target: T) => void,
-  targetRef: RefObject<T>,
-  effects?: DependencyList
+  targetRef: RefObject<T>
 ) {
   const fn = usePersistFn(effect)
-  let layoutEffect: DependencyList = [targetRef]
-  if (effects) {
-    layoutEffect = [...layoutEffect, ...effects]
-  }
   useLayoutEffect(() => {
     const target = targetRef.current
     if (!target) return
@@ -25,5 +20,5 @@ export function useResizeEffect<T extends HTMLElement>(
     } else {
       fn(target)
     }
-  }, layoutEffect)
+  }, [targetRef])
 }
