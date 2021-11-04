@@ -27,3 +27,7 @@
 | ------- | ---------------- | --------------------------------------------------------------- | ------- |
 | span    | Span             | `number`                                                        | `1`     |
 | onClick | The click event. | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | -       |
+
+## FAQ
+
+The Grid component uses the CSS Grid feature, so the compatibility standard is iOS Safari >= 10.3 and Chrome >= 57.

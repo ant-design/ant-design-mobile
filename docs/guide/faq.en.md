@@ -36,4 +36,4 @@ Please refer to the [migration guide](./migration).
 
 ### Which browsers are compatible?
 
-The current compatibility standards are iOS >= 10 and Android >= 5.
+The current compatibility standards are iOS Safari >= 10 and Chrome >= 49.

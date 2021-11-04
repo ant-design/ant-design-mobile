@@ -27,3 +27,9 @@
 | ------- | -------- | --------------------------------------------------------------- | ------ |
 | span    | 跨度     | `number`                                                        | `1`    |
 | onClick | 点击事件 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | -      |
+
+## FAQ
+
+### Grid 组件的兼容性说明
+
+Grid 组件依赖了 CSS Grid 特性，所以兼容性标准是 iOS Safari >= 10.3 和 Chrome >= 57。
