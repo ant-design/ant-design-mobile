@@ -63,6 +63,7 @@ export const components = {
   other: ['/components/config-provider'],
   experimental: [
     '/components/what-is-experimental',
+    '/components/auto-center',
     '/components/desense-text',
     '/components/dropdown',
     '/components/ellipsis',
