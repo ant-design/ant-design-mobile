@@ -71,13 +71,16 @@ export const Dialog: FC<DialogProps> = p => {
             {!!props.title && (
               <div className={`${classPrefix}-body-title`}>{props.title}</div>
             )}
-            {!!props.content && (
-              <div className={`${classPrefix}-body-message-wrapper`}>
-                <div className={`${classPrefix}-body-message`}>
-                  {props.content}
+            {!!props.content &&
+              (typeof props.content === 'string' ? (
+                <div className={`${classPrefix}-body-message-wrapper`}>
+                  <div className={`${classPrefix}-body-message`}>
+                    {props.content}
+                  </div>
                 </div>
-              </div>
-            )}
+              ) : (
+                props.content
+              ))}
           </Space>
         </div>
         <div className={`${classPrefix}-footer`}>
