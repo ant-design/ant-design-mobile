@@ -1,16 +1,18 @@
-import React, { FC, useContext } from 'react'
+import React, { FC, useContext, useCallback, useState } from 'react'
 import classNames from 'classnames'
 import { NativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
 import type { FieldProps } from 'rc-field-form/lib/Field'
 import FieldContext from 'rc-field-form/lib/FieldContext'
-import type { Meta } from 'rc-field-form/lib/interface'
+import type { Meta, InternalNamePath } from 'rc-field-form/lib/interface'
 import { devWarning } from '../../utils/dev-log'
 
-import { FormContext } from './context'
+import { FormContext, NoStyleItemContext } from './context'
 import { toArray } from './utils'
 import List, { ListItemProps } from '../list'
 import type { FormLayout } from './index'
+
+const NAME_SPLIT = '__SPLIT__'
 
 type RenderChildren<Values = any> = (
   form: FormInstance<Values>
@@ -60,7 +62,7 @@ type FormItemLayoutProps = Pick<
   | 'layout'
 > & {
   htmlFor?: string
-  meta?: Meta
+  errors?: string[]
 }
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
@@ -71,10 +73,10 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     help,
     required,
     disabled,
-    meta,
     children,
     htmlFor,
     hidden,
+    errors,
   } = props
 
   const context = useContext(FormContext)
@@ -82,8 +84,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const hasFeedback = props.hasFeedback || context.hasFeedback
   const layout = props.layout || context.layout
 
-  const feedback =
-    hasFeedback && meta && meta.errors.length > 0 ? meta.errors[0] : null
+  const feedback = hasFeedback && errors && errors.length > 0 ? errors[0] : null
 
   const labelElement = label ? (
     <label className={`${classPrefix}-label`} htmlFor={htmlFor}>
@@ -149,6 +150,23 @@ export const FormItem: FC<FormItemProps> = props => {
   const updateRef = React.useRef(0)
   updateRef.current += 1
 
+  const [subMetas, setSubMetas] = useState<Record<string, Meta>>({})
+  const onSubMetaChange = useCallback(
+    (subMeta: Meta & { destroy?: boolean }, namePath: InternalNamePath) => {
+      setSubMetas(prevSubMetas => {
+        const nextSubMetas = { ...prevSubMetas }
+        const nameKey = namePath.join(NAME_SPLIT)
+        if (subMeta.destroy) {
+          delete nextSubMetas[nameKey]
+        } else {
+          nextSubMetas[nameKey] = subMeta
+        }
+        return nextSubMetas
+      })
+    },
+    [setSubMetas]
+  )
+
   function renderLayout(
     baseChildren: React.ReactNode,
     fieldId?: string,
@@ -158,6 +176,18 @@ export const FormItem: FC<FormItemProps> = props => {
     if (noStyle && !hidden) {
       return baseChildren
     }
+
+    const curErrors = meta?.errors ?? []
+    const errors = Object.keys(subMetas).reduce(
+      (subErrors: string[], key: string) => {
+        const errors = subMetas[key]?.errors ?? []
+        if (errors.length) {
+          subErrors = [...subErrors, ...errors]
+        }
+        return subErrors
+      },
+      curErrors
+    )
 
     return (
       <FormItemLayout
@@ -169,12 +199,14 @@ export const FormItem: FC<FormItemProps> = props => {
         disabled={disabled}
         hasFeedback={hasFeedback}
         htmlFor={fieldId}
-        meta={meta}
+        errors={errors}
         onClick={onClick}
         hidden={hidden}
         layout={layout}
       >
-        {baseChildren}
+        <NoStyleItemContext.Provider value={onSubMetaChange}>
+          {baseChildren}
+        </NoStyleItemContext.Provider>
       </FormItemLayout>
     )
   }
@@ -193,6 +225,14 @@ export const FormItem: FC<FormItemProps> = props => {
     Variables = { ...Variables, ...messageVariables }
   }
 
+  const notifyParentMetaChange = useContext(NoStyleItemContext)
+  const onMetaChange = (meta: Meta & { destroy?: boolean }) => {
+    if (noStyle && notifyParentMetaChange) {
+      const namePath = meta.name
+      notifyParentMetaChange(meta, namePath)
+    }
+  }
+
   return (
     <Field
       {...fieldProps}
@@ -202,6 +242,7 @@ export const FormItem: FC<FormItemProps> = props => {
       rules={rules}
       trigger={trigger}
       validateTrigger={mergedValidateTrigger}
+      onMetaChange={onMetaChange}
     >
       {(control, meta, context) => {
         let childNode: React.ReactNode = null
