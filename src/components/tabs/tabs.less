@@ -1,6 +1,8 @@
 @class-prefix-tabs: ~'adm-tabs';
 
 .@{class-prefix-tabs} {
+  position: relative;
+
   &-tab-list {
     display: flex;
     flex-wrap: nowrap;
@@ -43,5 +45,21 @@
   }
   &-content {
     padding: 12px;
+  }
+  &-tab-mask-left,
+  &-tab-mask-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 30px;
+  }
+  &-tab-mask-left {
+    left: 0;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.3));
+  }
+  &-tab-mask-right {
+    right: 0;
+    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0.3));
   }
 }

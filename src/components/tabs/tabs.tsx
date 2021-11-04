@@ -5,13 +5,14 @@ import React, {
   ComponentProps,
   useRef,
   useLayoutEffect,
+  useState,
 } from 'react'
 import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { bound } from '../../utils/bound'
-import { useUpdateLayoutEffect } from 'ahooks'
+import { useUpdateLayoutEffect, useThrottleFn } from 'ahooks'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { mergeProps } from '../../utils/with-default-props'
@@ -44,6 +45,9 @@ export const Tabs: FC<TabsProps> = p => {
   const tabListContainerRef = useRef<HTMLDivElement>(null)
   const rootRef = useRef<HTMLDivElement>(null)
   const activeLineRef = useRef<HTMLDivElement>(null)
+  const [showSideMask, setShowSideMask] = useState(false)
+  const leftMaskRef = useRef<HTMLDivElement>(null)
+  const rightMaskRef = useRef<HTMLDivElement>(null)
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
@@ -81,6 +85,13 @@ export const Tabs: FC<TabsProps> = p => {
       tension: 300,
       clamp: true,
     },
+  }))
+
+  const [{ opacity: leftMaskOpacity }, leftMaskApi] = useSpring(() => ({
+    opacity: 0,
+  }))
+  const [{ opacity: rightMaskOpacity }, rightMaskApi] = useSpring(() => ({
+    opacity: 0,
   }))
 
   function animate(immediate = false) {
@@ -144,6 +155,19 @@ export const Tabs: FC<TabsProps> = p => {
       from: { scrollLeft: containerScrollLeft },
       immediate,
     })
+
+    setShowSideMask(true)
+    const leftMask = leftMaskRef.current
+    if (!leftMask) return
+    const rightMask = rightMaskRef.current
+    if (!rightMask) return
+    leftMask.style.height = `${container.offsetHeight}px`
+    rightMask.style.height = `${container.offsetHeight}px`
+
+    if (containerScrollLeft !== 0) {
+      leftMaskApi.start({ opacity: 1, immediate })
+    }
+    rightMaskApi.start({ opacity: 1, immediate })
   }
 
   useLayoutEffect(() => {
@@ -170,13 +194,57 @@ export const Tabs: FC<TabsProps> = p => {
     }
   )
 
+  const { run: onScroll } = useThrottleFn(
+    () => {
+      const container = tabListContainerRef.current
+      if (!container) return
+
+      const scrollLeft = container.scrollLeft
+      const isLeft = scrollLeft === 0
+      const isRight =
+        scrollLeft + container.offsetWidth === container.scrollWidth
+
+      if (isLeft) {
+        leftMaskApi.start({
+          opacity: 0,
+        })
+      } else if (isRight) {
+        rightMaskApi.start({
+          opacity: 0,
+        })
+      } else {
+        if (leftMaskOpacity.get() !== 1) leftMaskApi.start({ opacity: 1 })
+        if (rightMaskOpacity.get() !== 1) rightMaskApi.start({ opacity: 1 })
+      }
+    },
+    {
+      wait: 50,
+      trailing: true,
+      leading: true,
+    }
+  )
+
   return withNativeProps(
     props,
     <div className={classPrefix} ref={rootRef}>
+      {showSideMask && (
+        <animated.div
+          ref={leftMaskRef}
+          className={`${classPrefix}-tab-mask-left`}
+          style={{
+            opacity: leftMaskOpacity,
+            display: leftMaskOpacity.to(v => {
+              if (v === 0) return 'none'
+              return 'block'
+            }),
+          }}
+        />
+      )}
       <animated.div
         className={`${classPrefix}-tab-list`}
         ref={tabListContainerRef}
         scrollLeft={scrollLeft}
+        onScroll={onScroll}
       >
         <animated.div
           ref={activeLineRef}
@@ -233,6 +301,19 @@ export const Tabs: FC<TabsProps> = p => {
         }
         return null
       })}
+      {showSideMask && (
+        <animated.div
+          ref={rightMaskRef}
+          className={`${classPrefix}-tab-mask-right`}
+          style={{
+            opacity: rightMaskOpacity,
+            display: rightMaskOpacity.to(v => {
+              if (v === 0) return 'none'
+              return 'block'
+            }),
+          }}
+        />
+      )}
     </div>
   )
 }
