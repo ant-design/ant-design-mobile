@@ -20,3 +20,4 @@
 | forceRender         | 被隐藏时是否渲染 `DOM` 结构  | `boolean`   | `false` |
 | destroyOnClose      | 不可见时卸载内容             | `boolean`   | `false` |
 | closeOnContentClick | 是否在点击下拉内容后自动隐藏 | `boolean`   | `false` |
+| closeOnMaskClick    | 是否在点击遮罩后自动隐藏     | `boolean`   | `true`  |

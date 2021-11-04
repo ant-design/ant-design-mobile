@@ -20,3 +20,4 @@
 | forceRender         | Whether to render the content even if it is not active       | `boolean`   | `false` |
 | destroyOnClose      | Unmount content when not visible                             | `boolean`   | `false` |
 | closeOnContentClick | Whether to automatically close after clicking on the content | `boolean`   | `false` |
+| closeOnMaskClick    | Whether to automatically close after clicking on the mask    | `boolean`   | `true`  |
