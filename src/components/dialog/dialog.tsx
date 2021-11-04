@@ -7,6 +7,7 @@ import Image from '../image'
 import Space from '../space'
 import { GetContainer } from '../../utils/render-to-container'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
+import AutoCenter from '../auto-center'
 
 const classPrefix = `adm-dialog`
 
@@ -71,16 +72,15 @@ export const Dialog: FC<DialogProps> = p => {
             {!!props.title && (
               <div className={`${classPrefix}-body-title`}>{props.title}</div>
             )}
-            {!!props.content &&
-              (typeof props.content === 'string' ? (
-                <div className={`${classPrefix}-body-message-wrapper`}>
-                  <div className={`${classPrefix}-body-message`}>
-                    {props.content}
-                  </div>
-                </div>
-              ) : (
-                props.content
-              ))}
+            {!!props.content && (
+              <div className={`${classPrefix}-body-content`}>
+                {typeof props.content === 'string' ? (
+                  <AutoCenter>{props.content}</AutoCenter>
+                ) : (
+                  props.content
+                )}
+              </div>
+            )}
           </Space>
         </div>
         <div className={`${classPrefix}-footer`}>
