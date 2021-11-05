@@ -87,11 +87,12 @@ export const Tabs: FC<TabsProps> = p => {
     },
   }))
 
-  const [{ opacity: leftMaskOpacity }, leftMaskApi] = useSpring(() => ({
-    opacity: 0,
-  }))
-  const [{ opacity: rightMaskOpacity }, rightMaskApi] = useSpring(() => ({
-    opacity: 0,
+  const [{ leftMaskOpacity, rightMaskOpacity }, maskApi] = useSpring(() => ({
+    leftMaskOpacity: 0,
+    rightMaskOpacity: 0,
+    config: {
+      clamp: true,
+    },
   }))
 
   function animate(immediate = false) {
@@ -165,9 +166,9 @@ export const Tabs: FC<TabsProps> = p => {
     rightMask.style.height = `${container.offsetHeight}px`
 
     if (containerScrollLeft !== 0) {
-      leftMaskApi.start({ opacity: 1, immediate })
+      maskApi.start({ leftMaskOpacity: 1, immediate })
     }
-    rightMaskApi.start({ opacity: 1, immediate })
+    maskApi.start({ rightMaskOpacity: 1, immediate })
   }
 
   useLayoutEffect(() => {
@@ -205,16 +206,16 @@ export const Tabs: FC<TabsProps> = p => {
         scrollLeft + container.offsetWidth === container.scrollWidth
 
       if (isLeft) {
-        leftMaskApi.start({
-          opacity: 0,
+        maskApi.start({
+          leftMaskOpacity: 0,
         })
       } else if (isRight) {
-        rightMaskApi.start({
-          opacity: 0,
+        maskApi.start({
+          rightMaskOpacity: 0,
         })
       } else {
-        if (leftMaskOpacity.get() !== 1) leftMaskApi.start({ opacity: 1 })
-        if (rightMaskOpacity.get() !== 1) rightMaskApi.start({ opacity: 1 })
+        if (leftMaskOpacity.get() !== 1) maskApi.start({ leftMaskOpacity: 1 })
+        if (rightMaskOpacity.get() !== 1) maskApi.start({ rightMaskOpacity: 1 })
       }
     },
     {
