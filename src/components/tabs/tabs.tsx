@@ -11,7 +11,7 @@ import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { bound } from '../../utils/bound'
-import { useUpdateLayoutEffect } from 'ahooks'
+import { useUpdateLayoutEffect, useThrottleFn } from 'ahooks'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { mergeProps } from '../../utils/with-default-props'
@@ -79,6 +79,14 @@ export const Tabs: FC<TabsProps> = p => {
     scrollLeft: 0,
     config: {
       tension: 300,
+      clamp: true,
+    },
+  }))
+
+  const [{ leftMaskOpacity, rightMaskOpacity }, maskApi] = useSpring(() => ({
+    leftMaskOpacity: 0,
+    rightMaskOpacity: 0,
+    config: {
       clamp: true,
     },
   }))
@@ -170,49 +178,97 @@ export const Tabs: FC<TabsProps> = p => {
     }
   )
 
+  const { run: updateMask } = useThrottleFn(
+    (immediate = false) => {
+      const container = tabListContainerRef.current
+      if (!container) return
+
+      const scrollLeft = container.scrollLeft
+      const showLeftMask = scrollLeft > 0
+      const showRightMask =
+        scrollLeft + container.offsetWidth < container.scrollWidth
+
+      maskApi.start({
+        leftMaskOpacity: showLeftMask ? 1 : 0,
+        rightMaskOpacity: showRightMask ? 1 : 0,
+        immediate,
+      })
+    },
+    {
+      wait: 100,
+      trailing: true,
+      leading: true,
+    }
+  )
+
+  useLayoutEffect(() => {
+    updateMask(true)
+  }, [])
+
   return withNativeProps(
     props,
     <div className={classPrefix} ref={rootRef}>
-      <animated.div
-        className={`${classPrefix}-tab-list`}
-        ref={tabListContainerRef}
-        scrollLeft={scrollLeft}
-      >
+      <div className={`${classPrefix}-header`}>
         <animated.div
-          ref={activeLineRef}
-          className={`${classPrefix}-tab-line`}
+          className={classNames(
+            `${classPrefix}-header-mask`,
+            `${classPrefix}-header-mask-left`
+          )}
           style={{
-            width:
-              props.activeLineMode === 'fixed'
-                ? 'var(--fixed-active-line-width, 30px)'
-                : width,
-            x,
+            opacity: leftMaskOpacity,
           }}
         />
-        {panes.map(pane =>
-          withNativeProps(
-            pane.props,
-            <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
-              <div
-                onClick={() => {
-                  const { key } = pane
-                  if (pane.props.disabled) return
-                  if (key === undefined || key === null) {
-                    return
-                  }
-                  setActiveKey(key.toString())
-                }}
-                className={classNames(`${classPrefix}-tab`, {
-                  [`${classPrefix}-tab-active`]: pane.key === activeKey,
-                  [`${classPrefix}-tab-disabled`]: pane.props.disabled,
-                })}
-              >
-                {pane.props.title}
+        <animated.div
+          className={classNames(
+            `${classPrefix}-header-mask`,
+            `${classPrefix}-header-mask-right`
+          )}
+          style={{
+            opacity: rightMaskOpacity,
+          }}
+        />
+        <animated.div
+          className={`${classPrefix}-tab-list`}
+          ref={tabListContainerRef}
+          scrollLeft={scrollLeft}
+          onScroll={updateMask}
+        >
+          <animated.div
+            ref={activeLineRef}
+            className={`${classPrefix}-tab-line`}
+            style={{
+              width:
+                props.activeLineMode === 'fixed'
+                  ? 'var(--fixed-active-line-width, 30px)'
+                  : width,
+              x,
+            }}
+          />
+          {panes.map(pane =>
+            withNativeProps(
+              pane.props,
+              <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
+                <div
+                  onClick={() => {
+                    const { key } = pane
+                    if (pane.props.disabled) return
+                    if (key === undefined || key === null) {
+                      return
+                    }
+                    setActiveKey(key.toString())
+                  }}
+                  className={classNames(`${classPrefix}-tab`, {
+                    [`${classPrefix}-tab-active`]: pane.key === activeKey,
+                    [`${classPrefix}-tab-disabled`]: pane.props.disabled,
+                  })}
+                >
+                  {pane.props.title}
+                </div>
               </div>
-            </div>
-          )
-        )}
-      </animated.div>
+            )
+          )}
+        </animated.div>
+      </div>
       {panes.map(pane => {
         if (pane.props.children === undefined) {
           return null

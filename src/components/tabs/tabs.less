@@ -1,13 +1,19 @@
 @class-prefix-tabs: ~'adm-tabs';
 
 .@{class-prefix-tabs} {
+  position: relative;
+
+  &-header {
+    position: relative;
+    border-bottom: solid 1px var(--adm-border-color);
+  }
+
   &-tab-list {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    border-bottom: solid 1px var(--adm-border-color);
     overflow-x: scroll;
     &::-webkit-scrollbar {
       display: none;
@@ -43,5 +49,22 @@
   }
   &-content {
     padding: 12px;
+  }
+  &-header-mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 30px;
+    height: 100%;
+    pointer-events: none;
+  }
+  &-header-mask-left {
+    left: 0;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+  }
+  &-header-mask-right {
+    right: 0;
+    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
   }
 }
