@@ -87,6 +87,17 @@ export default () => {
           {items}
         </Swiper>
       </DemoBlock>
+      <DemoBlock title='竖向'>
+        <Swiper direction='vertical'>{items}</Swiper>
+      </DemoBlock>
+      <DemoBlock title='竖向居中展示'>
+        <Swiper
+          direction='vertical'
+          style={{ '--height': '160px', '--track-offset': '20px' }}
+        >
+          {items}
+        </Swiper>
+      </DemoBlock>
     </>
   )
 }

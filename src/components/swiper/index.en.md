@@ -8,15 +8,16 @@
 
 ### API
 
-| Name             | Description                                    | Type                                                                       | Default |
-| ---------------- | ---------------------------------------------- | -------------------------------------------------------------------------- | ------- |
-| defaultIndex     | The initial position                           | `number`                                                                   | `0`     |
-| allowTouchMove   | Whether to allow gesture sliding               | `boolean`                                                                  | `true`  |
-| autoplay         | Whether to switch automatically                | `boolean`                                                                  | `false` |
-| autoplayInterval | Automatic switching interval, the unit is `ms` | `number`                                                                   | `3000`  |
-| loop             | Whether to loop                                | `boolean`                                                                  | `true`  |
-| onIndexChange    | Triggered on index is changed                  | `(index: number) => void`                                                  | -       |
-| indicatorProps   | Related attributes of the indicator            | support [PageIndicator](./page-indicator) `color` `style` `className` prop | -       |
+| Name             | Description                                    | Type                                                                       | Default        |
+| ---------------- | ---------------------------------------------- | -------------------------------------------------------------------------- | -------------- |
+| defaultIndex     | The initial position                           | `number`                                                                   | `0`            |
+| allowTouchMove   | Whether to allow gesture sliding               | `boolean`                                                                  | `true`         |
+| autoplay         | Whether to switch automatically                | `boolean`                                                                  | `false`        |
+| autoplayInterval | Automatic switching interval, the unit is `ms` | `number`                                                                   | `3000`         |
+| loop             | Whether to loop                                | `boolean`                                                                  | `true`         |
+| direction        | Layout direction                               | `'horizontal' \| 'vertical'`                                               | `'horizontal'` |
+| onIndexChange    | Triggered on index is changed                  | `(index: number) => void`                                                  | -              |
+| indicatorProps   | Related attributes of the indicator            | support [PageIndicator](./page-indicator) `color` `style` `className` prop | -              |
 
 ### CSS Variables
 

@@ -32,6 +32,7 @@ export type SwiperProps = {
   autoplay?: boolean
   autoplayInterval?: number
   loop?: boolean
+  direction?: 'horizontal' | 'vertical'
   onIndexChange?: (index: number) => void
   indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
   indicator?: (total: number, current: number) => ReactNode
@@ -40,6 +41,7 @@ export type SwiperProps = {
   | '--height'
   | '--width'
   | '--slide-width'
+  | '--slide-height'
   | '--border-radius'
   | '--track-padding'
   | '--track-offset'
@@ -51,11 +53,14 @@ const defaultProps = {
   autoplay: false,
   autoplayInterval: 3000,
   loop: true,
+  direction: 'horizontal',
 }
 
 export const Swiper = forwardRef(
   staged<SwiperProps, SwiperRef>((p, ref) => {
     const props = mergeProps(defaultProps, p)
+
+    const isVertical = props.direction === 'vertical'
 
     const { validChildren, count } = useMemo(() => {
       let count = 0
@@ -92,28 +97,28 @@ export const Swiper = forwardRef(
         loop = false
       }
       const trackRef = useRef<HTMLDivElement>(null)
-      function getWidth() {
+      function getSize() {
         const track = trackRef.current
         if (!track) return 0
-        return track.offsetWidth
+        return isVertical ? track.offsetHeight : track.offsetWidth
       }
 
       const [current, setCurrent] = useState(props.defaultIndex)
 
       const [dragging, setDragging, draggingRef] = useRefState(false)
 
-      const [{ x }, api] = useSpring(
+      const [{ position }, api] = useSpring(
         () => ({
-          x: bound(current, 0, count - 1) * 100,
+          position: bound(current, 0, count - 1) * 100,
           config: { tension: 200, friction: 30 },
           onRest: () => {
             if (draggingRef.current) return
-            const rawX = x.get()
+            const rawX = position.get()
             const totalWidth = 100 * count
-            const standardX = modulus(rawX, totalWidth)
-            if (standardX === rawX) return
+            const standardPosition = modulus(rawX, totalWidth)
+            if (standardPosition === rawX) return
             api.start({
-              x: standardX,
+              position: standardPosition,
               immediate: true,
             })
           },
@@ -123,21 +128,21 @@ export const Swiper = forwardRef(
 
       const bind = useDrag(
         state => {
-          const width = getWidth()
-          if (!width) return
-          const [offsetX] = state.offset
+          const size = getSize()
+          if (!size) return
+          const paramIndex = isVertical ? 1 : 0
+          const offset = state.offset[paramIndex]
+          const direction = state.direction[paramIndex]
+          const velocity = state.velocity[paramIndex]
           setDragging(true)
           if (!state.last) {
             api.start({
-              x: (offsetX * 100) / width,
+              position: (offset * 100) / size,
               immediate: true,
             })
           } else {
             const index = Math.round(
-              (offsetX +
-                Math.min(state.velocity[0] * 2000, width) *
-                  state.direction[0]) /
-                width
+              (offset + Math.min(velocity * 2000, size) * direction) / size
             )
             swipeTo(index)
             window.setTimeout(() => {
@@ -146,22 +151,30 @@ export const Swiper = forwardRef(
           }
         },
         {
-          transform: ([x, y]) => [-x, y],
+          transform: ([x, y]) => [-x, -y],
           from: () => {
-            const width = getWidth()
-            return [(x.get() / 100) * width, 0]
+            const size = getSize()
+            return [
+              (position.get() / 100) * size,
+              (position.get() / 100) * size,
+            ]
           },
           bounds: () => {
             if (loop) return {}
-            const width = getWidth()
-            return {
-              left: 0,
-              right: (count - 1) * width,
-            }
+            const size = getSize()
+            return isVertical
+              ? {
+                  top: 0,
+                  bottom: (count - 1) * size,
+                }
+              : {
+                  left: 0,
+                  right: (count - 1) * size,
+                }
           },
           rubberband: true,
-          axis: 'x',
-          preventScroll: true,
+          axis: isVertical ? 'y' : 'x',
+          preventScroll: !isVertical,
           pointer: {
             touch: true,
           },
@@ -174,24 +187,24 @@ export const Swiper = forwardRef(
           setCurrent(i)
           props.onIndexChange?.(i)
           api.start({
-            x: index * 100,
+            position: index * 100,
           })
         } else {
           const i = bound(index, 0, count - 1)
           setCurrent(i)
           props.onIndexChange?.(i)
           api.start({
-            x: i * 100,
+            position: i * 100,
           })
         }
       }
 
       function swipeNext() {
-        swipeTo(Math.round(x.get() / 100) + 1)
+        swipeTo(Math.round(position.get() / 100) + 1)
       }
 
       function swipePrev() {
-        swipeTo(Math.round(x.get() / 100) - 1)
+        swipeTo(Math.round(position.get() / 100) - 1)
       }
 
       useImperativeHandle(ref, () => ({
@@ -213,7 +226,9 @@ export const Swiper = forwardRef(
 
       return withNativeProps(
         props,
-        <div className='adm-swiper'>
+        <div
+          className={classNames('adm-swiper', `adm-swiper-${props.direction}`)}
+        >
           <div
             className={classNames('adm-swiper-track', {
               'adm-swiper-track-allow-touch-move': props.allowTouchMove,
@@ -231,16 +246,16 @@ export const Swiper = forwardRef(
                   <animated.div
                     className='adm-swiper-slide'
                     style={{
-                      x: x.to(x => {
-                        let position = -x + index * 100
+                      [isVertical ? 'y' : 'x']: position.to(position => {
+                        let finalPosition = -position + index * 100
                         if (loop) {
                           const totalWidth = count * 100
                           const flagWidth = totalWidth / 2 - 10
-                          position =
-                            modulus(position + flagWidth, totalWidth) -
+                          finalPosition =
+                            modulus(finalPosition + flagWidth, totalWidth) -
                             flagWidth
                         }
-                        return `${position}%`
+                        return `${finalPosition}%`
                       }),
                       left: `-${index * 100}%`,
                     }}
@@ -257,6 +272,7 @@ export const Swiper = forwardRef(
                 {...props.indicatorProps}
                 total={count}
                 current={current}
+                direction={props.direction}
               />
             </div>
           ) : (

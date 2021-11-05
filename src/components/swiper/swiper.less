@@ -2,6 +2,7 @@
   --height: auto;
   --width: 100%;
   --slide-width: 100%;
+  --slide-height: auto;
   --border-radius: 0;
   --track-padding: 0;
   --track-offset: 0;
@@ -16,24 +17,17 @@
     width: 100%;
     white-space: nowrap;
     padding: var(--track-padding);
-    transform: translateX(var(--track-offset));
     &-allow-touch-move {
       cursor: grab;
-      touch-action: pan-y;
     }
     &-inner {
       width: var(--slide-width);
+      height: var(--slide-height);
       overflow: visible;
       position: relative;
       display: flex;
       flex-wrap: nowrap;
     }
-  }
-  &-indicator {
-    position: absolute;
-    bottom: 6px;
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
 
@@ -51,4 +45,32 @@
   width: 100%;
   height: auto;
   white-space: normal;
+}
+
+.adm-swiper-horizontal {
+  .adm-swiper-track-allow-touch-move {
+    touch-action: pan-y;
+  }
+  .adm-swiper-indicator {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+  }
+  .adm-swiper-track {
+    transform: translateX(var(--track-offset));
+  }
+}
+.adm-swiper-vertical {
+  .adm-swiper-track-allow-touch-move {
+    touch-action: pan-x;
+  }
+  .adm-swiper-indicator {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .adm-swiper-track {
+    transform: translateY(var(--track-offset));
+  }
 }
