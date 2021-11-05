@@ -26,6 +26,7 @@
 | --height        | 高度                 | `auto` |
 | --width         | 宽度                 | `100%` |
 | --slide-width   | 滑块宽度             | `100%` |
+| --slide-height  | 滑块高度             | `auto` |
 | --border-radius | 整体组件的圆角       | `0`    |
 | --track-padding | 轨道区域的 `padding` | `0`    |
 | --track-offset  | 轨道的整体偏移量     | `0`    |

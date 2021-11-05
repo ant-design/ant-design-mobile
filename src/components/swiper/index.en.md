@@ -26,6 +26,7 @@
 | --height        | height                                   | `auto`  |
 | --width         | width                                    | `100%`  |
 | --slide-width   | slide width                              | `100%`  |
+| --slide-height  | slide height                             | `auto`  |
 | --border-radius | rounded corners of the overall component | `0`     |
 | --track-padding | `padding` in the track area              | `0`     |
 | --track-offset  | the overall offset of the track          | `0`     |
