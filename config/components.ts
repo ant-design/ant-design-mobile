@@ -34,7 +34,6 @@ export const components = {
     '/components/stepper',
     '/components/switch',
     '/components/text-area',
-    '/components/number-keyboard',
   ],
   feedback: [
     '/components/action-sheet',
@@ -67,6 +66,7 @@ export const components = {
     '/components/what-is-experimental',
     '/components/desense-text',
     '/components/image-uploader',
+    '/components/number-keyboard',
     '/components/picker-view',
     '/components/tree-select',
   ],

@@ -10,7 +10,7 @@ import {
 
 const classPrefix = `adm-result`
 
-const ICONS = {
+const iconRecord = {
   success: CheckCircleFill,
   error: CloseCircleFill,
   info: InformationCircleFill,
@@ -29,7 +29,8 @@ export interface ResultProps {
 
 export const Result: FC<ResultProps> = props => {
   const { className, style, status, title, description, icon } = props
-  const resultIcon = icon || React.createElement(ICONS[status])
+  if (!status) return null
+  const resultIcon = icon || React.createElement(iconRecord[status])
 
   return (
     <div
@@ -43,8 +44,4 @@ export const Result: FC<ResultProps> = props => {
       ) : null}
     </div>
   )
-}
-
-Result.defaultProps = {
-  description: '',
 }

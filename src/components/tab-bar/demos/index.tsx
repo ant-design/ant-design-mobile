@@ -1,5 +1,5 @@
 import { DemoBlock } from 'demos'
-import { TabBar } from 'antd-mobile'
+import { Badge, TabBar } from 'antd-mobile'
 import React, { useState } from 'react'
 import {
   AppOutline,
@@ -14,7 +14,7 @@ export default () => {
       key: 'home',
       title: '首页',
       icon: <AppOutline />,
-      badge: '',
+      badge: Badge.dot,
     },
     {
       key: 'todo',

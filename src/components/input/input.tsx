@@ -20,6 +20,9 @@ type EnterKeyHintProps = NativeInputProps extends { enterKeyHint?: unknown }
 export type InputProps = Pick<
   NativeInputProps,
   | 'maxLength'
+  | 'minLength'
+  | 'max'
+  | 'min'
   | 'autoComplete'
   | 'pattern'
   | 'type'
@@ -93,6 +96,9 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         disabled={props.disabled}
         readOnly={props.readOnly}
         maxLength={props.maxLength}
+        minLength={props.minLength}
+        max={props.max}
+        min={props.min}
         autoComplete={props.autoComplete}
         enterKeyHint={props.enterKeyHint}
         pattern={props.pattern}

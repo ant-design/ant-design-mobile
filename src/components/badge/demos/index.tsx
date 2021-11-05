@@ -2,16 +2,13 @@ import React from 'react'
 import { DemoBlock } from 'demos'
 import styles from './index.less'
 import { Badge, Space } from 'antd-mobile'
-import { CloseOutline, ExclamationOutline } from 'antd-mobile-icons'
+import { CloseOutline, DownlandOutline } from 'antd-mobile-icons'
 
 export default () => {
   return (
     <>
       <DemoBlock title='基本用法'>
         <Space size='24px'>
-          <Badge>
-            <div className={styles.box} />
-          </Badge>
           <Badge content='5'>
             <div className={styles.box} />
           </Badge>
@@ -21,27 +18,38 @@ export default () => {
           <Badge content='更新啦'>
             <div className={styles.box} />
           </Badge>
+          <Badge>
+            <div className={styles.box} />
+          </Badge>
         </Space>
       </DemoBlock>
       <DemoBlock title='自定义颜色和偏移量'>
         <Space size='24px'>
-          <Badge offset={[-40, 40]} color='#108ee9'>
+          <Badge
+            color='#108ee9'
+            content={Badge.dot}
+            style={{ '--right': '100%', '--top': '100%' }}
+          >
             <div className={styles.box} />
           </Badge>
-          <Badge offset={[-40, 0]} color='#87d068'>
+          <Badge
+            color='#87d068'
+            content={Badge.dot}
+            style={{ '--right': '100%' }}
+          >
             <div className={styles.box} />
           </Badge>
-          <Badge offset={[0, 0]}>
+          <Badge content={Badge.dot}>
             <div className={styles.box} />
           </Badge>
-          <Badge offset={[0, 40]} color='orange'>
+          <Badge color='orange' content={Badge.dot} style={{ '--top': '100%' }}>
             <div className={styles.box} />
           </Badge>
         </Space>
       </DemoBlock>
       <DemoBlock title='自定义徽标内容'>
         <Space size='24px'>
-          <Badge content={<ExclamationOutline className={styles.badgeIcon} />}>
+          <Badge content={<DownlandOutline className={styles.badgeIcon} />}>
             <div className={styles.box} />
           </Badge>
           <Badge content={<CloseOutline className={styles.badgeIcon} />}>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
 import classNames from 'classnames'
-import Input, { InputRef } from '../input'
+import Input, { InputRef, InputProps } from '../input'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutline } from 'antd-mobile-icons'
@@ -11,7 +11,7 @@ const classPrefix = `adm-search`
 
 export type SearchRef = InputRef
 
-export type SearchProps = {
+export type SearchProps = Pick<InputProps, 'onFocus' | 'onBlur' | 'onClear'> & {
   value?: string
   defaultValue?: string
   maxLength?: number
@@ -21,9 +21,6 @@ export type SearchProps = {
   cancelText?: string
   onSearch?: (val: string) => void
   onChange?: (val: string) => void
-  onFocus?: () => void
-  onBlur?: () => void
-  onClear?: () => void
   onCancel?: () => void
 } & NativeProps<'--background' | '--border-radius' | '--placeholder-color'>
 
@@ -75,13 +72,13 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
           maxLength={props.maxLength}
           placeholder={props.placeholder}
           clearable={props.clearable}
-          onFocus={() => {
+          onFocus={e => {
             setHasFocus(true)
-            props.onFocus?.()
+            props.onFocus?.(e)
           }}
-          onBlur={() => {
+          onBlur={e => {
             setHasFocus(false)
-            props.onBlur?.()
+            props.onBlur?.(e)
           }}
           onClear={props.onClear}
           type='search'

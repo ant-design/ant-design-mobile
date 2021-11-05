@@ -71,6 +71,22 @@ export default () => {
           <DemoDescription content='通过 CSS 变量可以控制滑块的大小、整体的圆角等样式' />
         </Space>
       </DemoBlock>
+      <DemoBlock title='居中展示'>
+        <Space direction='vertical' block>
+          <Swiper
+            loop={false}
+            style={{ '--slide-width': '80%', '--track-offset': '10%' }}
+          >
+            {items}
+          </Swiper>
+          <DemoDescription content='通过 CSS 变量可以控制滑块的大小和轨道的偏移量' />
+        </Space>
+      </DemoBlock>
+      <DemoBlock title='循环居中展示'>
+        <Swiper style={{ '--slide-width': '70%', '--track-offset': '15%' }}>
+          {items}
+        </Swiper>
+      </DemoBlock>
       <DemoBlock title='指示器颜色'>
         <Space direction='vertical' block>
           <Swiper

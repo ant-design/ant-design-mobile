@@ -42,6 +42,7 @@ export type SwiperProps = {
   | '--slide-width'
   | '--border-radius'
   | '--track-padding'
+  | '--track-offset'
 >
 
 const defaultProps = {
@@ -227,7 +228,9 @@ export const Swiper = forwardRef(
                         let position = -x + index * 100
                         if (loop) {
                           const totalWidth = count * 100
-                          position = modulus(position + 100, totalWidth) - 100
+                          position =
+                            modulus(position + totalWidth / 2, totalWidth) -
+                            totalWidth / 2
                         }
                         return `${position}%`
                       }),

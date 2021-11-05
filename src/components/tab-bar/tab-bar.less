@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
   overflow: hidden;
   min-height: 50px;
   &-item {
@@ -15,6 +15,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
   }
 
@@ -32,5 +33,13 @@
 
   &-item-active {
     color: var(--adm-color-primary);
+  }
+
+  &-icon-badge {
+    --top: 6px;
+  }
+  &-title-badge {
+    --right: -2px;
+    --top: -2px;
   }
 }
