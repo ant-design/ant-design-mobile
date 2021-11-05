@@ -92,7 +92,7 @@
     "webpack-stream": "^7.0.0"
   },
   "peerDependencies": {
-    "react": "^16.8.6 || ^17.0.0"
+    "react": "^16.8.0 || ^17.0.0"
   },
   "main": "./cjs/index.js",
   "module": "./es/index.js",

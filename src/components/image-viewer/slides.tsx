@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import { useDrag } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
 import { Slide } from './slide'
@@ -18,13 +18,15 @@ export const Slides: FC<{
 
   const [{ x }, api] = useSpring(() => ({
     x: props.defaultIndex * slideWidth,
-    config: { tension: 300 },
+    config: { tension: 250, clamp: true },
   }))
 
   const count = props.images.length
 
+  const dragLockRef = useRef(false)
   const bind = useDrag(
     state => {
+      if (dragLockRef.current) return
       const [offsetX] = state.offset
       if (state.last) {
         const velocityOffset =
@@ -85,6 +87,7 @@ export const Slides: FC<{
                 })
               }
             }}
+            dragLockRef={dragLockRef}
           />
         ))}
       </animated.div>
