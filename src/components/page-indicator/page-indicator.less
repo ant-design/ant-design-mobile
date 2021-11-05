@@ -1,6 +1,7 @@
 .adm-page-indicator {
   display: flex;
   width: fit-content;
+
   --dot-color: rgba(0, 0, 0, 0.2);
   --active-dot-color: var(--adm-color-primary);
   --dot-size: 3px;
@@ -15,17 +16,34 @@
     height: var(--dot-size);
     border-radius: var(--dot-border-radius);
     background: var(--dot-color);
-    margin-right: var(--dot-spacing);
+
     &:last-child {
       margin-right: 0;
     }
     &-active {
-      width: var(--active-dot-size);
       border-radius: var(--active-dot-border-radius);
       background: var(--active-dot-color);
     }
   }
   &-color-white {
     --active-dot-color: var(--adm-color-white);
+  }
+  &-horizontal {
+    flex-direction: row;
+    .adm-page-indicator-dot {
+      margin-right: var(--dot-spacing);
+      &-active {
+        width: var(--active-dot-size);
+      }
+    }
+  }
+  &-vertical {
+    flex-direction: column;
+    .adm-page-indicator-dot {
+      margin-bottom: var(--dot-spacing);
+      &-active {
+        height: var(--active-dot-size);
+      }
+    }
   }
 }

@@ -8,6 +8,7 @@ const classPrefix = `adm-page-indicator`
 export type PageIndicatorProps = {
   total: number
   current: number
+  direction?: 'horizontal' | 'vertical'
   color?: 'primary' | 'white'
 } & NativeProps<
   | '--dot-color'
@@ -21,6 +22,7 @@ export type PageIndicatorProps = {
 
 const defaultProps = {
   color: 'primary',
+  direction: 'horizontal',
 }
 
 export const PageIndicator = memo<PageIndicatorProps>(p => {
@@ -41,7 +43,11 @@ export const PageIndicator = memo<PageIndicatorProps>(p => {
   return withNativeProps(
     props,
     <div
-      className={classNames(classPrefix, `${classPrefix}-color-${props.color}`)}
+      className={classNames(
+        classPrefix,
+        `${classPrefix}-${props.direction}`,
+        `${classPrefix}-color-${props.color}`
+      )}
     >
       {dots}
     </div>

@@ -11,6 +11,9 @@ export default () => {
       <DemoBlock title='白色' background='rgb(212 212 212)'>
         <PageIndicator total={4} current={0} color='white' />
       </DemoBlock>
+      <DemoBlock title='竖直方向'>
+        <PageIndicator total={4} current={0} direction='vertical' />
+      </DemoBlock>
       <DemoBlock title='自定义颜色和大小'>
         <PageIndicator
           total={4}

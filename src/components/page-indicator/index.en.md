@@ -4,11 +4,12 @@
 
 ## API
 
-| Name    | Description                      | Type                   | Default     |
-| ------- | -------------------------------- | ---------------------- | ----------- |
-| total   | Total page number                | `number`               | -           |
-| current | Current page (counting from `0`) | `number`               | -           |
-| color   | Color                            | `'primary' \| 'white'` | `'primary'` |
+| Name      | Description                      | Type                         | Default        |
+| --------- | -------------------------------- | ---------------------------- | -------------- |
+| total     | Total page number                | `number`                     | -              |
+| current   | Current page (counting from `0`) | `number`                     | -              |
+| color     | Color                            | `'primary' \| 'white'`       | `'primary'`    |
+| direction | Layout direction                 | `'horizontal' \| 'vertical'` | `'horizontal'` |
 
 ## CSS Variables
 
