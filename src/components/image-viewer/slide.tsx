@@ -9,10 +9,11 @@ type Props = {
   maxZoom: number
   onTap: () => void
   onZoomChange?: (zoom: number) => void
-  dragLockRef: MutableRefObject<boolean>
+  dragLockRef?: MutableRefObject<boolean>
 }
 
 export const Slide: FC<Props> = props => {
+  const { dragLockRef } = props
   const controlRef = useRef<HTMLDivElement>(null)
   const [{ zoom, x, y }, api] = useSpring(() => ({
     zoom: 1,
@@ -32,7 +33,9 @@ export const Slide: FC<Props> = props => {
           return
         }
         const currentZoom = zoom.get()
-        props.dragLockRef.current = currentZoom !== 1
+        if (dragLockRef) {
+          dragLockRef.current = currentZoom !== 1
+        }
         if (!pinchLockRef.current && currentZoom <= 1) {
           api.start({
             x: 0,
@@ -63,9 +66,13 @@ export const Slide: FC<Props> = props => {
             x: 0,
             y: 0,
           })
-          props.dragLockRef.current = false
+          if (dragLockRef) {
+            dragLockRef.current = false
+          }
         } else {
-          props.dragLockRef.current = true
+          if (dragLockRef) {
+            dragLockRef.current = true
+          }
         }
       },
     },
