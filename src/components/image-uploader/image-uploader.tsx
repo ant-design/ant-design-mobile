@@ -98,7 +98,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     if (maxCount > 0) {
       const exceed = value.length + files.length - maxCount
       if (exceed > 0) {
-        files = files.slice(0, maxCount - exceed)
+        files = files.slice(0, files.length - exceed)
         props.onCountExceed?.(exceed)
       }
     }
