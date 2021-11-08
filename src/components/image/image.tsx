@@ -49,9 +49,9 @@ const defaultProps = {
 
 export const Image = staged<ImageProps>(p => {
   const props = mergeProps(defaultProps, p)
-  const [status, setStatus] = useState<'pending' | 'loaded' | 'failed'>(
-    'pending'
-  )
+
+  const [loaded, setLoaded] = useState(false)
+  const [failed, setFailed] = useState(false)
 
   const ref = useRef<HTMLDivElement>(null)
 
@@ -64,10 +64,14 @@ export const Image = staged<ImageProps>(p => {
   srcSet = initialized ? props.srcSet : undefined
 
   useUpdateLayoutEffect(() => {
-    setStatus('pending')
+    setLoaded(false)
+    setFailed(false)
   }, [src])
 
   function renderInner() {
+    if (failed) {
+      return <>{props.fallback}</>
+    }
     const img = (
       <img
         className={`${classPrefix}-img`}
@@ -75,15 +79,15 @@ export const Image = staged<ImageProps>(p => {
         alt={props.alt}
         onClick={props.onClick}
         onLoad={() => {
-          setStatus('loaded')
+          setLoaded(true)
         }}
         onError={e => {
-          setStatus('failed')
+          setFailed(true)
           props.onError?.(e)
         }}
         style={{
           objectFit: props.fit,
-          display: status === 'loaded' ? 'block' : 'none',
+          display: loaded ? 'block' : 'none',
         }}
         crossOrigin={props.crossOrigin}
         decoding={props.decoding}
@@ -94,17 +98,9 @@ export const Image = staged<ImageProps>(p => {
         useMap={props.useMap}
       />
     )
-    if (status === 'failed') {
-      return (
-        <>
-          {props.fallback}
-          {img}
-        </>
-      )
-    }
     return (
       <>
-        {status === 'pending' && props.placeholder}
+        {!loaded && props.placeholder}
         {img}
       </>
     )
