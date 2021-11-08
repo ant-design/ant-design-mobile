@@ -104,8 +104,8 @@
     "./lib"
   ],
   "sideEffects": [
-    "*.css",
-    "*.less",
+    "**/*.css",
+    "**/*.less",
     "./es/index.js",
     "./src/index.ts",
     "./es/global/index.js",
