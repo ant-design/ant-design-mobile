@@ -1,6 +1,7 @@
 # Image 图片
 
 <code src="./demos/demo1.tsx"></code>
+<code src="./demos/demo2.tsx" debug></code>
 
 ## 属性
 
