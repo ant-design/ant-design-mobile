@@ -31,6 +31,10 @@ export default function () {
           </Form.Item>
           <AddSquareOutline />
         </Form.Item>
+
+        <Form.Item label='短信验证码' extra={<a>发送验证码</a>}>
+          <Input />
+        </Form.Item>
       </Form>
     </DemoBlock>
   )
