@@ -22,6 +22,11 @@
 .adm-list-item {
   display: block;
   padding-left: 12px;
+  &:first-child {
+    .adm-list-item-content {
+      border-top: none;
+    }
+  }
   &-title,
   &-description {
     color: var(--adm-color-weak);
@@ -32,7 +37,7 @@
     align-items: var(--align-items);
     justify-content: flex-start;
     padding: 12px 12px 12px 0;
-    border-bottom: solid 1px var(--adm-border-color);
+    border-top: solid 1px var(--adm-border-color);
     &-prefix {
       width: var(--prefix-width);
       flex: none;
@@ -67,9 +72,20 @@ a.adm-list-item {
   &:active {
     background-color: var(--active-background-color);
   }
+  &:active + & {
+    .adm-list-item-content {
+      border-top-color: transparent;
+    }
+  }
   &.adm-list-item-disabled {
     &:active {
       background-color: unset;
+    }
+    &:active + a.adm-list-item,
+    &:active + a.adm-list-item:first-child {
+      .adm-list-item-content {
+        border-top-color: var(--adm-border-color);
+      }
     }
   }
 }
