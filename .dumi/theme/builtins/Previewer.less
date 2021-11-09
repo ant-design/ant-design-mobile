@@ -33,6 +33,20 @@
   width: 100%;
   justify-content: flex-start;
   align-items: stretch;
+
+  > * {
+    border: 1px solid @c-border;
+    &:not(:last-child) {
+      border-right: none;
+    }
+  }
+
+  &[data-debug] {
+    > * {
+      border-color: #ffcb00;
+    }
+  }
+
   > .adm-doc-previewer-source {
     flex: 1;
     overflow-x: scroll;

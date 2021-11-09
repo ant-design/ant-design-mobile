@@ -11,7 +11,7 @@ export default (props: IPreviewerProps) => {
   const builtinDemoUrl = useDemoUrl(props.identifier)
 
   return (
-    <div className='adm-doc-previewer'>
+    <div className='adm-doc-previewer' data-debug={props.debug || undefined}>
       <div className='adm-doc-previewer-source'>
         <Previewer {...props} />
       </div>
