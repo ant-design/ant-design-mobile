@@ -25,7 +25,7 @@ const classPrefix = `adm-form-item`
 
 export type FormItemProps = RcFieldProps &
   NativeProps &
-  Pick<ListItemProps, 'style' | 'onClick'> & {
+  Pick<ListItemProps, 'style' | 'onClick' | 'extra'> & {
     label?: string
     help?: string
     hasFeedback?: boolean
@@ -60,6 +60,7 @@ type FormItemLayoutProps = Pick<
   | 'onClick'
   | 'hidden'
   | 'layout'
+  | 'extra'
 > & {
   htmlFor?: string
   errors?: string[]
@@ -69,6 +70,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const {
     className,
     style,
+    extra,
     label,
     help,
     required,
@@ -103,6 +105,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       style={style}
       title={layout === 'vertical' && labelElement}
       prefix={layout === 'horizontal' && labelElement}
+      extra={extra}
       description={descriptionElement}
       className={classNames(classPrefix, className, {
         [`${classPrefix}-hidden`]: hidden,
@@ -123,6 +126,7 @@ export const FormItem: FC<FormItemProps> = props => {
     // FormItem 相关
     label,
     help,
+    extra,
     hasFeedback,
     name,
     required,
@@ -194,6 +198,7 @@ export const FormItem: FC<FormItemProps> = props => {
         className={className}
         style={style}
         label={label}
+        extra={extra}
         help={help}
         required={isRequired}
         disabled={disabled}

@@ -21,6 +21,7 @@
 | ----------- | -------------------------- | ---------------------------- | -------------------------------------------------- |
 | label       | 标签名                     | `string`                     | --                                                 |
 | help        | 提示文本                   | `string`                     | --                                                 |
+| extra       | 表单项右侧区域             | `ReactNode`                  | --                                                 |
 | required    | 是否必选                   | `boolean`                    | `false`（如有设置 `rules`，则会根据 `rules` 判断） |
 | disabled    | 是否禁用                   | `boolean`                    | `false`                                            |
 | noStyle     | 不使用样式，只使用字段管理 | `boolean`                    | `false`                                            |
