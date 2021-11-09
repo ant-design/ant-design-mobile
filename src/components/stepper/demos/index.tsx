@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
 import { Stepper, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import styles from './index.less'
 
 export default () => {
   const [num, setNum] = useState(1)
 
   return (
     <>
+      <DemoBlock title='自定义css变量'>
+        <Stepper
+          className={styles.cssVariable}
+          defaultValue={10000}
+          step={10000}
+        />
+      </DemoBlock>
       <DemoBlock title='基础用法(非受控)'>
         <Stepper
           defaultValue={1}

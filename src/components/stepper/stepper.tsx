@@ -88,8 +88,9 @@ export const Stepper: FC<StepperProps> = p => {
   return withNativeProps(
     props,
     <div
-      className={classNames(classPrefix, {
+      className={classNames(classPrefix, props.className, {
         [`${classPrefix}-disabled`]: disabled,
+        [`${classPrefix}-active`]: hasFocus,
       })}
     >
       <Button
