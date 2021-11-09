@@ -64,6 +64,7 @@ export default () => {
                   </Button>
                 ),
               })
+              setVisible('')
               e.stopPropagation()
             }}
           >
