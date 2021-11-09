@@ -1,8 +1,11 @@
-import { FC, useRef } from 'react'
-import React from 'react'
-import Input, { InputProps } from '../input'
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useLayoutEffect,
+  useRef,
+} from 'react'
+import type { InputProps } from '../input'
 import { NativeProps } from '../../utils/native-props'
-import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-virtual-input'
@@ -10,6 +13,7 @@ const classPrefix = 'adm-virtual-input'
 export type VirtualInputProps = {
   onFocus?: () => void
   onBlur?: () => void
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
 } & Pick<InputProps, 'value' | 'placeholder'> &
   NativeProps
 
@@ -17,25 +21,55 @@ const defaultProps = {
   value: '',
 }
 
-export const VirtualInput: FC<VirtualInputProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const ref = useRef<HTMLDivElement>(null)
-
-  return (
-    <div
-      ref={ref}
-      className={classPrefix}
-      tabIndex={0}
-      onFocus={props.onFocus}
-      onBlur={props.onBlur}
-    >
-      <Input
-        readOnly
-        value={props.value}
-        placeholder={props.placeholder}
-        // clearable={props.clearable}
-        // onClear={props.onClear}
-      />
-    </div>
-  )
+export type VirtualInputRef = {
+  focus: () => void
+  blur: () => void
 }
+
+export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
+  (p, ref) => {
+    const props = mergeProps(defaultProps, p)
+    const rootRef = useRef<HTMLDivElement>(null)
+
+    useLayoutEffect(() => {
+      const root = rootRef.current
+      if (!root) return
+      if (document.activeElement !== root) {
+        return
+      }
+      root.scrollTo({
+        left: root.clientWidth,
+      })
+    }, [props.value])
+
+    useImperativeHandle(ref, () => ({
+      focus: () => {
+        rootRef.current?.focus()
+      },
+      blur: () => {
+        rootRef.current?.blur()
+      },
+    }))
+
+    return (
+      <div
+        ref={rootRef}
+        className={classPrefix}
+        tabIndex={0}
+        onFocus={props.onFocus}
+        onBlur={props.onBlur}
+        onClick={props.onClick}
+      >
+        <span className={`${classPrefix}-content`}>{props.value}</span>
+        <div className={`${classPrefix}-caret-container`}>
+          <div className={`${classPrefix}-caret`} />
+        </div>
+        {!props.value && (
+          <span className={`${classPrefix}-placeholder`}>
+            {props.placeholder}
+          </span>
+        )}
+      </div>
+    )
+  }
+)
