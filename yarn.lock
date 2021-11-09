@@ -3244,21 +3244,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@use-gesture/core@npm:10.1.1":
-  version: 10.1.1
-  resolution: "@use-gesture/core@npm:10.1.1"
-  checksum: c98b403e2e5fe2b68c330a14fa6385e2774ec632b2a6cd4de21e6387638abd4b12d2e958e2573fa9ada1a1aaaf0875fb589431e2838ef067f3d28b0480583fcf
+"@use-gesture/core@npm:10.1.3":
+  version: 10.1.3
+  resolution: "@use-gesture/core@npm:10.1.3"
+  checksum: 9ada1fdd86289b59e9f553a4320b9fd6a03b87a82949d21d28f5bb65f08bc53b883644d247b536c218d96510fe863aedf3c8081039d6b169b5f689fe7f1aefc3
   languageName: node
   linkType: hard
 
-"@use-gesture/react@npm:^10.1.1":
-  version: 10.1.1
-  resolution: "@use-gesture/react@npm:10.1.1"
+"@use-gesture/react@npm:10.1.3":
+  version: 10.1.3
+  resolution: "@use-gesture/react@npm:10.1.3"
   dependencies:
-    "@use-gesture/core": 10.1.1
+    "@use-gesture/core": 10.1.3
   peerDependencies:
     react: ">= 16.8.0"
-  checksum: 1d7b1507b87f955ecef566e73d9d0565a92dea16b89f737e84030e54b356e9f2e56d29b108a55bc2371507ee7c533c38395c698418a410170a5a7ddf8168715b
+  checksum: e47eec1b0279a19f17a35044f2b3119d243e3d06b9fed5cf14ff8d8262e03279fb8dcd84f2037d9b5674da088e2573862971dcd9aecc5cff7b2c2254328d863f
   languageName: node
   linkType: hard
 
@@ -3735,7 +3735,7 @@ __metadata:
     "@types/resize-observer-browser": ^0.1.6
     "@typescript-eslint/eslint-plugin": ^4.33.0
     "@typescript-eslint/parser": ^4.33.0
-    "@use-gesture/react": ^10.1.1
+    "@use-gesture/react": 10.1.3
     ahooks: ^2.10.12
     antd-mobile-icons: ^0.2.2
     antd-mobile-v5-count: ^1.0.1
@@ -3743,7 +3743,7 @@ __metadata:
     babel-plugin-import: ^1.13.3
     babel-plugin-transform-async-to-promises: ^0.8.15
     classnames: ^2.3.1
-    css-loader: ^6.5.0
+    css-loader: ^6.5.1
     dayjs: ^1.10.7
     del: ^6.0.0
     dumi: ^1.1.31
@@ -5389,9 +5389,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-loader@npm:^6.5.0":
-  version: 6.5.0
-  resolution: "css-loader@npm:6.5.0"
+"css-loader@npm:^6.5.1":
+  version: 6.5.1
+  resolution: "css-loader@npm:6.5.1"
   dependencies:
     icss-utils: ^5.1.0
     postcss: ^8.2.15
@@ -5403,7 +5403,7 @@ __metadata:
     semver: ^7.3.5
   peerDependencies:
     webpack: ^5.0.0
-  checksum: 4f3e7b93df79293dca910de41c741486155ea8248e048ea51a74fc5570d3acb962b5be0b6740f3ad8006b40eb4ef375124de4f9507aebf7a42f5ca7b8a7807d1
+  checksum: 5a3bedecb468038f09673d25c32d8db5b0baa6c38820253c54ce4c56c27a2250d5d5b4bace77dd5e20ba0a569604eb759362bab4e3128e7db2229e40857d4aca
   languageName: node
   linkType: hard
 
