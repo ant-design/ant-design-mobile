@@ -20,6 +20,7 @@
 | 属性        | 说明                       | 类型                         | 默认值                                             |
 | ----------- | -------------------------- | ---------------------------- | -------------------------------------------------- |
 | label       | 标签名                     | `string`                     | --                                                 |
+| labelLayout | 标签名布局                 | `LabelLayoutElement[]`       | `['label', 'required', 'help']`                    |
 | help        | 提示文本                   | `string`                     | --                                                 |
 | extra       | 表单项右侧区域             | `ReactNode`                  | --                                                 |
 | required    | 是否必选                   | `boolean`                    | `false`（如有设置 `rules`，则会根据 `rules` 判断） |

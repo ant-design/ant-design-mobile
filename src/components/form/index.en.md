@@ -20,6 +20,7 @@ See for other parameters https://www.npmjs.com/package/rc-field-form
 | Name        | Description                          | Type                         | Default                                                               |
 | ----------- | ------------------------------------ | ---------------------------- | --------------------------------------------------------------------- |
 | label       | Label name                           | `string`                     | --                                                                    |
+| labelLayout | Label layout                         | `LabelLayoutElement[]`       | `['label', 'required', 'help']`                                       |
 | help        | Prompt text                          | `string`                     | --                                                                    |
 | extra       | The right area of the form item.     | `ReactNode`                  | --                                                                    |
 | required    | Whether it is required               | `boolean`                    | `false`（if `rules` is set, it would be judged according to `rules`） |

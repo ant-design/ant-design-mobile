@@ -106,6 +106,7 @@ export default () => {
           <Form.Item
             name='姓名'
             label='姓名'
+            labelLayout={['required', 'label', 'help']}
             rules={[{ required: true, message: '姓名不能为空' }]}
           >
             <Input onChange={console.log} placeholder='请输入姓名' />

@@ -23,6 +23,8 @@ type RcFieldProps = Omit<FieldProps, 'children'>
 
 const classPrefix = `adm-form-item`
 
+type LabelLayoutElement = 'label' | 'required' | 'help'
+
 export type FormItemProps = RcFieldProps &
   NativeProps &
   Pick<ListItemProps, 'style' | 'onClick' | 'extra'> & {
@@ -35,6 +37,7 @@ export type FormItemProps = RcFieldProps &
     hidden?: boolean
     layout?: FormLayout
     children: ChildrenType
+    labelLayout?: LabelLayoutElement[]
   }
 
 interface MemoInputProps {
@@ -61,6 +64,7 @@ type FormItemLayoutProps = Pick<
   | 'hidden'
   | 'layout'
   | 'extra'
+  | 'labelLayout'
 > & {
   htmlFor?: string
   errors?: string[]
@@ -88,11 +92,31 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
 
   const feedback = hasFeedback && errors && errors.length > 0 ? errors[0] : null
 
+  const labelLayout = props.labelLayout || ['label', 'required', 'help']
+  const _rendelLabel = label
+  const _renderRequired = required && (
+    <span
+      className={classNames(`${classPrefix}-label-required`, {
+        [`${classPrefix}-label-required-first`]: labelLayout[0] === 'required',
+      })}
+    >
+      *
+    </span>
+  )
+  const _renderHelp = help && (
+    <span className={`${classPrefix}-label-help`}>{help}</span>
+  )
+  const _renderLabelMap = {
+    label: _rendelLabel,
+    required: _renderRequired,
+    help: _renderHelp,
+  }
+
   const labelElement = label ? (
     <label className={`${classPrefix}-label`} htmlFor={htmlFor}>
-      {label}
-      {required && <span className={`${classPrefix}-label-required`}>*</span>}
-      {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
+      {_renderLabelMap[labelLayout[0]]}
+      {_renderLabelMap[labelLayout[1]]}
+      {_renderLabelMap[labelLayout[2]]}
     </label>
   ) : null
 
@@ -143,6 +167,7 @@ export const FormItem: FC<FormItemProps> = props => {
     onClick,
     shouldUpdate,
     dependencies,
+    labelLayout,
     ...fieldProps
   } = props
 
@@ -208,6 +233,7 @@ export const FormItem: FC<FormItemProps> = props => {
         onClick={onClick}
         hidden={hidden}
         layout={layout}
+        labelLayout={labelLayout}
       >
         <NoStyleItemContext.Provider value={onSubMetaChange}>
           {baseChildren}
