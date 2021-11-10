@@ -1,29 +1,27 @@
 @class-prefix-stepper: ~'adm-stepper';
 
-@stepper-border: 1px solid #e5e5e5;
-@border-radius: calc(var(--stepper-border-radius) - 1px);
-
 .@{class-prefix-stepper} {
   --height: 22px;
   --input-width: 40px;
   --input-font-size: var(--adm-font-size-main);
   --input-font-color: var(--adm-color-text);
-  --border: @stepper-border;
-  --border-inner: @stepper-border;
-  --active-border: @stepper-border;
+  --border-radius: 2px;
+  --border: 1px solid #e5e5e5;
+  --border-inner: var(--border);
+  --active-border: var(--border);
   --button-font-size: 10px;
   --button-text-color: var(--adm-color-primary);
   --button-background-color: transparent;
   --button-width: var(--height);
-  --stepper-border-radius: 2px;
 
   display: flex;
   align-items: center;
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
   width: calc(var(--input-width) + 2 * var(--button-width));
   border: var(--border);
-  border-radius: var(--stepper-border-radius);
+  border-radius: var(--border-radius);
   &-active {
     border: var(--active-border);
   }
@@ -58,13 +56,9 @@
 
   &-minus {
     border-radius: 0;
-    border-top-left-radius: @border-radius;
-    border-bottom-left-radius: @border-radius;
   }
 
   &-plus {
     border-radius: 0;
-    border-top-right-radius: @border-radius;
-    border-bottom-right-radius: @border-radius;
   }
 }
