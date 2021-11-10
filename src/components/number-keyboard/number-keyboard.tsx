@@ -66,6 +66,8 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
 
   const keyboardRef = useRef<HTMLDivElement | null>(null)
   useClickAway(() => {
+    console.log('useClickAway', visible)
+    if (!visible) return
     if (props.closeOnBlur && visible) {
       props.onBlur?.()
       setVisible(false)
