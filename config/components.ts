@@ -60,6 +60,7 @@ export const components = {
     '/components/tab-bar',
     '/components/tabs',
     '/components/capsule-tabs',
+    '/components/jumbo-tabs',
   ],
   other: ['/components/config-provider'],
   experimental: [
