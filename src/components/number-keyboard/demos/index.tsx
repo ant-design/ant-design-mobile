@@ -7,7 +7,9 @@ export default () => {
   const [value, setValue] = useState('')
 
   const openKeyboard = (name: string) => {
-    setVisible(name)
+    window.setTimeout(() => {
+      setVisible(name)
+    }, 100)
   }
 
   const actions = {

@@ -19,10 +19,8 @@ H5 数字键盘，可以配合密码输入框组件或自定义的输入框组�
 | onDelete        | 删除内容回调                                                              | `() => void`                               | -                     |
 | onClose         | 点击关闭时触发                                                            | `() => void`                               | -                     |
 | onConfirm       | 点击确定按钮时触发                                                        | `() => void`                               | -                     |
-| onBlur          | 点击键盘以外回调                                                          | `() => void`                               | -                     |
 | afterShow       | 键盘完全弹出回调                                                          | `() => void`                               | -                     |
 | afterClose      | 键盘完全收起回调                                                          | `() => void`                               | -                     |
-| closeOnBlur     | 是否在点击键盘以外时自动关闭                                              | `boolean`                                  | `true`                |
 | closeOnConfirm  | 是否在点击确定按钮时自动关闭                                              | `boolean`                                  | `true`                |
 
 此外还支持 [Popup](./popup) 的以下属性: `stopPropagation`

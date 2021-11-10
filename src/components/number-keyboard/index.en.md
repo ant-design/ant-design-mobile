@@ -19,10 +19,8 @@ H5 numeric keyboard, can be used with password input box component or custom inp
 | onDelete        | Callback when the content is deleted                                                                                        | `() => void`                               | -                     |
 | onClose         | Triggered when it is clicked                                                                                                | `() => void`                               | -                     |
 | onConfirm       | Triggered when the ok button is clicked                                                                                     | `() => void`                               | -                     |
-| onBlur          | Callback when the outside of the keyboard is clicked                                                                        | `() => void`                               | -                     |
 | afterShow       | Callback when the keyboard is completely bounced                                                                            | `() => void`                               | -                     |
 | afterClose      | Callback when the keyboard is completely put away                                                                           | `() => void`                               | -                     |
-| closeOnBlur     | Whether to automatically close when clicking outside the keyboard                                                           | `boolean`                                  | `true`                |
 | closeOnConfirm  | Whether to automatically close when the ok button is clicked                                                                | `boolean`                                  | `true`                |
 
 In addition, the following attributes of [Popup](./popup) are supported: `stopPropagation`
