@@ -1,7 +1,7 @@
 # Stepper 步进器
 
-<code src="./demos/index.tsx"></code>
-<code src="./demos/demo.tsx" debug></code>
+<code src="./demos/demo1.tsx"></code>
+<code src="./demos/demo2.tsx" debug></code>
 
 ### 属性
 
