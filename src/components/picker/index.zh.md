@@ -1,6 +1,6 @@
 # Picker 选择器
 
-Picker 系列一共包括了三个组件：`Picker`、`CascadePicker`、`DatePicker`。
+Picker 系列一共包括了三个组件：[Picker](#picker)、[CascadePicker](#cascadepicker)、[DatePicker](#datepicker)。
 
 ## Picker
 
