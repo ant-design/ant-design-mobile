@@ -4,7 +4,7 @@ The `Input` component is layout-independent. It only includes the most basic inp
 
 <code src="./demos/index.tsx"></code>
 
-## API
+### API
 
 | Name         | Description                                                                                   | Type                                                 | Default |
 | ------------ | --------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------- |
@@ -21,7 +21,7 @@ The `Input` component is layout-independent. It only includes the most basic inp
 
 In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp`
 
-## CSS Variables
+### CSS Variables
 
 | Name                | Description                  | Default                  |
 | ------------------- | ---------------------------- | ------------------------ |
@@ -30,7 +30,7 @@ In addition, the following native attributes are supported: `maxLength` `minLeng
 | --placeholder-color | `placeholder` font color     | `var(--adm-color-light)` |
 | --disabled-color    | text color in disabled state | `var(--adm-color-weak)`  |
 
-## Ref
+### Ref
 
 | Name  | Description                  | Type         |
 | ----- | ---------------------------- | ------------ |
