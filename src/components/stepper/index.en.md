@@ -18,3 +18,20 @@
 | disabled     | Whether to disabled Stepper                                                                    | `boolean`                                         | `false` |
 | onFocus      | Triggered when the input get focus                                                             | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
 | onBlur       | Triggered when the input lose focus                                                            | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
+
+## CSS Variables
+
+| name                      | description                           | default                     |
+| ------------------------- | ------------------------------------- | --------------------------- |
+| --height                  | Height of the stepper.                | `22px`                      |
+| --input-width             | Width of the input.                   | `40px`                      |
+| --input-font-size         | Font size.                            | `var(--adm-font-size-main)` |
+| --border                  | Border around stepper.                | `1px solid #e5e5e5`         |
+| --border-inner            | Border inner stepper.                 | `1px solid #e5e5e5`         |
+| --active-border           | In the focus state, the border style. | `1px solid #e5e5e5`         |
+| --button-font-size        | Font size of the button.              | `10px`                      |
+| --button-background-color | Background color of the button.       | `transparent`               |
+| --button-width            | Width of the button.                  | `22px`                      |
+| --stepper-border-radius   | Radius of the stepper.                | `2px`                       |
+| --input-font-color        | Font color of the input.              | `var(--adm-color-text)`     |
+| --button-text-color       | Font color of the button.             | `var(--adm-color-primary)`  |

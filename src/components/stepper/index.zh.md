@@ -18,3 +18,20 @@
 | disabled     | 是否禁用步进器                                        | `boolean`                                         | `false` |
 | onFocus      | 输入框获得焦点时触发                                  | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
 | onBlur       | 输入框失去焦点时触发                                  | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
+
+## CSS 变量
+
+| 属性                      | 说明                               | 默认值                      |
+| ------------------------- | ---------------------------------- | --------------------------- |
+| --height                  | 组件整体高度.                      | `22px`                      |
+| --input-width             | 仅输入框的宽度.                    | `40px`                      |
+| --input-font-size         | 输入框文字大小.                    | `var(--adm-font-size-main)` |
+| --border                  | 组件四周边框.                      | `1px solid #e5e5e5`         |
+| --border-inner            | 组件内部两条线.                    | `1px solid #e5e5e5`         |
+| --active-border           | 输入框 Focus 状态下，四周边框样式. | `1px solid #e5e5e5`         |
+| --button-font-size        | 左右两侧按钮文字大小.              | `10px`                      |
+| --button-background-color | 左右两侧按钮背景颜色.              | `transparent`               |
+| --button-width            | 左右两侧按钮的宽度.                | `22px`                      |
+| --stepper-border-radius   | 组件整体的圆角.                    | `2px`                       |
+| --input-font-color        | 输入框文字颜色.                    | `var(--adm-color-text)`     |
+| --button-text-color       | 左右两侧按钮文字颜色.              | `var(--adm-color-primary)`  |
