@@ -19,6 +19,7 @@ export type SearchProps = Pick<InputProps, 'onFocus' | 'onBlur' | 'onClear'> & {
   clearable?: boolean
   showCancelButton?: boolean | ((focus: boolean, value: string) => boolean)
   cancelText?: string
+  clearOnCancel?: boolean
   onSearch?: (val: string) => void
   onChange?: (val: string) => void
   onCancel?: () => void
@@ -28,6 +29,7 @@ const defaultProps = {
   clearable: true,
   showCancelButton: false,
   defaultValue: '',
+  clearOnCancel: true,
 }
 
 export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
@@ -68,7 +70,9 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
               e.preventDefault()
             }}
             onClick={() => {
-              inputRef.current?.clear()
+              if (props.clearOnCancel) {
+                inputRef.current?.clear()
+              }
               inputRef.current?.blur()
               props.onCancel?.()
             }}
