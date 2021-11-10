@@ -11,11 +11,10 @@ const colorRecord: Record<string, string> = {
 }
 
 export type LoadingProps = {
-  color?: 'default' | 'primary' | 'white' | string
+  color?: 'default' | 'primary' | 'white' | (string & {})
 } & NativeProps
 
 const defaultProps = {
-  size: 'middle',
   color: 'default',
 }
 

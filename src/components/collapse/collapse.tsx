@@ -3,18 +3,20 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
 import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
-import { useInitialized } from '../../utils/use-initialized'
 import { useSpring, animated } from '@react-spring/web'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { useMount, useUpdateLayoutEffect } from 'ahooks'
+import { useShouldRender } from '../../utils/use-should-render'
 
 const classPrefix = `adm-collapse`
 
 export type CollapsePanelProps = {
   key: string
-  title: string
+  title: React.ReactNode
   disabled?: boolean
   forceRender?: boolean
+  destroyOnClose?: boolean
+  onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -24,10 +26,15 @@ export const CollapsePanel: FC<CollapsePanelProps> = () => {
 const CollapsePanelContent: FC<{
   visible: boolean
   forceRender: boolean
+  destroyOnClose: boolean
 }> = props => {
   const { visible } = props
   const innerRef = useRef<HTMLDivElement>(null)
-  const initialized = useInitialized(visible || props.forceRender)
+  const shouldRender = useShouldRender(
+    visible,
+    props.forceRender,
+    props.destroyOnClose
+  )
   const [{ height }, api] = useSpring(() => ({
     from: { height: 0 },
   }))
@@ -74,7 +81,7 @@ const CollapsePanelContent: FC<{
       }}
     >
       <div className={`${classPrefix}-panel-content-inner`} ref={innerRef}>
-        <List.Item>{initialized && props.children}</List.Item>
+        <List.Item>{shouldRender && props.children}</List.Item>
       </div>
     </animated.div>
   )
@@ -105,7 +112,7 @@ export const Collapse: FC<CollapseProps> = props => {
     panels.push(child)
   })
 
-  const [activeKey, setActiveKey] = useNewControllableValue<string[]>(
+  const [activeKey, setActiveKey] = usePropsValue<string[]>(
     props.accordion
       ? {
           value:
@@ -139,7 +146,7 @@ export const Collapse: FC<CollapseProps> = props => {
         {panels.map(panel => {
           const key = panel.key as string
           const active = activeKeyList.includes(key)
-          function handleClick() {
+          function handleClick(event: React.MouseEvent<Element, MouseEvent>) {
             if (props.accordion) {
               if (active) {
                 setActiveKey([])
@@ -153,6 +160,8 @@ export const Collapse: FC<CollapseProps> = props => {
                 setActiveKey([...activeKeyList, key])
               }
             }
+
+            panel.props.onClick?.(event)
           }
 
           return (
@@ -181,6 +190,7 @@ export const Collapse: FC<CollapseProps> = props => {
               <CollapsePanelContent
                 visible={active}
                 forceRender={!!panel.props.forceRender}
+                destroyOnClose={!!panel.props.destroyOnClose}
               >
                 {panel.props.children}
               </CollapsePanelContent>

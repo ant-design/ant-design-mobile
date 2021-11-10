@@ -5,7 +5,7 @@ import { history } from 'dumi'
 import type { IPreviewerComponentProps } from 'dumi/theme'
 import {
   context,
-  useRiddle,
+  // useRiddle,
   useMotions,
   useCopy,
   useLocaleProps,
@@ -66,9 +66,9 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
   // const openCSB = useCodeSandbox(
   //   props.hideActions?.includes('CSB') ? null : props
   // )
-  const openRiddle = useRiddle(
-    props.hideActions?.includes('RIDDLE') ? null : props
-  )
+  // const openRiddle = useRiddle(
+  //   props.hideActions?.includes('RIDDLE') ? null : props
+  // )
   const [execMotions, isMotionRunning] = useMotions(
     props.motions || [],
     demoRef.current
@@ -106,13 +106,11 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
           <AnchorLink to={`#${props.identifier}`}>{props.title}</AnchorLink>
         )}
         {props.description && (
-          <div
-            // eslint-disable-next-line
-            dangerouslySetInnerHTML={{ __html: props.description }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: props.description }} />
         )}
       </div>
       <div className='__dumi-default-previewer-actions'>
+        {props.debug && <span className='debug-badge'>Debug Only</span>}
         {/*{openCSB && (*/}
         {/*  <button*/}
         {/*    title='Open demo on CodeSandbox.io'*/}
@@ -121,14 +119,14 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
         {/*    onClick={openCSB}*/}
         {/*  />*/}
         {/*)}*/}
-        {openRiddle && (
-          <button
-            title='Open demo on Riddle'
-            className='__dumi-default-icon'
-            role='riddle'
-            onClick={openRiddle}
-          />
-        )}
+        {/*{openRiddle && (*/}
+        {/*  <button*/}
+        {/*    title='Open demo on Riddle'*/}
+        {/*    className='__dumi-default-icon'*/}
+        {/*    role='riddle'*/}
+        {/*    onClick={openRiddle}*/}
+        {/*  />*/}
+        {/*)}*/}
         {props.motions && (
           <button
             title='Execute motions'
@@ -138,7 +136,7 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
             onClick={() => execMotions()}
           />
         )}
-        <span />
+        <div className='spacer' />
         <button
           title='Copy source code'
           className='__dumi-default-icon'

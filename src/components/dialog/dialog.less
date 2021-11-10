@@ -26,12 +26,8 @@
         line-height: 25px;
         text-align: center;
       }
-      &-message-wrapper {
-        display: flex;
-        justify-content: center;
-      }
-      &-message {
-        max-height: 75vh;
+      &-content {
+        max-height: 70vh;
         overflow-x: hidden;
         overflow-y: auto;
         font-size: var(--adm-font-size-main);
@@ -57,7 +53,7 @@
             font-weight: bold;
           }
           border-right: solid 0.5px var(--adm-border-color);
-          :last-child {
+          &:last-child {
             border-right: none;
           }
         }

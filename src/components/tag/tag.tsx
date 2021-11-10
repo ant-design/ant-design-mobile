@@ -14,7 +14,13 @@ const colorRecord: Record<string, string> = {
 }
 
 export type TagProps = {
-  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger' | string
+  color?:
+    | 'default'
+    | 'primary'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | (string & {})
   fill?: 'solid' | 'outline'
   round?: boolean
 } & NativeProps

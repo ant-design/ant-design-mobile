@@ -4,34 +4,28 @@ import { CheckOutline, CloseOutline } from 'antd-mobile-icons'
 import Loading from '../loading'
 import Mask from '../mask'
 import { mergeProps } from '../../utils/with-default-props'
+import { PropagationEvent } from '../../utils/with-stop-propagation'
+import { GetContainer } from '../../utils/render-to-container'
 
 const classPrefix = `adm-toast`
 
 export interface ToastProps {
-  /** Toast 完全关闭后的回调 */
   afterClose?: () => void
-  /** Toast 遮罩样式 */
   maskStyle?: React.CSSProperties
-  /** Toast 遮罩类名 */
   maskClassName?: string
-  /** 是否允许背景点击 */
   maskClickable?: boolean
-  /** toast 文本内容 */
   content?: ReactNode
-  /** toast 图标 */
   icon?: 'success' | 'fail' | 'loading' | React.ReactNode
-  /** 提示持续时间，若为 0 则不会自动关闭 */
   duration?: number
-  /** 垂直方向显示位置，默认为 center */
   position?: 'top' | 'bottom' | 'center'
-  /** 是否显示 */
   visible?: boolean
-  /** 轻提示弹出时的的父容器 */
-  getContainer?: HTMLElement | (() => HTMLElement)
+  getContainer?: GetContainer
+  stopPropagation?: PropagationEvent[]
 }
 
 const defaultProps = {
   maskClickable: true,
+  stopPropagation: ['click'],
 }
 
 export const InternalToast: React.FC<ToastProps> = p => {
@@ -46,7 +40,7 @@ export const InternalToast: React.FC<ToastProps> = p => {
       case 'fail':
         return <CloseOutline />
       case 'loading':
-        return <Loading color='white' style={{ fontSize: 24 }} />
+        return <Loading color='white' className={`${classPrefix}-loading`} />
       default:
         return icon
     }
@@ -72,10 +66,11 @@ export const InternalToast: React.FC<ToastProps> = p => {
       getContainer={props.getContainer}
       afterClose={props.afterClose}
       style={{
-        pointerEvents: maskClickable ? 'none' : 'all',
+        pointerEvents: maskClickable ? 'none' : 'auto',
         ...props.maskStyle,
       }}
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
+      stopPropagation={props.stopPropagation}
     >
       <div
         style={{ top }}

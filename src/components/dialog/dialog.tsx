@@ -6,6 +6,8 @@ import { Action, DialogActionButton } from './dialog-action-button'
 import Image from '../image'
 import Space from '../space'
 import { GetContainer } from '../../utils/render-to-container'
+import { PropagationEvent } from '../../utils/with-stop-propagation'
+import AutoCenter from '../auto-center'
 
 const classPrefix = `adm-dialog`
 
@@ -27,12 +29,14 @@ export interface DialogProps {
   bodyClassName?: string
   maskStyle?: React.CSSProperties
   maskClassName?: string
+  stopPropagation?: PropagationEvent[]
 }
 
 const defaultProps = {
-  actions: [],
+  actions: [] as Action[],
   closeOnAction: false,
   closeOnMaskClick: false,
+  stopPropagation: ['click'],
 }
 
 export const Dialog: FC<DialogProps> = p => {
@@ -47,6 +51,7 @@ export const Dialog: FC<DialogProps> = p => {
       onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
       style={props.maskStyle}
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
+      stopPropagation={props.stopPropagation}
     >
       <div onClick={e => e.stopPropagation()} className={`${classPrefix}-wrap`}>
         {!!props.image && (
@@ -68,10 +73,12 @@ export const Dialog: FC<DialogProps> = p => {
               <div className={`${classPrefix}-body-title`}>{props.title}</div>
             )}
             {!!props.content && (
-              <div className={`${classPrefix}-body-message-wrapper`}>
-                <div className={`${classPrefix}-body-message`}>
-                  {props.content}
-                </div>
+              <div className={`${classPrefix}-body-content`}>
+                {typeof props.content === 'string' ? (
+                  <AutoCenter>{props.content}</AutoCenter>
+                ) : (
+                  props.content
+                )}
               </div>
             )}
           </Space>

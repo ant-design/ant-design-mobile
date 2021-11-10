@@ -59,6 +59,14 @@
         transform: rotate(135deg);
       }
     }
+
+    &-content {
+      width: 100%;
+      background: white;
+      &-hidden {
+        display: none;
+      }
+    }
   }
 
   &-popup {
@@ -75,14 +83,6 @@
 
     .@{class-prefix-dropdown}-popup-body {
       position: absolute;
-    }
-  }
-
-  &-content {
-    width: 100%;
-    background: white;
-    &-hidden {
-      display: none;
     }
   }
 }

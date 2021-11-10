@@ -5,6 +5,7 @@ import classNames from 'classnames'
 export interface NativeProps<S extends string = never> {
   className?: string
   style?: CSSProperties & Partial<Record<S, string>>
+  tabIndex?: number
 }
 
 export function withNativeProps<P extends NativeProps>(
@@ -22,6 +23,9 @@ export function withNativeProps<P extends NativeProps>(
       ...p.style,
       ...props.style,
     }
+  }
+  if (props.tabIndex !== undefined) {
+    p.tabIndex = props.tabIndex
   }
   for (const key in props) {
     if (!props.hasOwnProperty(key)) continue

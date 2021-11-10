@@ -3,46 +3,47 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 
-const classPrefix = `adm-list`
+const classPrefix = `adm-list-item`
 
 export type ListItemProps = {
-  title?: string | ReactNode
+  title?: ReactNode
   children?: ReactNode
-  description?: string | ReactNode
+  description?: ReactNode
   prefix?: ReactNode
   extra?: ReactNode
   clickable?: boolean
   arrow?: boolean | ReactNode
+  disabled?: boolean
   onClick?: (e: React.MouseEvent) => void
-} & NativeProps<'--prefix-width' | '--align-items'>
+} & NativeProps<
+  '--prefix-width' | '--align-items' | '--active-background-color'
+>
 
 export const ListItem: FC<ListItemProps> = props => {
   const clickable = props.clickable ?? !!props.onClick
   const arrow = props.arrow === undefined ? clickable : props.arrow
 
   const content = (
-    <div className={`${classPrefix}-item-content`}>
+    <div className={`${classPrefix}-content`}>
       {props.prefix && (
-        <div className={`${classPrefix}-item-content-prefix`}>
-          {props.prefix}
-        </div>
+        <div className={`${classPrefix}-content-prefix`}>{props.prefix}</div>
       )}
-      <div className={`${classPrefix}-item-content-main`}>
+      <div className={`${classPrefix}-content-main`}>
         {props.title && (
-          <div className={`${classPrefix}-item-title`}>{props.title}</div>
+          <div className={`${classPrefix}-title`}>{props.title}</div>
         )}
-        <div>{props.children}</div>
+        {props.children}
         {props.description && (
-          <div className={`${classPrefix}-item-description`}>
+          <div className={`${classPrefix}-description`}>
             {props.description}
           </div>
         )}
       </div>
       {props.extra && (
-        <div className={`${classPrefix}-item-content-extra`}>{props.extra}</div>
+        <div className={`${classPrefix}-content-extra`}>{props.extra}</div>
       )}
       {arrow && (
-        <div className={`${classPrefix}-item-content-arrow`}>
+        <div className={`${classPrefix}-content-arrow`}>
           {arrow === true ? <RightOutline /> : arrow}
         </div>
       )}
@@ -55,10 +56,11 @@ export const ListItem: FC<ListItemProps> = props => {
       clickable ? 'a' : 'div',
       {
         className: classNames(
-          `${classPrefix}-item`,
-          clickable ? ['adm-plain-anchor'] : []
+          `${classPrefix}`,
+          clickable ? ['adm-plain-anchor'] : [],
+          props.disabled && `${classPrefix}-disabled`
         ),
-        onClick: props.onClick,
+        onClick: props.disabled ? undefined : props.onClick,
       },
       content
     )

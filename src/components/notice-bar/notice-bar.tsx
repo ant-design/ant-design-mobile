@@ -1,9 +1,11 @@
-import React, { useState, useRef, useLayoutEffect, memo } from 'react'
+import React, { useState, useRef, memo } from 'react'
 import classNames from 'classnames'
 import { CloseOutline, SoundOutline } from 'antd-mobile-icons'
-import { useUpdateLayoutEffect } from 'ahooks'
+import { useTimeout } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useResizeEffect } from '../../utils/use-resize-effect'
+import { useMutationEffect } from '../../utils/use-mutation-effect'
 
 const classPrefix = `adm-notice-bar`
 
@@ -37,44 +39,66 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
 
   const containerRef = useRef<HTMLSpanElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
-  const [key, setKey] = useState(0)
 
   const [visible, setVisible] = useState(true)
 
   const speed = props.speed
 
-  useLayoutEffect(() => {
-    const container = containerRef.current
-    const text = textRef.current
-    if (!container || !text) return
-    if (container.offsetWidth >= text.offsetWidth) return
-    // 需要滚动
-    const timeout = window.setTimeout(() => {
-      const text = textRef.current
-      // 开始滚动
-      if (text) {
-        text.style.transitionDuration = `${Math.round(
-          text.offsetWidth / speed
-        )}s`
-        text.style.transform = `translateX(-${text.offsetWidth}px)`
-      }
-    }, props.delay)
-    return () => {
-      window.clearTimeout(timeout)
-    }
-  }, [])
+  const delayLockRef = useRef(true)
+  const animatingRef = useRef(false)
 
-  useUpdateLayoutEffect(() => {
+  function start() {
+    if (delayLockRef.current) return
+
     const container = containerRef.current
     const text = textRef.current
     if (!container || !text) return
-    if (container.offsetWidth >= text.offsetWidth) return
-    text.style.transform = `translateX(${container.offsetWidth}px)`
-    text.style.transitionDuration = `${Math.round(
-      (container.offsetWidth + text.offsetWidth) / speed
-    )}s`
+
+    if (container.offsetWidth >= text.offsetWidth) {
+      animatingRef.current = false
+      text.style.removeProperty('transition-duration')
+      text.style.removeProperty('transform')
+      return
+    }
+
+    if (animatingRef.current) return
+
+    const initial = !text.style.transform
+    text.style.transitionDuration = '0s'
+    if (initial) {
+      text.style.transform = 'translateX(0)'
+    } else {
+      text.style.transform = `translateX(${container.offsetWidth}px)`
+    }
+    const distance = initial
+      ? text.offsetWidth
+      : container.offsetWidth + text.offsetWidth
+    animatingRef.current = true
+    text.style.transitionDuration = `${Math.round(distance / speed)}s`
     text.style.transform = `translateX(-${text.offsetWidth}px)`
-  }, [key])
+  }
+
+  useTimeout(() => {
+    delayLockRef.current = false
+    start()
+  }, props.delay)
+
+  useResizeEffect(text => {
+    start()
+  }, containerRef)
+
+  useMutationEffect(
+    () => {
+      console.log('text mutation effect')
+      start()
+    },
+    textRef,
+    {
+      subtree: true,
+      childList: true,
+      characterData: true,
+    }
+  )
 
   if (!visible) return null
 
@@ -86,8 +110,10 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
       </span>
       <span ref={containerRef} className={`${classPrefix}-content`}>
         <span
-          onTransitionEnd={() => setKey(k => k + 1)}
-          key={key}
+          onTransitionEnd={() => {
+            animatingRef.current = false
+            start()
+          }}
           ref={textRef}
           className={`${classPrefix}-content-inner`}
         >

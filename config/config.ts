@@ -129,6 +129,10 @@ export default {
         path: '/guide/quick-start',
       },
       {
+        title: 'Migration',
+        path: '/guide/migration',
+      },
+      {
         title: 'FAQ',
         path: '/guide/faq',
       },
@@ -137,8 +141,8 @@ export default {
         path: '/guide/css-variables',
       },
       {
-        title: 'Theme',
-        path: '/guide/theme',
+        title: 'Theming',
+        path: '/guide/theming',
       },
       {
         title: 'Load on Demand',
@@ -159,6 +163,10 @@ export default {
         path: '/zh/guide/quick-start',
       },
       {
+        title: '迁移指南',
+        path: '/guide/migration',
+      },
+      {
         title: 'FAQ',
         path: '/zh/guide/faq',
       },
@@ -168,7 +176,7 @@ export default {
       },
       {
         title: '主题',
-        path: '/zh/guide/theme',
+        path: '/zh/guide/theming',
       },
       {
         title: '按需加载',
@@ -256,7 +264,22 @@ export default {
     `if (location.pathname.startsWith('/~demos/')) {
       document.body.style.background = '#f5f7fa'
     }`,
+    `
+    if (!location.port) {
+      // Enable Google Analytics
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-72788897-2');
+    }
+    `,
     'https://s9.cnzz.com/z_stat.php?id=1280306924&web_id=1280306924',
+    {
+      src: 'https://www.googletagmanager.com/gtag/js?id=UA-72788897-2',
+      async: true,
+    },
   ],
   locales: [
     ['en', 'English'],

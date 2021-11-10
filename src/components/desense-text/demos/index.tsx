@@ -1,6 +1,6 @@
 import { DemoBlock } from 'demos'
 import React, { useState } from 'react'
-import { DesensText } from 'antd-mobile'
+import { DesenseText } from 'antd-mobile'
 
 export default () => {
   const [isDesens, setDesens] = useState<boolean>(true)
@@ -8,10 +8,10 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <DesensText text='18812341234' desenseText='188****1234' />
+        <DesenseText text='18812341234' desenseText='188****1234' />
       </DemoBlock>
       <DemoBlock title='受控组件'>
-        <DesensText
+        <DesenseText
           text='这是全部数据脱敏信息'
           desenseText='这是**信息'
           desense={isDesens}

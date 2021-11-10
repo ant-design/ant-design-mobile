@@ -1,20 +1,26 @@
-import React, { useState, useEffect, ReactNode, useMemo } from 'react'
+import React, { useState, useEffect, ReactNode, FC } from 'react'
 import Popup, { PopupProps } from '../popup'
-import { mergeProps, withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { PickerColumn, PickerColumnItem, PickerValue } from './index'
 import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
+import { useConfig } from '../config-provider'
+import { useLazyMemo } from '../../utils/use-lazy-memo'
 
 const classPrefix = `adm-picker`
+
+type PickerValueContext = {
+  items: (PickerColumnItem | null)[]
+}
 
 export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
-  onSelect?: (value: PickerValue[]) => void
-  onConfirm?: (value: PickerValue[]) => void
+  onSelect?: (value: PickerValue[], context: PickerValueContext) => void
+  onConfirm?: (value: PickerValue[], context: PickerValueContext) => void
   onCancel?: () => void
   onClose?: () => void
   visible?: boolean
@@ -22,25 +28,42 @@ export type PickerProps = {
   confirmText?: string
   cancelText?: string
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
-} & Pick<PopupProps, 'getContainer' | 'afterShow' | 'afterClose' | 'onClick'> &
+} & Pick<
+  PopupProps,
+  'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
+> &
   NativeProps
 
 const defaultProps = {
   defaultValue: [],
 }
 
-export const Picker = withDefaultProps({
-  confirmText: '确定',
-  cancelText: '取消',
-})<PickerProps>(p => {
-  const props = mergeProps(defaultProps, p)
-  const controllable = useNewControllableValue({
+export const Picker: FC<PickerProps> = p => {
+  const { locale } = useConfig()
+  const props = mergeProps(
+    defaultProps,
+    {
+      confirmText: locale.common.confirm,
+      cancelText: locale.common.cancel,
+    },
+    p
+  )
+
+  const controllable = usePropsValue({
     value: props.value,
     defaultValue: props.defaultValue,
-    onChange: props.onConfirm,
+    onChange: val => {
+      props.onConfirm?.(val, context)
+    },
   })
   const value = controllable[0] as PickerValue[]
   const setValue = controllable[1]
+
+  const context: PickerValueContext = {
+    get items() {
+      return getItems()
+    },
+  }
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
@@ -54,7 +77,8 @@ export const Picker = withDefaultProps({
     }
   }, [value])
 
-  const columns = useColumns(props.columns, innerValue)
+  const innerColumns = useColumns(props.columns, innerValue)
+  const columns = useColumns(props.columns, value)
 
   const pickerElement = withNativeProps(
     props,
@@ -82,9 +106,14 @@ export const Picker = withDefaultProps({
       </div>
       <div className={`${classPrefix}-body`}>
         <PickerView
-          columns={columns}
+          columns={innerColumns}
           value={innerValue}
-          onChange={setInnerValue}
+          onChange={val => {
+            setInnerValue(val)
+            if (props.visible) {
+              props.onSelect?.(val, context)
+            }
+          }}
         />
       </div>
     </div>
@@ -103,12 +132,13 @@ export const Picker = withDefaultProps({
       afterShow={props.afterShow}
       afterClose={props.afterClose}
       onClick={props.onClick}
+      stopPropagation={props.stopPropagation}
     >
       {pickerElement}
     </Popup>
   )
 
-  const items = useMemo(() => {
+  const getItems = useLazyMemo(() => {
     return value.map((v, index) => {
       const column = columns[index]
       if (!column) return null
@@ -119,7 +149,7 @@ export const Picker = withDefaultProps({
   return (
     <>
       {popupElement}
-      {props.children?.(items)}
+      {props.children?.(getItems())}
     </>
   )
-})
+}

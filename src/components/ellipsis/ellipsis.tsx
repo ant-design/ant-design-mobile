@@ -1,6 +1,7 @@
-import React, { useRef, useState, useLayoutEffect } from 'react'
-import { withDefaultProps } from '../../utils/with-default-props'
+import React, { FC, useRef, useState } from 'react'
+import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useResizeEffect } from '../../utils/use-resize-effect'
 
 const classPrefix = `adm-ellipsis`
 
@@ -8,22 +9,34 @@ export type EllipsisProps = {
   content: string
   direction?: 'start' | 'end' | 'middle'
   rows?: number
+  expandText?: string
+  collapseText?: string
 } & NativeProps
 
 const defaultProps = {
   direction: 'end',
   rows: 1,
+  expandText: '',
+  collapseText: '',
 }
 
-export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
-  const originRef = useRef<HTMLDivElement>(null)
+type EllipsisedValue = {
+  leading?: string
+  tailing?: string
+}
 
-  const [ellipsised, setEllipsised] = useState<string>('')
+export const Ellipsis: FC<EllipsisProps> = p => {
+  const props = mergeProps(defaultProps, p)
+  const rootRef = useRef<HTMLDivElement>(null)
 
-  useLayoutEffect(() => {
-    const origin = originRef.current
-    if (!origin) return
-    const originStyle = window.getComputedStyle(origin)
+  const [ellipsised, setEllipsised] = useState<EllipsisedValue>({})
+  const [expanded, setExpanded] = useState(false)
+  const [exceeded, setExceeded] = useState(false)
+
+  useResizeEffect(() => {
+    const root = rootRef.current
+    if (!root) return
+    const originStyle = window.getComputedStyle(root)
     const container = document.createElement('div')
     const styleNames: string[] = Array.prototype.slice.apply(originStyle)
     styleNames.forEach(name => {
@@ -42,29 +55,41 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
     container.style.webkitBoxOrient = 'unset'
     container.style.display = 'block'
     const lineHeight = pxToNumber(originStyle.lineHeight)
-    const maxHeight =
-      Math.floor(lineHeight) * props.rows +
-      pxToNumber(originStyle.paddingTop) +
-      pxToNumber(originStyle.paddingBottom)
+    const maxHeight = Math.floor(
+      lineHeight * props.rows +
+        pxToNumber(originStyle.paddingTop) +
+        pxToNumber(originStyle.paddingBottom)
+    )
+
     container.innerText = props.content
     document.body.appendChild(container)
+
     if (container.offsetHeight <= maxHeight) {
-      setEllipsised(props.content)
+      setExceeded(false)
     } else {
+      setExceeded(true)
       const end = props.content.length
-      function check(left: number, right: number): string {
+      const actionText = expanded ? props.collapseText : props.expandText
+
+      function check(left: number, right: number): EllipsisedValue {
         if (right - left <= 1) {
           if (props.direction === 'end') {
-            return props.content.slice(0, left) + '...'
+            return {
+              leading: props.content.slice(0, left) + '...',
+            }
           } else {
-            return '...' + props.content.slice(right, end)
+            return {
+              tailing: '...' + props.content.slice(right, end),
+            }
           }
         }
         const middle = Math.round((left + right) / 2)
         if (props.direction === 'end') {
-          container.innerText = props.content.slice(0, middle) + '...'
+          container.innerText =
+            props.content.slice(0, middle) + '...' + actionText
         } else {
-          container.innerText = '...' + props.content.slice(middle, end)
+          container.innerText =
+            actionText + '...' + props.content.slice(middle, end)
         }
         if (container.offsetHeight <= maxHeight) {
           if (props.direction === 'end') {
@@ -84,21 +109,22 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
       function checkMiddle(
         leftPart: [number, number],
         rightPart: [number, number]
-      ): string {
+      ): EllipsisedValue {
         if (
           leftPart[1] - leftPart[0] <= 1 &&
           rightPart[1] - rightPart[0] <= 1
         ) {
-          return (
-            props.content.slice(0, leftPart[0]) +
-            '...' +
-            props.content.slice(rightPart[1], end)
-          )
+          return {
+            leading: props.content.slice(0, leftPart[0]) + '...',
+            tailing: '...' + props.content.slice(rightPart[1], end),
+          }
         }
         const leftPartMiddle = Math.floor((leftPart[0] + leftPart[1]) / 2)
         const rightPartMiddle = Math.floor((rightPart[0] + rightPart[1]) / 2)
         container.innerText =
           props.content.slice(0, leftPartMiddle) +
+          '...' +
+          actionText +
           '...' +
           props.content.slice(rightPartMiddle, end)
         if (container.offsetHeight <= maxHeight) {
@@ -115,22 +141,66 @@ export const Ellipsis = withDefaultProps(defaultProps)<EllipsisProps>(props => {
       }
 
       const middle = Math.floor((0 + end) / 2)
-      setEllipsised(
+      const ellipsised =
         props.direction === 'middle'
           ? checkMiddle([0, middle], [middle, end])
-          : check(0, props.content.length)
-      )
+          : check(0, end)
+      setEllipsised(ellipsised)
     }
     document.body.removeChild(container)
-  }, [props.content, props.rows, props.direction])
+  }, rootRef)
+
+  const expandActionElement =
+    exceeded && props.expandText ? (
+      <a
+        onClick={() => {
+          setExpanded(true)
+        }}
+      >
+        {props.expandText}
+      </a>
+    ) : null
+
+  const collapseActionElement =
+    exceeded && props.expandText ? (
+      <a
+        onClick={() => {
+          setExpanded(false)
+        }}
+      >
+        {props.collapseText}
+      </a>
+    ) : null
+
+  const renderContent = () => {
+    if (!exceeded) {
+      return props.content
+    }
+    if (expanded) {
+      return (
+        <>
+          {props.content}
+          {collapseActionElement}
+        </>
+      )
+    } else {
+      return (
+        <>
+          {ellipsised.leading}
+          {expandActionElement}
+          {ellipsised.tailing}
+        </>
+      )
+    }
+  }
 
   return withNativeProps(
     props,
-    <div ref={originRef} className={classPrefix}>
-      {ellipsised}
+    <div ref={rootRef} className={classPrefix}>
+      {renderContent()}
     </div>
   )
-})
+}
 
 function pxToNumber(value: string | null): number {
   if (!value) return 0

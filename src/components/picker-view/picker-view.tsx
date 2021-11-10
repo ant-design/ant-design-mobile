@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { Column } from './column'
 import { useColumns } from './use-columns'
@@ -29,7 +29,7 @@ const defaultProps = {
 
 export const PickerView: FC<PickerViewProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   const columns = useColumns(props.columns, value)
 
   return withNativeProps(

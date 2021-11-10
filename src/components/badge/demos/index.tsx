@@ -8,7 +8,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='基本用法'>
-        <Space size='24px'>
+        <Space style={{ '--gap': '24px' }}>
           <Badge content='5'>
             <div className={styles.box} />
           </Badge>
@@ -24,7 +24,7 @@ export default () => {
         </Space>
       </DemoBlock>
       <DemoBlock title='自定义颜色和偏移量'>
-        <Space size='24px'>
+        <Space style={{ '--gap': '24px' }}>
           <Badge
             color='#108ee9'
             content={Badge.dot}
@@ -48,7 +48,7 @@ export default () => {
         </Space>
       </DemoBlock>
       <DemoBlock title='自定义徽标内容'>
-        <Space size='24px'>
+        <Space style={{ '--gap': '24px' }}>
           <Badge content={<DownlandOutline className={styles.badgeIcon} />}>
             <div className={styles.box} />
           </Badge>

@@ -1,14 +1,16 @@
 @class-prefix-popup: ~'adm-popup';
 
 .@{class-prefix-popup} {
+  --z-index: var(--adm-popup-z-index, 1000);
+
   position: fixed;
-  z-index: var(--adm-z-index-popup);
+  z-index: var(--z-index);
 }
 
 .@{class-prefix-popup}-body {
   position: fixed;
   background-color: #ffffff;
-  z-index: calc(var(--adm-z-index-mask) + 10);
+  z-index: calc(var(--z-index) + 10);
 
   &-position-bottom {
     width: 100%;

@@ -7,7 +7,7 @@ import { Dialog } from './dialog'
 
 export type { DialogProps } from './dialog'
 export type { Action } from './dialog-action-button'
-export type { DialogShowProps } from './show'
+export type { DialogShowProps, DialogShowRef } from './show'
 export type { DialogAlertProps } from './alert'
 export type { DialogConfirmProps } from './confirm'
 

@@ -2,13 +2,13 @@ import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import Badge from '../badge'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import Badge, { BadgeProps } from '../badge'
+import { usePropsValue } from '../../utils/use-props-value'
 
 export type TabBarItemProps = {
-  icon?: ReactNode
-  title?: string
-  badge?: ReactNode
+  icon?: ReactNode | ((active: boolean) => ReactNode)
+  title?: ReactNode
+  badge?: BadgeProps['content']
 } & NativeProps
 
 export const TabBarItem: FC<TabBarItemProps> = () => {
@@ -16,8 +16,8 @@ export const TabBarItem: FC<TabBarItemProps> = () => {
 }
 
 export type TabBarProps = {
-  activeKey?: string
-  defaultActiveKey?: string
+  activeKey?: string | null
+  defaultActiveKey?: string | null
   onChange?: (key: string) => void
 } & NativeProps
 
@@ -36,7 +36,7 @@ export const TabBar: FC<TabBarProps> = props => {
     items.push(child)
   })
 
-  const [activeKey, setActiveKey] = useNewControllableValue({
+  const [activeKey, setActiveKey] = usePropsValue({
     value: props.activeKey,
     defaultValue: props.defaultActiveKey ?? firstActiveKey,
     onChange: props.onChange,
@@ -46,9 +46,14 @@ export const TabBar: FC<TabBarProps> = props => {
     props,
     <div className='adm-tab-bar'>
       {items.map(item => {
+        const active = item.key === activeKey
         function renderContent() {
           const iconElement = item.props.icon && (
-            <div className='adm-tab-bar-item-icon'>{item.props.icon}</div>
+            <div className='adm-tab-bar-item-icon'>
+              {typeof item.props.icon === 'function'
+                ? item.props.icon(active)
+                : item.props.icon}
+            </div>
           )
           const titleElement = item.props.title && (
             <div className='adm-tab-bar-item-title'>{item.props.title}</div>
@@ -89,7 +94,7 @@ export const TabBar: FC<TabBarProps> = props => {
               setActiveKey(key.toString())
             }}
             className={classNames('adm-tab-bar-item', {
-              'adm-tab-bar-item-active': item.key === activeKey,
+              'adm-tab-bar-item-active': active,
             })}
           >
             {renderContent()}

@@ -1,9 +1,8 @@
-import { ReactNode } from 'react'
-import React from 'react'
+import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { LeftOutline } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-nav-bar`
 
@@ -19,8 +18,8 @@ const defaultProps = {
   back: '',
   backArrow: true,
 }
-
-export const NavBar = withDefaultProps(defaultProps)<NavBarProps>(props => {
+export const NavBar: FC<NavBarProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const { back, backArrow } = props
 
   return withNativeProps(
@@ -43,4 +42,4 @@ export const NavBar = withDefaultProps(defaultProps)<NavBarProps>(props => {
       <div className={`${classPrefix}-right`}>{props.right}</div>
     </div>
   )
-})
+}

@@ -2,8 +2,9 @@ import React, { forwardRef, useImperativeHandle, ReactElement } from 'react'
 import Tooltip from 'rc-tooltip'
 import classNames from 'classnames'
 import type { TooltipProps } from 'rc-tooltip/lib/Tooltip'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { NativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-popover`
 const enterClassName = 'entering'
@@ -37,7 +38,8 @@ export type BasePopoverProps = {
   | 'overlayClassName'
   | 'align'
   | 'zIndex'
->
+> &
+  NativeProps<'--z-index'>
 
 type PopoverPropsWithContent = BasePopoverProps & { content: React.ReactNode }
 
@@ -56,7 +58,7 @@ export const Popover = forwardRef<PopoverRef, PopoverPropsWithContent>(
     const props = mergeProps(defaultProps, p)
     const { mode = 'light' } = props
 
-    const [visible, onVisibleChange] = useNewControllableValue({
+    const [visible, setVisible] = usePropsValue({
       value: props.visible,
       defaultValue: props.defaultVisible,
       onChange: props.onVisibleChange,
@@ -66,8 +68,8 @@ export const Popover = forwardRef<PopoverRef, PopoverPropsWithContent>(
       ref,
       () => {
         return {
-          show: () => onVisibleChange(true),
-          hide: () => onVisibleChange(false),
+          show: () => setVisible(true),
+          hide: () => setVisible(false),
           visible,
         }
       },
@@ -85,7 +87,7 @@ export const Popover = forwardRef<PopoverRef, PopoverPropsWithContent>(
         prefixCls={classPrefix}
         getTooltipContainer={props.getContainer || (() => document.body)}
         visible={visible}
-        onVisibleChange={onVisibleChange}
+        onVisibleChange={setVisible}
         trigger={props.trigger}
         motion={{
           motionName: {

@@ -1,61 +1,59 @@
-import { withDefaultProps } from '../../utils/with-default-props'
-import React from 'react'
+import { mergeProps } from '../../utils/with-default-props'
+import React, { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { toCSSLength } from '../../utils/to-css-length'
 
 const classPrefix = `adm-grid`
 
 export type GridProps = {
   columns: number
-  gap?: number | number[] | string | string[]
-} & NativeProps
+  gap?: number | string | [number | string, number | string]
+} & NativeProps<'--gap' | '--gap-vertical' | '--gap-horizontal'>
 
-const defaultProps = {
-  gap: 0,
-}
-
-export const Grid = withDefaultProps(defaultProps)<GridProps>(props => {
-  let gapStyle: any = {}
+export const Grid: FC<GridProps> = props => {
+  const style: GridProps['style'] & Record<'--columns', string> = {
+    '--columns': props.columns.toString(),
+  }
   const { gap } = props
-  if (gap) {
-    const [horizontalGap, verticalGap] = Array.isArray(gap) ? gap : [gap, gap]
-    gapStyle = {
-      ...gapStyle,
-      '--vertical-gap':
-        typeof verticalGap === 'number' ? `${verticalGap}px` : verticalGap,
-      '--horizontal-gap':
-        typeof horizontalGap === 'number'
-          ? `${horizontalGap}px`
-          : horizontalGap,
+  if (gap !== undefined) {
+    if (Array.isArray(gap)) {
+      style['--gap-horizontal'] = toCSSLength(gap[0])
+      style['--gap-vertical'] = toCSSLength(gap[1])
+    } else {
+      style['--gap'] = toCSSLength(gap)
     }
   }
+
   return withNativeProps(
     props,
-    <div
-      className={classPrefix}
-      style={{
-        ...gapStyle,
-        '--columns': props.columns,
-      }}
-    >
+    <div className={classPrefix} style={style}>
       {props.children}
     </div>
   )
-})
+}
 
 export type GridItemProps = {
   span?: number
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & NativeProps
 
-export const GridItem = withDefaultProps({
-  span: 1,
-})<GridItemProps>(props => {
-  const itemStyle: any = {
+type GridItemStyle = React.CSSProperties &
+  Record<'--item-span', GridItemProps['span']>
+
+export const GridItem: FC<GridItemProps> = p => {
+  const props = mergeProps({ span: 1 }, p)
+
+  const itemStyle: GridItemStyle = {
     '--item-span': props.span,
   }
   return withNativeProps(
     props,
-    <div className={`${classPrefix}-item`} style={itemStyle}>
+    <div
+      className={`${classPrefix}-item`}
+      style={itemStyle}
+      onClick={props.onClick}
+    >
       {props.children}
     </div>
   )
-})
+}

@@ -35,7 +35,7 @@ export default () => {
         </Space>
       </DemoBlock>
       <DemoBlock title='自定义间距大小'>
-        <Space size='24px'>
+        <Space style={{ '--gap': '24px' }}>
           <Button>按钮1</Button>
           <Button>按钮2</Button>
           <Button>按钮3</Button>

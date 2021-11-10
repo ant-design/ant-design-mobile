@@ -1,5 +1,5 @@
 import React, { FC, useRef, RefObject } from 'react'
-import { useDrag, subV } from 'react-use-gesture'
+import { useDrag } from '@use-gesture/react'
 
 const classPrefix = `adm-slider`
 
@@ -29,14 +29,15 @@ const Thumb: FC<ThumbProps> = props => {
       if (state.first) {
         prevValue.current = value
       }
-      const [x] = subV(state.xy, state.initial)
+      const x = state.xy[0] - state.initial[0]
       const sliderOffsetWith = props.trackRef.current?.offsetWidth
       if (!sliderOffsetWith) return
-      const diff = (x / Math.ceil(sliderOffsetWith!)) * (max - min)
+      const diff = (x / Math.ceil(sliderOffsetWith)) * (max - min)
       onDrag(prevValue.current + diff, state.first, state.last)
     },
     {
       axis: 'x',
+      pointer: { touch: true },
     }
   )
 

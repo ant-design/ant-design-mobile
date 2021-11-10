@@ -1,16 +1,18 @@
-import React, { FC, useContext } from 'react'
+import React, { FC, useContext, useCallback, useState } from 'react'
 import classNames from 'classnames'
 import { NativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
 import type { FieldProps } from 'rc-field-form/lib/Field'
 import FieldContext from 'rc-field-form/lib/FieldContext'
-import type { Meta } from 'rc-field-form/lib/interface'
+import type { Meta, InternalNamePath } from 'rc-field-form/lib/interface'
 import { devWarning } from '../../utils/dev-log'
 
-import { FormContext } from './context'
+import { FormContext, NoStyleItemContext } from './context'
 import { toArray } from './utils'
 import List, { ListItemProps } from '../list'
 import type { FormLayout } from './index'
+
+const NAME_SPLIT = '__SPLIT__'
 
 type RenderChildren<Values = any> = (
   form: FormInstance<Values>
@@ -23,13 +25,15 @@ const classPrefix = `adm-form-item`
 
 export type FormItemProps = RcFieldProps &
   NativeProps &
-  Pick<ListItemProps, 'style' | 'onClick'> & {
+  Pick<ListItemProps, 'style' | 'onClick' | 'extra'> & {
     label?: string
     help?: string
     hasFeedback?: boolean
     required?: boolean
     noStyle?: boolean
     disabled?: boolean
+    hidden?: boolean
+    layout?: FormLayout
     children: ChildrenType
   }
 
@@ -54,23 +58,27 @@ type FormItemLayoutProps = Pick<
   | 'label'
   | 'help'
   | 'onClick'
+  | 'hidden'
+  | 'layout'
+  | 'extra'
 > & {
   htmlFor?: string
-  meta?: Meta
-  layout?: FormLayout
+  errors?: string[]
 }
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const {
     className,
     style,
+    extra,
     label,
     help,
     required,
     disabled,
-    meta,
     children,
     htmlFor,
+    hidden,
+    errors,
   } = props
 
   const context = useContext(FormContext)
@@ -78,17 +86,12 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const hasFeedback = props.hasFeedback || context.hasFeedback
   const layout = props.layout || context.layout
 
-  const formItemLabelClass = classNames(`${classPrefix}-label`, {
-    [`${classPrefix}-label-disable`]: disabled,
-  })
-
-  const feedback =
-    hasFeedback && meta && meta.errors.length > 0 ? meta.errors[0] : null
+  const feedback = hasFeedback && errors && errors.length > 0 ? errors[0] : null
 
   const labelElement = label ? (
-    <label className={formItemLabelClass} htmlFor={htmlFor}>
-      {required && <span className={`${classPrefix}-label-required`}>*</span>}
+    <label className={`${classPrefix}-label`} htmlFor={htmlFor}>
       {label}
+      {required && <span className={`${classPrefix}-label-required`}>*</span>}
       {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
     </label>
   ) : null
@@ -102,8 +105,12 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       style={style}
       title={layout === 'vertical' && labelElement}
       prefix={layout === 'horizontal' && labelElement}
+      extra={extra}
       description={descriptionElement}
-      className={classNames(classPrefix, className)}
+      className={classNames(classPrefix, className, {
+        [`${classPrefix}-hidden`]: hidden,
+      })}
+      disabled={disabled}
       onClick={props.onClick}
     >
       {children}
@@ -119,10 +126,13 @@ export const FormItem: FC<FormItemProps> = props => {
     // FormItem 相关
     label,
     help,
+    extra,
     hasFeedback,
     name,
     required,
     noStyle,
+    hidden,
+    layout,
     // Field 相关
     disabled,
     rules,
@@ -144,30 +154,64 @@ export const FormItem: FC<FormItemProps> = props => {
   const updateRef = React.useRef(0)
   updateRef.current += 1
 
+  const [subMetas, setSubMetas] = useState<Record<string, Meta>>({})
+  const onSubMetaChange = useCallback(
+    (subMeta: Meta & { destroy?: boolean }, namePath: InternalNamePath) => {
+      setSubMetas(prevSubMetas => {
+        const nextSubMetas = { ...prevSubMetas }
+        const nameKey = namePath.join(NAME_SPLIT)
+        if (subMeta.destroy) {
+          delete nextSubMetas[nameKey]
+        } else {
+          nextSubMetas[nameKey] = subMeta
+        }
+        return nextSubMetas
+      })
+    },
+    [setSubMetas]
+  )
+
   function renderLayout(
     baseChildren: React.ReactNode,
     fieldId?: string,
     meta?: Meta,
     isRequired?: boolean
   ) {
-    if (noStyle) {
+    if (noStyle && !hidden) {
       return baseChildren
     }
+
+    const curErrors = meta?.errors ?? []
+    const errors = Object.keys(subMetas).reduce(
+      (subErrors: string[], key: string) => {
+        const errors = subMetas[key]?.errors ?? []
+        if (errors.length) {
+          subErrors = [...subErrors, ...errors]
+        }
+        return subErrors
+      },
+      curErrors
+    )
 
     return (
       <FormItemLayout
         className={className}
         style={style}
         label={label}
+        extra={extra}
         help={help}
         required={isRequired}
         disabled={disabled}
         hasFeedback={hasFeedback}
         htmlFor={fieldId}
-        meta={meta}
+        errors={errors}
         onClick={onClick}
+        hidden={hidden}
+        layout={layout}
       >
-        {baseChildren}
+        <NoStyleItemContext.Provider value={onSubMetaChange}>
+          {baseChildren}
+        </NoStyleItemContext.Provider>
       </FormItemLayout>
     )
   }
@@ -178,12 +222,20 @@ export const FormItem: FC<FormItemProps> = props => {
     return renderLayout(children) as JSX.Element
   }
 
-  let variables: Record<string, string> = {}
+  let Variables: Record<string, string> = {}
   if (typeof label === 'string') {
-    variables.label = label
+    Variables.label = label
   }
   if (messageVariables) {
-    variables = { ...variables, ...messageVariables }
+    Variables = { ...Variables, ...messageVariables }
+  }
+
+  const notifyParentMetaChange = useContext(NoStyleItemContext)
+  const onMetaChange = (meta: Meta & { destroy?: boolean }) => {
+    if (noStyle && notifyParentMetaChange) {
+      const namePath = meta.name
+      notifyParentMetaChange(meta, namePath)
+    }
   }
 
   return (
@@ -195,6 +247,7 @@ export const FormItem: FC<FormItemProps> = props => {
       rules={rules}
       trigger={trigger}
       validateTrigger={mergedValidateTrigger}
+      onMetaChange={onMetaChange}
     >
       {(control, meta, context) => {
         let childNode: React.ReactNode = null
@@ -258,10 +311,6 @@ export const FormItem: FC<FormItemProps> = props => {
 
           if (!childProps.id) {
             childProps.id = fieldId
-          }
-
-          if (disabled) {
-            childProps.disabled = disabled
           }
 
           // We should keep user origin event handler

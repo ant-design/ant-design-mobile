@@ -9,10 +9,10 @@ import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer from '../image-viewer'
 import PreviewItem from './preview-item'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { usePersistFn } from 'ahooks'
 import Space from '../space'
-import { convertPx } from '../../utils/convert-px'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 export type TaskStatus = 'pending' | 'fail'
 
@@ -43,7 +43,7 @@ export type ImageUploaderProps = {
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
   upload: (file: File) => Promise<FileItem>
   onDelete?: (file: FileItem) => boolean | Promise<boolean> | void
-}
+} & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
 
@@ -59,7 +59,7 @@ const defaultProps = {
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   const updateValue = usePersistFn(
     (updater: (prev: FileItem[]) => FileItem[]) => {
       setValue(updater(value))
@@ -82,6 +82,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   const { maxCount, onPreview } = props
 
   async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
+    e.persist()
     const { files: rawFiles } = e.target
     if (!rawFiles) return
     let files = [].slice.call(rawFiles) as File[]
@@ -97,7 +98,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     if (maxCount > 0) {
       const exceed = value.length + files.length - maxCount
       if (exceed > 0) {
-        files = files.slice(0, maxCount - exceed)
+        files = files.slice(0, files.length - exceed)
         props.onCountExceed?.(exceed)
       }
     }
@@ -149,7 +150,9 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           throw e
         }
       })
-    )
+    ).catch(error => console.error(error))
+
+    e.target.value = '' // HACK: fix the same file doesn't trigger onChange
   }
 
   function previewImage(index: number) {
@@ -164,9 +167,10 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     props.showUpload &&
     (maxCount === 0 || value.length + tasks.length < maxCount)
 
-  return (
+  return withNativeProps(
+    props,
     <div className={classPrefix}>
-      <Space size={convertPx(12)} wrap>
+      <Space className={`${classPrefix}-space`} wrap>
         {value.map((fileItem, index) => (
           <PreviewItem
             key={fileItem.url}
@@ -192,13 +196,19 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           />
         ))}
         {showUpload && (
-          <span
-            className={`${classPrefix}-cell ${classPrefix}-upload-button`}
-            role='button'
-          >
-            <span className={`${classPrefix}-upload-button-icon`}>
-              <AddOutline />
-            </span>
+          <div className={`${classPrefix}-upload-button-wrap`}>
+            {props.children ? (
+              props.children
+            ) : (
+              <span
+                className={`${classPrefix}-cell ${classPrefix}-upload-button`}
+                role='button'
+              >
+                <span className={`${classPrefix}-upload-button-icon`}>
+                  <AddOutline />
+                </span>
+              </span>
+            )}
             {!props.disableUpload && (
               <input
                 capture={props.capture}
@@ -209,7 +219,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
                 onChange={onChange}
               />
             )}
-          </span>
+          </div>
         )}
       </Space>
     </div>

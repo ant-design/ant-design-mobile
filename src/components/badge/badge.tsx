@@ -1,8 +1,7 @@
 import classNames from 'classnames'
-import React from 'react'
-import { convertPx } from '../../utils/convert-px'
+import React, { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-badge`
 
@@ -13,11 +12,9 @@ export type BadgeProps = {
   color?: string
 } & NativeProps<'--right' | '--top'>
 
-export const Badge = withDefaultProps({
-  color: '#FF411C',
-  offset: [0, 0],
-})<BadgeProps>(props => {
-  const { content, color, offset, children } = props
+export const Badge: FC<BadgeProps> = p => {
+  const props = mergeProps({ color: '#FF411C' }, p)
+  const { content, color, children } = props
 
   const isDot = content === dot
 
@@ -48,4 +45,4 @@ export const Badge = withDefaultProps({
   ) : (
     element
   )
-})
+}

@@ -2,7 +2,6 @@
 
 .@{prefix}-previewer {
   background-color: #fff;
-  border: 1px solid @c-border;
   border-radius: 1px;
 
   [data-prefers-color='dark'] & {
@@ -11,9 +10,13 @@
   }
 
   &[data-debug] {
-    margin-top: 32px;
-    border-color: #ffcb00;
-
+    .debug-badge {
+      display: inline-block;
+      background-color: #ffcb00;
+      color: #735600;
+      border-radius: 2px;
+      padding: 2px 6px;
+    }
     &::before {
       content: 'DEV ONLY';
       float: left;
@@ -246,10 +249,8 @@
       }
     }
 
-    // split action buttons by a blank node
-    > span {
+    .spacer {
       flex: 1;
-      display: inline-block;
     }
   }
 

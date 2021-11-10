@@ -1,0 +1,31 @@
+name: Feature Request
+description: Suggest us to add new feature
+labels: ['feature']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this form!
+  - type: input
+    id: antd-mobile-version
+    attributes:
+      label: Version of antd-mobile
+      description: The exact version of antd-mobile you are currently using.
+      placeholder: eg. 5.0.0-beta.21
+    validations:
+      required: false
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: What is this feature about?
+      placeholder: Please tell us about your idea in as much detail as possible.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/ant-design/ant-design-mobile/blob/master/.github/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

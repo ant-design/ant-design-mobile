@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { EyeInvisibleOutline, EyeOutline } from 'antd-mobile-icons'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = 'adm-desense-text'
 
@@ -23,7 +23,7 @@ export const DesenseText: FC<DesenseTextProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { text, desenseText } = props
 
-  const [isDesense, setIsDesense] = useNewControllableValue<boolean>({
+  const [isDesense, setIsDesense] = usePropsValue<boolean>({
     value: props.desense,
     defaultValue: props.defaultDesense,
     onChange: props.onChange,

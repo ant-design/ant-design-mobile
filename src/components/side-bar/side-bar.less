@@ -1,0 +1,61 @@
+@class-prefix-side-bar: ~'adm-side-bar';
+
+.@{class-prefix-side-bar} {
+  --height: 100%;
+  --width: 96px;
+  --item-border-radius: 8px;
+  width: var(--width);
+  height: var(--height);
+  font-size: 15px;
+  overflow-y: auto;
+  // https://github.com/PolymerElements/iron-list/issues/18
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+
+  &-item {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    padding: 6px 22px;
+    position: relative;
+    cursor: pointer;
+    background-color: #f5f5f5;
+
+    &-active {
+      color: var(--adm-color-primary);
+      background-color: white;
+      font-weight: bold;
+      position: relative;
+    }
+
+    &-active + .@{class-prefix-side-bar}-item {
+      border-top-right-radius: var(--item-border-radius);
+    }
+
+    &-active::before {
+      content: '';
+      width: var(--item-border-radius);
+      height: var(--item-border-radius);
+      background-color: white;
+      position: absolute;
+      top: calc(var(--item-border-radius) * -1);
+      right: 0;
+    }
+
+    &-active::after {
+      content: '';
+      width: var(--item-border-radius);
+      height: var(--item-border-radius);
+      background-color: #f5f5f5;
+      border-bottom-right-radius: var(--item-border-radius);
+      position: absolute;
+      top: calc(var(--item-border-radius) * -1);
+      right: 0;
+    }
+
+    &-disabled {
+      cursor: not-allowed;
+      color: var(--adm-color-light);
+    }
+  }
+}

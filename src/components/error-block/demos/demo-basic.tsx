@@ -6,7 +6,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='四种状态'>
-        <Space block direction='vertical' size={16}>
+        <Space block direction='vertical' style={{ '--gap': '16px' }}>
           <ErrorBlock status='default' />
           <ErrorBlock status='disconnected' />
           <ErrorBlock status='empty' />

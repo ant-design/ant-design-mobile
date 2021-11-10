@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import type { IRouteComponentProps } from '@umijs/types'
 import { context, Link } from 'dumi/theme'
 import Navbar from '../components/Navbar'
