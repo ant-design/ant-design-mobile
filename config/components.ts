@@ -72,5 +72,6 @@ export const components = {
     '/components/picker-view',
     '/components/safe-area',
     '/components/tree-select',
+    '/components/virtual-input',
   ],
 }

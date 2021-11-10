@@ -4,7 +4,7 @@
 
 <code src="./demos/index.tsx"></code>
 
-## 属性
+### 属性
 
 | 属性         | 说明                                         | 类型                                                 | 默认值  |
 | ------------ | -------------------------------------------- | ---------------------------------------------------- | ------- |
@@ -21,7 +21,7 @@
 
 此外还支持以下原生属性：`maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp`
 
-## CSS 变量
+### CSS 变量
 
 | 属性                | 说明                   | 默认值                   |
 | ------------------- | ---------------------- | ------------------------ |
@@ -30,7 +30,7 @@
 | --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-light)` |
 | --disabled-color    | 禁用状态下的文字颜色   | `var(--adm-color-weak)`  |
 
-## Ref
+### Ref
 
 | 属性  | 说明             | 类型         |
 | ----- | ---------------- | ------------ |

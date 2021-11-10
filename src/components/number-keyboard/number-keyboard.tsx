@@ -163,7 +163,13 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     >
       {withNativeProps(
         props,
-        <div ref={keyboardRef} className={classPrefix}>
+        <div
+          ref={keyboardRef}
+          className={classPrefix}
+          onMouseDown={e => {
+            e.preventDefault()
+          }}
+        >
           {renderHeader()}
           <div className={`${classPrefix}-wrapper`}>
             <div

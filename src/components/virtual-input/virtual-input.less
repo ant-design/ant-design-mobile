@@ -1,0 +1,72 @@
+.adm-virtual-input {
+  --font-size: 17px;
+  --color: var(--adm-color-text);
+  --placeholder-color: var(--adm-color-light);
+  --disabled-color: var(--adm-color-weak);
+
+  font-size: var(--font-size);
+  line-height: 1.5;
+  white-space: nowrap;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  > * {
+    flex: none;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+
+  &-content {
+    display: inline-block;
+    color: var(--color);
+  }
+
+  &-placeholder {
+    display: inline-block;
+    color: var(--placeholder-color);
+    margin-left: -2px;
+  }
+
+  &-caret-container {
+    display: inline-block;
+    width: 2px;
+    height: calc(var(--font-size) * 1.3);
+    margin-left: 2px;
+  }
+  &-caret {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: var(--adm-color-text);
+    position: relative;
+    top: calc(var(--font-size) * -0.05);
+  }
+  &:focus {
+    .adm-virtual-input-caret {
+      display: block;
+      animation-name: adm-caret-blink;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes adm-caret-blink {
+  from {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
