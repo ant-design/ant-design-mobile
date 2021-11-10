@@ -64,13 +64,15 @@ export default () => {
                   </Button>
                 ),
               })
+              setVisible('')
               e.stopPropagation()
             }}
           >
             弹窗内展示键盘
           </List.Item>
           <List.Item onClick={e => openKeyboard(e, 'demo7')} arrow={false}>
-            <Input placeholder='请输入内容' value={value} />
+            {/* 添加 readOnly 阻止原生键盘弹出 */}
+            <Input placeholder='请输入内容' value={value} readOnly />
           </List.Item>
         </List>
       </DemoBlock>
