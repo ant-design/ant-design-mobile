@@ -1,6 +1,7 @@
 # Stepper
 
 <code src="./demos/index.tsx"></code>
+<code src="./demos/demo.tsx" debug></code>
 
 ### Props
 
