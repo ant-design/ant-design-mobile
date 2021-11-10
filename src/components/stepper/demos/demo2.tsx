@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Stepper, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import styles from './index.less'
+import styles from './demo2.less'
 
 export default () => {
   const [num, setNum] = useState(1)
