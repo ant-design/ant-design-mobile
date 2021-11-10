@@ -8,13 +8,6 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='自定义css变量'>
-        <Stepper
-          className={styles.cssVariable}
-          defaultValue={10000}
-          step={10000}
-        />
-      </DemoBlock>
       <DemoBlock title='基础用法(非受控)'>
         <Stepper
           defaultValue={1}
@@ -58,6 +51,13 @@ export default () => {
           onBlur={() => {
             Toast.show('失去焦点')
           }}
+        />
+      </DemoBlock>
+      <DemoBlock title='自定义css变量'>
+        <Stepper
+          className={styles.cssVariable}
+          defaultValue={10000}
+          step={10000}
         />
       </DemoBlock>
     </>
