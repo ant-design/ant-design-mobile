@@ -37,3 +37,7 @@ function loadMore() { // 正确
 如果需要的话，`<InfiniteScroll>` 允许自定义展示内容，这个内容可以包含任何元素，包括 svg 和带有 css 动画的元素。
 
 <code src="./demos/content.tsx"></code>
+
+### 配合搜索使用
+
+<code src="./demos/demo3.tsx"></code>
