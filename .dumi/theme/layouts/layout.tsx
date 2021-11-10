@@ -3,7 +3,6 @@ import type { IRouteComponentProps } from '@umijs/types'
 import { context, Link } from 'dumi/theme'
 import Navbar from '../components/Navbar'
 import SideMenu from '../components/SideMenu'
-import SearchBar from '../components/SearchBar'
 import '../style/layout-default.less'
 import '../style/layout.less'
 
@@ -84,7 +83,6 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
     >
       <Navbar
         location={location}
-        navPrefix={<SearchBar />}
         onMobileMenuClick={ev => {
           setMenuCollapsed(val => !val)
           ev.stopPropagation()
