@@ -20,6 +20,8 @@
 
 <code src="./demos/demo5.tsx"></code>
 
+<code src="./demos/demo6.tsx" debug></code>
+
 ## Swiper
 
 ### API
