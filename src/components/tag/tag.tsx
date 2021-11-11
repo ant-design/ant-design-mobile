@@ -23,7 +23,7 @@ export type TagProps = {
     | (string & {})
   fill?: 'solid' | 'outline'
   round?: boolean
-  onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
 } & NativeProps
 
 const defaultProps = {
