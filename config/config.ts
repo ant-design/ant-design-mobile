@@ -260,6 +260,13 @@ export default {
     'antd-mobile/es': process.cwd() + '/src',
     'demos': process.cwd() + '/src/demos/index.ts',
   },
+  metas: [
+    {
+      name: 'viewport',
+      content:
+        'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover',
+    },
+  ],
   scripts: [
     `if (location.pathname.startsWith('/~demos/')) {
       document.body.style.background = '#f5f7fa'
@@ -292,6 +299,9 @@ export default {
     }
     a[title='站长统计'] {
       display: none;
+    }
+    body {
+      min-height: 100vh;
     }
     `,
   ],

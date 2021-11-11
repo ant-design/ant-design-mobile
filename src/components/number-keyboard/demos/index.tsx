@@ -7,9 +7,7 @@ export default () => {
   const [value, setValue] = useState('')
 
   const openKeyboard = (name: string) => {
-    window.setTimeout(() => {
-      setVisible(name)
-    }, 100)
+    setVisible(name)
   }
 
   const actions = {
@@ -35,7 +33,7 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='基础用法' padding='0' border='none'>
+      <DemoBlock title='基础用法1' padding='0' border='none'>
         <List>
           <List.Item onClick={() => openKeyboard('demo1')}>默认键盘</List.Item>
           <List.Item onClick={() => openKeyboard('demo2')}>

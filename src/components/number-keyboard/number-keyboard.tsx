@@ -6,6 +6,7 @@ import { shuffle } from '../../utils/shuffle'
 import Popup, { PopupProps } from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import SafeArea from '../safe-area'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -24,6 +25,7 @@ export type NumberKeyboardProps = {
   afterShow?: () => void
   afterClose?: () => void
   closeOnConfirm?: boolean
+  safeArea?: boolean
 } & Pick<PopupProps, 'stopPropagation'> &
   NativeProps
 
@@ -33,6 +35,7 @@ const defaultProps = {
   showCloseButton: true,
   confirmText: null,
   closeOnConfirm: true,
+  safeArea: true,
 }
 
 export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
@@ -178,6 +181,11 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
               </div>
             )}
           </div>
+          {props.safeArea && (
+            <div className={`${classPrefix}-footer`}>
+              <SafeArea position='bottom' />
+            </div>
+          )}
         </div>
       )}
     </Popup>
