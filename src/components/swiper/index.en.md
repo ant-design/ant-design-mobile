@@ -8,16 +8,20 @@
 
 ### API
 
-| Name             | Description                                    | Type                                                                       | Default        |
-| ---------------- | ---------------------------------------------- | -------------------------------------------------------------------------- | -------------- |
-| defaultIndex     | The initial position                           | `number`                                                                   | `0`            |
-| allowTouchMove   | Whether to allow gesture sliding               | `boolean`                                                                  | `true`         |
-| autoplay         | Whether to switch automatically                | `boolean`                                                                  | `false`        |
-| autoplayInterval | Automatic switching interval, the unit is `ms` | `number`                                                                   | `3000`         |
-| loop             | Whether to loop                                | `boolean`                                                                  | `true`         |
-| direction        | Layout direction                               | `'horizontal' \| 'vertical'`                                               | `'horizontal'` |
-| onIndexChange    | Triggered on index is changed                  | `(index: number) => void`                                                  | -              |
-| indicatorProps   | Related attributes of the indicator            | support [PageIndicator](./page-indicator) `color` `style` `className` prop | -              |
+| Name             | Description                                                                                                                  | Type                                                                       | Default        |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------- |
+| defaultIndex     | The initial position                                                                                                         | `number`                                                                   | `0`            |
+| allowTouchMove   | Whether to allow gesture sliding                                                                                             | `boolean`                                                                  | `true`         |
+| autoplay         | Whether to switch automatically                                                                                              | `boolean`                                                                  | `false`        |
+| autoplayInterval | Automatic switching interval, the unit is `ms`                                                                               | `number`                                                                   | `3000`         |
+| loop             | Whether to loop                                                                                                              | `boolean`                                                                  | `true`         |
+| direction        | Layout direction                                                                                                             | `'horizontal' \| 'vertical'`                                               | `'horizontal'` |
+| onIndexChange    | Triggered on index is changed                                                                                                | `(index: number) => void`                                                  | -              |
+| indicatorProps   | Related attributes of the indicator                                                                                          | support [PageIndicator](./page-indicator) `color` `style` `className` prop | -              |
+| indicator        | Render a customized indicator                                                                                                | `(total: number, current: number) => ReactNode`                            | -              |
+| slideSize        | The slide width in percentage                                                                                                | `number`                                                                   | `100`          |
+| trackOffset      | The track offset in percentage                                                                                               | `number`                                                                   | `0`            |
+| stuckAtBoundary  | Whether to stuck at boundary in order to prevent white spaces. Only available when `loop` is `false` and `slideWidth` < 100. | `boolean`                                                                  | `false`        |
 
 ### CSS Variables
 
@@ -25,11 +29,8 @@
 | --------------- | ---------------------------------------- | ------- |
 | --height        | height                                   | `auto`  |
 | --width         | width                                    | `100%`  |
-| --slide-width   | slide width                              | `100%`  |
-| --slide-height  | slide height                             | `auto`  |
 | --border-radius | rounded corners of the overall component | `0`     |
 | --track-padding | `padding` in the track area              | `0`     |
-| --track-offset  | the overall offset of the track          | `0`     |
 
 ### Ref
 

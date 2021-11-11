@@ -20,6 +20,20 @@ const items = colors.map((color, index) => (
   </Swiper.Item>
 ))
 
+const verticalItems = colors.map((color, index) => (
+  <Swiper.Item key={index}>
+    <div
+      className={styles.verticalContent}
+      style={{ background: color }}
+      onClick={() => {
+        Toast.show(`你点击了卡片 ${index + 1}`)
+      }}
+    >
+      {index + 1}
+    </div>
+  </Swiper.Item>
+))
+
 export default () => {
   const ref = useRef<SwiperRef>(null)
   return (
@@ -60,8 +74,8 @@ export default () => {
       <DemoBlock title='自定义样式'>
         <Space direction='vertical' block>
           <Swiper
+            slideSize={80}
             style={{
-              '--slide-width': '80%',
               '--border-radius': '8px',
             }}
             defaultIndex={2}
@@ -73,29 +87,44 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='居中展示'>
         <Space direction='vertical' block>
-          <Swiper
-            loop={false}
-            style={{ '--slide-width': '80%', '--track-offset': '10%' }}
-          >
+          <Swiper loop={false} slideSize={80} trackOffset={10}>
             {items}
           </Swiper>
           <DemoDescription content='通过 CSS 变量可以控制滑块的大小和轨道的偏移量' />
         </Space>
       </DemoBlock>
       <DemoBlock title='循环居中展示'>
-        <Swiper style={{ '--slide-width': '70%', '--track-offset': '15%' }}>
+        <Swiper slideSize={70} trackOffset={15}>
           {items}
         </Swiper>
       </DemoBlock>
+      <DemoBlock title='最后一项'>
+        <Space direction='vertical' block>
+          <Swiper
+            loop={false}
+            slideSize={80}
+            trackOffset={10}
+            defaultIndex={3}
+            stuckAtBoundary
+          >
+            {items}
+          </Swiper>
+          <DemoDescription content='让最后一项卡在右边界' />
+        </Space>
+      </DemoBlock>
       <DemoBlock title='竖向'>
-        <Swiper direction='vertical'>{items}</Swiper>
+        <Swiper direction='vertical' style={{ '--height': '200px' }}>
+          {verticalItems}
+        </Swiper>
       </DemoBlock>
       <DemoBlock title='竖向居中展示'>
         <Swiper
           direction='vertical'
-          style={{ '--height': '160px', '--track-offset': '20px' }}
+          trackOffset={10}
+          slideSize={80}
+          style={{ '--height': '200px' }}
         >
-          {items}
+          {verticalItems}
         </Swiper>
       </DemoBlock>
     </>
