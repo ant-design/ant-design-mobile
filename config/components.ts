@@ -75,5 +75,6 @@ export const components = {
     '/components/safe-area',
     '/components/tree-select',
     '/components/virtual-input',
+    '/components/scroll-mask',
   ],
 }

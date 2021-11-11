@@ -1,0 +1,20 @@
+@class-prefix-tabs: ~'adm-scroll-mask';
+
+.@{class-prefix-tabs} {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 30px;
+  height: 100%;
+  pointer-events: none;
+
+  &-left {
+    left: 0;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+  }
+  &-right {
+    right: 0;
+    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+  }
+}
