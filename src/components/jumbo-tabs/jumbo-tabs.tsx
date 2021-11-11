@@ -10,10 +10,9 @@ import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { bound } from '../../utils/bound'
-import { useUpdateLayoutEffect, useThrottleFn } from 'ahooks'
-import { useMutationEffect } from '../../utils/use-mutation-effect'
+import { useThrottleFn } from 'ahooks'
 import { useResizeEffect } from '../../utils/use-resize-effect'
+import { useTabListScroll } from '../../utils/use-tab-list-scroll'
 
 const classPrefix = `adm-jumbo-tabs`
 
@@ -59,13 +58,10 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
     onChange: props.onChange,
   })
 
-  const [{ scrollLeft }, scrollApi] = useSpring(() => ({
-    scrollLeft: 0,
-    config: {
-      tension: 300,
-      clamp: true,
-    },
-  }))
+  const { scrollLeft, animate } = useTabListScroll(
+    tabListContainerRef,
+    keyToIndexRecord[activeKey as string]
+  )
 
   const [{ leftMaskOpacity, rightMaskOpacity }, maskApi] = useSpring(() => ({
     leftMaskOpacity: 0,
@@ -75,64 +71,9 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
     },
   }))
 
-  function animate(immediate = false) {
-    const container = tabListContainerRef.current
-    if (!container) return
-    const activeIndex = keyToIndexRecord[activeKey as string]
-    if (activeIndex === undefined) {
-      return
-    }
-
-    const activeTabWrapper = container.children.item(
-      activeIndex
-    ) as HTMLDivElement
-    const activeTab = activeTabWrapper.children.item(0) as HTMLDivElement
-    const activeTabLeft = activeTab.offsetLeft
-    const activeTabWidth = activeTab.offsetWidth
-
-    const containerWidth = container.offsetWidth
-    const containerScrollWidth = container.scrollWidth
-    const containerScrollLeft = container.scrollLeft
-
-    const maxScrollDistance = containerScrollWidth - containerWidth
-    if (maxScrollDistance <= 0) return
-
-    const nextScrollLeft = bound(
-      activeTabLeft - (containerWidth - activeTabWidth) / 2,
-      0,
-      containerScrollWidth - containerWidth
-    )
-
-    scrollApi.start({
-      scrollLeft: nextScrollLeft,
-      from: { scrollLeft: containerScrollLeft },
-      immediate,
-    })
-  }
-
-  useLayoutEffect(() => {
-    animate(true)
-  }, [])
-
-  useUpdateLayoutEffect(() => {
-    animate()
-  }, [activeKey])
-
   useResizeEffect(() => {
     animate(true)
   }, rootRef)
-
-  useMutationEffect(
-    () => {
-      animate(true)
-    },
-    tabListContainerRef,
-    {
-      subtree: true,
-      childList: true,
-      characterData: true,
-    }
-  )
 
   const { run: updateMask } = useThrottleFn(
     (immediate = false) => {
