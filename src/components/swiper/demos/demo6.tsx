@@ -1,7 +1,6 @@
 import React from 'react'
 import { DemoBlock, lorem } from 'demos'
 import { Space, Swiper } from 'antd-mobile'
-import styles from './demo2.less'
 
 const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']
 
@@ -15,9 +14,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='高度自动撑起'>
-        <Space direction='vertical' block>
-          <Swiper>{items}</Swiper>
-        </Space>
+        <Swiper>{items}</Swiper>
       </DemoBlock>
     </>
   )

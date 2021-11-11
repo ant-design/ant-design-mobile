@@ -4,6 +4,7 @@ import React, {
   ReactNode,
   useEffect,
   useImperativeHandle,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -83,7 +84,7 @@ export const Swiper = forwardRef(
       }
     }, [props.children])
 
-    if (count === 0) {
+    if (count === 0 || !validChildren) {
       devWarning('Swiper', '`Swiper` needs at least one child.')
       return null
     }
@@ -197,13 +198,14 @@ export const Swiper = forwardRef(
         }
       )
 
-      function swipeTo(index: number) {
+      function swipeTo(index: number, immediate = false) {
         if (loop) {
           const i = modulus(index, count)
           setCurrent(i)
           props.onIndexChange?.(i)
           api.start({
             position: index * 100,
+            immediate,
           })
         } else {
           const i = bound(index, 0, count - 1)
@@ -211,6 +213,7 @@ export const Swiper = forwardRef(
           props.onIndexChange?.(i)
           api.start({
             position: boundIndex(i) * 100,
+            immediate,
           })
         }
       }
@@ -228,6 +231,13 @@ export const Swiper = forwardRef(
         swipeNext,
         swipePrev,
       }))
+
+      useLayoutEffect(() => {
+        const maxIndex = validChildren.length - 1
+        if (current > maxIndex) {
+          swipeTo(maxIndex, true)
+        }
+      })
 
       const { autoplay, autoplayInterval } = props
       useEffect(() => {
