@@ -1,8 +1,24 @@
 # Swiper 走马灯
 
+### 基础用法
+
 <code src="./demos/demo1.tsx"></code>
+
+### 不是满宽的滑块
+
+<code src="./demos/demo4.tsx"></code>
+
+### 指示器
+
 <code src="./demos/demo2.tsx"></code>
+
+### 全屏引导
+
 <code src="./demos/demo3.tsx"></code>
+
+### 竖向
+
+<code src="./demos/demo5.tsx"></code>
 
 ## Swiper
 

@@ -272,10 +272,9 @@ export const Swiper = forwardRef(
             <animated.div
               className='adm-swiper-track-inner'
               style={{
-                [isVertical ? 'y' : 'x']: position.to(position => {
-                  let finalPosition = -position
-                  return `${finalPosition}%`
-                }),
+                [isVertical ? 'y' : 'x']: position.to(
+                  position => `${-position}%`
+                ),
               }}
             >
               {React.Children.map(validChildren, (child, index) => {

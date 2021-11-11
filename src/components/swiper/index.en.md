@@ -1,8 +1,24 @@
 # Swiper
 
+### Basic Usage
+
 <code src="./demos/demo1.tsx"></code>
+
+### Slides which are not full-width
+
+<code src="./demos/demo4.tsx"></code>
+
+### Indicators
+
 <code src="./demos/demo2.tsx"></code>
+
+### Full Page Guide
+
 <code src="./demos/demo3.tsx"></code>
+
+### Vertical
+
+<code src="./demos/demo5.tsx"></code>
 
 ## Swiper
 
