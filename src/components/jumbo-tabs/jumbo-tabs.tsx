@@ -4,15 +4,14 @@ import React, {
   ReactElement,
   ComponentProps,
   useRef,
-  useLayoutEffect,
 } from 'react'
 import classNames from 'classnames'
-import { useSpring, animated } from '@react-spring/web'
+import { animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useThrottleFn } from 'ahooks'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { useTabListScroll } from '../../utils/use-tab-list-scroll'
+import ScrollMask from '../scroll-mask'
 
 const classPrefix = `adm-jumbo-tabs`
 
@@ -63,72 +62,19 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
     keyToIndexRecord[activeKey as string]
   )
 
-  const [{ leftMaskOpacity, rightMaskOpacity }, maskApi] = useSpring(() => ({
-    leftMaskOpacity: 0,
-    rightMaskOpacity: 0,
-    config: {
-      clamp: true,
-    },
-  }))
-
   useResizeEffect(() => {
     animate(true)
   }, rootRef)
-
-  const { run: updateMask } = useThrottleFn(
-    (immediate = false) => {
-      const container = tabListContainerRef.current
-      if (!container) return
-
-      const scrollLeft = container.scrollLeft
-      const showLeftMask = scrollLeft > 0
-      const showRightMask =
-        scrollLeft + container.offsetWidth < container.scrollWidth
-
-      maskApi.start({
-        leftMaskOpacity: showLeftMask ? 1 : 0,
-        rightMaskOpacity: showRightMask ? 1 : 0,
-        immediate,
-      })
-    },
-    {
-      wait: 100,
-      trailing: true,
-      leading: true,
-    }
-  )
-
-  useLayoutEffect(() => {
-    updateMask(true)
-  }, [])
 
   return withNativeProps(
     props,
     <div className={classPrefix} ref={rootRef}>
       <div className={`${classPrefix}-header`}>
-        <animated.div
-          className={classNames(
-            `${classPrefix}-header-mask`,
-            `${classPrefix}-header-mask-left`
-          )}
-          style={{
-            opacity: leftMaskOpacity,
-          }}
-        />
-        <animated.div
-          className={classNames(
-            `${classPrefix}-header-mask`,
-            `${classPrefix}-header-mask-right`
-          )}
-          style={{
-            opacity: rightMaskOpacity,
-          }}
-        />
+        <ScrollMask scrollTrackRef={tabListContainerRef} />
         <animated.div
           className={`${classPrefix}-tab-list`}
           ref={tabListContainerRef}
           scrollLeft={scrollLeft}
-          onScroll={updateMask}
         >
           {panes.map(pane =>
             withNativeProps(
