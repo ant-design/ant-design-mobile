@@ -91,11 +91,7 @@ export const Swiper = forwardRef(
 
     return () => {
       let loop = props.loop
-      if (count === 1 && loop) {
-        devWarning(
-          'Swiper',
-          '`Swiper` needs at least two children to enable loop.'
-        )
+      if (slideRatio * (count - 1) < 1) {
         loop = false
       }
       const trackRef = useRef<HTMLDivElement>(null)
@@ -251,7 +247,7 @@ export const Swiper = forwardRef(
       }, [autoplay, autoplayInterval, dragging])
 
       function renderTrackInner() {
-        if (props.loop) {
+        if (loop) {
           return (
             <div className='adm-swiper-track-inner'>
               {React.Children.map(validChildren, (child, index) => {
@@ -262,7 +258,7 @@ export const Swiper = forwardRef(
                       [isVertical ? 'y' : 'x']: position.to(position => {
                         let finalPosition = -position + index * 100
                         const totalWidth = count * 100
-                        const flagWidth = totalWidth / 2 - 10
+                        const flagWidth = totalWidth / 2
                         finalPosition =
                           modulus(finalPosition + flagWidth, totalWidth) -
                           flagWidth
