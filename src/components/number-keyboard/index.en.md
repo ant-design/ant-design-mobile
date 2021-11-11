@@ -28,9 +28,6 @@ In addition, the following attributes of [Popup](./popup) are supported: `stopPr
 
 ### CSS Variables
 
-| 属性                | 说明                         | 默认值           |
-| ------------------- | ---------------------------- | ---------------- |
-| --font-size         | font size                    | 17px             |
-| --color             | font color                   | --am-color-text  |
-| --placeholder-color | placeholder font color       | --am-color-light |
-| --disabled-color    | text color in disabled state | --am-color-weak  |
+| Name                   | Description                     | Default |
+| ---------------------- | ------------------------------- | ------- |
+| --adm-z-index-keyboard | The z-index of keyboard element | 1050    |
