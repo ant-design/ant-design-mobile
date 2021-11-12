@@ -2,7 +2,7 @@
 title: Ant Design Mobile
 hero:
   title: Ant Design Mobile
-  desc: v5 alpha (Poplar)
+  desc: v5 alpha (Popular)
   actions:
     - text: 快速上手
       link: /guide/quick-start

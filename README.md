@@ -7,7 +7,7 @@
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ant-design/ant-design-mobile/Check/v5)
 ![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mobile)
 
-> This is the **v5** (poplar) branch
+> This is the **v5** (popular) branch
 >
 > For **v2** branch, you can go [here](https://github.com/ant-design/ant-design-mobile/tree/v2)
 >
