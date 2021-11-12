@@ -8,6 +8,21 @@ import './index.less'
 export default () => {
   const [loading, { toggle }] = useToggle(true)
   const [checked, { toggle: toggleChecked }] = useToggle(false)
+
+  const onBeforeChange = (state: 'resolve' | 'reject'): Promise<any> => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (state === 'resolve') {
+          alert('处理成功')
+          resolve()
+        } else {
+          alert('处理失败')
+          reject()
+        }
+      }, 3000)
+    })
+  }
+
   return (
     <>
       <DemoBlock title='基础用法(非受控)'>
@@ -46,9 +61,6 @@ export default () => {
           <Switch loading={loading} />
         </Space>
       </DemoBlock>
-      <DemoBlock title='loading状态和禁用状态共存时不显示loading'>
-        <Switch disabled loading={loading} />
-      </DemoBlock>
       <DemoBlock title='文字和图标'>
         <Space wrap>
           <Switch uncheckedText='关' checkedText='开' />
@@ -64,6 +76,18 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='自定义样式（通过 className）'>
         <Switch defaultChecked className='my-switch' />
+      </DemoBlock>
+      <DemoBlock title='Promise.resolve 后再修改状态（onBeforeChange）'>
+        <Space wrap>
+          <Switch
+            defaultChecked
+            onBeforeChange={() => onBeforeChange('resolve')}
+          />
+          <Switch
+            defaultChecked
+            onBeforeChange={() => onBeforeChange('reject')}
+          />
+        </Space>
       </DemoBlock>
     </>
   )

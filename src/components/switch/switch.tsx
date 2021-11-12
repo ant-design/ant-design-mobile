@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import React, { FC, ReactNode } from 'react'
+import { useToggle } from 'ahooks'
 import SpinIcon from '../../assets/spin.svg'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -12,6 +13,7 @@ export type SwitchProps = {
   disabled?: boolean
   checked?: boolean
   defaultChecked?: boolean
+  onBeforeChange?: () => Promise<void>
   onChange?: (checked: boolean) => void
   checkedText?: ReactNode
   uncheckedText?: ReactNode
@@ -19,11 +21,13 @@ export type SwitchProps = {
 
 const defaultProps = {
   defaultChecked: false,
+  onBeforeChange: () => Promise.resolve(),
 }
 
 export const Switch: FC<SwitchProps> = p => {
   const props = mergeProps(defaultProps, p)
   const disabled = props.disabled || props.loading || false
+  const [beforeChangeLoading, { toggle }] = useToggle(false)
 
   const [checked, setChecked] = usePropsValue({
     value: props.checked,
@@ -31,36 +35,41 @@ export const Switch: FC<SwitchProps> = p => {
     onChange: props.onChange,
   })
 
+  const onClick = () => {
+    if (disabled || props.loading || beforeChangeLoading) {
+      return
+    }
+    toggle()
+    props
+      .onBeforeChange()
+      .then(() => {
+        setChecked(!checked)
+      })
+      .catch(() => {})
+      .finally(() => {
+        toggle()
+      })
+  }
+
   return withNativeProps(
     props,
-    <label
+    <div
+      onClick={onClick}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
-        [`${classPrefix}-disabled`]: disabled,
+        [`${classPrefix}-disabled`]: disabled || beforeChangeLoading,
       })}
     >
-      <input
-        type='checkbox'
-        checked={checked}
-        onChange={e => {
-          disabled || setChecked(e.target.checked)
-        }}
-        disabled={disabled}
-      />
       <div className={`${classPrefix}-checkbox`}>
         <div className={`${classPrefix}-handle`}>
-          {
-            // 禁用状态优先于加载状态
-            props.disabled ||
-              (props.loading && (
-                <img src={SpinIcon} className={`${classPrefix}-icon`} />
-              ))
-          }
+          {(props.loading || beforeChangeLoading) && (
+            <img src={SpinIcon} className={`${classPrefix}-icon`} />
+          )}
         </div>
         <div className={`${classPrefix}-inner`}>
           {checked ? props.checkedText : props.uncheckedText}
         </div>
       </div>
-    </label>
+    </div>
   )
 }
