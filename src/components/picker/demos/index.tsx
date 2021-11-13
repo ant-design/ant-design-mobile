@@ -26,7 +26,13 @@ function BasicDemo() {
           setVisible(false)
         }}
         value={value}
-        onConfirm={setValue}
+        onSelect={(v, c) => {
+          console.log('onSelect', v, c.items)
+        }}
+        onConfirm={(v, c) => {
+          console.log('onConfirm', v, c.items)
+          setValue(v)
+        }}
       />
     </>
   )
