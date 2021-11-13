@@ -141,7 +141,6 @@ export const Picker: FC<PickerProps> = p => {
   const generateItems = useMemo(() => {
     return memoize(
       (val: PickerValue[]) => {
-        console.log('generateItems')
         return val.map((v, index) => {
           const column = columns[index]
           if (!column) return null
