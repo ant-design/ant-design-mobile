@@ -49,11 +49,13 @@ export const components = {
     '/components/toast',
   ],
   navigationAndLayout: [
+    '/components/capsule-tabs',
     '/components/collapse',
     '/components/divider',
     '/components/floating-panel',
     '/components/grid',
     '/components/index-bar',
+    '/components/jumbo-tabs',
     '/components/nav-bar',
     '/components/popup',
     '/components/side-bar',
@@ -73,5 +75,6 @@ export const components = {
     '/components/safe-area',
     '/components/tree-select',
     '/components/virtual-input',
+    // '/components/scroll-mask',
   ],
 }
