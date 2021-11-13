@@ -49,18 +49,18 @@ export const components = {
     '/components/toast',
   ],
   navigationAndLayout: [
+    '/components/capsule-tabs',
     '/components/collapse',
     '/components/divider',
     '/components/floating-panel',
     '/components/grid',
     '/components/index-bar',
+    '/components/jumbo-tabs',
     '/components/nav-bar',
     '/components/popup',
     '/components/side-bar',
     '/components/tab-bar',
     '/components/tabs',
-    '/components/capsule-tabs',
-    '/components/jumbo-tabs',
   ],
   other: ['/components/config-provider'],
   experimental: [
@@ -75,6 +75,6 @@ export const components = {
     '/components/safe-area',
     '/components/tree-select',
     '/components/virtual-input',
-    '/components/scroll-mask',
+    // '/components/scroll-mask',
   ],
 }
