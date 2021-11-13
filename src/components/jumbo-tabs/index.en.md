@@ -12,7 +12,7 @@
 | defaultActiveKey | The initialized `key` of the selected panel, if the `activeKey` is not set | `string \| null`        | the `key` of the 1st pannel |
 | onChange         | Callback when switching panel                                              | `(key: string) => void` | -                           |
 
-## JumboTabs.JumboTabPane
+## JumboTabs.Tab
 
 | Name        | Description                                       | Type        | Default |
 | ----------- | ------------------------------------------------- | ----------- | ------- |

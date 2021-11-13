@@ -15,14 +15,14 @@ import ScrollMask from '../scroll-mask'
 
 const classPrefix = `adm-jumbo-tabs`
 
-export type JumboTabPaneProps = {
+export type JumboTabProps = {
   title: ReactNode
   description: ReactNode
   disabled?: boolean
   forceRender?: boolean
 } & NativeProps
 
-export const JumboTabPane: FC<JumboTabPaneProps> = () => {
+export const JumboTab: FC<JumboTabProps> = () => {
   return null
 }
 
@@ -38,7 +38,7 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
-  const panes: ReactElement<ComponentProps<typeof JumboTabPane>>[] = []
+  const panes: ReactElement<ComponentProps<typeof JumboTab>>[] = []
 
   React.Children.forEach(props.children, (child, index) => {
     if (!React.isValidElement(child)) return

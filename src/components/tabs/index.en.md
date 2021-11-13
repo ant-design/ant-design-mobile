@@ -19,7 +19,7 @@
 | ------------------------- | ------------------------------------- | ------- |
 | --fixed-active-line-width | The width of the active tab underline | `30px`  |
 
-## Tabs.TabPane
+## Tabs.Tab
 
 | Name        | Description                                       | Type        | Default |
 | ----------- | ------------------------------------------------- | ----------- | ------- |

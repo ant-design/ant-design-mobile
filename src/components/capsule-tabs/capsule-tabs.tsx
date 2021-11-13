@@ -15,13 +15,13 @@ import ScrollMask from '../scroll-mask'
 
 const classPrefix = `adm-capsule-tabs`
 
-export type CapsuleTabPaneProps = {
+export type CapsuleTabProps = {
   title: ReactNode
   disabled?: boolean
   forceRender?: boolean
 } & NativeProps
 
-export const CapsuleTabPane: FC<CapsuleTabPaneProps> = () => {
+export const CapsuleTab: FC<CapsuleTabProps> = () => {
   return null
 }
 
@@ -37,7 +37,7 @@ export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
-  const panes: ReactElement<ComponentProps<typeof CapsuleTabPane>>[] = []
+  const panes: ReactElement<ComponentProps<typeof CapsuleTab>>[] = []
 
   React.Children.forEach(props.children, (child, index) => {
     if (!React.isValidElement(child)) return
