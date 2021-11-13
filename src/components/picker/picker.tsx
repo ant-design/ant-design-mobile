@@ -53,17 +53,17 @@ export const Picker: FC<PickerProps> = p => {
     value: props.value,
     defaultValue: props.defaultValue,
     onChange: val => {
-      props.onConfirm?.(val, context)
+      props.onConfirm?.(val, context(val))
     },
   })
   const value = controllable[0] as PickerValue[]
   const setValue = controllable[1]
 
-  const context: PickerValueContext = {
+  const context: (val: PickerValue[]) => PickerValueContext = val => ({
     get items() {
-      return getItems()
+      return getItems(val)
     },
-  }
+  })
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
@@ -111,7 +111,7 @@ export const Picker: FC<PickerProps> = p => {
           onChange={val => {
             setInnerValue(val)
             if (props.visible) {
-              props.onSelect?.(val, context)
+              props.onSelect?.(val, context(val))
             }
           }}
         />
@@ -138,18 +138,21 @@ export const Picker: FC<PickerProps> = p => {
     </Popup>
   )
 
-  const getItems = useLazyMemo(() => {
-    return value.map((v, index) => {
-      const column = columns[index]
-      if (!column) return null
-      return column.find(item => item.value === v) ?? null
-    })
-  }, [value, columns])
+  const getItems = useLazyMemo(
+    (val: PickerValue[]) => {
+      return val.map((v, index) => {
+        const column = columns[index]
+        if (!column) return null
+        return column.find(item => item.value === v) ?? null
+      })
+    },
+    [columns]
+  )
 
   return (
     <>
       {popupElement}
-      {props.children?.(getItems())}
+      {props.children?.(getItems(value))}
     </>
   )
 }

@@ -1,9 +1,9 @@
 import memoize from 'lodash/memoize'
 import { DependencyList, useMemo } from 'react'
 
-export function useLazyMemo<T>(
-  factory: () => T,
+export function useLazyMemo<V, T>(
+  factory: (v?: V) => T,
   deps: DependencyList
-): () => T {
+): (v?: V) => T {
   return useMemo(() => memoize(factory), deps)
 }
