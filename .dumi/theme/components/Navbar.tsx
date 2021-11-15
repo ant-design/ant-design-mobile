@@ -4,17 +4,16 @@ import { context, Link, NavLink } from 'dumi/theme'
 import LocaleSelect from './LocaleSelect'
 import './Navbar.less'
 import p from '../../../package.json'
+import SearchBar from './SearchBar'
 
 interface INavbarProps {
   location: any
-  navPrefix?: React.ReactNode
   darkPrefix?: React.ReactNode
   onMobileMenuClick: (ev: MouseEvent<HTMLButtonElement>) => void
 }
 
 const Navbar: FC<INavbarProps> = ({
   onMobileMenuClick,
-  navPrefix,
   location,
   darkPrefix,
 }) => {
@@ -46,8 +45,9 @@ const Navbar: FC<INavbarProps> = ({
         <div className='__dumi-default-navbar-version'>{`v${p.version}`}</div>
       </div>
       <nav>
-        {navPrefix}
-        {/* nav */}
+        <div className='nav-item'>
+          <SearchBar />
+        </div>
         {navItems.map(nav => {
           const child = Boolean(nav.children?.length) && (
             <ul>

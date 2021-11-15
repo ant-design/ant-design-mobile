@@ -4,6 +4,7 @@ import React, {
   ReactNode,
   useEffect,
   useImperativeHandle,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -36,16 +37,11 @@ export type SwiperProps = {
   onIndexChange?: (index: number) => void
   indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
   indicator?: (total: number, current: number) => ReactNode
+  slideSize?: number
+  trackOffset?: number
+  stuckAtBoundary?: boolean
   children?: ReactElement | ReactElement[]
-} & NativeProps<
-  | '--height'
-  | '--width'
-  | '--slide-width'
-  | '--slide-height'
-  | '--border-radius'
-  | '--track-padding'
-  | '--track-offset'
->
+} & NativeProps<'--height' | '--width' | '--border-radius' | '--track-padding'>
 
 const defaultProps = {
   defaultIndex: 0,
@@ -54,6 +50,9 @@ const defaultProps = {
   autoplayInterval: 3000,
   loop: true,
   direction: 'horizontal',
+  slideSize: 100,
+  trackOffset: 0,
+  stuckAtBoundary: false,
 }
 
 export const Swiper = forwardRef(
@@ -61,6 +60,9 @@ export const Swiper = forwardRef(
     const props = mergeProps(defaultProps, p)
 
     const isVertical = props.direction === 'vertical'
+
+    const slideRatio = props.slideSize / 100
+    const offsetRatio = props.trackOffset / 100
 
     const { validChildren, count } = useMemo(() => {
       let count = 0
@@ -82,34 +84,42 @@ export const Swiper = forwardRef(
       }
     }, [props.children])
 
-    if (count === 0) {
+    if (count === 0 || !validChildren) {
       devWarning('Swiper', '`Swiper` needs at least one child.')
       return null
     }
 
     return () => {
       let loop = props.loop
-      if (count === 1 && loop) {
-        devWarning(
-          'Swiper',
-          '`Swiper` needs at least two children to enable loop.'
-        )
+      if (slideRatio * (count - 1) < 1) {
         loop = false
       }
       const trackRef = useRef<HTMLDivElement>(null)
-      function getSize() {
+
+      function getSlidePixels() {
         const track = trackRef.current
         if (!track) return 0
-        return isVertical ? track.offsetHeight : track.offsetWidth
+        const trackPixels = isVertical ? track.offsetHeight : track.offsetWidth
+        return (trackPixels * props.slideSize) / 100
       }
 
       const [current, setCurrent] = useState(props.defaultIndex)
 
       const [dragging, setDragging, draggingRef] = useRefState(false)
 
+      function boundIndex(current: number) {
+        let min = 0
+        let max = count - 1
+        if (props.stuckAtBoundary) {
+          min += (1 - slideRatio - offsetRatio) / slideRatio
+          max -= (1 - slideRatio - offsetRatio) / slideRatio
+        }
+        return bound(current, min, max)
+      }
+
       const [{ position }, api] = useSpring(
         () => ({
-          position: bound(current, 0, count - 1) * 100,
+          position: boundIndex(current) * 100,
           config: { tension: 200, friction: 30 },
           onRest: () => {
             if (draggingRef.current) return
@@ -128,8 +138,8 @@ export const Swiper = forwardRef(
 
       const bind = useDrag(
         state => {
-          const size = getSize()
-          if (!size) return
+          const slidePixels = getSlidePixels()
+          if (!slidePixels) return
           const paramIndex = isVertical ? 1 : 0
           const offset = state.offset[paramIndex]
           const direction = state.direction[paramIndex]
@@ -137,12 +147,13 @@ export const Swiper = forwardRef(
           setDragging(true)
           if (!state.last) {
             api.start({
-              position: (offset * 100) / size,
+              position: (offset * 100) / slidePixels,
               immediate: true,
             })
           } else {
             const index = Math.round(
-              (offset + Math.min(velocity * 2000, size) * direction) / size
+              (offset + Math.min(velocity * 2000, slidePixels) * direction) /
+                slidePixels
             )
             swipeTo(index)
             window.setTimeout(() => {
@@ -153,23 +164,25 @@ export const Swiper = forwardRef(
         {
           transform: ([x, y]) => [-x, -y],
           from: () => {
-            const size = getSize()
+            const slidePixels = getSlidePixels()
             return [
-              (position.get() / 100) * size,
-              (position.get() / 100) * size,
+              (position.get() / 100) * slidePixels,
+              (position.get() / 100) * slidePixels,
             ]
           },
           bounds: () => {
             if (loop) return {}
-            const size = getSize()
+            const slidePixels = getSlidePixels()
+            const lowerBound = boundIndex(0) * slidePixels
+            const upperBound = boundIndex(count - 1) * slidePixels
             return isVertical
               ? {
-                  top: 0,
-                  bottom: (count - 1) * size,
+                  top: lowerBound,
+                  bottom: upperBound,
                 }
               : {
-                  left: 0,
-                  right: (count - 1) * size,
+                  left: lowerBound,
+                  right: upperBound,
                 }
           },
           rubberband: true,
@@ -181,20 +194,22 @@ export const Swiper = forwardRef(
         }
       )
 
-      function swipeTo(index: number) {
+      function swipeTo(index: number, immediate = false) {
         if (loop) {
           const i = modulus(index, count)
           setCurrent(i)
           props.onIndexChange?.(i)
           api.start({
             position: index * 100,
+            immediate,
           })
         } else {
           const i = bound(index, 0, count - 1)
           setCurrent(i)
           props.onIndexChange?.(i)
           api.start({
-            position: i * 100,
+            position: boundIndex(i) * 100,
+            immediate,
           })
         }
       }
@@ -213,6 +228,13 @@ export const Swiper = forwardRef(
         swipePrev,
       }))
 
+      useLayoutEffect(() => {
+        const maxIndex = validChildren.length - 1
+        if (current > maxIndex) {
+          swipeTo(maxIndex, true)
+        }
+      })
+
       const { autoplay, autoplayInterval } = props
       useEffect(() => {
         if (!autoplay || dragging) return
@@ -224,23 +246,10 @@ export const Swiper = forwardRef(
         }
       }, [autoplay, autoplayInterval, dragging])
 
-      return withNativeProps(
-        props,
-        <div
-          className={classNames('adm-swiper', `adm-swiper-${props.direction}`)}
-        >
-          <div
-            className={classNames('adm-swiper-track', {
-              'adm-swiper-track-allow-touch-move': props.allowTouchMove,
-            })}
-            onClickCapture={e => {
-              if (draggingRef.current) {
-                e.stopPropagation()
-              }
-            }}
-            {...(props.allowTouchMove ? bind() : {})}
-          >
-            <div className='adm-swiper-track-inner' ref={trackRef}>
+      function renderTrackInner() {
+        if (loop) {
+          return (
+            <div className='adm-swiper-track-inner'>
               {React.Children.map(validChildren, (child, index) => {
                 return (
                   <animated.div
@@ -248,13 +257,11 @@ export const Swiper = forwardRef(
                     style={{
                       [isVertical ? 'y' : 'x']: position.to(position => {
                         let finalPosition = -position + index * 100
-                        if (loop) {
-                          const totalWidth = count * 100
-                          const flagWidth = totalWidth / 2 - 10
-                          finalPosition =
-                            modulus(finalPosition + flagWidth, totalWidth) -
-                            flagWidth
-                        }
+                        const totalWidth = count * 100
+                        const flagWidth = totalWidth / 2
+                        finalPosition =
+                          modulus(finalPosition + flagWidth, totalWidth) -
+                          flagWidth
                         return `${finalPosition}%`
                       }),
                       left: `-${index * 100}%`,
@@ -265,6 +272,49 @@ export const Swiper = forwardRef(
                 )
               })}
             </div>
+          )
+        } else {
+          return (
+            <animated.div
+              className='adm-swiper-track-inner'
+              style={{
+                [isVertical ? 'y' : 'x']: position.to(
+                  position => `${-position}%`
+                ),
+              }}
+            >
+              {React.Children.map(validChildren, (child, index) => {
+                return <div className='adm-swiper-slide'>{child}</div>
+              })}
+            </animated.div>
+          )
+        }
+      }
+
+      const style: any = {
+        '--slide-size': `${props.slideSize}%`,
+        '--track-offset': `${props.trackOffset}%`,
+      }
+
+      return withNativeProps(
+        props,
+        <div
+          className={classNames('adm-swiper', `adm-swiper-${props.direction}`)}
+          style={style}
+        >
+          <div
+            ref={trackRef}
+            className={classNames('adm-swiper-track', {
+              'adm-swiper-track-allow-touch-move': props.allowTouchMove,
+            })}
+            onClickCapture={e => {
+              if (draggingRef.current) {
+                e.stopPropagation()
+              }
+            }}
+            {...(props.allowTouchMove ? bind() : {})}
+          >
+            {renderTrackInner()}
           </div>
           {props.indicator === undefined ? (
             <div className='adm-swiper-indicator'>

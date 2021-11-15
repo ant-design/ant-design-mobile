@@ -19,7 +19,20 @@ export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> & {
   digits?: number
   disabled?: boolean
   onChange?: (value: number) => void
-} & NativeProps
+} & NativeProps<
+    | '--height'
+    | '--input-width'
+    | '--input-font-size'
+    | '--border-radius'
+    | '--border'
+    | '--border-inner'
+    | '--active-border'
+    | '--button-font-size'
+    | '--button-background-color'
+    | '--button-width'
+    | '--input-font-color'
+    | '--button-text-color'
+  >
 
 const defaultProps = {
   defaultValue: 0,
@@ -90,6 +103,7 @@ export const Stepper: FC<StepperProps> = p => {
     <div
       className={classNames(classPrefix, {
         [`${classPrefix}-disabled`]: disabled,
+        [`${classPrefix}-active`]: hasFocus,
       })}
     >
       <Button

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode, FC } from 'react'
+import React, { useState, useEffect, ReactNode, FC, useMemo } from 'react'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -7,7 +7,7 @@ import { PickerColumn, PickerColumnItem, PickerValue } from './index'
 import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
 import { useConfig } from '../config-provider'
-import { useLazyMemo } from '../../utils/use-lazy-memo'
+import memoize from 'lodash/memoize'
 
 const classPrefix = `adm-picker`
 
@@ -49,20 +49,20 @@ export const Picker: FC<PickerProps> = p => {
     p
   )
 
-  const controllable = usePropsValue({
+  const [value, setValue] = usePropsValue({
     value: props.value,
     defaultValue: props.defaultValue,
     onChange: val => {
-      props.onConfirm?.(val, context)
+      props.onConfirm?.(val, generateContext(val))
     },
   })
-  const value = controllable[0] as PickerValue[]
-  const setValue = controllable[1]
 
-  const context: PickerValueContext = {
-    get items() {
-      return getItems()
-    },
+  function generateContext(val: PickerValue[]): PickerValueContext {
+    return {
+      get items() {
+        return generateItems(val)
+      },
+    }
   }
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
@@ -111,7 +111,7 @@ export const Picker: FC<PickerProps> = p => {
           onChange={val => {
             setInnerValue(val)
             if (props.visible) {
-              props.onSelect?.(val, context)
+              props.onSelect?.(val, generateContext(val))
             }
           }}
         />
@@ -138,18 +138,23 @@ export const Picker: FC<PickerProps> = p => {
     </Popup>
   )
 
-  const getItems = useLazyMemo(() => {
-    return value.map((v, index) => {
-      const column = columns[index]
-      if (!column) return null
-      return column.find(item => item.value === v) ?? null
-    })
-  }, [value, columns])
+  const generateItems = useMemo(() => {
+    return memoize(
+      (val: PickerValue[]) => {
+        return val.map((v, index) => {
+          const column = columns[index]
+          if (!column) return null
+          return column.find(item => item.value === v) ?? null
+        })
+      },
+      val => JSON.stringify(val)
+    )
+  }, [columns])
 
   return (
     <>
       {popupElement}
-      {props.children?.(getItems())}
+      {props.children?.(generateItems(value))}
     </>
   )
 }

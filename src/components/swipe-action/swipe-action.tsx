@@ -37,7 +37,7 @@ export type SwipeActionProps = {
   rightActions?: Action[]
   leftActions?: Action[]
   onAction?: (action: Action) => void
-  closeOnTouchAway?: boolean
+  closeOnTouchOutside?: boolean
   closeOnAction?: boolean
   children: ReactNode
 } & NativeProps<'--background'>
@@ -45,7 +45,7 @@ export type SwipeActionProps = {
 const defaultProps = {
   rightActions: [] as Action[],
   leftActions: [] as Action[],
-  closeOnTouchAway: true,
+  closeOnTouchOutside: true,
   closeOnAction: true,
 }
 
@@ -146,7 +146,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
     }))
 
     useEffect(() => {
-      if (!props.closeOnTouchAway) return
+      if (!props.closeOnTouchOutside) return
       function handle(e: Event) {
         if (x.get() === 0) {
           return
@@ -156,11 +156,11 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
           close()
         }
       }
-      document.addEventListener('pointerdown', handle)
+      document.addEventListener('touchstart', handle)
       return () => {
-        document.removeEventListener('pointerdown', handle)
+        document.removeEventListener('touchstart', handle)
       }
-    }, [props.closeOnTouchAway])
+    }, [props.closeOnTouchOutside])
 
     function renderAction(action: Action) {
       const color = action.color ?? 'light'

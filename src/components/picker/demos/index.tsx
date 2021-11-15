@@ -26,7 +26,9 @@ function BasicDemo() {
           setVisible(false)
         }}
         value={value}
-        onConfirm={setValue}
+        onConfirm={(v, c) => {
+          setValue(v)
+        }}
       />
     </>
   )
@@ -52,8 +54,8 @@ function RenderChildrenDemo() {
         }}
         value={value}
         onConfirm={setValue}
-        onSelect={val => {
-          console.log('onSelect', val)
+        onSelect={(val, context) => {
+          console.log('onSelect', val, context.items)
         }}
       >
         {items => {

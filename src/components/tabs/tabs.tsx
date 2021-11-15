@@ -18,13 +18,13 @@ import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-tabs`
 
-export type TabPaneProps = {
+export type TabProps = {
   title: ReactNode
   disabled?: boolean
   forceRender?: boolean
 } & NativeProps
 
-export const TabPane: FC<TabPaneProps> = () => {
+export const Tab: FC<TabProps> = () => {
   return null
 }
 
@@ -47,7 +47,7 @@ export const Tabs: FC<TabsProps> = p => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
-  const panes: ReactElement<ComponentProps<typeof TabPane>>[] = []
+  const panes: ReactElement<ComponentProps<typeof Tab>>[] = []
 
   React.Children.forEach(props.children, (child, index) => {
     if (!React.isValidElement(child)) return

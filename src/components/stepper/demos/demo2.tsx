@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Stepper, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import styles from './demo2.less'
 
 export default () => {
   const [num, setNum] = useState(1)
@@ -50,6 +51,13 @@ export default () => {
           onBlur={() => {
             Toast.show('失去焦点')
           }}
+        />
+      </DemoBlock>
+      <DemoBlock title='自定义css变量'>
+        <Stepper
+          className={styles.cssVariable}
+          defaultValue={10000}
+          step={10000}
         />
       </DemoBlock>
     </>

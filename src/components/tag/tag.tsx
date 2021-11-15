@@ -23,6 +23,7 @@ export type TagProps = {
     | (string & {})
   fill?: 'solid' | 'outline'
   round?: boolean
+  onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
 } & NativeProps
 
 const defaultProps = {
@@ -44,6 +45,7 @@ export const Tag: FC<TagProps> = p => {
     props,
     <span
       style={style}
+      onClick={props.onClick}
       className={classNames(classPrefix, {
         [`${classPrefix}-round`]: props.round,
         [`${classPrefix}-outline`]: props.fill === 'outline',

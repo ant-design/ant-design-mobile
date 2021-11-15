@@ -1,0 +1,67 @@
+@class-prefix-tabs: ~'adm-capsule-tabs';
+
+.@{class-prefix-tabs} {
+  position: relative;
+
+  &-header {
+    position: relative;
+    padding: 12px 6px;
+    border-bottom: solid 1px var(--adm-border-color);
+  }
+
+  &-tab-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+  }
+  &-tab-wrapper {
+    flex: auto;
+    padding: 0 6px;
+  }
+  &-tab {
+    position: relative;
+    padding: 8px 20px;
+    margin: 0 auto;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: var(--adm-font-size-main);
+    text-align: center;
+    white-space: nowrap;
+    background-color: #f5f5f5;
+  }
+  &-tab-active {
+    color: #fff;
+    background-color: var(--adm-color-primary);
+  }
+  &-tab-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  &-content {
+    padding: 12px;
+  }
+  &-header-mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 30px;
+    height: 100%;
+    pointer-events: none;
+  }
+  &-header-mask-left {
+    left: 0;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+  }
+  &-header-mask-right {
+    right: 0;
+    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+  }
+}

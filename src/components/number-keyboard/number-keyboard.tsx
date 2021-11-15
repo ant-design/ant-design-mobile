@@ -5,15 +5,13 @@ import { mergeProps } from '../../utils/with-default-props'
 import { shuffle } from '../../utils/shuffle'
 import Popup, { PopupProps } from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
-import { useClickAway } from 'ahooks'
-import { usePropsValue } from '../../utils/use-props-value'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import SafeArea from '../safe-area'
 
 const classPrefix = 'adm-number-keyboard'
 
 export type NumberKeyboardProps = {
   visible?: boolean
-  defaultVisible?: boolean
   title?: string
   getContainer?: GetContainer
   confirmText?: string | null
@@ -24,11 +22,10 @@ export type NumberKeyboardProps = {
   onDelete?: () => void
   onClose?: () => void
   onConfirm?: () => void
-  onBlur?: () => void
   afterShow?: () => void
   afterClose?: () => void
-  closeOnBlur?: boolean
   closeOnConfirm?: boolean
+  safeArea?: boolean
 } & Pick<PopupProps, 'stopPropagation'> &
   NativeProps
 
@@ -37,13 +34,14 @@ const defaultProps = {
   randomOrder: false,
   showCloseButton: true,
   confirmText: null,
-  closeOnBlur: true,
   closeOnConfirm: true,
+  safeArea: true,
 }
 
 export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
   const props = mergeProps(defaultProps, p)
   const {
+    visible,
     title,
     getContainer,
     confirmText,
@@ -54,23 +52,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     onDelete,
   } = props
 
-  const [visible, setVisible] = usePropsValue({
-    value: props.visible,
-    defaultValue: props.defaultVisible,
-    onChange: val => {
-      if (!val) {
-        props.onClose?.()
-      }
-    },
-  })
-
   const keyboardRef = useRef<HTMLDivElement | null>(null)
-  useClickAway(() => {
-    if (props.closeOnBlur && visible) {
-      props.onBlur?.()
-      setVisible(false)
-    }
-  }, keyboardRef)
 
   const keys = useMemo(() => {
     const defaultKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -94,7 +76,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       case 'OK':
         props.onConfirm?.()
         if (props.closeOnConfirm) {
-          setVisible(false)
+          props.onClose?.()
         }
         break
       default:
@@ -117,7 +99,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
           <span
             className={`${classPrefix}-header-close-button`}
             onClick={() => {
-              setVisible(false)
+              props.onClose?.()
             }}
             role='button'
             title='CLOSE'
@@ -199,6 +181,11 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
               </div>
             )}
           </div>
+          {props.safeArea && (
+            <div className={`${classPrefix}-footer`}>
+              <SafeArea position='bottom' />
+            </div>
+          )}
         </div>
       )}
     </Popup>

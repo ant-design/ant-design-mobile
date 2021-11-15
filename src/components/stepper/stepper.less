@@ -1,41 +1,52 @@
 @class-prefix-stepper: ~'adm-stepper';
 
-@stepper-height: 22px;
-@stepper-width: 80px;
-@stepper-btn-width: 22px;
-@stepper-active-color: #e8e8e8;
-@stepper-border-color: #e5e5e5;
-@stepper-border-radius: 2px;
-@stepper-border: 1px;
-
 .@{class-prefix-stepper} {
+  --height: 22px;
+  --input-width: 40px;
+  --input-font-size: var(--adm-font-size-main);
+  --input-font-color: var(--adm-color-text);
+  --border-radius: 2px;
+  --border: 1px solid #e5e5e5;
+  --border-inner: var(--border);
+  --active-border: var(--border);
+  --button-font-size: 10px;
+  --button-text-color: var(--adm-color-primary);
+  --button-background-color: transparent;
+  --button-width: var(--height);
+
   display: flex;
   align-items: center;
   box-sizing: border-box;
   position: relative;
-  width: @stepper-width;
+  overflow: hidden;
+  width: calc(var(--input-width) + 2 * var(--button-width));
+  border: var(--border);
+  border-radius: var(--border-radius);
+  &-active {
+    border: var(--active-border);
+  }
 
   .@{class-prefix-stepper}-input {
-    position: relative;
     flex: 1;
-    height: @stepper-height;
-    border-top: @stepper-border solid @stepper-border-color;
-    border-bottom: @stepper-border solid @stepper-border-color;
-    --font-size: var(--adm-font-size-main);
+    height: var(--height);
+    border-left: var(--border-inner);
+    border-right: var(--border-inner);
 
     > input {
       text-align: center;
+      font-size: var(--input-font-size);
+      color: var(--input-font-color);
     }
   }
 
   &-minus,
   &-plus {
-    width: @stepper-btn-width;
-    height: @stepper-height;
+    width: var(--button-width);
+    height: var(--height);
     padding: 0;
-    border: @stepper-border solid @stepper-border-color;
-    border-radius: @stepper-border-radius;
-    font-size: 10px;
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+    font-size: var(--button-font-size);
 
     &:disabled {
       color: var(--adm-color-weak);
@@ -44,10 +55,10 @@
   }
 
   &-minus {
-    left: 1px;
+    border-radius: 0;
   }
 
   &-plus {
-    left: -1px;
+    border-radius: 0;
   }
 }
