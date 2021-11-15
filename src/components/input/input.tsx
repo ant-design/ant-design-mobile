@@ -118,20 +118,19 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         onKeyDown={handleKeydown}
         onKeyUp={props.onKeyUp}
       />
-      {props.clearable && !!value && hasFocus && (
-        <div
-          className={`${classPrefix}-clear`}
-          onMouseDown={e => {
-            e.preventDefault()
-          }}
-          onClick={() => {
-            setValue('')
-            props.onClear?.()
-          }}
-        >
-          <CloseCircleFill />
-        </div>
-      )}
+      <div
+        style={{display: props.clearable && !!value && hasFocus ? 'block' : 'none'}}
+        className={`${classPrefix}-clear`}
+        onMouseDown={e => {
+          e.preventDefault()
+        }}
+        onClick={() => {
+          setValue('')
+          props.onClear?.()
+        }}
+      >
+        <CloseCircleFill />
+      </div>
     </div>
   )
 })
