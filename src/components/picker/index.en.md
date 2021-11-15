@@ -1,6 +1,6 @@
 # Picker
 
-The Picker series includes three components: `Picker`, `CascadePicker`, and `DatePicker`.
+The Picker series includes three components: [Picker](#picker), [CascadePicker](#cascadepicker) and [DatePicker](#datepicker).
 
 ## Picker
 
