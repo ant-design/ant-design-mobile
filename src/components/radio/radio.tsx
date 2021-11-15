@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react'
-import { NativeProps } from '../../utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { RadioGroupContext } from './group-context'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -61,12 +61,13 @@ export const Radio: FC<RadioProps> = p => {
 
     return (
       <div className={`${classPrefix}-icon`}>
-        <CheckIcon className={`${classPrefix}-icon-checked`} />
+        {checked && <CheckIcon className={`${classPrefix}-icon-checked`} />}
       </div>
     )
   }
 
-  return (
+  return withNativeProps(
+    props,
     <label
       className={classNames(classPrefix, props.className, {
         [`${classPrefix}-checked`]: checked,

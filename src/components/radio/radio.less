@@ -5,6 +5,7 @@
   --font-size: 17px;
   --gap: 8px;
   display: inline-flex;
+  vertical-align: text-bottom;
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
@@ -21,7 +22,7 @@
     align-items: center;
     width: var(--icon-size);
     height: var(--icon-size);
-    color: transparent;
+    color: #ffffff;
     &-checked {
       display: block;
       width: 65%;
@@ -33,7 +34,6 @@
   }
   &.@{class-prefix-radio}-checked {
     .@{class-prefix-radio}-icon {
-      color: #ffffff;
       border-color: var(--adm-color-primary);
       background-color: var(--adm-color-primary);
     }
