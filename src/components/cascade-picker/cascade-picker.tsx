@@ -19,7 +19,7 @@ export const CascadePicker: FC<CascadePickerProps> = props => {
     let depth = 1
     const subOptionsRecord: Record<string, CascadePickerOption[]> = {}
     function traverse(option: CascadePickerOption, currentDepth: number) {
-      if (!option.children) {
+      if (!option.children || option.children.length === 0) {
         return
       }
       subOptionsRecord[option.value] = option.children
