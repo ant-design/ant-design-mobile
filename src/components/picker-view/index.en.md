@@ -11,9 +11,9 @@ PickerView is the content area of Picker.
 | columns      | Options to configure each column       | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -       |
 | value        | Selected options                       | `PickerValue[]`                                                | -       |
 | defaultValue | Default selected options               | `PickerValue[]`                                                | -       |
-| onChange     | Triggered when the options are changed | `(value: PickerValue[]) => void`                               | -       |
+| onChange     | Triggered when the options are changed | `(value: PickerValue[], context: PickerValueContext) => void`  | -       |
 
-For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue`, please refer to the document of [Picker](./picker).
+For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `PickerValueContext`, please refer to the document of [Picker](./picker).
 
 ## CSS Variables
 
