@@ -22,13 +22,13 @@ export type Action = {
   [key: string]: any
 }
 
-type PopoverPropsWithActions<T> = BasePopoverProps & {
+export type PopMenuProps<T> = BasePopoverProps & {
   actions: T[]
   onAction?: (text: T) => void
 }
 
-export const PopMenu = forwardRef<PopoverRef, PopoverPropsWithActions<Action>>(
-  (props: PopoverPropsWithActions<Action>, ref) => {
+export const PopMenu = forwardRef<PopoverRef, PopMenuProps<Action>>(
+  (props: PopMenuProps<Action>, ref) => {
     const innerRef = useRef<PopoverRef>(null)
     useImperativeHandle(ref, () => innerRef.current!, [])
 
@@ -40,44 +40,42 @@ export const PopMenu = forwardRef<PopoverRef, PopoverPropsWithActions<Action>>(
         }
         innerRef.current?.hide()
       },
-      [(props as PopoverPropsWithActions<Action>).onAction]
+      [(props as PopMenuProps<Action>).onAction]
     )
 
     const overlay = useMemo(() => {
       return (
         <>
-          {((props as PopoverPropsWithActions<Action>).actions || []).map(
-            (ele, index) => (
-              <div
-                className={classNames(`${classPrefix}-inner-menu`, {
-                  [`${classPrefix}-inner-menu-with-icon`]: !!ele.icon,
-                })}
-                key={ele.key ?? index}
+          {((props as PopMenuProps<Action>).actions || []).map((ele, index) => (
+            <div
+              className={classNames(`${classPrefix}-inner-menu`, {
+                [`${classPrefix}-inner-menu-with-icon`]: !!ele.icon,
+              })}
+              key={ele.key ?? index}
+            >
+              <Button
+                disabled={ele.disabled}
+                onClick={() => {
+                  if (!ele.disabled) {
+                    onClick(ele)
+                    ele.onClick?.()
+                  }
+                }}
+                fill='none'
+                block
               >
-                <Button
-                  disabled={ele.disabled}
-                  onClick={() => {
-                    if (!ele.disabled) {
-                      onClick(ele)
-                      ele.onClick?.()
-                    }
-                  }}
-                  fill='none'
-                  block
-                >
-                  {ele.icon && (
-                    <span className={`${classPrefix}-inner-menu-icon`}>
-                      {ele.icon}
-                    </span>
-                  )}
-                  {ele.text}
-                </Button>
-              </div>
-            )
-          )}
+                {ele.icon && (
+                  <span className={`${classPrefix}-inner-menu-icon`}>
+                    {ele.icon}
+                  </span>
+                )}
+                {ele.text}
+              </Button>
+            </div>
+          ))}
         </>
       )
-    }, [(props as PopoverPropsWithActions<Action>).actions, onClick])
+    }, [(props as PopMenuProps<Action>).actions, onClick])
 
     return (
       <Popover
@@ -94,5 +92,5 @@ export const PopMenu = forwardRef<PopoverRef, PopoverPropsWithActions<Action>>(
     )
   }
 ) as <T extends Action = Action>(
-  props: PopoverPropsWithActions<T> & { ref?: Ref<PopoverRef> }
+  props: PopMenuProps<T> & { ref?: Ref<PopoverRef> }
 ) => ReactElement
