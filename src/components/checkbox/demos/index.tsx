@@ -21,6 +21,9 @@ export default () => {
           <Checkbox defaultChecked disabled>
             禁用状态
           </Checkbox>
+          <Checkbox indeterminate={true} disabled>
+            半选
+          </Checkbox>
           <Checkbox indeterminate={true}>半选</Checkbox>
         </Space>
       </DemoBlock>

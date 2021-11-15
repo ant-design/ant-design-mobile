@@ -42,6 +42,13 @@
     .@{class-prefix-checkbox}-content {
       color: var(--adm-color-weak);
     }
+    &.@{class-prefix-checkbox}-indeterminate {
+      .@{class-prefix-checkbox}-icon {
+        color: #ccc;
+        border-color: #ccc;
+        background-color: #ebedf0;
+      }
+    }
     &.@{class-prefix-checkbox}-checked {
       .@{class-prefix-checkbox}-icon {
         color: #ccc;
@@ -60,13 +67,14 @@
     .@{class-prefix-checkbox}-icon {
       border-color: var(--adm-color-primary);
       background-color: #ffffff;
+      color: var(--adm-color-primary);
     }
 
     .@{class-prefix-checkbox}-indeterminate-checked {
       width: 60%;
       height: 60%;
       border-radius: 100%;
-      background-color: var(--adm-color-primary);
+      background-color: currentColor;
     }
   }
 
