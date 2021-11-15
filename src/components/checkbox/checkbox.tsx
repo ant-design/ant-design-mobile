@@ -82,8 +82,10 @@ export const Checkbox: FC<CheckboxProps> = p => {
 
     return (
       <div className={`${classPrefix}-icon`}>
-        <CheckIcon className={`${classPrefix}-icon-checked`} />
-        <div className={`${classPrefix}-indeterminate-checked`} />
+        {props.indeterminate && (
+          <div className={`${classPrefix}-indeterminate-checked`} />
+        )}
+        {checked && <CheckIcon className={`${classPrefix}-icon-checked`} />}
       </div>
     )
   }
@@ -111,7 +113,6 @@ export const Checkbox: FC<CheckboxProps> = p => {
         disabled={disabled}
         id={props.id}
       />
-
       {renderIcon()}
       {props.children && (
         <div className={`${classPrefix}-content`}>{props.children}</div>
