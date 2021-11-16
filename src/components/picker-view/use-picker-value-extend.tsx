@@ -1,12 +1,8 @@
 import { useMemo } from 'react'
 import memoize from 'lodash/memoize'
-import {
-  PickerValue,
-  PickerValueContext,
-  PickerColumnItem,
-} from './picker-view'
+import { PickerValue, PickerValueExtend, PickerColumnItem } from './picker-view'
 
-export function usePickerContext(columns: PickerColumnItem[][]) {
+export function usePickerValueExtend(columns: PickerColumnItem[][]) {
   const generateItems = useMemo(() => {
     return memoize(
       (val: PickerValue[]) => {
@@ -20,7 +16,7 @@ export function usePickerContext(columns: PickerColumnItem[][]) {
     )
   }, [columns])
 
-  function generateContext(val: PickerValue[]): PickerValueContext {
+  function generateValueExtend(val: PickerValue[]): PickerValueExtend {
     return {
       get items() {
         return generateItems(val)
@@ -28,5 +24,5 @@ export function usePickerContext(columns: PickerColumnItem[][]) {
     }
   }
 
-  return generateContext
+  return generateValueExtend
 }

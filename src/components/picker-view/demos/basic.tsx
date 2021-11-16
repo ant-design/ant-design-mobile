@@ -22,9 +22,9 @@ export default () => {
         <PickerView
           columns={columns}
           value={value}
-          onChange={(val, context) => {
+          onChange={(val, extend) => {
             setValue(val)
-            console.log('onChange', val, context.items)
+            console.log('onChange', val, extend.items)
           }}
         />
       </DemoBlock>

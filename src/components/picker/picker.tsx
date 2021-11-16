@@ -7,12 +7,12 @@ import {
   PickerColumn,
   PickerColumnItem,
   PickerValue,
-  PickerValueContext,
+  PickerValueExtend,
 } from './index'
 import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
 import { useConfig } from '../config-provider'
-import { usePickerContext } from '../picker-view/use-picker-context'
+import { usePickerValueExtend } from '../picker-view/use-picker-value-extend'
 
 const classPrefix = `adm-picker`
 
@@ -20,8 +20,8 @@ export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
-  onSelect?: (value: PickerValue[], context: PickerValueContext) => void
-  onConfirm?: (value: PickerValue[], context: PickerValueContext) => void
+  onSelect?: (value: PickerValue[], extend: PickerValueExtend) => void
+  onConfirm?: (value: PickerValue[], extend: PickerValueExtend) => void
   onCancel?: () => void
   onClose?: () => void
   visible?: boolean
@@ -53,12 +53,12 @@ export const Picker: FC<PickerProps> = p => {
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
-      props.onConfirm?.(val, generateContext(val))
+      props.onConfirm?.(val, generateValueExtend(val))
     },
   })
 
   const columns = useColumns(props.columns, value)
-  const generateContext = usePickerContext(columns)
+  const generateValueExtend = usePickerValueExtend(columns)
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
@@ -102,10 +102,10 @@ export const Picker: FC<PickerProps> = p => {
         <PickerView
           columns={innerColumns}
           value={innerValue}
-          onChange={(val, con) => {
+          onChange={(val, ext) => {
             setInnerValue(val)
             if (props.visible) {
-              props.onSelect?.(val, con)
+              props.onSelect?.(val, ext)
             }
           }}
         />
@@ -135,7 +135,7 @@ export const Picker: FC<PickerProps> = p => {
   return (
     <>
       {popupElement}
-      {props.children?.(generateContext(value).items)}
+      {props.children?.(generateValueExtend(value).items)}
     </>
   )
 }
