@@ -9,6 +9,7 @@ export type {
   PickerValue,
   PickerColumnItem,
   PickerColumn,
+  PickerValueExtend,
 } from '../picker-view'
 
 export default attachPropertiesToComponent(Picker, {

@@ -4,10 +4,15 @@ import { mergeProps } from '../../utils/with-default-props'
 import { Column } from './column'
 import { useColumns } from './use-columns'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { usePickerValueExtend } from './use-picker-value-extend'
 
 const classPrefix = `adm-picker-view`
 
 export type PickerValue = string | null
+
+export type PickerValueExtend = {
+  items: (PickerColumnItem | null)[]
+}
 
 export type PickerColumnItem = {
   label: string
@@ -20,7 +25,7 @@ export type PickerViewProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
-  onChange?: (value: PickerValue[]) => void
+  onChange?: (value: PickerValue[], extend: PickerValueExtend) => void
 } & NativeProps<'--height'>
 
 const defaultProps = {
@@ -29,8 +34,14 @@ const defaultProps = {
 
 export const PickerView: FC<PickerViewProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = usePropsValue(props)
+  const [value, setValue] = usePropsValue({
+    ...props,
+    onChange: val => {
+      props.onChange?.(val, generateValueExtend(val))
+    },
+  })
   const columns = useColumns(props.columns, value)
+  const generateValueExtend = usePickerValueExtend(columns)
 
   return withNativeProps(
     props,

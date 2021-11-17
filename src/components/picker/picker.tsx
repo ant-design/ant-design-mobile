@@ -1,26 +1,27 @@
-import React, { useState, useEffect, ReactNode, FC, useMemo } from 'react'
+import React, { useState, useEffect, ReactNode, FC } from 'react'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { PickerColumn, PickerColumnItem, PickerValue } from './index'
+import {
+  PickerColumn,
+  PickerColumnItem,
+  PickerValue,
+  PickerValueExtend,
+} from './index'
 import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
 import { useConfig } from '../config-provider'
-import memoize from 'lodash/memoize'
+import { usePickerValueExtend } from '../picker-view/use-picker-value-extend'
 
 const classPrefix = `adm-picker`
-
-type PickerValueContext = {
-  items: (PickerColumnItem | null)[]
-}
 
 export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
-  onSelect?: (value: PickerValue[], context: PickerValueContext) => void
-  onConfirm?: (value: PickerValue[], context: PickerValueContext) => void
+  onSelect?: (value: PickerValue[], extend: PickerValueExtend) => void
+  onConfirm?: (value: PickerValue[], extend: PickerValueExtend) => void
   onCancel?: () => void
   onClose?: () => void
   visible?: boolean
@@ -50,20 +51,14 @@ export const Picker: FC<PickerProps> = p => {
   )
 
   const [value, setValue] = usePropsValue({
-    value: props.value,
-    defaultValue: props.defaultValue,
+    ...props,
     onChange: val => {
-      props.onConfirm?.(val, generateContext(val))
+      props.onConfirm?.(val, generateValueExtend(val))
     },
   })
 
-  function generateContext(val: PickerValue[]): PickerValueContext {
-    return {
-      get items() {
-        return generateItems(val)
-      },
-    }
-  }
+  const columns = useColumns(props.columns, value)
+  const generateValueExtend = usePickerValueExtend(columns)
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
@@ -78,7 +73,6 @@ export const Picker: FC<PickerProps> = p => {
   }, [value])
 
   const innerColumns = useColumns(props.columns, innerValue)
-  const columns = useColumns(props.columns, value)
 
   const pickerElement = withNativeProps(
     props,
@@ -108,10 +102,10 @@ export const Picker: FC<PickerProps> = p => {
         <PickerView
           columns={innerColumns}
           value={innerValue}
-          onChange={val => {
+          onChange={(val, ext) => {
             setInnerValue(val)
             if (props.visible) {
-              props.onSelect?.(val, generateContext(val))
+              props.onSelect?.(val, ext)
             }
           }}
         />
@@ -138,23 +132,10 @@ export const Picker: FC<PickerProps> = p => {
     </Popup>
   )
 
-  const generateItems = useMemo(() => {
-    return memoize(
-      (val: PickerValue[]) => {
-        return val.map((v, index) => {
-          const column = columns[index]
-          if (!column) return null
-          return column.find(item => item.value === v) ?? null
-        })
-      },
-      val => JSON.stringify(val)
-    )
-  }, [columns])
-
   return (
     <>
       {popupElement}
-      {props.children?.(generateItems(value))}
+      {props.children?.(generateValueExtend(value).items)}
     </>
   )
 }

@@ -25,7 +25,7 @@ export type SelectorProps<V> = {
   disabled?: boolean
   defaultValue?: V[]
   value?: V[]
-  onChange?: (v: V[], context: { items: SelectorOption<V>[] }) => void
+  onChange?: (v: V[], extend: { items: SelectorOption<V>[] }) => void
 } & NativeProps<'--checked-color'>
 
 const defaultProps = {
@@ -39,12 +39,12 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
     value: props.value,
     defaultValue: props.defaultValue,
     onChange: val => {
-      const context = {
+      const extend = {
         get items() {
           return props.options.filter(option => val.includes(option.value))
         },
       }
-      props.onChange?.(val, context)
+      props.onChange?.(val, extend)
     },
   })
 
