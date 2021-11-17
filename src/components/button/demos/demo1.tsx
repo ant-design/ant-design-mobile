@@ -79,6 +79,19 @@ export default () => {
           </Space>
         </Button>
       </DemoBlock>
+      <DemoBlock title='不同类型圆角'>
+        <Space wrap>
+          <Button shape='default' color='primary'>
+            Default Button
+          </Button>
+          <Button block shape='rounded' color='primary'>
+            Rounded Button
+          </Button>
+          <Button block shape='rectangular' color='primary'>
+            Rectangular Button
+          </Button>
+        </Space>
+      </DemoBlock>
     </>
   )
 }
