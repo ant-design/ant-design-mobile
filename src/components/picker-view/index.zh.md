@@ -1,6 +1,6 @@
 # PickerView 选择器视图
 
-PickerView 是 Picker 的内容区域。
+PickerView 是 [Picker](./picker/#picker) 的内容区域。
 
 <code src="./demos/basic.tsx"></code>
 
