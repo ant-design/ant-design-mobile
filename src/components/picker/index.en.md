@@ -1,6 +1,6 @@
 # Picker
 
-The Picker series includes three components: `Picker`, `CascadePicker`, and `DatePicker`.
+The Picker series includes three components: [Picker](#picker), [CascadePicker](#cascadepicker) and [DatePicker](#datepicker).
 
 ## Picker
 
@@ -18,7 +18,7 @@ type PickerColumn = (string | PickerColumnItem)[]
 
 type PickerValue = string | null
 
-type PickerValueContext = {
+type PickerValueExtend = {
   items: (PickerColumnItem | null)[]
 }
 ```
@@ -28,8 +28,8 @@ type PickerValueContext = {
 | columns      | Options to configure each column        | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
 | value        | Selected options                        | `PickerValue[]`                                                | -        |
 | defaultValue | Default selected options                | `PickerValue[]`                                                | -        |
-| onSelect     | Triggered when the options are changed  | `(value: PickerValue[], context: PickerValueContext) => void`  | -        |
-| onConfirm    | Triggered when confirming               | `(value: PickerValue[], context: PickerValueContext) => void`  | -        |
+| onSelect     | Triggered when the options are changed  | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
+| onConfirm    | Triggered when confirming               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onCancel     | Triggered when cancelling               | `() => void`                                                   | -        |
 | onClose      | Triggered when confirming or cancelling | `() => void`                                                   | -        |
 | visible      | Whether to show or hide the Picker      | `boolean`                                                      | `false`  |

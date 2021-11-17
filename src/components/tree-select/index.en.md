@@ -14,10 +14,10 @@ type TreeSelectOption = {
 }
 ```
 
-| Name         | Description                                                      | Type                                                                  | Default |
-| ------------ | ---------------------------------------------------------------- | --------------------------------------------------------------------- | ------- |
-| value        | Selected options                                                 | `string[]`                                                            | `[]`    |
-| defaultValue | Selected options by default                                      | `string[]`                                                            | `[]`    |
-| onChange     | Triggered when `value` is changed                                | `(value: string[], context: { options: TreeSelectOption[] }) => void` | -       |
-| options      | Cascaded data                                                    | `TreeSelectOption[]`                                                  | `[]`    |
-| fieldNames   | The customized fields of `label` `value` `children` in `options` | `{ label?: string; value?: string; children?: string }`               | `{}`    |
+| Name         | Description                                                      | Type                                                                 | Default |
+| ------------ | ---------------------------------------------------------------- | -------------------------------------------------------------------- | ------- |
+| value        | Selected options                                                 | `string[]`                                                           | `[]`    |
+| defaultValue | Selected options by default                                      | `string[]`                                                           | `[]`    |
+| onChange     | Triggered when `value` is changed                                | `(value: string[], extend: { options: TreeSelectOption[] }) => void` | -       |
+| options      | Cascaded data                                                    | `TreeSelectOption[]`                                                 | `[]`    |
+| fieldNames   | The customized fields of `label` `value` `children` in `options` | `{ label?: string; value?: string; children?: string }`              | `{}`    |
