@@ -56,8 +56,10 @@ export const Button: FC<ButtonProps> = p => {
           [`${classPrefix}-small`]: props.size === 'small',
           [`${classPrefix}-large`]: props.size === 'large',
           [`${classPrefix}-loading`]: props.loading,
-        },
-        `${classPrefix}-${props.size}-shape-${props.shape}`
+          [`${classPrefix}-${props.size}-shape-rounded`]:
+            props.shape === 'rounded',
+          [`${classPrefix}-shape-rectangular`]: props.shape === 'rectangular',
+        }
       )}
       disabled={disabled}
     >
