@@ -66,7 +66,6 @@ export const components = {
   experimental: [
     '/components/what-is-experimental',
     '/components/auto-center',
-    '/components/date-picker-view',
     '/components/desense-text',
     '/components/dropdown',
     '/components/ellipsis',
