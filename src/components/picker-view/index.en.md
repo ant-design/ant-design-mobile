@@ -2,13 +2,13 @@
 
 The PickerView series includes three components: [PickerView](#pickerview), [CascadePickerView](#cascadepickerview) and [DatePickerView](#datepickerview).
 
-# PickerView
+## PickerView
 
 PickerView is the content area of [Picker](./picker/#picker).
 
 <code src="./demos/index.tsx"></code>
 
-## API
+### Props
 
 | Name         | Description                            | Type                                                           | Default |
 | ------------ | -------------------------------------- | -------------------------------------------------------------- | ------- |
@@ -19,19 +19,19 @@ PickerView is the content area of [Picker](./picker/#picker).
 
 For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `PickerValueExtend`, please refer to the document of [Picker](./picker).
 
-## CSS Variables
+### CSS Variables
 
 | Name     | Description              | Default |
 | -------- | ------------------------ | ------- |
 | --height | height of the PickerView | `240px` |
 
-# DatePickerView
+## DatePickerView
 
 DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 
 <code src="../date-picker-view/demos/index.tsx"></code>
 
-## API
+### Props
 
 | Name         | Description                            | Type                                                           | Default         |
 | ------------ | -------------------------------------- | -------------------------------------------------------------- | --------------- |
@@ -42,7 +42,7 @@ DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 | max          | Max value                              | `Date`                                                         | ten years later |
 | precision    | Precision                              | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'`         |
 
-## CSS Variables
+### CSS Variables
 
 | Name     | Description                  | Default |
 | -------- | ---------------------------- | ------- |

@@ -2,13 +2,13 @@
 
 PickerView 系列一共包括了三个组件：[PickerView](#pickerview)、[CascadePickerView](#cascadepickerview)、[DatePickerView](#datepickerview)。
 
-# PickerView
+## PickerView
 
 PickerView 是 [Picker](./picker/#picker) 的内容区域。
 
 <code src="./demos/index.tsx"></code>
 
-## 属性
+### 属性
 
 | 属性         | 说明             | 类型                                                           | 默认值 |
 | ------------ | ---------------- | -------------------------------------------------------------- | ------ |
@@ -19,21 +19,19 @@ PickerView 是 [Picker](./picker/#picker) 的内容区域。
 
 关于 `PickerColumnItem` `PickerColumn` `PickerValue` `PickerValueExtend` 的类型定义，请参考 [Picker](./picker) 的文档。
 
-## CSS 变量
+### CSS 变量
 
 | 属性     | 说明 | 默认值  |
 | -------- | ---- | ------- |
 | --height | 高度 | `240px` |
 
-# CascadePickerView
-
-# DatePickerView
+## DatePickerView
 
 DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 
 <code src="../date-picker-view/demos/index.tsx"></code>
 
-## 属性
+### 属性
 
 | 属性         | 说明           | 类型                                                           | 默认值  |
 | ------------ | -------------- | -------------------------------------------------------------- | ------- |
@@ -44,7 +42,7 @@ DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 | max          | 最大值         | `Date`                                                         | 十年后  |
 | precision    | 精度           | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
 
-## CSS 变量
+### CSS 变量
 
 | 属性     | 说明 | 默认值  |
 | -------- | ---- | ------- |
