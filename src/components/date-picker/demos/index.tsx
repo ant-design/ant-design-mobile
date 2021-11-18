@@ -16,6 +16,7 @@ function BasicDemo() {
         选择
       </Button>
       <DatePicker
+        title='时间选择'
         visible={visible}
         onClose={() => {
           setVisible(false)

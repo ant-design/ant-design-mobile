@@ -42,7 +42,7 @@ In addition, the following attributes of [Popup](./popup) are supported: `getCon
 
 ## CascadePicker
 
-<code src="./demos/cascade-picker-demo.tsx"></code>
+<code src="../cascade-picker/demos/index.tsx"></code>
 
 ### CascadePicker API
 
@@ -62,7 +62,7 @@ Other props are the same as `Picker`, but `columns` are not supported.
 
 ## DatePicker
 
-<code src="./demos/date-picker-demo.tsx"></code>
+<code src="../date-picker/demos/index.tsx"></code>
 
 ### DatePicker API
 
