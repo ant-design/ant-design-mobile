@@ -38,7 +38,7 @@ DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 | value        | Selected options                       | `Date`                                                         | -               |
 | defaultValue | Default selected options               | `Date`                                                         | -               |
 | onChange     | Triggered when the options are changed | `(value: Date) => void`                                        | -               |
-| min          | Minimum value                          | `Date`                                                         | ten years age   |
+| min          | Minimum value                          | `Date`                                                         | ten years ago   |
 | max          | Max value                              | `Date`                                                         | ten years later |
 | precision    | Precision                              | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'`         |
 

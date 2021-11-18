@@ -72,7 +72,7 @@ Other props are the same as `Picker`, but `columns` are not supported.
 | defaultValue | Default selected value                       | `Date`                                                         | -               |
 | onSelect     | Triggered when the options are changed       | `(value: Date) => void`                                        | -               |
 | onConfirm    | Triggered when confirming                    | `(value: Date) => void`                                        | -               |
-| min          | Minimum value                                | `Date`                                                         | ten years age   |
+| min          | Minimum value                                | `Date`                                                         | ten years ago   |
 | max          | Max value                                    | `Date`                                                         | ten years later |
 | precision    | Precision                                    | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'`         |
 | children     | The rendering function of the selected items | `(value: Date) => ReactNode`                                   | -               |
