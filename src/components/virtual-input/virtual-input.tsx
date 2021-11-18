@@ -1,12 +1,16 @@
 import React, {
   forwardRef,
+  ReactElement,
   useImperativeHandle,
   useLayoutEffect,
   useRef,
+  useState,
 } from 'react'
 import type { InputProps } from '../input'
 import { NativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
+import { NumberKeyboardProps } from '../number-keyboard'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = 'adm-virtual-input'
 
@@ -14,11 +18,12 @@ export type VirtualInputProps = {
   onFocus?: () => void
   onBlur?: () => void
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
-} & Pick<InputProps, 'value' | 'placeholder'> &
+  keyboard?: ReactElement<NumberKeyboardProps>
+} & Pick<InputProps, 'value' | 'onChange' | 'placeholder'> &
   NativeProps
 
 const defaultProps = {
-  value: '',
+  defaultValue: '',
 }
 
 export type VirtualInputRef = {
@@ -29,7 +34,9 @@ export type VirtualInputRef = {
 export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
   (p, ref) => {
     const props = mergeProps(defaultProps, p)
+    const [value, setValue] = usePropsValue(props)
     const rootRef = useRef<HTMLDivElement>(null)
+    const [keyboardVisible, setKeyboardVisible] = useState(false)
 
     useLayoutEffect(() => {
       const root = rootRef.current
@@ -40,7 +47,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       root.scrollTo({
         left: root.clientWidth,
       })
-    }, [props.value])
+    }, [value])
 
     useImperativeHandle(ref, () => ({
       focus: () => {
@@ -51,24 +58,43 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       },
     }))
 
+    function onBlur() {
+      setKeyboardVisible(false)
+      props.onBlur?.()
+    }
+
     return (
       <div
         ref={rootRef}
         className={classPrefix}
         tabIndex={0}
-        onFocus={props.onFocus}
-        onBlur={props.onBlur}
+        onFocus={() => {
+          setKeyboardVisible(true)
+          props.onFocus?.()
+        }}
+        onBlur={onBlur}
         onClick={props.onClick}
       >
-        <span className={`${classPrefix}-content`}>{props.value}</span>
+        <span className={`${classPrefix}-content`}>{value}</span>
         <div className={`${classPrefix}-caret-container`}>
           <div className={`${classPrefix}-caret`} />
         </div>
-        {!props.value && (
+        {!value && (
           <span className={`${classPrefix}-placeholder`}>
             {props.placeholder}
           </span>
         )}
+        {props.keyboard &&
+          React.cloneElement(props.keyboard, {
+            onInput: v => {
+              setValue(value + v)
+            },
+            onDelete: () => {
+              setValue(value.slice(0, -1))
+            },
+            visible: keyboardVisible,
+            onClose: onBlur,
+          } as NumberKeyboardProps)}
       </div>
     )
   }
