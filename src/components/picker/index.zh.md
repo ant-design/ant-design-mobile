@@ -42,7 +42,7 @@ type PickerValueExtend = {
 
 ## CascadePicker
 
-<code src="./demos/cascade-picker-demo.tsx"></code>
+<code src="../cascade-picker/demos/index.tsx"></code>
 
 ### 属性
 
@@ -62,7 +62,7 @@ type CascadePickerOption = {
 
 ## DatePicker
 
-<code src="./demos/date-picker-demo.tsx"></code>
+<code src="../date-picker/demos/index.tsx"></code>
 
 ### 属性
 
