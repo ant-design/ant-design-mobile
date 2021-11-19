@@ -1,7 +1,7 @@
 import { PickerColumn } from '../picker-view'
 import { CascadePickerOption } from './cascade-picker'
 
-export function generateCascaderPickerColumns(
+export function generateCascadePickerColumns(
   value: string[],
   options: CascadePickerOption[],
   depth: number,

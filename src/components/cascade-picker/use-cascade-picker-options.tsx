@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { CascadePickerOption } from './cascade-picker'
 
-export function useCascaderPickerOptions(options: CascadePickerOption[]) {
+export function useCascadePickerOptions(options: CascadePickerOption[]) {
   return useMemo(() => {
     let depth = 1
     const subOptionsRecord: Record<string, CascadePickerOption[]> = {}
