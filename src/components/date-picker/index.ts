@@ -3,6 +3,8 @@ import { attachPropertiesToComponent } from '../../utils/attach-properties-to-co
 import { DatePicker } from './date-picker'
 import { prompt } from './prompt'
 
+export type { DatePickerProps } from './date-picker'
+
 export default attachPropertiesToComponent(DatePicker, {
   prompt,
 })
