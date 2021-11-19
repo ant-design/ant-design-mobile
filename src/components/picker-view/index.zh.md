@@ -25,6 +25,28 @@ PickerView 是 [Picker](./picker/#picker) 的内容区域。
 | -------- | ---- | ------- |
 | --height | 高度 | `240px` |
 
+## CascadePickerView
+
+CascadePickerView 是 [CascadePicker](./picker/#cascadepicker) 的内容区域。
+
+<code src="../cascade-picker-view/demos/index.tsx"></code>
+
+### 属性
+
+| 属性    | 说明           | 类型                    | 默认值 |
+| ------- | -------------- | ----------------------- | ------ |
+| options | 树形的选项数据 | `CascadePickerOption[]` | -      |
+
+关于 `CascadePickerOption` 的类型定义，请参考 [CascadePicker](./picker/#cascadepicker) 的文档。
+
+其他属性同 [PickerView](#pickerview)，但不支持 `columns`。
+
+### CSS 变量
+
+| 属性     | 说明 | 默认值  |
+| -------- | ---- | ------- |
+| --height | 高度 | `240px` |
+
 ## DatePickerView
 
 DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。

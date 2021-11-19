@@ -1,6 +1,8 @@
-import React, { FC, useMemo } from 'react'
+import React, { FC } from 'react'
 import Picker from '../picker'
-import type { PickerProps, PickerColumn } from '../picker'
+import type { PickerProps } from '../picker'
+import { useCascaderPickerOptions } from './use-cascade-picker-options'
+import { generateCascaderPickerColumns } from './cascade-picker-utils'
 
 export type CascadePickerOption = {
   label: string
@@ -14,53 +16,19 @@ export type CascadePickerProps = Omit<PickerProps, 'columns'> & {
 
 export const CascadePicker: FC<CascadePickerProps> = props => {
   const { options, ...pickerProps } = props
+  const { depth, subOptionsRecord } = useCascaderPickerOptions(options)
 
-  const { depth, subOptionsRecord } = useMemo(() => {
-    let depth = 1
-    const subOptionsRecord: Record<string, CascadePickerOption[]> = {}
-    function traverse(option: CascadePickerOption, currentDepth: number) {
-      if (!option.children || option.children.length === 0) {
-        return
-      }
-      subOptionsRecord[option.value] = option.children
-      const nextDepth = currentDepth + 1
-      if (nextDepth > depth) {
-        depth = nextDepth
-      }
-      option.children.forEach(option => {
-        traverse(option, nextDepth)
-      })
-    }
-    options.forEach(option => {
-      traverse(option, 1)
-    })
-    return { depth, subOptionsRecord }
-  }, [options])
-
-  function columns(value: string[]) {
-    const columns: PickerColumn[] = []
-    columns.push(
-      options.map(option => ({
-        label: option.label,
-        value: option.value,
-      }))
-    )
-    for (let i = 0; i < depth - 1; i++) {
-      const x = value[i]
-      const subOptions = subOptionsRecord[x]
-      if (!subOptions) {
-        columns.push([])
-      } else {
-        columns.push(
-          subOptions.map(option => ({
-            label: option.label,
-            value: option.value,
-          }))
+  return (
+    <Picker
+      {...pickerProps}
+      columns={selected =>
+        generateCascaderPickerColumns(
+          selected as string[],
+          options,
+          depth,
+          subOptionsRecord
         )
       }
-    }
-    return columns
-  }
-
-  return <Picker {...pickerProps} columns={columns} />
+    />
+  )
 }
