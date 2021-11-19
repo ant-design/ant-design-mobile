@@ -13,6 +13,7 @@ import Popup from '../popup'
 import Button from '../button'
 import { GetContainer } from '../../utils/render-to-container'
 import { renderToBody } from '../../utils/render-to-body'
+import SafeArea from '../safe-area'
 
 const classPrefix = `adm-action-sheet`
 
@@ -37,6 +38,7 @@ export type ActionSheetProps = {
   closeOnAction?: boolean
   closeOnMaskClick?: boolean
   getContainer?: GetContainer
+  safeArea?: boolean
 } & NativeProps
 
 const defaultProps = {
@@ -45,6 +47,7 @@ const defaultProps = {
   cancelText: '',
   closeOnAction: false,
   closeOnMaskClick: true,
+  safeArea: true,
 }
 
 export const ActionSheet: FC<ActionSheetProps> = p => {
@@ -121,6 +124,8 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
               </div>
             </div>
           )}
+
+          {props.safeArea && <SafeArea position='bottom' />}
         </div>
       )}
     </Popup>

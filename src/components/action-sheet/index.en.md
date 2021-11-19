@@ -2,7 +2,7 @@
 
 <code src="./demos/index.tsx"></code>
 
-## API
+### Props
 
 | Name             | Description                                                                                                                | Type                                       | Default         |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
@@ -17,6 +17,7 @@
 | closeOnAction    | Whether to close after clicking the option                                                                                 | `boolean`                                  | `false`         |
 | closeOnMaskClick | Whether to close after clicking the mask layer                                                                             | `boolean`                                  | `true`          |
 | getContainer     | Get the specified mounted `HTML` node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
+| safeArea         | Whether to enable safe area padding                                                                                        | `boolean`                                  | `true`          |
 
 ### Action
 
