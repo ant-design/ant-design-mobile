@@ -106,7 +106,7 @@ function Precision() {
 function CustomRender() {
   const [visible, setVisible] = useState(false)
 
-  const renderer = useCallback((type: string, data: string) => {
+  const labelRenderer = useCallback((type: string, data: string) => {
     switch (type) {
       case 'year':
         return data + '年'
@@ -145,7 +145,7 @@ function CustomRender() {
         onConfirm={val => {
           Toast.show(val.toDateString())
         }}
-        render={renderer}
+        renderLabel={labelRenderer}
       />
     </>
   )

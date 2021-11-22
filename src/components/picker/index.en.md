@@ -76,7 +76,7 @@ Other props are the same as `Picker`, but `columns` are not supported.
 | max          | Max value                                                                                                                            | `Date`                                                         | ten years later |
 | precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'`         |
 | children     | The rendering function of the selected items                                                                                         | `(value: Date) => ReactNode`                                   | -               |
-| render       | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: string) => ReactNode`                    | -               |
+| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: string) => ReactNode`                    | -               |
 
 In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 

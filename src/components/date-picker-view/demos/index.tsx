@@ -23,13 +23,13 @@ export default () => {
         />
       </DemoBlock>
       <DemoBlock title='自定义每列的渲染内容' padding='0'>
-        <DatePickerView render={renderer} />
+        <DatePickerView renderLabel={labelRenderer} />
       </DemoBlock>
     </>
   )
 }
 
-const renderer = (type: string, data: string) => {
+const labelRenderer = (type: string, data: string) => {
   switch (type) {
     case 'year':
       return data + '年'

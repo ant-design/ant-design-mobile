@@ -63,7 +63,7 @@ DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 | min          | 最小值                                                                                           | `Date`                                                         | 十年前  |
 | max          | 最大值                                                                                           | `Date`                                                         | 十年后  |
 | precision    | 精度                                                                                             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
-| render       | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: string) => ReactNode`                    | -       |
+| renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: string) => ReactNode`                    | -       |
 
 ### CSS 变量
 

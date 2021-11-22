@@ -76,7 +76,7 @@ type CascadePickerOption = {
 | max          | 最大值                                                                                           | `Date`                                                         | 十年后  |
 | precision    | 精度                                                                                             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
 | children     | 所选项的渲染函数                                                                                 | `(value: Date) => ReactNode`                                   | -       |
-| render       | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: string) => ReactNode`                    | -       |
+| renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: string) => ReactNode`                    | -       |
 
 此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 
