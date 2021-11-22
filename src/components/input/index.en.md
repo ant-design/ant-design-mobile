@@ -29,6 +29,7 @@ In addition, the following native attributes are supported: `maxLength` `minLeng
 | --color             | font color                   | `var(--adm-color-text)`  |
 | --placeholder-color | `placeholder` font color     | `var(--adm-color-light)` |
 | --disabled-color    | text color in disabled state | `var(--adm-color-weak)`  |
+| --text-align        | The text alignment of input  | `left`                   |
 
 ### Ref
 

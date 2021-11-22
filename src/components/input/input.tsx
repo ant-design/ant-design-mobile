@@ -45,7 +45,11 @@ export type InputProps = Pick<
     id?: string
     onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
   } & NativeProps<
-    '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
+    | '--font-size'
+    | '--color'
+    | '--placeholder-color'
+    | '--disabled-color'
+    | '--text-align'
   >
 
 const defaultProps = {
