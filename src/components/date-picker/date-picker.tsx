@@ -1,6 +1,5 @@
 import React, { FC, ReactNode, useCallback, useMemo } from 'react'
 import Picker, { PickerProps } from '../picker'
-
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -9,6 +8,7 @@ import {
   convertDateToStringArray,
   convertStringArrayToDate,
   generateDatePickerColumns,
+  defaultRenderLabel,
 } from './date-picker-utils'
 
 export type DatePickerProps = Pick<
@@ -33,6 +33,7 @@ export type DatePickerProps = Pick<
   max?: Date
   precision?: Precision
   children?: (value: Date | null) => ReactNode
+  renderLabel?: (type: Precision, data: number) => ReactNode
 } & NativeProps
 
 const thisYear = new Date().getFullYear()
@@ -41,6 +42,7 @@ const defaultProps = {
   min: new Date(new Date().setFullYear(thisYear - 10)),
   max: new Date(new Date().setFullYear(thisYear + 10)),
   precision: 'day',
+  renderLabel: defaultRenderLabel,
 }
 
 export const DatePicker: FC<DatePickerProps> = p => {
@@ -79,7 +81,8 @@ export const DatePicker: FC<DatePickerProps> = p => {
           selected as string[],
           props.min,
           props.max,
-          props.precision
+          props.precision,
+          props.renderLabel
         )
       }
       value={pickerValue}

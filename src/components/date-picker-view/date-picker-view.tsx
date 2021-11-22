@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react'
+import React, { FC, ReactNode, useCallback, useMemo } from 'react'
 import PickerView from '../picker-view'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -8,6 +8,7 @@ import {
   generateDatePickerColumns,
   convertDateToStringArray,
   convertStringArrayToDate,
+  defaultRenderLabel,
 } from '../date-picker/date-picker-utils'
 
 export type DatePickerViewProps = {
@@ -17,6 +18,7 @@ export type DatePickerViewProps = {
   min?: Date
   max?: Date
   precision?: Precision
+  renderLabel?: (type: Precision, data: number) => ReactNode
 } & NativeProps<'--height'>
 
 const thisYear = new Date().getFullYear()
@@ -25,6 +27,7 @@ const defaultProps = {
   min: new Date(new Date().setFullYear(thisYear - 10)),
   max: new Date(new Date().setFullYear(thisYear + 10)),
   precision: 'day',
+  renderLabel: defaultRenderLabel,
 }
 
 export const DatePickerView: FC<DatePickerViewProps> = p => {
@@ -56,7 +59,8 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
           selected as string[],
           props.min,
           props.max,
-          props.precision
+          props.precision,
+          props.renderLabel
         )
       }
       value={pickerValue}
