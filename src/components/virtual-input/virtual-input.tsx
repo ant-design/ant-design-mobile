@@ -20,7 +20,15 @@ export type VirtualInputProps = {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
   keyboard?: ReactElement<NumberKeyboardProps>
 } & Pick<InputProps, 'value' | 'onChange' | 'placeholder'> &
-  NativeProps<'--text-align'>
+  NativeProps<
+    | '--font-size'
+    | '--color'
+    | '--placeholder-color'
+    | '--disabled-color'
+    | '--text-align'
+    | '--caret-width'
+    | '--caret-color'
+  >
 
 const defaultProps = {
   defaultValue: '',

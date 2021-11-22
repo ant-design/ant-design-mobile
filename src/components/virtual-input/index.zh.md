@@ -23,6 +23,12 @@
 
 ### CSS 变量
 
-| 属性         | 说明         | 默认值 | 全局变量 |
-| ------------ | ------------ | ------ | -------- |
-| --text-align | 文字对齐方式 | `left` | -        |
+| 属性                | 说明                   | 默认值                     | 全局变量                          |
+| ------------------- | ---------------------- | -------------------------- | --------------------------------- |
+| --font-size         | 字号                   | `17px`                     | -                                 |
+| --color             | 文字颜色               | `var(--adm-color-text)`    | -                                 |
+| --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-light)`   | -                                 |
+| --disabled-color    | 禁用状态下的文字颜色   | `var(--adm-color-weak)`    | -                                 |
+| --text-align        | 文字对齐方式           | `left`                     | -                                 |
+| --caret-width       | 光标宽度               | `2px`                      | `--adm-virtual-input-caret-width` |
+| --caret-color       | 光标颜色               | `var(--adm-color-primary)` | `--adm-virtual-input-caret-color` |

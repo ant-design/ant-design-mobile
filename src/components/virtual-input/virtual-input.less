@@ -4,6 +4,8 @@
   --placeholder-color: var(--adm-color-light);
   --disabled-color: var(--adm-color-weak);
   --text-align: left;
+  --caret-width: var(--adm-virtual-input-caret-width, 2px);
+  --caret-color: var(--adm-virtual-input-caret-color, var(--adm-color-primary));
 
   position: relative;
   text-align: var(--text-align);
@@ -42,15 +44,15 @@
 
   &-caret-container {
     display: inline-block;
-    width: 2px;
-    height: calc(var(--font-size) * 1.3);
+    width: var(--caret-width);
+    height: 1.3em;
     vertical-align: top;
   }
   &-caret {
     display: none;
     width: 100%;
     height: 100%;
-    background-color: var(--adm-color-primary);
+    background-color: var(--caret-color);
     position: relative;
     top: 5%;
   }

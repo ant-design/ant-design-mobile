@@ -12,7 +12,14 @@ export default () => {
         <VirtualInput
           placeholder='请输入内容'
           keyboard={<NumberKeyboard />}
-          style={{ '--text-align': 'center' }}
+          style={{ '--text-align': 'right' }}
+        />
+      </DemoBlock>
+      <DemoBlock title='自定义光标样式'>
+        <VirtualInput
+          placeholder='请输入内容'
+          keyboard={<NumberKeyboard />}
+          style={{ '--caret-width': '1px', '--caret-color': '#666666' }}
         />
       </DemoBlock>
     </>
