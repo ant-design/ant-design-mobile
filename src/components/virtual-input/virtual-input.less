@@ -15,6 +15,8 @@
   display: block;
   overflow-y: hidden;
   overflow-x: scroll;
+  color: var(--color);
+
   > * {
     vertical-align: top;
   }
@@ -27,7 +29,6 @@
     display: inline-block;
     position: relative;
     z-index: 1;
-    color: var(--color);
   }
 
   &-placeholder {
@@ -65,6 +66,9 @@
       animation-timing-function: linear;
       animation-iteration-count: infinite;
     }
+  }
+  &-disabled {
+    color: var(--disabled-color);
   }
 }
 

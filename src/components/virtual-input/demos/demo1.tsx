@@ -8,6 +8,13 @@ export default () => {
       <DemoBlock title='配合 NumberKeyboard 使用'>
         <VirtualInput placeholder='请输入内容' keyboard={<NumberKeyboard />} />
       </DemoBlock>
+      <DemoBlock title='禁用状态'>
+        <VirtualInput
+          value='这是一个被禁用的输入框'
+          disabled
+          keyboard={<NumberKeyboard />}
+        />
+      </DemoBlock>
       <DemoBlock title='右侧对齐'>
         <VirtualInput
           placeholder='请输入内容'

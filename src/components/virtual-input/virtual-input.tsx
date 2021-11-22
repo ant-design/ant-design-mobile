@@ -11,6 +11,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { NumberKeyboardProps } from '../number-keyboard'
 import { usePropsValue } from '../../utils/use-props-value'
+import classNames from 'classnames'
 
 const classPrefix = 'adm-virtual-input'
 
@@ -19,7 +20,7 @@ export type VirtualInputProps = {
   onBlur?: () => void
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
   keyboard?: ReactElement<NumberKeyboardProps>
-} & Pick<InputProps, 'value' | 'onChange' | 'placeholder'> &
+} & Pick<InputProps, 'value' | 'onChange' | 'placeholder' | 'disabled'> &
   NativeProps<
     | '--font-size'
     | '--color'
@@ -75,8 +76,10 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       props,
       <div
         ref={rootRef}
-        className={classPrefix}
-        tabIndex={0}
+        className={classNames(classPrefix, {
+          [`${classPrefix}-disabled`]: props.disabled,
+        })}
+        tabIndex={props.disabled ? undefined : 0}
         onFocus={() => {
           setKeyboardVisible(true)
           props.onFocus?.()
