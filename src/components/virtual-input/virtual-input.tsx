@@ -7,7 +7,7 @@ import React, {
   useState,
 } from 'react'
 import type { InputProps } from '../input'
-import { NativeProps } from '../../utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { NumberKeyboardProps } from '../number-keyboard'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -20,7 +20,7 @@ export type VirtualInputProps = {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
   keyboard?: ReactElement<NumberKeyboardProps>
 } & Pick<InputProps, 'value' | 'onChange' | 'placeholder'> &
-  NativeProps
+  NativeProps<'--text-align'>
 
 const defaultProps = {
   defaultValue: '',
@@ -63,7 +63,8 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       props.onBlur?.()
     }
 
-    return (
+    return withNativeProps(
+      props,
       <div
         ref={rootRef}
         className={classPrefix}
@@ -75,14 +76,16 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         onBlur={onBlur}
         onClick={props.onClick}
       >
-        <span className={`${classPrefix}-content`}>{value}</span>
-        <div className={`${classPrefix}-caret-container`}>
-          <div className={`${classPrefix}-caret`} />
+        <div className={`${classPrefix}-content`}>
+          {value}
+          <div className={`${classPrefix}-caret-container`}>
+            <div className={`${classPrefix}-caret`} />
+          </div>
         </div>
         {!value && (
-          <span className={`${classPrefix}-placeholder`}>
+          <div className={`${classPrefix}-placeholder`}>
             {props.placeholder}
-          </span>
+          </div>
         )}
         {props.keyboard &&
           React.cloneElement(props.keyboard, {

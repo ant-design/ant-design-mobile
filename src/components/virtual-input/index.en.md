@@ -20,3 +20,9 @@ Strictly speaking, VirtualInput is not a form field component. It just displays 
 | ----- | ---------------------------- | ------------ |
 | focus | Let the input box get focus  | `() => void` |
 | blur  | Let the input box lose focus | `() => void` |
+
+### CSS Variables
+
+| Name         | Description            | Default | Global |
+| ------------ | ---------------------- | ------- | ------ |
+| --text-align | The alignment of text. | `left`  | -      |
