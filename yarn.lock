@@ -3957,6 +3957,7 @@ __metadata:
     ts-node: 10.4.0
     typescript: ^3.9.10
     umi-plugin-hire: ^1.0.6
+    umi-plugin-mobile-dumi: ^0.1.3
     use-async-memo: ^1.2.3
     webpack: ^5.64.0
     webpack-stream: ^7.0.0
@@ -14825,6 +14826,15 @@ typescript@^3.9.10:
   peerDependencies:
     umi: ^3.0.0
   checksum: 69733d043905de1ee3a17286337f83c84e94160dbc04e3efbfb16080f8d9fc0384a30cbb12972479ae4d9b15537fd53c7671e0e0b28534388f1715401aa684d2
+  languageName: node
+  linkType: hard
+
+"umi-plugin-mobile-dumi@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "umi-plugin-mobile-dumi@npm:0.1.3"
+  peerDependencies:
+    antd-mobile: ^5.0.0-beta.4
+  checksum: 81384df27dd77c162906fe6b27eaec66c6750d5dd9b402e05c47842a2af747300dcf55996eee3616631f84148fed51f8bc92d11a476687e598abd3801550b3c7
   languageName: node
   linkType: hard
 
