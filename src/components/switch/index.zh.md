@@ -1,6 +1,7 @@
 # Switch 开关
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
+<code src="./demos/demo2.tsx"></code>
 
 ## API
 
