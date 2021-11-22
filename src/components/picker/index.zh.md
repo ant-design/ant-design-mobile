@@ -10,7 +10,7 @@ Picker 系列一共包括了三个组件：[Picker](#picker)、[CascadePicker](#
 
 ```typescript | pure
 type PickerColumnItem = {
-  label: string
+  label: ReactNode
   value: string
 }
 

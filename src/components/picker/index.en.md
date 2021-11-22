@@ -10,7 +10,7 @@ The Picker series includes three components: [Picker](#picker), [CascadePicker](
 
 ```typescript | pure
 type PickerColumnItem = {
-  label: string
+  label: ReactNode
   value: string
 }
 
