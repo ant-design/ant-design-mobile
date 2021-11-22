@@ -25,6 +25,28 @@ For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `Pick
 | -------- | ------------------------ | ------- |
 | --height | height of the PickerView | `240px` |
 
+## CascadePickerView
+
+CascadePickerView is the content area of [CascadePicker](./picker/#cascadepicker).
+
+<code src="../cascade-picker-view/demos/index.tsx"></code>
+
+### Props
+
+| Name    | Description              | Type                    | Default |
+| ------- | ------------------------ | ----------------------- | ------- |
+| options | Data of the tree options | `CascadePickerOption[]` | -       |
+
+For the type definition of `CascadePickerOption`, please refer to the document of [CascadePicker](./picker/#cascadepicker).
+
+Other props are the same as [PickerView](#pickerview), but `columns` are not supported.
+
+### CSS Variables
+
+| Name     | Description                  | Default |
+| -------- | ---------------------------- | ------- |
+| --height | height of the DatePickerView | `240px` |
+
 ## DatePickerView
 
 DatePickerView is the content area of [DatePicker](./picker/#datepicker).
