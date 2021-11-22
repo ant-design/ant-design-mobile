@@ -1,6 +1,5 @@
 import React, { FC, ReactNode, useCallback, useMemo } from 'react'
 import Picker, { PickerProps } from '../picker'
-
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'

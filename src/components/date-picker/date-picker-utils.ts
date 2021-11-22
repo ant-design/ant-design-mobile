@@ -1,4 +1,4 @@
-import { PickerColumnItem } from './../picker-view/picker-view'
+import { PickerColumnItem } from '../picker-view'
 import { ReactNode } from 'react'
 import dayjs from 'dayjs'
 import { generateIntArray } from '../../utils/generate-int-array'
