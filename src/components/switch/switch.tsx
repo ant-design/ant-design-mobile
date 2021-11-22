@@ -1,6 +1,5 @@
 import classNames from 'classnames'
-import React, { FC, ReactNode } from 'react'
-import { useToggle } from 'ahooks'
+import React, { FC, ReactNode, useState } from 'react'
 import SpinIcon from '../../assets/spin.svg'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -13,7 +12,7 @@ export type SwitchProps = {
   disabled?: boolean
   checked?: boolean
   defaultChecked?: boolean
-  onBeforeChange?: () => Promise<void>
+  beforeChange?: (val: boolean) => Promise<void>
   onChange?: (checked: boolean) => void
   checkedText?: ReactNode
   uncheckedText?: ReactNode
@@ -21,13 +20,12 @@ export type SwitchProps = {
 
 const defaultProps = {
   defaultChecked: false,
-  onBeforeChange: () => Promise.resolve(),
 }
 
 export const Switch: FC<SwitchProps> = p => {
   const props = mergeProps(defaultProps, p)
   const disabled = props.disabled || props.loading || false
-  const [beforeChangeLoading, { toggle }] = useToggle(false)
+  const [changing, setChanging] = useState(false)
 
   const [checked, setChecked] = usePropsValue({
     value: props.checked,
@@ -35,20 +33,22 @@ export const Switch: FC<SwitchProps> = p => {
     onChange: props.onChange,
   })
 
-  const onClick = () => {
-    if (disabled || props.loading || beforeChangeLoading) {
+  async function onClick() {
+    if (disabled || props.loading || changing) {
       return
     }
-    toggle()
-    props
-      .onBeforeChange()
-      .then(() => {
-        setChecked(!checked)
-      })
-      .catch(() => {})
-      .finally(() => {
-        toggle()
-      })
+    setChanging(true)
+    if (props.beforeChange) {
+      try {
+        const nextChecked = !checked
+        await props.beforeChange(nextChecked)
+        setChecked(nextChecked)
+        setChanging(false)
+      } catch (e) {
+        setChanging(false)
+        throw e
+      }
+    }
   }
 
   return withNativeProps(
@@ -57,13 +57,17 @@ export const Switch: FC<SwitchProps> = p => {
       onClick={onClick}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
-        [`${classPrefix}-disabled`]: disabled || beforeChangeLoading,
+        [`${classPrefix}-disabled`]: disabled || changing,
       })}
     >
       <div className={`${classPrefix}-checkbox`}>
         <div className={`${classPrefix}-handle`}>
-          {(props.loading || beforeChangeLoading) && (
-            <img src={SpinIcon} className={`${classPrefix}-icon`} />
+          {(props.loading || changing) && (
+            <img
+              src={SpinIcon}
+              className={`${classPrefix}-icon`}
+              alt='switch-handle'
+            />
           )}
         </div>
         <div className={`${classPrefix}-inner`}>
