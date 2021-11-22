@@ -63,7 +63,7 @@ DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 | min          | Minimum value                                                                                                                        | `Date`                                                         | ten years ago   |
 | max          | Max value                                                                                                                            | `Date`                                                         | ten years later |
 | precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'`         |
-| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: string) => ReactNode`                    | -               |
+| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                    | -               |
 
 ### CSS Variables
 

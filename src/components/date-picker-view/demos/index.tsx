@@ -29,7 +29,7 @@ export default () => {
   )
 }
 
-const labelRenderer = (type: string, data: string) => {
+const labelRenderer = (type: string, data: number) => {
   switch (type) {
     case 'year':
       return data + '年'

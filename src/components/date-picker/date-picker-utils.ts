@@ -20,7 +20,7 @@ export function generateDatePickerColumns(
   min: Date,
   max: Date,
   precision: Precision,
-  renderLabel: ((type: Precision, data: string) => ReactNode) | undefined
+  renderLabel: ((type: Precision, data: number) => ReactNode) | undefined
 ) {
   const ret: PickerColumn[] = []
 
@@ -45,7 +45,7 @@ export function generateDatePickerColumns(
     for (let i = minYear; i <= maxYear; i++) {
       const value = i.toString()
       years.push({
-        label: renderLabel ? renderLabel('year', value) : value,
+        label: renderLabel ? renderLabel('year', i) : value,
         value,
       })
     }
@@ -80,7 +80,7 @@ export function generateDatePickerColumns(
       months.map(v => {
         const value = v.toString()
         return {
-          label: renderLabel ? renderLabel('month', value) : value,
+          label: renderLabel ? renderLabel('month', v) : value,
           value,
         }
       })
@@ -94,7 +94,7 @@ export function generateDatePickerColumns(
       days.map(v => {
         const value = v.toString()
         return {
-          label: renderLabel ? renderLabel('day', value) : value,
+          label: renderLabel ? renderLabel('day', v) : value,
           value,
         }
       })
@@ -108,7 +108,7 @@ export function generateDatePickerColumns(
       hours.map(v => {
         const label = ('0' + v.toString()).slice(-2)
         return {
-          label: renderLabel ? renderLabel('hour', label) : label,
+          label: renderLabel ? renderLabel('hour', v) : label,
           value: v.toString(),
         }
       })
@@ -122,7 +122,7 @@ export function generateDatePickerColumns(
       minutes.map(v => {
         const label = ('0' + v.toString()).slice(-2)
         return {
-          label: renderLabel ? renderLabel('minute', label) : label,
+          label: renderLabel ? renderLabel('minute', v) : label,
           value: v.toString(),
         }
       })
@@ -136,7 +136,7 @@ export function generateDatePickerColumns(
       seconds.map(v => {
         const label = ('0' + v.toString()).slice(-2)
         return {
-          label: renderLabel ? renderLabel('second', label) : label,
+          label: renderLabel ? renderLabel('second', v) : label,
           value: v.toString(),
         }
       })

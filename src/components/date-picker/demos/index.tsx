@@ -106,7 +106,7 @@ function Precision() {
 function CustomRender() {
   const [visible, setVisible] = useState(false)
 
-  const labelRenderer = useCallback((type: string, data: string) => {
+  const labelRenderer = useCallback((type: string, data: number) => {
     switch (type) {
       case 'year':
         return data + '年'

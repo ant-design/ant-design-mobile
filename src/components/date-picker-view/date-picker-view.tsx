@@ -17,7 +17,7 @@ export type DatePickerViewProps = {
   min?: Date
   max?: Date
   precision?: Precision
-  renderLabel?: (type: Precision, data: string) => ReactNode
+  renderLabel?: (type: Precision, data: number) => ReactNode
 } & NativeProps<'--height'>
 
 const thisYear = new Date().getFullYear()
