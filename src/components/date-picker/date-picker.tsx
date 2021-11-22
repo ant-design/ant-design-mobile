@@ -9,6 +9,7 @@ import {
   convertDateToStringArray,
   convertStringArrayToDate,
   generateDatePickerColumns,
+  defaultRenderLabel,
 } from './date-picker-utils'
 
 export type DatePickerProps = Pick<
@@ -42,6 +43,7 @@ const defaultProps = {
   min: new Date(new Date().setFullYear(thisYear - 10)),
   max: new Date(new Date().setFullYear(thisYear + 10)),
   precision: 'day',
+  renderLabel: defaultRenderLabel,
 }
 
 export const DatePicker: FC<DatePickerProps> = p => {

@@ -15,12 +15,23 @@ const precisionRankRecord: Record<Precision, number> = {
   second: 5,
 }
 
+export function defaultRenderLabel(type: Precision, data: number) {
+  switch (type) {
+    case 'minute':
+    case 'second':
+    case 'hour':
+      return ('0' + data.toString()).slice(-2)
+    default:
+      return data.toString()
+  }
+}
+
 export function generateDatePickerColumns(
   selected: string[],
   min: Date,
   max: Date,
   precision: Precision,
-  renderLabel: ((type: Precision, data: number) => ReactNode) | undefined
+  renderLabel: (type: Precision, data: number) => ReactNode
 ) {
   const ret: PickerColumn[] = []
 
@@ -78,10 +89,9 @@ export function generateDatePickerColumns(
     const months = generateIntArray(lower, upper)
     ret.push(
       months.map(v => {
-        const value = v.toString()
         return {
-          label: renderLabel ? renderLabel('month', v) : value,
-          value,
+          label: renderLabel('month', v),
+          value: v.toString(),
         }
       })
     )
@@ -92,10 +102,9 @@ export function generateDatePickerColumns(
     const days = generateIntArray(lower, upper)
     ret.push(
       days.map(v => {
-        const value = v.toString()
         return {
-          label: renderLabel ? renderLabel('day', v) : value,
-          value,
+          label: renderLabel('day', v),
+          value: v.toString(),
         }
       })
     )
@@ -106,9 +115,8 @@ export function generateDatePickerColumns(
     const hours = generateIntArray(lower, upper)
     ret.push(
       hours.map(v => {
-        const label = ('0' + v.toString()).slice(-2)
         return {
-          label: renderLabel ? renderLabel('hour', v) : label,
+          label: renderLabel('hour', v),
           value: v.toString(),
         }
       })
@@ -120,9 +128,8 @@ export function generateDatePickerColumns(
     const minutes = generateIntArray(lower, upper)
     ret.push(
       minutes.map(v => {
-        const label = ('0' + v.toString()).slice(-2)
         return {
-          label: renderLabel ? renderLabel('minute', v) : label,
+          label: renderLabel('minute', v),
           value: v.toString(),
         }
       })
@@ -134,9 +141,8 @@ export function generateDatePickerColumns(
     const seconds = generateIntArray(lower, upper)
     ret.push(
       seconds.map(v => {
-        const label = ('0' + v.toString()).slice(-2)
         return {
-          label: renderLabel ? renderLabel('second', v) : label,
+          label: renderLabel,
           value: v.toString(),
         }
       })
