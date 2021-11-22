@@ -1,3 +1,5 @@
+import { PickerColumnItem } from './../picker-view/picker-view'
+import { ReactNode } from 'react'
 import dayjs from 'dayjs'
 import { generateIntArray } from '../../utils/generate-int-array'
 import { PickerColumn } from '../picker'
@@ -17,7 +19,8 @@ export function generateDatePickerColumns(
   selected: string[],
   min: Date,
   max: Date,
-  precision: Precision
+  precision: Precision,
+  render: ((type: Precision, data: string) => ReactNode) | undefined
 ) {
   const ret: PickerColumn[] = []
 
@@ -38,9 +41,13 @@ export function generateDatePickerColumns(
   const rank = precisionRankRecord[precision]
 
   if (rank >= precisionRankRecord.year) {
-    const years: string[] = []
+    const years: PickerColumnItem[] = []
     for (let i = minYear; i <= maxYear; i++) {
-      years.push(i.toString())
+      const value = i.toString()
+      years.push({
+        label: render ? render('year', value) : value,
+        value,
+      })
     }
     ret.push(years)
   }
@@ -69,23 +76,42 @@ export function generateDatePickerColumns(
     const lower = isInMinYear ? minMonth : 1
     const upper = isInMaxYear ? maxMonth : 12
     const months = generateIntArray(lower, upper)
-    ret.push(months.map(v => v.toString()))
+    ret.push(
+      months.map(v => {
+        const value = v.toString()
+        return {
+          label: render ? render('month', value) : value,
+          value,
+        }
+      })
+    )
   }
   if (rank >= precisionRankRecord.day) {
     const lower = isInMinMonth ? minDay : 1
     const upper = isInMaxMonth ? maxDay : firstDayInSelectedMonth.daysInMonth()
     const days = generateIntArray(lower, upper)
-    ret.push(days.map(v => v.toString()))
+    ret.push(
+      days.map(v => {
+        const value = v.toString()
+        return {
+          label: render ? render('day', value) : value,
+          value,
+        }
+      })
+    )
   }
   if (rank >= precisionRankRecord.hour) {
     const lower = isInMinDay ? minHour : 0
     const upper = isInMaxDay ? maxHour : 23
     const hours = generateIntArray(lower, upper)
     ret.push(
-      hours.map(v => ({
-        label: ('0' + v.toString()).slice(-2),
-        value: v.toString(),
-      }))
+      hours.map(v => {
+        const label = ('0' + v.toString()).slice(-2)
+        return {
+          label: render ? render('hour', label) : label,
+          value: v.toString(),
+        }
+      })
     )
   }
   if (rank >= precisionRankRecord.minute) {
@@ -93,10 +119,13 @@ export function generateDatePickerColumns(
     const upper = isInMaxHour ? maxMinute : 59
     const minutes = generateIntArray(lower, upper)
     ret.push(
-      minutes.map(v => ({
-        label: ('0' + v.toString()).slice(-2),
-        value: v.toString(),
-      }))
+      minutes.map(v => {
+        const label = ('0' + v.toString()).slice(-2)
+        return {
+          label: render ? render('minute', label) : label,
+          value: v.toString(),
+        }
+      })
     )
   }
   if (rank >= precisionRankRecord.second) {
@@ -104,10 +133,13 @@ export function generateDatePickerColumns(
     const upper = isInMaxMinute ? maxSecond : 59
     const seconds = generateIntArray(lower, upper)
     ret.push(
-      seconds.map(v => ({
-        label: ('0' + v.toString()).slice(-2),
-        value: v.toString(),
-      }))
+      seconds.map(v => {
+        const label = ('0' + v.toString()).slice(-2)
+        return {
+          label: render ? render('second', label) : label,
+          value: v.toString(),
+        }
+      })
     )
   }
 

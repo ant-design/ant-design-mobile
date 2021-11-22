@@ -33,6 +33,7 @@ export type DatePickerProps = Pick<
   max?: Date
   precision?: Precision
   children?: (value: Date | null) => ReactNode
+  render?: (type: Precision, data: string) => ReactNode
 } & NativeProps
 
 const thisYear = new Date().getFullYear()
@@ -79,7 +80,8 @@ export const DatePicker: FC<DatePickerProps> = p => {
           selected as string[],
           props.min,
           props.max,
-          props.precision
+          props.precision,
+          props.render
         )
       }
       value={pickerValue}

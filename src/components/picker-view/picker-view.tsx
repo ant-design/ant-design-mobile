@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { Column } from './column'
@@ -15,7 +15,7 @@ export type PickerValueExtend = {
 }
 
 export type PickerColumnItem = {
-  label: string
+  label: ReactNode
   value: string
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { Button, DatePicker, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
@@ -103,6 +103,54 @@ function Precision() {
   )
 }
 
+function CustomRender() {
+  const [visible, setVisible] = useState(false)
+
+  const renderer = useCallback((type: string, data: string) => {
+    switch (type) {
+      case 'year':
+        return data + '年'
+      case 'month':
+        return data + '月'
+      case 'day':
+        return data + '日'
+      case 'hour':
+        return data + '时'
+      case 'minute':
+        return data + '分'
+      case 'second':
+        return data + '秒'
+      default:
+        return data
+    }
+  }, [])
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        选择
+      </Button>
+      <DatePicker
+        title='时间选择'
+        visible={visible}
+        onClose={() => {
+          setVisible(false)
+        }}
+        defaultValue={now}
+        max={now}
+        onConfirm={val => {
+          Toast.show(val.toDateString())
+        }}
+        render={renderer}
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -114,6 +162,9 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='控制选择精度'>
         <Precision />
+      </DemoBlock>
+      <DemoBlock title='自定义每列的渲染内容'>
+        <CustomRender />
       </DemoBlock>
     </>
   )
