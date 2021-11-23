@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { Button, DatePicker, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import { weekdayToZh } from './weekdayToZh'
 
 const now = new Date()
 
@@ -151,6 +152,48 @@ function CustomRender() {
   )
 }
 
+function WeekdayDemo() {
+  const [visible, setVisible] = useState(false)
+
+  const labelRenderer = useCallback((type: string, data: number) => {
+    switch (type) {
+      case 'year':
+        return data + '年'
+      case 'week':
+        return data + '周'
+      case 'weekday':
+        return weekdayToZh(data)
+      default:
+        return data
+    }
+  }, [])
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        选择
+      </Button>
+      <DatePicker
+        visible={visible}
+        onClose={() => {
+          setVisible(false)
+        }}
+        defaultValue={now}
+        onConfirm={val => {
+          Toast.show(val.toDateString())
+        }}
+        onSelect={val => console.log(val)}
+        renderLabel={labelRenderer}
+        precision='weekday'
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -165,6 +208,9 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='自定义每列的渲染内容'>
         <CustomRender />
+      </DemoBlock>
+      <DemoBlock title='周 - 工作日选择器'>
+        <WeekdayDemo />
       </DemoBlock>
     </>
   )

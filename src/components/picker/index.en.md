@@ -66,17 +66,17 @@ Other props are the same as `Picker`, but `columns` are not supported.
 
 ### DatePicker API
 
-| Name         | Description                                                                                                                          | Type                                                           | Default         |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | --------------- |
-| value        | Selected value                                                                                                                       | `Date`                                                         | -               |
-| defaultValue | Default selected value                                                                                                               | `Date`                                                         | -               |
-| onSelect     | Triggered when the options are changed                                                                                               | `(value: Date) => void`                                        | -               |
-| onConfirm    | Triggered when confirming                                                                                                            | `(value: Date) => void`                                        | -               |
-| min          | Minimum value                                                                                                                        | `Date`                                                         | ten years ago   |
-| max          | Max value                                                                                                                            | `Date`                                                         | ten years later |
-| precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'`         |
-| children     | The rendering function of the selected items                                                                                         | `(value: Date) => ReactNode`                                   | -               |
-| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                    | -               |
+| Name         | Description                                                                                                                          | Type                                                                                  | Default         |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | --------------- |
+| value        | Selected value                                                                                                                       | `Date`                                                                                | -               |
+| defaultValue | Default selected value                                                                                                               | `Date`                                                                                | -               |
+| onSelect     | Triggered when the options are changed                                                                                               | `(value: Date) => void`                                                               | -               |
+| onConfirm    | Triggered when confirming                                                                                                            | `(value: Date) => void`                                                               | -               |
+| min          | Minimum value                                                                                                                        | `Date`                                                                                | ten years ago   |
+| max          | Max value                                                                                                                            | `Date`                                                                                | ten years later |
+| precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'weekday'` | `'day'`         |
+| children     | The rendering function of the selected items                                                                                         | `(value: Date) => ReactNode`                                                          | -               |
+| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                           | -               |
 
 In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 

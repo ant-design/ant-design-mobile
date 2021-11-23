@@ -55,15 +55,15 @@ DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 
 ### 属性
 
-| 属性         | 说明                                                                                             | 类型                                                           | 默认值  |
-| ------------ | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | ------- |
-| value        | 选中项                                                                                           | `Date`                                                         | -       |
-| defaultValue | 默认选中项                                                                                       | `Date`                                                         | -       |
-| onChange     | 选项改变时触发                                                                                   | `(value: Date) => void`                                        | -       |
-| min          | 最小值                                                                                           | `Date`                                                         | 十年前  |
-| max          | 最大值                                                                                           | `Date`                                                         | 十年后  |
-| precision    | 精度                                                                                             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
-| renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode`                    | -       |
+| 属性         | 说明                                                                                             | 类型                                                                                  | 默认值  |
+| ------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ------- |
+| value        | 选中项                                                                                           | `Date`                                                                                | -       |
+| defaultValue | 默认选中项                                                                                       | `Date`                                                                                | -       |
+| onChange     | 选项改变时触发                                                                                   | `(value: Date) => void`                                                               | -       |
+| min          | 最小值                                                                                           | `Date`                                                                                | 十年前  |
+| max          | 最大值                                                                                           | `Date`                                                                                | 十年后  |
+| precision    | 精度                                                                                             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'weekday'` | `'day'` |
+| renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode`                                           | -       |
 
 ### CSS 变量
 

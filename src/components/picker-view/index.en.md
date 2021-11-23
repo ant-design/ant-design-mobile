@@ -55,15 +55,15 @@ DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 
 ### Props
 
-| Name         | Description                                                                                                                          | Type                                                           | Default         |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | --------------- |
-| value        | Selected options                                                                                                                     | `Date`                                                         | -               |
-| defaultValue | Default selected options                                                                                                             | `Date`                                                         | -               |
-| onChange     | Triggered when the options are changed                                                                                               | `(value: Date) => void`                                        | -               |
-| min          | Minimum value                                                                                                                        | `Date`                                                         | ten years ago   |
-| max          | Max value                                                                                                                            | `Date`                                                         | ten years later |
-| precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'`         |
-| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                    | -               |
+| Name         | Description                                                                                                                          | Type                                                                                  | Default         |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | --------------- |
+| value        | Selected options                                                                                                                     | `Date`                                                                                | -               |
+| defaultValue | Default selected options                                                                                                             | `Date`                                                                                | -               |
+| onChange     | Triggered when the options are changed                                                                                               | `(value: Date) => void`                                                               | -               |
+| min          | Minimum value                                                                                                                        | `Date`                                                                                | ten years ago   |
+| max          | Max value                                                                                                                            | `Date`                                                                                | ten years later |
+| precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'weekday'` | `'day'`         |
+| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                           | -               |
 
 ### CSS Variables
 
