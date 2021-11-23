@@ -34,7 +34,7 @@ test('renders with title & close button', async () => {
   })
 
   // 点击数字
-  fireEvent.click(getByText('0'))
+  fireEvent.touchEnd(getByText('0'))
   await waitFor(() => {
     expect(onInput).toBeCalledTimes(1)
     expect(inputValue).toEqual('0')
@@ -58,13 +58,13 @@ test('renders with customKey', async () => {
   )
 
   // 点击删除
-  fireEvent.click(getByTitle('BACKSPACE'))
+  fireEvent.touchEnd(getByTitle('BACKSPACE'))
   await waitFor(() => {
     expect(onDelete).toBeCalledTimes(1)
   })
 
   // 点击自定义按钮
-  fireEvent.click(getByText('-'))
+  fireEvent.touchEnd(getByText('-'))
   await waitFor(() => {
     expect(onInput).toBeCalledTimes(1)
     expect(inputValue).toEqual('-')
