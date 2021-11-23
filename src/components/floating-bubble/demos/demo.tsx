@@ -1,6 +1,6 @@
 import React from 'react'
 import { FloatingBubble, Toast } from 'antd-mobile'
-import { QuestionCircleFill } from 'antd-mobile-icons'
+import { MessageFill } from 'antd-mobile-icons'
 import { DemoDescription } from '../../../demos'
 
 export default () => {
@@ -22,9 +22,7 @@ export default () => {
         }}
         onClick={onClick}
       >
-        <div className='children'>
-          <QuestionCircleFill color='#2477ff' fontSize={36} />
-        </div>
+        <MessageFill fontSize={32} />
       </FloatingBubble>
     </div>
   )

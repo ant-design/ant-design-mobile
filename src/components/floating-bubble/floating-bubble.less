@@ -6,6 +6,7 @@
   --initial-position-top: var(--initial-position-top);
   --initial-position-bottom: var(--initial-position-bottom);
   --edge-distance: 24px;
+  --size: 48px;
 
   position: fixed;
   left: 0;
@@ -26,18 +27,20 @@
     bottom: var(--initial-position-bottom);
     left: var(--initial-position-left);
     right: var(--initial-position-right);
-    display: inline-block;
     box-sizing: border-box;
-    height: auto;
-    // padding: 16px;
-    margin: 0;
-    font-size: 12px;
-    line-height: 1.4;
-    text-align: center;
-    cursor: auto;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
     transition: opacity ease 0.15s;
     user-select: none;
     touch-action: none;
+    background: var(--adm-color-primary);
+    color: var(--adm-color-white);
+    border-radius: var(--size);
     &:focus {
       outline: none;
     }

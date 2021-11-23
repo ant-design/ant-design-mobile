@@ -14,6 +14,7 @@ export type FloatingBubbleProps = {
   | '--initial-position-top'
   | '--initial-position-bottom'
   | '--edge-distance'
+  | '--size'
 >
 
 const defaultProps = {}
