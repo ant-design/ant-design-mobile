@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react'
+import React, { useRef, useMemo, TouchEvent, MouseEvent } from 'react'
 import classNames from 'classnames'
 import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
@@ -94,7 +94,12 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
   }
 
   // 点击键盘按键
-  const onKeyPress = (key: string) => {
+  const onKeyPress = (
+    e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
+    key: string
+  ) => {
+    e.preventDefault()
+
     switch (key) {
       case 'BACKSPACE':
         onDelete?.()
@@ -150,8 +155,8 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       <div
         key={key}
         className={className}
-        onClick={() => key && onKeyPress(key)}
-        {...(key === 'BACKSPACE' ? backSpaceEvents : {})}
+        onTouchEnd={e => key && onKeyPress(e, key)}
+        onMouseUp={e => key && onKeyPress(e, key)}
         title={key}
         role='button'
       >
@@ -192,8 +197,8 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
               <div className={`${classPrefix}-confirm`}>
                 <div
                   className={`${classPrefix}-key extra-key bs-key`}
-                  onClick={() => onKeyPress('BACKSPACE')}
-                  {...backSpaceEvents}
+                  onTouchEnd={e => onKeyPress(e, 'BACKSPACE')}
+                  onMouseUp={e => onKeyPress(e, 'BACKSPACE')}
                   title='BACKSPACE'
                   role='button'
                 >
@@ -201,7 +206,8 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
                 </div>
                 <div
                   className={`${classPrefix}-key extra-key ok-key`}
-                  onClick={() => onKeyPress('OK')}
+                  onTouchEnd={e => onKeyPress(e, 'OK')}
+                  onMouseUp={e => onKeyPress(e, 'OK')}
                   role='button'
                 >
                   {confirmText}
