@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { PullToRefresh, List } from 'antd-mobile'
+import { PullToRefresh, List, Toast } from 'antd-mobile'
 import { sleep } from 'antd-mobile/es/utils/sleep'
 
 let current = 1
@@ -19,7 +19,15 @@ export default () => {
     <PullToRefresh
       onRefresh={async () => {
         await sleep(1000)
-        setData([...getNextData(), ...data])
+        if (Math.random() > 0.5) {
+          Toast.show({
+            icon: 'fail',
+            content: '刷新失败',
+          })
+          throw new Error('刷新失败')
+        } else {
+          setData([...getNextData(), ...data])
+        }
       }}
     >
       <List style={{ minHeight: '100vh' }}>
