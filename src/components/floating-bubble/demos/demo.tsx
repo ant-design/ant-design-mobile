@@ -19,6 +19,7 @@ export default () => {
         style={{
           '--initial-position-bottom': '24px',
           '--initial-position-right': '24px',
+          // '--edge-distance': '24px',
         }}
         onClick={onClick}
       >
