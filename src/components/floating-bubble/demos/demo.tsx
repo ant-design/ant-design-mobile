@@ -1,32 +1,31 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { FloatingBubble, Toast } from 'antd-mobile'
 import { QuestionCircleFill } from 'antd-mobile-icons'
-import { DemoBlock, lorem } from 'demos'
-
-const longText = lorem.generateParagraphs(2)
+import { DemoDescription } from '../../../demos'
 
 export default () => {
   const onClick = () => {
-    Toast.show('点击事件')
+    Toast.show('你点击了气泡')
   }
-  const containerRef = useRef<HTMLDivElement>({} as HTMLDivElement)
   return (
-    <DemoBlock title='浮动气泡'>
-      <div style={{ position: 'relative' }} ref={containerRef}>
-        {longText}
-        <FloatingBubble
-          style={{
-            '--initial-position-bottom': '16px',
-            '--initial-position-right': '16px',
-          }}
-          onClick={onClick}
-          bounds={containerRef.current}
-        >
-          <div className='children'>
-            <QuestionCircleFill color='#2477ff' fontSize={36} />
-          </div>
-        </FloatingBubble>
-      </div>
-    </DemoBlock>
+    <div
+      style={{
+        textAlign: 'center',
+        paddingTop: '50vh',
+      }}
+    >
+      <DemoDescription>尝试拖拽和点击一下气泡吧</DemoDescription>
+      <FloatingBubble
+        style={{
+          '--initial-position-bottom': '24px',
+          '--initial-position-right': '24px',
+        }}
+        onClick={onClick}
+      >
+        <div className='children'>
+          <QuestionCircleFill color='#2477ff' fontSize={36} />
+        </div>
+      </FloatingBubble>
+    </div>
   )
 }

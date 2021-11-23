@@ -5,27 +5,44 @@
   --initial-position-right: var(--initial-position-right);
   --initial-position-top: var(--initial-position-top);
   --initial-position-bottom: var(--initial-position-bottom);
+  --edge-distance: 24px;
 
-  position: absolute;
-  top: var(--initial-position-top);
-  bottom: var(--initial-position-bottom);
-  left: var(--initial-position-left);
-  right: var(--initial-position-right);
-  display: inline-block;
-  box-sizing: border-box;
-  height: auto;
-  // padding: 16px;
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.4;
-  text-align: center;
-  cursor: auto;
-  transition: opacity ease 0.15s;
-  user-select: none;
-  &:focus {
-    outline: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: var(--edge-distance);
+
+  &-boundary {
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
-  &:active {
-    opacity: 0.9;
+
+  &-button {
+    position: fixed;
+    top: var(--initial-position-top);
+    bottom: var(--initial-position-bottom);
+    left: var(--initial-position-left);
+    right: var(--initial-position-right);
+    display: inline-block;
+    box-sizing: border-box;
+    height: auto;
+    // padding: 16px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    cursor: auto;
+    transition: opacity ease 0.15s;
+    user-select: none;
+    touch-action: none;
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      opacity: 0.9;
+    }
   }
 }

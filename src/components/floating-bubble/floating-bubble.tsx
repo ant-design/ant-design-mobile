@@ -1,5 +1,4 @@
-import React, { FC } from 'react'
-import classNames from 'classnames'
+import React, { FC, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { mergeProps } from '../../utils/with-default-props'
@@ -9,14 +8,12 @@ const classPrefix = `adm-floating-bubble`
 
 export type FloatingBubbleProps = {
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  bounds?:
-    | HTMLElement
-    | { top: number; left: number; right: number; bottom: number }
 } & NativeProps<
   | '--initial-position-left'
   | '--initial-position-right'
   | '--initial-position-top'
   | '--initial-position-bottom'
+  | '--edge-distance'
 >
 
 const defaultProps = {}
@@ -24,13 +21,15 @@ const defaultProps = {}
 export const FloatingBubble: FC<FloatingBubbleProps> = p => {
   const props = mergeProps(defaultProps, p)
 
+  const boundaryRef = useRef<HTMLDivElement>(null)
+
   /**
    * memoize the `to` function
    * inside a component that renders frequently
    * to prevent an unintended restart
    */
   const [animationStyles, animation] = useSpring(() => ({
-    translateY: 0,
+    y: 0,
     scale: 1,
     opacity: 1,
   }))
@@ -39,7 +38,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       if (state.down) {
         // be movable in y axis
         animation.start({
-          translateY: state.offset[1],
+          y: state.offset[1],
         })
       }
       // active status
@@ -54,25 +53,26 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       pointer: {
         touch: true,
       },
-      // the drag will be triggered after the duration of the delay (in ms)
-      // and will prevent window scrolling
-      preventScroll: 20,
       // the component won't trigger drag logic if the user just clicked on the component.
       filterTaps: true,
       // set constraints to the user gesture
-      bounds: props.bounds,
+      bounds: boundaryRef,
     }
   )
 
   return withNativeProps(
     props,
-    <animated.div
-      {...bind()}
-      style={{ ...animationStyles }}
-      onClick={props.onClick}
-      className={classNames(classPrefix)}
-    >
-      {props.children}
-    </animated.div>
+    <div className={classPrefix}>
+      <div className={`${classPrefix}-boundary`} ref={boundaryRef}>
+        <animated.div
+          {...bind()}
+          style={{ ...animationStyles }}
+          onClick={props.onClick}
+          className={`${classPrefix}-button`}
+        >
+          {props.children}
+        </animated.div>
+      </div>
+    </div>
   )
 }
