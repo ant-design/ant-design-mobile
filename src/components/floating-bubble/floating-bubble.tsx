@@ -34,7 +34,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
     scale: 1,
     opacity: 1,
   }))
-  const gustureBinder = useDrag(
+  const bind = useDrag(
     state => {
       if (state.down) {
         // be movable in y axis
@@ -52,7 +52,6 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       // only trigger if a movement is detected on the specified axis.
       axis: 'y',
       pointer: {
-        // drag and pinch will use touch events on touch-enabled devices.
         touch: true,
       },
       // the drag will be triggered after the duration of the delay (in ms)
@@ -68,7 +67,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
   return withNativeProps(
     props,
     <animated.div
-      {...gustureBinder()}
+      {...bind()}
       style={{ ...animationStyles }}
       onClick={props.onClick}
       className={classNames(classPrefix)}

@@ -1,5 +1,5 @@
-import './floatingBubble.less'
-import { FloatingBubble } from './floatingBubble'
-export type { FloatingBubbleProps } from './floatingBubble'
+import './floating-bubble.less'
+import { FloatingBubble } from './floating-bubble'
+export type { FloatingBubbleProps } from './floating-bubble'
 
 export default FloatingBubble
