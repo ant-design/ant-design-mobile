@@ -1,0 +1,31 @@
+@class-prefix-button: ~'adm-floating-bubble';
+
+.@{class-prefix-button} {
+  --initial-position-left: var(--initial-position-left);
+  --initial-position-right: var(--initial-position-right);
+  --initial-position-top: var(--initial-position-top);
+  --initial-position-bottom: var(--initial-position-bottom);
+
+  position: absolute;
+  top: var(--initial-position-top);
+  bottom: var(--initial-position-bottom);
+  left: var(--initial-position-left);
+  right: var(--initial-position-right);
+  display: inline-block;
+  box-sizing: border-box;
+  height: auto;
+  // padding: 16px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+  cursor: auto;
+  transition: opacity ease 0.15s;
+  user-select: none;
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    opacity: 0.9;
+  }
+}
