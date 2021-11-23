@@ -64,16 +64,17 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      <div className={`${classPrefix}-boundary`} ref={boundaryRef}>
-        <animated.div
-          {...bind()}
-          style={{ ...animationStyles }}
-          onClick={props.onClick}
-          className={`${classPrefix}-button`}
-        >
-          {props.children}
-        </animated.div>
+      <div className={`${classPrefix}-boundary-outer`}>
+        <div className={`${classPrefix}-boundary`} ref={boundaryRef} />
       </div>
+      <animated.div
+        {...bind()}
+        style={{ ...animationStyles }}
+        onClick={props.onClick}
+        className={`${classPrefix}-button`}
+      >
+        {props.children}
+      </animated.div>
     </div>
   )
 }

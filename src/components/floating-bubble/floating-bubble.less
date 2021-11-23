@@ -8,13 +8,15 @@
   --edge-distance: 24px;
   --size: 48px;
 
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  padding: var(--edge-distance);
-
+  &-boundary-outer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: var(--edge-distance);
+    pointer-events: none;
+  }
   &-boundary {
     position: relative;
     width: 100%;
