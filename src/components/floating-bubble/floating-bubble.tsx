@@ -13,6 +13,7 @@ export type FloatingBubbleProps = {
   | '--initial-position-right'
   | '--initial-position-top'
   | '--initial-position-bottom'
+  | '--z-index'
   | '--edge-distance'
   | '--size'
 >

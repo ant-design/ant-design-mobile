@@ -1,10 +1,11 @@
-@class-prefix-button: ~'adm-floating-bubble';
+@class-prefix-floating-bubble: ~'adm-floating-bubble';
 
-.@{class-prefix-button} {
+.@{class-prefix-floating-bubble} {
   --initial-position-left: var(--initial-position-left);
   --initial-position-right: var(--initial-position-right);
   --initial-position-top: var(--initial-position-top);
   --initial-position-bottom: var(--initial-position-bottom);
+  --z-index: 1;
   --edge-distance: 0;
   --size: 48px;
 
@@ -43,5 +44,6 @@
     background: var(--adm-color-primary);
     color: var(--adm-color-white);
     border-radius: var(--size);
+    z-index: var(--z-index);
   }
 }
