@@ -113,7 +113,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
 
       if (!pullingRef.current) return
 
-      if (typeof event.cancelable !== 'boolean' || event.cancelable) {
+      if (event.cancelable) {
         event.preventDefault()
       }
       event.stopPropagation()
