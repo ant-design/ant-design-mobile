@@ -9,10 +9,11 @@ import { GetContainer } from '../../utils/render-to-container'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
 import AutoCenter from '../auto-center'
 import { useSpring, animated } from '@react-spring/web'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-dialog`
 
-export interface DialogProps {
+export type DialogProps = {
   afterClose?: () => void
   image?: string
   header?: ReactNode
@@ -31,7 +32,7 @@ export interface DialogProps {
   maskStyle?: React.CSSProperties
   maskClassName?: string
   stopPropagation?: PropagationEvent[]
-}
+} & NativeProps
 
 const defaultProps = {
   actions: [] as Action[],
@@ -64,64 +65,69 @@ export const Dialog: FC<DialogProps> = p => {
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
       stopPropagation={props.stopPropagation}
     >
-      <div className={`${classPrefix}-wrap`}>
-        <animated.div
-          style={{ scale }}
-          onClick={e => e.stopPropagation()}
-          className={`${classPrefix}-main`}
-        >
-          {!!props.image && (
-            <Image src={props.image} alt='dialog header image' width='100%' />
-          )}
-          <div
-            style={props.bodyStyle}
-            className={classNames(`${classPrefix}-body`, props.bodyClassName)}
+      {withNativeProps(
+        props,
+        <div className={`${classPrefix}-wrap`}>
+          <animated.div
+            style={{ scale }}
+            onClick={e => e.stopPropagation()}
+            className={`${classPrefix}-main`}
           >
-            <Space direction='vertical' block>
-              {!!props.header && (
-                <div className={`${classPrefix}-body-header-wrapper`}>
-                  <div className={`${classPrefix}-body-header`}>
-                    {props.header}
+            {!!props.image && (
+              <Image src={props.image} alt='dialog header image' width='100%' />
+            )}
+            <div
+              style={props.bodyStyle}
+              className={classNames(`${classPrefix}-body`, props.bodyClassName)}
+            >
+              <Space direction='vertical' block>
+                {!!props.header && (
+                  <div className={`${classPrefix}-body-header-wrapper`}>
+                    <div className={`${classPrefix}-body-header`}>
+                      {props.header}
+                    </div>
                   </div>
-                </div>
-              )}
-              {!!props.title && (
-                <div className={`${classPrefix}-body-title`}>{props.title}</div>
-              )}
-              {!!props.content && (
-                <div className={`${classPrefix}-body-content`}>
-                  {typeof props.content === 'string' ? (
-                    <AutoCenter>{props.content}</AutoCenter>
-                  ) : (
-                    props.content
-                  )}
-                </div>
-              )}
-            </Space>
-          </div>
-          <div className={`${classPrefix}-footer`}>
-            {props.actions.map((row, index) => {
-              const actions = Array.isArray(row) ? row : [row]
-              return (
-                <div className={`${classPrefix}-action-row`} key={index}>
-                  {actions.map((action, index) => (
-                    <DialogActionButton
-                      key={action.key}
-                      action={action}
-                      onAction={async () => {
-                        await props.onAction?.(action, index)
-                        if (props.closeOnAction) {
-                          props.onClose?.()
-                        }
-                      }}
-                    />
-                  ))}
-                </div>
-              )
-            })}
-          </div>
-        </animated.div>
-      </div>
+                )}
+                {!!props.title && (
+                  <div className={`${classPrefix}-body-title`}>
+                    {props.title}
+                  </div>
+                )}
+                {!!props.content && (
+                  <div className={`${classPrefix}-body-content`}>
+                    {typeof props.content === 'string' ? (
+                      <AutoCenter>{props.content}</AutoCenter>
+                    ) : (
+                      props.content
+                    )}
+                  </div>
+                )}
+              </Space>
+            </div>
+            <div className={`${classPrefix}-footer`}>
+              {props.actions.map((row, index) => {
+                const actions = Array.isArray(row) ? row : [row]
+                return (
+                  <div className={`${classPrefix}-action-row`} key={index}>
+                    {actions.map((action, index) => (
+                      <DialogActionButton
+                        key={action.key}
+                        action={action}
+                        onAction={async () => {
+                          await props.onAction?.(action, index)
+                          if (props.closeOnAction) {
+                            props.onClose?.()
+                          }
+                        }}
+                      />
+                    ))}
+                  </div>
+                )
+              })}
+            </div>
+          </animated.div>
+        </div>
+      )}
     </Mask>
   )
 }
