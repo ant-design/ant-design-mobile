@@ -1,14 +1,18 @@
 # PullToRefresh 下拉刷新
 
-基础用法：
+### 基础用法
 
 <code src="./demos/demo1.tsx"></code>
 
-使用 `renderText` 控制下拉内容：
+### 自定义提示文案
 
 <code src="./demos/demo2.tsx"></code>
 
-## API
+### 处理刷新失败的情况
+
+<code src="./demos/demo3.tsx"></code>
+
+### 属性
 
 ```ts | pure
 type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'

@@ -1,14 +1,18 @@
 # PullToRefresh
 
-Basic usage:
+### Basic Usage
 
 <code src="./demos/demo1.tsx"></code>
 
-Use `rendertext` to control the pulling content:
+### Customize Text
 
 <code src="./demos/demo2.tsx"></code>
 
-## API
+### Handle Refresh Error
+
+<code src="./demos/demo3.tsx"></code>
+
+### Props
 
 ```ts | pure
 type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
