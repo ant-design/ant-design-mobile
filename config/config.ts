@@ -267,6 +267,7 @@ export default {
         'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover',
     },
   ],
+  hash: true,
   scripts: [
     `if (location.pathname.startsWith('/~demos/')) {
       document.body.style.background = '#f5f7fa'
