@@ -69,6 +69,7 @@ export const components = {
     '/components/desense-text',
     '/components/dropdown',
     '/components/ellipsis',
+    '/components/floating-bubble',
     '/components/image-uploader',
     '/components/number-keyboard',
     '/components/picker-view',
