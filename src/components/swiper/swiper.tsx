@@ -40,6 +40,7 @@ export type SwiperProps = {
   slideSize?: number
   trackOffset?: number
   stuckAtBoundary?: boolean
+  rubberband?: boolean
   children?: ReactElement | ReactElement[]
 } & NativeProps<'--height' | '--width' | '--border-radius' | '--track-padding'>
 
@@ -53,6 +54,7 @@ const defaultProps = {
   slideSize: 100,
   trackOffset: 0,
   stuckAtBoundary: false,
+  rubberband: true,
 }
 
 export const Swiper = forwardRef(
@@ -185,7 +187,7 @@ export const Swiper = forwardRef(
                   right: upperBound,
                 }
           },
-          rubberband: true,
+          rubberband: props.rubberband,
           axis: isVertical ? 'y' : 'x',
           preventScroll: !isVertical,
           pointer: {

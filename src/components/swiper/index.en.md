@@ -41,6 +41,7 @@
 | slideSize        | The slide width in percentage                                                                                                | `number`                                                                   | `100`          |
 | trackOffset      | The track offset in percentage                                                                                               | `number`                                                                   | `0`            |
 | stuckAtBoundary  | Whether to stuck at boundary in order to prevent white spaces. Only available when `loop` is `false` and `slideWidth` < 100. | `boolean`                                                                  | `false`        |
+| rubberband       | Whether to enable the rubberband effect.                                                                                     | `boolean`                                                                  | `true`         |
 
 ### CSS Variables
 
