@@ -57,11 +57,11 @@ export default () => {
           <Tabs.Tab title='动物' key='animals' disabled />
         </Tabs>
       </DemoBlock>
-      <DemoBlock title='固定长度模式' padding='0'>
+      <DemoBlock title='自定义当前激活的下划线长度' padding='0'>
         <Tabs
           activeLineMode='fixed'
           style={{
-            '--fixed-active-line-width': '50px',
+            '--fixed-active-line-width': '20px',
           }}
         >
           <Tabs.Tab title='超长的tab111' key='1'>
@@ -79,6 +79,17 @@ export default () => {
           <Tabs.Tab title='超长的tab55555' key='5'>
             5
           </Tabs.Tab>
+        </Tabs>
+      </DemoBlock>
+      <DemoBlock title='自定义选项卡头的文字大小' padding='0'>
+        <Tabs
+          style={{
+            '--title-font-size': '13px',
+          }}
+        >
+          <Tabs.Tab title='水果' key='fruits' />
+          <Tabs.Tab title='蔬菜' key='vegetables' />
+          <Tabs.Tab title='动物' key='animals' />
         </Tabs>
       </DemoBlock>
     </>

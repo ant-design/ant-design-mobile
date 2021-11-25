@@ -15,9 +15,10 @@
 
 ### CSS Variables
 
-| Name                      | Description                           | Default |
-| ------------------------- | ------------------------------------- | ------- |
-| --fixed-active-line-width | The width of the active tab underline | `30px`  |
+| Name                      | Description                                       | Default |
+| ------------------------- | ------------------------------------------------- | ------- |
+| --fixed-active-line-width | The width of the active tab underline             | `30px`  |
+| --title-font-size         | Font size of the displayed text of the tab header | `17px`  |
 
 ## Tabs.Tab
 

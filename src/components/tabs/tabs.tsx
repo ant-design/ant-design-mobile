@@ -33,7 +33,7 @@ export type TabsProps = {
   defaultActiveKey?: string | null
   activeLineMode?: 'auto' | 'full' | 'fixed'
   onChange?: (key: string) => void
-} & NativeProps<'--fixed-active-line-width'>
+} & NativeProps<'--fixed-active-line-width' | '--title-font-size'>
 
 const defaultProps = {
   activeLineMode: 'auto',
