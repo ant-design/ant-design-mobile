@@ -153,11 +153,12 @@ export const Swiper = forwardRef(
               immediate: true,
             })
           } else {
+            const minIndex = Math.floor(offset / slidePixels)
+            const maxIndex = minIndex + 1
             const index = Math.round(
-              (offset + Math.min(velocity * 2000, slidePixels) * direction) /
-                slidePixels
+              (offset + velocity * 2000 * direction) / slidePixels
             )
-            swipeTo(index)
+            swipeTo(bound(index, minIndex, maxIndex))
             window.setTimeout(() => {
               setDragging(false)
             })
