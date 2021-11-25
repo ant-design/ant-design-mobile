@@ -32,11 +32,13 @@ export type TabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   activeLineMode?: 'auto' | 'full' | 'fixed'
+  stretch?: boolean
   onChange?: (key: string) => void
-} & NativeProps<'--fixed-active-line-width'>
+} & NativeProps<'--fixed-active-line-width' | '--title-font-size'>
 
 const defaultProps = {
   activeLineMode: 'auto',
+  stretch: true,
 }
 
 export const Tabs: FC<TabsProps> = p => {
@@ -247,7 +249,12 @@ export const Tabs: FC<TabsProps> = p => {
           {panes.map(pane =>
             withNativeProps(
               pane.props,
-              <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
+              <div
+                key={pane.key}
+                className={classNames(`${classPrefix}-tab-wrapper`, {
+                  [`${classPrefix}-tab-wrapper-stretch`]: props.stretch,
+                })}
+              >
                 <div
                   onClick={() => {
                     const { key } = pane

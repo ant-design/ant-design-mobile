@@ -12,12 +12,14 @@
 | defaultActiveKey | 初始化选中面板的 `key`，如果没有设置 `activeKey` | `string \| null`              | 第一个面板的 `key` |
 | activeLineMode   | 激活 `tab` 下划线的模式                          | `'auto' \| 'full' \| 'fixed'` | `'auto'`           |
 | onChange         | 切换面板的回调                                   | `(key: string) => void`       | -                  |
+| stretch          | 选项卡头部是否拉伸                               | `boolean`                     | `true`             |
 
 ### CSS 变量
 
 | 属性                      | 说明                        | 默认值 |
 | ------------------------- | --------------------------- | ------ |
 | --fixed-active-line-width | 当前激活 `tab` 下划线的宽度 | `30px` |
+| --title-font-size         | 选项卡头文字的大小          | `17px` |
 
 ## Tabs.Tab
 

@@ -1,6 +1,7 @@
 @class-prefix-tabs: ~'adm-tabs';
 
 .@{class-prefix-tabs} {
+  --title-font-size: 17px;
   position: relative;
 
   &-header {
@@ -21,15 +22,17 @@
     scrollbar-width: none;
   }
   &-tab-wrapper {
-    flex: auto;
     padding: 0 12px;
+    &-stretch {
+      flex: auto;
+    }
   }
   &-tab {
     white-space: nowrap;
     padding: 8px 0 10px;
     width: min-content;
     margin: 0 auto;
-    font-size: 17px;
+    font-size: var(--title-font-size);
     position: relative;
     cursor: pointer;
   }
