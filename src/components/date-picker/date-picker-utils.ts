@@ -142,7 +142,7 @@ export function generateDatePickerColumns(
     ret.push(
       seconds.map(v => {
         return {
-          label: renderLabel,
+          label: renderLabel('second', v),
           value: v.toString(),
         }
       })
