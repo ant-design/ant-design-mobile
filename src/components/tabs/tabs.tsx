@@ -252,7 +252,7 @@ export const Tabs: FC<TabsProps> = p => {
               <div
                 key={pane.key}
                 className={classNames(`${classPrefix}-tab-wrapper`, {
-                  [`${classPrefix}-tab-wrapper-auto`]: props.stretch,
+                  [`${classPrefix}-tab-wrapper-stretch`]: props.stretch,
                 })}
               >
                 <div
