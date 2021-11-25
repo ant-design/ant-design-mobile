@@ -12,7 +12,7 @@
 | defaultActiveKey | 初始化选中面板的 `key`，如果没有设置 `activeKey` | `string \| null`              | 第一个面板的 `key` |
 | activeLineMode   | 激活 `tab` 下划线的模式                          | `'auto' \| 'full' \| 'fixed'` | `'auto'`           |
 | onChange         | 切换面板的回调                                   | `(key: string) => void`       | -                  |
-| align            | `tab` 的对齐方式                                 | `'left' \| 'right'`           | `'center'`         |
+| stretch          | 选项卡头部是否拉伸                               | `boolean`                     | `true`             |
 
 ### CSS 变量
 

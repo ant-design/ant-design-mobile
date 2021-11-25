@@ -12,7 +12,7 @@
 | defaultActiveKey | The initialized `key` of the selected panel, if the `activeKey` is not set | `string \| null`              | the `key` of the 1st pannel |
 | activeLineMode   | Activate `tab` underline mode                                              | `'auto' \| 'full' \| 'fixed'` | `'auto'`                    |
 | onChange         | Callback when switching panel                                              | `(key: string) => void`       | -                           |
-| align            | Align mode of the `tab`                                                    | `'left' \| 'right'`           | `'center'`                  |
+| stretch          | Whether stretch the tab header                                             | `boolean`                     | `true`                      |
 
 ### CSS Variables
 

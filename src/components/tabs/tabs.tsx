@@ -32,13 +32,13 @@ export type TabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   activeLineMode?: 'auto' | 'full' | 'fixed'
-  align?: 'left' | 'center'
+  stretch?: boolean
   onChange?: (key: string) => void
 } & NativeProps<'--fixed-active-line-width' | '--title-font-size'>
 
 const defaultProps = {
   activeLineMode: 'auto',
-  align: 'center',
+  stretch: true,
 }
 
 export const Tabs: FC<TabsProps> = p => {
@@ -252,7 +252,7 @@ export const Tabs: FC<TabsProps> = p => {
               <div
                 key={pane.key}
                 className={classNames(`${classPrefix}-tab-wrapper`, {
-                  [`${classPrefix}-tab-wrapper-auto`]: props.align === 'center',
+                  [`${classPrefix}-tab-wrapper-auto`]: props.stretch,
                 })}
               >
                 <div
