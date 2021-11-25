@@ -1,6 +1,6 @@
 import React from 'react'
 import { DemoBlock } from 'demos'
-import { Tabs } from 'antd-mobile'
+import { Tabs, Badge } from 'antd-mobile'
 
 export default () => {
   return (
@@ -13,7 +13,7 @@ export default () => {
           <Tabs.Tab title='蔬菜' key='vegetables'>
             西红柿
           </Tabs.Tab>
-          <Tabs.Tab title='动物' key='animals'>
+          <Tabs.Tab title={<Badge content='1'>动物</Badge>} key='animals'>
             蚂蚁
           </Tabs.Tab>
         </Tabs>
