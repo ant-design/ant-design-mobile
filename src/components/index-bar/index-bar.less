@@ -46,15 +46,17 @@
     &-bubble {
       position: absolute;
       top: 50%;
-      right: 42px;
-      width: 47px;
+      right: calc(100% + 12px);
+      padding: 0 12px;
+      min-width: 47px;
+      width: max-content;
       height: 47px;
       color: var(--adm-color-white);
       font-size: 25px;
       line-height: 47px;
       text-align: center;
       background: var(--adm-color-light);
-      border-radius: 50%;
+      border-radius: 50px;
       transform: translateY(-50%);
     }
 
@@ -67,8 +69,10 @@
     }
 
     &-item {
+      position: relative;
       display: inline-flex;
-      width: 16px;
+      padding: 0 4px;
+      min-width: 16px;
       height: 16px;
       line-height: 16px;
       justify-content: center;
@@ -78,7 +82,7 @@
     &-item-active {
       color: #fff;
       background-color: var(--adm-color-primary);
-      border-radius: 50%;
+      border-radius: 50px;
     }
 
     &-interacting {

@@ -62,15 +62,15 @@ export const Sidebar: FC<SidebarProps> = props => {
             data-index={index}
             key={index}
           >
-            {interacting && active && (
-              <div className={`${classPrefix}-sidebar-bubble`}>{index}</div>
-            )}
             <div
               className={classNames(`${classPrefix}-sidebar-item`, {
                 [`${classPrefix}-sidebar-item-active`]: active,
               })}
               data-index={index}
             >
+              {interacting && active && (
+                <div className={`${classPrefix}-sidebar-bubble`}>{index}</div>
+              )}
               <div>{index}</div>
             </div>
           </div>
