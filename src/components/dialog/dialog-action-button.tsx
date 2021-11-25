@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react'
-import { useThrottleFn } from 'ahooks'
 import classNames from 'classnames'
 import Button from '../button'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -21,24 +20,17 @@ export const DialogActionButton: FC<{
 
   const [loading, setLoading] = useState(false)
 
-  const { run: handleClick } = useThrottleFn(
-    async () => {
-      setLoading(true)
-      try {
-        await action.onClick?.()
-        await props.onAction?.()
-      } catch (e) {
-        setLoading(false)
-        throw e
-      }
+  async function handleClick() {
+    setLoading(true)
+    try {
+      const promise = props.onAction()
+      await promise
       setLoading(false)
-    },
-    {
-      wait: 200,
-      trailing: false,
-      leading: true,
+    } catch (e) {
+      setLoading(false)
+      throw e
     }
-  )
+  }
 
   return withNativeProps(
     props.action,
