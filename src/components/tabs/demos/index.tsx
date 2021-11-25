@@ -13,6 +13,19 @@ export default () => {
           <Tabs.Tab title='蔬菜' key='vegetables'>
             西红柿
           </Tabs.Tab>
+          <Tabs.Tab title='动物' key='animals'>
+            蚂蚁
+          </Tabs.Tab>
+        </Tabs>
+      </DemoBlock>
+      <DemoBlock title='配合 Badge 使用' padding='0'>
+        <Tabs>
+          <Tabs.Tab title='水果' key='fruits'>
+            菠萝
+          </Tabs.Tab>
+          <Tabs.Tab title='蔬菜' key='vegetables'>
+            西红柿
+          </Tabs.Tab>
           <Tabs.Tab title={<Badge content='1'>动物</Badge>} key='animals'>
             蚂蚁
           </Tabs.Tab>
