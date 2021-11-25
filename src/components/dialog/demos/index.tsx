@@ -15,6 +15,9 @@ export default () => {
             onClick={() =>
               Dialog.alert({
                 content: '人在天边月上明',
+                onConfirm: () => {
+                  console.log('Confirmed')
+                },
               })
             }
           >

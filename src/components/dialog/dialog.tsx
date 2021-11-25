@@ -114,7 +114,11 @@ export const Dialog: FC<DialogProps> = p => {
                         key={action.key}
                         action={action}
                         onAction={async () => {
-                          await props.onAction?.(action, index)
+                          if (scale.isAnimating) return
+                          await Promise.all([
+                            action.onClick?.(),
+                            props.onAction?.(action, index),
+                          ])
                           if (props.closeOnAction) {
                             props.onClose?.()
                           }
