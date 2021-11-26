@@ -23,6 +23,7 @@
 | arrow       | 右侧是否显示箭头图标，也支持传入 `ReactNode` 来自定义图标       | `boolean \| ReactNode`          | 默认和 `clickable` 的值保持一致                            |
 | disabled    | 是否禁用                                                        | `boolean`                       | `false`                                                    |
 | onClick     | 列表项的点击事件，当设置了 `onClick` 属性时，列表项会有点击效果 | `(e: React.MouseEvent) => void` | -                                                          |
+| split       | 是否展示底部分割线                                              | `boolean`                       | `true`                                                     |
 
 ## CSS 变量
 

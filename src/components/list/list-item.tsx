@@ -1,7 +1,8 @@
 import React, { FC, ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-list-item`
 
@@ -14,17 +15,27 @@ export type ListItemProps = {
   clickable?: boolean
   arrow?: boolean | ReactNode
   disabled?: boolean
+  split?: boolean
   onClick?: (e: React.MouseEvent) => void
 } & NativeProps<
   '--prefix-width' | '--align-items' | '--active-background-color'
 >
 
-export const ListItem: FC<ListItemProps> = props => {
+const defaultProps = {
+  split: true,
+}
+
+export const ListItem: FC<ListItemProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const clickable = props.clickable ?? !!props.onClick
   const arrow = props.arrow === undefined ? clickable : props.arrow
 
   const content = (
-    <div className={`${classPrefix}-content`}>
+    <div
+      className={classNames(`${classPrefix}-content`, {
+        [`${classPrefix}-content-split`]: props.split,
+      })}
+    >
       {props.prefix && (
         <div className={`${classPrefix}-content-prefix`}>{props.prefix}</div>
       )}
