@@ -1,10 +1,10 @@
-import React, { FC, ReactNode } from 'react'
-import { usePropsValue } from '../../utils/use-props-value'
+import React, { FC, ReactNode, useEffect, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { Column } from './column'
 import { useColumns } from './use-columns'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePickerValueExtend } from './use-picker-value-extend'
+import { useDebounceEffect } from 'ahooks'
 
 const classPrefix = `adm-picker-view`
 
@@ -34,13 +34,47 @@ const defaultProps = {
 
 export const PickerView: FC<PickerViewProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = usePropsValue({
-    ...props,
-    onChange: val => {
-      props.onChange?.(val, generateValueExtend(val))
+
+  const [innerValue, setInnerValue] = useState<PickerValue[]>(
+    props.value === undefined ? props.defaultValue : props.value
+  )
+
+  useDebounceEffect(
+    () => {
+      if (props.value === innerValue) return
+      props.onChange?.(innerValue, generateValueExtend(innerValue))
     },
-  })
-  const columns = useColumns(props.columns, value)
+    [innerValue],
+    {
+      wait: 0,
+      leading: false,
+      trailing: true,
+    }
+  )
+
+  // Sync `value` to `innerValue`
+  useEffect(() => {
+    if (props.value === undefined) return // Uncontrolled mode
+    if (props.value === innerValue) return
+    setInnerValue(props.value)
+  }, [props.value])
+
+  // Reset `innerValue` after 1s in case user does not update `value` when `onChange` is called
+  useDebounceEffect(
+    () => {
+      if (props.value !== undefined && props.value !== innerValue) {
+        setInnerValue(props.value)
+      }
+    },
+    [props.value, innerValue],
+    {
+      wait: 1000,
+      leading: false,
+      trailing: true,
+    }
+  )
+
+  const columns = useColumns(props.columns, innerValue)
   const generateValueExtend = usePickerValueExtend(columns)
 
   return withNativeProps(
@@ -50,11 +84,11 @@ export const PickerView: FC<PickerViewProps> = p => {
         <Column
           key={index}
           column={column}
-          value={value[index]}
+          value={innerValue[index]}
           onSelect={val => {
-            const nextValue = [...value]
-            nextValue[index] = val
-            setValue(nextValue)
+            const nextInnerValue = [...innerValue]
+            nextInnerValue[index] = val
+            setInnerValue(nextInnerValue)
           }}
         />
       ))}
