@@ -1,6 +1,4 @@
-<img src="https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg" alt="logo" width="160" />
-
-# Ant Design Mobile
+<img src="https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*1Ps5R4QVn28AAAAAAAAAAAAAARQnAQ" alt="logo" width="100%" />
 
 ![npm (tag)](https://img.shields.io/npm/v/antd-mobile/next)
 ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ant-design/ant-design-mobile)
