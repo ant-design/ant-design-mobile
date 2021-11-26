@@ -9,6 +9,7 @@ import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useThrottleFn } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
+import { Panel } from './panel'
 import { Sidebar } from './sidebar'
 import { IndexBarContext } from './context'
 import { convertPx } from '../../utils/convert-px'
@@ -32,7 +33,18 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
-  const [indexes, setIndexes] = useState<string[]>([])
+  const [update, setUpdate] = useState(0)
+
+  const indexes = [] as string[]
+  React.Children.forEach(props.children, child => {
+    if (
+      React.isValidElement(child) &&
+      child.type === Panel &&
+      child.props.index != null
+    ) {
+      indexes.push(child.props.index)
+    }
+  })
 
   const [activeIndex, setActiveIndex] = useState(indexes[0])
 
@@ -79,7 +91,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   useEffect(() => {
     if (!indexes.length) return
     checkActiveIndex()
-  }, [indexes])
+  }, [update])
 
   const element = withNativeProps(
     props,
@@ -107,12 +119,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   )
 
   return (
-    <IndexBarContext.Provider
-      value={{
-        indexes,
-        setIndexes,
-      }}
-    >
+    <IndexBarContext.Provider value={{ setUpdate }}>
       {element}
     </IndexBarContext.Provider>
   )

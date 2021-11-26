@@ -1,9 +1,7 @@
 import React, { createContext } from 'react'
 
 export const IndexBarContext = createContext<{
-  indexes: string[]
-  setIndexes: React.Dispatch<React.SetStateAction<string[]>>
+  setUpdate: React.Dispatch<React.SetStateAction<number>>
 }>({
-  indexes: [],
-  setIndexes: () => {},
+  setUpdate: () => {},
 })
