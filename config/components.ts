@@ -27,7 +27,7 @@ export const components = {
     '/components/picker',
     '/components/radio',
     '/components/rate',
-    '/components/search',
+    '/components/search-bar',
     '/components/selector',
     '/components/slider',
     '/components/stepper',

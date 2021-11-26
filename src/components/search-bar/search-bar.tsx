@@ -7,11 +7,14 @@ import { SearchOutline } from 'antd-mobile-icons'
 import { usePropsValue } from '../../utils/use-props-value'
 import { useConfig } from '../config-provider'
 
-const classPrefix = `adm-search`
+const classPrefix = `adm-search-bar`
 
-export type SearchRef = InputRef
+export type SearchBarRef = InputRef
 
-export type SearchProps = Pick<InputProps, 'onFocus' | 'onBlur' | 'onClear'> & {
+export type SearchBarProps = Pick<
+  InputProps,
+  'onFocus' | 'onBlur' | 'onClear'
+> & {
   value?: string
   defaultValue?: string
   maxLength?: number
@@ -32,7 +35,7 @@ const defaultProps = {
   clearOnCancel: true,
 }
 
-export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
+export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
   const { locale } = useConfig()
   const props = mergeProps(
     defaultProps,

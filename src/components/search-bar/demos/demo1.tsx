@@ -1,24 +1,24 @@
 import React, { useRef } from 'react'
-import { Button, Search, Space, Toast } from 'antd-mobile'
+import { Button, SearchBar, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { SearchRef } from 'antd-mobile/es/components/search'
+import { SearchBarRef } from 'antd-mobile/es/components/search-bar'
 
 export default () => {
-  const searchRef = useRef<SearchRef>(null)
+  const searchRef = useRef<SearchBarRef>(null)
   return (
     <>
       <DemoBlock title='基础用法'>
-        <Search placeholder='请输入内容' />
+        <SearchBar placeholder='请输入内容' />
       </DemoBlock>
       <DemoBlock title='带取消按钮的搜索框'>
-        <Search placeholder='请输入内容' showCancelButton />
+        <SearchBar placeholder='请输入内容' showCancelButton />
       </DemoBlock>
       <DemoBlock title='取消按钮长显'>
-        <Search placeholder='请输入内容' showCancelButton={() => true} />
+        <SearchBar placeholder='请输入内容' showCancelButton={() => true} />
       </DemoBlock>
       <DemoBlock title='事件监听和 Ref'>
         <Space block direction='vertical'>
-          <Search
+          <SearchBar
             ref={searchRef}
             placeholder='请输入内容'
             showCancelButton
@@ -57,7 +57,7 @@ export default () => {
         </Space>
       </DemoBlock>
       <DemoBlock title='自定义样式'>
-        <Search
+        <SearchBar
           placeholder='请输入内容'
           showCancelButton
           style={{
