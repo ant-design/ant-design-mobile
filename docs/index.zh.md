@@ -1,7 +1,7 @@
 ---
 title: Ant Design Mobile
 hero:
-  image: https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg
+  image: https://gw.alipayobjects.com/zos/bmw-prod/35ca3037-6905-46d7-824f-1ef82da29059.svg
   title: Ant Design Mobile
   desc: v5 beta (白杨)
   actions:
