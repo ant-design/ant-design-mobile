@@ -9,7 +9,6 @@ import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useThrottleFn } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
-import { Panel } from './panel'
 import { Sidebar } from './sidebar'
 import { IndexBarContext } from './context'
 import { convertPx } from '../../utils/convert-px'
@@ -34,18 +33,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
   const [update, setUpdate] = useState(0)
-
-  const indexes = [] as string[]
-  React.Children.forEach(props.children, child => {
-    if (
-      React.isValidElement(child) &&
-      child.type === Panel &&
-      child.props.index != null
-    ) {
-      indexes.push(child.props.index)
-    }
-  })
-
+  const [indexes, setIndexes] = useState<string[]>([])
   const [activeIndex, setActiveIndex] = useState(indexes[0])
 
   useImperativeHandle(ref, () => ({ scrollTo }))
@@ -89,8 +77,20 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   )
 
   useEffect(() => {
-    if (!indexes.length) return
-    checkActiveIndex()
+    const body = bodyRef.current
+    if (!body) return
+
+    const newIndexes: string[] = []
+    const children = body.getElementsByClassName(`${classPrefix}-anchor`)
+    for (let i = 0; i < children.length; i++) {
+      const panel = children.item(i) as HTMLElement
+      if (!panel) continue
+      const panelIndex = panel.dataset['index']
+      if (panelIndex) newIndexes.push(panelIndex)
+    }
+    setIndexes(newIndexes)
+
+    if (newIndexes.length) checkActiveIndex()
   }, [update])
 
   const element = withNativeProps(
