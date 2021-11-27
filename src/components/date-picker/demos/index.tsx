@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { Button, DatePicker, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import dayjs from 'dayjs'
 
 const now = new Date()
 
@@ -59,6 +60,7 @@ function RenderChildrenDemo() {
 function Precision() {
   const [visible1, setVisible1] = useState(false)
   const [visible2, setVisible2] = useState(false)
+  const [visible3, setVisible3] = useState(false)
   return (
     <Space wrap>
       <>
@@ -96,6 +98,27 @@ function Precision() {
           precision='minute'
           onConfirm={val => {
             Toast.show(val.toString())
+          }}
+        />
+      </>
+      <>
+        <Button
+          onClick={() => {
+            setVisible3(true)
+          }}
+        >
+          年-月-日-上/下午
+        </Button>
+        <DatePicker
+          visible={visible3}
+          onClose={() => {
+            setVisible3(false)
+          }}
+          defaultValue={now}
+          precision='halfDay'
+          onConfirm={val => {
+            require('dayjs/locale/zh-cn')
+            Toast.show(dayjs(val).locale('zh-cn').format('YYYY-MM-DD A'))
           }}
         />
       </>

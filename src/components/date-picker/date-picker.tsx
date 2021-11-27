@@ -10,6 +10,8 @@ import {
   generateDatePickerColumns,
   defaultRenderLabel,
 } from './date-picker-utils'
+import { setDefaultConfig, useConfig } from '../config-provider'
+import enUS from 'antd-mobile/src/locales/en-US'
 
 export type DatePickerProps = Pick<
   PickerProps,
@@ -48,24 +50,33 @@ const defaultProps = {
 export const DatePicker: FC<DatePickerProps> = p => {
   const props = mergeProps(defaultProps, p)
 
+  const { locale } = useConfig()
+  const halfDayItems = useMemo(
+    () => [locale.DatePicker.morning, locale.DatePicker.afternoon],
+    []
+  )
+
   const [value, setValue] = usePropsValue<Date | null>({
     value: props.value,
     defaultValue: props.defaultValue ?? null,
     onChange: props.onConfirm,
   })
 
-  const pickerValue = useMemo(() => convertDateToStringArray(value), [value])
+  const pickerValue = useMemo(
+    () => convertDateToStringArray(value, props.precision, halfDayItems),
+    [value]
+  )
 
   const onConfirm = useCallback(
     (val: string[]) => {
-      setValue(convertStringArrayToDate(val))
+      setValue(convertStringArrayToDate(val, halfDayItems))
     },
     [setValue]
   )
 
   const onSelect = useCallback(
     (val: string[]) => {
-      const date = convertStringArrayToDate(val)
+      const date = convertStringArrayToDate(val, halfDayItems)
       if (date) {
         props.onSelect?.(date)
       }
@@ -82,7 +93,8 @@ export const DatePicker: FC<DatePickerProps> = p => {
           props.min,
           props.max,
           props.precision,
-          props.renderLabel
+          props.renderLabel,
+          halfDayItems
         )
       }
       value={pickerValue}
@@ -102,7 +114,10 @@ export const DatePicker: FC<DatePickerProps> = p => {
     >
       {items =>
         props.children?.(
-          convertStringArrayToDate(items.map(item => item?.value))
+          convertStringArrayToDate(
+            items.map(item => item?.value),
+            locale
+          )
         )
       }
     </Picker>
