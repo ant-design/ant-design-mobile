@@ -28,7 +28,10 @@
 
 ### List & List.Item
 
-| Name                      | Description                        | Default                   |
-| ------------------------- | ---------------------------------- | ------------------------- |
-| --prefix-width            | Width of the prefix part.          | `auto`                    |
-| --active-background-color | The background color when clicked. | `var(--adm-border-color)` |
+| Name                      | Description                          | Default                             |
+| ------------------------- | ------------------------------------ | ----------------------------------- |
+| --prefix-width            | Width of the prefix part.            | `auto`                              |
+| --active-background-color | The background color when clicked.   | `var(--adm-border-color)`           |
+| --border-inner            | Border style of the list item bottom | `solid 1px var(--adm-border-color)` |
+| --border-top              | Border style of the list top         | `solid 1px var(--adm-border-color)` |
+| --border-bottom           | Border style of the list bottom      | `solid 1px var(--adm-border-color)` |
