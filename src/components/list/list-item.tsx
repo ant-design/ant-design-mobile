@@ -16,12 +16,7 @@ export type ListItemProps = {
   disabled?: boolean
   onClick?: (e: React.MouseEvent) => void
 } & NativeProps<
-  | '--prefix-width'
-  | '--align-items'
-  | '--active-background-color'
-  | '--item-border-bottom'
-  | '--border-top'
-  | '--border-bottom'
+  '--prefix-width' | '--align-items' | '--active-background-color'
 >
 
 export const ListItem: FC<ListItemProps> = props => {
