@@ -152,7 +152,7 @@ function CustomRender() {
   )
 }
 
-function WeekdayDemo() {
+function DayOfWeekDemo() {
   const [visible, setVisible] = useState(false)
 
   const labelRenderer = useCallback((type: string, data: number) => {
@@ -161,7 +161,7 @@ function WeekdayDemo() {
         return data + '年'
       case 'week':
         return data + '周'
-      case 'weekday':
+      case 'day-of-week':
         return weekdayToZh(data)
       default:
         return data
@@ -188,7 +188,7 @@ function WeekdayDemo() {
         }}
         onSelect={val => console.log(val)}
         renderLabel={labelRenderer}
-        precision='weekday'
+        precision='day-of-week'
       />
     </>
   )
@@ -210,7 +210,7 @@ export default () => {
         <CustomRender />
       </DemoBlock>
       <DemoBlock title='周 - 工作日选择器'>
-        <WeekdayDemo />
+        <DayOfWeekDemo />
       </DemoBlock>
     </>
   )
