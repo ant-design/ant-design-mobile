@@ -209,7 +209,7 @@ export default () => {
       <DemoBlock title='自定义每列的渲染内容'>
         <CustomRender />
       </DemoBlock>
-      <DemoBlock title='周 - 工作日选择器'>
+      <DemoBlock title='周选择器'>
         <DayOfWeekDemo />
       </DemoBlock>
     </>

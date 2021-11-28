@@ -28,7 +28,7 @@ export default () => {
       <DemoBlock title='自定义每列的渲染内容' padding='0'>
         <DatePickerView defaultValue={now} renderLabel={labelRenderer} />
       </DemoBlock>
-      <DemoBlock title='周 - 工作日选择' padding='0'>
+      <DemoBlock title='周选择器' padding='0'>
         <DatePickerView
           onChange={val => console.log('onChange', val)}
           precision='day-of-week'
