@@ -19,8 +19,8 @@ See for other parameters https://www.npmjs.com/package/rc-field-form
 
 | Name        | Description                          | Type                         | Default                                                               |
 | ----------- | ------------------------------------ | ---------------------------- | --------------------------------------------------------------------- |
-| label       | Label name                           | `string`                     | --                                                                    |
-| help        | Prompt text                          | `string`                     | --                                                                    |
+| label       | Label name                           | `ReactNode`                  | --                                                                    |
+| help        | Prompt text                          | `ReactNode`                  | --                                                                    |
 | extra       | The right area of the form item.     | `ReactNode`                  | --                                                                    |
 | required    | Whether it is required               | `boolean`                    | `false`（if `rules` is set, it would be judged according to `rules`） |
 | disabled    | Whether it is disabled               | `boolean`                    | `false`                                                               |
