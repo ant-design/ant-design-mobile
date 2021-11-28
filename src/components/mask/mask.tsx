@@ -70,6 +70,7 @@ export const Mask: React.FC<MaskProps> = p => {
       mass: 1,
       tension: 200,
       friction: 30,
+      clamp: true,
     },
     onStart: () => {
       setActive(true)
