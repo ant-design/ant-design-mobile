@@ -44,7 +44,6 @@ const defaultProps = {
 export const Tabs: FC<TabsProps> = p => {
   const props = mergeProps(defaultProps, p)
   const tabListContainerRef = useRef<HTMLDivElement>(null)
-  const rootRef = useRef<HTMLDivElement>(null)
   const activeLineRef = useRef<HTMLDivElement>(null)
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
@@ -166,7 +165,7 @@ export const Tabs: FC<TabsProps> = p => {
 
   useResizeEffect(() => {
     animate(true)
-  }, rootRef)
+  }, tabListContainerRef)
 
   useMutationEffect(
     () => {
@@ -209,7 +208,7 @@ export const Tabs: FC<TabsProps> = p => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix} ref={rootRef}>
+    <div className={classPrefix}>
       <div className={`${classPrefix}-header`}>
         <animated.div
           className={classNames(
