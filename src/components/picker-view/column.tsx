@@ -1,11 +1,10 @@
-import React, { FC, useLayoutEffect, useRef, useState } from 'react'
+import React, { FC, useLayoutEffect, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
-import { useDebounceFn } from 'ahooks'
 
 const classPrefix = `adm-picker-view`
 
@@ -28,8 +27,6 @@ export const Column: FC<Props> = props => {
 
   const draggingRef = useRef(false)
 
-  const [flag, setFlag] = useState({})
-
   useLayoutEffect(() => {
     if (draggingRef.current) return
     if (!value) return
@@ -37,7 +34,7 @@ export const Column: FC<Props> = props => {
     if (targetIndex < 0) return
     const finalPosition = targetIndex * -itemHeight
     api.start({ y: finalPosition, immediate: y.idle })
-  }, [value, column, flag])
+  }, [value, column])
 
   useLayoutEffect(() => {
     if (column.length === 0) {
@@ -52,22 +49,10 @@ export const Column: FC<Props> = props => {
     }
   }, [column, value])
 
-  const { run: debouncedUpdateFlag } = useDebounceFn(
-    () => {
-      setFlag({})
-    },
-    {
-      wait: 1000,
-      leading: false,
-      trailing: true,
-    }
-  )
-
   function scrollSelect(index: number) {
     const finalPosition = index * -itemHeight
     api.start({ y: finalPosition })
     onSelect(column[index].value)
-    debouncedUpdateFlag()
   }
 
   const bind = useDrag(

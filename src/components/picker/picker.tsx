@@ -57,6 +57,7 @@ export const Picker: FC<PickerProps> = p => {
     },
   })
 
+  // TODO: columns generated twice in Picker and PickerView, which can be improved
   const columns = useColumns(props.columns, value)
   const generateValueExtend = usePickerValueExtend(columns)
 
@@ -71,8 +72,6 @@ export const Picker: FC<PickerProps> = p => {
       setInnerValue(value)
     }
   }, [value])
-
-  const innerColumns = useColumns(props.columns, innerValue)
 
   const pickerElement = withNativeProps(
     props,
@@ -100,7 +99,7 @@ export const Picker: FC<PickerProps> = p => {
       </div>
       <div className={`${classPrefix}-body`}>
         <PickerView
-          columns={innerColumns}
+          columns={props.columns}
           value={innerValue}
           onChange={(val, ext) => {
             setInnerValue(val)
