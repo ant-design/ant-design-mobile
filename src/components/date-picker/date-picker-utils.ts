@@ -93,8 +93,8 @@ export function generateDatePickerColumns(
     const minWeekday = minDay.isoWeekday()
     const maxWeekday = maxDay.isoWeekday()
     const selectedWeek = parseInt(selected[1])
-    const isInMinWeek = isInMinYear && selectedWeek === minMonth
-    const isInMaxWeek = isInMaxYear && selectedWeek === maxMonth
+    const isInMinWeek = isInMinYear && selectedWeek === minWeek
+    const isInMaxWeek = isInMaxYear && selectedWeek === maxWeek
     const selectedYearWeeks = dayjs(`${selectedYear}-01-01`).isoWeeksInYear()
 
     if (rank >= precisionRankRecord.week) {
@@ -251,6 +251,9 @@ export function convertStringArrayToDate(
       .year(parseInt(yearString))
       .isoWeek(parseInt(weekString))
       .isoWeekday(parseInt(weekdayString))
+      .hour(0)
+      .minute(0)
+      .second(0)
     return new Date(day.format('YYYY-MM-DD'))
   }
   const monthString = value[1] ?? '1'
