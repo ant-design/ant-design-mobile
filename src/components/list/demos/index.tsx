@@ -116,8 +116,8 @@ export default () => {
         <List
           style={{
             '--border-inner': 'none',
-            '--border-top': 'none',
-            '--border-bottom': 'none',
+            '--border-top': '1px solid red',
+            '--border-bottom': '1px solid blue',
           }}
         >
           <List.Item>1</List.Item>
