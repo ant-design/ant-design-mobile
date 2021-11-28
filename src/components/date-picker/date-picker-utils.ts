@@ -19,7 +19,7 @@ export type Precision =
   | 'minute'
   | 'second'
   | 'week'
-  | 'day-of-week'
+  | 'week-day'
 
 const precisionRankRecord: Record<Precision, number> = {
   year: 0,
@@ -29,7 +29,7 @@ const precisionRankRecord: Record<Precision, number> = {
   minute: 4,
   second: 5,
   week: 10,
-  'day-of-week': 11,
+  'week-day': 11,
 }
 
 export function defaultRenderLabel(type: Precision, data: number) {
@@ -110,14 +110,14 @@ export function generateDatePickerColumns(
         })
       )
     }
-    if (rank >= precisionRankRecord['day-of-week']) {
+    if (rank >= precisionRankRecord['week-day']) {
       const lower = isInMinWeek ? minWeekday : 1
       const upper = isInMaxWeek ? maxWeekday : 7
       const weeks = generateIntArray(lower, upper)
       ret.push(
         weeks.map(v => {
           return {
-            label: renderLabel('day-of-week', v),
+            label: renderLabel('week-day', v),
             value: v.toString(),
           }
         })

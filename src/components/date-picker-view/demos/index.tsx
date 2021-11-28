@@ -31,7 +31,7 @@ export default () => {
       <DemoBlock title='周选择器' padding='0'>
         <DatePickerView
           onChange={val => console.log('onChange', val)}
-          precision='day-of-week'
+          precision='week-day'
           defaultValue={now}
           renderLabel={weekdayLabelRenderer}
         />
@@ -65,7 +65,7 @@ const weekdayLabelRenderer = (type: string, data: number) => {
       return data + '年'
     case 'week':
       return data + '周'
-    case 'day-of-week':
+    case 'week-day':
       return weekdayToZh(data)
     default:
       return data

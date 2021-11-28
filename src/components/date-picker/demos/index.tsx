@@ -161,7 +161,7 @@ function DayOfWeekDemo() {
         return data + '年'
       case 'week':
         return data + '周'
-      case 'day-of-week':
+      case 'week-day':
         return weekdayToZh(data)
       default:
         return data
@@ -188,7 +188,7 @@ function DayOfWeekDemo() {
         }}
         onSelect={val => console.log(val)}
         renderLabel={labelRenderer}
-        precision='day-of-week'
+        precision='week-day'
       />
     </>
   )
