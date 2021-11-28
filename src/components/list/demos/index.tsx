@@ -115,7 +115,7 @@ export default () => {
       <DemoBlock title='自定义边框' padding='0' border='none'>
         <List
           style={{
-            '--item-border-bottom': 'none',
+            '--border-inner': 'none',
             '--border-top': 'none',
             '--border-bottom': 'none',
           }}

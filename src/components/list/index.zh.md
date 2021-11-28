@@ -32,6 +32,6 @@
 | ------------------------- | ---------------------- | ----------------------------------- |
 | --prefix-width            | prefix 部分的宽度      | `auto`                              |
 | --active-background-color | 点击时的背景颜色       | `var(--adm-border-color)`           |
-| --item-border-bottom      | 列表项底部的边框样式   | `solid 1px var(--adm-border-color)` |
+| --border-inner            | 列表项底部的边框样式   | `solid 1px var(--adm-border-color)` |
 | --border-top              | 列表容器顶部的边框样式 | `solid 1px var(--adm-border-color)` |
 | --border-bottom           | 列表容器底部的边框样式 | `solid 1px var(--adm-border-color)` |

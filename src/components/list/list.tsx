@@ -11,7 +11,7 @@ export type ListProps = {
   | '--prefix-width'
   | '--align-items'
   | '--active-background-color'
-  | '--item-border-bottom'
+  | '--border-inner'
   | '--border-top'
   | '--border-bottom'
 >
