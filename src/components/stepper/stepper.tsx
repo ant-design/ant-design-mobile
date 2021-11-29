@@ -113,7 +113,7 @@ export const Stepper: FC<StepperProps> = p => {
         fill='none'
         color='primary'
       >
-        <MinusOutline fontSize={12} />
+        <MinusOutline />
       </Button>
       <Input
         className={`${classPrefix}-input`}
@@ -138,7 +138,7 @@ export const Stepper: FC<StepperProps> = p => {
         fill='none'
         color='primary'
       >
-        <AddOutline fontSize={12} />
+        <AddOutline />
       </Button>
     </div>
   )
