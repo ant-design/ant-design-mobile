@@ -30,6 +30,10 @@ export const base = {
   Mask: {
     name: 'Mask',
   },
+  DatePicker: {
+    morning: 'AM',
+    afternoon: 'PM',
+  },
 }
 
 export type Locale = typeof base

@@ -33,6 +33,10 @@ const zhCN = mergeLocale(base, {
   Mask: {
     name: '遮罩层',
   },
+  DatePicker: {
+    morning: '上午',
+    afternoon: '下午',
+  },
 })
 
 export default zhCN
