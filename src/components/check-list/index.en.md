@@ -22,7 +22,7 @@ In addition, the `mode` attribute of [List](./list) is also supported
 
 ### CSS Variables
 
-The same as [List.Item](./list)
+The same as [List](./list/#list-2)
 
 ## CheckList.Item
 
@@ -38,4 +38,4 @@ In addition, the following attributes of [List.Item](./list) are also supported:
 
 ### CSS Variables
 
-The same as [List.Item](./list)
+The same as [List.Item](./list/#listitem-1)
