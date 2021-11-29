@@ -3,6 +3,12 @@
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx"></code>
 <code src="./demos/demo3.tsx"></code>
+
+自定义或第三方的表单控件，也可以与 Form 组件一起使用。只要该组件遵循以下的约定：
+
+> - 提供受控属性 `value` 值同名的属性。
+> - 提供 `onChange` 事件。
+
 <code src="./demos/demo4.tsx"></code>
 
 # API
