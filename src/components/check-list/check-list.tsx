@@ -1,12 +1,12 @@
 import React, { FC, ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { withNativeProps } from '../../utils/native-props'
 import List, { ListProps } from '../list'
 import { mergeProps } from '../../utils/with-default-props'
 import { CheckListContext } from './context'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckOutline } from 'antd-mobile-icons'
 
-export type CheckListProps = Pick<ListProps, 'mode'> & {
+export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
   defaultValue?: string[]
   value?: string[]
   onChange?: (val: string[]) => void
@@ -14,7 +14,7 @@ export type CheckListProps = Pick<ListProps, 'mode'> & {
   activeIcon?: ReactNode
   disabled?: boolean
   readOnly?: boolean
-} & NativeProps<'--prefix-width' | '--align-items'>
+}
 
 const defaultProps = {
   multiple: false,
