@@ -83,7 +83,7 @@ const Manual: FC = () => {
       <SwipeAction
         ref={ref}
         closeOnAction={false}
-        closeOnTouchAway={false}
+        closeOnTouchOutside={false}
         rightActions={[
           {
             key: 'delete',

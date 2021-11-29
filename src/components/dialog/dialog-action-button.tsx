@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
 import classNames from 'classnames'
 import Button from '../button'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 export type Action = {
   key: string | number
@@ -9,7 +10,7 @@ export type Action = {
   danger?: boolean
   bold?: boolean
   onClick?: () => void | Promise<void>
-}
+} & NativeProps
 
 export const DialogActionButton: FC<{
   action: Action
@@ -19,20 +20,23 @@ export const DialogActionButton: FC<{
 
   const [loading, setLoading] = useState(false)
 
-  return (
+  async function handleClick() {
+    setLoading(true)
+    try {
+      const promise = props.onAction()
+      await promise
+      setLoading(false)
+    } catch (e) {
+      setLoading(false)
+      throw e
+    }
+  }
+
+  return withNativeProps(
+    props.action,
     <Button
       key={action.key}
-      onClick={async () => {
-        setLoading(true)
-        try {
-          await action.onClick?.()
-          await props.onAction?.()
-        } catch (e) {
-          setLoading(false)
-          throw e
-        }
-        setLoading(false)
-      }}
+      onClick={handleClick}
       className={classNames('adm-dialog-button', {
         'adm-dialog-button-bold': action.bold,
       })}

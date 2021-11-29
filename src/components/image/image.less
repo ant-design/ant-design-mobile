@@ -1,6 +1,10 @@
 @class-prefix-image: ~'adm-image';
 
 .@{class-prefix-image} {
+  --width: var(--adm-image-width, auto);
+  --height: var(--adm-image-height, auto);
+  width: var(--width);
+  height: var(--height);
   display: inline-block;
   overflow: hidden;
   &-img {

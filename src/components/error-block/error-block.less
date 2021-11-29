@@ -2,12 +2,21 @@
 
 .@{class-prefix-error-block} {
   --color: var(--adm-color-text);
+  --image-height: var(--adm-error-block-image-height, 100px);
+  --image-height-full-page: var(
+    --adm-error-block-image-height-full-page,
+    200px
+  );
+  --image-width: var(--adm-error-block-image-width, auto);
+  --image-width-full-page: var(--adm-error-block-image-width-full-page, auto);
+
   box-sizing: border-box;
   text-align: center;
 
   &-image {
-    height: 100px;
-    padding-bottom: 20px;
+    height: var(--image-height);
+    width: var(--image-width);
+    max-width: 100%;
 
     & img {
       height: 100%;
@@ -18,6 +27,7 @@
     font-size: 12px;
     color: #999;
     line-height: 1.4;
+    margin-top: 12px;
     &-title {
       font-size: 15px;
     }
@@ -27,15 +37,17 @@
   }
 
   &-content {
-    margin-top: 20px;
+    margin-top: 12px;
   }
 
   &-full-page {
-    padding-top: calc(50vh - 200px);
+    padding-top: calc(50vh - var(--image-height-full-page));
     .@{class-prefix-error-block}-image {
-      height: 200px;
+      height: var(--image-height-full-page);
+      width: var(--image-width-full-page);
     }
     .@{class-prefix-error-block}-description {
+      margin-top: 20px;
       font-size: 13px;
       &-title {
         font-size: 20px;

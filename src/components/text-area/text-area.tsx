@@ -4,9 +4,10 @@ import React, {
   useImperativeHandle,
   useRef,
 } from 'react'
+import type { ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps } from '../../utils/native-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-text-area'
@@ -24,7 +25,7 @@ export type TextAreaProps = Pick<
   placeholder?: string
   rows?: number
   maxLength?: number
-  showCount?: boolean
+  showCount?: boolean | ((length: number, maxLength?: number) => ReactNode)
   autoSize?:
     | boolean
     | {
@@ -63,7 +64,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       showCount,
       ...textAreaProps
     } = props
-    const [value, setValue] = useNewControllableValue(props)
+    const [value, setValue] = usePropsValue(props)
     const nativeTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
     useImperativeHandle(ref, () => ({
@@ -97,6 +98,19 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       textArea.style.height = `${height}px`
     }, [value, autoSize])
 
+    let count
+    if (typeof showCount === 'function') {
+      count = showCount(value.length, props.maxLength)
+    } else if (showCount) {
+      count = (
+        <div className={`${classPrefix}-count`}>
+          {props.maxLength === undefined
+            ? value.length
+            : value.length + '/' + props.maxLength}
+        </div>
+      )
+    }
+
     return (
       <div
         className={classNames(`${classPrefix}-wrapper`, className)}
@@ -119,13 +133,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           }}
           id={props.id}
         />
-        {showCount && (
-          <div className={`${classPrefix}-count`}>
-            {props.maxLength === undefined
-              ? value.length
-              : value.length + '/' + props.maxLength}
-          </div>
-        )}
+        {count}
       </div>
     )
   }

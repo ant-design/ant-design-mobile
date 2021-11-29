@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
 import Image from '../image'
 import Loading from '../loading'
+import { useConfig } from '../config-provider'
 
 type Props = {
   onClick?: () => void
@@ -17,6 +18,7 @@ type Props = {
 const classPrefix = `adm-image-uploader`
 
 const PreviewItem: FC<Props> = props => {
+  const { locale } = useConfig()
   const { url, file, deletable, onDelete } = props
   const src = useMemo(() => {
     if (url) {
@@ -33,9 +35,9 @@ const PreviewItem: FC<Props> = props => {
       props.status === 'pending' && (
         <div className={`${classPrefix}-cell-mask`}>
           <span className={`${classPrefix}-cell-loading`}>
-            <Loading color='#fff' style={{ fontSize: 16 }} />
+            <Loading color='#fff' />
             <span className={`${classPrefix}-cell-mask-message`}>
-              上传中...
+              {locale.ImageUploader.uploading}
             </span>
           </span>
         </div>

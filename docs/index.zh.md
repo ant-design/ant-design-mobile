@@ -1,16 +1,16 @@
 ---
 title: Ant Design Mobile
 hero:
-  image: https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg
+  image: https://gw.alipayobjects.com/zos/bmw-prod/35ca3037-6905-46d7-824f-1ef82da29059.svg
   title: Ant Design Mobile
   desc: v5 beta (白杨)
   actions:
     - text: 快速上手
-      link: /guide/quick-start
+      link: /zh/guide/quick-start
     - text: 在线体验
       link: https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json
     - text: 组件列表
-      link: /components
+      link: /zh/components
 footer: Open-source MIT Licensed | Copyright © 2016-present Alipay.com<br />Powered by [dumi](https://d.umijs.org)
 ---
 
@@ -20,7 +20,7 @@ footer: Open-source MIT Licensed | Copyright © 2016-present Alipay.com<br />Pow
 &nbsp;
 ![npm](https://img.shields.io/npm/dw/antd-mobile-v5-count)
 &nbsp;
-![npm bundle size (version)](https://img.shields.io/bundlephobia/min/antd-mobile/next)
+![gzip size](https://img.badgesize.io/https:/unpkg.com/antd-mobile@next/umd/antd-mobile.js?label=gzip%20size&compression=gzip)
 &nbsp;
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ant-design/ant-design-mobile/Check/v5)
 &nbsp;

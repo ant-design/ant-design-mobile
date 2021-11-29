@@ -1,8 +1,8 @@
-import { inBrowser } from './in-browser'
+import { canUseDom } from './can-use-dom'
 
 export let supportsPassive = false
 
-if (inBrowser) {
+if (canUseDom) {
   try {
     const opts = {}
     Object.defineProperty(opts, 'passive', {

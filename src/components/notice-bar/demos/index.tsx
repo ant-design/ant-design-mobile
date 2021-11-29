@@ -3,6 +3,8 @@ import { NoticeBar, Space } from 'antd-mobile'
 import { CompassOutline, CloseCircleOutline } from 'antd-mobile-icons'
 import { DemoBlock, lorem } from 'demos'
 
+const demoLongText = lorem.generateWords(20)
+
 export default () => {
   return (
     <>
@@ -12,7 +14,7 @@ export default () => {
         border='none'
         background='transparent'
       >
-        <Space block direction='vertical' size={8}>
+        <Space block direction='vertical'>
           <NoticeBar content='默认' color='default' />
           <NoticeBar content='警告' color='alert' />
           <NoticeBar content='错误' color='error' />
@@ -20,7 +22,7 @@ export default () => {
         </Space>
       </DemoBlock>
       <DemoBlock title='超长滚动' padding='0' border='none'>
-        <NoticeBar content={lorem.generateWords(20)} color='alert' />
+        <NoticeBar content={demoLongText} color='alert' />
       </DemoBlock>
       <DemoBlock title='可关闭' padding='0' border='none'>
         <NoticeBar content='这条通知可以关闭' color='alert' closeable />
@@ -31,7 +33,7 @@ export default () => {
         border='none'
         background='transparent'
       >
-        <Space block direction='vertical' size={8}>
+        <Space block direction='vertical'>
           <NoticeBar
             extra={<CloseCircleOutline />}
             icon={<CompassOutline />}

@@ -1,11 +1,9 @@
-<img src="https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg" alt="logo" width="160" />
-
-# Ant Design Mobile
+<img src="https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*1Ps5R4QVn28AAAAAAAAAAAAAARQnAQ" alt="logo" width="100%" />
 
 ![npm (tag)](https://img.shields.io/npm/v/antd-mobile/next)
 ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ant-design/ant-design-mobile)
 ![npm](https://img.shields.io/npm/dw/antd-mobile-v5-count)
-![npm bundle size (version)](https://img.shields.io/bundlephobia/min/antd-mobile/next)
+![gzip size](https://img.badgesize.io/https:/unpkg.com/antd-mobile@next/umd/antd-mobile.js?label=gzip%20size&compression=gzip)
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ant-design/ant-design-mobile/Check/v5)
 ![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mobile)
 
@@ -15,7 +13,7 @@ $ npm install --save antd-mobile@next
 $ yarn add antd-mobile@next
 ```
 
-v5(Poplar) is the next major version of antd-mobile, which is still working in progress. If you plan to use it in production, **please read the [FAQ](https://next.mobile.ant.design/guide/faq) chapter first**.
+v5(Poplar) is the next major version of antd-mobile, which is still working in progress. If you plan to use it in production, **please read the [FAQ](https://mobile.ant.design/guide/faq) chapter first**.
 
 You can also play with antd-mobile just in browser with [Codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json). No need to prepare development environment.
 

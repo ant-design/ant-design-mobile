@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Node
+      - name: Setup node and yarn
         uses: actions/setup-node@v2
         with:
           node-version: '14'
@@ -25,5 +25,3 @@ jobs:
         run: yarn lint
       - name: Test
         run: yarn test
-      - name: Build
-        run: yarn build

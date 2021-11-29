@@ -3,16 +3,15 @@ import classNames from 'classnames'
 import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import { shuffle } from '../../utils/shuffle'
-import Popup from '../popup'
+import Popup, { PopupProps } from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
-import { useClickAway } from 'ahooks'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import SafeArea from '../safe-area'
 
 const classPrefix = 'adm-number-keyboard'
 
-export interface NumberKeyboardProps {
+export type NumberKeyboardProps = {
   visible?: boolean
-  defaultVisible?: boolean
   title?: string
   getContainer?: GetContainer
   confirmText?: string | null
@@ -23,25 +22,26 @@ export interface NumberKeyboardProps {
   onDelete?: () => void
   onClose?: () => void
   onConfirm?: () => void
-  onBlur?: () => void
   afterShow?: () => void
   afterClose?: () => void
-  closeOnBlur?: boolean
   closeOnConfirm?: boolean
-}
+  safeArea?: boolean
+} & Pick<PopupProps, 'stopPropagation'> &
+  NativeProps
 
 const defaultProps = {
   defaultVisible: false,
   randomOrder: false,
   showCloseButton: true,
   confirmText: null,
-  closeOnBlur: true,
   closeOnConfirm: true,
+  safeArea: true,
 }
 
 export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
   const props = mergeProps(defaultProps, p)
   const {
+    visible,
     title,
     getContainer,
     confirmText,
@@ -52,23 +52,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     onDelete,
   } = props
 
-  const [visible, setVisible] = useNewControllableValue({
-    value: props.visible,
-    defaultValue: props.defaultVisible,
-    onChange: val => {
-      if (!val) {
-        props.onClose?.()
-      }
-    },
-  })
-
   const keyboardRef = useRef<HTMLDivElement | null>(null)
-  useClickAway(() => {
-    if (props.closeOnBlur && visible) {
-      props.onBlur?.()
-      setVisible(false)
-    }
-  }, keyboardRef)
 
   const keys = useMemo(() => {
     const defaultKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -92,7 +76,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       case 'OK':
         props.onConfirm?.()
         if (props.closeOnConfirm) {
-          setVisible(false)
+          props.onClose?.()
         }
         break
       default:
@@ -115,7 +99,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
           <span
             className={`${classPrefix}-header-close-button`}
             onClick={() => {
-              setVisible(false)
+              props.onClose?.()
             }}
             role='button'
             title='CLOSE'
@@ -157,38 +141,53 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       afterClose={props.afterClose}
       afterShow={props.afterShow}
       className={`${classPrefix}-popup`}
+      stopPropagation={props.stopPropagation}
     >
-      <div ref={keyboardRef} className={classPrefix}>
-        {renderHeader()}
-        <div className={`${classPrefix}-wrapper`}>
-          <div
-            className={classNames(`${classPrefix}-main`, {
-              'confirmed-style': !!confirmText,
-            })}
-          >
-            {keys.map(renderKey)}
+      {withNativeProps(
+        props,
+        <div
+          ref={keyboardRef}
+          className={classPrefix}
+          onMouseDown={e => {
+            e.preventDefault()
+          }}
+        >
+          {renderHeader()}
+          <div className={`${classPrefix}-wrapper`}>
+            <div
+              className={classNames(`${classPrefix}-main`, {
+                'confirmed-style': !!confirmText,
+              })}
+            >
+              {keys.map(renderKey)}
+            </div>
+            {!!confirmText && (
+              <div className={`${classPrefix}-confirm`}>
+                <div
+                  className={`${classPrefix}-key extra-key bs-key`}
+                  onClick={() => onKeyPress('BACKSPACE')}
+                  title='BACKSPACE'
+                  role='button'
+                >
+                  <TextDeletionOutline />
+                </div>
+                <div
+                  className={`${classPrefix}-key extra-key ok-key`}
+                  onClick={() => onKeyPress('OK')}
+                  role='button'
+                >
+                  {confirmText}
+                </div>
+              </div>
+            )}
           </div>
-          {!!confirmText && (
-            <div className={`${classPrefix}-confirm`}>
-              <div
-                className={`${classPrefix}-key extra-key bs-key`}
-                onClick={() => onKeyPress('BACKSPACE')}
-                title='BACKSPACE'
-                role='button'
-              >
-                <TextDeletionOutline />
-              </div>
-              <div
-                className={`${classPrefix}-key extra-key ok-key`}
-                onClick={() => onKeyPress('OK')}
-                role='button'
-              >
-                {confirmText}
-              </div>
+          {props.safeArea && (
+            <div className={`${classPrefix}-footer`}>
+              <SafeArea position='bottom' />
             </div>
           )}
         </div>
-      </div>
+      )}
     </Popup>
   )
 }

@@ -8,7 +8,7 @@ import React, {
 } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
+import { useDrag } from '@use-gesture/react'
 import Button from '../button'
 import { nearest } from '../../utils/nearest'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -37,7 +37,7 @@ export type SwipeActionProps = {
   rightActions?: Action[]
   leftActions?: Action[]
   onAction?: (action: Action) => void
-  closeOnTouchAway?: boolean
+  closeOnTouchOutside?: boolean
   closeOnAction?: boolean
   children: ReactNode
 } & NativeProps<'--background'>
@@ -45,7 +45,7 @@ export type SwipeActionProps = {
 const defaultProps = {
   rightActions: [] as Action[],
   leftActions: [] as Action[],
-  closeOnTouchAway: true,
+  closeOnTouchOutside: true,
   closeOnAction: true,
 }
 
@@ -82,14 +82,14 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
     const bind = useDrag(
       state => {
         draggingRef.current = true
-        const [mx] = state.movement
+        const [offsetX] = state.offset
         if (state.last) {
           const leftWidth = getLeftWidth()
           const rightWidth = getRightWidth()
-          let position = mx + state.vxvy[0] * 50
-          if (mx > 0) {
+          let position = offsetX + state.velocity[0] * state.direction[0] * 50
+          if (offsetX > 0) {
             position = Math.max(0, position)
-          } else if (mx < 0) {
+          } else if (offsetX < 0) {
             position = Math.min(0, position)
           } else {
             position = 0
@@ -102,13 +102,13 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
           })
         } else {
           api.start({
-            x: mx,
+            x: offsetX,
             immediate: true,
           })
         }
       },
       {
-        initial: () => [x.get(), 0],
+        from: () => [x.get(), 0],
         bounds: () => {
           const leftWidth = getLeftWidth()
           const rightWidth = getRightWidth()
@@ -119,7 +119,8 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
         },
         // rubberband: true,
         axis: 'x',
-        experimental_preventWindowScrollY: true,
+        preventScroll: true,
+        pointer: { touch: true },
       }
     )
 
@@ -133,7 +134,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       show: (side: 'left' | 'right' = 'right') => {
         if (side === 'right') {
           api.start({
-            x: getRightWidth(),
+            x: -getRightWidth(),
           })
         } else if (side === 'left') {
           api.start({
@@ -145,7 +146,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
     }))
 
     useEffect(() => {
-      if (!props.closeOnTouchAway) return
+      if (!props.closeOnTouchOutside) return
       function handle(e: Event) {
         if (x.get() === 0) {
           return
@@ -155,11 +156,11 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
           close()
         }
       }
-      document.addEventListener('pointerdown', handle)
+      document.addEventListener('touchstart', handle)
       return () => {
-        document.removeEventListener('pointerdown', handle)
+        document.removeEventListener('touchstart', handle)
       }
-    }, [props.closeOnTouchAway])
+    }, [props.closeOnTouchOutside])
 
     function renderAction(action: Action) {
       const color = action.color ?? 'light'

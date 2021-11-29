@@ -1,9 +1,9 @@
 import classNames from 'classnames'
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { MinusOutline, AddOutline } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
 import { bound } from '../../utils/bound'
 import Input, { InputProps } from '../input'
 import Button from '../button'
@@ -19,7 +19,20 @@ export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> & {
   digits?: number
   disabled?: boolean
   onChange?: (value: number) => void
-} & NativeProps
+} & NativeProps<
+    | '--height'
+    | '--input-width'
+    | '--input-font-size'
+    | '--border-radius'
+    | '--border'
+    | '--border-inner'
+    | '--active-border'
+    | '--button-font-size'
+    | '--button-background-color'
+    | '--button-width'
+    | '--input-font-color'
+    | '--button-text-color'
+  >
 
 const defaultProps = {
   defaultValue: 0,
@@ -27,10 +40,11 @@ const defaultProps = {
   disabled: false,
 }
 
-export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
+export const Stepper: FC<StepperProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const { disabled, step, max, min } = props
 
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue(props)
   const [inputValue, setInputValue] = useState(() => value.toString())
   function setValueWithCheck(v: number) {
     if (isNaN(v)) return
@@ -89,6 +103,7 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
     <div
       className={classNames(classPrefix, {
         [`${classPrefix}-disabled`]: disabled,
+        [`${classPrefix}-active`]: hasFocus,
       })}
     >
       <Button
@@ -127,4 +142,4 @@ export const Stepper = withDefaultProps(defaultProps)<StepperProps>(props => {
       </Button>
     </div>
   )
-})
+}

@@ -1,7 +1,6 @@
 import { DemoBlock } from 'demos'
-import { Picker, Button, Space } from 'antd-mobile'
-import React, { useState, useEffect } from 'react'
-import { sleep } from 'antd-mobile/es/utils/sleep'
+import { Picker, Button, Space, Toast } from 'antd-mobile'
+import React, { useState } from 'react'
 
 const basicColumns = [
   ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],
@@ -27,58 +26,8 @@ function BasicDemo() {
           setVisible(false)
         }}
         value={value}
-        onConfirm={setValue}
-        onSelect={val => {
-          console.log('onSelect', val)
-        }}
-      />
-    </>
-  )
-}
-
-function AsyncDemo() {
-  const [visible, setVisible] = useState(false)
-  async function mockApi(key: string) {
-    await sleep(1000)
-    return [key + '1', key + '2', key + '3']
-  }
-  const firstColumn = ['A', 'B']
-  const [secondColumnMap, setSecondColumnMap] = useState<
-    Record<string, string[]>
-  >({})
-  const [key, setKey] = useState<string | null>(null)
-  useEffect(() => {
-    if (!key) return
-    if (secondColumnMap[key]) return
-    mockApi(key).then(data => {
-      setSecondColumnMap(map => ({
-        ...map,
-        [key]: data,
-      }))
-    })
-  }, [key])
-
-  return (
-    <>
-      <Button
-        onClick={() => {
-          setVisible(true)
-        }}
-      >
-        选择
-      </Button>
-      <Picker
-        columns={[firstColumn, key ? secondColumnMap[key] ?? [] : []]}
-        visible={visible}
-        onClose={() => {
-          setVisible(false)
-        }}
-        onConfirm={val => {
-          console.log('onConfirm', val)
-        }}
-        onSelect={val => {
-          setKey(val[0])
-          console.log('onSelect', val)
+        onConfirm={v => {
+          setValue(v)
         }}
       />
     </>
@@ -105,8 +54,8 @@ function RenderChildrenDemo() {
         }}
         value={value}
         onConfirm={setValue}
-        onSelect={val => {
-          console.log('onSelect', val)
+        onSelect={(val, extend) => {
+          console.log('onSelect', val, extend.items)
         }}
       >
         {items => {
@@ -127,9 +76,6 @@ export default () => {
       <DemoBlock title='基础用法'>
         <BasicDemo />
       </DemoBlock>
-      <DemoBlock title='异步获取选项'>
-        <AsyncDemo />
-      </DemoBlock>
       <DemoBlock title='渲染所选值'>
         <RenderChildrenDemo />
       </DemoBlock>
@@ -139,7 +85,7 @@ export default () => {
             const value = await Picker.prompt({
               columns: basicColumns,
             })
-            console.log(value)
+            Toast.show(`你选择了 ${value}`)
           }}
         >
           弹出 Picker

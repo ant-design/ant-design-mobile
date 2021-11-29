@@ -12,10 +12,10 @@
     background-color: var(--adm-color-white);
   }
 
-  &-popup {
+  &-popup.adm-popup {
     width: 100%;
     user-select: none;
-    z-index: var(--adm-z-index-keyboard);
+    z-index: 1050;
     .adm-popup-body {
       background-color: #f5f5f5;
     }
@@ -45,6 +45,10 @@
         padding-right: 0;
       }
     }
+  }
+
+  &-footer {
+    background: var(--adm-color-white);
   }
 
   &-title {

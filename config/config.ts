@@ -5,9 +5,9 @@ const pxToRem = require('postcss-pxtorem')
 export default {
   mode: 'site',
   title: 'Ant Design Mobile',
-  logo: 'https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg',
+  logo: 'https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*_JSuS4uucYAAAAAAAAAAAAAAARQnAQ',
   favicon:
-    'https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*ShzFT47r_F8AAAAAAAAAAAAAARQnAQ',
+    'https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*_JSuS4uucYAAAAAAAAAAAAAAARQnAQ',
   navs: {
     'en': [
       {
@@ -129,6 +129,10 @@ export default {
         path: '/guide/quick-start',
       },
       {
+        title: 'Migration',
+        path: '/guide/migration',
+      },
+      {
         title: 'FAQ',
         path: '/guide/faq',
       },
@@ -137,8 +141,8 @@ export default {
         path: '/guide/css-variables',
       },
       {
-        title: 'Theme',
-        path: '/guide/theme',
+        title: 'Theming',
+        path: '/guide/theming',
       },
       {
         title: 'Load on Demand',
@@ -159,6 +163,10 @@ export default {
         path: '/zh/guide/quick-start',
       },
       {
+        title: '迁移指南',
+        path: '/guide/migration',
+      },
+      {
         title: 'FAQ',
         path: '/zh/guide/faq',
       },
@@ -168,7 +176,7 @@ export default {
       },
       {
         title: '主题',
-        path: '/zh/guide/theme',
+        path: '/zh/guide/theming',
       },
       {
         title: '按需加载',
@@ -252,11 +260,34 @@ export default {
     'antd-mobile/es': process.cwd() + '/src',
     'demos': process.cwd() + '/src/demos/index.ts',
   },
+  metas: [
+    {
+      name: 'viewport',
+      content:
+        'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover',
+    },
+  ],
+  hash: true,
   scripts: [
     `if (location.pathname.startsWith('/~demos/')) {
       document.body.style.background = '#f5f7fa'
     }`,
+    `
+    if (!location.port) {
+      // Enable Google Analytics
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-72788897-2');
+    }
+    `,
     'https://s9.cnzz.com/z_stat.php?id=1280306924&web_id=1280306924',
+    {
+      src: 'https://www.googletagmanager.com/gtag/js?id=UA-72788897-2',
+      async: true,
+    },
   ],
   locales: [
     ['en', 'English'],
@@ -269,6 +300,9 @@ export default {
     }
     a[title='站长统计'] {
       display: none;
+    }
+    body {
+      min-height: 100vh;
     }
     `,
   ],

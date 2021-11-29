@@ -12,6 +12,8 @@
 @popover-min-height: 32px;
 
 .@{class-prefix-popover} {
+  --z-index: var(--adm-popover-z-index, 1030);
+
   &-light {
     --popover-bg: #ffffff;
   }
@@ -25,7 +27,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: var(--adm-z-index-popover);
+  z-index: var(--z-index);
   font-weight: normal;
   white-space: normal;
   text-align: left;

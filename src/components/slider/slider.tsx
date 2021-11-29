@@ -1,12 +1,12 @@
-import React, { useMemo, useRef } from 'react'
+import React, { FC, useMemo, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
 import Marks, { SliderMarks } from './marks'
 import Thumb from './thumb'
-import { withDefaultProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-slider`
 
@@ -35,7 +35,8 @@ const defaultProps = {
   disabled: false,
 }
 
-export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
+export const Slider: FC<SliderProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const { min, max, disabled, marks, ticks, step } = props
 
   function sortValue(val: [number, number]): [number, number] {
@@ -52,7 +53,7 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     props.onAfterChange?.(reverseValue(value))
   }
 
-  const [rawValue, setRawValue] = useNewControllableValue<SliderValue>({
+  const [rawValue, setRawValue] = usePropsValue<SliderValue>({
     value: props.value,
     defaultValue: props.defaultValue ?? (props.range ? [min, min] : min),
     onChange: props.onChange,
@@ -95,7 +96,7 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     if (pointList.length) {
       value = nearest(pointList, newPosition)
     } else {
-      const lengthPerStep = 100 / ((max - min) / step!)
+      const lengthPerStep = 100 / ((max - min) / step)
       const steps = Math.round(newPosition / lengthPerStep)
       value = steps * lengthPerStep * (max - min) * 0.01 + min
     }
@@ -108,10 +109,11 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
     if (dragLockRef.current > 0) return
     event.stopPropagation()
     if (disabled) return
-    const sliderOffsetLeft = trackRef.current!.getBoundingClientRect().left
+    const track = trackRef.current
+    if (!track) return
+    const sliderOffsetLeft = track.getBoundingClientRect().left
     const position =
-      ((event.clientX - sliderOffsetLeft) /
-        Math.ceil(trackRef.current!.offsetWidth)) *
+      ((event.clientX - sliderOffsetLeft) / Math.ceil(track.offsetWidth)) *
         (max - min) +
       min
 
@@ -211,4 +213,4 @@ export const Slider = withDefaultProps(defaultProps)<SliderProps>(props => {
       )}
     </div>
   )
-})
+}

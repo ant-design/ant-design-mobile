@@ -1,5 +1,5 @@
-import React, { FC, useRef, useState } from 'react'
-import { Button, Popup, Space, Swiper, Toast } from 'antd-mobile'
+import React, { useRef } from 'react'
+import { Button, Space, Swiper, Toast } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
 import styles from './demo1.less'
 import { SwiperRef } from 'antd-mobile/es/components/swiper'
@@ -60,8 +60,8 @@ export default () => {
       <DemoBlock title='自定义样式'>
         <Space direction='vertical' block>
           <Swiper
+            slideSize={80}
             style={{
-              '--slide-width': '80%',
               '--border-radius': '8px',
             }}
             defaultIndex={2}
@@ -73,118 +73,31 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='居中展示'>
         <Space direction='vertical' block>
-          <Swiper
-            loop={false}
-            style={{ '--slide-width': '80%', '--track-offset': '10%' }}
-          >
+          <Swiper loop={false} slideSize={80} trackOffset={10}>
             {items}
           </Swiper>
           <DemoDescription content='通过 CSS 变量可以控制滑块的大小和轨道的偏移量' />
         </Space>
       </DemoBlock>
       <DemoBlock title='循环居中展示'>
-        <Swiper style={{ '--slide-width': '70%', '--track-offset': '15%' }}>
+        <Swiper slideSize={70} trackOffset={15}>
           {items}
         </Swiper>
       </DemoBlock>
-      <DemoBlock title='指示器颜色'>
+      <DemoBlock title='最后一项'>
         <Space direction='vertical' block>
           <Swiper
-            indicatorProps={{
-              color: 'white',
-            }}
-            defaultIndex={1}
+            loop={false}
+            slideSize={80}
+            trackOffset={10}
+            defaultIndex={3}
+            stuckAtBoundary
           >
             {items}
           </Swiper>
-          <DemoDescription content='通过 indicatorProps 可以控制指示器的外观' />
+          <DemoDescription content='让最后一项卡在右边界' />
         </Space>
       </DemoBlock>
-      <DemoBlock title='指示器在滑块外面'>
-        <Space direction='vertical' block>
-          <Swiper
-            style={{
-              '--track-padding': ' 0 0 16px',
-            }}
-          >
-            {items}
-          </Swiper>
-          <DemoDescription content='通过 --track-padding 可以控制滑动轨道区域的 padding，从而实现指示器和滑块"分离"的效果' />
-        </Space>
-      </DemoBlock>
-      <DemoBlock title='自定义指示器'>
-        <Space direction='vertical' block>
-          <Swiper
-            indicator={(total, current) => (
-              <div className={styles.customIndicator}>
-                {`${current + 1} / ${total}`}
-              </div>
-            )}
-          >
-            {items}
-          </Swiper>
-          <DemoDescription content='你可以完全自定义指示器的渲染，甚至改变指示器的位置' />
-        </Space>
-      </DemoBlock>
-      <DemoBlock title='无指示器'>
-        <Swiper indicator={() => null}>{items}</Swiper>
-      </DemoBlock>
-      <DemoBlock title='全屏引导'>
-        <Space direction='vertical' block>
-          <WithPopup />
-          <DemoDescription content='配合 Popup 组件可以实现全屏引导' />
-        </Space>
-      </DemoBlock>
-    </>
-  )
-}
-
-const WithPopup: FC = () => {
-  const [visible, setVisible] = useState(false)
-
-  return (
-    <>
-      <Button
-        onClick={() => {
-          setVisible(true)
-        }}
-      >
-        显示弹出层
-      </Button>
-      <Popup position='bottom' visible={visible} destroyOnClose>
-        <Swiper loop={false}>
-          <Swiper.Item>
-            <div
-              className={styles.contentFull}
-              style={{ background: '#ace0ff' }}
-            >
-              1
-            </div>
-          </Swiper.Item>
-          <Swiper.Item>
-            <div
-              className={styles.contentFull}
-              style={{ background: '#bcffbd' }}
-            >
-              1
-            </div>
-          </Swiper.Item>
-          <Swiper.Item>
-            <div
-              className={styles.contentFull}
-              style={{ background: '#ffffff' }}
-            >
-              <Button
-                onClick={() => {
-                  setVisible(false)
-                }}
-              >
-                开始使用
-              </Button>
-            </div>
-          </Swiper.Item>
-        </Swiper>
-      </Popup>
     </>
   )
 }

@@ -1,6 +1,7 @@
 # Button
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
+<code src="./demos/demo2.tsx" debug></code>
 
 ## Props
 
@@ -14,15 +15,16 @@
 | loading     | Should the button displays as loading state. | `boolean`                                                          | `false`     |
 | loadingText | The extra text displayed in loading state.   | `string`                                                           | -           |
 | onClick     | The click event.                             | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void` | -           |
-| type        | The `type` prop of native `button` element.  | `'submit' \| 'reset' \| 'button'`                                  | -           |
+| type        | The `type` prop of native `button` element.  | `'submit' \| 'reset' \| 'button'`                                  | `'button'`  |
+| shape       | The shape of the button.                     | `'default' \| 'rounded' \| 'rectangular'`                          | `'default'` |
 
 ## CSS Variables
 
-| Name               | Description                     | Default                   |
-| ------------------ | ------------------------------- | ------------------------- |
-| --text-color       | Text color of the button.       | `var(--adm-color-text)`   |
-| --background-color | Background color of the button. | `var(--adm-color-white)`  |
-| --border-radius    | Border radius of the button.    | `4px`                     |
-| --border-width     | Border width of the button.     | `1px`                     |
-| --border-style     | Border style of the button.     | `solid`                   |
-| --border-color     | Border color of the button.     | `var(--adm-border-color)` |
+| Name               | Description                     | Default                   | Global                          |
+| ------------------ | ------------------------------- | ------------------------- | ------------------------------- |
+| --text-color       | Text color of the button.       | `var(--adm-color-text)`   | `--adm-button-text-color`       |
+| --background-color | Background color of the button. | `var(--adm-color-white)`  | `--adm-button-background-color` |
+| --border-radius    | Border radius of the button.    | `4px`                     | `--adm-button-border-radius`    |
+| --border-width     | Border width of the button.     | `1px`                     | `--adm-button-border-width`     |
+| --border-style     | Border style of the button.     | `solid`                   | `--adm-button-border-style`     |
+| --border-color     | Border color of the button.     | `var(--adm-border-color)` | `--adm-button-border-color`     |

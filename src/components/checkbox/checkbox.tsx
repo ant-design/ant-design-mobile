@@ -1,11 +1,11 @@
 import React, { FC, useContext } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
-import { CheckOutline } from 'antd-mobile-icons'
 import { CheckboxGroupContext } from './group-context'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { devWarning } from '../../utils/dev-log'
+import { CheckIcon } from './check-icon'
 
 const classPrefix = `adm-checkbox`
 
@@ -21,7 +21,7 @@ export type CheckboxProps = {
   block?: boolean
   id?: string
   icon?: (checked: boolean, indeterminate: boolean) => React.ReactNode
-} & NativeProps
+} & NativeProps<'--icon-size' | '--font-size' | '--gap'>
 
 const defaultProps = {
   defaultChecked: false,
@@ -33,7 +33,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
 
   const props = mergeProps(defaultProps, p)
 
-  let [checked, setChecked] = useNewControllableValue({
+  let [checked, setChecked] = usePropsValue({
     value: props.checked,
     defaultValue: props.defaultChecked,
     onChange: props.onChange,
@@ -82,8 +82,11 @@ export const Checkbox: FC<CheckboxProps> = p => {
 
     return (
       <div className={`${classPrefix}-icon`}>
-        <CheckOutline className={`${classPrefix}-icon-checked`} />
-        <div className={`${classPrefix}-indeterminate-checked`} />
+        {props.indeterminate ? (
+          <div className={`${classPrefix}-indeterminate-checked`} />
+        ) : (
+          checked && <CheckIcon className={`${classPrefix}-icon-checked`} />
+        )}
       </div>
     )
   }
@@ -111,7 +114,6 @@ export const Checkbox: FC<CheckboxProps> = p => {
         disabled={disabled}
         id={props.id}
       />
-
       {renderIcon()}
       {props.children && (
         <div className={`${classPrefix}-content`}>{props.children}</div>

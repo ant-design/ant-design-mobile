@@ -1,12 +1,13 @@
-.adm-drawer {
+.adm-floating-panel {
   --border-radius: 8px;
   --header-height: 28px;
+  --z-index: var(--adm-floating-panel-z-index, 900);
 
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   background: var(--adm-color-white);
   position: fixed;
-  z-index: var(--adm-z-index-floating-panel);
+  z-index: var(--z-index);
   top: 100vh;
   left: 0;
   width: 100vw;
@@ -30,7 +31,7 @@
     width: 100vw;
     background: var(--adm-color-white);
   }
-  .adm-drawer-header {
+  .adm-floating-panel-header {
     flex: none;
     height: var(--header-height);
     display: flex;
@@ -38,14 +39,14 @@
     align-items: center;
     cursor: grab;
     user-select: none;
-    .adm-drawer-bar {
+    .adm-floating-panel-bar {
       height: 3px;
       width: 20px;
       border-radius: 10px;
       background: var(--adm-color-light);
     }
   }
-  .adm-drawer-content {
+  .adm-floating-panel-content {
     flex: 1;
     overflow-y: scroll;
   }

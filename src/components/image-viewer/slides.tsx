@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { useDrag } from 'react-use-gesture'
+import React, { FC, useRef } from 'react'
+import { useDrag } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
 import { Slide } from './slide'
 import { convertPx } from '../../utils/convert-px'
@@ -17,41 +17,53 @@ export const Slides: FC<{
   const slideWidth = window.innerWidth + convertPx(16)
 
   const [{ x }, api] = useSpring(() => ({
-    x: -props.defaultIndex * slideWidth,
-    config: { tension: 300 },
+    x: props.defaultIndex * slideWidth,
+    config: { tension: 250, clamp: true },
   }))
 
   const count = props.images.length
 
+  const dragLockRef = useRef(false)
   const bind = useDrag(
     state => {
-      const [mx] = state.movement
+      if (dragLockRef.current) return
+      const [offsetX] = state.offset
       if (state.last) {
+        const minIndex = Math.floor(offsetX / slideWidth)
+        const maxIndex = minIndex + 1
+        const velocityOffset =
+          Math.min(state.velocity[0] * 2000, slideWidth) * state.direction[0]
         const index = bound(
-          -Math.round((mx + state.vxvy[0] * 100) / slideWidth),
+          bound(
+            Math.round((offsetX + velocityOffset) / slideWidth),
+            minIndex,
+            maxIndex
+          ),
           0,
           count - 1
         )
         api.start({
-          x: index * -slideWidth,
+          x: index * slideWidth,
         })
       } else {
         api.start({
-          x: mx,
+          x: offsetX,
+          immediate: true,
         })
       }
     },
     {
-      initial: () => [x.get(), 0],
+      transform: ([x, y]) => [-x, y],
+      from: () => [x.get(), 0],
       bounds: () => {
-        const index: number = -Math.round(x.get() / slideWidth)
         return {
-          right: Math.max(index - 1, 0) * -slideWidth,
-          left: Math.min(index + 1, count - 1) * -slideWidth,
+          left: 0,
+          right: (count - 1) * slideWidth,
         }
       },
       rubberband: true,
       axis: 'x',
+      pointer: { touch: true },
     }
   )
 
@@ -59,11 +71,14 @@ export const Slides: FC<{
     <div className={`${classPrefix}-slides`} {...bind()}>
       <animated.div className={`${classPrefix}-indicator`}>
         {x.to(v => {
-          const index: number = -Math.round(v / slideWidth)
+          const index: number = bound(Math.round(v / slideWidth), 0, count - 1)
           return `${index + 1} / ${count}`
         })}
       </animated.div>
-      <animated.div className={`${classPrefix}-slides-inner`} style={{ x }}>
+      <animated.div
+        className={`${classPrefix}-slides-inner`}
+        style={{ x: x.to(x => -x) }}
+      >
         {props.images.map(image => (
           <Slide
             key={image}
@@ -72,12 +87,13 @@ export const Slides: FC<{
             maxZoom={props.maxZoom}
             onZoomChange={zoom => {
               if (zoom !== 1) {
-                const index: number = -Math.round(x.get() / slideWidth)
+                const index: number = Math.round(x.get() / slideWidth)
                 api.start({
-                  x: index * -slideWidth,
+                  x: index * slideWidth,
                 })
               }
             }}
+            dragLockRef={dragLockRef}
           />
         ))}
       </animated.div>

@@ -10,7 +10,7 @@ export const defaultConfigRef: {
   current: Config
 } = {
   current: {
-    locale: zhCN, // TODO: change it to enUS
+    locale: zhCN,
   },
 }
 

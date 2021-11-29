@@ -57,6 +57,16 @@ export default () => {
           </List.Item>
         </List>
       </DemoBlock>
+      <DemoBlock title='列表项禁用' padding='0' border='none'>
+        <List>
+          <List.Item disabled clickable prefix={<UnorderedListOutline />}>
+            账单
+          </List.Item>
+          <List.Item disabled prefix={<PayCircleOutline />}>
+            总资产
+          </List.Item>
+        </List>
+      </DemoBlock>
       <DemoBlock title='复杂布局' padding='0' border='none'>
         <List>
           <List.Item
@@ -101,6 +111,19 @@ export default () => {
             <List.Item title='这里是标题'>这里是主信息</List.Item>
           </List>
         </div>
+      </DemoBlock>
+      <DemoBlock title='自定义边框' padding='0' border='none'>
+        <List
+          style={{
+            '--border-inner': 'none',
+            '--border-top': '1px solid red',
+            '--border-bottom': '1px solid blue',
+          }}
+        >
+          <List.Item>1</List.Item>
+          <List.Item>2</List.Item>
+          <List.Item>3</List.Item>
+        </List>
       </DemoBlock>
     </>
   )

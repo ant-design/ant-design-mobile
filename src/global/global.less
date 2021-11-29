@@ -39,8 +39,9 @@ body.adm-overflow-hidden {
   overflow: hidden !important;
 }
 
-div.adm-one-px-tester {
-  height: 1px;
+div.adm-px-tester {
+  --size: 1;
+  height: calc(var(--size) / 2 * 2px);
   width: 0;
   position: fixed;
   right: -100vw;

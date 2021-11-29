@@ -1,7 +1,7 @@
 import { useTouch } from './use-touch'
 import { useEffect, RefObject } from 'react'
 import { getScrollParent } from './get-scroll-parent'
-import { supportsPassive } from '../utils/supports-passive'
+import { supportsPassive } from './supports-passive'
 
 let totalLockCount = 0
 
@@ -20,8 +20,9 @@ export function useLockScroll(
     const direction = touch.deltaY.current > 0 ? '10' : '01'
     const el = getScrollParent(
       event.target as Element,
-      rootRef.current!
+      rootRef.current
     ) as HTMLElement
+    if (!el) return
     const { scrollHeight, offsetHeight, scrollTop } = el
     let status = '11'
 
@@ -36,10 +37,9 @@ export function useLockScroll(
       touch.isVertical() &&
       !(parseInt(status, 2) & parseInt(direction, 2))
     ) {
-      if (typeof event.cancelable !== 'boolean' || event.cancelable) {
+      if (event.cancelable) {
         event.preventDefault()
       }
-      event.stopPropagation()
     }
   }
 

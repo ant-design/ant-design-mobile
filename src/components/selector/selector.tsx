@@ -6,7 +6,7 @@ import Space from '../space'
 import Grid from '../grid'
 import { convertPx } from '../../utils/convert-px'
 import selectorCheckMarkImg from '../../assets/selector-check-mark.svg'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-selector`
 
@@ -25,7 +25,7 @@ export type SelectorProps<V> = {
   disabled?: boolean
   defaultValue?: V[]
   value?: V[]
-  onChange?: (v: V[]) => void
+  onChange?: (v: V[], extend: { items: SelectorOption<V>[] }) => void
 } & NativeProps<'--checked-color'>
 
 const defaultProps = {
@@ -35,7 +35,18 @@ const defaultProps = {
 
 export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = useNewControllableValue(props)
+  const [value, setValue] = usePropsValue({
+    value: props.value,
+    defaultValue: props.defaultValue,
+    onChange: val => {
+      const extend = {
+        get items() {
+          return props.options.filter(option => val.includes(option.value))
+        },
+      }
+      props.onChange?.(val, extend)
+    },
+  })
 
   const items = props.options.map(option => {
     const active = (value || []).includes(option.value)
@@ -55,13 +66,13 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
             return
           }
           if (props.multiple) {
-            setValue(
-              active
-                ? value.filter(v => v !== option.value)
-                : [...value, option.value]
-            )
+            const val = active
+              ? value.filter(v => v !== option.value)
+              : [...value, option.value]
+            setValue(val)
           } else {
-            setValue(active ? [] : [option.value])
+            const val = active ? [] : [option.value]
+            setValue(val)
           }
         }}
       >

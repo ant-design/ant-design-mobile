@@ -63,6 +63,13 @@ export default () => {
           </List.Item>
         </List>
       </DemoBlock>
+      <DemoBlock title='右侧对齐'>
+        <Input
+          placeholder='请输入验证码'
+          style={{ '--text-align': 'right' }}
+          clearable
+        />
+      </DemoBlock>
     </>
   )
 }

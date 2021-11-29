@@ -1,0 +1,82 @@
+@class-prefix-tabs: ~'adm-jumbo-tabs';
+
+.@{class-prefix-tabs} {
+  position: relative;
+
+  &-header {
+    position: relative;
+    border-bottom: solid 1px var(--adm-border-color);
+  }
+
+  &-tab-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+  }
+  &-tab-wrapper {
+    flex: auto;
+    padding: 0 12px;
+    text-align: center;
+  }
+  &-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: min-content;
+    margin: 0 auto;
+    padding: 12px 0;
+    cursor: pointer;
+    font-size: 17px;
+    white-space: nowrap;
+    &-title {
+      line-height: 24px;
+    }
+    &-description {
+      width: min-content;
+      padding: 0 8px;
+      border-radius: 10px;
+      color: var(--adm-color-weak);
+      font-size: var(--adm-font-size-main);
+      background-color: #f5f5f5;
+    }
+  }
+  &-tab-active {
+    color: var(--adm-color-primary);
+    .@{class-prefix-tabs}-tab-description {
+      color: #fff;
+      background-color: var(--adm-color-primary);
+    }
+  }
+  &-tab-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  &-content {
+    padding: 12px;
+  }
+  &-header-mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 30px;
+    height: 100%;
+    pointer-events: none;
+  }
+  &-header-mask-left {
+    left: 0;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+  }
+  &-header-mask-right {
+    right: 0;
+    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+  }
+}

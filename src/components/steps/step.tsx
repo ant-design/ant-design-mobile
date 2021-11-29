@@ -1,19 +1,21 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-step`
 
-export interface StepProps {
+export type StepProps = {
   title?: React.ReactNode
   description?: React.ReactNode
   icon?: React.ReactNode
   status?: 'wait' | 'process' | 'finish' | 'error'
-}
+} & NativeProps
 
 export const Step: FC<StepProps> = props => {
   const { title, description, icon, status = 'wait' } = props
 
-  return (
+  return withNativeProps(
+    props,
     <div
       className={classNames(
         `${classPrefix}`,

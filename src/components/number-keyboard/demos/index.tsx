@@ -6,9 +6,8 @@ export default () => {
   const [visible, setVisible] = useState<any>('')
   const [value, setValue] = useState('')
 
-  const openKeyboard = (e: React.MouseEvent, name: string) => {
+  const openKeyboard = (name: string) => {
     setVisible(name)
-    e.stopPropagation()
   }
 
   const actions = {
@@ -34,23 +33,19 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='基础用法' padding='0' border='none'>
+      <DemoBlock title='基础用法1' padding='0' border='none'>
         <List>
-          <List.Item onClick={e => openKeyboard(e, 'demo1')}>
-            默认键盘
-          </List.Item>
-          <List.Item onClick={e => openKeyboard(e, 'demo2')}>
+          <List.Item onClick={() => openKeyboard('demo1')}>默认键盘</List.Item>
+          <List.Item onClick={() => openKeyboard('demo2')}>
             带标题键盘
           </List.Item>
-          <List.Item onClick={e => openKeyboard(e, 'demo3')}>
+          <List.Item onClick={() => openKeyboard('demo3')}>
             带确认键盘
           </List.Item>
-          <List.Item onClick={e => openKeyboard(e, 'demo4')}>
+          <List.Item onClick={() => openKeyboard('demo4')}>
             带自定义键盘
           </List.Item>
-          <List.Item onClick={e => openKeyboard(e, 'demo5')}>
-            乱序键盘
-          </List.Item>
+          <List.Item onClick={() => openKeyboard('demo5')}>乱序键盘</List.Item>
           <List.Item
             onClick={e => {
               Dialog.alert({
@@ -58,19 +53,21 @@ export default () => {
                   <Button
                     color='primary'
                     fill='outline'
-                    onClick={e => openKeyboard(e, 'demo6')}
+                    onClick={() => openKeyboard('demo6')}
                   >
                     打开键盘
                   </Button>
                 ),
               })
+              setVisible('')
               e.stopPropagation()
             }}
           >
             弹窗内展示键盘
           </List.Item>
-          <List.Item onClick={e => openKeyboard(e, 'demo7')} arrow={false}>
-            <Input placeholder='请输入内容' value={value} />
+          <List.Item onClick={() => openKeyboard('demo7')} arrow={false}>
+            {/* 添加 readOnly 阻止原生键盘弹出 */}
+            <Input placeholder='请输入内容' value={value} readOnly />
           </List.Item>
         </List>
       </DemoBlock>

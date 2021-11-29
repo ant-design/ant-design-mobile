@@ -1,9 +1,9 @@
-import { inBrowser } from './in-browser'
+import { canUseDom } from './can-use-dom'
 
 type ScrollElement = HTMLElement | Window
 
 const overflowScrollReg = /scroll|auto/i
-const defaultRoot = inBrowser ? window : undefined
+const defaultRoot = canUseDom ? window : undefined
 
 function isElement(node: Element) {
   const ELEMENT_NODE_TYPE = 1
@@ -17,7 +17,7 @@ function isElement(node: Element) {
 // https://github.com/youzan/vant/issues/3823
 export function getScrollParent(
   el: Element,
-  root: ScrollElement | undefined = defaultRoot
+  root: ScrollElement | null | undefined = defaultRoot
 ) {
   let node = el
 

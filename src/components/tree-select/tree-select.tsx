@@ -1,9 +1,9 @@
 import classNames from 'classnames'
-import React, { useMemo } from 'react'
+import React, { FC, useMemo } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
-import { withDefaultProps } from '../../utils/with-default-props'
-import { useNewControllableValue } from '../../utils/use-controllable-value'
+import { mergeProps } from '../../utils/with-default-props'
+import { usePropsValue } from '../../utils/use-props-value'
 
 const classPrefix = `adm-tree-select`
 
@@ -15,20 +15,23 @@ export type TreeSelectProps = {
   options: TreeSelectOption[]
   defaultValue?: string[]
   value?: string[]
-  onChange?: (value: string[], nodes: TreeSelectOption[]) => void
+  onChange?: (value: string[], extend: { options: TreeSelectOption[] }) => void
   fieldNames?: { label: string; value: string; children: string }
 } & NativeProps
 
-export const TreeSelect = withDefaultProps({
+const defaultProps = {
   options: [],
   fieldNames: {},
   defaultValue: [],
-})<TreeSelectProps>(props => {
+}
+
+export const TreeSelect: FC<TreeSelectProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const labelName = props.fieldNames.label || 'label'
   const valueName = props.fieldNames.value || 'value'
   const childrenName = props.fieldNames.children || 'children'
 
-  const [value, setValue] = useNewControllableValue({
+  const [value, setValue] = usePropsValue({
     value: props.value,
     defaultValue: props.defaultValue,
   })
@@ -68,7 +71,9 @@ export const TreeSelect = withDefaultProps({
 
     const values = parentNodes.map(i => i[valueName])
     setValue(values)
-    props.onChange?.(values, parentNodes)
+    props.onChange?.(values, {
+      options: parentNodes,
+    })
   }
 
   const renderItems = (
@@ -131,4 +136,4 @@ export const TreeSelect = withDefaultProps({
     props,
     <div className={classPrefix}>{renderColumns()}</div>
   )
-})
+}

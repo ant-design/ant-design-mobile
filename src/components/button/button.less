@@ -3,12 +3,15 @@
 .@{class-prefix-button} {
   --color: var(--adm-color-white);
 
-  --text-color: var(--adm-color-text);
-  --background-color: var(--adm-color-white);
-  --border-radius: 4px;
-  --border-width: 1px;
-  --border-style: solid;
-  --border-color: var(--adm-border-color);
+  --text-color: var(--adm-button-text-color, var(--adm-color-text));
+  --background-color: var(
+    --adm-button-background-color,
+    var(--adm-color-white)
+  );
+  --border-radius: var(--adm-button-border-radius, 4px);
+  --border-width: var(--adm-button-border-width, 1px);
+  --border-style: var(--adm-button-border-style, solid);
+  --border-color: var(--adm-button-border-color, var(--adm-border-color));
 
   color: var(--text-color);
   background-color: var(--background-color);
@@ -99,17 +102,27 @@
     }
   }
 
-  &-mini {
+  &&-mini {
     padding: 3px 7px;
     font-size: 13px;
+    &.@{class-prefix-button}-shape-rounded {
+      padding-left: 9px;
+      padding-right: 9px;
+    }
   }
-  &-small {
+  &&-small {
     padding: 3px 11px;
     font-size: 15px;
   }
-  &-large {
+  &&-large {
     padding: 11px 22px;
     font-size: 18px;
+  }
+  &&-shape-rounded {
+    --border-radius: 1000px;
+  }
+  &&-shape-rectangular {
+    --border-radius: 0;
   }
   &-loading {
     vertical-align: bottom;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Collapse, List, Loading, Result } from 'antd-mobile'
+import { Collapse, Loading, Result } from 'antd-mobile'
 import { DemoBlock, sleep } from 'demos'
 
 const DynamicContent = () => {

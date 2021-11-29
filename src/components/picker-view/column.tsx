@@ -1,11 +1,10 @@
-import React, { FC, useLayoutEffect, useRef, useState } from 'react'
+import React, { FC, useLayoutEffect, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
+import { useDrag } from '@use-gesture/react'
 import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
-import { useDebounceFn } from 'ahooks'
 
 const classPrefix = `adm-picker-view`
 
@@ -28,8 +27,6 @@ export const Column: FC<Props> = props => {
 
   const draggingRef = useRef(false)
 
-  const [flag, setFlag] = useState({})
-
   useLayoutEffect(() => {
     if (draggingRef.current) return
     if (!value) return
@@ -37,7 +34,7 @@ export const Column: FC<Props> = props => {
     if (targetIndex < 0) return
     const finalPosition = targetIndex * -itemHeight
     api.start({ y: finalPosition, immediate: y.idle })
-  }, [value, column, flag])
+  }, [value, column])
 
   useLayoutEffect(() => {
     if (column.length === 0) {
@@ -50,24 +47,12 @@ export const Column: FC<Props> = props => {
         props.onSelect(firstItem.value)
       }
     }
-  })
-
-  const { run: debouncedUpdateFlag } = useDebounceFn(
-    () => {
-      setFlag({})
-    },
-    {
-      wait: 1000,
-      leading: false,
-      trailing: true,
-    }
-  )
+  }, [column, value])
 
   function scrollSelect(index: number) {
     const finalPosition = index * -itemHeight
     api.start({ y: finalPosition })
     onSelect(column[index].value)
-    debouncedUpdateFlag()
   }
 
   const bind = useDrag(
@@ -77,11 +62,12 @@ export const Column: FC<Props> = props => {
       const max = 0
       if (state.last) {
         draggingRef.current = false
-        const position = state.movement[1] + state.vxvy[1] * 50
+        const position =
+          state.offset[1] + state.velocity[1] * state.direction[1] * 50
         const targetIndex = -Math.round(bound(position, min, max) / itemHeight)
         scrollSelect(targetIndex)
       } else {
-        const position = state.movement[1]
+        const position = state.offset[1]
         api.start({
           y: rubberbandIfOutOfBounds(position, min, max, itemHeight * 50, 0.2),
         })
@@ -89,8 +75,9 @@ export const Column: FC<Props> = props => {
     },
     {
       axis: 'y',
-      initial: () => [0, y.get()],
+      from: () => [0, y.get()],
       filterTaps: true,
+      pointer: { touch: true },
     }
   )
 
