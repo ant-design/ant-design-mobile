@@ -82,6 +82,7 @@ export const Search = forwardRef<SearchRef, SearchProps>((p, ref) => {
           }}
           onClear={props.onClear}
           type='search'
+          enterKeyHint='search'
         />
       </form>
       {props.showCancelButton && hasFocus && (
