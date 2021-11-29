@@ -32,7 +32,10 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
-  const [update, setUpdate] = useState(0)
+  const [flag, setFlag] = useState({})
+  function update() {
+    setFlag({})
+  }
   const [indexes, setIndexes] = useState<string[]>([])
   const [activeIndex, setActiveIndex] = useState(indexes[0])
 
@@ -91,7 +94,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
     setIndexes(newIndexes)
 
     if (newIndexes.length) checkActiveIndex()
-  }, [update])
+  }, [flag])
 
   const element = withNativeProps(
     props,
@@ -119,7 +122,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   )
 
   return (
-    <IndexBarContext.Provider value={{ setUpdate }}>
+    <IndexBarContext.Provider value={{ update }}>
       {element}
     </IndexBarContext.Provider>
   )
