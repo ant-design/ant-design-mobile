@@ -1,5 +1,5 @@
 import React, { useState, FC } from 'react'
-import { Form, Input, Button, Picker, Space } from 'antd-mobile'
+import { Form, Input, Button, Picker, Switch, Space } from 'antd-mobile'
 import { DownOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 
@@ -24,7 +24,7 @@ const CustomMobile: FC<MobileInputProps> = ({ value = {}, onChange }) => {
     onChange?.({ preValue: preValue[0], realValue, ...value, ...changedValue })
   }
 
-  const onValueChange = (value: string) => {
+  const onRealValueChange = (value: string) => {
     setRealValue(value)
     triggerValue({ realValue: value })
   }
@@ -42,7 +42,11 @@ const CustomMobile: FC<MobileInputProps> = ({ value = {}, onChange }) => {
             <DownOutline />
           </Space>
         </div>
-        <Input placeholder='手机' value={realValue} onChange={onValueChange} />
+        <Input
+          placeholder='请输入手机号'
+          value={realValue}
+          onChange={onRealValueChange}
+        />
       </Space>
       <Picker
         columns={columns}
@@ -55,6 +59,21 @@ const CustomMobile: FC<MobileInputProps> = ({ value = {}, onChange }) => {
       />
     </>
   )
+}
+
+interface CustomSwitchProps {
+  value?: string
+  onChange?: (value: string) => void
+}
+
+// If you need use "0" or "1" replace true or false
+const CustomSwitch: FC<CustomSwitchProps> = ({ value, onChange }) => {
+  const [checked, setChecked] = useState(value !== '0')
+  const handleSwicth = (checked: boolean) => {
+    setChecked(checked)
+    onChange?.(checked ? '1' : '0')
+  }
+  return <Switch checked={checked} onChange={handleSwicth} />
 }
 
 export default () => {
@@ -84,21 +103,30 @@ export default () => {
             mobile: {
               realValue: '',
             },
+            status: '0',
           }}
           footer={
             <Button block type='submit' color='primary'>
-              加入
+              提交
             </Button>
           }
         >
           <Form.Item
+            label='姓名'
             name='name'
-            rules={[{ required: true, message: '姓名不能为空' }]}
+            rules={[{ required: true, message: '姓名不能为空!' }]}
           >
-            <Input placeholder='姓名' />
+            <Input placeholder='请输入姓名' />
           </Form.Item>
-          <Form.Item name='mobile' rules={[{ validator: checkMobile }]}>
+          <Form.Item
+            label='手机号'
+            name='mobile'
+            rules={[{ required: true }, { validator: checkMobile }]}
+          >
             <CustomMobile />
+          </Form.Item>
+          <Form.Item label='状态' name='status'>
+            <CustomSwitch />
           </Form.Item>
         </Form>
       </DemoBlock>
