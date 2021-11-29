@@ -4,6 +4,7 @@ import React, {
   useState,
   useEffect,
   useImperativeHandle,
+  useCallback,
 } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -33,9 +34,10 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
   const [flag, setFlag] = useState({})
-  function update() {
+
+  const update = useCallback(() => {
     setFlag({})
-  }
+  }, [])
   const [indexes, setIndexes] = useState<string[]>([])
   const [activeIndex, setActiveIndex] = useState(indexes[0])
 

@@ -14,7 +14,10 @@ export const Panel: React.FC<IndexBarAnchorProps> = props => {
 
   useEffect(() => {
     update()
-  }, [props.index])
+    return () => {
+      update()
+    }
+  }, [props.index, update])
 
   return withNativeProps(
     props,
