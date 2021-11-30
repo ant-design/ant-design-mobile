@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { withNativeProps } from '../../utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List, { ListProps } from '../list'
 import { mergeProps } from '../../utils/with-default-props'
 import { CheckListContext } from './context'
@@ -14,7 +14,7 @@ export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
   activeIcon?: ReactNode
   disabled?: boolean
   readOnly?: boolean
-}
+} & NativeProps
 
 const defaultProps = {
   multiple: false,

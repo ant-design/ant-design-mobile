@@ -1,6 +1,6 @@
 import React, { FC, useContext } from 'react'
 import List, { ListItemProps } from '../list'
-import { withNativeProps } from '../../utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { CheckListContext } from './context'
 import { devWarning } from '../../utils/dev-log'
 import classNames from 'classnames'
@@ -19,7 +19,7 @@ export type CheckListItemProps = Pick<
 > & {
   value: string
   readOnly?: boolean
-}
+} & NativeProps
 
 export const CheckListItem: FC<CheckListItemProps> = props => {
   const context = useContext(CheckListContext)
