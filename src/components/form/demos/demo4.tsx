@@ -83,7 +83,6 @@ export default () => {
           onFinish={onFinish}
           initialValues={{
             mobile: { preValue: '86', realValue: '' },
-            status: '0',
           }}
           footer={
             <Button block type='submit' color='primary'>
