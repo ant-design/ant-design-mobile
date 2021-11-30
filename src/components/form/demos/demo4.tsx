@@ -6,31 +6,30 @@ import { DemoBlock } from 'demos'
 const columns = [['86', '01', '02', '03']]
 
 interface MobileValue {
-  preValue?: string
-  realValue?: string
+  preValue: string
+  realValue: string
 }
 
-interface MobileInputProps {
+interface MobileFieldProps {
   value?: MobileValue
   onChange?: (value: MobileValue) => void
 }
 
-const CustomMobile: FC<MobileInputProps> = ({ value = {}, onChange }) => {
-  const [preValue, setPreValue] = useState(['86'])
-  const [realValue, setRealValue] = useState('')
+const MobileField: FC<MobileFieldProps> = ({
+  value = { preValue: '86', realValue: '' },
+  onChange,
+}) => {
   const [visible, setVisible] = useState(false)
 
-  const triggerValue = (changedValue: MobileValue) => {
-    onChange?.({ preValue: preValue[0], realValue, ...value, ...changedValue })
+  const triggerValue = (changedValue: Partial<MobileValue>) => {
+    onChange?.({ ...value, ...changedValue })
   }
 
   const onRealValueChange = (value: string) => {
-    setRealValue(value)
     triggerValue({ realValue: value })
   }
 
   const onPreValueChange = (value: string[]) => {
-    setPreValue(value)
     triggerValue({ preValue: value[0] })
   }
   return (
@@ -38,13 +37,13 @@ const CustomMobile: FC<MobileInputProps> = ({ value = {}, onChange }) => {
       <Space align='center'>
         <div onClick={() => setVisible(true)}>
           <Space align='center'>
-            <div>+{preValue}</div>
+            <div>+{value.preValue}</div>
             <DownOutline />
           </Space>
         </div>
         <Input
           placeholder='请输入手机号'
-          value={realValue}
+          value={value.realValue}
           onChange={onRealValueChange}
         />
       </Space>
@@ -54,26 +53,11 @@ const CustomMobile: FC<MobileInputProps> = ({ value = {}, onChange }) => {
         onClose={() => {
           setVisible(false)
         }}
-        value={preValue}
+        value={[value.preValue]}
         onConfirm={onPreValueChange}
       />
     </>
   )
-}
-
-interface CustomSwitchProps {
-  value?: string
-  onChange?: (value: string) => void
-}
-
-// If you need use "0" or "1" replace true or false
-const CustomSwitch: FC<CustomSwitchProps> = ({ value, onChange }) => {
-  const [checked, setChecked] = useState(value !== '0')
-  const handleSwicth = (checked: boolean) => {
-    setChecked(checked)
-    onChange?.(checked ? '1' : '0')
-  }
-  return <Switch checked={checked} onChange={handleSwicth} />
 }
 
 export default () => {
@@ -97,12 +81,10 @@ export default () => {
         background='transparent'
       >
         <Form
-          layout='horizontal'
+          layout='vertical'
           onFinish={onFinish}
           initialValues={{
-            mobile: {
-              realValue: '',
-            },
+            mobile: { preValue: '86', realValue: '' },
             status: '0',
           }}
           footer={
@@ -123,10 +105,7 @@ export default () => {
             name='mobile'
             rules={[{ required: true }, { validator: checkMobile }]}
           >
-            <CustomMobile />
-          </Form.Item>
-          <Form.Item label='状态' name='status'>
-            <CustomSwitch />
+            <MobileField />
           </Form.Item>
         </Form>
       </DemoBlock>
