@@ -21,6 +21,7 @@
 | --edge-distance           | 和屏幕四周的最小间距           | `0`    |
 | --size                    | 气泡大小                       | `48px` |
 | --z-index                 | 气泡的 z-index                 | `1`    |
+| --border-radius           | 气泡的 border-radius           | `50%`  |
 
 `--initial-position-top` 和 `--initial-position-bottom` 在使用时必填其中一项
 `--initial-position-left` 和 `--initial-position-right` 在使用时必填其中一项，且组件拖拽时会固定这个左/右边距来拖拽
