@@ -1,4 +1,10 @@
-import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
+import React, {
+  useState,
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useLayoutEffect,
+} from 'react'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -88,6 +94,14 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     props.onKeyDown?.(e)
   }
 
+  useLayoutEffect(() => {
+    if (!props.enterKeyHint) return
+    nativeInputRef.current?.setAttribute('enterkeyhint', props.enterKeyHint)
+    return () => {
+      nativeInputRef.current?.removeAttribute('enterkeyhint')
+    }
+  }, [props.enterKeyHint])
+
   return withNativeProps(
     props,
     <div className={`${classPrefix}-wrapper`}>
@@ -121,7 +135,6 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         autoCorrect={props.autoCorrect}
         onKeyDown={handleKeydown}
         onKeyUp={props.onKeyUp}
-        {...{ enterkeyhint: props.enterKeyHint }}
       />
       {props.clearable && !!value && hasFocus && (
         <div
