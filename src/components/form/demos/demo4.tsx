@@ -1,5 +1,5 @@
 import React, { useState, FC } from 'react'
-import { Form, Input, Button, Picker, Switch, Space } from 'antd-mobile'
+import { Form, Input, Button, Picker, Space } from 'antd-mobile'
 import { DownOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 
@@ -35,12 +35,10 @@ const MobileField: FC<MobileFieldProps> = ({
   return (
     <>
       <Space align='center'>
-        <div onClick={() => setVisible(true)}>
-          <Space align='center'>
-            <div>+{value.preValue}</div>
-            <DownOutline />
-          </Space>
-        </div>
+        <Space align='center' onClick={() => setVisible(true)}>
+          <div>+{value.preValue}</div>
+          <DownOutline />
+        </Space>
         <Input
           placeholder='请输入手机号'
           value={value.realValue}
@@ -85,7 +83,6 @@ export default () => {
           onFinish={onFinish}
           initialValues={{
             mobile: { preValue: '86', realValue: '' },
-            status: '0',
           }}
           footer={
             <Button block type='submit' color='primary'>
