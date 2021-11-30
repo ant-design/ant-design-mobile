@@ -25,16 +25,6 @@ export default () => {
       >
         <MessageFill fontSize={32} />
       </FloatingBubble>
-      <FloatingBubble
-        style={{
-          '--initial-position-top': '24px',
-          '--initial-position-right': '24px',
-          '--border-radius': '12px',
-        }}
-        onClick={onClick}
-      >
-        <MessageFill fontSize={32} />
-      </FloatingBubble>
     </div>
   )
 }
