@@ -11,12 +11,6 @@ type NativeInputProps = React.DetailedHTMLProps<
   HTMLInputElement
 >
 
-type EnterKeyHintProps = NativeInputProps extends { enterKeyHint?: unknown }
-  ? {
-      enterKeyHint?: NativeInputProps['enterKeyHint']
-    }
-  : {}
-
 export type InputProps = Pick<
   NativeInputProps,
   | 'maxLength'
@@ -32,19 +26,26 @@ export type InputProps = Pick<
   | 'autoCorrect'
   | 'onKeyDown'
   | 'onKeyUp'
-> &
-  EnterKeyHintProps & {
-    value?: string
-    defaultValue?: string
-    onChange?: (val: string) => void
-    placeholder?: string
-    disabled?: boolean
-    readOnly?: boolean
-    clearable?: boolean
-    onClear?: () => void
-    id?: string
-    onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
-  } & NativeProps<
+> & {
+  value?: string
+  defaultValue?: string
+  onChange?: (val: string) => void
+  placeholder?: string
+  disabled?: boolean
+  readOnly?: boolean
+  clearable?: boolean
+  onClear?: () => void
+  id?: string
+  onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
+  enterKeyHint?:
+    | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send'
+} & NativeProps<
     | '--font-size'
     | '--color'
     | '--placeholder-color'
@@ -114,13 +115,13 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         max={props.max}
         min={props.min}
         autoComplete={props.autoComplete}
-        enterKeyHint={props.enterKeyHint}
         pattern={props.pattern}
         type={props.type}
         autoCapitalize={props.autoCapitalize}
         autoCorrect={props.autoCorrect}
         onKeyDown={handleKeydown}
         onKeyUp={props.onKeyUp}
+        {...{ enterkeyhint: props.enterKeyHint }}
       />
       {props.clearable && !!value && hasFocus && (
         <div
