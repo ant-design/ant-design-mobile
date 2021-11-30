@@ -18,7 +18,7 @@ export type SpaceProps = {
     | 'stretch'
   wrap?: boolean
   block?: boolean
-  onClick?: () => void
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & NativeProps<'--gap' | '--gap-vertical' | '--gap-horizontal'>
 
 const defaultProps = {
