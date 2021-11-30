@@ -4,6 +4,13 @@
 <code src="./demos/demo2.tsx"></code>
 <code src="./demos/demo3.tsx"></code>
 
+Customized or third-party form controls can be used in Form, too. Controls must follow these conventions:
+
+> - It has a controlled property `value`.
+> - It has event `onChange`.
+
+<code src="./demos/demo4.tsx"></code>
+
 # API
 
 ### Form

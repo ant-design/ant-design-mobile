@@ -1,4 +1,11 @@
-import React, { useState, useEffect, ReactNode, FC } from 'react'
+import React, {
+  useState,
+  useEffect,
+  ReactNode,
+  FC,
+  memo,
+  useCallback,
+} from 'react'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -13,6 +20,7 @@ import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
 import { useConfig } from '../config-provider'
 import { usePickerValueExtend } from '../picker-view/use-picker-value-extend'
+import { usePersistFn } from 'ahooks'
 
 const classPrefix = `adm-picker`
 
@@ -39,7 +47,7 @@ const defaultProps = {
   defaultValue: [],
 }
 
-export const Picker: FC<PickerProps> = p => {
+export const Picker = memo<PickerProps>(p => {
   const { locale } = useConfig()
   const props = mergeProps(
     defaultProps,
@@ -73,6 +81,13 @@ export const Picker: FC<PickerProps> = p => {
     }
   }, [value])
 
+  const onChange = usePersistFn((val, ext) => {
+    setInnerValue(val)
+    if (props.visible) {
+      props.onSelect?.(val, ext)
+    }
+  })
+
   const pickerElement = withNativeProps(
     props,
     <div className={classPrefix}>
@@ -101,12 +116,7 @@ export const Picker: FC<PickerProps> = p => {
         <PickerView
           columns={props.columns}
           value={innerValue}
-          onChange={(val, ext) => {
-            setInnerValue(val)
-            if (props.visible) {
-              props.onSelect?.(val, ext)
-            }
-          }}
+          onChange={onChange}
         />
       </div>
     </div>
@@ -137,4 +147,4 @@ export const Picker: FC<PickerProps> = p => {
       {props.children?.(generateValueExtend(value).items)}
     </>
   )
-}
+})

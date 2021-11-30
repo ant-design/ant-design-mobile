@@ -1,9 +1,10 @@
+import React from 'react'
 import { Tag, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 export default () => {
   return (
-    <div>
+    <>
       <DemoBlock title='基本用法'>
         <Tag>123</Tag>
       </DemoBlock>
@@ -44,6 +45,38 @@ export default () => {
           kongxin
         </Tag>
       </DemoBlock>
-    </div>
+
+      <DemoBlock title='通过 CSS 变量进行个性化'>
+        <Space>
+          <Tag
+            color='primary'
+            fill='outline'
+            style={{ '--border-radius': '6px' }}
+          >
+            Primary
+          </Tag>
+          <Tag
+            color='success'
+            fill='outline'
+            style={{ '--background-color': '#c8f7c5' }}
+          >
+            Success
+          </Tag>
+          <Tag
+            color='warning'
+            style={{ '--text-color': 'var(--adm-color-text)' }}
+          >
+            Warning
+          </Tag>
+          <Tag
+            color='danger'
+            fill='outline'
+            style={{ '--border-color': 'var(--adm-color-weak)' }}
+          >
+            Danger
+          </Tag>
+        </Space>
+      </DemoBlock>
+    </>
   )
 }

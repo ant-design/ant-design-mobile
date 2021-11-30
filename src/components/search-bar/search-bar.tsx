@@ -116,6 +116,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
           }}
           onClear={props.onClear}
           type='search'
+          enterKeyHint='search'
           onEnterPress={() => {
             inputRef.current?.blur()
             props.onSearch?.(value)

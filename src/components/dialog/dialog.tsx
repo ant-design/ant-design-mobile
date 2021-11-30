@@ -82,9 +82,7 @@ export const Dialog: FC<DialogProps> = p => {
       >
         <Mask
           visible={props.visible}
-          destroyOnClose
           getContainer={props.getContainer}
-          afterClose={props.afterClose}
           onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
           style={props.maskStyle}
           className={classNames(`${classPrefix}-mask`, props.maskClassName)}

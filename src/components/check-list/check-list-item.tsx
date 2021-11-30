@@ -9,11 +9,17 @@ const classPrefix = `adm-check-list-item`
 
 export type CheckListItemProps = Pick<
   ListItemProps,
-  'title' | 'children' | 'description' | 'prefix' | 'disabled' | 'onClick'
+  | 'title'
+  | 'children'
+  | 'description'
+  | 'prefix'
+  | 'disabled'
+  | 'onClick'
+  | 'style'
 > & {
   value: string
   readOnly?: boolean
-} & NativeProps<'--prefix-width' | '--align-items'>
+} & NativeProps
 
 export const CheckListItem: FC<CheckListItemProps> = props => {
   const context = useContext(CheckListContext)

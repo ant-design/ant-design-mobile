@@ -10,6 +10,7 @@ import {
   generateDatePickerColumns,
   defaultRenderLabel,
 } from './date-picker-utils'
+import { usePersistFn } from 'ahooks'
 
 export type DatePickerProps = Pick<
   PickerProps,
@@ -66,28 +67,29 @@ export const DatePicker: FC<DatePickerProps> = p => {
     [setValue, props.precision]
   )
 
-  const onSelect = useCallback(
-    (val: string[]) => {
-      const date = convertStringArrayToDate(val, props.precision)
-      if (date) {
-        props.onSelect?.(date)
-      }
-    },
-    [props.onSelect, props.precision]
+  const onSelect = usePersistFn((val: string[]) => {
+    const date = convertStringArrayToDate(val, props.precision)
+    if (date) {
+      props.onSelect?.(date)
+    }
+  })
+
+  const columns = useCallback(
+    selected =>
+      generateDatePickerColumns(
+        selected as string[],
+        props.min,
+        props.max,
+        props.precision,
+        props.renderLabel
+      ),
+    [props.min, props.max, props.precision, props.renderLabel]
   )
 
   return withNativeProps(
     props,
     <Picker
-      columns={selected =>
-        generateDatePickerColumns(
-          selected as string[],
-          props.min,
-          props.max,
-          props.precision,
-          props.renderLabel
-        )
-      }
+      columns={columns}
       value={pickerValue}
       onCancel={props.onCancel}
       onClose={props.onClose}

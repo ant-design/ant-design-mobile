@@ -22,7 +22,7 @@
 
 ### CSS 变量
 
-同 [List.Item](./list)
+同 [List](./list/#list-2)
 
 ## CheckList.Item
 
@@ -38,4 +38,4 @@
 
 ### CSS 变量
 
-同 [List.Item](./list)
+同 [List.Item](./list/#listitem-1)

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react'
+import React, { memo, ReactNode, useEffect, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { Column } from './column'
 import { useColumns } from './use-columns'
@@ -32,7 +32,7 @@ const defaultProps = {
   defaultValue: [],
 }
 
-export const PickerView: FC<PickerViewProps> = p => {
+export const PickerView = memo<PickerViewProps>(p => {
   const props = mergeProps(defaultProps, p)
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(
@@ -96,4 +96,4 @@ export const PickerView: FC<PickerViewProps> = p => {
       <div className={`${classPrefix}-mask ${classPrefix}-mask-bottom`} />
     </div>
   )
-}
+})
