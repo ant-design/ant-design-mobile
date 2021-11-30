@@ -1,5 +1,5 @@
-import { PickerView } from 'antd-mobile'
 import React, { useState } from 'react'
+import { PickerView } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 const columns = [

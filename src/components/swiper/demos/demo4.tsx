@@ -1,6 +1,7 @@
 import React from 'react'
 import { Space, Swiper } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
+
 import styles from './demo1.less'
 
 const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']

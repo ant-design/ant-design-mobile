@@ -1,6 +1,6 @@
 import React from 'react'
-import { DemoBlock } from 'demos'
 import { Empty } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import { QuestionCircleOutline } from 'antd-mobile-icons'
 
 export default () => {

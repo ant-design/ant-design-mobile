@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import { AddSquareOutline } from 'antd-mobile-icons'
-import { DemoBlock } from '../../../demos'
 
 export default function () {
   const [form] = Form.useForm()

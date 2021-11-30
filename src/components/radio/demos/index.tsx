@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { DemoBlock } from 'demos'
 import { Radio, Space } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import { SmileOutline, SmileFill } from 'antd-mobile-icons'
 
 export default () => {

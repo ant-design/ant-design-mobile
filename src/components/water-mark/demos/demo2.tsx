@@ -1,6 +1,6 @@
 import React from 'react'
-import { Image, WaterMark } from '../../../index'
-import { DemoBlock, DemoDescription } from '../../../demos'
+import { Image, WaterMark } from 'antd-mobile'
+import { DemoBlock, DemoDescription } from 'demos'
 
 export default () => {
   return (

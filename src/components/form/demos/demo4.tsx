@@ -1,7 +1,7 @@
 import React, { useState, FC } from 'react'
 import { Form, Input, Button, Picker, Space } from 'antd-mobile'
-import { DownOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
+import { DownOutline } from 'antd-mobile-icons'
 
 const columns = [['86', '01', '02', '03']]
 

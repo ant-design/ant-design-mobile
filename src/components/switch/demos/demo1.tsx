@@ -1,7 +1,7 @@
 import React from 'react'
 import { Space, Switch } from 'antd-mobile'
-import { CloseOutline, CheckOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
+import { CloseOutline, CheckOutline } from 'antd-mobile-icons'
 import { useToggle } from 'ahooks'
 
 export default () => {

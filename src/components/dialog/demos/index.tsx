@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react'
 import { Button, Dialog, Space, Toast, Divider } from 'antd-mobile'
-import { sleep } from '../../../utils/sleep'
 import { ExclamationCircleFill } from 'antd-mobile-icons'
 import { DemoBlock, DemoDescription, lorem } from 'demos'
 import { DialogShowRef } from 'antd-mobile/es/components/dialog'
+
+import { sleep } from '../../../utils/sleep'
 
 export default () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { NoticeBar, Space } from 'antd-mobile'
-import { CompassOutline, CloseCircleOutline } from 'antd-mobile-icons'
 import { DemoBlock, lorem } from 'demos'
+import { CompassOutline, CloseCircleOutline } from 'antd-mobile-icons'
 
 const demoLongText = lorem.generateWords(20)
 

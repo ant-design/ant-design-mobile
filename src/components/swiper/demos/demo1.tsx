@@ -1,8 +1,9 @@
 import React, { useRef } from 'react'
 import { Button, Space, Swiper, Toast } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
-import styles from './demo1.less'
 import { SwiperRef } from 'antd-mobile/es/components/swiper'
+
+import styles from './demo1.less'
 
 const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']
 

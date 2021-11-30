@@ -1,7 +1,8 @@
 import React from 'react'
-import { DemoBlock } from 'demos'
 import { Card, Toast, Button } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import { AntOutline, RightOutline } from 'antd-mobile-icons'
+
 import styles from './index.less'
 
 export default () => {

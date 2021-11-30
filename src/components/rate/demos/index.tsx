@@ -1,6 +1,6 @@
 import React from 'react'
-import { DemoBlock } from 'demos'
 import { Rate, Space, Toast } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import { SmileOutline } from 'antd-mobile-icons'
 
 export default () => {

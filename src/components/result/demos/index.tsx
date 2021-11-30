@@ -2,6 +2,7 @@ import React from 'react'
 import { Result } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { SmileOutline } from 'antd-mobile-icons'
+
 import './index.less'
 
 export default () => {

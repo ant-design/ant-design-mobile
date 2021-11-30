@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { DemoBlock } from 'demos'
 import { Button, ProgressBar, Space } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 
 export default () => {
   const [percent, setPercent] = useState<number>(10)

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { DemoBlock } from 'demos'
 import { Button, CascadePicker } from 'antd-mobile'
+import { DemoBlock } from 'demos'
+
 import { AsyncDemo } from './async-demo'
 
 function CascadePickerDemo() {

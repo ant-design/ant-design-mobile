@@ -1,6 +1,7 @@
 import React from 'react'
 import { ErrorBlock, Space } from 'antd-mobile'
-import { DemoBlock } from '../../../demos'
+
+import { DemoBlock } from 'demos'
 
 export default () => {
   return (

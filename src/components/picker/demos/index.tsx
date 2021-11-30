@@ -1,6 +1,6 @@
-import { DemoBlock } from 'demos'
-import { Picker, Button, Space, Toast } from 'antd-mobile'
 import React, { useState } from 'react'
+import { Picker, Button, Space, Toast } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 
 const basicColumns = [
   ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],

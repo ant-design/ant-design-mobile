@@ -1,6 +1,6 @@
-import { DemoBlock } from 'demos'
 import React, { useState } from 'react'
 import { DesenseText } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 
 export default () => {
   const [isDesens, setDesens] = useState<boolean>(true)

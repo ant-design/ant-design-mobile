@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { DemoBlock } from 'demos'
 import { Popup, Space, Button } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 
 const Stack = () => {
   const [visible1, setVisible1] = useState(false)

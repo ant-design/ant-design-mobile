@@ -1,6 +1,6 @@
 import React from 'react'
-import { DemoBlock } from 'demos'
 import { ConfigProvider, ErrorBlock } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import zhCN from 'antd-mobile/es/locales/zh-CN'
 import enUS from 'antd-mobile/es/locales/en-US'
 

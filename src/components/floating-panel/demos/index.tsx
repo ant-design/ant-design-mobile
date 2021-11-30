@@ -1,6 +1,6 @@
 import React from 'react'
 import { FloatingPanel, List } from 'antd-mobile'
-import { DemoDescription } from '../../../demos'
+import { DemoDescription } from 'demos'
 
 const data = [
   'A',
