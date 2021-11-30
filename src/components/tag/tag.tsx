@@ -24,7 +24,9 @@ export type TagProps = {
   fill?: 'solid' | 'outline'
   round?: boolean
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
-} & NativeProps
+} & NativeProps<
+  '--border-color' | '--background-color' | '--text-color' | '--border-radius'
+>
 
 const defaultProps = {
   color: 'default',
@@ -37,9 +39,13 @@ export const Tag: FC<TagProps> = p => {
   const color = colorRecord[props.color] ?? props.color
 
   const style: CSSProperties & {
-    '--color': string
+    '--border-color': string
+    '--text-color': string
+    '--background-color': string
   } = {
-    '--color': color,
+    '--border-color': color,
+    '--text-color': props.fill === 'outline' ? color : '#ffffff',
+    '--background-color': props.fill === 'outline' ? 'transparent' : color,
   }
   return withNativeProps(
     props,
@@ -48,7 +54,6 @@ export const Tag: FC<TagProps> = p => {
       onClick={props.onClick}
       className={classNames(classPrefix, {
         [`${classPrefix}-round`]: props.round,
-        [`${classPrefix}-outline`]: props.fill === 'outline',
       })}
     >
       {props.children}
