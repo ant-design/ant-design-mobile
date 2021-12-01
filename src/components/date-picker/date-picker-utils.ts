@@ -1,18 +1,8 @@
 import { ReactNode } from 'react'
 import type { DatePrecision } from './date-picker-date-utils'
 import type { WeekPrecision } from './date-picker-week-utils'
-import {
-  convertDateToStringArray as date_convertDateToStringArray,
-  convertStringArrayToDate as date_convertStringArrayToDate,
-  generateDatePickerColumns as date_generateDatePickerColumns,
-  defaultRenderLabel as date_defaultRenderLabel,
-} from './date-picker-date-utils'
-import {
-  convertDateToStringArray as week_convertDateToStringArray,
-  convertStringArrayToDate as week_convertStringArrayToDate,
-  generateDatePickerColumns as week_generateDatePickerColumns,
-  defaultRenderLabel as week_defaultRenderLabel,
-} from './date-picker-week-utils'
+import * as dateUtils from './date-picker-date-utils'
+import * as weekUtils from './date-picker-week-utils'
 
 export type Precision = DatePrecision | WeekPrecision
 
@@ -21,9 +11,9 @@ export const convertDateToStringArray = (
   precision: Precision
 ) => {
   if (precision.includes('week')) {
-    return week_convertDateToStringArray(date)
+    return weekUtils.convertDateToStringArray(date)
   } else {
-    return date_convertDateToStringArray(date)
+    return dateUtils.convertDateToStringArray(date)
   }
 }
 
@@ -32,9 +22,9 @@ export const convertStringArrayToDate = (
   precision: Precision
 ) => {
   if (precision.includes('week')) {
-    return week_convertStringArrayToDate(value)
+    return weekUtils.convertStringArrayToDate(value)
   } else {
-    return date_convertStringArrayToDate(value)
+    return dateUtils.convertStringArrayToDate(value)
   }
 }
 
@@ -46,7 +36,7 @@ export const generateDatePickerColumns = (
   renderLabel: (type: Precision, data: number) => ReactNode
 ) => {
   if (precision.includes('week')) {
-    return week_generateDatePickerColumns(
+    return weekUtils.generateDatePickerColumns(
       selected,
       min,
       max,
@@ -54,7 +44,7 @@ export const generateDatePickerColumns = (
       renderLabel
     )
   } else {
-    return date_generateDatePickerColumns(
+    return dateUtils.generateDatePickerColumns(
       selected,
       min,
       max,
@@ -66,8 +56,8 @@ export const generateDatePickerColumns = (
 
 export const defaultRenderLabel = (precision: Precision, data: number) => {
   if (precision.includes('week')) {
-    return week_defaultRenderLabel(precision as WeekPrecision, data)
+    return weekUtils.defaultRenderLabel(precision as WeekPrecision, data)
   } else {
-    return date_defaultRenderLabel(precision as DatePrecision, data)
+    return dateUtils.defaultRenderLabel(precision as DatePrecision, data)
   }
 }
