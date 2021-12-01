@@ -100,7 +100,7 @@ export function convertDateToStringArray(
   if (!date) return []
   const day = dayjs(date)
   return [
-    date.getFullYear().toString(),
+    day.isoWeekYear().toString(),
     day.isoWeek().toString(),
     day.isoWeekday().toString(),
   ]
