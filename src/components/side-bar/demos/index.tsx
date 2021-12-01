@@ -1,5 +1,5 @@
 import { DemoBlock } from 'demos'
-import { Badge, SideBar } from 'antd-mobile'
+import { Badge, SideBar, Grid } from 'antd-mobile'
 import React, { useState } from 'react'
 
 export default () => {
@@ -56,11 +56,20 @@ export default () => {
         </SideBar>
       </DemoBlock>
       <DemoBlock title='受控组件' padding='0'>
-        <SideBar activeKey={activeKey} onChange={setActiveKey}>
-          {tabs.map(item => (
-            <SideBar.Item key={item.key} title={item.title} />
-          ))}
-        </SideBar>
+        <div style={{ display: 'flex' }}>
+          <div>
+            <SideBar activeKey={activeKey} onChange={setActiveKey}>
+              {tabs.map(item => (
+                <SideBar.Item key={item.key} title={item.title} />
+              ))}
+            </SideBar>
+          </div>
+          <div>
+            <div hidden={activeKey !== 'key1'}>A</div>
+            <div hidden={activeKey !== 'key2'}>B</div>
+            <div hidden={activeKey !== 'key3'}>C</div>
+          </div>
+        </div>
       </DemoBlock>
       <DemoBlock title='自定义宽度' padding='0'>
         <SideBar style={{ '--width': '120px' }}>
