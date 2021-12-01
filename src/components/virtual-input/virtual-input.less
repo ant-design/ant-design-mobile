@@ -1,4 +1,6 @@
-.adm-virtual-input {
+@class-prefix-input: ~'adm-virtual-input';
+
+.@{class-prefix-input} {
   --font-size: 17px;
   --color: var(--adm-color-text);
   --placeholder-color: var(--adm-color-light);
@@ -7,28 +9,33 @@
   --caret-width: var(--adm-virtual-input-caret-width, 2px);
   --caret-color: var(--adm-virtual-input-caret-color, var(--adm-color-primary));
 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   position: relative;
   text-align: var(--text-align);
   font-size: var(--font-size);
   line-height: 1.5;
   white-space: nowrap;
-  display: block;
-  overflow-y: hidden;
-  overflow-x: scroll;
   color: var(--color);
 
   > * {
     vertical-align: top;
   }
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  scrollbar-width: none;
 
   &-content {
+    flex: auto;
     display: inline-block;
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
   }
 
   &-placeholder {
@@ -84,5 +91,17 @@
   }
   to {
     opacity: 0;
+  }
+}
+
+.@{class-prefix-input}-clear {
+  flex: none;
+  margin-left: 8px;
+  color: var(--placeholder-color);
+  padding: 3px;
+  cursor: pointer;
+  .antd-mobile-icon {
+    display: block;
+    font-size: 14px;
   }
 }
