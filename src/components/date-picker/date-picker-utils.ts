@@ -35,7 +35,7 @@ export const generateDatePickerColumns = (
   precision: Precision,
   renderLabel: (type: Precision, data: number) => ReactNode
 ) => {
-  if (precision.includes('week')) {
+  if (precision.startsWith('week')) {
     return weekUtils.generateDatePickerColumns(
       selected,
       min,

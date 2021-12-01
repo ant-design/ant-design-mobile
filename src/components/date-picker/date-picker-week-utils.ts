@@ -120,5 +120,5 @@ export function convertStringArrayToDate(
     .hour(0)
     .minute(0)
     .second(0)
-  return new Date(day.format('YYYY-MM-DD'))
+  return day.toDate()
 }
