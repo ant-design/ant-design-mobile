@@ -38,17 +38,20 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
     defaultValue: props.defaultValue ?? null,
   })
 
-  const pickerValue = useMemo(() => convertDateToStringArray(value), [value])
+  const pickerValue = useMemo(
+    () => convertDateToStringArray(value, props.precision),
+    [value, props.precision]
+  )
 
   const onChange = useCallback(
     (val: string[]) => {
-      const date = convertStringArrayToDate(val)
+      const date = convertStringArrayToDate(val, props.precision)
       if (date) {
         setValue(date)
         props.onChange?.(date)
       }
     },
-    [props.onChange]
+    [props.onChange, props.precision]
   )
 
   return withNativeProps(
