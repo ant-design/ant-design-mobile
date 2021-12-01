@@ -1,5 +1,5 @@
 import { DemoBlock } from 'demos'
-import { Badge, SideBar, Grid } from 'antd-mobile'
+import { Badge, SideBar } from 'antd-mobile'
 import React, { useState } from 'react'
 
 export default () => {
