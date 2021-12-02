@@ -79,7 +79,6 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     }, 300)
   }
   const onEnd = () => {
-    if (!onDelete) return
 
     clearTimeout(timeoutRef.current)
     clearInterval(intervalRef.current)
