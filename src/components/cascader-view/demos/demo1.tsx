@@ -1,7 +1,7 @@
 import { CascaderView } from 'antd-mobile'
 import React, { useState } from 'react'
 import { DemoBlock } from 'demos'
-import { options } from '../../cascader/demos/data'
+import { options, sameValueOptions } from '../../cascader/demos/data'
 
 export default () => {
   const [value, setValue] = useState<string[]>([])
@@ -25,6 +25,15 @@ export default () => {
 
       <DemoBlock title='自定义高度' padding='0'>
         <CascaderView options={options} style={{ '--height': '320px' }} />
+      </DemoBlock>
+
+      <DemoBlock title='不同层级中存在 value 重复的选项' padding='0'>
+        <CascaderView
+          options={sameValueOptions}
+          onChange={(val, ext) => {
+            console.log(val, ext.items)
+          }}
+        />
       </DemoBlock>
     </>
   )

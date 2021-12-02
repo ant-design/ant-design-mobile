@@ -8,14 +8,8 @@ export const options = [
         value: '杭州',
         children: [
           {
-            label: '西湖区1',
+            label: '西湖区',
             value: '西湖区',
-            children: [
-              {
-                label: '西湖区2',
-                value: '西湖区',
-              },
-            ],
           },
           {
             label: '上城区',
@@ -165,3 +159,74 @@ export const longOptions = new Array(20).fill('').map((value, index) => ({
     })),
   })),
 }))
+
+export const sameValueOptions = [
+  {
+    label: '左转',
+    value: '左转',
+    children: [
+      {
+        label: '左转',
+        value: '左转',
+        children: [
+          {
+            label: '左转',
+            value: '左转',
+          },
+          {
+            label: '右转',
+            value: '右转',
+          },
+        ],
+      },
+      {
+        label: '右转',
+        value: '右转',
+        children: [
+          {
+            label: '左转',
+            value: '左转',
+          },
+          {
+            label: '右转',
+            value: '右转',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: '右转',
+    value: '右转',
+    children: [
+      {
+        label: '左转',
+        value: '左转',
+        children: [
+          {
+            label: '左转',
+            value: '左转',
+          },
+          {
+            label: '右转',
+            value: '右转',
+          },
+        ],
+      },
+      {
+        label: '右转',
+        value: '右转',
+        children: [
+          {
+            label: '左转',
+            value: '左转',
+          },
+          {
+            label: '右转',
+            value: '右转',
+          },
+        ],
+      },
+    ],
+  },
+]

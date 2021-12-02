@@ -2,7 +2,7 @@
 
 CascaderView 是 [Cascader](./cascader) 的内容区域。
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ## 属性
 
