@@ -4,7 +4,7 @@ export const base = {
     cancel: 'Cancel',
   },
   Cascader: {
-    placeholder: 'Please',
+    placeholder: 'Selecting',
   },
   Dialog: {
     ok: 'OK',
