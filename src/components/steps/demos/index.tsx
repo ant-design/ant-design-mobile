@@ -1,11 +1,12 @@
 import React from 'react'
 import { Steps } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import {
   CheckCircleFill,
   ClockCircleFill,
   HandPayCircleOutline,
 } from 'antd-mobile-icons'
-import { DemoBlock } from 'demos'
+
 const { Step } = Steps
 
 export default () => {

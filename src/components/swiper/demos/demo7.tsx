@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { DemoBlock } from 'demos'
 import { Button, Space, Swiper } from 'antd-mobile'
+import { DemoBlock } from 'demos'
+
 import styles from './demo1.less'
 
 const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']

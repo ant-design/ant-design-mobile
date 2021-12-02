@@ -1,6 +1,6 @@
-import { DemoBlock } from 'demos'
-import { Badge, SideBar } from 'antd-mobile'
 import React, { useState } from 'react'
+import { Badge, SideBar } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 
 export default () => {
   const tabs = [

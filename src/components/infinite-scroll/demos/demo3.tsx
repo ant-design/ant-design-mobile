@@ -1,6 +1,7 @@
-import { Button, InfiniteScroll, List, Loading, SearchBar } from 'antd-mobile'
 import React, { useEffect, useState } from 'react'
+import { Button, InfiniteScroll, List, Loading, SearchBar } from 'antd-mobile'
 import { sleep } from 'demos'
+
 import styles from './demo3.less'
 
 let count = 0

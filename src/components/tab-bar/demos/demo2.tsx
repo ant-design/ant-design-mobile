@@ -1,5 +1,5 @@
-import { NavBar, TabBar } from 'antd-mobile'
 import React, { FC } from 'react'
+import { NavBar, TabBar } from 'antd-mobile'
 import {
   Route,
   Switch,
@@ -13,6 +13,7 @@ import {
   UnorderedListOutline,
   UserOutline,
 } from 'antd-mobile-icons'
+
 import styles from './demo2.less'
 
 const Bottom: FC = () => {

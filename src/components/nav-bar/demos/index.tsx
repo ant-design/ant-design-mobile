@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavBar, Space, Toast } from 'antd-mobile'
-import { SearchOutline, MoreOutline, CloseOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
+import { SearchOutline, MoreOutline, CloseOutline } from 'antd-mobile-icons'
+
 import './index.less'
 
 export default () => {

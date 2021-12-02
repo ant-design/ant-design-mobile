@@ -1,8 +1,9 @@
 import React from 'react'
 import { PullToRefresh, Toast } from 'antd-mobile'
+import { DemoDescription } from 'demos'
 import { sleep } from 'antd-mobile/es/utils/sleep'
+
 import styles from './demo3.less'
-import { DemoDescription } from '../../../demos'
 
 async function doRefresh() {
   await sleep(1000)

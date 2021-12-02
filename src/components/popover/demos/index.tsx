@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Popover, Button, Toast } from 'antd-mobile'
-import { UploadOutline, CheckShieldOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
+import { UploadOutline, CheckShieldOutline } from 'antd-mobile-icons'
 
 const directionList = [
   `top`,

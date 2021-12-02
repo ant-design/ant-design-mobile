@@ -1,7 +1,7 @@
 import React from 'react'
 import { FloatingBubble, Toast } from 'antd-mobile'
+import { DemoDescription } from 'demos'
 import { MessageFill } from 'antd-mobile-icons'
-import { DemoDescription } from '../../../demos'
 
 export default () => {
   const onClick = () => {

@@ -1,6 +1,7 @@
+import React, { FC, useState } from 'react'
 import { Button, Popup, Space, Swiper } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
-import React, { FC, useState } from 'react'
+
 import styles from './demo3.less'
 
 const WithPopup: FC = () => {

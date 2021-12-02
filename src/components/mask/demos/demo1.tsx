@@ -1,7 +1,8 @@
-import { Button, Mask, Space } from 'antd-mobile'
 import React, { useState, FC } from 'react'
-import styles from './demo1.less'
+import { Button, Mask, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+
+import styles from './demo1.less'
 
 const Simple: FC = () => {
   const [visible, setVisible] = useState(false)

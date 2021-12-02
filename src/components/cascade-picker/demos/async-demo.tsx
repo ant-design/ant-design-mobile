@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { sleep } from 'demos'
 import { Button, CascadePicker } from 'antd-mobile'
+import { sleep } from 'demos'
 import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker'
 
 export function AsyncDemo() {

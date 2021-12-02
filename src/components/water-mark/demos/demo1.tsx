@@ -1,5 +1,6 @@
-import { Button, WaterMark } from 'antd-mobile'
 import React, { useState } from 'react'
+import { Button, WaterMark } from 'antd-mobile'
+
 import './demo1.less'
 
 const textProps = {

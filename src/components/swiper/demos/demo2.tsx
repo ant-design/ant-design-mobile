@@ -1,6 +1,7 @@
 import React from 'react'
-import { DemoBlock, DemoDescription } from 'demos'
 import { Space, Swiper } from 'antd-mobile'
+import { DemoBlock, DemoDescription } from 'demos'
+
 import styles from './demo2.less'
 
 const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']

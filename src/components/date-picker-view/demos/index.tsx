@@ -1,5 +1,5 @@
-import { DatePickerView } from 'antd-mobile'
 import React, { useState } from 'react'
+import { DatePickerView } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { weekdayToZh } from './weekdayToZh'
 

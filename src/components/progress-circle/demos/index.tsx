@@ -1,8 +1,9 @@
 import React from 'react'
-import { DemoBlock } from 'demos'
-import styles from './index.less'
 import { ProgressCircle, Space } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import { CloseOutline } from 'antd-mobile-icons'
+
+import styles from './index.less'
 
 export default () => {
   return (

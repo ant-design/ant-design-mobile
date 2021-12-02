@@ -1,6 +1,6 @@
-import { DemoBlock } from 'demos'
-import { Badge, TabBar } from 'antd-mobile'
 import React, { useState } from 'react'
+import { Badge, TabBar } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import {
   AppOutline,
   MessageOutline,
