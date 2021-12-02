@@ -1,11 +1,10 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useMemo } from 'react'
 import classNames from 'classnames'
 import Tabs from '../tabs'
 import CheckList from '../check-list'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useCascaderOptions } from './use-cascader-options'
 import { useCascaderValueExtend } from './use-cascader-value-extend'
 
 const classPrefix = `adm-cascader-view`
@@ -46,79 +45,39 @@ export const CascaderView: FC<CascaderViewProps> = p => {
   })
   const [tabActiveKey, setTabActiveKey] = useState<number>(0)
 
-  useEffect(() => {
-    if (value.length > 0) {
-      setTabActiveKey(value.length - 1)
-    }
-  }, [])
-
   const generateValueExtend = useCascaderValueExtend(props.options)
-  const { depth, optionsMap, optionsParentMap } = useCascaderOptions(
-    props.options
-  )
 
-  const onItemSelect = (selectValue: string) => {
-    if (!selectValue) return
-
-    const parentNodes: CascaderOption[] = []
-    let current: CascaderOption | undefined = optionsMap[selectValue]
-    while (current) {
-      parentNodes.unshift(current)
-      const next: CascaderOption = optionsParentMap[current.value]
-      current = next
-    }
-
-    const values = parentNodes.map(i => i.value)
-    setValue(values)
-    setTimeout(() => {
-      if (tabActiveKey + 1 < depth) {
-        setTabActiveKey(tabActiveKey + 1)
+  const levels = useMemo(() => {
+    const ret: {
+      selected: CascaderOption | undefined
+      options: CascaderOption[]
+    }[] = []
+    let currentOptions = props.options
+    let reachedEnd = false
+    for (const v of value) {
+      const target = currentOptions.find(option => option.value === v)
+      ret.push({
+        selected: target,
+        options: currentOptions,
+      })
+      if (!target || !target.children || target.children.length === 0) {
+        reachedEnd = true
+        break
       }
-    })
-  }
-
-  const renderItems = (columnOptions: CascaderOption[] = [], index: number) => {
-    const checkedValue: string[] = []
-    return (
-      <CheckList
-        value={checkedValue}
-        onChange={selectValue => onItemSelect(selectValue[0])}
-        className={`${classPrefix}-content`}
-      >
-        {columnOptions.map(item => {
-          let active = false
-          if (item.value === value[index]) {
-            checkedValue.push(item.value)
-            active = true
-          }
-          return (
-            <CheckList.Item
-              value={item.value}
-              key={item.value}
-              disabled={item.disabled}
-              className={classNames(`${classPrefix}-item`, {
-                [`${classPrefix}-item-active`]: active,
-              })}
-              style={{}}
-            >
-              {item.label}
-            </CheckList.Item>
-          )
-        })}
-      </CheckList>
-    )
-  }
-
-  const renderColumns = () => {
-    const columns = []
-    for (let i = 0; i < depth; i++) {
-      const data =
-        i === 0 ? props.options : optionsMap[value[i - 1] || '']?.children
-      const column = renderItems(data, i)
-      columns.push(column)
+      currentOptions = target.children
     }
-    return columns
-  }
+    if (!reachedEnd) {
+      ret.push({
+        selected: undefined,
+        options: currentOptions,
+      })
+    }
+    return ret
+  }, [value, props.options])
+
+  useEffect(() => {
+    setTabActiveKey(levels.length - 1)
+  }, [value])
 
   return withNativeProps(
     props,
@@ -129,22 +88,44 @@ export const CascaderView: FC<CascaderViewProps> = p => {
       style={{ '--title-font-size': '14px', '--content-padding': 'none' }}
       className={classPrefix}
     >
-      {renderColumns().map((column, index) => {
-        if (!value[index] && index > 0 && !value[index - 1]) {
-          return
-        }
+      {levels.map((level, index) => {
+        const selected = level.selected
         return (
           <Tabs.Tab
+            key={index}
             title={
               <div className={`${classPrefix}-header-title`}>
-                {generateValueExtend(value).items[index]?.label ||
-                  props.placeholder}
+                {selected ? selected.label : props.placeholder}
               </div>
             }
-            key={index.toString()}
             forceRender
           >
-            {column}
+            <CheckList
+              value={[value[index]]}
+              onChange={selectValue => {
+                const v = selectValue[0]
+                const next = value.slice(0, index)
+                next[index] = v
+                setValue(next)
+              }}
+              className={`${classPrefix}-content`}
+            >
+              {level.options.map(option => {
+                const active = value[index] === option.value
+                return (
+                  <CheckList.Item
+                    value={option.value}
+                    key={option.value}
+                    disabled={option.disabled}
+                    className={classNames(`${classPrefix}-item`, {
+                      [`${classPrefix}-item-active`]: active,
+                    })}
+                  >
+                    {option.label}
+                  </CheckList.Item>
+                )
+              })}
+            </CheckList>
           </Tabs.Tab>
         )
       })}

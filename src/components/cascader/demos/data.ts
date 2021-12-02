@@ -8,8 +8,14 @@ export const options = [
         value: '杭州',
         children: [
           {
-            label: '西湖区',
+            label: '西湖区1',
             value: '西湖区',
+            children: [
+              {
+                label: '西湖区2',
+                value: '西湖区',
+              },
+            ],
           },
           {
             label: '上城区',
