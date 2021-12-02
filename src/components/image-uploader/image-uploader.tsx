@@ -19,6 +19,7 @@ export type TaskStatus = 'pending' | 'fail'
 export interface ImageUploadItem {
   key?: string | number
   url: string
+  thumbnailUrl?: string
 }
 
 type Task = {
@@ -175,7 +176,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         {value.map((fileItem, index) => (
           <PreviewItem
             key={fileItem.key ?? index}
-            url={fileItem.url}
+            url={fileItem.thumbnailUrl ?? fileItem.url}
             deletable={props.deletable}
             onClick={() => previewImage(index)}
             onDelete={async () => {

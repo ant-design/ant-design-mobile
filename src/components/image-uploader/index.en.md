@@ -26,10 +26,11 @@
 
 ### ImageUploadItem
 
-| Name | Description                         | Type               | Default         |
-| ---- | ----------------------------------- | ------------------ | --------------- |
-| key  | Unique identifier                   | `string \| number` | The array index |
-| url  | The resource address of the picture | `string`           | -               |
+| Name         | Description                                   | Type               | Default         |
+| ------------ | --------------------------------------------- | ------------------ | --------------- |
+| key          | Unique identifier                             | `string \| number` | The array index |
+| url          | The resource address of the picture           | `string`           | -               |
+| thumbnailUrl | The resource address of the thumbnail picture | `string`           | `url`           |
 
 ### CSS Variables
 
