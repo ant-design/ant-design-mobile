@@ -75,6 +75,9 @@ export default () => {
           >
             Danger
           </Tag>
+          <Tag color='danger' style={{ '--line-height': '16px' }}>
+            测试
+          </Tag>
         </Space>
       </DemoBlock>
     </>

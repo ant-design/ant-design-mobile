@@ -25,7 +25,11 @@ export type TagProps = {
   round?: boolean
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
 } & NativeProps<
-  '--border-color' | '--background-color' | '--text-color' | '--border-radius'
+  | '--border-color'
+  | '--background-color'
+  | '--text-color'
+  | '--border-radius'
+  | '--line-height'
 >
 
 const defaultProps = {

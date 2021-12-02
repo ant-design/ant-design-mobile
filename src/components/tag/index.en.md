@@ -19,3 +19,4 @@
 | --background-color | Background color of the tag                 | If `fill=solid` , default value is the color of the `color` prop. If `fill=outline`, default value is `#ffffff`. | -                         |
 | --border-color     | Border color of the tag                     | Color of the `color` prop.                                                                                       | -                         |
 | --border-radius    | Border radius of the tag when `round=false` | `2px`                                                                                                            | `--adm-tag-border-radius` |
+| --line-height      | text line height of the tag                 | `14px`                                                                                                           | -                         |

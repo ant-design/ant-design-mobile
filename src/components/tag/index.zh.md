@@ -19,3 +19,4 @@
 | --background-color | 背景颜色                   | 当 `fill=solid` 时，默认值为 `color` 属性对应的颜色；当 `fill=outline` 时，默认值为 `#ffffff` | -                         |
 | --border-color     | 边框颜色                   | `color` 属性对应的颜色                                                                        | -                         |
 | --border-radius    | `round=false` 时的圆角大小 | `2px`                                                                                         | `--adm-tag-border-radius` |
+| --line-height      | 文字行高                   | `14px`                                                                                        | -                         |
