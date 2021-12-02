@@ -86,6 +86,14 @@ export const CascaderView: FC<CascaderViewProps> = p => {
     setTabActiveKey(levels.length - 1)
   }, [value])
 
+  const onItemSelect = (selectValue: CascaderValue, depth: number) => {
+    const next = value.slice(0, depth)
+    if (selectValue !== undefined) {
+      next[depth] = selectValue
+    }
+    setValue(next)
+  }
+
   return withNativeProps(
     props,
     <div className={classPrefix}>
@@ -109,12 +117,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
             >
               <CheckList
                 value={[value[index]]}
-                onChange={selectValue => {
-                  const v = selectValue[0]
-                  const next = value.slice(0, index)
-                  next[index] = v
-                  setValue(next)
-                }}
+                onChange={selectValue => onItemSelect(selectValue[0], index)}
                 className={`${classPrefix}-content`}
               >
                 {level.options.map(option => {
