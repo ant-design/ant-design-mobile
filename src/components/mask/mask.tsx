@@ -65,7 +65,6 @@ export const Mask: React.FC<MaskProps> = p => {
   const [active, setActive] = useState(props.visible)
 
   const unmountedRef = useUnmountedRef()
-
   const { opacity } = useSpring({
     opacity: props.visible ? 1 : 0,
     config: {
@@ -79,13 +78,12 @@ export const Mask: React.FC<MaskProps> = p => {
       setActive(true)
     },
     onRest: () => {
-      if (!unmountedRef.current) {
-        setActive(props.visible)
-        if (props.visible) {
-          props.afterShow?.()
-        } else {
-          props.afterClose?.()
-        }
+      if (unmountedRef.current) return
+      setActive(props.visible)
+      if (props.visible) {
+        props.afterShow?.()
+      } else {
+        props.afterClose?.()
       }
     },
   })

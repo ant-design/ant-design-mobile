@@ -1,6 +1,7 @@
 import React, { FC, ReactNode, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
+import { useUnmountedRef } from 'ahooks'
 import Mask from '../mask'
 import { Action, DialogActionButton } from './dialog-action-button'
 import Image from '../image'
@@ -48,6 +49,7 @@ const defaultProps = {
 export const Dialog: FC<DialogProps> = p => {
   const props = mergeProps(defaultProps, p)
 
+  const unmountedRef = useUnmountedRef()
   const style = useSpring({
     scale: props.visible ? 1 : 0.8,
     opacity: props.visible ? 1 : 0,
@@ -61,6 +63,7 @@ export const Dialog: FC<DialogProps> = p => {
       setActive(true)
     },
     onRest: () => {
+      if (unmountedRef.current) return
       setActive(props.visible)
       if (!props.visible) {
         props.afterClose?.()
