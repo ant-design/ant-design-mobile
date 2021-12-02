@@ -3,6 +3,9 @@ export const base = {
     confirm: 'Confirm',
     cancel: 'Cancel',
   },
+  Cascader: {
+    placeholder: 'Selecting',
+  },
   Dialog: {
     ok: 'OK',
   },

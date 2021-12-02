@@ -20,6 +20,7 @@ export const components = {
     '/components/water-mark',
   ],
   dataEntry: [
+    '/components/cascader',
     '/components/check-list',
     '/components/checkbox',
     '/components/form',
@@ -66,6 +67,7 @@ export const components = {
   experimental: [
     '/components/what-is-experimental',
     '/components/auto-center',
+    '/components/cascader-view',
     '/components/desense-text',
     '/components/dropdown',
     '/components/ellipsis',
