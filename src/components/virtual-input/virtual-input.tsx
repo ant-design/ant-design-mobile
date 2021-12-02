@@ -12,6 +12,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { NumberKeyboardProps } from '../number-keyboard'
 import { usePropsValue } from '../../utils/use-props-value'
 import classNames from 'classnames'
+import { CloseCircleFill } from 'antd-mobile-icons'
 
 const classPrefix = 'adm-virtual-input'
 
@@ -20,6 +21,8 @@ export type VirtualInputProps = {
   onBlur?: () => void
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
   keyboard?: ReactElement<NumberKeyboardProps>
+  clearable?: boolean
+  onClear?: () => void
 } & Pick<InputProps, 'value' | 'onChange' | 'placeholder' | 'disabled'> &
   NativeProps<
     | '--font-size'
@@ -45,6 +48,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const props = mergeProps(defaultProps, p)
     const [value, setValue] = usePropsValue(props)
     const rootRef = useRef<HTMLDivElement>(null)
+    const contentRef = useRef<HTMLDivElement>(null)
     const [keyboardVisible, setKeyboardVisible] = useState(false)
 
     useLayoutEffect(() => {
@@ -53,8 +57,10 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       if (document.activeElement !== root) {
         return
       }
-      root.scrollTo({
-        left: root.clientWidth,
+      const content = contentRef.current
+      if (!content) return
+      content.scrollTo({
+        left: content.clientWidth,
       })
     }, [value])
 
@@ -87,12 +93,23 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         onBlur={onBlur}
         onClick={props.onClick}
       >
-        <div className={`${classPrefix}-content`}>
+        <div className={`${classPrefix}-content`} ref={contentRef}>
           {value}
           <div className={`${classPrefix}-caret-container`}>
             <div className={`${classPrefix}-caret`} />
           </div>
         </div>
+        {props.clearable && !!value && (
+          <div
+            className={`${classPrefix}-clear`}
+            onClick={() => {
+              setValue('')
+              props.onClear?.()
+            }}
+          >
+            <CloseCircleFill />
+          </div>
+        )}
         {!value && (
           <div className={`${classPrefix}-placeholder`}>
             {props.placeholder}
