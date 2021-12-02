@@ -267,7 +267,7 @@ export const Swiper = forwardRef(
                           flagWidth
                         return `${finalPosition}%`
                       }),
-                      left: `-${index * 100}%`,
+                      [isVertical ? 'top' : 'left']: `-${index * 100}%`,
                     }}
                   >
                     {child}
