@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useImperativeHandle,
   useState,
+  ReactNode,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -19,9 +20,9 @@ const classPrefix = `adm-action-sheet`
 
 export type Action = {
   key: string | number
-  text: string
+  text: ReactNode
   disabled?: boolean
-  description?: string
+  description?: ReactNode
   danger?: boolean
   onClick?: () => void
 }
