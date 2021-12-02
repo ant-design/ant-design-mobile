@@ -102,9 +102,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         {props.clearable && !!value && (
           <div
             className={`${classPrefix}-clear`}
-            onMouseDown={e => {
-              e.preventDefault()
-            }}
             onClick={() => {
               setValue('')
               props.onClear?.()
