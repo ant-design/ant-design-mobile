@@ -1,10 +1,9 @@
 # ImageUploader
 
 <code src="./demos/demo1.tsx"></code>
+<code src="./demos/demo2.tsx"></code>
 
-# API
-
-## ImageUploader
+### Props
 
 | Name          | Description                                                                                                                                                              | Type                                                      | Default   |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | --------- |
@@ -25,14 +24,15 @@
 | onDelete      | Triggered when the successfully uploaded image is deleted, if it returns false, it means that it is prevented from being deleted, and it supports the return of Promise. | `(file: FileItem) => boolean \| Promise<boolean> \| void` | -         |
 | children      | Custom upload button                                                                                                                                                     | `ReactNode`                                               | -         |
 
+### FileItem
+
+| Name | Description                         | Type               | Default         |
+| ---- | ----------------------------------- | ------------------ | --------------- |
+| key  | Unique identifier                   | `string \| number` | The array index |
+| url  | The resource address of the picture | `string`           | -               |
+
 ### CSS Variables
 
 | Name        | Description                         | Default |
 | ----------- | ----------------------------------- | ------- |
 | --cell-size | The size of image and upload button | `80px`  |
-
-## FileItem
-
-| Name | Description                         | Type     | Default |
-| ---- | ----------------------------------- | -------- | ------- |
-| url  | The resource address of the picture | `string` | -       |

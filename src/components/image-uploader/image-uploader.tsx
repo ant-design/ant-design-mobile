@@ -16,7 +16,8 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 export type TaskStatus = 'pending' | 'fail'
 
-export interface FileItem {
+export interface ImageUploadItem {
+  key?: string | number
   url: string
 }
 
@@ -28,9 +29,9 @@ type Task = {
 }
 
 export type ImageUploaderProps = {
-  defaultValue?: FileItem[]
-  value?: FileItem[]
-  onChange?: (fileList: FileItem[]) => void
+  defaultValue?: ImageUploadItem[]
+  value?: ImageUploadItem[]
+  onChange?: (fileList: ImageUploadItem[]) => void
   accept?: string
   multiple?: boolean
   maxCount?: number
@@ -41,8 +42,8 @@ export type ImageUploaderProps = {
   capture?: InputHTMLAttributes<unknown>['capture']
   onPreview?: (index: number) => void
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
-  upload: (file: File) => Promise<FileItem>
-  onDelete?: (file: FileItem) => boolean | Promise<boolean> | void
+  upload: (file: File) => Promise<ImageUploadItem>
+  onDelete?: (file: ImageUploadItem) => boolean | Promise<boolean> | void
 } & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
@@ -53,7 +54,7 @@ const defaultProps = {
   showUpload: true,
   multiple: false,
   maxCount: 0,
-  defaultValue: [] as FileItem[],
+  defaultValue: [] as ImageUploadItem[],
   accept: 'image/*',
 }
 
@@ -61,7 +62,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
   const updateValue = usePersistFn(
-    (updater: (prev: FileItem[]) => FileItem[]) => {
+    (updater: (prev: ImageUploadItem[]) => ImageUploadItem[]) => {
       setValue(updater(value))
     }
   )
@@ -173,7 +174,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
       <Space className={`${classPrefix}-space`} wrap>
         {value.map((fileItem, index) => (
           <PreviewItem
-            key={fileItem.url}
+            key={fileItem.key ?? index}
             url={fileItem.url}
             deletable={props.deletable}
             onClick={() => previewImage(index)}

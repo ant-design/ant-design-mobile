@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react'
 import { ImageUploader, Space, Toast, Dialog } from 'antd-mobile'
-import { DemoBlock, DemoDescription, sleep } from 'demos'
-import { FileItem } from 'antd-mobile/es/components/image-uploader'
-import { PictureOutline } from 'antd-mobile-icons'
+import { DemoBlock, DemoDescription } from 'demos'
+import { ImageUploadItem } from 'antd-mobile/es/components/image-uploader'
+import { demoSrc, mockUpload, mockUploadFail } from './utils'
 
 const Basic: FC = () => {
-  const [fileList, setFileList] = useState<FileItem[]>([
+  const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      url: demoSrc,
     },
   ])
 
@@ -21,9 +21,9 @@ const Basic: FC = () => {
 }
 
 const UploadStatus: FC = () => {
-  const [fileList, setFileList] = useState<FileItem[]>([
+  const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      url: demoSrc,
     },
   ])
 
@@ -37,9 +37,9 @@ const UploadStatus: FC = () => {
 }
 
 const LimitSize: FC = () => {
-  const [fileList, setFileList] = useState<FileItem[]>([
+  const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      url: demoSrc,
     },
   ])
 
@@ -65,9 +65,9 @@ const LimitSize: FC = () => {
 
 const LimitCount: FC = () => {
   const maxCount = 3
-  const [fileList, setFileList] = useState<FileItem[]>([
+  const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      url: demoSrc,
     },
   ])
 
@@ -87,9 +87,9 @@ const LimitCount: FC = () => {
 }
 
 const DeleteImage: FC = () => {
-  const [fileList, setFileList] = useState<FileItem[]>([
+  const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      url: demoSrc,
     },
   ])
 
@@ -104,50 +104,6 @@ const DeleteImage: FC = () => {
         })
       }}
     />
-  )
-}
-
-const CustomeSize: FC = () => {
-  const [fileList, setFileList] = useState<FileItem[]>([
-    {
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    },
-  ])
-
-  return (
-    <ImageUploader
-      style={{ '--cell-size': '90px' }}
-      value={fileList}
-      onChange={setFileList}
-      upload={mockUpload}
-    />
-  )
-}
-
-const CustomUploadButton: FC = () => {
-  const [fileList, setFileList] = useState<FileItem[]>([
-    {
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    },
-  ])
-
-  return (
-    <ImageUploader value={fileList} onChange={setFileList} upload={mockUpload}>
-      <div
-        style={{
-          width: 80,
-          height: 80,
-          borderRadius: 40,
-          backgroundColor: '#f5f5f5',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          color: '#999999',
-        }}
-      >
-        <PictureOutline style={{ fontSize: 32 }} />
-      </div>
-    </ImageUploader>
   )
 }
 
@@ -181,24 +137,6 @@ export default () => {
           <DemoDescription content='当用户删除图片时，进行确认，确认后可删除图片' />
         </Space>
       </DemoBlock>
-      <DemoBlock title='自定义大小'>
-        <CustomeSize />
-      </DemoBlock>
-      <DemoBlock title='自定义上传按钮'>
-        <CustomUploadButton />
-      </DemoBlock>
     </>
   )
-}
-
-async function mockUpload(file: File) {
-  await sleep(3000)
-  return {
-    url: URL.createObjectURL(file),
-  }
-}
-
-async function mockUploadFail() {
-  await sleep(3000)
-  throw new Error('Fail to upload')
 }
