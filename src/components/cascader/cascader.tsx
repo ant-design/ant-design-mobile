@@ -45,6 +45,7 @@ export const Cascader: FC<CascaderProps> = p => {
     {
       confirmText: locale.common.confirm,
       cancelText: locale.common.cancel,
+      placeholder: locale.Cascader.placeholder,
     },
     p
   )

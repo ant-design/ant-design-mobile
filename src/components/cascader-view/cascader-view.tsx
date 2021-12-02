@@ -6,6 +6,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { useCascaderValueExtend } from './use-cascader-value-extend'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-cascader-view`
 
@@ -32,12 +33,17 @@ export type CascaderViewProps = {
 
 const defaultProps = {
   defaultValue: [],
-  // TODO: i18n
-  placeholder: '请选择',
 }
 
 export const CascaderView: FC<CascaderViewProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const { locale } = useConfig()
+  const props = mergeProps(
+    defaultProps,
+    {
+      placeholder: locale.Cascader.placeholder,
+    },
+    p
+  )
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
