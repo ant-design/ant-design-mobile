@@ -86,8 +86,6 @@ export const CascaderView: FC<CascaderViewProps> = p => {
       activeKey={tabActiveKey.toString()}
       onChange={key => setTabActiveKey(parseInt(key))}
       stretch={false}
-      // TODO: 放到 less 文件中
-      style={{ '--title-font-size': '14px', '--content-padding': 'none' }}
       className={classPrefix}
     >
       {levels.map((level, index) => {
