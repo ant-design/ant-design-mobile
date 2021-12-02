@@ -31,7 +31,7 @@ type Task = {
 export type ImageUploaderProps = {
   defaultValue?: ImageUploadItem[]
   value?: ImageUploadItem[]
-  onChange?: (fileList: ImageUploadItem[]) => void
+  onChange?: (items: ImageUploadItem[]) => void
   accept?: string
   multiple?: boolean
   maxCount?: number
@@ -43,7 +43,7 @@ export type ImageUploaderProps = {
   onPreview?: (index: number) => void
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
   upload: (file: File) => Promise<ImageUploadItem>
-  onDelete?: (file: ImageUploadItem) => boolean | Promise<boolean> | void
+  onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
 } & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
