@@ -88,53 +88,55 @@ export const CascaderView: FC<CascaderViewProps> = p => {
 
   return withNativeProps(
     props,
-    <Tabs
-      activeKey={tabActiveKey.toString()}
-      onChange={key => setTabActiveKey(parseInt(key))}
-      stretch={false}
-      className={classPrefix}
-    >
-      {levels.map((level, index) => {
-        const selected = level.selected
-        return (
-          <Tabs.Tab
-            key={index}
-            title={
-              <div className={`${classPrefix}-header-title`}>
-                {selected ? selected.label : props.placeholder}
-              </div>
-            }
-            forceRender
-          >
-            <CheckList
-              value={[value[index]]}
-              onChange={selectValue => {
-                const v = selectValue[0]
-                const next = value.slice(0, index)
-                next[index] = v
-                setValue(next)
-              }}
-              className={`${classPrefix}-content`}
+    <div className={classPrefix}>
+      <Tabs
+        activeKey={tabActiveKey.toString()}
+        onChange={key => setTabActiveKey(parseInt(key))}
+        stretch={false}
+        className={`${classPrefix}-tabs`}
+      >
+        {levels.map((level, index) => {
+          const selected = level.selected
+          return (
+            <Tabs.Tab
+              key={index}
+              title={
+                <div className={`${classPrefix}-header-title`}>
+                  {selected ? selected.label : props.placeholder}
+                </div>
+              }
+              forceRender
             >
-              {level.options.map(option => {
-                const active = value[index] === option.value
-                return (
-                  <CheckList.Item
-                    value={option.value}
-                    key={option.value}
-                    disabled={option.disabled}
-                    className={classNames(`${classPrefix}-item`, {
-                      [`${classPrefix}-item-active`]: active,
-                    })}
-                  >
-                    {option.label}
-                  </CheckList.Item>
-                )
-              })}
-            </CheckList>
-          </Tabs.Tab>
-        )
-      })}
-    </Tabs>
+              <CheckList
+                value={[value[index]]}
+                onChange={selectValue => {
+                  const v = selectValue[0]
+                  const next = value.slice(0, index)
+                  next[index] = v
+                  setValue(next)
+                }}
+                className={`${classPrefix}-content`}
+              >
+                {level.options.map(option => {
+                  const active = value[index] === option.value
+                  return (
+                    <CheckList.Item
+                      value={option.value}
+                      key={option.value}
+                      disabled={option.disabled}
+                      className={classNames(`${classPrefix}-item`, {
+                        [`${classPrefix}-item-active`]: active,
+                      })}
+                    >
+                      {option.label}
+                    </CheckList.Item>
+                  )
+                })}
+              </CheckList>
+            </Tabs.Tab>
+          )
+        })}
+      </Tabs>
+    </div>
   )
 }
