@@ -55,17 +55,20 @@ export const DatePicker: FC<DatePickerProps> = p => {
     onChange: props.onConfirm,
   })
 
-  const pickerValue = useMemo(() => convertDateToStringArray(value), [value])
+  const pickerValue = useMemo(
+    () => convertDateToStringArray(value, props.precision),
+    [value, props.precision]
+  )
 
   const onConfirm = useCallback(
     (val: string[]) => {
-      setValue(convertStringArrayToDate(val))
+      setValue(convertStringArrayToDate(val, props.precision))
     },
-    [setValue]
+    [setValue, props.precision]
   )
 
   const onSelect = usePersistFn((val: string[]) => {
-    const date = convertStringArrayToDate(val)
+    const date = convertStringArrayToDate(val, props.precision)
     if (date) {
       props.onSelect?.(date)
     }
@@ -104,7 +107,10 @@ export const DatePicker: FC<DatePickerProps> = p => {
     >
       {items =>
         props.children?.(
-          convertStringArrayToDate(items.map(item => item?.value))
+          convertStringArrayToDate(
+            items.map(item => item?.value),
+            props.precision
+          )
         )
       }
     </Picker>

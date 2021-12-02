@@ -67,6 +67,31 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     return keyList
   }, [customKey, confirmText, randomOrder, randomOrder && visible])
 
+  const timeoutRef = useRef(-1)
+  const intervalRef = useRef(-1)
+
+  const onStart = () => {
+    if (!onDelete) return
+
+    timeoutRef.current = window.setTimeout(() => {
+      onDelete()
+      intervalRef.current = window.setInterval(onDelete, 150)
+    }, 300)
+  }
+  const onEnd = () => {
+
+    clearTimeout(timeoutRef.current)
+    clearInterval(intervalRef.current)
+  }
+
+  const backSpaceEvents = {
+    onMouseDown: onStart,
+    onTouchStart: onStart,
+    onMouseUp: onEnd,
+    onMouseLeave: onEnd,
+    onTouchEnd: onEnd,
+  }
+
   // 点击键盘按键
   const onKeyPress = (key: string) => {
     switch (key) {
@@ -125,6 +150,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
         key={key}
         className={className}
         onClick={() => key && onKeyPress(key)}
+        {...(key === 'BACKSPACE' ? backSpaceEvents : {})}
         title={key}
         role='button'
       >
@@ -166,6 +192,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
                 <div
                   className={`${classPrefix}-key extra-key bs-key`}
                   onClick={() => onKeyPress('BACKSPACE')}
+                  {...backSpaceEvents}
                   title='BACKSPACE'
                   role='button'
                 >
