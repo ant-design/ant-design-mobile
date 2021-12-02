@@ -81,11 +81,11 @@ export const Mask: React.FC<MaskProps> = p => {
     onRest: () => {
       if (!unmountedRef.current) {
         setActive(props.visible)
-      }
-      if (props.visible) {
-        props.afterShow?.()
-      } else {
-        props.afterClose?.()
+        if (props.visible) {
+          props.afterShow?.()
+        } else {
+          props.afterClose?.()
+        }
       }
     },
   })
