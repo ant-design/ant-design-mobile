@@ -20,6 +20,9 @@
 
 ## CSS Variables
 
-| Name            | Description  | Default                    |
-| --------------- | ------------ | -------------------------- |
-| --checked-color | filled color | `var(--adm-color-primary)` |
+| Name            | Description    | Default                    |
+| --------------- | -------------- | -------------------------- |
+| --checked-color | filled color   | `var(--adm-color-primary)` |
+| --size          | Size of switch | `30px`                     |
+| --border-width  | Border width   | `1px`                      |
+| --border-color  | Border color   | `#e5e5e5`                  |

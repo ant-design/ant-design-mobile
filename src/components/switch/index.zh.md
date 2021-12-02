@@ -23,3 +23,6 @@
 | 属性            | 说明     | 默认值                     |
 | --------------- | -------- | -------------------------- |
 | --checked-color | 填充颜色 | `var(--adm-color-primary)` |
+| --size          | 开关大小 | `30px`                     |
+| --border-width  | 边框宽度 | `1px`                      |
+| --border-color  | 边框颜色 | `#e5e5e5`                  |

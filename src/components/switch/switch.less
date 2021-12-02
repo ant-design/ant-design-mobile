@@ -1,9 +1,5 @@
 @class-prefix-switch: ~'adm-switch';
 
-@switch-width: 51px;
-@switch-height: 31px;
-@switch-border: 2px;
-
 @keyframes loading-rotate {
   100% {
     transform: rotate(1turn);
@@ -12,55 +8,37 @@
 
 .@{class-prefix-switch} {
   --checked-color: var(--adm-color-primary);
+  --size: 30px;
+  --border-width: 1px;
+  --border-color: #e5e5e5;
+
   display: inline-block;
-  vertical-align: middle;
-  box-sizing: border-box;
+  font-size: var(--size);
+  width: 2em;
+  height: 1em;
+  border: var(--border-width) var(--border-color) solid;
+  border-radius: 1em;
+  box-sizing: content-box;
   position: relative;
-  align-self: center;
   cursor: pointer;
+  background-color: var(--adm-color-white);
 
   input {
     display: none;
-  }
-
-  &-checkbox {
-    min-width: @switch-width;
-    height: @switch-height;
-    box-sizing: border-box;
-    border-radius: 31px;
-    background: #e5e5e5;
-    z-index: 0;
-    overflow: hidden;
-    line-height: @switch-height;
-
-    &:before {
-      content: ' ';
-      position: absolute;
-      left: @switch-border;
-      top: @switch-border;
-      width: calc(100% - 2 * @switch-border);
-      height: @switch-height - 2 * @switch-border;
-      border-radius: @switch-height - 2 * @switch-border;
-      box-sizing: border-box;
-      background: #fff;
-      z-index: 1;
-      transition: all 200ms;
-      transform: scale(1);
-    }
   }
 
   &-handle {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: @switch-height - 2 * @switch-border;
-    height: @switch-height - 2 * @switch-border;
-    border-radius: @switch-height - 2 * @switch-border;
-    background: #fff;
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    background: var(--adm-color-white);
     position: absolute;
     z-index: 2;
-    top: @switch-border;
-    left: @switch-border;
+    top: 0;
+    left: 0;
     transition: all 200ms;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 11.5px 0 rgba(0, 0, 0, 0.08),
       -1px 2px 2px 0 rgba(0, 0, 0, 0.1);
@@ -69,25 +47,26 @@
   &-inner {
     position: relative;
     z-index: 1;
-    margin: 0 10px 0 @switch-height - @switch-border + 5px;
+    margin: 0 10px 0 calc(1em + 5px);
     color: var(--adm-color-weak);
     transition: margin 200ms;
+    line-height: 1em;
+
+    &-wrap {
+      font-size: 0.5em;
+    }
   }
 
   /* 选中状态 */
   &.@{class-prefix-switch}-checked {
-    .@{class-prefix-switch}-checkbox {
-      background: var(--checked-color);
-      &:before {
-        transform: scale(0);
-      }
-    }
+    background-color: var(--checked-color);
+    border: var(--border-width) transparent solid;
     .@{class-prefix-switch}-handle {
-      left: calc(100% - (@switch-height - @switch-border));
+      left: 1em;
     }
 
     .@{class-prefix-switch}-inner {
-      margin: 0 @switch-height - @switch-border + 5px 0 10px;
+      margin: 0 calc(1em + 5px) 0 10px;
       color: var(--adm-color-white);
     }
   }
@@ -100,8 +79,8 @@
 
   /* loading图标 */
   &-icon {
-    width: 14px;
-    height: 14px;
+    width: 0.5em;
+    height: 0.5em;
     animation: loading-rotate 1s linear infinite;
   }
 }

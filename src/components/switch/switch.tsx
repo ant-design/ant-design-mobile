@@ -16,7 +16,9 @@ export type SwitchProps = {
   onChange?: (checked: boolean) => void
   checkedText?: ReactNode
   uncheckedText?: ReactNode
-} & NativeProps<'--checked-color'>
+} & NativeProps<
+  '--checked-color' | '--size' | '--border-width' | '--border-color'
+>
 
 const defaultProps = {
   defaultChecked: false,
@@ -62,17 +64,17 @@ export const Switch: FC<SwitchProps> = p => {
         [`${classPrefix}-disabled`]: disabled || changing,
       })}
     >
-      <div className={`${classPrefix}-checkbox`}>
-        <div className={`${classPrefix}-handle`}>
-          {(props.loading || changing) && (
-            <img
-              src={SpinIcon}
-              className={`${classPrefix}-icon`}
-              alt='switch-handle'
-            />
-          )}
-        </div>
-        <div className={`${classPrefix}-inner`}>
+      <div className={`${classPrefix}-handle`}>
+        {(props.loading || changing) && (
+          <img
+            src={SpinIcon}
+            className={`${classPrefix}-icon`}
+            alt='switch-handle'
+          />
+        )}
+      </div>
+      <div className={`${classPrefix}-inner`}>
+        <div className={`${classPrefix}-inner-wrap`}>
           {checked ? props.checkedText : props.uncheckedText}
         </div>
       </div>
