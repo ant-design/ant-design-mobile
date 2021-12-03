@@ -15,10 +15,11 @@
 
 ### Form
 
-| 属性        | 说明             | 类型                         | 默认值       |
-| ----------- | ---------------- | ---------------------------- | ------------ |
-| hasFeedback | 是否展示错误反馈 | `boolean`                    | `true`       |
-| layout      | 布局模式         | `'vertical' \| 'horizontal'` | `'vertical'` |
+| 属性        | 说明                   | 类型                         | 默认值       |
+| ----------- | ---------------------- | ---------------------------- | ------------ |
+| hasFeedback | 是否展示错误反馈       | `boolean`                    | `true`       |
+| layout      | 布局模式               | `'vertical' \| 'horizontal'` | `'vertical'` |
+| mode        | 支持默认和卡片两种模式 | `'default' \| 'card'`        | `'default'`  |
 
 其他参数参见 https://www.npmjs.com/package/rc-field-form
 
