@@ -14,6 +14,7 @@ export type ListProps = {
   | '--border-inner'
   | '--border-top'
   | '--border-bottom'
+  | '--padding-left'
 >
 
 const defaultProps = {

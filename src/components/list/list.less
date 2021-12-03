@@ -5,6 +5,8 @@
   --border-inner: solid 1px var(--adm-border-color);
   --border-top: solid 1px var(--adm-border-color);
   --border-bottom: solid 1px var(--adm-border-color);
+  --padding-left: 12px;
+
   background-color: #ffffff;
   overflow: hidden;
   font-size: 17px;
@@ -23,7 +25,7 @@
 
 .adm-list-item {
   display: block;
-  padding-left: 12px;
+  padding-left: var(--padding-left);
   &-title,
   &-description {
     color: var(--adm-color-weak);

@@ -36,6 +36,7 @@
 | --border-inner            | 列表项底部的边框样式                                                                | `solid 1px var(--adm-border-color)` |
 | --border-top              | 列表容器顶部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
 | --border-bottom           | 列表容器底部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
+| --padding-left            | 列表左侧的 padding                                                                  | `12px`                              |
 
 ### List.Item
 
