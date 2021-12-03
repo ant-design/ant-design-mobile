@@ -24,10 +24,10 @@
 | Name        | Description                   | Type               | Default |
 | ----------- | ----------------------------- | ------------------ | ------- |
 | key         | The unique mark               | `string \| number` | -       |
-| text        | Title                         | `string`           | -       |
+| text        | Title                         | `ReactNode`        | -       |
 | disabled    | Whether disabled or not       | `boolean`          | `false` |
 | danger      | Whether dangerous or not      | `boolean`          | `false` |
-| description | The description of the action | `string`           | -       |
+| description | The description of the action | `ReactNode`        | -       |
 | onClick     | Triggered on click            | `() => void`       | -       |
 
 ### Imperative
