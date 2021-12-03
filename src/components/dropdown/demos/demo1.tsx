@@ -1,8 +1,8 @@
 import React, { useRef } from 'react'
 import { Dropdown, Radio, Space } from 'antd-mobile'
-import { DemoBlock } from 'demos'
-import { DropdownRef } from '../dropdown'
 import { CloseOutline } from 'antd-mobile-icons'
+import { DropdownRef } from 'antd-mobile/es/components/dropdown'
+import { DemoBlock } from 'demos'
 
 export default () => {
   const ref = useRef<DropdownRef>(null)
