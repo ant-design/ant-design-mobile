@@ -27,6 +27,7 @@ export default () => {
           direction='vertical'
           trackOffset={10}
           slideSize={80}
+          stuckAtBoundary={false}
           style={{ '--height': '200px' }}
         >
           {verticalItems}

@@ -49,11 +49,11 @@ const defaultProps = {
   allowTouchMove: true,
   autoplay: false,
   autoplayInterval: 3000,
-  loop: true,
+  loop: false,
   direction: 'horizontal',
   slideSize: 100,
   trackOffset: 0,
-  stuckAtBoundary: false,
+  stuckAtBoundary: true,
   rubberband: true,
 }
 
@@ -113,7 +113,7 @@ export const Swiper = forwardRef(
         let min = 0
         let max = count - 1
         if (props.stuckAtBoundary) {
-          min += (1 - slideRatio - offsetRatio) / slideRatio
+          min += offsetRatio / slideRatio
           max -= (1 - slideRatio - offsetRatio) / slideRatio
         }
         return bound(current, min, max)
