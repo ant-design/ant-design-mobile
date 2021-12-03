@@ -12,7 +12,7 @@ export default () => {
       <DemoBlock title='默认提供 5 种通用标签颜色'>
         <Space>
           <Tag color='default'>Default</Tag>
-          <Tag color='primary'>Primary</Tag>
+          <Tag color='primary'>测试</Tag>
           <Tag color='success'>Success</Tag>
           <Tag color='warning'>Warning</Tag>
           <Tag color='danger'>Danger</Tag>
