@@ -22,6 +22,7 @@ export default () => {
           {verticalItems}
         </Swiper>
       </DemoBlock>
+
       <DemoBlock title='竖向居中展示'>
         <Swiper
           direction='vertical'

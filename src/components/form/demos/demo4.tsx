@@ -3,59 +3,9 @@ import { Form, Input, Button, Picker, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { DownOutline } from 'antd-mobile-icons'
 
-const columns = [['86', '01', '02', '03']]
-
 interface MobileValue {
   preValue: string
   realValue: string
-}
-
-interface MobileFieldProps {
-  value?: MobileValue
-  onChange?: (value: MobileValue) => void
-}
-
-const MobileField: FC<MobileFieldProps> = ({
-  value = { preValue: '86', realValue: '' },
-  onChange,
-}) => {
-  const [visible, setVisible] = useState(false)
-
-  const triggerValue = (changedValue: Partial<MobileValue>) => {
-    onChange?.({ ...value, ...changedValue })
-  }
-
-  const onRealValueChange = (value: string) => {
-    triggerValue({ realValue: value })
-  }
-
-  const onPreValueChange = (value: string[]) => {
-    triggerValue({ preValue: value[0] })
-  }
-  return (
-    <>
-      <Space align='center'>
-        <Space align='center' onClick={() => setVisible(true)}>
-          <div>+{value.preValue}</div>
-          <DownOutline />
-        </Space>
-        <Input
-          placeholder='请输入手机号'
-          value={value.realValue}
-          onChange={onRealValueChange}
-        />
-      </Space>
-      <Picker
-        columns={columns}
-        visible={visible}
-        onClose={() => {
-          setVisible(false)
-        }}
-        value={[value.preValue]}
-        onConfirm={onPreValueChange}
-      />
-    </>
-  )
 }
 
 export default () => {
@@ -106,6 +56,56 @@ export default () => {
           </Form.Item>
         </Form>
       </DemoBlock>
+    </>
+  )
+}
+
+const columns = [['86', '01', '02', '03']]
+
+interface MobileFieldProps {
+  value?: MobileValue
+  onChange?: (value: MobileValue) => void
+}
+
+const MobileField: FC<MobileFieldProps> = ({
+  value = { preValue: '86', realValue: '' },
+  onChange,
+}) => {
+  const [visible, setVisible] = useState(false)
+
+  const triggerValue = (changedValue: Partial<MobileValue>) => {
+    onChange?.({ ...value, ...changedValue })
+  }
+
+  const onRealValueChange = (value: string) => {
+    triggerValue({ realValue: value })
+  }
+
+  const onPreValueChange = (value: string[]) => {
+    triggerValue({ preValue: value[0] })
+  }
+  return (
+    <>
+      <Space align='center'>
+        <Space align='center' onClick={() => setVisible(true)}>
+          <div>+{value.preValue}</div>
+          <DownOutline />
+        </Space>
+        <Input
+          placeholder='请输入手机号'
+          value={value.realValue}
+          onChange={onRealValueChange}
+        />
+      </Space>
+      <Picker
+        columns={columns}
+        visible={visible}
+        onClose={() => {
+          setVisible(false)
+        }}
+        value={[value.preValue]}
+        onConfirm={onPreValueChange}
+      />
     </>
   )
 }

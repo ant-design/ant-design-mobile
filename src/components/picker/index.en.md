@@ -4,7 +4,7 @@ The Picker series includes three components: [Picker](#picker), [CascadePicker](
 
 ## Picker
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### Picker API
 
@@ -42,7 +42,7 @@ In addition, the following attributes of [Popup](./popup) are supported: `getCon
 
 ## CascadePicker
 
-<code src="../cascade-picker/demos/index.tsx"></code>
+<code src="../cascade-picker/demos/demo1.tsx"></code>
 
 ### CascadePicker API
 
@@ -62,7 +62,7 @@ Other props are the same as `Picker`, but `columns` are not supported.
 
 ## DatePicker
 
-<code src="../date-picker/demos/index.tsx"></code>
+<code src="../date-picker/demos/demo1.tsx"></code>
 
 ### DatePicker API
 

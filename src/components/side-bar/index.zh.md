@@ -1,6 +1,6 @@
 # SideBar 侧边导航
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ## API
 

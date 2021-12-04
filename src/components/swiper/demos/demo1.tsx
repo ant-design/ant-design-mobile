@@ -28,12 +28,15 @@ export default () => {
       <DemoBlock title='基础用法'>
         <Swiper>{items}</Swiper>
       </DemoBlock>
+
       <DemoBlock title='自动播放'>
         <Swiper autoplay>{items}</Swiper>
       </DemoBlock>
+
       <DemoBlock title='循环'>
         <Swiper loop>{items}</Swiper>
       </DemoBlock>
+
       <DemoBlock title='手动控制'>
         <Space direction='vertical' block>
           <Swiper allowTouchMove={false} ref={ref} loop>
@@ -58,6 +61,7 @@ export default () => {
           <DemoDescription content='在禁用手势拖拽后，可以通过 Ref 进行手动翻页' />
         </Space>
       </DemoBlock>
+
       <DemoBlock title='自定义样式'>
         <Space direction='vertical' block>
           <Swiper

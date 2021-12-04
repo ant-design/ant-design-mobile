@@ -1,6 +1,6 @@
 # FloatingBubble
 
-<code src="./demos/demo.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 FloatingBubble is moveable in Y axis and is limited at the distance from the left or right side of the screen.
 
