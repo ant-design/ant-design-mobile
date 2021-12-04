@@ -1,5 +1,5 @@
 import React, { useState, ComponentType } from 'react'
-import { Grid, SearchBar, Selector, Toast } from 'antd-mobile'
+import { Grid, SearchBar, Selector, Space, Toast } from 'antd-mobile'
 import * as Icons from 'antd-mobile-icons'
 import { useDebounceEffect } from 'ahooks'
 import { useCopy } from 'dumi/theme'
@@ -113,7 +113,7 @@ export default () => {
 
   return (
     <div className={classPrefix}>
-      <div className={`${classPrefix}-header`}>
+      <Space wrap align='center' style={{ '--gap': '24px' }}>
         <Selector
           options={iconTypes}
           value={iconType}
@@ -133,7 +133,7 @@ export default () => {
           placeholder={nameDic.searchPlaceholder}
           className={`${classPrefix}-search`}
         />
-      </div>
+      </Space>
 
       {iconTypes.map(type => {
         const iconType_ = type.value as 'outline' | 'fill'
