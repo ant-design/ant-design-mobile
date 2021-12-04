@@ -23,5 +23,3 @@ Since the mainstream build tools automatically do Tree-Shaking, only the icons y
 ## Example
 
 <code src="./demo-single.tsx"></code>
-
-<!-- <code src="./demo-all.tsx"></code> -->
