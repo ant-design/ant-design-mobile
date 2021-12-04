@@ -4,7 +4,7 @@ Picker 系列一共包括了三个组件：[Picker](#picker)、[CascadePicker](#
 
 ## Picker
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### 属性
 
@@ -42,7 +42,7 @@ type PickerValueExtend = {
 
 ## CascadePicker
 
-<code src="../cascade-picker/demos/index.tsx"></code>
+<code src="../cascade-picker/demos/demo1.tsx"></code>
 
 ### 属性
 
@@ -62,7 +62,7 @@ type CascadePickerOption = {
 
 ## DatePicker
 
-<code src="../date-picker/demos/index.tsx"></code>
+<code src="../date-picker/demos/demo1.tsx"></code>
 
 ### 属性
 

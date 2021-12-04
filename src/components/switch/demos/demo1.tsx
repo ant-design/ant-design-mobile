@@ -12,6 +12,7 @@ export default () => {
       <DemoBlock title='基础用法'>
         <Switch />
       </DemoBlock>
+
       <DemoBlock title='受控组件'>
         <Switch
           checked={checked}
@@ -20,9 +21,11 @@ export default () => {
           }}
         />
       </DemoBlock>
+
       <DemoBlock title='有默认值'>
         <Switch defaultChecked />
       </DemoBlock>
+
       <DemoBlock title='文字和图标'>
         <Space wrap>
           <Switch uncheckedText='关' checkedText='开' />
@@ -33,6 +36,7 @@ export default () => {
           <Switch uncheckedText='0' checkedText='1' />
         </Space>
       </DemoBlock>
+
       <DemoBlock title='自定义样式'>
         <Switch defaultChecked style={{ '--checked-color': '#00b578' }} />
       </DemoBlock>

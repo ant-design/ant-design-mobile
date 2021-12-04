@@ -2,7 +2,7 @@
 
 H5 数字键盘，可以配合密码输入框组件或自定义的输入框组件使用
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### 属性
 

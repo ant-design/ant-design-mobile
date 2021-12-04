@@ -1,10 +1,12 @@
 import React, { FC, useState } from 'react'
 import { DemoBlock } from 'demos'
 import { ImageUploadItem } from 'antd-mobile/es/components/image-uploader'
-import { demoSrc, mockUpload } from './utils'
 import { ImageUploader } from 'antd-mobile'
 import { PictureOutline } from 'antd-mobile-icons'
 
+import { demoSrc, mockUpload } from './utils'
+
+// 自定义大小
 const CustomeSize: FC = () => {
   const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
@@ -22,6 +24,7 @@ const CustomeSize: FC = () => {
   )
 }
 
+// 自定义上传按钮
 const CustomUploadButton: FC = () => {
   const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
@@ -55,6 +58,7 @@ export default () => {
       <DemoBlock title='自定义大小'>
         <CustomeSize />
       </DemoBlock>
+
       <DemoBlock title='自定义上传按钮'>
         <CustomUploadButton />
       </DemoBlock>

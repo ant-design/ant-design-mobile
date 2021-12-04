@@ -29,6 +29,7 @@ export default () => {
           {items}
         </Swiper>
       </DemoBlock>
+
       <DemoBlock title='允许越过边界'>
         <Space direction='vertical' block>
           <Swiper stuckAtBoundary={false} slideSize={80} defaultIndex={3}>
@@ -37,11 +38,13 @@ export default () => {
           <DemoDescription content='允许最后一项越过边界' />
         </Space>
       </DemoBlock>
+
       <DemoBlock title='居中展示'>
         <Swiper slideSize={80} trackOffset={10} stuckAtBoundary={false}>
           {items}
         </Swiper>
       </DemoBlock>
+
       <DemoBlock title='循环居中展示'>
         <Swiper slideSize={70} trackOffset={15} loop stuckAtBoundary={false}>
           {items}

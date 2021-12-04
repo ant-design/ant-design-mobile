@@ -4,7 +4,7 @@ import { DemoBlock } from 'demos'
 
 export default () => {
   return (
-    <div>
+    <>
       <DemoBlock title='一列' padding={'0'}>
         <Dropdown>
           <Dropdown.Item key='sorter' title='排序'>
@@ -26,6 +26,7 @@ export default () => {
           </Dropdown.Item>
         </Dropdown>
       </DemoBlock>
+
       <DemoBlock title='两列' padding={'0'}>
         <Dropdown>
           <Dropdown.Item key='sorter' title='排序'>
@@ -52,6 +53,7 @@ export default () => {
           </Dropdown.Item>
         </Dropdown>
       </DemoBlock>
+
       <DemoBlock title='三列' padding={'0'}>
         <Dropdown>
           <Dropdown.Item key='sorter' title='排序'>
@@ -86,6 +88,7 @@ export default () => {
           </Dropdown.Item>
         </Dropdown>
       </DemoBlock>
+
       <DemoBlock title='点击下拉内容后自动隐藏' padding={'0'}>
         <Dropdown>
           <Dropdown.Item key='sorter' title='排序' closeOnContentClick>
@@ -112,6 +115,6 @@ export default () => {
           </Dropdown.Item>
         </Dropdown>
       </DemoBlock>
-    </div>
+    </>
   )
 }
