@@ -1,4 +1,9 @@
-// 注释的代码都是 icon 文档内才有的
+import React, { useState, ComponentType } from 'react'
+import { Grid, SearchBar, Selector, Toast } from 'antd-mobile'
+import * as Icons from 'antd-mobile-icons'
+import { useDebounceEffect } from 'ahooks'
+import { useCopy } from 'dumi/theme'
+import './demo-all.less'
 
 const classPrefix = 'adm-icon-doc'
 const nameDic = {
@@ -9,13 +14,6 @@ const nameDic = {
   searchPlaceholder: '搜索 Icon',
   copySucceeded: '复制成功',
 }
-
-import React, { useState, ComponentType, useEffect } from 'react'
-import { Grid, SearchBar, Selector, Toast } from 'antd-mobile'
-import * as Icons from 'antd-mobile-icons'
-import { useDebounceEffect } from 'ahooks'
-// import { useCopy } from 'dumi/theme'
-import './demo-all.less'
 
 const iconTypes = [
   {
@@ -76,19 +74,19 @@ export default () => {
     iconTypes.map(it => it.value)
   )
 
-  // const [copyCode] = useCopy()
-  // const handleIconClick = (item: IconItem) => {
-  //   if (copyType === 'name') {
-  //     copyCode(item.name)
-  //   } else {
-  //     copyCode(`<${item.name} />`)
-  //   }
-  //   Toast.show({
-  //     icon: <item.component />,
-  //     content: nameDic.copySucceeded,
-  //     duration: 1000,
-  //   })
-  // }
+  const [copyCode] = useCopy()
+  const handleIconClick = (item: IconItem) => {
+    if (copyType === 'name') {
+      copyCode(item.name)
+    } else {
+      copyCode(`<${item.name} />`)
+    }
+    Toast.show({
+      icon: <item.component />,
+      content: nameDic.copySucceeded,
+      duration: 1000,
+    })
+  }
 
   useDebounceEffect(
     () => {
@@ -115,7 +113,7 @@ export default () => {
 
   return (
     <div className={classPrefix}>
-      {/* <div className={`${classPrefix}-header`}>
+      <div className={`${classPrefix}-header`}>
         <Selector
           options={iconTypes}
           value={iconType}
@@ -125,7 +123,7 @@ export default () => {
         />
         <Selector
           options={copyTypes}
-          value={copyType}
+          value={[copyType]}
           onChange={(val: string[]) => setCopyType(val[0])}
           className={`${classPrefix}-copy-type-selector`}
         />
@@ -135,19 +133,10 @@ export default () => {
           placeholder={nameDic.searchPlaceholder}
           className={`${classPrefix}-search`}
         />
-      </div> */}
-
-      <div className={`${classPrefix}-header-mobile`}>
-        <SearchBar
-          value={searchValue}
-          onChange={val => setSearchValue(val)}
-          placeholder={nameDic.searchPlaceholder}
-          className={`${classPrefix}-search`}
-        />
       </div>
 
       {iconTypes.map(type => {
-        const iconType_ = type.value
+        const iconType_ = type.value as 'outline' | 'fill'
         if (iconType.includes(iconType_)) {
           return (
             <>
@@ -159,7 +148,7 @@ export default () => {
                   <Grid.Item
                     key={item.name}
                     className={`${classPrefix}-item`}
-                    // onClick={() => handleIconClick(item)}
+                    onClick={() => handleIconClick(item)}
                   >
                     <div className={`${classPrefix}-icon`}>
                       <item.component />
