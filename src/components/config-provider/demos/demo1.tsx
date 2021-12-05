@@ -12,6 +12,7 @@ export default () => {
           <ErrorBlock />
         </ConfigProvider>
       </DemoBlock>
+
       <DemoBlock title='英文'>
         <ConfigProvider locale={enUS}>
           <ErrorBlock />

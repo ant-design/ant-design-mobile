@@ -10,12 +10,15 @@ export default () => {
       <DemoBlock title='基础用法'>
         <SearchBar placeholder='请输入内容' />
       </DemoBlock>
+
       <DemoBlock title='带取消按钮的搜索框'>
         <SearchBar placeholder='请输入内容' showCancelButton />
       </DemoBlock>
+
       <DemoBlock title='取消按钮长显'>
         <SearchBar placeholder='请输入内容' showCancelButton={() => true} />
       </DemoBlock>
+
       <DemoBlock title='事件监听和 Ref'>
         <Space block direction='vertical'>
           <SearchBar
@@ -56,6 +59,7 @@ export default () => {
           </Space>
         </Space>
       </DemoBlock>
+
       <DemoBlock title='自定义样式'>
         <SearchBar
           placeholder='请输入内容'

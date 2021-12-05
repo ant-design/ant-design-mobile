@@ -1,6 +1,6 @@
 # Card
 
-<code src="./demos/index.tsx">
+<code src="./demos/demo1.tsx">
 
 ## API
 

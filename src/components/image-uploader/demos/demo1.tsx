@@ -2,8 +2,10 @@ import React, { FC, useState } from 'react'
 import { ImageUploader, Space, Toast, Dialog } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
 import { ImageUploadItem } from 'antd-mobile/es/components/image-uploader'
+
 import { demoSrc, mockUpload, mockUploadFail } from './utils'
 
+// 基础用法
 const Basic: FC = () => {
   const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
@@ -20,6 +22,7 @@ const Basic: FC = () => {
   )
 }
 
+// 上传状态
 const UploadStatus: FC = () => {
   const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
@@ -36,6 +39,7 @@ const UploadStatus: FC = () => {
   )
 }
 
+// 限制上传大小
 const LimitSize: FC = () => {
   const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
@@ -63,6 +67,7 @@ const LimitSize: FC = () => {
   )
 }
 
+// 限制图片数量
 const LimitCount: FC = () => {
   const maxCount = 3
   const [fileList, setFileList] = useState<ImageUploadItem[]>([
@@ -86,6 +91,7 @@ const LimitCount: FC = () => {
   )
 }
 
+// 删除图片确认
 const DeleteImage: FC = () => {
   const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
@@ -113,24 +119,28 @@ export default () => {
       <DemoBlock title='基础用法'>
         <Basic />
       </DemoBlock>
+
       <DemoBlock title='上传状态'>
         <Space direction='vertical'>
           <UploadStatus />
           <DemoDescription content='尝试上传几张图片，可以看到上传中和失败的效果' />
         </Space>
       </DemoBlock>
+
       <DemoBlock title='限制上传大小'>
         <Space direction='vertical'>
           <LimitSize />
           <DemoDescription content='当用户选择的文件超过 1M 时，跳过上传并提示用户' />
         </Space>
       </DemoBlock>
+
       <DemoBlock title='限制图片数量'>
         <Space direction='vertical'>
           <LimitCount />
           <DemoDescription content='限制用户最多上传 3 张图片，当达到最大数量时隐藏掉上传按钮' />
         </Space>
       </DemoBlock>
+
       <DemoBlock title='删除图片确认'>
         <Space direction='vertical'>
           <DeleteImage />

@@ -1,6 +1,6 @@
 # FloatingBubble 浮动气泡
 
-<code src="./demos/demo.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 距离屏幕左/右边距固定，可上下拖动，自定义点击操作，比如跳转新页面等
 

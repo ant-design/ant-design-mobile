@@ -1,6 +1,7 @@
-import { DemoBlock } from 'demos'
-import { Cascader, Button, Space, Toast } from 'antd-mobile'
 import React, { useState } from 'react'
+import { Cascader, Button, Space, Toast } from 'antd-mobile'
+import { DemoBlock } from 'demos'
+
 import { options, longOptions } from './data'
 
 // 基础用法

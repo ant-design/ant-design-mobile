@@ -9,9 +9,11 @@ export default () => {
       <DemoBlock title='配合列表使用' padding='0' border='none'>
         <WithList />
       </DemoBlock>
+
       <DemoBlock title='自定义内容' padding='0' border='none'>
         <CustomContent />
       </DemoBlock>
+
       <DemoBlock title='手动控制归位逻辑' padding='0' border='none'>
         <Manual />
       </DemoBlock>
@@ -19,6 +21,7 @@ export default () => {
   )
 }
 
+// 配合列表使用
 const WithList: FC = () => {
   const leftActions: Action[] = [
     {
@@ -60,6 +63,7 @@ const WithList: FC = () => {
   )
 }
 
+// 自定义内容
 const CustomContent: FC = () => {
   return (
     <SwipeAction
@@ -76,6 +80,7 @@ const CustomContent: FC = () => {
   )
 }
 
+// 手动控制归位逻辑
 const Manual: FC = () => {
   const ref = useRef<SwipeActionRef>(null)
   return (

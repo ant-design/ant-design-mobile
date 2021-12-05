@@ -3,7 +3,7 @@ import { Space, Switch } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 export default () => {
-  const beforeChange = (): Promise<any> => {
+  const beforeChange = (): Promise<void> => {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve()
@@ -19,9 +19,11 @@ export default () => {
           <Switch disabled defaultChecked />
         </Space>
       </DemoBlock>
+
       <DemoBlock title='加载状态'>
         <Switch loading />
       </DemoBlock>
+
       <DemoBlock title='异步'>
         <Space wrap>
           <Switch defaultChecked beforeChange={() => beforeChange()} />

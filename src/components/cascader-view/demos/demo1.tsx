@@ -1,6 +1,7 @@
-import { CascaderView } from 'antd-mobile'
 import React, { useState } from 'react'
+import { CascaderView } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+
 import { options, sameValueOptions } from '../../cascader/demos/data'
 
 export default () => {

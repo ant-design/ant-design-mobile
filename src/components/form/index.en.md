@@ -15,10 +15,11 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 
 ### Form
 
-| Name        | Description                    | Type                         | Default      |
-| ----------- | ------------------------------ | ---------------------------- | ------------ |
-| hasFeedback | Whether to show error feedback | `boolean`                    | `true`       |
-| layout      | Layout mode                    | `'vertical' \| 'horizontal'` | `'vertical'` |
+| Name        | Description                          | Type                         | Default      |
+| ----------- | ------------------------------------ | ---------------------------- | ------------ |
+| hasFeedback | Whether to show error feedback       | `boolean`                    | `true`       |
+| layout      | Layout mode                          | `'vertical' \| 'horizontal'` | `'vertical'` |
+| mode        | Support two modes: default and card. | `'default' \| 'card'`        | `'default'`  |
 
 See for other parameters https://www.npmjs.com/package/rc-field-form
 

@@ -1,6 +1,6 @@
 # CapsuleTabs 胶囊选项卡
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ## CapsuleTabs
 

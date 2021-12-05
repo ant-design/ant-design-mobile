@@ -6,7 +6,7 @@ The PickerView series includes three components: [PickerView](#pickerview), [Cas
 
 PickerView is the content area of [Picker](./picker/#picker).
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### Props
 
@@ -29,7 +29,7 @@ For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `Pick
 
 CascadePickerView is the content area of [CascadePicker](./picker/#cascadepicker).
 
-<code src="../cascade-picker-view/demos/index.tsx"></code>
+<code src="../cascade-picker-view/demos/demo1.tsx"></code>
 
 ### Props
 
@@ -51,7 +51,7 @@ Other props are the same as [PickerView](#pickerview), but `columns` are not sup
 
 DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 
-<code src="../date-picker-view/demos/index.tsx"></code>
+<code src="../date-picker-view/demos/demo1.tsx"></code>
 
 ### Props
 

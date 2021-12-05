@@ -16,6 +16,10 @@ import { AntOutline } from 'antd-mobile-icons'
 
 Since the mainstream build tools automatically do Tree-Shaking, only the icons you use will be packaged in, so you don't have to worry about package size.
 
-<code src="./demo-single.tsx"></code>
+## Icon List
 
-<code src="./demo-all.tsx"></code>
+<code src="./demo-all.tsx" inline="true"></code>
+
+## Example
+
+<code src="./demo-single.tsx"></code>
