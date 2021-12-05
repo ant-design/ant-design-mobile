@@ -140,13 +140,6 @@ const Dropdown = forwardRef<
                 active={isActive}
                 forceRender={item.props.forceRender}
                 destroyOnClose={item.props.destroyOnClose}
-                onClick={
-                  item.props.closeOnContentClick
-                    ? () => {
-                        changeActive(null)
-                      }
-                    : undefined
-                }
               >
                 {item.props.children}
               </ItemChildrenWrap>

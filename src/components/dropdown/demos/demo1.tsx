@@ -1,11 +1,8 @@
-import React, { useRef } from 'react'
-import { Button, Dropdown, Radio, Space } from 'antd-mobile'
-import { DropdownRef } from 'antd-mobile/es/components/dropdown'
+import React from 'react'
+import { Dropdown, Radio, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 export default () => {
-  const ref = useRef<DropdownRef>(null)
-
   return (
     <>
       <DemoBlock title='一列' padding={'0'}>
@@ -87,61 +84,6 @@ export default () => {
               <br />
               更多筛选内容
               <br />
-            </div>
-          </Dropdown.Item>
-        </Dropdown>
-      </DemoBlock>
-
-      <DemoBlock title='点击下拉内容后自动隐藏' padding={'0'}>
-        <Dropdown>
-          <Dropdown.Item key='sorter' title='排序' closeOnContentClick>
-            <div style={{ padding: 12 }}>
-              排序内容
-              <br />
-              排序内容
-              <br />
-              排序内容
-              <br />
-              排序内容
-              <br />
-            </div>
-          </Dropdown.Item>
-          <Dropdown.Item key='bizop' title='商机筛选' closeOnContentClick>
-            <div style={{ padding: 12 }}>
-              商机筛选内容
-              <br />
-              商机筛选内容
-              <br />
-              商机筛选内容
-              <br />
-            </div>
-          </Dropdown.Item>
-        </Dropdown>
-      </DemoBlock>
-
-      <DemoBlock title='点击内部按钮隐藏' padding={'0'}>
-        <Dropdown ref={ref}>
-          <Dropdown.Item key='sorter' title='排序'>
-            <div style={{ padding: 12 }}>
-              排序内容
-              <br />
-              排序内容
-              <br />
-              排序内容
-              <br />
-              排序内容
-              <br />
-            </div>
-            <div style={{ padding: '0 12px 12px' }}>
-              <Button
-                color='primary'
-                block
-                onClick={() => {
-                  ref.current?.close()
-                }}
-              >
-                确定
-              </Button>
             </div>
           </Dropdown.Item>
         </Dropdown>
