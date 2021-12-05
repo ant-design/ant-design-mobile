@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
-import { Dropdown, Radio, Space } from 'antd-mobile'
-import { CloseOutline } from 'antd-mobile-icons'
+import { Button, Dropdown, Radio, Space } from 'antd-mobile'
 import { DropdownRef } from 'antd-mobile/es/components/dropdown'
 import { DemoBlock } from 'demos'
 
@@ -119,24 +118,26 @@ export default () => {
       <DemoBlock title='点击内部按钮隐藏' padding={'0'}>
         <Dropdown ref={ref}>
           <Dropdown.Item key='sorter' title='排序'>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <div style={{ padding: 12 }}>
-                排序内容
-                <br />
-                排序内容
-                <br />
-                排序内容
-                <br />
-                排序内容
-                <br />
-              </div>
-              <div style={{ margin: 8 }}>
-                <CloseOutline
-                  onClick={() => {
-                    ref.current?.close()
-                  }}
-                />
-              </div>
+            <div style={{ padding: 12 }}>
+              排序内容
+              <br />
+              排序内容
+              <br />
+              排序内容
+              <br />
+              排序内容
+              <br />
+            </div>
+            <div style={{ padding: '0 12px 12px' }}>
+              <Button
+                color='primary'
+                block
+                onClick={() => {
+                  ref.current?.close()
+                }}
+              >
+                确定
+              </Button>
             </div>
           </Dropdown.Item>
         </Dropdown>
