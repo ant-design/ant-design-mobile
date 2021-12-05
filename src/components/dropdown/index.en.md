@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-# API
+### API
 
 | Name             | Description                        | Type                                 | Default |
 | ---------------- | ---------------------------------- | ------------------------------------ | ------- |
@@ -10,7 +10,13 @@
 | defaultActiveKey | The default active `Item` key      | `string \| null`                     | `null`  |
 | onChange         | Triggered when `activeKey` changes | `(activeKey: string \| null)=> void` | -       |
 
-## Dropdown.Item
+### Ref
+
+| 属性  | 说明               | 类型         |
+| ----- | ------------------ | ------------ |
+| close | Close the Dropdown | `() => void` |
+
+### Dropdown.Item
 
 | Name                | Description                                                  | Type        | Default |
 | ------------------- | ------------------------------------------------------------ | ----------- | ------- |
