@@ -1,6 +1,7 @@
 import React, {
   forwardRef,
   ReactElement,
+  useEffect,
   useImperativeHandle,
   useLayoutEffect,
   useRef,
@@ -49,9 +50,9 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const [value, setValue] = usePropsValue(props)
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
-    const [keyboardVisible, setKeyboardVisible] = useState(false)
+    const [hasFocus, setHasFocus] = useState(false)
 
-    useLayoutEffect(() => {
+    function scrollToEnd() {
       const root = rootRef.current
       if (!root) return
       if (document.activeElement !== root) {
@@ -62,7 +63,16 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       content.scrollTo({
         left: content.clientWidth,
       })
+    }
+
+    useLayoutEffect(() => {
+      scrollToEnd()
     }, [value])
+    useEffect(() => {
+      if (hasFocus) {
+        scrollToEnd()
+      }
+    }, [hasFocus])
 
     useImperativeHandle(ref, () => ({
       focus: () => {
@@ -74,7 +84,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     }))
 
     function onBlur() {
-      setKeyboardVisible(false)
+      setHasFocus(false)
       props.onBlur?.()
     }
 
@@ -87,7 +97,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         })}
         tabIndex={props.disabled ? undefined : 0}
         onFocus={() => {
-          setKeyboardVisible(true)
+          setHasFocus(true)
           props.onFocus?.()
         }}
         onBlur={onBlur}
@@ -96,10 +106,10 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         <div className={`${classPrefix}-content`} ref={contentRef}>
           {value}
           <div className={`${classPrefix}-caret-container`}>
-            <div className={`${classPrefix}-caret`} />
+            {hasFocus && <div className={`${classPrefix}-caret`} />}
           </div>
         </div>
-        {props.clearable && !!value && (
+        {props.clearable && !!value && hasFocus && (
           <div
             className={`${classPrefix}-clear`}
             onClick={() => {
@@ -123,7 +133,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             onDelete: () => {
               setValue(value.slice(0, -1))
             },
-            visible: keyboardVisible,
+            visible: hasFocus,
             onClose: onBlur,
           } as NumberKeyboardProps)}
       </div>
