@@ -295,6 +295,9 @@ export default {
   ],
   styles: [
     `
+    html {
+      touch-action: manipulation;
+    }
     #root .__dumi-default-mobile-demo-layout {
       padding: 0;
     }
