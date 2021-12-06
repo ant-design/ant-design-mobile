@@ -37,3 +37,24 @@ Please refer to the [migration guide](./migration).
 ### Which browsers are compatible?
 
 The current compatibility standards are iOS Safari >= 10 and Chrome >= 49.
+
+### How to avoid the 300ms delay of click?
+
+Add this into `head` element：
+
+```html
+<meta name="viewport" content="width=device-width">
+```
+
+Or add some global style:
+
+```css
+html {
+  touch-action: manipulation;
+}
+```
+
+For the detailed explanation, please refer to:
+
+- [300ms tap delay, gone away](https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away)
+- [More Responsive Tapping on iOS](https://webkit.org/blog/5610/more-responsive-tapping-on-ios/)

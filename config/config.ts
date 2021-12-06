@@ -167,7 +167,7 @@ export default {
         path: '/guide/migration',
       },
       {
-        title: 'FAQ',
+        title: '常见问题',
         path: '/zh/guide/faq',
       },
       {
