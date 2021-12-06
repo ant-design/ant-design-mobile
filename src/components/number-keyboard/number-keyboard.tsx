@@ -74,23 +74,15 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     props.onDelete?.()
   })
 
-  const onStart = () => {
+  const onBackspacePressStart = () => {
     timeoutRef.current = window.setTimeout(() => {
       onDelete()
       intervalRef.current = window.setInterval(onDelete, 150)
-    }, 300)
+    }, 700)
   }
-  const onEnd = () => {
+  const onBackspacePressEnd = () => {
     clearTimeout(timeoutRef.current)
     clearInterval(intervalRef.current)
-  }
-
-  const backSpaceEvents = {
-    onMouseDown: onStart,
-    onTouchStart: onStart,
-    onMouseUp: onEnd,
-    onMouseLeave: onEnd,
-    onTouchEnd: onEnd,
   }
 
   // 点击键盘按键
@@ -155,8 +147,20 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       <div
         key={key}
         className={className}
-        onTouchEnd={e => key && onKeyPress(e, key)}
-        onMouseUp={e => key && onKeyPress(e, key)}
+        onTouchStart={() => {
+          if (key === 'BACKSPACE') {
+            onBackspacePressStart()
+          }
+        }}
+        onTouchEnd={e => {
+          onKeyPress(e, key)
+          if (key === 'BACKSPACE') {
+            onBackspacePressEnd()
+          }
+        }}
+        onMouseUp={e => {
+          onKeyPress(e, key)
+        }}
         title={key}
         role='button'
       >
@@ -197,7 +201,13 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
               <div className={`${classPrefix}-confirm`}>
                 <div
                   className={`${classPrefix}-key extra-key bs-key`}
-                  onTouchEnd={e => onKeyPress(e, 'BACKSPACE')}
+                  onTouchStart={() => {
+                    onBackspacePressStart()
+                  }}
+                  onTouchEnd={e => {
+                    onKeyPress(e, 'BACKSPACE')
+                    onBackspacePressEnd()
+                  }}
                   onMouseUp={e => onKeyPress(e, 'BACKSPACE')}
                   title='BACKSPACE'
                   role='button'
