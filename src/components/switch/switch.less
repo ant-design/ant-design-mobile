@@ -14,7 +14,7 @@
 
   display: inline-block;
   font-size: var(--size);
-  width: 2em;
+  width: 1.8em;
   height: 1em;
   border: var(--border-width) var(--border-color) solid;
   border-radius: 1em;
@@ -47,7 +47,7 @@
   &-inner {
     position: relative;
     z-index: 1;
-    margin: 0 10px 0 calc(1em + 5px);
+    margin: 0 10px 0 calc(1em + 10px);
     color: var(--adm-color-weak);
     transition: margin 200ms;
     display: flex;
@@ -66,11 +66,11 @@
     background-color: var(--checked-color);
     border: var(--border-width) transparent solid;
     .@{class-prefix-switch}-handle {
-      left: 1em;
+      left: 0.8em;
     }
 
     .@{class-prefix-switch}-inner {
-      margin: 0 calc(1em + 5px) 0 10px;
+      margin: 0 calc(1em + 10px) 0 10px;
       color: var(--adm-color-white);
     }
   }
