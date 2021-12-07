@@ -83,6 +83,11 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       },
     }))
 
+    function onFocus() {
+      setHasFocus(true)
+      props.onFocus?.()
+    }
+
     function onBlur() {
       setHasFocus(false)
       props.onBlur?.()
@@ -96,10 +101,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           [`${classPrefix}-disabled`]: props.disabled,
         })}
         tabIndex={props.disabled ? undefined : 0}
-        onFocus={() => {
-          setHasFocus(true)
-          props.onFocus?.()
-        }}
+        onFocus={onFocus}
         onBlur={onBlur}
         onClick={props.onClick}
       >
@@ -134,7 +136,9 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
               setValue(value.slice(0, -1))
             },
             visible: hasFocus,
-            onClose: onBlur,
+            onClose: () => {
+              rootRef.current?.blur()
+            },
           } as NumberKeyboardProps)}
       </div>
     )
