@@ -4,13 +4,14 @@
 
 ### Props
 
-| Name        | Description                        | Type                                            | Default |
-| ----------- | ---------------------------------- | ----------------------------------------------- | ------- |
-| value       | The input value                    | `string`                                        | `''`    |
-| placeholder | The placeholder text               | `string`                                        | -       |
-| onFocus     | Triggered when element get focus   | `() => void`                                    | -       |
-| onBlur      | Triggered when element lose focus  | `() => void`                                    | -       |
-| onClick     | Triggered when element get clicked | `(e: React.MouseEvent<HTMLDivElement>) => void` | -       |
+| Name        | Description                                                                                           | Type                                            | Default |
+| ----------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------- |
+| value       | The input value                                                                                       | `string`                                        | `''`    |
+| placeholder | The placeholder text                                                                                  | `string`                                        | -       |
+| clearable   | Whether to enable the clear icon, the virtual input box will be cleared after clicking the clear icon | `boolean`                                       | `false` |
+| onFocus     | Triggered when element get focus                                                                      | `() => void`                                    | -       |
+| onBlur      | Triggered when element lose focus                                                                     | `() => void`                                    | -       |
+| onClick     | Triggered when element get clicked                                                                    | `(e: React.MouseEvent<HTMLDivElement>) => void` | -       |
 
 Strictly speaking, VirtualInput is not a form field component. It just displays the data.
 
