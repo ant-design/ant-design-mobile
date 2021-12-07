@@ -5,7 +5,7 @@ import isoWeek from 'dayjs/plugin/isoWeek'
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
 import isLeapYear from 'dayjs/plugin/isLeapYear'
 import { PickerColumn } from '../picker'
-import type { Filter } from './date-picker-utils'
+import type { DatePickerFilter } from './date-picker-utils'
 
 dayjs.extend(isoWeek)
 dayjs.extend(isoWeeksInYear)
@@ -29,7 +29,7 @@ export function generateDatePickerColumns(
   max: Date,
   precision: WeekPrecision,
   renderLabel: (type: WeekPrecision, data: number) => ReactNode,
-  filter: Filter | undefined
+  filter: DatePickerFilter | undefined
 ) {
   const ret: PickerColumn[] = []
 
@@ -100,7 +100,7 @@ const generateColumn = (
   to: number,
   type: WeekPrecision,
   selected: string[],
-  filter: Filter | undefined
+  filter: DatePickerFilter | undefined
 ) => {
   const column: number[] = []
   if (filter && filter[type] && typeof filter[type] === 'function') {
