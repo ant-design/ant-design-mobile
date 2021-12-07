@@ -6,6 +6,10 @@ import * as weekUtils from './date-picker-week-utils'
 
 export type Precision = DatePrecision | WeekPrecision
 
+export type DatePickerFilter = Partial<
+  Record<Precision, (val: number, date: Date) => boolean>
+>
+
 export const convertDateToStringArray = (
   date: Date | undefined | null,
   precision: Precision
@@ -33,7 +37,8 @@ export const generateDatePickerColumns = (
   min: Date,
   max: Date,
   precision: Precision,
-  renderLabel: (type: Precision, data: number) => ReactNode
+  renderLabel: (type: Precision, data: number) => ReactNode,
+  filter: DatePickerFilter | undefined
 ) => {
   if (precision.startsWith('week')) {
     return weekUtils.generateDatePickerColumns(
@@ -41,7 +46,8 @@ export const generateDatePickerColumns = (
       min,
       max,
       precision as WeekPrecision,
-      renderLabel
+      renderLabel,
+      filter
     )
   } else {
     return dateUtils.generateDatePickerColumns(
@@ -49,7 +55,8 @@ export const generateDatePickerColumns = (
       min,
       max,
       precision as DatePrecision,
-      renderLabel
+      renderLabel,
+      filter
     )
   }
 }

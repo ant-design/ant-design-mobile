@@ -4,8 +4,8 @@ import dayjs from 'dayjs'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
 import isLeapYear from 'dayjs/plugin/isLeapYear'
-import { generateIntArray } from '../../utils/generate-int-array'
 import { PickerColumn } from '../picker'
+import type { Filter } from './date-picker-utils'
 
 dayjs.extend(isoWeek)
 dayjs.extend(isoWeeksInYear)
@@ -28,7 +28,8 @@ export function generateDatePickerColumns(
   min: Date,
   max: Date,
   precision: WeekPrecision,
-  renderLabel: (type: WeekPrecision, data: number) => ReactNode
+  renderLabel: (type: WeekPrecision, data: number) => ReactNode,
+  filter: Filter | undefined
 ) {
   const ret: PickerColumn[] = []
 
@@ -67,7 +68,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.week) {
     const lower = isInMinYear ? minWeek : 1
     const upper = isInMaxYear ? maxWeek : selectedYearWeeks
-    const weeks = generateIntArray(lower, upper)
+    const weeks = generateColumn(lower, upper, 'week', selected, filter)
     ret.push(
       weeks.map(v => {
         return {
@@ -80,7 +81,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord['week-day']) {
     const lower = isInMinWeek ? minWeekday : 1
     const upper = isInMaxWeek ? maxWeekday : 7
-    const weeks = generateIntArray(lower, upper)
+    const weeks = generateColumn(lower, upper, 'week-day', selected, filter)
     ret.push(
       weeks.map(v => {
         return {
@@ -92,6 +93,38 @@ export function generateDatePickerColumns(
   }
 
   return ret
+}
+
+const generateColumn = (
+  from: number,
+  to: number,
+  type: WeekPrecision,
+  selected: string[],
+  filter: Filter | undefined
+) => {
+  const column: number[] = []
+  if (filter && filter[type] && typeof filter[type] === 'function') {
+    // 存在 filter
+    for (let i = from; i <= to; i++) {
+      const date = [...selected]
+      date[precisionRankRecord[type]] = i.toString()
+      if (
+        (filter[type] as (val: number, date: Date) => boolean)(
+          i,
+          convertStringArrayToDate(date) as Date
+        )
+      ) {
+        column.push(i)
+      }
+    }
+    return column
+  } else {
+    // 没有 filter，返回完整的数组
+    for (let i = from; i <= to; i++) {
+      column.push(i)
+    }
+    return column
+  }
 }
 
 export function convertDateToStringArray(

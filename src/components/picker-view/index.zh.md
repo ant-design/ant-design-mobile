@@ -53,6 +53,8 @@ DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 
 <code src="../date-picker-view/demos/demo1.tsx"></code>
 
+<code src="../date-picker-view/demos/demo2.tsx" debug></code>
+
 ### 属性
 
 | 属性         | 说明                                                                                             | 类型                                                                                   | 默认值  |
@@ -64,6 +66,16 @@ DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 | max          | 最大值                                                                                           | `Date`                                                                                 | 十年后  |
 | precision    | 精度                                                                                             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
 | renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode`                                            | -       |
+| filter       | 过滤可供选择的时间                                                                               | `DatePickerFilter`                                                                     | -       |
+
+```typescript | pure
+type DatePickerFilter = {
+  year?: (val: number, date: Date) => boolean,
+  month?: (val: number, date: Date) => boolean,
+  day?: (val: number, date: Date) => boolean,
+  ...
+}
+```
 
 ### CSS 变量
 
