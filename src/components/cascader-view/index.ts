@@ -1,5 +1,5 @@
-import { CascaderView } from './cascader-view'
 import './cascader-view.less'
+import { CascaderView } from './cascader-view'
 
 export type {
   CascaderViewProps,
