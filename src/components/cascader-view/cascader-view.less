@@ -2,8 +2,10 @@
   --height: fit-content;
 
   &-tabs {
-    --title-font-size: 14px;
-    --content-padding: none;
+    &.adm-tabs {
+      --title-font-size: 14px;
+      --content-padding: none;
+    }
   }
 
   &-header {
@@ -16,9 +18,11 @@
   }
 
   &-content {
-    --border-inner: none;
-    --border-bottom: none;
-    --border-top: none;
+    &.adm-list {
+      --border-inner: none;
+      --border-bottom: none;
+      --border-top: none;
+    }
     height: var(--height);
     overflow-y: auto;
     padding-top: 4px;
