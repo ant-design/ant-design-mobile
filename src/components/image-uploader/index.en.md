@@ -31,6 +31,7 @@
 | key          | Unique identifier                             | `string \| number` | The array index |
 | url          | The resource address of the picture           | `string`           | -               |
 | thumbnailUrl | The resource address of the thumbnail picture | `string`           | `url`           |
+| extra        | Attach some extra data                        | `any`              | -               |
 
 ### CSS Variables
 

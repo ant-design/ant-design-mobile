@@ -20,6 +20,7 @@ export interface ImageUploadItem {
   key?: string | number
   url: string
   thumbnailUrl?: string
+  extra?: any
 }
 
 type Task = {
