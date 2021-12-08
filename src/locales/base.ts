@@ -33,6 +33,9 @@ export const base = {
   Mask: {
     name: 'Mask',
   },
+  Modal: {
+    ok: 'OK',
+  },
 }
 
 export type Locale = typeof base
