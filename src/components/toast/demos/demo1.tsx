@@ -51,7 +51,7 @@ export default () => {
               })
             }}
           >
-            动态更新
+            加载中
           </Button>
           <Button
             onClick={() => {
