@@ -176,17 +176,17 @@ export const Collapse: FC<CollapseProps> = props => {
                   })}
                   onClick={panel.props.disabled ? undefined : handleClick}
                   arrow={
-                    <div
-                      className={classNames(`${classPrefix}-arrow`, {
-                        [`${classPrefix}-arrow-active`]: active,
-                      })}
-                    >
-                      {panel.props.arrow ? (
-                        panel.props.arrow(active)
-                      ) : (
+                    panel.props.arrow ? (
+                      panel.props.arrow(active)
+                    ) : (
+                      <div
+                        className={classNames(`${classPrefix}-arrow`, {
+                          [`${classPrefix}-arrow-active`]: active,
+                        })}
+                      >
                         <RightOutline />
-                      )}
-                    </div>
+                      </div>
+                    )
                   }
                 >
                   {panel.props.title}
