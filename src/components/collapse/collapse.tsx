@@ -17,6 +17,7 @@ export type CollapsePanelProps = {
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
+  arrow?: (active: boolean) => React.ReactNode
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -180,7 +181,11 @@ export const Collapse: FC<CollapseProps> = props => {
                         [`${classPrefix}-arrow-active`]: active,
                       })}
                     >
-                      <RightOutline />
+                      {panel.props.arrow ? (
+                        panel.props.arrow(active)
+                      ) : (
+                        <RightOutline />
+                      )}
                     </div>
                   }
                 >

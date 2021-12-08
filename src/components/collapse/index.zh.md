@@ -23,3 +23,4 @@
 | forceRender    | 被隐藏时是否渲染 `DOM` 结构 | `boolean`                                                | `false` |
 | destroyOnClose | 不可见时卸载内容            | `boolean`                                                | `false` |
 | onClick        | 标题栏的点击事件            | `(event: React.MouseEvent<Element, MouseEvent>) => void` | -       |
+| `arrow`        | 自定义 arrow                | `(active: boolean) => React.ReactNode`                   | -       |
