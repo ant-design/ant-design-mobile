@@ -23,11 +23,12 @@
 
 ### 属性
 
-| 属性             | 说明                        | 类型        | 默认值  |
-| ---------------- | --------------------------- | ----------- | ------- |
-| key              | 唯一值                      | `string`    | -       |
-| title            | 标题                        | `ReactNode` | -       |
-| highlight        | 高亮                        | `boolean`   | `false` |
-| forceRender      | 被隐藏时是否渲染 `DOM` 结构 | `boolean`   | `false` |
-| destroyOnClose   | 不可见时卸载内容            | `boolean`   | `false` |
-| closeOnMaskClick | 是否在点击遮罩后自动隐藏    | `boolean`   | `true`  |
+| 属性             | 说明                        | 类型                                   | 默认值  |
+| ---------------- | --------------------------- | -------------------------------------- | ------- |
+| key              | 唯一值                      | `string`                               | -       |
+| title            | 标题                        | `ReactNode`                            | -       |
+| highlight        | 高亮                        | `boolean`                              | `false` |
+| forceRender      | 被隐藏时是否渲染 `DOM` 结构 | `boolean`                              | `false` |
+| destroyOnClose   | 不可见时卸载内容            | `boolean`                              | `false` |
+| closeOnMaskClick | 是否在点击遮罩后自动隐藏    | `boolean`                              | `true`  |
+| arrow            | 自定义 arrow                | `(active: boolean) => React.ReactNode` | -       |
