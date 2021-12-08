@@ -9,7 +9,6 @@ import React, {
   useState,
   forwardRef,
   useImperativeHandle,
-  FC,
 } from 'react'
 import Popup from '../popup'
 import Item, { ItemChildrenWrap } from './item'

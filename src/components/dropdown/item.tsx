@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import React, { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/use-should-render'
+import { DownFill } from 'antd-mobile-icons'
 
 const classPrefix = `adm-dropdown-item`
 
@@ -13,6 +14,7 @@ export type DropdownItemProps = {
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  arrow?: (active: boolean) => React.ReactNode
 } & NativeProps
 
 const Item: FC<DropdownItemProps> = props => {
@@ -25,7 +27,20 @@ const Item: FC<DropdownItemProps> = props => {
     props,
     <div className={cls} onClick={props.onClick}>
       <div className={`${classPrefix}-title`}>
-        <span>{props.title}</span>
+        <span className={`${classPrefix}-title-text`}>{props.title}</span>
+        <span className={`${classPrefix}-title-arrow`}>
+          {props.arrow ? (
+            props.arrow(!!props.active)
+          ) : (
+            <span
+              className={classNames({
+                [`${classPrefix}-title-arrow-active`]: props.active,
+              })}
+            >
+              <DownFill />
+            </span>
+          )}
+        </span>
       </div>
     </div>
   )
