@@ -23,4 +23,4 @@
 | forceRender    | Whether to render the `DOM` structure when hidden | `boolean`                                                | `false` |
 | destroyOnClose | Unmount content when not visible                  | `boolean`                                                | `false` |
 | onClick        | The click event of title bar                      | `(event: React.MouseEvent<Element, MouseEvent>) => void` | -       |
-| `arrow`        | Custom arrow                                      | `(active: boolean) => React.ReactNode`                   | -       |
+| arrow          | Custom arrow                                      | `(active: boolean) => React.ReactNode`                   | -       |
