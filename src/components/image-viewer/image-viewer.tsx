@@ -1,3 +1,5 @@
+import React, { FC } from 'react'
+
 import { mergeProps } from '../../utils/with-default-props'
 import {
   GetContainer,
@@ -6,15 +8,6 @@ import {
 import Mask from '../mask'
 import { Slide } from './slide'
 import { Slides } from './slides'
-import React, {
-  createRef,
-  FC,
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from 'react'
-import { renderToBody } from '../../utils/render-to-body'
 
 const classPrefix = `adm-image-viewer`
 
@@ -96,82 +89,4 @@ export const MultiImageViewer: FC<MultiImageViewerProps> = p => {
     </Mask>
   )
   return renderToContainer(props.getContainer, node)
-}
-
-export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
-  type Ref = {
-    close: () => void
-  }
-  const Wrapper = forwardRef<Ref>((_, ref) => {
-    const [visible, setVisible] = useState(false)
-    useEffect(() => {
-      setVisible(true)
-    }, [])
-    useImperativeHandle(ref, () => ({
-      close: () => {
-        setVisible(false)
-      },
-    }))
-    return (
-      <ImageViewer
-        {...props}
-        visible={visible}
-        onClose={() => {
-          props.onClose?.()
-          setVisible(false)
-        }}
-        afterClose={() => {
-          props.afterClose?.()
-          unmount()
-        }}
-      />
-    )
-  })
-  const ref = createRef<Ref>()
-  const unmount = renderToBody(<Wrapper ref={ref} />)
-  return {
-    close: () => {
-      ref.current?.close()
-    },
-  }
-}
-
-export function showMultiImageViewer(
-  props: Omit<MultiImageViewerProps, 'visible'>
-) {
-  type Ref = {
-    close: () => void
-  }
-  const Wrapper = forwardRef<Ref>((_, ref) => {
-    const [visible, setVisible] = useState(false)
-    useEffect(() => {
-      setVisible(true)
-    }, [])
-    useImperativeHandle(ref, () => ({
-      close: () => {
-        setVisible(false)
-      },
-    }))
-    return (
-      <MultiImageViewer
-        {...props}
-        visible={visible}
-        onClose={() => {
-          props.onClose?.()
-          setVisible(false)
-        }}
-        afterClose={() => {
-          props.afterClose?.()
-          unmount()
-        }}
-      />
-    )
-  })
-  const ref = createRef<Ref>()
-  const unmount = renderToBody(<Wrapper ref={ref} />)
-  return {
-    close: () => {
-      ref.current?.close()
-    },
-  }
 }
