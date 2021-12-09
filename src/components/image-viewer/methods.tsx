@@ -14,17 +14,15 @@ import {
 } from './image-viewer'
 import { useUnmountedRef } from 'ahooks'
 
-type Ref = {
+type Handler = {
   close: () => void
 }
 
-const imageViewerCaches: {
-  ref: React.RefObject<Ref>
-  unmount: () => void
-}[] = []
+const handlerSet = new Set<Handler>()
 
 export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
-  const Wrapper = forwardRef<Ref>((_, ref) => {
+  clearImageViewer()
+  const Wrapper = forwardRef<Handler>((_, ref) => {
     const [visible, setVisible] = useState(false)
     useEffect(() => {
       setVisible(true)
@@ -51,24 +49,22 @@ export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
       />
     )
   })
-  const ref = createRef<Ref>()
+  const ref = createRef<Handler>()
   const unmount = renderToBody(<Wrapper ref={ref} />)
-  unmountImageViewers()
-  imageViewerCaches.push({
-    ref,
-    unmount,
-  })
-  return {
+  const handler = {
     close: () => {
       ref.current?.close()
     },
   }
+  handlerSet.add(handler)
+  return handler
 }
 
 export function showMultiImageViewer(
   props: Omit<MultiImageViewerProps, 'visible'>
 ) {
-  const Wrapper = forwardRef<Ref>((_, ref) => {
+  clearImageViewer()
+  const Wrapper = forwardRef<Handler>((_, ref) => {
     const [visible, setVisible] = useState(false)
     useEffect(() => {
       setVisible(true)
@@ -95,32 +91,20 @@ export function showMultiImageViewer(
       />
     )
   })
-  const ref = createRef<Ref>()
+  const ref = createRef<Handler>()
   const unmount = renderToBody(<Wrapper ref={ref} />)
-  unmountImageViewers()
-  imageViewerCaches.push({
-    ref,
-    unmount,
-  })
-  return {
+  const handler = {
     close: () => {
       ref.current?.close()
     },
   }
-}
-
-function unmountImageViewers() {
-  while (true) {
-    const cache = imageViewerCaches.pop()
-    if (!cache) break
-    cache.unmount?.()
-  }
+  handlerSet.add(handler)
+  return handler
 }
 
 export function clearImageViewer() {
-  while (true) {
-    const cache = imageViewerCaches.pop()
-    if (!cache) break
-    cache.ref.current?.close()
-  }
+  handlerSet.forEach(handler => {
+    handler.close()
+  })
+  handlerSet.clear()
 }
