@@ -40,7 +40,8 @@ const handlerMulti = ImageViewer.Multi.show(props)
 
 `show` 方法的返回值为一个组件控制器，包含以下属性：
 
-| 属性  | 说明                 | 类型         |
-| ----- | -------------------- | ------------ |
-| close | 关闭图片查看器       | `() => void` |
-| clear | 关闭全部的图片查看器 | `() => void` |
+| 属性  | 说明           | 类型         |
+| ----- | -------------- | ------------ |
+| close | 关闭图片查看器 | `() => void` |
+
+如果你想关闭全部通过指令式创建出来的 ImageViewer，可以调用 `ImageViewer.clear()`。

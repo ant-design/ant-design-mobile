@@ -43,4 +43,5 @@ The return value of the `show` method is a component controller, which contains 
 | Name  | Description                       | Type         |
 | ----- | --------------------------------- | ------------ |
 | close | Function to close the ImageViewer | `() => void` |
-| clear | Close all ImageViewer instances   | `() => void` |
+
+If you want to close all ImageViewers created by the `show` method. You can call `ImageViewer.clear()`.
