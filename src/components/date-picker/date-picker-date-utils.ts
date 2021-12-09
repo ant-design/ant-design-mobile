@@ -4,8 +4,8 @@ import dayjs from 'dayjs'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
 import isLeapYear from 'dayjs/plugin/isLeapYear'
-import { generateIntArray } from '../../utils/generate-int-array'
 import { PickerColumn } from '../picker'
+import type { DatePickerFilter } from './date-picker-utils'
 
 dayjs.extend(isoWeek)
 dayjs.extend(isoWeeksInYear)
@@ -44,7 +44,8 @@ export function generateDatePickerColumns(
   min: Date,
   max: Date,
   precision: DatePrecision,
-  renderLabel: (type: DatePrecision, data: number) => ReactNode
+  renderLabel: (type: DatePrecision, data: number) => ReactNode,
+  filter: DatePickerFilter | undefined
 ) {
   const ret: PickerColumn[] = []
 
@@ -77,10 +78,6 @@ export function generateDatePickerColumns(
   }
 
   const selectedYear = parseInt(selected[0])
-  const isInMinYear = selectedYear === minYear
-  const isInMaxYear = selectedYear === maxYear
-
-  // rank < 10 的情况：标准时间选择
   const firstDayInSelectedMonth = dayjs(
     convertStringArrayToDate([selected[0], selected[1], '1'])
   )
@@ -89,6 +86,8 @@ export function generateDatePickerColumns(
   const selectedHour = parseInt(selected[3])
   const selectedMinute = parseInt(selected[4])
 
+  const isInMinYear = selectedYear === minYear
+  const isInMaxYear = selectedYear === maxYear
   const isInMinMonth = isInMinYear && selectedMonth === minMonth
   const isInMaxMonth = isInMaxYear && selectedMonth === maxMonth
   const isInMinDay = isInMinMonth && selectedDay === minDay
@@ -98,10 +97,34 @@ export function generateDatePickerColumns(
   const isInMinMinute = isInMinHour && selectedMinute === minMinute
   const isInMaxMinute = isInMaxHour && selectedMinute === maxMinute
 
+  const generateColumn = (
+    from: number,
+    to: number,
+    precision: DatePrecision
+  ) => {
+    let column: number[] = []
+    for (let i = from; i <= to; i++) {
+      column.push(i)
+    }
+    const prefix = selected.slice(0, precisionRankRecord[precision])
+    const currentFilter = filter?.[precision]
+    if (currentFilter && typeof currentFilter === 'function') {
+      column = column.filter(i =>
+        currentFilter(i, {
+          get date() {
+            const stringArray = [...prefix, i.toString()]
+            return convertStringArrayToDate(stringArray)
+          },
+        })
+      )
+    }
+    return column
+  }
+
   if (rank >= precisionRankRecord.month) {
     const lower = isInMinYear ? minMonth : 1
     const upper = isInMaxYear ? maxMonth : 12
-    const months = generateIntArray(lower, upper)
+    const months = generateColumn(lower, upper, 'month')
     ret.push(
       months.map(v => {
         return {
@@ -114,7 +137,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.day) {
     const lower = isInMinMonth ? minDay : 1
     const upper = isInMaxMonth ? maxDay : firstDayInSelectedMonth.daysInMonth()
-    const days = generateIntArray(lower, upper)
+    const days = generateColumn(lower, upper, 'day')
     ret.push(
       days.map(v => {
         return {
@@ -127,7 +150,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.hour) {
     const lower = isInMinDay ? minHour : 0
     const upper = isInMaxDay ? maxHour : 23
-    const hours = generateIntArray(lower, upper)
+    const hours = generateColumn(lower, upper, 'hour')
     ret.push(
       hours.map(v => {
         return {
@@ -140,7 +163,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.minute) {
     const lower = isInMinHour ? minMinute : 0
     const upper = isInMaxHour ? maxMinute : 59
-    const minutes = generateIntArray(lower, upper)
+    const minutes = generateColumn(lower, upper, 'minute')
     ret.push(
       minutes.map(v => {
         return {
@@ -153,7 +176,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.second) {
     const lower = isInMinMinute ? minSecond : 0
     const upper = isInMaxMinute ? maxSecond : 59
-    const seconds = generateIntArray(lower, upper)
+    const seconds = generateColumn(lower, upper, 'second')
     ret.push(
       seconds.map(v => {
         return {
@@ -183,8 +206,7 @@ export function convertDateToStringArray(
 
 export function convertStringArrayToDate(
   value: (string | null | undefined)[]
-): Date | null {
-  if (value.length === 0) return null
+): Date {
   const yearString = value[0] ?? '1900'
   const monthString = value[1] ?? '1'
   const dateString = value[2] ?? '1'

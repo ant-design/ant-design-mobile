@@ -41,6 +41,15 @@ export default () => {
           renderLabel={weekdayLabelRenderer}
         />
       </DemoBlock>
+
+      <DemoBlock title='过滤可供选择的时间' padding='0'>
+        <DatePickerView
+          defaultValue={now}
+          precision='hour'
+          renderLabel={labelRenderer}
+          filter={dateFilter}
+        />
+      </DemoBlock>
     </>
   )
 }
@@ -75,4 +84,21 @@ const weekdayLabelRenderer = (type: string, data: number) => {
     default:
       return data
   }
+}
+
+const dateFilter = {
+  day: (val: number, date: Date) => {
+    // 去除所有周末
+    if (date.getDay() > 5 || date.getDay() === 0) {
+      return false
+    }
+    return true
+  },
+  hour: (val: number) => {
+    // 只保留每天的14点到18点
+    if (val < 14 || val > 18) {
+      return false
+    }
+    return true
+  },
 }

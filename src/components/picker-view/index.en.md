@@ -53,6 +53,8 @@ DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 
 <code src="../date-picker-view/demos/demo1.tsx"></code>
 
+<code src="../date-picker-view/demos/demo2.tsx" debug></code>
+
 ### Props
 
 | Name         | Description                                                                                                                          | Type                                                                                   | Default         |
@@ -64,6 +66,9 @@ DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 | max          | Max value                                                                                                                            | `Date`                                                                                 | ten years later |
 | precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'`         |
 | renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                            | -               |
+| filter       | Filter available time                                                                                                                | `DatePickerFilter`                                                                     | -               |
+
+For the type definition and usage of `DatePickerFilter`, please refer to the document of [DatePicker](./picker#datepicker).
 
 ### CSS Variables
 

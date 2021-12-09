@@ -4,8 +4,8 @@ import dayjs from 'dayjs'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
 import isLeapYear from 'dayjs/plugin/isLeapYear'
-import { generateIntArray } from '../../utils/generate-int-array'
 import { PickerColumn } from '../picker'
+import type { DatePickerFilter } from './date-picker-utils'
 
 dayjs.extend(isoWeek)
 dayjs.extend(isoWeeksInYear)
@@ -28,7 +28,8 @@ export function generateDatePickerColumns(
   min: Date,
   max: Date,
   precision: WeekPrecision,
-  renderLabel: (type: WeekPrecision, data: number) => ReactNode
+  renderLabel: (type: WeekPrecision, data: number) => ReactNode,
+  filter: DatePickerFilter | undefined
 ) {
   const ret: PickerColumn[] = []
 
@@ -64,10 +65,34 @@ export function generateDatePickerColumns(
   const isInMaxWeek = isInMaxYear && selectedWeek === maxWeek
   const selectedYearWeeks = dayjs(`${selectedYear}-01-01`).isoWeeksInYear()
 
+  const generateColumn = (
+    from: number,
+    to: number,
+    precision: WeekPrecision
+  ) => {
+    let column: number[] = []
+    for (let i = from; i <= to; i++) {
+      column.push(i)
+    }
+    const prefix = selected.slice(0, precisionRankRecord[precision])
+    const currentFilter = filter?.[precision]
+    if (currentFilter && typeof currentFilter === 'function') {
+      column = column.filter(i =>
+        currentFilter(i, {
+          get date() {
+            const stringArray = [...prefix, i.toString()]
+            return convertStringArrayToDate(stringArray)
+          },
+        })
+      )
+    }
+    return column
+  }
+
   if (rank >= precisionRankRecord.week) {
     const lower = isInMinYear ? minWeek : 1
     const upper = isInMaxYear ? maxWeek : selectedYearWeeks
-    const weeks = generateIntArray(lower, upper)
+    const weeks = generateColumn(lower, upper, 'week')
     ret.push(
       weeks.map(v => {
         return {
@@ -80,7 +105,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord['week-day']) {
     const lower = isInMinWeek ? minWeekday : 1
     const upper = isInMaxWeek ? maxWeekday : 7
-    const weeks = generateIntArray(lower, upper)
+    const weeks = generateColumn(lower, upper, 'week-day')
     ret.push(
       weeks.map(v => {
         return {
@@ -108,8 +133,7 @@ export function convertDateToStringArray(
 
 export function convertStringArrayToDate(
   value: (string | null | undefined)[]
-): Date | null {
-  if (value.length === 0) return null
+): Date {
   const yearString = value[0] ?? '1900'
   const weekString = value[1] ?? '1'
   const weekdayString = value[2] ?? '1'
