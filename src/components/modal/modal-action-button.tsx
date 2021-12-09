@@ -8,7 +8,7 @@ export type Action = {
   text: string
   disabled?: boolean
   danger?: boolean
-  bold?: boolean
+  primary?: boolean
   onClick?: () => void | Promise<void>
 } & NativeProps
 
@@ -38,9 +38,10 @@ export const ModalActionButton: FC<{
       key={action.key}
       onClick={handleClick}
       className={classNames('adm-modal-button', {
-        'adm-modal-button-bold': action.bold,
+        'adm-modal-button-primary': props.action.primary,
       })}
-      fill='none'
+      fill={props.action.primary ? 'solid' : 'none'}
+      size={props.action.primary ? 'large' : 'middle'}
       block
       color={action.danger ? 'danger' : 'primary'}
       loading={loading}

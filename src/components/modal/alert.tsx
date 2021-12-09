@@ -25,6 +25,7 @@ export function alert(p: ModalAlertProps) {
         {
           key: 'confirm',
           text: props.confirmText,
+          primary: true,
         },
       ],
       onAction: props.onConfirm,

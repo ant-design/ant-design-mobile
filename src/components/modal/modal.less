@@ -16,8 +16,9 @@
   z-index: 1;
   top: 50%;
   left: 50%;
-  width: 75vw;
-  max-width: 500px;
+  width: fit-content;
+  min-width: 280px;
+  max-width: 75vw;
   transform: translate(-50%, -50%);
 }
 .@{class-prefix-modal}-main {
@@ -27,7 +28,14 @@
   border-radius: 8px;
   overflow: hidden;
   .@{class-prefix-modal}-body {
-    padding: 20px 12px;
+    padding: 20px 12px 12px;
+    .adm-modal-close {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      color: var(--adm-color-weak);
+      padding: 2px;
+    }
     &-header-wrapper {
       display: flex;
       justify-content: center;
@@ -51,24 +59,22 @@
   }
   .@{class-prefix-modal}-footer {
     user-select: none;
-    .adm-modal-action-row {
-      display: flex;
-      align-items: stretch;
-      border-top: 0.5px solid var(--adm-border-color);
-      > * {
-        flex: 1;
+    padding: 8px 12px 12px;
+    .adm-modal-button {
+      font-size: 18px;
+      line-height: 25px;
+      border-right: solid 0.5px var(--adm-border-color);
+      &:last-child {
+        border-right: none;
       }
-      > .adm-modal-button {
-        padding: 10px;
-        font-size: 18px;
-        line-height: 25px;
-        border-radius: 0;
-        &-bold {
-          font-weight: bold;
+      &:not(.adm-modal-button-primary) {
+        padding-top: 0;
+        padding-bottom: 0;
+        &::before {
+          display: none;
         }
-        border-right: solid 0.5px var(--adm-border-color);
-        &:last-child {
-          border-right: none;
+        &:active {
+          opacity: 0.7;
         }
       }
     }

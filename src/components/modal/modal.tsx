@@ -14,6 +14,7 @@ import {
 import AutoCenter from '../auto-center'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { CloseOutline } from 'antd-mobile-icons'
 
 const classPrefix = `adm-modal`
 
@@ -21,10 +22,9 @@ export type ModalProps = {
   afterClose?: () => void
   image?: string
   header?: ReactNode
-  // waitImageLoad?: boolean
   title?: ReactNode
   content?: ReactNode
-  actions?: (Action | Action[])[]
+  actions?: Action[]
   onAction?: (action: Action, index: number) => void | Promise<void>
   closeOnAction?: boolean
   onClose?: () => void
@@ -36,6 +36,7 @@ export type ModalProps = {
   maskStyle?: React.CSSProperties
   maskClassName?: string
   stopPropagation?: PropagationEvent[]
+  showCloseButton?: boolean
 } & NativeProps
 
 const defaultProps = {
@@ -44,6 +45,7 @@ const defaultProps = {
   closeOnAction: false,
   closeOnMaskClick: false,
   stopPropagation: ['click'],
+  showCloseButton: false,
 }
 
 export const Modal: FC<ModalProps> = p => {
@@ -110,6 +112,17 @@ export const Modal: FC<ModalProps> = p => {
               style={props.bodyStyle}
               className={classNames(`${classPrefix}-body`, props.bodyClassName)}
             >
+              {props.showCloseButton && (
+                <a
+                  className={classNames(
+                    `${classPrefix}-close`,
+                    'adm-plain-anchor'
+                  )}
+                  onClick={props.onClose}
+                >
+                  <CloseOutline />
+                </a>
+              )}
               <Space direction='vertical' block>
                 {!!props.header && (
                   <div className={`${classPrefix}-body-header-wrapper`}>
@@ -135,28 +148,25 @@ export const Modal: FC<ModalProps> = p => {
               </Space>
             </div>
             <div className={`${classPrefix}-footer`}>
-              {props.actions.map((row, index) => {
-                const actions = Array.isArray(row) ? row : [row]
-                return (
-                  <div className={`${classPrefix}-action-row`} key={index}>
-                    {actions.map((action, index) => (
-                      <ModalActionButton
-                        key={action.key}
-                        action={action}
-                        onAction={async () => {
-                          await Promise.all([
-                            action.onClick?.(),
-                            props.onAction?.(action, index),
-                          ])
-                          if (props.closeOnAction) {
-                            props.onClose?.()
-                          }
-                        }}
-                      />
-                    ))}
-                  </div>
-                )
-              })}
+              <Space direction='vertical' block>
+                {props.actions.map((action, index) => {
+                  return (
+                    <ModalActionButton
+                      key={action.key}
+                      action={action}
+                      onAction={async () => {
+                        await Promise.all([
+                          action.onClick?.(),
+                          props.onAction?.(action, index),
+                        ])
+                        if (props.closeOnAction) {
+                          props.onClose?.()
+                        }
+                      }}
+                    />
+                  )
+                })}
+              </Space>
             </div>
           </animated.div>
         </div>

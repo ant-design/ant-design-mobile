@@ -22,7 +22,7 @@ export default () => {
               })
             }
           >
-            最简单的小对话框
+            最简单的弹窗
           </Button>
           <Button
             block
@@ -34,6 +34,18 @@ export default () => {
             }}
           >
             点击遮罩关闭
+          </Button>
+          <Button
+            block
+            onClick={() => {
+              Modal.alert({
+                title: '带关闭图标的弹窗',
+                content: '右上角有个关闭的小图标，点击它也可以关闭弹窗',
+                showCloseButton: true,
+              })
+            }}
+          >
+            显示关闭图标
           </Button>
         </Space>
       </DemoBlock>
@@ -50,30 +62,23 @@ export default () => {
                   {
                     key: 'online',
                     text: '在线阅读',
+                    primary: true,
                   },
                   {
                     key: 'download',
                     text: '下载文件',
                   },
-                  [
-                    {
-                      key: 'cancel',
-                      text: '取消',
-                    },
-                    {
-                      key: 'delete',
-                      text: '删除',
-                      bold: true,
-                      danger: true,
-                    },
-                  ],
+                  {
+                    key: 'share',
+                    text: '分享',
+                  },
                 ],
               })
             }}
           >
             自定义按钮
           </Button>
-          <DemoDescription content='如果你想完全自由地控制按钮区域，那么可以通过 actions 参数来自定义操作按钮，当传入一个二级数组时，可以在同一行内并排放置多个按钮' />
+          <DemoDescription content='如果你想完全自由地控制按钮区域，那么可以通过 actions 参数来自定义操作按钮' />
           <Divider />
           <Button
             block
@@ -211,13 +216,6 @@ export default () => {
           <DemoDescription content='你可以手动控制 visible 状态' />
         </Space>
       </DemoBlock>
-
-      <DemoBlock title='自定义关闭操作'>
-        <Space direction='vertical' block>
-          <Imperative />
-          <DemoDescription content='你可以根据需求，自定义关闭弹窗的时机' />
-        </Space>
-      </DemoBlock>
     </>
   )
 }
@@ -233,7 +231,7 @@ const Declarative = () => {
           setVisible(true)
         }}
       >
-        显示对话框
+        显示弹窗
       </Button>
       <Modal
         visible={visible}
@@ -250,36 +248,5 @@ const Declarative = () => {
         ]}
       />
     </>
-  )
-}
-
-// 自定义关闭操作
-function Imperative() {
-  const handler = useRef<ModalShowRef>()
-
-  return (
-    <Button
-      block
-      onClick={() => {
-        handler.current = Modal.show({
-          content: '人在天边月上明，风初紧，吹入画帘旌',
-          actions: [
-            {
-              key: 'close',
-              text: '关闭',
-              onClick: () => {
-                if (Math.random() > 0.5) {
-                  handler.current?.close()
-                } else {
-                  Toast.show('再试一下')
-                }
-              },
-            },
-          ],
-        })
-      }}
-    >
-      显示对话框
-    </Button>
   )
 }

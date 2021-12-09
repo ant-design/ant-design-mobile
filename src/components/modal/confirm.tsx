@@ -29,25 +29,23 @@ export function confirm(p: ModalConfirmProps) {
         resolve(false)
       },
       actions: [
-        [
-          {
-            key: 'cancel',
-            text: props.cancelText,
-            onClick: async () => {
-              await props.onCancel?.()
-              resolve(false)
-            },
+        {
+          key: 'confirm',
+          text: props.confirmText,
+          primary: true,
+          onClick: async () => {
+            await props.onConfirm?.()
+            resolve(true)
           },
-          {
-            key: 'confirm',
-            text: props.confirmText,
-            bold: true,
-            onClick: async () => {
-              await props.onConfirm?.()
-              resolve(true)
-            },
+        },
+        {
+          key: 'cancel',
+          text: props.cancelText,
+          onClick: async () => {
+            await props.onCancel?.()
+            resolve(false)
           },
-        ],
+        },
       ],
     })
   })
