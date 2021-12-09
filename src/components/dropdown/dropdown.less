@@ -22,26 +22,26 @@
     cursor: pointer;
 
     .@{class-prefix-dropdown-item}-title {
+      display: flex;
+      align-items: center;
       position: relative;
       max-width: 100%;
       font-size: 13px;
       padding: 12px;
-      span {
-        display: block;
+      &-text {
+        margin-right: 5px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
-      &:after {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        margin-top: -5px;
-        border: 3px solid;
-        border-color: transparent transparent var(--adm-color-text)
-          var(--adm-color-text);
-        transform: rotate(-45deg);
-        content: ' ';
+      &-arrow {
+        font-size: 8px;
+        width: 8px;
+        transform: rotate(0deg) translate(0, -1px);
+        transition: all ease 0.2s;
+        &-active {
+          transform: rotate(180deg) translate(0, -1px);
+        }
       }
       &:active {
         opacity: 0.7;

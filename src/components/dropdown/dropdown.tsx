@@ -9,7 +9,6 @@ import React, {
   useState,
   forwardRef,
   useImperativeHandle,
-  FC,
 } from 'react'
 import Popup from '../popup'
 import Item, { ItemChildrenWrap } from './item'
@@ -25,6 +24,7 @@ export type DropdownProps = {
   closeOnMaskClick?: boolean
   onChange?: (key: string | null) => void
   // mask?: boolean;
+  arrow?: React.ReactNode
 } & NativeProps
 
 const defaultProps = {
@@ -85,6 +85,8 @@ const Dropdown = forwardRef<
           changeActive(child.key as string)
         },
         active: child.key === value,
+        arrow:
+          child.props.arrow === undefined ? props.arrow : child.props.arrow,
       }
       items.push(child)
       if (child.props.forceRender) popupForceRender = true
