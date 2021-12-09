@@ -168,11 +168,11 @@ export const Collapse: FC<CollapseProps> = props => {
 
           const renderArrow = () => {
             let arrow: React.ReactNode = <RightOutline />
-            if (props.arrow) {
+            if (props.arrow !== undefined) {
               arrow = props.arrow
             }
 
-            if (panel.props.arrow) {
+            if (panel.props.arrow !== undefined) {
               arrow = panel.props.arrow
             }
 
