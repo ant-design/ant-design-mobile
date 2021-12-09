@@ -103,7 +103,8 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
         }
         break
       default:
-        onInput?.(key)
+        // 当 customKey 不存在时，点击该键不应该触发 onInput
+        if (key !== '') onInput?.(key)
         break
     }
   }
