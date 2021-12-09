@@ -17,7 +17,7 @@ export type CollapsePanelProps = {
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
-  arrow?: (active: boolean) => React.ReactNode
+  arrow?: React.ReactNode
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -92,6 +92,7 @@ type ValueProps<T> = {
   activeKey?: T
   defaultActiveKey?: T
   onChange?: (activeKey: T) => void
+  arrow?: React.ReactNode
 }
 
 export type CollapseProps = (
@@ -165,6 +166,27 @@ export const Collapse: FC<CollapseProps> = props => {
             panel.props.onClick?.(event)
           }
 
+          const renderArrow = () => {
+            let arrow: React.ReactNode = <RightOutline />
+            if (props.arrow) {
+              arrow = props.arrow
+            }
+
+            if (panel.props.arrow) {
+              arrow = panel.props.arrow
+            }
+
+            return (
+              <div
+                className={classNames(`${classPrefix}-arrow`, {
+                  [`${classPrefix}-arrow-active`]: active,
+                })}
+              >
+                {arrow}
+              </div>
+            )
+          }
+
           return (
             <React.Fragment key={key}>
               {withNativeProps(
@@ -175,19 +197,7 @@ export const Collapse: FC<CollapseProps> = props => {
                       panel.props.disabled,
                   })}
                   onClick={panel.props.disabled ? undefined : handleClick}
-                  arrow={
-                    panel.props.arrow ? (
-                      panel.props.arrow(active)
-                    ) : (
-                      <div
-                        className={classNames(`${classPrefix}-arrow`, {
-                          [`${classPrefix}-arrow-active`]: active,
-                        })}
-                      >
-                        <RightOutline />
-                      </div>
-                    )
-                  }
+                  arrow={renderArrow()}
                 >
                   {panel.props.title}
                 </List.Item>

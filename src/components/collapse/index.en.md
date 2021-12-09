@@ -12,6 +12,7 @@
 | activeKey        | The `key` of the currently expanded panel  | accordion mode: `string \| null` <br/>non-accordion mode: `string[]`                                             | -       |
 | accordion        | Whether to enable accordion mode           | `boolean`                                                                                                        | `false` |
 | onChange         | Triggered when the panel is switched       | accordion mode: `(activeKey: string \| null) => void` <br /> non-accordion mode: `(activeKey: string[]) => void` | -       |
+| arrow            | Custom arrow                               | `React.ReactNode`                                                                                                | -       |
 
 ### Collapse.Panel
 
@@ -23,4 +24,4 @@
 | forceRender    | Whether to render the `DOM` structure when hidden | `boolean`                                                | `false` |
 | destroyOnClose | Unmount content when not visible                  | `boolean`                                                | `false` |
 | onClick        | The click event of title bar                      | `(event: React.MouseEvent<Element, MouseEvent>) => void` | -       |
-| arrow          | Custom arrow                                      | `(active: boolean) => React.ReactNode`                   | -       |
+| arrow          | Custom arrow                                      | `React.ReactNode`                                        | -       |
