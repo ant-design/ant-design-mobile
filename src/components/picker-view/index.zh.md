@@ -68,14 +68,7 @@ DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 | renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode`                                            | -       |
 | filter       | 过滤可供选择的时间                                                                               | `DatePickerFilter`                                                                     | -       |
 
-```typescript | pure
-type DatePickerFilter = {
-  year?: (val: number, date: Date) => boolean,
-  month?: (val: number, date: Date) => boolean,
-  day?: (val: number, date: Date) => boolean,
-  ...
-}
-```
+关于 `DatePickerFilter` 的类型定义和使用，请参考 [DatePicker](./picker#datepicker) 的文档。
 
 ### CSS 变量
 

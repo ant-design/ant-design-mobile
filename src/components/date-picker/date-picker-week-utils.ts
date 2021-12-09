@@ -77,10 +77,14 @@ export function generateDatePickerColumns(
     const prefix = selected.slice(0, precisionRankRecord[precision])
     const currentFilter = filter?.[precision]
     if (currentFilter && typeof currentFilter === 'function') {
-      column = column.filter(i => {
-        const stringArray = [...prefix, i.toString()]
-        return currentFilter(i, convertStringArrayToDate(stringArray) as Date)
-      })
+      column = column.filter(i =>
+        currentFilter(i, {
+          get date() {
+            const stringArray = [...prefix, i.toString()]
+            return convertStringArrayToDate(stringArray)
+          },
+        })
+      )
     }
     return column
   }
@@ -129,8 +133,7 @@ export function convertDateToStringArray(
 
 export function convertStringArrayToDate(
   value: (string | null | undefined)[]
-): Date | null {
-  if (value.length === 0) return null
+): Date {
   const yearString = value[0] ?? '1900'
   const weekString = value[1] ?? '1'
   const weekdayString = value[2] ?? '1'

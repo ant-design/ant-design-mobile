@@ -70,9 +70,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
 
   const onSelect = usePersistFn((val: string[]) => {
     const date = convertStringArrayToDate(val, props.precision)
-    if (date) {
-      props.onSelect?.(date)
-    }
+    props.onSelect?.(date)
   })
 
   const columns = useCallback(
@@ -109,10 +107,12 @@ export const DatePicker: FC<DatePickerProps> = p => {
     >
       {items =>
         props.children?.(
-          convertStringArrayToDate(
-            items.map(item => item?.value),
-            props.precision
-          )
+          items.length === 0
+            ? null
+            : convertStringArrayToDate(
+                items.map(item => item?.value),
+                props.precision
+              )
         )
       }
     </Picker>

@@ -68,14 +68,7 @@ DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 | renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                            | -               |
 | filter       | Filter available time                                                                                                                | `DatePickerFilter`                                                                     | -               |
 
-```typescript | pure
-type DatePickerFilter = {
-  year?: (val: number, date: Date) => boolean,
-  month?: (val: number, date: Date) => boolean,
-  day?: (val: number, date: Date) => boolean,
-  ...
-}
-```
+For the type definition and usage of `DatePickerFilter`, please refer to the document of [DatePicker](./picker#datepicker).
 
 ### CSS Variables
 

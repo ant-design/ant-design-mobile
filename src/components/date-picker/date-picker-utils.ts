@@ -7,7 +7,15 @@ import * as weekUtils from './date-picker-week-utils'
 export type Precision = DatePrecision | WeekPrecision
 
 export type DatePickerFilter = Partial<
-  Record<Precision, (val: number, date: Date) => boolean>
+  Record<
+    Precision,
+    (
+      val: number,
+      extend: {
+        date: Date
+      }
+    ) => boolean
+  >
 >
 
 export const convertDateToStringArray = (
