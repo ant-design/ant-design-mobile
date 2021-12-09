@@ -16,7 +16,7 @@ export type SwitchProps = {
   onChange?: (checked: boolean) => void
   checkedText?: ReactNode
   uncheckedText?: ReactNode
-} & NativeProps<'--checked-color'>
+} & NativeProps<'--checked-color' | '--width' | '--height' | '--border-width'>
 
 const defaultProps = {
   defaultChecked: false,

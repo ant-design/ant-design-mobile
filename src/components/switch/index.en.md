@@ -3,9 +3,7 @@
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx"></code>
 
-## API
-
-### Switch
+### Props
 
 | Name           | Description                                 | Type                              | Default |
 | -------------- | ------------------------------------------- | --------------------------------- | ------- |
@@ -18,8 +16,11 @@
 | checkedText    | Selected text                               | `ReactNode`                       | -       |
 | uncheckedText  | Non-selected text                           | `ReactNode`                       | -       |
 
-## CSS Variables
+### CSS Variables
 
 | Name            | Description  | Default                    |
 | --------------- | ------------ | -------------------------- |
-| --checked-color | filled color | `var(--adm-color-primary)` |
+| --checked-color | Filled color | `var(--adm-color-primary)` |
+| --width         | Width        | `50px`                     |
+| --height        | Height       | `30px`                     |
+| --border-width  | Border width | `2px`                      |
