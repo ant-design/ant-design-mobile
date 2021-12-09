@@ -1,4 +1,4 @@
-# Dialog 弹窗
+# Dialog 对话框
 
 <code src="./demos/demo1.tsx"></code>
 

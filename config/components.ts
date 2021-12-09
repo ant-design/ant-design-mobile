@@ -74,6 +74,7 @@ export const components = {
     '/components/ellipsis',
     '/components/floating-bubble',
     '/components/image-uploader',
+    '/components/modal',
     '/components/number-keyboard',
     '/components/safe-area',
     '/components/tree-select',
