@@ -18,7 +18,10 @@ type Ref = {
   close: () => void
 }
 
-const imageViewerRefs: React.RefObject<Ref>[] = []
+const imageViewerCaches: {
+  ref: React.RefObject<Ref>
+  unmount: () => void
+}[] = []
 
 export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
   const Wrapper = forwardRef<Ref>((_, ref) => {
@@ -50,7 +53,11 @@ export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
   })
   const ref = createRef<Ref>()
   const unmount = renderToBody(<Wrapper ref={ref} />)
-  imageViewerRefs.push(ref)
+  unmountImageViewers()
+  imageViewerCaches.push({
+    ref,
+    unmount,
+  })
   return {
     close: () => {
       ref.current?.close()
@@ -90,7 +97,11 @@ export function showMultiImageViewer(
   })
   const ref = createRef<Ref>()
   const unmount = renderToBody(<Wrapper ref={ref} />)
-  imageViewerRefs.push(ref)
+  unmountImageViewers()
+  imageViewerCaches.push({
+    ref,
+    unmount,
+  })
   return {
     close: () => {
       ref.current?.close()
@@ -98,10 +109,18 @@ export function showMultiImageViewer(
   }
 }
 
+function unmountImageViewers() {
+  while (true) {
+    const cache = imageViewerCaches.pop()
+    if (!cache) break
+    cache.unmount?.()
+  }
+}
+
 export function clearImageViewer() {
   while (true) {
-    const ref = imageViewerRefs.pop()
-    if (!ref) break
-    ref.current?.close()
+    const cache = imageViewerCaches.pop()
+    if (!cache) break
+    cache.ref.current?.close()
   }
 }
