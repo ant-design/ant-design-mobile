@@ -102,17 +102,27 @@
     }
   }
 
-  &-mini {
+  &&-mini {
     padding: 3px 7px;
     font-size: 13px;
+    &.@{class-prefix-button}-shape-rounded {
+      padding-left: 9px;
+      padding-right: 9px;
+    }
   }
-  &-small {
+  &&-small {
     padding: 3px 11px;
     font-size: 15px;
   }
-  &-large {
+  &&-large {
     padding: 11px 22px;
     font-size: 18px;
+  }
+  &&-shape-rounded {
+    --border-radius: 1000px;
+  }
+  &&-shape-rectangular {
+    --border-radius: 0;
   }
   &-loading {
     vertical-align: bottom;

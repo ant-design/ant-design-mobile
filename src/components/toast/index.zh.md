@@ -1,6 +1,6 @@
 # Toast 轻提示
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ## 指令式 API
 

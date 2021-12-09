@@ -2,7 +2,7 @@
 
 The `Input` component is layout-independent. It only includes the most basic input box part. If you want to add borders, titles, or some operation buttons to it, you can use it with the `List` or `Form` components.
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### API
 
@@ -23,12 +23,13 @@ In addition, the following native attributes are supported: `maxLength` `minLeng
 
 ### CSS Variables
 
-| Name                | Description                  | Default                  |
-| ------------------- | ---------------------------- | ------------------------ |
-| --font-size         | font size                    | `17px`                   |
-| --color             | font color                   | `var(--adm-color-text)`  |
-| --placeholder-color | `placeholder` font color     | `var(--adm-color-light)` |
-| --disabled-color    | text color in disabled state | `var(--adm-color-weak)`  |
+| Name                | Description               | Default                  |
+| ------------------- | ------------------------- | ------------------------ |
+| --font-size         | Text font size.           | `17px`                   |
+| --color             | Text color.               | `var(--adm-color-text)`  |
+| --placeholder-color | Placeholder text color.   | `var(--adm-color-light)` |
+| --disabled-color    | Text color when disabled. | `var(--adm-color-weak)`  |
+| --text-align        | The alignment of text.    | `left`                   |
 
 ### Ref
 

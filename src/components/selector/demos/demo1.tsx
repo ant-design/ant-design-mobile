@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Selector } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import './index.less'
+
+import './demo1.less'
 
 const ItemList = [
   {
@@ -23,6 +24,7 @@ const ItemList = [
   },
 ]
 
+// 避免取消选择
 const RadioMode = () => {
   const [value, setValue] = useState('1')
   return (
@@ -40,22 +42,24 @@ const RadioMode = () => {
 
 export default () => {
   return (
-    <div>
+    <>
       <DemoBlock title='单选'>
         <Selector
           options={ItemList}
           defaultValue={['1']}
-          onChange={(arr, context) => console.log(arr, context.items)}
+          onChange={(arr, extend) => console.log(arr, extend.items)}
         />
       </DemoBlock>
+
       <DemoBlock title='多选'>
         <Selector
           options={ItemList}
           defaultValue={['2', '3']}
           multiple={true}
-          onChange={(arr, context) => console.log(arr, context.items)}
+          onChange={(arr, extend) => console.log(arr, extend.items)}
         />
       </DemoBlock>
+
       <DemoBlock title='全局禁止'>
         <Selector
           options={ItemList}
@@ -64,6 +68,7 @@ export default () => {
           onChange={arr => console.log(arr)}
         />
       </DemoBlock>
+
       <DemoBlock title='固定两列'>
         <Selector
           columns={2}
@@ -73,6 +78,7 @@ export default () => {
           onChange={arr => console.log(arr)}
         />
       </DemoBlock>
+
       <DemoBlock title='固定三列'>
         <Selector
           columns={3}
@@ -82,9 +88,11 @@ export default () => {
           onChange={arr => console.log(arr)}
         />
       </DemoBlock>
+
       <DemoBlock title='避免取消选择'>
         <RadioMode />
       </DemoBlock>
+
       <DemoBlock title='自定义样式（通过 style）'>
         <Selector
           style={{ '--checked-color': '#ffe2e5' }}
@@ -93,6 +101,7 @@ export default () => {
           multiple={true}
         />
       </DemoBlock>
+
       <DemoBlock title='自定义样式（通过 className）'>
         <Selector
           className='my-selector'
@@ -101,6 +110,6 @@ export default () => {
           multiple={true}
         />
       </DemoBlock>
-    </div>
+    </>
   )
 }

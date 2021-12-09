@@ -1,0 +1,50 @@
+@class-prefix-floating-bubble: ~'adm-floating-bubble';
+
+.@{class-prefix-floating-bubble} {
+  --initial-position-left: var(--initial-position-left);
+  --initial-position-right: var(--initial-position-right);
+  --initial-position-top: var(--initial-position-top);
+  --initial-position-bottom: var(--initial-position-bottom);
+  --z-index: 1;
+  --edge-distance: 0;
+  --size: 48px;
+  --border-radius: 50%;
+
+  &-boundary-outer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: var(--edge-distance);
+    pointer-events: none;
+  }
+  &-boundary {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-button {
+    position: fixed;
+    top: var(--initial-position-top);
+    bottom: var(--initial-position-bottom);
+    left: var(--initial-position-left);
+    right: var(--initial-position-right);
+    box-sizing: border-box;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: opacity ease 0.15s;
+    user-select: none;
+    touch-action: none;
+    background: var(--adm-color-primary);
+    color: var(--adm-color-white);
+    border-radius: var(--border-radius);
+    z-index: var(--z-index);
+  }
+}

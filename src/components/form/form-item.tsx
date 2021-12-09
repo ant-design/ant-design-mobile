@@ -26,8 +26,8 @@ const classPrefix = `adm-form-item`
 export type FormItemProps = RcFieldProps &
   NativeProps &
   Pick<ListItemProps, 'style' | 'onClick' | 'extra'> & {
-    label?: string
-    help?: string
+    label?: React.ReactNode
+    help?: React.ReactNode
     hasFeedback?: boolean
     required?: boolean
     noStyle?: boolean

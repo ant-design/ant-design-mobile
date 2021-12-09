@@ -2,15 +2,17 @@ import { useClickAway } from 'ahooks'
 import classNames from 'classnames'
 import React, {
   cloneElement,
-  FC,
   ReactElement,
   ComponentProps,
   useEffect,
   useRef,
   useState,
+  forwardRef,
+  useImperativeHandle,
+  FC,
 } from 'react'
 import Popup from '../popup'
-import Item, { DropdownItemProps, ItemChildrenWrap } from './item'
+import Item, { ItemChildrenWrap } from './item'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -30,9 +32,14 @@ const defaultProps = {
   closeOnMaskClick: true,
 }
 
-const Dropdown: FC<DropdownProps> & {
-  Item: React.FC<DropdownItemProps>
-} = p => {
+export type DropdownRef = {
+  close: () => void
+}
+
+const Dropdown = forwardRef<
+  DropdownRef,
+  React.PropsWithChildren<DropdownProps>
+>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue({
     value: props.activeKey,
@@ -87,6 +94,16 @@ const Dropdown: FC<DropdownProps> & {
     }
   })
 
+  useImperativeHandle(
+    ref,
+    () => ({
+      close: () => {
+        setValue(null)
+      },
+    }),
+    [setValue]
+  )
+
   return withNativeProps(
     props,
     <div
@@ -123,13 +140,6 @@ const Dropdown: FC<DropdownProps> & {
                 active={isActive}
                 forceRender={item.props.forceRender}
                 destroyOnClose={item.props.destroyOnClose}
-                onClick={
-                  item.props.closeOnContentClick
-                    ? () => {
-                        changeActive(null)
-                      }
-                    : undefined
-                }
               >
                 {item.props.children}
               </ItemChildrenWrap>
@@ -139,8 +149,6 @@ const Dropdown: FC<DropdownProps> & {
       </Popup>
     </div>
   )
-}
-
-Dropdown.Item = Item
+})
 
 export default Dropdown

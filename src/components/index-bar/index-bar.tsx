@@ -2,16 +2,17 @@ import React, {
   forwardRef,
   useRef,
   useState,
-  useEffect,
   useImperativeHandle,
+  ReactElement,
 } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useThrottleFn } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
 import { Sidebar } from './sidebar'
-import { IndexBarContext } from './context'
 import { convertPx } from '../../utils/convert-px'
+import { Panel } from './panel'
+import { devWarning } from '../../utils/dev-log'
 
 const classPrefix = `adm-index-bar`
 
@@ -32,7 +33,36 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
-  const [indexes, setIndexes] = useState<string[]>([])
+
+  const indexes: string[] = []
+  const panels: ReactElement[] = []
+
+  React.Children.forEach(props.children, child => {
+    if (!React.isValidElement(child)) return
+    if (child.type !== Panel) {
+      devWarning(
+        'IndexBar',
+        'The children of `IndexBar` must be `IndexBar.Panel` components.'
+      )
+      return
+    }
+    indexes.push(child.props.index)
+    panels.push(
+      withNativeProps(
+        child.props,
+        <div
+          key={child.props.index}
+          data-index={child.props.index}
+          className={`${classPrefix}-anchor`}
+        >
+          <div className={`${classPrefix}-anchor-title`}>
+            {child.props.title || child.props.index}
+          </div>
+          {child.props.children}
+        </div>
+      )
+    )
+  })
 
   const [activeIndex, setActiveIndex] = useState(indexes[0])
 
@@ -61,9 +91,9 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
       if (!body) return
       const scrollTop = body.scrollTop
 
-      const children = body.getElementsByClassName(`${classPrefix}-anchor`)
-      for (let i = 0; i < children.length; i++) {
-        const panel = children.item(i) as HTMLElement
+      const elements = body.getElementsByClassName(`${classPrefix}-anchor`)
+      for (let i = 0; i < elements.length; i++) {
+        const panel = elements.item(i) as HTMLElement
         if (!panel) continue
         const panelIndex = panel.dataset['index']
         if (!panelIndex) continue
@@ -76,12 +106,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
     { wait: 50, trailing: true, leading: true }
   )
 
-  useEffect(() => {
-    if (!indexes.length) return
-    checkActiveIndex()
-  }, [indexes])
-
-  const element = withNativeProps(
+  return withNativeProps(
     props,
     <div
       className={classNames(`${classPrefix}`, {
@@ -101,19 +126,8 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
         ref={bodyRef}
         onScroll={checkActiveIndex}
       >
-        {props.children}
+        {panels}
       </div>
     </div>
-  )
-
-  return (
-    <IndexBarContext.Provider
-      value={{
-        indexes,
-        setIndexes,
-      }}
-    >
-      {element}
-    </IndexBarContext.Provider>
   )
 })

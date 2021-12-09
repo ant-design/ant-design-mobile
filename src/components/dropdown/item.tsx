@@ -12,7 +12,6 @@ export type DropdownItemProps = {
   highlight?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
-  closeOnContentClick?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & NativeProps
 

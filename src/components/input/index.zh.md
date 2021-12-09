@@ -2,7 +2,7 @@
 
 `Input` 组件是布局无关的， 它只包括了最基本的输入框部分，如果你想为它增加边框、标题、或是一些操作按钮，可以配合 `List` 或 `Form` 组件使用。
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### 属性
 
@@ -29,6 +29,7 @@
 | --color             | 文字颜色               | `var(--adm-color-text)`  |
 | --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-light)` |
 | --disabled-color    | 禁用状态下的文字颜色   | `var(--adm-color-weak)`  |
+| --text-align        | 文字对齐方式           | `left`                   |
 
 ### Ref
 

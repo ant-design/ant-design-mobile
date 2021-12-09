@@ -15,7 +15,7 @@ export type TreeSelectProps = {
   options: TreeSelectOption[]
   defaultValue?: string[]
   value?: string[]
-  onChange?: (value: string[], context: { options: TreeSelectOption[] }) => void
+  onChange?: (value: string[], extend: { options: TreeSelectOption[] }) => void
   fieldNames?: { label: string; value: string; children: string }
 } & NativeProps
 

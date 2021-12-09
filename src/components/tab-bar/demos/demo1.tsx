@@ -1,6 +1,6 @@
-import { DemoBlock } from 'demos'
-import { Badge, TabBar } from 'antd-mobile'
 import React, { useState } from 'react'
+import { Badge, TabBar } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import {
   AppOutline,
   MessageOutline,
@@ -48,6 +48,7 @@ export default () => {
           ))}
         </TabBar>
       </DemoBlock>
+
       <DemoBlock title='徽标' padding='0'>
         <TabBar>
           {tabs.map(item => (
@@ -60,6 +61,7 @@ export default () => {
           ))}
         </TabBar>
       </DemoBlock>
+
       <DemoBlock title='仅图标' padding='0'>
         <TabBar>
           {tabs.map(item => (
@@ -67,6 +69,7 @@ export default () => {
           ))}
         </TabBar>
       </DemoBlock>
+
       <DemoBlock title='仅标题' padding='0'>
         <TabBar>
           {tabs.map(item => (
@@ -74,6 +77,7 @@ export default () => {
           ))}
         </TabBar>
       </DemoBlock>
+
       <DemoBlock title='受控组件' padding='0'>
         <TabBar activeKey={activeKey} onChange={setActiveKey}>
           {tabs.map(item => (

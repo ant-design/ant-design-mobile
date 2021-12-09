@@ -6,7 +6,7 @@ import { CheckListContext } from './context'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckOutline } from 'antd-mobile-icons'
 
-export type CheckListProps = Pick<ListProps, 'mode'> & {
+export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
   defaultValue?: string[]
   value?: string[]
   onChange?: (val: string[]) => void
@@ -14,7 +14,7 @@ export type CheckListProps = Pick<ListProps, 'mode'> & {
   activeIcon?: ReactNode
   disabled?: boolean
   readOnly?: boolean
-} & NativeProps<'--prefix-width' | '--align-items'>
+} & NativeProps
 
 const defaultProps = {
   multiple: false,

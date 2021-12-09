@@ -5,3 +5,9 @@ export function devWarning(component: string, message: string): void {
     console.warn(`[antd-mobile: ${component}] ${message}`)
   }
 }
+
+export function devError(component: string, message: string) {
+  if (isDev) {
+    console.error(`[antd-mobile: ${component}] ${message}`)
+  }
+}

@@ -56,7 +56,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     container.style.display = 'block'
     const lineHeight = pxToNumber(originStyle.lineHeight)
     const maxHeight = Math.floor(
-      lineHeight * props.rows +
+      lineHeight * (props.rows + 0.5) +
         pxToNumber(originStyle.paddingTop) +
         pxToNumber(originStyle.paddingBottom)
     )

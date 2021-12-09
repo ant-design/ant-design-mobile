@@ -1,6 +1,6 @@
 # Steps 步骤条
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ## 属性
 

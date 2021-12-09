@@ -1,8 +1,8 @@
 # ActionSheet 动作面板
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
-## API
+### 属性
 
 | 属性             | 说明                                                                        | 类型                                       | 默认值          |
 | ---------------- | --------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
@@ -17,16 +17,17 @@
 | closeOnAction    | 点击选项后是否关闭                                                          | `boolean`                                  | `false`         |
 | closeOnMaskClick | 点击遮罩层后是否关闭                                                        | `boolean`                                  | `true`          |
 | getContainer     | 指定挂载的 `HTML` 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
+| safeArea         | 是否开启安全区适配                                                          | `boolean`                                  | `true`          |
 
 ### Action
 
 | 属性        | 说明           | 类型               | 默认值  |
 | ----------- | -------------- | ------------------ | ------- |
 | key         | 唯一标记       | `string \| number` | -       |
-| text        | 标题           | `string`           | -       |
+| text        | 标题           | `ReactNode`        | -       |
 | disabled    | 是否为禁用状态 | `boolean`          | `false` |
 | danger      | 是否为危险状态 | `boolean`          | `false` |
-| description | 描述           | `string`           | -       |
+| description | 描述           | `ReactNode`        | -       |
 | onClick     | 点击时触发     | `() => void`       | -       |
 
 ### 指令式

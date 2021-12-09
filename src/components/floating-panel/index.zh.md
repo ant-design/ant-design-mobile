@@ -1,6 +1,6 @@
 # FloatingPanel 浮动面板
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### 属性
 

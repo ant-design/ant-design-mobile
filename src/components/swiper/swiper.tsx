@@ -40,6 +40,7 @@ export type SwiperProps = {
   slideSize?: number
   trackOffset?: number
   stuckAtBoundary?: boolean
+  rubberband?: boolean
   children?: ReactElement | ReactElement[]
 } & NativeProps<'--height' | '--width' | '--border-radius' | '--track-padding'>
 
@@ -48,11 +49,12 @@ const defaultProps = {
   allowTouchMove: true,
   autoplay: false,
   autoplayInterval: 3000,
-  loop: true,
+  loop: false,
   direction: 'horizontal',
   slideSize: 100,
   trackOffset: 0,
-  stuckAtBoundary: false,
+  stuckAtBoundary: true,
+  rubberband: true,
 }
 
 export const Swiper = forwardRef(
@@ -111,7 +113,7 @@ export const Swiper = forwardRef(
         let min = 0
         let max = count - 1
         if (props.stuckAtBoundary) {
-          min += (1 - slideRatio - offsetRatio) / slideRatio
+          min += offsetRatio / slideRatio
           max -= (1 - slideRatio - offsetRatio) / slideRatio
         }
         return bound(current, min, max)
@@ -151,11 +153,12 @@ export const Swiper = forwardRef(
               immediate: true,
             })
           } else {
+            const minIndex = Math.floor(offset / slidePixels)
+            const maxIndex = minIndex + 1
             const index = Math.round(
-              (offset + Math.min(velocity * 2000, slidePixels) * direction) /
-                slidePixels
+              (offset + velocity * 2000 * direction) / slidePixels
             )
-            swipeTo(index)
+            swipeTo(bound(index, minIndex, maxIndex))
             window.setTimeout(() => {
               setDragging(false)
             })
@@ -185,7 +188,7 @@ export const Swiper = forwardRef(
                   right: upperBound,
                 }
           },
-          rubberband: true,
+          rubberband: props.rubberband,
           axis: isVertical ? 'y' : 'x',
           preventScroll: !isVertical,
           pointer: {
@@ -264,7 +267,7 @@ export const Swiper = forwardRef(
                           flagWidth
                         return `${finalPosition}%`
                       }),
-                      left: `-${index * 100}%`,
+                      [isVertical ? 'top' : 'left']: `-${index * 100}%`,
                     }}
                   >
                     {child}

@@ -1,8 +1,9 @@
 import React, { useRef } from 'react'
 import { Button, Space, Swiper, Toast } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
-import styles from './demo1.less'
 import { SwiperRef } from 'antd-mobile/es/components/swiper'
+
+import styles from './demo1.less'
 
 const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']
 
@@ -27,15 +28,18 @@ export default () => {
       <DemoBlock title='基础用法'>
         <Swiper>{items}</Swiper>
       </DemoBlock>
+
       <DemoBlock title='自动播放'>
         <Swiper autoplay>{items}</Swiper>
       </DemoBlock>
-      <DemoBlock title='禁用循环'>
-        <Swiper loop={false}>{items}</Swiper>
+
+      <DemoBlock title='循环'>
+        <Swiper loop>{items}</Swiper>
       </DemoBlock>
+
       <DemoBlock title='手动控制'>
         <Space direction='vertical' block>
-          <Swiper allowTouchMove={false} ref={ref} loop={false}>
+          <Swiper allowTouchMove={false} ref={ref} loop>
             {items}
           </Swiper>
           <Space>
@@ -57,45 +61,18 @@ export default () => {
           <DemoDescription content='在禁用手势拖拽后，可以通过 Ref 进行手动翻页' />
         </Space>
       </DemoBlock>
+
       <DemoBlock title='自定义样式'>
         <Space direction='vertical' block>
           <Swiper
-            slideSize={80}
             style={{
               '--border-radius': '8px',
             }}
-            defaultIndex={2}
-          >
-            {items}
-          </Swiper>
-          <DemoDescription content='通过 CSS 变量可以控制滑块的大小、整体的圆角等样式' />
-        </Space>
-      </DemoBlock>
-      <DemoBlock title='居中展示'>
-        <Space direction='vertical' block>
-          <Swiper loop={false} slideSize={80} trackOffset={10}>
-            {items}
-          </Swiper>
-          <DemoDescription content='通过 CSS 变量可以控制滑块的大小和轨道的偏移量' />
-        </Space>
-      </DemoBlock>
-      <DemoBlock title='循环居中展示'>
-        <Swiper slideSize={70} trackOffset={15}>
-          {items}
-        </Swiper>
-      </DemoBlock>
-      <DemoBlock title='最后一项'>
-        <Space direction='vertical' block>
-          <Swiper
-            loop={false}
-            slideSize={80}
-            trackOffset={10}
             defaultIndex={3}
-            stuckAtBoundary
           >
             {items}
           </Swiper>
-          <DemoDescription content='让最后一项卡在右边界' />
+          <DemoDescription content='通过 CSS 变量可以控制整体的圆角等样式' />
         </Space>
       </DemoBlock>
     </>

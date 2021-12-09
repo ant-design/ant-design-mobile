@@ -1,6 +1,7 @@
 import React from 'react'
 import { Swiper } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+
 import styles from './demo5.less'
 
 const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']
@@ -21,11 +22,13 @@ export default () => {
           {verticalItems}
         </Swiper>
       </DemoBlock>
+
       <DemoBlock title='竖向居中展示'>
         <Swiper
           direction='vertical'
           trackOffset={10}
           slideSize={80}
+          stuckAtBoundary={false}
           style={{ '--height': '200px' }}
         >
           {verticalItems}

@@ -1,6 +1,6 @@
 import React from 'react'
+import { Swiper } from 'antd-mobile'
 import { DemoBlock, lorem } from 'demos'
-import { Space, Swiper } from 'antd-mobile'
 
 const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']
 

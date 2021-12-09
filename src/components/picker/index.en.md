@@ -1,16 +1,16 @@
 # Picker
 
-The Picker series includes three components: `Picker`, `CascadePicker`, and `DatePicker`.
+The Picker series includes three components: [Picker](#picker), [CascadePicker](#cascadepicker) and [DatePicker](#datepicker).
 
 ## Picker
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### Picker API
 
 ```typescript | pure
 type PickerColumnItem = {
-  label: string
+  label: ReactNode
   value: string
 }
 
@@ -18,7 +18,7 @@ type PickerColumn = (string | PickerColumnItem)[]
 
 type PickerValue = string | null
 
-type PickerValueContext = {
+type PickerValueExtend = {
   items: (PickerColumnItem | null)[]
 }
 ```
@@ -28,8 +28,8 @@ type PickerValueContext = {
 | columns      | Options to configure each column        | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
 | value        | Selected options                        | `PickerValue[]`                                                | -        |
 | defaultValue | Default selected options                | `PickerValue[]`                                                | -        |
-| onSelect     | Triggered when the options are changed  | `(value: PickerValue[], context: PickerValueContext) => void`  | -        |
-| onConfirm    | Triggered when confirming               | `(value: PickerValue[], context: PickerValueContext) => void`  | -        |
+| onSelect     | Triggered when the options are changed  | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
+| onConfirm    | Triggered when confirming               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onCancel     | Triggered when cancelling               | `() => void`                                                   | -        |
 | onClose      | Triggered when confirming or cancelling | `() => void`                                                   | -        |
 | visible      | Whether to show or hide the Picker      | `boolean`                                                      | `false`  |
@@ -42,7 +42,7 @@ In addition, the following attributes of [Popup](./popup) are supported: `getCon
 
 ## CascadePicker
 
-<code src="./demos/cascade-picker-demo.tsx"></code>
+<code src="../cascade-picker/demos/demo1.tsx"></code>
 
 ### CascadePicker API
 
@@ -62,20 +62,21 @@ Other props are the same as `Picker`, but `columns` are not supported.
 
 ## DatePicker
 
-<code src="./demos/date-picker-demo.tsx"></code>
+<code src="../date-picker/demos/demo1.tsx"></code>
 
 ### DatePicker API
 
-| Name         | Description                                  | Type                                                           | Default |
-| ------------ | -------------------------------------------- | -------------------------------------------------------------- | ------- |
-| value        | Selected value                               | `Date`                                                         | -       |
-| defaultValue | Default selected value                       | `Date`                                                         | -       |
-| onSelect     | Triggered when the options are changed       | `(value: Date) => void`                                        | -       |
-| onConfirm    | Triggered when confirming                    | `(value: Date) => void`                                        | -       |
-| min          | Minimum value                                | `Date`                                                         | 十年前  |
-| max          | Max value                                    | `Date`                                                         | 十年后  |
-| precision    | Precision                                    | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
-| children     | The rendering function of the selected items | `(value: Date) => ReactNode`                                   | -       |
+| Name         | Description                                                                                                                          | Type                                                                                   | Default         |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- | --------------- |
+| value        | Selected value                                                                                                                       | `Date`                                                                                 | -               |
+| defaultValue | Default selected value                                                                                                               | `Date`                                                                                 | -               |
+| onSelect     | Triggered when the options are changed                                                                                               | `(value: Date) => void`                                                                | -               |
+| onConfirm    | Triggered when confirming                                                                                                            | `(value: Date) => void`                                                                | -               |
+| min          | Minimum value                                                                                                                        | `Date`                                                                                 | ten years ago   |
+| max          | Max value                                                                                                                            | `Date`                                                                                 | ten years later |
+| precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'`         |
+| children     | The rendering function of the selected items                                                                                         | `(value: Date) => ReactNode`                                                           | -               |
+| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                            | -               |
 
 In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 

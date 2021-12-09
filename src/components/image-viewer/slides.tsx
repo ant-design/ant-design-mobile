@@ -29,10 +29,16 @@ export const Slides: FC<{
       if (dragLockRef.current) return
       const [offsetX] = state.offset
       if (state.last) {
+        const minIndex = Math.floor(offsetX / slideWidth)
+        const maxIndex = minIndex + 1
         const velocityOffset =
           Math.min(state.velocity[0] * 2000, slideWidth) * state.direction[0]
         const index = bound(
-          Math.round((offsetX + velocityOffset) / slideWidth),
+          bound(
+            Math.round((offsetX + velocityOffset) / slideWidth),
+            minIndex,
+            maxIndex
+          ),
           0,
           count - 1
         )

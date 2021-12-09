@@ -37,3 +37,24 @@ These dependencies were not found:
 ### 兼容哪些浏览器？
 
 目前的兼容性标准为 iOS Safari >= 10 和 Chrome >= 49。
+
+### 如何避免 300ms 的点击延迟？
+
+在 `head` 中增加以下内容：
+
+```html
+<meta name="viewport" content="width=device-width">
+```
+
+或者增加以下全局样式：
+
+```css
+html {
+  touch-action: manipulation;
+}
+```
+
+具体请参考这两篇文章：
+
+- [300ms tap delay, gone away](https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away)
+- [More Responsive Tapping on iOS](https://webkit.org/blog/5610/more-responsive-tapping-on-ios/)

@@ -5,9 +5,9 @@ const pxToRem = require('postcss-pxtorem')
 export default {
   mode: 'site',
   title: 'Ant Design Mobile',
-  logo: 'https://gw.alipayobjects.com/zos/bmw-prod/cadedaff-8c88-4af2-870f-0574d322761c.svg',
+  logo: 'https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*_JSuS4uucYAAAAAAAAAAAAAAARQnAQ',
   favicon:
-    'https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*ShzFT47r_F8AAAAAAAAAAAAAARQnAQ',
+    'https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*_JSuS4uucYAAAAAAAAAAAAAAARQnAQ',
   navs: {
     'en': [
       {
@@ -167,7 +167,7 @@ export default {
         path: '/guide/migration',
       },
       {
-        title: 'FAQ',
+        title: '常见问题',
         path: '/zh/guide/faq',
       },
       {
@@ -267,6 +267,7 @@ export default {
         'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover',
     },
   ],
+  hash: true,
   scripts: [
     `if (location.pathname.startsWith('/~demos/')) {
       document.body.style.background = '#f5f7fa'
@@ -294,6 +295,9 @@ export default {
   ],
   styles: [
     `
+    html {
+      touch-action: manipulation;
+    }
     #root .__dumi-default-mobile-demo-layout {
       padding: 0;
     }

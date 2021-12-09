@@ -1,7 +1,7 @@
 import React, { ReactNode, forwardRef } from 'react'
 import classNames from 'classnames'
 import { NativeProps } from '../../utils/native-props'
-import List from '../list'
+import List, { ListProps } from '../list'
 import RcForm from 'rc-field-form'
 import type { FormProps as RcFormProps, FormInstance } from 'rc-field-form'
 import { FormContext, FormContextType } from './context'
@@ -15,6 +15,7 @@ export type FormProps = RcFormProps &
   Partial<FormContextType> & {
     footer?: ReactNode
     layout?: FormLayout
+    mode?: ListProps['mode']
   }
 
 const defaultProps = {
@@ -31,6 +32,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     children,
     layout,
     footer,
+    mode,
     ...formProps
   } = props
 
@@ -42,6 +44,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
       {...formProps}
     >
       <List
+        mode={mode}
         style={{
           '--prefix-width': '6em',
           '--align-items': 'stretch',

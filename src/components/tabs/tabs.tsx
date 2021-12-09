@@ -32,17 +32,20 @@ export type TabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   activeLineMode?: 'auto' | 'full' | 'fixed'
+  stretch?: boolean
   onChange?: (key: string) => void
-} & NativeProps<'--fixed-active-line-width'>
+} & NativeProps<
+  '--fixed-active-line-width' | '--title-font-size' | '--content-padding'
+>
 
 const defaultProps = {
   activeLineMode: 'auto',
+  stretch: true,
 }
 
 export const Tabs: FC<TabsProps> = p => {
   const props = mergeProps(defaultProps, p)
   const tabListContainerRef = useRef<HTMLDivElement>(null)
-  const rootRef = useRef<HTMLDivElement>(null)
   const activeLineRef = useRef<HTMLDivElement>(null)
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
@@ -164,7 +167,7 @@ export const Tabs: FC<TabsProps> = p => {
 
   useResizeEffect(() => {
     animate(true)
-  }, rootRef)
+  }, tabListContainerRef)
 
   useMutationEffect(
     () => {
@@ -207,7 +210,7 @@ export const Tabs: FC<TabsProps> = p => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix} ref={rootRef}>
+    <div className={classPrefix}>
       <div className={`${classPrefix}-header`}>
         <animated.div
           className={classNames(
@@ -247,7 +250,12 @@ export const Tabs: FC<TabsProps> = p => {
           {panes.map(pane =>
             withNativeProps(
               pane.props,
-              <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
+              <div
+                key={pane.key}
+                className={classNames(`${classPrefix}-tab-wrapper`, {
+                  [`${classPrefix}-tab-wrapper-stretch`]: props.stretch,
+                })}
+              >
                 <div
                   onClick={() => {
                     const { key } = pane

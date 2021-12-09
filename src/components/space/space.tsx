@@ -18,6 +18,7 @@ export type SpaceProps = {
     | 'stretch'
   wrap?: boolean
   block?: boolean
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & NativeProps<'--gap' | '--gap-vertical' | '--gap-horizontal'>
 
 const defaultProps = {
@@ -26,7 +27,7 @@ const defaultProps = {
 
 export const Space: FC<SpaceProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const { direction } = props
+  const { direction, onClick } = props
   return withNativeProps(
     props,
     <div
@@ -37,6 +38,7 @@ export const Space: FC<SpaceProps> = p => {
         [`${classPrefix}-align-${props.align}`]: !!props.align,
         [`${classPrefix}-justify-${props.justify}`]: !!props.justify,
       })}
+      onClick={onClick}
     >
       {React.Children.map(props.children, child => {
         return (

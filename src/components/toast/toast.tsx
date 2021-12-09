@@ -6,6 +6,7 @@ import Mask from '../mask'
 import { mergeProps } from '../../utils/with-default-props'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
 import { GetContainer } from '../../utils/render-to-container'
+import AutoCenter from '../auto-center'
 
 const classPrefix = `adm-toast`
 
@@ -82,7 +83,7 @@ export const InternalToast: React.FC<ToastProps> = p => {
         {iconElement && (
           <div className={`${classPrefix}-icon`}>{iconElement}</div>
         )}
-        {content}
+        <AutoCenter>{content}</AutoCenter>
       </div>
     </Mask>
   )

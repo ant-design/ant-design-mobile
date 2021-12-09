@@ -1,5 +1,5 @@
-import { useCallback, useRef } from 'react'
-import { useUpdate } from 'ahooks'
+import { useRef } from 'react'
+import { usePersistFn, useUpdate } from 'ahooks'
 
 type Options<T> = {
   value?: T
@@ -17,15 +17,12 @@ export function usePropsValue<T>(options: Options<T>) {
     stateRef.current = value
   }
 
-  const setState = useCallback(
-    (v: T) => {
-      if (value === undefined) {
-        stateRef.current = v
-        update()
-      }
-      onChange?.(v)
-    },
-    [value, update, onChange]
-  )
+  const setState = usePersistFn((v: T) => {
+    if (value === undefined) {
+      stateRef.current = v
+      update()
+    }
+    onChange?.(v)
+  })
   return [stateRef.current, setState] as const
 }
