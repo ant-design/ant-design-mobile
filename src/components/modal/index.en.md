@@ -2,9 +2,9 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-# API
-
 ## Modal
+
+### Props
 
 | Name             | Description                                                                                                                   | Type                                                       | Default     |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
@@ -25,7 +25,7 @@
 | maskStyle        | `Modal` mask style                                                                                                            | `React.CSSProperties`                                      | -           |
 | maskClassName    | `Modal` mask class name                                                                                                       | `string`                                                   | -           |
 | stopPropagation  | Stop the propagation of some events.                                                                                          | `PropagationEvent[]`                                       | `['click']` |
-| showCloseButton  | Whether to show a close button on the top right corner                                                                        | boolean                                                    | `false`     |
+| showCloseButton  | Whether to show a close button on the top right corner                                                                        | `boolean`                                                  | `false`     |
 
 ### Action
 
