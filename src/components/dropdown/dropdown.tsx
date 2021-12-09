@@ -85,7 +85,8 @@ const Dropdown = forwardRef<
           changeActive(child.key as string)
         },
         active: child.key === value,
-        arrow: child.props.arrow ?? props.arrow,
+        arrow:
+          child.props.arrow === undefined ? props.arrow : child.props.arrow,
       }
       items.push(child)
       if (child.props.forceRender) popupForceRender = true

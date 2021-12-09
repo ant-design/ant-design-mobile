@@ -33,7 +33,7 @@ const Item: FC<DropdownItemProps> = props => {
             [`${classPrefix}-title-arrow-active`]: props.active,
           })}
         >
-          {props.arrow ?? <DownFill />}
+          {props.arrow === undefined ? <DownFill /> : props.arrow}
         </span>
       </div>
     </div>
