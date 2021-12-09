@@ -97,10 +97,30 @@ export function generateDatePickerColumns(
   const isInMinMinute = isInMinHour && selectedMinute === minMinute
   const isInMaxMinute = isInMaxHour && selectedMinute === maxMinute
 
+  const generateColumn = (
+    from: number,
+    to: number,
+    precision: DatePrecision
+  ) => {
+    let column: number[] = []
+    for (let i = from; i <= to; i++) {
+      column.push(i)
+    }
+    const prefix = selected.slice(0, precisionRankRecord[precision])
+    const currentFilter = filter?.[precision]
+    if (currentFilter && typeof currentFilter === 'function') {
+      column = column.filter(i => {
+        const stringArray = [...prefix, i.toString()]
+        return currentFilter(i, convertStringArrayToDate(stringArray) as Date)
+      })
+    }
+    return column
+  }
+
   if (rank >= precisionRankRecord.month) {
     const lower = isInMinYear ? minMonth : 1
     const upper = isInMaxYear ? maxMonth : 12
-    const months = generateColumn(lower, upper, 'month', selected, filter)
+    const months = generateColumn(lower, upper, 'month')
     ret.push(
       months.map(v => {
         return {
@@ -113,7 +133,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.day) {
     const lower = isInMinMonth ? minDay : 1
     const upper = isInMaxMonth ? maxDay : firstDayInSelectedMonth.daysInMonth()
-    const days = generateColumn(lower, upper, 'day', selected, filter)
+    const days = generateColumn(lower, upper, 'day')
     ret.push(
       days.map(v => {
         return {
@@ -126,7 +146,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.hour) {
     const lower = isInMinDay ? minHour : 0
     const upper = isInMaxDay ? maxHour : 23
-    const hours = generateColumn(lower, upper, 'hour', selected, filter)
+    const hours = generateColumn(lower, upper, 'hour')
     ret.push(
       hours.map(v => {
         return {
@@ -139,7 +159,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.minute) {
     const lower = isInMinHour ? minMinute : 0
     const upper = isInMaxHour ? maxMinute : 59
-    const minutes = generateColumn(lower, upper, 'minute', selected, filter)
+    const minutes = generateColumn(lower, upper, 'minute')
     ret.push(
       minutes.map(v => {
         return {
@@ -152,7 +172,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.second) {
     const lower = isInMinMinute ? minSecond : 0
     const upper = isInMaxMinute ? maxSecond : 59
-    const seconds = generateColumn(lower, upper, 'second', selected, filter)
+    const seconds = generateColumn(lower, upper, 'second')
     ret.push(
       seconds.map(v => {
         return {
@@ -164,38 +184,6 @@ export function generateDatePickerColumns(
   }
 
   return ret
-}
-
-const generateColumn = (
-  from: number,
-  to: number,
-  type: DatePrecision,
-  selected: string[],
-  filter: DatePickerFilter | undefined
-) => {
-  const column: number[] = []
-  if (filter && filter[type] && typeof filter[type] === 'function') {
-    // 存在 filter
-    for (let i = from; i <= to; i++) {
-      const date = [...selected]
-      date[precisionRankRecord[type]] = i.toString()
-      if (
-        (filter[type] as (val: number, date: Date) => boolean)(
-          i,
-          convertStringArrayToDate(date) as Date
-        )
-      ) {
-        column.push(i)
-      }
-    }
-    return column
-  } else {
-    // 没有 filter，返回完整的数组
-    for (let i = from; i <= to; i++) {
-      column.push(i)
-    }
-    return column
-  }
 }
 
 export function convertDateToStringArray(
