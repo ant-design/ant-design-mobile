@@ -35,6 +35,7 @@ test('renders with title & close button', async () => {
 
   // 点击数字
   fireEvent.touchEnd(getByText('0'))
+  fireEvent.touchEnd(getByTitle(''))
   await waitFor(() => {
     expect(onInput).toBeCalledTimes(1)
     expect(inputValue).toEqual('0')
