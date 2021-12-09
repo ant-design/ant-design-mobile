@@ -13,7 +13,7 @@
 | header           | The top area                                                                                                                  | `React.ReactNode`                                          | -           |
 | title            | The title of the Modal                                                                                                        | `React.ReactNode`                                          | -           |
 | content          | The content of the Modal                                                                                                      | `React.ReactNode`                                          | -           |
-| actions          | The list of the operation button, a secondary array can be passed in to realize multiple buttons side by side in the same row | `(Action \| Action[])[]`                                   | `[]`        |
+| actions          | The list of the operation button, a secondary array can be passed in to realize multiple buttons side by side in the same row | `Action[]`                                                 | `[]`        |
 | onAction         | Triggered when the action button is clicked                                                                                   | `(action: Action, index: number) => void \| Promise<void>` | -           |
 | closeOnAction    | Whether to close after clicking the operation button                                                                          | `boolean`                                                  | `false`     |
 | onClose          | Triggered when closed                                                                                                         | `() => void`                                               | -           |
@@ -25,6 +25,7 @@
 | maskStyle        | `Modal` mask style                                                                                                            | `React.CSSProperties`                                      | -           |
 | maskClassName    | `Modal` mask class name                                                                                                       | `string`                                                   | -           |
 | stopPropagation  | Stop the propagation of some events.                                                                                          | `PropagationEvent[]`                                       | `['click']` |
+| showCloseButton  | Whether to show a close button on the top right corner                                                                        | boolean                                                    | `false`     |
 
 ### Action
 
