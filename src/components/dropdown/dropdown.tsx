@@ -24,6 +24,7 @@ export type DropdownProps = {
   closeOnMaskClick?: boolean
   onChange?: (key: string | null) => void
   // mask?: boolean;
+  arrow?: React.ReactNode
 } & NativeProps
 
 const defaultProps = {
@@ -84,6 +85,7 @@ const Dropdown = forwardRef<
           changeActive(child.key as string)
         },
         active: child.key === value,
+        arrow: child.props.arrow ?? props.arrow,
       }
       items.push(child)
       if (child.props.forceRender) popupForceRender = true

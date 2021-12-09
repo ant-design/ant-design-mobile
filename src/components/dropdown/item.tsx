@@ -14,7 +14,7 @@ export type DropdownItemProps = {
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  arrow?: (active: boolean) => React.ReactNode
+  arrow?: React.ReactNode
 } & NativeProps
 
 const Item: FC<DropdownItemProps> = props => {
@@ -28,18 +28,12 @@ const Item: FC<DropdownItemProps> = props => {
     <div className={cls} onClick={props.onClick}>
       <div className={`${classPrefix}-title`}>
         <span className={`${classPrefix}-title-text`}>{props.title}</span>
-        <span className={`${classPrefix}-title-arrow`}>
-          {props.arrow ? (
-            props.arrow(!!props.active)
-          ) : (
-            <span
-              className={classNames({
-                [`${classPrefix}-title-arrow-active`]: props.active,
-              })}
-            >
-              <DownFill />
-            </span>
-          )}
+        <span
+          className={classNames(`${classPrefix}-title-arrow`, {
+            [`${classPrefix}-title-arrow-active`]: props.active,
+          })}
+        >
+          {props.arrow ?? <DownFill />}
         </span>
       </div>
     </div>
