@@ -10,10 +10,14 @@ import {
   Slider,
   Stepper,
 } from 'antd-mobile'
+import { CloseCircleFill } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 import dayjs from 'dayjs'
 
+import './demo1.less'
+
 export default () => {
+  const [form] = Form.useForm()
   const onFinish = (values: any) => {
     Dialog.alert({
       content: JSON.stringify(values),
@@ -21,6 +25,15 @@ export default () => {
   }
 
   const [pickerVisible, setPickerVisible] = useState(false)
+
+  const clear = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    form.setFieldsValue({ birthday: '' })
+  }
+
+  const ClearableIcon = () => {
+    return <CloseCircleFill className='clearIcon' onClick={e => clear(e)} />
+  }
 
   return (
     <>
@@ -31,6 +44,7 @@ export default () => {
         background='transparent'
       >
         <Form
+          form={form}
           onFinish={onFinish}
           footer={
             <Button block type='submit' color='primary'>
@@ -49,24 +63,35 @@ export default () => {
             <Input placeholder='请输入地址' />
           </Form.Item>
           <Form.Item
-            name='birthday'
-            label='生日'
-            trigger='onConfirm'
-            onClick={() => {
-              setPickerVisible(true)
-            }}
+            noStyle
+            shouldUpdate={(prevValues, curValues) =>
+              prevValues.birthday !== curValues.birthday
+            }
           >
-            <DatePicker
-              visible={pickerVisible}
-              onClose={() => {
-                setPickerVisible(false)
-              }}
-            >
-              {value =>
-                value ? dayjs(value).format('YYYY-MM-DD') : '请选择日期'
-              }
-            </DatePicker>
+            {({ getFieldValue }) => (
+              <Form.Item
+                name='birthday'
+                label='生日'
+                trigger='onConfirm'
+                arrow={getFieldValue('birthday') ? <ClearableIcon /> : true}
+                onClick={() => {
+                  setPickerVisible(true)
+                }}
+              >
+                <DatePicker
+                  visible={pickerVisible}
+                  onClose={() => {
+                    setPickerVisible(false)
+                  }}
+                >
+                  {value =>
+                    value ? dayjs(value).format('YYYY-MM-DD') : '请选择日期'
+                  }
+                </DatePicker>
+              </Form.Item>
+            )}
           </Form.Item>
+
           <Form.Item name='favoriteFruits' label='喜爱的水果'>
             <Selector
               columns={3}

@@ -25,14 +25,15 @@ See for other parameters https://www.npmjs.com/package/rc-field-form
 
 ### Form.Item
 
-| Name        | Description                          | Type                         | Default                                                               |
-| ----------- | ------------------------------------ | ---------------------------- | --------------------------------------------------------------------- |
-| label       | Label name                           | `ReactNode`                  | --                                                                    |
-| help        | Prompt text                          | `ReactNode`                  | --                                                                    |
-| extra       | The right area of the form item.     | `ReactNode`                  | --                                                                    |
-| required    | Whether it is required               | `boolean`                    | `false`（if `rules` is set, it would be judged according to `rules`） |
-| disabled    | Whether it is disabled               | `boolean`                    | `false`                                                               |
-| noStyle     | No styles, only use field management | `boolean`                    | `false`                                                               |
-| hidden      | Hide this field                      | `boolean`                    | `false`                                                               |
-| layout      | Layout mode                          | `'vertical' \| 'horizontal'` | The `layout` of parent Form                                           |
-| hasFeedback | Whether to show error feedback       | `boolean`                    | `true`                                                                |
+| Name        | Description                                      | Type                         | Default                                                               |
+| ----------- | ------------------------------------------------ | ---------------------------- | --------------------------------------------------------------------- |
+| label       | Label name                                       | `ReactNode`                  | --                                                                    |
+| help        | Prompt text                                      | `ReactNode`                  | --                                                                    |
+| extra       | The right area of the form item.                 | `ReactNode`                  | --                                                                    |
+| required    | Whether it is required                           | `boolean`                    | `false`（if `rules` is set, it would be judged according to `rules`） |
+| disabled    | Whether it is disabled                           | `boolean`                    | `false`                                                               |
+| noStyle     | No styles, only use field management             | `boolean`                    | `false`                                                               |
+| hidden      | Hide this field                                  | `boolean`                    | `false`                                                               |
+| layout      | Layout mode                                      | `'vertical' \| 'horizontal'` | The `layout` of parent Form                                           |
+| hasFeedback | Whether to show error feedback                   | `boolean`                    | `true`                                                                |
+| arrow       | Whether to show the arrow icon on the right side | `boolean \| ReactNode`       | --                                                                    |

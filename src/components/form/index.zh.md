@@ -36,3 +36,4 @@
 | hidden      | 是否隐藏整个字段           | `boolean`                    | `false`                                            |
 | layout      | 布局模式                   | `'vertical' \| 'horizontal'` | 父级 Form 的 `layout`                              |
 | hasFeedback | 是否展示错误反馈           | `boolean`                    | `true`                                             |
+| arrow       | 是否展示右侧箭头           | `boolean \| ReactNode`       | --                                                 |
