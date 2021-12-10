@@ -1,7 +1,17 @@
-import React from 'react'
-import { Form, Input, Button, Dialog, Checkbox, Space } from 'antd-mobile'
+import React, { useState } from 'react'
+import {
+  Form,
+  Input,
+  Button,
+  Dialog,
+  Checkbox,
+  Space,
+  DatePicker,
+} from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { FormInstance } from 'antd-mobile/es/components/form'
+import dayjs from 'dayjs'
+import { CloseCircleFill } from 'antd-mobile-icons'
 
 export default () => {
   const [form] = Form.useForm()
@@ -56,6 +66,7 @@ export default () => {
               return JSON.stringify(getFieldValue('b'))
             }}
           </Form.Item>
+          <DatePickerInputItem />
           <Form.Item name='c' label='字段C' noStyle>
             <Input placeholder='自定义样式' />
           </Form.Item>
@@ -117,4 +128,55 @@ class RefDemo extends React.Component {
       </Form>
     )
   }
+}
+
+const DatePickerInputItem = () => {
+  const [pickerVisible, setPickerVisible] = useState(false)
+
+  return (
+    <Form.Item
+      noStyle
+      shouldUpdate={(prevValues, curValues) =>
+        prevValues.birthday !== curValues.birthday
+      }
+    >
+      {({ getFieldValue, setFieldsValue }) => (
+        <Form.Item
+          name='birthday'
+          label='带清除图标的时间选择器'
+          trigger='onConfirm'
+          arrow={
+            getFieldValue('birthday') ? (
+              <CloseCircleFill
+                style={{
+                  color: 'var(--adm-color-light)',
+                  fontSize: 14,
+                }}
+                onClick={e => {
+                  e.stopPropagation()
+                  setFieldsValue({ birthday: '' })
+                }}
+              />
+            ) : (
+              true
+            )
+          }
+          onClick={() => {
+            setPickerVisible(true)
+          }}
+        >
+          <DatePicker
+            visible={pickerVisible}
+            onClose={() => {
+              setPickerVisible(false)
+            }}
+          >
+            {value =>
+              value ? dayjs(value).format('YYYY-MM-DD') : '请选择日期'
+            }
+          </DatePicker>
+        </Form.Item>
+      )}
+    </Form.Item>
+  )
 }
