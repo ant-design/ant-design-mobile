@@ -104,6 +104,29 @@ function umdWebpack() {
           module: {
             rules: [
               {
+                test: /\.js$/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    'presets': [
+                      [
+                        '@babel/preset-env',
+                        {
+                          'loose': true,
+                          'modules': false,
+                          'targets': {
+                            'chrome': '49',
+                            'ios': '10',
+                          },
+                        },
+                      ],
+                      '@babel/preset-typescript',
+                      '@babel/preset-react',
+                    ],
+                  },
+                },
+              },
+              {
                 test: /\.(png|svg|jpg|gif|jpeg)$/,
                 type: 'asset/inline',
               },
