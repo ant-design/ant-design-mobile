@@ -69,7 +69,6 @@ export const components = {
   experimental: [
     '/components/what-is-experimental',
     '/components/auto-center',
-    '/components/desense-text',
     '/components/dropdown',
     '/components/ellipsis',
     '/components/floating-bubble',
