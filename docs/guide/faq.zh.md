@@ -34,10 +34,6 @@ These dependencies were not found:
 
 请参考[迁移指南](./migration)。
 
-### 兼容哪些浏览器？
-
-目前的兼容性标准为 iOS Safari >= 10 和 Chrome >= 49。
-
 ### 如何避免 300ms 的点击延迟？
 
 在 `head` 中增加以下内容：
