@@ -8,6 +8,8 @@ const del = require('del')
 const webpackStream = require('webpack-stream')
 const webpack = require('webpack')
 const through = require('through2')
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const tsconfig = require('./tsconfig.json')
 
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
@@ -101,6 +103,11 @@ function umdWebpack() {
           resolve: {
             extensions: ['.js', '.json'],
           },
+          plugins: [
+            new BundleAnalyzerPlugin({
+              analyzerMode: 'json',
+            }),
+          ],
           module: {
             rules: [
               {
