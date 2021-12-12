@@ -135,6 +135,7 @@ export const Picker = memo<PickerProps>(p => {
       afterShow={props.afterShow}
       afterClose={props.afterClose}
       onClick={props.onClick}
+      forceRender={true}
       stopPropagation={props.stopPropagation}
     >
       {pickerElement}
