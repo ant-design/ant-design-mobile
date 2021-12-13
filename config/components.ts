@@ -70,11 +70,11 @@ export const components = {
   experimental: [
     '/components/what-is-experimental',
     '/components/auto-center',
-    '/components/desense-text',
     '/components/dropdown',
     '/components/ellipsis',
     '/components/floating-bubble',
     '/components/image-uploader',
+    '/components/modal',
     '/components/number-keyboard',
     '/components/safe-area',
     '/components/tree-select',

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Collapse, Loading, Result } from 'antd-mobile'
 import { DemoBlock, sleep } from 'demos'
+import { PlayOutline, MinusCircleOutline } from 'antd-mobile-icons'
 
 const DynamicContent = () => {
   const [finished, setFinished] = useState(false)
@@ -36,6 +37,31 @@ export default () => {
             <br />
           </Collapse.Panel>
           <Collapse.Panel key='2' title='第二项'>
+            这里是第二项的内容
+          </Collapse.Panel>
+          <Collapse.Panel key='3' title='第三项'>
+            这里是第三项的内容
+          </Collapse.Panel>
+        </Collapse>
+      </DemoBlock>
+
+      <DemoBlock title='自定义arrow' padding='0' border='none'>
+        <Collapse defaultActiveKey={['1']} arrow={<PlayOutline />}>
+          <Collapse.Panel key='1' title='第一项'>
+            这里是第一项的内容
+            <br />
+            这里是第一项的内容
+            <br />
+            这里是第一项的内容
+            <br />
+            这里是第一项的内容
+            <br />
+            这里是第一项的内容
+            <br />
+            这里是第一项的内容
+            <br />
+          </Collapse.Panel>
+          <Collapse.Panel key='2' title='第二项' arrow={<MinusCircleOutline />}>
             这里是第二项的内容
           </Collapse.Panel>
           <Collapse.Panel key='3' title='第三项'>

@@ -1,16 +1,16 @@
 import React, { FC, ReactNode, useCallback, useMemo } from 'react'
+import { usePersistFn } from 'ahooks'
 import Picker, { PickerProps } from '../picker'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import {
-  Precision,
   convertDateToStringArray,
   convertStringArrayToDate,
   generateDatePickerColumns,
   defaultRenderLabel,
 } from './date-picker-utils'
-import { usePersistFn } from 'ahooks'
+import type { Precision, DatePickerFilter } from './date-picker-utils'
 
 export type DatePickerProps = Pick<
   PickerProps,
@@ -35,6 +35,7 @@ export type DatePickerProps = Pick<
   precision?: Precision
   children?: (value: Date | null) => ReactNode
   renderLabel?: (type: Precision, data: number) => ReactNode
+  filter?: DatePickerFilter
 } & NativeProps
 
 const thisYear = new Date().getFullYear()
@@ -69,9 +70,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
 
   const onSelect = usePersistFn((val: string[]) => {
     const date = convertStringArrayToDate(val, props.precision)
-    if (date) {
-      props.onSelect?.(date)
-    }
+    props.onSelect?.(date)
   })
 
   const columns = useCallback(
@@ -81,7 +80,8 @@ export const DatePicker: FC<DatePickerProps> = p => {
         props.min,
         props.max,
         props.precision,
-        props.renderLabel
+        props.renderLabel,
+        props.filter
       ),
     [props.min, props.max, props.precision, props.renderLabel]
   )
@@ -107,10 +107,12 @@ export const DatePicker: FC<DatePickerProps> = p => {
     >
       {items =>
         props.children?.(
-          convertStringArrayToDate(
-            items.map(item => item?.value),
-            props.precision
-          )
+          items.length === 0
+            ? null
+            : convertStringArrayToDate(
+                items.map(item => item?.value),
+                props.precision
+              )
         )
       }
     </Picker>

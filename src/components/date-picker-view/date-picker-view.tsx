@@ -4,11 +4,14 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import {
-  Precision,
   generateDatePickerColumns,
   convertDateToStringArray,
   convertStringArrayToDate,
   defaultRenderLabel,
+} from '../date-picker/date-picker-utils'
+import type {
+  Precision,
+  DatePickerFilter,
 } from '../date-picker/date-picker-utils'
 
 export type DatePickerViewProps = {
@@ -19,6 +22,7 @@ export type DatePickerViewProps = {
   max?: Date
   precision?: Precision
   renderLabel?: (type: Precision, data: number) => ReactNode
+  filter?: DatePickerFilter
 } & NativeProps<'--height'>
 
 const thisYear = new Date().getFullYear()
@@ -63,7 +67,8 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
           props.min,
           props.max,
           props.precision,
-          props.renderLabel
+          props.renderLabel,
+          props.filter
         )
       }
       value={pickerValue}

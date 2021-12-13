@@ -1,30 +1,31 @@
-# Dialog
+# Modal
 
 <code src="./demos/demo1.tsx"></code>
 
-## Dialog
+## Modal
 
 ### Props
 
 | Name             | Description                                                                                                                   | Type                                                       | Default     |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
-| afterClose       | Callback after `Dialog` is completely closed                                                                                  | `() => void`                                               | -           |
+| afterClose       | Callback after `Modal` is completely closed                                                                                   | `() => void`                                               | -           |
 | image            | The `url` of the picture                                                                                                      | `string`                                                   | -           |
 | header           | The top area                                                                                                                  | `React.ReactNode`                                          | -           |
-| title            | The title of the Dialog                                                                                                       | `React.ReactNode`                                          | -           |
-| content          | The content of the Dialog                                                                                                     | `React.ReactNode`                                          | -           |
-| actions          | The list of the operation button, a secondary array can be passed in to realize multiple buttons side by side in the same row | `(Action \| Action[])[]`                                   | `[]`        |
+| title            | The title of the Modal                                                                                                        | `React.ReactNode`                                          | -           |
+| content          | The content of the Modal                                                                                                      | `React.ReactNode`                                          | -           |
+| actions          | The list of the operation button, a secondary array can be passed in to realize multiple buttons side by side in the same row | `Action[]`                                                 | `[]`        |
 | onAction         | Triggered when the action button is clicked                                                                                   | `(action: Action, index: number) => void \| Promise<void>` | -           |
 | closeOnAction    | Whether to close after clicking the operation button                                                                          | `boolean`                                                  | `false`     |
 | onClose          | Triggered when closed                                                                                                         | `() => void`                                               | -           |
-| closeOnMaskClick | Whether to support clicking the mask to close the dialog box                                                                  | `boolean`                                                  | `false`     |
+| closeOnMaskClick | Whether to support clicking the mask to close the modal box                                                                   | `boolean`                                                  | `false`     |
 | visible          | To show or hide                                                                                                               | `boolean`                                                  | `false`     |
-| getContainer     | The parent container of the custom dialog                                                                                     | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
-| bodyStyle        | `Dialog` content style                                                                                                        | `React.CSSProperties`                                      | -           |
-| bodyClassName    | `Dialog` content class name                                                                                                   | `string`                                                   | -           |
-| maskStyle        | `Dialog` mask style                                                                                                           | `React.CSSProperties`                                      | -           |
-| maskClassName    | `Dialog` mask class name                                                                                                      | `string`                                                   | -           |
+| getContainer     | The parent container of the custom modal                                                                                      | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
+| bodyStyle        | `Modal` content style                                                                                                         | `React.CSSProperties`                                      | -           |
+| bodyClassName    | `Modal` content class name                                                                                                    | `string`                                                   | -           |
+| maskStyle        | `Modal` mask style                                                                                                            | `React.CSSProperties`                                      | -           |
+| maskClassName    | `Modal` mask class name                                                                                                       | `string`                                                   | -           |
 | stopPropagation  | Stop the propagation of some events.                                                                                          | `PropagationEvent[]`                                       | `['click']` |
+| showCloseButton  | Whether to show a close button on the top right corner                                                                        | `boolean`                                                  | `false`     |
 
 ### Action
 
@@ -41,27 +42,27 @@
 
 ## Imperative
 
-You can use `Dialog` in an imperative way:
+You can use `Modal` in an imperative way:
 
-### Dialog.show
+### Modal.show
 
 ```ts | pure
-const handler = Dialog.show(props)
+const handler = Modal.show(props)
 ```
 
-You can directly open the dialog box by calling the `show` method on the `Dialog`. The type of the `props` parameter is the same as the above table, but the `visible` prop is not supported.
+You can directly open the modal box by calling the `show` method on the `Modal`. The type of the `props` parameter is the same as the above table, but the `visible` prop is not supported.
 
-When the dialog box is closed, the component instance would be automatically destroyed.
+When the modal box is closed, the component instance would be automatically destroyed.
 
 The return value of the `show` method is a component controller, which contains the following properties:
 
-| Name  | Description         | Type         | Default |
-| ----- | ------------------- | ------------ | ------- |
-| close | To close the dialog | `() => void` | -       |
+| Name  | Description        | Type         | Default |
+| ----- | ------------------ | ------------ | ------- |
+| close | To close the modal | `() => void` | -       |
 
 `show` is just a very basic method. In actual business, the following `alert` and `confirm` methods are more commonly used:
 
-### Dialog.alert
+### Modal.alert
 
 `alert` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return value is not a controller object, but `Promise<void>`.
 
@@ -72,7 +73,7 @@ In addition, it supports the following props:
 | confirmText | The content of the confirm button            | `ReactNode`                   | `'Ok'`  |
 | onConfirm   | Triggered when the confirm button is clicked | `() => void \| Promise<void>` | -       |
 
-### Dialog.confirm
+### Modal.confirm
 
 `confirm` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return value is not a controller object, but `Promise<boolean>`.
 

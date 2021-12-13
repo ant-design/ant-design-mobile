@@ -81,10 +81,69 @@ export const Column: FC<Props> = props => {
     }
   )
 
+  let selectedIndex: number | null = null
+
+  function renderAccessible() {
+    console.log('selectedIndex', selectedIndex)
+    if (selectedIndex === null) {
+      return null
+    }
+    const current = column[selectedIndex]
+    const previousIndex = selectedIndex - 1
+    const nextIndex = selectedIndex + 1
+    const previous = column[previousIndex]
+    const next = column[nextIndex]
+    return (
+      <div className='adm-picker-view-column-accessible'>
+        <div
+          className='adm-picker-view-column-accessible-current'
+          role='button'
+          aria-label={current ? `当前选择的是：${current.label}` : '当前未选择'}
+        >
+          -
+        </div>
+        <div>
+          {previous && (
+            <div
+              className='adm-picker-view-column-accessible-button'
+              onClick={() => {
+                scrollSelect(previousIndex)
+              }}
+              role='button'
+              aria-label={`选择上一项：${previous.label}`}
+            >
+              -
+            </div>
+          )}
+        </div>
+        <div>
+          {next && (
+            <div
+              className='adm-picker-view-column-accessible-button'
+              onClick={() => {
+                scrollSelect(nextIndex)
+              }}
+              role='button'
+              aria-label={`选择下一项：${next.label}`}
+            >
+              -
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={`${classPrefix}-column`} {...bind()}>
-      <animated.div style={{ y }} className={`${classPrefix}-column-wheel`}>
+      <animated.div
+        style={{ y }}
+        className={`${classPrefix}-column-wheel`}
+        aria-hidden
+      >
         {column.map((item, index) => {
+          const selected = props.value === item.value
+          if (selected) selectedIndex = index
           function handleClick() {
             draggingRef.current = false
             scrollSelect(index)
@@ -94,6 +153,8 @@ export const Column: FC<Props> = props => {
               key={item.value}
               className={`${classPrefix}-column-item`}
               onClick={handleClick}
+              aria-hidden={!selected}
+              aria-label={selected ? 'active' : ''}
             >
               <div className={`${classPrefix}-column-item-label`}>
                 {item.label}
@@ -102,6 +163,7 @@ export const Column: FC<Props> = props => {
           )
         })}
       </animated.div>
+      {renderAccessible()}
     </div>
   )
 }

@@ -34,10 +34,6 @@ Then you can try to add the following configuration in `config.js`:
 
 Please refer to the [migration guide](./migration).
 
-### Which browsers are compatible?
-
-The current compatibility standards are iOS Safari >= 10 and Chrome >= 49.
-
 ### How to avoid the 300ms delay of click?
 
 Add this into `head` element：

@@ -10,9 +10,6 @@
   background-color: #ffffff;
   overflow: hidden;
   font-size: 17px;
-  &-inner {
-    margin-bottom: -1px;
-  }
   &-default {
     border-top: var(--border-top);
     border-bottom: var(--border-bottom);
@@ -24,6 +21,10 @@
 }
 
 .adm-list-item {
+  margin-bottom: -1px;
+  &:not(:first-child) {
+    padding-top: 1px;
+  }
   display: block;
   padding-left: var(--padding-left);
   &-title,

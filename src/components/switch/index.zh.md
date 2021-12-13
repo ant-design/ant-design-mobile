@@ -3,9 +3,7 @@
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx"></code>
 
-## API
-
-### Switch
+### 属性
 
 | 参数           | 说明             | 类型                              | 默认值  |
 | -------------- | ---------------- | --------------------------------- | ------- |
@@ -18,8 +16,11 @@
 | checkedText    | 选中时的内容     | `ReactNode`                       | -       |
 | uncheckedText  | 非选中时的内容   | `ReactNode`                       | -       |
 
-## CSS 变量
+### CSS 变量
 
 | 属性            | 说明     | 默认值                     |
 | --------------- | -------- | -------------------------- |
 | --checked-color | 填充颜色 | `var(--adm-color-primary)` |
+| --width         | 宽度     | `50px`                     |
+| --height        | 高度     | `30px`                     |
+| --border-width  | 边框宽度 | `2px`                      |

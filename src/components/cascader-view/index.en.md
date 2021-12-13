@@ -18,6 +18,6 @@ For the type definition of `CascaderValue` `CascaderOption` `CascaderValueExtend
 
 ### CSS Variables
 
-| Name     | Description                | Default       |
-| -------- | -------------------------- | ------------- |
-| --height | height of the CascaderView | `fit-content` |
+| Name     | Description                | Default |
+| -------- | -------------------------- | ------- |
+| --height | height of the CascaderView | `auto`  |

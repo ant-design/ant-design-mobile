@@ -114,7 +114,8 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         {props.clearable && !!value && hasFocus && (
           <div
             className={`${classPrefix}-clear`}
-            onClick={() => {
+            onClick={e => {
+              e.stopPropagation()
               setValue('')
               props.onClear?.()
             }}

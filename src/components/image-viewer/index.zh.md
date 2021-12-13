@@ -43,3 +43,5 @@ const handlerMulti = ImageViewer.Multi.show(props)
 | 属性  | 说明           | 类型         |
 | ----- | -------------- | ------------ |
 | close | 关闭图片查看器 | `() => void` |
+
+如果你想关闭全部通过指令式创建出来的 ImageViewer，可以调用 `ImageViewer.clear()`。

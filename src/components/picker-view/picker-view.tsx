@@ -92,8 +92,11 @@ export const PickerView = memo<PickerViewProps>(p => {
           }}
         />
       ))}
-      <div className={`${classPrefix}-mask ${classPrefix}-mask-top`} />
-      <div className={`${classPrefix}-mask ${classPrefix}-mask-bottom`} />
+      <div className={`${classPrefix}-mask`}>
+        <div className={`${classPrefix}-mask-top`} />
+        <div className={`${classPrefix}-mask-middle`} />
+        <div className={`${classPrefix}-mask-bottom`} />
+      </div>
     </div>
   )
 })

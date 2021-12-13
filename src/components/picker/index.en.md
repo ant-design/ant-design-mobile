@@ -77,6 +77,21 @@ Other props are the same as `Picker`, but `columns` are not supported.
 | precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'`         |
 | children     | The rendering function of the selected items                                                                                         | `(value: Date) => ReactNode`                                                           | -               |
 | renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                            | -               |
+| filter       | Filter available time                                                                                                                | `DatePickerFilter`                                                                     | -               |
+
+```typescript | pure
+type DatePickerFilter = Partial<
+  Record<
+    Precision,
+    (
+      val: number,
+      extend: {
+        date: Date
+      }
+    ) => boolean
+  >
+>
+```
 
 In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 
