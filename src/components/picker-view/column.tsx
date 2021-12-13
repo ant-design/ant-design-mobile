@@ -92,6 +92,7 @@ export const Column: FC<Props> = props => {
           return (
             <div
               key={item.value}
+              data-selected={item.value === value}
               className={`${classPrefix}-column-item`}
               onClick={handleClick}
             >
