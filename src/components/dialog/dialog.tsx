@@ -6,7 +6,10 @@ import Mask from '../mask'
 import { Action, DialogActionButton } from './dialog-action-button'
 import Image from '../image'
 import Space from '../space'
-import { GetContainer } from '../../utils/render-to-container'
+import {
+  GetContainer,
+  renderToContainer,
+} from '../../utils/render-to-container'
 import {
   PropagationEvent,
   withStopPropagation,
@@ -44,6 +47,7 @@ const defaultProps = {
   closeOnAction: false,
   closeOnMaskClick: false,
   stopPropagation: ['click'],
+  getContainer: null,
 }
 
 export const Dialog: FC<DialogProps> = p => {
@@ -73,94 +77,93 @@ export const Dialog: FC<DialogProps> = p => {
 
   const [active, setActive] = useState(props.visible)
 
-  return withStopPropagation(
-    props.stopPropagation,
-    withNativeProps(
-      props,
+  const node = withNativeProps(
+    props,
+    <div
+      className={classPrefix}
+      style={{
+        display: active ? 'unset' : 'none',
+      }}
+    >
+      <Mask
+        visible={props.visible}
+        onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
+        style={props.maskStyle}
+        className={classNames(`${classPrefix}-mask`, props.maskClassName)}
+      />
       <div
-        className={classPrefix}
+        className={`${classPrefix}-wrap`}
         style={{
-          display: active ? 'unset' : 'none',
+          pointerEvents: props.visible ? 'unset' : 'none',
         }}
       >
-        <Mask
-          visible={props.visible}
-          getContainer={props.getContainer}
-          onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
-          style={props.maskStyle}
-          className={classNames(`${classPrefix}-mask`, props.maskClassName)}
-        />
-        <div
-          className={`${classPrefix}-wrap`}
+        <animated.div
           style={{
-            pointerEvents: props.visible ? 'unset' : 'none',
+            ...style,
           }}
+          onClick={e => e.stopPropagation()}
+          className={`${classPrefix}-main`}
         >
-          <animated.div
-            style={{
-              ...style,
-            }}
-            onClick={e => e.stopPropagation()}
-            className={`${classPrefix}-main`}
+          {!!props.image && (
+            <Image src={props.image} alt='dialog header image' width='100%' />
+          )}
+          <div
+            style={props.bodyStyle}
+            className={classNames(`${classPrefix}-body`, props.bodyClassName)}
           >
-            {!!props.image && (
-              <Image src={props.image} alt='dialog header image' width='100%' />
-            )}
-            <div
-              style={props.bodyStyle}
-              className={classNames(`${classPrefix}-body`, props.bodyClassName)}
-            >
-              <Space direction='vertical' block>
-                {!!props.header && (
-                  <div className={`${classPrefix}-body-header-wrapper`}>
-                    <div className={`${classPrefix}-body-header`}>
-                      {props.header}
-                    </div>
+            <Space direction='vertical' block>
+              {!!props.header && (
+                <div className={`${classPrefix}-body-header-wrapper`}>
+                  <div className={`${classPrefix}-body-header`}>
+                    {props.header}
                   </div>
-                )}
-                {!!props.title && (
-                  <div className={`${classPrefix}-body-title`}>
-                    {props.title}
-                  </div>
-                )}
-                {!!props.content && (
-                  <div className={`${classPrefix}-body-content`}>
-                    {typeof props.content === 'string' ? (
-                      <AutoCenter>{props.content}</AutoCenter>
-                    ) : (
-                      props.content
-                    )}
-                  </div>
-                )}
-              </Space>
-            </div>
-            <div className={`${classPrefix}-footer`}>
-              {props.actions.map((row, index) => {
-                const actions = Array.isArray(row) ? row : [row]
-                return (
-                  <div className={`${classPrefix}-action-row`} key={index}>
-                    {actions.map((action, index) => (
-                      <DialogActionButton
-                        key={action.key}
-                        action={action}
-                        onAction={async () => {
-                          await Promise.all([
-                            action.onClick?.(),
-                            props.onAction?.(action, index),
-                          ])
-                          if (props.closeOnAction) {
-                            props.onClose?.()
-                          }
-                        }}
-                      />
-                    ))}
-                  </div>
-                )
-              })}
-            </div>
-          </animated.div>
-        </div>
+                </div>
+              )}
+              {!!props.title && (
+                <div className={`${classPrefix}-body-title`}>{props.title}</div>
+              )}
+              {!!props.content && (
+                <div className={`${classPrefix}-body-content`}>
+                  {typeof props.content === 'string' ? (
+                    <AutoCenter>{props.content}</AutoCenter>
+                  ) : (
+                    props.content
+                  )}
+                </div>
+              )}
+            </Space>
+          </div>
+          <div className={`${classPrefix}-footer`}>
+            {props.actions.map((row, index) => {
+              const actions = Array.isArray(row) ? row : [row]
+              return (
+                <div className={`${classPrefix}-action-row`} key={index}>
+                  {actions.map((action, index) => (
+                    <DialogActionButton
+                      key={action.key}
+                      action={action}
+                      onAction={async () => {
+                        await Promise.all([
+                          action.onClick?.(),
+                          props.onAction?.(action, index),
+                        ])
+                        if (props.closeOnAction) {
+                          props.onClose?.()
+                        }
+                      }}
+                    />
+                  ))}
+                </div>
+              )
+            })}
+          </div>
+        </animated.div>
       </div>
-    )
+    </div>
+  )
+
+  return renderToContainer(
+    props.getContainer,
+    withStopPropagation(props.stopPropagation, node)
   )
 }
