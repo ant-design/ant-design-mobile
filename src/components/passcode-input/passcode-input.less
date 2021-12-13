@@ -1,6 +1,7 @@
 @class-prefix-passcode-input: ~'adm-passcode-input';
 
 .@{class-prefix-passcode-input} {
+  position: relative;
   display: inline-flex;
   overflow: hidden;
 
@@ -27,9 +28,10 @@
     .@{class-prefix-passcode-input}-cell:not(:last-child) {
       border-right: 1px solid var(--border-color);
     }
-    &.focus {
+    &:focus {
       border-color: var(--adm-color-primary);
       box-shadow: 0 0 2px 0 var(--adm-color-primary);
+      outline: none;
     }
     &.error {
       border-color: var(--adm-color-danger);
@@ -44,10 +46,14 @@
     &:not(:last-child) {
       margin-right: var(--cell-gap);
     }
-    &.caret {
+    &.focused {
       border-color: var(--adm-color-primary);
       box-shadow: 0 0 2px 0 var(--adm-color-primary);
     }
+  }
+
+  &.with-gap:focus {
+    outline: none;
   }
 
   &.with-gap.error {

@@ -6,11 +6,13 @@ import React, {
   forwardRef,
   useImperativeHandle,
   ReactElement,
+  ChangeEvent,
 } from 'react'
 import { useControllableValue } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import type { InputProps } from '../input'
+import Toast from '../toast'
 import type { NumberKeyboardProps } from '../number-keyboard'
 import classNames from 'classnames'
 
@@ -53,6 +55,7 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
       defaultValue: '',
     })
     const rootRef = useRef<HTMLDivElement>(null)
+    const inputRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
       if (value.length >= cellLength) {
@@ -60,15 +63,16 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
       }
     }, [props.onFill, value, cellLength])
 
-    const onFocus = useCallback(() => {
+    const onFocus = () => {
+      !props.keyboard && inputRef.current?.focus()
       setFocused(true)
       props.onFocus?.()
-    }, [focused, props.onFocus])
+    }
 
-    const onBlur = useCallback(() => {
+    const onBlur = () => {
       setFocused(false)
       props.onBlur?.()
-    }, [focused, props.onBlur])
+    }
 
     useImperativeHandle(ref, () => ({
       focus: () => rootRef.current?.focus(),
@@ -80,11 +84,14 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
 
       const chars = value.split('')
       const caretIndex = chars.length // 光标位置index等于当前文字长度
+      const focusedIndex =
+        chars.length >= cellLength ? cellLength - 1 : chars.length // 高亮格子不超过格子总长度
 
       for (let i = 0; i < cellLength; i++) {
         const content = chars[i] && props.plain ? chars[i] : ''
         const cls = classNames(`${classPrefix}-cell`, {
           caret: caretIndex === i && focused,
+          focused: focusedIndex === i && focused,
           dot: !props.plain && chars[i],
         })
 

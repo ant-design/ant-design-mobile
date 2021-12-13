@@ -30,9 +30,6 @@ export default () => {
           keyboard={<NumberKeyboard />}
         />
       </DemoBlock>
-      <DemoBlock title='原生键盘'>
-        <PasscodeInput />
-      </DemoBlock>
     </>
   )
 }
