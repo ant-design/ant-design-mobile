@@ -12,7 +12,7 @@
 | activeKey        | 当前展开面板的 `key` | 手风琴模式：`string \| null` <br/>非手风琴模式：`string[]`                                             | -       |
 | accordion        | 是否开启手风琴模式   | `boolean`                                                                                              | `false` |
 | onChange         | 切换面板时触发       | 手风琴模式：`(activeKey: string \| null) => void` <br /> 非手风琴模式：`(activeKey: string[]) => void` | -       |
-| arrow            | 自定义 arrow         | `ReactNode`                                                                                            | -       |
+| arrow            | 自定义 arrow         | `ReactNode \| ((active: boolean) => React.ReactNode)`                                                  | -       |
 
 ### Collapse.Panel
 
@@ -24,4 +24,4 @@
 | forceRender    | 被隐藏时是否渲染 `DOM` 结构 | `boolean`                                                | `false` |
 | destroyOnClose | 不可见时卸载内容            | `boolean`                                                | `false` |
 | onClick        | 标题栏的点击事件            | `(event: React.MouseEvent<Element, MouseEvent>) => void` | -       |
-| arrow          | 自定义 arrow                | `ReactNode`                                              | -       |
+| arrow          | 自定义 arrow                | `ReactNode \| ((active: boolean) => React.ReactNode)`    | -       |
