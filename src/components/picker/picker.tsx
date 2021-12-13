@@ -1,11 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  ReactNode,
-  FC,
-  memo,
-  useCallback,
-} from 'react'
+import React, { useState, useEffect, ReactNode, memo } from 'react'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
