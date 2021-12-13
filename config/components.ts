@@ -36,6 +36,7 @@ export const components = {
     '/components/stepper',
     '/components/switch',
     '/components/text-area',
+    '/components/passcode-input',
   ],
   feedback: [
     '/components/action-sheet',
