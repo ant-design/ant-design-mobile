@@ -6,22 +6,22 @@ Input for password, captcha and verification code.
 
 ### Props
 
-| Name         | Description                         | Type                      | Default |
-| ------------ | ----------------------------------- | ------------------------- | ------- |
-| length       | Length of passcode                  | `number`                  | `6`     |
-| value        | The passcode content value          | `string`                  | -       |
-| defaultValue | The initial passcode content        | `string`                  | -       |
-| className    | ClassName of passcode               | `string`                  | -       |
-| style        | Style of passcode                   | `CSSProperties`           | -       |
-| plain        | Whether to show the plain text      | `boolean`                 | `false` |
-| error        | Whether to show the error style     | `boolean`                 | `false` |
-| caret        | Whether to show the caret           | `boolean`                 | `true`  |
-| seperated    | Whether to make the cells seperated | `boolean`                 | `false` |
-| keyboard     | Pass NumberKeyboard to use          | `NumberKeyboard`          | -       |
-| onChange     | Emitted when user input             | `(value: string) => void` | -       |
-| onFocus      | Emitted when passcode is focused    | `() => void`              | -       |
-| onBlur       | Emitted when passcode is blurred    | `() => void`              | -       |
-| onFill       | Emitted when passcode is filled     | `() => void`              | -       |
+| Name         | Description                                                                  | Type                      | Default |
+| ------------ | ---------------------------------------------------------------------------- | ------------------------- | ------- |
+| length       | Length of passcode                                                           | `number`                  | `6`     |
+| value        | The passcode content value                                                   | `string`                  | -       |
+| defaultValue | The initial passcode content                                                 | `string`                  | -       |
+| className    | ClassName of passcode                                                        | `string`                  | -       |
+| style        | Style of passcode                                                            | `CSSProperties`           | -       |
+| plain        | Whether to show the plain text                                               | `boolean`                 | `false` |
+| error        | Whether to show the error style                                              | `boolean`                 | `false` |
+| caret        | Whether to show the caret                                                    | `boolean`                 | `true`  |
+| seperated    | Whether to make the cells seperated                                          | `boolean`                 | `false` |
+| keyboard     | The virtual keyboard component. If not set, it will use the native keyboard. | `NumberKeyboard`          | -       |
+| onChange     | Emitted when user input                                                      | `(value: string) => void` | -       |
+| onFocus      | Emitted when passcode is focused                                             | `() => void`              | -       |
+| onBlur       | Emitted when passcode is blurred                                             | `() => void`              | -       |
+| onFill       | Emitted when passcode is filled                                              | `() => void`              | -       |
 
 When `length` is not a positive number, replace it with the default value.
 

@@ -12,10 +12,10 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础用法'>
-        <PasscodeInput length={4} keyboard={<NumberKeyboard />} />
+        <PasscodeInput keyboard={<NumberKeyboard />} />
       </DemoBlock>
       <DemoBlock title='显示明文'>
-        <PasscodeInput plain keyboard={<NumberKeyboard />} />
+        <PasscodeInput length={4} plain keyboard={<NumberKeyboard />} />
       </DemoBlock>
       <DemoBlock title='错误状态'>
         <Space direction='vertical' block>
@@ -31,6 +31,9 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='格子间距'>
         <PasscodeInput seperated keyboard={<NumberKeyboard />} />
+      </DemoBlock>
+      <DemoBlock title='使用系统原生键盘'>
+        <PasscodeInput plain />
       </DemoBlock>
     </>
   )

@@ -6,15 +6,17 @@ import React, {
   useImperativeHandle,
   ReactElement,
 } from 'react'
-import { useControllableValue } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import type { InputProps } from '../input'
 import type { NumberKeyboardProps } from '../number-keyboard'
 import classNames from 'classnames'
 import { bound } from '../../utils/bound'
+import { usePropsValue } from '../../utils/use-props-value'
 
 export type PasscodeInputProps = {
+  value?: string
+  defaultValue?: string
+  onChange?: (val: string) => void
   length?: number
   plain?: boolean
   error?: boolean
@@ -24,8 +26,7 @@ export type PasscodeInputProps = {
   onFocus?: () => void
   keyboard?: ReactElement<NumberKeyboardProps>
   onFill?: (val: string) => void
-} & Pick<InputProps, 'value' | 'defaultValue' | 'onChange'> &
-  NativeProps<'--cell-gap' | '--cell-size'>
+} & NativeProps<'--cell-gap' | '--cell-size'>
 
 export type PasscodeInputRef = {
   focus: () => void
@@ -35,6 +36,7 @@ export type PasscodeInputRef = {
 const classPrefix = 'adm-passcode-input'
 
 const defaultProps = {
+  defaultValue: '',
   length: 6,
   plain: false,
   error: false,
@@ -52,11 +54,10 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
         : defaultProps.length
 
     const [focused, setFocused] = useState(false)
-    const [value, setValue] = useControllableValue(props, {
-      defaultValue: '',
-    })
+    const [value, setValue] = usePropsValue(props)
+
     const rootRef = useRef<HTMLDivElement>(null)
-    const inputRef = useRef<HTMLInputElement>(null)
+    const nativeInputRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
       if (value.length >= cellLength) {
@@ -65,10 +66,26 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
     }, [props.onFill, value, cellLength])
 
     const onFocus = () => {
-      !props.keyboard && inputRef.current?.focus()
+      if (!props.keyboard) {
+        nativeInputRef.current?.focus()
+      }
       setFocused(true)
       props.onFocus?.()
     }
+
+    useEffect(() => {
+      if (!focused) return
+      const timeout = window.setTimeout(() => {
+        rootRef.current?.scrollIntoView({
+          block: 'center',
+          inline: 'center',
+          behavior: 'smooth',
+        })
+      }, 100)
+      return () => {
+        window.clearTimeout(timeout)
+      }
+    }, [focused])
 
     const onBlur = () => {
       setFocused(false)
@@ -77,7 +94,10 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
 
     useImperativeHandle(ref, () => ({
       focus: () => rootRef.current?.focus(),
-      blur: () => rootRef.current?.blur(),
+      blur: () => {
+        rootRef.current?.blur()
+        nativeInputRef.current?.blur()
+      },
     }))
 
     const renderCells = () => {
@@ -121,7 +141,19 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
             onFocus={onFocus}
             onBlur={onBlur}
           >
-            {renderCells()}
+            <div className={`${classPrefix}-cell-container`}>
+              {renderCells()}
+            </div>
+            <input
+              ref={nativeInputRef}
+              className={`${classPrefix}-native-input`}
+              value={value}
+              type='password'
+              inputMode='numeric'
+              onChange={e => {
+                setValue(e.target.value.slice(0, props.length))
+              }}
+            />
           </div>
         )}
         {props.keyboard &&
@@ -129,7 +161,7 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
             visible: focused,
             onInput: v => {
               if (value.length < cellLength) {
-                setValue(value + v)
+                setValue((value + v).slice(0, props.length))
               }
             },
             onDelete: () => {

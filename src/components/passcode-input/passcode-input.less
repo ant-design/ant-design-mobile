@@ -2,8 +2,7 @@
 
 .@{class-prefix-passcode-input} {
   position: relative;
-  display: inline-flex;
-  vertical-align: top;
+  display: inline-block;
 
   --cell-size: 40px;
   --cell-gap: 6px;
@@ -11,7 +10,13 @@
   --border-color: #e5e5e5;
   --border-radius: 8px;
 
+  &-cell-container {
+    display: inline-flex;
+    vertical-align: top;
+  }
+
   &-cell {
+    flex: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,6 +85,16 @@
     margin-left: 1px;
     background: var(--adm-color-primary);
     animation: 1s linear infinite adm-caret-blink;
+  }
+
+  > .@{class-prefix-passcode-input}-native-input {
+    position: absolute;
+    left: -200vw;
+    top: 0;
+    display: block;
+    width: 50px;
+    height: 20px;
+    opacity: 0.5;
   }
 
   @keyframes adm-shake-horizontal {
