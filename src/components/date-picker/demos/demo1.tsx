@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react'
 import { Button, DatePicker, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
+import { AmPmDemo } from './demo2'
 import { weekdayToZh } from './weekdayToZh'
 
 const now = new Date()
@@ -221,6 +222,10 @@ export default () => {
 
       <DemoBlock title='周选择器'>
         <DayOfWeekDemo />
+      </DemoBlock>
+
+      <DemoBlock title='选择上午或下午'>
+        <AmPmDemo />
       </DemoBlock>
     </>
   )
