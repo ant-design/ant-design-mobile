@@ -17,6 +17,8 @@ export type ToastShowProps = Omit<ToastProps, 'visible'>
 
 const defaultProps = {
   duration: 2000,
+  position: 'center',
+  maskClickable: true,
 }
 
 export function show(p: ToastShowProps | string) {
@@ -71,5 +73,19 @@ export function clear() {
     const container = containers.pop()
     if (!container) break
     unmount(container)
+  }
+}
+
+export function config(
+  val: Pick<ToastProps, 'duration' | 'position' | 'maskClickable'>
+) {
+  if (val.duration !== undefined) {
+    defaultProps.duration = val.duration
+  }
+  if (val.position !== undefined) {
+    defaultProps.position = val.position
+  }
+  if (val.maskClickable !== undefined) {
+    defaultProps.maskClickable = val.maskClickable
   }
 }

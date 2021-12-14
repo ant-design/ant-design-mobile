@@ -30,3 +30,11 @@ You can also pass in a string directly, and `Toast.show` will automatically use 
 ### Toast.clear
 
 Turn off `Toast` in all displays.
+
+### Toast.config
+
+Methods for global configuration. Support `duration`, `position` and `maskClickable`. The configuration method is as follows:
+
+```ts
+Toast.config({ duration: 1000, position: 'top' })
+```
