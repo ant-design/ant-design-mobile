@@ -76,18 +76,16 @@ export function clear() {
   }
 }
 
-export function config(val: {
-  duration?: ToastProps['duration']
-  position?: ToastProps['position']
-  maskClickable?: ToastProps['maskClickable']
-}) {
-  if (typeof val.duration === 'number') {
+export function config(
+  val: Pick<ToastProps, 'duration' | 'position' | 'maskClickable'>
+) {
+  if (val.duration !== undefined) {
     defaultProps.duration = val.duration
   }
-  if (typeof val.position === 'string') {
+  if (val.position !== undefined) {
     defaultProps.position = val.position
   }
-  if (typeof val.maskClickable === 'boolean') {
+  if (val.maskClickable !== undefined) {
     defaultProps.maskClickable = val.maskClickable
   }
 }
