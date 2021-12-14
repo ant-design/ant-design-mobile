@@ -148,7 +148,8 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
               ref={nativeInputRef}
               className={`${classPrefix}-native-input`}
               value={value}
-              type='password'
+              type='text'
+              pattern='[0-9]*'
               inputMode='numeric'
               onChange={e => {
                 setValue(e.target.value.slice(0, props.length))
