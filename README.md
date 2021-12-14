@@ -4,6 +4,8 @@
 ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ant-design/ant-design-mobile)
 ![npm](https://img.shields.io/npm/dw/antd-mobile-v5-count)
 ![gzip size](https://img.badgesize.io/https:/unpkg.com/antd-mobile@next/umd/antd-mobile.js?label=gzip%20size&compression=gzip)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/ant-design/ant-design-mobile.svg)](http://isitmaintained.com/project/ant-design/ant-design-mobile 'Average time to resolve an issue')
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/ant-design/ant-design-mobile.svg)](http://isitmaintained.com/project/ant-design/ant-design-mobile 'Percentage of issues still open')
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ant-design/ant-design-mobile/Check/v5)
 ![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mobile)
 
