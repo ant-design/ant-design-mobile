@@ -30,3 +30,11 @@
 ### Toast.clear
 
 关闭所有显示中的 `Toast`。
+
+### Toast.config
+
+全局配置，支持配置 `duration` 和 `position`。配置方法如下：
+
+```ts
+Toast.config({ duration: 1000, position: 'top' })
+```

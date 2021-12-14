@@ -17,6 +17,7 @@ export type ToastShowProps = Omit<ToastProps, 'visible'>
 
 const defaultProps = {
   duration: 2000,
+  position: 'center',
 }
 
 export function show(p: ToastShowProps | string) {
@@ -71,5 +72,17 @@ export function clear() {
     const container = containers.pop()
     if (!container) break
     unmount(container)
+  }
+}
+
+export function config(val: {
+  duration?: ToastProps['duration']
+  position?: ToastProps['position']
+}) {
+  if (typeof val.duration === 'number') {
+    defaultProps.duration = val.duration
+  }
+  if (typeof val.position === 'string') {
+    defaultProps.position = val.position
   }
 }
