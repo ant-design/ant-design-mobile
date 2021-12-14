@@ -75,6 +75,7 @@ export const components = {
     '/components/image-uploader',
     '/components/modal',
     '/components/number-keyboard',
+    '/components/passcode-input',
     '/components/safe-area',
     '/components/tree-select',
     '/components/virtual-input',
