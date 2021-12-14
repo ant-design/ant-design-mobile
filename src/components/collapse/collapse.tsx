@@ -17,7 +17,7 @@ export type CollapsePanelProps = {
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
-  arrow?: React.ReactNode
+  arrow?: React.ReactNode | ((active: boolean) => React.ReactNode)
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -92,7 +92,7 @@ type ValueProps<T> = {
   activeKey?: T
   defaultActiveKey?: T
   onChange?: (activeKey: T) => void
-  arrow?: React.ReactNode
+  arrow?: React.ReactNode | ((active: boolean) => React.ReactNode)
 }
 
 export type CollapseProps = (
@@ -167,16 +167,16 @@ export const Collapse: FC<CollapseProps> = props => {
           }
 
           const renderArrow = () => {
-            let arrow: React.ReactNode = <RightOutline />
+            let arrow: CollapseProps['arrow'] = <RightOutline />
             if (props.arrow !== undefined) {
               arrow = props.arrow
             }
-
             if (panel.props.arrow !== undefined) {
               arrow = panel.props.arrow
             }
-
-            return (
+            return typeof arrow === 'function' ? (
+              arrow(active)
+            ) : (
               <div
                 className={classNames(`${classPrefix}-arrow`, {
                   [`${classPrefix}-arrow-active`]: active,
