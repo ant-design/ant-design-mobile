@@ -57,21 +57,10 @@ export default () => {
           arrow={active => (active ? <PicturesOutline /> : <CameraOutline />)}
         >
           <Collapse.Panel key='1' title='第一项'>
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
+            你可以通过 Collapse 的 arrow 属性来控制全部面板的箭头
           </Collapse.Panel>
           <Collapse.Panel key='2' title='第二项' arrow={<MinusCircleOutline />}>
-            这里是第二项的内容
+            也可以通过 Collapse.Panel 的 arrow 属性来自定义单个面板的箭头
           </Collapse.Panel>
           <Collapse.Panel
             key='3'
@@ -80,7 +69,8 @@ export default () => {
               active ? <CheckCircleOutline /> : <CloseCircleOutline />
             }
           >
-            这里是第三项的内容
+            如果你给 arrow 属性传入的是是一个渲染函数，那么 antd-mobile
+            不会为你增加动画，arrow 属性的效果就完全交由你自己来控制了
           </Collapse.Panel>
         </Collapse>
       </DemoBlock>

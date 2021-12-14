@@ -167,32 +167,16 @@ export const Collapse: FC<CollapseProps> = props => {
           }
 
           const renderArrow = () => {
-            let isRenderProps = false
-            let arrow: React.ReactNode = <RightOutline />
-
+            let arrow: CollapseProps['arrow'] = <RightOutline />
             if (props.arrow !== undefined) {
-              if (typeof props.arrow === 'function') {
-                isRenderProps = true
-                arrow = props.arrow(active)
-              } else {
-                isRenderProps = false
-                arrow = props.arrow
-              }
+              arrow = props.arrow
             }
-
             if (panel.props.arrow !== undefined) {
-              if (typeof panel.props.arrow === 'function') {
-                isRenderProps = true
-                arrow = panel.props.arrow(active)
-              } else {
-                isRenderProps = false
-                arrow = panel.props.arrow
-              }
+              arrow = panel.props.arrow
             }
-
-            if (isRenderProps) return arrow
-
-            return (
+            return typeof arrow === 'function' ? (
+              arrow(active)
+            ) : (
               <div
                 className={classNames(`${classPrefix}-arrow`, {
                   [`${classPrefix}-arrow-active`]: active,
