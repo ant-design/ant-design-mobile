@@ -6,13 +6,13 @@
 
 ### Collapse
 
-| Name             | Description                                | Type                                                                                                             | Default |
-| ---------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- | ------- |
-| defaultActiveKey | The `key` of the expanded panel by default | accordion mode: `string \| null` <br/>non-accordion mode: `string[]`                                             | -       |
-| activeKey        | The `key` of the currently expanded panel  | accordion mode: `string \| null` <br/>non-accordion mode: `string[]`                                             | -       |
-| accordion        | Whether to enable accordion mode           | `boolean`                                                                                                        | `false` |
-| onChange         | Triggered when the panel is switched       | accordion mode: `(activeKey: string \| null) => void` <br /> non-accordion mode: `(activeKey: string[]) => void` | -       |
-| arrow            | Custom arrow                               | `React.ReactNode`                                                                                                | -       |
+| Name             | Description                                                                             | Type                                                                                                             | Default |
+| ---------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------- |
+| defaultActiveKey | The `key` of the expanded panel by default                                              | accordion mode: `string \| null` <br/>non-accordion mode: `string[]`                                             | -       |
+| activeKey        | The `key` of the currently expanded panel                                               | accordion mode: `string \| null` <br/>non-accordion mode: `string[]`                                             | -       |
+| accordion        | Whether to enable accordion mode                                                        | `boolean`                                                                                                        | `false` |
+| onChange         | Triggered when the panel is switched                                                    | accordion mode: `(activeKey: string \| null) => void` <br /> non-accordion mode: `(activeKey: string[]) => void` | -       |
+| arrow            | Custom arrow. if you pass a ReactNode, antd-mobile will add a rotate animation for you. | `React.ReactNode \| ((active: boolean) => React.ReactNode)`                                                      | -       |
 
 ### Collapse.Panel
 
