@@ -2,17 +2,14 @@ import React, {
   useState,
   useEffect,
   useRef,
-  useCallback,
   forwardRef,
   useImperativeHandle,
   ReactElement,
-  ChangeEvent,
 } from 'react'
 import { useControllableValue } from 'ahooks'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import type { InputProps } from '../input'
-import Toast from '../toast'
 import type { NumberKeyboardProps } from '../number-keyboard'
 import classNames from 'classnames'
 
@@ -21,6 +18,7 @@ export type PasscodeInputProps = {
   plain?: boolean
   error?: boolean
   caret?: boolean
+  seperated?: boolean
   onBlur?: () => void
   onFocus?: () => void
   keyboard?: ReactElement<NumberKeyboardProps>
@@ -39,6 +37,7 @@ const defaultProps = {
   length: 6,
   plain: false,
   error: false,
+  seperated: false,
 }
 
 export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(

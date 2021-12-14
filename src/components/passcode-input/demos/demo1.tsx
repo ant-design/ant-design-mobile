@@ -24,11 +24,8 @@ export default () => {
           error={error}
         />
       </DemoBlock>
-      <DemoBlock title='增加格间距'>
-        <PasscodeInput
-          style={{ '--cell-gap': '6px' }}
-          keyboard={<NumberKeyboard />}
-        />
+      <DemoBlock title='格子间距'>
+        <PasscodeInput seperated keyboard={<NumberKeyboard />} />
       </DemoBlock>
     </>
   )
