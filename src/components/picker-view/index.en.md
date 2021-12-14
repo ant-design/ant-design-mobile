@@ -53,6 +53,8 @@ DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 
 <code src="../date-picker-view/demos/demo1.tsx"></code>
 
+<code src="../date-picker-view/demos/demo3.tsx"></code>
+
 <code src="../date-picker-view/demos/demo2.tsx" debug></code>
 
 ### Props

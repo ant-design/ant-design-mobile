@@ -53,6 +53,8 @@ DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 
 <code src="../date-picker-view/demos/demo1.tsx"></code>
 
+<code src="../date-picker-view/demos/demo3.tsx"></code>
+
 <code src="../date-picker-view/demos/demo2.tsx" debug></code>
 
 ### 属性
