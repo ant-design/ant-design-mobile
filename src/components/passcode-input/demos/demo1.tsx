@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { NumberKeyboard, PasscodeInput } from 'antd-mobile'
-import { DemoBlock } from 'demos'
+import { NumberKeyboard, PasscodeInput, Space } from 'antd-mobile'
+import { DemoBlock, DemoDescription } from 'demos'
 
 export default () => {
   const [error, setError] = useState(false)
@@ -17,12 +17,17 @@ export default () => {
       <DemoBlock title='显示明文'>
         <PasscodeInput plain keyboard={<NumberKeyboard />} />
       </DemoBlock>
-      <DemoBlock title='错误控制(输入5个及以上字符报错)'>
-        <PasscodeInput
-          onChange={onChange}
-          keyboard={<NumberKeyboard />}
-          error={error}
-        />
+      <DemoBlock title='错误状态'>
+        <Space direction='vertical' block>
+          <PasscodeInput
+            onChange={onChange}
+            keyboard={<NumberKeyboard />}
+            error={error}
+          />
+          <DemoDescription>
+            尝试输入一些内容吧，当你输入完成时会提示错误
+          </DemoDescription>
+        </Space>
       </DemoBlock>
       <DemoBlock title='格子间距'>
         <PasscodeInput seperated keyboard={<NumberKeyboard />} />

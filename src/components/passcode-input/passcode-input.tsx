@@ -12,6 +12,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import type { InputProps } from '../input'
 import type { NumberKeyboardProps } from '../number-keyboard'
 import classNames from 'classnames'
+import { bound } from '../../utils/bound'
 
 export type PasscodeInputProps = {
   length?: number
@@ -38,6 +39,7 @@ const defaultProps = {
   plain: false,
   error: false,
   seperated: false,
+  caret: true,
 }
 
 export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
@@ -78,36 +80,34 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
       blur: () => rootRef.current?.blur(),
     }))
 
-    const renderCell = () => {
-      const cells: JSX.Element[] = []
+    const renderCells = () => {
+      const cells: ReactElement[] = []
 
       const chars = value.split('')
       const caretIndex = chars.length // 光标位置index等于当前文字长度
-      const focusedIndex =
-        chars.length >= cellLength ? cellLength - 1 : chars.length // 高亮格子不超过格子总长度
+      const focusedIndex = bound(chars.length, 0, cellLength - 1)
 
       for (let i = 0; i < cellLength; i++) {
-        const content = chars[i] && props.plain ? chars[i] : ''
-        const cls = classNames(`${classPrefix}-cell`, {
-          caret: caretIndex === i && focused,
-          focused: focusedIndex === i && focused,
-          dot: !props.plain && chars[i],
-        })
-
         cells.push(
-          <div className={cls} key={i}>
-            {content}
+          <div
+            className={classNames(`${classPrefix}-cell`, {
+              caret: props.caret && caretIndex === i && focused,
+              focused: focusedIndex === i && focused,
+              dot: !props.plain && chars[i],
+            })}
+            key={i}
+          >
+            {chars[i] && props.plain ? chars[i] : ''}
           </div>
         )
       }
       return cells
     }
 
-    const gap = parseFloat(props.style?.['--cell-gap'] || '0')
     const cls = classNames(classPrefix, {
-      focus: focused,
+      focused: focused,
       error: props.error,
-      'with-gap': gap > 0,
+      seperated: props.seperated,
     })
 
     return (
@@ -121,7 +121,7 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
             onFocus={onFocus}
             onBlur={onBlur}
           >
-            {renderCell()}
+            {renderCells()}
           </div>
         )}
         {props.keyboard &&
@@ -136,7 +136,6 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
               setValue(value.slice(0, -1))
             },
             onClose: () => {
-              console.log('onClose', rootRef.current)
               rootRef.current?.blur()
             },
           } as NumberKeyboardProps)}
