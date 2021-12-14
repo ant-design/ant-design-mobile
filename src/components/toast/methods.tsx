@@ -18,6 +18,7 @@ export type ToastShowProps = Omit<ToastProps, 'visible'>
 const defaultProps = {
   duration: 2000,
   position: 'center',
+  maskClickable: true,
 }
 
 export function show(p: ToastShowProps | string) {
@@ -78,11 +79,15 @@ export function clear() {
 export function config(val: {
   duration?: ToastProps['duration']
   position?: ToastProps['position']
+  maskClickable?: ToastProps['maskClickable']
 }) {
   if (typeof val.duration === 'number') {
     defaultProps.duration = val.duration
   }
   if (typeof val.position === 'string') {
     defaultProps.position = val.position
+  }
+  if (typeof val.maskClickable === 'boolean') {
+    defaultProps.maskClickable = val.maskClickable
   }
 }
