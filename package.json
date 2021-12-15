@@ -88,7 +88,6 @@
     "ts-jest": "27.1.0",
     "ts-node": "10.4.0",
     "typescript": "^3.9.10",
-    "umi-plugin-hire": "^1.0.6",
     "umi-plugin-mobile-dumi": "^0.1.3",
     "webpack": "^5.65.0",
     "webpack-bundle-analyzer": "^4.5.0",
