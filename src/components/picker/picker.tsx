@@ -142,3 +142,5 @@ export const Picker = memo<PickerProps>(p => {
     </>
   )
 })
+
+Picker.displayName = 'Picker'

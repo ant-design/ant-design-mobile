@@ -1,4 +1,4 @@
-import React, { memo, ReactNode, useEffect, useState } from 'react'
+import React, { memo, ReactNode, useCallback, useEffect, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { Column } from './column'
 import { useColumns } from './use-columns'
@@ -59,23 +59,28 @@ export const PickerView = memo<PickerViewProps>(p => {
     setInnerValue(props.value)
   }, [props.value])
 
-  // Reset `innerValue` after 1s in case user does not update `value` when `onChange` is called
-  useDebounceEffect(
-    () => {
+  useEffect(() => {
+    if (props.value === innerValue) return
+    const timeout = window.setTimeout(() => {
       if (props.value !== undefined && props.value !== innerValue) {
         setInnerValue(props.value)
       }
-    },
-    [props.value, innerValue],
-    {
-      wait: 1000,
-      leading: false,
-      trailing: true,
+    }, 1000)
+    return () => {
+      window.clearTimeout(timeout)
     }
-  )
+  }, [props.value, innerValue])
 
   const columns = useColumns(props.columns, innerValue)
   const generateValueExtend = usePickerValueExtend(columns)
+
+  const handleSelect = useCallback((val: string, index: number) => {
+    setInnerValue(prev => {
+      const next = [...prev]
+      next[index] = val
+      return next
+    })
+  }, [])
 
   return withNativeProps(
     props,
@@ -83,13 +88,10 @@ export const PickerView = memo<PickerViewProps>(p => {
       {columns.map((column, index) => (
         <Column
           key={index}
+          index={index}
           column={column}
           value={innerValue[index]}
-          onSelect={val => {
-            const nextInnerValue = [...innerValue]
-            nextInnerValue[index] = val
-            setInnerValue(nextInnerValue)
-          }}
+          onSelect={handleSelect}
         />
       ))}
       <div className={`${classPrefix}-mask`}>
@@ -100,3 +102,5 @@ export const PickerView = memo<PickerViewProps>(p => {
     </div>
   )
 })
+
+PickerView.displayName = 'PickerView'

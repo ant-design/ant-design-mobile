@@ -64,6 +64,8 @@ type CascadePickerOption = {
 
 <code src="../date-picker/demos/demo1.tsx"></code>
 
+<code src="../date-picker/demos/demo2.tsx" debug></code>
+
 ### 属性
 
 | 属性         | 说明                                                                                             | 类型                                                                                   | 默认值  |
