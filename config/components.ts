@@ -44,6 +44,7 @@ export const components = {
     '/components/error-block',
     '/components/loading',
     '/components/mask',
+    '/components/modal',
     '/components/progress-bar',
     '/components/progress-circle',
     '/components/pull-to-refresh',
@@ -52,6 +53,7 @@ export const components = {
     '/components/toast',
   ],
   navigationAndLayout: [
+    '/components/auto-center',
     '/components/capsule-tabs',
     '/components/collapse',
     '/components/divider',
@@ -68,12 +70,10 @@ export const components = {
   other: ['/components/config-provider'],
   experimental: [
     '/components/what-is-experimental',
-    '/components/auto-center',
     '/components/dropdown',
     '/components/ellipsis',
     '/components/floating-bubble',
     '/components/image-uploader',
-    '/components/modal',
     '/components/number-keyboard',
     '/components/passcode-input',
     '/components/safe-area',
