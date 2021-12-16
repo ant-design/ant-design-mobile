@@ -40,7 +40,7 @@ export const Column = memo<Props>(
       const targetIndex = column.findIndex(item => item.value === value)
       if (targetIndex < 0) return
       const finalPosition = targetIndex * -itemHeight
-      api.start({ y: finalPosition, immediate: y.idle })
+      api.start({ y: finalPosition, immediate: y.goal !== finalPosition })
     }, [value, column])
 
     useLayoutEffect(() => {

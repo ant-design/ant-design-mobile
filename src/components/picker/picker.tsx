@@ -64,7 +64,7 @@ export const Picker = memo<PickerProps>(p => {
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
-    if (!props.visible) {
+    if (innerValue !== value) {
       setInnerValue(value)
     }
   }, [props.visible])
