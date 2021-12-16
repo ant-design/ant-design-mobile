@@ -60,9 +60,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       }
       const content = contentRef.current
       if (!content) return
-      content.scrollTo({
-        left: content.clientWidth,
-      })
+      content.scrollLeft = content.clientWidth
     }
 
     useLayoutEffect(() => {
