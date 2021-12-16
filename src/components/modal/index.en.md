@@ -9,6 +9,7 @@
 | Name             | Description                                                                                                                   | Type                                                       | Default     |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
 | afterClose       | Callback after `Modal` is completely closed                                                                                   | `() => void`                                               | -           |
+| afterShow        | Triggered after fully displayed                                                                                               | `() => void`                                               | -           |
 | image            | The `url` of the picture                                                                                                      | `string`                                                   | -           |
 | header           | The top area                                                                                                                  | `React.ReactNode`                                          | -           |
 | title            | The title of the Modal                                                                                                        | `React.ReactNode`                                          | -           |

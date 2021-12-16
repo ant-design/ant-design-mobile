@@ -20,6 +20,7 @@ const classPrefix = `adm-modal`
 
 export type ModalProps = {
   afterClose?: () => void
+  afterShow?: () => void
   image?: string
   header?: ReactNode
   title?: ReactNode
@@ -67,7 +68,9 @@ export const Modal: FC<ModalProps> = p => {
     onRest: () => {
       if (unmountedRef.current) return
       setActive(props.visible)
-      if (!props.visible) {
+      if (props.visible) {
+        props.afterShow?.()
+      } else {
         props.afterClose?.()
       }
     },
