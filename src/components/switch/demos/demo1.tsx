@@ -16,8 +16,8 @@ export default () => {
       <DemoBlock title='受控组件'>
         <Switch
           checked={checked}
-          onChange={checked => {
-            toggleChecked(checked)
+          onChange={() => {
+            toggleChecked()
           }}
         />
       </DemoBlock>
