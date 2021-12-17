@@ -19,10 +19,6 @@ export default () => {
         <SearchBar placeholder='请输入内容' showCancelButton={() => true} />
       </DemoBlock>
 
-      <DemoBlock title='不显示搜索图标'>
-        <SearchBar placeholder='请输入内容' showSearchIcon={false} />
-      </DemoBlock>
-
       <DemoBlock title='事件监听和 Ref'>
         <Space block direction='vertical'>
           <SearchBar

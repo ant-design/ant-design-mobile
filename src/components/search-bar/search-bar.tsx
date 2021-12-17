@@ -23,7 +23,6 @@ export type SearchBarProps = Pick<
   showCancelButton?: boolean | ((focus: boolean, value: string) => boolean)
   cancelText?: string
   clearOnCancel?: boolean
-  showSearchIcon?: boolean
   onSearch?: (val: string) => void
   onChange?: (val: string) => void
   onCancel?: () => void
@@ -34,7 +33,6 @@ const defaultProps = {
   showCancelButton: false,
   defaultValue: '',
   clearOnCancel: true,
-  showSearchIcon: true,
 }
 
 export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
@@ -97,18 +95,12 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
       })}
     >
       <div className={`${classPrefix}-input-box`}>
-        {props.showSearchIcon && (
-          <div className={`${classPrefix}-input-box-icon`}>
-            <SearchOutline />
-          </div>
-        )}
+        <div className={`${classPrefix}-input-box-icon`}>
+          <SearchOutline />
+        </div>
         <Input
           ref={inputRef}
-          className={
-            props.showSearchIcon
-              ? `${classPrefix}-input`
-              : `${classPrefix}-input-without-icon`
-          }
+          className={`${classPrefix}-input`}
           value={value}
           onChange={setValue}
           maxLength={props.maxLength}
