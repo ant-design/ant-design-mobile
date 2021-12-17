@@ -1,4 +1,10 @@
-import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
+import React, {
+  useState,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+  ReactNode,
+} from 'react'
 import classNames from 'classnames'
 import Input, { InputRef, InputProps } from '../input'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -22,6 +28,7 @@ export type SearchBarProps = Pick<
   clearable?: boolean
   showCancelButton?: boolean | ((focus: boolean, value: string) => boolean)
   cancelText?: string
+  icon?: ReactNode
   clearOnCancel?: boolean
   onSearch?: (val: string) => void
   onChange?: (val: string) => void
@@ -33,6 +40,7 @@ const defaultProps = {
   showCancelButton: false,
   defaultValue: '',
   clearOnCancel: true,
+  icon: <SearchOutline />,
 }
 
 export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
@@ -95,12 +103,16 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
       })}
     >
       <div className={`${classPrefix}-input-box`}>
-        <div className={`${classPrefix}-input-box-icon`}>
-          <SearchOutline />
-        </div>
+        {props.icon && (
+          <div className={`${classPrefix}-input-box-icon`}>{props.icon}</div>
+        )}
         <Input
           ref={inputRef}
-          className={`${classPrefix}-input`}
+          className={
+            props.icon
+              ? `${classPrefix}-input`
+              : `${classPrefix}-input-without-icon`
+          }
           value={value}
           onChange={setValue}
           maxLength={props.maxLength}
