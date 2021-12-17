@@ -22,6 +22,7 @@ const classPrefix = `adm-dialog`
 
 export type DialogProps = {
   afterClose?: () => void
+  afterShow?: () => void
   image?: string
   header?: ReactNode
   // waitImageLoad?: boolean
@@ -69,7 +70,9 @@ export const Dialog: FC<DialogProps> = p => {
     onRest: () => {
       if (unmountedRef.current) return
       setActive(props.visible)
-      if (!props.visible) {
+      if (props.visible) {
+        props.afterShow?.()
+      } else {
         props.afterClose?.()
       }
     },

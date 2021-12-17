@@ -6,13 +6,13 @@ V2 has been released a long time ago. In the last two years, we have developed t
 
 ### Should I start using the v5 version now?
 
-If you have enough energy to pay attention to v5's [change log](https://github.com/ant-design/ant-design-mobile/releases) and continue to follow up on the upgraded version, then start to access v5 now No problem.
+For new projects, we recommend using the v5 version directly.
 
-For old projects, we recommend that you carefully consider whether you want to upgrade now based on the actual situation; for new projects, we recommend using the v5 version directly to avoid the cost of a second upgrade in the future.
+For old projects, we recommend a gradual [migration plan](./migration).
 
 ### How to solve the error after installing antd-mobile v5 in the umi project?
 
-If you introduce an error like the following when you introduce antd-mobile in the umi project:
+Due to the conflict between the old version of the umi plugin and antd-mobile v5, you may encounter errors similar to the following:
 
 ```
 These dependencies were not found:
@@ -22,13 +22,11 @@ These dependencies were not found:
 ...
 ```
 
-Then you can try to add the following configuration in `config.js`:
+The solution is to upgrade the plug-in:
 
-```js
-{
-  antd: { mobile: false }
-}
-```
+1. If your project relies on `@umijs/preset-react` (you can see it in the `package.json` file), please upgrade it to the latest version
+2. If your project relies on `@umijs/plugin-antd` (you can see it in the `package.json` file), please upgrade it to the latest version
+3. If your project has no dependencies on the above two npm packages, you can install the latest version of the `@umijs/plugin-antd-mobile` plugin
 
 ### How do I migrate from v2 to v5?
 

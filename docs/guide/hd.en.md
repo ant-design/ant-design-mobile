@@ -10,6 +10,16 @@ import { Button } from 'antd-mobile'
 import { Button } from 'antd-mobile/2x'
 ```
 
-If you think it is too troublesome to add an extra `2x` every time you import it, you can consider configuring an alias from `antd-mobile` to `antd-mobile/2x` in webpack. For specific configuration methods, please refer to [webpack documentation ](https://webpack.js.org/configuration/resolve/#resolvealias) or [umi document](https://umijs.org/zh-CN/config#alias).
+If you think it is too troublesome to add an extra `2x` every time you import it, you can consider configuring an alias from `antd-mobile` to `antd-mobile/2x` in webpack. For specific configuration methods, please refer to [webpack documentation ](https://webpack.js.org/configuration/resolve/#resolvealias).
+
+If you are using the umi framework, you can directly install the latest version of `@umijs/preset-react` or `@umijs/plugin-antd-mobile`, and then configure in `config.js`:
+
+```js
+{
+  antdMobile: {
+    hd: true
+  }
+}
+```
 
 It is worth mentioning that you need to take care of your imports. Please don't write both `import xxx from 'antd-mobile'` and `import xxx from 'antd-mobile/2x'` in one same project.
