@@ -58,9 +58,10 @@ export default () => {
 
       <DemoBlock title='指定颜色'>
         <ProgressBar
-          percent={100}
+          percent={50}
           style={{
             '--fill-color': '#FF3141',
+            '--track-color': '#000000',
           }}
         />
       </DemoBlock>

@@ -6,7 +6,7 @@ const classPrefix = `adm-progress-bar`
 
 export type ProgressBarProps = {
   percent?: number
-} & NativeProps<'--track-width' | '--fill-color'>
+} & NativeProps<'--track-width' | '--track-color' | '--fill-color'>
 
 export const ProgressBar: FC<ProgressBarProps> = p => {
   const props = mergeProps({ percent: 0 }, p)
