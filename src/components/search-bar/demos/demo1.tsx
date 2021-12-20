@@ -1,10 +1,13 @@
-import React, { useRef } from 'react'
+import React, { ReactNode, useRef, useState } from 'react'
 import { Button, SearchBar, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { SearchBarRef } from 'antd-mobile/es/components/search-bar'
+import { SearchOutline, SetOutline } from 'antd-mobile-icons'
 
 export default () => {
   const searchRef = useRef<SearchBarRef>(null)
+  const [icon, setIcon] = useState<ReactNode | null>(<SetOutline />)
+
   return (
     <>
       <DemoBlock title='基础用法'>
@@ -69,6 +72,19 @@ export default () => {
             '--background': '#ffffff',
           }}
         />
+      </DemoBlock>
+
+      <DemoBlock title='自定义 icon'>
+        <Space block direction='vertical'>
+          <SearchBar icon={icon} placeholder='请输入内容' />
+          <Space>
+            <Button onClick={() => setIcon(null)}>不显示 icon</Button>
+            <Button onClick={() => setIcon(<SearchOutline />)}>
+              默认 icon
+            </Button>
+            <Button onClick={() => setIcon(<SetOutline />)}>自定义 icon</Button>
+          </Space>
+        </Space>
       </DemoBlock>
     </>
   )

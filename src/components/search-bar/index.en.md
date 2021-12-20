@@ -4,21 +4,22 @@
 
 ## API
 
-| Name             | Description                                                                                  | Type                                                      | Default  |
-| ---------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------- |
-| value            | Input value                                                                                  | `string`                                                  | -        |
-| placeholder      | Hint text                                                                                    | `string`                                                  | -        |
-| maxLength        | The maximum number of characters the user can enter                                          | `number`                                                  | -        |
-| clearable        | Whether to enable the clear icon, the input would be cleared after the clear icon is clicked | `boolean`                                                 | `true`   |
-| showCancelButton | Whether to display the cancel button on the right side of the search input                   | `boolean \| ((focus: boolean, value: string) => boolean)` | `false`  |
-| cancelText       | Text of the cancel button                                                                    | `string`                                                  | `'取消'` |
-| clearOnCancel    | Whether to clear the input after the cancel button is clicked                                | `boolean`                                                 | `true`   |
-| onSearch         | Triggered when the enter key is input                                                        | `(value: string) => void`                                 | -        |
-| onChange         | Triggered when the input content is changed                                                  | `(value: string) => void`                                 | -        |
-| onFocus          | Triggered when the input get focus                                                           | `(e: React.FocusEvent<HTMLInputElement>) => void`         | -        |
-| onBlur           | Triggered when the input lose focus                                                          | `(e: React.FocusEvent<HTMLInputElement>) => void`         | -        |
-| onClear          | Triggered when the clear button is clicked                                                   | `() => void`                                              | -        |
-| onCancel         | Triggered when the cancel button is clicked                                                  | `() => void`                                              | -        |
+| Name             | Description                                                                                  | Type                                                      | Default             |
+| ---------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------- |
+| value            | Input value                                                                                  | `string`                                                  | -                   |
+| placeholder      | Hint text                                                                                    | `string`                                                  | -                   |
+| maxLength        | The maximum number of characters the user can enter                                          | `number`                                                  | -                   |
+| clearable        | Whether to enable the clear icon, the input would be cleared after the clear icon is clicked | `boolean`                                                 | `true`              |
+| showCancelButton | Whether to display the cancel button on the right side of the search input                   | `boolean \| ((focus: boolean, value: string) => boolean)` | `false`             |
+| cancelText       | Text of the cancel button                                                                    | `string`                                                  | `'取消'`            |
+| icon             | Icon                                                                                         | `ReactNode`                                               | `<SearchOutline />` |
+| clearOnCancel    | Whether to clear the input after the cancel button is clicked                                | `boolean`                                                 | `true`              |
+| onSearch         | Triggered when the enter key is input                                                        | `(value: string) => void`                                 | -                   |
+| onChange         | Triggered when the input content is changed                                                  | `(value: string) => void`                                 | -                   |
+| onFocus          | Triggered when the input get focus                                                           | `(e: React.FocusEvent<HTMLInputElement>) => void`         | -                   |
+| onBlur           | Triggered when the input lose focus                                                          | `(e: React.FocusEvent<HTMLInputElement>) => void`         | -                   |
+| onClear          | Triggered when the clear button is clicked                                                   | `() => void`                                              | -                   |
+| onCancel         | Triggered when the cancel button is clicked                                                  | `() => void`                                              | -                   |
 
 ## CSS Variables
 
