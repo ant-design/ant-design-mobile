@@ -108,11 +108,9 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
         )}
         <Input
           ref={inputRef}
-          className={
-            props.icon
-              ? `${classPrefix}-input`
-              : `${classPrefix}-input-without-icon`
-          }
+          className={classNames(`${classPrefix}-input`, {
+            [`${classPrefix}-input-without-icon`]: !props.icon,
+          })}
           value={value}
           onChange={setValue}
           maxLength={props.maxLength}
