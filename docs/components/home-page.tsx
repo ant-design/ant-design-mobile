@@ -2,6 +2,9 @@ import React, { useContext } from 'react'
 import styles from './home-page.less'
 import { context } from 'dumi/theme'
 
+const codesandboxLink =
+  'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json'
+
 export default () => {
   const { locale } = useContext(context)
 
@@ -57,8 +60,12 @@ export default () => {
               )}
             </p>
             <p className={styles.buttons}>
-              <a>{trans('Get Started', '开始使用')}</a>
-              <a>{trans('Try it Online', '在线体验')}</a>
+              <a href={trans('/guide/quick-start', '/zh/guide/quick-start')}>
+                {trans('Get Started', '开始使用')}
+              </a>
+              <a href={codesandboxLink} target='_blank'>
+                {trans('Try it Online', '在线体验')}
+              </a>
             </p>
           </div>
           <img
@@ -91,7 +98,9 @@ export default () => {
             <div className={styles.development_con}>
               <p className={styles.development_con_title}>
                 <span>{trans('Online Experience', '在线体验')}</span>
-                <a href='#'>{trans('Go', '开始体验')} &gt;</a>
+                <a href={codesandboxLink} target='_blank'>
+                  {trans('Go', '开始体验')} &gt;
+                </a>
               </p>
               <p>
                 {trans(
@@ -115,7 +124,9 @@ export default () => {
             >
               <p className={styles.development_con_title}>
                 <span>{trans('All Components', '组件列表')}</span>
-                <a href='#'>{trans('View All', '查看全部')} &gt;</a>
+                <a href={trans('/components/button', '/zh/components/button')}>
+                  {trans('View All', '查看全部')} &gt;
+                </a>
               </p>
               <p>
                 {trans(
@@ -150,7 +161,9 @@ export default () => {
                     '轻松两步，快速实现安装和引入组件，antd-mobile 自动为你加载 css 样式文件。'
                   )}
                 </p>
-                <a href='#'>{trans('Detail', '查看详情')} &gt;</a>
+                <a href={trans('/guide/quick-start', '/zh/guide/quick-start')}>
+                  {trans('Detail', '查看详情')} &gt;
+                </a>
               </div>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/541d8987-2040-40d9-a36c-9f37a2bed91e.svg'
@@ -166,7 +179,7 @@ export default () => {
                     '我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。'
                   )}
                 </p>
-                <a href='#'>FAQ &gt;</a>
+                <a href={trans('/guide/faq', '/zh/guide/faq')}>FAQ &gt;</a>
               </div>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/0e5fba68-b7d4-4170-9fe2-3b0c2ba6350a.svg'
@@ -235,53 +248,18 @@ export default () => {
       {/* 底部导航 */}
       <div className={styles.footer}>
         <div className={styles.columns}>
-          <ul>
-            <li>帮助</li>
-            <li>
-              <a href='#'>发布日志</a>
-            </li>
-            <li>
-              <a href='#'>Roadmap</a>
-            </li>
-            <li>
-              <a href='#'>参与贡献</a>
-            </li>
-            <li>
-              <a href='#'>GitHub</a>
-            </li>
-            <li>
-              <a href='#'>提问与反馈</a>
-            </li>
-          </ul>
-
-          <ul>
-            <li>Ant Design</li>
-            <li>
-              <a href='#'>Ant Design - 桌面端组件库</a>
-            </li>
-            <li>
-              <a href='#'>Ant Design Pro - 中台解决方案</a>
-            </li>
-            <li>
-              <a href='#'>Ant Motiion - 设计动效</a>
-            </li>
-            <li>
-              <a href='#'>Ant UX - 页面逻辑素材</a>
-            </li>
-          </ul>
-
-          <ul>
-            <li>更多产品</li>
-            <li>
-              <a href='#'>Ant Design - 蚂蚁 UI 设计体系</a>
-            </li>
-            <li>
-              <a href='#'>AntV - 蚂蚁数据可视化方案</a>
-            </li>
-            <li>
-              <a href='#'>Egg - 企业级 Node Web 开发框架</a>
-            </li>
-          </ul>
+          {footerGroups.map(group => (
+            <ul key={group.title}>
+              <li>{group.title}</li>
+              {group.items.map(item => (
+                <li>
+                  <a href={item.link} target='_blank'>
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ))}
 
           <ul>
             <li>钉钉交流反馈群</li>
@@ -309,3 +287,56 @@ export default () => {
     </div>
   )
 }
+
+const footerGroups = [
+  {
+    title: 'Ant Design Moible',
+    items: [
+      {
+        title: 'GitHub',
+        link: 'https://github.com/ant-design/ant-design-mobile',
+      },
+      {
+        title: '发布日志',
+        link: 'https://github.com/ant-design/ant-design-mobile/releases',
+      },
+      {
+        title: 'Roadmap',
+        link: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
+      },
+      {
+        title: '参与贡献',
+        link: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
+      },
+      {
+        title: '提问与反馈',
+        link: 'https://github.com/ant-design/ant-design-mobile/issues/new/choose',
+      },
+    ],
+  },
+  {
+    title: 'Ant Design',
+    items: [
+      { title: 'Ant Design - 桌面端组件库', link: 'https://ant.design' },
+      {
+        title: 'Ant Design Pro - 中台解决方案',
+        link: 'https://pro.ant.design',
+      },
+      { title: 'Ant Motion - 设计动效', link: 'https://motion.ant.design' },
+      { title: 'Ant Design Charts', link: 'https://charts.ant.design/' },
+    ],
+  },
+  {
+    title: '更多产品',
+    items: [
+      {
+        title: 'ahooks - React Hooks 库',
+        link: 'https://github.com/alibaba/hooks',
+      },
+      { title: 'Dumi - 组件/文档研发工具', link: 'https://d.umijs.org' },
+      { title: 'Kitchen - Sketch 工具集', link: 'https://kitchen.alipay.com' },
+      { title: 'AntV - 蚂蚁数据可视化方案', link: 'https://antv.vision' },
+      { title: 'Egg - 企业级 Node Web 开发框架', link: 'https://eggjs.org' },
+    ],
+  },
+]
