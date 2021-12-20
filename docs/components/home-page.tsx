@@ -1,7 +1,14 @@
-import React from 'react'
-import styles from './hone-page.less'
+import React, { useContext } from 'react'
+import styles from './home-page.less'
+import { context } from 'dumi/theme'
 
 export default () => {
+  const { locale } = useContext(context)
+
+  function t<T>(en: T, zh: T) {
+    return locale === 'zh' ? zh : en
+  }
+
   const characteristics = [
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/dd5520d8-44b4-43a6-88ee-c970e3757d39.svg',
@@ -25,26 +32,28 @@ export default () => {
     },
   ]
   return (
-    <div className={styles.home_page}>
+    <div className={styles.homePage}>
       {/* 内容部分 */}
-      <div className={styles.honepage_index}>
-        {/* 开始使用 */}
-        <div className={styles.start_using}>
-          <div className={styles.startusing_con}>
-            <p className={styles.antmobile_style}>Ant Design Mobile v5.0发布</p>
-            <p className={styles.startusing_style}>
-              一个基于 Preact / React / React Native 的 UI 组件库
-            </p>
-            <p className={styles.button_style}>
-              <button>开始使用</button>
-              <button>在线体验</button>
+      <div className={styles.main}>
+        <div className={styles.header}>
+          <div className={styles.headerLeft}>
+            <h1 className={styles.title}>Ant Design Mobile 5.0</h1>
+            <p className={styles.description}>探索移动端 web 的体验极限</p>
+            <p className={styles.buttons}>
+              <a>开始使用</a>
+              <a>在线体验</a>
             </p>
           </div>
+          <img
+            className={styles.headerImage}
+            alt='header-image'
+            src='https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*72wxQ7yN4tEAAAAAAAAAAAAAARQnAQ'
+          />
         </div>
         {/* 功能特性 */}
-        <div className={styles.characteristics}>
-          <p className={styles.homepage_title}>功能特性</p>
-          <ul>
+        <div className={styles.group}>
+          <p className={styles.groupTitle}>功能特性</p>
+          <ul className={styles.features}>
             {characteristics.map(item => {
               return (
                 <li key={item.title}>
@@ -58,9 +67,9 @@ export default () => {
             })}
           </ul>
         </div>
-        {/*  开发资源 */}
-        <div className={styles.development}>
-          <p className={styles.homepage_title}>开发资源</p>
+        {/* 开发资源 */}
+        <div className={styles.group}>
+          <p className={styles.groupTitle}>开发资源</p>
           <div className={styles.development_li}>
             <div className={styles.development_con}>
               <p className={styles.development_con_title}>
@@ -102,10 +111,10 @@ export default () => {
           </div>
         </div>
         {/* 新手指引 */}
-        <div className={styles.novice_guidance}>
-          <p className={styles.homepage_title}>新手指引</p>
-          <div>
-            <div className={styles.novice_guidance_con}>
+        <div className={styles.group}>
+          <p className={styles.groupTitle}>新手指引</p>
+          <div className={styles.guidance}>
+            <div className={styles.guidanceCard}>
               <div>
                 <p>快速上手</p>
                 <p>
@@ -119,7 +128,7 @@ export default () => {
                 alt=''
               />
             </div>
-            <div className={styles.novice_guidance_con}>
+            <div className={styles.guidanceCard}>
               <div>
                 <p>常见问题</p>
                 <p>我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。</p>
@@ -133,9 +142,9 @@ export default () => {
           </div>
         </div>
         {/* 谁在使用 */}
-        <div className={styles.whouse}>
-          <p className={styles.homepage_title}>谁在使用</p>
-          <ul>
+        <div className={styles.group}>
+          <p className={styles.groupTitle}>谁在使用</p>
+          <ul className={styles.using}>
             <li>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/feb60d13-3a19-4c7c-b2bd-d61cafa2edd0.svg'
@@ -188,8 +197,8 @@ export default () => {
         </div>
       </div>
       {/* 底部导航 */}
-      <div className={styles.btmmenue}>
-        <div className={styles.menue}>
+      <div className={styles.footer}>
+        <div className={styles.columns}>
           <ul>
             <li>帮助</li>
             <li>
@@ -252,12 +261,10 @@ export default () => {
           </ul>
         </div>
 
-        <div className={styles.btm_foot}>
-          <p>
-            Open-source MIT Licensed &nbsp;&nbsp;|&nbsp;&nbsp; Copyright ©
-            2016-present &nbsp;Alipay.com &nbsp;Powered by&nbsp;{' '}
-            <a href=''>dumi</a>
-          </p>
+        <div className={styles.copyright}>
+          Open-source MIT Licensed &nbsp;&nbsp;|&nbsp;&nbsp; Copyright ©
+          2016-present &nbsp;Alipay.com &nbsp;Powered by&nbsp;{' '}
+          <a href=''>dumi</a>
         </div>
       </div>
     </div>
