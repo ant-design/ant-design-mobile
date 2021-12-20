@@ -25,6 +25,7 @@ export type InputProps = Pick<
   | 'min'
   | 'autoComplete'
   | 'pattern'
+  | 'inputMode'
   | 'type'
   | 'onFocus'
   | 'onBlur'
