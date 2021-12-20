@@ -5,12 +5,6 @@
   .main {
     margin: 0 auto;
     max-width: 1140px;
-    .groupTitle {
-      font-size: 24px;
-      color: #697a8c;
-      line-height: 32px;
-      margin-bottom: 60px;
-    }
     .header {
       display: flex;
       flex-direction: row;
@@ -62,7 +56,13 @@
       }
     }
     .group {
-      margin-top: 60px;
+      padding: 32px 0 24px;
+    }
+    .groupTitle {
+      font-size: 24px;
+      color: #697a8c;
+      line-height: 32px;
+      margin-bottom: 24px;
     }
     ul.features {
       display: flex;
@@ -205,20 +205,17 @@
       width: 1140px;
       display: flex;
       justify-content: space-between;
-      padding: 86px 0;
+      padding: 80px 0;
       ul {
+        flex: 1;
+        padding: 0 36px 0 0;
         li {
-          height: 22px;
-          width: 200px;
           font-size: 14px;
           line-height: 22px;
           margin-bottom: 12px;
           list-style: none;
           a {
             color: rgba(255, 255, 255, 0.9);
-          }
-          img {
-            width: 132px;
           }
         }
         li:first-child {

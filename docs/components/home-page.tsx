@@ -5,30 +5,42 @@ import { context } from 'dumi/theme'
 export default () => {
   const { locale } = useContext(context)
 
-  function t<T>(en: T, zh: T) {
+  function trans<T>(en: T, zh: T) {
     return locale === 'zh' ? zh : en
   }
 
   const characteristics = [
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/dd5520d8-44b4-43a6-88ee-c970e3757d39.svg',
-      title: '高性能',
-      txt: '为严苛场景精心优化，无需配置，即可拥有最佳的包体积大小和极致的性能。',
+      title: trans('Fast', '高性能'),
+      txt: trans(
+        'It is carefully optimized for harsh scenes, without configuration, you can have the best package size and ultimate performance.',
+        '为严苛场景精心优化，无需配置，即可拥有最佳的包体积大小和极致的性能。'
+      ),
     },
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/33cb2ea7-3025-439a-9ce1-212aae26b1cc.svg',
-      title: '可定制',
-      txt: '基于 CSS 变量，你可以可靠且高效地对组件外观进行调整，或是创造出自己的主题。',
+      title: trans('Customizable', '可定制'),
+      txt: trans(
+        'Based on CSS variables, you can reliably and efficiently adjust the appearance of components or create your own themes.',
+        '基于 CSS 变量，你可以可靠且高效地对组件外观进行调整，或是创造出自己的主题。'
+      ),
     },
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/7329c998-6dfd-4764-865a-1839dbcc5653.svg',
-      title: '原子化',
-      txt: '每个组件的功能，不多也不少，恰好就是你所需。',
+      title: trans('Atomic', '原子化'),
+      txt: trans(
+        'The function of each component, neither more nor less, is exactly what you need.',
+        '每个组件的功能，不多也不少，恰好就是你所需。'
+      ),
     },
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/0c1d3f71-9b1a-43df-84a8-8eed55700d65.svg',
-      title: '流畅',
-      txt: '拥有流畅的手势和细腻的动画，助力产品打造出极致体验。',
+      title: trans('Fluent', '流畅'),
+      txt: trans(
+        'With smooth gestures and delicate animation, it helps the product create the ultimate experience.',
+        '拥有流畅的手势和细腻的动画，助力产品打造出极致体验。'
+      ),
     },
   ]
   return (
@@ -38,10 +50,15 @@ export default () => {
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <h1 className={styles.title}>Ant Design Mobile 5.0</h1>
-            <p className={styles.description}>探索移动端 web 的体验极限</p>
+            <p className={styles.description}>
+              {trans(
+                'Explore the limits of mobile web experience',
+                '探索移动端 web 的体验极限'
+              )}
+            </p>
             <p className={styles.buttons}>
-              <a>开始使用</a>
-              <a>在线体验</a>
+              <a>{trans('Get Started', '开始使用')}</a>
+              <a>{trans('Try it Online', '在线体验')}</a>
             </p>
           </div>
           <img
@@ -52,7 +69,7 @@ export default () => {
         </div>
         {/* 功能特性 */}
         <div className={styles.group}>
-          <p className={styles.groupTitle}>功能特性</p>
+          <p className={styles.groupTitle}>{trans('Features', '功能特性')}</p>
           <ul className={styles.features}>
             {characteristics.map(item => {
               return (
@@ -69,14 +86,19 @@ export default () => {
         </div>
         {/* 开发资源 */}
         <div className={styles.group}>
-          <p className={styles.groupTitle}>开发资源</p>
+          <p className={styles.groupTitle}>{trans('Resources', '开发资源')}</p>
           <div className={styles.development_li}>
             <div className={styles.development_con}>
               <p className={styles.development_con_title}>
-                <span>在线体验</span>
-                <a href='#'>开始体验 &gt;</a>
+                <span>{trans('Online Experience', '在线体验')}</span>
+                <a href='#'>{trans('Go', '开始体验')} &gt;</a>
               </p>
-              <p>你可以直接在 Codesandbox 上在线体验，无需安装和配置环境。</p>
+              <p>
+                {trans(
+                  'You can directly experience it online on Codesandbox, no need to install and configure the environment.',
+                  '你可以直接在 Codesandbox 上在线体验，无需安装和配置环境。'
+                )}
+              </p>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/b81e0f80-b78b-4a14-95f9-d5b20c648248.svg'
                 alt=''
@@ -92,10 +114,15 @@ export default () => {
               }}
             >
               <p className={styles.development_con_title}>
-                <span>组件列表</span>
-                <a href='#'>查看全部 &gt;</a>
+                <span>{trans('All Components', '组件列表')}</span>
+                <a href='#'>{trans('View All', '查看全部')} &gt;</a>
               </p>
-              <p>以支付宝移动设计为设计基础，在视觉上紧跟设计规范。</p>
+              <p>
+                {trans(
+                  'Take Alipay mobile design as the design basis, and closely follow the design specifications visually.',
+                  '以支付宝移动设计为设计基础，在视觉上紧跟设计规范。'
+                )}
+              </p>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/59081d14-3243-4503-ac50-d566dea369dd.svg'
                 alt=''
@@ -112,16 +139,18 @@ export default () => {
         </div>
         {/* 新手指引 */}
         <div className={styles.group}>
-          <p className={styles.groupTitle}>新手指引</p>
+          <p className={styles.groupTitle}>{trans('Guidance', '新手指引')}</p>
           <div className={styles.guidance}>
             <div className={styles.guidanceCard}>
               <div>
-                <p>快速上手</p>
+                <p>{trans('Quick Start', '快速上手')}</p>
                 <p>
-                  轻松两步，快速实现安装和引入组件，antd-mobile 自动为你加载 css
-                  样式文件。
+                  {trans(
+                    'Two easy steps, quick installation and introduction of components, antd-mobile automatically loads css style files for you.',
+                    '轻松两步，快速实现安装和引入组件，antd-mobile 自动为你加载 css 样式文件。'
+                  )}
                 </p>
-                <a href='#'>查看详情 &gt;</a>
+                <a href='#'>{trans('Detail', '查看详情')} &gt;</a>
               </div>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/541d8987-2040-40d9-a36c-9f37a2bed91e.svg'
@@ -130,8 +159,13 @@ export default () => {
             </div>
             <div className={styles.guidanceCard}>
               <div>
-                <p>常见问题</p>
-                <p>我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。</p>
+                <p>{trans('FAQ', '常见问题')}</p>
+                <p>
+                  {trans(
+                    'We have sorted out some common problems for you. If you have any questions, please check it out first.',
+                    '我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。'
+                  )}
+                </p>
                 <a href='#'>FAQ &gt;</a>
               </div>
               <img
@@ -143,7 +177,9 @@ export default () => {
         </div>
         {/* 谁在使用 */}
         <div className={styles.group}>
-          <p className={styles.groupTitle}>谁在使用</p>
+          <p className={styles.groupTitle}>
+            {trans('Who is Using', '谁在使用')}
+          </p>
           <ul className={styles.using}>
             <li>
               <img
@@ -221,10 +257,7 @@ export default () => {
           <ul>
             <li>Ant Design</li>
             <li>
-              <a href='#'>Ant Design</a>
-            </li>
-            <li>
-              <a href='#'>Ant Design Mobile</a>
+              <a href='#'>Ant Design - 桌面端组件库</a>
             </li>
             <li>
               <a href='#'>Ant Design Pro - 中台解决方案</a>
@@ -255,16 +288,22 @@ export default () => {
             <li>
               <img
                 src='https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*8G6wSrrp1DoAAAAAAAAAAAAAARQnAQ'
-                alt=''
+                alt='ding-group'
+                width={240}
               />
             </li>
           </ul>
         </div>
 
         <div className={styles.copyright}>
-          Open-source MIT Licensed &nbsp;&nbsp;|&nbsp;&nbsp; Copyright ©
-          2016-present &nbsp;Alipay.com &nbsp;Powered by&nbsp;{' '}
-          <a href=''>dumi</a>
+          Open-source MIT Licensed
+          {' | '}
+          Copyright © 2016-present Alipay.com
+          {' | '}
+          Powered by{' '}
+          <a href='http://d.umijs.org' target='_blank'>
+            dumi
+          </a>
         </div>
       </div>
     </div>
