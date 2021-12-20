@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useEffect } from 'react'
 // @ts-ignore
 import { history } from 'dumi'
 import { context, Link } from 'dumi/theme'
@@ -39,15 +39,12 @@ const LocaleSelect: FC<{ location: any }> = ({ location }) => {
     return pathnameWithoutLocale
   }
 
-  const selectRef = useRef<HTMLSelectElement>(null)
-
   const [localeInStorage, setLocaleInStorage] = useLocalStorageState(
     'adm-doc-locale',
     'en'
   )
 
   useEffect(() => {
-    console.log(localeInStorage, locale)
     if (localeInStorage !== locale) {
       history.push(getLocaleTogglePath(localeInStorage))
     }
