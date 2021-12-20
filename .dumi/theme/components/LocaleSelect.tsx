@@ -1,9 +1,10 @@
 import type { FC } from 'react'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 // @ts-ignore
 import { history } from 'dumi'
 import { context, Link } from 'dumi/theme'
 import './LocaleSelect.less'
+import { useLocalStorageState } from 'ahooks'
 
 const LocaleSelect: FC<{ location: any }> = ({ location }) => {
   const {
@@ -11,6 +12,7 @@ const LocaleSelect: FC<{ location: any }> = ({ location }) => {
     locale,
     config: { locales },
   } = useContext(context)
+
   const firstDiffLocale = locales.find(({ name }) => name !== locale)
 
   function getLocaleTogglePath(target: string) {
@@ -37,27 +39,33 @@ const LocaleSelect: FC<{ location: any }> = ({ location }) => {
     return pathnameWithoutLocale
   }
 
+  const selectRef = useRef<HTMLSelectElement>(null)
+
+  const [localeInStorage, setLocaleInStorage] = useLocalStorageState(
+    'adm-doc-locale',
+    'en'
+  )
+
+  useEffect(() => {
+    console.log(localeInStorage, locale)
+    if (localeInStorage !== locale) {
+      history.push(getLocaleTogglePath(localeInStorage))
+    }
+  }, [])
+
   return firstDiffLocale ? (
     <div
       className='__dumi-default-locale-select'
       data-locale-count={locales.length}
     >
-      {locales.length > 2 ? (
-        <select
-          value={locale}
-          onChange={ev => history.push(getLocaleTogglePath(ev.target.value))}
-        >
-          {locales.map(localeItem => (
-            <option value={localeItem.name} key={localeItem.name}>
-              {localeItem.label}
-            </option>
-          ))}
-        </select>
-      ) : (
-        <Link to={getLocaleTogglePath(firstDiffLocale.name)}>
-          {firstDiffLocale.label}
-        </Link>
-      )}
+      <Link
+        to={getLocaleTogglePath(firstDiffLocale.name)}
+        onClick={() => {
+          setLocaleInStorage(firstDiffLocale.name)
+        }}
+      >
+        {firstDiffLocale.label}
+      </Link>
     </div>
   ) : null
 }

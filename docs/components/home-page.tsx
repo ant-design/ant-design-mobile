@@ -252,7 +252,7 @@ export default () => {
             <ul key={group.title}>
               <li>{group.title}</li>
               {group.items.map(item => (
-                <li>
+                <li key={item.title}>
                   <a href={item.link} target='_blank'>
                     {item.title}
                   </a>

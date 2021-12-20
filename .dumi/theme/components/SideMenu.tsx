@@ -66,8 +66,8 @@ const SideMenu: FC<INavbarProps> = ({
             </ul>
           )}
           {/* site mode locale select */}
-          <LocaleSelect location={location} />
-          {darkPrefix}
+          {/*<LocaleSelect location={location} />*/}
+          {/*{darkPrefix}*/}
         </div>
         {/* menu list */}
         <ul className='__dumi-default-menu-list'>
