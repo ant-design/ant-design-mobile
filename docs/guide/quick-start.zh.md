@@ -45,3 +45,9 @@ import { Button } from 'antd-mobile'
 ## 在线体验
 
 如果你不想在本地配置环境，也可以直接在 [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json) 上进行体验。
+
+## 讨论组
+
+欢迎加入我们的钉钉交流群：
+
+<img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*fo-tQ5wRk5QAAAAAAAAAAAAAARQnAQ" alt="ding-group" width="360" />

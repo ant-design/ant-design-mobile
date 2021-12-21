@@ -28,6 +28,10 @@ If you found bugs or would like to request some new features, please consider op
 
 If you have some question about how to use ant-mobile, you can start a [discussion thread](https://github.com/ant-design/ant-design-mobile/discussions).
 
+Feel free to join our DingDing group:
+
+<img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*fo-tQ5wRk5QAAAAAAAAAAAAAARQnAQ" alt="ding-group" width="360" />
+
 ---
 
 Thanks to all the contributors of antd-mobile:
