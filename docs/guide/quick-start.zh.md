@@ -8,8 +8,6 @@ $ npm install --save antd-mobile@next
 $ yarn add antd-mobile@next
 ```
 
-<Alert> 在 beta 阶段我们有可能会在后续的新版本中发布 break change，所以强烈建议使用 lockfile 锁定版本或手动锁定版本</Alert>
-
 ## 引入
 
 直接引入组件即可，antd-mobile 会自动为你加载 css 样式文件：
@@ -20,7 +18,7 @@ import { Button } from 'antd-mobile'
 
 如果你开发的是阿里/蚂蚁内部项目，那么请额外阅读一下[这篇指引](https://yuque.antfin.com/antd-mobile/kfcgs3/md4or5)。
 
-### 关于兼容性
+## 兼容性
 
 目前的兼容性标准为 iOS Safari >= 10 和 Chrome >= 49。
 
