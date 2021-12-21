@@ -16,7 +16,7 @@ interface Props {
   onSelect: (value: PickerValue, index: number) => void
 }
 
-export const Column = memo<Props>(
+export const Wheel = memo<Props>(
   props => {
     const itemHeight = convertPx(34)
     const { value, column } = props
@@ -194,4 +194,4 @@ export const Column = memo<Props>(
   }
 )
 
-Column.displayName = 'Column'
+Wheel.displayName = 'Wheel'

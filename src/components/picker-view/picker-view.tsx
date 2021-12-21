@@ -1,6 +1,6 @@
 import React, { memo, ReactNode, useCallback, useEffect, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
-import { Column } from './column'
+import { Wheel } from './wheel'
 import { useColumns } from './use-columns'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePickerValueExtend } from './use-picker-value-extend'
@@ -86,7 +86,7 @@ export const PickerView = memo<PickerViewProps>(p => {
     props,
     <div className={`${classPrefix}`}>
       {columns.map((column, index) => (
-        <Column
+        <Wheel
           key={index}
           index={index}
           column={column}
