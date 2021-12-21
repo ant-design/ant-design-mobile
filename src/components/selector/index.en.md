@@ -17,7 +17,7 @@ type SelectorValue = string | number
 | columns      | Number of the displayed columns         | `number`                                                                | -       |
 | options      | Optional selector                       | `SelectorOption[]`                                                      | -       |
 | multiple     | Whether to allow multiple selections    | `boolean`                                                               | `false` |
-| disabled     | Whether to disabled selections globally | `boolean`                                                               | `false` |
+| disabled     | Whether to disable selecting | `boolean`                                                               | `false` |
 | onChange     | Triggered when the value is changed     | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
 
 ## SelectorOption
