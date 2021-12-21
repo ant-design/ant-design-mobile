@@ -1,10 +1,14 @@
 .homePage {
+  overflow: hidden;
   a {
     text-decoration: none;
   }
   .main {
     margin: 0 auto;
-    max-width: 1140px;
+    max-width: 1200px;
+    min-width: 960px;
+    padding: 0 48px;
+    box-sizing: content-box;
     .header {
       display: flex;
       flex-direction: row;
@@ -48,9 +52,16 @@
       .headerImage {
         width: 960px;
         transform: translateX(30%);
-        margin-left: -30%;
+        margin-left: -40%;
         position: relative;
         z-index: 0;
+        @media (max-width: 1300px) {
+          & {
+            width: 820px;
+            transform: translateX(30%);
+            margin-left: -30%;
+          }
+        }
       }
     }
     .group {
@@ -89,12 +100,15 @@
         }
       }
     }
-    .development_li {
+    .resourcesCardList {
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
-      .development_con {
-        height: 345px;
-        width: 547px;
+      align-items: stretch;
+      gap: 48px;
+      .resourcesCard {
+        flex: 1;
+        //width: 547px;
         background: #fafcfe;
         position: relative;
         padding-left: 32px;
@@ -123,14 +137,15 @@
         }
         img {
           margin-top: 36px;
+          display: block;
         }
         .development_pos {
           position: absolute;
           top: 0;
           right: 0;
           z-index: -1;
-          height: 350.5px;
-          width: 410.3px;
+          height: 100%;
+          width: 100%;
           background-image: linear-gradient(
             210deg,
             #f4f9ff 0%,
@@ -141,15 +156,17 @@
     }
     .guidance {
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
+      align-items: stretch;
+      gap: 48px;
       .guidanceCard {
-        height: 229px;
-        width: 560px;
+        flex: 1;
         background: #ffffff;
         box-shadow: 0 4px 10px 0 rgba(184, 212, 231, 0.2);
         display: flex;
         justify-content: space-between;
-        padding: 32px 32px 0 22px;
+        padding: 32px;
         > div {
           width: 274px;
           p:nth-child(1) {
@@ -177,14 +194,17 @@
     ul.using {
       display: flex;
       justify-content: space-between;
+      gap: 24px;
+      overflow-x: scroll;
       margin: 0;
       padding: 0;
       li {
         list-style: none;
+        flex: none;
       }
       img {
-        height: 34.1px;
-        width: 116.7px;
+        height: 34px;
+        filter: grayscale(100%);
       }
       li:nth-child(7) {
         img {

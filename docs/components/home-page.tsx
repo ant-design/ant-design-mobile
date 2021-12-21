@@ -94,8 +94,8 @@ export default () => {
         {/* 开发资源 */}
         <div className={styles.group}>
           <p className={styles.groupTitle}>{trans('Resources', '开发资源')}</p>
-          <div className={styles.development_li}>
-            <div className={styles.development_con}>
+          <div className={styles.resourcesCardList}>
+            <div className={styles.resourcesCard}>
               <p className={styles.development_con_title}>
                 <span>{trans('Online Experience', '在线体验')}</span>
                 <a href={codesandboxLink} target='_blank'>
@@ -116,7 +116,7 @@ export default () => {
             </div>
 
             <div
-              className={styles.development_con}
+              className={styles.resourcesCard}
               style={{
                 backgroundColor: 'rgba(223,246,255,0.3)',
                 background: 'rgba(223,246,255,0.3)',
