@@ -85,6 +85,14 @@ export default () => {
           ))}
         </TabBar>
       </DemoBlock>
+
+      <DemoBlock title='开启安全区' padding='0'>
+        <TabBar safeArea>
+          {tabs.map(item => (
+            <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+          ))}
+        </TabBar>
+      </DemoBlock>
     </>
   )
 }
