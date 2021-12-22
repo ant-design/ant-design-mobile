@@ -102,9 +102,9 @@ export const Mask: React.FC<MaskProps> = p => {
         className={classPrefix}
         ref={ref}
         style={{
-          ...props.style,
           background,
           opacity,
+          ...props.style,
           display: active ? 'unset' : 'none',
         }}
       >
