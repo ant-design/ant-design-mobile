@@ -186,6 +186,7 @@ export const Wheel = memo<Props>(
     )
   },
   (prev, next) => {
+    if (prev.index !== next.index) return false
     if (prev.value !== next.value) return false
     if (prev.onSelect !== next.onSelect) return false
     if (!isEqual(prev.column, next.column)) {
