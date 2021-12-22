@@ -10,10 +10,7 @@ import Button from '../button'
 
 const classPrefix = `adm-stepper`
 
-export type StepperProps = Pick<
-  InputProps,
-  'onFocus' | 'onBlur' | 'readOnly'
-> & {
+export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> & {
   value?: number
   defaultValue?: number
   min?: number
@@ -21,6 +18,7 @@ export type StepperProps = Pick<
   step?: number
   digits?: number
   disabled?: boolean
+  inputReadOnly?: boolean
   onChange?: (value: number) => void
 } & NativeProps<
     | '--height'
@@ -45,7 +43,7 @@ const defaultProps = {
 
 export const Stepper: FC<StepperProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const { disabled, step, max, min, readOnly } = props
+  const { disabled, step, max, min, inputReadOnly } = props
 
   const [value, setValue] = usePropsValue(props)
   const [inputValue, setInputValue] = useState(() => value.toString())
@@ -133,7 +131,7 @@ export const Stepper: FC<StepperProps> = p => {
           setHasFocus(false)
           props.onBlur?.(e)
         }}
-        readOnly={readOnly}
+        readOnly={inputReadOnly}
       />
       <Button
         className={`${classPrefix}-plus`}

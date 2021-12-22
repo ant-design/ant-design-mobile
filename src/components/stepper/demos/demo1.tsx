@@ -47,7 +47,7 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='输入框只读状态'>
-        <Stepper readOnly />
+        <Stepper inputReadOnly />
       </DemoBlock>
 
       <DemoBlock title='自定义宽度'>
