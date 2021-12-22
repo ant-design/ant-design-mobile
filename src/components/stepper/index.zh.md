@@ -15,6 +15,7 @@
 | step         | 每次改变步数，可以为小数                              | `number`                                          | `1`     |
 | digits       | 格式化到小数点后固定位数，设置为 `0` 表示格式化到整数 | `number`                                          | -       |
 | disabled     | 是否禁用步进器                                        | `boolean`                                         | `false` |
+| readOnly     | 是否只读                                              | `boolean`                                         | `false` |
 | onFocus      | 输入框获得焦点时触发                                  | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
 | onBlur       | 输入框失去焦点时触发                                  | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
 

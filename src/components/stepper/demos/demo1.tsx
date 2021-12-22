@@ -46,6 +46,10 @@ export default () => {
         <Stepper disabled />
       </DemoBlock>
 
+      <DemoBlock title='输入框只读状态'>
+        <Stepper readOnly />
+      </DemoBlock>
+
       <DemoBlock title='自定义宽度'>
         <Stepper style={{ width: '120px' }} defaultValue={10000} step={10000} />
       </DemoBlock>
