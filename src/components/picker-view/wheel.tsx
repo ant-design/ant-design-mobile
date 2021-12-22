@@ -59,7 +59,9 @@ export const Wheel = memo<Props>(
     function scrollSelect(index: number) {
       const finalPosition = index * -itemHeight
       api.start({ y: finalPosition })
-      onSelect(column[index].value)
+      const item = column[index]
+      if (!item) return
+      onSelect(item.value)
     }
 
     const bind = useDrag(
@@ -71,9 +73,8 @@ export const Wheel = memo<Props>(
           draggingRef.current = false
           const position =
             state.offset[1] + state.velocity[1] * state.direction[1] * 50
-          const targetIndex = -Math.round(
-            bound(position, min, max) / itemHeight
-          )
+          const targetIndex =
+            min < max ? -Math.round(bound(position, min, max) / itemHeight) : 0
           scrollSelect(targetIndex)
         } else {
           const position = state.offset[1]
