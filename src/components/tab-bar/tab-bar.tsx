@@ -27,7 +27,7 @@ export type TabBarProps = {
 const classPrefix = `adm-tab-bar`
 
 const defaultProps = {
-  safeArea: true,
+  safeArea: false,
 }
 
 export const TabBar: FC<TabBarProps> = p => {

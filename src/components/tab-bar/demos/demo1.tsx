@@ -42,7 +42,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='基本用法' padding='0'>
-        <TabBar safeArea={false}>
+        <TabBar>
           {tabs.map(item => (
             <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
           ))}
@@ -50,7 +50,7 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='徽标' padding='0'>
-        <TabBar safeArea={false}>
+        <TabBar>
           {tabs.map(item => (
             <TabBar.Item
               key={item.key}
@@ -63,7 +63,7 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='仅图标' padding='0'>
-        <TabBar safeArea={false}>
+        <TabBar>
           {tabs.map(item => (
             <TabBar.Item key={item.key} icon={item.icon} />
           ))}
@@ -71,7 +71,7 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='仅标题' padding='0'>
-        <TabBar safeArea={false}>
+        <TabBar>
           {tabs.map(item => (
             <TabBar.Item key={item.key} title={item.title} />
           ))}
@@ -79,7 +79,15 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='受控组件' padding='0'>
-        <TabBar activeKey={activeKey} onChange={setActiveKey} safeArea={false}>
+        <TabBar activeKey={activeKey} onChange={setActiveKey}>
+          {tabs.map(item => (
+            <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+          ))}
+        </TabBar>
+      </DemoBlock>
+
+      <DemoBlock title='开启安全区' padding='0'>
+        <TabBar safeArea>
           {tabs.map(item => (
             <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
           ))}
