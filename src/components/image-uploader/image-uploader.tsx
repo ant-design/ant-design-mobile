@@ -132,12 +132,15 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               return task
             })
           })
-          updateValue(prev => [
-            ...prev,
-            {
+          updateValue(prev => {
+            const newVal: ImageUploadItem = {
               url: result.url,
-            },
-          ])
+            }
+            if (result.extra !== undefined) {
+              newVal.extra = result.extra
+            }
+            return [...prev, newVal]
+          })
         } catch (e) {
           setTasks(prev => {
             return prev.map(task => {
