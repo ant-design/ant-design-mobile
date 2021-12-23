@@ -1,0 +1,35 @@
+@class-prefix-popup: ~'adm-popup';
+
+.@{class-prefix-popup} {
+  --z-index: var(--adm-popup-z-index, 1000);
+
+  position: fixed;
+  z-index: var(--z-index);
+}
+
+.@{class-prefix-popup}-body {
+  position: fixed;
+  background-color: #ffffff;
+  z-index: calc(var(--z-index) + 10);
+
+  &-position-bottom {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  &-position-top {
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  &-position-left {
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  &-position-right {
+    height: 100%;
+    top: 0;
+    right: 0;
+  }
+}

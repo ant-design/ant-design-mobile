@@ -1,0 +1,60 @@
+@class-prefix-progress-circle: ~'adm-progress-circle';
+
+/*进度圈*/
+.@{class-prefix-progress-circle} {
+  --track-width: 3px;
+  --size: 50px;
+  --track-color: #e5e5e5;
+  --fill-color: #1677ff;
+
+  --percent: 0;
+  --pi: 3.14159265358979;
+  --radius: calc(var(--size) / 2 - var(--track-width) / 2);
+  --circumference: calc(var(--radius) * var(--pi) * 2);
+
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+
+  &-svg {
+    width: 100%;
+    height: 100%;
+    > .@{class-prefix-progress-circle}-track,
+    .@{class-prefix-progress-circle}-fill {
+      stroke-width: var(--track-width);
+      r: var(--radius);
+      cx: calc(var(--size) / 2);
+      cy: calc(var(--size) / 2);
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+    > .@{class-prefix-progress-circle}-track {
+      stroke: var(--track-color);
+    }
+    > .@{class-prefix-progress-circle}-fill {
+      transition: stroke-dashoffset 0.35s;
+      stroke: var(--fill-color);
+      stroke-dasharray: var(--circumference);
+      stroke-dashoffset: calc(
+        var(--circumference) * (1 - var(--percent) / 100)
+      );
+      stroke-linecap: round;
+    }
+  }
+
+  &-content {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-info {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+}

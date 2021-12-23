@@ -1,0 +1,26 @@
+@class-prefix-card: ~'adm-card';
+
+.@{class-prefix-card} {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0 12px;
+  &-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 12px 0;
+    &:not(:last-child) {
+      border-bottom: solid 0.5px var(--adm-border-color);
+    }
+    &-title {
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+  }
+  &-body {
+    padding: 12px 0;
+  }
+}

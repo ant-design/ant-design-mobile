@@ -1,0 +1,150 @@
+@class-prefix-passcode-input: ~'adm-passcode-input';
+
+.@{class-prefix-passcode-input} {
+  position: relative;
+  display: inline-block;
+
+  --cell-size: 40px;
+  --cell-gap: 6px;
+  --dot-size: 10px;
+  --border-color: #e5e5e5;
+  --border-radius: 8px;
+
+  &-cell-container {
+    display: inline-flex;
+    vertical-align: top;
+  }
+
+  &-cell {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: 18px;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background: var(--adm-color-white);
+  }
+
+  &:not(.seperated) {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    .@{class-prefix-passcode-input}-cell:not(:last-child) {
+      border-right: 1px solid var(--border-color);
+    }
+    &.focused {
+      border-color: var(--adm-color-primary);
+      box-shadow: 0 0 2px 0 var(--adm-color-primary);
+      outline: none;
+    }
+    &.error {
+      border-color: var(--adm-color-danger);
+      box-shadow: 0 0 2px 0 var(--adm-color-danger);
+      animation: 100ms ease-in-out 0s 3 normal none running adm-shake-horizontal;
+    }
+  }
+
+  &.seperated &-cell {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    &:not(:last-child) {
+      margin-right: var(--cell-gap);
+    }
+    &.focused {
+      border-color: var(--adm-color-primary);
+      box-shadow: 0 0 2px 0 var(--adm-color-primary);
+    }
+  }
+
+  &.seperated.focused {
+    outline: none;
+  }
+
+  &.seperated.error {
+    animation: 100ms ease-in-out 0s 3 normal none running adm-shake-horizontal;
+    .@{class-prefix-passcode-input}-cell {
+      border-color: var(--adm-color-danger);
+      box-shadow: 0 0 2px 0 var(--adm-color-danger);
+    }
+  }
+
+  &-cell.dot::before {
+    content: '';
+    width: var(--dot-size);
+    height: var(--dot-size);
+    border-radius: 50%;
+    background: var(--adm-color-text);
+  }
+
+  &-cell.caret::after {
+    content: '';
+    width: 2px;
+    height: 1.1em;
+    margin-left: 1px;
+    background: var(--adm-color-primary);
+    animation: 1s linear infinite adm-caret-blink;
+  }
+
+  > .@{class-prefix-passcode-input}-native-input {
+    position: absolute;
+    left: -200vw;
+    top: 0;
+    display: block;
+    width: 50px;
+    height: 20px;
+    opacity: 0.5;
+  }
+
+  @keyframes adm-shake-horizontal {
+    0% {
+      transform: translateX(0);
+    }
+    10% {
+      transform: translateX(-4px);
+    }
+    20% {
+      transform: translateX(5px);
+    }
+    30% {
+      transform: translateX(-1px);
+    }
+    40% {
+      transform: translateX(8px);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    60% {
+      transform: translateX(-8px);
+    }
+    70% {
+      transform: translateX(1px);
+    }
+    80% {
+      transform: translateX(-5px);
+    }
+    90% {
+      transform: translateX(4px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes adm-caret-blink {
+    from {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}

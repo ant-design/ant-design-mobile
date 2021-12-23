@@ -1,0 +1,12 @@
+@class-prefix-safe-area: ~'adm-safe-area';
+
+.@{class-prefix-safe-area} {
+  display: block;
+  width: 100%;
+  &-position-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  &-position-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

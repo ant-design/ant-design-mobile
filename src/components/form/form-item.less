@@ -1,0 +1,42 @@
+@class-prefix-form-item: ~'adm-form-item';
+
+.@{class-prefix-form-item} {
+  + .@{class-prefix-form-item} {
+    border-top: none;
+  }
+
+  &-label {
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+    color: #666;
+    position: relative;
+
+    &-required {
+      position: absolute;
+      left: -0.6em;
+      top: 0.2em;
+      color: var(--adm-color-danger);
+      user-select: none;
+    }
+  }
+
+  &-footer {
+    color: var(--adm-color-danger);
+  }
+
+  &&-hidden {
+    display: none;
+  }
+}
+
+.adm-form-vertical {
+  .@{class-prefix-form-item} {
+    &-label {
+      margin-bottom: 4px;
+    }
+    &-footer {
+      margin-top: 4px;
+    }
+  }
+}

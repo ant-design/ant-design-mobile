@@ -1,0 +1,31 @@
+@class-prefix-divider: ~'adm-divider';
+
+.@{class-prefix-divider} {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  color: var(--adm-color-weak);
+  font-size: 14px;
+  border-width: 0;
+  border-color: var(--adm-border-color);
+  border-style: solid;
+  &-left&::before {
+    max-width: 10%;
+  }
+  &-right&::after {
+    max-width: 10%;
+  }
+  &::after,
+  &::before {
+    flex: auto;
+    display: block;
+    content: '';
+    border-style: inherit;
+    border-color: inherit;
+    border-width: 1px 0 0;
+  }
+  &-content {
+    flex: none;
+    padding: 0 16px;
+  }
+}

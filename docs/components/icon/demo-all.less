@@ -1,0 +1,50 @@
+.adm-icon-doc {
+  background: #ffffff;
+  padding: 4px;
+
+  &-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background: #ffffff;
+    padding: 12px 8px;
+  }
+
+  &-search {
+    --border-radius: 100px;
+  }
+
+  h3 {
+    padding-left: 12px;
+    font-size: 18px;
+  }
+
+  &-container {
+    padding: 16px;
+    background: #ffffff;
+  }
+
+  &-item {
+    text-align: center;
+    padding: 12px 12px;
+    border-radius: 4px;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    &:hover {
+      background-color: fade(#1677ff, 80%);
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
+
+  &-icon {
+    font-size: 32px;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+  }
+
+  &-label {
+    font-size: 12px;
+    word-wrap: break-word;
+    padding-top: 6px;
+  }
+}

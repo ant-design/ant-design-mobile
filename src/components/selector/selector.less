@@ -1,0 +1,54 @@
+@class-prefix-selector: ~'adm-selector';
+
+.@{class-prefix-selector} {
+  --color: var(--adm-color-text);
+  --checked-color: #e7f1ff;
+
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.4;
+
+  &-item {
+    padding: 8px;
+    position: relative;
+    background-color: #f5f5f5;
+    border-radius: 2px;
+    color: #333;
+    opacity: 1;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    vertical-align: top;
+
+    &-active,
+    &-multiple-active {
+      color: var(--adm-color-primary);
+      background-color: var(--checked-color);
+    }
+
+    .@{class-prefix-selector}-check-mark-wrapper {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-top: solid 8px transparent;
+      border-bottom: solid 8px var(--adm-color-primary);
+      border-left: solid 10px transparent;
+      border-right: solid 10px var(--adm-color-primary);
+      > img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 6px;
+        width: 8px;
+      }
+    }
+
+    &-disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+  }
+}

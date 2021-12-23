@@ -1,0 +1,105 @@
+@class-prefix-slider: ~'adm-slider';
+
+.@{class-prefix-slider} {
+  --fill-color: var(--adm-color-primary);
+  padding: 4px 12px;
+  list-style: none;
+  user-select: none;
+
+  &-track-container {
+    padding: 8px 0;
+  }
+
+  &-track {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background-color: #f5f5f5;
+  }
+
+  &-fill {
+    position: absolute;
+    height: 4px;
+    background-color: var(--fill-color);
+  }
+
+  &-ticks {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+  }
+
+  &-tick {
+    position: absolute;
+    top: -3.5px;
+    width: 11px;
+    height: 11px;
+    margin-left: -5px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    &-active {
+      background-color: var(--fill-color);
+    }
+  }
+
+  &-thumb {
+    touch-action: none;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff url('../../assets/slider-thumb.svg') no-repeat center
+      center;
+    background-size: 10px 10px;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12),
+      0 1.5px 3px -2px rgba(0, 0, 0, 0.25);
+    &:focus {
+      outline: none;
+    }
+  }
+  &-thumb-container {
+    touch-action: none;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-mark {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    font-size: 12px;
+    height: 12px;
+    margin-top: 4px;
+  }
+
+  &-mark-text {
+    position: absolute;
+    display: inline-block;
+    line-height: 16px;
+    color: #999;
+    text-align: center;
+    word-break: keep-all;
+    user-select: none;
+    transform: translateX(-50%);
+  }
+
+  &-disabled {
+    opacity: 0.4;
+    .@{class-prefix-slider}-thumb {
+      cursor: not-allowed;
+    }
+    .@{class-prefix-slider}-mark-text,
+    .@{class-prefix-slider}-tick {
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  }
+}

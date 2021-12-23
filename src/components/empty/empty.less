@@ -1,0 +1,23 @@
+@class-prefix-empty: ~'adm-empty';
+
+.@{class-prefix-empty} {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+
+  &-image-container {
+    display: flex;
+    justify-content: center;
+    &-image {
+      width: 64px;
+    }
+  }
+
+  &-description {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--adm-color-light);
+  }
+}

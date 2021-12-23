@@ -1,0 +1,50 @@
+@class-prefix-action-sheet: ~'adm-action-sheet';
+
+.@{class-prefix-action-sheet} {
+  &-popup {
+    > .adm-popup-body {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      overflow: hidden;
+    }
+  }
+  &-extra {
+    display: flex;
+    justify-content: center;
+    color: var(--adm-color-weak);
+    font-size: 15px;
+    padding: 18px 16px;
+    border-bottom: 1px solid var(--adm-border-color);
+  }
+  &-button-item-wrapper {
+    background-color: #ffffff;
+    border-top: 1px solid var(--adm-border-color);
+    &:first-child {
+      border-top: none;
+    }
+  }
+  &-button-item {
+    padding: 14px;
+    text-align: center;
+    border-radius: 0;
+    &-name {
+      color: var(--adm-color-text);
+      font-size: 18px;
+    }
+    &-description {
+      font-size: 12px;
+      color: var(--adm-color-weak);
+      padding-top: 4px;
+    }
+    &-danger {
+      .@{class-prefix-action-sheet}-button-item-name {
+        color: var(--adm-color-danger);
+      }
+    }
+  }
+
+  &-cancel {
+    background-color: #f5f5f5;
+    padding-top: 8px;
+  }
+}

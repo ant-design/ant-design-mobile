@@ -1,0 +1,87 @@
+.adm-swiper {
+  --height: auto;
+  --width: 100%;
+  --border-radius: 0;
+  --track-padding: 0;
+
+  --slide-size: 100%;
+  --track-offset: 0%;
+
+  display: block;
+  width: var(--width);
+  height: var(--height);
+  position: relative;
+  border-radius: var(--border-radius);
+  z-index: 0;
+  overflow: hidden;
+  &-track {
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    padding: var(--track-padding);
+    &-allow-touch-move {
+      cursor: grab;
+    }
+    &-inner {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.adm-swiper-slide {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  white-space: unset;
+  flex: none;
+}
+
+.adm-swiper-item {
+  display: block;
+  width: 100%;
+  height: 100%;
+  white-space: normal;
+}
+
+.adm-swiper-horizontal {
+  .adm-swiper-track-allow-touch-move {
+    touch-action: pan-y;
+  }
+  .adm-swiper-indicator {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .adm-swiper-track {
+    transform: translateX(var(--track-offset));
+    &-inner {
+      flex-direction: row;
+      width: var(--slide-size);
+    }
+  }
+}
+.adm-swiper-vertical {
+  .adm-swiper-track-allow-touch-move {
+    touch-action: pan-x;
+  }
+  .adm-swiper-indicator {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .adm-swiper-track {
+    transform: translateY(var(--track-offset));
+    &-inner {
+      flex-direction: column;
+      height: var(--slide-size);
+    }
+  }
+}

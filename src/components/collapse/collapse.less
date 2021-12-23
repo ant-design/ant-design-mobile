@@ -1,0 +1,25 @@
+@class-prefix-collapse: ~'adm-collapse';
+
+.@{class-prefix-collapse} {
+  &-panel-header {
+    &-disabled {
+      color: var(--adm-color-light);
+      cursor: not-allowed;
+      .@{class-prefix-collapse}-arrow {
+        color: var(--adm-color-light);
+      }
+    }
+  }
+  &-arrow {
+    transform: rotate(0deg);
+    &-active {
+      transform: rotate(90deg);
+    }
+    transition: all ease 0.2s;
+  }
+  &-panel-content {
+    font-size: var(--adm-font-size-main);
+    color: var(--adm-color-weak);
+    overflow: hidden;
+  }
+}

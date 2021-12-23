@@ -1,0 +1,107 @@
+@class-prefix-virtual-input: ~'adm-virtual-input';
+
+.@{class-prefix-virtual-input} {
+  --font-size: 17px;
+  --color: var(--adm-color-text);
+  --placeholder-color: var(--adm-color-light);
+  --disabled-color: var(--adm-color-weak);
+  --text-align: left;
+  --caret-width: var(--adm-virtual-input-caret-width, 2px);
+  --caret-color: var(--adm-virtual-input-caret-color, var(--adm-color-primary));
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  text-align: var(--text-align);
+  font-size: var(--font-size);
+  line-height: 1.5;
+  white-space: nowrap;
+  color: var(--color);
+
+  > * {
+    vertical-align: top;
+  }
+
+  &-content {
+    flex: auto;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+  }
+
+  &-placeholder {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    text-align: var(--text-align);
+    color: var(--placeholder-color);
+  }
+
+  &-caret-container {
+    display: inline-block;
+    width: var(--caret-width);
+    height: 1.3em;
+    vertical-align: top;
+    margin-right: 1px;
+  }
+  &-caret {
+    width: 100%;
+    height: 100%;
+    background-color: var(--caret-color);
+    position: relative;
+    top: 5%;
+  }
+  &:focus {
+    outline: none;
+    .adm-virtual-input-caret {
+      display: block;
+      animation-name: adm-caret-blink;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  }
+  &-disabled {
+    color: var(--disabled-color);
+  }
+}
+
+@keyframes adm-caret-blink {
+  from {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.@{class-prefix-virtual-input}-clear {
+  flex: none;
+  margin-left: 8px;
+  color: var(--placeholder-color);
+  padding: 3px;
+  cursor: pointer;
+  .antd-mobile-icon {
+    display: block;
+    font-size: 14px;
+  }
+}

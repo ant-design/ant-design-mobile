@@ -1,0 +1,86 @@
+@class-prefix-checkbox: ~'adm-checkbox';
+
+.@{class-prefix-checkbox} {
+  --icon-size: 22px;
+  --font-size: 17px;
+  --gap: 8px;
+  display: inline-flex;
+  vertical-align: text-bottom;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  input {
+    display: none;
+  }
+  .@{class-prefix-checkbox}-icon {
+    flex: none;
+    border: 1px solid #ccc;
+    border-radius: var(--icon-size);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    color: #ffffff;
+    &-checked {
+      width: 65%;
+      height: 65%;
+    }
+  }
+  &.@{class-prefix-checkbox}-block {
+    display: flex;
+  }
+  &.@{class-prefix-checkbox}-checked {
+    .@{class-prefix-checkbox}-icon {
+      border-color: var(--adm-color-primary);
+      background-color: var(--adm-color-primary);
+    }
+  }
+  &.@{class-prefix-checkbox}-disabled {
+    cursor: not-allowed;
+    .@{class-prefix-checkbox}-content {
+      color: var(--adm-color-weak);
+    }
+    &.@{class-prefix-checkbox}-indeterminate {
+      .@{class-prefix-checkbox}-icon {
+        color: #ccc;
+        border-color: #ccc;
+        background-color: #ebedf0;
+      }
+    }
+    &.@{class-prefix-checkbox}-checked {
+      .@{class-prefix-checkbox}-icon {
+        color: #ccc;
+      }
+    }
+    .@{class-prefix-checkbox}-icon {
+      border-color: #ccc;
+      background-color: #ebedf0;
+    }
+  }
+  .@{class-prefix-checkbox}-custom-icon {
+    font-size: var(--icon-size);
+  }
+
+  &.@{class-prefix-checkbox}-indeterminate {
+    .@{class-prefix-checkbox}-icon {
+      border-color: var(--adm-color-primary);
+      background-color: #ffffff;
+      color: var(--adm-color-primary);
+    }
+
+    .@{class-prefix-checkbox}-indeterminate-checked {
+      width: 60%;
+      height: 60%;
+      border-radius: 100%;
+      background-color: currentColor;
+    }
+  }
+
+  &-content {
+    flex: none;
+    font-size: var(--font-size);
+    padding-left: var(--gap);
+  }
+}

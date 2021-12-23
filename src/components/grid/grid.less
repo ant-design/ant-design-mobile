@@ -1,0 +1,17 @@
+@class-prefix-grid: ~'adm-grid';
+
+.@{class-prefix-grid} {
+  --gap: 0;
+  --gap-horizontal: var(--gap);
+  --gap-vertical: var(--gap);
+
+  display: grid;
+  grid-gap: 10px;
+  column-gap: var(--gap-horizontal);
+  row-gap: var(--gap-vertical);
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  align-items: stretch;
+  &-item {
+    grid-column-end: span var(--item-span);
+  }
+}

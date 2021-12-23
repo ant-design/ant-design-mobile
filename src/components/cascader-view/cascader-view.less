@@ -1,0 +1,42 @@
+.adm-cascader-view {
+  --height: auto;
+
+  &-tabs {
+    &.adm-tabs {
+      --title-font-size: 14px;
+      --content-padding: none;
+    }
+  }
+
+  &-header {
+    &-title {
+      max-width: 84px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &-content {
+    &.adm-list {
+      --border-inner: none;
+      --border-bottom: none;
+      --border-top: none;
+      overflow-y: auto;
+    }
+    height: var(--height);
+    padding-top: 4px;
+    box-sizing: border-box;
+  }
+
+  &-item {
+    font-size: 14px;
+
+    &-active {
+      color: var(--adm-color-primary);
+    }
+  }
+  .adm-list-inner {
+    margin-bottom: 0;
+  }
+}

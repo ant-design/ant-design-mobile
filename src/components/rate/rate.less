@@ -1,0 +1,34 @@
+@class-prefix-rate: ~'adm-rate';
+
+.@{class-prefix-rate} {
+  --star-size: 24px;
+  --active-color: #ffd21e;
+  display: inline-flex;
+  &-box {
+    position: relative;
+  }
+
+  &-star {
+    padding: calc(var(--star-size) / 8);
+    line-height: var(--star-size);
+    font-size: var(--star-size);
+    color: var(--adm-color-light);
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    box-sizing: border-box;
+    &-half {
+      padding-right: 0;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &-active {
+      color: var(--active-color);
+    }
+    &-readonly {
+      cursor: unset;
+    }
+  }
+}

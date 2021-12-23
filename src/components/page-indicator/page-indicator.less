@@ -1,0 +1,49 @@
+.adm-page-indicator {
+  display: flex;
+  width: auto;
+
+  --dot-color: rgba(0, 0, 0, 0.2);
+  --active-dot-color: var(--adm-color-primary);
+  --dot-size: 3px;
+  --active-dot-size: 13px;
+  --dot-border-radius: 1px;
+  --active-dot-border-radius: var(--dot-border-radius);
+  --dot-spacing: 3px;
+
+  &-dot {
+    display: block;
+    width: var(--dot-size);
+    height: var(--dot-size);
+    border-radius: var(--dot-border-radius);
+    background: var(--dot-color);
+
+    &:last-child {
+      margin-right: 0;
+    }
+    &-active {
+      border-radius: var(--active-dot-border-radius);
+      background: var(--active-dot-color);
+    }
+  }
+  &-color-white {
+    --active-dot-color: var(--adm-color-white);
+  }
+  &-horizontal {
+    flex-direction: row;
+    .adm-page-indicator-dot {
+      margin-right: var(--dot-spacing);
+      &-active {
+        width: var(--active-dot-size);
+      }
+    }
+  }
+  &-vertical {
+    flex-direction: column;
+    .adm-page-indicator-dot {
+      margin-bottom: var(--dot-spacing);
+      &-active {
+        height: var(--active-dot-size);
+      }
+    }
+  }
+}

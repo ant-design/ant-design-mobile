@@ -1,0 +1,40 @@
+@class-prefix-picker: ~'adm-picker';
+
+.@{class-prefix-picker} {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.@{class-prefix-picker}-header {
+  flex: none;
+  border-bottom: solid 1px var(--adm-border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  &-button {
+    font-size: 15px;
+    display: inline-block;
+    padding: 4px 4px;
+  }
+  &-title {
+    padding: 4px 4px;
+    font-size: 15px;
+    color: var(--adm-color-text);
+    text-align: center;
+    flex: 1;
+  }
+}
+
+.@{class-prefix-picker}-body {
+  flex: auto;
+  height: 100%;
+  width: 100%;
+  > .adm-picker-view {
+    --height: 100%;
+  }
+}

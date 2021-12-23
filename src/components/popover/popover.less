@@ -1,0 +1,258 @@
+@import './animation.less';
+
+@class-prefix-popover: ~'adm-popover';
+
+@popover-arrow-width: 6px;
+@popover-distance: @popover-arrow-width;
+@border-radius-base: 4px;
+@box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+  0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+@shadow-color: rgba(0, 0, 0, 0.15);
+@popover-min-width: 32px;
+@popover-min-height: 32px;
+
+.@{class-prefix-popover} {
+  --z-index: var(--adm-popover-z-index, 1030);
+
+  &-light {
+    --popover-bg: #ffffff;
+  }
+
+  &-dark {
+    --popover-bg: rgba(0, 0, 0, 0.75);
+    --adm-color-text: #ffffff;
+    color: white;
+  }
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index);
+  font-weight: normal;
+  white-space: normal;
+  text-align: left;
+  cursor: auto;
+  user-select: text;
+  animation: none;
+
+  &::after {
+    position: absolute;
+    background: fade(#ffffff, 1%);
+    content: '';
+  }
+  &-hidden {
+    display: none;
+  }
+
+  // Offset the popover to account for the popover arrow
+  &-placement-top,
+  &-placement-topLeft,
+  &-placement-topRight {
+    padding-bottom: @popover-distance;
+    &.leaving {
+      animation-name: amSlideUpOut;
+      animation-duration: 200ms;
+    }
+    &.entering {
+      animation-name: amSlideUpIn;
+      animation-duration: 200ms;
+    }
+  }
+
+  &-placement-right,
+  &-placement-rightTop,
+  &-placement-rightBottom {
+    padding-left: @popover-distance;
+    &.leaving {
+      animation-name: amSlideRightOut;
+      animation-duration: 200ms;
+    }
+    &.entering {
+      animation-name: amSlideRightIn;
+      animation-duration: 200ms;
+    }
+  }
+
+  &-placement-bottom,
+  &-placement-bottomLeft,
+  &-placement-bottomRight {
+    padding-top: @popover-distance;
+    &.leaving {
+      animation-name: amSlideDownOut;
+      animation-duration: 200ms;
+    }
+    &.entering {
+      animation-name: amSlideDownIn;
+      animation-duration: 200ms;
+    }
+  }
+
+  &-placement-left,
+  &-placement-leftTop,
+  &-placement-leftBottom {
+    padding-right: @popover-distance;
+    &.leaving {
+      animation-name: amSlideLeftOut;
+      animation-duration: 200ms;
+    }
+    &.entering {
+      animation-name: amSlideLeftIn;
+      animation-duration: 200ms;
+    }
+  }
+
+  &-inner {
+    background-color: var(--popover-bg);
+    background-clip: padding-box;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+    box-shadow: ~'0 0 8px @{shadow-color} \9';
+    min-width: @popover-min-width;
+    min-height: @popover-min-height;
+    overflow-y: hidden;
+    &-content {
+      padding: 12px;
+    }
+
+    &-menu {
+      min-width: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-with-icon {
+        min-width: 140px;
+      }
+      &-icon {
+        margin-right: 12px;
+        font-size: 20px;
+        line-height: 1;
+        vertical-align: -0.075em;
+      }
+      cursor: pointer;
+      border-bottom: 1px solid var(--adm-border-color);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      & button {
+        border-radius: 0;
+        padding: 10px 12px;
+        text-align: left;
+      }
+    }
+  }
+
+  &-menu {
+    .@{class-prefix-popover}-inner {
+      &-content {
+        padding: 0;
+      }
+    }
+  }
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* IE10+ */
+    &-inner {
+      box-shadow: @box-shadow-base;
+    }
+  }
+
+  // Arrows
+  // .popover-arrow is outer, .popover-arrow:after is inner
+
+  &-arrow {
+    position: absolute;
+    display: block;
+    width: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
+    height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
+    background: transparent;
+    border-style: solid;
+    border-width: (sqrt(@popover-arrow-width * @popover-arrow-width * 2) / 2);
+    transform: rotate(45deg);
+  }
+
+  &-placement-top > &-content > &-arrow,
+  &-placement-topLeft > &-content > &-arrow,
+  &-placement-topRight > &-content > &-arrow {
+    bottom: @popover-distance - @popover-arrow-width + 3px;
+    border-top-color: transparent;
+    border-right-color: var(--popover-bg);
+    border-bottom-color: var(--popover-bg);
+    border-left-color: transparent;
+    box-shadow: 3px 3px 7px fade(#000000, 7%);
+  }
+  &-placement-top > &-content > &-arrow {
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  &-placement-topLeft > &-content > &-arrow {
+    left: 16px;
+  }
+  &-placement-topRight > &-content > &-arrow {
+    right: 16px;
+  }
+
+  &-placement-right > &-content > &-arrow,
+  &-placement-rightTop > &-content > &-arrow,
+  &-placement-rightBottom > &-content > &-arrow {
+    left: @popover-distance - @popover-arrow-width + 3px;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: var(--popover-bg);
+    border-left-color: var(--popover-bg);
+    box-shadow: -3px 3px 7px fade(#000000, 7%);
+  }
+  &-placement-right > &-content > &-arrow {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  &-placement-rightTop > &-content > &-arrow {
+    top: 12px;
+  }
+  &-placement-rightBottom > &-content > &-arrow {
+    bottom: 12px;
+  }
+
+  &-placement-bottom > &-content > &-arrow,
+  &-placement-bottomLeft > &-content > &-arrow,
+  &-placement-bottomRight > &-content > &-arrow {
+    top: @popover-distance - @popover-arrow-width + 3px;
+    border-top-color: var(--popover-bg);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: var(--popover-bg);
+    box-shadow: -2px -2px 5px fade(#000000, 6%);
+  }
+  &-placement-bottom > &-content > &-arrow {
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  &-placement-bottomLeft > &-content > &-arrow {
+    left: 16px;
+  }
+  &-placement-bottomRight > &-content > &-arrow {
+    right: 16px;
+  }
+
+  &-placement-left > &-content > &-arrow,
+  &-placement-leftTop > &-content > &-arrow,
+  &-placement-leftBottom > &-content > &-arrow {
+    right: @popover-distance - @popover-arrow-width + 3px;
+    border-top-color: var(--popover-bg);
+    border-right-color: var(--popover-bg);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    box-shadow: 3px -3px 7px fade(#000000, 7%);
+  }
+  &-placement-left > &-content > &-arrow {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  &-placement-leftTop > &-content > &-arrow {
+    top: 12px;
+  }
+  &-placement-leftBottom > &-content > &-arrow {
+    bottom: 12px;
+  }
+}
