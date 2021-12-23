@@ -88,6 +88,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       visible={visible}
       onVisibleChange={setVisible}
       trigger={props.trigger}
+      arrowContent={<span className={`${classPrefix}-arrow-content`} />}
       motion={{
         motionName: {
           appear: enterClassName,
