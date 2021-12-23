@@ -36,6 +36,7 @@
 | text      | The title                         | `string`                      | -       |
 | disabled  | Whether disabled state or not     | `boolean`                     | `false` |
 | danger    | Whether in dangerous state or not | `boolean`                     | `false` |
+| primary   | Whether in primary state or not   | `boolean`                     | `false` |
 | bold      | Whether the text is bold          | `boolean`                     | `false` |
 | className | Class name of the action button   | `string`                      | -       |
 | style     | Style of the action button        | `React.CSSProperties`         | -       |
