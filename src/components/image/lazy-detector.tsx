@@ -7,7 +7,7 @@ type Props = {
 
 export const LazyDetector: FC<Props> = props => {
   const ref = useRef<HTMLDivElement>(null)
-  const inViewport = useInViewport(ref)
+  const [inViewport] = useInViewport(ref)
 
   useEffect(() => {
     if (inViewport) {

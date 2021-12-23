@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, useCallback, useMemo } from 'react'
-import { usePersistFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
 import Picker, { PickerProps } from '../picker'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -68,7 +68,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
     [setValue, props.precision]
   )
 
-  const onSelect = usePersistFn((val: string[]) => {
+  const onSelect = useMemoizedFn((val: string[]) => {
     const date = convertStringArrayToDate(val, props.precision)
     props.onSelect?.(date)
   })

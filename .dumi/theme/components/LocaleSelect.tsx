@@ -41,7 +41,9 @@ const LocaleSelect: FC<{ location: any }> = ({ location }) => {
 
   const [localeInStorage, setLocaleInStorage] = useLocalStorageState(
     'adm-doc-locale',
-    'en'
+    {
+      defaultValue: 'en',
+    }
   )
 
   useEffect(() => {

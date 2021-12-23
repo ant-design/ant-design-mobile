@@ -1,6 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React, { FC, useEffect, useRef } from 'react'
-import { useLockFn, usePersistFn } from 'ahooks'
+import { useLockFn, useMemoizedFn } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
 import Loading from '../loading'
@@ -39,7 +39,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   const elementRef = useRef<HTMLDivElement>(null)
 
   const checkTimeoutRef = useRef<number>()
-  const check = usePersistFn(() => {
+  const check = useMemoizedFn(() => {
     window.clearTimeout(checkTimeoutRef.current)
     checkTimeoutRef.current = window.setTimeout(() => {
       if (!props.hasMore) return

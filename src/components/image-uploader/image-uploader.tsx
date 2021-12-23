@@ -10,7 +10,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
-import { usePersistFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
@@ -63,7 +63,7 @@ const defaultProps = {
 export const ImageUploader: FC<ImageUploaderProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
-  const updateValue = usePersistFn(
+  const updateValue = useMemoizedFn(
     (updater: (prev: ImageUploadItem[]) => ImageUploadItem[]) => {
       setValue(updater(value))
     }
