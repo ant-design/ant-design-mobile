@@ -13,7 +13,7 @@ import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
 import { useConfig } from '../config-provider'
 import { usePickerValueExtend } from '../picker-view/use-picker-value-extend'
-import { usePersistFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
 
 const classPrefix = `adm-picker`
 
@@ -74,7 +74,7 @@ export const Picker = memo<PickerProps>(p => {
     }
   }, [value])
 
-  const onChange = usePersistFn((val, ext) => {
+  const onChange = useMemoizedFn((val, ext) => {
     setInnerValue(val)
     if (props.visible) {
       props.onSelect?.(val, ext)

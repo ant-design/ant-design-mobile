@@ -5,18 +5,6 @@ __metadata:
   version: 4
   cacheKey: 8
 
-"@ahooksjs/use-request@npm:^2.8.14":
-  version: 2.8.15
-  resolution: "@ahooksjs/use-request@npm:2.8.15"
-  dependencies:
-    lodash.debounce: ^4.0.8
-    lodash.throttle: ^4.1.1
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-  checksum: de11f7e421a972dca395146b7552fb363c988d42ec0f2b4bc13380d926e18024ca40de45c63f474031fe9e23db60d8ec8993639116d154e23cdba4887005f3c4
-  languageName: node
-  linkType: hard
-
 "@algolia/autocomplete-core@npm:1.5.0":
   version: 1.5.0
   resolution: "@algolia/autocomplete-core@npm:1.5.0"
@@ -2827,13 +2815,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-cookie@npm:^2.2.6":
-  version: 2.2.7
-  resolution: "@types/js-cookie@npm:2.2.7"
-  checksum: 851f47e94ca1fc43661d8f51614d67a613e7810c91b876d0a3b311ce72f7df800107fd02a08cb6948184e12c120b4f058edca2f50424d8798bdcffd6627281e3
-  languageName: node
-  linkType: hard
-
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.5, @types/json-schema@npm:^7.0.8":
   version: 7.0.8
   resolution: "@types/json-schema@npm:7.0.8"
@@ -3811,23 +3792,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ahooks@npm:^2.10.14":
-  version: 2.10.14
-  resolution: "ahooks@npm:2.10.14"
+"ahooks-v3-count@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "ahooks-v3-count@npm:1.0.0"
+  checksum: 3974d94b7cbe0694e18811dee5cfe507a740ecc2875e4bca204d30dfcf0a637a2035d3c296a1b873fc25aa14c4134e805ecc64d4dc2f5d0fb645090bb826771d
+  languageName: node
+  linkType: hard
+
+"ahooks@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "ahooks@npm:3.1.1"
   dependencies:
-    "@ahooksjs/use-request": ^2.8.14
-    "@types/js-cookie": ^2.2.6
+    ahooks-v3-count: ^1.0.0
     dayjs: ^1.9.1
-    intersection-observer: ^0.7.0
-    js-cookie: ^2.2.1
-    lodash.debounce: ^4.0.8
-    lodash.isequal: ^4.5.0
-    lodash.throttle: ^4.1.1
+    intersection-observer: ^0.12.0
+    js-cookie: ^3.0.0
+    lodash: ^4.17.21
     resize-observer-polyfill: ^1.5.1
     screenfull: ^5.0.0
   peerDependencies:
     react: ^16.8.6 || ^17.0
-  checksum: bf58e7b7b05c0aca98fffaf031e4c0062d86edb4700a0e3e5e017e299d3342fd6ba167898adf8d1aa608db1dba2f46c17d749b8555097e2d8913677669be51f8
+  checksum: 2bfb33afc2a7f115a5c7d190877f691777de5dc6ce2a2cbcfa022b07ef92db55abe6bc2417db5a6ee362a0b427ba849a40d174eaf556b97ca43c6bd1c0c8f0f0
   languageName: node
   linkType: hard
 
@@ -4027,7 +4012,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.7.0
     "@typescript-eslint/parser": ^5.7.0
     "@use-gesture/react": ^10.2.4
-    ahooks: ^2.10.14
+    ahooks: ^3.1.1
     antd-mobile-icons: ^0.2.2
     antd-mobile-v5-count: ^1.0.1
     babel-loader: ^8.2.3
@@ -8330,10 +8315,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"intersection-observer@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "intersection-observer@npm:0.7.0"
-  checksum: e1bf9c15ecfe8b4c59a813135348ddc0467e40b0a57d43bfe188f92c8548f804caea2effdb5dabd64ef100679da6489a31d85043766ca21ba4330ac9ca88adc6
+"intersection-observer@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "intersection-observer@npm:0.12.0"
+  checksum: 96d2f3ea4995b7b429b79646467c975230cfbe3ede7fb08d0c022cfe6ee0c89dfa98aa4377e8b5f7bee880322eb118e6c0275607a53043f9c50921da8363c1e8
   languageName: node
   linkType: hard
 
@@ -9675,10 +9660,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"js-cookie@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "js-cookie@npm:2.2.1"
-  checksum: 9b1fb980a1c5e624fd4b28ea4867bb30c71e04c4484bb3a42766344c533faa684de9498e443425479ec68609e96e27b60614bfe354877c449c631529b6d932f2
+"js-cookie@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "js-cookie@npm:3.0.1"
+  checksum: bb48de67e2a6bd1ae3dfd6b2d5a167c33dd0c5a37e909206161eb0358c98f17cb55acd55827a58e9eea3630d89444e7479f7938ef4420dda443218b8c434a4c3
   languageName: node
   linkType: hard
 
@@ -10135,13 +10120,6 @@ fsevents@^1.2.7:
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
   checksum: a3f527d22c548f43ae31c861ada88b2637eb48ac6aa3eb56e82d44917971b8aa96fbb37aa60efea674dc4ee8c42074f90f7b1f772e9db375435f6c83a19b3bc6
-  languageName: node
-  linkType: hard
-
-"lodash.isequal@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.isequal@npm:4.5.0"
-  checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
   languageName: node
   linkType: hard
 
