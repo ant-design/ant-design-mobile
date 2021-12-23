@@ -77,6 +77,7 @@ export const components = {
     '/components/number-keyboard',
     '/components/passcode-input',
     '/components/safe-area',
+    '/components/skeleton',
     '/components/tree-select',
     '/components/virtual-input',
     // '/components/scroll-mask',
