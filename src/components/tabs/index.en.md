@@ -16,11 +16,11 @@
 
 ### CSS Variables
 
-| Name                      | Description                                       | Default |
-| ------------------------- | ------------------------------------------------- | ------- |
-| --fixed-active-line-width | The width of the active tab underline             | `30px`  |
-| --title-font-size         | Font size of the displayed text of the tab header | `17px`  |
-| --content-padding         | Padding of the tab content                        | `12px`  |
+| Name                      | Description                                                                                 | Default |
+| ------------------------- | ------------------------------------------------------------------------------------------- | ------- |
+| --fixed-active-line-width | The width of the active tab underline. Only take effect when `activeLineMode` is `'fixed'`. | `30px`  |
+| --title-font-size         | Font size of the displayed text of the tab header                                           | `17px`  |
+| --content-padding         | Padding of the tab content                                                                  | `12px`  |
 
 ## Tabs.Tab
 
