@@ -70,6 +70,7 @@ export const components = {
   other: ['/components/config-provider'],
   experimental: [
     '/components/what-is-experimental',
+    '/components/calendar',
     '/components/dropdown',
     '/components/ellipsis',
     '/components/floating-bubble',
