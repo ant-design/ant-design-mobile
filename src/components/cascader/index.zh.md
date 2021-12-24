@@ -30,7 +30,7 @@ type CascaderValueExtend = {
 | onClose      | 确认和取消时都会触发关闭事件 | `() => void`                                                    | -          |
 | visible      | 是否显示级联选择             | `boolean`                                                       | `false`    |
 | title        | 标题                         | `ReactNode`                                                     | -          |
-| confirmText  | 确定按钮的文字               | `string`                                                        | `'确定'`   |
-| cancelText   | 取消按钮的文字               | `string`                                                        | `'取消'`   |
+| confirmText  | 确定按钮的文字               | `ReactNode`                                                     | `'确定'`   |
+| cancelText   | 取消按钮的文字               | `ReactNode`                                                     | `'取消'`   |
 | placeholder  | 未选中时的提示文案           | `string`                                                        | `'请选择'` |
 | children     | 所选项的渲染函数             | `(items: CascaderOption[]) => ReactNode`                        | -          |
