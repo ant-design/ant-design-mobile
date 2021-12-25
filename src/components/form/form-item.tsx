@@ -83,7 +83,8 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
 
   const context = useContext(FormContext)
 
-  const hasFeedback = props.hasFeedback || context.hasFeedback
+  const hasFeedback =
+    props.hasFeedback !== undefined ? props.hasFeedback : context.hasFeedback
   const layout = props.layout || context.layout
 
   const feedback = hasFeedback && errors && errors.length > 0 ? errors[0] : null
