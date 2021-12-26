@@ -3,6 +3,8 @@
 .@{class-prefix-tabs} {
   --title-font-size: 17px;
   --content-padding: 12px;
+  --active-line-height: 2px;
+  --active-line-border-radius: 0;
   position: relative;
 
   &-header {
@@ -47,9 +49,10 @@
   &-tab-line {
     position: absolute;
     bottom: 0;
-    height: 2px;
+    height: var(--active-line-height);
     color: var(--adm-color-primary);
     background: var(--adm-color-primary);
+    border-radius: var(--active-line-border-radius);
   }
   &-content {
     padding: var(--content-padding);
