@@ -30,7 +30,7 @@ type CascaderValueExtend = {
 | onClose      | Triggered when confirming or cancelling         | `() => void`                                                    | -          |
 | visible      | Whether to show or hide the Picker              | `boolean`                                                       | `false`    |
 | title        | Title                                           | `ReactNode`                                                     | -          |
-| confirmText  | Text of the ok button                           | `string`                                                        | `'确定'`   |
-| cancelText   | Text of the cancel button                       | `string`                                                        | `'取消'`   |
+| confirmText  | Text of the ok button                           | `ReactNode`                                                     | `'确定'`   |
+| cancelText   | Text of the cancel button                       | `ReactNode`                                                     | `'取消'`   |
 | placeholder  | Hint text                                       | `string`                                                        | `'请选择'` |
 | children     | Render function of the selected options         | `(items: CascaderOption[]) => ReactNode`                        | -          |

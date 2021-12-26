@@ -27,8 +27,8 @@ export type PickerProps = {
   onClose?: () => void
   visible?: boolean
   title?: ReactNode
-  confirmText?: string
-  cancelText?: string
+  confirmText?: ReactNode
+  cancelText?: ReactNode
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
 } & Pick<
   PopupProps,
