@@ -23,7 +23,7 @@
 | --content-padding           | Padding of the tab content                                                                  | `12px`  |
 | --content-padding           | Padding of the tab content                                                                  | `12px`  |
 | --active-line-height        | The height of the active tab underline                                                      | `2px`   |
-| --active-line-border-radius | The borderRadius of the active tab underline                                                | `2px`   |
+| --active-line-border-radius | The borderRadius of the active tab underline                                                | `0`     |
 
 ## Tabs.Tab
 
