@@ -16,7 +16,7 @@
 
 ### Ref
 
-| 属性  | 说明               | 类型         |
+| Name  | Description        | Type         |
 | ----- | ------------------ | ------------ |
 | close | Close the Dropdown | `() => void` |
 
