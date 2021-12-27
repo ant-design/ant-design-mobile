@@ -133,12 +133,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             })
           })
           updateValue(prev => {
-            const newVal: ImageUploadItem = {
-              url: result.url,
-            }
-            if (result.extra !== undefined) {
-              newVal.extra = result.extra
-            }
+            const newVal = { ...result }
             return [...prev, newVal]
           })
         } catch (e) {
