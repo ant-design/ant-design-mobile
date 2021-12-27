@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { DemoBlock, DemoDescription } from 'demos'
 import { Image, Button, Loading } from 'antd-mobile'
+import { DemoBlock, DemoDescription } from 'demos'
 import { PictureWrongOutline } from 'antd-mobile-icons'
 
 export default () => {

@@ -21,11 +21,13 @@ export default () => {
           <Button color='warning'>Warning</Button>
         </Space>
       </DemoBlock>
+
       <DemoBlock title='块级按钮'>
         <Button block color='primary' size='large'>
           Block Button
         </Button>
       </DemoBlock>
+
       <DemoBlock title='填充模式'>
         <Space wrap>
           <Button color='primary' fill='solid'>
@@ -39,6 +41,7 @@ export default () => {
           </Button>
         </Space>
       </DemoBlock>
+
       <DemoBlock title='不同大小的按钮'>
         <Space wrap align='center'>
           <Button size='mini' color='primary'>
@@ -55,6 +58,7 @@ export default () => {
           </Button>
         </Space>
       </DemoBlock>
+
       <DemoBlock title='禁用状态'>
         <Space wrap>
           <Button disabled>Disabled</Button>
@@ -63,6 +67,7 @@ export default () => {
           </Button>
         </Space>
       </DemoBlock>
+
       <DemoBlock title='加载状态'>
         <Space wrap>
           <Button loading color='primary' loadingText='加载中'>
@@ -71,6 +76,7 @@ export default () => {
           <Button loading>Loading</Button>
         </Space>
       </DemoBlock>
+
       <DemoBlock title='带图标的按钮'>
         <Button>
           <Space>
@@ -79,6 +85,7 @@ export default () => {
           </Space>
         </Button>
       </DemoBlock>
+
       <DemoBlock title='不同类型圆角'>
         <Space wrap>
           <Button shape='default' color='primary'>

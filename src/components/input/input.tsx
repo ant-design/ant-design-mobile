@@ -1,4 +1,10 @@
-import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
+import React, {
+  useState,
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useLayoutEffect,
+} from 'react'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -11,12 +17,6 @@ type NativeInputProps = React.DetailedHTMLProps<
   HTMLInputElement
 >
 
-type EnterKeyHintProps = NativeInputProps extends { enterKeyHint?: unknown }
-  ? {
-      enterKeyHint?: NativeInputProps['enterKeyHint']
-    }
-  : {}
-
 export type InputProps = Pick<
   NativeInputProps,
   | 'maxLength'
@@ -25,6 +25,7 @@ export type InputProps = Pick<
   | 'min'
   | 'autoComplete'
   | 'pattern'
+  | 'inputMode'
   | 'type'
   | 'onFocus'
   | 'onBlur'
@@ -32,20 +33,31 @@ export type InputProps = Pick<
   | 'autoCorrect'
   | 'onKeyDown'
   | 'onKeyUp'
-> &
-  EnterKeyHintProps & {
-    value?: string
-    defaultValue?: string
-    onChange?: (val: string) => void
-    placeholder?: string
-    disabled?: boolean
-    readOnly?: boolean
-    clearable?: boolean
-    onClear?: () => void
-    id?: string
-    onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
-  } & NativeProps<
-    '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
+> & {
+  value?: string
+  defaultValue?: string
+  onChange?: (val: string) => void
+  placeholder?: string
+  disabled?: boolean
+  readOnly?: boolean
+  clearable?: boolean
+  onClear?: () => void
+  id?: string
+  onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
+  enterKeyHint?:
+    | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send'
+} & NativeProps<
+    | '--font-size'
+    | '--color'
+    | '--placeholder-color'
+    | '--disabled-color'
+    | '--text-align'
   >
 
 const defaultProps = {
@@ -83,6 +95,14 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     props.onKeyDown?.(e)
   }
 
+  useLayoutEffect(() => {
+    if (!props.enterKeyHint) return
+    nativeInputRef.current?.setAttribute('enterkeyhint', props.enterKeyHint)
+    return () => {
+      nativeInputRef.current?.removeAttribute('enterkeyhint')
+    }
+  }, [props.enterKeyHint])
+
   return withNativeProps(
     props,
     <div className={`${classPrefix}-wrapper`}>
@@ -110,7 +130,6 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         max={props.max}
         min={props.min}
         autoComplete={props.autoComplete}
-        enterKeyHint={props.enterKeyHint}
         pattern={props.pattern}
         type={props.type}
         autoCapitalize={props.autoCapitalize}

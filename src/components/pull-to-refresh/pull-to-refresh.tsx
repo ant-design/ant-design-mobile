@@ -21,6 +21,7 @@ export type PullToRefreshProps = {
   completeDelay?: number
   headHeight?: number
   threshold?: number
+  disabled?: boolean
   renderText?: (status: PullStatus) => ReactNode
 }
 
@@ -30,6 +31,7 @@ export const defaultProps = {
   refreshingText: '加载中……',
   completeText: '刷新成功',
   completeDelay: 500,
+  disabled: false,
   onRefresh: () => {},
 }
 
@@ -60,7 +62,13 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       await props.onRefresh()
       setStatus('complete')
     } catch (e) {
-      setStatus('pulling')
+      api.start({
+        to: async next => {
+          await next({ height: 0 })
+          setStatus('pulling')
+        },
+      })
+
       throw e
     }
     if (props.completeDelay > 0) {
@@ -68,7 +76,6 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
     }
     api.start({
       to: async next => {
-        await next({ height: 0 })
         await next({ height: 0 })
         setStatus('pulling')
       },
@@ -108,7 +115,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
 
       if (!pullingRef.current) return
 
-      if (typeof event.cancelable !== 'boolean' || event.cancelable) {
+      if (event.cancelable) {
         event.preventDefault()
       }
       event.stopPropagation()
@@ -123,6 +130,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       pointer: { touch: true },
       axis: 'y',
       target: elementRef,
+      enabled: !props.disabled,
       eventOptions: supportsPassive ? { passive: false } : false,
     }
   )

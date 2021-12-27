@@ -1,8 +1,8 @@
 # ActionSheet
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 | Name             | Description                                                                                                                | Type                                       | Default         |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
@@ -17,16 +17,17 @@
 | closeOnAction    | Whether to close after clicking the option                                                                                 | `boolean`                                  | `false`         |
 | closeOnMaskClick | Whether to close after clicking the mask layer                                                                             | `boolean`                                  | `true`          |
 | getContainer     | Get the specified mounted `HTML` node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
+| safeArea         | Whether to enable safe area padding                                                                                        | `boolean`                                  | `true`          |
 
 ### Action
 
 | Name        | Description                   | Type               | Default |
 | ----------- | ----------------------------- | ------------------ | ------- |
 | key         | The unique mark               | `string \| number` | -       |
-| text        | Title                         | `string`           | -       |
+| text        | Title                         | `ReactNode`        | -       |
 | disabled    | Whether disabled or not       | `boolean`          | `false` |
 | danger      | Whether dangerous or not      | `boolean`          | `false` |
-| description | The description of the action | `string`           | -       |
+| description | The description of the action | `ReactNode`        | -       |
 | onClick     | Triggered on click            | `() => void`       | -       |
 
 ### Imperative

@@ -8,7 +8,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 const classPrefix = `adm-side-bar`
 
 export type SideBarItemProps = {
-  title?: string
+  title?: ReactNode
   disabled?: boolean
   badge?: ReactNode
 } & NativeProps

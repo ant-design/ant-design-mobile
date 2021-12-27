@@ -1,14 +1,18 @@
 # PullToRefresh 下拉刷新
 
-基础用法：
+### 基础用法
 
 <code src="./demos/demo1.tsx"></code>
 
-使用 `renderText` 控制下拉内容：
+### 自定义提示文案
 
 <code src="./demos/demo2.tsx"></code>
 
-## API
+### 处理刷新失败的情况
+
+<code src="./demos/demo3.tsx"></code>
+
+### 属性
 
 ```ts | pure
 type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
@@ -25,6 +29,7 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 | headHeight     | 头部提示内容区的高度，单位为 px     | `number`                            | `40`             |
 | threshold      | 触发刷新需要下拉多少距离，单位为 px | `number`                            | `60`             |
 | renderText     | 根据下拉状态，自定义下拉提示文案    | `(status: PullStatus) => ReactNode` | -                |
+| disabled       | 是否禁用下拉刷新                    | `boolean`                           | `false`          |
 
 ## 常见问题
 

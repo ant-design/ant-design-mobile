@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Input, Button, Dialog, Checkbox, Space } from 'antd-mobile'
-import { FormInstance } from 'antd-mobile/es/components/form'
 import { DemoBlock } from 'demos'
+import { FormInstance } from 'antd-mobile/es/components/form'
 
 export default () => {
   const [form] = Form.useForm()

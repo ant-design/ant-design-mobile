@@ -1,6 +1,6 @@
 import React from 'react'
-import { DemoBlock } from 'demos'
 import { ConfigProvider, ErrorBlock } from 'antd-mobile'
+import { DemoBlock } from 'demos'
 import zhCN from 'antd-mobile/es/locales/zh-CN'
 import enUS from 'antd-mobile/es/locales/en-US'
 
@@ -12,6 +12,7 @@ export default () => {
           <ErrorBlock />
         </ConfigProvider>
       </DemoBlock>
+
       <DemoBlock title='英文'>
         <ConfigProvider locale={enUS}>
           <ErrorBlock />

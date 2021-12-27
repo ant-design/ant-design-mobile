@@ -1,9 +1,5 @@
 @class-prefix-switch: ~'adm-switch';
 
-@switch-width: 51px;
-@switch-height: 31px;
-@switch-border: 2px;
-
 @keyframes loading-rotate {
   100% {
     transform: rotate(1turn);
@@ -12,6 +8,10 @@
 
 .@{class-prefix-switch} {
   --checked-color: var(--adm-color-primary);
+  --height: 30px;
+  --width: 50px;
+  --border-width: 2px;
+
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
@@ -24,23 +24,23 @@
   }
 
   &-checkbox {
-    min-width: @switch-width;
-    height: @switch-height;
+    min-width: var(--width);
+    height: var(--height);
     box-sizing: border-box;
     border-radius: 31px;
     background: #e5e5e5;
     z-index: 0;
     overflow: hidden;
-    line-height: @switch-height;
+    line-height: var(--height);
 
     &:before {
       content: ' ';
       position: absolute;
-      left: @switch-border;
-      top: @switch-border;
-      width: calc(100% - 2 * @switch-border);
-      height: @switch-height - 2 * @switch-border;
-      border-radius: @switch-height - 2 * @switch-border;
+      left: var(--border-width);
+      top: var(--border-width);
+      width: calc(100% - 2 * var(--border-width));
+      height: calc(var(--height) - 2 * var(--border-width));
+      border-radius: calc(var(--height) - 2 * var(--border-width));
       box-sizing: border-box;
       background: #fff;
       z-index: 1;
@@ -53,14 +53,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: @switch-height - 2 * @switch-border;
-    height: @switch-height - 2 * @switch-border;
-    border-radius: @switch-height - 2 * @switch-border;
+    width: calc(var(--height) - 2 * var(--border-width));
+    height: calc(var(--height) - 2 * var(--border-width));
+    border-radius: calc(var(--height) - 2 * var(--border-width));
     background: #fff;
     position: absolute;
     z-index: 2;
-    top: @switch-border;
-    left: @switch-border;
+    top: var(--border-width);
+    left: var(--border-width);
     transition: all 200ms;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 11.5px 0 rgba(0, 0, 0, 0.08),
       -1px 2px 2px 0 rgba(0, 0, 0, 0.1);
@@ -69,7 +69,7 @@
   &-inner {
     position: relative;
     z-index: 1;
-    margin: 0 10px 0 @switch-height - @switch-border + 5px;
+    margin: 0 10px 0 calc(var(--height) - var(--border-width) + 5px);
     color: var(--adm-color-weak);
     transition: margin 200ms;
   }
@@ -83,11 +83,11 @@
       }
     }
     .@{class-prefix-switch}-handle {
-      left: calc(100% - (@switch-height - @switch-border));
+      left: calc(100% - (var(--height) - var(--border-width)));
     }
 
     .@{class-prefix-switch}-inner {
-      margin: 0 @switch-height - @switch-border + 5px 0 10px;
+      margin: 0 calc(var(--height) - var(--border-width) + 5px) 0 10px;
       color: var(--adm-color-white);
     }
   }

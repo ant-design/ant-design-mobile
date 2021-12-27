@@ -6,6 +6,9 @@ const zhCN = mergeLocale(base, {
     confirm: '确定',
     cancel: '取消',
   },
+  Cascader: {
+    placeholder: '请选择',
+  },
   Dialog: {
     ok: '我知道了',
   },
@@ -32,6 +35,9 @@ const zhCN = mergeLocale(base, {
   },
   Mask: {
     name: '遮罩层',
+  },
+  Modal: {
+    ok: '我知道了',
   },
 })
 

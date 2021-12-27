@@ -1,6 +1,6 @@
 # Radio
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ## API
 
@@ -14,7 +14,7 @@ type RadioValue = string | number
 | -------------- | --------------------------------------------------------------------- | --------------------------------------- | ------- |
 | checked        | To specify whether it is currently selected                           | `boolean`                               | `false` |
 | defaultChecked | To specify whether it is currently selected by default                | `boolean`                               | `false` |
-| disabled       | Diabled state                                                         | `boolean`                               | `false` |
+| disabled       | Disabled state                                                        | `boolean`                               | `false` |
 | onChange       | Callback function when checked is changed                             | `(val: boolean) => void`                | -       |
 | value          | Value is carrying identification, used in `Group` mode                | `RadioValue`                            | -       |
 | block          | Whether to render as a block-level element                            | `boolean`                               | `false` |

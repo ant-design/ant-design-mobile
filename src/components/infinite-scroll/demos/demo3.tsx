@@ -1,6 +1,7 @@
-import { Button, InfiniteScroll, List, Loading, Search } from 'antd-mobile'
 import React, { useEffect, useState } from 'react'
+import { Button, InfiniteScroll, List, Loading, SearchBar } from 'antd-mobile'
 import { sleep } from 'demos'
+
 import styles from './demo3.less'
 
 let count = 0
@@ -55,7 +56,7 @@ export default () => {
     <>
       <div className={styles.header}>
         <div className={styles.left}>
-          <Search />
+          <SearchBar />
         </div>
         <div className={styles.right}>
           <Button size='small' color='primary' onClick={doSearch}>

@@ -18,6 +18,7 @@ export default () => {
           </CheckList.Item>
         </CheckList>
       </DemoBlock>
+
       <DemoBlock title='多选' padding='0' border='none'>
         <CheckList multiple defaultValue={['B', 'C']}>
           <CheckList.Item value='A'>A</CheckList.Item>
@@ -25,6 +26,7 @@ export default () => {
           <CheckList.Item value='C'>C</CheckList.Item>
         </CheckList>
       </DemoBlock>
+
       <DemoBlock title='自定义选中图标' padding='0' border='none'>
         <CheckList activeIcon={<SmileOutline />} defaultValue={['B']}>
           <CheckList.Item value='A'>A</CheckList.Item>
@@ -32,12 +34,14 @@ export default () => {
           <CheckList.Item value='C'>C</CheckList.Item>
         </CheckList>
       </DemoBlock>
+
       <DemoBlock title='整组只读' padding='0' border='none'>
         <CheckList defaultValue={['B']} readOnly>
           <CheckList.Item value='A'>A</CheckList.Item>
           <CheckList.Item value='B'>B</CheckList.Item>
         </CheckList>
       </DemoBlock>
+
       <DemoBlock title='整组禁用' padding='0' border='none'>
         <CheckList disabled>
           <CheckList.Item value='A'>A</CheckList.Item>

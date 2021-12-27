@@ -2,7 +2,7 @@
 
 H5 numeric keyboard, can be used with password input box component or custom input box component
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### Props
 

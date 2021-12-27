@@ -1,14 +1,18 @@
 # PullToRefresh
 
-Basic usage:
+### Basic Usage
 
 <code src="./demos/demo1.tsx"></code>
 
-Use `rendertext` to control the pulling content:
+### Customize Text
 
 <code src="./demos/demo2.tsx"></code>
 
-## API
+### Handle Refresh Error
+
+<code src="./demos/demo3.tsx"></code>
+
+### Props
 
 ```ts | pure
 type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
@@ -25,6 +29,7 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 | headHeight     | The height of the head prompt content area, the unit is px           | `number`                            | `40`             |
 | threshold      | How far to pull down to trigger refresh, unit is px                  | `number`                            | `60`             |
 | renderText     | Customize the pulling content according to the pulling status        | `(status: PullStatus) => ReactNode` | -                |
+| disabled       | Whether the PullToRefresh is disabled                                | `boolean`                           | `false`          |
 
 ## FAQ
 

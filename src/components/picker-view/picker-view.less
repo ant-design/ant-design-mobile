@@ -1,20 +1,22 @@
-@class-prefix-picker: ~'adm-picker-view';
+@class-prefix-picker-view: ~'adm-picker-view';
 
-.@{class-prefix-picker} {
+.@{class-prefix-picker-view} {
   --height: 240px;
   height: var(--height);
   width: 100%;
   display: flex;
   position: relative;
   overflow: hidden;
+  background: var(--adm-color-white);
 }
 
-.@{class-prefix-picker}-column {
+.@{class-prefix-picker-view}-column {
   height: 100%;
   flex: 1;
   user-select: none;
   touch-action: none;
   position: relative;
+  z-index: 0;
   &-wheel {
     width: 100%;
     cursor: grab;
@@ -53,15 +55,51 @@
   }
 }
 
-.@{class-prefix-picker}-mask {
-  position: absolute;
-  left: 0;
+.@{class-prefix-picker-view}-column-accessible {
   width: 100%;
-  height: calc(50% - 12px);
+  height: 100%;
   pointer-events: none;
-  &-top {
-    top: -5px;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  > * {
+    flex: 1;
+    text-overflow: ellipsis;
+  }
+  &-current {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  &-button {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.@{class-prefix-picker-view}-mask {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  &-top,
+  &-bottom {
+    flex: auto;
+  }
+  &-middle {
+    height: 34px;
+    box-sizing: border-box;
+    flex: none;
+    border-top: solid 1px var(--adm-border-color);
     border-bottom: solid 1px var(--adm-border-color);
+  }
+  &-top {
     background: linear-gradient(
       0deg,
       rgba(255, 255, 255, 0.7) 50%,
@@ -69,8 +107,6 @@
     );
   }
   &-bottom {
-    bottom: -5px;
-    border-top: solid 1px var(--adm-border-color);
     background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.7) 50%,

@@ -4,13 +4,13 @@ Picker 系列一共包括了三个组件：[Picker](#picker)、[CascadePicker](#
 
 ## Picker
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### 属性
 
 ```typescript | pure
 type PickerColumnItem = {
-  label: string
+  label: ReactNode
   value: string
 }
 
@@ -34,15 +34,15 @@ type PickerValueExtend = {
 | onClose      | 确认和取消时都会触发关闭事件 | `() => void`                                                   | -        |
 | visible      | 是否显示选择器               | `boolean`                                                      | `false`  |
 | title        | 标题                         | `ReactNode`                                                    | -        |
-| confirmText  | 确定按钮的文字               | `string`                                                       | `'确定'` |
-| cancelText   | 取消按钮的文字               | `string`                                                       | `'取消'` |
+| confirmText  | 确定按钮的文字               | `ReactNode`                                                    | `'确定'` |
+| cancelText   | 取消按钮的文字               | `ReactNode`                                                    | `'取消'` |
 | children     | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
 ## CascadePicker
 
-<code src="./demos/cascade-picker-demo.tsx"></code>
+<code src="../cascade-picker/demos/demo1.tsx"></code>
 
 ### 属性
 
@@ -62,20 +62,38 @@ type CascadePickerOption = {
 
 ## DatePicker
 
-<code src="./demos/date-picker-demo.tsx"></code>
+<code src="../date-picker/demos/demo1.tsx"></code>
+
+<code src="../date-picker/demos/demo2.tsx" debug></code>
 
 ### 属性
 
-| 属性         | 说明             | 类型                                                           | 默认值  |
-| ------------ | ---------------- | -------------------------------------------------------------- | ------- |
-| value        | 选中值           | `Date`                                                         | -       |
-| defaultValue | 选中值           | `Date`                                                         | -       |
-| onSelect     | 选项改变时触发   | `(value: Date) => void`                                        | -       |
-| onConfirm    | 确认时触发       | `(value: Date) => void`                                        | -       |
-| min          | 最小值           | `Date`                                                         | 十年前  |
-| max          | 最大值           | `Date`                                                         | 十年后  |
-| precision    | 精度             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
-| children     | 所选项的渲染函数 | `(value: Date) => ReactNode`                                   | -       |
+| 属性         | 说明                                                                                             | 类型                                                                                   | 默认值  |
+| ------------ | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------- |
+| value        | 选中值                                                                                           | `Date`                                                                                 | -       |
+| defaultValue | 选中值                                                                                           | `Date`                                                                                 | -       |
+| onSelect     | 选项改变时触发                                                                                   | `(value: Date) => void`                                                                | -       |
+| onConfirm    | 确认时触发                                                                                       | `(value: Date) => void`                                                                | -       |
+| min          | 最小值                                                                                           | `Date`                                                                                 | 十年前  |
+| max          | 最大值                                                                                           | `Date`                                                                                 | 十年后  |
+| precision    | 精度                                                                                             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
+| children     | 所选项的渲染函数                                                                                 | `(value: Date) => ReactNode`                                                           | -       |
+| renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode`                                            | -       |
+| filter       | 过滤可供选择的时间                                                                               | `DatePickerFilter`                                                                     | -       |
+
+```typescript | pure
+type DatePickerFilter = Partial<
+  Record<
+    Precision,
+    (
+      val: number,
+      extend: {
+        date: Date
+      }
+    ) => boolean
+  >
+>
+```
 
 此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 

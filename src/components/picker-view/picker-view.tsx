@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
-import { usePropsValue } from '../../utils/use-props-value'
+import React, { memo, ReactNode, useCallback, useEffect, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
-import { Column } from './column'
+import { Wheel } from './wheel'
 import { useColumns } from './use-columns'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePickerValueExtend } from './use-picker-value-extend'
+import { useDebounceEffect } from 'ahooks'
 
 const classPrefix = `adm-picker-view`
 
@@ -15,7 +15,7 @@ export type PickerValueExtend = {
 }
 
 export type PickerColumnItem = {
-  label: string
+  label: ReactNode
   value: string
 }
 
@@ -32,34 +32,75 @@ const defaultProps = {
   defaultValue: [],
 }
 
-export const PickerView: FC<PickerViewProps> = p => {
+export const PickerView = memo<PickerViewProps>(p => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = usePropsValue({
-    ...props,
-    onChange: val => {
-      props.onChange?.(val, generateValueExtend(val))
+
+  const [innerValue, setInnerValue] = useState<PickerValue[]>(
+    props.value === undefined ? props.defaultValue : props.value
+  )
+
+  useDebounceEffect(
+    () => {
+      if (props.value === innerValue) return
+      props.onChange?.(innerValue, generateValueExtend(innerValue))
     },
-  })
-  const columns = useColumns(props.columns, value)
+    [innerValue],
+    {
+      wait: 0,
+      leading: false,
+      trailing: true,
+    }
+  )
+
+  // Sync `value` to `innerValue`
+  useEffect(() => {
+    if (props.value === undefined) return // Uncontrolled mode
+    if (props.value === innerValue) return
+    setInnerValue(props.value)
+  }, [props.value])
+
+  useEffect(() => {
+    if (props.value === innerValue) return
+    const timeout = window.setTimeout(() => {
+      if (props.value !== undefined && props.value !== innerValue) {
+        setInnerValue(props.value)
+      }
+    }, 1000)
+    return () => {
+      window.clearTimeout(timeout)
+    }
+  }, [props.value, innerValue])
+
+  const columns = useColumns(props.columns, innerValue)
   const generateValueExtend = usePickerValueExtend(columns)
+
+  const handleSelect = useCallback((val: string, index: number) => {
+    setInnerValue(prev => {
+      const next = [...prev]
+      next[index] = val
+      return next
+    })
+  }, [])
 
   return withNativeProps(
     props,
     <div className={`${classPrefix}`}>
       {columns.map((column, index) => (
-        <Column
+        <Wheel
           key={index}
+          index={index}
           column={column}
-          value={value[index]}
-          onSelect={val => {
-            const nextValue = [...value]
-            nextValue[index] = val
-            setValue(nextValue)
-          }}
+          value={innerValue[index]}
+          onSelect={handleSelect}
         />
       ))}
-      <div className={`${classPrefix}-mask ${classPrefix}-mask-top`} />
-      <div className={`${classPrefix}-mask ${classPrefix}-mask-bottom`} />
+      <div className={`${classPrefix}-mask`}>
+        <div className={`${classPrefix}-mask-top`} />
+        <div className={`${classPrefix}-mask-middle`} />
+        <div className={`${classPrefix}-mask-bottom`} />
+      </div>
     </div>
   )
-}
+})
+
+PickerView.displayName = 'PickerView'

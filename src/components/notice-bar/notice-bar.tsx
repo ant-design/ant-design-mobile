@@ -89,7 +89,6 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
 
   useMutationEffect(
     () => {
-      console.log('text mutation effect')
       start()
     },
     textRef,

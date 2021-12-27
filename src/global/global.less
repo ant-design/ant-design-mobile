@@ -10,10 +10,6 @@ body {
   font-family: var(--adm-font-family);
 }
 
-* {
-  box-sizing: border-box;
-}
-
 a,
 button {
   cursor: pointer;
@@ -41,7 +37,7 @@ body.adm-overflow-hidden {
 
 div.adm-px-tester {
   --size: 1;
-  height: calc(var(--size) * 1px);
+  height: calc(var(--size) / 2 * 2px);
   width: 0;
   position: fixed;
   right: -100vw;

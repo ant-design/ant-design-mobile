@@ -1,10 +1,15 @@
-.adm-tab-bar {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  overflow: hidden;
-  min-height: 50px;
+@class-prefix-tab-bar: ~'adm-tab-bar';
+
+.@{class-prefix-tab-bar} {
+  &-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow: hidden;
+    min-height: 50px;
+  }
+
   &-item {
     flex: 1;
     color: var(--adm-color-weak);

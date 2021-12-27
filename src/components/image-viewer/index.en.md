@@ -1,6 +1,6 @@
 # ImageViewer
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ## API
 
@@ -43,3 +43,5 @@ The return value of the `show` method is a component controller, which contains 
 | Name  | Description                       | Type         |
 | ----- | --------------------------------- | ------------ |
 | close | Function to close the ImageViewer | `() => void` |
+
+If you want to close all ImageViewers created by the `show` method. You can call `ImageViewer.clear()`.

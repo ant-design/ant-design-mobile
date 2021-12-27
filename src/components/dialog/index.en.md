@@ -1,14 +1,15 @@
 # Dialog
 
-<code src="./demos/index.tsx"></code>
-
-# API
+<code src="./demos/demo1.tsx"></code>
 
 ## Dialog
+
+### Props
 
 | Name             | Description                                                                                                                   | Type                                                       | Default     |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
 | afterClose       | Callback after `Dialog` is completely closed                                                                                  | `() => void`                                               | -           |
+| afterShow        | Triggered after fully displayed                                                                                               | `() => void`                                               | -           |
 | image            | The `url` of the picture                                                                                                      | `string`                                                   | -           |
 | header           | The top area                                                                                                                  | `React.ReactNode`                                          | -           |
 | title            | The title of the Dialog                                                                                                       | `React.ReactNode`                                          | -           |

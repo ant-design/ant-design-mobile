@@ -10,4 +10,16 @@ import { Button } from 'antd-mobile'
 import { Button } from 'antd-mobile/2x'
 ```
 
-如果你觉得每次引入都要额外加个 `2x` 太麻烦，可以考虑在 webpack 中配置一个从 `antd-mobile` 到 `antd-mobile/2x` 的别名，具体的配置方法请参考 [webpack 文档](https://webpack.js.org/configuration/resolve/#resolvealias)或 [umi 文档](https://umijs.org/zh-CN/config#alias)。
+如果你觉得每次引入都要额外加个 `2x` 太麻烦，可以考虑在 webpack 中配置一个从 `antd-mobile` 到 `antd-mobile/2x` 的别名，具体的配置方法请参考 [webpack 文档](https://webpack.js.org/configuration/resolve/#resolvealias)。
+
+如果你使用的是 umi 框架，那么可以直接安装最新版的 `@umijs/preset-react` 或 `@umijs/plugin-antd-mobile`，然后在 `config.js` 中配置：
+
+```js
+{
+  antdMobile: {
+    hd: true
+  }
+}
+```
+
+需要特别注意的是，在同一个项目中，请不要混用 `import xxx from 'antd-mobile'` 和 `import xxx from 'antd-mobile/2x'`，这很有可能会导致严重的样式问题。因此，我们更推荐你使用上文提到的别名的方案进行配置。

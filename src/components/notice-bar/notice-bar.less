@@ -2,6 +2,7 @@
 
 .@{class-prefix-notice-bar} {
   height: 30px;
+  box-sizing: border-box;
   font-size: 14px;
   line-height: 30px;
   padding: 0 12px;
@@ -50,7 +51,7 @@
     align-items: center;
 
     & .@{class-prefix-notice-bar}-content-inner {
-      width: fit-content;
+      width: auto;
       transition-timing-function: linear;
       position: absolute;
       padding: 0 4px;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, testA11y } from 'testing'
+import { fireEvent, render, testA11y } from 'testing'
 import Space from '../'
 
 const classPrefix = `adm-space`
@@ -82,4 +82,11 @@ test('renders with block', () => {
   )
   const amSpace = container.getElementsByClassName('adm-space')[0]
   expect(amSpace).toHaveClass(`${classPrefix}-block`)
+})
+
+test('renders with onClick event', () => {
+  const onClick = jest.fn()
+  const { getByText } = render(<Space onClick={onClick}>Block</Space>)
+  fireEvent.click(getByText('Block'))
+  expect(onClick).toBeCalledTimes(1)
 })

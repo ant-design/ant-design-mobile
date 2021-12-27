@@ -2,15 +2,16 @@ import { useClickAway } from 'ahooks'
 import classNames from 'classnames'
 import React, {
   cloneElement,
-  FC,
   ReactElement,
   ComponentProps,
   useEffect,
   useRef,
   useState,
+  forwardRef,
+  useImperativeHandle,
 } from 'react'
 import Popup from '../popup'
-import Item, { DropdownItemProps, ItemChildrenWrap } from './item'
+import Item, { ItemChildrenWrap } from './item'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -23,6 +24,7 @@ export type DropdownProps = {
   closeOnMaskClick?: boolean
   onChange?: (key: string | null) => void
   // mask?: boolean;
+  arrow?: React.ReactNode
 } & NativeProps
 
 const defaultProps = {
@@ -30,9 +32,14 @@ const defaultProps = {
   closeOnMaskClick: true,
 }
 
-const Dropdown: FC<DropdownProps> & {
-  Item: React.FC<DropdownItemProps>
-} = p => {
+export type DropdownRef = {
+  close: () => void
+}
+
+const Dropdown = forwardRef<
+  DropdownRef,
+  React.PropsWithChildren<DropdownProps>
+>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue({
     value: props.activeKey,
@@ -78,6 +85,8 @@ const Dropdown: FC<DropdownProps> & {
           changeActive(child.key as string)
         },
         active: child.key === value,
+        arrow:
+          child.props.arrow === undefined ? props.arrow : child.props.arrow,
       }
       items.push(child)
       if (child.props.forceRender) popupForceRender = true
@@ -86,6 +95,16 @@ const Dropdown: FC<DropdownProps> & {
       return child
     }
   })
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      close: () => {
+        setValue(null)
+      },
+    }),
+    [setValue]
+  )
 
   return withNativeProps(
     props,
@@ -123,13 +142,6 @@ const Dropdown: FC<DropdownProps> & {
                 active={isActive}
                 forceRender={item.props.forceRender}
                 destroyOnClose={item.props.destroyOnClose}
-                onClick={
-                  item.props.closeOnContentClick
-                    ? () => {
-                        changeActive(null)
-                      }
-                    : undefined
-                }
               >
                 {item.props.children}
               </ItemChildrenWrap>
@@ -139,8 +151,6 @@ const Dropdown: FC<DropdownProps> & {
       </Popup>
     </div>
   )
-}
-
-Dropdown.Item = Item
+})
 
 export default Dropdown

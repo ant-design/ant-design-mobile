@@ -10,14 +10,17 @@ import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
-import { usePersistFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 export type TaskStatus = 'pending' | 'fail'
 
-export interface FileItem {
+export interface ImageUploadItem {
+  key?: string | number
   url: string
+  thumbnailUrl?: string
+  extra?: any
 }
 
 type Task = {
@@ -28,9 +31,9 @@ type Task = {
 }
 
 export type ImageUploaderProps = {
-  defaultValue?: FileItem[]
-  value?: FileItem[]
-  onChange?: (fileList: FileItem[]) => void
+  defaultValue?: ImageUploadItem[]
+  value?: ImageUploadItem[]
+  onChange?: (items: ImageUploadItem[]) => void
   accept?: string
   multiple?: boolean
   maxCount?: number
@@ -41,8 +44,8 @@ export type ImageUploaderProps = {
   capture?: InputHTMLAttributes<unknown>['capture']
   onPreview?: (index: number) => void
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
-  upload: (file: File) => Promise<FileItem>
-  onDelete?: (file: FileItem) => boolean | Promise<boolean> | void
+  upload: (file: File) => Promise<ImageUploadItem>
+  onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
 } & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
@@ -53,15 +56,15 @@ const defaultProps = {
   showUpload: true,
   multiple: false,
   maxCount: 0,
-  defaultValue: [] as FileItem[],
+  defaultValue: [] as ImageUploadItem[],
   accept: 'image/*',
 }
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
-  const updateValue = usePersistFn(
-    (updater: (prev: FileItem[]) => FileItem[]) => {
+  const updateValue = useMemoizedFn(
+    (updater: (prev: ImageUploadItem[]) => ImageUploadItem[]) => {
       setValue(updater(value))
     }
   )
@@ -129,12 +132,10 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               return task
             })
           })
-          updateValue(prev => [
-            ...prev,
-            {
-              url: result.url,
-            },
-          ])
+          updateValue(prev => {
+            const newVal = { ...result }
+            return [...prev, newVal]
+          })
         } catch (e) {
           setTasks(prev => {
             return prev.map(task => {
@@ -173,14 +174,14 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
       <Space className={`${classPrefix}-space`} wrap>
         {value.map((fileItem, index) => (
           <PreviewItem
-            key={fileItem.url}
-            url={fileItem.url}
+            key={fileItem.key ?? index}
+            url={fileItem.thumbnailUrl ?? fileItem.url}
             deletable={props.deletable}
             onClick={() => previewImage(index)}
             onDelete={async () => {
               const canDelete = await props.onDelete?.(fileItem)
               if (canDelete === false) return
-              setValue(value.filter(x => x.url !== fileItem.url))
+              setValue(value.filter((x, i) => i !== index))
             }}
           />
         ))}

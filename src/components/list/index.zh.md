@@ -1,6 +1,6 @@
 # List 列表
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ## 属性
 
@@ -26,9 +26,18 @@
 
 ## CSS 变量
 
-### List & List.Item
+### List
 
-| 属性                      | 说明              | 默认值                    |
-| ------------------------- | ----------------- | ------------------------- |
-| --prefix-width            | prefix 部分的宽度 | `auto`                    |
-| --active-background-color | 点击时的背景颜色  | `var(--adm-border-color)` |
+| 属性                      | 说明                                                                                | 默认值                              |
+| ------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------- |
+| --prefix-width            | prefix 部分的宽度                                                                   | `auto`                              |
+| --active-background-color | 点击时的背景颜色                                                                    | `var(--adm-border-color)`           |
+| --align-items             | 列表项的 [align-item](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) | `center`                            |
+| --border-inner            | 列表项底部的边框样式                                                                | `solid 1px var(--adm-border-color)` |
+| --border-top              | 列表容器顶部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
+| --border-bottom           | 列表容器底部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
+| --padding-left            | 列表左侧的 padding                                                                  | `12px`                              |
+
+### List.Item
+
+支持 List 中的 `--prefix-width`、`--active-background-color`、`--align-items`

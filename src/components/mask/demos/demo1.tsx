@@ -1,8 +1,10 @@
-import { Button, Mask, Space } from 'antd-mobile'
 import React, { useState, FC } from 'react'
-import styles from './demo1.less'
+import { Button, Mask, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
+import styles from './demo1.less'
+
+// 基础用法
 const Simple: FC = () => {
   const [visible, setVisible] = useState(false)
   return (
@@ -13,6 +15,7 @@ const Simple: FC = () => {
   )
 }
 
+// 自定义内容
 const WithContent: FC = () => {
   const [visible, setVisible] = useState(false)
   return (
@@ -25,6 +28,7 @@ const WithContent: FC = () => {
   )
 }
 
+// 遮罩层的颜色深度 - 深一些
 const Thick: FC = () => {
   const [visible, setVisible] = useState(false)
   return (
@@ -39,6 +43,7 @@ const Thick: FC = () => {
   )
 }
 
+// 遮罩层的颜色深度 - 浅一些
 const Thin: FC = () => {
   const [visible, setVisible] = useState(false)
   return (
@@ -53,6 +58,7 @@ const Thin: FC = () => {
   )
 }
 
+// 遮罩层的颜色深度 - 自定义
 const CustomOpacity: FC = () => {
   const [visible, setVisible] = useState(false)
   return (
@@ -67,6 +73,7 @@ const CustomOpacity: FC = () => {
   )
 }
 
+// 白色的遮罩层
 const White: FC = () => {
   const [visible, setVisible] = useState(false)
   return (
@@ -87,6 +94,7 @@ export default () => {
       <DemoBlock title='基础用法'>
         <Simple />
       </DemoBlock>
+
       <DemoBlock title='遮罩层的颜色深度'>
         <Space wrap>
           <Thin />
@@ -94,9 +102,11 @@ export default () => {
           <CustomOpacity />
         </Space>
       </DemoBlock>
+
       <DemoBlock title='白色的遮罩层'>
         <White />
       </DemoBlock>
+
       <DemoBlock title='自定义内容'>
         <WithContent />
       </DemoBlock>

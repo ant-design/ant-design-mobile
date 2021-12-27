@@ -1,6 +1,6 @@
 # Toast 轻提示
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ## 指令式 API
 
@@ -30,3 +30,11 @@
 ### Toast.clear
 
 关闭所有显示中的 `Toast`。
+
+### Toast.config
+
+全局配置，支持配置 `duration`、`position` 和 `maskClickable`。配置方法如下：
+
+```ts
+Toast.config({ duration: 1000, position: 'top' })
+```

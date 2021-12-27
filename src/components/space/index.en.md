@@ -1,6 +1,6 @@
 # Space
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### Props
 
@@ -11,6 +11,7 @@
 | direction | The spacing direction.                                        | `'vertical' \| 'horizontal'`                                                     | `'horizontal'` |
 | wrap      | Should line break automatically, work only with `horizontal`. | `boolean`                                                                        | `false`        |
 | block     | Should render as block element.                               | `boolean`                                                                        | `false`        |
+| onClick   | The click event of the Space                                  | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void`                  | -              |
 
 ### CSS Variables
 

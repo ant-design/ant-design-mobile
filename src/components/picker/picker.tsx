@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode, FC } from 'react'
+import React, { useState, useEffect, ReactNode, memo } from 'react'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -13,6 +13,7 @@ import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
 import { useConfig } from '../config-provider'
 import { usePickerValueExtend } from '../picker-view/use-picker-value-extend'
+import { useMemoizedFn } from 'ahooks'
 
 const classPrefix = `adm-picker`
 
@@ -26,8 +27,8 @@ export type PickerProps = {
   onClose?: () => void
   visible?: boolean
   title?: ReactNode
-  confirmText?: string
-  cancelText?: string
+  confirmText?: ReactNode
+  cancelText?: ReactNode
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
 } & Pick<
   PopupProps,
@@ -39,7 +40,7 @@ const defaultProps = {
   defaultValue: [],
 }
 
-export const Picker: FC<PickerProps> = p => {
+export const Picker = memo<PickerProps>(p => {
   const { locale } = useConfig()
   const props = mergeProps(
     defaultProps,
@@ -57,12 +58,13 @@ export const Picker: FC<PickerProps> = p => {
     },
   })
 
+  // TODO: columns generated twice in Picker and PickerView, which can be improved
   const columns = useColumns(props.columns, value)
   const generateValueExtend = usePickerValueExtend(columns)
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
-    if (!props.visible) {
+    if (innerValue !== value) {
       setInnerValue(value)
     }
   }, [props.visible])
@@ -72,7 +74,12 @@ export const Picker: FC<PickerProps> = p => {
     }
   }, [value])
 
-  const innerColumns = useColumns(props.columns, innerValue)
+  const onChange = useMemoizedFn((val, ext) => {
+    setInnerValue(val)
+    if (props.visible) {
+      props.onSelect?.(val, ext)
+    }
+  })
 
   const pickerElement = withNativeProps(
     props,
@@ -100,14 +107,9 @@ export const Picker: FC<PickerProps> = p => {
       </div>
       <div className={`${classPrefix}-body`}>
         <PickerView
-          columns={innerColumns}
+          columns={props.columns}
           value={innerValue}
-          onChange={(val, ext) => {
-            setInnerValue(val)
-            if (props.visible) {
-              props.onSelect?.(val, ext)
-            }
-          }}
+          onChange={onChange}
         />
       </div>
     </div>
@@ -126,6 +128,7 @@ export const Picker: FC<PickerProps> = p => {
       afterShow={props.afterShow}
       afterClose={props.afterClose}
       onClick={props.onClick}
+      forceRender={true}
       stopPropagation={props.stopPropagation}
     >
       {pickerElement}
@@ -138,4 +141,6 @@ export const Picker: FC<PickerProps> = p => {
       {props.children?.(generateValueExtend(value).items)}
     </>
   )
-}
+})
+
+Picker.displayName = 'Picker'

@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import React, { useState, useRef, FC } from 'react'
+import { useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
@@ -62,6 +63,7 @@ export const Popup: FC<PopupProps> = p => {
     props.destroyOnClose
   )
 
+  const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({
     percent: props.visible ? 0 : 100,
     config: {
@@ -74,6 +76,7 @@ export const Popup: FC<PopupProps> = p => {
       setActive(true)
     },
     onRest: () => {
+      if (unmountedRef.current) return
       setActive(props.visible)
       if (props.visible) {
         props.afterShow?.()

@@ -4,13 +4,13 @@ The Picker series includes three components: [Picker](#picker), [CascadePicker](
 
 ## Picker
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### Picker API
 
 ```typescript | pure
 type PickerColumnItem = {
-  label: string
+  label: ReactNode
   value: string
 }
 
@@ -34,15 +34,15 @@ type PickerValueExtend = {
 | onClose      | Triggered when confirming or cancelling | `() => void`                                                   | -        |
 | visible      | Whether to show or hide the Picker      | `boolean`                                                      | `false`  |
 | title        | Title                                   | `ReactNode`                                                    | -        |
-| confirmText  | Text of the ok button                   | `string`                                                       | `'确定'` |
-| cancelText   | Text of the cancel button               | `string`                                                       | `'取消'` |
+| confirmText  | Text of the ok button                   | `ReactNode`                                                    | `'确定'` |
+| cancelText   | Text of the cancel button               | `ReactNode`                                                    | `'取消'` |
 | children     | Render function of the selected options | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
 In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
 ## CascadePicker
 
-<code src="./demos/cascade-picker-demo.tsx"></code>
+<code src="../cascade-picker/demos/demo1.tsx"></code>
 
 ### CascadePicker API
 
@@ -62,20 +62,36 @@ Other props are the same as `Picker`, but `columns` are not supported.
 
 ## DatePicker
 
-<code src="./demos/date-picker-demo.tsx"></code>
+<code src="../date-picker/demos/demo1.tsx"></code>
 
 ### DatePicker API
 
-| Name         | Description                                  | Type                                                           | Default |
-| ------------ | -------------------------------------------- | -------------------------------------------------------------- | ------- |
-| value        | Selected value                               | `Date`                                                         | -       |
-| defaultValue | Default selected value                       | `Date`                                                         | -       |
-| onSelect     | Triggered when the options are changed       | `(value: Date) => void`                                        | -       |
-| onConfirm    | Triggered when confirming                    | `(value: Date) => void`                                        | -       |
-| min          | Minimum value                                | `Date`                                                         | 十年前  |
-| max          | Max value                                    | `Date`                                                         | 十年后  |
-| precision    | Precision                                    | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second'` | `'day'` |
-| children     | The rendering function of the selected items | `(value: Date) => ReactNode`                                   | -       |
+| Name         | Description                                                                                                                          | Type                                                                                   | Default         |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- | --------------- |
+| value        | Selected value                                                                                                                       | `Date`                                                                                 | -               |
+| defaultValue | Default selected value                                                                                                               | `Date`                                                                                 | -               |
+| onSelect     | Triggered when the options are changed                                                                                               | `(value: Date) => void`                                                                | -               |
+| onConfirm    | Triggered when confirming                                                                                                            | `(value: Date) => void`                                                                | -               |
+| min          | Minimum value                                                                                                                        | `Date`                                                                                 | ten years ago   |
+| max          | Max value                                                                                                                            | `Date`                                                                                 | ten years later |
+| precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'`         |
+| children     | The rendering function of the selected items                                                                                         | `(value: Date) => ReactNode`                                                           | -               |
+| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                            | -               |
+| filter       | Filter available time                                                                                                                | `DatePickerFilter`                                                                     | -               |
+
+```typescript | pure
+type DatePickerFilter = Partial<
+  Record<
+    Precision,
+    (
+      val: number,
+      extend: {
+        date: Date
+      }
+    ) => boolean
+  >
+>
+```
 
 In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 

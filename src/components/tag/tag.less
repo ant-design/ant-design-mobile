@@ -1,21 +1,19 @@
 @class-prefix-tag: ~'adm-tag';
 
 .@{class-prefix-tag} {
-  padding: 2px 4px;
-  font-size: 10px;
+  --border-radius: var(--adm-tag-border-radius, 2px);
+  padding: 3px 5px;
+  font-size: 12px;
+  line-height: 1;
   font-weight: normal;
-  background-color: var(--color);
-  color: #ffffff;
+  background: var(--background-color);
+  color: var(--text-color);
   display: inline-block;
   white-space: nowrap;
-  border-radius: 2px;
-  border: 0.5px solid var(--color);
+  border-radius: var(--border-radius);
+  border: 0.5px solid var(--border-color);
   box-sizing: border-box;
   &-round {
     border-radius: 100px;
-  }
-  &-outline {
-    background: transparent;
-    color: var(--color);
   }
 }

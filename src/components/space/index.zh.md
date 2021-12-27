@@ -1,6 +1,6 @@
 # Space 间距
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/demo1.tsx"></code>
 
 ### 属性
 
@@ -11,6 +11,7 @@
 | direction | 间距方向                               | `'vertical' \| 'horizontal'`                                                     | `'horizontal'` |
 | wrap      | 是否自动换行，仅在 `horizontal` 时有效 | `boolean`                                                                        | `false`        |
 | block     | 是否渲染为块级元素                     | `boolean`                                                                        | `false`        |
+| onClick   | 点击事件                               | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void`                  | -              |
 
 ### CSS 变量
 
