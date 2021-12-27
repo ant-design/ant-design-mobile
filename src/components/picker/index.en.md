@@ -123,6 +123,10 @@ Similarly, `CascadePicker` and `DatePicker` also support the `prompt` method, th
 
 ## FAQ
 
+### How to highlight the selected items?
+
+The DOM element of selected items has a `data-selected="true"` attribute. You can use this mark to add custom CSS styles to selected items.
+
 ### Why is the name of the component called "DatePicker" instead of "DatetimePicker"?
 
 Because the type of `value` is `Date`.

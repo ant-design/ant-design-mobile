@@ -125,6 +125,10 @@ Picker.prompt({
 
 ## 常见问题
 
+### 如何高亮当前选项
+
+选中选项的 DOM 元素上会有 `data-selected="true"` 属性标记，你可以使用它来为选中项自定义 CSS 样式。
+
 ### 为什么组件的名字叫 "DatePicker" 而不是 "DatetimePicker"？
 
 因为 `value` 的类型是 `Date`。
