@@ -1,12 +1,22 @@
 import React, { FC, ReactNode, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs from 'dayjs'
+import classNames from 'classnames'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-calendar'
 
-export type CalendarProps = {} & NativeProps
+export type CalendarProps = {
+  weekStartsOn?: 'Monday' | 'Sunday'
+} & NativeProps
 
-export const Calendar: FC<CalendarProps> = props => {
+const defaultProps = {
+  weekStartsOn: 'Sunday',
+}
+
+export const Calendar: FC<CalendarProps> = p => {
+  const today = dayjs()
+  const props = mergeProps(defaultProps, p)
   const [current, setCurrent] = useState(() => dayjs().date(1))
   const header = (
     <div>
@@ -15,21 +25,31 @@ export const Calendar: FC<CalendarProps> = props => {
   )
   function renderCells() {
     const cells: ReactNode[] = []
-    let d = current.clone()
-    for (let i = 1; i < d.isoWeekday(); i++) {
-      cells.push(<div key={-i}>empty</div>)
+    let d = current.subtract(current.isoWeekday(), 'day')
+    if (props.weekStartsOn === 'Monday') {
+      d = d.add(1, 'day')
     }
-    while (d.month() === current.month()) {
+    while (cells.length < 6 * 7) {
       cells.push(
-        <div key={d.date()}>
-          {d.date()} - {d.isoWeekday()}
+        <div
+          key={d.date()}
+          className={classNames(
+            `${classPrefix}-cell`,
+            d.month() === current.month()
+              ? `${classPrefix}-cell-in`
+              : `${classPrefix}-cell-out`,
+            d.isSame(today, 'day') && `${classPrefix}-cell-today`
+          )}
+        >
+          <div className={`${classPrefix}-cell-top`}>{d.date()}</div>
+          <div className={`${classPrefix}-cell-bottom`} />
         </div>
       )
       d = d.add(1, 'day')
     }
     return cells
   }
-  const body = <div>{renderCells()}</div>
+  const body = <div className={`${classPrefix}-cells`}>{renderCells()}</div>
   return withNativeProps(
     props,
     <div className={classPrefix}>
