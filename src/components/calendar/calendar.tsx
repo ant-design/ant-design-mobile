@@ -50,11 +50,26 @@ export const Calendar: FC<CalendarProps> = p => {
     return cells
   }
   const body = <div className={`${classPrefix}-cells`}>{renderCells()}</div>
+
+  const mark = (
+    <div className={`${classPrefix}-mark`}>
+      {(props.weekStartsOn === 'Monday' ? mondayMarkItems : markItems).map(
+        item => (
+          <div className={`${classPrefix}-mark-cell`}>{item}</div>
+        )
+      )}
+    </div>
+  )
+
   return withNativeProps(
     props,
     <div className={classPrefix}>
       {header}
+      {mark}
       {body}
     </div>
   )
 }
+
+const markItems = ['日', '一', '二', '三', '四', '五', '六']
+const mondayMarkItems = ['一', '二', '三', '四', '五', '六', '日']

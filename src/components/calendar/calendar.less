@@ -16,6 +16,7 @@
     width: calc(100% / 7);
     height: 48px;
     padding: 4px;
+    color: var(--adm-color-text);
     &&-in {
     }
     &&-today {
@@ -36,8 +37,23 @@
     & &-bottom {
       flex: none;
       font-size: 12px;
-      height: 18px;
-      line-height: 18px;
+      height: 12px;
+      line-height: 12px;
+    }
+  }
+
+  &-mark {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: solid 1px var(--adm-border-color);
+    height: 45px;
+    box-sizing: border-box;
+    font-size: 15px;
+    & &-cell {
+      flex: 1;
+      text-align: center;
     }
   }
 }
