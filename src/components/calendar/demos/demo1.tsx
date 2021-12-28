@@ -1,20 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Calendar } from 'antd-mobile'
-import { DemoBlock } from 'demos'
+import { DemoBlock, DemoDescription } from 'demos'
 import dayjs from 'dayjs'
 
-const today = dayjs()
-
 export default () => {
+  const today = dayjs()
+  const [val, setVal] = useState<[Date, Date] | null>(() => [
+    today.subtract(2, 'day').toDate(),
+    today.add(2, 'day').toDate(),
+  ])
   return (
     <>
-      <DemoBlock title='基础用法'>
+      <DemoBlock title='仅展示'>
+        <Calendar />
+        <DemoDescription>
+          如果你不设置 selectionMode 属性，那么日历默认是不支持进行选择操作的
+        </DemoDescription>
+      </DemoBlock>
+      <DemoBlock title='选择某一天'>
         <Calendar
-          // selectionMode='single'
-          selectionMode='range'
-          // value={[new Date('2021-12-10'), new Date('2021-12-15')]}
+          selectionMode='single'
           onChange={val => {
             console.log(val)
+          }}
+        />
+      </DemoBlock>
+      <DemoBlock title='选择日期范围'>
+        <Calendar
+          selectionMode='range'
+          onChange={val => {
+            console.log(val)
+          }}
+        />
+      </DemoBlock>
+      <DemoBlock title='受控模式'>
+        <Calendar
+          selectionMode='range'
+          value={val}
+          onChange={val => {
+            setVal(val)
           }}
         />
       </DemoBlock>

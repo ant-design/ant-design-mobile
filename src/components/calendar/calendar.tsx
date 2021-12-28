@@ -1,11 +1,4 @@
-import React, {
-  FC,
-  ReactNode,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useState,
-} from 'react'
+import React, { FC, ReactNode, useLayoutEffect, useMemo, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs, { Dayjs } from 'dayjs'
 import classNames from 'classnames'
@@ -142,6 +135,7 @@ export const Calendar: FC<CalendarProps> = p => {
             if (props.selectionMode === 'single') {
               setBegin(d)
               setEnd(d)
+              props.onChange?.(d.toDate())
             } else if (props.selectionMode === 'range') {
               if (begin !== null && end === null) {
                 if (d.isBefore(begin)) {
