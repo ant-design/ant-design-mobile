@@ -1,6 +1,13 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, {
+  FC,
+  ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import dayjs from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import { ArrowLeft } from './arrow-left'
@@ -10,7 +17,27 @@ const classPrefix = 'adm-calendar'
 
 export type CalendarProps = {
   weekStartsOn?: 'Monday' | 'Sunday'
-} & NativeProps
+} & (
+  | {
+      selectionMode?: undefined
+      value?: undefined
+      defaultValue?: undefined
+      onChange?: undefined
+    }
+  | {
+      selectionMode: 'single'
+      value?: Date | null
+      defaultValue?: Date | null
+      onChange?: (val: Date) => void
+    }
+  | {
+      selectionMode: 'range'
+      value?: [Date, Date] | null
+      defaultValue?: [Date, Date] | null
+      onChange?: (val: [Date, Date]) => void
+    }
+) &
+  NativeProps
 
 const defaultProps = {
   weekStartsOn: 'Sunday',
@@ -59,29 +86,87 @@ export const Calendar: FC<CalendarProps> = p => {
       </a>
     </div>
   )
+
+  const dateRange = useMemo<[Date | null, Date | null]>(() => {
+    if (props.selectionMode === 'single') {
+      const value = props.value ?? props.defaultValue ?? null
+      return [value, value]
+    } else if (props.selectionMode === 'range') {
+      return props.value ?? props.defaultValue ?? [null, null]
+    } else {
+      return [null, null]
+    }
+  }, [props.selectionMode, props.value, props.defaultValue])
+
+  const [begin, setBegin] = useState<Dayjs | null>(null)
+  const [end, setEnd] = useState<Dayjs | null>(null)
+  useLayoutEffect(() => {
+    setBegin(dateRange[0] ? dayjs(dateRange[0]) : null)
+    setEnd(dateRange[1] ? dayjs(dateRange[1]) : null)
+  }, [dateRange[0], dateRange[1]])
+
   function renderCells() {
     const cells: ReactNode[] = []
-    let d = current.subtract(current.isoWeekday(), 'day')
+    let iterator = current.subtract(current.isoWeekday(), 'day')
     if (props.weekStartsOn === 'Monday') {
-      d = d.add(1, 'day')
+      iterator = iterator.add(1, 'day')
     }
     while (cells.length < 6 * 7) {
+      const d = iterator
+      const isSelect = (() => {
+        if (!begin) return false
+        if (d.isSame(begin, 'day')) return true
+        if (!end) return false
+        if (d.isSame(end, 'day')) return true
+        return d.isAfter(begin, 'day') && d.isBefore(end, 'day')
+      })()
+      const inThisMonth = d.month() === current.month()
       cells.push(
         <div
           key={d.valueOf()}
           className={classNames(
             `${classPrefix}-cell`,
-            d.month() === current.month()
-              ? `${classPrefix}-cell-in`
-              : `${classPrefix}-cell-out`,
-            d.isSame(today, 'day') && `${classPrefix}-cell-today`
+            inThisMonth ? `${classPrefix}-cell-in` : `${classPrefix}-cell-out`,
+            inThisMonth && {
+              [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
+              [`${classPrefix}-cell-selected`]: isSelect,
+              [`${classPrefix}-cell-selected-begin`]:
+                isSelect && d.isSame(begin, 'day'),
+              [`${classPrefix}-cell-selected-end`]:
+                isSelect && (!end || d.isSame(end, 'day')),
+            }
           )}
+          onClick={
+            inThisMonth
+              ? () => {
+                  if (!props.selectionMode) return
+                  if (props.selectionMode === 'single') {
+                    setBegin(d)
+                    setEnd(d)
+                  } else if (props.selectionMode === 'range') {
+                    if (begin !== null && end === null) {
+                      if (d.isBefore(begin)) {
+                        setEnd(begin)
+                        setBegin(d)
+                        props.onChange?.([d.toDate(), begin.toDate()])
+                      } else {
+                        setEnd(d)
+                        props.onChange?.([begin.toDate(), d.toDate()])
+                      }
+                    } else {
+                      setBegin(d)
+                      setEnd(null)
+                    }
+                  }
+                }
+              : undefined
+          }
         >
           <div className={`${classPrefix}-cell-top`}>{d.date()}</div>
           <div className={`${classPrefix}-cell-bottom`} />
         </div>
       )
-      d = d.add(1, 'day')
+      iterator = iterator.add(1, 'day')
     }
     return cells
   }
