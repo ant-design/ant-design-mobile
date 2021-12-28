@@ -23,6 +23,7 @@
 | upload        | Upload method, the input parameter is the file object that needs to be uploaded, after asynchronous processing, the upload result is returned                            | `(file: File) => Promise<ImageUploadItem>`                       | -         |
 | onDelete      | Triggered when the successfully uploaded image is deleted, if it returns false, it means that it is prevented from being deleted, and it supports the return of Promise. | `(item: ImageUploadItem) => boolean \| Promise<boolean> \| void` | -         |
 | children      | Custom upload button                                                                                                                                                     | `ReactNode`                                                      | -         |
+| preview       | Whether to support preview                                                                                                                                               | `boolean`                                                        | `true`    |
 
 ### ImageUploadItem
 

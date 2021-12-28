@@ -46,6 +46,7 @@ export type ImageUploaderProps = {
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
   upload: (file: File) => Promise<ImageUploadItem>
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
+  preview?: boolean
 } & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
@@ -58,6 +59,7 @@ const defaultProps = {
   maxCount: 0,
   defaultValue: [] as ImageUploadItem[],
   accept: 'image/*',
+  preview: true,
 }
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
@@ -161,7 +163,6 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
       images: value.map(fileItem => fileItem.url),
       defaultIndex: index,
     })
-    onPreview && onPreview(index)
   }
 
   const showUpload =
@@ -177,7 +178,12 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             key={fileItem.key ?? index}
             url={fileItem.thumbnailUrl ?? fileItem.url}
             deletable={props.deletable}
-            onClick={() => previewImage(index)}
+            onClick={() => {
+              if (props.preview) {
+                previewImage(index)
+              }
+              onPreview && onPreview(index)
+            }}
             onDelete={async () => {
               const canDelete = await props.onDelete?.(fileItem)
               if (canDelete === false) return
