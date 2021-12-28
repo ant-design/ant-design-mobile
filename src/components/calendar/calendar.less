@@ -44,17 +44,21 @@
     padding: 2px;
     color: var(--adm-color-text);
     cursor: pointer;
-    &&-in {
-    }
     &&-today {
       color: var(--adm-color-primary);
     }
     &&-out {
       color: var(--adm-color-light);
+      .adm-calendar-cell-bottom {
+        color: var(--adm-color-light);
+      }
     }
     &&-selected {
       && {
         background: var(--adm-color-primary);
+        color: var(--adm-color-white);
+      }
+      & .adm-calendar-cell-bottom {
         color: var(--adm-color-white);
       }
       &&-begin {
@@ -80,6 +84,7 @@
       font-size: 12px;
       height: 12px;
       line-height: 12px;
+      color: var(--adm-color-weak);
     }
   }
 

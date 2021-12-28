@@ -17,6 +17,7 @@ const classPrefix = 'adm-calendar'
 
 export type CalendarProps = {
   weekStartsOn?: 'Monday' | 'Sunday'
+  renderLabel?: (date: Date) => string | null | undefined
 } & (
   | {
       selectionMode?: undefined
@@ -136,34 +137,35 @@ export const Calendar: FC<CalendarProps> = p => {
                 isSelect && (!end || d.isSame(end, 'day')),
             }
           )}
-          onClick={
-            inThisMonth
-              ? () => {
-                  if (!props.selectionMode) return
-                  if (props.selectionMode === 'single') {
-                    setBegin(d)
-                    setEnd(d)
-                  } else if (props.selectionMode === 'range') {
-                    if (begin !== null && end === null) {
-                      if (d.isBefore(begin)) {
-                        setEnd(begin)
-                        setBegin(d)
-                        props.onChange?.([d.toDate(), begin.toDate()])
-                      } else {
-                        setEnd(d)
-                        props.onChange?.([begin.toDate(), d.toDate()])
-                      }
-                    } else {
-                      setBegin(d)
-                      setEnd(null)
-                    }
-                  }
+          onClick={() => {
+            if (!props.selectionMode) return
+            if (props.selectionMode === 'single') {
+              setBegin(d)
+              setEnd(d)
+            } else if (props.selectionMode === 'range') {
+              if (begin !== null && end === null) {
+                if (d.isBefore(begin)) {
+                  setEnd(begin)
+                  setBegin(d)
+                  props.onChange?.([d.toDate(), begin.toDate()])
+                } else {
+                  setEnd(d)
+                  props.onChange?.([begin.toDate(), d.toDate()])
                 }
-              : undefined
-          }
+              } else {
+                setBegin(d)
+                setEnd(null)
+              }
+            }
+            if (!inThisMonth) {
+              setCurrent(d.clone().date(1))
+            }
+          }}
         >
           <div className={`${classPrefix}-cell-top`}>{d.date()}</div>
-          <div className={`${classPrefix}-cell-bottom`} />
+          <div className={`${classPrefix}-cell-bottom`}>
+            {props.renderLabel?.(d.toDate())}
+          </div>
         </div>
       )
       iterator = iterator.add(1, 'day')
