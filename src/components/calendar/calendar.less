@@ -1,4 +1,28 @@
 .adm-calendar {
+  & &-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    a.adm-calendar-arrow-button {
+      padding: 4px 8px;
+      display: block;
+      flex: none;
+      svg {
+        height: 22px;
+      }
+      &.adm-calendar-arrow-button-right {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .adm-calendar-title {
+      font-size: 18px;
+      flex: auto;
+      text-align: center;
+    }
+  }
   & &-body {
     display: flex;
     flex-wrap: wrap;
@@ -9,6 +33,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: stretch;
+    padding: 8px;
   }
   &-cell {
     flex: none;
@@ -51,6 +76,7 @@
     height: 45px;
     box-sizing: border-box;
     font-size: 15px;
+    padding: 0 8px;
     & &-cell {
       flex: 1;
       text-align: center;

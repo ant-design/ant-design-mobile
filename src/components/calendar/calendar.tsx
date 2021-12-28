@@ -3,6 +3,8 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs from 'dayjs'
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
+import { ArrowLeft } from './arrow-left'
+import { ArrowLeftDouble } from './arrow-left-double'
 
 const classPrefix = 'adm-calendar'
 
@@ -19,8 +21,42 @@ export const Calendar: FC<CalendarProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [current, setCurrent] = useState(() => dayjs().date(1))
   const header = (
-    <div>
-      {current.year()}年{current.month() + 1}月
+    <div className={`${classPrefix}-header`}>
+      <a
+        className={`${classPrefix}-arrow-button`}
+        onClick={() => {
+          setCurrent(current.subtract(1, 'year'))
+        }}
+      >
+        <ArrowLeftDouble />
+      </a>
+      <a
+        className={`${classPrefix}-arrow-button`}
+        onClick={() => {
+          setCurrent(current.subtract(1, 'month'))
+        }}
+      >
+        <ArrowLeft />
+      </a>
+      <div className={`${classPrefix}-title`}>
+        {current.year()}年{current.month() + 1}月
+      </div>
+      <a
+        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-right`}
+        onClick={() => {
+          setCurrent(current.add(1, 'month'))
+        }}
+      >
+        <ArrowLeft />
+      </a>
+      <a
+        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-right`}
+        onClick={() => {
+          setCurrent(current.add(1, 'year'))
+        }}
+      >
+        <ArrowLeftDouble />
+      </a>
     </div>
   )
   function renderCells() {
@@ -32,7 +68,7 @@ export const Calendar: FC<CalendarProps> = p => {
     while (cells.length < 6 * 7) {
       cells.push(
         <div
-          key={d.date()}
+          key={d.valueOf()}
           className={classNames(
             `${classPrefix}-cell`,
             d.month() === current.month()
@@ -55,7 +91,9 @@ export const Calendar: FC<CalendarProps> = p => {
     <div className={`${classPrefix}-mark`}>
       {(props.weekStartsOn === 'Monday' ? mondayMarkItems : markItems).map(
         item => (
-          <div className={`${classPrefix}-mark-cell`}>{item}</div>
+          <div key={item} className={`${classPrefix}-mark-cell`}>
+            {item}
+          </div>
         )
       )}
     </div>
