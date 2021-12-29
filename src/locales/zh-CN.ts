@@ -6,6 +6,10 @@ const zhCN = mergeLocale(base, {
     confirm: '确定',
     cancel: '取消',
   },
+  Calendar: {
+    markItems: ['一', '二', '三', '四', '五', '六', '日'],
+    renderYearAndMonth: (year: number, month: number) => `${year}年${month}月`,
+  },
   Cascader: {
     placeholder: '请选择',
   },
