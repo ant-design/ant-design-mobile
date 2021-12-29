@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import { ArrowLeft } from './arrow-left'
 import { ArrowLeftDouble } from './arrow-left-double'
+import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-calendar'
 
@@ -40,6 +41,13 @@ const defaultProps = {
 export const Calendar: FC<CalendarProps> = p => {
   const today = dayjs()
   const props = mergeProps(defaultProps, p)
+  const { locale } = useConfig()
+  const markItems = [...locale.Calendar.markItems]
+  if (props.weekStartsOn === 'Sunday') {
+    const item = markItems.pop()
+    if (item) markItems.unshift(item)
+  }
+
   const [current, setCurrent] = useState(() => dayjs().date(1))
   const header = (
     <div className={`${classPrefix}-header`}>
@@ -60,7 +68,10 @@ export const Calendar: FC<CalendarProps> = p => {
         <ArrowLeft />
       </a>
       <div className={`${classPrefix}-title`}>
-        {current.year()}年{current.month() + 1}月
+        {locale.Calendar.renderYearAndMonth(
+          current.year(),
+          current.month() + 1
+        )}
       </div>
       <a
         className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-right`}
@@ -170,13 +181,11 @@ export const Calendar: FC<CalendarProps> = p => {
 
   const mark = (
     <div className={`${classPrefix}-mark`}>
-      {(props.weekStartsOn === 'Monday' ? mondayMarkItems : markItems).map(
-        item => (
-          <div key={item} className={`${classPrefix}-mark-cell`}>
-            {item}
-          </div>
-        )
-      )}
+      {markItems.map(item => (
+        <div key={item} className={`${classPrefix}-mark-cell`}>
+          {item}
+        </div>
+      ))}
     </div>
   )
 
@@ -189,6 +198,3 @@ export const Calendar: FC<CalendarProps> = p => {
     </div>
   )
 }
-
-const markItems = ['日', '一', '二', '三', '四', '五', '六']
-const mondayMarkItems = ['一', '二', '三', '四', '五', '六', '日']
