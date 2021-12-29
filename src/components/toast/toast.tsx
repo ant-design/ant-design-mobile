@@ -73,17 +73,19 @@ export const InternalToast: React.FC<ToastProps> = p => {
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
       stopPropagation={props.stopPropagation}
     >
-      <div
-        style={{ top }}
-        className={classNames(
-          `${classPrefix}-wrap`,
-          icon ? `${classPrefix}-wrap-icon` : `${classPrefix}-wrap-text`
-        )}
-      >
-        {iconElement && (
-          <div className={`${classPrefix}-icon`}>{iconElement}</div>
-        )}
-        <AutoCenter>{content}</AutoCenter>
+      <div className={classNames(`${classPrefix}-wrap`)}>
+        <div
+          style={{ top }}
+          className={classNames(
+            `${classPrefix}-main`,
+            icon ? `${classPrefix}-main-icon` : `${classPrefix}-main-text`
+          )}
+        >
+          {iconElement && (
+            <div className={`${classPrefix}-icon`}>{iconElement}</div>
+          )}
+          <AutoCenter>{content}</AutoCenter>
+        </div>
       </div>
     </Mask>
   )
