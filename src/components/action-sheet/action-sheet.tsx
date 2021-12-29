@@ -82,6 +82,7 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                 <Button
                   block
                   fill='none'
+                  shape='rectangular'
                   disabled={action.disabled}
                   onClick={() => {
                     action.onClick?.()
@@ -113,6 +114,7 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                 <Button
                   block
                   fill='none'
+                  shape='rectangular'
                   className={`${classPrefix}-button-item`}
                   onClick={() => {
                     props.onClose?.()
