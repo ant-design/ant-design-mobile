@@ -26,7 +26,7 @@ export const List: FC<ListProps> = p => {
   return withNativeProps(
     props,
     <div className={classNames(classPrefix, `${classPrefix}-${props.mode}`)}>
-      {props.children}
+      <div className={`${classPrefix}-inner`}>{props.children}</div>
     </div>
   )
 }
