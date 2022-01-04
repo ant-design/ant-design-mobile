@@ -158,10 +158,12 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     e.target.value = '' // HACK: fix the same file doesn't trigger onChange
   }
 
+  const containerRef = useRef<HTMLDivElement>(null)
   function previewImage(index: number) {
     ImageViewer.Multi.show({
       images: value.map(fileItem => fileItem.url),
       defaultIndex: index,
+      getContainer: containerRef.current,
     })
   }
 
@@ -171,7 +173,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div ref={containerRef} className={classPrefix}>
       <Space className={`${classPrefix}-space`} wrap>
         {value.map((fileItem, index) => (
           <PreviewItem
