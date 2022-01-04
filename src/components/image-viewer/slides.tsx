@@ -42,6 +42,7 @@ export const Slides: FC<{
           0,
           count - 1
         )
+        props.onIndexChange?.(index)
         api.start({
           x: index * slideWidth,
         })
