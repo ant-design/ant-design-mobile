@@ -7,10 +7,10 @@ import React, {
 } from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
-import ImageViewer from '../image-viewer'
+import ImageViewer, { ImageViewerHandler } from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useMemoizedFn } from 'ahooks'
+import { useMemoizedFn, useUnmount } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
@@ -158,12 +158,21 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     e.target.value = '' // HACK: fix the same file doesn't trigger onChange
   }
 
+  const imageViewerHandlerRef = useRef<ImageViewerHandler | null>(null)
+
   function previewImage(index: number) {
-    ImageViewer.Multi.show({
+    imageViewerHandlerRef.current = ImageViewer.Multi.show({
       images: value.map(fileItem => fileItem.url),
       defaultIndex: index,
+      onClose: () => {
+        imageViewerHandlerRef.current = null
+      },
     })
   }
+
+  useUnmount(() => {
+    imageViewerHandlerRef.current?.close()
+  })
 
   const showUpload =
     props.showUpload &&
