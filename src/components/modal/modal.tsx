@@ -6,7 +6,10 @@ import Mask from '../mask'
 import { Action, ModalActionButton } from './modal-action-button'
 import Image from '../image'
 import Space from '../space'
-import { GetContainer } from '../../utils/render-to-container'
+import {
+  GetContainer,
+  renderToContainer,
+} from '../../utils/render-to-container'
 import {
   PropagationEvent,
   withStopPropagation,
@@ -47,6 +50,7 @@ const defaultProps = {
   closeOnMaskClick: false,
   stopPropagation: ['click'],
   showCloseButton: false,
+  getContainer: null,
 }
 
 export const Modal: FC<ModalProps> = p => {
@@ -78,7 +82,7 @@ export const Modal: FC<ModalProps> = p => {
 
   const [active, setActive] = useState(props.visible)
 
-  return withStopPropagation(
+  const node = withStopPropagation(
     props.stopPropagation,
     withNativeProps(
       props,
@@ -90,7 +94,6 @@ export const Modal: FC<ModalProps> = p => {
       >
         <Mask
           visible={props.visible}
-          getContainer={props.getContainer}
           onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
           style={props.maskStyle}
           className={classNames(`${classPrefix}-mask`, props.maskClassName)}
@@ -176,4 +179,6 @@ export const Modal: FC<ModalProps> = p => {
       </div>
     )
   )
+
+  return renderToContainer(props.getContainer, node)
 }
