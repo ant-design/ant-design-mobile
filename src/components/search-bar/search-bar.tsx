@@ -7,6 +7,7 @@ import React, {
 } from 'react'
 import classNames from 'classnames'
 import Input, { InputRef, InputProps } from '../input'
+import Button from '../button'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutline } from 'antd-mobile-icons'
@@ -72,14 +73,18 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
 
     return (
       isShowCancel && (
-        <div className={`${classPrefix}-suffix`}>
-          <a
-            onMouseDown={e => {
-              e.preventDefault()
-            }}
-            onTouchStart={e => {
-              e.preventDefault()
-            }}
+        <div
+          className={`${classPrefix}-suffix`}
+          onMouseDown={e => {
+            e.preventDefault()
+          }}
+          onTouchStart={e => {
+            e.preventDefault()
+          }}
+        >
+          <Button
+            fill='none'
+            className={`${classPrefix}-cancel-button`}
             onClick={() => {
               if (props.clearOnCancel) {
                 inputRef.current?.clear()
@@ -89,7 +94,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
             }}
           >
             {props.cancelText}
-          </a>
+          </Button>
         </div>
       )
     )
