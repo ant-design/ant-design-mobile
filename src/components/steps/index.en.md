@@ -8,6 +8,7 @@
 | --------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- | -------------- |
 | current   | The specified current step, counting from 0. In the child Step element, the status can be overridden by the `status` attribute | `number`                     | `0`            |
 | direction | The specified direction of the step bar. Currently supports horizontal (`horizontal`) and vertical (`vertical`) two directions | `'horizontal' \| 'vertical'` | `'horizontal'` |
+| size      | The size preset.                                                                                                               | `'small' \| 'large'`         | `'small'`      |
 
 ## Steps.Step
 
