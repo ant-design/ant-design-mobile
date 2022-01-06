@@ -21,7 +21,9 @@ export type SideBarProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
-} & NativeProps<'--width' | '--height' | '--item-border-radius'>
+} & NativeProps<
+  '--width' | '--height' | '--item-border-radius' | '--background-color'
+>
 
 export const SideBar: FC<SideBarProps> = props => {
   let firstActiveKey: string | null = null
