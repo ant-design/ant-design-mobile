@@ -4,9 +4,9 @@ import { DemoBlock, sleep } from 'demos'
 import {
   PicturesOutline,
   CameraOutline,
-  MinusCircleOutline,
   CheckCircleOutline,
   CloseCircleOutline,
+  ArrowDownCircleOutline,
 } from 'antd-mobile-icons'
 
 const DynamicContent = () => {
@@ -87,7 +87,11 @@ export default () => {
           <Collapse.Panel key='1' title='第一项'>
             你可以通过 Collapse 的 arrow 属性来控制全部面板的箭头
           </Collapse.Panel>
-          <Collapse.Panel key='2' title='第二项' arrow={<MinusCircleOutline />}>
+          <Collapse.Panel
+            key='2'
+            title='第二项'
+            arrow={<ArrowDownCircleOutline />}
+          >
             也可以通过 Collapse.Panel 的 arrow 属性来自定义单个面板的箭头
           </Collapse.Panel>
           <Collapse.Panel

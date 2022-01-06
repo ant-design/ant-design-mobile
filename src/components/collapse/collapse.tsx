@@ -1,7 +1,7 @@
 import React, { FC, ReactElement, ComponentProps, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
-import { RightOutline } from 'antd-mobile-icons'
+import { DownOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -167,7 +167,7 @@ export const Collapse: FC<CollapseProps> = props => {
           }
 
           const renderArrow = () => {
-            let arrow: CollapseProps['arrow'] = <RightOutline />
+            let arrow: CollapseProps['arrow'] = <DownOutline />
             if (props.arrow !== undefined) {
               arrow = props.arrow
             }
