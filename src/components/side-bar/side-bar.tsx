@@ -66,6 +66,7 @@ export const SideBar: FC<SideBarProps> = props => {
           >
             <Badge content={item.props.badge}>
               <div className={`${classPrefix}-item-title`}>
+                {active && <div className={`${classPrefix}-item-highlight`} />}
                 {item.props.title}
               </div>
             </Badge>

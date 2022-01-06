@@ -22,10 +22,19 @@
     cursor: pointer;
     background-color: #f5f5f5;
 
+    &-highlight {
+      position: absolute;
+      height: 100%;
+      width: 2px;
+      left: -12px;
+      top: 0;
+      background: var(--adm-color-primary);
+      border-radius: 2px;
+    }
+
     &-active {
       color: var(--adm-color-primary);
       background-color: white;
-      font-weight: bold;
       position: relative;
     }
 
