@@ -22,6 +22,7 @@
     margin-bottom: -1px;
   }
   &-default {
+    margin: 12px 0;
     .adm-list-body {
       border-top: var(--border-top);
       border-bottom: var(--border-bottom);
@@ -73,8 +74,8 @@
     }
   }
   &-disabled {
+    cursor: not-allowed;
     && > .adm-list-item-content > * {
-      cursor: not-allowed;
       opacity: 0.4;
       pointer-events: none;
     }
