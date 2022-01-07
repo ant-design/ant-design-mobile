@@ -23,15 +23,16 @@
 
 | Name                      | Description                           | Default                     |
 | ------------------------- | ------------------------------------- | --------------------------- |
-| --height                  | Height of the stepper.                | `22px`                      |
+| --height                  | Height of the stepper.                | `28px`                      |
 | --input-width             | Width of the input.                   | `40px`                      |
-| --input-font-size         | Font size.                            | `var(--adm-font-size-main)` |
-| --border-radius           | Radius of the stepper.                | `2px`                       |
-| --border                  | Border style.                         | `1px solid #e5e5e5`         |
-| --border-inner            | Inner border style.                   | `var(--border)`             |
-| --active-border           | In the focus state, the border style. | `var(--border)`             |
-| --button-font-size        | Font size of the button.              | `10px`                      |
-| --button-background-color | Background color of the button.       | `transparent`               |
-| --button-width            | Width of the button.                  | `22px`                      |
+| --input-font-size         | Font size of input.                   | `var(--adm-font-size-main)` |
 | --input-font-color        | Font color of the input.              | `var(--adm-color-text)`     |
+| --input-background-color  | Background color of input.            | `#f5f5f5`                   |
+| --border-radius           | Radius of the stepper.                | `2px`                       |
+| --border                  | Border style.                         | `none`                      |
+| --border-inner            | Inner border style.                   | `solid 2px transparent`     |
+| --active-border           | In the focus state, the border style. | `var(--border)`             |
+| --button-font-size        | Font size of the button.              | `15px`                      |
 | --button-text-color       | Font color of the button.             | `var(--adm-color-primary)`  |
+| --button-background-color | Background color of the button.       | `#f5f5f5`                   |
+| --button-width            | Width of the button.                  | `var(--height)`             |
