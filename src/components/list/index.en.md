@@ -8,9 +8,10 @@
 
 ### List
 
-| Name | Description                          | Type                  | Default     |
-| ---- | ------------------------------------ | --------------------- | ----------- |
-| mode | Support two modes: default and card. | `'default' \| 'card'` | `'default'` |
+| Name   | Description                          | Type                  | Default     |
+| ------ | ------------------------------------ | --------------------- | ----------- |
+| header | The title of list.                   | `ReactNode`           | -           |
+| mode   | Support two modes: default and card. | `'default' \| 'card'` | `'default'` |
 
 ### List.Item
 
