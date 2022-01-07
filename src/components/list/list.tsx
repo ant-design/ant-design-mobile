@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -6,6 +6,7 @@ import { mergeProps } from '../../utils/with-default-props'
 const classPrefix = `adm-list`
 
 export type ListProps = {
+  header?: ReactNode
   mode?: 'default' | 'card' // 默认是整宽的列表，card 模式下展示为带 margin 和圆角的卡片
 } & NativeProps<
   | '--prefix-width'
@@ -26,7 +27,12 @@ export const List: FC<ListProps> = p => {
   return withNativeProps(
     props,
     <div className={classNames(classPrefix, `${classPrefix}-${props.mode}`)}>
-      <div className={`${classPrefix}-inner`}>{props.children}</div>
+      {props.header && (
+        <div className={`${classPrefix}-header`}>{props.header}</div>
+      )}
+      <div className={`${classPrefix}-body`}>
+        <div className={`${classPrefix}-body-inner`}>{props.children}</div>
+      </div>
     </div>
   )
 }

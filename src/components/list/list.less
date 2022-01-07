@@ -7,19 +7,31 @@
   --border-bottom: solid 1px var(--adm-border-color);
   --padding-left: 12px;
 
-  background-color: #ffffff;
-  overflow: hidden;
-  font-size: 17px;
-  &-inner {
+  &-header {
+    color: var(--adm-color-weak);
+    font-size: 14px;
+    padding-left: 12px;
+    margin: 16px 0 4px;
+  }
+  &-body {
+    background-color: #ffffff;
+    overflow: hidden;
+    font-size: 17px;
+  }
+  &-body-inner {
     margin-bottom: -1px;
   }
   &-default {
-    border-top: var(--border-top);
-    border-bottom: var(--border-bottom);
+    .adm-list-body {
+      border-top: var(--border-top);
+      border-bottom: var(--border-bottom);
+    }
   }
   &-card {
     margin: 12px;
-    border-radius: 8px;
+    .adm-list-body {
+      border-radius: 8px;
+    }
   }
 }
 

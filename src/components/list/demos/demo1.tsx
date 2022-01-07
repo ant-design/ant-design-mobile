@@ -1,6 +1,5 @@
 import React from 'react'
 import { Image, List } from 'antd-mobile'
-import { DemoBlock } from 'demos'
 import {
   UnorderedListOutline,
   PayCircleOutline,
@@ -37,100 +36,74 @@ const users = [
 export default () => {
   return (
     <>
-      <DemoBlock title='基础用法' padding='0' border='none'>
-        <List>
-          <List.Item>1</List.Item>
-          <List.Item>2</List.Item>
-          <List.Item>3</List.Item>
-        </List>
-      </DemoBlock>
+      <List header='基础用法'>
+        <List.Item>1</List.Item>
+        <List.Item>2</List.Item>
+        <List.Item>3</List.Item>
+      </List>
 
-      <DemoBlock title='可点击的功能列表' padding='0' border='none'>
-        <List>
-          <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
-            账单
-          </List.Item>
-          <List.Item prefix={<PayCircleOutline />} onClick={() => {}}>
-            总资产
-          </List.Item>
-          <List.Item prefix={<SetOutline />} onClick={() => {}}>
-            设置
-          </List.Item>
-        </List>
-      </DemoBlock>
+      <List header='可点击的功能列表'>
+        <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
+          账单
+        </List.Item>
+        <List.Item prefix={<PayCircleOutline />} onClick={() => {}}>
+          总资产
+        </List.Item>
+        <List.Item prefix={<SetOutline />} onClick={() => {}}>
+          设置
+        </List.Item>
+      </List>
 
-      <DemoBlock title='列表项禁用' padding='0' border='none'>
-        <List>
-          <List.Item disabled clickable prefix={<UnorderedListOutline />}>
-            账单
-          </List.Item>
-          <List.Item disabled prefix={<PayCircleOutline />}>
-            总资产
-          </List.Item>
-        </List>
-      </DemoBlock>
+      <List header='列表项禁用'>
+        <List.Item disabled clickable prefix={<UnorderedListOutline />}>
+          账单
+        </List.Item>
+        <List.Item disabled prefix={<PayCircleOutline />}>
+          总资产
+        </List.Item>
+      </List>
 
-      <DemoBlock title='复杂布局' padding='0' border='none'>
-        <List>
+      <List header='复杂布局'>
+        <List.Item
+          extra='次要信息'
+          title='这里是标题'
+          description='这里是描述信息'
+          clickable
+        >
+          这里是主信息
+        </List.Item>
+        <List.Item title='这里是标题' clickable>
+          这里是主信息
+        </List.Item>
+        <List.Item title='这里是标题'>这里是主信息</List.Item>
+      </List>
+
+      <List header='用户列表'>
+        {users.map(user => (
           <List.Item
-            extra='次要信息'
-            title='这里是标题'
-            description='这里是描述信息'
-            clickable
+            key={user.name}
+            prefix={
+              <Image
+                src={user.avatar}
+                style={{ borderRadius: 20 }}
+                fit='cover'
+                width={40}
+                height={40}
+              />
+            }
+            description={user.description}
           >
-            这里是主信息
+            {user.name}
           </List.Item>
-          <List.Item title='这里是标题' clickable>
-            这里是主信息
-          </List.Item>
+        ))}
+      </List>
+
+      <div>
+        <List mode='card' header='卡片模式'>
+          <List.Item title='这里是标题'>这里是主信息</List.Item>
           <List.Item title='这里是标题'>这里是主信息</List.Item>
         </List>
-      </DemoBlock>
-
-      <DemoBlock title='用户列表' padding='0' border='none'>
-        <List>
-          {users.map(user => (
-            <List.Item
-              key={user.name}
-              prefix={
-                <Image
-                  src={user.avatar}
-                  style={{ borderRadius: 20 }}
-                  fit='cover'
-                  width={40}
-                  height={40}
-                />
-              }
-              description={user.description}
-            >
-              {user.name}
-            </List.Item>
-          ))}
-        </List>
-      </DemoBlock>
-
-      <DemoBlock title='卡片模式' padding='0' border='none'>
-        <div style={{ background: '#eee', padding: '8px 0' }}>
-          <List mode='card'>
-            <List.Item title='这里是标题'>这里是主信息</List.Item>
-            <List.Item title='这里是标题'>这里是主信息</List.Item>
-          </List>
-        </div>
-      </DemoBlock>
-
-      <DemoBlock title='自定义边框' padding='0' border='none'>
-        <List
-          style={{
-            '--border-inner': 'none',
-            '--border-top': '1px solid red',
-            '--border-bottom': '1px solid blue',
-          }}
-        >
-          <List.Item>1</List.Item>
-          <List.Item>2</List.Item>
-          <List.Item>3</List.Item>
-        </List>
-      </DemoBlock>
+      </div>
     </>
   )
 }
