@@ -24,7 +24,7 @@
 | Name                      | Description                           | Default                     |
 | ------------------------- | ------------------------------------- | --------------------------- |
 | --height                  | Height of the stepper.                | `28px`                      |
-| --input-width             | Width of the input.                   | `40px`                      |
+| --input-width             | Width of the input.                   | `44px`                      |
 | --input-font-size         | Font size of input.                   | `var(--adm-font-size-main)` |
 | --input-font-color        | Font color of the input.              | `var(--adm-color-text)`     |
 | --input-background-color  | Background color of input.            | `#f5f5f5`                   |

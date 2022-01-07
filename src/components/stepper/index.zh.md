@@ -24,7 +24,7 @@
 | 属性                      | 说明                              | 默认值                      |
 | ------------------------- | --------------------------------- | --------------------------- |
 | --height                  | 组件整体高度                      | `28px`                      |
-| --input-width             | 仅输入框的宽度                    | `40px`                      |
+| --input-width             | 仅输入框的宽度                    | `44px`                      |
 | --input-font-size         | 输入框文字大小                    | `var(--adm-font-size-main)` |
 | --input-font-color        | 输入框文字颜色                    | `var(--adm-color-text)`     |
 | --input-background-color  | 输入框的背景颜色                  | `#f5f5f5`                   |
