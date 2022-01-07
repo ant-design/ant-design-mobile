@@ -77,7 +77,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
         }}
       >
         {option.label}
-        {active && props.multiple && (
+        {active && (
           <div className={`${classPrefix}-check-mark-wrapper`}>
             <CheckMark />
           </div>
