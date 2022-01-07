@@ -93,6 +93,25 @@ export default () => {
         <RadioMode />
       </DemoBlock>
 
+      <DemoBlock title='选项带描述'>
+        <Selector
+          columns={2}
+          options={[
+            {
+              label: '选项一',
+              description: '描述信息',
+              value: '1',
+            },
+            {
+              label: '选项二',
+              description: '描述信息',
+              value: '2',
+            },
+          ]}
+          defaultValue={['1']}
+        />
+      </DemoBlock>
+
       <DemoBlock title='自定义样式（通过 style）'>
         <Selector
           style={{ '--checked-color': '#ffe2e5' }}

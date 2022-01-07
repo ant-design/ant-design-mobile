@@ -14,6 +14,7 @@ type SelectorValue = string | number
 
 export interface SelectorOption<V> {
   label: ReactNode
+  description?: ReactNode
   value: V
   disabled?: boolean
 }
@@ -77,6 +78,11 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
         }}
       >
         {option.label}
+        {option.description && (
+          <div className={`${classPrefix}-item-description`}>
+            {option.description}
+          </div>
+        )}
         {active && (
           <div className={`${classPrefix}-check-mark-wrapper`}>
             <CheckMark />
