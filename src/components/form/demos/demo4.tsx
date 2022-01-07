@@ -35,7 +35,7 @@ export default () => {
             mobile: { preValue: '86', realValue: '' },
           }}
           footer={
-            <Button block type='submit' color='primary'>
+            <Button block type='submit' color='primary' size='large'>
               提交
             </Button>
           }

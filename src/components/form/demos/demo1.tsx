@@ -33,7 +33,7 @@ export default () => {
         <Form
           onFinish={onFinish}
           footer={
-            <Button block type='submit' color='primary'>
+            <Button block type='submit' color='primary' size='large'>
               提交
             </Button>
           }
@@ -99,7 +99,7 @@ export default () => {
         <Form
           layout='horizontal'
           footer={
-            <Button block type='submit' color='primary'>
+            <Button block type='submit' color='primary' size='large'>
               提交
             </Button>
           }
