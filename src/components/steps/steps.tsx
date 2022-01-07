@@ -14,23 +14,22 @@ type Direction = 'horizontal' | 'vertical'
 export type StepsProps = {
   current?: number
   direction?: Direction
-  size?: 'small' | 'large'
-} & NativeProps
+} & NativeProps<
+  | '--title-font-size'
+  | '--description-font-size'
+  | '--indicator-margin-right'
+  | '--icon-size'
+>
 
 const defaultProps = {
   current: 0,
   direction: 'horizontal',
-  size: 'small',
 }
 
 export const Steps: FC<StepsProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { direction, current } = props
-  const classString = classNames(
-    classPrefix,
-    `${classPrefix}-${direction}`,
-    `${classPrefix}-size-${props.size}`
-  )
+  const classString = classNames(classPrefix, `${classPrefix}-${direction}`)
 
   return withNativeProps(
     props,

@@ -58,7 +58,16 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='自定义图标和大小'>
-        <Steps direction='vertical' current={1} size='large'>
+        <Steps
+          direction='vertical'
+          current={1}
+          style={{
+            '--title-font-size': '17px',
+            '--description-font-size': '15px',
+            '--indicator-margin-right': '12px',
+            '--icon-size': '22px',
+          }}
+        >
           <Step
             title='填写机构信息'
             description='这里是一些描述'
