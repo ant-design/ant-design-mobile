@@ -29,7 +29,7 @@
   &-title,
   &-description {
     color: var(--adm-color-weak);
-    font-size: 15px;
+    font-size: 13px;
   }
   &-content {
     display: flex;
@@ -48,6 +48,8 @@
     &-extra {
       flex: none;
       padding-left: 12px;
+      font-size: 15px;
+      color: var(--adm-color-weak);
     }
     &-arrow {
       flex: none;
@@ -61,7 +63,7 @@
   &-disabled {
     && > .adm-list-item-content > * {
       cursor: not-allowed;
-      opacity: 0.6;
+      opacity: 0.4;
       pointer-events: none;
     }
   }
