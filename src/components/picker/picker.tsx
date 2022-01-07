@@ -14,6 +14,7 @@ import { useColumns } from '../picker-view/use-columns'
 import { useConfig } from '../config-provider'
 import { usePickerValueExtend } from '../picker-view/use-picker-value-extend'
 import { useMemoizedFn } from 'ahooks'
+import SafeArea from '../safe-area'
 
 const classPrefix = `adm-picker`
 
@@ -132,6 +133,7 @@ export const Picker = memo<PickerProps>(p => {
       stopPropagation={props.stopPropagation}
     >
       {pickerElement}
+      <SafeArea position='bottom' />
     </Popup>
   )
 
