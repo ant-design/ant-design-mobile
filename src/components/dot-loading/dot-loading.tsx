@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
-const classPrefix = `adm-loading`
+const classPrefix = `adm-dot-loading`
 
 const colorRecord: Record<string, string> = {
   default: 'var(--adm-color-weak)',
