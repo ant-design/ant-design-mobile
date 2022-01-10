@@ -6,6 +6,6 @@
 
 | 属性  | 说明 | 类型                                          | 默认值      |
 | ----- | ---- | --------------------------------------------- | ----------- |
-| color | 颜色 | `'default' \| 'primary' \| 'white' \| string` | `'dafault'` |
+| color | 颜色 | `'default' \| 'primary' \| 'white' \| string` | `'default'` |
 
 `Loading` 的大小会自动根据当前的文字大小进行调整。
