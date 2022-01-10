@@ -19,7 +19,7 @@ export const useTabListScroll = (
   function animate(immediate = false) {
     const container = targetRef.current
     if (!container) return
-    if (!activeIndex) return
+    if (!activeIndex && activeIndex !== 0) return
 
     const activeTabWrapper = container.children.item(
       activeIndex
