@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Collapse, Loading, Result } from 'antd-mobile'
+import { Collapse, DotLoading, Result } from 'antd-mobile'
 import { DemoBlock, sleep } from 'demos'
 import {
   PicturesOutline,
@@ -20,7 +20,11 @@ const DynamicContent = () => {
     loadData()
   }, [])
 
-  return finished ? <Result status='success' title='处理成功' /> : <Loading />
+  return finished ? (
+    <Result status='success' title='处理成功' />
+  ) : (
+    <DotLoading />
+  )
 }
 
 export default () => {

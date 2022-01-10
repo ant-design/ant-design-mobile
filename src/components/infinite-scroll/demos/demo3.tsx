@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Button, InfiniteScroll, List, Loading, SearchBar } from 'antd-mobile'
+import {
+  Button,
+  InfiniteScroll,
+  List,
+  DotLoading,
+  SearchBar,
+} from 'antd-mobile'
 import { sleep } from 'demos'
 
 import styles from './demo3.less'
@@ -76,7 +82,7 @@ export default () => {
       ) : (
         <div className={styles.placeholder}>
           <div className={styles.loadingWrapper}>
-            <Loading />
+            <DotLoading />
           </div>
           正在拼命加载数据
         </div>
