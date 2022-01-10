@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import classNames from 'classnames'
 
 const classPrefix = `adm-dot-loading`
 
@@ -26,7 +27,7 @@ export const DotLoading = memo<DotLoadingProps>(p => {
       style={{
         color: colorRecord[props.color] ?? props.color,
       }}
-      className={classPrefix}
+      className={classNames('adm-loading', classPrefix)}
     >
       <svg
         height='1em'

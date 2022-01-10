@@ -4,13 +4,30 @@
 
 <code src="../dot-loading/demos/demo1.tsx"></code>
 
-### 属性
+### Props
 
 | Name  | Description          | Type                                          | Default     |
 | ----- | -------------------- | --------------------------------------------- | ----------- |
 | color | Color of the Loading | `'default' \| 'primary' \| 'white' \| string` | `'default'` |
 
 The size of `DotLoading` would automatically be adjusted according to the current text size.
+
+## SpinLoading
+
+<code src="../spin-loading/demos/demo1.tsx"></code>
+
+### Props
+
+| Name  | Description                                                       | Type                                          | Default     |
+| ----- | ----------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| color | Color of line. Equals to manually set the `--color` CSS variable. | `'default' \| 'primary' \| 'white' \| string` | `'default'` |
+
+### CSS Variables
+
+| Name    | Description          | Default                 |
+| ------- | -------------------- | ----------------------- |
+| --color | Color of line.       | `var(--adm-color-weak)` |
+| --size  | Size of the element. | `32px`                  |
 
 ## Loading
 
