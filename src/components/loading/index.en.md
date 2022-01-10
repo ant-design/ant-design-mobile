@@ -6,6 +6,6 @@
 
 | Name  | Description          | Type                                          | Default     |
 | ----- | -------------------- | --------------------------------------------- | ----------- |
-| color | Color of the Loading | `'default' \| 'primary' \| 'white' \| string` | `'dafault'` |
+| color | Color of the Loading | `'default' \| 'primary' \| 'white' \| string` | `'default'` |
 
 The size of `Loading` would automatically be adjusted according to the current text size.
