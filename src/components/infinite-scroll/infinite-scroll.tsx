@@ -3,7 +3,7 @@ import React, { FC, useEffect, useRef } from 'react'
 import { useLockFn, useMemoizedFn } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
-import Loading from '../loading'
+import Loading from '../dot-loading'
 
 function isWindow(element: any | Window): element is Window {
   return element === window

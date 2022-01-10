@@ -10,7 +10,7 @@ const colorRecord: Record<string, string> = {
   white: 'var(--adm-color-white)',
 }
 
-export type LoadingProps = {
+export type DotLoadingProps = {
   color?: 'default' | 'primary' | 'white' | (string & {})
 } & NativeProps
 
@@ -18,7 +18,7 @@ const defaultProps = {
   color: 'default',
 }
 
-export const Loading = memo<LoadingProps>(p => {
+export const DotLoading = memo<DotLoadingProps>(p => {
   const props = mergeProps(defaultProps, p)
   return withNativeProps(
     props,

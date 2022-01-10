@@ -1,6 +1,6 @@
 # Loading 加载中
 
-<code src="./demos/demo1.tsx"></code>
+<code src="../dot-loading/demos/demo1.tsx"></code>
 
 ## API
 

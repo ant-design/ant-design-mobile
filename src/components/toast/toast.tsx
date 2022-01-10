@@ -1,7 +1,7 @@
 import React, { ReactNode, useMemo } from 'react'
 import classNames from 'classnames'
 import { CheckOutline, CloseOutline } from 'antd-mobile-icons'
-import Loading from '../loading'
+import Loading from '../dot-loading'
 import Mask from '../mask'
 import { mergeProps } from '../../utils/with-default-props'
 import { PropagationEvent } from '../../utils/with-stop-propagation'

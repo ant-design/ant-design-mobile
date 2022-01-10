@@ -3,7 +3,7 @@ import { CloseOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
 import Image from '../image'
-import Loading from '../loading'
+import Loading from '../dot-loading'
 import { useConfig } from '../config-provider'
 
 type Props = {
