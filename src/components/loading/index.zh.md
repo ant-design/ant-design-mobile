@@ -1,11 +1,17 @@
 # Loading 加载中
 
+## DotLoading 点状加载中
+
 <code src="../dot-loading/demos/demo1.tsx"></code>
 
-## API
+### 属性
 
 | 属性  | 说明 | 类型                                          | 默认值      |
 | ----- | ---- | --------------------------------------------- | ----------- |
 | color | 颜色 | `'default' \| 'primary' \| 'white' \| string` | `'default'` |
 
-`Loading` 的大小会自动根据当前的文字大小进行调整。
+`DotLoading` 的大小会自动根据当前的文字大小进行调整。
+
+## Loading
+
+为了保持对旧版本用法的兼容，我们保留了 Loading 的引用，所以如果你继续使用 Loading，依旧是没有问题的。但由于未来的大版本升级中我们很有可能会移除掉 Loading 这个引用，所以如果你看到了这条提示，请尽快将项目中的 Loading 替换为 DotLoading。
