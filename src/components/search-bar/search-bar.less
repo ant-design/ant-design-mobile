@@ -4,6 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  --height: 28px;
+  --icon-padding-left: 8px;
   --background: #f5f5f5;
   --border-radius: 6px;
   --placeholder-color: var(--adm-color-weak);
@@ -19,13 +21,13 @@
     .adm-search-bar-input-box-icon {
       flex: none;
       color: var(---placeholder-color);
-      padding-left: 8px;
+      padding-left: var(--icon-padding-left);
       font-size: 16px;
     }
     .adm-search-bar-input {
       flex: auto;
       padding: 4px 8px 4px 4px;
-      height: 28px;
+      height: var(--height);
       box-sizing: border-box;
       &.adm-input-wrapper {
         --placeholder-color: var(---placeholder-color);

@@ -70,6 +70,8 @@ export default () => {
           style={{
             '--border-radius': '100px',
             '--background': '#ffffff',
+            '--height': '40px',
+            '--icon-padding-left': '20px',
           }}
         />
       </DemoBlock>
