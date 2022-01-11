@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import React, { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-badge`
 
@@ -10,10 +9,9 @@ export const dot = Symbol()
 export type BadgeProps = {
   content?: React.ReactNode | typeof dot
   color?: string
-} & NativeProps<'--right' | '--top'>
+} & NativeProps<'--right' | '--top'| '--color'>
 
-export const Badge: FC<BadgeProps> = p => {
-  const props = mergeProps({ color: '#FF411C' }, p)
+export const Badge: FC<BadgeProps> = props => {
   const { content, color, children } = props
 
   const isDot = content === dot

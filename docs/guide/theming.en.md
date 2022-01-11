@@ -59,6 +59,7 @@ The following are the global CSS variables currently provided by antd-mobile:
   --adm-color-weak: #999999;
   --adm-color-light: #cccccc;
   --adm-border-color: #eeeeee;
+  --adm-badge-color: #ff411c;
   --adm-font-size-main: 13px;
   --adm-color-text: #333333;
 
