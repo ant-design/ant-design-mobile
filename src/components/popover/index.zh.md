@@ -18,6 +18,7 @@
 | destroyOnHide   | 隐藏时，是否销毁 `tooltip` 内容      | `boolean`                                                                                                                                                        | `false`               |
 | content         | 弹出内容                             | `React.ReactNode`                                                                                                                                                | -                     |
 | mode            | 设置亮色模式或者黑色模式             | `'light' \| 'dark'`                                                                                                                                              | `'light'`             |
+| stopPropagation | 阻止某些事件的冒泡                   | `PropagationEvent[]`                                                                                                                                             | `['click']`           |
 
 ### Popover.Menu
 
