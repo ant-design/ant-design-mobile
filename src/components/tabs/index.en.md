@@ -33,3 +33,9 @@
 | title       | The displayed text of the tab header              | `ReactNode` | -       |
 | disabled    | Whether to disable the tab                        | `boolean`   | `false` |
 | forceRender | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
+
+## FAQ
+
+### Does Tabs support sticky effect?
+
+Yes, but Tabs doesn't have a property like `sticky`. You can add the CSS `position: sticky` to the outer container of Tabs to achieve the ceiling effect.

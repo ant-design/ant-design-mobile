@@ -32,3 +32,9 @@
 | title       | 选项卡头显示文字            | `ReactNode` | -       |
 | disabled    | 是否禁用                    | `boolean`   | `false` |
 | forceRender | 被隐藏时是否渲染 `DOM` 结构 | `boolean`   | `false` |
+
+## 常见问题
+
+### Tabs 是否支持 sticky 吸顶效果？
+
+支持，但是 Tabs 并没有一个类似于 `sticky` 的属性。你可以自己在 Tabs 的外层容器中增加一下 `position: sticky` 的 CSS 样式，从而实现吸顶效果。
