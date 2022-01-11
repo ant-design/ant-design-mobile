@@ -1,0 +1,17 @@
+.adm-avatar {
+  --size: var(--adm-avatar-size, 44px);
+  --border-radius: var(--adm-avatar-border-radius, 4px);
+
+  border-radius: var(--border-radius);
+
+  &.adm-image {
+    --width: var(--size);
+    --height: var(--size);
+  }
+
+  &-fallback {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+}

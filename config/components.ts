@@ -6,6 +6,7 @@ export const components = {
     '/components/space',
   ],
   dataDisplay: [
+    '/components/avatar',
     '/components/badge',
     '/components/card',
     '/components/image',
