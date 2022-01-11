@@ -8,7 +8,7 @@ import { NativeProps } from '../../utils/native-props'
 import {
   PropagationEvent,
   withStopPropagation,
-} from 'antd-mobile/src/utils/with-stop-propagation'
+} from '../../utils/with-stop-propagation'
 
 const classPrefix = `adm-popover`
 const enterClassName = 'entering'
