@@ -1,5 +1,6 @@
 import React, { useState, FC } from 'react'
 import { Form, Input, Button, Picker, Space } from 'antd-mobile'
+import type { PickerValue } from 'antd-mobile/es/components/picker'
 import { DemoBlock } from 'demos'
 import { DownOutline } from 'antd-mobile-icons'
 
@@ -81,8 +82,10 @@ const MobileField: FC<MobileFieldProps> = ({
     triggerValue({ realValue: value })
   }
 
-  const onPreValueChange = (value: string[]) => {
-    triggerValue({ preValue: value[0] })
+  const onPreValueChange = (value: PickerValue[]) => {
+    const v = value[0]
+    if (v === null) return
+    triggerValue({ preValue: v })
   }
   return (
     <>
