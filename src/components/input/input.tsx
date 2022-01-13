@@ -131,6 +131,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         min={props.min}
         autoComplete={props.autoComplete}
         pattern={props.pattern}
+        inputMode={props.inputMode}
         type={props.type}
         autoCapitalize={props.autoCapitalize}
         autoCorrect={props.autoCorrect}
