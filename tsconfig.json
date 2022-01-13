@@ -22,7 +22,7 @@
     },
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "strictNullChecks": true,
+    "strict": true,
     "noImplicitAny": true,
     "resolveJsonModule": true
   },

@@ -1,6 +1,7 @@
 import React, { FC, ReactNode, useCallback, useMemo } from 'react'
 import { useMemoizedFn } from 'ahooks'
-import Picker, { PickerProps } from '../picker'
+import Picker from '../picker'
+import type { PickerProps, PickerValue } from '../picker'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -53,7 +54,10 @@ export const DatePicker: FC<DatePickerProps> = p => {
   const [value, setValue] = usePropsValue<Date | null>({
     value: props.value,
     defaultValue: props.defaultValue ?? null,
-    onChange: props.onConfirm,
+    onChange: v => {
+      if (v === null) return
+      props.onConfirm?.(v)
+    },
   })
 
   const pickerValue = useMemo(
@@ -62,13 +66,13 @@ export const DatePicker: FC<DatePickerProps> = p => {
   )
 
   const onConfirm = useCallback(
-    (val: string[]) => {
+    (val: PickerValue[]) => {
       setValue(convertStringArrayToDate(val, props.precision))
     },
     [setValue, props.precision]
   )
 
-  const onSelect = useMemoizedFn((val: string[]) => {
+  const onSelect = useMemoizedFn((val: PickerValue[]) => {
     const date = convertStringArrayToDate(val, props.precision)
     props.onSelect?.(date)
   })

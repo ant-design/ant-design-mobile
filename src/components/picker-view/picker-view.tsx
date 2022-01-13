@@ -74,7 +74,7 @@ export const PickerView = memo<PickerViewProps>(p => {
   const columns = useColumns(props.columns, innerValue)
   const generateValueExtend = usePickerValueExtend(columns)
 
-  const handleSelect = useCallback((val: string, index: number) => {
+  const handleSelect = useCallback((val: PickerValue, index: number) => {
     setInnerValue(prev => {
       const next = [...prev]
       next[index] = val
