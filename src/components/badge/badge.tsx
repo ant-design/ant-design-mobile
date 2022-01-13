@@ -9,7 +9,7 @@ export const dot = Symbol()
 export type BadgeProps = {
   content?: React.ReactNode | typeof dot
   color?: string
-} & NativeProps<'--right' | '--top'| '--color'>
+} & NativeProps<'--right' | '--top' | '--color'>
 
 export const Badge: FC<BadgeProps> = props => {
   const { content, color, children } = props
@@ -26,9 +26,11 @@ export const Badge: FC<BadgeProps> = props => {
         props,
         <div
           className={badgeCls}
-          style={{
-            backgroundColor: color,
-          }}
+          style={
+            {
+              '--color': color,
+            } as any
+          }
         >
           {!isDot && content}
         </div>

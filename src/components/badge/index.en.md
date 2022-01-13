@@ -7,7 +7,7 @@
 | Name    | Description                                                                                                                                                        | Type                                  | Default |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- | ------- |
 | content | The content of the Badge: if `null` `undefined` `''` or nothing is passed, it would not be displayed; if `Badge.dot` is passed, a small red dot would be displayed | `React.ReactNode \| typeof Badge.dot` | -       |
-| color   | The background color of the Badge                                                                                                                                  | `string`                              | -       |
+| color   | The background color of the Badge. Equivalent to setting the `--color` CSS variable.                                                                               | `string`                              | -       |
 
 ### CSS Variables
 
