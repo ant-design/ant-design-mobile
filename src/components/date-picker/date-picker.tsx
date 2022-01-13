@@ -61,8 +61,13 @@ export const DatePicker: FC<DatePickerProps> = p => {
   })
 
   const pickerValue = useMemo(
-    () => convertDateToStringArray(value || new Date(), props.precision),
+    () => convertDateToStringArray(value, props.precision),
     [value, props.precision]
+  )
+
+  const defaultPickerValue = useMemo(
+    () => convertDateToStringArray(new Date(), props.precision),
+    [props.precision]
   )
 
   const onConfirm = useCallback(
@@ -94,7 +99,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
     props,
     <Picker
       columns={columns}
-      value={pickerValue}
+      value={pickerValue.length === 0 ? defaultPickerValue : pickerValue}
       onCancel={props.onCancel}
       onClose={props.onClose}
       visible={props.visible}
@@ -111,7 +116,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
     >
       {items =>
         props.children?.(
-          items.length === 0
+          items.length === 0 || pickerValue.length === 0
             ? null
             : convertStringArrayToDate(
                 items.map(item => item?.value),
