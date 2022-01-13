@@ -61,7 +61,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
   })
 
   const pickerValue = useMemo(
-    () => convertDateToStringArray(value, props.precision),
+    () => convertDateToStringArray(value || new Date(), props.precision),
     [value, props.precision]
   )
 
