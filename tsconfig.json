@@ -7,6 +7,7 @@
     "allowJs": true,
     "declaration": false,
     "esModuleInterop": true,
+    "importHelpers": true,
     "downlevelIteration": true,
     "sourceMap": true,
     "baseUrl": "./",

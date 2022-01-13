@@ -63,7 +63,11 @@ function buildES() {
       ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
-    .pipe(babel())
+    .pipe(
+      babel({
+        'plugins': ['./babel-transform-less-to-css'],
+      })
+    )
     .pipe(gulp.dest('lib/es/'))
 }
 

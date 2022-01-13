@@ -24,6 +24,7 @@
     "rc-field-form": "^1.22.1",
     "rc-tooltip": "^5.1.1",
     "staged-components": "^1.1.2",
+    "tslib": "^1.14.1",
     "use-async-memo": "^1.2.3"
   },
   "devDependencies": {
@@ -48,8 +49,6 @@
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "babel-loader": "^8.2.3",
-    "babel-plugin-import": "^1.13.3",
-    "babel-plugin-transform-async-to-promises": "^0.8.18",
     "css-loader": "^6.5.1",
     "del": "^6.0.0",
     "dumi": "^1.1.38",

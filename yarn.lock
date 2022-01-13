@@ -501,7 +501,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-module-imports@npm:^7.0.0, @babel/helper-module-imports@npm:^7.12.13, @babel/helper-module-imports@npm:^7.14.5":
+"@babel/helper-module-imports@npm:^7.12.13, @babel/helper-module-imports@npm:^7.14.5":
   version: 7.14.5
   resolution: "@babel/helper-module-imports@npm:7.14.5"
   dependencies:
@@ -1819,7 +1819,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.1, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.1, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.1, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.1, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.14.8
   resolution: "@babel/runtime@npm:7.14.8"
   dependencies:
@@ -3972,8 +3972,6 @@ __metadata:
     antd-mobile-icons: ^0.2.2
     antd-mobile-v5-count: ^1.0.1
     babel-loader: ^8.2.3
-    babel-plugin-import: ^1.13.3
-    babel-plugin-transform-async-to-promises: ^0.8.18
     classnames: ^2.3.1
     css-loader: ^6.5.1
     dayjs: ^1.10.7
@@ -4017,6 +4015,7 @@ __metadata:
     through2: ^4.0.2
     ts-jest: 27.1.2
     ts-node: 10.4.0
+    tslib: ^1.14.1
     typescript: ^3.9.10
     umi-plugin-mobile-dumi: ^0.1.3
     use-async-memo: ^1.2.3
@@ -4436,16 +4435,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-import@npm:^1.13.3":
-  version: 1.13.3
-  resolution: "babel-plugin-import@npm:1.13.3"
-  dependencies:
-    "@babel/helper-module-imports": ^7.0.0
-    "@babel/runtime": ^7.0.0
-  checksum: 1be664a34fa6cdffb08485a7094ff1a3fdfd2e95a7d367afdd7a6dcb51842c0bc717c8fdba65538561a4d3aecc39c123e6de1449c5b1b2aa5b13604c17ca7042
-  languageName: node
-  linkType: hard
-
 "babel-plugin-istanbul@npm:^6.1.1":
   version: 6.1.1
   resolution: "babel-plugin-istanbul@npm:6.1.1"
@@ -4504,13 +4493,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: ecca4389fd557554efc6de834f84f7c85e83c348d5283de2032d35429bc7121ed6f336553d3d704021f9bef22fca339fbee560d3b0fb8bb1d4eca2fecaaeebcb
-  languageName: node
-  linkType: hard
-
-"babel-plugin-transform-async-to-promises@npm:^0.8.18":
-  version: 0.8.18
-  resolution: "babel-plugin-transform-async-to-promises@npm:0.8.18"
-  checksum: dcc345359eb33f55c42c49894166c9a5c65635e1a6e0518a00beef4f1ead7dec3409f5b3050844c1870470627b21248b0947ee884835881961b731b638156377
   languageName: node
   linkType: hard
 
@@ -14902,7 +14884,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.10.0, tslib@npm:^1.8.1":
+"tslib@npm:^1.10.0, tslib@npm:^1.14.1, tslib@npm:^1.8.1":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
