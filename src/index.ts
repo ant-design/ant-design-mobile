@@ -59,7 +59,6 @@ export { default as Rate } from './components/rate'
 export { default as Result } from './components/result'
 export { default as SafeArea } from './components/safe-area'
 export { default as ScrollMask } from './components/scroll-mask'
-export { default as Search } from './components/search-bar' // TODO: deprecated
 export { default as SearchBar } from './components/search-bar'
 export { default as Selector } from './components/selector'
 export { default as SideBar } from './components/side-bar'
