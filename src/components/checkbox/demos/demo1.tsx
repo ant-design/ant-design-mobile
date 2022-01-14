@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Checkbox, Space } from 'antd-mobile'
+import { Checkbox, Dropdown, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { SmileFill, SmileOutline } from 'antd-mobile-icons'
 
@@ -28,8 +28,8 @@ export default () => {
       <DemoBlock title='选项组'>
         <Checkbox.Group
           value={value}
-          onChange={(val: string[]) => {
-            setValue(val)
+          onChange={val => {
+            setValue(val as string[])
           }}
         >
           <Space direction='vertical'>
