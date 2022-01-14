@@ -1,22 +1,26 @@
 .adm-list {
+  --header-font-size: 14px;
+  --header-padding-left: 12px;
   --prefix-width: 'auto';
+  --prefix-padding-right: 12px;
   --align-items: center;
   --active-background-color: var(--adm-border-color);
   --border-inner: solid 1px var(--adm-border-color);
   --border-top: solid 1px var(--adm-border-color);
   --border-bottom: solid 1px var(--adm-border-color);
   --padding-left: 12px;
+  --font-size: 17px;
 
   &-header {
     color: var(--adm-color-weak);
-    font-size: 14px;
-    padding-left: 12px;
+    font-size: var(--header-font-size);
+    padding-left: var(--header-padding-left);
     margin: 16px 0 4px;
   }
   &-body {
     background-color: #ffffff;
     overflow: hidden;
-    font-size: 17px;
+    font-size: var(--font-size);
   }
   &-body-inner {
     margin-bottom: -1px;
@@ -52,7 +56,7 @@
     &-prefix {
       width: var(--prefix-width);
       flex: none;
-      padding-right: 12px;
+      padding-right: var(--prefix-padding-right);
     }
     &-main {
       flex: auto;

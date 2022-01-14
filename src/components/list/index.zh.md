@@ -31,15 +31,19 @@
 
 ### List
 
-| 属性                      | 说明                                                                                | 默认值                              |
-| ------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------- |
-| --prefix-width            | prefix 部分的宽度                                                                   | `auto`                              |
-| --active-background-color | 点击时的背景颜色                                                                    | `var(--adm-border-color)`           |
+| 属性                      | 说明                                                         | 默认值                              |
+| ------------------------- | ------------------------------------------------------------ | ----------------------------------- |
+| --header-font-size        | 头部的字体大小                                               | `14px`                              |
+| --header-padding-left     | 头部左侧的padding                                            | `12px`                              |
+| --prefix-width            | prefix 部分的宽度                                            | `auto`                              |
+| --prefix-padding-right    | prefix 部分的右侧 padding                                    | `12px`                              |
+| --active-background-color | 点击时的背景颜色                                             | `var(--adm-border-color)`           |
 | --align-items             | 列表项的 [align-item](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) | `center`                            |
-| --border-inner            | 列表项底部的边框样式                                                                | `solid 1px var(--adm-border-color)` |
-| --border-top              | 列表容器顶部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
-| --border-bottom           | 列表容器底部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
-| --padding-left            | 列表左侧的 padding                                                                  | `12px`                              |
+| --border-inner            | 列表项底部的边框样式                                         | `solid 1px var(--adm-border-color)` |
+| --border-top              | 列表容器顶部的边框样式                                       | `solid 1px var(--adm-border-color)` |
+| --border-bottom           | 列表容器底部的边框样式                                       | `solid 1px var(--adm-border-color)` |
+| --padding-left            | 列表左侧的 padding                                           | `12px`                              |
+| --font-size               | Body 内容的字体大小                                          | `17px`                              |
 
 ### List.Item
 
