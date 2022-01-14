@@ -2,7 +2,9 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## 属性
+<code src="./demos/demo2.tsx"></code>
+
+### 属性
 
 ```typescript | pure
 type CascaderValue = string | null
@@ -34,3 +36,7 @@ type CascaderValueExtend = {
 | cancelText   | 取消按钮的文字               | `ReactNode`                                                     | `'取消'`   |
 | placeholder  | 未选中时的提示文案           | `string`                                                        | `'请选择'` |
 | children     | 所选项的渲染函数             | `(items: CascaderOption[]) => ReactNode`                        | -          |
+
+### 加载中 <Badge>试验性</Badge>
+
+你可以把 `Cascader.optionSkeleton` 作为 `CascaderOption[]` 传入到 Cascader 的 `options` 属性或者是 `CascaderOption` 的 `children` 中。Cascader 会将其识别并显示出骨架屏效果。

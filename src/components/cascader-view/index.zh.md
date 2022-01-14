@@ -4,7 +4,7 @@ CascaderView 是 [Cascader](./cascader) 的内容区域。
 
 <code src="./demos/demo1.tsx"></code>
 
-## 属性
+### 属性
 
 | 属性         | 说明               | 类型                                                            | 默认值     |
 | ------------ | ------------------ | --------------------------------------------------------------- | ---------- |
@@ -21,3 +21,7 @@ CascaderView 是 [Cascader](./cascader) 的内容区域。
 | 属性     | 说明 | 默认值  |
 | -------- | ---- | ------- |
 | --height | 高度 | `240px` |
+
+### 加载中 <Badge>试验性</Badge>
+
+你可以把 `CascaderView.optionSkeleton` 作为 `CascaderOption[]` 传入到 CascaderView 的 `options` 属性或者是 `CascaderOption` 的 `children` 中。CascaderView 会将其识别并显示出骨架屏效果。

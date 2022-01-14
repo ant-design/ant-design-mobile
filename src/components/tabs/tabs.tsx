@@ -297,7 +297,11 @@ export const Tabs: FC<TabsProps> = p => {
         }
         if (pane.props.forceRender) {
           return (
-            <div key={pane.key} style={{ display: 'none' }}>
+            <div
+              key={pane.key}
+              className={`${classPrefix}-content`}
+              style={{ display: 'none' }}
+            >
               {pane.props.children}
             </div>
           )

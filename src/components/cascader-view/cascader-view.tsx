@@ -7,6 +7,8 @@ import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { useCascaderValueExtend } from './use-cascader-value-extend'
 import { useConfig } from '../config-provider'
+import { optionSkeleton } from './option-skeleton'
+import Skeleton from '../skeleton'
 
 const classPrefix = `adm-cascader-view`
 
@@ -115,27 +117,51 @@ export const CascaderView: FC<CascaderViewProps> = p => {
               }
               forceRender
             >
-              <CheckList
-                value={[value[index]]}
-                onChange={selectValue => onItemSelect(selectValue[0], index)}
-                className={`${classPrefix}-content`}
-              >
-                {level.options.map(option => {
-                  const active = value[index] === option.value
-                  return (
-                    <CheckList.Item
-                      value={option.value}
-                      key={option.value}
-                      disabled={option.disabled}
-                      className={classNames(`${classPrefix}-item`, {
-                        [`${classPrefix}-item-active`]: active,
-                      })}
-                    >
-                      {option.label}
-                    </CheckList.Item>
-                  )
-                })}
-              </CheckList>
+              <div className={`${classPrefix}-content`}>
+                {level.options === optionSkeleton ? (
+                  <div className={`${classPrefix}-skeleton`}>
+                    <Skeleton
+                      className={`${classPrefix}-skeleton-line-1`}
+                      animated
+                    />
+                    <Skeleton
+                      className={`${classPrefix}-skeleton-line-2`}
+                      animated
+                    />
+                    <Skeleton
+                      className={`${classPrefix}-skeleton-line-3`}
+                      animated
+                    />
+                    <Skeleton
+                      className={`${classPrefix}-skeleton-line-4`}
+                      animated
+                    />
+                  </div>
+                ) : (
+                  <CheckList
+                    value={[value[index]]}
+                    onChange={selectValue =>
+                      onItemSelect(selectValue[0], index)
+                    }
+                  >
+                    {level.options.map(option => {
+                      const active = value[index] === option.value
+                      return (
+                        <CheckList.Item
+                          value={option.value}
+                          key={option.value}
+                          disabled={option.disabled}
+                          className={classNames(`${classPrefix}-item`, {
+                            [`${classPrefix}-item-active`]: active,
+                          })}
+                        >
+                          {option.label}
+                        </CheckList.Item>
+                      )
+                    })}
+                  </CheckList>
+                )}
+              </div>
             </Tabs.Tab>
           )
         })}
