@@ -39,7 +39,7 @@ export type SearchBarProps = Pick<
     | '--border-radius'
     | '--placeholder-color'
     | '--height'
-    | '--icon-padding-left'
+    | '--padding-left'
   >
 
 const defaultProps = {

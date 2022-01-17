@@ -29,7 +29,7 @@
 | --border-radius     | 圆角                   | `6px`                   |
 | --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-weak)` |
 | --height            | 高度                   | `28px`                  |
-| --icon-padding-left | 图标`padding-left`距离 | `8px`                   |
+| --padding-left      | 图标`padding-left`距离 | `8px`                   |
 
 ## Ref
 
