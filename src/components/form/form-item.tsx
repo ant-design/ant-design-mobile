@@ -249,6 +249,7 @@ export const FormItem: FC<FormItemProps> = props => {
       trigger={trigger}
       validateTrigger={mergedValidateTrigger}
       onMetaChange={onMetaChange}
+      messageVariables={Variables}
     >
       {(control, meta, context) => {
         let childNode: React.ReactNode = null
