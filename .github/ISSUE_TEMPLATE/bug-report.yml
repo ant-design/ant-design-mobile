@@ -22,7 +22,7 @@ body:
       label: Operating system and its version
       description: |
         What operating system are you seeing the problem on?
-        你在哪个操作系统平台上发现的这个问题？
+        你是在哪个操作系统平台上发现的这个问题？
       multiple: true
       options:
         - iOS
@@ -36,7 +36,7 @@ body:
       label: Browser and its version
       description: |
         What browser are you seeing the problem on? Also, we'd like to know its exact version.
-        你在哪个浏览器中发现的这个问题？最好可以提供浏览器准确的版本号。
+        你是在哪个浏览器中发现的这个问题？最好可以提供浏览器准确的版本号。
       placeholder: eg. iOS Safari 13.1
     validations:
       required: false
@@ -46,7 +46,7 @@ body:
       label: Sandbox to reproduce
       description: |
         If possible, please try to attach a sandbox link to reproduce. You can create one from [here](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx).
-        如果可以的话，请提供一个复现 demo。你可以在[这里](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx)创建一个 sandbox，然后把分享链接提供在这里。
+        **尽可能提供一个复现 demo**。你可以在[这里](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx)创建一个 sandbox，然后把分享链接提供在这里。
     validations:
       required: false
   - type: textarea
@@ -55,7 +55,7 @@ body:
       label: What happened?
       description: |
         Also tell us, what did you expect to happen?
-        出现了什么问题？以及，你希望的正常行为是什么？
+        出现了什么问题？以及，你期望的正确行为是什么？
     validations:
       required: false
   - type: textarea
