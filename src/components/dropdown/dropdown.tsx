@@ -31,7 +31,7 @@ export type DropdownProps = {
 const defaultProps = {
   defaultActiveKey: null,
   closeOnMaskClick: true,
-  closeOnClickAway: true,
+  closeOnClickAway: false,
 }
 
 export type DropdownRef = {

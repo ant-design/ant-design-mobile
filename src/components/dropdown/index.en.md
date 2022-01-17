@@ -13,7 +13,7 @@
 | activeKey        | Active `Item` key                                         | `string \| null`                     | -       |
 | defaultActiveKey | The default active `Item` key                             | `string \| null`                     | `null`  |
 | closeOnMaskClick | Whether to automatically close after clicking on the mask | `boolean`                            | `true`  |
-| closeOnClickAway | Whether to automatically hide after clicking outside area | `boolean`                            | `true`  |
+| closeOnClickAway | Whether to automatically hide after clicking outside area | `boolean`                            | `false` |
 | onChange         | Triggered when `activeKey` changes                        | `(activeKey: string \| null)=> void` | -       |
 | arrow            | Custom arrow                                              | `React.ReactNode`                    | -       |
 
