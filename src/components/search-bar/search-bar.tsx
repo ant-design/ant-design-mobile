@@ -34,7 +34,13 @@ export type SearchBarProps = Pick<
   onSearch?: (val: string) => void
   onChange?: (val: string) => void
   onCancel?: () => void
-} & NativeProps<'--background' | '--border-radius' | '--placeholder-color'>
+} & NativeProps<
+    | '--background'
+    | '--border-radius'
+    | '--placeholder-color'
+    | '--height'
+    | '--padding-left'
+  >
 
 const defaultProps = {
   clearable: true,
