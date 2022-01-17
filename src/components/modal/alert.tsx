@@ -30,6 +30,7 @@ export function alert(p: ModalAlertProps) {
       ],
       onAction: props.onConfirm,
       onClose: () => {
+        props.onClose?.()
         resolve()
       },
     })
