@@ -46,6 +46,7 @@ const defaultProps = {
   max: new Date(new Date().setFullYear(thisYear + 10)),
   precision: 'day',
   renderLabel: defaultRenderLabel,
+  defaultValue: null as Date | null,
 }
 
 export const DatePicker: FC<DatePickerProps> = p => {
@@ -53,21 +54,18 @@ export const DatePicker: FC<DatePickerProps> = p => {
 
   const [value, setValue] = usePropsValue<Date | null>({
     value: props.value,
-    defaultValue: props.defaultValue ?? null,
+    defaultValue: props.defaultValue,
     onChange: v => {
       if (v === null) return
       props.onConfirm?.(v)
     },
   })
 
-  const pickerValue = useMemo(
-    () => convertDateToStringArray(value, props.precision),
-    [value, props.precision]
-  )
+  const now = useMemo(() => new Date(), [])
 
-  const defaultPickerValue = useMemo(
-    () => convertDateToStringArray(new Date(), props.precision),
-    [props.precision]
+  const pickerValue = useMemo(
+    () => convertDateToStringArray(value ?? now, props.precision),
+    [value, props.precision]
   )
 
   const onConfirm = useCallback(
@@ -99,7 +97,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
     props,
     <Picker
       columns={columns}
-      value={pickerValue.length === 0 ? defaultPickerValue : pickerValue}
+      value={pickerValue}
       onCancel={props.onCancel}
       onClose={props.onClose}
       visible={props.visible}
@@ -114,16 +112,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
       title={props.title}
       stopPropagation={props.stopPropagation}
     >
-      {items =>
-        props.children?.(
-          items.length === 0 || pickerValue.length === 0
-            ? null
-            : convertStringArrayToDate(
-                items.map(item => item?.value),
-                props.precision
-              )
-        )
-      }
+      {() => props.children?.(value)}
     </Picker>
   )
 }
