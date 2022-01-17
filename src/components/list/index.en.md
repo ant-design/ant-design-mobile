@@ -34,12 +34,16 @@
 
 | Name                      | Description                                                                                     | Default                             |
 | ------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------- |
+| --header-font-size        | The font-size of the header                                                                     | `14px`                              |
 | --prefix-width            | Width of the prefix part.                                                                       | `auto`                              |
+| --prefix-padding-right    | The padding-right of the prefix part                                                            | `12px`                              |
 | --active-background-color | The background color when clicked.                                                              | `var(--adm-border-color)`           |
 | --align-items             | The [align-item](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) of the list item | `center`                            |
 | --border-inner            | Border style of the list item bottom                                                            | `solid 1px var(--adm-border-color)` |
 | --border-top              | Border style of the list top                                                                    | `solid 1px var(--adm-border-color)` |
 | --border-bottom           | Border style of the list bottom                                                                 | `solid 1px var(--adm-border-color)` |
+| --padding-left            | The padding-left of list item and header                                                        | `12px`                              |
+| --font-size               | The font-size of the list body                                                                  | `17px`                              |
 
 ### List.Item
 
