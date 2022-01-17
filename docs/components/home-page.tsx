@@ -265,7 +265,7 @@ export default () => {
             <li>钉钉交流反馈群</li>
             <li>
               <img
-                src='https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*fo-tQ5wRk5QAAAAAAAAAAAAAARQnAQ'
+                src='https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*wy8nQLwxbKYAAAAAAAAAAAAAARQnAQ'
                 alt='ding-group'
                 width={240}
               />
