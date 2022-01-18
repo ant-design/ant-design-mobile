@@ -28,7 +28,13 @@ export const ListItem: FC<ListItemProps> = props => {
       {props.prefix && (
         <div className={`${classPrefix}-content-prefix`}>{props.prefix}</div>
       )}
-      <div className={`${classPrefix}-content-main`}>
+      <div
+        className={classNames(
+          `${classPrefix}-content-main`,
+          (props.title || props.description) &&
+            `${classPrefix}-content-main-multi-row`
+        )}
+      >
         {props.title && (
           <div className={`${classPrefix}-title`}>{props.title}</div>
         )}

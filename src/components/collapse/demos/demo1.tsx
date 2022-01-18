@@ -83,7 +83,7 @@ export default () => {
         </Collapse>
       </DemoBlock>
 
-      <DemoBlock title='自定义箭头' padding='0' border='none'>
+      <DemoBlock title='自定义折叠图标' padding='0' border='none'>
         <Collapse
           defaultActiveKey={['1']}
           arrow={active => (active ? <MinusOutline /> : <AddOutline />)}
