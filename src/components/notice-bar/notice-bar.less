@@ -1,8 +1,8 @@
 @class-prefix-notice-bar: ~'adm-notice-bar';
 
 .@{class-prefix-notice-bar} {
-  --background-color: #b2b2b2;
-  --border-color: #a0a0a0;
+  --background-color: #ababab;
+  --border-color: #999999;
   --text-color: #ffffff;
   --font-size: 15px;
   --icon-font-size: 18px;
@@ -60,12 +60,14 @@
       width: auto;
       transition-timing-function: linear;
       position: absolute;
-      padding: 0 4px;
       white-space: nowrap;
     }
   }
   & .@{class-prefix-notice-bar}-right {
     flex-shrink: 0;
     margin-left: 12px;
+  }
+  &-close-icon {
+    font-size: 18px;
   }
 }

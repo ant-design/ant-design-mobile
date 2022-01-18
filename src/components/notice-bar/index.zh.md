@@ -19,8 +19,8 @@
 
 | 属性               | 说明           | 默认值    |
 | ------------------ | -------------- | --------- |
-| --background-color | 背景色         | `#b2b2b2` |
-| --border-color     | 边框颜色       | `#a0a0a0` |
+| --background-color | 背景色         | `#ababab` |
+| --border-color     | 边框颜色       | `#999999` |
 | --text-color       | 文字颜色       | `#ffffff` |
 | --font-size        | 文字字号       | `15px`    |
 | --icon-font-size   | 左侧图标的字号 | `18px`    |

@@ -125,6 +125,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
           {props.extra}
           {props.closeable && (
             <CloseOutline
+              className={`${classPrefix}-close-icon`}
               onClick={() => {
                 setVisible(false)
                 props.onClose?.()
