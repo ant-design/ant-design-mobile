@@ -25,6 +25,7 @@ export default () => {
           <Step title='第一步' />
           <Step title='第二步' />
           <Step title='第三步' status='error' />
+          <Step title='第四步' />
         </Steps>
       </DemoBlock>
 

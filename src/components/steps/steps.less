@@ -35,6 +35,9 @@
 
   &-status-wait {
     --icon-color: #e5e5e5;
+    .adm-step-title {
+      color: var(--adm-color-weak);
+    }
   }
   &-status-process {
     --icon-color: var(--adm-color-primary);
@@ -96,7 +99,7 @@
         font-size: var(--title-font-size);
       }
       .@{class-prefix-step}-description {
-        margin-top: 2px;
+        margin-top: 4px;
         color: var(--adm-color-weak);
       }
     }
@@ -135,13 +138,13 @@
       }
       .@{class-prefix-step}-content {
         flex: auto;
-        padding-bottom: 14px;
+        padding-bottom: 24px;
         .@{class-prefix-step}-title {
           font-size: var(--title-font-size);
           line-height: 1.5;
         }
         .@{class-prefix-step}-description {
-          padding-top: 2px;
+          padding-top: 4px;
           font-size: var(--description-font-size);
           color: var(--adm-color-weak);
         }
