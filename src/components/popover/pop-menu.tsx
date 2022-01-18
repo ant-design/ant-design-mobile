@@ -9,7 +9,14 @@ import React, {
 } from 'react'
 import classNames from 'classnames'
 import Button from '../button'
-import { BasePopoverProps, Popover, PopoverRef } from './popover'
+import {
+  BasePopoverProps,
+  Popover,
+  PopoverRef,
+  stopPropagation,
+} from './popover'
+import { mergeProps } from 'antd-mobile/src/utils/with-default-props'
+import { withStopPropagation } from 'antd-mobile/src/utils/with-stop-propagation'
 
 const classPrefix = `adm-popover`
 
@@ -27,8 +34,14 @@ export type PopMenuProps<T> = BasePopoverProps & {
   onAction?: (text: T) => void
 }
 
+const defaultProps = {
+  stopPropagation,
+}
+
 export const PopMenu = forwardRef<PopoverRef, PopMenuProps<Action>>(
-  (props: PopMenuProps<Action>, ref) => {
+  (p: PopMenuProps<Action>, ref) => {
+    const props = mergeProps(defaultProps, p)
+
     const innerRef = useRef<PopoverRef>(null)
     useImperativeHandle(ref, () => innerRef.current!, [])
 
@@ -53,25 +66,27 @@ export const PopMenu = forwardRef<PopoverRef, PopMenuProps<Action>>(
               })}
               key={ele.key ?? index}
             >
-              <Button
-                disabled={ele.disabled}
-                onClick={e => {
-                  e.stopPropagation()
-                  if (!ele.disabled) {
-                    onClick(ele)
-                    ele.onClick?.()
-                  }
-                }}
-                fill='none'
-                block
-              >
-                {ele.icon && (
-                  <span className={`${classPrefix}-inner-menu-icon`}>
-                    {ele.icon}
-                  </span>
-                )}
-                {ele.text}
-              </Button>
+              {withStopPropagation(
+                props.stopPropagation,
+                <Button
+                  disabled={ele.disabled}
+                  onClick={() => {
+                    if (!ele.disabled) {
+                      onClick(ele)
+                      ele.onClick?.()
+                    }
+                  }}
+                  fill='none'
+                  block
+                >
+                  {ele.icon && (
+                    <span className={`${classPrefix}-inner-menu-icon`}>
+                      {ele.icon}
+                    </span>
+                  )}
+                  {ele.text}
+                </Button>
+              )}
             </div>
           ))}
         </>

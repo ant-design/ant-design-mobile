@@ -54,9 +54,11 @@ export type PopoverRef = {
   visible: boolean
 }
 
+export const stopPropagation = ['click']
+
 const defaultProps = {
   defaultVisible: false,
-  stopPropagation: ['click'],
+  stopPropagation,
 }
 
 export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
