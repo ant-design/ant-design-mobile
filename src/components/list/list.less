@@ -22,7 +22,7 @@
     font-size: var(--font-size);
   }
   &-body-inner {
-    margin-bottom: -1px;
+    margin-top: -1px;
   }
   &-default {
     .adm-list-body {
@@ -41,6 +41,7 @@
 .adm-list-item {
   display: block;
   padding-left: var(--padding-left);
+  position: relative;
   &-title,
   &-description {
     color: var(--adm-color-weak);
@@ -51,7 +52,7 @@
     align-items: var(--align-items);
     justify-content: flex-start;
     padding: 0 12px;
-    border-bottom: var(--border-inner);
+    border-top: var(--border-inner);
     &-prefix {
       width: var(--prefix-width);
       flex: none;
@@ -88,6 +89,15 @@
 a.adm-list-item {
   &:active {
     background-color: var(--active-background-color);
+    &::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      width: 100%;
+      bottom: -1px;
+      left: 0;
+      border-bottom: var(--border-inner);
+    }
   }
   &.adm-list-item-disabled {
     &:active {
