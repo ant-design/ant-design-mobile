@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { Collapse, DotLoading, Result } from 'antd-mobile'
 import { DemoBlock, sleep } from 'demos'
 import {
-  PicturesOutline,
-  CameraOutline,
   CheckCircleOutline,
   CloseCircleOutline,
   ArrowDownCircleOutline,
+  AddOutline,
+  MinusOutline,
 } from 'antd-mobile-icons'
 
 const DynamicContent = () => {
@@ -86,7 +86,7 @@ export default () => {
       <DemoBlock title='自定义箭头' padding='0' border='none'>
         <Collapse
           defaultActiveKey={['1']}
-          arrow={active => (active ? <PicturesOutline /> : <CameraOutline />)}
+          arrow={active => (active ? <MinusOutline /> : <AddOutline />)}
         >
           <Collapse.Panel key='1' title='第一项'>
             你可以通过 Collapse 的 arrow 属性来控制全部面板的箭头

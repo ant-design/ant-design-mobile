@@ -192,11 +192,9 @@ export const Collapse: FC<CollapseProps> = props => {
               {withNativeProps(
                 panel.props,
                 <List.Item
-                  className={classNames(`${classPrefix}-panel-header`, {
-                    [`${classPrefix}-panel-header-disabled`]:
-                      panel.props.disabled,
-                  })}
-                  onClick={panel.props.disabled ? undefined : handleClick}
+                  className={`${classPrefix}-panel-header`}
+                  onClick={handleClick}
+                  disabled={panel.props.disabled}
                   arrow={renderArrow()}
                 >
                   {panel.props.title}
