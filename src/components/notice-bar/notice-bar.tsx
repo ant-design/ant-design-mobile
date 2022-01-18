@@ -32,6 +32,7 @@ const defaultProps = {
   color: 'default',
   delay: 2000,
   speed: 50,
+  icon: <SoundOutline />,
 }
 
 export const NoticeBar = memo<NoticeBarProps>(p => {
@@ -104,9 +105,9 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
   return withNativeProps(
     props,
     <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)}>
-      <span className={`${classPrefix}-left`}>
-        {'icon' in props ? props.icon : <SoundOutline />}
-      </span>
+      {props.icon && (
+        <span className={`${classPrefix}-left`}>{props.icon}</span>
+      )}
       <span ref={containerRef} className={`${classPrefix}-content`}>
         <span
           onTransitionEnd={() => {
