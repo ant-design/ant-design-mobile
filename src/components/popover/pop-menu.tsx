@@ -55,7 +55,8 @@ export const PopMenu = forwardRef<PopoverRef, PopMenuProps<Action>>(
             >
               <Button
                 disabled={ele.disabled}
-                onClick={() => {
+                onClick={e => {
+                  e.stopPropagation()
                   if (!ele.disabled) {
                     onClick(ele)
                     ele.onClick?.()
