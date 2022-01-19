@@ -80,8 +80,15 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     },
     [visible]
   )
-  return withStopPropagation(
+
+  const overlay = withStopPropagation(
     props.stopPropagation,
+    <div className={`${classPrefix}-inner-content`}>
+      {(props as PopoverProps).content}
+    </div>
+  )
+
+  return (
     <Tooltip
       {...props}
       overlayClassName={classNames(
@@ -106,11 +113,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
         },
         motionDeadline: 200,
       }}
-      overlay={
-        <div className={`${classPrefix}-inner-content`}>
-          {(props as PopoverProps).content}
-        </div>
-      }
+      overlay={overlay}
     >
       {props.children}
     </Tooltip>
