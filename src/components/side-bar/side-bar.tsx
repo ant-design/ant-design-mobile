@@ -69,7 +69,10 @@ export const SideBar: FC<SideBarProps> = props => {
               [`${classPrefix}-item-disabled`]: item.props.disabled,
             })}
           >
-            <Badge content={item.props.badge}>
+            <Badge
+              content={item.props.badge}
+              className={`${classPrefix}-badge`}
+            >
               <div className={`${classPrefix}-item-title`}>
                 {active && <div className={`${classPrefix}-item-highlight`} />}
                 {item.props.title}
