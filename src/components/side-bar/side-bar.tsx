@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import Badge from '../badge'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { Corner } from './corner'
 
 const classPrefix = `adm-side-bar`
 
@@ -51,7 +52,7 @@ export const SideBar: FC<SideBarProps> = props => {
 
   return withNativeProps(
     props,
-    <div className={classNames(classPrefix)}>
+    <div className={classPrefix}>
       {items.map(item => {
         const active = item.key === activeKey
         return withNativeProps(
@@ -69,6 +70,16 @@ export const SideBar: FC<SideBarProps> = props => {
               [`${classPrefix}-item-disabled`]: item.props.disabled,
             })}
           >
+            {active && (
+              <>
+                <Corner
+                  className={`${classPrefix}-item-corner ${classPrefix}-item-corner-top`}
+                />
+                <Corner
+                  className={`${classPrefix}-item-corner ${classPrefix}-item-corner-bottom`}
+                />
+              </>
+            )}
             <Badge
               content={item.props.badge}
               className={`${classPrefix}-badge`}

@@ -41,29 +41,19 @@
       position: relative;
     }
 
-    &-active + .@{class-prefix-side-bar}-item {
-      border-top-right-radius: var(--item-border-radius);
-    }
-
-    &-active::before {
-      content: '';
+    &-corner {
       width: var(--item-border-radius);
       height: var(--item-border-radius);
-      background-color: var(--adm-color-white);
       position: absolute;
-      top: calc(var(--item-border-radius) * -1);
+      z-index: 100;
       right: 0;
-    }
-
-    &-active::after {
-      content: '';
-      width: var(--item-border-radius);
-      height: var(--item-border-radius);
-      background-color: var(--background-color);
-      border-bottom-right-radius: var(--item-border-radius);
-      position: absolute;
-      top: calc(var(--item-border-radius) * -1);
-      right: 0;
+      &-top {
+        top: calc(var(--item-border-radius) * -1);
+      }
+      &-bottom {
+        bottom: calc(var(--item-border-radius) * -1);
+        transform: rotate(-90deg);
+      }
     }
 
     &-disabled {
