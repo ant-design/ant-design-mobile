@@ -118,6 +118,7 @@ export const Picker = memo<PickerProps>(p => {
 
   const popupElement = (
     <Popup
+      className={`${classPrefix}-popup`}
       visible={props.visible}
       position='bottom'
       onMaskClick={() => {

@@ -15,11 +15,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 8px;
+  padding: 4px 4px;
   &-button {
     font-size: 15px;
     display: inline-block;
-    padding: 4px 4px;
+    padding: 8px 8px;
   }
   &-title {
     padding: 4px 4px;
@@ -36,5 +36,12 @@
   width: 100%;
   > .adm-picker-view {
     --height: 100%;
+  }
+}
+
+.@{class-prefix-picker}-popup {
+  & .adm-popup-body {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
   }
 }
