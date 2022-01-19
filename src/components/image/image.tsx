@@ -20,6 +20,7 @@ export type ImageProps = {
   lazy?: boolean
   onClick?: (event: React.MouseEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
+  onLoad?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
 } & NativeProps<'--width' | '--height'> &
   Pick<
     React.ImgHTMLAttributes<HTMLImageElement>,
@@ -78,8 +79,9 @@ export const Image = staged<ImageProps>(p => {
         src={src}
         alt={props.alt}
         onClick={props.onClick}
-        onLoad={() => {
+        onLoad={e => {
           setLoaded(true)
+          props.onLoad?.(e)
         }}
         onError={e => {
           setFailed(true)
