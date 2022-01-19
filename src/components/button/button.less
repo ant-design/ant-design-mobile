@@ -34,8 +34,12 @@
   }
   &::before {
     position: absolute;
-    top: calc(var(--border-width) * -1);
-    left: calc(var(--border-width) * -1);
+    top: 0;
+    left: 0;
+    transform: translate(
+      calc(var(--border-width) * -1),
+      calc(var(--border-width) * -1)
+    );
     width: 100%;
     height: 100%;
     background-color: #000;
@@ -56,7 +60,7 @@
     }
     &.@{class-prefix-button}-fill-none {
       --background-color: transparent;
-      --border-color: transparent;
+      --border-width: 0px;
     }
   }
   &:not(&-default) {
