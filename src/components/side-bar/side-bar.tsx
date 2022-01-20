@@ -75,20 +75,20 @@ export const SideBar: FC<SideBarProps> = props => {
               }}
               className={classNames(`${classPrefix}-item`, {
                 [`${classPrefix}-item-active`]: active,
-                [`${classPrefix}-item-active-previous-sibling`]:
-                  isActivePreviousSibling,
-                [`${classPrefix}-item-active-next-sibling`]:
-                  isActiveNextSibling,
                 [`${classPrefix}-item-disabled`]: item.props.disabled,
               })}
             >
               <>
-                <Corner
-                  className={`${classPrefix}-item-corner ${classPrefix}-item-corner-top`}
-                />
-                <Corner
-                  className={`${classPrefix}-item-corner ${classPrefix}-item-corner-bottom`}
-                />
+                {isActiveNextSibling && (
+                  <Corner
+                    className={`${classPrefix}-item-corner ${classPrefix}-item-corner-top`}
+                  />
+                )}
+                {isActivePreviousSibling && (
+                  <Corner
+                    className={`${classPrefix}-item-corner ${classPrefix}-item-corner-bottom`}
+                  />
+                )}
               </>
               <Badge
                 content={item.props.badge}
@@ -111,14 +111,11 @@ export const SideBar: FC<SideBarProps> = props => {
           isLastItemActive && `${classPrefix}-item-active-next-sibling`
         )}
       >
-        <>
+        {isLastItemActive && (
           <Corner
             className={`${classPrefix}-item-corner ${classPrefix}-item-corner-top`}
           />
-          <Corner
-            className={`${classPrefix}-item-corner ${classPrefix}-item-corner-bottom`}
-          />
-        </>
+        )}
       </div>
     </div>
   )
