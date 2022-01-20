@@ -2,6 +2,7 @@ import React from 'react'
 import { DemoBlock } from 'demos'
 import { SideBar } from 'antd-mobile'
 import { tabs } from './tabs'
+import styles from './demo2.less'
 
 export default () => {
   return (
@@ -24,8 +25,24 @@ export default () => {
 
       <DemoBlock title='增加计数' padding='0'>
         <SideBar>
-          <SideBar.Item key='key1' title='选项一' />
-          <SideBar.Item key='key2' title='选项二有点长它折行了' />
+          <SideBar.Item
+            key='key1'
+            title={
+              <div>
+                选项一
+                <span className={styles.count}>(8)</span>
+              </div>
+            }
+          />
+          <SideBar.Item
+            key='key2'
+            title={
+              <div>
+                选项二有点长它折行了
+                <span className={styles.count}>(5)</span>
+              </div>
+            }
+          />
         </SideBar>
       </DemoBlock>
     </>
