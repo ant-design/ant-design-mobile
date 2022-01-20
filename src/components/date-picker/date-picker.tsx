@@ -27,8 +27,8 @@ export type DatePickerProps = Pick<
   | 'title'
   | 'stopPropagation'
 > & {
-  value?: Date
-  defaultValue?: Date
+  value?: Date | null
+  defaultValue?: Date | null
   onSelect?: (value: Date) => void
   onConfirm?: (value: Date) => void
   min?: Date
