@@ -17,6 +17,7 @@
 | lazy        | 是否懒加载图片                      | `boolean`                                                        | `false`  |
 | onError     | 加载失败时触发                      | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -        |
 | onClick     | 图片点击事件                        | `(event: React.MouseEvent<HTMLImageElement, Event>) => void`     | -        |
+| onLoad      | 图片加载完时触发                    | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -        |
 
 此外，还支持以下 HTML 原生属性：`crossOrigin`、`decoding`、`loading`、`referrerPolicy`、`sizes`、`srcSet`、`useMap`
 
