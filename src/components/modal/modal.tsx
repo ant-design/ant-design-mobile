@@ -112,7 +112,13 @@ export const Modal: FC<ModalProps> = p => {
             className={`${classPrefix}-main`}
           >
             {!!props.image && (
-              <Image src={props.image} alt='modal header image' width='100%' />
+              <div className={`${classPrefix}-image-container`}>
+                <Image
+                  src={props.image}
+                  alt='modal header image'
+                  width='100%'
+                />
+              </div>
             )}
             <div
               style={props.bodyStyle}

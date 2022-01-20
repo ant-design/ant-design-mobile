@@ -108,7 +108,9 @@ export const Dialog: FC<DialogProps> = p => {
           className={`${classPrefix}-main`}
         >
           {!!props.image && (
-            <Image src={props.image} alt='dialog header image' width='100%' />
+            <div className={`${classPrefix}-image-container`}>
+              <Image src={props.image} alt='dialog header image' width='100%' />
+            </div>
           )}
           <div
             style={props.bodyStyle}
