@@ -113,6 +113,7 @@ export const Stepper: FC<StepperProps> = p => {
         onClick={handleMinus}
         disabled={minusDisabled()}
         fill='none'
+        shape='rectangular'
         color='primary'
       >
         <MinusOutline />
@@ -141,6 +142,7 @@ export const Stepper: FC<StepperProps> = p => {
         onClick={handlePlus}
         disabled={plusDisabled()}
         fill='none'
+        shape='rectangular'
         color='primary'
       >
         <AddOutline />
