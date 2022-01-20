@@ -46,15 +46,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     if (items.length === 0) return
     count += 1
     lists.push(
-      <List
-        header={currentHeader}
-        key={count}
-        mode={mode}
-        style={{
-          '--prefix-width': '6em',
-          '--align-items': 'stretch',
-        }}
-      >
+      <List header={currentHeader} key={count} mode={mode}>
         {items}
       </List>
     )
