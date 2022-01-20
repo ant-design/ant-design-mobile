@@ -50,27 +50,38 @@ export const SideBar: FC<SideBarProps> = props => {
     },
   })
 
+  const lastItem = items[items.length - 1]
+  const isLastItemActive = lastItem && lastItem.key === activeKey
+
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      {items.map(item => {
-        const active = item.key === activeKey
-        return withNativeProps(
-          item.props,
-          <div
-            key={item.key}
-            onClick={() => {
-              const { key } = item
-              if (key === undefined || key === null || item.props.disabled)
-                return
-              setActiveKey(key.toString())
-            }}
-            className={classNames(`${classPrefix}-item`, {
-              [`${classPrefix}-item-active`]: active,
-              [`${classPrefix}-item-disabled`]: item.props.disabled,
-            })}
-          >
-            {active && (
+      <div className={`${classPrefix}-items`}>
+        {items.map((item, index) => {
+          const active = item.key === activeKey
+          const isActiveNextSibling =
+            items[index - 1] && items[index - 1].key === activeKey
+          const isActivePreviousSibling =
+            items[index + 1] && items[index + 1].key === activeKey
+          return withNativeProps(
+            item.props,
+            <div
+              key={item.key}
+              onClick={() => {
+                const { key } = item
+                if (key === undefined || key === null || item.props.disabled)
+                  return
+                setActiveKey(key.toString())
+              }}
+              className={classNames(`${classPrefix}-item`, {
+                [`${classPrefix}-item-active`]: active,
+                [`${classPrefix}-item-active-previous-sibling`]:
+                  isActivePreviousSibling,
+                [`${classPrefix}-item-active-next-sibling`]:
+                  isActiveNextSibling,
+                [`${classPrefix}-item-disabled`]: item.props.disabled,
+              })}
+            >
               <>
                 <Corner
                   className={`${classPrefix}-item-corner ${classPrefix}-item-corner-top`}
@@ -79,19 +90,36 @@ export const SideBar: FC<SideBarProps> = props => {
                   className={`${classPrefix}-item-corner ${classPrefix}-item-corner-bottom`}
                 />
               </>
-            )}
-            <Badge
-              content={item.props.badge}
-              className={`${classPrefix}-badge`}
-            >
-              <div className={`${classPrefix}-item-title`}>
-                {active && <div className={`${classPrefix}-item-highlight`} />}
-                {item.props.title}
-              </div>
-            </Badge>
-          </div>
-        )
-      })}
+              <Badge
+                content={item.props.badge}
+                className={`${classPrefix}-badge`}
+              >
+                <div className={`${classPrefix}-item-title`}>
+                  {active && (
+                    <div className={`${classPrefix}-item-highlight`} />
+                  )}
+                  {item.props.title}
+                </div>
+              </Badge>
+            </div>
+          )
+        })}
+      </div>
+      <div
+        className={classNames(
+          `${classPrefix}-extra-space`,
+          isLastItemActive && `${classPrefix}-item-active-next-sibling`
+        )}
+      >
+        <>
+          <Corner
+            className={`${classPrefix}-item-corner ${classPrefix}-item-corner-top`}
+          />
+          <Corner
+            className={`${classPrefix}-item-corner ${classPrefix}-item-corner-bottom`}
+          />
+        </>
+      </div>
     </div>
   )
 }
