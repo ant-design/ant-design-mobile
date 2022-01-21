@@ -27,7 +27,14 @@ export default () => {
           <Tabs.Tab title='蔬菜' key='vegetables'>
             西红柿
           </Tabs.Tab>
-          <Tabs.Tab title={<Badge content='1'>动物</Badge>} key='animals'>
+          <Tabs.Tab
+            title={
+              <Badge content='1' style={{ '--right': '-10px', '--top': '8px' }}>
+                动物
+              </Badge>
+            }
+            key='animals'
+          >
             蚂蚁
           </Tabs.Tab>
         </Tabs>

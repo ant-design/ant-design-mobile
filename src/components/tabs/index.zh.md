@@ -16,13 +16,13 @@
 
 ### CSS 变量
 
-| 属性                        | 说明                                                                   | 默认值 |
-| --------------------------- | ---------------------------------------------------------------------- | ------ |
-| --fixed-active-line-width   | 当前激活 `tab` 下划线的宽度，仅在 `activeLineMode` 为 `'fixed'` 时有效 | `30px` |
-| --title-font-size           | 选项卡头文字的大小                                                     | `17px` |
-| --content-padding           | `tab` 内容区的 `padding`                                               | `12px` |
-| --active-line-height        | 当前激活 `tab` 下划线的高度                                            | `2px`  |
-| --active-line-border-radius | 当前激活 `tab` 下划线的圆角                                            | `0`    |
+| 属性                        | 说明                                                                   | 默认值                      |
+| --------------------------- | ---------------------------------------------------------------------- | --------------------------- |
+| --fixed-active-line-width   | 当前激活 `tab` 下划线的宽度，仅在 `activeLineMode` 为 `'fixed'` 时有效 | `30px`                      |
+| --title-font-size           | 选项卡头文字的大小                                                     | `17px`                      |
+| --content-padding           | `tab` 内容区的 `padding`                                               | `12px`                      |
+| --active-line-height        | 当前激活 `tab` 下划线的高度                                            | `2px`                       |
+| --active-line-border-radius | 当前激活 `tab` 下划线的圆角                                            | `var(--active-line-height)` |
 
 ## Tabs.Tab
 
