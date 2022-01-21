@@ -4,7 +4,6 @@
   --font-size: 17px;
   --color: var(--adm-color-text);
   --placeholder-color: var(--adm-color-light);
-  --disabled-color: var(--adm-color-weak);
   --text-align: left;
 
   display: flex;
@@ -44,10 +43,8 @@
   }
 
   &:disabled {
-    color: var(--disabled-color);
+    opacity: 0.4;
     cursor: not-allowed;
-    opacity: 1;
-    -webkit-text-fill-color: var(--disabled-color);
   }
 
   &:read-only {

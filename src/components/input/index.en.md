@@ -25,13 +25,12 @@ In addition, the following native attributes are supported: `maxLength` `minLeng
 
 ### CSS Variables
 
-| Name                | Description               | Default                  |
-| ------------------- | ------------------------- | ------------------------ |
-| --font-size         | Text font size.           | `17px`                   |
-| --color             | Text color.               | `var(--adm-color-text)`  |
-| --placeholder-color | Placeholder text color.   | `var(--adm-color-light)` |
-| --disabled-color    | Text color when disabled. | `var(--adm-color-weak)`  |
-| --text-align        | The alignment of text.    | `left`                   |
+| Name                | Description             | Default                  |
+| ------------------- | ----------------------- | ------------------------ |
+| --font-size         | Text font size.         | `17px`                   |
+| --color             | Text color.             | `var(--adm-color-text)`  |
+| --placeholder-color | Placeholder text color. | `var(--adm-color-light)` |
+| --text-align        | The alignment of text.  | `left`                   |
 
 ### Ref
 

@@ -53,11 +53,7 @@ export type InputProps = Pick<
     | 'search'
     | 'send'
 } & NativeProps<
-    | '--font-size'
-    | '--color'
-    | '--placeholder-color'
-    | '--disabled-color'
-    | '--text-align'
+    '--font-size' | '--color' | '--placeholder-color' | '--text-align'
   >
 
 const defaultProps = {
