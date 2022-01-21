@@ -209,7 +209,8 @@ exports.umdWebpack = umdWebpack
 exports.default = gulp.series(
   clean,
   buildES,
-  gulp.parallel(buildCJS, buildDeclaration, buildStyle),
+  buildCJS,
+  gulp.parallel(buildDeclaration, buildStyle),
   copyAssets,
   copyMetaFiles,
   generatePackageJSON,
