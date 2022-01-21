@@ -138,7 +138,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         onKeyDown={handleKeydown}
         onKeyUp={props.onKeyUp}
       />
-      {props.clearable && !!value && hasFocus && (
+      {props.clearable && !!value && (
         <div
           className={`${classPrefix}-clear`}
           onMouseDown={e => {

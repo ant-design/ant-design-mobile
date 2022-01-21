@@ -28,7 +28,7 @@
 | --background        | 背景色                 | `#f5f5f5`               |
 | --border-radius     | 圆角                   | `6px`                   |
 | --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-weak)` |
-| --height            | 高度                   | `28px`                  |
+| --height            | 高度                   | `32px`                  |
 | --padding-left      | 搜索框的左侧 padding   | `8px`                   |
 
 ## Ref
