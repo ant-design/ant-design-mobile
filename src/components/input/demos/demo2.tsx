@@ -1,6 +1,7 @@
 import React from 'react'
-import { Form, Input, List } from 'antd-mobile'
+import { Form, Input } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import styles from './demo2.less'
 
 export default () => {
   return (
@@ -29,7 +30,14 @@ export default () => {
 
       <DemoBlock title='额外的操作按钮' padding='0' border='none'>
         <Form layout='horizontal'>
-          <Form.Item label='短信验证码' extra={<a>发送验证码</a>}>
+          <Form.Item
+            label='短信验证码'
+            extra={
+              <div className={styles.extraPart}>
+                <a>发送验证码</a>
+              </div>
+            }
+          >
             <Input placeholder='请输入验证码' clearable />
           </Form.Item>
         </Form>
