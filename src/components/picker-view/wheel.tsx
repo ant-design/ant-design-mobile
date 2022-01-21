@@ -5,7 +5,7 @@ import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
-import isEqual from 'lodash/isEqual'
+import { isEqual } from 'lodash-es'
 
 const classPrefix = `adm-picker-view`
 
