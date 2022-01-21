@@ -1,5 +1,5 @@
 import React from 'react'
-import { Steps } from 'antd-mobile'
+import { Button, Space, Steps } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import {
   CheckCircleFill,
@@ -25,6 +25,7 @@ export default () => {
           <Step title='第一步' />
           <Step title='第二步' />
           <Step title='第三步' status='error' />
+          <Step title='第四步' />
         </Steps>
       </DemoBlock>
 
@@ -57,21 +58,35 @@ export default () => {
         </Steps>
       </DemoBlock>
 
-      <DemoBlock title='自定义图标'>
-        <Steps direction='vertical' current={1}>
+      <DemoBlock title='自定义图标和大小'>
+        <Steps
+          direction='vertical'
+          current={1}
+          style={{
+            '--title-font-size': '17px',
+            '--description-font-size': '15px',
+            '--indicator-margin-right': '12px',
+            '--icon-size': '22px',
+          }}
+        >
           <Step
-            title='第一步'
-            description='完成人1111'
+            title='填写机构信息'
+            description='这里是一些描述'
             icon={<CheckCircleFill />}
           />
           <Step
-            title='第二步'
-            description='完成人1111'
+            title='签约机构'
+            description={
+              <Space block direction='vertical'>
+                <div>这里是一些描述</div>
+                <Button color='primary'>去查看</Button>
+              </Space>
+            }
             icon={<ClockCircleFill />}
           />
           <Step
-            title='第三步'
-            description='完成人1111'
+            title='关联服务区'
+            description='这里是一些描述'
             icon={<HandPayCircleOutline />}
           />
         </Steps>

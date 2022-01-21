@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
-import Loading from '../loading'
+import DotLoading from '../dot-loading'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
@@ -63,7 +63,7 @@ export const Button: FC<ButtonProps> = p => {
     >
       {props.loading ? (
         <div className={`${classPrefix}-loading-wrapper`}>
-          <Loading color='currentColor' />
+          <DotLoading color='currentColor' />
           {props.loadingText}
         </div>
       ) : (

@@ -3,6 +3,10 @@ export const base = {
     confirm: 'Confirm',
     cancel: 'Cancel',
   },
+  Calendar: {
+    markItems: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    renderYearAndMonth: (year: number, month: number) => `${year}/${month}`,
+  },
   Cascader: {
     placeholder: 'Selecting',
   },

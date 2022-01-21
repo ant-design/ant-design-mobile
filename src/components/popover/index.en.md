@@ -18,6 +18,7 @@
 | destroyOnHide   | When hiding, whether to destroy the content of `tooltip`                                     | `boolean`                                                                                                                                                        | `false`               |
 | content         | The content of the Popover                                                                   | `React.ReactNode`                                                                                                                                                | -                     |
 | mode            | Set bright color mode or black mode                                                          | `'light' \| 'dark'`                                                                                                                                              | `'light'`             |
+| stopPropagation | Stop the propagation of some events.                                                         | `PropagationEvent[]`                                                                                                                                             | `['click']`           |
 
 ### Popover.Menu
 

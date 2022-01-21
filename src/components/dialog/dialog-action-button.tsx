@@ -41,6 +41,7 @@ export const DialogActionButton: FC<{
         'adm-dialog-button-bold': action.bold,
       })}
       fill='none'
+      shape='rectangular'
       block
       color={action.danger ? 'danger' : 'primary'}
       loading={loading}

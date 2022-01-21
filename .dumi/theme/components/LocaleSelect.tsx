@@ -48,7 +48,7 @@ const LocaleSelect: FC<{ location: any }> = ({ location }) => {
 
   useEffect(() => {
     if (localeInStorage !== locale) {
-      history.push(getLocaleTogglePath(localeInStorage))
+      history.replace(getLocaleTogglePath(localeInStorage))
     }
   }, [])
 

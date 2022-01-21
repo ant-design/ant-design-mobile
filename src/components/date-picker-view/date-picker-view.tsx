@@ -1,5 +1,6 @@
 import React, { FC, ReactNode, useCallback, useMemo } from 'react'
 import PickerView from '../picker-view'
+import type { PickerValue } from '../picker-view'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -48,7 +49,7 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
   )
 
   const onChange = useCallback(
-    (val: string[]) => {
+    (val: PickerValue[]) => {
       const date = convertStringArrayToDate(val, props.precision)
       if (date) {
         setValue(date)

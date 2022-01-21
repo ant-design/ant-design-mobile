@@ -18,6 +18,8 @@
 
 ### Vertical
 
+When you use a vertical Swiper, be sure to set its height through the `--height` CSS variable, otherwise the Swiper will display abnormally.
+
 <code src="./demos/demo5.tsx"></code>
 
 <code src="./demos/demo6.tsx" debug></code>

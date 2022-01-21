@@ -6,6 +6,8 @@ import { CheckListContext } from './context'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckOutline } from 'antd-mobile-icons'
 
+const classPrefix = 'adm-check-list'
+
 export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
   defaultValue?: string[]
   value?: string[]
@@ -52,7 +54,12 @@ export const CheckList: FC<CheckListProps> = p => {
         readOnly,
       }}
     >
-      {withNativeProps(props, <List mode={props.mode}>{props.children}</List>)}
+      {withNativeProps(
+        props,
+        <List mode={props.mode} className={classPrefix}>
+          {props.children}
+        </List>
+      )}
     </CheckListContext.Provider>
   )
 }

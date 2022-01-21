@@ -14,6 +14,13 @@ export default () => {
         <SearchBar placeholder='请输入内容' />
       </DemoBlock>
 
+      <DemoBlock title='白色的搜索框' background='#f5f5f5'>
+        <SearchBar
+          placeholder='请输入内容'
+          style={{ '--background': '#ffffff' }}
+        />
+      </DemoBlock>
+
       <DemoBlock title='带取消按钮的搜索框'>
         <SearchBar placeholder='请输入内容' showCancelButton />
       </DemoBlock>
@@ -70,6 +77,8 @@ export default () => {
           style={{
             '--border-radius': '100px',
             '--background': '#ffffff',
+            '--height': '32px',
+            '--padding-left': '12px',
           }}
         />
       </DemoBlock>

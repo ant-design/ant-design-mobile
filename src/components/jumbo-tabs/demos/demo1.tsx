@@ -53,7 +53,10 @@ export default () => {
         <JumboTabs>
           <JumboTabs.Tab title='水果' description='描述文案' key='fruits' />
           <JumboTabs.Tab title='蔬菜' description='描述文案' key='vegetables' />
-          <JumboTabs.Tab title='动物' description='描述文案' key='animals' />
+          <JumboTabs.Tab title='昆虫' description='描述文案' key='insects' />
+          <JumboTabs.Tab title='花卉' description='描述文案' key='flowers' />
+          <JumboTabs.Tab title='鸟类' description='描述文案' key='birds' />
+          <JumboTabs.Tab title='人类' description='描述文案' key='human' />
         </JumboTabs>
       </DemoBlock>
 

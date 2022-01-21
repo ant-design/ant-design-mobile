@@ -22,6 +22,7 @@ export type DropdownProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   closeOnMaskClick?: boolean
+  closeOnClickAway?: boolean
   onChange?: (key: string | null) => void
   // mask?: boolean;
   arrow?: React.ReactNode
@@ -30,6 +31,7 @@ export type DropdownProps = {
 const defaultProps = {
   defaultActiveKey: null,
   closeOnMaskClick: true,
+  closeOnClickAway: false,
 }
 
 export type DropdownRef = {
@@ -52,6 +54,7 @@ const Dropdown = forwardRef<
 
   // 点击外部区域，关闭
   useClickAway(() => {
+    if (!props.closeOnClickAway) return
     setValue(null)
   }, [navRef, contentRef])
 

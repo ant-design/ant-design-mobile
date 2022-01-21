@@ -24,7 +24,6 @@ function BasicDemo() {
         onClose={() => {
           setVisible(false)
         }}
-        defaultValue={now}
         max={now}
         onConfirm={val => {
           Toast.show(val.toDateString())

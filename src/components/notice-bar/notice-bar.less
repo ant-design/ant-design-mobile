@@ -1,17 +1,21 @@
 @class-prefix-notice-bar: ~'adm-notice-bar';
 
 .@{class-prefix-notice-bar} {
-  height: 30px;
+  --background-color: #ababab;
+  --border-color: #999999;
+  --text-color: #ffffff;
+  --font-size: 15px;
+  --icon-font-size: 18px;
+  --height: 38px;
+
+  height: var(--height);
   box-sizing: border-box;
-  font-size: 14px;
-  line-height: 30px;
+  font-size: var(--font-size);
+  line-height: var(--height);
   padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  --background-color: #b2b2b2;
-  --border-color: #a0a0a0;
-  --text-color: #ffffff;
 
   border: solid 1px var(--border-color);
   border-left: none;
@@ -38,9 +42,11 @@
     --text-color: #1677ff;
   }
 
-  & .@{class-prefix-notice-bar}-left:not(:empty) {
+  & .@{class-prefix-notice-bar}-left {
     flex-shrink: 0;
     margin-right: 8px;
+    font-size: var(--icon-font-size);
+    line-height: var(--height);
   }
   & .@{class-prefix-notice-bar}-content {
     flex: 1;
@@ -54,12 +60,14 @@
       width: auto;
       transition-timing-function: linear;
       position: absolute;
-      padding: 0 4px;
       white-space: nowrap;
     }
   }
   & .@{class-prefix-notice-bar}-right {
     flex-shrink: 0;
     margin-left: 12px;
+  }
+  &-close-icon {
+    font-size: 18px;
   }
 }

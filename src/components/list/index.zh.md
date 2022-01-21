@@ -2,15 +2,38 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## 属性
+<code src="./demos/demo2.tsx"></code>
 
-### List
+<code src="./demos/demo3.tsx"></code>
 
-| 属性 | 说明                   | 类型                  | 默认值      |
-| ---- | ---------------------- | --------------------- | ----------- |
-| mode | 支持默认和卡片两种模式 | `'default' \| 'card'` | `'default'` |
+## List
 
-### List.Item
+### 属性
+
+| 属性   | 说明                   | 类型                  | 默认值      |
+| ------ | ---------------------- | --------------------- | ----------- |
+| header | 标题内容               | `ReactNode`           | -           |
+| mode   | 支持默认和卡片两种模式 | `'default' \| 'card'` | `'default'` |
+
+### CSS 变量
+
+| 属性                      | 说明                                                                                | 默认值                              |
+| ------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------- |
+| --header-font-size        | 头部的字体大小                                                                      | `14px`                              |
+| --prefix-width            | prefix 部分的宽度                                                                   | `auto`                              |
+| --prefix-padding-right    | prefix 部分的右侧 padding                                                           | `12px`                              |
+| --active-background-color | 点击时的背景颜色                                                                    | `var(--adm-border-color)`           |
+| --align-items             | 列表项的 [align-item](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) | `center`                            |
+| --border-inner            | 列表项底部的边框样式                                                                | `solid 1px var(--adm-border-color)` |
+| --border-top              | 列表容器顶部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
+| --border-bottom           | 列表容器底部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
+| --padding-left            | 列表项和列表头部左侧的 padding                                                      | `12px`                              |
+| --padding-right           | 列表项和列表头部右侧的 padding                                                      | `12px`                              |
+| --font-size               | Body 内容的字体大小                                                                 | `17px`                              |
+
+## List.Item
+
+### 属性
 
 | 属性        | 说明                                                            | 类型                            | 默认值                                                     |
 | ----------- | --------------------------------------------------------------- | ------------------------------- | ---------------------------------------------------------- |
@@ -24,20 +47,6 @@
 | disabled    | 是否禁用                                                        | `boolean`                       | `false`                                                    |
 | onClick     | 列表项的点击事件，当设置了 `onClick` 属性时，列表项会有点击效果 | `(e: React.MouseEvent) => void` | -                                                          |
 
-## CSS 变量
-
-### List
-
-| 属性                      | 说明                                                                                | 默认值                              |
-| ------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------- |
-| --prefix-width            | prefix 部分的宽度                                                                   | `auto`                              |
-| --active-background-color | 点击时的背景颜色                                                                    | `var(--adm-border-color)`           |
-| --align-items             | 列表项的 [align-item](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) | `center`                            |
-| --border-inner            | 列表项底部的边框样式                                                                | `solid 1px var(--adm-border-color)` |
-| --border-top              | 列表容器顶部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
-| --border-bottom           | 列表容器底部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
-| --padding-left            | 列表左侧的 padding                                                                  | `12px`                              |
-
-### List.Item
+### CSS 变量
 
 支持 List 中的 `--prefix-width`、`--active-background-color`、`--align-items`

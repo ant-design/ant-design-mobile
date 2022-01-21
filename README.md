@@ -30,7 +30,7 @@ If you have some question about how to use ant-mobile, you can start a [discussi
 
 Feel free to join our DingDing group:
 
-<img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*fo-tQ5wRk5QAAAAAAAAAAAAAARQnAQ" alt="ding-group" width="360" />
+<img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*wy8nQLwxbKYAAAAAAAAAAAAAARQnAQ" alt="ding-group" width="360" /><img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*fo-tQ5wRk5QAAAAAAAAAAAAAARQnAQ" alt="ding-group" width="360" />
 
 ---
 

@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 | Name      | Description                                                          | Type                                        | Default             |
 | --------- | -------------------------------------------------------------------- | ------------------------------------------- | ------------------- |
@@ -15,10 +15,13 @@
 | extra     | Additional operating area, displayed to the left of the close button | `React.ReactNode`                           | -                   |
 | icon      | Radio icon on the left                                               | `React.ReactNode`                           | `<SoundOutlined />` |
 
-## CSS Variables
+### CSS Variables
 
-| Name               | Description      | Default   |
-| ------------------ | ---------------- | --------- |
-| --background-color | background color | `#b2b2b2` |
-| --border-color     | border color     | `#a0a0a0` |
-| --text-color       | text color       | `#ffffff` |
+| Name               | Description                       | Default   |
+| ------------------ | --------------------------------- | --------- |
+| --background-color | background color                  | `#b2b2b2` |
+| --border-color     | border color                      | `#a0a0a0` |
+| --text-color       | text color                        | `#ffffff` |
+| --font-size        | Font size of notice text content. | `15px`    |
+| --icon-font-size   | Font size of left icon.           | `18px`    |
+| --height           | Height of the whole element.      | `38px`    |

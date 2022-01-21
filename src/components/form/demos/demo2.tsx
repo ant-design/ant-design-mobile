@@ -27,7 +27,7 @@ export default () => {
             b: [],
           }}
           footer={
-            <Button block color='primary' onClick={onSubmit}>
+            <Button block color='primary' onClick={onSubmit} size='large'>
               提交
             </Button>
           }
@@ -93,6 +93,7 @@ class RefDemo extends React.Component {
             onClick={() => {
               this.formRef.current?.resetFields()
             }}
+            size='large'
           >
             重置
           </Button>

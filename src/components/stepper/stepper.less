@@ -1,17 +1,18 @@
 @class-prefix-stepper: ~'adm-stepper';
 
 .@{class-prefix-stepper} {
-  --height: 22px;
-  --input-width: 40px;
+  --height: 28px;
+  --input-width: 44px;
   --input-font-size: var(--adm-font-size-main);
   --input-font-color: var(--adm-color-text);
+  --input-background-color: #f5f5f5;
   --border-radius: 2px;
-  --border: 1px solid #e5e5e5;
-  --border-inner: var(--border);
+  --border: none;
+  --border-inner: solid 2px transparent;
   --active-border: var(--border);
-  --button-font-size: 10px;
+  --button-font-size: 15px;
   --button-text-color: var(--adm-color-primary);
-  --button-background-color: transparent;
+  --button-background-color: #f5f5f5;
   --button-width: var(--height);
 
   display: flex;
@@ -26,11 +27,15 @@
     border: var(--active-border);
   }
 
-  .@{class-prefix-stepper}-input {
+  &-middle {
     flex: 1;
-    height: var(--height);
     border-left: var(--border-inner);
     border-right: var(--border-inner);
+  }
+
+  .@{class-prefix-stepper}-input {
+    height: var(--height);
+    background-color: var(--input-background-color);
 
     > input {
       text-align: center;
@@ -47,10 +52,11 @@
     color: var(--button-text-color);
     background-color: var(--button-background-color);
     font-size: var(--button-font-size);
+    --border-width: 0;
 
     &:disabled {
       color: var(--adm-color-weak);
-      opacity: 1;
+      //opacity: 1;
     }
     svg {
       position: absolute;

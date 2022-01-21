@@ -34,8 +34,8 @@ type PickerValueExtend = {
 | onClose      | 确认和取消时都会触发关闭事件 | `() => void`                                                   | -        |
 | visible      | 是否显示选择器               | `boolean`                                                      | `false`  |
 | title        | 标题                         | `ReactNode`                                                    | -        |
-| confirmText  | 确定按钮的文字               | `string`                                                       | `'确定'` |
-| cancelText   | 取消按钮的文字               | `string`                                                       | `'取消'` |
+| confirmText  | 确定按钮的文字               | `ReactNode`                                                    | `'确定'` |
+| cancelText   | 取消按钮的文字               | `ReactNode`                                                    | `'取消'` |
 | children     | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
@@ -124,6 +124,10 @@ Picker.prompt({
 同样地，`CascadePicker` 和 `DatePicker` 也支持 `prompt` 方法，具体用法这里不再赘述。
 
 ## 常见问题
+
+### 如何高亮当前选项
+
+选中选项的 DOM 元素上会有 `data-selected="true"` 属性标记，你可以使用它来为选中项自定义 CSS 样式。
 
 ### 为什么组件的名字叫 "DatePicker" 而不是 "DatetimePicker"？
 

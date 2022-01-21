@@ -53,11 +53,7 @@ export type InputProps = Pick<
     | 'search'
     | 'send'
 } & NativeProps<
-    | '--font-size'
-    | '--color'
-    | '--placeholder-color'
-    | '--disabled-color'
-    | '--text-align'
+    '--font-size' | '--color' | '--placeholder-color' | '--text-align'
   >
 
 const defaultProps = {
@@ -131,13 +127,14 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         min={props.min}
         autoComplete={props.autoComplete}
         pattern={props.pattern}
+        inputMode={props.inputMode}
         type={props.type}
         autoCapitalize={props.autoCapitalize}
         autoCorrect={props.autoCorrect}
         onKeyDown={handleKeydown}
         onKeyUp={props.onKeyUp}
       />
-      {props.clearable && !!value && hasFocus && (
+      {props.clearable && !!value && (
         <div
           className={`${classPrefix}-clear`}
           onMouseDown={e => {
