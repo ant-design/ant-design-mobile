@@ -12,7 +12,7 @@ export type AvatarProps = {
   fallback?: ReactNode
   fit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
 } & Pick<ImageProps, 'alt' | 'lazy' | 'onClick' | 'onError'> &
-  NativeProps<'--size'>
+  NativeProps<'--size' | '--border-radius'>
 
 const defaultProps = {
   fallback: <Fallback />,
