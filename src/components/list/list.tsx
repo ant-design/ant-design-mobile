@@ -18,6 +18,7 @@ export type ListProps = {
   | '--border-top'
   | '--border-bottom'
   | '--padding-left'
+  | '--padding-right'
   | '--font-size'
 >
 
