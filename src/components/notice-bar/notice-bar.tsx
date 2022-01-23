@@ -26,7 +26,14 @@ export type NoticeBarProps = {
   extra?: React.ReactNode
   /** 左侧广播图标 */
   icon?: React.ReactNode
-} & NativeProps<'--background-color' | '--border-color' | '--text-color'>
+} & NativeProps<
+  | '--background-color'
+  | '--border-color'
+  | '--text-color'
+  | '--font-size'
+  | '--icon-font-size'
+  | '--height'
+>
 
 const defaultProps = {
   color: 'default',
