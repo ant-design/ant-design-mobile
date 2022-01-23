@@ -24,7 +24,7 @@ export type ResultProps = {
   title: string
   description?: string
   icon?: ReactNode
-} & NativeProps
+} & NativeProps<'--color' | '--bg-color' | '--adm-color-weak'>
 
 export const Result: FC<ResultProps> = props => {
   const { status, title, description, icon } = props
