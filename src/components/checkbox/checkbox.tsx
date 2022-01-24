@@ -95,7 +95,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
     props,
     <label
       className={classNames(classPrefix, {
-        [`${classPrefix}-checked`]: checked,
+        [`${classPrefix}-checked`]: checked && !props.indeterminate,
         [`${classPrefix}-indeterminate`]: props.indeterminate,
         [`${classPrefix}-disabled`]: disabled,
         [`${classPrefix}-block`]: props.block,

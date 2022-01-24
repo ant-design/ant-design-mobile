@@ -14,7 +14,7 @@
   }
   .@{class-prefix-checkbox}-icon {
     flex: none;
-    border: 1px solid #ccc;
+    border: 1px solid var(--adm-color-light);
     border-radius: var(--icon-size);
     box-sizing: border-box;
     display: flex;
@@ -40,23 +40,12 @@
   &.@{class-prefix-checkbox}-disabled {
     cursor: not-allowed;
     .@{class-prefix-checkbox}-content {
-      color: var(--adm-color-weak);
+      opacity: 0.4;
     }
-    &.@{class-prefix-checkbox}-indeterminate {
-      .@{class-prefix-checkbox}-icon {
-        color: #ccc;
-        border-color: #ccc;
-        background-color: #ebedf0;
-      }
-    }
-    &.@{class-prefix-checkbox}-checked {
-      .@{class-prefix-checkbox}-icon {
-        color: #ccc;
-      }
-    }
-    .@{class-prefix-checkbox}-icon {
-      border-color: #ccc;
-      background-color: #ebedf0;
+    .@{class-prefix-checkbox}-icon.@{class-prefix-checkbox}-icon {
+      color: #b7b7b7;
+      border-color: var(--adm-color-light);
+      background-color: #f5f5f5;
     }
   }
   .@{class-prefix-checkbox}-custom-icon {
@@ -65,7 +54,6 @@
 
   &.@{class-prefix-checkbox}-indeterminate {
     .@{class-prefix-checkbox}-icon {
-      border-color: var(--adm-color-primary);
       background-color: #ffffff;
       color: var(--adm-color-primary);
     }
