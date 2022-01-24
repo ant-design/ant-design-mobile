@@ -35,13 +35,10 @@
 
   .@{class-prefix-stepper}-input {
     height: var(--height);
-    background-color: var(--input-background-color);
-
-    > input {
-      text-align: center;
-      font-size: var(--input-font-size);
-      color: var(--input-font-color);
-    }
+    --background-color: var(--input-background-color);
+    --font-size: var(--input-font-size);
+    --color: var(--input-font-color);
+    --text-align: center;
   }
 
   &-minus,
@@ -56,7 +53,6 @@
 
     &:disabled {
       color: var(--adm-color-weak);
-      //opacity: 1;
     }
     svg {
       position: absolute;

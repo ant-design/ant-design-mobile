@@ -104,7 +104,6 @@ export const Stepper: FC<StepperProps> = p => {
     props,
     <div
       className={classNames(classPrefix, {
-        [`${classPrefix}-disabled`]: disabled,
         [`${classPrefix}-active`]: hasFocus,
       })}
     >

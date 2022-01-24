@@ -9,6 +9,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
+import classNames from 'classnames'
 
 const classPrefix = `adm-input`
 
@@ -101,10 +102,15 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
 
   return withNativeProps(
     props,
-    <div className={`${classPrefix}-wrapper`}>
+    <div
+      className={classNames(
+        `${classPrefix}`,
+        props.disabled && `${classPrefix}-disabled`
+      )}
+    >
       <input
         ref={nativeInputRef}
-        className={classPrefix}
+        className={`${classPrefix}-element`}
         value={value}
         onChange={e => {
           setValue(e.target.value)
