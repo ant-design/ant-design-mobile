@@ -14,6 +14,7 @@ import { nearest } from '../../utils/nearest'
 export type FloatingPanelProps = {
   anchors: number[]
   children: ReactNode
+  onHeightChange?: (height: number, animating: boolean) => void
 } & NativeProps<'--border-radius' | '--z-index'>
 
 export type FloatingPanelRef = {
@@ -46,6 +47,9 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     const [{ y }, api] = useSpring(() => ({
       y: bounds.bottom,
       config: { tension: 300 },
+      onChange: result => {
+        props.onHeightChange?.(result.value.y, y.isAnimating)
+      },
     }))
 
     useDrag(
