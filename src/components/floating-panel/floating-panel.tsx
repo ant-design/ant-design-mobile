@@ -8,14 +8,13 @@ import React, {
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDrag } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
-import { useThrottleFn } from 'ahooks'
 import { supportsPassive } from '../../utils/supports-passive'
 import { nearest } from '../../utils/nearest'
 
 export type FloatingPanelProps = {
   anchors: number[]
   children: ReactNode
-  onHeightChange?: (height: number, still: boolean) => void
+  onHeightChange?: (height: number, animating: boolean) => void
 } & NativeProps<'--border-radius' | '--z-index'>
 
 export type FloatingPanelRef = {
@@ -45,23 +44,11 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       bottom: possibles[0],
     }
 
-    const { run: onHeightChange } = useThrottleFn(
-      result => {
-        const { value } = result
-        props.onHeightChange?.(Math.abs(value.y), pulling)
-      },
-      {
-        wait: 100,
-        trailing: true,
-        leading: true,
-      }
-    )
-
     const [{ y }, api] = useSpring(() => ({
       y: bounds.bottom,
       config: { tension: 300 },
       onChange: result => {
-        onHeightChange(result)
+        props.onHeightChange?.(result.value.y, y.isAnimating)
       },
     }))
 

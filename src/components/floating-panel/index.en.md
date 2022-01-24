@@ -4,10 +4,10 @@
 
 ### Props
 
-| Name           | Description                                     | Type                                       | Description |
-| -------------- | ----------------------------------------------- | ------------------------------------------ | ----------- |
-| anchors        | What height can be dragged to, the unit is `px` | `number[]`                                 | -           |
-| onHeightChange | Triggered when the panel is dragged             | `(height: number, still: boolean) => void` |             |
+| Name           | Description                                                                                                      | Type                                           | Description |
+| -------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ----------- |
+| anchors        | What height can be dragged to, the unit is `px`                                                                  | `number[]`                                     | -           |
+| onHeightChange | Triggered when the height changes, the `animating` parameter indicates whether it is in the process of animation | `(height: number, animating: boolean) => void` |             |
 
 ### Ref
 
