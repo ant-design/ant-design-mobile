@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { memoize } from 'lodash-es'
+import memoize from 'lodash/memoize'
 import {
   CascaderValue,
   CascaderValueExtend,

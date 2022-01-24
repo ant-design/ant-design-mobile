@@ -2825,16 +2825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash-es@npm:^4.17.5":
-  version: 4.17.5
-  resolution: "@types/lodash-es@npm:4.17.5"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 8910f646310aa008bb45071619fe85abf917bbc2c7cc0af883a971de261723247695a58dd966bfa9defd946cef79811d8b075eb6f0af12343080ab0ae6614e12
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:*":
+"@types/lodash@npm:^4.14.178":
   version: 4.14.178
   resolution: "@types/lodash@npm:4.14.178"
   checksum: a69a04a60bfc5257c3130a554b4efa0c383f0141b7b3db8ab7cf07ad2a46ea085fce66d0242da41da7e5647b133d5dfb2c15add9cbed8d7fef955e4a1e5b3128
@@ -4043,7 +4034,7 @@ __metadata:
     "@types/classnames": ^2.3.1
     "@types/jest": ^27.4.0
     "@types/jest-axe": 3.5.3
-    "@types/lodash-es": ^4.17.5
+    "@types/lodash": ^4.14.178
     "@types/react": ^17.0.38
     "@types/react-helmet": ^6.1.5
     "@types/resize-observer-browser": ^0.1.6
@@ -4075,7 +4066,7 @@ __metadata:
     jest-environment-jsdom: 27.4.6
     jest-watch-typeahead: 1.0.0
     less: ^4.1.2
-    lodash-es: ^4.17.21
+    lodash: ^4.17.21
     lorem-ipsum: ^2.0.4
     postcss: ^8.4.5
     postcss-px-multiple: ^0.1.5
@@ -10156,13 +10147,6 @@ fsevents@^1.2.7:
   dependencies:
     p-locate: ^4.1.0
   checksum: 83e51725e67517287d73e1ded92b28602e3ae5580b301fe54bfb76c0c723e3f285b19252e375712316774cf52006cb236aed5704692c32db0d5d089b69696e30
-  languageName: node
-  linkType: hard
-
-"lodash-es@npm:^4.17.21":
-  version: 4.17.21
-  resolution: "lodash-es@npm:4.17.21"
-  checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
   languageName: node
   linkType: hard
 

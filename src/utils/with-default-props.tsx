@@ -1,4 +1,6 @@
-import { assign, assignWith, isUndefined } from 'lodash-es'
+import assign from 'lodash/assign'
+import assignWith from 'lodash/assignWith'
+import isUndefined from 'lodash/isUndefined'
 
 export function mergeProps<A, B>(a: A, b: B): B & A
 export function mergeProps<A, B, C>(a: A, b: B, c: C): C & B & A
