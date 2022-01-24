@@ -16,7 +16,7 @@ export default () => {
       <Form
         form={form}
         footer={
-          <Button block color='primary' onClick={onSubmit}>
+          <Button block color='primary' onClick={onSubmit} size='large'>
             提交
           </Button>
         }

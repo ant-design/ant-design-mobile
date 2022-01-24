@@ -4,7 +4,7 @@ CascaderView is the content area of [Cascader](./cascader).
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 | Name         | Description                                     | Type                                                            | Default    |
 | ------------ | ----------------------------------------------- | --------------------------------------------------------------- | ---------- |
@@ -15,6 +15,10 @@ CascaderView is the content area of [Cascader](./cascader).
 | placeholder  | Hint text                                       | `string`                                                        | `'请选择'` |
 
 For the type definition of `CascaderValue` `CascaderOption` `CascaderValueExtend`, please refer to the document of [Cascader](./cascader#api).
+
+### Loading <Badge>Experimental</Badge>
+
+You can pass `CascaderView.optionSkeleton` as `CascaderOption[]` to the `options` property of CascaderView or the `children` of `CascaderOption`. CascaderView will recognize it and display the skeleton screen effect.
 
 ### CSS Variables
 

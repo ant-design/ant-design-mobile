@@ -1,50 +1,83 @@
-import React from 'react'
-import styles from './hone-page.less'
+import React, { useContext } from 'react'
+import styles from './home-page.less'
+import { context } from 'dumi/theme'
+
+const codesandboxLink =
+  'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json'
 
 export default () => {
+  const { locale } = useContext(context)
+
+  function trans<T>(en: T, zh: T) {
+    return locale === 'zh' ? zh : en
+  }
+
   const characteristics = [
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/dd5520d8-44b4-43a6-88ee-c970e3757d39.svg',
-      title: '高性能',
-      txt: '为严苛场景精心优化，无需配置，即可拥有最佳的包体积大小和极致的性能。',
+      title: trans('Fast', '高性能'),
+      txt: trans(
+        'It is carefully optimized for harsh scenes, without configuration, you can have the best package size and ultimate performance.',
+        '为严苛场景精心优化，无需配置，即可拥有最佳的包体积大小和极致的性能。'
+      ),
     },
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/33cb2ea7-3025-439a-9ce1-212aae26b1cc.svg',
-      title: '可定制',
-      txt: '基于 CSS 变量，你可以可靠且高效地对组件外观进行调整，或是创造出自己的主题。',
+      title: trans('Customizable', '可定制'),
+      txt: trans(
+        'Based on CSS variables, you can reliably and efficiently adjust the appearance of components or create your own themes.',
+        '基于 CSS 变量，你可以可靠且高效地对组件外观进行调整，或是创造出自己的主题。'
+      ),
     },
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/7329c998-6dfd-4764-865a-1839dbcc5653.svg',
-      title: '原子化',
-      txt: '每个组件的功能，不多也不少，恰好就是你所需。',
+      title: trans('Atomic', '原子化'),
+      txt: trans(
+        'The function of each component, neither more nor less, is exactly what you need.',
+        '每个组件的功能，不多也不少，恰好就是你所需。'
+      ),
     },
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/0c1d3f71-9b1a-43df-84a8-8eed55700d65.svg',
-      title: '流畅',
-      txt: '拥有流畅的手势和细腻的动画，助力产品打造出极致体验。',
+      title: trans('Fluent', '流畅'),
+      txt: trans(
+        'With smooth gestures and delicate animation, it helps the product create the ultimate experience.',
+        '拥有流畅的手势和细腻的动画，助力产品打造出极致体验。'
+      ),
     },
   ]
   return (
-    <div className={styles.home_page}>
+    <div className={styles.homePage}>
       {/* 内容部分 */}
-      <div className={styles.honepage_index}>
-        {/* 开始使用 */}
-        <div className={styles.start_using}>
-          <div className={styles.startusing_con}>
-            <p className={styles.antmobile_style}>Ant Design Mobile v5.0发布</p>
-            <p className={styles.startusing_style}>
-              一个基于 Preact / React / React Native 的 UI 组件库
+      <div className={styles.main}>
+        <div className={styles.header}>
+          <div className={styles.headerLeft}>
+            <h1 className={styles.title}>Ant Design Mobile 5.0</h1>
+            <p className={styles.description}>
+              {trans(
+                'Explore the limits of mobile web experience',
+                '探索移动端 web 的体验极限'
+              )}
             </p>
-            <p className={styles.button_style}>
-              <button>开始使用</button>
-              <button>在线体验</button>
+            <p className={styles.buttons}>
+              <a href={trans('/guide/quick-start', '/zh/guide/quick-start')}>
+                {trans('Get Started', '开始使用')}
+              </a>
+              <a href={codesandboxLink} target='_blank'>
+                {trans('Try it Online', '在线体验')}
+              </a>
             </p>
           </div>
+          <img
+            className={styles.headerImage}
+            alt='header-image'
+            src='https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*72wxQ7yN4tEAAAAAAAAAAAAAARQnAQ'
+          />
         </div>
         {/* 功能特性 */}
-        <div className={styles.characteristics}>
-          <p className={styles.homepage_title}>功能特性</p>
-          <ul>
+        <div className={styles.group}>
+          <p className={styles.groupTitle}>{trans('Features', '功能特性')}</p>
+          <ul className={styles.features}>
             {characteristics.map(item => {
               return (
                 <li key={item.title}>
@@ -58,16 +91,23 @@ export default () => {
             })}
           </ul>
         </div>
-        {/*  开发资源 */}
-        <div className={styles.development}>
-          <p className={styles.homepage_title}>开发资源</p>
-          <div className={styles.development_li}>
-            <div className={styles.development_con}>
+        {/* 开发资源 */}
+        <div className={styles.group}>
+          <p className={styles.groupTitle}>{trans('Resources', '开发资源')}</p>
+          <div className={styles.resourcesCardList}>
+            <div className={styles.resourcesCard}>
               <p className={styles.development_con_title}>
-                <span>在线体验</span>
-                <a href='#'>开始体验 &gt;</a>
+                <span>{trans('Online Experience', '在线体验')}</span>
+                <a href={codesandboxLink} target='_blank'>
+                  {trans('Go', '开始体验')} &gt;
+                </a>
               </p>
-              <p>你可以直接在 Codesandbox 上在线体验，无需安装和配置环境。</p>
+              <p>
+                {trans(
+                  'You can directly experience it online on Codesandbox, no need to install and configure the environment.',
+                  '你可以直接在 Codesandbox 上在线体验，无需安装和配置环境。'
+                )}
+              </p>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/b81e0f80-b78b-4a14-95f9-d5b20c648248.svg'
                 alt=''
@@ -76,17 +116,24 @@ export default () => {
             </div>
 
             <div
-              className={styles.development_con}
+              className={styles.resourcesCard}
               style={{
                 backgroundColor: 'rgba(223,246,255,0.3)',
                 background: 'rgba(223,246,255,0.3)',
               }}
             >
               <p className={styles.development_con_title}>
-                <span>组件列表</span>
-                <a href='#'>查看全部 &gt;</a>
+                <span>{trans('All Components', '组件列表')}</span>
+                <a href={trans('/components/button', '/zh/components/button')}>
+                  {trans('View All', '查看全部')} &gt;
+                </a>
               </p>
-              <p>以支付宝移动设计为设计基础，在视觉上紧跟设计规范。</p>
+              <p>
+                {trans(
+                  'Take Alipay mobile design as the design basis, and closely follow the design specifications visually.',
+                  '以支付宝移动设计为设计基础，在视觉上紧跟设计规范。'
+                )}
+              </p>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/59081d14-3243-4503-ac50-d566dea369dd.svg'
                 alt=''
@@ -102,28 +149,37 @@ export default () => {
           </div>
         </div>
         {/* 新手指引 */}
-        <div className={styles.novice_guidance}>
-          <p className={styles.homepage_title}>新手指引</p>
-          <div>
-            <div className={styles.novice_guidance_con}>
+        <div className={styles.group}>
+          <p className={styles.groupTitle}>{trans('Guidance', '新手指引')}</p>
+          <div className={styles.guidance}>
+            <div className={styles.guidanceCard}>
               <div>
-                <p>快速上手</p>
+                <p>{trans('Quick Start', '快速上手')}</p>
                 <p>
-                  轻松两步，快速实现安装和引入组件，antd-mobile 自动为你加载 css
-                  样式文件。
+                  {trans(
+                    'Two easy steps, quick installation and introduction of components, antd-mobile automatically loads css style files for you.',
+                    '轻松两步，快速实现安装和引入组件，antd-mobile 自动为你加载 css 样式文件。'
+                  )}
                 </p>
-                <a href='#'>查看详情 &gt;</a>
+                <a href={trans('/guide/quick-start', '/zh/guide/quick-start')}>
+                  {trans('Detail', '查看详情')} &gt;
+                </a>
               </div>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/541d8987-2040-40d9-a36c-9f37a2bed91e.svg'
                 alt=''
               />
             </div>
-            <div className={styles.novice_guidance_con}>
+            <div className={styles.guidanceCard}>
               <div>
-                <p>常见问题</p>
-                <p>我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。</p>
-                <a href='#'>FAQ &gt;</a>
+                <p>{trans('FAQ', '常见问题')}</p>
+                <p>
+                  {trans(
+                    'We have sorted out some common problems for you. If you have any questions, please check it out first.',
+                    '我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。'
+                  )}
+                </p>
+                <a href={trans('/guide/faq', '/zh/guide/faq')}>FAQ &gt;</a>
               </div>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/0e5fba68-b7d4-4170-9fe2-3b0c2ba6350a.svg'
@@ -133,9 +189,11 @@ export default () => {
           </div>
         </div>
         {/* 谁在使用 */}
-        <div className={styles.whouse}>
-          <p className={styles.homepage_title}>谁在使用</p>
-          <ul>
+        <div className={styles.group}>
+          <p className={styles.groupTitle}>
+            {trans('Who is Using', '谁在使用')}
+          </p>
+          <ul className={styles.using}>
             <li>
               <img
                 src='https://gw.alipayobjects.com/zos/bmw-prod/feb60d13-3a19-4c7c-b2bd-d61cafa2edd0.svg'
@@ -188,78 +246,97 @@ export default () => {
         </div>
       </div>
       {/* 底部导航 */}
-      <div className={styles.btmmenue}>
-        <div className={styles.menue}>
-          <ul>
-            <li>帮助</li>
-            <li>
-              <a href='#'>发布日志</a>
-            </li>
-            <li>
-              <a href='#'>Roadmap</a>
-            </li>
-            <li>
-              <a href='#'>参与贡献</a>
-            </li>
-            <li>
-              <a href='#'>GitHub</a>
-            </li>
-            <li>
-              <a href='#'>提问与反馈</a>
-            </li>
-          </ul>
-
-          <ul>
-            <li>Ant Design</li>
-            <li>
-              <a href='#'>Ant Design</a>
-            </li>
-            <li>
-              <a href='#'>Ant Design Mobile</a>
-            </li>
-            <li>
-              <a href='#'>Ant Design Pro - 中台解决方案</a>
-            </li>
-            <li>
-              <a href='#'>Ant Motiion - 设计动效</a>
-            </li>
-            <li>
-              <a href='#'>Ant UX - 页面逻辑素材</a>
-            </li>
-          </ul>
-
-          <ul>
-            <li>更多产品</li>
-            <li>
-              <a href='#'>Ant Design - 蚂蚁 UI 设计体系</a>
-            </li>
-            <li>
-              <a href='#'>AntV - 蚂蚁数据可视化方案</a>
-            </li>
-            <li>
-              <a href='#'>Egg - 企业级 Node Web 开发框架</a>
-            </li>
-          </ul>
+      <div className={styles.footer}>
+        <div className={styles.columns}>
+          {footerGroups.map(group => (
+            <ul key={group.title}>
+              <li>{group.title}</li>
+              {group.items.map(item => (
+                <li key={item.title}>
+                  <a href={item.link} target='_blank'>
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ))}
 
           <ul>
             <li>钉钉交流反馈群</li>
             <li>
               <img
-                src='https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*8G6wSrrp1DoAAAAAAAAAAAAAARQnAQ'
-                alt=''
+                src='https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ'
+                alt='ding-group'
+                width={240}
               />
             </li>
           </ul>
         </div>
 
-        <div className={styles.btm_foot}>
-          <p>
-            Open-source MIT Licensed &nbsp;&nbsp;|&nbsp;&nbsp; Copyright ©
-            2016-present &nbsp;Alipay.com &nbsp;Powered by&nbsp;{' '}
-            <a href=''>dumi</a>
-          </p>
+        <div className={styles.copyright}>
+          Open-source MIT Licensed
+          {' | '}
+          Copyright © 2016-present Alipay.com
+          {' | '}
+          Powered by{' '}
+          <a href='http://d.umijs.org' target='_blank'>
+            dumi
+          </a>
         </div>
       </div>
     </div>
   )
 }
+
+const footerGroups = [
+  {
+    title: 'Ant Design Moible',
+    items: [
+      {
+        title: 'GitHub',
+        link: 'https://github.com/ant-design/ant-design-mobile',
+      },
+      {
+        title: '发布日志',
+        link: 'https://github.com/ant-design/ant-design-mobile/releases',
+      },
+      {
+        title: 'Roadmap',
+        link: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
+      },
+      {
+        title: '参与贡献',
+        link: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
+      },
+      {
+        title: '提问与反馈',
+        link: 'https://github.com/ant-design/ant-design-mobile/issues/new/choose',
+      },
+    ],
+  },
+  {
+    title: 'Ant Design',
+    items: [
+      { title: 'Ant Design - 桌面端组件库', link: 'https://ant.design' },
+      {
+        title: 'Ant Design Pro - 中台解决方案',
+        link: 'https://pro.ant.design',
+      },
+      { title: 'Ant Motion - 设计动效', link: 'https://motion.ant.design' },
+      { title: 'Ant Design Charts', link: 'https://charts.ant.design/' },
+    ],
+  },
+  {
+    title: '更多产品',
+    items: [
+      {
+        title: 'ahooks - React Hooks 库',
+        link: 'https://github.com/alibaba/hooks',
+      },
+      { title: 'Dumi - 组件/文档研发工具', link: 'https://d.umijs.org' },
+      { title: 'Kitchen - Sketch 工具集', link: 'https://kitchen.alipay.com' },
+      { title: 'AntV - 蚂蚁数据可视化方案', link: 'https://antv.vision' },
+      { title: 'Egg - 企业级 Node Web 开发框架', link: 'https://eggjs.org' },
+    ],
+  },
+]

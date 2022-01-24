@@ -14,15 +14,15 @@ import {
 } from './image-viewer'
 import { useUnmountedRef } from 'ahooks'
 
-type Handler = {
+export type ImageViewerHandler = {
   close: () => void
 }
 
-const handlerSet = new Set<Handler>()
+const handlerSet = new Set<ImageViewerHandler>()
 
 export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
   clearImageViewer()
-  const Wrapper = forwardRef<Handler>((_, ref) => {
+  const Wrapper = forwardRef<ImageViewerHandler>((_, ref) => {
     const [visible, setVisible] = useState(false)
     useEffect(() => {
       setVisible(true)
@@ -49,7 +49,7 @@ export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
       />
     )
   })
-  const ref = createRef<Handler>()
+  const ref = createRef<ImageViewerHandler>()
   const unmount = renderToBody(<Wrapper ref={ref} />)
   const handler = {
     close: () => {
@@ -64,7 +64,7 @@ export function showMultiImageViewer(
   props: Omit<MultiImageViewerProps, 'visible'>
 ) {
   clearImageViewer()
-  const Wrapper = forwardRef<Handler>((_, ref) => {
+  const Wrapper = forwardRef<ImageViewerHandler>((_, ref) => {
     const [visible, setVisible] = useState(false)
     useEffect(() => {
       setVisible(true)
@@ -91,7 +91,7 @@ export function showMultiImageViewer(
       />
     )
   })
-  const ref = createRef<Handler>()
+  const ref = createRef<ImageViewerHandler>()
   const unmount = renderToBody(<Wrapper ref={ref} />)
   const handler = {
     close: () => {

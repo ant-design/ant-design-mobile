@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { InfiniteScroll, List, Loading } from 'antd-mobile'
+import { InfiniteScroll, List, DotLoading } from 'antd-mobile'
 import { sleep } from 'antd-mobile/es/utils/sleep'
 
 let count = 0
@@ -37,7 +37,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
       {hasMore ? (
         <>
           <span>Loading</span>
-          <Loading />
+          <DotLoading />
         </>
       ) : (
         <span>--- 我是有底线的 ---</span>

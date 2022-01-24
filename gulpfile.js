@@ -63,7 +63,11 @@ function buildES() {
       ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
-    .pipe(babel())
+    .pipe(
+      babel({
+        'plugins': ['./babel-transform-less-to-css'],
+      })
+    )
     .pipe(gulp.dest('lib/es/'))
 }
 
@@ -205,7 +209,8 @@ exports.umdWebpack = umdWebpack
 exports.default = gulp.series(
   clean,
   buildES,
-  gulp.parallel(buildCJS, buildDeclaration, buildStyle),
+  buildCJS,
+  gulp.parallel(buildDeclaration, buildStyle),
   copyAssets,
   copyMetaFiles,
   generatePackageJSON,

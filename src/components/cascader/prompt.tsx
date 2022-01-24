@@ -16,7 +16,8 @@ export function prompt(
         <Cascader
           {...props}
           visible={visible}
-          onConfirm={val => {
+          onConfirm={(val, extend) => {
+            props.onConfirm?.(val, extend)
             resolve(val)
           }}
           onClose={() => {

@@ -7,10 +7,10 @@ import React, {
 } from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
-import ImageViewer from '../image-viewer'
+import ImageViewer, { ImageViewerHandler } from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
-import { usePersistFn } from 'ahooks'
+import { useMemoizedFn, useUnmount } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
@@ -46,6 +46,7 @@ export type ImageUploaderProps = {
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
   upload: (file: File) => Promise<ImageUploadItem>
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
+  preview?: boolean
 } & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
@@ -58,12 +59,13 @@ const defaultProps = {
   maxCount: 0,
   defaultValue: [] as ImageUploadItem[],
   accept: 'image/*',
+  preview: true,
 }
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
-  const updateValue = usePersistFn(
+  const updateValue = useMemoizedFn(
     (updater: (prev: ImageUploadItem[]) => ImageUploadItem[]) => {
       setValue(updater(value))
     }
@@ -132,12 +134,10 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               return task
             })
           })
-          updateValue(prev => [
-            ...prev,
-            {
-              url: result.url,
-            },
-          ])
+          updateValue(prev => {
+            const newVal = { ...result }
+            return [...prev, newVal]
+          })
         } catch (e) {
           setTasks(prev => {
             return prev.map(task => {
@@ -158,13 +158,21 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     e.target.value = '' // HACK: fix the same file doesn't trigger onChange
   }
 
+  const imageViewerHandlerRef = useRef<ImageViewerHandler | null>(null)
+
   function previewImage(index: number) {
-    ImageViewer.Multi.show({
+    imageViewerHandlerRef.current = ImageViewer.Multi.show({
       images: value.map(fileItem => fileItem.url),
       defaultIndex: index,
+      onClose: () => {
+        imageViewerHandlerRef.current = null
+      },
     })
-    onPreview && onPreview(index)
   }
+
+  useUnmount(() => {
+    imageViewerHandlerRef.current?.close()
+  })
 
   const showUpload =
     props.showUpload &&
@@ -179,7 +187,12 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             key={fileItem.key ?? index}
             url={fileItem.thumbnailUrl ?? fileItem.url}
             deletable={props.deletable}
-            onClick={() => previewImage(index)}
+            onClick={() => {
+              if (props.preview) {
+                previewImage(index)
+              }
+              onPreview && onPreview(index)
+            }}
             onDelete={async () => {
               const canDelete = await props.onDelete?.(fileItem)
               if (canDelete === false) return

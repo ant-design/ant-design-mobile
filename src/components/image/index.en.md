@@ -17,6 +17,7 @@
 | lazy        | Whether to load image lazily                                        | `boolean`                                                        | `false`             |
 | onError     | Callback when failed to load                                        | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -                   |
 | onClick     | The click event                                                     | `(event: React.MouseEvent<HTMLImageElement, Event>) => void`     | -                   |
+| onLoad      | Triggered when image loaded                                         | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -                   |
 
 In addition, the following HTML native attributes are also supported: `crossOrigin`、`decoding`、`loading`、`referrerPolicy`、`sizes`、`srcSet`、`useMap`
 

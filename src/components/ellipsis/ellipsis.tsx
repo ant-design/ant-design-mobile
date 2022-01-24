@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react'
+import React, { FC, useLayoutEffect, useRef, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
@@ -33,7 +33,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   const [expanded, setExpanded] = useState(false)
   const [exceeded, setExceeded] = useState(false)
 
-  useResizeEffect(() => {
+  function calcEllipsised() {
     const root = rootRef.current
     if (!root) return
     const originStyle = window.getComputedStyle(root)
@@ -148,7 +148,18 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       setEllipsised(ellipsised)
     }
     document.body.removeChild(container)
-  }, rootRef)
+  }
+
+  useResizeEffect(calcEllipsised, rootRef)
+  useLayoutEffect(() => {
+    calcEllipsised()
+  }, [
+    props.content,
+    props.direction,
+    props.rows,
+    props.expandText,
+    props.collapseText,
+  ])
 
   const expandActionElement =
     exceeded && props.expandText ? (

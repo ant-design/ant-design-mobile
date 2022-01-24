@@ -12,7 +12,7 @@ The `show` method supports passing in a `props` object, which contains the follo
 
 | Name            | Description                                                        | Type                                                  | Default         |
 | --------------- | ------------------------------------------------------------------ | ----------------------------------------------------- | --------------- |
-| afterClose      | Callback after `Dialog` is completely closed                       | `() => void`                                          | -               |
+| afterClose      | Callback after `Toast` is completely closed                        | `() => void`                                          | -               |
 | maskStyle       | `Toast` mask style                                                 | `React.CSSProperties`                                 | -               |
 | maskClassName   | `Toast` mask class name                                            | `string`                                              | -               |
 | maskClickable   | Whether allowed to click the background                            | `boolean`                                             | `true`          |

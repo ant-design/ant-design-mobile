@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Image, Button, Loading } from 'antd-mobile'
+import { Image, Button, DotLoading } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
 import { PictureWrongOutline } from 'antd-mobile-icons'
 
@@ -16,7 +16,7 @@ export default () => {
       <div>
         <Image
           src={imageSrc}
-          placeholder={<Loading color='primary' />}
+          placeholder={<DotLoading color='primary' />}
           fallback={
             <PictureWrongOutline
               style={{ fontSize: 96, color: 'var(--adm-color-weak)' }}

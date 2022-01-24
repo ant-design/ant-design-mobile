@@ -4,6 +4,8 @@ The `Input` component is layout-independent. It only includes the most basic inp
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ### API
 
 | Name         | Description                                                                                   | Type                                                 | Default |
@@ -19,17 +21,16 @@ The `Input` component is layout-independent. It only includes the most basic inp
 | id           | The id of the input element, usually used with label                                          | `string`                                             | -       |
 | onEnterPress | The callback when Enter key is pressed                                                        | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | -       |
 
-In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp`
+In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp`
 
 ### CSS Variables
 
-| Name                | Description               | Default                  |
-| ------------------- | ------------------------- | ------------------------ |
-| --font-size         | Text font size.           | `17px`                   |
-| --color             | Text color.               | `var(--adm-color-text)`  |
-| --placeholder-color | Placeholder text color.   | `var(--adm-color-light)` |
-| --disabled-color    | Text color when disabled. | `var(--adm-color-weak)`  |
-| --text-align        | The alignment of text.    | `left`                   |
+| Name                | Description             | Default                  |
+| ------------------- | ----------------------- | ------------------------ |
+| --font-size         | Text font size.         | `17px`                   |
+| --color             | Text color.             | `var(--adm-color-text)`  |
+| --placeholder-color | Placeholder text color. | `var(--adm-color-light)` |
+| --text-align        | The alignment of text.  | `left`                   |
 
 ### Ref
 

@@ -4,7 +4,7 @@ v5 is a completely rewritten version, so there are lots of differences between v
 
 In order to reduce the cost of migration, you can try to use some methods mentioned below to make v2 and v5 live alongside in your project at the same time.
 
-### Method 1: Use antd-mobile-v2
+### Method 1: Use antd-mobile-v2 (Recommended)
 
 We have published a shadow npm package for v2 which is name as `antd-mobile-v2`. You can replace the v2 antd-mobile package in your project with this one.
 

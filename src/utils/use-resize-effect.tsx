@@ -1,11 +1,11 @@
 import { RefObject, useLayoutEffect } from 'react'
-import { usePersistFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
 
 export function useResizeEffect<T extends HTMLElement>(
   effect: (target: T) => void,
   targetRef: RefObject<T>
 ) {
-  const fn = usePersistFn(effect)
+  const fn = useMemoizedFn(effect)
   useLayoutEffect(() => {
     const target = targetRef.current
     if (!target) return

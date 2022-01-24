@@ -304,7 +304,7 @@ export default {
     a[title='站长统计'] {
       display: none;
     }
-    body {
+    html {
       min-height: 100vh;
     }
     `,

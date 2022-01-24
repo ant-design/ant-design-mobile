@@ -36,7 +36,7 @@ export type Action = {
 export type SwipeActionProps = {
   rightActions?: Action[]
   leftActions?: Action[]
-  onAction?: (action: Action) => void
+  onAction?: (action: Action, e: React.MouseEvent) => void
   closeOnTouchOutside?: boolean
   closeOnAction?: boolean
   children: ReactNode
@@ -176,7 +176,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
               close()
             }
             action.onClick?.(e)
-            props.onAction?.(action)
+            props.onAction?.(action, e)
           }}
         >
           {action.text}

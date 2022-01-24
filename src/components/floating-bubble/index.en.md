@@ -4,15 +4,15 @@
 
 FloatingBubble is moveable in Y axis and is limited at the distance from the left or right side of the screen.
 
-## 属性
+## Props
 
-| 属性     | 描述 | 类型      | 默认值 |
-| -------- | ---- | --------- | ------ |
-| children | -    | ReactNode | -      |
+| Name     | Description | Type      | Default |
+| -------- | ----------- | --------- | ------- |
+| children |     ----    | ReactNode |  -----  |
 
-## CSS 变量
+## CSS Variables
 
-| 变量名                    | 描述                                                | 默认值 |
+| Name                      | Description                                         | Default|
 | ------------------------- | --------------------------------------------------- | ------ |
 | --initial-position-left   | Initial distance from the left side of the screen   | -      |
 | --initial-position-right  | Initial distance from the right side of the screen  | -      |

@@ -28,6 +28,8 @@
 | --background        | background color         | `#f5f5f5`               |
 | --border-radius     | circle corner            | `6px`                   |
 | --placeholder-color | `placeholder` font color | `var(--adm-color-weak)` |
+| --height            | input height             | `32px`                  |
+| --padding-left      | The left padding.        | `8px`                   |
 
 ## Ref
 

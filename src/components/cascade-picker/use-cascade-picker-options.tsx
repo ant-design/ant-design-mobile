@@ -6,7 +6,7 @@ export function useCascadePickerOptions(options: CascadePickerOption[]) {
     let depth = 1
     const subOptionsRecord: Record<string, CascadePickerOption[]> = {}
     function traverse(option: CascadePickerOption, currentDepth: number) {
-      if (!option.children || option.children.length === 0) {
+      if (!option.children) {
         return
       }
       subOptionsRecord[option.value] = option.children

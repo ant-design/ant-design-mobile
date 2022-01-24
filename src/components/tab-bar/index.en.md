@@ -13,6 +13,7 @@
 | activeKey        | `key` of currently active `item`                                            | `string \| null`        | -                      |
 | defaultActiveKey | The initialized `key` of the selected `item`, if the `activeKey` is not set | `string \| null`        | `key` of the 1st `Tab` |
 | onChange         | Callback when switching panel                                               | `(key: string) => void` | -                      |
+| safeArea         | Whether to enable safe area padding                                         | `boolean`               | `false`                |
 
 ## TabBar.Item
 

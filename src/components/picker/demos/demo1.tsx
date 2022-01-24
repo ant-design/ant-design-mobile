@@ -3,8 +3,17 @@ import { Picker, Button, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 const basicColumns = [
-  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],
-  ['1', '222222222222222222222222222222222', '3'],
+  [
+    { label: '周一', value: 'Mon' },
+    { label: '周二', value: 'Tues' },
+    { label: '周三', value: 'Wed' },
+    { label: '周四', value: 'Thur' },
+    { label: '周五', value: 'Fri' },
+  ],
+  [
+    { label: '上午', value: 'am' },
+    { label: '下午', value: 'pm' },
+  ],
 ]
 
 // 基础用法

@@ -1,6 +1,7 @@
 import React, { FC, ReactNode, useCallback, useMemo } from 'react'
-import { usePersistFn } from 'ahooks'
-import Picker, { PickerProps } from '../picker'
+import { useMemoizedFn } from 'ahooks'
+import Picker from '../picker'
+import type { PickerProps, PickerValue } from '../picker'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -26,8 +27,8 @@ export type DatePickerProps = Pick<
   | 'title'
   | 'stopPropagation'
 > & {
-  value?: Date
-  defaultValue?: Date
+  value?: Date | null
+  defaultValue?: Date | null
   onSelect?: (value: Date) => void
   onConfirm?: (value: Date) => void
   min?: Date
@@ -45,6 +46,7 @@ const defaultProps = {
   max: new Date(new Date().setFullYear(thisYear + 10)),
   precision: 'day',
   renderLabel: defaultRenderLabel,
+  defaultValue: null as Date | null,
 }
 
 export const DatePicker: FC<DatePickerProps> = p => {
@@ -52,23 +54,28 @@ export const DatePicker: FC<DatePickerProps> = p => {
 
   const [value, setValue] = usePropsValue<Date | null>({
     value: props.value,
-    defaultValue: props.defaultValue ?? null,
-    onChange: props.onConfirm,
+    defaultValue: props.defaultValue,
+    onChange: v => {
+      if (v === null) return
+      props.onConfirm?.(v)
+    },
   })
 
+  const now = useMemo(() => new Date(), [])
+
   const pickerValue = useMemo(
-    () => convertDateToStringArray(value, props.precision),
+    () => convertDateToStringArray(value ?? now, props.precision),
     [value, props.precision]
   )
 
   const onConfirm = useCallback(
-    (val: string[]) => {
+    (val: PickerValue[]) => {
       setValue(convertStringArrayToDate(val, props.precision))
     },
     [setValue, props.precision]
   )
 
-  const onSelect = usePersistFn((val: string[]) => {
+  const onSelect = useMemoizedFn((val: PickerValue[]) => {
     const date = convertStringArrayToDate(val, props.precision)
     props.onSelect?.(date)
   })
@@ -105,16 +112,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
       title={props.title}
       stopPropagation={props.stopPropagation}
     >
-      {items =>
-        props.children?.(
-          items.length === 0
-            ? null
-            : convertStringArrayToDate(
-                items.map(item => item?.value),
-                props.precision
-              )
-        )
-      }
+      {() => props.children?.(value)}
     </Picker>
   )
 }

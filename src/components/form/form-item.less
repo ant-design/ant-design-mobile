@@ -8,8 +8,8 @@
   &-label {
     display: block;
     height: 100%;
+    line-height: 1.5;
     box-sizing: border-box;
-    color: #666;
     position: relative;
 
     &-required {
@@ -25,7 +25,7 @@
     color: var(--adm-color-danger);
   }
 
-  &-hidden {
+  &&-hidden {
     display: none;
   }
 }
@@ -34,9 +34,23 @@
   .@{class-prefix-form-item} {
     &-label {
       margin-bottom: 4px;
+      font-size: 15px;
     }
     &-footer {
       margin-top: 4px;
     }
+  }
+}
+
+.adm-form-horizontal {
+  .adm-list-item-content-prefix {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.@{class-prefix-form-item} {
+  &-label {
+    color: #666666;
   }
 }

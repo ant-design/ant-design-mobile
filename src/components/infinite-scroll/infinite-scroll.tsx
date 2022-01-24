@@ -1,9 +1,9 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React, { FC, useEffect, useRef } from 'react'
-import { useLockFn, usePersistFn } from 'ahooks'
+import { useLockFn, useMemoizedFn } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
-import Loading from '../loading'
+import DotLoading from '../dot-loading'
 
 function isWindow(element: any | Window): element is Window {
   return element === window
@@ -23,7 +23,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
       {hasMore ? (
         <>
           <span>加载中</span>
-          <Loading />
+          <DotLoading />
         </>
       ) : (
         <span>没有更多了</span>
@@ -39,7 +39,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   const elementRef = useRef<HTMLDivElement>(null)
 
   const checkTimeoutRef = useRef<number>()
-  const check = usePersistFn(() => {
+  const check = useMemoizedFn(() => {
     window.clearTimeout(checkTimeoutRef.current)
     checkTimeoutRef.current = window.setTimeout(() => {
       if (!props.hasMore) return

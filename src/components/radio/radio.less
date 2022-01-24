@@ -14,7 +14,7 @@
   }
   .@{class-prefix-radio}-icon {
     flex: none;
-    border: 1px solid #ccc;
+    border: 1px solid var(--adm-color-light);
     border-radius: var(--icon-size);
     box-sizing: border-box;
     display: flex;
@@ -41,12 +41,12 @@
   &.@{class-prefix-radio}-disabled {
     cursor: not-allowed;
     .@{class-prefix-radio}-content {
-      color: var(--adm-color-weak);
+      opacity: 0.4;
     }
     .@{class-prefix-radio}-icon {
-      color: #ccc;
-      border-color: #ccc;
-      background-color: #ebedf0;
+      color: #b7b7b7;
+      border-color: var(--adm-color-light);
+      background-color: #f5f5f5;
     }
   }
   .@{class-prefix-radio}-custom-icon {
@@ -54,7 +54,7 @@
   }
 
   &-content {
-    flex: none;
+    flex: 0 1 auto;
     font-size: var(--font-size);
     padding-left: var(--gap);
   }

@@ -54,7 +54,10 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
   const [activeKey, setActiveKey] = usePropsValue({
     value: props.activeKey,
     defaultValue: props.defaultActiveKey ?? firstActiveKey,
-    onChange: props.onChange,
+    onChange: v => {
+      if (v === null) return
+      props.onChange?.(v)
+    },
   })
 
   const { scrollLeft, animate } = useTabListScroll(

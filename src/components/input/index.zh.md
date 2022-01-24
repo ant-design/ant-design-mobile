@@ -4,6 +4,8 @@
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ### 属性
 
 | 属性         | 说明                                         | 类型                                                 | 默认值  |
@@ -19,7 +21,7 @@
 | id           | input 元素的 id，常用来配合 label 使用       | `string`                                             | -       |
 | onEnterPress | 按下回车的回调                               | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | -       |
 
-此外还支持以下原生属性：`maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp`
+此外还支持以下原生属性：`maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp`
 
 ### CSS 变量
 
@@ -28,7 +30,6 @@
 | --font-size         | 字号                   | `17px`                   |
 | --color             | 文字颜色               | `var(--adm-color-text)`  |
 | --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-light)` |
-| --disabled-color    | 禁用状态下的文字颜色   | `var(--adm-color-weak)`  |
 | --text-align        | 文字对齐方式           | `left`                   |
 
 ### Ref

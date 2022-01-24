@@ -16,11 +16,14 @@
 
 ### CSS Variables
 
-| Name                      | Description                                       | Default |
-| ------------------------- | ------------------------------------------------- | ------- |
-| --fixed-active-line-width | The width of the active tab underline             | `30px`  |
-| --title-font-size         | Font size of the displayed text of the tab header | `17px`  |
-| --content-padding         | Padding of the tab content                        | `12px`  |
+| Name                        | Description                                                                                 | Default                     |
+| --------------------------- | ------------------------------------------------------------------------------------------- | --------------------------- |
+| --fixed-active-line-width   | The width of the active tab underline. Only take effect when `activeLineMode` is `'fixed'`. | `30px`                      |
+| --title-font-size           | Font size of the displayed text of the tab header                                           | `17px`                      |
+| --content-padding           | Padding of the tab content                                                                  | `12px`                      |
+| --content-padding           | Padding of the tab content                                                                  | `12px`                      |
+| --active-line-height        | The height of the active tab underline                                                      | `2px`                       |
+| --active-line-border-radius | The borderRadius of the active tab underline                                                | `var(--active-line-height)` |
 
 ## Tabs.Tab
 
@@ -30,3 +33,9 @@
 | title       | The displayed text of the tab header              | `ReactNode` | -       |
 | disabled    | Whether to disable the tab                        | `boolean`   | `false` |
 | forceRender | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
+
+## FAQ
+
+### Does Tabs support sticky effect?
+
+Yes, but Tabs doesn't have a property like `sticky`. You can add the CSS `position: sticky` to the outer container of Tabs to achieve the ceiling effect.

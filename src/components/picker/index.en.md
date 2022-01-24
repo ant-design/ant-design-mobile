@@ -34,8 +34,8 @@ type PickerValueExtend = {
 | onClose      | Triggered when confirming or cancelling | `() => void`                                                   | -        |
 | visible      | Whether to show or hide the Picker      | `boolean`                                                      | `false`  |
 | title        | Title                                   | `ReactNode`                                                    | -        |
-| confirmText  | Text of the ok button                   | `string`                                                       | `'确定'` |
-| cancelText   | Text of the cancel button               | `string`                                                       | `'取消'` |
+| confirmText  | Text of the ok button                   | `ReactNode`                                                    | `'确定'` |
+| cancelText   | Text of the cancel button               | `ReactNode`                                                    | `'取消'` |
 | children     | Render function of the selected options | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
 In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
@@ -122,6 +122,10 @@ Picker.prompt({
 Similarly, `CascadePicker` and `DatePicker` also support the `prompt` method, the specific usage will not be repeated here.
 
 ## FAQ
+
+### How to highlight the selected items?
+
+The DOM element of selected items has a `data-selected="true"` attribute. You can use this mark to add custom CSS styles to selected items.
 
 ### Why is the name of the component called "DatePicker" instead of "DatetimePicker"?
 

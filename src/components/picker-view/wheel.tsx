@@ -16,7 +16,7 @@ interface Props {
   onSelect: (value: PickerValue, index: number) => void
 }
 
-export const Column = memo<Props>(
+export const Wheel = memo<Props>(
   props => {
     const itemHeight = convertPx(34)
     const { value, column } = props
@@ -59,7 +59,9 @@ export const Column = memo<Props>(
     function scrollSelect(index: number) {
       const finalPosition = index * -itemHeight
       api.start({ y: finalPosition })
-      onSelect(column[index].value)
+      const item = column[index]
+      if (!item) return
+      onSelect(item.value)
     }
 
     const bind = useDrag(
@@ -71,9 +73,8 @@ export const Column = memo<Props>(
           draggingRef.current = false
           const position =
             state.offset[1] + state.velocity[1] * state.direction[1] * 50
-          const targetIndex = -Math.round(
-            bound(position, min, max) / itemHeight
-          )
+          const targetIndex =
+            min < max ? -Math.round(bound(position, min, max) / itemHeight) : 0
           scrollSelect(targetIndex)
         } else {
           const position = state.offset[1]
@@ -185,6 +186,7 @@ export const Column = memo<Props>(
     )
   },
   (prev, next) => {
+    if (prev.index !== next.index) return false
     if (prev.value !== next.value) return false
     if (prev.onSelect !== next.onSelect) return false
     if (!isEqual(prev.column, next.column)) {
@@ -194,4 +196,4 @@ export const Column = memo<Props>(
   }
 )
 
-Column.displayName = 'Column'
+Wheel.displayName = 'Wheel'

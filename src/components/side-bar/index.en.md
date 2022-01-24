@@ -2,6 +2,10 @@
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
+<code src="./demos/demo3.tsx"></code>
+
 ## API
 
 ### SideBar
@@ -23,8 +27,9 @@
 
 ## CSS Variables
 
-| Name                 | Description                                      | Default |
-| -------------------- | ------------------------------------------------ | ------- |
-| --width              | the width of the SideBar                         | `96px`  |
-| --height             | the height of the SideBar                        | `100%`  |
-| --item-border-radius | the border-radius of the currently active `item` | `8px`   |
+| Name                 | Description                                      | Default   |
+| -------------------- | ------------------------------------------------ | --------- |
+| --width              | the width of the SideBar                         | `96px`    |
+| --height             | the height of the SideBar                        | `100%`    |
+| --item-border-radius | the border-radius of the currently active `item` | `8px`     |
+| --background-color   | Color of background                              | `#f5f5f5` |

@@ -23,10 +23,19 @@
 }
 .@{class-prefix-modal}-main {
   width: 100%;
+  max-height: 70vh;
   font-size: 14px;
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  > * {
+    flex: none;
+  }
+  > .adm-modal-image-container {
+    flex: auto;
+  }
   .@{class-prefix-modal}-body {
     padding: 20px 12px 12px;
     .adm-modal-close {
@@ -79,4 +88,8 @@
       }
     }
   }
+}
+
+.@{class-prefix-modal}-image-container {
+  overflow-y: auto;
 }

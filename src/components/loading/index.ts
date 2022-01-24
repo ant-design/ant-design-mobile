@@ -1,6 +1,9 @@
-import './loading.less'
-import { Loading } from './loading'
+// Deprecated
+import '../dot-loading/dot-loading.less'
+import { DotLoading } from '../dot-loading/dot-loading'
 
-export type { LoadingProps } from './loading'
+import type { DotLoadingProps } from '../dot-loading'
 
-export default Loading
+export type LoadingProps = DotLoadingProps
+
+export default DotLoading

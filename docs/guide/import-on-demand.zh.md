@@ -10,7 +10,7 @@ antd-mobile 支持基于 Tree Shaking 的按需加载，大部分的构建工具
 import Button from 'antd-mobile/es/components/button'
 ```
 
-需要注意的是，在手动按需加载时，你还需要在入口文件中引入 `global` 文件来加载一些 antd-mobile 的全局性逻辑和样式：
+需要注意的是，**在手动按需加载时，你还需要在入口文件中引入 `global` 文件来加载一些 antd-mobile 的全局性逻辑和样式**：
 
 ```js
 import 'antd-mobile/es/global'
@@ -26,6 +26,8 @@ module.exports = {
 }
 ```
 
-> 即便你使用了 `babel-plugin-import`，你依然需要在入口文件中手动引入 `global` 文件。
+<Alert type="error">
+  即便你使用了 `babel-plugin-import`，你依然需要在入口文件中手动引入 `global` 文件。
+</Alert>
 
 不难发现，手动按需加载是非常难以维护的，特别是在你的项目中存在多个入口文件时。所以除非你对打包构建的过程和 antd-mobile 本身都有足够的了解，否则我们非常不推荐这样手动处理。

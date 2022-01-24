@@ -83,7 +83,6 @@ export const Slide: FC<Props> = props => {
         from: () => [x.get(), y.get()],
       },
       pinch: {
-        transform: ([d, a]) => [d < 0 ? d * 0.5 : d * 2, 0],
         from: () => [zoom.get(), 0],
       },
       pointer: { touch: true },

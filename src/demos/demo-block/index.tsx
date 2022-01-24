@@ -13,7 +13,7 @@ export const DemoBlock: FC<Props> = props => {
     <div className={styles.demoBlock}>
       <div className={styles.title}>{props.title}</div>
       <div
-        className={styles.content}
+        className={styles.main}
         style={{
           padding: props.padding,
           background: props.background,

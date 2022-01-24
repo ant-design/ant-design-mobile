@@ -23,6 +23,7 @@
 | upload        | 上传方法，入参是需要被上传的文件对象，经过异步处理之后，返回上传结果          | `(file: File) => Promise<ImageUploadItem>`                       | -         |
 | onDelete      | 删除已上传成功的图片时触发，如果返回 `false` 表示阻止删除，支持返回 `Promise` | `(item: ImageUploadItem) => boolean \| Promise<boolean> \| void` | -         |
 | children      | 自定义上传按钮                                                                | `ReactNode`                                                      | -         |
+| preview       | 是否支持预览                                                                  | `boolean`                                                        | `true`    |
 
 ### ImageUploadItem
 

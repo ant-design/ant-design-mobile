@@ -20,6 +20,6 @@ test('renders with color', () => {
     </Badge>
   )
   expect(getByText('新')).toHaveStyle({
-    backgroundColor: 'rgb(16, 142, 233)',
+    '--color': '#108ee9',
   })
 })

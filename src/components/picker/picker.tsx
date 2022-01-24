@@ -13,7 +13,8 @@ import PickerView from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
 import { useConfig } from '../config-provider'
 import { usePickerValueExtend } from '../picker-view/use-picker-value-extend'
-import { usePersistFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
+import SafeArea from '../safe-area'
 
 const classPrefix = `adm-picker`
 
@@ -27,8 +28,8 @@ export type PickerProps = {
   onClose?: () => void
   visible?: boolean
   title?: ReactNode
-  confirmText?: string
-  cancelText?: string
+  confirmText?: ReactNode
+  cancelText?: ReactNode
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
 } & Pick<
   PopupProps,
@@ -74,7 +75,7 @@ export const Picker = memo<PickerProps>(p => {
     }
   }, [value])
 
-  const onChange = usePersistFn((val, ext) => {
+  const onChange = useMemoizedFn((val, ext) => {
     setInnerValue(val)
     if (props.visible) {
       props.onSelect?.(val, ext)
@@ -117,6 +118,7 @@ export const Picker = memo<PickerProps>(p => {
 
   const popupElement = (
     <Popup
+      className={`${classPrefix}-popup`}
       visible={props.visible}
       position='bottom'
       onMaskClick={() => {
@@ -132,6 +134,7 @@ export const Picker = memo<PickerProps>(p => {
       stopPropagation={props.stopPropagation}
     >
       {pickerElement}
+      <SafeArea position='bottom' />
     </Popup>
   )
 

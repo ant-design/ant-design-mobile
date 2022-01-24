@@ -29,6 +29,7 @@ export function alert(p: DialogAlertProps) {
       ],
       onAction: props.onConfirm,
       onClose: () => {
+        props.onClose?.()
         resolve()
       },
     })

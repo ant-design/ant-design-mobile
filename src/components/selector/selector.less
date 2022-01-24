@@ -8,8 +8,12 @@
   font-size: 15px;
   line-height: 1.4;
 
+  .adm-space.adm-space {
+    --gap: 12px;
+  }
+
   &-item {
-    padding: 8px;
+    padding: 8px 16px;
     position: relative;
     background-color: #f5f5f5;
     border-radius: 2px;
@@ -20,6 +24,11 @@
     text-align: center;
     overflow: hidden;
     vertical-align: top;
+
+    &-description {
+      font-size: 13px;
+      color: var(--adm-color-weak);
+    }
 
     &-active,
     &-multiple-active {
@@ -37,7 +46,7 @@
       border-bottom: solid 8px var(--adm-color-primary);
       border-left: solid 10px transparent;
       border-right: solid 10px var(--adm-color-primary);
-      > img {
+      > svg {
         position: absolute;
         left: 0;
         top: 0;

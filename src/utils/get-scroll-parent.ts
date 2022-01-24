@@ -2,7 +2,7 @@ import { canUseDom } from './can-use-dom'
 
 type ScrollElement = HTMLElement | Window
 
-const overflowScrollReg = /scroll|auto/i
+const overflowScrollReg = /scroll|auto|overlay/i
 const defaultRoot = canUseDom ? window : undefined
 
 function isElement(node: Element) {
