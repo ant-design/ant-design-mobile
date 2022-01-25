@@ -6,6 +6,9 @@ import { mergeProps } from '../../utils/with-default-props'
 import { ArrowLeft } from './arrow-left'
 import { ArrowLeftDouble } from './arrow-left-double'
 import { useConfig } from '../config-provider'
+import isoWeek from 'dayjs/plugin/isoWeek'
+
+dayjs.extend(isoWeek)
 
 const classPrefix = 'adm-calendar'
 
