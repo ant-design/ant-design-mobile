@@ -40,3 +40,4 @@ When `length` is not a positive number, replace it with the default value.
 | --cell-size     | Size of cells                                           | `42px`    |
 | --border-color  | Color of border                                         | `#E5E5E5` |
 | --border-radius | Corner radius of border                                 | `8px`     |
+| --dot-size      | The size of the point when the password is hidden       | `10px`    |
