@@ -17,15 +17,13 @@
     border: 1px solid var(--adm-color-light);
     border-radius: var(--icon-size);
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: var(--icon-size);
     height: var(--icon-size);
-    color: #ffffff;
-    &-checked {
-      width: 65%;
-      height: 65%;
+    color: var(--adm-color-white);
+    > svg {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
   }
   &.@{class-prefix-checkbox}-block {
@@ -56,13 +54,6 @@
     .@{class-prefix-checkbox}-icon {
       background-color: #ffffff;
       color: var(--adm-color-primary);
-    }
-
-    .@{class-prefix-checkbox}-indeterminate-checked {
-      width: 60%;
-      height: 60%;
-      border-radius: 100%;
-      background-color: currentColor;
     }
   }
 
