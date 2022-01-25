@@ -1,6 +1,7 @@
 # Switch 开关
 
 <code src="./demos/demo1.tsx"></code>
+
 <code src="./demos/demo2.tsx"></code>
 
 ### 属性
@@ -21,6 +22,6 @@
 | 属性            | 说明     | 默认值                     |
 | --------------- | -------- | -------------------------- |
 | --checked-color | 填充颜色 | `var(--adm-color-primary)` |
-| --width         | 宽度     | `50px`                     |
-| --height        | 高度     | `30px`                     |
+| --width         | 宽度     | `51px`                     |
+| --height        | 高度     | `31px`                     |
 | --border-width  | 边框宽度 | `2px`                      |

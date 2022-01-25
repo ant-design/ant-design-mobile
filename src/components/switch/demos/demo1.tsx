@@ -29,8 +29,8 @@ export default () => {
         <Space wrap>
           <Switch uncheckedText='关' checkedText='开' />
           <Switch
-            checkedText={<CheckOutline />}
-            uncheckedText={<CloseOutline />}
+            checkedText={<CheckOutline fontSize={18} />}
+            uncheckedText={<CloseOutline fontSize={18} />}
           />
           <Switch uncheckedText='0' checkedText='1' />
         </Space>
