@@ -9,6 +9,7 @@ export const dot = Symbol()
 export type BadgeProps = {
   content?: React.ReactNode | typeof dot
   color?: string
+  bordered?: boolean
 } & NativeProps<'--right' | '--top' | '--color'>
 
 export const Badge: FC<BadgeProps> = props => {
@@ -16,10 +17,12 @@ export const Badge: FC<BadgeProps> = props => {
 
   const isDot = content === dot
 
-  const badgeCls = classNames(classPrefix, {
-    [`${classPrefix}-fixed`]: !!children,
-    [`${classPrefix}-dot`]: isDot,
-  })
+  const badgeCls = classNames(
+    classPrefix,
+    !!children && `${classPrefix}-fixed`,
+    isDot && `${classPrefix}-dot`,
+    props.bordered && `${classPrefix}-bordered`
+  )
 
   const element = content
     ? withNativeProps(
@@ -32,7 +35,7 @@ export const Badge: FC<BadgeProps> = props => {
             } as any
           }
         >
-          {!isDot && content}
+          {!isDot && <div className={`${classPrefix}-content`}>{content}</div>}
         </div>
       )
     : null
