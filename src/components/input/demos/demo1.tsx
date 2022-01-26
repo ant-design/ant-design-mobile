@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Input, List } from 'antd-mobile'
+import { Input } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 export default () => {

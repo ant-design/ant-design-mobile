@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Checkbox, Dropdown, Space } from 'antd-mobile'
+import { Checkbox, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { SmileFill, SmileOutline } from 'antd-mobile-icons'
 

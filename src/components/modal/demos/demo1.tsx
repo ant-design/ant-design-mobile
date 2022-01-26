@@ -1,8 +1,7 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Button, Modal, Space, Toast, Divider } from 'antd-mobile'
 import { ExclamationCircleFill } from 'antd-mobile-icons'
 import { DemoBlock, DemoDescription, lorem } from 'demos'
-import { ModalShowRef } from 'antd-mobile/es/components/modal'
 
 import { sleep } from '../../../utils/sleep'
 
