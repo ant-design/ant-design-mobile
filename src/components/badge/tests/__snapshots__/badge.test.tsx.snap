@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge render with content 1`] = `
+<div>
+  <div
+    class="adm-badge-wrap"
+  >
+    text
+    <div
+      class="adm-badge adm-badge-fixed"
+    >
+      <div
+        class="adm-badge-content"
+      >
+        新
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Badge render without content 1`] = `
+<div
+  class="adm-badge"
+  data-testid="test-badge"
+>
+  <div
+    class="adm-badge-content"
+  >
+    123
+  </div>
+</div>
+`;
+
+exports[`Badge renders with color 1`] = `
+<div>
+  <div
+    class="adm-badge-wrap"
+  >
+    text
+    <div
+      class="adm-badge adm-badge-fixed"
+      style="--color: #108ee9;"
+    >
+      <div
+        class="adm-badge-content"
+      >
+        新
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -7,8 +7,8 @@
     "build-doc": "dumi build",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "postinstall": "husky install",
-    "test": "jest --maxWorkers=50%",
-    "test:coverage": "jest --maxWorkers=50% --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "publish": "npm publish ./lib --tag next"
   },
   "dependencies": {
