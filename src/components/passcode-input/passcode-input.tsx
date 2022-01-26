@@ -26,7 +26,13 @@ export type PasscodeInputProps = {
   onFocus?: () => void
   keyboard?: ReactElement<NumberKeyboardProps>
   onFill?: (val: string) => void
-} & NativeProps<'--cell-gap' | '--cell-size'>
+} & NativeProps<
+  | '--cell-gap'
+  | '--cell-size'
+  | '--dot-size'
+  | '--border-color'
+  | '--border-radius'
+>
 
 export type PasscodeInputRef = {
   focus: () => void
