@@ -8,7 +8,7 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "postinstall": "husky install",
     "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test-with-coverage": "jest --coverage",
     "publish": "npm publish ./lib --tag next"
   },
   "dependencies": {

@@ -1,8 +1,9 @@
 import { components } from './components'
+import { IConfig } from 'dumi'
 
 const pxToRem = require('postcss-pxtorem')
 
-export default {
+const config: IConfig = {
   mode: 'site',
   title: 'Ant Design Mobile',
   logo: 'https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*_JSuS4uucYAAAAAAAAAAAAAAARQnAQ',
@@ -323,3 +324,5 @@ export default {
     },
   },
 }
+
+export default config
