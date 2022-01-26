@@ -133,4 +133,6 @@ Because the type of `value` is `Date`.
 
 ### Why is there no "hour-minute" or "month-day" option?
 
-Different from the `Picker` component, the value type of the `DatePicker` is a `Date` object, so it needs to be selected from the beginning of the year. Only the parameters of hour and minutes cannot construct a `Date` object.
+Different from the Picker component, the value type of the DatePicker is a `Date` object, so it needs to be selected from the beginning of the year. Only the parameters of hour and minutes cannot construct a `Date` object.
+
+If you need to use DatePicker like that, you can implement it yourself through the Picker component.
