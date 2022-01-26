@@ -159,27 +159,29 @@ export const Modal: FC<ModalProps> = p => {
                 )}
               </Space>
             </div>
-            <div className={`${classPrefix}-footer`}>
-              <Space direction='vertical' block>
-                {props.actions.map((action, index) => {
-                  return (
-                    <ModalActionButton
-                      key={action.key}
-                      action={action}
-                      onAction={async () => {
-                        await Promise.all([
-                          action.onClick?.(),
-                          props.onAction?.(action, index),
-                        ])
-                        if (props.closeOnAction) {
-                          props.onClose?.()
-                        }
-                      }}
-                    />
-                  )
-                })}
-              </Space>
-            </div>
+            <Space
+              direction='vertical'
+              block
+              className={`${classPrefix}-footer`}
+            >
+              {props.actions.map((action, index) => {
+                return (
+                  <ModalActionButton
+                    key={action.key}
+                    action={action}
+                    onAction={async () => {
+                      await Promise.all([
+                        action.onClick?.(),
+                        props.onAction?.(action, index),
+                      ])
+                      if (props.closeOnAction) {
+                        props.onClose?.()
+                      }
+                    }}
+                  />
+                )
+              })}
+            </Space>
           </animated.div>
         </div>
       </div>

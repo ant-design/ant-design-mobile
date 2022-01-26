@@ -40,10 +40,11 @@
     padding: 20px 12px 12px;
     .adm-modal-close {
       position: absolute;
-      right: 12px;
-      top: 12px;
+      right: 8px;
+      top: 8px;
       color: var(--adm-color-weak);
-      padding: 2px;
+      padding: 4px;
+      font-size: 18px;
     }
     &-header-wrapper {
       display: flex;
@@ -66,25 +67,25 @@
       color: #333;
     }
   }
-  .@{class-prefix-modal}-footer {
-    user-select: none;
-    padding: 8px 12px 12px;
-    .adm-modal-button {
-      font-size: 18px;
-      line-height: 25px;
-      border-right: solid 0.5px var(--adm-border-color);
-      &:last-child {
-        border-right: none;
+}
+
+.@{class-prefix-modal}-footer {
+  user-select: none;
+  padding: 8px 12px 12px;
+  &.adm-space {
+    --gap-vertical: 20px;
+  }
+  .adm-modal-button {
+    font-size: 18px;
+    line-height: 25px;
+    &:not(.adm-modal-button-primary) {
+      padding-top: 0;
+      padding-bottom: 0;
+      &::before {
+        display: none;
       }
-      &:not(.adm-modal-button-primary) {
-        padding-top: 0;
-        padding-bottom: 0;
-        &::before {
-          display: none;
-        }
-        &:active {
-          opacity: 0.7;
-        }
+      &:active {
+        opacity: 0.7;
       }
     }
   }
