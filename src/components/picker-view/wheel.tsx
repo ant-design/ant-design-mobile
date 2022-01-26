@@ -154,7 +154,7 @@ export const Wheel = memo<Props>(
     return (
       <div className={`${classPrefix}-column`} {...bind()}>
         <animated.div
-          style={{ y }}
+          style={{ translateY: y }}
           className={`${classPrefix}-column-wheel`}
           aria-hidden
         >
