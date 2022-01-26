@@ -24,10 +24,12 @@
 .@{class-prefix-modal}-main {
   width: 100%;
   max-height: 70vh;
+  box-sizing: border-box;
   font-size: 14px;
   background-color: white;
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   > * {
@@ -38,13 +40,10 @@
   }
   .@{class-prefix-modal}-body {
     padding: 20px 12px 12px;
-    .adm-modal-close {
-      position: absolute;
-      right: 8px;
-      top: 8px;
-      color: var(--adm-color-weak);
-      padding: 4px;
-      font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    > * + * {
+      margin-top: 8px;
     }
     &-header-wrapper {
       display: flex;
@@ -59,13 +58,18 @@
       text-align: center;
     }
     &-content {
-      max-height: 70vh;
-      overflow-x: hidden;
-      overflow-y: auto;
       font-size: 15px;
       line-height: 1.4;
       color: #333;
     }
+  }
+  .adm-modal-close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    color: var(--adm-color-weak);
+    padding: 4px;
+    font-size: 18px;
   }
 }
 

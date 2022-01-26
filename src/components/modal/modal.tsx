@@ -111,6 +111,17 @@ export const Modal: FC<ModalProps> = p => {
             onClick={e => e.stopPropagation()}
             className={`${classPrefix}-main`}
           >
+            {props.showCloseButton && (
+              <a
+                className={classNames(
+                  `${classPrefix}-close`,
+                  'adm-plain-anchor'
+                )}
+                onClick={props.onClose}
+              >
+                <CloseOutline />
+              </a>
+            )}
             {!!props.image && (
               <div className={`${classPrefix}-image-container`}>
                 <Image
@@ -124,40 +135,25 @@ export const Modal: FC<ModalProps> = p => {
               style={props.bodyStyle}
               className={classNames(`${classPrefix}-body`, props.bodyClassName)}
             >
-              {props.showCloseButton && (
-                <a
-                  className={classNames(
-                    `${classPrefix}-close`,
-                    'adm-plain-anchor'
-                  )}
-                  onClick={props.onClose}
-                >
-                  <CloseOutline />
-                </a>
+              {!!props.header && (
+                <div className={`${classPrefix}-body-header-wrapper`}>
+                  <div className={`${classPrefix}-body-header`}>
+                    {props.header}
+                  </div>
+                </div>
               )}
-              <Space direction='vertical' block>
-                {!!props.header && (
-                  <div className={`${classPrefix}-body-header-wrapper`}>
-                    <div className={`${classPrefix}-body-header`}>
-                      {props.header}
-                    </div>
-                  </div>
-                )}
-                {!!props.title && (
-                  <div className={`${classPrefix}-body-title`}>
-                    {props.title}
-                  </div>
-                )}
-                {!!props.content && (
-                  <div className={`${classPrefix}-body-content`}>
-                    {typeof props.content === 'string' ? (
-                      <AutoCenter>{props.content}</AutoCenter>
-                    ) : (
-                      props.content
-                    )}
-                  </div>
-                )}
-              </Space>
+              {!!props.title && (
+                <div className={`${classPrefix}-body-title`}>{props.title}</div>
+              )}
+              {!!props.content && (
+                <div className={`${classPrefix}-body-content`}>
+                  {typeof props.content === 'string' ? (
+                    <AutoCenter>{props.content}</AutoCenter>
+                  ) : (
+                    props.content
+                  )}
+                </div>
+              )}
             </div>
             <Space
               direction='vertical'

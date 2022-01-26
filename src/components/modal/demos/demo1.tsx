@@ -167,7 +167,16 @@ export default () => {
             onClick={() =>
               Modal.confirm({
                 title: '提示',
-                content: lorem.generateParagraphs(7),
+                content: (
+                  <div
+                    style={{
+                      maxHeight: 'calc(70vh - 200px)',
+                      overflowY: 'auto',
+                    }}
+                  >
+                    {lorem.generateParagraphs(7)}
+                  </div>
+                ),
               })
             }
           >
