@@ -27,7 +27,7 @@ type PickerValueExtend = {
 | ------------ | --------------------------------------- | -------------------------------------------------------------- | -------- |
 | columns      | Options to configure each column        | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
 | value        | Selected options                        | `PickerValue[]`                                                | -        |
-| defaultValue | Default selected options                | `PickerValue[]`                                                | -        |
+| defaultValue | Default selected options                | `PickerValue[]`                                                | `[]`     |
 | onSelect     | Triggered when the options are changed  | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onConfirm    | Triggered when confirming               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onCancel     | Triggered when cancelling               | `() => void`                                                   | -        |
