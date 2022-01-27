@@ -27,6 +27,11 @@ jobs:
           project: './dist'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
+      - name: Create Commit Comment
+        uses: peter-evans/commit-comment@v1
+        with:
+          body: |
+            Doc site for this release: https://antd-mobile-${{ github.sha }}.surge.sh
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
