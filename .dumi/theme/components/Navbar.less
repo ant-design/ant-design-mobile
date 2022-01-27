@@ -44,21 +44,29 @@
   }
 
   &-logo {
-    display: block;
-    height: 36px;
+    display: flex;
+    height: 48px;
     text-decoration: none;
+    align-items: center;
 
     img {
       height: 100%;
+      margin-right: 4px;
     }
-  }
 
-  &-version {
-    color: @c-weak;
-    display: block;
-    margin-left: 8px;
-    font-size: 14px;
-    padding-top: 4px;
+    .title {
+      font-size: 20px;
+      color: #080e29;
+      font-weight: 500;
+    }
+
+    .version {
+      color: @c-weak;
+      display: block;
+      margin-left: 8px;
+      font-size: 14px;
+      padding-top: 4px;
+    }
   }
 
   &-tool {

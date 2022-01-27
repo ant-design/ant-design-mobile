@@ -19,7 +19,7 @@ const Navbar: FC<INavbarProps> = ({
 }) => {
   const {
     base,
-    config: { logo },
+    config: { title, logo },
     nav: navItems,
   } = useContext(context)
 
@@ -30,12 +30,11 @@ const Navbar: FC<INavbarProps> = ({
         onClick={onMobileMenuClick}
       />
       <div className='left-part'>
-        {typeof logo === 'string' && (
-          <Link className='__dumi-default-navbar-logo' to={base}>
-            <img src={logo} alt='logo' />
-          </Link>
-        )}
-        <div className='__dumi-default-navbar-version'>{`v${p.version}`}</div>
+        <Link className='__dumi-default-navbar-logo' to={base}>
+          <img src={logo.toString()} alt='logo' />
+          <div className='title'>{title}</div>
+          <div className='version'>{`v${p.version}`}</div>
+        </Link>
       </div>
       <nav>
         <div className='nav-item'>
