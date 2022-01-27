@@ -3,7 +3,7 @@ import React, { FC, useEffect, useRef } from 'react'
 import { useLockFn, useMemoizedFn } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
-import Loading from '../loading'
+import DotLoading from '../dot-loading'
 
 function isWindow(element: any | Window): element is Window {
   return element === window
@@ -23,7 +23,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
       {hasMore ? (
         <>
           <span>加载中</span>
-          <Loading />
+          <DotLoading />
         </>
       ) : (
         <span>没有更多了</span>

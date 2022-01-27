@@ -38,13 +38,13 @@ export default () => {
       >
         <Space block direction='vertical'>
           <NoticeBar
-            extra={<CloseCircleOutline />}
+            extra={<CloseCircleOutline style={{ fontSize: 18 }} />}
             icon={<CompassOutline />}
             content={'自定义图标'}
           />
           <NoticeBar
             extra={
-              <Space>
+              <Space style={{ '--gap': '12px' }}>
                 <span>查看详情</span>
                 <span>关闭</span>
               </Space>

@@ -1,6 +1,7 @@
 # Switch
 
 <code src="./demos/demo1.tsx"></code>
+
 <code src="./demos/demo2.tsx"></code>
 
 ### Props
@@ -21,6 +22,6 @@
 | Name            | Description  | Default                    |
 | --------------- | ------------ | -------------------------- |
 | --checked-color | Filled color | `var(--adm-color-primary)` |
-| --width         | Width        | `50px`                     |
-| --height        | Height       | `30px`                     |
+| --width         | Width        | `51px`                     |
+| --height        | Height       | `31px`                     |
 | --border-width  | Border width | `2px`                      |

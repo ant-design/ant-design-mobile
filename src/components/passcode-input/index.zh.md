@@ -40,3 +40,4 @@
 | --cell-size     | 单元格大小                              | `42px`    |
 | --border-color  | 边框颜色                                | `#E5E5E5` |
 | --border-radius | 边框圆角                                | `8px`     |
+| --dot-size      | 密码隐藏时，点的大小                    | `10px`    |

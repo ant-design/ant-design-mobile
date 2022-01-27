@@ -1,12 +1,12 @@
 import React, { ReactNode, useMemo } from 'react'
 import classNames from 'classnames'
 import { CheckOutline, CloseOutline } from 'antd-mobile-icons'
-import Loading from '../loading'
 import Mask from '../mask'
 import { mergeProps } from '../../utils/with-default-props'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
 import { GetContainer } from '../../utils/render-to-container'
 import AutoCenter from '../auto-center'
+import SpinLoading from '../spin-loading'
 
 const classPrefix = `adm-toast`
 
@@ -41,7 +41,9 @@ export const InternalToast: React.FC<ToastProps> = p => {
       case 'fail':
         return <CloseOutline />
       case 'loading':
-        return <Loading color='white' className={`${classPrefix}-loading`} />
+        return (
+          <SpinLoading color='white' className={`${classPrefix}-loading`} />
+        )
       default:
         return icon
     }
@@ -73,17 +75,19 @@ export const InternalToast: React.FC<ToastProps> = p => {
       className={classNames(`${classPrefix}-mask`, props.maskClassName)}
       stopPropagation={props.stopPropagation}
     >
-      <div
-        style={{ top }}
-        className={classNames(
-          `${classPrefix}-wrap`,
-          icon ? `${classPrefix}-wrap-icon` : `${classPrefix}-wrap-text`
-        )}
-      >
-        {iconElement && (
-          <div className={`${classPrefix}-icon`}>{iconElement}</div>
-        )}
-        <AutoCenter>{content}</AutoCenter>
+      <div className={classNames(`${classPrefix}-wrap`)}>
+        <div
+          style={{ top }}
+          className={classNames(
+            `${classPrefix}-main`,
+            icon ? `${classPrefix}-main-icon` : `${classPrefix}-main-text`
+          )}
+        >
+          {iconElement && (
+            <div className={`${classPrefix}-icon`}>{iconElement}</div>
+          )}
+          <AutoCenter>{content}</AutoCenter>
+        </div>
       </div>
     </Mask>
   )

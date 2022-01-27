@@ -5,8 +5,8 @@ import { mergeProps } from '../../utils/with-default-props'
 import Space from '../space'
 import Grid from '../grid'
 import { convertPx } from '../../utils/convert-px'
-import selectorCheckMarkImg from '../../assets/selector-check-mark.svg'
 import { usePropsValue } from '../../utils/use-props-value'
+import { CheckMark } from './check-mark'
 
 const classPrefix = `adm-selector`
 
@@ -14,6 +14,7 @@ type SelectorValue = string | number
 
 export interface SelectorOption<V> {
   label: ReactNode
+  description?: ReactNode
   value: V
   disabled?: boolean
 }
@@ -77,9 +78,14 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
         }}
       >
         {option.label}
-        {active && props.multiple && (
+        {option.description && (
+          <div className={`${classPrefix}-item-description`}>
+            {option.description}
+          </div>
+        )}
+        {active && (
           <div className={`${classPrefix}-check-mark-wrapper`}>
-            <img src={selectorCheckMarkImg} />
+            <CheckMark />
           </div>
         )}
       </div>

@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import React, { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-badge`
 
@@ -10,29 +9,33 @@ export const dot = Symbol()
 export type BadgeProps = {
   content?: React.ReactNode | typeof dot
   color?: string
-} & NativeProps<'--right' | '--top'>
+  bordered?: boolean
+} & NativeProps<'--right' | '--top' | '--color'>
 
-export const Badge: FC<BadgeProps> = p => {
-  const props = mergeProps({ color: '#FF411C' }, p)
+export const Badge: FC<BadgeProps> = props => {
   const { content, color, children } = props
 
   const isDot = content === dot
 
-  const badgeCls = classNames(classPrefix, {
-    [`${classPrefix}-fixed`]: !!children,
-    [`${classPrefix}-dot`]: isDot,
-  })
+  const badgeCls = classNames(
+    classPrefix,
+    !!children && `${classPrefix}-fixed`,
+    isDot && `${classPrefix}-dot`,
+    props.bordered && `${classPrefix}-bordered`
+  )
 
   const element = content
     ? withNativeProps(
         props,
         <div
           className={badgeCls}
-          style={{
-            backgroundColor: color,
-          }}
+          style={
+            {
+              '--color': color,
+            } as any
+          }
         >
-          {!isDot && content}
+          {!isDot && <div className={`${classPrefix}-content`}>{content}</div>}
         </div>
       )
     : null

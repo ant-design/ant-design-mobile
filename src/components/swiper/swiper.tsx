@@ -20,6 +20,7 @@ import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
+import { useUpdateEffect } from 'ahooks'
 
 export type SwiperRef = {
   swipeTo: (index: number) => void
@@ -106,6 +107,10 @@ export const Swiper = forwardRef(
       }
 
       const [current, setCurrent] = useState(props.defaultIndex)
+
+      useUpdateEffect(() => {
+        props.onIndexChange?.(current)
+      }, [current])
 
       const [dragging, setDragging, draggingRef] = useRefState(false)
 
@@ -198,23 +203,15 @@ export const Swiper = forwardRef(
       )
 
       function swipeTo(index: number, immediate = false) {
-        if (loop) {
-          const i = modulus(index, count)
-          setCurrent(i)
-          props.onIndexChange?.(i)
-          api.start({
-            position: index * 100,
-            immediate,
-          })
-        } else {
-          const i = bound(index, 0, count - 1)
-          setCurrent(i)
-          props.onIndexChange?.(i)
-          api.start({
-            position: boundIndex(i) * 100,
-            immediate,
-          })
-        }
+        const roundedIndex = Math.round(index)
+        const targetIndex = loop
+          ? modulus(roundedIndex, count)
+          : bound(roundedIndex, 0, count - 1)
+        setCurrent(targetIndex)
+        api.start({
+          position: (loop ? roundedIndex : boundIndex(roundedIndex)) * 100,
+          immediate,
+        })
       }
 
       function swipeNext() {

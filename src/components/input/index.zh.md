@@ -4,6 +4,8 @@
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ### 属性
 
 | 属性         | 说明                                         | 类型                                                 | 默认值  |
@@ -28,7 +30,6 @@
 | --font-size         | 字号                   | `17px`                   |
 | --color             | 文字颜色               | `var(--adm-color-text)`  |
 | --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-light)` |
-| --disabled-color    | 禁用状态下的文字颜色   | `var(--adm-color-weak)`  |
 | --text-align        | 文字对齐方式           | `left`                   |
 
 ### Ref

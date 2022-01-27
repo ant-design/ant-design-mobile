@@ -68,10 +68,11 @@ export default () => {
       <DemoBlock title='自定义css变量'>
         <Stepper
           style={{
+            '--border': '1px solid #f5f5f5',
             '--border-inner': 'none',
-            '--button-background-color': '#F8F9FA',
-            '--height': '30px',
-            '--input-width': '60px',
+            '--height': '36px',
+            '--input-width': '70px',
+            '--input-background-color': '#ffffff',
             '--active-border': '1px solid #1677ff',
           }}
           defaultValue={10000}

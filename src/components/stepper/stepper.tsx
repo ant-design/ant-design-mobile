@@ -24,6 +24,7 @@ export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> & {
     | '--height'
     | '--input-width'
     | '--input-font-size'
+    | '--input-background-color'
     | '--border-radius'
     | '--border'
     | '--border-inner'
@@ -103,7 +104,6 @@ export const Stepper: FC<StepperProps> = p => {
     props,
     <div
       className={classNames(classPrefix, {
-        [`${classPrefix}-disabled`]: disabled,
         [`${classPrefix}-active`]: hasFocus,
       })}
     >
@@ -112,32 +112,36 @@ export const Stepper: FC<StepperProps> = p => {
         onClick={handleMinus}
         disabled={minusDisabled()}
         fill='none'
+        shape='rectangular'
         color='primary'
       >
         <MinusOutline />
       </Button>
-      <Input
-        className={`${classPrefix}-input`}
-        onFocus={e => {
-          setHasFocus(true)
-          props.onFocus?.(e)
-        }}
-        value={inputValue}
-        onChange={val => {
-          disabled || handleInputChange(val)
-        }}
-        disabled={disabled}
-        onBlur={e => {
-          setHasFocus(false)
-          props.onBlur?.(e)
-        }}
-        readOnly={inputReadOnly}
-      />
+      <div className={`${classPrefix}-middle`}>
+        <Input
+          className={`${classPrefix}-input`}
+          onFocus={e => {
+            setHasFocus(true)
+            props.onFocus?.(e)
+          }}
+          value={inputValue}
+          onChange={val => {
+            disabled || handleInputChange(val)
+          }}
+          disabled={disabled}
+          onBlur={e => {
+            setHasFocus(false)
+            props.onBlur?.(e)
+          }}
+          readOnly={inputReadOnly}
+        />
+      </div>
       <Button
         className={`${classPrefix}-plus`}
         onClick={handlePlus}
         disabled={plusDisabled()}
         fill='none'
+        shape='rectangular'
         color='primary'
       >
         <AddOutline />

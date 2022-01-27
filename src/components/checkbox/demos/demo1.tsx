@@ -28,8 +28,8 @@ export default () => {
       <DemoBlock title='选项组'>
         <Checkbox.Group
           value={value}
-          onChange={(val: string[]) => {
-            setValue(val)
+          onChange={val => {
+            setValue(val as string[])
           }}
         >
           <Space direction='vertical'>

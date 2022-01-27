@@ -5,6 +5,10 @@ import type { TooltipProps } from 'rc-tooltip/lib/Tooltip'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps } from '../../utils/native-props'
+import {
+  PropagationEvent,
+  withStopPropagation,
+} from '../../utils/with-stop-propagation'
 
 const classPrefix = `adm-popover`
 const enterClassName = 'entering'
@@ -29,6 +33,7 @@ export type BasePopoverProps = {
     | 'leftBottom'
     | 'rightTop'
     | 'rightBottom'
+  stopPropagation?: PropagationEvent[]
 } & Pick<
   TooltipProps,
   | 'defaultVisible'
@@ -51,6 +56,7 @@ export type PopoverRef = {
 
 const defaultProps = {
   defaultVisible: false,
+  stopPropagation: ['click'],
 }
 
 export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
@@ -75,6 +81,13 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     [visible]
   )
 
+  const overlay = withStopPropagation(
+    props.stopPropagation,
+    <div className={`${classPrefix}-inner-content`}>
+      {(props as PopoverProps).content}
+    </div>
+  )
+
   return (
     <Tooltip
       {...props}
@@ -86,8 +99,9 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       prefixCls={classPrefix}
       getTooltipContainer={props.getContainer || (() => document.body)}
       visible={visible}
+      arrowContent={<span className={`${classPrefix}-arrow-content`} />}
       onVisibleChange={setVisible}
-      trigger={props.trigger}
+      trigger={props.trigger ?? []}
       motion={{
         motionName: {
           appear: enterClassName,
@@ -99,11 +113,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
         },
         motionDeadline: 200,
       }}
-      overlay={
-        <div className={`${classPrefix}-inner-content`}>
-          {(props as PopoverProps).content}
-        </div>
-      }
+      overlay={overlay}
     >
       {props.children}
     </Tooltip>

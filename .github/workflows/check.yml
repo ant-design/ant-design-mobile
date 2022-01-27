@@ -24,4 +24,8 @@ jobs:
       - name: Lint
         run: yarn lint
       - name: Test
-        run: yarn test
+        run: yarn test-with-coverage
+      - name: Codecov
+        uses: codecov/codecov-action@v2.1.0
+        with:
+          directory: ./coverage/

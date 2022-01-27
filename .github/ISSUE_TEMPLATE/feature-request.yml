@@ -10,7 +10,9 @@ body:
     id: antd-mobile-version
     attributes:
       label: Version of antd-mobile
-      description: The exact version of antd-mobile you are currently using.
+      description: |
+        The exact version of antd-mobile you are using.
+        你所使用的 antd-mobile 的准确版本。
       placeholder: eg. 5.0.0-beta.21
     validations:
       required: false

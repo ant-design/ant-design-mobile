@@ -19,7 +19,7 @@
   display: inline-block;
   box-sizing: border-box;
   height: auto;
-  padding: 7px 16px;
+  padding: 8px 12px;
   margin: 0;
   font-size: 15px;
   line-height: 1.4;
@@ -34,21 +34,23 @@
   }
   &::before {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
+    transform: translate(
+      calc(var(--border-width) * -1),
+      calc(var(--border-width) * -1)
+    );
     width: 100%;
     height: 100%;
     background-color: #000;
-    border: inherit;
-    border-color: #000;
-    border-radius: inherit;
-    transform: translate(-50%, -50%);
+    border: var(--border-width) var(--border-style) #000;
+    border-radius: var(--border-radius);
     opacity: 0;
     content: ' ';
     box-sizing: content-box;
   }
   &:active::before {
-    opacity: 0.1;
+    opacity: 0.08;
   }
 
   &-default {
@@ -58,7 +60,7 @@
     }
     &.@{class-prefix-button}-fill-none {
       --background-color: transparent;
-      --border-color: transparent;
+      --border-width: 0px;
     }
   }
   &:not(&-default) {
@@ -72,7 +74,7 @@
     &.@{class-prefix-button}-fill-none {
       --text-color: var(--color);
       --background-color: transparent;
-      --border-color: transparent;
+      --border-width: 0px;
     }
   }
 
@@ -103,7 +105,8 @@
   }
 
   &&-mini {
-    padding: 3px 7px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     font-size: 13px;
     &.@{class-prefix-button}-shape-rounded {
       padding-left: 9px;
@@ -111,11 +114,13 @@
     }
   }
   &&-small {
-    padding: 3px 11px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     font-size: 15px;
   }
   &&-large {
-    padding: 11px 22px;
+    padding-top: 11px;
+    padding-bottom: 11px;
     font-size: 18px;
   }
   &&-shape-rounded {

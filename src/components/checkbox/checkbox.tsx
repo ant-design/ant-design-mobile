@@ -6,6 +6,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { devWarning } from '../../utils/dev-log'
 import { CheckIcon } from './check-icon'
+import { IndeterminateIcon } from './indeterminate-icon'
 
 const classPrefix = `adm-checkbox`
 
@@ -82,11 +83,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
 
     return (
       <div className={`${classPrefix}-icon`}>
-        {props.indeterminate ? (
-          <div className={`${classPrefix}-indeterminate-checked`} />
-        ) : (
-          checked && <CheckIcon className={`${classPrefix}-icon-checked`} />
-        )}
+        {props.indeterminate ? <IndeterminateIcon /> : checked && <CheckIcon />}
       </div>
     )
   }
@@ -95,7 +92,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
     props,
     <label
       className={classNames(classPrefix, {
-        [`${classPrefix}-checked`]: checked,
+        [`${classPrefix}-checked`]: checked && !props.indeterminate,
         [`${classPrefix}-indeterminate`]: props.indeterminate,
         [`${classPrefix}-disabled`]: disabled,
         [`${classPrefix}-block`]: props.block,

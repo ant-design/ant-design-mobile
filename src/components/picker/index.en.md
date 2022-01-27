@@ -27,15 +27,15 @@ type PickerValueExtend = {
 | ------------ | --------------------------------------- | -------------------------------------------------------------- | -------- |
 | columns      | Options to configure each column        | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
 | value        | Selected options                        | `PickerValue[]`                                                | -        |
-| defaultValue | Default selected options                | `PickerValue[]`                                                | -        |
+| defaultValue | Default selected options                | `PickerValue[]`                                                | `[]`     |
 | onSelect     | Triggered when the options are changed  | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onConfirm    | Triggered when confirming               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onCancel     | Triggered when cancelling               | `() => void`                                                   | -        |
 | onClose      | Triggered when confirming or cancelling | `() => void`                                                   | -        |
 | visible      | Whether to show or hide the Picker      | `boolean`                                                      | `false`  |
 | title        | Title                                   | `ReactNode`                                                    | -        |
-| confirmText  | Text of the ok button                   | `string`                                                       | `'确定'` |
-| cancelText   | Text of the cancel button               | `string`                                                       | `'取消'` |
+| confirmText  | Text of the ok button                   | `ReactNode`                                                    | `'确定'` |
+| cancelText   | Text of the cancel button               | `ReactNode`                                                    | `'取消'` |
 | children     | Render function of the selected options | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
 In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
@@ -123,10 +123,16 @@ Similarly, `CascadePicker` and `DatePicker` also support the `prompt` method, th
 
 ## FAQ
 
+### How to highlight the selected items?
+
+The DOM element of selected items has a `data-selected="true"` attribute. You can use this mark to add custom CSS styles to selected items.
+
 ### Why is the name of the component called "DatePicker" instead of "DatetimePicker"?
 
 Because the type of `value` is `Date`.
 
 ### Why is there no "hour-minute" or "month-day" option?
 
-Different from the `Picker` component, the value type of the `DatePicker` is a `Date` object, so it needs to be selected from the beginning of the year. Only the parameters of hour and minutes cannot construct a `Date` object.
+Different from the Picker component, the value type of the DatePicker is a `Date` object, so it needs to be selected from the beginning of the year. Only the parameters of hour and minutes cannot construct a `Date` object.
+
+If you need to use DatePicker like that, you can implement it yourself through the Picker component.

@@ -16,7 +16,7 @@ export default function () {
         form={form}
         layout='horizontal'
         footer={
-          <Button block type='submit' color='primary'>
+          <Button block type='submit' color='primary' size='large'>
             提交
           </Button>
         }

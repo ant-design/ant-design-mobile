@@ -1,8 +1,7 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Button, Modal, Space, Toast, Divider } from 'antd-mobile'
 import { ExclamationCircleFill } from 'antd-mobile-icons'
 import { DemoBlock, DemoDescription, lorem } from 'demos'
-import { ModalShowRef } from 'antd-mobile/es/components/modal'
 
 import { sleep } from '../../../utils/sleep'
 
@@ -167,7 +166,16 @@ export default () => {
             onClick={() =>
               Modal.confirm({
                 title: '提示',
-                content: lorem.generateParagraphs(7),
+                content: (
+                  <div
+                    style={{
+                      maxHeight: 'calc(70vh - 200px)',
+                      overflowY: 'auto',
+                    }}
+                  >
+                    {lorem.generateParagraphs(7)}
+                  </div>
+                ),
               })
             }
           >

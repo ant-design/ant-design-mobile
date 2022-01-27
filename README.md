@@ -7,6 +7,7 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/ant-design/ant-design-mobile.svg)](http://isitmaintained.com/project/ant-design/ant-design-mobile 'Average time to resolve an issue')
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/ant-design/ant-design-mobile.svg)](http://isitmaintained.com/project/ant-design/ant-design-mobile 'Percentage of issues still open')
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ant-design/ant-design-mobile/Check/v5)
+[![codecov](https://codecov.io/gh/ant-design/ant-design-mobile/branch/master/graph/badge.svg?token=2kJyJBg1nK)](https://codecov.io/gh/ant-design/ant-design-mobile)
 ![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mobile)
 
 ```bash
@@ -30,7 +31,7 @@ If you have some question about how to use ant-mobile, you can start a [discussi
 
 Feel free to join our DingDing group:
 
-<img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*fo-tQ5wRk5QAAAAAAAAAAAAAARQnAQ" alt="ding-group" width="360" />
+<img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ" alt="ding-group" width="250" />
 
 ---
 

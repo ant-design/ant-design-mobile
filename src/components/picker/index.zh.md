@@ -27,15 +27,15 @@ type PickerValueExtend = {
 | ------------ | ---------------------------- | -------------------------------------------------------------- | -------- |
 | columns      | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
 | value        | 选中项                       | `PickerValue[]`                                                | -        |
-| defaultValue | 默认选中项                   | `PickerValue[]`                                                | -        |
+| defaultValue | 默认选中项                   | `PickerValue[]`                                                | `[]`     |
 | onSelect     | 选项改变时触发               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onConfirm    | 确认时触发                   | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onCancel     | 取消时触发                   | `() => void`                                                   | -        |
 | onClose      | 确认和取消时都会触发关闭事件 | `() => void`                                                   | -        |
 | visible      | 是否显示选择器               | `boolean`                                                      | `false`  |
 | title        | 标题                         | `ReactNode`                                                    | -        |
-| confirmText  | 确定按钮的文字               | `string`                                                       | `'确定'` |
-| cancelText   | 取消按钮的文字               | `string`                                                       | `'取消'` |
+| confirmText  | 确定按钮的文字               | `ReactNode`                                                    | `'确定'` |
+| cancelText   | 取消按钮的文字               | `ReactNode`                                                    | `'取消'` |
 | children     | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
@@ -125,10 +125,16 @@ Picker.prompt({
 
 ## 常见问题
 
+### 如何高亮当前选项
+
+选中选项的 DOM 元素上会有 `data-selected="true"` 属性标记，你可以使用它来为选中项自定义 CSS 样式。
+
 ### 为什么组件的名字叫 "DatePicker" 而不是 "DatetimePicker"？
 
 因为 `value` 的类型是 `Date`。
 
-### 为什么没有 "时-分" 或者 "月-日" 选择？
+### 日期选择器为什么没有 "时-分" 或者 "月-日" 选择？
 
-不同于 `Picker` 组件，`DatePicker` 的值的类型是 `Date` 对象，所以需要从年开始一直往下选择，只有时、分的参数是不能构建一个 `Date` 对象的。
+不同于 Picker 组件，DatePicker 的值的类型是 `Date` 对象，所以需要从年开始一直往下选择，只有时、分的参数是不能构建一个 `Date` 对象的。
+
+如果你需要使用这样的选择器，可以通过 Picker 组件自行实现。

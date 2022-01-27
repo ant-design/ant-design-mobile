@@ -1,8 +1,18 @@
 @class-prefix-form: ~'adm-form';
 
 .@{class-prefix-form} {
-  .adm-list {
+  .adm-list.adm-list {
     --padding-left: 20px;
+    --padding-right: 20px;
+  }
+  &-horizontal {
+    .adm-list.adm-list {
+      --prefix-width: 6em;
+      --align-items: stretch;
+      .adm-list-item-content-extra {
+        align-self: center;
+      }
+    }
   }
   .@{class-prefix-form}-footer {
     padding: 12px;

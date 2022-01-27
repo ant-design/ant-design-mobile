@@ -8,8 +8,8 @@
 
 .@{class-prefix-switch} {
   --checked-color: var(--adm-color-primary);
-  --height: 30px;
-  --width: 50px;
+  --height: 31px;
+  --width: 51px;
   --border-width: 2px;
 
   display: inline-block;
@@ -69,9 +69,14 @@
   &-inner {
     position: relative;
     z-index: 1;
-    margin: 0 10px 0 calc(var(--height) - var(--border-width) + 5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px 0 calc(var(--height) - var(--border-width) + 4px);
+    height: 100%;
     color: var(--adm-color-weak);
     transition: margin 200ms;
+    font-size: 15px;
   }
 
   /* 选中状态 */

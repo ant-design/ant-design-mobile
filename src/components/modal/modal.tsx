@@ -6,7 +6,10 @@ import Mask from '../mask'
 import { Action, ModalActionButton } from './modal-action-button'
 import Image from '../image'
 import Space from '../space'
-import { GetContainer } from '../../utils/render-to-container'
+import {
+  GetContainer,
+  renderToContainer,
+} from '../../utils/render-to-container'
 import {
   PropagationEvent,
   withStopPropagation,
@@ -47,6 +50,7 @@ const defaultProps = {
   closeOnMaskClick: false,
   stopPropagation: ['click'],
   showCloseButton: false,
+  getContainer: null,
 }
 
 export const Modal: FC<ModalProps> = p => {
@@ -78,7 +82,7 @@ export const Modal: FC<ModalProps> = p => {
 
   const [active, setActive] = useState(props.visible)
 
-  return withStopPropagation(
+  const node = withStopPropagation(
     props.stopPropagation,
     withNativeProps(
       props,
@@ -90,7 +94,6 @@ export const Modal: FC<ModalProps> = p => {
       >
         <Mask
           visible={props.visible}
-          getContainer={props.getContainer}
           onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
           style={props.maskStyle}
           className={classNames(`${classPrefix}-mask`, props.maskClassName)}
@@ -108,72 +111,78 @@ export const Modal: FC<ModalProps> = p => {
             onClick={e => e.stopPropagation()}
             className={`${classPrefix}-main`}
           >
+            {props.showCloseButton && (
+              <a
+                className={classNames(
+                  `${classPrefix}-close`,
+                  'adm-plain-anchor'
+                )}
+                onClick={props.onClose}
+              >
+                <CloseOutline />
+              </a>
+            )}
             {!!props.image && (
-              <Image src={props.image} alt='modal header image' width='100%' />
+              <div className={`${classPrefix}-image-container`}>
+                <Image
+                  src={props.image}
+                  alt='modal header image'
+                  width='100%'
+                />
+              </div>
             )}
             <div
               style={props.bodyStyle}
               className={classNames(`${classPrefix}-body`, props.bodyClassName)}
             >
-              {props.showCloseButton && (
-                <a
-                  className={classNames(
-                    `${classPrefix}-close`,
-                    'adm-plain-anchor'
-                  )}
-                  onClick={props.onClose}
-                >
-                  <CloseOutline />
-                </a>
+              {!!props.header && (
+                <div className={`${classPrefix}-body-header-wrapper`}>
+                  <div className={`${classPrefix}-body-header`}>
+                    {props.header}
+                  </div>
+                </div>
               )}
-              <Space direction='vertical' block>
-                {!!props.header && (
-                  <div className={`${classPrefix}-body-header-wrapper`}>
-                    <div className={`${classPrefix}-body-header`}>
-                      {props.header}
-                    </div>
-                  </div>
-                )}
-                {!!props.title && (
-                  <div className={`${classPrefix}-body-title`}>
-                    {props.title}
-                  </div>
-                )}
-                {!!props.content && (
-                  <div className={`${classPrefix}-body-content`}>
-                    {typeof props.content === 'string' ? (
-                      <AutoCenter>{props.content}</AutoCenter>
-                    ) : (
-                      props.content
-                    )}
-                  </div>
-                )}
-              </Space>
+              {!!props.title && (
+                <div className={`${classPrefix}-body-title`}>{props.title}</div>
+              )}
+              {!!props.content && (
+                <div className={`${classPrefix}-body-content`}>
+                  {typeof props.content === 'string' ? (
+                    <AutoCenter>{props.content}</AutoCenter>
+                  ) : (
+                    props.content
+                  )}
+                </div>
+              )}
             </div>
-            <div className={`${classPrefix}-footer`}>
-              <Space direction='vertical' block>
-                {props.actions.map((action, index) => {
-                  return (
-                    <ModalActionButton
-                      key={action.key}
-                      action={action}
-                      onAction={async () => {
-                        await Promise.all([
-                          action.onClick?.(),
-                          props.onAction?.(action, index),
-                        ])
-                        if (props.closeOnAction) {
-                          props.onClose?.()
-                        }
-                      }}
-                    />
-                  )
-                })}
-              </Space>
-            </div>
+            <Space
+              direction='vertical'
+              block
+              className={`${classPrefix}-footer`}
+            >
+              {props.actions.map((action, index) => {
+                return (
+                  <ModalActionButton
+                    key={action.key}
+                    action={action}
+                    onAction={async () => {
+                      await Promise.all([
+                        action.onClick?.(),
+                        props.onAction?.(action, index),
+                      ])
+                      if (props.closeOnAction) {
+                        props.onClose?.()
+                      }
+                    }}
+                  />
+                )
+              })}
+            </Space>
           </animated.div>
         </div>
       </div>
     )
   )
+
+  return renderToContainer(props.getContainer, node)
 }

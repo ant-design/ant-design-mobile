@@ -10,23 +10,24 @@ type SelectorValue = string | number
 
 ## Selector
 
-| Name         | Description                             | Type                                                                    | Default |
-| ------------ | --------------------------------------- | ----------------------------------------------------------------------- | ------- |
-| value        | Selected value                          | `SelectorValue[]`                                                       | -       |
-| defaultValue | Selected value by default               | `SelectorValue[]`                                                       | `[]`    |
-| columns      | Number of the displayed columns         | `number`                                                                | -       |
-| options      | Optional selector                       | `SelectorOption[]`                                                      | -       |
-| multiple     | Whether to allow multiple selections    | `boolean`                                                               | `false` |
-| disabled     | Whether to disable selecting | `boolean`                                                               | `false` |
-| onChange     | Triggered when the value is changed     | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
+| Name         | Description                          | Type                                                                    | Default |
+| ------------ | ------------------------------------ | ----------------------------------------------------------------------- | ------- |
+| value        | Selected value                       | `SelectorValue[]`                                                       | -       |
+| defaultValue | Selected value by default            | `SelectorValue[]`                                                       | `[]`    |
+| columns      | Number of the displayed columns      | `number`                                                                | -       |
+| options      | Optional selector                    | `SelectorOption[]`                                                      | -       |
+| multiple     | Whether to allow multiple selections | `boolean`                                                               | `false` |
+| disabled     | Whether to disable selecting         | `boolean`                                                               | `false` |
+| onChange     | Triggered when the value is changed  | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
 
 ## SelectorOption
 
-| Name     | Description         | Type            | Default |
-| -------- | ------------------- | --------------- | ------- |
-| label    | Label text          | `string`        | -       |
-| value    | Value of the option | `SelectorValue` | -       |
-| disabled | Whether disabled    | `boolean`       | `false` |
+| Name        | Description         | Type            | Default |
+| ----------- | ------------------- | --------------- | ------- |
+| label       | Label text          | `ReactNode`     | -       |
+| description | Description text    | `ReactNode`     | -       |
+| value       | Value of the option | `SelectorValue` | -       |
+| disabled    | Whether disabled    | `boolean`       | `false` |
 
 ## Generics
 

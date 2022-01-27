@@ -23,18 +23,27 @@
 }
 .@{class-prefix-modal}-main {
   width: 100%;
+  max-height: 70vh;
+  box-sizing: border-box;
   font-size: 14px;
   background-color: white;
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  > * {
+    flex: none;
+  }
+  > .adm-modal-image-container {
+    flex: auto;
+  }
   .@{class-prefix-modal}-body {
     padding: 20px 12px 12px;
-    .adm-modal-close {
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      color: var(--adm-color-weak);
-      padding: 2px;
+    display: flex;
+    flex-direction: column;
+    > * + * {
+      margin-top: 8px;
     }
     &-header-wrapper {
       display: flex;
@@ -49,34 +58,43 @@
       text-align: center;
     }
     &-content {
-      max-height: 70vh;
-      overflow-x: hidden;
-      overflow-y: auto;
       font-size: 15px;
       line-height: 1.4;
       color: #333;
     }
   }
-  .@{class-prefix-modal}-footer {
-    user-select: none;
-    padding: 8px 12px 12px;
-    .adm-modal-button {
-      font-size: 18px;
-      line-height: 25px;
-      border-right: solid 0.5px var(--adm-border-color);
-      &:last-child {
-        border-right: none;
+  .adm-modal-close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    color: var(--adm-color-weak);
+    padding: 4px;
+    font-size: 18px;
+  }
+}
+
+.@{class-prefix-modal}-footer {
+  user-select: none;
+  padding: 8px 12px 12px;
+  &.adm-space {
+    --gap-vertical: 20px;
+  }
+  .adm-modal-button {
+    font-size: 18px;
+    line-height: 25px;
+    &:not(.adm-modal-button-primary) {
+      padding-top: 0;
+      padding-bottom: 0;
+      &::before {
+        display: none;
       }
-      &:not(.adm-modal-button-primary) {
-        padding-top: 0;
-        padding-bottom: 0;
-        &::before {
-          display: none;
-        }
-        &:active {
-          opacity: 0.7;
-        }
+      &:active {
+        opacity: 0.7;
       }
     }
   }
+}
+
+.@{class-prefix-modal}-image-container {
+  overflow-y: auto;
 }

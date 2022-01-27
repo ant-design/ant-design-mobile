@@ -7,6 +7,7 @@
     "allowJs": true,
     "declaration": false,
     "esModuleInterop": true,
+    "importHelpers": true,
     "downlevelIteration": true,
     "sourceMap": true,
     "baseUrl": "./",
@@ -21,7 +22,7 @@
     },
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "strictNullChecks": true,
+    "strict": true,
     "noImplicitAny": true,
     "resolveJsonModule": true
   },

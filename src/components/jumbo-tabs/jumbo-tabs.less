@@ -1,6 +1,7 @@
 @class-prefix-tabs: ~'adm-jumbo-tabs';
 
 .@{class-prefix-tabs} {
+  --gap: 8px;
   position: relative;
 
   &-header {
@@ -15,6 +16,7 @@
     align-items: center;
     position: relative;
     overflow-x: scroll;
+    padding: 0 var(--gap);
     &::-webkit-scrollbar {
       display: none;
     }
@@ -22,7 +24,7 @@
   }
   &-tab-wrapper {
     flex: auto;
-    padding: 0 12px;
+    padding: 0 calc(var(--gap) / 2);
     text-align: center;
   }
   &-tab {
@@ -38,6 +40,7 @@
     white-space: nowrap;
     &-title {
       line-height: 24px;
+      padding: 0 4px;
     }
     &-description {
       width: min-content;

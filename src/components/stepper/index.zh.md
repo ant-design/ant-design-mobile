@@ -23,15 +23,16 @@
 
 | 属性                      | 说明                              | 默认值                      |
 | ------------------------- | --------------------------------- | --------------------------- |
-| --height                  | 组件整体高度                      | `22px`                      |
-| --input-width             | 仅输入框的宽度                    | `40px`                      |
+| --height                  | 组件整体高度                      | `28px`                      |
+| --input-width             | 仅输入框的宽度                    | `44px`                      |
 | --input-font-size         | 输入框文字大小                    | `var(--adm-font-size-main)` |
-| --border-radius           | 组件整体的圆角                    | `2px`                       |
-| --border                  | 组件四周边框的样式                | `1px solid #e5e5e5`         |
-| --border-inner            | 组件内部边框的样式                | `var(--border)`             |
-| --active-border           | 输入框 Focus 状态下，四周边框样式 | `var(--border)`             |
-| --button-font-size        | 左右两侧按钮文字大小              | `10px`                      |
-| --button-background-color | 左右两侧按钮背景颜色              | `transparent`               |
-| --button-width            | 左右两侧按钮的宽度                | `22px`                      |
 | --input-font-color        | 输入框文字颜色                    | `var(--adm-color-text)`     |
+| --input-background-color  | 输入框的背景颜色                  | `#f5f5f5`                   |
+| --border-radius           | 组件整体的圆角                    | `2px`                       |
+| --border                  | 组件四周边框的样式                | `none`                      |
+| --border-inner            | 组件内部边框的样式                | `solid 2px transparent`     |
+| --active-border           | 输入框 Focus 状态下，四周边框样式 | `var(--border)`             |
+| --button-font-size        | 左右两侧按钮文字大小              | `15px`                      |
 | --button-text-color       | 左右两侧按钮文字颜色              | `var(--adm-color-primary)`  |
+| --button-background-color | 左右两侧按钮背景颜色              | `#f5f5f5`                   |
+| --button-width            | 左右两侧按钮的宽度                | `var(--height)`             |

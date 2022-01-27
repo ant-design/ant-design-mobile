@@ -6,20 +6,26 @@
 }
 
 .@{class-prefix-badge} {
-  display: inline-block;
-  color: #fff;
-  font-weight: normal;
-  text-align: center;
+  display: inline-flex;
   vertical-align: middle;
-  box-sizing: border-box;
-  min-width: 16px;
+  box-sizing: content-box;
   border-radius: 100px;
-  padding: 0 4px;
-  font-size: 9px;
-  line-height: 1.2;
-  white-space: nowrap;
+  background-color: var(--color);
   --right: 0;
   --top: 0;
+  --color: var(--adm-badge-color, #ff411c);
+
+  &-content {
+    color: #fff;
+    box-sizing: border-box;
+    min-width: 8px;
+    padding: 1px 4px;
+    font-size: 9px;
+    line-height: 12px;
+    white-space: nowrap;
+    font-weight: normal;
+    text-align: center;
+  }
 
   &-fixed {
     position: absolute;
@@ -33,5 +39,9 @@
     width: 10px;
     height: 10px;
     border-radius: 5px;
+  }
+
+  &-bordered {
+    border: solid 1px var(--adm-color-white);
   }
 }

@@ -60,9 +60,7 @@ export const Radio: FC<RadioProps> = p => {
     }
 
     return (
-      <div className={`${classPrefix}-icon`}>
-        {checked && <CheckIcon className={`${classPrefix}-icon-checked`} />}
-      </div>
+      <div className={`${classPrefix}-icon`}>{checked && <CheckIcon />}</div>
     )
   }
 

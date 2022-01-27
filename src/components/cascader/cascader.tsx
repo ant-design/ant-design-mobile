@@ -25,8 +25,8 @@ export type CascaderProps = {
   onClose?: () => void
   visible?: boolean
   title?: ReactNode
-  confirmText?: string
-  cancelText?: string
+  confirmText?: ReactNode
+  cancelText?: ReactNode
   children?: (items: (CascaderOption | null)[]) => ReactNode
 } & Pick<
   PopupProps,

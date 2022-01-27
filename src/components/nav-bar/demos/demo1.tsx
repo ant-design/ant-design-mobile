@@ -7,8 +7,8 @@ import './demo1.less'
 
 export default () => {
   const right = (
-    <div style={{ fontSize: 18 }}>
-      <Space>
+    <div style={{ fontSize: 24 }}>
+      <Space style={{ '--gap': '16px' }}>
         <SearchOutline />
         <MoreOutline />
       </Space>

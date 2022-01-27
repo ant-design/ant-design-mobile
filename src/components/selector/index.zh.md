@@ -22,11 +22,12 @@ type SelectorValue = string | number
 
 ## SelectorOption
 
-| 属性     | 说明     | 类型            | 默认值  |
-| -------- | -------- | --------------- | ------- |
-| label    | 文字     | `string`        | -       |
-| value    | 选项的值 | `SelectorValue` | -       |
-| disabled | 是否禁用 | `boolean`       | `false` |
+| 属性        | 说明     | 类型            | 默认值  |
+| ----------- | -------- | --------------- | ------- |
+| label       | 文字     | `ReactNode`     | -       |
+| description | 描述     | `ReactNode`     | -       |
+| value       | 选项的值 | `SelectorValue` | -       |
+| disabled    | 是否禁用 | `boolean`       | `false` |
 
 ## 泛型
 

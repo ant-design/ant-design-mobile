@@ -17,3 +17,11 @@
 | --track-width | Width of the line              | `3px`     | -      |
 | --track-color | Color of the track             | `#e5e5e5` | -      |
 | --fill-color  | Color of the fill part         | `#1677ff` | -      |
+
+## FAQ
+
+### Important reminder about using rem
+
+ProgressCircle only supports `px` units due to a styling bug in Safari with non-`px` units.
+
+So if you use the rem layout in your project, the preprocessing of the styles at compile time will cause the default `--size` and `--track-width` units to become `rem`, which is likely to be used on iOS devices. bugs will appear. The workaround is to manually set `--size` and `--track-width` back to `px` units in the project.
