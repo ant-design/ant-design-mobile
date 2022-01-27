@@ -6,6 +6,7 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
+        感谢反馈问题，在你填写下面的这个表单之前，不放先阅读一下[如何提问](https://github.com/ant-design/ant-design-mobile/blob/master/.github/HOW_TO_ASK_QUESTIONS.md)
   - type: input
     id: antd-mobile-version
     attributes:
