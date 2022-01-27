@@ -30,8 +30,6 @@
 > 稍好一点的问题：Swiper 组件 onIndexChange 事件一直疯狂触发，我把 autoplay 关掉就正常了
 > 聪明问题：Swiper 组件设置 autoplay 后，onIndexChange 事件间隔 autoplayInterval 持续触发，不会停止
 
-### 使问题容易回复
-
 ### 使用清晰、正确、精准且合乎语法的语句
 
 我们从经验中发现，粗心的提问者通常也会粗心地写程序与思考（我敢打包票）。回答粗心大意者的问题很不值得，我们宁愿把时间耗在别处。
@@ -64,20 +62,26 @@
 
 以下是几个经典的蠢问题：
 
-问题：[input\[type="search"] 设置背景色失败](https://github.com/ant-design/ant-design-mobile/issues/4684)
+问题：[input\[type="search"\] 设置背景色失败](https://github.com/ant-design/ant-design-mobile/issues/4684)
+
 回答：你是怎么设置的背景色？直接在属性中设置的还是在 CSS 文件中设置的？复现步骤和环境都描述不清楚，怎么能够期望社区帮你？
 
 问题：[v5 版本没有 DatePicker 吗？](https://github.com/ant-design/ant-design-mobile/issues/4700)
+
 回答：STFW
 
 问题：[【请求帮助】error: Error: Unable to resolve module ./global.css from](https://github.com/ant-design/ant-design-mobile/issues/4687)
+
 回答：写"请求帮助"并不会让你的问题更容易被社区回答，写清楚问题本身才会
 
 问题：[连个下拉框组件都没有](https://github.com/ant-design/ant-design-mobile/issues/4720)
+
 回答：……
 
 ## 好的提问
 
 问题：[--adm-button-border-width 设置 0 时，Button 点击样式有问题](https://github.com/ant-design/ant-design-mobile/issues/4709)
+
 问题：[Modal 和 Dialog 组件设置 image 属性后，当图片过长，无法显示内容](https://github.com/ant-design/ant-design-mobile/issues/4712)
+
 问题：[Collapse 折叠面板想在展开和关闭时显示不同图标，能不能支持？以及这个是否支持动画？](https://github.com/ant-design/ant-design-mobile/issues/4545)
