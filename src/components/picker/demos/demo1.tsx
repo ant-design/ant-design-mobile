@@ -30,6 +30,7 @@ function BasicDemo() {
         选择
       </Button>
       <Picker
+        style={{ '--item-font-size': '14px', '--button-font-size': '14px' }}
         columns={basicColumns}
         visible={visible}
         onClose={() => {

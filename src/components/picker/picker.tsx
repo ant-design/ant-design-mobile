@@ -35,7 +35,7 @@ export type PickerProps = {
   PopupProps,
   'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
 > &
-  NativeProps<'--button-font-size | --title-font-size'>
+  NativeProps<'--button-font-size' | '--title-font-size' | '--item-font-size'>
 
 const defaultProps = {
   defaultValue: [],
@@ -108,6 +108,7 @@ export const Picker = memo<PickerProps>(p => {
       </div>
       <div className={`${classPrefix}-body`}>
         <PickerView
+          style={{ ...props.style }}
           columns={props.columns}
           value={innerValue}
           onChange={onChange}

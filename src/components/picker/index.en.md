@@ -46,6 +46,7 @@ In addition, the following attributes of [Popup](./popup) are supported: `getCon
 | ------------------ | ---------------------------------------------------------------------- | ------ | -------- |
 | --button-font-size | Confirm and cancel the text size of the button. supports only PX units | `15px` | -        |
 | --title-font-size  | Title font size, supports only PX units                                | `15px` | -        |
+| --item-font-size   | Select the item font size                                              | `16px` | -        |
 
 ## CascadePicker
 

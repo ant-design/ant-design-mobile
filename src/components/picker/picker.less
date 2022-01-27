@@ -1,6 +1,8 @@
 @class-prefix-picker: ~'adm-picker';
 
 .@{class-prefix-picker} {
+  --button-font-size: 15px;
+  --title-font-size: 15px;
   width: 100%;
   height: 300px;
   overflow: hidden;
@@ -17,13 +19,11 @@
   align-items: center;
   padding: 4px 4px;
   &-button {
-    --button-font-size: 15px;
     font-size: var(--button-font-size);
     display: inline-block;
     padding: 8px 8px;
   }
   &-title {
-    --title-font-size: 15px;
     padding: 4px 4px;
     font-size: var(--title-font-size);
     color: var(--adm-color-text);
