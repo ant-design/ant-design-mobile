@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, forwardRef } from 'react'
 
 import { mergeProps } from '../../utils/with-default-props'
 import {
@@ -7,7 +7,7 @@ import {
 } from '../../utils/render-to-container'
 import Mask from '../mask'
 import { Slide } from './slide'
-import { Slides } from './slides'
+import { Slides, SlidesRef } from './slides'
 
 const classPrefix = `adm-image-viewer`
 
@@ -52,6 +52,8 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
   return renderToContainer(props.getContainer, node)
 }
 
+export type MultiImageViewerRef = SlidesRef
+
 export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
   images?: string[]
   defaultIndex?: number
@@ -62,10 +64,11 @@ const multiDefaultProps = {
   ...defaultProps,
   defaultIndex: 0,
 }
-
-export const MultiImageViewer: FC<MultiImageViewerProps> = p => {
+export const MultiImageViewer = forwardRef<
+  MultiImageViewerRef,
+  MultiImageViewerProps
+>((p, ref) => {
   const props = mergeProps(multiDefaultProps, p)
-
   const node = (
     <Mask
       visible={props.visible}
@@ -76,6 +79,7 @@ export const MultiImageViewer: FC<MultiImageViewerProps> = p => {
       <div className={`${classPrefix}-content`}>
         {props.images && (
           <Slides
+            ref={ref}
             defaultIndex={props.defaultIndex}
             onIndexChange={props.onIndexChange}
             images={props.images}
@@ -89,4 +93,4 @@ export const MultiImageViewer: FC<MultiImageViewerProps> = p => {
     </Mask>
   )
   return renderToContainer(props.getContainer, node)
-}
+})

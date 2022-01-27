@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import { useDrag } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
 import { Slide } from './slide'
@@ -7,21 +7,38 @@ import { bound } from '../../utils/bound'
 
 const classPrefix = `adm-image-viewer`
 
-export const Slides: FC<{
+export type SlidesType = {
   images: string[]
   onTap: () => void
   maxZoom: number
   defaultIndex: number
   onIndexChange?: (index: number) => void
-}> = props => {
-  const slideWidth = window.innerWidth + convertPx(16)
+}
+export type SlidesRef = {
+  swipeTo: (index: number, immediate: boolean) => void
+}
 
+export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
+  const slideWidth = window.innerWidth + convertPx(16)
   const [{ x }, api] = useSpring(() => ({
     x: props.defaultIndex * slideWidth,
     config: { tension: 250, clamp: true },
   }))
 
   const count = props.images.length
+
+  function swipeTo(index: number, immediate = false) {
+    const i = bound(index, 0, count - 1)
+    props.onIndexChange?.(i)
+    api.start({
+      x: i * slideWidth,
+      immediate,
+    })
+  }
+
+  useImperativeHandle(ref, () => ({
+    swipeTo,
+  }))
 
   const dragLockRef = useRef(false)
   const bind = useDrag(
@@ -33,19 +50,13 @@ export const Slides: FC<{
         const maxIndex = minIndex + 1
         const velocityOffset =
           Math.min(state.velocity[0] * 2000, slideWidth) * state.direction[0]
-        const index = bound(
+        swipeTo(
           bound(
             Math.round((offsetX + velocityOffset) / slideWidth),
             minIndex,
             maxIndex
-          ),
-          0,
-          count - 1
+          )
         )
-        props.onIndexChange?.(index)
-        api.start({
-          x: index * slideWidth,
-        })
       } else {
         api.start({
           x: offsetX,
@@ -100,4 +111,4 @@ export const Slides: FC<{
       </animated.div>
     </div>
   )
-}
+})

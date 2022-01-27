@@ -27,7 +27,7 @@ type PickerValueExtend = {
 | ------------ | ---------------------------- | -------------------------------------------------------------- | -------- |
 | columns      | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
 | value        | 选中项                       | `PickerValue[]`                                                | -        |
-| defaultValue | 默认选中项                   | `PickerValue[]`                                                | `[]`        |
+| defaultValue | 默认选中项                   | `PickerValue[]`                                                | `[]`     |
 | onSelect     | 选项改变时触发               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onConfirm    | 确认时触发                   | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onCancel     | 取消时触发                   | `() => void`                                                   | -        |
