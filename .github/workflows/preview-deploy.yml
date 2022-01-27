@@ -27,28 +27,26 @@ jobs:
           name: dist
       - run: |
           unzip dist.zip
-      - name: upload surge service
+      - name: upload to surge
         id: deploy
         run: |
           export DEPLOY_DOMAIN=https://antd-mobile-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
           npx surge --project ./dist --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
-      - name: update status comment
-        uses: actions-cool/maintain-one-comment@v1.1.0
+      - name: create comment
+        uses: peter-evans/create-or-update-comment@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ steps.pr.outputs.id }}
           body: |
-            PR Preview has been successfully built and deployed to https://antd-mobile-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
-          number: ${{ steps.pr.outputs.id }}
+            PR preview has been successfully built and deployed to https://antd-mobile-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
       - run: |
           rm -rf dist/
       - name: The job failed
         if: ${{ failure() }}
-        uses: actions-cool/maintain-one-comment@v1.1.0
+        uses: peter-evans/create-or-update-comment@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ steps.pr.outputs.id }}
           body: |
-            Deploy PR Preview failed.
-          number: ${{ steps.pr.outputs.id }}
+            Deploy PR preview failed.
 
   failed:
     runs-on: ubuntu-latest
@@ -63,9 +61,8 @@ jobs:
         id: pr
         run: echo "::set-output name=id::$(<pr-id.txt)"
       - name: The job failed
-        uses: actions-cool/maintain-one-comment@v1.1.0
+        uses: peter-evans/create-or-update-comment@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ steps.pr.outputs.id }}
           body: |
-            Deploy PR Preview failed.
-          number: ${{ steps.pr.outputs.id }}
+            Deploy PR preview failed.

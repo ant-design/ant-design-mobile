@@ -1,4 +1,4 @@
-name: Github Pages
+name: Doc Site
 on:
   release:
     types: [published]
@@ -14,13 +14,20 @@ jobs:
         with:
           node-version: '14'
           cache: 'yarn'
-      - name: Run npm scripts
+      - name: Run Npm Scripts
         run: |
           node -v
           yarn -v
           yarn install
           yarn run build-doc
-      - name: Deploy
+      - name: Deploy to Surge
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: 'antd-mobile-${{ github.sha }}.surge.sh'
+          project: './dist'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
