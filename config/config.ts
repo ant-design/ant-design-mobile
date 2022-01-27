@@ -6,9 +6,9 @@ const pxToRem = require('postcss-pxtorem')
 const config: IConfig = {
   mode: 'site',
   title: 'Ant Design Mobile',
-  logo: 'https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*_JSuS4uucYAAAAAAAAAAAAAAARQnAQ',
+  logo: 'https://gw.alipayobjects.com/zos/bmw-prod/ac307dfd-cb32-4a15-a000-c88e743ee1ca.svg',
   favicon:
-    'https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*_JSuS4uucYAAAAAAAAAAAAAAARQnAQ',
+    'https://gw.alipayobjects.com/zos/bmw-prod/48fd0638-85c4-42a6-9420-617b80845004.svg',
   navs: {
     'en': [
       {
