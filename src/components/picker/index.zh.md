@@ -27,7 +27,7 @@ type PickerValueExtend = {
 | ------------ | ---------------------------- | -------------------------------------------------------------- | -------- |
 | columns      | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
 | value        | 选中项                       | `PickerValue[]`                                                | -        |
-| defaultValue | 默认选中项                   | `PickerValue[]`                                                | `[]`        |
+| defaultValue | 默认选中项                   | `PickerValue[]`                                                | `[]`     |
 | onSelect     | 选项改变时触发               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onConfirm    | 确认时触发                   | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
 | onCancel     | 取消时触发                   | `() => void`                                                   | -        |
@@ -39,6 +39,13 @@ type PickerValueExtend = {
 | children     | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
+
+### CSS 变量
+
+| 属性               | 说明                                     | 默认值 | 全局变量 |
+| ------------------ | ---------------------------------------- | ------ | -------- |
+| --button-font-size | 确定和取消按钮的文字大小，仅支持 px 单位 | `15px` | -        |
+| --title-font-size  | title 字体大小，仅支持 px 单位           | `15px` | -        |
 
 ## CascadePicker
 

@@ -17,13 +17,15 @@
   align-items: center;
   padding: 4px 4px;
   &-button {
-    font-size: 15px;
+    --button-font-size: 15px;
+    font-size: var(--button-font-size);
     display: inline-block;
     padding: 8px 8px;
   }
   &-title {
+    --title-font-size: 15px;
     padding: 4px 4px;
-    font-size: 15px;
+    font-size: var(--title-font-size);
     color: var(--adm-color-text);
     text-align: center;
     flex: 1;

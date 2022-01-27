@@ -40,6 +40,13 @@ type PickerValueExtend = {
 
 In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
+### CSS Variables
+
+| 属性               | 说明                                                                   | 默认值 | 全局变量 |
+| ------------------ | ---------------------------------------------------------------------- | ------ | -------- |
+| --button-font-size | Confirm and cancel the text size of the button. supports only PX units | `15px` | -        |
+| --title-font-size  | Title font size, supports only PX units                                | `15px` | -        |
+
 ## CascadePicker
 
 <code src="../cascade-picker/demos/demo1.tsx"></code>

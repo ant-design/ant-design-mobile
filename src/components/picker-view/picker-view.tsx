@@ -26,7 +26,7 @@ export type PickerViewProps = {
   value?: PickerValue[]
   defaultValue?: PickerValue[]
   onChange?: (value: PickerValue[], extend: PickerValueExtend) => void
-} & NativeProps<'--height'>
+} & NativeProps<'--height ｜ --item-font-size'>
 
 const defaultProps = {
   defaultValue: [],
