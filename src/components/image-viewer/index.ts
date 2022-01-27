@@ -7,8 +7,11 @@ import {
   clearImageViewer,
 } from './methods'
 
-export type { ImageViewerProps, MultiImageViewerProps } from './image-viewer'
-export type { SlidesRef } from './slides'
+export type {
+  ImageViewerProps,
+  MultiImageViewerProps,
+  MultiImageViewerRef,
+} from './image-viewer'
 
 const Multi = attachPropertiesToComponent(MultiImageViewer, {
   show: showMultiImageViewer,

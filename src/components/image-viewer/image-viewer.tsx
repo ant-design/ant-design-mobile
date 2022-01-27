@@ -1,4 +1,4 @@
-import React, { FC, ForwardedRef, forwardRef } from 'react'
+import React, { FC, forwardRef } from 'react'
 
 import { mergeProps } from '../../utils/with-default-props'
 import {
@@ -52,6 +52,8 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
   return renderToContainer(props.getContainer, node)
 }
 
+export type MultiImageViewerRef = SlidesRef
+
 export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
   images?: string[]
   defaultIndex?: number
@@ -62,32 +64,33 @@ const multiDefaultProps = {
   ...defaultProps,
   defaultIndex: 0,
 }
-export const MultiImageViewer = forwardRef(
-  (p: MultiImageViewerProps, ref: ForwardedRef<SlidesRef>) => {
-    const props = mergeProps(multiDefaultProps, p)
-    const node = (
-      <Mask
-        visible={props.visible}
-        disableBodyScroll={false}
-        opacity='thick'
-        afterClose={props.afterClose}
-      >
-        <div className={`${classPrefix}-content`}>
-          {props.images && (
-            <Slides
-              ref={ref}
-              defaultIndex={props.defaultIndex}
-              onIndexChange={props.onIndexChange}
-              images={props.images}
-              onTap={() => {
-                props.onClose?.()
-              }}
-              maxZoom={props.maxZoom}
-            />
-          )}
-        </div>
-      </Mask>
-    )
-    return renderToContainer(props.getContainer, node)
-  }
-)
+export const MultiImageViewer = forwardRef<
+  MultiImageViewerRef,
+  MultiImageViewerProps
+>((p, ref) => {
+  const props = mergeProps(multiDefaultProps, p)
+  const node = (
+    <Mask
+      visible={props.visible}
+      disableBodyScroll={false}
+      opacity='thick'
+      afterClose={props.afterClose}
+    >
+      <div className={`${classPrefix}-content`}>
+        {props.images && (
+          <Slides
+            ref={ref}
+            defaultIndex={props.defaultIndex}
+            onIndexChange={props.onIndexChange}
+            images={props.images}
+            onTap={() => {
+              props.onClose?.()
+            }}
+            maxZoom={props.maxZoom}
+          />
+        )}
+      </div>
+    </Mask>
+  )
+  return renderToContainer(props.getContainer, node)
+})
