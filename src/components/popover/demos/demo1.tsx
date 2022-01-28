@@ -43,7 +43,12 @@ export default () => {
   return (
     <>
       <DemoBlock title='基本的气泡'>
-        <Popover content='Hello World' placement={'right'} trigger='click'>
+        <Popover
+          content='Hello World'
+          trigger='click'
+          placement='right'
+          defaultVisible
+        >
           <Button>touch me</Button>
         </Popover>
       </DemoBlock>
@@ -79,7 +84,7 @@ export default () => {
           placement='bottom'
           mode='dark'
           trigger='click'
-          defaultVisible
+          visible
         >
           <Button>touch me</Button>
         </Popover>

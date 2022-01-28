@@ -20,7 +20,7 @@ export type BasePopoverProps = {
   children: ReactElement
   mode?: 'light' | 'dark'
   trigger?: 'click'
-  placement:
+  placement?:
     | 'top'
     | 'left'
     | 'right'
@@ -55,6 +55,7 @@ export type PopoverRef = {
 }
 
 const defaultProps = {
+  placement: 'top',
   defaultVisible: false,
   stopPropagation: ['click'],
   getContainer: () => document.body,
