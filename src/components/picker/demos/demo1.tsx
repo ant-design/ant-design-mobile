@@ -1,20 +1,7 @@
 import React, { useState } from 'react'
 import { Picker, Button, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-
-const basicColumns = [
-  [
-    { label: '周一', value: 'Mon' },
-    { label: '周二', value: 'Tues' },
-    { label: '周三', value: 'Wed' },
-    { label: '周四', value: 'Thur' },
-    { label: '周五', value: 'Fri' },
-  ],
-  [
-    { label: '上午', value: 'am' },
-    { label: '下午', value: 'pm' },
-  ],
-]
+import { basicColumns } from './columns-data'
 
 // 基础用法
 function BasicDemo() {

@@ -26,6 +26,7 @@ export type DatePickerProps = Pick<
   | 'onClick'
   | 'title'
   | 'stopPropagation'
+  | 'style'
 > & {
   value?: Date | null
   defaultValue?: Date | null

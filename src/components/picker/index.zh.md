@@ -6,6 +6,8 @@ Picker 系列一共包括了三个组件：[Picker](#picker)、[CascadePicker](#
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ### 属性
 
 ```typescript | pure
@@ -40,6 +42,14 @@ type PickerValueExtend = {
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
+### CSS 变量
+
+| 属性                      | 说明                 | 默认值 | 全局变量 |
+| ------------------------- | -------------------- | ------ | -------- |
+| --header-button-font-size | 确定和取消按钮的字号 | `15px` | -        |
+| --title-font-size         | 标题的字号           | `15px` | -        |
+| --item-font-size          | 选择项的字号         | `16px` | -        |
+
 ## CascadePicker
 
 <code src="../cascade-picker/demos/demo1.tsx"></code>
@@ -59,6 +69,10 @@ type CascadePickerOption = {
 | options | 树形的选项数据 | `CascadePickerOption[]` | -      |
 
 其他属性同 `Picker`，但不支持 `columns`。
+
+### CSS 变量
+
+同 `Picker`。
 
 ## DatePicker
 
@@ -95,7 +109,11 @@ type DatePickerFilter = Partial<
 >
 ```
 
-此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
+此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`。
+
+### CSS 变量
+
+同 `Picker`。
 
 ## 指令式调用
 
