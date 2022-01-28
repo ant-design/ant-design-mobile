@@ -110,7 +110,6 @@ export const Picker = memo<PickerProps>(p => {
       </div>
       <div className={`${classPrefix}-body`}>
         <PickerView
-          style={{ ...props.style }}
           columns={props.columns}
           value={innerValue}
           onChange={onChange}
