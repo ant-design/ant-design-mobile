@@ -44,11 +44,11 @@ In addition, the following attributes of [Popup](./popup) are supported: `getCon
 
 ### CSS Variables
 
-| 属性               | 说明                                                                   | 默认值 | 全局变量 |
-| ------------------ | ---------------------------------------------------------------------- | ------ | -------- |
-| --button-font-size | Confirm and cancel the text size of the button. supports only PX units | `15px` | -        |
-| --title-font-size  | Title font size, supports only PX units                                | `15px` | -        |
-| --item-font-size   | Select the item font size                                              | `16px` | -        |
+| 属性                      | 说明                                    | 默认值 | 全局变量 |
+| ------------------------- | --------------------------------------- | ------ | -------- |
+| --header-button-font-size | Font size of confirm and cancel button. | `15px` | -        |
+| --title-font-size         | Font size of title.                     | `15px` | -        |
+| --item-font-size          | Font size of option items.              | `16px` | -        |
 
 ## CascadePicker
 

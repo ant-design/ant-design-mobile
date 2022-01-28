@@ -23,7 +23,7 @@ export default function () {
       <Picker
         style={{
           '--title-font-size': '13px',
-          '--button-font-size': '13px',
+          '--header-button-font-size': '13px',
           '--item-font-size': '13px',
         }}
         columns={basicColumns}
