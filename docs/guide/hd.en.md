@@ -8,6 +8,10 @@ You can replace the import of `antd-mobile` in the project with `antd-mobile/2x`
 import { Button } from 'antd-mobile'
 // ⬇️
 import { Button } from 'antd-mobile/2x'
+
+import 'antd-mobile/es/global'
+// ⬇️
+import 'antd-mobile/2x/es/global'
 ```
 
 If you think it is too troublesome to add an extra `2x` every time you import it, you can consider configuring an alias from `antd-mobile` to `antd-mobile/2x` in webpack. For specific configuration methods, please refer to [webpack documentation ](https://webpack.js.org/configuration/resolve/#resolvealias).
