@@ -8,7 +8,7 @@
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- | ------- |
 | content | The content of the Badge: if `null` `undefined` `''` or nothing is passed, it would not be displayed; if `Badge.dot` is passed, a small red dot would be displayed | `React.ReactNode \| typeof Badge.dot` | -       |
 | color   | The background color of the Badge. Equivalent to setting the `--color` CSS variable.                                                                               | `string`                              | -       |
-| bordered | Logo stroke, you can add a stroke to Badge, the default is off.      | `boolean`                              | `false` |
+| bordered | Whether to have border.      | `boolean`                              | `false` |
 
 ### CSS Variables
 
