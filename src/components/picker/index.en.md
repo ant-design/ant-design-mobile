@@ -44,17 +44,17 @@ In addition, the following attributes of [Popup](./popup) are supported: `getCon
 
 ### CSS Variables
 
-| 属性                      | 说明                                    | 默认值 | 全局变量 |
-| ------------------------- | --------------------------------------- | ------ | -------- |
-| --header-button-font-size | Font size of confirm and cancel button. | `15px` | -        |
-| --title-font-size         | Font size of title.                     | `15px` | -        |
-| --item-font-size          | Font size of option items.              | `16px` | -        |
+| Name                      | Description                             | Default | Global |
+| ------------------------- | --------------------------------------- | ------- | ------ |
+| --header-button-font-size | Font size of confirm and cancel button. | `15px`  | -      |
+| --title-font-size         | Font size of title.                     | `15px`  | -      |
+| --item-font-size          | Font size of option items.              | `16px`  | -      |
 
 ## CascadePicker
 
 <code src="../cascade-picker/demos/demo1.tsx"></code>
 
-### CascadePicker API
+### Props
 
 ```typescript
 type CascadePickerOption = {
@@ -70,11 +70,15 @@ type CascadePickerOption = {
 
 Other props are the same as `Picker`, but `columns` are not supported.
 
+### CSS Variables
+
+Same as `Picker`.
+
 ## DatePicker
 
 <code src="../date-picker/demos/demo1.tsx"></code>
 
-### DatePicker API
+### Props
 
 | Name         | Description                                                                                                                          | Type                                                                                   | Default         |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- | --------------- |
@@ -104,6 +108,10 @@ type DatePickerFilter = Partial<
 ```
 
 In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
+
+### CSS Variables
+
+Same as `Picker`.
 
 ## Imperative Call
 

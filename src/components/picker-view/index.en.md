@@ -21,10 +21,10 @@ For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `Pick
 
 ### CSS Variables
 
-| Name             | Description               | Default |
-| ---------------- | ------------------------- | ------- |
-| --height         | height of the PickerView  | `240px` |
-| --item-font-size | Select the item font size | `16px`  |
+| Name             | Description                | Default |
+| ---------------- | -------------------------- | ------- |
+| --height         | Height of PickerView.      | `240px` |
+| --item-font-size | Font size of option items. | `16px`  |
 
 ## CascadePickerView
 
@@ -44,9 +44,7 @@ Other props are the same as [PickerView](#pickerview), but `columns` are not sup
 
 ### CSS Variables
 
-| Name     | Description                  | Default |
-| -------- | ---------------------------- | ------- |
-| --height | height of the DatePickerView | `240px` |
+Same as `PickerView`.
 
 ## DatePickerView
 
@@ -75,6 +73,4 @@ For the type definition and usage of `DatePickerFilter`, please refer to the doc
 
 ### CSS Variables
 
-| Name     | Description                  | Default |
-| -------- | ---------------------------- | ------- |
-| --height | height of the DatePickerView | `240px` |
+Same as `PickerView`.

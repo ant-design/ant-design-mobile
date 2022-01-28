@@ -8,7 +8,7 @@ import { generateCascadePickerColumns } from '../cascade-picker/cascade-picker-u
 
 export type CascadePickerViewProps = Omit<PickerViewProps, 'columns'> & {
   options: CascadePickerOption[]
-} & NativeProps<'--height'>
+}
 
 export const CascadePickerView: FC<CascadePickerViewProps> = props => {
   const { options, ...pickerProps } = props

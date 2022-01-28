@@ -70,6 +70,10 @@ type CascadePickerOption = {
 
 其他属性同 `Picker`，但不支持 `columns`。
 
+### CSS 变量
+
+同 `Picker`。
+
 ## DatePicker
 
 <code src="../date-picker/demos/demo1.tsx"></code>
@@ -105,7 +109,11 @@ type DatePickerFilter = Partial<
 >
 ```
 
-此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
+此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`。
+
+### CSS 变量
+
+同 `Picker`。
 
 ## 指令式调用
 

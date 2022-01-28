@@ -21,10 +21,10 @@ PickerView 是 [Picker](./picker/#picker) 的内容区域。
 
 ### CSS 变量
 
-| 属性             | 说明                 | 默认值  |
-| ---------------- | -------------------- | ------- |
-| --height         | 高度                 | `240px` |
-| --item-font-size | 选择项 item 字体大小 | `16px`  |
+| 属性             | 说明       | 默认值  |
+| ---------------- | ---------- | ------- |
+| --height         | 整体的高度 | `240px` |
+| --item-font-size | 选项的字号 | `16px`  |
 
 ## CascadePickerView
 
@@ -44,9 +44,7 @@ CascadePickerView 是 [CascadePicker](./picker/#cascadepicker) 的内容区域�
 
 ### CSS 变量
 
-| 属性     | 说明 | 默认值  |
-| -------- | ---- | ------- |
-| --height | 高度 | `240px` |
+同 `PickerView`。
 
 ## DatePickerView
 
@@ -75,6 +73,4 @@ DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 
 ### CSS 变量
 
-| 属性     | 说明 | 默认值  |
-| -------- | ---- | ------- |
-| --height | 高度 | `240px` |
+同 `PickerView`。
