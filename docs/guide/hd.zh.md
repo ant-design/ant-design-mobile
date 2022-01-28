@@ -8,6 +8,10 @@
 import { Button } from 'antd-mobile'
 // ⬇️
 import { Button } from 'antd-mobile/2x'
+
+import 'antd-mobile/es/global'
+// ⬇️
+import 'antd-mobile/2x/es/global'
 ```
 
 如果你觉得每次引入都要额外加个 `2x` 太麻烦，可以考虑在 webpack 中配置一个从 `antd-mobile` 到 `antd-mobile/2x` 的别名，具体的配置方法请参考 [webpack 文档](https://webpack.js.org/configuration/resolve/#resolvealias)。
