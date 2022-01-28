@@ -6,7 +6,9 @@ The Picker series includes three components: [Picker](#picker), [CascadePicker](
 
 <code src="./demos/demo1.tsx"></code>
 
-### Picker API
+<code src="./demos/demo2.tsx"></code>
+
+### Props
 
 ```typescript | pure
 type PickerColumnItem = {

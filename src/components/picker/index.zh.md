@@ -6,6 +6,8 @@ Picker 系列一共包括了三个组件：[Picker](#picker)、[CascadePicker](#
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ### 属性
 
 ```typescript | pure
