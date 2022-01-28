@@ -1,0 +1,6 @@
+paths:
+  - 'src'
+paths-ignore:
+  - '**/*.test.tsx'
+  - '**/*.test.ts'
+  - 'demos/*'
