@@ -73,12 +73,13 @@ export default () => {
         </Popover.Menu>
       </DemoBlock>
 
-      <DemoBlock title='深色背景'>
+      <DemoBlock title='深色背景' padding='12px 12px 64px'>
         <Popover
           content='Hello World'
-          placement='right'
+          placement='bottom'
           mode='dark'
           trigger='click'
+          defaultVisible
         >
           <Button>touch me</Button>
         </Popover>
@@ -88,7 +89,13 @@ export default () => {
         <Popover
           key={direction}
           visible
-          content='Popover'
+          content={
+            <>
+              Popover
+              <br />
+              Content
+            </>
+          }
           placement={direction}
         >
           <div

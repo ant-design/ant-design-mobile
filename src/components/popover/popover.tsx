@@ -9,13 +9,13 @@ import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
+import { Arrow } from './arrow'
+import { GetContainer } from '../../utils/render-to-container'
 
 const classPrefix = `adm-popover`
-const enterClassName = 'entering'
-const leaveClassName = 'leaving'
 
 export type BasePopoverProps = {
-  getContainer?: () => HTMLElement
+  getContainer?: GetContainer
   destroyOnHide?: boolean
   children: ReactElement
   mode?: 'light' | 'dark'
@@ -57,6 +57,7 @@ export type PopoverRef = {
 const defaultProps = {
   defaultVisible: false,
   stopPropagation: ['click'],
+  getContainer: () => document.body,
 }
 
 export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
@@ -99,20 +100,9 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       prefixCls={classPrefix}
       getTooltipContainer={props.getContainer || (() => document.body)}
       visible={visible}
-      arrowContent={<span className={`${classPrefix}-arrow-content`} />}
+      arrowContent={<Arrow className={`${classPrefix}-arrow-icon`} />}
       onVisibleChange={setVisible}
       trigger={props.trigger ?? []}
-      motion={{
-        motionName: {
-          appear: enterClassName,
-          appearActive: enterClassName,
-          enter: enterClassName,
-          enterActive: enterClassName,
-          leaveActive: leaveClassName,
-          leave: leaveClassName,
-        },
-        motionDeadline: 200,
-      }}
       overlay={overlay}
     >
       {props.children}
