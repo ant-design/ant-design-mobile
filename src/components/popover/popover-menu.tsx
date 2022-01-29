@@ -22,7 +22,7 @@ export type Action = {
   [key: string]: any
 }
 
-export type PopoverMenuProps<T> = PopoverProps & {
+export type PopoverMenuProps<T> = Omit<PopoverProps, 'content'> & {
   actions: T[]
   onAction?: (text: T) => void
 }
