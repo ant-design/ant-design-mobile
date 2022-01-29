@@ -5,7 +5,6 @@ import React, {
   useRef,
 } from 'react'
 import type { ReactNode } from 'react'
-import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
@@ -112,10 +111,10 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
 
     return withNativeProps(
       props,
-      <div className={classNames(`${classPrefix}-wrapper`)}>
+      <div className={classPrefix}>
         <textarea
           ref={nativeTextAreaRef}
-          className={classPrefix}
+          className={`${classPrefix}-element`}
           rows={props.rows}
           value={value}
           onChange={e => {

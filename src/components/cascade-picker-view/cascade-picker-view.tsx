@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import PickerView from '../picker-view'
-import { NativeProps } from '../../utils/native-props'
 import type { PickerViewProps } from '../picker-view'
 import type { CascadePickerOption } from '../cascade-picker'
 import { useCascadePickerOptions } from '../cascade-picker/use-cascade-picker-options'
