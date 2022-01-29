@@ -8,10 +8,9 @@ import React, {
   useRef,
 } from 'react'
 import classNames from 'classnames'
-import Button from '../button'
 import { Popover, PopoverProps, PopoverRef } from './popover'
 
-const classPrefix = `adm-popover`
+const classPrefix = `adm-popover-menu`
 
 export type Action = {
   text: React.ReactNode
@@ -45,35 +44,32 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps<Action>>(
 
     const overlay = useMemo(() => {
       return (
-        <>
-          {props.actions.map((ele, index) => (
-            <div
-              className={classNames(`${classPrefix}-inner-menu`, {
-                [`${classPrefix}-inner-menu-with-icon`]: !!ele.icon,
-              })}
-              key={ele.key ?? index}
-            >
-              <Button
-                disabled={ele.disabled}
-                onClick={() => {
-                  if (!ele.disabled) {
-                    onClick(ele)
-                    ele.onClick?.()
-                  }
-                }}
-                fill='none'
-                block
-              >
-                {ele.icon && (
-                  <span className={`${classPrefix}-inner-menu-icon`}>
-                    {ele.icon}
-                  </span>
+        <div className={`${classPrefix}-list`}>
+          <div className={`${classPrefix}-list-inner`}>
+            {props.actions.map((action, index) => (
+              <a
+                key={action.key ?? index}
+                className={classNames(
+                  `${classPrefix}-item`,
+                  'adm-plain-anchor',
+                  action.disabled && `${classPrefix}-item-disabled`
                 )}
-                {ele.text}
-              </Button>
-            </div>
-          ))}
-        </>
+                onClick={() => {
+                  if (action.disabled) return
+                  onClick(action)
+                  action.onClick?.()
+                }}
+              >
+                {action.icon && (
+                  <div className={`${classPrefix}-item-icon`}>
+                    {action.icon}
+                  </div>
+                )}
+                <div className={`${classPrefix}-item-text`}>{action.text}</div>
+              </a>
+            ))}
+          </div>
+        </div>
       )
     }, [props.actions, onClick])
 
@@ -81,10 +77,8 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps<Action>>(
       <Popover
         ref={innerRef}
         {...props}
-        overlayClassName={classNames(
-          `${classPrefix}-menu`,
-          props.overlayClassName
-        )}
+        className={classNames(classPrefix, props.className)}
+        overlayClassName={classNames(classPrefix, props.overlayClassName)}
         content={overlay}
       >
         {props.children}

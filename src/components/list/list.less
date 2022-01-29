@@ -89,7 +89,7 @@
 }
 
 a.adm-list-item {
-  &:active {
+  &:active:not(.adm-list-item-disabled) {
     background-color: var(--active-background-color);
     &::after {
       content: ' ';
@@ -99,11 +99,6 @@ a.adm-list-item {
       bottom: -1px;
       left: 0;
       border-bottom: var(--border-inner);
-    }
-  }
-  &.adm-list-item-disabled {
-    &:active {
-      background-color: unset;
     }
   }
 }
