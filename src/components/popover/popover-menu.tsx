@@ -78,7 +78,6 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps<Action>>(
         ref={innerRef}
         {...props}
         className={classNames(classPrefix, props.className)}
-        overlayClassName={classNames(classPrefix, props.overlayClassName)}
         content={overlay}
       >
         {props.children}

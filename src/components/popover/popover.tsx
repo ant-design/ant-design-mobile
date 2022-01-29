@@ -37,13 +37,7 @@ export type PopoverProps = {
   content: React.ReactNode
 } & Pick<
   TooltipProps,
-  | 'defaultVisible'
-  | 'visible'
-  | 'onVisibleChange'
-  | 'overlayStyle'
-  | 'overlayClassName'
-  | 'align'
-  | 'zIndex'
+  'defaultVisible' | 'visible' | 'onVisibleChange' | 'align'
 > &
   NativeProps<'--z-index'>
 
@@ -90,10 +84,10 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
   return (
     <Tooltip
       {...props}
-      overlayClassName={classNames(
-        `${classPrefix}-${mode}`,
-        props.overlayClassName
-      )}
+      placement={props.placement}
+      align={props.align}
+      overlayClassName={classNames(`${classPrefix}-${mode}`, props.className)}
+      overlayStyle={props.style}
       destroyTooltipOnHide={props.destroyOnHide}
       prefixCls={classPrefix}
       getTooltipContainer={props.getContainer || (() => document.body)}
