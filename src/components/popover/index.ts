@@ -1,11 +1,11 @@
 import './popover.less'
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
-import { PopMenu } from './pop-menu'
+import { PopoverMenu } from './popover-menu'
 import { Popover } from './popover'
 
-export type { BasePopoverProps, PopoverRef } from './popover'
-export type { PopMenuProps, Action } from './pop-menu'
+export type { PopoverProps, PopoverRef } from './popover'
+export type { PopoverMenuProps, Action } from './popover-menu'
 
 export default attachPropertiesToComponent(Popover, {
-  Menu: PopMenu,
+  Menu: PopoverMenu,
 })

@@ -14,7 +14,7 @@ import { GetContainer } from '../../utils/render-to-container'
 
 const classPrefix = `adm-popover`
 
-export type BasePopoverProps = {
+export type PopoverProps = {
   getContainer?: GetContainer
   destroyOnHide?: boolean
   children: ReactElement
@@ -34,6 +34,7 @@ export type BasePopoverProps = {
     | 'rightTop'
     | 'rightBottom'
   stopPropagation?: PropagationEvent[]
+  content: React.ReactNode
 } & Pick<
   TooltipProps,
   | 'defaultVisible'
@@ -45,8 +46,6 @@ export type BasePopoverProps = {
   | 'zIndex'
 > &
   NativeProps<'--z-index'>
-
-type PopoverProps = BasePopoverProps & { content: React.ReactNode }
 
 export type PopoverRef = {
   show: () => void
@@ -85,9 +84,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
 
   const overlay = withStopPropagation(
     props.stopPropagation,
-    <div className={`${classPrefix}-inner-content`}>
-      {(props as PopoverProps).content}
-    </div>
+    <div className={`${classPrefix}-inner-content`}>{props.content}</div>
   )
 
   return (

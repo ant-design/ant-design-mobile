@@ -9,7 +9,7 @@ import React, {
 } from 'react'
 import classNames from 'classnames'
 import Button from '../button'
-import { BasePopoverProps, Popover, PopoverRef } from './popover'
+import { Popover, PopoverProps, PopoverRef } from './popover'
 
 const classPrefix = `adm-popover`
 
@@ -22,13 +22,13 @@ export type Action = {
   [key: string]: any
 }
 
-export type PopMenuProps<T> = BasePopoverProps & {
+export type PopoverMenuProps<T> = PopoverProps & {
   actions: T[]
   onAction?: (text: T) => void
 }
 
-export const PopMenu = forwardRef<PopoverRef, PopMenuProps<Action>>(
-  (props: PopMenuProps<Action>, ref) => {
+export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps<Action>>(
+  (props, ref) => {
     const innerRef = useRef<PopoverRef>(null)
     useImperativeHandle(ref, () => innerRef.current!, [])
 
@@ -40,13 +40,13 @@ export const PopMenu = forwardRef<PopoverRef, PopMenuProps<Action>>(
         }
         innerRef.current?.hide()
       },
-      [(props as PopMenuProps<Action>).onAction]
+      [props.onAction]
     )
 
     const overlay = useMemo(() => {
       return (
         <>
-          {((props as PopMenuProps<Action>).actions || []).map((ele, index) => (
+          {props.actions.map((ele, index) => (
             <div
               className={classNames(`${classPrefix}-inner-menu`, {
                 [`${classPrefix}-inner-menu-with-icon`]: !!ele.icon,
@@ -75,7 +75,7 @@ export const PopMenu = forwardRef<PopoverRef, PopMenuProps<Action>>(
           ))}
         </>
       )
-    }, [(props as PopMenuProps<Action>).actions, onClick])
+    }, [props.actions, onClick])
 
     return (
       <Popover
@@ -92,5 +92,5 @@ export const PopMenu = forwardRef<PopoverRef, PopMenuProps<Action>>(
     )
   }
 ) as <T extends Action = Action>(
-  props: PopMenuProps<T> & { ref?: Ref<PopoverRef> }
+  props: PopoverMenuProps<T> & { ref?: Ref<PopoverRef> }
 ) => ReactElement
