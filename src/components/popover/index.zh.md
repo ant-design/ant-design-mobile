@@ -1,8 +1,8 @@
 # Popover 气泡弹出框
 
-<code src="./demos/demo1.tsx"></code>
-
 ## Popover
+
+<code src="./demos/demo1.tsx"></code>
 
 ### 属性
 
@@ -35,6 +35,8 @@
 | visible | 气泡弹出框当前是否正在展示 | `boolean`    |
 
 ## Popover.Menu
+
+<code src="./demos/demo2.tsx"></code>
 
 ### 属性
 

@@ -1,27 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Popover, Button, Toast } from 'antd-mobile'
+import { Popover, Button } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { UploadOutline, CheckShieldOutline } from 'antd-mobile-icons'
-
-const directionList = [
-  `top`,
-  `topRight`,
-  `rightTop`,
-  `right`,
-  `rightBottom`,
-  `bottomRight`,
-  `bottom`,
-  `bottomLeft`,
-  `leftBottom`,
-  `left`,
-  `leftTop`,
-  `topLeft`,
-] as const
-
-type Union<T extends readonly string[]> = T[number]
+import { PopoverProps } from '../popover'
 
 export default () => {
-  const [direction, setDirection] = useState<Union<typeof directionList>>('top')
+  const [placement, setPlacement] = useState<PopoverProps['placement']>('top')
 
   useEffect(() => {
     let current = 0
@@ -32,7 +15,7 @@ export default () => {
       } else {
         current += 1
       }
-      setDirection(directionList[current])
+      setPlacement(directionList[current])
     }, 2000)
 
     return () => {
@@ -53,31 +36,6 @@ export default () => {
         </Popover>
       </DemoBlock>
 
-      <DemoBlock title='带菜单的气泡'>
-        <Popover.Menu
-          actions={[{ text: '菜单1' }, { text: '菜单2', disabled: true }]}
-          onAction={node => Toast.show(`选择了 ${node.text}`)}
-          placement='bottomLeft'
-          trigger='click'
-        >
-          <Button>touch me</Button>
-        </Popover.Menu>
-      </DemoBlock>
-
-      <DemoBlock title='带图标的菜单气泡'>
-        <Popover.Menu
-          actions={[
-            { text: '菜单1', icon: <UploadOutline /> },
-            { text: '菜单2', icon: <CheckShieldOutline /> },
-          ]}
-          placement='topRight'
-          onAction={node => Toast.show(`选择了 ${node.text}`)}
-          trigger='click'
-        >
-          <Button>touch me</Button>
-        </Popover.Menu>
-      </DemoBlock>
-
       <DemoBlock title='深色背景' padding='12px 12px 64px'>
         <Popover
           content='Hello World'
@@ -92,7 +50,7 @@ export default () => {
 
       <DemoBlock title='多种位置'>
         <Popover
-          key={direction}
+          key={placement}
           visible
           content={
             <>
@@ -101,7 +59,7 @@ export default () => {
               Content
             </>
           }
-          placement={direction}
+          placement={placement}
         >
           <div
             style={{
@@ -115,10 +73,25 @@ export default () => {
               borderRadius: 8,
             }}
           >
-            {direction}
+            {placement}
           </div>
         </Popover>
       </DemoBlock>
     </>
   )
 }
+
+const directionList = [
+  'top',
+  'topRight',
+  'rightTop',
+  'right',
+  'rightBottom',
+  'bottomRight',
+  'bottom',
+  'bottomLeft',
+  'leftBottom',
+  'left',
+  'leftTop',
+  'topLeft',
+] as const
