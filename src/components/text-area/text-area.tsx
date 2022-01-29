@@ -62,6 +62,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       rows: rows,
       autoSize: autoSize,
       showCount,
+      maxLength,
       ...textAreaProps
     } = props
     const [value, setValue] = usePropsValue(props)
@@ -98,15 +99,18 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       textArea.style.height = `${height}px`
     }, [value, autoSize])
 
+    const compositingRef = useRef(false)
+
     let count
+    const valueLength = [...value].length
     if (typeof showCount === 'function') {
-      count = showCount(value.length, props.maxLength)
+      count = showCount(valueLength, maxLength)
     } else if (showCount) {
       count = (
         <div className={`${classPrefix}-count`}>
-          {props.maxLength === undefined
-            ? value.length
-            : value.length + '/' + props.maxLength}
+          {maxLength === undefined
+            ? valueLength
+            : valueLength + '/' + maxLength}
         </div>
       )
     }
@@ -123,7 +127,11 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           rows={rows}
           value={value}
           onChange={e => {
-            setValue(e.target.value)
+            let v = e.target.value
+            if (maxLength && !compositingRef.current) {
+              v = [...v].slice(0, maxLength).join('')
+            }
+            setValue(v)
           }}
           onFocus={e => {
             props.onFocus?.(e)
@@ -132,6 +140,15 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             props.onBlur?.(e)
           }}
           id={props.id}
+          onCompositionStart={() => {
+            compositingRef.current = true
+          }}
+          onCompositionEnd={() => {
+            compositingRef.current = false
+            if (maxLength) {
+              setValue([...value].slice(0, maxLength).join(''))
+            }
+          }}
         />
         {count}
       </div>
