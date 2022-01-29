@@ -32,19 +32,19 @@ export default () => {
           placement='right'
           defaultVisible
         >
-          <Button>touch me</Button>
+          <Button>点我</Button>
         </Popover>
       </DemoBlock>
 
       <DemoBlock title='深色背景' padding='12px 12px 64px'>
         <Popover
           content='Hello World'
-          placement='bottom'
+          placement='bottomLeft'
           mode='dark'
           trigger='click'
           visible
         >
-          <Button>touch me</Button>
+          <Button>点我</Button>
         </Popover>
       </DemoBlock>
 
