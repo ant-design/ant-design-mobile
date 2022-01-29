@@ -34,6 +34,8 @@ export type InputProps = Pick<
   | 'autoCorrect'
   | 'onKeyDown'
   | 'onKeyUp'
+  | 'onCompositionStart'
+  | 'onCompositionEnd'
 > & {
   value?: string
   defaultValue?: string
@@ -139,6 +141,8 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         autoCorrect={props.autoCorrect}
         onKeyDown={handleKeydown}
         onKeyUp={props.onKeyUp}
+        onCompositionStart={props.onCompositionStart}
+        onCompositionEnd={props.onCompositionEnd}
       />
       {props.clearable && !!value && (
         <div

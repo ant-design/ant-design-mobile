@@ -16,7 +16,7 @@
 | showCount    | 显示字数，支持自定义渲染                        | `boolean \| ((length: number, maxLength?: number) => ReactNode)` | `false` |
 | id           | `textarea` 元素的 `id`，常用来配合 `label` 使用 | `string`                                                         | -       |
 
-此外还支持以下原生属性：`autoComplete` `disabled` `readOnly` `onFocus` `onBlur`
+此外还支持以下原生属性：`autoComplete` `disabled` `readOnly` `onFocus` `onBlur` `onCompositionStart` `onCompositionEnd`
 
 ## CSS 变量
 

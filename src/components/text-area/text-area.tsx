@@ -6,7 +6,7 @@ import React, {
 } from 'react'
 import type { ReactNode } from 'react'
 import classNames from 'classnames'
-import { NativeProps } from '../../utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -17,7 +17,13 @@ export type TextAreaProps = Pick<
     React.TextareaHTMLAttributes<HTMLTextAreaElement>,
     HTMLTextAreaElement
   >,
-  'autoComplete' | 'disabled' | 'readOnly' | 'onFocus' | 'onBlur'
+  | 'autoComplete'
+  | 'disabled'
+  | 'readOnly'
+  | 'onFocus'
+  | 'onBlur'
+  | 'onCompositionStart'
+  | 'onCompositionEnd'
 > & {
   onChange?: (val: string) => void
   value?: string
@@ -53,18 +59,7 @@ const defaultProps = {
 export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
   (p: TextAreaProps, ref) => {
     const props = mergeProps(defaultProps, p)
-    const {
-      className,
-      style,
-      defaultValue: outerDefaultValue,
-      value: outerValue,
-      onChange: outerOnChange,
-      rows: rows,
-      autoSize: autoSize,
-      showCount,
-      maxLength,
-      ...textAreaProps
-    } = props
+    const { autoSize, showCount, maxLength } = props
     const [value, setValue] = usePropsValue(props)
     const nativeTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
@@ -115,16 +110,13 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       )
     }
 
-    return (
-      <div
-        className={classNames(`${classPrefix}-wrapper`, className)}
-        style={style}
-      >
+    return withNativeProps(
+      props,
+      <div className={classNames(`${classPrefix}-wrapper`)}>
         <textarea
           ref={nativeTextAreaRef}
-          {...textAreaProps}
           className={classPrefix}
-          rows={rows}
+          rows={props.rows}
           value={value}
           onChange={e => {
             let v = e.target.value
@@ -133,22 +125,23 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             }
             setValue(v)
           }}
-          onFocus={e => {
-            props.onFocus?.(e)
-          }}
-          onBlur={e => {
-            props.onBlur?.(e)
-          }}
           id={props.id}
-          onCompositionStart={() => {
+          onCompositionStart={e => {
             compositingRef.current = true
+            props.onCompositionStart?.(e)
           }}
-          onCompositionEnd={() => {
+          onCompositionEnd={e => {
             compositingRef.current = false
             if (maxLength) {
               setValue([...value].slice(0, maxLength).join(''))
             }
+            props.onCompositionEnd?.(e)
           }}
+          autoComplete={props.autoComplete}
+          disabled={props.disabled}
+          readOnly={props.readOnly}
+          onFocus={props.onFocus}
+          onBlur={props.onBlur}
         />
         {count}
       </div>
