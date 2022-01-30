@@ -22,17 +22,16 @@ $ yarn add antd-mobile@next
 - **Atomic**: The function of each component, neither more nor less, is exactly what you need.
 - **Fluent**: With smooth gestures and delicate animation, it helps the product create the ultimate experience.
 
-v5(Poplar) is the next major version of antd-mobile, we recommend using it instead of v2.
-
 You can also play with antd-mobile just in browser with [Codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json). No need to prepare development environment.
 
 If you found bugs or would like to request some new features, please consider opening an [issue](https://github.com/ant-design/ant-design-mobile/issues/new).
 
 If you have some question about how to use ant-mobile, you can start a [discussion thread](https://github.com/ant-design/ant-design-mobile/discussions).
 
-Feel free to join our DingDing group:
+And we also have some community groups here. Feel free to join us:
 
-<img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ" alt="ding-group" width="250" />
+- [DingDing](https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ)
+- [Discord](https://discord.gg/jmNvw4WFYn)
 
 ---
 

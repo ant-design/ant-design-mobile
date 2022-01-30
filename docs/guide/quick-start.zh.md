@@ -51,3 +51,7 @@ import { Button } from 'antd-mobile'
 欢迎加入我们的钉钉交流群：
 
 <img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ" alt="ding-group" width="300" />
+
+或者也可以加入我们的 Discord 讨论组：
+
+https://discord.gg/jmNvw4WFYn

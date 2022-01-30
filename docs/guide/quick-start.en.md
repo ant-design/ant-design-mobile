@@ -45,3 +45,8 @@ And of course, you can adjust the `targets` config according to your requirement
 ## Playground
 
 If you don't want to configure your environment locally, you can also try it directly on [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json).
+
+## Discussion Groups
+
+- [DingDing](https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ)
+- [Discord](https://discord.gg/jmNvw4WFYn)
