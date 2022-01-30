@@ -23,8 +23,17 @@ type RcFieldProps = Omit<FieldProps, 'children'>
 
 const classPrefix = `adm-form-item`
 
-export type FormItemProps = RcFieldProps &
-  NativeProps &
+export type FormItemProps = Pick<
+  RcFieldProps,
+  | 'dependencies'
+  | 'valuePropName'
+  | 'name'
+  | 'rules'
+  | 'messageVariables'
+  | 'trigger'
+  | 'validateTrigger'
+  | 'shouldUpdate'
+> &
   Pick<ListItemProps, 'style' | 'onClick' | 'extra' | 'arrow'> & {
     label?: React.ReactNode
     help?: React.ReactNode
@@ -35,7 +44,7 @@ export type FormItemProps = RcFieldProps &
     hidden?: boolean
     layout?: FormLayout
     children: ChildrenType
-  }
+  } & NativeProps
 
 interface MemoInputProps {
   value: any
