@@ -1,7 +1,9 @@
 # Form 表单
 
 <code src="./demos/demo1.tsx"></code>
+
 <code src="./demos/demo2.tsx"></code>
+
 <code src="./demos/demo3.tsx"></code>
 
 自定义或第三方的表单控件，也可以与 Form 组件一起使用。只要该组件遵循以下的约定：
@@ -11,9 +13,11 @@
 
 <code src="./demos/demo4.tsx"></code>
 
-# API
+<code src="./demos/demo-error.tsx" debug></code>
 
-### Form
+## Form
+
+### 属性
 
 | 属性        | 说明                   | 类型                         | 默认值       |
 | ----------- | ---------------------- | ---------------------------- | ------------ |
@@ -21,9 +25,11 @@
 | layout      | 布局模式               | `'vertical' \| 'horizontal'` | `'vertical'` |
 | mode        | 支持默认和卡片两种模式 | `'default' \| 'card'`        | `'default'`  |
 
-其他参数参见 https://www.npmjs.com/package/rc-field-form
+其他属性参见 https://www.npmjs.com/package/rc-field-form
 
-### Form.Item
+## Form.Item
+
+### 属性
 
 | 属性        | 说明                       | 类型                         | 默认值                                             |
 | ----------- | -------------------------- | ---------------------------- | -------------------------------------------------- |

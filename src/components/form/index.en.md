@@ -1,7 +1,9 @@
 # Form
 
 <code src="./demos/demo1.tsx"></code>
+
 <code src="./demos/demo2.tsx"></code>
+
 <code src="./demos/demo3.tsx"></code>
 
 Customized or third-party form controls can be used in Form, too. Controls must follow these conventions:
@@ -11,9 +13,9 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 
 <code src="./demos/demo4.tsx"></code>
 
-# API
+## Form
 
-### Form
+### Props
 
 | Name        | Description                          | Type                         | Default      |
 | ----------- | ------------------------------------ | ---------------------------- | ------------ |
@@ -23,7 +25,9 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 
 See for other parameters https://www.npmjs.com/package/rc-field-form
 
-### Form.Item
+## Form.Item
+
+### Props
 
 | Name        | Description                                      | Type                         | Default                                                               |
 | ----------- | ------------------------------------------------ | ---------------------------- | --------------------------------------------------------------------- |
