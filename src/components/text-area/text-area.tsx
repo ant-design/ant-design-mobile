@@ -117,6 +117,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           className={`${classPrefix}-element`}
           rows={props.rows}
           value={value}
+          placeholder={props.placeholder}
           onChange={e => {
             let v = e.target.value
             if (maxLength && !compositingRef.current) {
