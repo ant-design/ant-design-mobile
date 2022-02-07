@@ -1,7 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { ImageViewer, Button } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { MultiImageViewerRef } from '../image-viewer'
 import { demoImage, demoImages } from './images'
 
 // 单张图片预览
@@ -30,19 +29,16 @@ const Single = () => {
 // 多张图片预览
 const Multi = () => {
   const [visible, setVisible] = useState(false)
-  const ref = useRef<MultiImageViewerRef>(null)
   return (
     <>
       <Button
         onClick={() => {
-          ref.current?.swipeTo(3)
           setVisible(true)
         }}
       >
         显示图片
       </Button>
       <ImageViewer.Multi
-        ref={ref}
         images={demoImages}
         visible={visible}
         defaultIndex={1}
