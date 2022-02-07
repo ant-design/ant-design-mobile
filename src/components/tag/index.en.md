@@ -1,8 +1,8 @@
 # Tag
 
-<code src="./demos/demo1.tsx">
+<code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 | Name    | Description                   | Type                                                                     | Default     |
 | ------- | ----------------------------- | ------------------------------------------------------------------------ | ----------- |
@@ -11,7 +11,7 @@
 | round   | Whether it is rounded corners | `boolean`                                                                | `false`     |
 | onClick | The click event               | `(event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void`         | -           |
 
-## CSS Variables
+### CSS Variables
 
 | Name               | Description                                 | Default                                                                                                          | Global                    |
 | ------------------ | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------- |

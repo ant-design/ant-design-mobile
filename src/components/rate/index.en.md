@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## Props
+### Props
 
 | Name         | Description                                    | Type                      | Default          |
 | ------------ | ---------------------------------------------- | ------------------------- | ---------------- |
@@ -15,7 +15,7 @@
 | value        | The value of rate.                             | `number`                  | -                |
 | onChange     | Callback when select.                          | `(value: number) => void` | -                |
 
-## CSS Variables
+### CSS Variables
 
 | Name           | Description             | Default   |
 | -------------- | ----------------------- | --------- |

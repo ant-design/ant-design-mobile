@@ -6,7 +6,7 @@ This component is going to be rewritten. Please don't use it.
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 ### TreeSelect
 

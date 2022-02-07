@@ -12,7 +12,7 @@
 
 In addition, the following props of [Image](./image) are also supported: `alt` `lazy` `onClick` `onError`.
 
-## CSS Variables
+### CSS Variables
 
 | Name            | Description                     | Default | Global                       |
 | --------------- | ------------------------------- | ------- | ---------------------------- |

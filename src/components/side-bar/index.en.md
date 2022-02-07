@@ -6,7 +6,7 @@
 
 <code src="./demos/demo3.tsx"></code>
 
-## API
+### Props
 
 ### SideBar
 
@@ -25,7 +25,7 @@
 | disabled | Should the `item` be disabled | `boolean`   | `false` |
 | badge    | Badge of the `item`           | `ReactNode` | -       |
 
-## CSS Variables
+### CSS Variables
 
 | Name                 | Description                                      | Default   |
 | -------------------- | ------------------------------------------------ | --------- |

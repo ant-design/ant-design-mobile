@@ -6,7 +6,7 @@ The `Input` component is layout-independent. It only includes the most basic inp
 
 <code src="./demos/demo2.tsx"></code>
 
-### API
+### Props
 
 | Name         | Description                                                                                   | Type                                                 | Default |
 | ------------ | --------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------- |

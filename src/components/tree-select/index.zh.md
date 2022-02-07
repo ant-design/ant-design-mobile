@@ -6,7 +6,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### 属性
 
 ### TreeSelect
 

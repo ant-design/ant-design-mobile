@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### 属性
 
 ```ts | pure
 type RadioValue = string | number
@@ -30,7 +30,7 @@ type RadioValue = string | number
 | value        | 指定选中的选项 | `RadioValue`                  | -       |
 | onChange     | 变化时回调函数 | `(value: RadioValue) => void` | -       |
 
-## CSS 变量
+### CSS 变量
 
 ### Radio
 

@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## Props
+### Props
 
 ```ts | pure
 type CheckboxValue = string | number
@@ -31,7 +31,7 @@ type CheckboxValue = string | number
 | value        | To specify the selected option  | `CheckboxValue[]`                  | `[]`    |
 | onChange     | Callback function when changing | `(value: CheckboxValue[]) => void` | -       |
 
-## CSS Variables
+### CSS Variables
 
 ### Checkbox
 

@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 | Name         | Description                                                        | Type                                                             | Default |
 | ------------ | ------------------------------------------------------------------ | ---------------------------------------------------------------- | ------- |
@@ -18,7 +18,7 @@
 
 In addition, the following native attributes are supported: `autoComplete` `disabled` `readOnly` `onFocus` `onBlur` `onCompositionStart` `onCompositionEnd`
 
-## CSS Variables
+### CSS Variables
 
 | Name                | Description                   | Default                  |
 | ------------------- | ----------------------------- | ------------------------ |

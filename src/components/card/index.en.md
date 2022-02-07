@@ -1,8 +1,8 @@
 # Card
 
-<code src="./demos/demo1.tsx">
+<code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 | Name            | Description                         | Type                                                            | Default |
 | --------------- | ----------------------------------- | --------------------------------------------------------------- | ------- |

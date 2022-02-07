@@ -3,7 +3,7 @@
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx" debug></code>
 
-## Props
+### Props
 
 | Name        | Description                                                         | Type                                                             | Default             |
 | ----------- | ------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------- |
@@ -23,7 +23,7 @@ In addition, the following HTML native attributes are also supported: `crossOrig
 
 `width` `height` props is not conflict with `--width` `--height`. These components props is actually based on CSS variables, and exists only as a convenient way to set CSS variables.
 
-## CSS Variables
+### CSS Variables
 
 | Name     | Description          | Default | Global               |
 | -------- | -------------------- | ------- | -------------------- |

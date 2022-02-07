@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 | Name             | Description                                                                                  | Type                                                      | Default             |
 | ---------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------- |
@@ -21,7 +21,7 @@
 | onClear          | Triggered when the clear button is clicked                                                   | `() => void`                                              | -                   |
 | onCancel         | Triggered when the cancel button is clicked                                                  | `() => void`                                              | -                   |
 
-## CSS Variables
+### CSS Variables
 
 | Name                | Description              | Default                 |
 | ------------------- | ------------------------ | ----------------------- |

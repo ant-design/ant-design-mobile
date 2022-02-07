@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## 属性
+### 属性
 
 ```ts | pure
 type SelectorValue = string | number
@@ -41,7 +41,7 @@ type SelectorValue = string | number
 />
 ```
 
-## CSS 变量
+### CSS 变量
 
 | 属性            | 说明         | 默认值    |
 | --------------- | ------------ | --------- |

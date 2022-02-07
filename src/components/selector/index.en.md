@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 ```ts | pure
 type SelectorValue = string | number
@@ -41,7 +41,7 @@ type SelectorValue = string | number
 />
 ```
 
-## CSS Variables
+### CSS Variables
 
 | Name            | Description             | Default   |
 | --------------- | ----------------------- | --------- |

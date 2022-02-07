@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 | Name                | Description                                                                          | Type                                            | Default |
 | ------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------- | ------- |
@@ -28,7 +28,7 @@
 | close | Let the slide bar return to the position                                 | `() => void`                         |
 | show  | Slide out the operation button, the `side` parameter defaults to `right` | `(side?: 'left' \| 'right') => void` |
 
-## CSS Variables
+### CSS Variables
 
 | Name         | Description      | Default   |
 | ------------ | ---------------- | --------- |

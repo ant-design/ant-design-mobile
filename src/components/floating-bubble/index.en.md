@@ -4,13 +4,13 @@
 
 FloatingBubble is moveable in Y axis and is limited at the distance from the left or right side of the screen.
 
-## Props
+### Props
 
 | Name     | Description | Type      | Default |
 | -------- | ----------- | --------- | ------- |
 | children | ----        | ReactNode | -----   |
 
-## CSS Variables
+### CSS Variables
 
 | Name                      | Description                                         | Default |
 | ------------------------- | --------------------------------------------------- | ------- |

@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 ```ts | pure
 type RadioValue = string | number
@@ -30,7 +30,7 @@ type RadioValue = string | number
 | value        | Specified selected option                   | `RadioValue`                  | -       |
 | onChange     | Callback function when the value is changed | `(value: RadioValue) => void` | -       |
 
-## CSS Variables
+### CSS Variables
 
 ### Radio
 
