@@ -103,7 +103,7 @@ export const Slide: FC<Props> = props => {
           className={`${classPrefix}-image-wrapper`}
           style={{ scale: zoom, x, y }}
         >
-          <img src={props.image} draggable={false} />
+          <img src={props.image} draggable={false} alt={props.image} />
         </animated.div>
       </div>
     </div>
