@@ -1,16 +1,10 @@
-import React, {
-  FC,
-  InputHTMLAttributes,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { FC, InputHTMLAttributes, useRef, useState } from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer, { ImageViewerHandler } from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useMemoizedFn, useUnmount } from 'ahooks'
+import { useIsomorphicLayoutEffect, useMemoizedFn, useUnmount } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
@@ -73,7 +67,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   const [tasks, setTasks] = useState<Task[]>([])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setTasks(prev =>
       prev.filter(task => {
         if (task.url === undefined) return true

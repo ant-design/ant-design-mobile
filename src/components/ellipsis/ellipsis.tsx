@@ -1,7 +1,8 @@
-import React, { FC, useLayoutEffect, useRef, useState } from 'react'
+import React, { FC, useRef, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
+import { useIsomorphicLayoutEffect } from 'ahooks'
 
 const classPrefix = `adm-ellipsis`
 
@@ -151,7 +152,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   }
 
   useResizeEffect(calcEllipsised, rootRef)
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     calcEllipsised()
   }, [
     props.content,

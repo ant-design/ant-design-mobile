@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useLayoutEffect, useMemo, useState } from 'react'
+import React, { FC, ReactNode, useMemo, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs, { Dayjs } from 'dayjs'
 import classNames from 'classnames'
@@ -7,6 +7,7 @@ import { ArrowLeft } from './arrow-left'
 import { ArrowLeftDouble } from './arrow-left-double'
 import { useConfig } from '../config-provider'
 import isoWeek from 'dayjs/plugin/isoWeek'
+import { useIsomorphicLayoutEffect } from 'ahooks'
 
 dayjs.extend(isoWeek)
 
@@ -108,7 +109,7 @@ export const Calendar: FC<CalendarProps> = p => {
 
   const [begin, setBegin] = useState<Dayjs | null>(null)
   const [end, setEnd] = useState<Dayjs | null>(null)
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setBegin(dateRange[0] ? dayjs(dateRange[0]) : null)
     setEnd(dateRange[1] ? dayjs(dateRange[1]) : null)
   }, [dateRange[0], dateRange[1]])

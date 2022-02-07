@@ -4,7 +4,6 @@ import React, {
   ReactNode,
   useEffect,
   useImperativeHandle,
-  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -20,7 +19,7 @@ import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
-import { useUpdateEffect } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
 
 export type SwiperRef = {
   swipeTo: (index: number) => void
@@ -228,7 +227,7 @@ export const Swiper = forwardRef(
         swipePrev,
       }))
 
-      useLayoutEffect(() => {
+      useIsomorphicLayoutEffect(() => {
         const maxIndex = validChildren.length - 1
         if (current > maxIndex) {
           swipeTo(maxIndex, true)

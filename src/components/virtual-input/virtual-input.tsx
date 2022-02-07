@@ -3,7 +3,6 @@ import React, {
   ReactElement,
   useEffect,
   useImperativeHandle,
-  useLayoutEffect,
   useRef,
   useState,
 } from 'react'
@@ -14,6 +13,7 @@ import { NumberKeyboardProps } from '../number-keyboard'
 import { usePropsValue } from '../../utils/use-props-value'
 import classNames from 'classnames'
 import { CloseCircleFill } from 'antd-mobile-icons'
+import { useIsomorphicLayoutEffect } from 'ahooks'
 
 const classPrefix = 'adm-virtual-input'
 
@@ -63,7 +63,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       content.scrollLeft = content.clientWidth
     }
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       scrollToEnd()
     }, [value])
     useEffect(() => {

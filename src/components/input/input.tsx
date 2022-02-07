@@ -1,15 +1,10 @@
-import React, {
-  useState,
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-  useLayoutEffect,
-} from 'react'
+import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
+import { useIsomorphicLayoutEffect } from 'ahooks'
 
 const classPrefix = `adm-input`
 
@@ -94,7 +89,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     props.onKeyDown?.(e)
   }
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!props.enterKeyHint) return
     nativeInputRef.current?.setAttribute('enterkeyhint', props.enterKeyHint)
     return () => {

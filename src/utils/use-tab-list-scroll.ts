@@ -1,8 +1,8 @@
-import { RefObject, useLayoutEffect } from 'react'
+import { RefObject } from 'react'
 import { useSpring } from '@react-spring/web'
 import { useMutationEffect } from './use-mutation-effect'
 import { bound } from './bound'
-import { useUpdateLayoutEffect } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUpdateLayoutEffect } from 'ahooks'
 
 export const useTabListScroll = (
   targetRef: RefObject<HTMLElement>,
@@ -48,7 +48,7 @@ export const useTabListScroll = (
     })
   }
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     animate(true)
   }, [])
 

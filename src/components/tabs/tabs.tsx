@@ -4,14 +4,17 @@ import React, {
   ReactElement,
   ComponentProps,
   useRef,
-  useLayoutEffect,
 } from 'react'
 import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { bound } from '../../utils/bound'
-import { useUpdateLayoutEffect, useThrottleFn } from 'ahooks'
+import {
+  useUpdateLayoutEffect,
+  useThrottleFn,
+  useIsomorphicLayoutEffect,
+} from 'ahooks'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { mergeProps } from '../../utils/with-default-props'
@@ -164,7 +167,7 @@ export const Tabs: FC<TabsProps> = p => {
     })
   }
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     animate(true)
   }, [])
 
@@ -211,7 +214,7 @@ export const Tabs: FC<TabsProps> = p => {
     }
   )
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     updateMask(true)
   }, [])
 
