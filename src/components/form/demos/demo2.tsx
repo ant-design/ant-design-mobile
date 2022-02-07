@@ -61,9 +61,6 @@ export default () => {
           }}
         </Form.Item>
         <DatePickerInputItem />
-        <Form.Item name='c' label='字段C' noStyle>
-          <Input placeholder='自定义样式' />
-        </Form.Item>
       </Form>
 
       <RefDemo />
