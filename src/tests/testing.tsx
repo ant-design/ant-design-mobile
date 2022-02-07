@@ -116,3 +116,6 @@ export const testA11y = async (
 
   expect(results).toHaveNoViolations()
 }
+
+export const sleep = (time: number) =>
+  new Promise(resolve => setTimeout(resolve, time))

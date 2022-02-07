@@ -15,7 +15,7 @@ export type SlidesType = {
   onIndexChange?: (index: number) => void
 }
 export type SlidesRef = {
-  swipeTo: (index: number, immediate: boolean) => void
+  swipeTo: (index: number, immediate?: boolean) => void
 }
 
 export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {

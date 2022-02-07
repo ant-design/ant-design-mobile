@@ -1,13 +1,8 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { ImageViewer, Button } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-
-const demoImages = [
-  'https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80',
-  'https://images.unsplash.com/photo-1601128533718-374ffcca299b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3128&q=80',
-  'https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3113&q=80',
-  'https://images.unsplash.com/photo-1624993590528-4ee743c9896e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=1000&q=80',
-]
+import { MultiImageViewerRef } from '../image-viewer'
+import { demoImage, demoImages } from './images'
 
 // 单张图片预览
 const Single = () => {
@@ -22,7 +17,7 @@ const Single = () => {
         显示图片
       </Button>
       <ImageViewer
-        image={demoImages[0]}
+        image={demoImage}
         visible={visible}
         onClose={() => {
           setVisible(false)
@@ -35,16 +30,19 @@ const Single = () => {
 // 多张图片预览
 const Multi = () => {
   const [visible, setVisible] = useState(false)
+  const ref = useRef<MultiImageViewerRef>(null)
   return (
     <>
       <Button
         onClick={() => {
+          ref.current?.swipeTo(3)
           setVisible(true)
         }}
       >
         显示图片
       </Button>
       <ImageViewer.Multi
+        ref={ref}
         images={demoImages}
         visible={visible}
         defaultIndex={1}
@@ -81,7 +79,7 @@ export default () => {
         <Button
           onClick={() => {
             const handler = ImageViewer.show({
-              image: demoImages[2],
+              image: demoImage,
             })
             setTimeout(() => {
               handler.close()
