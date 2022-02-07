@@ -35,4 +35,8 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 
 ### Does it support pull up to load more?
 
-Pull-up loading is another component: [InfiniteScroll](./infinite-scroll)
+Pull-up loading is another component: [InfiniteScroll](./infinite-scroll).
+
+### About the browser's default pull-down behavior
+
+Some browsers or webview containers have elastic effects or pull-to-refresh logic. We do not recommend using the PullToRefresh component in this environment. If you must use it, please disable the default pull-down and elastic effects of the outer browser. , otherwise PullToRefresh and the browser's default behavior may be triggered at the same time, resulting in a poor user experience.

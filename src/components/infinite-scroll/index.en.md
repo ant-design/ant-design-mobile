@@ -41,3 +41,9 @@ If necessary, `<InfiniteScroll>` allows custom display content, this content can
 ### Use with search
 
 <code src="./demos/demo3.tsx"></code>
+
+## FAQ
+
+### Does it support pulling down?
+
+Pulling down is another component: [PullToRefresh](./pull-to-refresh).
