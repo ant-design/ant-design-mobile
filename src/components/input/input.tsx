@@ -139,7 +139,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         onCompositionStart={props.onCompositionStart}
         onCompositionEnd={props.onCompositionEnd}
       />
-      {props.clearable && !!value && (
+      {props.clearable && !!value && !props.readOnly && (
         <div
           className={`${classPrefix}-clear`}
           onMouseDown={e => {
