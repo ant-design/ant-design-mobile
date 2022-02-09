@@ -89,6 +89,7 @@ const validateMessages = {
 | trigger          | 设置收集字段值变更的时机                                                                                     | `string`                                      | `onChange`                                         |
 | validateTrigger  | 设置字段校验的时机                                                                                           | `string \| string[]`                          | `onChange`                                         |
 | shouldUpdate     | 自定义字段更新逻辑，说明见下                                                                                 | `boolean \| (prevValue, curValue) => boolean` | `false`                                            |
+| initialValue     | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准                                          | `any`                                         | -                                                  |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 

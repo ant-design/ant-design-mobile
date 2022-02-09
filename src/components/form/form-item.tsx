@@ -33,6 +33,7 @@ export type FormItemProps = Pick<
   | 'trigger'
   | 'validateTrigger'
   | 'shouldUpdate'
+  | 'initialValue'
 > &
   Pick<ListItemProps, 'style' | 'onClick' | 'extra' | 'arrow'> & {
     label?: React.ReactNode

@@ -87,6 +87,7 @@ const validateMessages = {
 | trigger          | When to collect the value of children node.                                                                                                                                     | `string`                                      | `onChange`                                                            |
 | validateTrigger  | When to validate the value of children node                                                                                                                                     | `string \| string[]`                          | `onChange`                                                            |
 | shouldUpdate     | Custom field update logic. See below                                                                                                                                            | `boolean \| (prevValue, curValue) => boolean` | `false`                                                               |
+| initialValue     | Config sub default value. Form `initialValues` get higher priority when conflict.                                                                                               | `any`                                         | -                                                                     |
 
 After wrapped by `Form.Item` with `name` property, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls, the flow of form data will be handled by Form which will cause:
 
