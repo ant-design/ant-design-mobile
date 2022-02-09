@@ -27,6 +27,7 @@ export type SelectorProps<V> = {
   defaultValue?: V[]
   value?: V[]
   onChange?: (v: V[], extend: { items: SelectorOption<V>[] }) => void
+  showCheckMark?: boolean
 } & NativeProps<
   | '--color'
   | '--checked-color'
@@ -41,6 +42,7 @@ export type SelectorProps<V> = {
 const defaultProps = {
   multiple: false,
   defaultValue: [],
+  showCheckMark: true,
 }
 
 export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
@@ -92,7 +94,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
             {option.description}
           </div>
         )}
-        {active && (
+        {active && props.showCheckMark && (
           <div className={`${classPrefix}-check-mark-wrapper`}>
             <CheckMark />
           </div>

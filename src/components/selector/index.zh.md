@@ -8,15 +8,16 @@
 
 ### 属性
 
-| 属性         | 说明             | 类型                                                                    | 默认值  |
-| ------------ | ---------------- | ----------------------------------------------------------------------- | ------- |
-| value        | 选中项           | `SelectorValue[]`                                                       | -       |
-| defaultValue | 默认项           | `SelectorValue[]`                                                       | `[]`    |
-| columns      | 行展示数         | `number`                                                                | -       |
-| options      | 可选项           | `SelectorOption[]`                                                      | -       |
-| multiple     | 是否允许多选     | `boolean`                                                               | `false` |
-| disabled     | 是否全局禁止选中 | `boolean`                                                               | `false` |
-| onChange     | 选项改变时触发   | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
+| 属性          | 说明             | 类型                                                                    | 默认值  |
+| ------------- | ---------------- | ----------------------------------------------------------------------- | ------- |
+| value         | 选中项           | `SelectorValue[]`                                                       | -       |
+| defaultValue  | 默认项           | `SelectorValue[]`                                                       | `[]`    |
+| columns       | 行展示数         | `number`                                                                | -       |
+| options       | 可选项           | `SelectorOption[]`                                                      | -       |
+| multiple      | 是否允许多选     | `boolean`                                                               | `false` |
+| disabled      | 是否全局禁止选中 | `boolean`                                                               | `false` |
+| onChange      | 选项改变时触发   | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
+| showCheckMark | 是否显示对勾角标 | `boolean`                                                               | `true`  |
 
 ### CSS 变量
 

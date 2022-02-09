@@ -35,11 +35,11 @@ export default () => {
             '--border-radius': '100px',
             '--border': 'solid transparent 1px',
             '--checked-border': 'solid var(--adm-color-primary) 1px',
-            '--padding': '8px 32px',
+            '--padding': '8px 24px',
           }}
+          showCheckMark={false}
           options={options}
           defaultValue={['1']}
-          multiple={true}
         />
       </DemoBlock>
     </>

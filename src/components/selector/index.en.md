@@ -8,15 +8,16 @@
 
 ### Props
 
-| Name         | Description                          | Type                                                                    | Default |
-| ------------ | ------------------------------------ | ----------------------------------------------------------------------- | ------- |
-| value        | Selected value                       | `SelectorValue[]`                                                       | -       |
-| defaultValue | Selected value by default            | `SelectorValue[]`                                                       | `[]`    |
-| columns      | Number of the displayed columns      | `number`                                                                | -       |
-| options      | Optional selector                    | `SelectorOption[]`                                                      | -       |
-| multiple     | Whether to allow multiple selections | `boolean`                                                               | `false` |
-| disabled     | Whether to disable selecting         | `boolean`                                                               | `false` |
-| onChange     | Triggered when the value is changed  | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
+| Name          | Description                          | Type                                                                    | Default |
+| ------------- | ------------------------------------ | ----------------------------------------------------------------------- | ------- |
+| value         | Selected value                       | `SelectorValue[]`                                                       | -       |
+| defaultValue  | Selected value by default            | `SelectorValue[]`                                                       | `[]`    |
+| columns       | Number of the displayed columns      | `number`                                                                | -       |
+| options       | Optional selector                    | `SelectorOption[]`                                                      | -       |
+| multiple      | Whether to allow multiple selections | `boolean`                                                               | `false` |
+| disabled      | Whether to disable selecting         | `boolean`                                                               | `false` |
+| onChange      | Triggered when the value is changed  | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
+| showCheckMark | Whether to show the check mark       | `boolean`                                                               | `true`  |
 
 ### CSS Variables
 
