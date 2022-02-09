@@ -11,6 +11,7 @@ import { useSpring, animated } from '@react-spring/web'
 import { supportsPassive } from '../../utils/supports-passive'
 import { nearest } from '../../utils/nearest'
 import { mergeProps } from '../../utils/with-default-props'
+import { useLockScroll } from '../../utils/use-lock-scroll'
 
 export type FloatingPanelRef = {
   setHeight: (
@@ -126,6 +127,8 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       }),
       [api]
     )
+
+    useLockScroll(elementRef, true)
 
     return withNativeProps(
       props,
