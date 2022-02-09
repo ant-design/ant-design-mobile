@@ -4,13 +4,9 @@
 
 <code src="./demos/demo2.tsx"></code>
 
-### 属性
-
-```ts | pure
-type SelectorValue = string | number
-```
-
 ## Selector
+
+### 属性
 
 | 属性         | 说明             | 类型                                                                    | 默认值  |
 | ------------ | ---------------- | ----------------------------------------------------------------------- | ------- |
@@ -22,7 +18,28 @@ type SelectorValue = string | number
 | disabled     | 是否全局禁止选中 | `boolean`                                                               | `false` |
 | onChange     | 选项改变时触发   | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
 
-## SelectorOption
+### CSS 变量
+
+| 属性                 | 说明             | 默认值                     |
+| -------------------- | ---------------- | -------------------------- |
+| --color              | 背景色           | `#f5f5f5`                  |
+| --checked-color      | 选中时的背景色   | `#e7f1ff`                  |
+| --text-color         | 文字颜色         | `var(--adm-color-text)`    |
+| --checked-text-color | 选中时的文字颜色 | `var(--adm-color-primary)` |
+| --border             | 边框样式         | `none`                     |
+| --checked-border     | 选中时的边框样式 | `none`                     |
+| --border-radius      | 选项的圆角       | `2px`                      |
+| --padding            | 选项的 padding   | `8px 16px`                 |
+
+## 类型定义
+
+### SelectorValue
+
+```ts | pure
+type SelectorValue = string | number
+```
+
+### SelectorOption
 
 | 属性        | 说明     | 类型            | 默认值  |
 | ----------- | -------- | --------------- | ------- |
@@ -42,9 +59,3 @@ type SelectorValue = string | number
   onChange={arr => console.log(arr)}
 />
 ```
-
-### CSS 变量
-
-| 属性            | 说明         | 默认值    |
-| --------------- | ------------ | --------- |
-| --checked-color | 填充背景颜色 | `#e7f1ff` |

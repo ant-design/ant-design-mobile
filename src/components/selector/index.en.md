@@ -4,13 +4,9 @@
 
 <code src="./demos/demo2.tsx"></code>
 
-### Props
-
-```ts | pure
-type SelectorValue = string | number
-```
-
 ## Selector
+
+### Props
 
 | Name         | Description                          | Type                                                                    | Default |
 | ------------ | ------------------------------------ | ----------------------------------------------------------------------- | ------- |
@@ -22,7 +18,28 @@ type SelectorValue = string | number
 | disabled     | Whether to disable selecting         | `boolean`                                                               | `false` |
 | onChange     | Triggered when the value is changed  | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
 
-## SelectorOption
+### CSS Variables
+
+| Name                 | Description                   | Default                    |
+| -------------------- | ----------------------------- | -------------------------- |
+| --color              | Background color              | `#f5f5f5`                  |
+| --checked-color      | Background color when checked | `#e7f1ff`                  |
+| --text-color         | Text color                    | `var(--adm-color-text)`    |
+| --checked-text-color | Text color when checked       | `var(--adm-color-primary)` |
+| --border             | border style                  | `none`                     |
+| --checked-border     | Border style when checked     | `none`                     |
+| --border-radius      | Border radius of options      | `2px`                      |
+| --padding            | Padding of options            | `8px 16px`                 |
+
+## Types
+
+### SelectorValue
+
+```ts | pure
+type SelectorValue = string | number
+```
+
+### SelectorOption
 
 | Name        | Description         | Type            | Default |
 | ----------- | ------------------- | --------------- | ------- |
@@ -42,9 +59,3 @@ type SelectorValue = string | number
   onChange={arr => console.log(arr)}
 />
 ```
-
-### CSS Variables
-
-| Name            | Description             | Default   |
-| --------------- | ----------------------- | --------- |
-| --checked-color | filled background color | `#e7f1ff` |

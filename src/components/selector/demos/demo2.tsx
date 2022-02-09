@@ -31,9 +31,14 @@ export default () => {
 
       <DemoBlock title='自定义样式'>
         <Selector
-          style={{ '--checked-color': '#b5d4ff' }}
+          style={{
+            '--border-radius': '100px',
+            '--border': 'solid transparent 1px',
+            '--checked-border': 'solid var(--adm-color-primary) 1px',
+            '--padding': '8px 32px',
+          }}
           options={options}
-          defaultValue={['1', '2']}
+          defaultValue={['1']}
           multiple={true}
         />
       </DemoBlock>
