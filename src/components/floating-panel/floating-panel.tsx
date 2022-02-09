@@ -10,12 +10,7 @@ import { useDrag } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
 import { supportsPassive } from '../../utils/supports-passive'
 import { nearest } from '../../utils/nearest'
-
-export type FloatingPanelProps = {
-  anchors: number[]
-  children: ReactNode
-  onHeightChange?: (height: number, animating: boolean) => void
-} & NativeProps<'--border-radius' | '--z-index'>
+import { mergeProps } from '../../utils/with-default-props'
 
 export type FloatingPanelRef = {
   setHeight: (
@@ -26,8 +21,20 @@ export type FloatingPanelRef = {
   ) => void
 }
 
+export type FloatingPanelProps = {
+  anchors: number[]
+  children: ReactNode
+  onHeightChange?: (height: number, animating: boolean) => void
+  handleDraggingOfContent?: boolean
+} & NativeProps<'--border-radius' | '--z-index'>
+
+const defaultProps = {
+  handleDraggingOfContent: true,
+}
+
 export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
-  (props, ref) => {
+  (p, ref) => {
+    const props = mergeProps(defaultProps, p)
     const { anchors } = props
     const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
 
@@ -61,6 +68,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
           if (header === target || header?.contains(target)) {
             pullingRef.current = true
           } else {
+            if (!props.handleDraggingOfContent) return
             const reachedTop = y.goal <= bounds.top
             const content = contentRef.current
             if (!content) return

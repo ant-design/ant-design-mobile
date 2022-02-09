@@ -4,10 +4,11 @@
 
 ### Props
 
-| Name           | Description                                                                                                      | Type                                           | Description |
-| -------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ----------- |
-| anchors        | What height can be dragged to, the unit is `px`                                                                  | `number[]`                                     | -           |
-| onHeightChange | Triggered when the height changes, the `animating` parameter indicates whether it is in the process of animation | `(height: number, animating: boolean) => void` |             |
+| Name                    | Description                                                                                                      | Type                                           | Description |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ----------- |
+| anchors                 | What height can be dragged to, the unit is `px`                                                                  | `number[]`                                     | -           |
+| onHeightChange          | Triggered when the height changes, the `animating` parameter indicates whether it is in the process of animation | `(height: number, animating: boolean) => void` |             |
+| handleDraggingOfContent | Whether to handle the drag event of the panel content area. If disabled, only the head area can be dragged       | `boolean`                                      | `true`      |
 
 ### Ref
 
