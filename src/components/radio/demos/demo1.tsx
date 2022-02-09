@@ -18,17 +18,20 @@ export default () => {
           </div>
           <Radio>有描述的勾选框</Radio>
           <Radio defaultChecked>默认选中</Radio>
-          <Radio defaultChecked disabled>
-            禁用状态
-          </Radio>
         </Space>
+      </DemoBlock>
+
+      <DemoBlock title='状态'>
+        <Radio defaultChecked disabled>
+          禁用状态
+        </Radio>
       </DemoBlock>
 
       <DemoBlock title='选项组'>
         <Radio.Group
           value={value}
-          onChange={(val: string) => {
-            setValue(val)
+          onChange={val => {
+            setValue(val as string)
           }}
         >
           <Space direction='vertical'>
@@ -59,8 +62,8 @@ export default () => {
       <DemoBlock title='自定义 icon'>
         <Radio.Group
           value={value}
-          onChange={(val: string) => {
-            setValue(val)
+          onChange={val => {
+            setValue(val as string)
           }}
         >
           <Space direction='vertical'>

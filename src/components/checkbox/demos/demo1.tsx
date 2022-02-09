@@ -18,6 +18,11 @@ export default () => {
           </div>
           <Checkbox>有描述的勾选框</Checkbox>
           <Checkbox defaultChecked>默认选中</Checkbox>
+        </Space>
+      </DemoBlock>
+
+      <DemoBlock title='状态'>
+        <Space direction='vertical'>
           <Checkbox defaultChecked disabled>
             禁用状态
           </Checkbox>
