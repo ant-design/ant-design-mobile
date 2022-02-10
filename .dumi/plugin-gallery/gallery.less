@@ -13,6 +13,15 @@
   flex: auto;
   overflow-y: scroll;
   background: rgb(245, 247, 250);
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #eeeeee;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #999999;
+  }
   &.demoBody {
     overflow-y: hidden;
   }
