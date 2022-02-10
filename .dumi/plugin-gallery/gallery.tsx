@@ -9,8 +9,6 @@ import classNames from 'classnames'
 
 const components = ComponentConfig['menus']['zh']['/zh/components']
 
-console.log('ComponentConfig', ComponentConfig)
-
 const getDemoPath = (path: string): string => {
   const keyArrs = path.split('/')
   const key = keyArrs[keyArrs.length - 1]

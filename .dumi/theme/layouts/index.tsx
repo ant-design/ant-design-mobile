@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useLayoutEffect, useState } from 'react'
 import type { IRouteComponentProps } from '@umijs/types'
 import { context, Link } from 'dumi/theme'
 import Navbar from '../components/Navbar'
@@ -67,6 +67,15 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
   const updatedTime: any = `${updatedTimeIns.toLocaleDateString([], {
     hour12: false,
   })} ${updatedTimeIns.toLocaleTimeString([], { hour12: false })}`
+
+  useLayoutEffect(() => {
+    if (
+      window.innerWidth <= 500 &&
+      !window.location.pathname.startsWith('/gallery')
+    ) {
+      window.location.href = '/gallery'
+    }
+  }, [])
 
   return (
     <div
