@@ -17,32 +17,32 @@ export default () => {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/dd5520d8-44b4-43a6-88ee-c970e3757d39.svg',
       title: trans('Fast', '高性能'),
       txt: trans(
-        'It is carefully optimized for harsh scenes, without configuration, you can have the best package size and ultimate performance.',
-        '为严苛场景精心优化，无需配置，即可拥有最佳的包体积大小和极致的性能。'
+        'No configuration required for optimal package size and performance.',
+        '无需配置，即可拥有最佳的包体积大小和最优的性能'
       ),
     },
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/33cb2ea7-3025-439a-9ce1-212aae26b1cc.svg',
       title: trans('Customizable', '可定制'),
       txt: trans(
-        'Based on CSS variables, you can reliably and efficiently adjust the appearance of components or create your own themes.',
-        '基于 CSS 变量，你可以可靠且高效地对组件外观进行调整，或是创造出自己的主题。'
+        'Based on CSS variables, you can flexibly adjust the appearance of components or freely create your own themes.',
+        '基于 CSS 变量，可以灵活地调整组件外观或自由创造自己的主题'
       ),
     },
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/7329c998-6dfd-4764-865a-1839dbcc5653.svg',
       title: trans('Atomic', '原子化'),
       txt: trans(
-        'The function of each component, neither more nor less, is exactly what you need.',
-        '每个组件的功能，不多也不少，恰好就是你所需。'
+        'The functionality provided by each component is just right for the business needs.',
+        '每个组件提供的功能，恰到好处地满足业务所需'
       ),
     },
     {
       img: 'https://gw.alipayobjects.com/zos/bmw-prod/0c1d3f71-9b1a-43df-84a8-8eed55700d65.svg',
       title: trans('Fluent', '流畅'),
       txt: trans(
-        'With smooth gestures and delicate animation, it helps the product create the ultimate experience.',
-        '拥有流畅的手势和细腻的动画，助力产品打造出极致体验。'
+        'With smooth gesture interaction and detailed animation, it helps to create the ultimate experience.',
+        '拥有流畅的手势交互和细致的动画展示，助力打造极致体验。'
       ),
     },
   ]
@@ -104,8 +104,8 @@ export default () => {
               </p>
               <p>
                 {trans(
-                  'You can directly experience it online on Codesandbox, no need to install and configure the environment.',
-                  '你可以直接在 Codesandbox 上在线体验，无需安装和配置环境。'
+                  'Experience online on Codesandbox without installing and configuring the environment.',
+                  '在 Codesandbox 上在线体验，无需安装和配置环境'
                 )}
               </p>
               <img
@@ -130,8 +130,8 @@ export default () => {
               </p>
               <p>
                 {trans(
-                  'Take Alipay mobile design as the design basis, and closely follow the design specifications visually.',
-                  '以支付宝移动设计为设计基础，在视觉上紧跟设计规范。'
+                  'Based on many business practices of Ant Group, abstractly build a mobile asset library.',
+                  '基于蚂蚁集团的众多业务实践，抽象构建出移动端资产库'
                 )}
               </p>
               <img
@@ -157,8 +157,8 @@ export default () => {
                 <p>{trans('Quick Start', '快速上手')}</p>
                 <p>
                   {trans(
-                    'Two easy steps, quick installation and introduction of components, antd-mobile automatically loads css style files for you.',
-                    '轻松两步，快速实现安装和引入组件，antd-mobile 自动为你加载 css 样式文件。'
+                    'Two easy steps, quick installation and introduction of components, antd-mobile automatically loads css style files.',
+                    '轻松两步，快速实现安装和引入组件，Ant Design Mobile 自动加载 CSS 样式文件'
                   )}
                 </p>
                 <a href={trans('/guide/quick-start', '/zh/guide/quick-start')}>
@@ -176,7 +176,7 @@ export default () => {
                 <p>
                   {trans(
                     'We have sorted out some common problems for you. If you have any questions, please check it out first.',
-                    '我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。'
+                    '我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下'
                   )}
                 </p>
                 <a href={trans('/guide/faq', '/zh/guide/faq')}>FAQ &gt;</a>
