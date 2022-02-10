@@ -324,6 +324,7 @@ const config: IConfig = {
       ],
     },
   },
+  plugins: ['./.dumi/plugin-gallery/index.ts'],
 }
 
 export default config

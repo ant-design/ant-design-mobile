@@ -15,6 +15,11 @@
     "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "antd-mobile": ["../src/index.ts"],
+      "antd-mobile/src/*": ["../src/*"],
+      "antd-mobile/es/*": ["../src/*"]
+    }
   }
 }
