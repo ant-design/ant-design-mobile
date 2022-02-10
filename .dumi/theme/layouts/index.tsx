@@ -70,7 +70,7 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
 
   useLayoutEffect(() => {
     if (
-      window.innerWidth <= 500 &&
+      window.innerWidth <= 600 &&
       !window.location.pathname.startsWith('/gallery')
     ) {
       window.location.href = '/gallery'

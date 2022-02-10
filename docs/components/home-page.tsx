@@ -63,8 +63,8 @@ export default () => {
               <a href={trans('/guide/quick-start', '/zh/guide/quick-start')}>
                 {trans('Get Started', '开始使用')}
               </a>
-              <a href={codesandboxLink} target='_blank'>
-                {trans('Try it Online', '在线体验')}
+              <a href={trans('/components', '/zh/components')}>
+                {trans('Components', '组件列表')}
               </a>
             </p>
           </div>
