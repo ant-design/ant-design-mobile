@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { List, NavBar } from 'antd-mobile'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
+import { List, NavBar, Popover } from 'antd-mobile'
 // @ts-ignore
 import ComponentConfig from '@@/dumi/config'
 // @ts-ignore
@@ -7,20 +7,32 @@ import DemosConfig from '@@/dumi/demos'
 import styles from './gallery.less'
 import classNames from 'classnames'
 
-const components = ComponentConfig['menus']['zh']['/zh/components']
-
-const getDemoPath = (path: string): string => {
-  const keyArrs = path.split('/')
-  const key = keyArrs[keyArrs.length - 1]
-  if (DemosConfig[`${key}-demos`]) {
-    return `/~demos/${key}-demos`
-  } else if (DemosConfig[`${key}-demo1`]) {
-    return `/~demos/${key}-demo1`
+const components = ComponentConfig['menus']['zh']['/zh/components'] as [
+  {
+    title: string
+    children: {
+      title: string
+      path: string
+    }[]
   }
-  return path
-}
+]
+
+const demos = Object.keys(DemosConfig)
+
+const componentToDemoPaths: Record<string, string[]> = {}
+
+components.forEach(group => {
+  group.children.forEach(item => {
+    const keyArrs = item.path.split('/')
+    const key = keyArrs[keyArrs.length - 1]
+    componentToDemoPaths[item.title] = demos.filter(val =>
+      val.startsWith(`${key}-demo`)
+    )
+  })
+})
+
 export default ({}) => {
-  const [url, setUrl] = useState('')
+  const [currentDemoIndex, setCurrentDemoIndex] = useState<number | null>(null)
   const [currentComponent, setCurrentComponent] = useState('')
 
   useEffect(() => {
@@ -30,23 +42,51 @@ export default ({}) => {
     }
   })
 
+  useLayoutEffect(() => {
+    if (!currentComponent) {
+      setCurrentDemoIndex(null)
+    } else {
+      setCurrentDemoIndex(0)
+    }
+  }, [currentComponent])
+
+  const demoSwitcher = currentComponent && currentDemoIndex !== null && (
+    <Popover.Menu
+      trigger='click'
+      placement='bottomRight'
+      actions={componentToDemoPaths[currentComponent].map((_, index) => ({
+        text: `Demo${index + 1}`,
+        onClick: () => {
+          setCurrentDemoIndex(index)
+        },
+      }))}
+    >
+      <a className={styles.demoSwitcher}>
+        {currentDemoIndex + 1} / {componentToDemoPaths[currentComponent].length}
+      </a>
+    </Popover.Menu>
+  )
+
   return (
     <div style={{ height: window.innerHeight }} className={styles.gallery}>
       <div className={styles.header}>
         <NavBar
-          backArrow={!!url}
+          backArrow={currentDemoIndex !== null}
           onBack={() => {
-            setUrl('')
             setCurrentComponent('')
           }}
+          right={demoSwitcher}
         >
           {currentComponent || 'Ant Design Mobile'}
         </NavBar>
       </div>
-      {url && (
+      {currentComponent && currentDemoIndex !== null && (
         <div className={classNames(styles.body, styles.demoBody)}>
           <iframe
-            src={url}
+            src={
+              '/~demos/' +
+              componentToDemoPaths[currentComponent][currentDemoIndex]
+            }
             style={{
               width: window.innerWidth,
               height: '100%',
@@ -55,7 +95,7 @@ export default ({}) => {
           />
         </div>
       )}
-      <div className={styles.body} hidden={!!url}>
+      <div className={styles.body} hidden={currentDemoIndex !== null}>
         <div className={styles.guide}>
           <img
             src='https://gw.alipayobjects.com/zos/bmw-prod/b4eaf7fb-c494-497a-81a7-4b588555948c.svg'
@@ -73,17 +113,20 @@ export default ({}) => {
         {components.map(group => {
           return (
             <List key={group.title} header={group.title}>
-              {group.children.map(item => (
-                <List.Item
-                  key={item.title}
-                  onClick={() => {
-                    setUrl(getDemoPath(item.path))
-                    setCurrentComponent(item.title)
-                  }}
-                >
-                  {item.title}
-                </List.Item>
-              ))}
+              {group.children.map(item => {
+                const demoPaths = componentToDemoPaths[item.title]
+                if (demoPaths && demoPaths.length === 0) return null
+                return (
+                  <List.Item
+                    key={item.title}
+                    onClick={() => {
+                      setCurrentComponent(item.title)
+                    }}
+                  >
+                    {item.title}
+                  </List.Item>
+                )
+              })}
             </List>
           )
         })}
