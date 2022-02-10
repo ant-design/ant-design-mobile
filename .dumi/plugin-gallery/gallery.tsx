@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
-import { List, NavBar, Popover } from 'antd-mobile'
+import { List, NavBar, Popover, SafeArea } from 'antd-mobile'
 // @ts-ignore
 import ComponentConfig from '@@/dumi/config'
 // @ts-ignore
@@ -130,6 +130,7 @@ export default ({}) => {
             </List>
           )
         })}
+        <SafeArea position='bottom' />
       </div>
     </div>
   )
