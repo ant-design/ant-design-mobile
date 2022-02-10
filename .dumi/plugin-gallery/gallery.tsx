@@ -43,18 +43,33 @@ export default ({}) => {
           {currentComponent || 'Ant Design Mobile'}
         </NavBar>
       </div>
-      <div className={classNames(styles.body, styles.demoBody)}>
-        <iframe
-          hidden={!url}
-          src={url}
-          style={{
-            width: window.innerWidth,
-            height: '100%',
-            border: 'none',
-          }}
-        />
-      </div>
+      {url && (
+        <div className={classNames(styles.body, styles.demoBody)}>
+          <iframe
+            src={url}
+            style={{
+              width: window.innerWidth,
+              height: '100%',
+              border: 'none',
+            }}
+          />
+        </div>
+      )}
       <div className={styles.body} hidden={!!url}>
+        <div className={styles.guide}>
+          <img
+            src='https://gw.alipayobjects.com/zos/bmw-prod/b4eaf7fb-c494-497a-81a7-4b588555948c.svg'
+            alt='logo'
+            className={styles.logo}
+          />
+          <p>下面是一些 Ant Design Mobile 的组件 demo，可以点进去试一试</p>
+          <p>
+            如果你想查阅完整的组件文档，请在桌面浏览器中访问：
+            <a href={window.location.origin} target='_blank'>
+              {window.location.origin}
+            </a>
+          </p>
+        </div>
         {components.map(group => {
           return (
             <List key={group.title} header={group.title}>

@@ -69,6 +69,9 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
   })} ${updatedTimeIns.toLocaleTimeString([], { hour12: false })}`
 
   useLayoutEffect(() => {
+    if (window !== window.parent) {
+      return
+    }
     if (
       window.innerWidth <= 600 &&
       !window.location.pathname.startsWith('/gallery')
