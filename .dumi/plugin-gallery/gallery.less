@@ -1,0 +1,19 @@
+.gallery {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  flex: none;
+  border-bottom: solid 1px #eeeeee;
+}
+
+.body {
+  flex: auto;
+  overflow-y: scroll;
+  background: rgb(245, 247, 250);
+  &.demoBody {
+    overflow-y: hidden;
+  }
+}
