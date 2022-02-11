@@ -70,7 +70,7 @@ export default () => {
 
       <DemoBlock title='加载状态'>
         <Space wrap>
-          <Button loading color='primary' loadingText='加载中'>
+          <Button loading color='primary' loadingText='正在加载'>
             Loading
           </Button>
           <Button loading>Loading</Button>
