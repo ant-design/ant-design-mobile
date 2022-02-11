@@ -42,7 +42,7 @@ const LocaleSelect: FC<{ location: any }> = ({ location }) => {
   const [localeInStorage, setLocaleInStorage] = useLocalStorageState(
     'adm-doc-locale',
     {
-      defaultValue: 'en',
+      defaultValue: navigator.language.startsWith('zh') ? 'zh' : 'en',
     }
   )
 
