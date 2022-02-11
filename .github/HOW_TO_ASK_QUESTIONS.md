@@ -80,6 +80,8 @@
 
 ## 好的提问
 
+问题：[Dialog.confirm 配合 Input 组件使用时，无法正常绑定 state](https://github.com/ant-design/ant-design-mobile/issues/4762)
+
 问题：[--adm-button-border-width 设置 0 时，Button 点击样式有问题](https://github.com/ant-design/ant-design-mobile/issues/4709)
 
 问题：[Modal 和 Dialog 组件设置 image 属性后，当图片过长，无法显示内容](https://github.com/ant-design/ant-design-mobile/issues/4712)
