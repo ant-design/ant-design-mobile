@@ -85,3 +85,32 @@ const handler = Dialog.show(props)
 | onConfirm   | 点击确认按钮时触发 | `() => void \| Promise<void>` | -        |
 | cancelText  | 取消按钮的内容     | `ReactNode`                   | `'取消'` |
 | onCancel    | 点击取消按钮时触发 | `() => void \| Promise<void>` | -        |
+
+需要注意的是，对于**指令式**创建出来的 Dialog，**并不会感知父组件的重渲染和其中 state 的更新**，因此下面这种写法是完全错误的：
+
+```tsx
+export default function App() {
+  const [captcha, setCaptcha] = useState<string>("");
+  const showCaptcha = () => {
+    return Dialog.confirm({
+      title: "短信验证",
+      content: (
+        <div>
+          <Input
+            placeholder="请输入验证码"
+            value={captcha} // App 中 captcha 的更新是不会传递到 Dialog 中的
+            onChange={(v) => {setCaptcha(v)}}
+          />
+        </div>
+      )
+    });
+  };
+  return (
+    <div>
+      <Button onClick={showCaptcha}>Show</Button>
+    </div>
+  );
+}
+```
+
+如果你需要在 Dialog 中包含很多复杂的状态和逻辑，那么可以使用声明式的语法，或者考虑自己将内部状态和逻辑单独封装一个组件出来，详见 [#4762](https://github.com/ant-design/ant-design-mobile/issues/4762)。

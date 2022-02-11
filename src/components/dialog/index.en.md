@@ -85,3 +85,32 @@ In addition, it supports the following props:
 | onConfirm   | Triggered when the confirm button is clicked | `() => void \| Promise<void>` | -          |
 | cancelText  | The content of the cancel button             | `ReactNode`                   | `'Cancel'` |
 | onCancel    | Triggered when the cancel button is clicked  | `() => void \| Promise<void>` | -          |
+
+It should be noted that for the Dialog created by **instructive**, ** will not perceive the re-rendering of the parent component and the update of the state in it**, so the following writing is completely wrong:
+
+```tsx
+export default function App() {
+  const [captcha, setCaptcha] = useState<string>("");
+  const showCaptcha = () => {
+    return Dialog.confirm({
+      title: "SMS verification",
+      content: (
+        <div>
+          <Input
+            placeholder="Please enter verification code"
+            value={captcha} // Updates to the captcha state in App will not be passed to the Dialog
+            onChange={(v) => {setCaptcha(v)}}
+          />
+        </div>
+      )
+    });
+  };
+  return (
+    <div>
+      <Button onClick={showCaptcha}>Show</Button>
+    </div>
+  );
+}
+```
+
+If you need to include a lot of complex states and logic in Dialog, you can use declarative syntax, or consider encapsulating the internal state and logic as a separate component, see [#4762](https://github.com /ant-design/ant-design-mobile/issues/4762).
