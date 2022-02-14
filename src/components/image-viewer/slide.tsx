@@ -27,7 +27,7 @@ export const Slide: FC<Props> = props => {
   useGesture(
     {
       onDrag: state => {
-        if (state.tap && state.elapsedTime > 0) {
+        if (state.tap && state.elapsedTime > 0 && state.elapsedTime < 1000) {
           // 判断点击时间>0是为了过滤掉非正常操作，例如用户长按选择图片之后的取消操作（也是一次点击）
           props.onTap()
           return
