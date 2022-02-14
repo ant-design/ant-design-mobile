@@ -5,6 +5,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import { bound } from '../../utils/bound'
 
 const classPrefix = `adm-input`
 
@@ -17,8 +18,6 @@ export type InputProps = Pick<
   NativeInputProps,
   | 'maxLength'
   | 'minLength'
-  | 'max'
-  | 'min'
   | 'autoComplete'
   | 'pattern'
   | 'inputMode'
@@ -50,6 +49,8 @@ export type InputProps = Pick<
     | 'previous'
     | 'search'
     | 'send'
+  min?: number
+  max?: number
 } & NativeProps<
     '--font-size' | '--color' | '--placeholder-color' | '--text-align'
   >
@@ -97,6 +98,16 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     }
   }, [props.enterKeyHint])
 
+  function checkValue() {
+    let nextValue = value
+    if (props.type === 'number') {
+      nextValue = bound(parseFloat(nextValue), props.min, props.max).toString()
+    }
+    if (nextValue !== value) {
+      setValue(nextValue)
+    }
+  }
+
   return withNativeProps(
     props,
     <div
@@ -118,6 +129,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         }}
         onBlur={e => {
           setHasFocus(false)
+          checkValue()
           props.onBlur?.(e)
         }}
         id={props.id}

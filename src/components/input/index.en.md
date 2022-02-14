@@ -18,8 +18,10 @@ The `Input` component is layout-independent. It only includes the most basic inp
 | readOnly     | Whether it is readonly or not                                                                 | `boolean`                                            | `false` |
 | clearable    | Whether to enable the clear icon, the input box will be cleared after clicking the clear icon | `boolean`                                            | `false` |
 | onClear      | Triggered after clicking the clear button                                                     | `() => void`                                         | -       |
-| id           | The id of the input element, usually used with label                                          | `string`                                             | -       |
+| id           | The `id` of the `input` element, usually used with `label`                                    | `string`                                             | -       |
 | onEnterPress | The callback when Enter key is pressed                                                        | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | -       |
+| min          | Minimum value, only valid when `type` is `number`                                             | `number`                                             | -       |
+| max          | Maximum value, only valid when `type` is `number`                                             | `number`                                             | -       |
 
 In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd`
 
