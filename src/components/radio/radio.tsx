@@ -67,12 +67,11 @@ export const Radio: FC<RadioProps> = p => {
   return withNativeProps(
     props,
     <label
-      className={classNames(classPrefix, props.className, {
+      className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled,
         [`${classPrefix}-block`]: props.block,
       })}
-      style={props.style}
     >
       <input
         type='radio'
