@@ -40,6 +40,8 @@ With the following babel configuration, maximum compatibility can be achieved fo
 }
 ```
 
+And for TypeScript, antd-mobile is compatible with versions >= 3.8.
+
 ## Playground
 
 If you don't want to configure your environment locally, you can also try it directly on [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json).

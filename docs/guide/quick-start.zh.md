@@ -40,6 +40,8 @@ import { Button } from 'antd-mobile'
 }
 ```
 
+而对于 TypeScript，我们兼容的版本是 >= 3.8。
+
 ## 在线体验
 
 如果你不想在本地配置环境，也可以直接在 [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json) 上进行体验。
