@@ -1,8 +1,10 @@
 # Popover
 
-## Popover
-
 <code src="./demos/demo1.tsx"></code>
+
+<code src="./demos/demo2.tsx"></code>
+
+## Popover
 
 ### Props
 
@@ -35,8 +37,6 @@
 | visible | Whether the Popover is diplaying | `boolean`    |
 
 ## Popover.Menu
-
-<code src="./demos/demo2.tsx"></code>
 
 ### Props
 
