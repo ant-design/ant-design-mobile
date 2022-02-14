@@ -17,6 +17,7 @@ export type DatePickerProps = Pick<
   PickerProps,
   | 'onCancel'
   | 'onClose'
+  | 'closeOnMaskClick'
   | 'visible'
   | 'confirmText'
   | 'cancelText'
