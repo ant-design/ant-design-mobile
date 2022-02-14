@@ -81,11 +81,12 @@ export const Slide: FC<Props> = props => {
       drag: {
         // filterTaps: true,
         from: () => [x.get(), y.get()],
+        pointer: { touch: true },
       },
       pinch: {
         from: () => [zoom.get(), 0],
+        pointer: { touch: true },
       },
-      pointer: { touch: true },
     }
   )
 
