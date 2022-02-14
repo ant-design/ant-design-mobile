@@ -1,5 +1,5 @@
 .adm-list {
-  --header-font-size: 14px;
+  --header-font-size: 15px;
   --prefix-width: 'auto';
   --prefix-padding-right: 12px;
   --align-items: center;
@@ -14,9 +14,7 @@
   &-header {
     color: var(--adm-color-weak);
     font-size: var(--header-font-size);
-    padding-left: var(--padding-left);
-    padding-right: var(--padding-right);
-    margin: 16px 0 4px;
+    padding: 8px var(--padding-right) 8px var(--padding-left);
   }
   &-body {
     background-color: #ffffff;
@@ -36,6 +34,9 @@
     margin: 12px;
     .adm-list-body {
       border-radius: 8px;
+    }
+    .adm-list-header {
+      padding-left: 0;
     }
   }
 }

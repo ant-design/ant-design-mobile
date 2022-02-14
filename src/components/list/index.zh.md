@@ -19,7 +19,7 @@
 
 | 属性                      | 说明                                                                                | 默认值                              |
 | ------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------- |
-| --header-font-size        | 头部的字体大小                                                                      | `14px`                              |
+| --header-font-size        | 头部的字体大小                                                                      | `15px`                              |
 | --prefix-width            | prefix 部分的宽度                                                                   | `auto`                              |
 | --prefix-padding-right    | prefix 部分的右侧 padding                                                           | `12px`                              |
 | --active-background-color | 点击时的背景颜色                                                                    | `var(--adm-border-color)`           |

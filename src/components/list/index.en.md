@@ -19,7 +19,7 @@
 
 | Name                      | Description                                                                                     | Default                             |
 | ------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------- |
-| --header-font-size        | The font-size of the header                                                                     | `14px`                              |
+| --header-font-size        | The font-size of the header                                                                     | `15px`                              |
 | --prefix-width            | Width of the prefix part.                                                                       | `auto`                              |
 | --prefix-padding-right    | The padding-right of the prefix part                                                            | `12px`                              |
 | --active-background-color | The background color when clicked.                                                              | `var(--adm-border-color)`           |
