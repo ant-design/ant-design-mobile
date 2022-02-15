@@ -119,5 +119,6 @@
     "url": "git+https://github.com/ant-design/ant-design-mobile.git",
     "branch": "master",
     "platform": "github"
-  }
+  },
+  "packageManager": "yarn@3.1.1"
 }
