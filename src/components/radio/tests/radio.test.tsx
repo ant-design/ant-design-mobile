@@ -1,0 +1,114 @@
+import * as React from 'react'
+import { fireEvent, render, testA11y, userEvent } from 'testing'
+import Radio from '../'
+import { RadioGroupProps } from '../group'
+
+const classPrefix = `adm-radio`
+
+it('passes a11y test', async () => {
+  await testA11y(<Radio>Radio</Radio>)
+})
+
+test('basic - should check', async () => {
+  const { container } = render(<Radio>Radio</Radio>)
+
+  const input = container.querySelectorAll('input')[0]
+  const radio = container.getElementsByTagName('label')[0]
+  expect(input).not.toBeChecked()
+  expect(radio).toHaveClass(`${classPrefix}`)
+
+  fireEvent.click(radio)
+  expect(input).toBeChecked()
+  expect(radio).toHaveClass(`${classPrefix}-checked`)
+})
+
+test('renders with disabled', async () => {
+  const { container } = render(<Radio disabled>Radio</Radio>)
+  const input = container.querySelectorAll('input')[0]
+  const radio = container.getElementsByTagName('label')[0]
+  expect(radio).toHaveClass(`${classPrefix}-disabled`)
+  expect(input).not.toBeChecked()
+  fireEvent.click(radio)
+  expect(input).not.toBeChecked()
+})
+
+test('Group - default values', async () => {
+  const Component = () => (
+    <Radio.Group defaultValue={'apple'}>
+      <Radio value='apple'>苹果</Radio>
+      <Radio value='orange'>橘子</Radio>
+      <Radio value='banana'>香蕉</Radio>
+    </Radio.Group>
+  )
+  const { container } = render(<Component />)
+  const [apple, orange, banana] = Array.from(
+    container.querySelectorAll('input')
+  )
+  expect(apple).toBeChecked()
+  expect(orange).not.toBeChecked()
+  expect(banana).not.toBeChecked()
+
+  fireEvent.click(banana)
+
+  expect(apple).not.toBeChecked()
+  expect(orange).not.toBeChecked()
+  expect(banana).toBeChecked()
+})
+
+test('Group - value onChange', () => {
+  let checked = 'apple'
+  const onChange = jest.fn(value => {
+    checked = value
+  })
+
+  const Component = (props: RadioGroupProps) => (
+    <Radio.Group {...props}>
+      <Radio value='apple'>苹果</Radio>
+      <Radio value='orange'>橘子</Radio>
+      <Radio value='banana'>香蕉</Radio>
+    </Radio.Group>
+  )
+  const { container } = render(
+    <Component value={checked} onChange={onChange} />
+  )
+  const [apple, orange, banana] = Array.from(
+    container.querySelectorAll('input')
+  )
+  expect(apple).toBeChecked()
+  expect(orange).not.toBeChecked()
+  expect(banana).not.toBeChecked()
+
+  fireEvent.click(banana)
+
+  expect(onChange).toHaveBeenCalledTimes(1)
+  expect(checked).toEqual('banana')
+})
+
+test('Group - group disabled', () => {
+  const Component = () => (
+    <Radio.Group defaultValue={'orange'} disabled>
+      <Radio value='apple'>苹果</Radio>
+      <Radio value='orange' disabled>
+        橘子
+      </Radio>
+      <Radio value='banana' disabled={false}>
+        香蕉
+      </Radio>
+    </Radio.Group>
+  )
+  const { container } = render(<Component />)
+  const [apple, orange, banana] = Array.from(
+    container.querySelectorAll('input')
+  )
+  expect(apple).not.toBeChecked()
+  expect(orange).toBeChecked()
+  expect(banana).not.toBeChecked()
+
+  userEvent.click(apple)
+  userEvent.click(orange)
+  userEvent.click(banana)
+
+  expect(apple).not.toBeChecked()
+  expect(orange).toBeChecked()
+  expect(banana).not.toBeChecked()
+})
