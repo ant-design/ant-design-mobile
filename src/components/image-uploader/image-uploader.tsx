@@ -36,7 +36,7 @@ export type ImageUploaderProps = {
   showUpload?: boolean
   deletable?: boolean
   capture?: InputHTMLAttributes<unknown>['capture']
-  onPreview?: (index: number) => void
+  onPreview?: (index: number, item: ImageUploadItem) => void
   beforeUpload?: (file: File[]) => Promise<File[]> | File[]
   upload: (file: File) => Promise<ImageUploadItem>
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
@@ -185,7 +185,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               if (props.preview) {
                 previewImage(index)
               }
-              onPreview && onPreview(index)
+              onPreview && onPreview(index, fileItem)
             }}
             onDelete={async () => {
               const canDelete = await props.onDelete?.(fileItem)
