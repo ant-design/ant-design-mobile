@@ -25,8 +25,8 @@ type RadioValue = string | number
 
 | Name         | Description                                 | Type                          | Default |
 | ------------ | ------------------------------------------- | ----------------------------- | ------- |
-| defaultValue | Option selected by default                  | `RadioValue`                  | -       |
-| disabled     | Disabled for the whole group                | `boolean`                     | `false` |
+| defaultValue | Option selected by default                  | `RadioValue \| null`          | `null`  |
+| disabled     | Disabled for the whole group                | `boolean \| null`             | `false` |
 | value        | Specified selected option                   | `RadioValue`                  | -       |
 | onChange     | Callback function when the value is changed | `(value: RadioValue) => void` | -       |
 
