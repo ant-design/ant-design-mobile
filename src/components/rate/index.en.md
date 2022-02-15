@@ -17,7 +17,8 @@
 
 ### CSS Variables
 
-| Name           | Description             | Default   |
-| -------------- | ----------------------- | --------- |
-| --star-size    | Star size.              | `24px`    |
-| --active-color | Fill color when active. | `#ffd21e` |
+| Name             | Description               | Default                                                                                                  |
+| ---------------- | ------------------------- | -------------------------------------------------------------------------------------------------------- |
+| --star-size      | Star size.                | `24px`                                                                                                   |
+| --active-color   | Fill color when active.   | `#ffd21e`                                                                                                |
+| --inactive-color | Fill color when inactive. | Defaults to `--adm-color-light`, For details, please refer to https://mobile.ant.design/zh/guide/theming |

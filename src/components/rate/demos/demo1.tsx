@@ -42,6 +42,7 @@ export default () => {
             style={{
               '--star-size': '32px',
               '--active-color': '#ff7f7f',
+              '--inactive-color': '#1677ff',
             }}
           />
         </Space>
