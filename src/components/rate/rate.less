@@ -3,6 +3,7 @@
 .@{class-prefix-rate} {
   --star-size: 24px;
   --active-color: #ffd21e;
+  --inactive-color: var(--adm-color-light);
   display: inline-flex;
   &-box {
     position: relative;
@@ -12,7 +13,7 @@
     padding: calc(var(--star-size) / 8);
     line-height: var(--star-size);
     font-size: var(--star-size);
-    color: var(--adm-color-light);
+    color: var(--inactive-color);
     text-align: center;
     overflow: hidden;
     cursor: pointer;
