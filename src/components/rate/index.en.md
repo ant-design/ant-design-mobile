@@ -18,7 +18,7 @@
 ### CSS Variables
 
 | Name             | Description               | Default                                                                                                  |
-| ---------------- | ------------------------- | -------------------------------------------------------------------------------------------------------- |
+| ---------------- | ------------------------- | ----------------------- |
 | --star-size      | Star size.                | `24px`                                                                                                   |
 | --active-color   | Fill color when active.   | `#ffd21e`                                                                                                |
 | --inactive-color | Fill color when inactive. | `var(--adm-color-light)` |
