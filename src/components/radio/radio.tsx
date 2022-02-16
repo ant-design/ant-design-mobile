@@ -5,6 +5,7 @@ import { RadioGroupContext } from './group-context'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { CheckIcon } from '../checkbox/check-icon'
+import { devWarning } from '../../utils/dev-log'
 
 const classPrefix = `adm-radio`
 
@@ -36,8 +37,25 @@ export const Radio: FC<RadioProps> = p => {
   })
   let disabled = props.disabled
 
+  const usageWarning = () => {
+    if (p.checked !== undefined) {
+      devWarning(
+        'Radio',
+        'When used with `Radio.Group`, the `checked` prop of `Radio` will not work if `value` prop of `Radio` is not undefined.'
+      )
+    }
+    if (p.defaultChecked !== undefined) {
+      devWarning(
+        'Radio',
+        'When used with `Radio.Group`, the `defaultChecked` prop of `Radio` will not work if `value` prop of `Radio` is not undefined.'
+      )
+    }
+  }
+
   const { value } = props
   if (groupContext && value !== undefined) {
+    usageWarning()
+
     checked = groupContext.value.includes(value)
     setChecked = (checked: boolean) => {
       if (checked) {
