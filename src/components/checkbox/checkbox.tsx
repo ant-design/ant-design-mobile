@@ -7,6 +7,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { devWarning } from '../../utils/dev-log'
 import { CheckIcon } from './check-icon'
 import { IndeterminateIcon } from './indeterminate-icon'
+import { isDev } from '../../utils/is-dev'
 
 const classPrefix = `adm-checkbox`
 
@@ -41,24 +42,22 @@ export const Checkbox: FC<CheckboxProps> = p => {
   })
   let disabled = props.disabled
 
-  const usageWarning = () => {
-    if (p.checked !== undefined) {
-      devWarning(
-        'Checkbox',
-        'When used with `Checkbox.Group`, the `checked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
-      )
-    }
-    if (p.defaultChecked !== undefined) {
-      devWarning(
-        'Checkbox',
-        'When used with `Checkbox.Group`, the `defaultChecked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
-      )
-    }
-  }
-
   const { value } = props
   if (groupContext && value !== undefined) {
-    usageWarning()
+    if (isDev) {
+      if (p.checked !== undefined) {
+        devWarning(
+          'Checkbox',
+          'When used within `Checkbox.Group`, the `checked` prop of `Checkbox` will not work.'
+        )
+      }
+      if (p.defaultChecked !== undefined) {
+        devWarning(
+          'Checkbox',
+          'When used within `Checkbox.Group`, the `defaultChecked` prop of `Checkbox` will not work.'
+        )
+      }
+    }
 
     checked = groupContext.value.includes(value)
     setChecked = (checked: boolean) => {
