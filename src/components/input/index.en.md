@@ -48,4 +48,4 @@ In addition, the following native attributes are supported: `maxLength` `minLeng
 
 In native `input`, `maxlength` only takes effect when `type` is `text`, `search`, `url`, `tel`, `email`, `password`, please refer to [MDN document](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-maxlength)。
 
-If you need to limit the number type to the input box, you can pass the `max` `min` prop.
+If you need to limit the input box with number type, you can pass the `max` `min` prop.
