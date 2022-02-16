@@ -8,6 +8,7 @@ import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { devError } from '../../utils/dev-log'
 
 const classPrefix = 'adm-text-area'
 
@@ -59,7 +60,16 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
   (p: TextAreaProps, ref) => {
     const props = mergeProps(defaultProps, p)
     const { autoSize, showCount, maxLength } = props
-    const [value, setValue] = usePropsValue(props)
+    const [value, setValue] = usePropsValue({
+      ...props,
+      value: props.value === null ? '' : props.value,
+    })
+    if (props.value === null) {
+      devError(
+        'TextArea',
+        '`value` prop on `TextArea` should not be `null`. Consider using an empty string to clear the component.'
+      )
+    }
     const nativeTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
     useImperativeHandle(ref, () => ({

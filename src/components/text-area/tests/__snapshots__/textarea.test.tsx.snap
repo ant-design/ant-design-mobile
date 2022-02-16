@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea should works with \`value={null}\` 1`] = `
+<div>
+  <div
+    class="adm-text-area"
+  >
+    <textarea
+      class="adm-text-area-element"
+      rows="2"
+    />
+  </div>
+</div>
+`;
