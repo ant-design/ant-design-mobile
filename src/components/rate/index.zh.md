@@ -21,4 +21,4 @@
 | ---------------- | ---------- | --------------------------------------------------------------------------------------- |
 | --star-size      | star 大小  | `24px`                                                                                  |
 | --active-color   | 填充色     | `#ffd21e`                                                                               |
-| --inactive-color | 原始填充色 | 默认为主题色 `--adm-color-light`，详情请参考 https://mobile.ant.design/zh/guide/theming |
+| --inactive-color | 原始填充色 | `var(--adm-color-light)` |
