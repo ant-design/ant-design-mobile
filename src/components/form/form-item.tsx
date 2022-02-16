@@ -35,7 +35,10 @@ export type FormItemProps = Pick<
   | 'shouldUpdate'
   | 'initialValue'
 > &
-  Pick<ListItemProps, 'style' | 'onClick' | 'extra' | 'arrow'> & {
+  Pick<
+    ListItemProps,
+    'style' | 'onClick' | 'extra' | 'arrow' | 'description'
+  > & {
     label?: React.ReactNode
     help?: React.ReactNode
     hasFeedback?: boolean
@@ -72,6 +75,7 @@ type FormItemLayoutProps = Pick<
   | 'layout'
   | 'extra'
   | 'arrow'
+  | 'description'
 > & {
   htmlFor?: string
   errors?: string[]
@@ -91,6 +95,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     hidden,
     errors,
     arrow,
+    description,
   } = props
 
   const context = useContext(FormContext)
@@ -109,9 +114,13 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     </label>
   ) : null
 
-  const descriptionElement = feedback && (
-    <div className={`${classPrefix}-footer`}>{feedback}</div>
-  )
+  const descriptionElement =
+    feedback || description ? (
+      <>
+        {description}
+        <div className={`${classPrefix}-footer`}>{feedback}</div>
+      </>
+    ) : null
 
   return (
     <List.Item
@@ -147,6 +156,7 @@ export const FormItem: FC<FormItemProps> = props => {
     noStyle,
     hidden,
     layout,
+    description,
     // Field 相关
     disabled,
     rules,
@@ -215,6 +225,7 @@ export const FormItem: FC<FormItemProps> = props => {
         label={label}
         extra={extra}
         help={help}
+        description={description}
         required={isRequired}
         disabled={disabled}
         hasFeedback={hasFeedback}
