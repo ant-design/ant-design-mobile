@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { fireEvent, render, testA11y, userEvent } from 'testing'
 import Radio from '../'
 import { RadioGroupProps } from '../group'
