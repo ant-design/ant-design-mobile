@@ -16,7 +16,7 @@ export default () => {
           >
             <Radio />
           </div>
-          <Radio>有描述的勾选框</Radio>
+          <Radio>有描述的单选框</Radio>
           <Radio defaultChecked>默认选中</Radio>
         </Space>
       </DemoBlock>
@@ -103,7 +103,7 @@ export default () => {
             '--gap': '6px',
           }}
         >
-          小号的勾选框
+          小号的单选框
         </Radio>
       </DemoBlock>
     </>

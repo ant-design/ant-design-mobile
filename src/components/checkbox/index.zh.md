@@ -1,4 +1,4 @@
-# Checkbox 勾选框
+# Checkbox 复选框
 
 <code src="./demos/demo1.tsx"></code>
 
