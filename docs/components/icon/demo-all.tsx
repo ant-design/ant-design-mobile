@@ -124,7 +124,7 @@ export default () => {
         <Selector
           options={copyTypes}
           value={[copyType]}
-          onChange={(val: string[]) => setCopyType(val[0])}
+          onChange={(val: string[]) => setCopyType(val[0] || copyType)}
           className={`${classPrefix}-copy-type-selector`}
         />
         <SearchBar
