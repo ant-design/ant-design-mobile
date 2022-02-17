@@ -168,7 +168,7 @@ export const Tabs: FC<TabsProps> = p => {
   }
 
   useIsomorphicLayoutEffect(() => {
-    animate(true)
+    animate(!x.isAnimating)
   }, [])
 
   useUpdateLayoutEffect(() => {
@@ -176,12 +176,12 @@ export const Tabs: FC<TabsProps> = p => {
   }, [activeKey])
 
   useResizeEffect(() => {
-    animate(true)
+    animate(!x.isAnimating)
   }, tabListContainerRef)
 
   useMutationEffect(
     () => {
-      animate(true)
+      animate(!x.isAnimating)
     },
     tabListContainerRef,
     {
