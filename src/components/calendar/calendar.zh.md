@@ -12,6 +12,7 @@
 | value         | 选择的日期                         | 单选模式下为 `Date \| null`，多选模式下为 `[Date, Date] \| null`               | -          |
 | defaultValue  | 默认选择的日期                     | 同 `value` 属性                                                                | -          |
 | onChange      | 选择日期变化时触发                 | 单选模式下为 `(val: Date) => void`，多选模式下为 `(val: [Date, Date]) => void` | -          |
+| onPageChange  | 切换月或年时触发                   | `(year: number, month: number) => void`                                        | -          |
 | weekStartsOn  | 每周以周几作为第一天               | `'Monday' \| 'Sunday'`                                                         | `'Sunday'` |
 | renderLabel   | 标注信息的渲染函数                 | `(date: Date) => string \| null \| undefined`                                  | -          |
 

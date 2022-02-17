@@ -7,7 +7,7 @@ import { ArrowLeft } from './arrow-left'
 import { ArrowLeftDouble } from './arrow-left-double'
 import { useConfig } from '../config-provider'
 import isoWeek from 'dayjs/plugin/isoWeek'
-import { useIsomorphicLayoutEffect } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
 
 dayjs.extend(isoWeek)
 
@@ -16,6 +16,7 @@ const classPrefix = 'adm-calendar'
 export type CalendarProps = {
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => string | null | undefined
+  onPageChange?: (year: number, month: number) => void
 } & (
   | {
       selectionMode?: undefined
@@ -53,6 +54,11 @@ export const Calendar: FC<CalendarProps> = p => {
   }
 
   const [current, setCurrent] = useState(() => dayjs().date(1))
+
+  useUpdateEffect(() => {
+    props.onPageChange?.(current.year(), current.month() + 1)
+  }, [current])
+
   const header = (
     <div className={`${classPrefix}-header`}>
       <a
