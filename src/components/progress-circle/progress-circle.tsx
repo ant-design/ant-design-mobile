@@ -10,7 +10,7 @@ export type ProgressCircleProps = {
 } & NativeProps<'--size' | '--track-width' | '--track-color' | '--fill-color'>
 
 export const ProgressCircle: FC<ProgressCircleProps> = p => {
-  const props = mergeProps({ percent: 0, strokeColor: '#1677FF' }, p)
+  const props = mergeProps({ percent: 0 }, p)
   const style: CSSProperties & Record<'--percent', string> = {
     '--percent': props.percent.toString(),
   }
