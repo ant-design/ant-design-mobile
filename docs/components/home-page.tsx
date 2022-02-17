@@ -42,7 +42,7 @@ export default () => {
       title: trans('Fluent', '流畅'),
       txt: trans(
         'With smooth gesture interaction and detailed animation, it helps to create the ultimate experience.',
-        '拥有流畅的手势交互和细致的动画展示，助力打造极致体验。'
+        '拥有流畅的手势交互和细致的动画展示，助力打造极致体验'
       ),
     },
   ]
