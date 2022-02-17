@@ -11,12 +11,12 @@
 
 ### CSS 变量
 
-| 属性          | 说明                       | 默认值    | 全局变量 |
-| ------------- | -------------------------- | --------- | -------- |
-| --size        | 画布的宽高，仅支持 px 单位 | `50px`    | -        |
-| --track-width | 线条宽度，仅支持 px 单位   | `3px`     | -        |
-| --track-color | 轨道的颜色                 | `#e5e5e5` | -        |
-| --fill-color  | 填充部分的颜色             | `#1677ff` | -        |
+| 属性          | 说明                       | 默认值                     | 全局变量                            |
+| ------------- | -------------------------- | -------------------------- | ----------------------------------- |
+| --size        | 画布的宽高，仅支持 px 单位 | `50px`                     | `--adm-progress-circle-size`        |
+| --track-width | 线条宽度，仅支持 px 单位   | `3px`                      | `--adm-progress-circle-track-width` |
+| --track-color | 轨道的颜色                 | `#e5e5e5`                  | `--adm-progress-circle-track-color` |
+| --fill-color  | 填充部分的颜色             | `var(--adm-color-primary)` | `--adm-progress-circle-fill-color`  |
 
 ## 常见问题
 
