@@ -98,7 +98,7 @@ export default ({}) => {
       <div className={styles.body} hidden={currentDemoIndex !== null}>
         <div className={styles.guide}>
           <img
-            src='https://gw.alipayobjects.com/zos/bmw-prod/b4eaf7fb-c494-497a-81a7-4b588555948c.svg'
+            src='https://gw.alipayobjects.com/zos/bmw-prod/b874caa9-4458-412a-9ac6-a61486180a62.svg'
             alt='logo'
             className={styles.logo}
           />
