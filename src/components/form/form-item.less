@@ -30,6 +30,17 @@
   &&-hidden {
     display: none;
   }
+
+  &&-horizontal {
+    --align-items: stretch;
+    .adm-list-item-content-prefix {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .adm-list-item-content-extra {
+      align-self: center;
+    }
+  }
 }
 
 .adm-form-vertical {
@@ -38,13 +49,6 @@
       font-size: 15px;
       margin-bottom: 4px;
     }
-  }
-}
-
-.adm-form-horizontal {
-  .adm-list-item-content-prefix {
-    padding-top: 12px;
-    padding-bottom: 12px;
   }
 }
 
