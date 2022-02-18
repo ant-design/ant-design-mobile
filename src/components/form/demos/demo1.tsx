@@ -39,7 +39,7 @@ export default () => {
         >
           <Input placeholder='请输入姓名' />
         </Form.Item>
-        <Form.Item name='address' label='地址'>
+        <Form.Item name='address' label='地址' help='详情地址'>
           <Input placeholder='请输入地址' />
         </Form.Item>
         <Form.Item
@@ -99,7 +99,7 @@ export default () => {
         >
           <Input onChange={console.log} placeholder='请输入姓名' />
         </Form.Item>
-        <Form.Item name='address' label='地址'>
+        <Form.Item name='address' label='地址' help='详情地址'>
           <TextArea placeholder='请输入地址' maxLength={100} rows={4} />
         </Form.Item>
       </Form>
