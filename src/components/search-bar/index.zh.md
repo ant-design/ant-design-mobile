@@ -1,4 +1,4 @@
-# SearchBar 搜索
+# SearchBar 搜索框
 
 <code src="./demos/demo1.tsx"></code>
 
