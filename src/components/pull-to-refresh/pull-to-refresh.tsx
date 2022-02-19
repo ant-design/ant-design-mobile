@@ -2,7 +2,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { getScrollParent } from '../../utils/get-scroll-parent'
-import React, { FC, ReactNode, useRef, useState } from 'react'
+import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import { supportsPassive } from '../../utils/supports-passive'
 import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
@@ -54,6 +54,11 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
   const elementRef = useRef<HTMLDivElement>(null)
 
   const pullingRef = useRef(false)
+
+  //防止下拉时抖动
+  useEffect(() => {
+    elementRef.current?.addEventListener('touchmove', () => {})
+  }, [])
 
   async function doRefresh() {
     api.start({ height: headHeight })
