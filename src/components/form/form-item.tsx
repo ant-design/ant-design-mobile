@@ -11,6 +11,8 @@ import { FormContext, NoStyleItemContext } from './context'
 import { toArray } from './utils'
 import List, { ListItemProps } from '../list'
 import type { FormLayout } from './index'
+import Popover from '../popover'
+import { QuestionCircleOutline } from 'antd-mobile-icons'
 
 const NAME_SPLIT = '__SPLIT__'
 
@@ -110,7 +112,13 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     <label className={`${classPrefix}-label`} htmlFor={htmlFor}>
       {label}
       {required && <span className={`${classPrefix}-label-required`}>*</span>}
-      {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
+      {help && (
+        <span className={`${classPrefix}-label-help`}>
+          <Popover content={help} mode='dark' trigger='click'>
+            <QuestionCircleOutline />
+          </Popover>
+        </span>
+      )}
     </label>
   ) : null
 
