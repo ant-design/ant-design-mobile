@@ -1,7 +1,8 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import { Button, Space, Toast } from 'antd-mobile'
-import { DemoBlock } from 'demos'
+import { DemoBlock, DemoDescription } from 'demos'
 import { UploadOutline } from 'antd-mobile-icons'
+import { ToastShowRef } from '../methods'
 
 export default () => {
   return (
@@ -139,6 +140,12 @@ export default () => {
           </Button>
         </Space>
       </DemoBlock>
+      <DemoBlock title='自定义关闭操作'>
+        <Space direction='vertical' block>
+          <Imperative />
+          <DemoDescription content='你可以根据需求，自定义关闭Toast' />
+        </Space>
+      </DemoBlock>
     </>
   )
 }
@@ -160,4 +167,34 @@ const CountDownText: FC = () => {
     }
   }, [])
   return <span>还剩 {count} 秒</span>
+}
+
+// 自定义关闭操作
+function Imperative() {
+  const handler = useRef<ToastShowRef>()
+
+  return (
+    <>
+      <Button
+        block
+        onClick={() => {
+          handler.current = Toast.show({
+            content: '这条提示不会自动消失',
+            duration: 0,
+          })
+        }}
+      >
+        显示Toast
+      </Button>
+      <Button
+        style={{ marginTop: '10px' }}
+        block
+        onClick={() => {
+          handler.current?.close()
+        }}
+      >
+        关闭Toast
+      </Button>
+    </>
+  )
 }

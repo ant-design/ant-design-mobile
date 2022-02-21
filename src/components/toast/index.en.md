@@ -8,6 +8,20 @@
 
 ### Toast.show
 
+```ts | pure
+const handler = Toast.show(props)
+```
+
+You can directly open the Toast box by calling the `show` method on the `Toast`
+
+When the Toast box is closed, the component instance would be automatically destroyed.
+
+The return value of the `show` method is a component controller, which contains the following properties:
+
+| Name  | Description        | Type         | Default |
+| ----- | ------------------ | ------------ | ------- |
+| close | To close the Toast | `() => void` | -       |
+
 The `show` method supports passing in a `props` object, which contains the following props:
 
 | Name            | Description                                                        | Type                                                  | Default         |
