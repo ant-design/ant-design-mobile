@@ -35,9 +35,9 @@ import 'antd-mobile-v2/dist/antd-mobile.css';  // or 'antd-mobile-v2/dist/antd-m
 Finally, reinstall the `antd-mobile` package as v5:
 
 ```bash
-$ npm install --save antd-mobile@next
+$ npm install --save antd-mobile
 # or
-$ yarn add antd-mobile@next
+$ yarn add antd-mobile
 ```
 
 Now, the `antd-mobile` in project is v5, and `antd-mobile-v2` is v2.
@@ -55,9 +55,9 @@ Of course, in case your project doesn't seem to be suitable to use method 1, we 
 You can use npm alias to install v5:
 
 ```bash
-$ npm install --save antd-mobile-v5@npm:antd-mobile@next
+$ npm install --save antd-mobile-v5@npm:antd-mobile@5
 # or
-$ yarn add antd-mobile-v5@npm:antd-mobile@next
+$ yarn add antd-mobile-v5@npm:antd-mobile@5
 ```
 
 And after that, the corresponding `package.json` is:
@@ -65,7 +65,7 @@ And after that, the corresponding `package.json` is:
 ```json
 {
   "antd-mobile": "^2.3.2",
-  "antd-mobile-v5": "npm:antd-mobile@next"
+  "antd-mobile-v5": "npm:antd-mobile@5"
 }
 ```
 

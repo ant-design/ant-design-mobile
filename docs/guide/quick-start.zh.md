@@ -3,9 +3,9 @@
 ## 安装
 
 ```bash
-$ npm install --save antd-mobile@next
+$ npm install --save antd-mobile
 # or
-$ yarn add antd-mobile@next
+$ yarn add antd-mobile
 ```
 
 ## 引入
