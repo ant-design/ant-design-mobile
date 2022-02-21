@@ -11,6 +11,7 @@
     line-height: 1.5;
     box-sizing: border-box;
     position: relative;
+    color: #666666;
 
     &-required {
       position: absolute;
@@ -34,26 +35,25 @@
   &&-hidden {
     display: none;
   }
-}
 
-.adm-form-vertical {
-  .@{class-prefix-form-item} {
-    &-label {
+  &&-horizontal {
+    &.adm-list-item {
+      --align-items: stretch;
+      --prefix-width: 6em;
+    }
+    .adm-list-item-content-prefix {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .adm-list-item-content-extra {
+      align-self: center;
+    }
+  }
+
+  &&-vertical {
+    .adm-form-item-label {
       font-size: 15px;
       margin-bottom: 4px;
     }
-  }
-}
-
-.adm-form-horizontal {
-  .adm-list-item-content-prefix {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-}
-
-.@{class-prefix-form-item} {
-  &-label {
-    color: #666666;
   }
 }

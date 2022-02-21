@@ -137,9 +137,14 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       prefix={layout === 'horizontal' && labelElement}
       extra={extra}
       description={descriptionElement}
-      className={classNames(classPrefix, className, {
-        [`${classPrefix}-hidden`]: hidden,
-      })}
+      className={classNames(
+        classPrefix,
+        className,
+        `${classPrefix}-${layout}`,
+        {
+          [`${classPrefix}-hidden`]: hidden,
+        }
+      )}
       disabled={disabled}
       onClick={props.onClick}
       arrow={arrow}
