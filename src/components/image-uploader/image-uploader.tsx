@@ -183,7 +183,6 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             key={fileItem.key ?? index}
             url={fileItem.thumbnailUrl ?? fileItem.url}
             deletable={props.deletable}
-            showFailed={props.showFailed}
             onClick={() => {
               if (props.preview) {
                 previewImage(index)
@@ -197,18 +196,22 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             }}
           />
         ))}
-        {tasks.map(task => (
-          <PreviewItem
-            key={task.id}
-            file={task.file}
-            showFailed={props.showFailed}
-            deletable={task.status !== 'pending'}
-            status={task.status}
-            onDelete={() => {
-              setTasks(tasks.filter(x => x.id !== task.id))
-            }}
-          />
-        ))}
+        {tasks.map(task => {
+          if (!props.showFailed && task.status === 'fail') {
+            return null
+          }
+          return (
+            <PreviewItem
+              key={task.id}
+              file={task.file}
+              deletable={task.status !== 'pending'}
+              status={task.status}
+              onDelete={() => {
+                setTasks(tasks.filter(x => x.id !== task.id))
+              }}
+            />
+          )
+        })}
         {showUpload && (
           <div className={`${classPrefix}-upload-button-wrap`}>
             {props.children ? (

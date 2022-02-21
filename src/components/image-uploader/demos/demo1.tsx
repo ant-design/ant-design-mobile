@@ -32,7 +32,6 @@ const UploadStatus: FC = () => {
 
   return (
     <ImageUploader
-      showFailed={false}
       value={fileList}
       onChange={setFileList}
       upload={mockUploadFail as any}
