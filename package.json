@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "5.0.0-rc.28",
+  "version": "5.0.0",
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
@@ -9,7 +9,7 @@
     "postinstall": "husky install",
     "test": "jest",
     "test-with-coverage": "jest --coverage",
-    "publish": "npm publish ./lib --tag next"
+    "publish": "npm publish ./lib"
   },
   "dependencies": {
     "@react-spring/web": "^9.4.3",
