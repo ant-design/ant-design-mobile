@@ -56,7 +56,7 @@ export default () => {
             <p className={styles.description}>
               {trans(
                 'Explore the limits of mobile web experience',
-                '探索移动端 web 的体验极限'
+                '探索移动端 Web 的体验极限'
               )}
             </p>
             <p className={styles.buttons}>
