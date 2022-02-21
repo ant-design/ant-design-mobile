@@ -1,4 +1,4 @@
-<img src="https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*C3OZT6SF5BUAAAAAAAAAAAAAARQnAQ" alt="logo" width="100%" />
+<img src="https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*JzBoT6sg9t4AAAAAAAAAAAAAARQnAQ" alt="logo" width="100%" />
 
 ![npm (tag)](https://img.shields.io/npm/v/antd-mobile/next)
 ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ant-design/ant-design-mobile)
