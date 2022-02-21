@@ -13,6 +13,7 @@ type Props = {
   url?: string
   file?: File
   status?: TaskStatus
+  showFailed?: boolean
 }
 
 const classPrefix = `adm-image-uploader`
@@ -21,6 +22,9 @@ const PreviewItem: FC<Props> = props => {
   const { locale } = useConfig()
   const { url, file, deletable, onDelete } = props
   const src = useMemo(() => {
+    if (!props.showFailed) {
+      return ''
+    }
     if (url) {
       return url
     }
