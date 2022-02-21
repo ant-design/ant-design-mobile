@@ -11,6 +11,7 @@
     line-height: 1.5;
     box-sizing: border-box;
     position: relative;
+    color: #666666;
 
     &-required {
       position: absolute;
@@ -32,7 +33,10 @@
   }
 
   &&-horizontal {
-    --align-items: stretch;
+    &.adm-list-item {
+      --align-items: stretch;
+      --prefix-width: 6em;
+    }
     .adm-list-item-content-prefix {
       padding-top: 12px;
       padding-bottom: 12px;
@@ -41,19 +45,11 @@
       align-self: center;
     }
   }
-}
 
-.adm-form-vertical {
-  .@{class-prefix-form-item} {
-    &-label {
+  &&-vertical {
+    .adm-form-item-label {
       font-size: 15px;
       margin-bottom: 4px;
     }
-  }
-}
-
-.@{class-prefix-form-item} {
-  &-label {
-    color: #666666;
   }
 }

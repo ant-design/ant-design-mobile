@@ -95,7 +95,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
 
   return (
     <RcForm
-      className={classNames(classPrefix, `${classPrefix}-${layout}`, className)}
+      className={classNames(classPrefix, className)}
       style={style}
       ref={ref as ForwardedRef<RCFormInstance>}
       {...formProps}
