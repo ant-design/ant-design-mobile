@@ -24,6 +24,7 @@
 | onDelete      | Triggered when the successfully uploaded image is deleted, if it returns false, it means that it is prevented from being deleted, and it supports the return of Promise. | `(item: ImageUploadItem) => boolean \| Promise<boolean> \| void` | -         |
 | children      | Custom upload button                                                                                                                                                     | `ReactNode`                                                      | -         |
 | preview       | Whether to support preview                                                                                                                                               | `boolean`                                                        | `true`    |
+| showFailed    | Whether to display pictures in the failed uploading state                                                                                                                | `boolean`                                                        | `true`    |
 
 ### ImageUploadItem
 

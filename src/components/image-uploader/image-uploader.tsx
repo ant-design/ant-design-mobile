@@ -41,6 +41,7 @@ export type ImageUploaderProps = {
   upload: (file: File) => Promise<ImageUploadItem>
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
   preview?: boolean
+  showFailed?: boolean
 } & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
@@ -54,6 +55,7 @@ const defaultProps = {
   defaultValue: [] as ImageUploadItem[],
   accept: 'image/*',
   preview: true,
+  showFailed: true,
 }
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
@@ -194,17 +196,22 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             }}
           />
         ))}
-        {tasks.map(task => (
-          <PreviewItem
-            key={task.id}
-            file={task.file}
-            deletable={task.status !== 'pending'}
-            status={task.status}
-            onDelete={() => {
-              setTasks(tasks.filter(x => x.id !== task.id))
-            }}
-          />
-        ))}
+        {tasks.map(task => {
+          if (!props.showFailed && task.status === 'fail') {
+            return null
+          }
+          return (
+            <PreviewItem
+              key={task.id}
+              file={task.file}
+              deletable={task.status !== 'pending'}
+              status={task.status}
+              onDelete={() => {
+                setTasks(tasks.filter(x => x.id !== task.id))
+              }}
+            />
+          )
+        })}
         {showUpload && (
           <div className={`${classPrefix}-upload-button-wrap`}>
             {props.children ? (
