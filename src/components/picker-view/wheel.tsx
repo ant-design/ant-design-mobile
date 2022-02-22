@@ -41,8 +41,10 @@ export const Wheel = memo<Props>(
       const dummyItem = dummyItemRef.current
       if (!dummyItem) return
       const rect = dummyItem.getBoundingClientRect()
-      itemHeight.current = rect.height
-    }, [])
+      if (rect.height > 0) {
+        itemHeight.current = rect.height
+      }
+    })
 
     useIsomorphicLayoutEffect(() => {
       if (draggingRef.current) return
@@ -165,19 +167,19 @@ export const Wheel = memo<Props>(
 
     return (
       <div className={`${classPrefix}-column`} {...bind()}>
+        <div
+          ref={dummyItemRef}
+          className={classNames(
+            `${classPrefix}-column-item`,
+            `${classPrefix}-column-item-dummy`
+          )}
+          aria-hidden
+        />
         <animated.div
           style={{ translateY: y }}
           className={`${classPrefix}-column-wheel`}
           aria-hidden
         >
-          <div
-            ref={dummyItemRef}
-            className={classNames(
-              `${classPrefix}-column-item`,
-              `${classPrefix}-column-item-dummy`
-            )}
-            aria-hidden
-          />
           {column.map((item, index) => {
             const selected = props.value === item.value
             if (selected) selectedIndex = index
