@@ -27,6 +27,12 @@ The `show` method supports passing in a `props` object, which contains the follo
 
 You can also pass in a string directly, and `Toast.show` will automatically use it as `content`.
 
+The return value of the `show` method is a component controller, which contains the following properties:
+
+| Name  | Description                  | Type         | Default |
+| ----- | ---------------------------- | ------------ | ------- |
+| close | To close the current `Toast` | `() => void` | -       |
+
 ### Toast.clear
 
 Turn off `Toast` in all displays.
