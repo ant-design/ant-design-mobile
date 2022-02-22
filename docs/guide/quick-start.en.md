@@ -40,7 +40,9 @@ With the following babel configuration, maximum compatibility can be achieved fo
 }
 ```
 
-And for TypeScript, antd-mobile is compatible with versions >= 3.8.
+For TypeScript, antd-mobile is compatible with versions >= 3.8.
+
+For React, antd-mobile is compatible with versions >= 16.8.0.
 
 ## Playground
 

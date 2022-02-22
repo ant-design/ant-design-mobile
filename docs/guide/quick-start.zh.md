@@ -32,7 +32,7 @@ import { Button } from 'antd-mobile'
       {
         "targets": {
           "chrome": "49",
-          "ios": "9.1"
+          "ios": "10"
         }
       }
     ]
@@ -40,7 +40,9 @@ import { Button } from 'antd-mobile'
 }
 ```
 
-而对于 TypeScript，我们兼容的版本是 >= 3.8。
+对于 TypeScript，我们兼容的版本是 >= 3.8。
+
+对于 React，我们兼容的版本是 >= 16.8.0。
 
 ## 在线体验
 
