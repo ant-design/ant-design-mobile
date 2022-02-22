@@ -50,6 +50,7 @@ In addition, the following attributes of [Popup](./popup) are supported: `getCon
 | --header-button-font-size | Font size of confirm and cancel button. | `15px`  | -      |
 | --title-font-size         | Font size of title.                     | `15px`  | -      |
 | --item-font-size          | Font size of option items.              | `16px`  | -      |
+| --item-height             | Height of option item.                  | `34px`  | -      |
 
 ## CascadePicker
 

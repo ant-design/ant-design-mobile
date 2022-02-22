@@ -37,7 +37,10 @@ export type PickerProps = {
   'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
 > &
   NativeProps<
-    '--header-button-font-size' | '--title-font-size' | '--item-font-size'
+    | '--header-button-font-size'
+    | '--title-font-size'
+    | '--item-font-size'
+    | '--item-height'
   >
 
 const defaultProps = {

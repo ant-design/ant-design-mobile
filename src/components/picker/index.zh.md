@@ -50,6 +50,7 @@ type PickerValueExtend = {
 | --header-button-font-size | 确定和取消按钮的字号 | `15px` | -        |
 | --title-font-size         | 标题的字号           | `15px` | -        |
 | --item-font-size          | 选择项的字号         | `16px` | -        |
+| --item-height             | 选项的高度           | `34px` | -        |
 
 ## CascadePicker
 
