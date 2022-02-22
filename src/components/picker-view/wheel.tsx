@@ -19,7 +19,6 @@ interface Props {
 
 export const Wheel = memo<Props>(
   props => {
-    const itemHeight = convertPx(34)
     const { value, column } = props
     function onSelect(val: PickerValue) {
       props.onSelect(val, props.index)
@@ -35,12 +34,22 @@ export const Wheel = memo<Props>(
 
     const draggingRef = useRef(false)
 
+    const itemRef = useRef<HTMLDivElement>(null)
+    const itemHeight = useRef<number>(34)
+
+    useIsomorphicLayoutEffect(() => {
+      const itemContainer = itemRef.current
+      if (!itemContainer || !value) return
+      const rect = itemContainer.getBoundingClientRect()
+      itemHeight.current = convertPx(rect.height)
+    }, [value])
+
     useIsomorphicLayoutEffect(() => {
       if (draggingRef.current) return
       if (!value) return
       const targetIndex = column.findIndex(item => item.value === value)
       if (targetIndex < 0) return
-      const finalPosition = targetIndex * -itemHeight
+      const finalPosition = targetIndex * -itemHeight.current
       api.start({ y: finalPosition, immediate: y.goal !== finalPosition })
     }, [value, column])
 
@@ -58,7 +67,7 @@ export const Wheel = memo<Props>(
     }, [column, value])
 
     function scrollSelect(index: number) {
-      const finalPosition = index * -itemHeight
+      const finalPosition = index * -itemHeight.current
       api.start({ y: finalPosition })
       const item = column[index]
       if (!item) return
@@ -68,14 +77,16 @@ export const Wheel = memo<Props>(
     const bind = useDrag(
       state => {
         draggingRef.current = true
-        const min = -((column.length - 1) * itemHeight)
+        const min = -((column.length - 1) * itemHeight.current)
         const max = 0
         if (state.last) {
           draggingRef.current = false
           const position =
             state.offset[1] + state.velocity[1] * state.direction[1] * 50
           const targetIndex =
-            min < max ? -Math.round(bound(position, min, max) / itemHeight) : 0
+            min < max
+              ? -Math.round(bound(position, min, max) / itemHeight.current)
+              : 0
           scrollSelect(targetIndex)
         } else {
           const position = state.offset[1]
@@ -84,7 +95,7 @@ export const Wheel = memo<Props>(
               position,
               min,
               max,
-              itemHeight * 50,
+              itemHeight.current * 50,
               0.2
             ),
           })
@@ -168,6 +179,7 @@ export const Wheel = memo<Props>(
             }
             return (
               <div
+                ref={itemRef}
                 key={item.value}
                 data-selected={item.value === value}
                 className={`${classPrefix}-column-item`}
