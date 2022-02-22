@@ -12,6 +12,7 @@ import { supportsPassive } from '../../utils/supports-passive'
 import { nearest } from '../../utils/nearest'
 import { mergeProps } from '../../utils/with-default-props'
 import { useLockScroll } from '../../utils/use-lock-scroll'
+import { useMemoizedFn } from 'ahooks'
 
 export type FloatingPanelRef = {
   setHeight: (
@@ -52,11 +53,13 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       bottom: possibles[0],
     }
 
+    const onHeightChange = useMemoizedFn(props.onHeightChange ?? (() => {}))
+
     const [{ y }, api] = useSpring(() => ({
       y: bounds.bottom,
       config: { tension: 300 },
       onChange: result => {
-        props.onHeightChange?.(result.value.y, y.isAnimating)
+        onHeightChange(result.value.y, y.isAnimating)
       },
     }))
 
