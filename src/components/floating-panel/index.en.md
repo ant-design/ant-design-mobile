@@ -30,3 +30,11 @@ type FloatingPanelRef = {
 
 ref.current.setHeight(100)
 ```
+
+### CSS Variables
+
+| Name            | Description                           | Default | Global                         |
+| --------------- | ------------------------------------- | ------- | ------------------------------ |
+| --border-radius | the border radius of the Panel header | `8px`   |                                |
+| --header-height | the height of the Panel header        | `28px`  |                                |
+| --z-index       | z-index of the Panel                  | `900`   | `--adm-floating-panel-z-index` |
