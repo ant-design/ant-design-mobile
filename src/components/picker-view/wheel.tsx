@@ -1,12 +1,12 @@
 import React, { memo, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
 import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import classNames from 'classnames'
 
 const classPrefix = `adm-picker-view`
 
@@ -34,15 +34,15 @@ export const Wheel = memo<Props>(
 
     const draggingRef = useRef(false)
 
-    const itemRef = useRef<HTMLDivElement>(null)
+    const dummyItemRef = useRef<HTMLDivElement>(null)
     const itemHeight = useRef<number>(34)
 
     useIsomorphicLayoutEffect(() => {
-      const itemContainer = itemRef.current
-      if (!itemContainer || !value) return
-      const rect = itemContainer.getBoundingClientRect()
-      itemHeight.current = convertPx(rect.height)
-    }, [value])
+      const dummyItem = dummyItemRef.current
+      if (!dummyItem) return
+      const rect = dummyItem.getBoundingClientRect()
+      itemHeight.current = rect.height
+    }, [])
 
     useIsomorphicLayoutEffect(() => {
       if (draggingRef.current) return
@@ -170,6 +170,14 @@ export const Wheel = memo<Props>(
           className={`${classPrefix}-column-wheel`}
           aria-hidden
         >
+          <div
+            ref={dummyItemRef}
+            className={classNames(
+              `${classPrefix}-column-item`,
+              `${classPrefix}-column-item-dummy`
+            )}
+            aria-hidden
+          />
           {column.map((item, index) => {
             const selected = props.value === item.value
             if (selected) selectedIndex = index
@@ -179,7 +187,6 @@ export const Wheel = memo<Props>(
             }
             return (
               <div
-                ref={itemRef}
                 key={item.value}
                 data-selected={item.value === value}
                 className={`${classPrefix}-column-item`}

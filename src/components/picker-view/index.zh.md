@@ -24,7 +24,7 @@ PickerView 是 [Picker](./picker/#picker) 的内容区域。
 | 属性             | 说明       | 默认值  |
 | ---------------- | ---------- | ------- |
 | --height         | 整体的高度 | `240px` |
-| --item-height    | 选项的行高 | `34px`  |
+| --item-height    | 选项的高度 | `34px`  |
 | --item-font-size | 选项的字号 | `16px`  |
 
 ## CascadePickerView

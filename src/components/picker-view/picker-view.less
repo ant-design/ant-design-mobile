@@ -54,6 +54,14 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+    &&-dummy {
+      position: absolute;
+      top: calc(var(--item-height) * -1);
+      padding: 0;
+      opacity: 0;
+      user-select: none;
+      pointer-events: none;
+    }
   }
 }
 
