@@ -27,9 +27,11 @@ const defaultProps = {
   maskClickable: true,
 }
 
-export type ToastShowRef = {
+export type ToastHandler = {
   close: () => void
 }
+
+type ToastShowRef = ToastHandler
 
 export function show(p: ToastShowProps | string) {
   const props = mergeProps(
@@ -86,7 +88,7 @@ export function show(p: ToastShowProps | string) {
     close: () => {
       ref.current?.close()
     },
-  }
+  } as ToastHandler
 }
 
 export function clear() {
