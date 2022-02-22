@@ -28,7 +28,7 @@ export type FloatingPanelProps = {
   children: ReactNode
   onHeightChange?: (height: number, animating: boolean) => void
   handleDraggingOfContent?: boolean
-} & NativeProps<'--border-radius' | '--z-index'>
+} & NativeProps<'--border-radius' | '--z-index' | '--header-height'>
 
 const defaultProps = {
   handleDraggingOfContent: true,
