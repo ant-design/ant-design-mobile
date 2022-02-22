@@ -1,6 +1,8 @@
 import React, { FC, MutableRefObject, useRef } from 'react'
-import { useGesture } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
+import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
+import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
+import { bound } from '../../utils/bound'
 
 const classPrefix = `adm-image-viewer`
 
@@ -20,12 +22,49 @@ export const Slide: FC<Props> = props => {
     zoom: 1,
     x: 0,
     y: 0,
-    config: { tension: 300 },
+    config: { tension: 200 },
   }))
 
   const pinchLockRef = useRef(false)
 
-  useGesture(
+  function boundXY([x, y]: [number, number], rubberband: boolean) {
+    const currentZoom = zoom.get()
+    let xOffset = 0,
+      yOffset = 0
+    if (imgRef.current && controlRef.current) {
+      xOffset =
+        ((currentZoom * imgRef.current.width || 0) -
+          controlRef.current.clientWidth) /
+        2
+      yOffset =
+        ((currentZoom * imgRef.current.height || 0) -
+          controlRef.current.clientHeight) /
+        2
+    }
+    xOffset = xOffset > 0 ? xOffset : 0
+    yOffset = yOffset > 0 ? yOffset : 0
+
+    const bounds = {
+      left: -xOffset,
+      right: xOffset,
+      top: -yOffset,
+      bottom: yOffset,
+    }
+
+    if (rubberband) {
+      return [
+        rubberbandIfOutOfBounds(x, bounds.left, bounds.right, currentZoom * 50),
+        rubberbandIfOutOfBounds(y, bounds.top, bounds.bottom, currentZoom * 50),
+      ] as const
+    } else {
+      return [
+        bound(x, bounds.left, bounds.right),
+        bound(y, bounds.top, bounds.bottom),
+      ]
+    }
+  }
+
+  useDragAndPinch(
     {
       onDrag: state => {
         if (state.tap && state.elapsedTime > 0 && state.elapsedTime < 1000) {
@@ -43,26 +82,39 @@ export const Slide: FC<Props> = props => {
             y: 0,
           })
         } else {
-          const [x, y] = state.offset
-          api.start({
-            x,
-            y,
-            immediate: true,
-          })
+          if (state.last) {
+            const [x, y] = boundXY(
+              [
+                state.offset[0] + state.velocity[0] * state.direction[0] * 200,
+                state.offset[1] + state.velocity[1] * state.direction[1] * 200,
+              ],
+              false
+            )
+            api.start({
+              x,
+              y,
+            })
+          } else {
+            const [x, y] = boundXY(state.offset, true)
+            api.start({
+              x,
+              y,
+              immediate: true,
+            })
+          }
         }
       },
       onPinch: state => {
         pinchLockRef.current = !state.last
         const [d] = state.offset
         if (d < 0) return
-        // pinch的rubberband不会自动弹回bound，这里手动实现了
-        const zoom = state.last ? Math.max(Math.min(d, props.maxZoom), 1) : d
+        const nextZoom = state.last ? bound(d, 1, props.maxZoom) : d
         api.start({
-          zoom,
+          zoom: nextZoom,
           immediate: !state.last,
         })
-        props.onZoomChange?.(zoom)
-        if (state.last && zoom <= 1) {
+        props.onZoomChange?.(nextZoom)
+        if (state.last && nextZoom <= 1) {
           api.start({
             x: 0,
             y: 0,
@@ -83,30 +135,6 @@ export const Slide: FC<Props> = props => {
         // filterTaps: true,
         from: () => [x.get(), y.get()],
         pointer: { touch: true },
-        bounds: () => {
-          const currentZoom = zoom.get()
-          let xOffset = 0,
-            yOffset = 0
-          if (imgRef.current && controlRef.current) {
-            xOffset =
-              ((currentZoom * imgRef.current.width || 0) -
-                controlRef.current.clientWidth) /
-              2
-            yOffset =
-              ((currentZoom * imgRef.current.height || 0) -
-                controlRef.current.clientHeight) /
-              2
-          }
-          xOffset = xOffset > 0 ? xOffset : 0
-          yOffset = yOffset > 0 ? yOffset : 0
-
-          return {
-            left: -xOffset,
-            right: xOffset,
-            top: -yOffset,
-            bottom: yOffset,
-          }
-        },
       },
       pinch: {
         from: () => [zoom.get(), 0],
@@ -127,7 +155,11 @@ export const Slide: FC<Props> = props => {
       <div className={`${classPrefix}-control`} ref={controlRef}>
         <animated.div
           className={`${classPrefix}-image-wrapper`}
-          style={{ scale: zoom, x, y }}
+          style={{
+            translateX: x,
+            translateY: y,
+            scale: zoom,
+          }}
         >
           <img
             ref={imgRef}
