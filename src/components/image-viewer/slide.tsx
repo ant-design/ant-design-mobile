@@ -15,6 +15,7 @@ type Props = {
 export const Slide: FC<Props> = props => {
   const { dragLockRef } = props
   const controlRef = useRef<HTMLDivElement>(null)
+  const imgRef = useRef<HTMLImageElement>(null)
   const [{ zoom, x, y }, api] = useSpring(() => ({
     zoom: 1,
     x: 0,
@@ -82,6 +83,30 @@ export const Slide: FC<Props> = props => {
         // filterTaps: true,
         from: () => [x.get(), y.get()],
         pointer: { touch: true },
+        bounds: () => {
+          const currentZoom = zoom.get()
+          let xOffset = 0,
+            yOffset = 0
+          if (imgRef.current && controlRef.current) {
+            xOffset =
+              ((currentZoom * imgRef.current.width || 0) -
+                controlRef.current.clientWidth) /
+              2
+            yOffset =
+              ((currentZoom * imgRef.current.height || 0) -
+                controlRef.current.clientHeight) /
+              2
+          }
+          xOffset = xOffset > 0 ? xOffset : 0
+          yOffset = yOffset > 0 ? yOffset : 0
+
+          return {
+            left: -xOffset,
+            right: xOffset,
+            top: -yOffset,
+            bottom: yOffset,
+          }
+        },
       },
       pinch: {
         from: () => [zoom.get(), 0],
@@ -104,7 +129,12 @@ export const Slide: FC<Props> = props => {
           className={`${classPrefix}-image-wrapper`}
           style={{ scale: zoom, x, y }}
         >
-          <img src={props.image} draggable={false} alt={props.image} />
+          <img
+            ref={imgRef}
+            src={props.image}
+            draggable={false}
+            alt={props.image}
+          />
         </animated.div>
       </div>
     </div>
