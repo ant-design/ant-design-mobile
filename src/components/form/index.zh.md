@@ -147,6 +147,19 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 </Form>
 ```
 
+## Form.Subscribe
+
+### 属性
+
+| 属性     | 说明              | 类型                                                                    | 默认值 |
+| -------- | ----------------- | ----------------------------------------------------------------------- | ------ |
+| to       | 同 `dependencies` | `NamePath[]`                                                            | -      |
+| children | 渲染函数          | `(changedValues: Record<string, any>, form: FormInstance) => ReactNode` | -      |
+
+### 示例
+
+<code src="./demos/subscribe-demo.tsx"></code>
+
 ## 一些通用的类型定义
 
 ### NamePath

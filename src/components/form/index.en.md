@@ -6,6 +6,8 @@
 
 <code src="./demos/demo3.tsx"></code>
 
+<code src="./demos/subscribe-demo.tsx"></code>
+
 Customized or third-party form controls can be used in Form, too. Controls must follow these conventions:
 
 > - It has a controlled property `value`.
@@ -129,6 +131,19 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
   }}
 </Form.Item>
 ```
+
+## Form.Subscribe
+
+### Props
+
+| Name     | Description         | Type                                                                    | Default |
+| -------- | ------------------- | ----------------------------------------------------------------------- | ------- |
+| to       | same `dependencies` | `NamePath[]`                                                            | -       |
+| children | render function     | `(changedValues: Record<string, any>, form: FormInstance) => ReactNode` | -       |
+
+### Demo
+
+<code src="./demos/subscribe-demo.tsx"></code>
 
 ### messageVariables
 
