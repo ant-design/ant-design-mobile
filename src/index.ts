@@ -1,5 +1,5 @@
 import './global'
-
+// 方便 babel 插件可以 tree shaking
 export { setDefaultConfig } from './components/config-provider'
 
 export { default as ActionSheet } from './components/action-sheet'
