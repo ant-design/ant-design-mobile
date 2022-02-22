@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import { ReactElement } from 'react'
-
+// 挂载到body
 export function renderToBody(element: ReactElement) {
   const container = document.createElement('div')
   document.body.appendChild(container)

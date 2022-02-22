@@ -4,7 +4,7 @@ import { resolveContainer } from './get-container'
 import { canUseDom } from './can-use-dom'
 
 export type GetContainer = HTMLElement | (() => HTMLElement) | null
-
+// 挂载到容器
 export function renderToContainer(
   getContainer: GetContainer,
   node: ReactElement

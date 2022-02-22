@@ -5,7 +5,7 @@ export type PropagationEvent = 'click'
 const eventToPropRecord: Record<PropagationEvent, string> = {
   'click': 'onClick',
 }
-
+// 添加阻止冒泡
 export function withStopPropagation(
   events: PropagationEvent[],
   element: ReactElement

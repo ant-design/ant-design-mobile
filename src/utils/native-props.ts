@@ -7,7 +7,7 @@ export interface NativeProps<S extends string = never> {
   style?: CSSProperties & Partial<Record<S, string>>
   tabIndex?: number
 }
-
+// 处理原生属性
 export function withNativeProps<P extends NativeProps>(
   props: P,
   element: ReactElement

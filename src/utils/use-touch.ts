@@ -13,7 +13,7 @@ function getDirection(x: number, y: number) {
   }
   return ''
 }
-
+// 触摸事件 hook
 export function useTouch() {
   const startX = useRef(0)
   const startY = useRef(0)
