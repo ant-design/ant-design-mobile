@@ -30,3 +30,11 @@ type FloatingPanelRef = {
 
 ref.current.setHeight(100)
 ```
+
+### CSS 变量
+
+| 变量名          | 描述           | 默认值 | 全局变量                       |
+| --------------- | -------------- | ------ | ------------------------------ |
+| --border-radius | 面板头部的圆角 | `8px`  |                                |
+| --header-height | 面板头部的高度 | `28px` |                                |
+| --z-index       | 面板的 z-index | `900`  | `--adm-floating-panel-z-index` |
