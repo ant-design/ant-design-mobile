@@ -1,4 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, {
+  createRef,
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import { resolveContainer } from '../../utils/get-container'
 import ReactDOM from 'react-dom'
 import { InternalToast, ToastProps } from './toast'
@@ -21,6 +27,12 @@ const defaultProps = {
   maskClickable: true,
 }
 
+export type ToastHandler = {
+  close: () => void
+}
+
+type ToastShowRef = ToastHandler
+
 export function show(p: ToastShowProps | string) {
   const props = mergeProps(
     defaultProps,
@@ -34,7 +46,7 @@ export function show(p: ToastShowProps | string) {
   clear()
   containers.push(container)
 
-  const TempToast = () => {
+  const TempToast = forwardRef<ToastShowRef>((_, ref) => {
     const [visible, setVisible] = useState(true)
     useEffect(() => {
       return () => {
@@ -54,6 +66,10 @@ export function show(p: ToastShowProps | string) {
       }
     }, [])
 
+    useImperativeHandle(ref, () => ({
+      close: () => setVisible(false),
+    }))
+
     return (
       <InternalToast
         {...props}
@@ -64,8 +80,15 @@ export function show(p: ToastShowProps | string) {
         }}
       />
     )
-  }
-  ReactDOM.render(<TempToast />, container)
+  })
+
+  const ref = createRef<ToastShowRef>()
+  ReactDOM.render(<TempToast ref={ref} />, container)
+  return {
+    close: () => {
+      ref.current?.close()
+    },
+  } as ToastHandler
 }
 
 export function clear() {
