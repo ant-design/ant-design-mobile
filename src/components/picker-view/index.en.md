@@ -24,6 +24,7 @@ For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `Pick
 | Name             | Description                | Default |
 | ---------------- | -------------------------- | ------- |
 | --height         | Height of PickerView.      | `240px` |
+| --item-height    | Height of option item.     | `34px`  |
 | --item-font-size | Font size of option items. | `16px`  |
 
 ## CascadePickerView
