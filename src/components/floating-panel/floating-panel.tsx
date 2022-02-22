@@ -140,7 +140,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         className='adm-floating-panel'
         style={{
           height: maxHeight,
-          y,
+          translateY: y.to(y => `calc(100% + (${y}px))`),
         }}
       >
         <div
