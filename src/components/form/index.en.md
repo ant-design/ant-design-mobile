@@ -130,6 +130,19 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
 </Form.Item>
 ```
 
+## Form.Subscribe
+
+### Props
+
+| Name     | Description                                   | Type                                                                    | Default |
+| -------- | --------------------------------------------- | ----------------------------------------------------------------------- | ------- |
+| to       | Same as the `dependencies` prop of Form.Item. | `NamePath[]`                                                            | -       |
+| children | Render function.                              | `(changedValues: Record<string, any>, form: FormInstance) => ReactNode` | -       |
+
+### Demo
+
+<code src="./demos/demo-subscribe.tsx"></code>
+
 ### messageVariables
 
 You can modify the default verification information of Form.Item through `messageVariables`.
