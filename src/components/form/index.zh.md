@@ -158,7 +158,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 ### 示例
 
-<code src="./demos/subscribe-demo.tsx"></code>
+<code src="./demos/demo-subscribe.tsx"></code>
 
 ## 一些通用的类型定义
 

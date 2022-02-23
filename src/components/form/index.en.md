@@ -6,8 +6,6 @@
 
 <code src="./demos/demo3.tsx"></code>
 
-<code src="./demos/subscribe-demo.tsx"></code>
-
 Customized or third-party form controls can be used in Form, too. Controls must follow these conventions:
 
 > - It has a controlled property `value`.
@@ -143,7 +141,7 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
 
 ### Demo
 
-<code src="./demos/subscribe-demo.tsx"></code>
+<code src="./demos/demo-subscribe.tsx"></code>
 
 ### messageVariables
 
