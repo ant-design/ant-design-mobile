@@ -1,4 +1,6 @@
-<img src="https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*JzBoT6sg9t4AAAAAAAAAAAAAARQnAQ" alt="logo" width="100%" />
+<img src="https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*hjjDS5Yy-ooAAAAAAAAAAAAAARQnAQ" alt="logo" width="100%" />
+
+[English Doc](https://mobile.ant.design) | [中文文档](https://mobile.ant.design/zh) | [Discord](https://discord.gg/jmNvw4WFYn) | [钉钉](https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ)
 
 ![npm (tag)](https://img.shields.io/npm/v/antd-mobile)
 ![GitHub Release Date](https://img.shields.io/github/release-date/ant-design/ant-design-mobile)
@@ -27,11 +29,6 @@ You can also play with antd-mobile just in browser with [Codesandbox](https://co
 If you found bugs or would like to request some new features, please consider opening an [issue](https://github.com/ant-design/ant-design-mobile/issues/new).
 
 If you have some question about how to use ant-mobile, you can start a [discussion thread](https://github.com/ant-design/ant-design-mobile/discussions).
-
-And we also have some community groups here. Feel free to join us:
-
-- [DingDing](https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ)
-- [Discord](https://discord.gg/jmNvw4WFYn)
 
 ---
 
