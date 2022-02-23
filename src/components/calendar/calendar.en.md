@@ -19,3 +19,10 @@
 ### CSS Variables
 
 Not supported yet.
+
+### Ref
+
+| Name                     | Description            | Type                                            |
+| ------------------------ | ---------------------- | ----------------------------------------------- |
+| changePageByMonthAndYear | jump to specified page | `(date: {month: number, year: number}) => void` |
+| changeTodayPage          | jump to today's page   | `() => void`                                    |

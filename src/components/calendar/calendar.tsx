@@ -1,4 +1,10 @@
-import React, { FC, ReactNode, useMemo, useState } from 'react'
+import React, {
+  forwardRef,
+  ReactNode,
+  useMemo,
+  useState,
+  useImperativeHandle,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs, { Dayjs } from 'dayjs'
 import classNames from 'classnames'
@@ -12,6 +18,10 @@ import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
 dayjs.extend(isoWeek)
 
 const classPrefix = 'adm-calendar'
+export type CalenderRef = {
+  changePageByMonthAndYear: (date: { month?: number; year?: number }) => void
+  changeTodayPage: () => void
+}
 
 export type CalendarProps = {
   weekStartsOn?: 'Monday' | 'Sunday'
@@ -43,7 +53,7 @@ const defaultProps = {
   weekStartsOn: 'Sunday',
 }
 
-export const Calendar: FC<CalendarProps> = p => {
+export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
   const today = dayjs()
   const props = mergeProps(defaultProps, p)
   const { locale } = useConfig()
@@ -59,6 +69,20 @@ export const Calendar: FC<CalendarProps> = p => {
     props.onPageChange?.(current.year(), current.month() + 1)
   }, [current])
 
+  useImperativeHandle(ref, () => ({
+    changePageByMonthAndYear: ({ month, year }) => {
+      if (month && year) {
+        setCurrent(current.add(month, 'month').add(year, 'year'))
+      } else if (!month && year) {
+        setCurrent(current.add(year, 'year'))
+      } else if (!year && month) {
+        setCurrent(current.add(month, 'month'))
+      }
+    },
+    changeTodayPage: () => {
+      setCurrent(dayjs().date(1))
+    },
+  }))
   const header = (
     <div className={`${classPrefix}-header`}>
       <a
@@ -207,4 +231,4 @@ export const Calendar: FC<CalendarProps> = p => {
       {body}
     </div>
   )
-}
+})

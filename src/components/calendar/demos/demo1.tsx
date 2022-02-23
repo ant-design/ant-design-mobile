@@ -1,8 +1,36 @@
-import React from 'react'
-import { Calendar } from 'antd-mobile'
+import React, { useRef } from 'react'
+import { Button, Calendar, Space } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
+import { CalenderRef } from '../calendar'
 
 export default () => {
+  const ChangePageByRef = () => {
+    const ref = useRef<CalenderRef>(null)
+    return (
+      <>
+        <Calendar
+          selectionMode='range'
+          onChange={val => {
+            console.log(val)
+          }}
+          ref={ref}
+        />
+        <Space>
+          <Button
+            onClick={() =>
+              ref.current?.changePageByMonthAndYear({ month: 1, year: 1 })
+            }
+          >
+            切换至指定年/月
+          </Button>
+
+          <Button onClick={() => ref.current?.changeTodayPage()}>
+            回到当前日期
+          </Button>
+        </Space>
+      </>
+    )
+  }
   return (
     <>
       <DemoBlock title='仅展示'>
@@ -27,6 +55,9 @@ export default () => {
             console.log(val)
           }}
         />
+      </DemoBlock>
+      <DemoBlock title='通过ref切换当前显示的page'>
+        <ChangePageByRef />
       </DemoBlock>
     </>
   )

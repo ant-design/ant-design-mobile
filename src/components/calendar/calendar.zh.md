@@ -19,3 +19,10 @@
 ### CSS 变量
 
 暂无
+
+### Ref
+
+| 属性                     | 说明                 | 类型                                            |
+| ------------------------ | -------------------- | ----------------------------------------------- |
+| changePageByMonthAndYear | 跳转至指定日期的页面 | `(date: {month: number, year: number}) => void` |
+| changeTodayPage          | 跳转至今日           | `() => void`                                    |
