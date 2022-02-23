@@ -134,10 +134,10 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
 
 ### Props
 
-| Name     | Description         | Type                                                                    | Default |
-| -------- | ------------------- | ----------------------------------------------------------------------- | ------- |
-| to       | same `dependencies` | `NamePath[]`                                                            | -       |
-| children | render function     | `(changedValues: Record<string, any>, form: FormInstance) => ReactNode` | -       |
+| Name     | Description                                   | Type                                                                    | Default |
+| -------- | --------------------------------------------- | ----------------------------------------------------------------------- | ------- |
+| to       | Same as the `dependencies` prop of Form.Item. | `NamePath[]`                                                            | -       |
+| children | Render function.                              | `(changedValues: Record<string, any>, form: FormInstance) => ReactNode` | -       |
 
 ### Demo
 
