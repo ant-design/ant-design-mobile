@@ -183,13 +183,18 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
               props.onChange?.(d.toDate())
             } else if (props.selectionMode === 'range') {
               if (begin !== null && end === null) {
-                if (d.isBefore(begin)) {
-                  setEnd(begin)
-                  setBegin(d)
-                  props.onChange?.([d.toDate(), begin.toDate()])
+                if (begin.isSame(d.toDate())) {
+                  setBegin(null)
+                  setEnd(null)
                 } else {
-                  setEnd(d)
-                  props.onChange?.([begin.toDate(), d.toDate()])
+                  if (d.isBefore(begin)) {
+                    setEnd(begin)
+                    setBegin(d)
+                    props.onChange?.([d.toDate(), begin.toDate()])
+                  } else {
+                    setEnd(d)
+                    props.onChange?.([begin.toDate(), d.toDate()])
+                  }
                 }
               } else {
                 setBegin(d)

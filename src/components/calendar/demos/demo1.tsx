@@ -11,7 +11,7 @@ export default () => {
         <Calendar
           selectionMode='range'
           onChange={val => {
-            console.log(val)
+            // console.log(val)
           }}
           ref={ref}
         />
@@ -52,7 +52,7 @@ export default () => {
         <Calendar
           selectionMode='range'
           onChange={val => {
-            console.log(val)
+            // console.log(val)
           }}
         />
       </DemoBlock>
