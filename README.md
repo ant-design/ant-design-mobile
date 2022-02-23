@@ -1,6 +1,14 @@
 <img src="https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*hjjDS5Yy-ooAAAAAAAAAAAAAARQnAQ" alt="logo" width="100%" />
 
-[English Doc](https://mobile.ant.design) | [中文文档](https://mobile.ant.design/zh) | [Discord](https://discord.gg/jmNvw4WFYn) | [钉钉](https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ)
+<p align="center">
+  <a href="https://mobile.ant.design">English Doc</a>
+  |
+  <a href="https://mobile.ant.design/zh">中文文档</a>
+  |
+  <a href="https://discord.gg/jmNvw4WFYn">Discord</a>
+  |
+  <a href="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ">钉钉</a>
+</p>
 
 ![npm (tag)](https://img.shields.io/npm/v/antd-mobile)
 ![GitHub Release Date](https://img.shields.io/github/release-date/ant-design/ant-design-mobile)
