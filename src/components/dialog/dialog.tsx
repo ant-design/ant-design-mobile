@@ -20,6 +20,8 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-dialog`
 
+export const closeFns: Array<() => void> = []
+
 export type DialogProps = {
   afterClose?: () => void
   afterShow?: () => void

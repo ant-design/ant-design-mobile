@@ -224,6 +224,12 @@ export default () => {
           <DemoDescription content='你可以手动控制 visible 状态' />
         </Space>
       </DemoBlock>
+
+      <DemoBlock title='关闭所有弹窗'>
+        <Button block onClick={ContinuousShow}>
+          连续展示弹窗
+        </Button>
+      </DemoBlock>
     </>
   )
 }
@@ -257,4 +263,18 @@ const Declarative = () => {
       />
     </>
   )
+}
+
+// 连续展示
+function ContinuousShow() {
+  for (let i = 0; i < 3; i++) {
+    setTimeout(() => {
+      Modal.alert({
+        content: <Button onClick={() => Modal.clear()}>close all</Button>,
+        onConfirm: () => {
+          console.log('Confirmed')
+        },
+      })
+    }, i * 500)
+  }
 }

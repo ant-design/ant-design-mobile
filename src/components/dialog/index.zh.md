@@ -113,4 +113,8 @@ export default function App() {
 }
 ```
 
+### Dialog.clear
+
+可以通过调用 `Dialog` 上的 `clear` 方法关闭所有打开的对话框，通常用于路由监听中，处理路由前进、后退不能关闭对话框的问题
+
 如果你需要在 Dialog 中包含很多复杂的状态和逻辑，那么可以使用声明式的语法，或者考虑自己将内部状态和逻辑单独封装一个组件出来，详见 [#4762](https://github.com/ant-design/ant-design-mobile/issues/4762)。

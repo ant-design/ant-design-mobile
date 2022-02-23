@@ -21,6 +21,8 @@ import { CloseOutline } from 'antd-mobile-icons'
 
 const classPrefix = `adm-modal`
 
+export const closeFns: Array<() => void> = []
+
 export type ModalProps = {
   afterClose?: () => void
   afterShow?: () => void
