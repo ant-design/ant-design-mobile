@@ -1,7 +1,7 @@
 import React from 'react'
-import { FormInstance } from 'rc-field-form'
-import { Form } from 'antd-mobile'
-import { NamePath } from 'rc-field-form/es/interface'
+import type { FormInstance } from 'rc-field-form'
+import type { NamePath } from 'rc-field-form/es/interface'
+import Form from '.'
 
 type RenderChildren<Values = any> = (
   changedValues: Record<string, any>,
