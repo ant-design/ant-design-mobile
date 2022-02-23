@@ -25,3 +25,9 @@
 | title | Title                                              | `ReactNode`                                     | -       |
 | icon  | Icon                                               | `ReactNode \| ((active: boolean) => ReactNode)` | -       |
 | badge | Badge，the same as [Badge](./badge) `content` prop | `React.ReactNode \| typeof Badge.dot`           | -       |
+
+## FAQ
+
+### Why can't the TabBar be fixed at the bottom of the page?
+
+The layout logic in different business projects is different. TabBar itself does not contain logic related to positioning and outer layout, and needs to be controlled by writing CSS in the business project.
