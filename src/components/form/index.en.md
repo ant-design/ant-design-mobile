@@ -2,16 +2,9 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-<code src="./demos/demo2.tsx"></code>
-
 <code src="./demos/demo3.tsx"></code>
 
-Customized or third-party form controls can be used in Form, too. Controls must follow these conventions:
-
-> - It has a controlled property `value`.
-> - It has event `onChange`.
-
-<code src="./demos/demo4.tsx"></code>
+<code src="./demos/demo2.tsx"></code>
 
 ## Form
 
@@ -129,6 +122,25 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
   }}
 </Form.Item>
 ```
+
+## Custom field
+
+Customized or third-party form controls can be used in Form, too. Controls must follow these conventions:
+
+- It has a controlled property `value`.
+- It has event `onChange`.
+
+<code src="./demos/demo4.tsx"></code>
+
+## Form.Header
+
+You can use `Form.Header` to group form items.
+
+### Props
+
+| Name     | Description                                                                      | Type        | Default |
+| -------- | -------------------------------------------------------------------------------- | ----------- | ------- |
+| children | Group header. If not passed, it will be rendered as a delimiter with no content. | `ReactNode` | -       |
 
 ## Form.Subscribe
 

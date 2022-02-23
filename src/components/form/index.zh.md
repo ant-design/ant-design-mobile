@@ -2,18 +2,9 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-<code src="./demos/demo2.tsx"></code>
-
 <code src="./demos/demo3.tsx"></code>
 
-自定义或第三方的表单控件，也可以与 Form 组件一起使用。只要该组件遵循以下的约定：
-
-> - 提供受控属性 `value` 值同名的属性。
-> - 提供 `onChange` 事件。
-
-<code src="./demos/demo4.tsx"></code>
-
-<code src="./demos/demo-error.tsx" debug></code>
+<code src="./demos/demo2.tsx"></code>
 
 ## Form
 
@@ -146,6 +137,25 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
   </Form.Item>
 </Form>
 ```
+
+## 自定义表单字段
+
+自定义或第三方的表单控件，也可以与 Form 组件一起使用。只要该组件遵循以下的约定：
+
+- 提供受控属性 `value` 值同名的属性。
+- 提供 `onChange` 事件。
+
+<code src="./demos/demo4.tsx"></code>
+
+## Form.Header
+
+你可以通过 `Form.Header` 来对表单项进行分组。
+
+### 属性
+
+| 属性     | 说明                                                 | 类型        | 默认值 |
+| -------- | ---------------------------------------------------- | ----------- | ------ |
+| children | 分组标题，如果不传的话，则会渲染为一个没有内容的分隔 | `ReactNode` | -      |
 
 ## Form.Subscribe
 

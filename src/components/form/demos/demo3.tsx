@@ -2,21 +2,34 @@ import React from 'react'
 import { Form, Input, Button } from 'antd-mobile'
 
 export default function () {
-  const [form] = Form.useForm()
   return (
-    <Form
-      form={form}
-      layout='horizontal'
-      footer={
-        <Button block type='submit' color='primary' size='large'>
-          提交
-        </Button>
-      }
-    >
-      <Form.Header>在表单字段内增加额外内容</Form.Header>
-      <Form.Item label='短信验证码' extra={<a>发送验证码</a>}>
-        <Input placeholder='请输入' />
-      </Form.Item>
-    </Form>
+    <>
+      <Form layout='horizontal' mode='card'>
+        <Form.Header>卡片模式 & 分组</Form.Header>
+        <Form.Item label='手机号'>
+          <Input placeholder='请输入' />
+        </Form.Item>
+        <Form.Item label='短信验证码'>
+          <Input placeholder='请输入' />
+        </Form.Item>
+        <Form.Header />
+        <Form.Item label='姓名'>
+          <Input placeholder='请输入' />
+        </Form.Item>
+        <Form.Item label='邮箱地址'>
+          <Input placeholder='请输入' />
+        </Form.Item>
+        <Form.Item label='所在城市'>
+          <Input placeholder='请输入' />
+        </Form.Item>
+        <Form.Header />
+      </Form>
+      <Form layout='horizontal' mode='card'>
+        <Form.Header>在表单字段内增加额外内容</Form.Header>
+        <Form.Item label='短信验证码' extra={<a>发送验证码</a>}>
+          <Input placeholder='请输入' />
+        </Form.Item>
+      </Form>
+    </>
   )
 }
