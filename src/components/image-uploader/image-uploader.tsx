@@ -66,7 +66,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
       setValue(updater(value))
     }
   )
-
+  //上传队列
   const [tasks, setTasks] = useState<Task[]>([])
 
   useIsomorphicLayoutEffect(() => {
@@ -95,7 +95,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     if (files.length === 0) {
       return
     }
-
+    // 判断是否超过限制了
     if (maxCount > 0) {
       const exceed = value.length + files.length - maxCount
       if (exceed > 0) {
@@ -112,7 +112,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           file,
         } as Task)
     )
-
+    //更新队列
     setTasks(prev => [...prev, ...newTasks])
 
     await Promise.all(
@@ -121,6 +121,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           const result = await props.upload(currentTask.file)
           setTasks(prev => {
             return prev.map(task => {
+              // 更新 task 的 url，方便value更新时剔除task
               if (task.id === currentTask.id) {
                 return {
                   ...task,
@@ -130,6 +131,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               return task
             })
           })
+          // 更新已上传列表
           updateValue(prev => {
             const newVal = { ...result }
             return [...prev, newVal]

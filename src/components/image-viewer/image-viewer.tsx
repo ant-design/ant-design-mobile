@@ -79,6 +79,7 @@ export const MultiImageViewer = forwardRef<
 
   const slidesRef = useRef<SlidesRef>(null)
   useImperativeHandle(ref, () => ({
+    // 切换显示
     swipeTo: (index: number, immediate?: boolean) => {
       setDefaultIndex(index)
       slidesRef.current?.swipeTo(index, immediate)

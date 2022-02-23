@@ -19,7 +19,7 @@ export type ImageViewerHandler = {
 }
 
 const handlerSet = new Set<ImageViewerHandler>()
-
+// 指令式显示图片查看器
 export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
   clearImageViewer()
   const Wrapper = forwardRef<ImageViewerHandler>((_, ref) => {
@@ -101,7 +101,7 @@ export function showMultiImageViewer(
   handlerSet.add(handler)
   return handler
 }
-
+// 指令式关闭所有的图片查看器
 export function clearImageViewer() {
   handlerSet.forEach(handler => {
     handler.close()

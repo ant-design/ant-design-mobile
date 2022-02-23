@@ -138,9 +138,10 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
 export type ActionSheetRef = {
   close: () => void
 }
-
+// 指令式调用
 export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
   const Wrapper = forwardRef<ActionSheetRef>((_, ref) => {
+    // 显示隐藏不由用户控制
     const [visible, setVisible] = useState(false)
     useEffect(() => {
       setVisible(true)

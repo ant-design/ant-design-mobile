@@ -40,6 +40,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
 
   const checkTimeoutRef = useRef<number>()
   const check = useMemoizedFn(() => {
+    // 防抖
     window.clearTimeout(checkTimeoutRef.current)
     checkTimeoutRef.current = window.setTimeout(() => {
       if (!props.hasMore) return
@@ -63,7 +64,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   useEffect(() => {
     check()
   })
-
+  // 滚动时触发检查
   useEffect(() => {
     const element = elementRef.current
     if (!element) return

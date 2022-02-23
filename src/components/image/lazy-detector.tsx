@@ -4,7 +4,7 @@ import { useInViewport } from 'ahooks'
 type Props = {
   onActive: () => void
 }
-
+// 是否在视窗内
 export const LazyDetector: FC<Props> = props => {
   const ref = useRef<HTMLDivElement>(null)
   const [inViewport] = useInViewport(ref)

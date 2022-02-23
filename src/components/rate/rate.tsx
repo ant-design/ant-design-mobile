@@ -58,6 +58,7 @@ export const Rate: FC<RateProps> = p => {
     <div className={classPrefix}>
       {starList.map((_, i) => (
         <div key={i} className={classNames(`${classPrefix}-box`)}>
+          {/* 支持半星渲染两个div，全星叠加在半星上面 */}
           {props.allowHalf && renderStar(i + 0.5, true)}
           {renderStar(i + 1, false)}
         </div>

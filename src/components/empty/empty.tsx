@@ -18,7 +18,7 @@ const defaultProps = {
 
 export const Empty: React.FC<EmptyProps> = p => {
   const props = mergeProps(defaultProps, p)
-
+  // 判断是图片地址还是 react 节点
   const imageNode =
     typeof props.image === 'string' ? (
       <img

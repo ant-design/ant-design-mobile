@@ -4,7 +4,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 
 const classPrefix = `adm-dot-loading`
-
+// 切换主体颜色
 const colorRecord: Record<string, string> = {
   default: 'var(--adm-color-weak)',
   primary: 'var(--adm-color-primary)',

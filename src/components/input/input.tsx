@@ -70,7 +70,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   const [value, setValue] = usePropsValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
-
+  // 转发 ref
   useImperativeHandle(ref, () => ({
     clear: () => {
       setValue('')
@@ -101,6 +101,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   function checkValue() {
     let nextValue = value
     if (props.type === 'number') {
+      // 约束最大最小值
       nextValue = bound(parseFloat(nextValue), props.min, props.max).toString()
     }
     if (nextValue !== value) {

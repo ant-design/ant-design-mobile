@@ -55,11 +55,13 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     function scrollToEnd() {
       const root = rootRef.current
       if (!root) return
+      // 如果当前激活元素不是父元素，不需要处理滚动问题
       if (document.activeElement !== root) {
         return
       }
       const content = contentRef.current
       if (!content) return
+      // 保持键盘可见
       content.scrollLeft = content.clientWidth
     }
 

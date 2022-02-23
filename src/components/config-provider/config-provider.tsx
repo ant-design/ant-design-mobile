@@ -28,6 +28,7 @@ export type ConfigProviderProps = Config
 
 export const ConfigProvider: FC<ConfigProviderProps> = props => {
   const { children, ...config } = props
+  // 嵌套情况下，获取父配置
   const parentConfig = useConfig()
 
   return (

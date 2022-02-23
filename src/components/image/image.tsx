@@ -58,7 +58,7 @@ export const Image = staged<ImageProps>(p => {
 
   let src: string | undefined = props.src
   let srcSet: string | undefined = props.srcSet
-
+  // 懒加载，不在试图内图片不加载
   const [initialized, setInitialized] = useState(!props.lazy)
 
   src = initialized ? props.src : undefined

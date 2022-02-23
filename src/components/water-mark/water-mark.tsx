@@ -117,7 +117,7 @@ export const WaterMark: FC<WaterMarkProps> = p => {
     content,
     fontSize,
   ])
-
+  // 全屏水印是fixed布局，局部是绝对定位
   return withNativeProps(
     props,
     <div

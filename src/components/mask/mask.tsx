@@ -53,9 +53,9 @@ export const Mask: React.FC<MaskProps> = p => {
   const { locale } = useConfig()
 
   const ref = useRef<HTMLDivElement>(null)
-
+  // 锁定滚动
   useLockScroll(ref, props.visible && props.disableBodyScroll)
-
+  // 计算背景颜色和透明度
   const background = useMemo(() => {
     const opacity = opacityRecord[props.opacity] ?? props.opacity
     const rgb = props.color === 'white' ? '255, 255, 255' : '0, 0, 0'
@@ -63,7 +63,7 @@ export const Mask: React.FC<MaskProps> = p => {
   }, [props.color, props.opacity])
 
   const [active, setActive] = useState(props.visible)
-
+  // 卸载标志
   const unmountedRef = useUnmountedRef()
   const { opacity } = useSpring({
     opacity: props.visible ? 1 : 0,

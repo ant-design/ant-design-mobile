@@ -20,6 +20,7 @@ const classPrefix = `adm-image-uploader`
 const PreviewItem: FC<Props> = props => {
   const { locale } = useConfig()
   const { url, file, deletable, onDelete } = props
+  // 生成图片地址
   const src = useMemo(() => {
     if (url) {
       return url
