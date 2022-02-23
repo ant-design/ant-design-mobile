@@ -59,7 +59,7 @@ const validateMessages = {
 
 | 变量名          | 描述                   | 默认值                              |
 | --------------- | ---------------------- | ----------------------------------- |
-| --border-inner  | 表单项底部的边框样式   | `solid 1px var(--adm-border-color)` |
+| --border-inner  | 表单项之间的边框样式   | `solid 1px var(--adm-border-color)` |
 | --border-top    | 表单容器顶部的边框样式 | `solid 1px var(--adm-border-color)` |
 | --border-bottom | 表单容器底部的边框样式 | `solid 1px var(--adm-border-color)` |
 
