@@ -34,7 +34,10 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
 
-  const indexes: string[] = []
+  const indexItems: {
+    index: string
+    brief: string
+  }[] = []
   const panels: ReactElement[] = []
 
   React.Children.forEach(props.children, child => {
@@ -46,7 +49,10 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
       )
       return
     }
-    indexes.push(child.props.index)
+    indexItems.push({
+      index: child.props.index,
+      brief: child.props.brief ?? child.props.index.charAt(0),
+    })
     panels.push(
       withNativeProps(
         child.props,
@@ -64,7 +70,10 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
     )
   })
 
-  const [activeIndex, setActiveIndex] = useState(indexes[0])
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const firstItem = indexItems[0]
+    return firstItem ? firstItem.index : null
+  })
 
   useImperativeHandle(ref, () => ({ scrollTo }))
 
@@ -114,7 +123,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
       })}
     >
       <Sidebar
-        indexes={indexes}
+        indexItems={indexItems}
         activeIndex={activeIndex}
         onActive={index => {
           scrollTo(index)

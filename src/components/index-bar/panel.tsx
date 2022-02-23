@@ -4,6 +4,7 @@ import { NativeProps } from '../../utils/native-props'
 export type IndexBarAnchorProps = {
   index: string
   title?: string
+  brief?: string
 } & NativeProps
 
 export const Panel: FC<IndexBarAnchorProps> = () => null
