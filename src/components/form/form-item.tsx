@@ -50,7 +50,7 @@ export type FormItemProps = Pick<
     hidden?: boolean
     layout?: FormLayout
     children: ChildrenType
-  } & NativeProps
+  } & NativeProps<'--border-inner'>
 
 interface MemoInputProps {
   value: any

@@ -55,6 +55,14 @@ const validateMessages = {
 <Form validateMessages={validateMessages} />;
 ```
 
+### CSS Variables
+
+| Name            | Description                     | Default                             |
+| --------------- | ------------------------------- | ----------------------------------- |
+| --border-inner  | Border style of the form item   | `solid 1px var(--adm-border-color)` |
+| --border-top    | Border style of the form top    | `solid 1px var(--adm-border-color)` |
+| --border-bottom | Border style of the form bottom | `solid 1px var(--adm-border-color)` |
+
 ## Form.Item
 
 ### Props
@@ -169,6 +177,10 @@ You can modify the default verification information of Form.Item through `messag
   </Form.Item>
 </Form>
 ```
+
+### CSS 变量
+
+Support following css variables in Form: `--border-inner`,
 
 ## Some Common Type Definitions
 

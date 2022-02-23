@@ -55,6 +55,14 @@ const validateMessages = {
 <Form validateMessages={validateMessages} />;
 ```
 
+### CSS 变量
+
+| 变量名          | 描述                   | 默认值                              |
+| --------------- | ---------------------- | ----------------------------------- |
+| --border-inner  | 表单项底部的边框样式   | `solid 1px var(--adm-border-color)` |
+| --border-top    | 表单容器顶部的边框样式 | `solid 1px var(--adm-border-color)` |
+| --border-bottom | 表单容器底部的边框样式 | `solid 1px var(--adm-border-color)` |
+
 ## Form.Item
 
 ### 属性
