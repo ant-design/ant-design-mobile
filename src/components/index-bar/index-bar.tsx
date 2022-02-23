@@ -4,6 +4,7 @@ import React, {
   useState,
   useImperativeHandle,
   ReactElement,
+  ReactNode,
 } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -36,7 +37,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
 
   const indexItems: {
     index: string
-    brief: string
+    brief: ReactNode
   }[] = []
   const panels: ReactElement[] = []
 

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, ReactNode, useState } from 'react'
 import classNames from 'classnames'
 
 const classPrefix = `adm-index-bar`
@@ -6,7 +6,7 @@ const classPrefix = `adm-index-bar`
 type SidebarProps = {
   indexItems: {
     index: string
-    brief: string
+    brief: ReactNode
   }[]
   activeIndex: string | null
   onActive: (index: string) => void
