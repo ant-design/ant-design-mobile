@@ -24,7 +24,7 @@ export default function () {
         style={{
           '--title-font-size': '13px',
           '--header-button-font-size': '13px',
-          '--item-font-size': '13zpx',
+          '--item-font-size': '13px',
           '--item-height': '30px',
         }}
         columns={basicColumns}
