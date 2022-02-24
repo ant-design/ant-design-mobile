@@ -55,6 +55,14 @@ const validateMessages = {
 <Form validateMessages={validateMessages} />;
 ```
 
+### CSS Variables
+
+| Name            | Description                     | Default                             |
+| --------------- | ------------------------------- | ----------------------------------- |
+| --border-inner  | Border style between form items | `solid 1px var(--adm-border-color)` |
+| --border-top    | Border style of the form top    | `solid 1px var(--adm-border-color)` |
+| --border-bottom | Border style of the form bottom | `solid 1px var(--adm-border-color)` |
+
 ## Form.Item
 
 ### Props
