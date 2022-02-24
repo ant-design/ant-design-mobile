@@ -19,8 +19,8 @@ dayjs.extend(isoWeek)
 
 const classPrefix = 'adm-calendar'
 export type CalenderRef = {
-  changePageByMonthAndYear: (date: { month?: number; year?: number }) => void
-  changeTodayPage: () => void
+  jumpTo: (date: { month?: number; year?: number }) => void
+  jumpToday: () => void
 }
 
 export type CalendarProps = {
@@ -70,16 +70,16 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
   }, [current])
 
   useImperativeHandle(ref, () => ({
-    changePageByMonthAndYear: ({ month, year }) => {
+    jumpTo: ({ month, year }) => {
       if (month && year) {
-        setCurrent(current.add(month, 'month').add(year, 'year'))
+        setCurrent(current.month(month).year(year))
       } else if (!month && year) {
-        setCurrent(current.add(year, 'year'))
+        setCurrent(current.year(year))
       } else if (!year && month) {
-        setCurrent(current.add(month, 'month'))
+        setCurrent(current.month(month))
       }
     },
-    changeTodayPage: () => {
+    jumpToday: () => {
       setCurrent(dayjs().date(1))
     },
   }))

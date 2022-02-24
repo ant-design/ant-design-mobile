@@ -22,7 +22,7 @@ Not supported yet.
 
 ### Ref
 
-| Name                     | Description            | Type                                            |
-| ------------------------ | ---------------------- | ----------------------------------------------- |
-| changePageByMonthAndYear | jump to specified page | `(date: {month: number, year: number}) => void` |
-| changeTodayPage          | jump to today's page   | `() => void`                                    |
+| Name      | Description            | Type                                            |
+| --------- | ---------------------- | ----------------------------------------------- |
+| jumpTo    | jump to specified page | `(date: {month: number, year: number}) => void` |
+| jumpToday | jump to today's page   | `() => void`                                    |
