@@ -1,7 +1,6 @@
-import React, { useRef } from 'react'
-import { Button, Calendar, Space } from 'antd-mobile'
+import React from 'react'
+import { Calendar } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
-import { CalenderRef } from '../calendar'
 
 export default () => {
   return (
