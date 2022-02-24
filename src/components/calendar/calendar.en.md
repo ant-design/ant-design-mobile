@@ -22,7 +22,27 @@ Not supported yet.
 
 ### Ref
 
-| Name      | Description            | Type                                            |
-| --------- | ---------------------- | ----------------------------------------------- |
-| jumpTo    | jump to specified page | `(date: {month: number, year: number}) => void` |
-| jumpToday | jump to today's page   | `() => void`                                    |
+| Name        | Description            | Type                                             |
+| ----------- | ---------------------- | ------------------------------------------------ |
+| jumpTo      | Jump to specified page | `(page: Page \| ((page: Page) => Page)) => void` |
+| jumpToToday | Jump to today's page   | `() => void`                                     |
+
+```ts
+type Page = { month: number; year: number }
+```
+
+You can manually control the page turning of the calendar through Ref, for example:
+
+```ts
+// Jump to today's page
+ref.current.jumpToToday()
+
+// Jump to the specified year and month
+ref.current.jumpTo({ year: 2021, month: 1 })
+
+// Jump to three years later
+ref.current.jumpTo(page => ({
+  year: page.year + 3,
+  month: page.month,
+}))
+```

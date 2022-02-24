@@ -18,9 +18,12 @@ import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
 dayjs.extend(isoWeek)
 
 const classPrefix = 'adm-calendar'
+
+type Page = { month: number; year: number }
+
 export type CalenderRef = {
-  jumpTo: (date: { month?: number; year?: number }) => void
-  jumpToday: () => void
+  jumpTo: (page: Page | ((page: Page) => Page)) => void
+  jumpToToday: () => void
 }
 
 export type CalendarProps = {
@@ -70,16 +73,23 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
   }, [current])
 
   useImperativeHandle(ref, () => ({
-    jumpTo: ({ month, year }) => {
-      if (month && year) {
-        setCurrent(current.month(month).year(year))
-      } else if (!month && year) {
-        setCurrent(current.year(year))
-      } else if (!year && month) {
-        setCurrent(current.month(month))
+    jumpTo: pageOrPageGenerator => {
+      let page: Page
+      if (typeof pageOrPageGenerator === 'function') {
+        page = pageOrPageGenerator({
+          year: current.year(),
+          month: current.month() + 1,
+        })
+      } else {
+        page = pageOrPageGenerator
       }
+      setCurrent(
+        dayjs()
+          .year(page.year)
+          .month(page.month - 1)
+      )
     },
-    jumpToday: () => {
+    jumpToToday: () => {
       setCurrent(dayjs().date(1))
     },
   }))
