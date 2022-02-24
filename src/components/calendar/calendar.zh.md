@@ -19,3 +19,30 @@
 ### CSS 变量
 
 暂无
+
+### Ref
+
+| 属性        | 说明                 | 类型                                             |
+| ----------- | -------------------- | ------------------------------------------------ |
+| jumpTo      | 跳转至指定日期的页面 | `(page: Page \| ((page: Page) => Page)) => void` |
+| jumpToToday | 跳转至今日           | `() => void`                                     |
+
+```ts
+type Page = { month: number; year: number }
+```
+
+你可以通过 Ref 手动控制日历的翻页，例如：
+
+```ts
+// 跳回当月
+ref.current.jumpToToday()
+
+// 跳转至指定年月
+ref.current.jumpTo({ year: 2021, month: 1 })
+
+// 跳转到三年之后
+ref.current.jumpTo(page => ({
+  year: page.year + 3,
+  month: page.month,
+}))
+```
