@@ -218,6 +218,12 @@ export default () => {
           <DemoDescription content='你可以根据需求，自定义关闭弹窗的时机' />
         </Space>
       </DemoBlock>
+
+      <DemoBlock title='关闭所有对话框'>
+        <Button block onClick={ContinuousShow}>
+          连续展示对话框
+        </Button>
+      </DemoBlock>
     </>
   )
 }
@@ -282,4 +288,18 @@ function Imperative() {
       显示对话框
     </Button>
   )
+}
+
+// 连续展示
+function ContinuousShow() {
+  for (let i = 0; i < 3; i++) {
+    setTimeout(() => {
+      Dialog.alert({
+        content: <Button onClick={() => Dialog.clear()}>close all</Button>,
+        onConfirm: () => {
+          console.log('Confirmed')
+        },
+      })
+    }, i * 500)
+  }
 }

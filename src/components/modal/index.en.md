@@ -86,3 +86,7 @@ In addition, it supports the following props:
 | onConfirm   | Triggered when the confirm button is clicked | `() => void \| Promise<void>` | -          |
 | cancelText  | The content of the cancel button             | `ReactNode`                   | `'Cancel'` |
 | onCancel    | Triggered when the cancel button is clicked  | `() => void \| Promise<void>` | -          |
+
+### Modal.clear
+
+You can directly close all modals by calling the `clear` method on `Modal`. Usually, you can use it in router change event to close all modals automatically without using modal reference to close.

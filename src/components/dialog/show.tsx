@@ -14,6 +14,8 @@ export type DialogShowRef = {
   close: () => void
 }
 
+export const closeFnSet = new Set<() => void>()
+
 export function show(props: DialogShowProps) {
   const Wrapper = forwardRef<DialogShowRef>((_, ref) => {
     const [visible, setVisible] = useState(false)
@@ -27,23 +29,30 @@ export function show(props: DialogShowProps) {
     useImperativeHandle(ref, () => ({
       close: handleClose,
     }))
+
+    function handleAfterClose() {
+      props.afterClose?.()
+      unmount()
+      closeFnSet.delete(close)
+    }
+
     return (
       <Dialog
         {...props}
         visible={visible}
         onClose={handleClose}
-        afterClose={() => {
-          props.afterClose?.()
-          unmount()
-        }}
+        afterClose={handleAfterClose}
       />
     )
   })
   const ref = createRef<DialogShowRef>()
   const unmount = renderToBody(<Wrapper ref={ref} />)
+  const close = () => {
+    ref.current?.close()
+  }
+  closeFnSet.add(close)
+
   return {
-    close: () => {
-      ref.current?.close()
-    },
+    close,
   }
 }

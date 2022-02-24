@@ -14,6 +14,8 @@ export type ModalShowRef = {
   close: () => void
 }
 
+export const closeFnSet = new Set<() => void>()
+
 export function show(props: ModalShowProps) {
   const Wrapper = forwardRef<ModalShowRef>((_, ref) => {
     const [visible, setVisible] = useState(false)
@@ -27,23 +29,30 @@ export function show(props: ModalShowProps) {
     useImperativeHandle(ref, () => ({
       close: handleClose,
     }))
+
+    function handleAfterClose() {
+      props.afterClose?.()
+      unmount()
+      closeFnSet.delete(close)
+    }
+
     return (
       <Modal
         {...props}
         visible={visible}
         onClose={handleClose}
-        afterClose={() => {
-          props.afterClose?.()
-          unmount()
-        }}
+        afterClose={handleAfterClose}
       />
     )
   })
   const ref = createRef<ModalShowRef>()
   const unmount = renderToBody(<Wrapper ref={ref} />)
+  const close = () => {
+    ref.current?.close()
+  }
+  closeFnSet.add(close)
+
   return {
-    close: () => {
-      ref.current?.close()
-    },
+    close,
   }
 }
