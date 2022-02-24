@@ -1,10 +1,7 @@
-import { closeFns } from './modal'
+import { closeFnSet } from './show'
 
 export function clear() {
-  while (closeFns.length) {
-    const close = closeFns.pop()
-    if (close) {
-      close()
-    }
-  }
+  closeFnSet.forEach(close => {
+    close()
+  })
 }

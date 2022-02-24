@@ -7,13 +7,14 @@ import React, {
 } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
 import { Dialog, DialogProps } from './dialog'
-import { closeFns } from './dialog'
 
 export type DialogShowProps = Omit<DialogProps, 'visible'>
 
 export type DialogShowRef = {
   close: () => void
 }
+
+export const closeFnSet = new Set<() => void>()
 
 export function show(props: DialogShowProps) {
   const Wrapper = forwardRef<DialogShowRef>((_, ref) => {
@@ -32,15 +33,7 @@ export function show(props: DialogShowProps) {
     function handleAfterClose() {
       props.afterClose?.()
       unmount()
-
-      for (let i = 0; i < closeFns.length; i++) {
-        const fn = closeFns[i]
-
-        if (fn === close) {
-          closeFns.splice(i, 1)
-          break
-        }
-      }
+      closeFnSet.delete(close)
     }
 
     return (
@@ -57,7 +50,7 @@ export function show(props: DialogShowProps) {
   const close = () => {
     ref.current?.close()
   }
-  closeFns.push(close)
+  closeFnSet.add(close)
 
   return {
     close,

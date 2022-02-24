@@ -113,8 +113,8 @@ export default function App() {
 }
 ```
 
+If you need to include a lot of complex states and logic in Dialog, you can use declarative syntax, or consider encapsulating the internal state and logic as a separate component, see [#4762](https://github.com /ant-design/ant-design-mobile/issues/4762).
+
 ### Dialog.clear
 
-You can directly close all dialog box by calling the `clear` method on the `Dialog`. Usually, you can use it in router change event to close dialog box automatically without use dialog reference to close
-
-If you need to include a lot of complex states and logic in Dialog, you can use declarative syntax, or consider encapsulating the internal state and logic as a separate component, see [#4762](https://github.com /ant-design/ant-design-mobile/issues/4762).
+You can directly close all dialogs by calling the `clear` method on `Dialog`. Usually, you can use it in router change event to close all dialogs automatically without using dialog reference to close.

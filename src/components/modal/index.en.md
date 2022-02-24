@@ -89,4 +89,4 @@ In addition, it supports the following props:
 
 ### Modal.clear
 
-You can directly close all modal box by calling the `clear` method on the `Modal`. Usually, you can use it in router change event to close modal box automatically without use modal reference to close
+You can directly close all modals by calling the `clear` method on `Modal`. Usually, you can use it in router change event to close all modals automatically without using modal reference to close.
