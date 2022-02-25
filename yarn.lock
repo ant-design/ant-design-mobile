@@ -4017,9 +4017,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ahooks@npm:^3.1.9":
-  version: 3.1.9
-  resolution: "ahooks@npm:3.1.9"
+"ahooks@npm:^3.1.10":
+  version: 3.1.10
+  resolution: "ahooks@npm:3.1.10"
   dependencies:
     "@types/js-cookie": ^2.x.x
     ahooks-v3-count: ^1.0.0
@@ -4031,7 +4031,7 @@ __metadata:
     screenfull: ^5.0.0
   peerDependencies:
     react: ^16.8.6 || ^17.0
-  checksum: 3f976808f2febc200120503b6344174352b2563ecb7e0c1c477fa7f7cbcbb61c1501b54e2717f655de5da59146a2a7216218a9efe8c26fec200640dedd93c43f
+  checksum: 64fb8e177c8c5d46da4815d49711ba2d855974254415ad77830dd49fbd1683aebb96c1079da979a8a8b332948c7014d6159a633a3a7576080b44dfddc39a5a9b
   languageName: node
   linkType: hard
 
@@ -4237,7 +4237,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.12.0
     "@typescript-eslint/parser": ^5.12.0
     "@use-gesture/react": ^10.2.6
-    ahooks: ^3.1.9
+    ahooks: ^3.1.10
     antd-mobile-icons: ^0.2.2
     antd-mobile-v5-count: ^1.0.1
     babel-loader: ^8.2.3
