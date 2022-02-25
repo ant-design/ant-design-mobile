@@ -53,7 +53,7 @@
     "dumi": "^1.1.38",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.4.0",
-    "eslint-plugin-react": "^7.29.0",
+    "eslint-plugin-react": "~7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
