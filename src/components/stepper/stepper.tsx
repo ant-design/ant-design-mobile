@@ -10,17 +10,24 @@ import Button from '../button'
 
 const classPrefix = `adm-stepper`
 
-export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> & {
-  value?: number | null
-  defaultValue?: number | null
-  onChange?: (value: number | null) => void
+type StepperValueType<B extends boolean> = B extends true
+  ? number | null
+  : number
+
+export type StepperProps<T extends boolean> = Pick<
+  InputProps,
+  'onFocus' | 'onBlur'
+> & {
+  value?: StepperValueType<T>
+  defaultValue?: StepperValueType<T>
+  onChange?: (value: StepperValueType<T>) => void
   min?: number
   max?: number
   step?: number
   digits?: number
   disabled?: boolean
   inputReadOnly?: boolean
-  allowEmpty?: boolean
+  allowEmpty?: T
 } & NativeProps<
     | '--height'
     | '--input-width'
@@ -37,14 +44,18 @@ export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> & {
     | '--button-text-color'
   >
 
+type DefaultValueType = false
+
 const defaultProps = {
   defaultValue: 0,
   step: 1,
   disabled: false,
-  allowEmpty: false,
+  allowEmpty: false as DefaultValueType,
 }
 
-export const Stepper: FC<StepperProps> = p => {
+export function Stepper<T extends boolean = DefaultValueType>(
+  p: StepperProps<T>
+) {
   const props = mergeProps(defaultProps, p)
   const { disabled, step, max, min, inputReadOnly } = props
 
@@ -56,7 +67,7 @@ export const Stepper: FC<StepperProps> = p => {
     if (props.digits || props.digits === 0) {
       target = parseFloat(target.toFixed(props.digits))
     }
-    setValue(target)
+    setValue(target as StepperValueType<T>)
   }
 
   const [hasFocus, setHasFocus] = useState(false)
@@ -78,7 +89,7 @@ export const Stepper: FC<StepperProps> = p => {
     const value = convertTextToValue(v)
     if (value === null) {
       if (props.allowEmpty) {
-        setValue(null)
+        setValue(null as StepperValueType<T>)
       } else {
         setValue(props.defaultValue)
       }
