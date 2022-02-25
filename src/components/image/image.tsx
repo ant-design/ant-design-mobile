@@ -6,6 +6,7 @@ import { staged } from 'staged-components'
 import { toCSSLength } from '../../utils/to-css-length'
 import { LazyDetector } from './lazy-detector'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import classNames from 'classnames'
 
 const classPrefix = `adm-image`
 
@@ -18,6 +19,7 @@ export type ImageProps = {
   placeholder?: ReactNode
   fallback?: ReactNode
   lazy?: boolean
+  inline?: boolean
   onClick?: (event: React.MouseEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
   onLoad?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
@@ -46,6 +48,7 @@ const defaultProps = {
     </div>
   ),
   lazy: false,
+  inline: false,
 }
 
 export const Image = staged<ImageProps>(p => {
@@ -117,7 +120,13 @@ export const Image = staged<ImageProps>(p => {
   }
   return withNativeProps(
     props,
-    <div ref={ref} className={classPrefix} style={style}>
+    <div
+      ref={ref}
+      className={classNames(classPrefix, {
+        [`${classPrefix}-inline`]: props.inline,
+      })}
+      style={style}
+    >
       {props.lazy && !initialized && (
         <LazyDetector
           onActive={() => {

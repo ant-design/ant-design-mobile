@@ -15,6 +15,7 @@
 | placeholder | Placeholder when loading                                            | `ReactNode`                                                      | default placeholder |
 | fallback    | Placeholder when failed to load                                     | `ReactNode`                                                      | default placeholder |
 | lazy        | Whether to load image lazily                                        | `boolean`                                                        | `false`             |
+| inline      | Should render as inline-block element                               | `boolean`                                                        | `false`             |
 | onError     | Callback when failed to load                                        | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -                   |
 | onClick     | The click event                                                     | `(event: React.MouseEvent<HTMLImageElement, Event>) => void`     | -                   |
 | onLoad      | Triggered when image loaded                                         | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -                   |
