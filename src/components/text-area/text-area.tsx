@@ -51,8 +51,8 @@ export type TextAreaRef = {
 
 const defaultProps = {
   rows: 2,
-  showCount: false,
-  autoSize: false,
+  showCount: false as NonNullable<TextAreaProps['showCount']>,
+  autoSize: false as NonNullable<TextAreaProps['autoSize']>,
   defaultValue: '',
 }
 

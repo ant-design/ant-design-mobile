@@ -24,7 +24,7 @@
     "rc-field-form": "^1.22.1",
     "rc-tooltip": "^5.1.1",
     "staged-components": "^1.1.2",
-    "tslib": "^1.14.1",
+    "tslib": "^2.3.1",
     "use-async-memo": "^1.2.3"
   },
   "devDependencies": {
@@ -85,7 +85,7 @@
     "through2": "^4.0.2",
     "ts-jest": "27.1.3",
     "ts-node": "10.5.0",
-    "typescript": "^3.9.10",
+    "typescript": "~4.5.5",
     "webpack": "^5.69.1",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-stream": "^7.0.0"
