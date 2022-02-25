@@ -10,18 +10,29 @@ import Button from '../button'
 
 const classPrefix = `adm-stepper`
 
-export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> & {
+type ValueProps = {
+  allowEmpty: true
   value?: number | null
   defaultValue?: number | null
   onChange?: (value: number | null) => void
-  min?: number
-  max?: number
-  step?: number
-  digits?: number
-  disabled?: boolean
-  inputReadOnly?: boolean
-  allowEmpty?: boolean
-} & NativeProps<
+}
+
+type ValuePropsWithNull = {
+  allowEmpty?: false
+  value?: number
+  defaultValue?: number
+  onChange?: (value: number) => void
+}
+
+export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> &
+  (ValuePropsWithNull | ValueProps) & {
+    min?: number
+    max?: number
+    step?: number
+    digits?: number
+    disabled?: boolean
+    inputReadOnly?: boolean
+  } & NativeProps<
     | '--height'
     | '--input-width'
     | '--input-font-size'
@@ -48,7 +59,7 @@ export const Stepper: FC<StepperProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { disabled, step, max, min, inputReadOnly } = props
 
-  const [value, setValue] = usePropsValue(props)
+  const [value, setValue] = usePropsValue<number | null>(props as any)
   const [inputValue, setInputValue] = useState(() => convertValueToText(value))
   function setValueWithCheck(v: number) {
     if (isNaN(v)) return

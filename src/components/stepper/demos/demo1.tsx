@@ -20,7 +20,7 @@ export default () => {
         <Stepper
           value={num}
           onChange={value => {
-            setNum(value as number)
+            setNum(value)
           }}
         />
       </DemoBlock>
