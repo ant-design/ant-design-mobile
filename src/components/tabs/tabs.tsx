@@ -10,14 +10,11 @@ import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { bound } from '../../utils/bound'
-import {
-  useUpdateLayoutEffect,
-  useThrottleFn,
-  useIsomorphicLayoutEffect,
-} from 'ahooks'
+import { useThrottleFn, useIsomorphicLayoutEffect } from 'ahooks'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { mergeProps } from '../../utils/with-default-props'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 
 const classPrefix = `adm-tabs`
 
@@ -171,7 +168,7 @@ export const Tabs: FC<TabsProps> = p => {
     animate(!x.isAnimating)
   }, [])
 
-  useUpdateLayoutEffect(() => {
+  useIsomorphicUpdateLayoutEffect(() => {
     animate()
   }, [activeKey])
 
