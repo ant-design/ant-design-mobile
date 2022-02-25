@@ -27,6 +27,7 @@ export default function () {
           '--item-font-size': '13px',
           '--item-height': '30px',
         }}
+        defaultValue={['Wed', 'pm']}
         columns={basicColumns}
         visible={visible}
         onClose={() => {

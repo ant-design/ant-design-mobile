@@ -6,7 +6,7 @@ import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
 import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
-import classNames from 'classnames'
+import { measureCSSLength } from '../../utils/measure-css-length'
 
 const classPrefix = `adm-picker-view`
 
@@ -34,16 +34,15 @@ export const Wheel = memo<Props>(
 
     const draggingRef = useRef(false)
 
-    const dummyItemRef = useRef<HTMLDivElement>(null)
+    const rootRef = useRef<HTMLDivElement>(null)
     const itemHeight = useRef<number>(34)
 
     useIsomorphicLayoutEffect(() => {
-      const dummyItem = dummyItemRef.current
-      if (!dummyItem) return
-      const rect = dummyItem.getBoundingClientRect()
-      if (rect.height > 0) {
-        itemHeight.current = rect.height
-      }
+      const root = rootRef.current
+      if (!root) return
+      itemHeight.current = measureCSSLength(
+        window.getComputedStyle(root).getPropertyValue('--item-height')
+      )
     })
 
     useIsomorphicLayoutEffect(() => {
@@ -166,15 +165,7 @@ export const Wheel = memo<Props>(
     }
 
     return (
-      <div className={`${classPrefix}-column`} {...bind()}>
-        <div
-          ref={dummyItemRef}
-          className={classNames(
-            `${classPrefix}-column-item`,
-            `${classPrefix}-column-item-dummy`
-          )}
-          aria-hidden
-        />
+      <div ref={rootRef} className={`${classPrefix}-column`} {...bind()}>
         <animated.div
           style={{ translateY: y }}
           className={`${classPrefix}-column-wheel`}
