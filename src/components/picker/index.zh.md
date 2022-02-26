@@ -45,12 +45,12 @@ type PickerValueExtend = {
 
 ### CSS 变量
 
-| 属性                      | 说明                 | 默认值 | 全局变量 |
-| ------------------------- | -------------------- | ------ | -------- |
-| --header-button-font-size | 确定和取消按钮的字号 | `15px` | -        |
-| --title-font-size         | 标题的字号           | `15px` | -        |
-| --item-font-size          | 选择项的字号         | `16px` | -        |
-| --item-height             | 选项的高度           | `34px` | -        |
+| 属性                      | 说明                                 | 默认值 | 全局变量 |
+| ------------------------- | ------------------------------------ | ------ | -------- |
+| --header-button-font-size | 确定和取消按钮的字号                 | `15px` | -        |
+| --title-font-size         | 标题的字号                           | `15px` | -        |
+| --item-font-size          | 选择项的字号                         | `16px` | -        |
+| --item-height             | 选项的高度，仅支持 px rem 和 vw 单位 | `34px` | -        |
 
 ## CascadePicker
 

@@ -21,11 +21,11 @@ For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `Pick
 
 ### CSS Variables
 
-| Name             | Description                | Default |
-| ---------------- | -------------------------- | ------- |
-| --height         | Height of PickerView.      | `240px` |
-| --item-height    | Height of option item.     | `34px`  |
-| --item-font-size | Font size of option items. | `16px`  |
+| Name             | Description                                               | Default |
+| ---------------- | --------------------------------------------------------- | ------- |
+| --height         | Height of PickerView.                                     | `240px` |
+| --item-height    | Height of option item. Only supports px rem and vw units. | `34px`  |
+| --item-font-size | Font size of option items.                                | `16px`  |
 
 ## CascadePickerView
 
