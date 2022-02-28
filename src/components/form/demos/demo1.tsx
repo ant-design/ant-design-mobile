@@ -33,7 +33,7 @@ export default () => {
       >
         <Form.Header>基础用法</Form.Header>
         <Form.Item
-          name='姓名'
+          name='name'
           label='姓名'
           rules={[{ required: true, message: '姓名不能为空' }]}
         >
@@ -93,7 +93,7 @@ export default () => {
       >
         <Form.Header>水平布局</Form.Header>
         <Form.Item
-          name='姓名'
+          name='name'
           label='姓名'
           rules={[{ required: true, message: '姓名不能为空' }]}
         >
