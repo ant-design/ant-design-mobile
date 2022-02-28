@@ -14,10 +14,11 @@
 
 ## JumboTabs.Tab
 
-| Name        | Description                                       | Type        | Default |
-| ----------- | ------------------------------------------------- | ----------- | ------- |
-| key         | Corresponding to `activeKey`                      | `string`    | -       |
-| title       | The displayed text of the tab header              | `ReactNode` | -       |
-| description | The description text                              | `ReactNode` | -       |
-| disabled    | Whether to disable the tab                        | `boolean`   | `false` |
-| forceRender | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
+| Name           | Description                                       | Type        | Default |
+| -------------- | ------------------------------------------------- | ----------- | ------- |
+| key            | Corresponding to `activeKey`                      | `string`    | -       |
+| title          | The displayed text of the tab header              | `ReactNode` | -       |
+| description    | The description text                              | `ReactNode` | -       |
+| disabled       | Whether to disable the tab                        | `boolean`   | `false` |
+| forceRender    | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
+| destroyOnClose | Unmount content when not visible                  | `boolean`   | `false` |

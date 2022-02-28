@@ -20,6 +20,7 @@ export type CapsuleTabProps = {
   title: ReactNode
   disabled?: boolean
   forceRender?: boolean
+  destroyOnClose?: boolean
 } & NativeProps
 
 export const CapsuleTab: FC<CapsuleTabProps> = () => {
@@ -114,6 +115,7 @@ export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
             key={pane.key}
             active={active}
             forceRender={pane.props.forceRender}
+            destroyOnClose={pane.props.destroyOnClose}
           >
             <div
               className={`${classPrefix}-content`}

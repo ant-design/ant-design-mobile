@@ -21,6 +21,7 @@ export type JumboTabProps = {
   description: ReactNode
   disabled?: boolean
   forceRender?: boolean
+  destroyOnClose?: boolean
 } & NativeProps
 
 export const JumboTab: FC<JumboTabProps> = () => {
@@ -120,6 +121,7 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
             key={pane.key}
             active={active}
             forceRender={pane.props.forceRender}
+            destroyOnClose={pane.props.destroyOnClose}
           >
             <div
               className={`${classPrefix}-content`}
