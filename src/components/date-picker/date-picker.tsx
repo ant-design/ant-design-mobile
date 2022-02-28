@@ -70,7 +70,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
     let date = value
     if (date === null) {
       date = new Date(
-        bound(now.getDate(), props.min.getDate(), props.max.getDate())
+        bound(now.getTime(), props.min.getTime(), props.max.getTime())
       )
     }
     return convertDateToStringArray(date, props.precision)
