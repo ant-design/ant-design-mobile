@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, Badge } from 'antd-mobile'
+import { Tabs } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 export default () => {

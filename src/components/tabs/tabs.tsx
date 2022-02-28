@@ -15,6 +15,7 @@ import { useMutationEffect } from '../../utils/use-mutation-effect'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { mergeProps } from '../../utils/with-default-props'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { ShouldRender } from '../../utils/should-render'
 
 const classPrefix = `adm-tabs`
 
@@ -288,25 +289,21 @@ export const Tabs: FC<TabsProps> = p => {
         if (pane.props.children === undefined) {
           return null
         }
-        if (pane.key === activeKey) {
-          return (
-            <div key={pane.key} className={`${classPrefix}-content`}>
-              {pane.props.children}
-            </div>
-          )
-        }
-        if (pane.props.forceRender) {
-          return (
+        const active = pane.key === activeKey
+        return (
+          <ShouldRender
+            key={pane.key}
+            active={active}
+            forceRender={pane.props.forceRender}
+          >
             <div
-              key={pane.key}
               className={`${classPrefix}-content`}
-              style={{ display: 'none' }}
+              style={{ display: active ? 'block' : 'none' }}
             >
               {pane.props.children}
             </div>
-          )
-        }
-        return null
+          </ShouldRender>
+        )
       })}
     </div>
   )
