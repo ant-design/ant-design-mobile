@@ -9,7 +9,7 @@ import {
 } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
-import { useShouldRender } from '../../utils/use-should-render'
+import { useShouldRender } from '../../utils/should-render'
 import {
   PropagationEvent,
   withStopPropagation,

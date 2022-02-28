@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
 import { usePropsValue } from '../../utils/use-props-value'
 import { useMount } from 'ahooks'
-import { useShouldRender } from '../../utils/use-should-render'
+import { useShouldRender } from '../../utils/should-render'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 
 const classPrefix = `adm-collapse`
