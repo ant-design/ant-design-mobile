@@ -2,6 +2,8 @@
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ## Tabs
 
 ### 属性
@@ -33,7 +35,7 @@
 | disabled    | 是否禁用                    | `boolean`   | `false` |
 | forceRender | 被隐藏时是否渲染 `DOM` 结构 | `boolean`   | `false` |
 
-## 常见问题
+## FAQ
 
 ### Tabs 是否支持 sticky 吸顶效果？
 
