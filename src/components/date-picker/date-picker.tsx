@@ -57,7 +57,15 @@ export const DatePicker: FC<DatePickerProps> = p => {
 
   const [value, setValue] = usePropsValue<Date | null>({
     value: props.value,
-    defaultValue: props.defaultValue,
+    defaultValue:
+      props.defaultValue &&
+      new Date(
+        bound(
+          props.defaultValue.getTime(),
+          props.min.getTime(),
+          props.max.getTime()
+        )
+      ),
     onChange: v => {
       if (v === null) return
       props.onConfirm?.(v)
