@@ -117,6 +117,20 @@ export default () => {
             异步操作执行失败
           </Button>
           <DemoDescription content='onAction、onConfirm、onCancel、onClick 这些事件函数都支持返回一个 Promise，通过这种方式，可以让按钮在执行异步操作的时候变为加载状态' />
+          <Button
+            block
+            onClick={() => {
+              Modal.show({
+                content: '点击遮罩关闭',
+                closeOnMaskClick: true,
+              })
+            }}
+          >
+            无操作按钮
+          </Button>
+          <DemoDescription>
+            当你不设置操作按钮时，可以把 Modal 当作一个普通的弹层来使用
+          </DemoDescription>
         </Space>
       </DemoBlock>
 

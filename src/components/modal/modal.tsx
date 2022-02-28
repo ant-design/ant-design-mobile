@@ -117,7 +117,14 @@ export const Modal: FC<ModalProps> = p => {
           props.content
         )}
       </div>
-      <Space direction='vertical' block className={cls('footer')}>
+      <Space
+        direction='vertical'
+        block
+        className={classNames(
+          cls('footer'),
+          props.actions.length === 0 && cls('footer-empty')
+        )}
+      >
         {props.actions.map((action, index) => {
           return (
             <ModalActionButton
