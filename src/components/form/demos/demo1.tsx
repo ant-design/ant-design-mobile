@@ -77,7 +77,18 @@ export default () => {
         <Form.Item name='slider-demo' label='滑块选择'>
           <Slider ticks step={10} />
         </Form.Item>
-        <Form.Item name='stepper-demo' label='数量'>
+        <Form.Item
+          initialValue={0}
+          rules={[
+            {
+              max: 5,
+              min: 1,
+              type: 'number',
+            },
+          ]}
+          name='stepper-demo'
+          label='数量'
+        >
           <Stepper />
         </Form.Item>
         <Form.Item name='disabledField' label='禁用' disabled>
