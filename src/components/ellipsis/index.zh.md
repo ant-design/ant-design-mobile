@@ -1,4 +1,4 @@
-# Ellipsis 文本省略
+# Ellipsis 文本省略 <Experimental></Experimental>
 
 <code src="./demos/demo1.tsx"></code>
 
