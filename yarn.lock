@@ -4273,7 +4273,6 @@ __metadata:
     prismjs: ^1.27.0
     qrcode.react: ^1.0.1
     rc-field-form: ^1.23.0
-    rc-tabs: ^11.10.5
     rc-tooltip: ^5.1.1
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -13001,23 +13000,6 @@ fsevents@^1.2.7:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: 020bbe1020846e95c5e6d826b3d03d9711f6175dd85ea91b36549892ac7f000401c824aca0e7041b9d20c8b2a31be52c2525812ee3a52ae167d745ed953eeecd
-  languageName: node
-  linkType: hard
-
-"rc-tabs@npm:^11.10.5":
-  version: 11.10.5
-  resolution: "rc-tabs@npm:11.10.5"
-  dependencies:
-    "@babel/runtime": ^7.11.2
-    classnames: 2.x
-    rc-dropdown: ^3.2.0
-    rc-menu: ^9.0.0
-    rc-resize-observer: ^1.0.0
-    rc-util: ^5.5.0
-  peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: 8515a8a97ee3b5747dadafa813d9a41a3cb5b7b131606cc00661c8d4d67a516982242f2ded718632deea2bc24a1fd163bfd1dbb1bae46c4fb997f30f2f2956b3
   languageName: node
   linkType: hard
 
