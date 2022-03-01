@@ -1,4 +1,4 @@
-import React, { ReactNode, forwardRef, ForwardedRef } from 'react'
+import React, { ReactNode, forwardRef, ForwardedRef, useMemo } from 'react'
 import classNames from 'classnames'
 import { NativeProps } from '../../utils/native-props'
 import List, { ListProps } from '../list'
@@ -11,6 +11,7 @@ import { FormContext, FormContextType } from './context'
 import { mergeProps } from '../../utils/with-default-props'
 import type { FormLayout } from '.'
 import { Header } from './header'
+import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-form'
 
@@ -68,6 +69,15 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     ...formProps
   } = props
 
+  const { locale } = useConfig()
+
+  const validateMessages = useMemo(() => {
+    return {
+      ...locale.Form.defaultValidateMessages,
+      ...formProps.validateMessages,
+    }
+  }, [locale.Form.defaultValidateMessages, formProps.validateMessages])
+
   const lists: ReactNode[] = []
 
   let currentHeader: ReactNode = null
@@ -99,6 +109,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
       style={style}
       ref={ref as ForwardedRef<RCFormInstance>}
       {...formProps}
+      validateMessages={validateMessages}
     >
       <FormContext.Provider
         value={{
