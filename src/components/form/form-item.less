@@ -27,6 +27,22 @@
     }
   }
 
+  &-child {
+    display: flex;
+    &-position-normal {
+      justify-content: normal;
+      > * {
+        flex: auto;
+      }
+    }
+    &-position-right {
+      justify-content: right;
+      > * {
+        flex: none;
+      }
+    }
+  }
+
   &-footer {
     color: var(--adm-color-danger);
     margin-top: 4px;

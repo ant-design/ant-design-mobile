@@ -9,6 +9,7 @@ import {
   Selector,
   Slider,
   Stepper,
+  Switch,
 } from 'antd-mobile'
 import dayjs from 'dayjs'
 
@@ -35,6 +36,7 @@ export default () => {
         <Form.Item
           name='name'
           label='姓名'
+          extra={'123'}
           rules={[{ required: true, message: '姓名不能为空' }]}
         >
           <Input placeholder='请输入姓名' />
@@ -100,7 +102,22 @@ export default () => {
           <Input onChange={console.log} placeholder='请输入姓名' />
         </Form.Item>
         <Form.Item name='address' label='地址' help='详情地址'>
-          <TextArea placeholder='请输入地址' maxLength={100} rows={4} />
+          <TextArea
+            placeholder='请输入地址'
+            maxLength={100}
+            rows={2}
+            showCount
+          />
+        </Form.Item>
+        <Form.Item name='amount' label='数量' childElementPosition='right'>
+          <Stepper />
+        </Form.Item>
+        <Form.Item
+          name='delivery'
+          label='送货上门'
+          childElementPosition='right'
+        >
+          <Switch />
         </Form.Item>
       </Form>
     </>
