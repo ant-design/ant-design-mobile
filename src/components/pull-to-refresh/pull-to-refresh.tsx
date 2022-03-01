@@ -112,7 +112,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
         const top =
           'scrollTop' in scrollParent
             ? scrollParent.scrollTop
-            : scrollParent.pageYOffset
+            : scrollParent.scrollY
         if (top <= 0 && y > 0) {
           pullingRef.current = true
         }
