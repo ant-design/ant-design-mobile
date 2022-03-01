@@ -101,7 +101,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   function checkValue() {
     let nextValue = value
     if (props.type === 'number') {
-      nextValue = bound(parseFloat(nextValue), props.min, props.max).toString()
+      nextValue = nextValue && bound(parseFloat(nextValue), props.min, props.max).toString()
     }
     if (nextValue !== value) {
       setValue(nextValue)
