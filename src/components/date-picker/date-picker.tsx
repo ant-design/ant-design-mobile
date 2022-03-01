@@ -67,14 +67,12 @@ export const DatePicker: FC<DatePickerProps> = p => {
   const now = useMemo(() => new Date(), [])
 
   const pickerValue = useMemo(() => {
-    let date = value
-    if (date === null) {
-      date = new Date(
-        bound(now.getTime(), props.min.getTime(), props.max.getTime())
-      )
-    }
+    let date = value ?? now
+    date = new Date(
+      bound(date.getTime(), props.min.getTime(), props.max.getTime())
+    )
     return convertDateToStringArray(date, props.precision)
-  }, [value, props.precision])
+  }, [value, props.precision, props.min, props.max])
 
   const onConfirm = useCallback(
     (val: PickerValue[]) => {
