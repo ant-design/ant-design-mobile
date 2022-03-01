@@ -12,6 +12,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import type { FormLayout } from '.'
 import { Header } from './header'
 import { useConfig } from '../config-provider'
+import merge from 'lodash/merge'
 
 const classPrefix = 'adm-form'
 
@@ -71,12 +72,15 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
 
   const { locale } = useConfig()
 
-  const validateMessages = useMemo(() => {
-    return {
-      ...locale.Form.defaultValidateMessages,
-      ...formProps.validateMessages,
-    }
-  }, [locale.Form.defaultValidateMessages, formProps.validateMessages])
+  const validateMessages = useMemo(
+    () =>
+      merge(
+        {},
+        locale.Form.defaultValidateMessages,
+        formProps.validateMessages
+      ),
+    [locale.Form.defaultValidateMessages, formProps.validateMessages]
+  )
 
   const lists: ReactNode[] = []
 
