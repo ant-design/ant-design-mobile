@@ -92,11 +92,57 @@ const validateMessages = {
 | shouldUpdate                                       | 自定义字段更新逻辑，说明见下                                                                                 | `boolean \| (prevValue, curValue) => boolean` | `false`                                            |
 | initialValue                                       | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准                                          | `any`                                         | -                                                  |
 
-被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
+被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会**自动添加** `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，因此，如果你给 `Form.Item` 设置了 `name` 属性，**那么请确保它的 `children` 是一个有效的 `ReactElement` 控件**，并且能够接受上文中提到的 `value` 和 `onChange` 属性（或指定的其他属性），例如：
+
+```jsx
+<Form.Item name='foo'>
+  <Input />
+</Form.Item>
+```
+
+而下面这些写法都是错误的：
+
+```jsx
+<Form.Item name='foo'>
+  <Input />
+  <div>hello</div>
+</Form.Item>
+// 错误：Form.Item 的 children 中包含了多个元素
+```
+
+```jsx
+<Form.Item name='foo'>
+  hello
+  <Input />
+</Form.Item>
+// 错误：同上，Form.Item 的 children 中包含了多个元素
+```
+
+```jsx
+<Form.Item name='foo'>
+  <div>
+    <Input />
+  </div>
+</Form.Item>
+// 错误：Form.Item 的 children 其实是 div，而 div 并不能接受 value 和 onChange 属性
+```
+
+同时请注意：
 
 1. 你**不再需要也不应该**用 `onChange` 来做数据收集同步（你可以使用 Form 的 `onValuesChange`），但还是可以继续监听 `onChange` 事件。
 2. 你不能用控件的 `value` 或 `defaultValue` 等属性来设置表单域的值，默认值可以用 Form 里的 `initialValues` 来设置。注意 `initialValues` 不能被 `setState` 动态更新，你需要用 `setFieldsValue` 来更新。
 3. 你不应该用 `setState`，可以使用 `form.setFieldsValue` 来动态改变表单值。
+
+举个例子，下面的这种写法是错误的：
+
+```jsx
+<Form.Item name='foo'>
+  <Input
+    value={myInputValue} // 错误：value 不应该被手动控制
+    onChange={(v) => { setMyInputValue(v) }} // 错误：虽然你可以监听 onChange 事件，但是你不应该在这里去维护自己的状态
+  />
+</Form.Item>
+```
 
 ### dependencies
 
