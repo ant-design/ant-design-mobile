@@ -3,6 +3,10 @@ import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import {
+  PropagationEvent,
+  withStopPropagation,
+} from 'antd-mobile/src/utils/with-stop-propagation'
 
 const classPrefix = `adm-ellipsis`
 
@@ -12,6 +16,7 @@ export type EllipsisProps = {
   rows?: number
   expandText?: string
   collapseText?: string
+  stopPropagationForActionButtons?: PropagationEvent[]
 } & NativeProps
 
 const defaultProps = {
@@ -19,6 +24,7 @@ const defaultProps = {
   rows: 1,
   expandText: '',
   collapseText: '',
+  stopPropagationForActionButtons: [],
 }
 
 type EllipsisedValue = {
@@ -163,26 +169,32 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   ])
 
   const expandActionElement =
-    exceeded && props.expandText ? (
-      <a
-        onClick={() => {
-          setExpanded(true)
-        }}
-      >
-        {props.expandText}
-      </a>
-    ) : null
+    exceeded && props.expandText
+      ? withStopPropagation(
+          props.stopPropagationForActionButtons,
+          <a
+            onClick={() => {
+              setExpanded(true)
+            }}
+          >
+            {props.expandText}
+          </a>
+        )
+      : null
 
   const collapseActionElement =
-    exceeded && props.expandText ? (
-      <a
-        onClick={() => {
-          setExpanded(false)
-        }}
-      >
-        {props.collapseText}
-      </a>
-    ) : null
+    exceeded && props.expandText
+      ? withStopPropagation(
+          props.stopPropagationForActionButtons,
+          <a
+            onClick={() => {
+              setExpanded(false)
+            }}
+          >
+            {props.collapseText}
+          </a>
+        )
+      : null
 
   const renderContent = () => {
     if (!exceeded) {

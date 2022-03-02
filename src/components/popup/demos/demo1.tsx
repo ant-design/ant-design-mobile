@@ -1,55 +1,6 @@
 import React, { useState } from 'react'
 import { Popup, Space, Button } from 'antd-mobile'
-import { DemoBlock } from 'demos'
-
-// 多层堆叠
-const Stack = () => {
-  const [visible1, setVisible1] = useState(false)
-  const [visible2, setVisible2] = useState(false)
-
-  return (
-    <>
-      <Button
-        onClick={() => {
-          setVisible1(true)
-        }}
-      >
-        展开弹出层1
-      </Button>
-      <Popup
-        visible={visible1}
-        onMaskClick={() => {
-          setVisible1(false)
-        }}
-        bodyStyle={{ height: '40vh' }}
-      >
-        <div style={{ padding: '24px' }}>
-          <Space direction='vertical'>
-            <div>这是弹出层1</div>
-            <Button
-              onClick={() => {
-                setVisible2(true)
-              }}
-            >
-              展开弹出层2
-            </Button>
-          </Space>
-        </div>
-      </Popup>
-      <Popup
-        visible={visible2}
-        onMaskClick={() => {
-          setVisible2(false)
-        }}
-        bodyStyle={{ height: '20vh' }}
-      >
-        <div style={{ padding: '24px' }}>
-          <div>这是弹出层2</div>
-        </div>
-      </Popup>
-    </>
-  )
-}
+import { DemoBlock, lorem } from 'demos'
 
 export default () => {
   const [visible1, setVisible1] = useState(false)
@@ -76,9 +27,9 @@ export default () => {
               onMaskClick={() => {
                 setVisible1(false)
               }}
-              bodyStyle={{ minHeight: '40vh' }}
+              bodyStyle={{ height: '40vh' }}
             >
-              Hello
+              {mockContent}
             </Popup>
           </>
           <>
@@ -95,9 +46,9 @@ export default () => {
                 setVisible2(false)
               }}
               position='top'
-              bodyStyle={{ minHeight: '40vh' }}
+              bodyStyle={{ height: '40vh' }}
             >
-              Hello
+              {mockContent}
             </Popup>
           </>
           <>
@@ -114,9 +65,9 @@ export default () => {
                 setVisible3(false)
               }}
               position='left'
-              bodyStyle={{ minWidth: '60vw' }}
+              bodyStyle={{ width: '60vw' }}
             >
-              Hello
+              {mockContent}
             </Popup>
           </>
           <>
@@ -133,9 +84,9 @@ export default () => {
                 setVisible4(false)
               }}
               position='right'
-              bodyStyle={{ minWidth: '60vw' }}
+              bodyStyle={{ width: '60vw' }}
             >
-              Hello
+              {mockContent}
             </Popup>
           </>
         </Space>
@@ -162,7 +113,7 @@ export default () => {
                 minHeight: '40vh',
               }}
             >
-              Hello
+              {mockContent}
             </Popup>
           </>
           <>
@@ -179,30 +130,21 @@ export default () => {
                 setVisible6(false)
               }}
             >
-              <div style={{ height: '30vh', overflowY: 'scroll' }}>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
-                <h1>Hello</h1>
+              <div
+                style={{ height: '40vh', overflowY: 'scroll', padding: '20px' }}
+              >
+                {mockLongContent}
               </div>
             </Popup>
           </>
         </Space>
       </DemoBlock>
-
-      <DemoBlock title='多层堆叠'>
-        <Stack />
-      </DemoBlock>
     </>
   )
 }
+
+const mockLongContent = lorem.generateParagraphs(10)
+
+const mockContent = (
+  <div style={{ padding: '20px' }}>{lorem.generateParagraphs(1)}</div>
+)
