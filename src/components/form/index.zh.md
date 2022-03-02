@@ -228,6 +228,28 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 <code src="./demos/demo-subscribe.tsx"></code>
 
+## Form.List
+
+为字段提供数组化管理。
+
+| 属性     | 说明             | 类型                                                                                          | 默认值 |
+| -------- | ---------------- | --------------------------------------------------------------------------------------------- | ------ |
+| name     | 字段名，支持数组 | `NamePath[]`                                                                                  | -      |
+| children | 渲染函数         | `(fields: {name: NamePath, key: React.key}[], operation: { add, remove }) => React.ReactNode` | -      |
+
+### operation
+
+Form.List 渲染表单相关操作函数。
+
+| 属性   | 说明       | 类型                       | 默认值 |
+| ------ | ---------- | -------------------------- | ------ |
+| add    | 新增表单项 | `(initValue: any) => void` | -      |
+| remove | 删除表单项 | `(index: number) => void`  | -      |
+
+### 示例
+
+<code src="./demos/demo-list.tsx" />
+
 ## 一些通用的类型定义
 
 ### NamePath
