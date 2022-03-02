@@ -9,7 +9,7 @@
     "postinstall": "husky install",
     "test": "jest",
     "test-with-coverage": "jest --coverage",
-    "publish": "npm publish ./lib"
+    "publish": "npm publish ./lib --registry=https://registry.npmjs.org"
   },
   "dependencies": {
     "@react-spring/web": "^9.4.3",
