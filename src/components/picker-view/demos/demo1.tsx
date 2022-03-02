@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
-import { PickerView, PickerValue } from 'antd-mobile'
+import { PickerView } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { basicColumns } from './columns-data'
 
 export default () => {
-  const [value, setValue] = useState<PickerValue[]>(['Mon', 'am', false])
+  const [value, setValue] = useState<(string | number | boolean | null)[]>([
+    'Mon',
+    'am',
+    false,
+  ])
 
   return (
     <>
