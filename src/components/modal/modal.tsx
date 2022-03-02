@@ -82,12 +82,76 @@ export const Modal: FC<ModalProps> = p => {
 
   const [active, setActive] = useState(props.visible)
 
+  const body = (
+    <div
+      className={classNames(
+        cls('body'),
+        props.image && cls('with-image'),
+        props.bodyClassName
+      )}
+      style={props.bodyStyle}
+    >
+      {props.showCloseButton && (
+        <a
+          className={classNames(cls('close'), 'adm-plain-anchor')}
+          onClick={props.onClose}
+        >
+          <CloseOutline />
+        </a>
+      )}
+      {!!props.image && (
+        <div className={cls('image-container')}>
+          <Image src={props.image} alt='modal header image' width='100%' />
+        </div>
+      )}
+      {!!props.header && (
+        <div className={cls('header')}>
+          <AutoCenter>{props.header}</AutoCenter>
+        </div>
+      )}
+      {!!props.title && <div className={cls('title')}>{props.title}</div>}
+      <div className={cls('content')}>
+        {typeof props.content === 'string' ? (
+          <AutoCenter>{props.content}</AutoCenter>
+        ) : (
+          props.content
+        )}
+      </div>
+      <Space
+        direction='vertical'
+        block
+        className={classNames(
+          cls('footer'),
+          props.actions.length === 0 && cls('footer-empty')
+        )}
+      >
+        {props.actions.map((action, index) => {
+          return (
+            <ModalActionButton
+              key={action.key}
+              action={action}
+              onAction={async () => {
+                await Promise.all([
+                  action.onClick?.(),
+                  props.onAction?.(action, index),
+                ])
+                if (props.closeOnAction) {
+                  props.onClose?.()
+                }
+              }}
+            />
+          )
+        })}
+      </Space>
+    </div>
+  )
+
   const node = withStopPropagation(
     props.stopPropagation,
     withNativeProps(
       props,
       <div
-        className={classPrefix}
+        className={cls()}
         style={{
           display: active ? 'unset' : 'none',
         }}
@@ -96,93 +160,23 @@ export const Modal: FC<ModalProps> = p => {
           visible={props.visible}
           onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
           style={props.maskStyle}
-          className={classNames(`${classPrefix}-mask`, props.maskClassName)}
+          className={classNames(cls('mask'), props.maskClassName)}
         />
         <div
-          className={`${classPrefix}-wrap`}
+          className={cls('wrap')}
           style={{
             pointerEvents: props.visible ? 'unset' : 'none',
           }}
         >
-          <animated.div
-            style={{
-              ...style,
-            }}
-            onClick={e => e.stopPropagation()}
-            className={`${classPrefix}-main`}
-          >
-            {props.showCloseButton && (
-              <a
-                className={classNames(
-                  `${classPrefix}-close`,
-                  'adm-plain-anchor'
-                )}
-                onClick={props.onClose}
-              >
-                <CloseOutline />
-              </a>
-            )}
-            {!!props.image && (
-              <div className={`${classPrefix}-image-container`}>
-                <Image
-                  src={props.image}
-                  alt='modal header image'
-                  width='100%'
-                />
-              </div>
-            )}
-            <div
-              style={props.bodyStyle}
-              className={classNames(`${classPrefix}-body`, props.bodyClassName)}
-            >
-              {!!props.header && (
-                <div className={`${classPrefix}-body-header-wrapper`}>
-                  <div className={`${classPrefix}-body-header`}>
-                    {props.header}
-                  </div>
-                </div>
-              )}
-              {!!props.title && (
-                <div className={`${classPrefix}-body-title`}>{props.title}</div>
-              )}
-              {!!props.content && (
-                <div className={`${classPrefix}-body-content`}>
-                  {typeof props.content === 'string' ? (
-                    <AutoCenter>{props.content}</AutoCenter>
-                  ) : (
-                    props.content
-                  )}
-                </div>
-              )}
-            </div>
-            <Space
-              direction='vertical'
-              block
-              className={`${classPrefix}-footer`}
-            >
-              {props.actions.map((action, index) => {
-                return (
-                  <ModalActionButton
-                    key={action.key}
-                    action={action}
-                    onAction={async () => {
-                      await Promise.all([
-                        action.onClick?.(),
-                        props.onAction?.(action, index),
-                      ])
-                      if (props.closeOnAction) {
-                        props.onClose?.()
-                      }
-                    }}
-                  />
-                )
-              })}
-            </Space>
-          </animated.div>
+          <animated.div style={style}>{body}</animated.div>
         </div>
       </div>
     )
   )
 
   return renderToContainer(props.getContainer, node)
+}
+
+function cls(name: string = '') {
+  return 'adm-modal' + (name && '-') + name
 }

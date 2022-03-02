@@ -49,6 +49,7 @@ export type FormItemProps = Pick<
     disabled?: boolean
     hidden?: boolean
     layout?: FormLayout
+    childElementPosition?: 'normal' | 'right'
     children: ChildrenType
   } & NativeProps
 
@@ -78,6 +79,7 @@ type FormItemLayoutProps = Pick<
   | 'extra'
   | 'arrow'
   | 'description'
+  | 'childElementPosition'
 > & {
   htmlFor?: string
   errors?: string[]
@@ -98,6 +100,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     errors,
     arrow,
     description,
+    childElementPosition = 'normal',
   } = props
 
   const context = useContext(FormContext)
@@ -149,7 +152,16 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       onClick={props.onClick}
       arrow={arrow}
     >
-      {children}
+      <div
+        className={classNames(
+          `${classPrefix}-child`,
+          `${classPrefix}-child-position-${childElementPosition}`
+        )}
+      >
+        <div className={classNames(`${classPrefix}-child-inner`)}>
+          {children}
+        </div>
+      </div>
     </List.Item>
   )
 }
@@ -169,6 +181,7 @@ export const FormItem: FC<FormItemProps> = props => {
     noStyle,
     hidden,
     layout,
+    childElementPosition,
     description,
     // Field 相关
     disabled,
@@ -247,6 +260,7 @@ export const FormItem: FC<FormItemProps> = props => {
         onClick={onClick}
         hidden={hidden}
         layout={layout}
+        childElementPosition={childElementPosition}
         arrow={arrow}
       >
         <NoStyleItemContext.Provider value={onSubMetaChange}>
@@ -296,14 +310,9 @@ export const FormItem: FC<FormItemProps> = props => {
         const isRequired =
           required !== undefined
             ? required
-            : !!(
-                rules &&
-                rules.some(rule => {
-                  if (rule && typeof rule === 'object' && rule.required) {
-                    return true
-                  }
-                  return false
-                })
+            : rules &&
+              rules.some(
+                rule => !!(rule && typeof rule === 'object' && rule.required)
               )
 
         const fieldId = (toArray(name).length && meta ? meta.name : []).join(

@@ -45,12 +45,12 @@ In addition, the following attributes of [Popup](./popup) are supported: `getCon
 
 ### CSS Variables
 
-| Name                      | Description                             | Default | Global |
-| ------------------------- | --------------------------------------- | ------- | ------ |
-| --header-button-font-size | Font size of confirm and cancel button. | `15px`  | -      |
-| --title-font-size         | Font size of title.                     | `15px`  | -      |
-| --item-font-size          | Font size of option items.              | `16px`  | -      |
-| --item-height             | Height of option item.                  | `34px`  | -      |
+| Name                      | Description                                               | Default | Global |
+| ------------------------- | --------------------------------------------------------- | ------- | ------ |
+| --header-button-font-size | Font size of confirm and cancel button.                   | `15px`  | -      |
+| --title-font-size         | Font size of title.                                       | `15px`  | -      |
+| --item-font-size          | Font size of option items.                                | `16px`  | -      |
+| --item-height             | Height of option item. Only supports px rem and vw units. | `34px`  | -      |
 
 ## CascadePicker
 

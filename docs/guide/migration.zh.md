@@ -29,7 +29,7 @@ import {Button} from 'antd-mobile-v2'
 如果此时你发现 v2 的组件样式丢失了，那么可以在入口文件中手动引入一下样式文件：
 
 ```js
-import 'antd-mobile-v2/dist/antd-mobile.css';  // or 'antd-mobile-v2/dist/antd-mobile.less'
+import 'antd-mobile-v2/dist/antd-mobile.less';  // or 'antd-mobile-v2/dist/antd-mobile.css'
 ```
 
 最后，重新安装 `antd-mobile` 为 v5 版本：

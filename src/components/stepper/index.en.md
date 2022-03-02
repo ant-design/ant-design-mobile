@@ -1,15 +1,14 @@
 # Stepper
 
 <code src="./demos/demo1.tsx"></code>
-<code src="./demos/demo2.tsx" debug></code>
 
 ### Props
 
 | Name          | Description                                                                                    | Type                                              | Default |
 | ------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------- |
-| value         | Current number, controlled value                                                               | `number`                                          | -       |
-| onChange      | Callback when value is changed                                                                 | `(value: number) => void`                         | -       |
-| defaultValue  | Default value                                                                                  | `number`                                          | `0`     |
+| value         | Current number, controlled value                                                               | `number \| null`                                  | -       |
+| defaultValue  | Default value                                                                                  | `number \| null`                                  | `0`     |
+| onChange      | Callback when value is changed                                                                 | `(value: number \| null) => void`                 | -       |
 | min           | Min value                                                                                      | `number`                                          | -       |
 | max           | Max value                                                                                      | `number`                                          | -       |
 | step          | Change the number of steps each time, it can be a decimal                                      | `number`                                          | `1`     |
@@ -18,6 +17,9 @@
 | inputReadOnly | Whether input readonly or not                                                                  | `boolean`                                         | `false` |
 | onFocus       | Triggered when the input get focus                                                             | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
 | onBlur        | Triggered when the input lose focus                                                            | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
+| allowEmpty    | Whether to allow empty content.                                                                | `boolean`                                         | `false` |
+
+When `allowEmpty` is `true`, the `value` parameter of `onChange` may be `null`, please pay attention when using it.
 
 ### CSS Variables
 

@@ -150,6 +150,10 @@ const config: IConfig = {
         path: '/guide/import-on-demand',
       },
       {
+        title: 'About Experimental',
+        path: '/zh/guide/what-is-experimental',
+      },
+      {
         title: 'HD (Experimental)',
         path: '/guide/hd',
       },
@@ -182,6 +186,10 @@ const config: IConfig = {
       {
         title: '按需加载',
         path: '/zh/guide/import-on-demand',
+      },
+      {
+        title: '关于试验性',
+        path: '/zh/guide/what-is-experimental',
       },
       {
         title: '高清适配（试验性）',

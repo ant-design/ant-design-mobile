@@ -2,6 +2,8 @@
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ## Tabs
 
 ### Props
@@ -27,12 +29,13 @@
 
 ## Tabs.Tab
 
-| Name        | Description                                       | Type        | Default |
-| ----------- | ------------------------------------------------- | ----------- | ------- |
-| key         | Corresponding to `activeKey`                      | `string`    | -       |
-| title       | The displayed text of the tab header              | `ReactNode` | -       |
-| disabled    | Whether to disable the tab                        | `boolean`   | `false` |
-| forceRender | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
+| Name           | Description                                       | Type        | Default |
+| -------------- | ------------------------------------------------- | ----------- | ------- |
+| key            | Corresponding to `activeKey`                      | `string`    | -       |
+| title          | The displayed text of the tab header              | `ReactNode` | -       |
+| disabled       | Whether to disable the tab                        | `boolean`   | `false` |
+| forceRender    | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
+| destroyOnClose | Unmount content when not visible                  | `boolean`   | `false` |
 
 ## FAQ
 

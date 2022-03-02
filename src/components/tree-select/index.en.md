@@ -1,4 +1,4 @@
-# TreeSelect
+# TreeSelect <Experimental></Experimental>
 
 <Alert type="error">
 This component is going to be rewritten. Please don't use it.

@@ -14,9 +14,10 @@
 
 ## CapsuleTabs.Tab
 
-| 属性        | 说明                        | 类型        | 默认值  |
-| ----------- | --------------------------- | ----------- | ------- |
-| key         | 对应 `activeKey`            | `string`    | -       |
-| title       | 选项卡头显示文字            | `ReactNode` | -       |
-| disabled    | 是否禁用                    | `boolean`   | `false` |
-| forceRender | 被隐藏时是否渲染 `DOM` 结构 | `boolean`   | `false` |
+| 属性           | 说明                        | 类型        | 默认值  |
+| -------------- | --------------------------- | ----------- | ------- |
+| key            | 对应 `activeKey`            | `string`    | -       |
+| title          | 选项卡头显示文字            | `ReactNode` | -       |
+| disabled       | 是否禁用                    | `boolean`   | `false` |
+| forceRender    | 被隐藏时是否渲染 `DOM` 结构 | `boolean`   | `false` |
+| destroyOnClose | 不可见时卸载内容            | `boolean`   | `false` |

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "./",
+    "rootDirs": ["./", "../package.json"],
     "target": "ES6",
     "moduleResolution": "node",
     "jsx": "react",

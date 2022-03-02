@@ -29,7 +29,7 @@ Next, remove the old `antd-mobile` dependency. And try to run/test/build your pr
 If you find that the component styles of v2 are lost at this time, you can manually import the style file in the entry file:
 
 ```js
-import 'antd-mobile-v2/dist/antd-mobile.css';  // or 'antd-mobile-v2/dist/antd-mobile.less'
+import 'antd-mobile-v2/dist/antd-mobile.less';  // or 'antd-mobile-v2/dist/antd-mobile.css'
 ```
 
 Finally, reinstall the `antd-mobile` package as v5:

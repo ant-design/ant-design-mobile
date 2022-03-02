@@ -10,14 +10,12 @@ import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { bound } from '../../utils/bound'
-import {
-  useUpdateLayoutEffect,
-  useThrottleFn,
-  useIsomorphicLayoutEffect,
-} from 'ahooks'
+import { useThrottleFn, useIsomorphicLayoutEffect } from 'ahooks'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { mergeProps } from '../../utils/with-default-props'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { ShouldRender } from '../../utils/should-render'
 
 const classPrefix = `adm-tabs`
 
@@ -25,6 +23,7 @@ export type TabProps = {
   title: ReactNode
   disabled?: boolean
   forceRender?: boolean
+  destroyOnClose?: boolean
 } & NativeProps
 
 export const Tab: FC<TabProps> = () => {
@@ -171,7 +170,7 @@ export const Tabs: FC<TabsProps> = p => {
     animate(!x.isAnimating)
   }, [])
 
-  useUpdateLayoutEffect(() => {
+  useIsomorphicUpdateLayoutEffect(() => {
     animate()
   }, [activeKey])
 
@@ -291,25 +290,22 @@ export const Tabs: FC<TabsProps> = p => {
         if (pane.props.children === undefined) {
           return null
         }
-        if (pane.key === activeKey) {
-          return (
-            <div key={pane.key} className={`${classPrefix}-content`}>
-              {pane.props.children}
-            </div>
-          )
-        }
-        if (pane.props.forceRender) {
-          return (
+        const active = pane.key === activeKey
+        return (
+          <ShouldRender
+            key={pane.key}
+            active={active}
+            forceRender={pane.props.forceRender}
+            destroyOnClose={pane.props.destroyOnClose}
+          >
             <div
-              key={pane.key}
               className={`${classPrefix}-content`}
-              style={{ display: 'none' }}
+              style={{ display: active ? 'block' : 'none' }}
             >
               {pane.props.children}
             </div>
-          )
-        }
-        return null
+          </ShouldRender>
+        )
       })}
     </div>
   )

@@ -21,47 +21,53 @@
   max-width: 75vw;
   transform: translate(-50%, -50%);
 }
-.@{class-prefix-modal}-main {
+.@{class-prefix-modal}-body {
   width: 100%;
   max-height: 70vh;
   box-sizing: border-box;
   font-size: 14px;
   background-color: white;
   border-radius: 8px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
+
   display: flex;
   flex-direction: column;
   > * {
     flex: none;
   }
-  > .adm-modal-image-container {
+  > .adm-modal-content {
     flex: auto;
   }
-  .@{class-prefix-modal}-body {
-    padding: 20px 12px 12px;
-    display: flex;
-    flex-direction: column;
-    > * + * {
-      margin-top: 8px;
-    }
-    &-header-wrapper {
-      display: flex;
-      justify-content: center;
-    }
-    &-header {
-    }
-    &-title {
-      font-weight: bold;
-      font-size: 18px;
-      line-height: 25px;
-      text-align: center;
-    }
-    &-content {
-      font-size: 15px;
-      line-height: 1.4;
-      color: #333;
-    }
+
+  &:not(.adm-modal-with-image) {
+    padding-top: 20px;
+  }
+
+  .adm-modal-image-container {
+    margin-bottom: 12px;
+    max-height: 40vh;
+    overflow-y: scroll;
+  }
+  .adm-modal-header {
+    margin-bottom: 8px;
+    padding: 0 12px;
+  }
+  .adm-modal-title {
+    margin-bottom: 8px;
+    padding: 0 12px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+  }
+  .adm-modal-content {
+    padding: 0 12px 12px;
+    max-height: 70vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #333;
   }
   .adm-modal-close {
     position: absolute;
@@ -73,9 +79,13 @@
   }
 }
 
-.@{class-prefix-modal}-footer {
+.adm-modal-footer {
   user-select: none;
   padding: 8px 12px 12px;
+  &-empty {
+    padding: 0;
+    height: 8px;
+  }
   &.adm-space {
     --gap-vertical: 20px;
   }
@@ -93,8 +103,4 @@
       }
     }
   }
-}
-
-.@{class-prefix-modal}-image-container {
-  overflow-y: auto;
 }

@@ -10,7 +10,7 @@ import {
   renderToContainer,
 } from '../../utils/render-to-container'
 import { useSpring, animated } from '@react-spring/web'
-import { useShouldRender } from '../../utils/use-should-render'
+import { useShouldRender } from '../../utils/should-render'
 import {
   PropagationEvent,
   withStopPropagation,

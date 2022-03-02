@@ -101,7 +101,9 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   function checkValue() {
     let nextValue = value
     if (props.type === 'number') {
-      nextValue = bound(parseFloat(nextValue), props.min, props.max).toString()
+      nextValue =
+        nextValue &&
+        bound(parseFloat(nextValue), props.min, props.max).toString()
     }
     if (nextValue !== value) {
       setValue(nextValue)
@@ -151,7 +153,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         onCompositionStart={props.onCompositionStart}
         onCompositionEnd={props.onCompositionEnd}
       />
-      {props.clearable && !!value && !props.readOnly && (
+      {props.clearable && !!value && !props.readOnly && hasFocus && (
         <div
           className={`${classPrefix}-clear`}
           onMouseDown={e => {

@@ -1,4 +1,4 @@
-# NumberKeyboard 数字键盘
+# NumberKeyboard 数字键盘 <Experimental></Experimental>
 
 H5 数字键盘，可以配合密码输入框组件或自定义的输入框组件使用
 

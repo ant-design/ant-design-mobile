@@ -29,3 +29,15 @@
 | -------- | -------- | ------ | -------------------- |
 | --width  | 图片宽度 | `auto` | `--adm-image-width`  |
 | --height | 图片高度 | `auto` | `--adm-image-height` |
+
+## FAQ
+
+### 如何让 Image 从 block 元素变为 inline-block 元素？
+
+Image 默认是渲染为 block 元素的，如果你需要让它变为 inline-block 元素的话，可以在外层嵌套一层 inline-block 的容器，例如：
+
+```jsx
+<div style={{ display: 'inline-block' }}>
+  <Image />
+</div>
+```

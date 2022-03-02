@@ -21,7 +21,6 @@ export default () => {
           value={num}
           onChange={value => {
             setNum(value)
-            console.log(value)
           }}
         />
       </DemoBlock>
@@ -61,6 +60,17 @@ export default () => {
           }}
           onBlur={() => {
             Toast.show('失去焦点')
+          }}
+        />
+      </DemoBlock>
+
+      <DemoBlock title='允许清空'>
+        <Stepper
+          allowEmpty={true}
+          min={10}
+          max={20}
+          onChange={value => {
+            console.log(value)
           }}
         />
       </DemoBlock>

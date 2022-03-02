@@ -14,7 +14,7 @@ function isElement(node: Element) {
 export function getScrollParent(
   el: Element,
   root: ScrollElement | null | undefined = defaultRoot
-) {
+): Window | Element | null | undefined {
   let node = el
 
   while (node && node !== root && isElement(node)) {

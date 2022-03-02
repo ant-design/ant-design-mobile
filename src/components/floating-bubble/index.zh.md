@@ -1,4 +1,4 @@
-# FloatingBubble 浮动气泡
+# FloatingBubble 浮动气泡 <Experimental></Experimental>
 
 <code src="./demos/demo1.tsx"></code>
 

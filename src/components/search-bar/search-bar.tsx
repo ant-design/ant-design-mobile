@@ -44,7 +44,7 @@ export type SearchBarProps = Pick<
 
 const defaultProps = {
   clearable: true,
-  showCancelButton: false,
+  showCancelButton: false as NonNullable<SearchBarProps['showCancelButton']>,
   defaultValue: '',
   clearOnCancel: true,
   icon: <SearchOutline />,
@@ -71,6 +71,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
 
   const renderCancelButton = () => {
     let isShowCancel = false
+    const showCancelButton = props.showCancelButton
     if (typeof props.showCancelButton === 'function') {
       isShowCancel = props.showCancelButton(hasFocus, value)
     } else {

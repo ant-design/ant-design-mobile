@@ -3,7 +3,7 @@
 .markdown {
   color: @c-text;
   font-size: 15px;
-  line-height: 1.60625;
+  line-height: 1.8;
 
   [data-prefers-color='dark'] & {
     color: @c-secondary-dark;
@@ -100,6 +100,11 @@
     margin: 16px 0;
   }
 
+  strong {
+    border-bottom: solid #ffe7b2 4px;
+    font-weight: 600;
+  }
+
   // inline code
   *:not(pre) code {
     padding: 2px 5px;
@@ -192,12 +197,6 @@
 
     td:first-child {
       font-weight: 500;
-    }
-
-    a {
-      svg {
-        display: none;
-      }
     }
   }
 

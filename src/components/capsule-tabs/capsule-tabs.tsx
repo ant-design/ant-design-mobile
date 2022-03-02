@@ -12,6 +12,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { useTabListScroll } from '../../utils/use-tab-list-scroll'
 import ScrollMask from '../scroll-mask'
+import { ShouldRender } from '../../utils/should-render'
 
 const classPrefix = `adm-capsule-tabs`
 
@@ -19,6 +20,7 @@ export type CapsuleTabProps = {
   title: ReactNode
   disabled?: boolean
   forceRender?: boolean
+  destroyOnClose?: boolean
 } & NativeProps
 
 export const CapsuleTab: FC<CapsuleTabProps> = () => {
@@ -107,21 +109,22 @@ export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
         if (pane.props.children === undefined) {
           return null
         }
-        if (pane.key === activeKey) {
-          return (
-            <div key={pane.key} className={`${classPrefix}-content`}>
+        const active = pane.key === activeKey
+        return (
+          <ShouldRender
+            key={pane.key}
+            active={active}
+            forceRender={pane.props.forceRender}
+            destroyOnClose={pane.props.destroyOnClose}
+          >
+            <div
+              className={`${classPrefix}-content`}
+              style={{ display: active ? 'block' : 'none' }}
+            >
               {pane.props.children}
             </div>
-          )
-        }
-        if (pane.props.forceRender) {
-          return (
-            <div key={pane.key} style={{ display: 'none' }}>
-              {pane.props.children}
-            </div>
-          )
-        }
-        return null
+          </ShouldRender>
+        )
       })}
     </div>
   )

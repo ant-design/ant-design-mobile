@@ -29,3 +29,15 @@ In addition, the following HTML native attributes are also supported: `crossOrig
 | -------- | -------------------- | ------- | -------------------- |
 | --width  | The width of image.  | `auto`  | `--adm-image-width`  |
 | --height | The height of image. | `auto`  | `--adm-image-height` |
+
+## FAQ
+
+### How to make Image change from block element to inline-block element?
+
+Image is rendered as a block element by default. If you need to make it an inline-block element, you can nest an inline-block container in the outer layer, for example:
+
+```jsx
+<div style={{ display: 'inline-block' }}>
+  <Image />
+</div>
+```
