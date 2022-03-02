@@ -36,7 +36,6 @@ export default () => {
         <Form.Item
           name='name'
           label='姓名'
-          extra={'123'}
           rules={[{ required: true, message: '姓名不能为空' }]}
         >
           <Input placeholder='请输入姓名' />
