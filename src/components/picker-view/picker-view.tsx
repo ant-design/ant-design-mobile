@@ -8,7 +8,9 @@ import { useDebounceEffect } from 'ahooks'
 
 const classPrefix = `adm-picker-view`
 
-export type PickerValue = string | null
+export type BasePickerValue = string | number | boolean
+
+export type PickerValue = BasePickerValue | null
 
 export type PickerValueExtend = {
   items: (PickerColumnItem | null)[]
@@ -16,10 +18,10 @@ export type PickerValueExtend = {
 
 export type PickerColumnItem = {
   label: ReactNode
-  value: string
+  value: BasePickerValue
 }
 
-export type PickerColumn = (string | PickerColumnItem)[]
+export type PickerColumn = (BasePickerValue | PickerColumnItem)[]
 
 export type PickerViewProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
