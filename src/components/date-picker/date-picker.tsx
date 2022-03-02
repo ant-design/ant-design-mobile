@@ -14,6 +14,8 @@ import {
 import type { Precision, DatePickerFilter } from './date-picker-utils'
 import { bound } from '../../utils/bound'
 
+export type DatePickerValue = string | null
+
 export type DatePickerProps = Pick<
   PickerProps,
   | 'onCancel'
@@ -76,13 +78,18 @@ export const DatePicker: FC<DatePickerProps> = p => {
 
   const onConfirm = useCallback(
     (val: PickerValue[]) => {
-      setValue(convertStringArrayToDate(val, props.precision))
+      setValue(
+        convertStringArrayToDate(val as DatePickerValue[], props.precision)
+      )
     },
     [setValue, props.precision]
   )
 
   const onSelect = useMemoizedFn((val: PickerValue[]) => {
-    const date = convertStringArrayToDate(val, props.precision)
+    const date = convertStringArrayToDate(
+      val as DatePickerValue[],
+      props.precision
+    )
     props.onSelect?.(date)
   })
 
