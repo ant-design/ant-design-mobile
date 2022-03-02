@@ -11,4 +11,4 @@
 | rows                            | 展示几行                             | `number`                       | `1`     |
 | expandText                      | 展开操作的文案                       | `string`                       | `''`    |
 | collapseText                    | 收起操作的文案                       | `string`                       | `''`    |
-| stopPropagationForExpandButtons | 阻止展开操作，收起操作引发的事件冒泡 | `PropagationEvent[]`           | `[]`    |
+| stopPropagationForActionButtons | 阻止展开操作，收起操作引发的事件冒泡 | `PropagationEvent[]`           | `[]`    |

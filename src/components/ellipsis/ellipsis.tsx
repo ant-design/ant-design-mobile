@@ -16,7 +16,7 @@ export type EllipsisProps = {
   rows?: number
   expandText?: string
   collapseText?: string
-  stopPropagationForExpandButtons?: PropagationEvent[]
+  stopPropagationForActionButtons?: PropagationEvent[]
 } & NativeProps
 
 const defaultProps = {
@@ -24,7 +24,7 @@ const defaultProps = {
   rows: 1,
   expandText: '',
   collapseText: '',
-  stopPropagationForExpandButtons: [],
+  stopPropagationForActionButtons: [],
 }
 
 type EllipsisedValue = {
@@ -171,7 +171,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   const expandActionElement =
     exceeded && props.expandText
       ? withStopPropagation(
-          props.stopPropagationForExpandButtons,
+          props.stopPropagationForActionButtons,
           <a
             onClick={() => {
               setExpanded(true)
@@ -185,7 +185,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   const collapseActionElement =
     exceeded && props.expandText
       ? withStopPropagation(
-          props.stopPropagationForExpandButtons,
+          props.stopPropagationForActionButtons,
           <a
             onClick={() => {
               setExpanded(false)

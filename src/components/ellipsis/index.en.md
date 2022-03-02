@@ -11,4 +11,4 @@
 | rows                            | The number to display lines                                                          | `number`                       | `1`     |
 | expandText                      | Expand operation text                                                                | `string`                       | `''`    |
 | collapseText                    | Collapse operation text                                                              | `string`                       | `''`    |
-| stopPropagationForExpandButtons | Prevent the event bubbling caused by the expand operation and the collapse operation | `PropagationEvent[]`           | `[]`    |
+| stopPropagationForActionButtons | Prevent the event bubbling caused by the expand operation and the collapse operation | `PropagationEvent[]`           | `[]`    |
