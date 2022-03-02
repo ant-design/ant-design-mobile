@@ -139,7 +139,7 @@ const DatePickerInputItem = () => {
                 }}
                 onClick={e => {
                   e.stopPropagation()
-                  setFieldsValue({ birthday: '' })
+                  setFieldsValue({ birthday: null })
                 }}
               />
             ) : (

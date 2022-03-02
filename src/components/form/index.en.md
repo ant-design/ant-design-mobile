@@ -4,28 +4,31 @@
 
 <code src="./demos/demo3.tsx"></code>
 
+<code src="./demos/demo5.tsx"></code>
+
 <code src="./demos/demo2.tsx"></code>
 
 ## Form
 
 ### Props
 
-| Name             | Description                                                                                | Type                                           | Default      |
-| ---------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------- | ------------ |
-| hasFeedback      | Whether to show error feedback                                                             | `boolean`                                      | `true`       |
-| layout           | Layout mode                                                                                | `'vertical' \| 'horizontal'`                   | `'vertical'` |
-| mode             | Support two modes: default and card.                                                       | `'default' \| 'card'`                          | `'default'`  |
-| footer           | The footer content. Commonly used for placing submit buttons.                              | `ReactNode`                                    | -            |
-| form             | Form control instance created by `Form.useForm()`. Automatically created when not provided | `FormInstance`                                 | -            |
-| initialValues    | Set value by Form initialization or reset                                                  | `object`                                       | -            |
-| name             | Form name. Will be the prefix of Field `id`                                                | `string`                                       | -            |
-| preserve         | Keep field value even when field removed                                                   | `boolean`                                      | `true`       |
-| validateMessages | Validation prompt template, description see below                                          | `ValidateMessages`                             | -            |
-| validateTrigger  | Config field validate trigger                                                              | `string \| string[]`                           | `'onChange'` |
-| onFieldsChange   | Trigger when field updated                                                                 | `(changedFields, allFields) => void`           | -            |
-| onFinish         | Trigger after submitting the form and verifying data successfully                          | `(values) => void`                             | -            |
-| onFinishFailed   | Trigger after submitting the form and verifying data failed                                | `({ values, errorFields, outOfDate }) => void` | -            |
-| onValuesChange   | Trigger when value updated                                                                 | `(changedValues, allValues) => void`           | -            |
+| Name              | Description                                                                                | Type                                               | Default      |
+| ----------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------- | ------------ |
+| mode              | Support two modes: default and card.                                                       | `'default' \| 'card'`                              | `'default'`  |
+| layout            | Layout mode                                                                                | `'vertical' \| 'horizontal'`                       | `'vertical'` |
+| hasFeedback       | Whether to show error feedback                                                             | `boolean`                                          | `true`       |
+| requiredMarkStyle | The style of required or optional mark                                                     | `'asterisk' \| 'text-required' \| 'text-optional'` | `'asterisk'` |
+| footer            | The footer content. Commonly used for placing submit buttons.                              | `ReactNode`                                        | -            |
+| form              | Form control instance created by `Form.useForm()`. Automatically created when not provided | `FormInstance`                                     | -            |
+| initialValues     | Set value by Form initialization or reset                                                  | `object`                                           | -            |
+| name              | Form name. Will be the prefix of Field `id`                                                | `string`                                           | -            |
+| preserve          | Keep field value even when field removed                                                   | `boolean`                                          | `true`       |
+| validateMessages  | Validation prompt template, description see below                                          | `ValidateMessages`                                 | -            |
+| validateTrigger   | Config field validate trigger                                                              | `string \| string[]`                               | `'onChange'` |
+| onFieldsChange    | Trigger when field updated                                                                 | `(changedFields, allFields) => void`               | -            |
+| onFinish          | Trigger after submitting the form and verifying data successfully                          | `(values) => void`                                 | -            |
+| onFinishFailed    | Trigger after submitting the form and verifying data failed                                | `({ values, errorFields, outOfDate }) => void`     | -            |
+| onValuesChange    | Trigger when value updated                                                                 | `(changedValues, allValues) => void`               | -            |
 
 ### FormInstance
 

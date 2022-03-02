@@ -37,6 +37,8 @@ const zhCN = mergeLocale(base, {
     },
   },
   Form: {
+    required: '必填',
+    optional: '选填',
     defaultValidateMessages: {
       default: '字段验证错误${label}',
       required: '请输入${label}',

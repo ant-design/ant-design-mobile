@@ -4,28 +4,31 @@
 
 <code src="./demos/demo3.tsx"></code>
 
+<code src="./demos/demo5.tsx"></code>
+
 <code src="./demos/demo2.tsx"></code>
 
 ## Form
 
 ### 属性
 
-| 属性             | 说明                                                         | 类型                                           | 默认值       |
-| ---------------- | ------------------------------------------------------------ | ---------------------------------------------- | ------------ |
-| hasFeedback      | 是否展示错误反馈                                             | `boolean`                                      | `true`       |
-| layout           | 布局模式                                                     | `'vertical' \| 'horizontal'`                   | `'vertical'` |
-| mode             | 支持默认和卡片两种模式                                       | `'default' \| 'card'`                          | `'default'`  |
-| footer           | 表单尾部的内容，常常用来放置提交按钮                         | `ReactNode`                                    | -            |
-| form             | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | `FormInstance`                                 | -            |
-| initialValues    | 表单默认值，只有初始化以及重置时生效                         | `object`                                       | -            |
-| name             | 表单名称，会作为表单字段 `id` 前缀使用                       | `string`                                       | -            |
-| preserve         | 当字段被删除时保留字段值                                     | `boolean`                                      | `true`       |
-| validateMessages | 验证提示模板，说明见下                                       | `ValidateMessages`                             | -            |
-| validateTrigger  | 统一设置字段触发验证的时机                                   | `string \| string[]`                           | `'onChange'` |
-| onFieldsChange   | 字段更新时触发                                               | `(changedFields, allFields) => void`           | -            |
-| onFinish         | 提交表单且数据验证成功后触发                                 | `(values) => void`                             | -            |
-| onFinishFailed   | 提交表单且数据验证失败后触发                                 | `({ values, errorFields, outOfDate }) => void` | -            |
-| onValuesChange   | 字段值更新时触发                                             | `(changedValues, allValues) => void`           | -            |
+| 属性              | 说明                                                         | 类型                                               | 默认值       |
+| ----------------- | ------------------------------------------------------------ | -------------------------------------------------- | ------------ |
+| mode              | 支持默认和卡片两种模式                                       | `'default' \| 'card'`                              | `'default'`  |
+| layout            | 布局模式                                                     | `'vertical' \| 'horizontal'`                       | `'vertical'` |
+| hasFeedback       | 是否展示错误反馈                                             | `boolean`                                          | `true`       |
+| requiredMarkStyle | 必填选填的标记样式                                           | `'asterisk' \| 'text-required' \| 'text-optional'` | `'asterisk'` |
+| footer            | 表单尾部的内容，常常用来放置提交按钮                         | `ReactNode`                                        | -            |
+| form              | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | `FormInstance`                                     | -            |
+| initialValues     | 表单默认值，只有初始化以及重置时生效                         | `object`                                           | -            |
+| name              | 表单名称，会作为表单字段 `id` 前缀使用                       | `string`                                           | -            |
+| preserve          | 当字段被删除时保留字段值                                     | `boolean`                                          | `true`       |
+| validateMessages  | 验证提示模板，说明见下                                       | `ValidateMessages`                                 | -            |
+| validateTrigger   | 统一设置字段触发验证的时机                                   | `string \| string[]`                               | `'onChange'` |
+| onFieldsChange    | 字段更新时触发                                               | `(changedFields, allFields) => void`               | -            |
+| onFinish          | 提交表单且数据验证成功后触发                                 | `(values) => void`                                 | -            |
+| onFinishFailed    | 提交表单且数据验证失败后触发                                 | `({ values, errorFields, outOfDate }) => void`     | -            |
+| onValuesChange    | 字段值更新时触发                                             | `(changedValues, allValues) => void`               | -            |
 
 ### FormInstance
 
