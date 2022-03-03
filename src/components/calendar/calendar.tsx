@@ -66,7 +66,27 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
     if (item) markItems.unshift(item)
   }
 
-  const [current, setCurrent] = useState(() => dayjs().date(1))
+  const dateRange = useMemo<[Date | null, Date | null]>(() => {
+    if (props.selectionMode === 'single') {
+      const value = props.value ?? props.defaultValue ?? null
+      return [value, value]
+    } else if (props.selectionMode === 'range') {
+      return props.value ?? props.defaultValue ?? [null, null]
+    } else {
+      return [null, null]
+    }
+  }, [props.selectionMode, props.value, props.defaultValue])
+
+  const [begin, setBegin] = useState<Dayjs | null>(null)
+  const [end, setEnd] = useState<Dayjs | null>(null)
+  useIsomorphicLayoutEffect(() => {
+    setBegin(dateRange[0] ? dayjs(dateRange[0]) : null)
+    setEnd(dateRange[1] ? dayjs(dateRange[1]) : null)
+  }, [dateRange[0], dateRange[1]])
+
+  const [current, setCurrent] = useState(() =>
+    dayjs(dateRange[0] ?? today).date(1)
+  )
 
   useUpdateEffect(() => {
     props.onPageChange?.(current.year(), current.month() + 1)
@@ -135,24 +155,6 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
       </a>
     </div>
   )
-
-  const dateRange = useMemo<[Date | null, Date | null]>(() => {
-    if (props.selectionMode === 'single') {
-      const value = props.value ?? props.defaultValue ?? null
-      return [value, value]
-    } else if (props.selectionMode === 'range') {
-      return props.value ?? props.defaultValue ?? [null, null]
-    } else {
-      return [null, null]
-    }
-  }, [props.selectionMode, props.value, props.defaultValue])
-
-  const [begin, setBegin] = useState<Dayjs | null>(null)
-  const [end, setEnd] = useState<Dayjs | null>(null)
-  useIsomorphicLayoutEffect(() => {
-    setBegin(dateRange[0] ? dayjs(dateRange[0]) : null)
-    setEnd(dateRange[1] ? dayjs(dateRange[1]) : null)
-  }, [dateRange[0], dateRange[1]])
 
   function renderCells() {
     const cells: ReactNode[] = []
