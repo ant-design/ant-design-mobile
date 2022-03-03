@@ -4,28 +4,31 @@
 
 <code src="./demos/demo3.tsx"></code>
 
+<code src="./demos/demo5.tsx"></code>
+
 <code src="./demos/demo2.tsx"></code>
 
 ## Form
 
 ### Props
 
-| Name             | Description                                                                                | Type                                           | Default      |
-| ---------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------- | ------------ |
-| hasFeedback      | Whether to show error feedback                                                             | `boolean`                                      | `true`       |
-| layout           | Layout mode                                                                                | `'vertical' \| 'horizontal'`                   | `'vertical'` |
-| mode             | Support two modes: default and card.                                                       | `'default' \| 'card'`                          | `'default'`  |
-| footer           | The footer content. Commonly used for placing submit buttons.                              | `ReactNode`                                    | -            |
-| form             | Form control instance created by `Form.useForm()`. Automatically created when not provided | `FormInstance`                                 | -            |
-| initialValues    | Set value by Form initialization or reset                                                  | `object`                                       | -            |
-| name             | Form name. Will be the prefix of Field `id`                                                | `string`                                       | -            |
-| preserve         | Keep field value even when field removed                                                   | `boolean`                                      | `true`       |
-| validateMessages | Validation prompt template, description see below                                          | `ValidateMessages`                             | -            |
-| validateTrigger  | Config field validate trigger                                                              | `string \| string[]`                           | `'onChange'` |
-| onFieldsChange   | Trigger when field updated                                                                 | `(changedFields, allFields) => void`           | -            |
-| onFinish         | Trigger after submitting the form and verifying data successfully                          | `(values) => void`                             | -            |
-| onFinishFailed   | Trigger after submitting the form and verifying data failed                                | `({ values, errorFields, outOfDate }) => void` | -            |
-| onValuesChange   | Trigger when value updated                                                                 | `(changedValues, allValues) => void`           | -            |
+| Name              | Description                                                                                | Type                                               | Default      |
+| ----------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------- | ------------ |
+| mode              | Support two modes: default and card.                                                       | `'default' \| 'card'`                              | `'default'`  |
+| layout            | Layout mode                                                                                | `'vertical' \| 'horizontal'`                       | `'vertical'` |
+| hasFeedback       | Whether to show error feedback                                                             | `boolean`                                          | `true`       |
+| requiredMarkStyle | The style of required or optional mark                                                     | `'asterisk' \| 'text-required' \| 'text-optional'` | `'asterisk'` |
+| footer            | The footer content. Commonly used for placing submit buttons.                              | `ReactNode`                                        | -            |
+| form              | Form control instance created by `Form.useForm()`. Automatically created when not provided | `FormInstance`                                     | -            |
+| initialValues     | Set value by Form initialization or reset                                                  | `object`                                           | -            |
+| name              | Form name. Will be the prefix of Field `id`                                                | `string`                                           | -            |
+| preserve          | Keep field value even when field removed                                                   | `boolean`                                          | `true`       |
+| validateMessages  | Validation prompt template, description see below                                          | `ValidateMessages`                                 | -            |
+| validateTrigger   | Config field validate trigger                                                              | `string \| string[]`                               | `'onChange'` |
+| onFieldsChange    | Trigger when field updated                                                                 | `(changedFields, allFields) => void`               | -            |
+| onFinish          | Trigger after submitting the form and verifying data successfully                          | `(values) => void`                                 | -            |
+| onFinishFailed    | Trigger after submitting the form and verifying data failed                                | `({ values, errorFields, outOfDate }) => void`     | -            |
+| onValuesChange    | Trigger when value updated                                                                 | `(changedValues, allValues) => void`               | -            |
 
 ### FormInstance
 
@@ -78,7 +81,7 @@ const validateMessages = {
 | noStyle                                            | No styles, only use field management                                                                                                                                            | `boolean`                                     | `false`                                                               |
 | hidden                                             | Hide this field                                                                                                                                                                 | `boolean`                                     | `false`                                                               |
 | layout                                             | Layout mode                                                                                                                                                                     | `'vertical' \| 'horizontal'`                  | The `layout` of parent Form                                           |
-| childElementPosition <Experimental></Experimental> | Position of the widget.                                                                                                                                                         | `'normal' \| 'right'`                         | `normal`                                                              |
+| childElementPosition <Experimental></Experimental> | Position of the widget.                                                                                                                                                         | `'normal' \| 'right'`                         | `'normal'`                                                            |
 | hasFeedback                                        | Whether to show error feedback                                                                                                                                                  | `boolean`                                     | `true`                                                                |
 | arrow                                              | Whether to show the arrow icon on the right side                                                                                                                                | `boolean \| ReactNode`                        | -                                                                     |
 | onClick                                            | Trigger when item get clicked                                                                                                                                                   | `(e: React.MouseEvent) => void`               | -                                                                     |
@@ -92,11 +95,57 @@ const validateMessages = {
 | shouldUpdate                                       | Custom field update logic. See below                                                                                                                                            | `boolean \| (prevValue, curValue) => boolean` | `false`                                                               |
 | initialValue                                       | Config sub default value. Form `initialValues` get higher priority when conflict.                                                                                               | `any`                                         | -                                                                     |
 
-After wrapped by `Form.Item` with `name` property, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls, the flow of form data will be handled by Form which will cause:
+A control wrapped by `Form.Item` with the `name` property set, the form control will **automatically add** `value` (or other properties specified by `valuePropName`) `onChange` (or other properties specified by `trigger`), data synchronization will be taken over by Form. So if you set a `name` property on `Form.Item`, **make sure its `children` is a valid `ReactElement` control** and can accept the `value' mentioned above ` and `onChange` properties (or other properties specified), for example:
+
+```jsx
+<Form.Item name='foo'>
+  <Input />
+</Form.Item>
+```
+
+And the following spellings are wrong:
+
+```jsx
+<Form.Item name='foo'>
+  <Input />
+  <div>hello</div>
+</Form.Item>
+// Wrong: Form.Item's children contain multiple elements
+```
+
+```jsx
+<Form.Item name='foo'>
+  hello
+  <Input />
+</Form.Item>
+// Wrong: Same as above, Form.Item's children contains multiple elements
+```
+
+```jsx
+<Form.Item name='foo'>
+  <div>
+    <Input />
+  </div>
+</Form.Item>
+// Wrong: Form.Item's children is actually a div, and div cannot accept value and onChange properties
+```
+
+Also, please note:
 
 1. You shouldn't use `onChange` on each form control to **collect data**(use `onValuesChange` of Form), but you can still listen to `onChange`.
 2. You cannot set value for each form control via `value` or `defaultValue` prop, you should set default value with `initialValues` of Form. Note that `initialValues` cannot be updated by `setState` dynamically, you should use `setFieldsValue` in that situation.
 3. You shouldn't call `setState` manually, please use `form.setFieldsValue` to change value programmatically.
+
+For example, the following code is wrong:
+
+```jsx
+<Form.Item name='foo'>
+  <Input
+    value={myInputValue} // Wrong: Value should not be manually controlled
+    onChange={(v) => { setMyInputValue(v) }} // Wrong: Although you can listen to the onChange event, you should not maintain your own state here
+  />
+</Form.Item>
+```
 
 ### dependencies
 

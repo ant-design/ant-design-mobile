@@ -109,7 +109,8 @@ function umdWebpack() {
           },
           plugins: [
             new BundleAnalyzerPlugin({
-              analyzerMode: 'json',
+              analyzerMode: 'static',
+              openAnalyzer: false,
             }),
           ],
           module: {
@@ -149,7 +150,8 @@ function umdWebpack() {
           },
           externals: [
             {
-              react: 'React',
+              'react': 'React',
+              'react-dom': 'ReactDOM',
             },
           ],
         },

@@ -7,7 +7,7 @@ import type {
   FormProps as RcFormProps,
   FormInstance as RCFormInstance,
 } from 'rc-field-form'
-import { FormContext, FormContextType } from './context'
+import { defaultFormContext, FormContext, FormContextType } from './context'
 import { mergeProps } from '../../utils/with-default-props'
 import type { FormLayout } from '.'
 import { Header } from './header'
@@ -52,10 +52,7 @@ export type FormProps = Pick<
     mode?: ListProps['mode']
   }
 
-const defaultProps = {
-  hasFeedback: true,
-  layout: 'vertical',
-}
+const defaultProps = defaultFormContext
 
 export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
@@ -67,6 +64,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     layout,
     footer,
     mode,
+    requiredMarkStyle,
     ...formProps
   } = props
 
@@ -117,8 +115,9 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     >
       <FormContext.Provider
         value={{
-          hasFeedback: hasFeedback,
+          hasFeedback,
           layout,
+          requiredMarkStyle,
         }}
       >
         {lists}

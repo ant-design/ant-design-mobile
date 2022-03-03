@@ -34,6 +34,8 @@ export const base = {
     },
   },
   Form: {
+    required: 'Required',
+    optional: 'Optional',
     defaultValidateMessages: {
       default: 'Field validation error for ${label}',
       required: 'Please enter ${label}',

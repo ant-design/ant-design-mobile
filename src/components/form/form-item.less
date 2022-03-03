@@ -13,7 +13,7 @@
     position: relative;
     color: #666666;
 
-    &-required {
+    .adm-form-item-required-asterisk {
       position: absolute;
       left: -0.6em;
       top: 0;
@@ -21,9 +21,14 @@
       color: var(--adm-color-danger);
       user-select: none;
     }
+    .adm-form-item-required-text {
+      margin-left: 4px;
+      color: var(--adm-color-weak);
+    }
 
     &-help {
       margin-left: 4px;
+      cursor: pointer;
     }
   }
 

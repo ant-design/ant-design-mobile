@@ -6,7 +6,7 @@ import { useIsomorphicLayoutEffect } from 'ahooks'
 import {
   PropagationEvent,
   withStopPropagation,
-} from 'antd-mobile/src/utils/with-stop-propagation'
+} from '../../utils/with-stop-propagation'
 
 const classPrefix = `adm-ellipsis`
 

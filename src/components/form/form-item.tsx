@@ -1,4 +1,4 @@
-import React, { FC, useContext, useCallback, useState } from 'react'
+import React, { FC, useContext, useCallback, useState, useMemo } from 'react'
 import classNames from 'classnames'
 import { NativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
@@ -13,6 +13,7 @@ import List, { ListItemProps } from '../list'
 import type { FormLayout } from './index'
 import Popover from '../popover'
 import { QuestionCircleOutline } from 'antd-mobile-icons'
+import { useConfig } from '../config-provider'
 
 const NAME_SPLIT = '__SPLIT__'
 
@@ -105,16 +106,48 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
 
   const context = useContext(FormContext)
 
+  const { locale } = useConfig()
+
   const hasFeedback =
     props.hasFeedback !== undefined ? props.hasFeedback : context.hasFeedback
   const layout = props.layout || context.layout
 
   const feedback = hasFeedback && errors && errors.length > 0 ? errors[0] : null
 
+  const requiredMark = (() => {
+    const { requiredMarkStyle } = context
+    switch (requiredMarkStyle) {
+      case 'asterisk':
+        return (
+          required && (
+            <span className={`${classPrefix}-required-asterisk`}>*</span>
+          )
+        )
+      case 'text-required':
+        return (
+          required && (
+            <span className={`${classPrefix}-required-text`}>
+              ({locale.Form.required})
+            </span>
+          )
+        )
+      case 'text-optional':
+        return (
+          !required && (
+            <span className={`${classPrefix}-required-text`}>
+              ({locale.Form.optional})
+            </span>
+          )
+        )
+      default:
+        return null
+    }
+  })()
+
   const labelElement = label ? (
     <label className={`${classPrefix}-label`} htmlFor={htmlFor}>
       {label}
-      {required && <span className={`${classPrefix}-label-required`}>*</span>}
+      {requiredMark}
       {help && (
         <span className={`${classPrefix}-label-help`}>
           <Popover content={help} mode='dark' trigger='click'>
