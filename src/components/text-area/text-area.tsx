@@ -40,7 +40,12 @@ export type TextAreaProps = Pick<
       }
   id?: string
 } & NativeProps<
-    '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
+    | '--font-size'
+    | '--color'
+    | '--placeholder-color'
+    | '--disabled-color'
+    | '--text-align'
+    | '--count-text-align'
   >
 
 export type TextAreaRef = {
