@@ -95,7 +95,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     )
     items = []
   }
-  React.Children.forEach(props.children, (child, index) => {
+  React.Children.forEach(props.children, child => {
     if (React.isValidElement(child) && child.type === Header) {
       collect()
       currentHeader = child.props.children

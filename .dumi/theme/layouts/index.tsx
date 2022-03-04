@@ -45,11 +45,10 @@ const Features = (features: any) => (
 const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
   const {
     config: { mode, repository },
-    nav: navItems,
     meta,
     locale,
   } = useContext(context)
-  const { url: repoUrl, branch, platform } = repository
+  const { url: repoUrl, branch } = repository
   const [menuCollapsed, setMenuCollapsed] = useState<boolean>(true)
   const isSiteMode = mode === 'site'
   const showHero = isSiteMode && meta.hero

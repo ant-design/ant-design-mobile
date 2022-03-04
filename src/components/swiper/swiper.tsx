@@ -282,7 +282,7 @@ export const Swiper = forwardRef(
                 ),
               }}
             >
-              {React.Children.map(validChildren, (child, index) => {
+              {React.Children.map(validChildren, child => {
                 return <div className='adm-swiper-slide'>{child}</div>
               })}
             </animated.div>
