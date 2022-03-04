@@ -1,12 +1,9 @@
 import React from 'react'
-import { FloatingBubble, Toast } from 'antd-mobile'
+import { FloatingBubble } from 'antd-mobile'
 import { DemoDescription } from 'demos'
 import { MessageFill } from 'antd-mobile-icons'
 
 export default () => {
-  const onClick = () => {
-    Toast.show('你点击了气泡')
-  }
   return (
     <div
       style={{
@@ -14,14 +11,17 @@ export default () => {
         padding: '50vh 32px 0',
       }}
     >
-      <DemoDescription>尝试拖拽和点击一下气泡吧</DemoDescription>
+      <DemoDescription>
+        在 x 轴、y 轴方向上都允许拖动，并且会自动磁吸到 x 轴方向上最近的一边
+      </DemoDescription>
       <FloatingBubble
+        axis='xy'
+        magnetic='x'
         style={{
           '--initial-position-bottom': '24px',
           '--initial-position-right': '24px',
           '--edge-distance': '24px',
         }}
-        onClick={onClick}
       >
         <MessageFill fontSize={32} />
       </FloatingBubble>

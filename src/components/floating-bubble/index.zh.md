@@ -2,13 +2,17 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-距离屏幕左/右边距固定，可上下拖动，自定义点击操作，比如跳转新页面等
+<code src="./demos/demo2.tsx"></code>
+
+<code src="./demos/demo3.tsx"></code>
 
 ### 属性
 
-| 属性     | 描述     | 类型      | 默认值 |
-| -------- | -------- | --------- | ------ |
-| children | 内容区域 | ReactNode | -      |
+| 属性     | 描述                                                                                 | 类型                           | 默认值 |
+| -------- | ------------------------------------------------------------------------------------ | ------------------------------ | ------ |
+| children | 气泡的内容                                                                           | ReactNode                      | -      |
+| axis     | 可以进行拖动的方向，`'xy'` 表示自由移动，`'lock'` 表示只允许在拖拽开始时的方向上移动 | `'x' \| 'y' \| 'xy' \| 'lock'` | `'y'`  |
+| magnetic | 自动磁吸到边界                                                                       | `'x' \| 'y'`                   | -      |
 
 ### CSS 变量
 
@@ -23,5 +27,4 @@
 | --z-index                 | 气泡的 z-index                 | `1`    |
 | --border-radius           | 气泡的 border-radius           | `50%`  |
 
-`--initial-position-top` 和 `--initial-position-bottom` 在使用时必填其中一项
-`--initial-position-left` 和 `--initial-position-right` 在使用时必填其中一项，且组件拖拽时会固定这个左/右边距来拖拽
+**在使用时，你必须设置 `--initial-position-top` 和 `--initial-position-bottom` 其中的一项，同时，也必须设置 `--initial-position-left` 和 `--initial-position-right` 其中的一项。**

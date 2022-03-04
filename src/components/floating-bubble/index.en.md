@@ -2,13 +2,17 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-FloatingBubble is moveable in Y axis and is limited at the distance from the left or right side of the screen.
+<code src="./demos/demo2.tsx"></code>
+
+<code src="./demos/demo3.tsx"></code>
 
 ### Props
 
-| Name     | Description | Type      | Default |
-| -------- | ----------- | --------- | ------- |
-| children | ----        | ReactNode | -----   |
+| Name     | Description                                                                                                                                                       | Type                           | Default |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------- |
+| children | Content of the bubble.                                                                                                                                            | ReactNode                      | -----   |
+| axis     | The direction in which the drag can be performed, `'xy'` means free movement, `'lock'` means movement is only allowed in the direction in which the drag started. | `'x' \| 'y' \| 'xy' \| 'lock'` | `'y'`   |
+| magnetic | Automatic magnetic attraction to the boundary.                                                                                                                    | `'x' \| 'y'`                   | -       |
 
 ### CSS Variables
 
@@ -23,5 +27,4 @@ FloatingBubble is moveable in Y axis and is limited at the distance from the lef
 | --z-index                 | z-index of the bubble.                              | `1`     |
 | --border-radius           | border-radius of the bubble.                        | `50%`   |
 
-You must either set `--initial-position-top` or `--initial-position-bottom`.
-Also, you must either set `--initial-position-left` or `--initial-position-right`.
+**You must either set `--initial-position-top` or `--initial-position-bottom`. Also, you must either set `--initial-position-left` or `--initial-position-right`.**
