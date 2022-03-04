@@ -45,14 +45,14 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
     state => {
       let nextX = state.offset[0]
       let nextY = state.offset[1]
-      if (state.last) {
+      if (state.last && props.magnetic) {
         const boundary = boundaryRef.current
         const button = buttonRef.current
         if (!boundary || !button) return
+        const boundaryRect = boundary.getBoundingClientRect()
+        const buttonRect = button.getBoundingClientRect()
         if (props.magnetic === 'x') {
           const compensation = x.goal - x.get()
-          const boundaryRect = boundary.getBoundingClientRect()
-          const buttonRect = button.getBoundingClientRect()
           const leftDistance =
             buttonRect.left + compensation - boundaryRect.left
           const rightDistance =
@@ -62,12 +62,21 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
           } else {
             nextX -= leftDistance
           }
+        } else if (props.magnetic === 'y') {
+          const compensation = y.goal - y.get()
+          const topDistance = buttonRect.top + compensation - boundaryRect.top
+          const bottomDistance =
+            boundaryRect.bottom - (buttonRect.bottom + compensation)
+          if (bottomDistance <= topDistance) {
+            nextY += bottomDistance
+          } else {
+            nextY -= topDistance
+          }
         }
       }
       api.start({
         x: nextX,
         y: nextY,
-        // immediate: !state.last,
       })
       // active status
       api.start({
