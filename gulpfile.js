@@ -111,6 +111,7 @@ function umdWebpack() {
             new BundleAnalyzerPlugin({
               analyzerMode: 'static',
               openAnalyzer: false,
+              reportFilename: 'report/report.html',
             }),
           ],
           module: {
