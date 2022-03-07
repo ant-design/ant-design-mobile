@@ -235,6 +235,24 @@ describe('Form', () => {
     )
   })
 
+  test('warningOnly validate', async () => {
+    const fn = jest.fn()
+    const { getByTestId } = render(
+      <Form data-testid='form' onFinish={fn}>
+        <Form.Item name='test' rules={[{ required: true, warningOnly: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>
+    )
+
+    await waitFor(() => {
+      fireEvent.submit(getByTestId('form'))
+    })
+
+    expect($$(`.${classPrefix}-item-footer`).length).not.toBeTruthy()
+    expect(fn).toBeCalledTimes(1)
+  })
+
   describe('Form.Item', () => {
     test('noStyle', async () => {
       const onChange = jest.fn()
