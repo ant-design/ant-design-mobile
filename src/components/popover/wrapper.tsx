@@ -8,6 +8,7 @@ export class Wrapper extends React.Component<{}, {}> {
   }
 
   componentDidUpdate() {
+    // eslint-disable-next-line
     const node = findDOMNode(this)
     if (node instanceof HTMLElement) {
       this.element = node
