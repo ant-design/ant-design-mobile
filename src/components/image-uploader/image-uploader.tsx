@@ -37,7 +37,7 @@ export type ImageUploaderProps = {
   deletable?: boolean
   capture?: InputHTMLAttributes<unknown>['capture']
   onPreview?: (index: number, item: ImageUploadItem) => void
-  beforeUpload?: (file: File, files: File[]) => Promise<File> | File
+  beforeUpload?: (file: File, files: File[]) => Promise<File | null> | File | null
   upload: (file: File) => Promise<ImageUploadItem>
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
   preview?: boolean
