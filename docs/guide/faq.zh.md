@@ -64,3 +64,7 @@ html {
 
 - [300ms tap delay, gone away](https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away)
 - [More Responsive Tapping on iOS](https://webkit.org/blog/5610/more-responsive-tapping-on-ios/)
+
+### 关于 React Hot Loader
+
+React Hot Loader 对项目有比较大的侵入性， 而 antd-mobile 中的很多组件（例如 Swiper Tabs Form TabBar SideBar Dropdown Space Steps）并不能和它兼容，而且 React Hot Loader 本身也在 README 中写了推荐大家不要再使用，所以请考虑移除 React Hot Loader 或将其替换为 [React Fast Refresh](https://github.com/facebook/react/issues/16604)。
