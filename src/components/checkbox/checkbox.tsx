@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react'
+import React, { FC, useContext, useEffect, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { CheckboxGroupContext } from './group-context'
@@ -87,9 +87,27 @@ export const Checkbox: FC<CheckboxProps> = p => {
     )
   }
 
+  const inputRef = useRef<HTMLInputElement>(null)
+  const labelRef = useRef<HTMLLabelElement>(null)
+  useEffect(() => {
+    labelRef.current?.addEventListener(
+      'click',
+      e => {
+        if (e.target !== inputRef.current) {
+          e.stopPropagation()
+          e.stopImmediatePropagation()
+        }
+      },
+      {
+        capture: false,
+      }
+    )
+  }, [])
+
   return withNativeProps(
     props,
     <label
+      ref={labelRef}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked && !props.indeterminate,
         [`${classPrefix}-indeterminate`]: props.indeterminate,
@@ -98,14 +116,11 @@ export const Checkbox: FC<CheckboxProps> = p => {
       })}
     >
       <input
+        ref={inputRef}
         type='checkbox'
         checked={checked}
         onChange={e => {
           setChecked(e.target.checked)
-        }}
-        onClick={e => {
-          e.stopPropagation()
-          e.nativeEvent.stopImmediatePropagation()
         }}
         disabled={disabled}
         id={props.id}
