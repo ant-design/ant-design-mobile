@@ -22,7 +22,7 @@ export default () => {
       <DemoBlock title='浅色的气泡菜单'>
         <Popover.Menu
           actions={actions}
-          placement='topRight'
+          placement='bottom-start'
           onAction={node => Toast.show(`选择了 ${node.text}`)}
           trigger='click'
         >
@@ -34,7 +34,7 @@ export default () => {
         <Popover.Menu
           mode='dark'
           actions={actions}
-          placement='rightTop'
+          placement='right-start'
           onAction={node => Toast.show(`选择了 ${node.text}`)}
           trigger='click'
         >
@@ -49,7 +49,7 @@ export default () => {
             icon: null,
           }))}
           onAction={node => Toast.show(`选择了 ${node.text}`)}
-          placement='bottomLeft'
+          placement='bottom-start'
           trigger='click'
         >
           <Button>点我</Button>

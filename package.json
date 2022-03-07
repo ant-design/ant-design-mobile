@@ -12,6 +12,7 @@
     "publish": "npm publish ./lib --registry=https://registry.npmjs.org"
   },
   "dependencies": {
+    "@floating-ui/dom": "^0.3.1",
     "@react-spring/web": "^9.4.3",
     "@types/resize-observer-browser": "^0.1.7",
     "@use-gesture/react": "^10.2.7",
@@ -22,7 +23,6 @@
     "dayjs": "^1.10.8",
     "lodash": "^4.17.21",
     "rc-field-form": "^1.23.1",
-    "rc-tooltip": "^5.1.1",
     "staged-components": "^1.1.2",
     "tslib": "^2.3.1",
     "use-async-memo": "^1.2.3"

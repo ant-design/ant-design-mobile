@@ -2212,6 +2212,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@floating-ui/core@npm:^0.5.0":
+  version: 0.5.1
+  resolution: "@floating-ui/core@npm:0.5.1"
+  checksum: 126536073d5b4ef6d7c6523df5cb9fc0f31b1b7995044c0490589f4162a17a6d6c1c64ba28c3d362546da7736940ca4cdfe8f5e3e86de80b999ebe3572b60e36
+  languageName: node
+  linkType: hard
+
+"@floating-ui/dom@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@floating-ui/dom@npm:0.3.1"
+  dependencies:
+    "@floating-ui/core": ^0.5.0
+  checksum: c4eb02f10106b0d320997d898f63d03ba3461b1f98bef1b3b73b03902eeaa016c75452f45e435228ee351102c8ecb6a169e1c7a5e9cd86d65ce2f1e1499f268c
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.9.2":
   version: 0.9.2
   resolution: "@humanwhocodes/config-array@npm:0.9.2"
@@ -4222,6 +4238,7 @@ __metadata:
     "@babel/preset-react": ^7.16.7
     "@babel/preset-typescript": ^7.16.7
     "@docsearch/react": ^3.0.0
+    "@floating-ui/dom": ^0.3.1
     "@jest/types": 27.5.1
     "@react-spring/web": ^9.4.3
     "@testing-library/jest-dom": ^5.16.2
@@ -4273,7 +4290,6 @@ __metadata:
     prismjs: ^1.27.0
     qrcode.react: ^1.0.1
     rc-field-form: ^1.23.1
-    rc-tooltip: ^5.1.1
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
@@ -13020,19 +13036,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rc-tooltip@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "rc-tooltip@npm:5.1.1"
-  dependencies:
-    "@babel/runtime": ^7.11.2
-    rc-trigger: ^5.0.0
-  peerDependencies:
-    react: ">=16.9.0"
-    react-dom: ">=16.9.0"
-  checksum: e65b175c28356cee101db56217d02a1eb1d96e727620bb1f6551f98e3ab49d3ec4381f1d408d19054b46349cba0e89056a4b4f09eeebbe70a1013733ad0e1fc9
-  languageName: node
-  linkType: hard
-
 "rc-tree@npm:^5.2.0":
   version: 5.3.0
   resolution: "rc-tree@npm:5.3.0"
@@ -13049,7 +13052,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rc-trigger@npm:^5.0.0, rc-trigger@npm:^5.0.4, rc-trigger@npm:^5.1.2":
+"rc-trigger@npm:^5.0.4, rc-trigger@npm:^5.1.2":
   version: 5.2.9
   resolution: "rc-trigger@npm:5.2.9"
   dependencies:
