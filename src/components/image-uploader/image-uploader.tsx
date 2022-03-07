@@ -37,7 +37,10 @@ export type ImageUploaderProps = {
   deletable?: boolean
   capture?: InputHTMLAttributes<unknown>['capture']
   onPreview?: (index: number, item: ImageUploadItem) => void
-  beforeUpload?: (file: File, files: File[]) => Promise<File | null> | File | null
+  beforeUpload?: (
+    file: File,
+    files: File[]
+  ) => Promise<File | null> | File | null
   upload: (file: File) => Promise<ImageUploadItem>
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
   preview?: boolean
@@ -85,12 +88,10 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   async function processFile(file: File, fileList: File[]) {
     const { beforeUpload } = props
 
-    let transformedFile: File | boolean | void = file
-    try {
-      transformedFile = await beforeUpload?.(file, fileList)
-    } catch (e) {
-      transformedFile = false
-    }
+    let transformedFile: File | null | undefined = file
+
+    transformedFile = await beforeUpload?.(file, fileList)
+
     return transformedFile
   }
 
@@ -105,8 +106,8 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         return processFile(file, files)
       })
 
-      await Promise.all(postFiles).then(files => {
-        files = files.filter(Boolean) as File[]
+      await Promise.all(postFiles).then(filesList => {
+        files = filesList.filter(Boolean) as File[]
       })
     }
 
