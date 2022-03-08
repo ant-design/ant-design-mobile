@@ -31,7 +31,7 @@ export type ToastHandler = {
   close: () => void
 }
 
-type ToastShowRef = ToastHandler
+export type ToastShowRef = ToastHandler
 
 export function show(p: ToastShowProps | string) {
   const props = mergeProps(
