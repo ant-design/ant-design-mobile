@@ -64,12 +64,11 @@ export const TreeSelect: FC<TreeSelectProps> = p => {
     const parentNodes: TreeSelectOption[] = []
     let current: TreeSelectOption | undefined = node
     while (current) {
-      parentNodes.unshift(current)
+      parentNodes.push(current)
       const next = optionsParentMap.get(current[valueName])
       current = next
     }
-
-    const values = parentNodes.map(i => i[valueName])
+    const values = parentNodes.reverse().map(i => i[valueName])
     setValue(values)
     props.onChange?.(values, {
       options: parentNodes,
