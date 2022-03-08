@@ -3,6 +3,7 @@ import type { IRouteComponentProps } from '@umijs/types'
 import { context, Link } from 'dumi/theme'
 import Navbar from '../components/Navbar'
 import SideMenu from '../components/SideMenu'
+import { SlugList } from '../components/slug-list'
 import '../style/layout-default.less'
 import '../style/layout.less'
 
@@ -104,14 +105,12 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
       ) : (
         <>
           <SideMenu mobileMenuCollapsed={menuCollapsed} location={location} />
-          {/*{showSlugs && (*/}
-          {/*  <SlugList slugs={meta.slugs} className='__dumi-default-layout-toc' />*/}
-          {/*)}*/}
           {showHero && Hero(meta.hero)}
           {showFeatures && Features(meta.features)}
           <div className='__dumi-default-layout-content'>
             <div className='__dumi-default-mobile-content'>
               <article>{children}</article>
+              {<SlugList slugs={meta.slugs} />}
             </div>
             {!showHero && !showFeatures && meta.filePath && !meta.gapless && (
               <div className='__dumi-default-layout-footer-meta'>
