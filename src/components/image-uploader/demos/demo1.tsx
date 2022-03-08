@@ -47,14 +47,12 @@ const LimitSize: FC = () => {
     },
   ])
 
-  function beforeUpload(files: File[]) {
-    return files.filter(file => {
-      if (file.size > 1024 * 1024) {
-        Toast.show('请选择小于 1M 的图片')
-        return false
-      }
-      return true
-    })
+  function beforeUpload(file: File) {
+    if (file.size > 1024 * 1024) {
+      Toast.show('请选择小于 1M 的图片')
+      return null
+    }
+    return file
   }
 
   return (
