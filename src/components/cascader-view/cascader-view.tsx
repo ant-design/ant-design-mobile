@@ -23,6 +23,7 @@ export type CascaderOption = {
 
 export type CascaderValueExtend = {
   items: (CascaderOption | null)[]
+  isLeaf: boolean
 }
 
 export type CascaderViewProps = {
