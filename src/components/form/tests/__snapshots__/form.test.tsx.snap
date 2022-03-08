@@ -40,6 +40,9 @@ exports[`Form Form.Item hidden 1`] = `
                     </div>
                   </div>
                 </div>
+                <div
+                  class="adm-list-item-description"
+                />
               </div>
             </div>
           </div>

@@ -44,11 +44,14 @@ describe('Form', () => {
       </Form>
     )
 
+    console.error = jest.fn()
+
     await waitFor(() => {
       fireEvent.click(getByText('submit'))
     })
 
-    expect($$(`.${classPrefix}-item-footer`).length).toBeTruthy()
+    expect($$(`.${classPrefix}-item-feedback-error`).length).toBeTruthy()
+    expect(console.error).toBeCalledTimes(1)
 
     fireEvent.change(getByLabelText(/name/i), { target: { value: 'name' } })
     fireEvent.change(getByLabelText(/address/i), {
