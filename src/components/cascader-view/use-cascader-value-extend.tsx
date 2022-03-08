@@ -7,7 +7,7 @@ import {
 } from './cascader-view'
 
 export function useCascaderValueExtend(options: CascaderOption[]) {
-  const generateItems = useMemo(() => {
+  const generateExtends = useMemo(() => {
     return memoize(
       (val: CascaderValue[]) => {
         const ret: CascaderOption[] = []
@@ -37,8 +37,8 @@ export function useCascaderValueExtend(options: CascaderOption[]) {
 
   function generateValueExtend(val: CascaderValue[]): CascaderValueExtend {
     return {
-      items: generateItems(val).ret,
-      isLeaf: generateItems(val).isLeaf,
+      items: generateExtends(val).ret,
+      isLeaf: generateExtends(val).isLeaf,
     }
   }
 
