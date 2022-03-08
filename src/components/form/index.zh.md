@@ -243,3 +243,28 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | touched    | 是否被用户操作过 | `boolean`    |
 | validating | 是否正在校验     | `boolean`    |
 | value      | 字段对应值       | `any`        |
+
+### Rule
+
+Rule 支持接收 object 进行配置，也支持 function 来动态获取 form 的数据：
+
+```tsx
+type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
+```
+
+| 属性            | 说明                                                                                                                                | 类型                       |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| defaultField    | 仅在 `type` 为 `array` 类型时有效，用于指定数组元素的校验规则                                                                       | `rule`                     |
+| enum            | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`）                                                                                   | `any[]`                    |
+| len             | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度                                                         | `number`                   |
+| max             | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度                                     | `number`                   |
+| message         | 错误信息，不设置时会通过[模板](#validatemessages)自动生成                                                                           | `string`                   |
+| min             | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度                                     | `number`                   |
+| pattern         | 正则表达式匹配                                                                                                                      | `RegExp`                   |
+| required        | 是否为必选字段                                                                                                                      | `boolean`                  |
+| transform       | 将字段值转换成目标值后进行校验                                                                                                      | `(value) => any`           |
+| type            | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | `string`                   |
+| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集                                                                      | `string \| string[] `      |
+| validator       | 自定义校验，接收 Promise 作为返回值。[示例](#自定义表单字段)参考                                                                    | `(rule, value) => Promise` |
+| warningOnly     | 仅警告，不阻塞表单提交                                                                                                              | `boolean`                  |
+| whitespace      | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效                                                                        | `boolean`                  |

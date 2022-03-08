@@ -243,3 +243,28 @@ You can modify the default verification information of Form.Item through `messag
 | touched    | Whether is operated      | `boolean`    |
 | validating | Whether is in validating | `boolean`    |
 | value      | Field value              | `any`        |
+
+### Rule
+
+Rule supports a config object, or a function returning config object:
+
+```tsx
+type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
+```
+
+| Name            | Description                                                                                                                            | Type                       |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| defaultField    | Validate rule for all array elements, valid when `type` is `array`                                                                     | `rule`                     |
+| enum            | Match enum value. You need to set `type` to `enum` to enable this                                                                      | `any[]`                    |
+| len             | Length of string, number, array                                                                                                        | `number`                   |
+| max             | `type` required: max length of `string`, `number`, `array`                                                                             | `number`                   |
+| message         | Error message. Will auto generate by [template](#validatemessages) if not provided                                                     | `string`                   |
+| min             | `type` required: min length of `string`, `number`, `array`                                                                             | `number`                   |
+| pattern         | Regex pattern                                                                                                                          | `RegExp`                   |
+| required        | Required field                                                                                                                         | `boolean`                  |
+| transform       | Transform value to the rule before validation                                                                                          | `(value) => any`           |
+| type            | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | `string`                   |
+| validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item                                                      | `string \| string[]`       |
+| validator       | Customize validation rule. Accept Promise as return. See [example](#custom-field)                                                      | `(rule, value) => Promise` |
+| warningOnly     | Warning only. Not block form submit                                                                                                    | `boolean`                  |
+| whitespace      | Failed if only has whitespace, only work with `type: 'string'` rule                                                                    | `boolean`                  |
