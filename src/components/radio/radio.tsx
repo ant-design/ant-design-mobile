@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react'
+import React, { FC, useContext, useEffect, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { RadioGroupContext } from './group-context'
@@ -35,7 +35,7 @@ export const Radio: FC<RadioProps> = p => {
     value: props.checked,
     defaultValue: props.defaultChecked,
     onChange: props.onChange,
-  })
+  }) as [boolean, (v: boolean) => void]
   let disabled = props.disabled
 
   const { value } = props
@@ -81,9 +81,27 @@ export const Radio: FC<RadioProps> = p => {
     )
   }
 
+  const inputRef = useRef<HTMLInputElement>(null)
+  const labelRef = useRef<HTMLLabelElement>(null)
+  useEffect(() => {
+    labelRef.current?.addEventListener(
+      'click',
+      e => {
+        if (e.target !== inputRef.current) {
+          e.stopPropagation()
+          e.stopImmediatePropagation()
+        }
+      },
+      {
+        capture: false,
+      }
+    )
+  }, [])
+
   return withNativeProps(
     props,
     <label
+      ref={labelRef}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled,
@@ -91,14 +109,11 @@ export const Radio: FC<RadioProps> = p => {
       })}
     >
       <input
+        ref={inputRef}
         type='radio'
         checked={checked}
         onChange={e => {
           setChecked(e.target.checked)
-        }}
-        onClick={e => {
-          e.stopPropagation()
-          e.nativeEvent.stopImmediatePropagation()
         }}
         disabled={disabled}
         id={props.id}

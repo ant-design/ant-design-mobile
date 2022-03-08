@@ -44,11 +44,14 @@ describe('Form', () => {
       </Form>
     )
 
+    console.error = jest.fn()
+
     await waitFor(() => {
       fireEvent.click(getByText('submit'))
     })
 
-    expect($$(`.${classPrefix}-item-footer`).length).toBeTruthy()
+    expect($$(`.${classPrefix}-item-feedback-error`).length).toBeTruthy()
+    expect(console.error).toBeCalledTimes(0)
 
     fireEvent.change(getByLabelText(/name/i), { target: { value: 'name' } })
     fireEvent.change(getByLabelText(/address/i), {
@@ -58,7 +61,7 @@ describe('Form', () => {
     await waitFor(() => {
       fireEvent.click(getByText('submit'))
     })
-
+    expect(console.error).toBeCalledTimes(0)
     expect(fn.mock.calls[0][0]).toEqual({ name: 'name', address: 'address' })
   })
 
@@ -233,6 +236,24 @@ describe('Form', () => {
     expect(warnSpy).toHaveBeenCalledWith(
       '[antd-mobile: Form.Item] `name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.'
     )
+  })
+
+  test('warningOnly validate', async () => {
+    const fn = jest.fn()
+    const { getByTestId } = render(
+      <Form data-testid='form' onFinish={fn}>
+        <Form.Item name='test' rules={[{ required: true, warningOnly: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>
+    )
+
+    await waitFor(() => {
+      fireEvent.submit(getByTestId('form'))
+    })
+
+    expect($$(`.${classPrefix}-item-footer`).length).not.toBeTruthy()
+    expect(fn).toBeCalledTimes(1)
   })
 
   describe('Form.Item', () => {
