@@ -184,8 +184,12 @@ const WarningOnlyDemo = () => {
       <Form.Header>非阻塞校验</Form.Header>
       <Form.Item
         name='email'
-        label='Email'
-        rules={[{ required: true }, { type: 'email', warningOnly: true }]}
+        label='邮箱'
+        rules={[
+          { required: true },
+          { type: 'string', min: 6 },
+          { type: 'email', warningOnly: true },
+        ]}
       >
         <Input placeholder='请输入邮箱' />
       </Form.Item>

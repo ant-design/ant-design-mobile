@@ -1,4 +1,4 @@
-import React, { FC, useContext, useCallback, useState, useMemo } from 'react'
+import React, { FC, useContext, useCallback, useState } from 'react'
 import classNames from 'classnames'
 import { NativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
@@ -83,7 +83,8 @@ type FormItemLayoutProps = Pick<
   | 'childElementPosition'
 > & {
   htmlFor?: string
-  errors?: string[]
+  errors: string[]
+  warnings: string[]
 }
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
@@ -98,9 +99,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     children,
     htmlFor,
     hidden,
-    errors,
     arrow,
-    description,
     childElementPosition = 'normal',
   } = props
 
@@ -111,8 +110,6 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const hasFeedback =
     props.hasFeedback !== undefined ? props.hasFeedback : context.hasFeedback
   const layout = props.layout || context.layout
-
-  const feedback = hasFeedback && errors && errors.length > 0 ? errors[0] : null
 
   const requiredMark = (() => {
     const { requiredMarkStyle } = context
@@ -158,13 +155,31 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     </label>
   ) : null
 
-  const descriptionElement =
-    feedback || description ? (
-      <>
-        {description}
-        <div className={`${classPrefix}-footer`}>{feedback}</div>
-      </>
-    ) : null
+  const description = (
+    <>
+      {props.description}
+      {hasFeedback && (
+        <>
+          {props.errors.map((error, index) => (
+            <div
+              key={`error-${index}`}
+              className={`${classPrefix}-feedback-error`}
+            >
+              {error}
+            </div>
+          ))}
+          {props.warnings.map((warning, index) => (
+            <div
+              key={`warning-${index}`}
+              className={`${classPrefix}-feedback-warning`}
+            >
+              {warning}
+            </div>
+          ))}
+        </>
+      )}
+    </>
+  )
 
   return (
     <List.Item
@@ -172,7 +187,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       title={layout === 'vertical' && labelElement}
       prefix={layout === 'horizontal' && labelElement}
       extra={extra}
-      description={descriptionElement}
+      description={description}
       className={classNames(
         classPrefix,
         className,
@@ -276,6 +291,17 @@ export const FormItem: FC<FormItemProps> = props => {
       },
       curErrors
     )
+    const curWarnings = meta?.warnings ?? []
+    const warnings = Object.keys(subMetas).reduce(
+      (subWarnings: string[], key: string) => {
+        const warnings = subMetas[key]?.warnings ?? []
+        if (warnings.length) {
+          subWarnings = [...subWarnings, ...warnings]
+        }
+        return subWarnings
+      },
+      curWarnings
+    )
 
     return (
       <FormItemLayout
@@ -290,6 +316,7 @@ export const FormItem: FC<FormItemProps> = props => {
         hasFeedback={hasFeedback}
         htmlFor={fieldId}
         errors={errors}
+        warnings={warnings}
         onClick={onClick}
         hidden={hidden}
         layout={layout}
