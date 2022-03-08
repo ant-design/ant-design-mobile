@@ -51,7 +51,7 @@ describe('Form', () => {
     })
 
     expect($$(`.${classPrefix}-item-feedback-error`).length).toBeTruthy()
-    expect(console.error).toBeCalledTimes(1)
+    expect(console.error).toBeCalledTimes(0)
 
     fireEvent.change(getByLabelText(/name/i), { target: { value: 'name' } })
     fireEvent.change(getByLabelText(/address/i), {
@@ -61,7 +61,7 @@ describe('Form', () => {
     await waitFor(() => {
       fireEvent.click(getByText('submit'))
     })
-
+    expect(console.error).toBeCalledTimes(0)
     expect(fn.mock.calls[0][0]).toEqual({ name: 'name', address: 'address' })
   })
 
