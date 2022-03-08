@@ -114,7 +114,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     )
   )
 
-  const [targetElement, setTargetElement] = useState<HTMLElement | null>(null)
+  const [targetElement, setTargetElement] = useState<Element | null>(null)
 
   async function update() {
     const target = targetRef.current?.element ?? null
