@@ -12,6 +12,10 @@
 
 <code src="./demos/demo3.tsx"></code>
 
+### Nested Scroll Areas
+
+<code src="./demos/demo-nested.tsx"></code>
+
 ### Props
 
 ```ts | pure
