@@ -18,6 +18,7 @@ type CascaderOption = {
 
 type CascaderValueExtend = {
   items: (CascaderOption | null)[]
+  isLeaf: boolean
 }
 ```
 
