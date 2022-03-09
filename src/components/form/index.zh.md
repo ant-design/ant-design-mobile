@@ -228,6 +228,38 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 <code src="./demos/demo-subscribe.tsx"></code>
 
+## Form.Array <Experimental></Experimental>
+
+为字段提供数组化管理。
+
+| 属性         | 说明                                                                | 类型                                                                          | 默认值 |
+| ------------ | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------ |
+| name         | 字段名，支持数组                                                    | `NamePath[]`                                                                  | -      |
+| children     | 渲染函数                                                            | `(fields: FormArrayField[], operation: FormArrayOperation) => ReactElement[]` | -      |
+| renderHeader | 渲染每一项的头部内容                                                | `(field: FormArrayField, operation: FormArrayOperation) => ReactNode`         | -      |
+| renderAdd    | 渲染添加按钮的文案                                                  | `() => ReactNode`                                                             | -      |
+| initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | `any[]`                                                                       | -      |
+
+### FormArrayField
+
+| 属性  | 说明                | 类型     |
+| ----- | ------------------- | -------- |
+| index | 当前 Field 是第几项 | `number` |
+| key   | 唯一标识            | `number` |
+
+### FormArrayOperation
+
+Form.Array 渲染表单相关操作函数。
+
+| 属性   | 说明       | 类型                       |
+| ------ | ---------- | -------------------------- |
+| add    | 新增表单项 | `(initValue: any) => void` |
+| remove | 删除表单项 | `(index: number) => void`  |
+
+### 示例
+
+<code src="./demos/demo-array.tsx"></code>
+
 ## 一些通用的类型定义
 
 ### NamePath

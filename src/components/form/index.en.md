@@ -181,6 +181,21 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
 </Form.Item>
 ```
 
+### messageVariables
+
+You can modify the default verification information of Form.Item through `messageVariables`.
+
+```jsx
+<Form>
+  <Form.Item messageVariables={{ another: 'good' }} label="user">
+    <Input />
+  </Form.Item>
+  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+    <Input />
+  </Form.Item>
+</Form>
+```
+
 ## Custom field
 
 Customized or third-party form controls can be used in Form, too. Controls must follow these conventions:
@@ -213,20 +228,37 @@ You can use `Form.Header` to group form items.
 
 <code src="./demos/demo-subscribe.tsx"></code>
 
-### messageVariables
+## Form.Array <Experimental></Experimental>
 
-You can modify the default verification information of Form.Item through `messageVariables`.
+Provides array management for fields.
 
-```jsx
-<Form>
-  <Form.Item messageVariables={{ another: 'good' }} label="user">
-    <Input />
-  </Form.Item>
-  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
-    <Input />
-  </Form.Item>
-</Form>
-```
+| Name         | Description                                                                       | Type                                                                          | Default |
+| ------------ | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------- |
+| name         | Field name, support array.                                                        | `NamePath[]`                                                                  | -       |
+| children     | Render function.                                                                  | `(fields: FormArrayField[], operation: FormArrayOperation) => ReactElement[]` | -       |
+| renderHeader | Render the header of each field.                                                  | `(field: FormArrayField, operation: FormArrayOperation) => ReactNode`         | -       |
+| renderAdd    | Render the content of add button.                                                 | `() => ReactNode`                                                             | -       |
+| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict. | `any[]`                                                                       | -       |
+
+### FormArrayField
+
+| Name  | Description      | Type     |
+| ----- | ---------------- | -------- |
+| index | The array index. | `number` |
+| key   | The unique key.  | `number` |
+
+### FormArrayOperation
+
+The operation functions for Form.Array.
+
+| Name   | Description     | Type                       |
+| ------ | --------------- | -------------------------- |
+| add    | Add a field.    | `(initValue: any) => void` |
+| remove | Remove a field. | `(index: number) => void`  |
+
+### Demo
+
+<code src="./demos/demo-array.tsx"></code>
 
 ## Some Common Type Definitions
 
