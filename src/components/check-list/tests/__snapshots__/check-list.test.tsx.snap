@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckList renders with disabled 1`] = `
+<div>
+  <div
+    class="adm-list adm-list-default adm-check-list"
+  >
+    <div
+      class="adm-list-body"
+    >
+      <div
+        class="adm-list-body-inner"
+      >
+        <a
+          class="adm-list-item adm-plain-anchor adm-check-list-item"
+        >
+          <div
+            class="adm-list-item-content"
+          >
+            <div
+              class="adm-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="adm-list-item-content-extra"
+            >
+              <div
+                class="adm-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="adm-list-item adm-plain-anchor adm-check-list-item"
+        >
+          <div
+            class="adm-list-item-content"
+          >
+            <div
+              class="adm-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="adm-list-item-content-extra"
+            >
+              <div
+                class="adm-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CheckList renders with readonly 1`] = `
+<div>
+  <div
+    class="adm-list adm-list-default adm-check-list"
+  >
+    <div
+      class="adm-list-body"
+    >
+      <div
+        class="adm-list-body-inner"
+      >
+        <a
+          class="adm-list-item adm-plain-anchor adm-check-list-item"
+        >
+          <div
+            class="adm-list-item-content"
+          >
+            <div
+              class="adm-list-item-content-main"
+            >
+              A
+            </div>
+            <div
+              class="adm-list-item-content-extra"
+            >
+              <div
+                class="adm-check-list-item-extra"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          class="adm-list-item adm-plain-anchor adm-check-list-item adm-check-list-item-active"
+        >
+          <div
+            class="adm-list-item-content"
+          >
+            <div
+              class="adm-list-item-content-main"
+            >
+              B
+            </div>
+            <div
+              class="adm-list-item-content-extra"
+            >
+              <div
+                class="adm-check-list-item-extra"
+              >
+                <svg
+                  class="antd-mobile-icon"
+                  height="1em"
+                  style="vertical-align: -0.125em;"
+                  viewBox="0 0 48 48"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <title>
+                    8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
+                  </title>
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    id="CheckOutline-CheckOutline"
+                    stroke="none"
+                    stroke-width="1"
+                  >
+                    <g
+                      id="CheckOutline-编组"
+                    >
+                      <rect
+                        fill="#FFFFFF"
+                        height="48"
+                        id="CheckOutline-矩形"
+                        opacity="0"
+                        width="48"
+                        x="0"
+                        y="0"
+                      />
+                      <path
+                        d="M44.309608,12.6841286 L21.2180499,35.5661955 L21.2180499,35.5661955 C20.6343343,36.1446015 19.6879443,36.1446015 19.1042286,35.5661955 C19.0538201,35.5162456 19.0077648,35.4636155 18.9660627,35.4087682 C18.9113105,35.368106 18.8584669,35.3226694 18.808302,35.2729607 L3.6903839,20.2920499 C3.53346476,20.1365529 3.53231192,19.8832895 3.68780898,19.7263704 C3.7629255,19.6505669 3.86521855,19.6079227 3.97193622,19.6079227 L7.06238923,19.6079227 C7.16784214,19.6079227 7.26902895,19.6495648 7.34393561,19.7237896 L20.160443,32.4236157 L20.160443,32.4236157 L40.656066,12.115858 C40.7309719,12.0416387 40.8321549,12 40.9376034,12 L44.0280571,12 C44.248971,12 44.4280571,12.1790861 44.4280571,12.4 C44.4280571,12.5067183 44.3854124,12.609012 44.309608,12.6841286 Z"
+                        fill="currentColor"
+                        fill-rule="nonzero"
+                        id="CheckOutline-路径"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

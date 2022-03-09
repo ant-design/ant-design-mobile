@@ -66,7 +66,7 @@ describe('Form', () => {
   })
 
   test('renders with horizontal layout', async () => {
-    const { getByTestId } = render(
+    render(
       <Form layout='horizontal'>
         <Form.Item data-testid='form-item'>
           <Input />
@@ -104,9 +104,7 @@ describe('Form', () => {
       </Form>
     )
 
-    await waitFor(() => {
-      fireEvent.click(getByText('选项1'))
-    })
+    fireEvent.click(getByText('选项1'))
     expect(getByTestId('res')).toHaveTextContent('["1"]')
 
     fireEvent.change(getByLabelText(/A/), { target: { value: 'aaa' } })
@@ -142,7 +140,7 @@ describe('Form', () => {
   })
 
   test('`messageVariables` support validate', async () => {
-    const { getByTestId, container } = render(
+    const { getByTestId } = render(
       <Form
         data-testid='form'
         validateMessages={{ required: "'${name}' is required" }}
@@ -242,18 +240,32 @@ describe('Form', () => {
     const fn = jest.fn()
     const { getByTestId } = render(
       <Form data-testid='form' onFinish={fn}>
-        <Form.Item name='test' rules={[{ required: true, warningOnly: true }]}>
-          <Input />
+        <Form.Item
+          name='email'
+          label='邮箱'
+          rules={[
+            { required: true },
+            { type: 'string', min: 6 },
+            { type: 'email', warningOnly: true },
+          ]}
+        >
+          <Input placeholder='请输入邮箱' />
         </Form.Item>
       </Form>
     )
 
+    fireEvent.change($$('input')[0], { target: { value: 'aaaaaa' } })
+
     await waitFor(() => {
-      fireEvent.submit(getByTestId('form'))
+      expect($$(`.${classPrefix}-item-feedback-error`).length).not.toBeTruthy()
+      expect($$(`.${classPrefix}-item-feedback-warning`).length).toBeTruthy()
     })
 
-    expect($$(`.${classPrefix}-item-footer`).length).not.toBeTruthy()
-    expect(fn).toBeCalledTimes(1)
+    fireEvent.submit(getByTestId('form'))
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1)
+    })
   })
 
   describe('Form.Item', () => {
