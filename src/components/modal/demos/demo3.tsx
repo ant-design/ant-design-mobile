@@ -4,11 +4,26 @@ import React from 'react'
 
 export default () => {
   return (
-    <DemoBlock title='关闭所有弹窗'>
-      <Button block onClick={ContinuousShow}>
-        连续展示弹窗
-      </Button>
-    </DemoBlock>
+    <>
+      <DemoBlock title='关闭所有弹窗'>
+        <Button block onClick={ContinuousShow}>
+          连续展示弹窗
+        </Button>
+      </DemoBlock>
+      <DemoBlock title='打开后立即关闭'>
+        <Button
+          block
+          onClick={() => {
+            Modal.alert({
+              content: 'test',
+            })
+            Modal.clear()
+          }}
+        >
+          打开后立即关闭
+        </Button>
+      </DemoBlock>
+    </>
   )
 }
 
