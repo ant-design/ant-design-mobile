@@ -13,6 +13,7 @@ import type { FormLayout } from '.'
 import { Header } from './header'
 import { useConfig } from '../config-provider'
 import merge from 'lodash/merge'
+import FormArray from './form-array'
 
 const classPrefix = 'adm-form'
 
@@ -96,12 +97,19 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     items = []
   }
   React.Children.forEach(props.children, child => {
-    if (React.isValidElement(child) && child.type === Header) {
-      collect()
-      currentHeader = child.props.children
-    } else {
-      items.push(child)
+    if (React.isValidElement(child)) {
+      if (child.type === Header) {
+        collect()
+        currentHeader = child.props.children
+        return
+      }
+      if (child.type === FormArray) {
+        collect()
+        lists.push(child)
+        return
+      }
     }
+    items.push(child)
   })
   collect()
 

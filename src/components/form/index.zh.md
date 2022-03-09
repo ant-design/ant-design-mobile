@@ -228,7 +228,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 <code src="./demos/demo-subscribe.tsx"></code>
 
-## Form.List
+## Form.Array
 
 为字段提供数组化管理。
 
@@ -239,7 +239,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 ### operation
 
-Form.List 渲染表单相关操作函数。
+Form.Array 渲染表单相关操作函数。
 
 | 属性   | 说明       | 类型                       | 默认值 |
 | ------ | ---------- | -------------------------- | ------ |
@@ -248,7 +248,7 @@ Form.List 渲染表单相关操作函数。
 
 ### 示例
 
-<code src="./demos/demo-list.tsx" />
+<code src="./demos/demo-array.tsx"></code>
 
 ## 一些通用的类型定义
 
