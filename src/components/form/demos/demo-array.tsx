@@ -32,26 +32,26 @@ export default () => {
               <AddCircleOutline /> 添加
             </span>
           )}
-          renderHeader={({ name, key }, { remove }) => (
+          renderHeader={({ index, key }, { remove }) => (
             <>
               <span>联系人{key + 1}</span>
-              <a onClick={() => remove(name)} style={{ float: 'right' }}>
+              <a onClick={() => remove(index)} style={{ float: 'right' }}>
                 删除
               </a>
             </>
           )}
         >
           {fields =>
-            fields.map(({ name }) => (
+            fields.map(({ index }) => (
               <>
                 <Form.Item
-                  name={[name, 'name']}
+                  name={[index, 'name']}
                   label='姓名'
                   rules={[{ required: true, message: '姓名不能为空' }]}
                 >
                   <Input placeholder='请输入姓名' />
                 </Form.Item>
-                <Form.Item name={[name, 'address']} label='地址'>
+                <Form.Item name={[index, 'address']} label='地址'>
                   <Input placeholder='请输入地址' />
                 </Form.Item>
               </>

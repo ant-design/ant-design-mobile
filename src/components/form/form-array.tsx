@@ -1,10 +1,10 @@
 import React, { ReactElement, ReactNode } from 'react'
-import { ValidatorRule, StoreValue } from 'rc-field-form/lib/interface'
+import { StoreValue } from 'rc-field-form/lib/interface'
 import { List as RCList } from 'rc-field-form'
 import List from '../list'
 
-export interface FormArrayFieldData {
-  name: number
+export interface FormArrayField {
+  index: number
   key: number
 }
 
@@ -16,39 +16,34 @@ export interface FormArrayOperation {
 
 export interface FormArrayProps {
   name: string | number | (string | number)[]
-  rules?: ValidatorRule[]
+  // rules?: ValidatorRule[]
   initialValue?: any[]
   renderHeader?: (
-    field: FormArrayFieldData & { index: number },
+    field: FormArrayField,
     operation: FormArrayOperation
   ) => ReactNode
   renderAdd?: () => ReactNode
   children: (
-    fields: FormArrayFieldData[],
+    fields: FormArrayField[],
     operation: FormArrayOperation
   ) => ReactElement[]
 }
 
-const FormArray: React.FC<FormArrayProps> = props => {
+export const FormArray: React.FC<FormArrayProps> = props => {
   return (
-    <RCList {...props}>
-      {(fields, operation) => {
+    <RCList name={props.name} initialValue={props.initialValue}>
+      {(rcFields, operation) => {
+        const fields = rcFields.map(field => ({
+          index: field.name,
+          key: field.key,
+        }))
         const children = props
-          .children(
-            fields.map(field => ({ ...field, fieldKey: field.key })),
-            operation
-          )
+          .children(fields, operation)
           .map((child, index) => (
             <List
               key={fields[index].key}
               mode='card'
-              header={props.renderHeader?.(
-                {
-                  ...fields[index],
-                  index,
-                },
-                operation
-              )}
+              header={props.renderHeader?.(fields[index], operation)}
             >
               {child}
             </List>
@@ -73,5 +68,3 @@ const FormArray: React.FC<FormArrayProps> = props => {
     </RCList>
   )
 }
-
-export default FormArray

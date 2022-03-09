@@ -5,7 +5,7 @@ import { FormItem } from './form-item'
 import { Header } from './header'
 import { useForm } from 'rc-field-form'
 import { FormSubscribe } from './form-subscribe'
-import FormArray from './form-array'
+import { FormArray } from './form-array'
 
 export type FormLayout = 'vertical' | 'horizontal'
 export type { FormProps, FormInstance } from './form'
@@ -16,6 +16,11 @@ export type {
   FieldData,
   NamePath,
 } from 'rc-field-form/es/interface'
+export type {
+  FormArrayField,
+  FormArrayOperation,
+  FormArrayProps,
+} from './form-array'
 
 export default attachPropertiesToComponent(Form, {
   Item: FormItem,

@@ -13,7 +13,7 @@ import type { FormLayout } from '.'
 import { Header } from './header'
 import { useConfig } from '../config-provider'
 import merge from 'lodash/merge'
-import FormArray from './form-array'
+import { FormArray } from './form-array'
 
 const classPrefix = 'adm-form'
 
