@@ -28,7 +28,7 @@ import {
   hide,
   shift,
   limitShift,
-} from '@floating-ui/dom/dist/floating-ui.dom.min.js'
+} from './temp-floating-ui.min.js'
 import { Wrapper } from './wrapper'
 import { useShouldRender } from '../../utils/should-render'
 import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
