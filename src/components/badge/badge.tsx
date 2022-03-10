@@ -24,21 +24,24 @@ export const Badge: FC<BadgeProps> = props => {
     props.bordered && `${classPrefix}-bordered`
   )
 
-  const element = content
-    ? withNativeProps(
-        props,
-        <div
-          className={badgeCls}
-          style={
-            {
-              '--color': color,
-            } as any
-          }
-        >
-          {!isDot && <div className={`${classPrefix}-content`}>{content}</div>}
-        </div>
-      )
-    : null
+  const element =
+    content || content === 0
+      ? withNativeProps(
+          props,
+          <div
+            className={badgeCls}
+            style={
+              {
+                '--color': color,
+              } as any
+            }
+          >
+            {!isDot && (
+              <div className={`${classPrefix}-content`}>{content}</div>
+            )}
+          </div>
+        )
+      : null
 
   return children ? (
     <div className={`${classPrefix}-wrap`}>
