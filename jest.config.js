@@ -26,5 +26,6 @@ module.exports = {
     '<rootDir>/src/**/*.{js,jsx,ts,tsx}',
     '!**/demos/**',
     '!**/tests/**',
+    '!**/.umi/**',
   ],
 }
