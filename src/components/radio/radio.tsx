@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useRef } from 'react'
+import React, { FC, useContext } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { RadioGroupContext } from './group-context'
@@ -7,6 +7,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { CheckIcon } from '../checkbox/check-icon'
 import { devWarning } from '../../utils/dev-log'
 import { isDev } from '../../utils/is-dev'
+import { NativeInput } from '../checkbox/native-input'
 
 const classPrefix = `adm-radio`
 
@@ -81,40 +82,19 @@ export const Radio: FC<RadioProps> = p => {
     )
   }
 
-  const inputRef = useRef<HTMLInputElement>(null)
-  const labelRef = useRef<HTMLLabelElement>(null)
-  useEffect(() => {
-    labelRef.current?.addEventListener(
-      'click',
-      e => {
-        if (e.target !== inputRef.current) {
-          e.stopPropagation()
-          e.stopImmediatePropagation()
-        }
-      },
-      {
-        capture: false,
-      }
-    )
-  }, [])
-
   return withNativeProps(
     props,
     <label
-      ref={labelRef}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled,
         [`${classPrefix}-block`]: props.block,
       })}
     >
-      <input
-        ref={inputRef}
+      <NativeInput
         type='radio'
         checked={checked}
-        onChange={e => {
-          setChecked(e.target.checked)
-        }}
+        onChange={setChecked}
         disabled={disabled}
         id={props.id}
       />

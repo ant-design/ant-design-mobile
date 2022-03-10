@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useRef } from 'react'
+import React, { FC, useContext } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { CheckboxGroupContext } from './group-context'
@@ -8,6 +8,7 @@ import { devWarning } from '../../utils/dev-log'
 import { CheckIcon } from './check-icon'
 import { IndeterminateIcon } from './indeterminate-icon'
 import { isDev } from '../../utils/is-dev'
+import { NativeInput } from './native-input'
 
 const classPrefix = `adm-checkbox`
 
@@ -87,27 +88,9 @@ export const Checkbox: FC<CheckboxProps> = p => {
     )
   }
 
-  const inputRef = useRef<HTMLInputElement>(null)
-  const labelRef = useRef<HTMLLabelElement>(null)
-  useEffect(() => {
-    labelRef.current?.addEventListener(
-      'click',
-      e => {
-        if (e.target !== inputRef.current) {
-          e.stopPropagation()
-          e.stopImmediatePropagation()
-        }
-      },
-      {
-        capture: false,
-      }
-    )
-  }, [])
-
   return withNativeProps(
     props,
     <label
-      ref={labelRef}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked && !props.indeterminate,
         [`${classPrefix}-indeterminate`]: props.indeterminate,
@@ -115,13 +98,10 @@ export const Checkbox: FC<CheckboxProps> = p => {
         [`${classPrefix}-block`]: props.block,
       })}
     >
-      <input
-        ref={inputRef}
+      <NativeInput
         type='checkbox'
         checked={checked}
-        onChange={e => {
-          setChecked(e.target.checked)
-        }}
+        onChange={setChecked}
         disabled={disabled}
         id={props.id}
       />

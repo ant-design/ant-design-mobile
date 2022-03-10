@@ -4,6 +4,8 @@
 
 <code src="./demos/demo2.tsx"></code>
 
+<code src="./demos/demo3.tsx" debug></code>
+
 ## Popover
 
 ### 属性

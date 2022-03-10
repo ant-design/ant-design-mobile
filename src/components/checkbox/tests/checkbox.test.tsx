@@ -116,20 +116,20 @@ describe('Checkbox.Group', () => {
         </Checkbox>
       </Checkbox.Group>
     )
-    const { container } = render(<Component />)
-    const [apple, orange, banana] = Array.from(
-      container.querySelectorAll('input')
-    )
-    expect(apple).not.toBeChecked()
-    expect(orange).toBeChecked()
-    expect(banana).toBeChecked()
+    const { container, getByText } = render(<Component />)
 
-    userEvent.click(apple)
-    userEvent.click(orange)
-    userEvent.click(banana)
+    let inputs = container.querySelectorAll('input')
+    expect(inputs.item(0)).not.toBeChecked()
+    expect(inputs.item(1)).toBeChecked()
+    expect(inputs.item(2)).toBeChecked()
 
-    expect(apple).not.toBeChecked()
-    expect(orange).toBeChecked()
-    expect(banana).toBeChecked()
+    userEvent.click(getByText('苹果'))
+    userEvent.click(getByText('橘子'))
+    userEvent.click(getByText('香蕉'))
+
+    inputs = container.querySelectorAll('input')
+    expect(inputs.item(0)).not.toBeChecked()
+    expect(inputs.item(1)).toBeChecked()
+    expect(inputs.item(2)).toBeChecked()
   })
 })
