@@ -24,7 +24,8 @@ export function show(props: ModalShowProps) {
     }, [])
     function handleClose() {
       props.onClose?.()
-      setVisible(false)
+      // https://github.com/ant-design/ant-design-mobile/issues/4896
+      setTimeout(() => setVisible(false))
     }
     useImperativeHandle(ref, () => ({
       close: handleClose,

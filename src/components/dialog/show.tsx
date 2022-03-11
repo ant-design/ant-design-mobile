@@ -24,7 +24,7 @@ export function show(props: DialogShowProps) {
     }, [])
     function handleClose() {
       props.onClose?.()
-      setVisible(false)
+      setTimeout(() => setVisible(false))
     }
     useImperativeHandle(ref, () => ({
       close: handleClose,
