@@ -32,11 +32,11 @@ export const ErrorBlock: FC<ErrorBlockProps> = p => {
   const des =
     'description' in props ? props.description : contentPack.description
   const title = 'title' in props ? props.title : contentPack.title
-  let imageNode: ReactNode = <img src={icon} />
+  let imageNode: ReactNode = <img src={icon} alt='error block image' />
 
   if (props.image) {
     if (typeof props.image === 'string') {
-      imageNode = <img src={props.image} />
+      imageNode = <img src={props.image} alt='error block image' />
     } else {
       imageNode = props.image
     }

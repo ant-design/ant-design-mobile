@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBlock renders when image is ReactElement 1`] = `
+<div>
+  <div
+    class="adm-error-block"
+    data-testid="error-block"
+  >
+    <div
+      class="adm-error-block-image"
+    >
+      <div>
+        <img
+          src="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+        />
+      </div>
+    </div>
+    <div
+      class="adm-error-block-description"
+    >
+      <div
+        class="adm-error-block-description-title"
+      >
+        页面遇到一些小问题
+      </div>
+      <div
+        class="adm-error-block-description-subtitle"
+      >
+        待会来试试
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ErrorBlock renders with customize props 1`] = `
+<div>
+  <div
+    class="adm-error-block"
+    style="--image-height: 150px;"
+  >
+    <div
+      class="adm-error-block-image"
+    >
+      <img
+        alt="error block image"
+        src="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+      />
+    </div>
+    <div
+      class="adm-error-block-description"
+    >
+      <div
+        class="adm-error-block-description-title"
+      >
+        Customize Title
+      </div>
+      <div
+        class="adm-error-block-description-subtitle"
+      >
+        <span>
+          Customize 
+          <a
+            href="#API"
+          >
+            Description
+          </a>
+        </span>
+      </div>
+    </div>
+    <div
+      class="adm-error-block-content"
+    >
+      <button
+        color="primary"
+      >
+        Create Now
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ErrorBlock renders with empty statsu 1`] = `
+<div>
+  <div
+    class="adm-error-block"
+  >
+    <div
+      class="adm-error-block-image"
+    >
+      <img
+        alt="error block image"
+        src="empty.svg"
+      />
+    </div>
+    <div
+      class="adm-error-block-description"
+    >
+      <div
+        class="adm-error-block-description-title"
+      >
+        没有找到你需要的东西
+      </div>
+      <div
+        class="adm-error-block-description-subtitle"
+      >
+        找找其他的吧
+      </div>
+    </div>
+  </div>
+</div>
+`;
