@@ -25,10 +25,15 @@ function AsyncLoadDataDemo() {
     return generate('') ?? []
   }, [valueToOptions])
 
-  console.log(options)
-
-  async function fetchOptionsForValue(v: string) {
-    if (valueToOptions[v]) return
+  async function fetchOptionsForValue(v: string, level: number) {
+    if (v in valueToOptions) return
+    if (level >= 3) {
+      setValueToOptions(prev => ({
+        ...prev,
+        [v]: null,
+      }))
+      return
+    }
     const data = await mockDataFetch(v)
     const options =
       data === null
@@ -44,7 +49,7 @@ function AsyncLoadDataDemo() {
   }
 
   useEffect(() => {
-    fetchOptionsForValue('')
+    fetchOptionsForValue('', 0)
   }, [])
 
   return (
@@ -59,9 +64,9 @@ function AsyncLoadDataDemo() {
       <Cascader
         options={options}
         onSelect={value => {
-          for (const v of value) {
-            fetchOptionsForValue(v)
-          }
+          value.forEach((v, index) => {
+            fetchOptionsForValue(v, index + 1)
+          })
         }}
         visible={visible}
         onClose={() => {
@@ -74,12 +79,9 @@ function AsyncLoadDataDemo() {
 
 async function mockDataFetch(value: string) {
   await sleep(1000)
-  if (value.length >= 5) {
-    return null
-  }
   return Array(5)
     .fill(null)
-    .map((_, index) => (value ? `${value}-${index}` : `${index}`))
+    .map((_, index) => (value ? `${value}-${index + 1}` : `选项 ${index + 1}`))
 }
 
 export default () => {
