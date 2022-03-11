@@ -10,7 +10,7 @@ import React, {
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import Popup from '../popup'
+import Popup, { PopupProps } from '../popup'
 import Button from '../button'
 import { GetContainer } from '../../utils/render-to-container'
 import { renderToBody } from '../../utils/render-to-body'
@@ -40,6 +40,8 @@ export type ActionSheetProps = {
   closeOnMaskClick?: boolean
   getContainer?: GetContainer
   safeArea?: boolean
+  popupClassName?: PopupProps['className']
+  popupStyle?: PopupProps['style']
 } & NativeProps
 
 const defaultProps = {
@@ -64,7 +66,8 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
         }
       }}
       afterClose={props.afterClose}
-      className={`${classPrefix}-popup`}
+      className={classNames(`${classPrefix}-popup`, props.popupClassName)}
+      style={props.popupStyle}
       getContainer={props.getContainer}
     >
       {withNativeProps(
