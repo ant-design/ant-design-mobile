@@ -3,6 +3,7 @@ import React, {
   forwardRef,
   useEffect,
   useImperativeHandle,
+  useRef,
   useState,
 } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
@@ -19,10 +20,14 @@ export const closeFnSet = new Set<() => void>()
 export function show(props: DialogShowProps) {
   const Wrapper = forwardRef<DialogShowRef>((_, ref) => {
     const [visible, setVisible] = useState(false)
+    const closedRef = useRef(false)
     useEffect(() => {
-      setVisible(true)
+      if (!closedRef.current) {
+        setVisible(true)
+      }
     }, [])
     function handleClose() {
+      closedRef.current = true
       props.onClose?.()
       setVisible(false)
     }

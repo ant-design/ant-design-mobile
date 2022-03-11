@@ -3,6 +3,7 @@ import React, {
   forwardRef,
   useEffect,
   useImperativeHandle,
+  useRef,
   useState,
 } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
@@ -12,7 +13,6 @@ import {
   MultiImageViewerProps,
   MultiImageViewer,
 } from './image-viewer'
-import { useUnmountedRef } from 'ahooks'
 
 export type ImageViewerHandler = {
   close: () => void
@@ -24,28 +24,31 @@ export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
   clearImageViewer()
   const Wrapper = forwardRef<ImageViewerHandler>((_, ref) => {
     const [visible, setVisible] = useState(false)
+    const closedRef = useRef(false)
     useEffect(() => {
-      setVisible(true)
+      if (!closedRef.current) {
+        setVisible(true)
+      }
     }, [])
-    const isUnmountedRef = useUnmountedRef()
+    function handleClose() {
+      closedRef.current = true
+      props.onClose?.()
+      setVisible(false)
+    }
     useImperativeHandle(ref, () => ({
-      close: () => {
-        if (isUnmountedRef.current) return
-        setVisible(false)
-      },
+      close: handleClose,
     }))
+    function handleAfterClose() {
+      props.afterClose?.()
+      unmount()
+      handlerSet.delete(handler)
+    }
     return (
       <ImageViewer
         {...props}
         visible={visible}
-        onClose={() => {
-          props.onClose?.()
-          setVisible(false)
-        }}
-        afterClose={() => {
-          props.afterClose?.()
-          unmount()
-        }}
+        onClose={handleClose}
+        afterClose={handleAfterClose}
       />
     )
   })
@@ -66,28 +69,31 @@ export function showMultiImageViewer(
   clearImageViewer()
   const Wrapper = forwardRef<ImageViewerHandler>((_, ref) => {
     const [visible, setVisible] = useState(false)
+    const closedRef = useRef(false)
     useEffect(() => {
-      setVisible(true)
+      if (!closedRef.current) {
+        setVisible(true)
+      }
     }, [])
-    const isUnmountedRef = useUnmountedRef()
+    function handleClose() {
+      closedRef.current = true
+      props.onClose?.()
+      setVisible(false)
+    }
     useImperativeHandle(ref, () => ({
-      close: () => {
-        if (isUnmountedRef.current) return
-        setVisible(false)
-      },
+      close: handleClose,
     }))
+    function handleAfterClose() {
+      props.afterClose?.()
+      unmount()
+      handlerSet.delete(handler)
+    }
     return (
       <MultiImageViewer
         {...props}
         visible={visible}
-        onClose={() => {
-          props.onClose?.()
-          setVisible(false)
-        }}
-        afterClose={() => {
-          props.afterClose?.()
-          unmount()
-        }}
+        onClose={handleClose}
+        afterClose={handleAfterClose}
       />
     )
   })

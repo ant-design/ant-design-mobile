@@ -6,6 +6,7 @@ import React, {
   useImperativeHandle,
   useState,
   ReactNode,
+  useRef,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -142,10 +143,14 @@ export type ActionSheetRef = {
 export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
   const Wrapper = forwardRef<ActionSheetRef>((_, ref) => {
     const [visible, setVisible] = useState(false)
+    const closedRef = useRef(false)
     useEffect(() => {
-      setVisible(true)
+      if (!closedRef.current) {
+        setVisible(true)
+      }
     }, [])
     function handleClose() {
+      closedRef.current = true
       props.onClose?.()
       setVisible(false)
     }
