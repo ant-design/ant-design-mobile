@@ -22,7 +22,7 @@
 | Name  | Description                                        | Type                                            | Default |
 | ----- | -------------------------------------------------- | ----------------------------------------------- | ------- |
 | key   | Corresponding to `activeKey`                       | `string`                                        | -       |
-| title | Title                                              | `ReactNode`                                     | -       |
+| title | Title                                              | `ReactNode \| ((active: boolean) => ReactNode)` | -       |
 | icon  | Icon                                               | `ReactNode \| ((active: boolean) => ReactNode)` | -       |
 | badge | Badge，the same as [Badge](./badge) `content` prop | `React.ReactNode \| typeof Badge.dot`           | -       |
 
