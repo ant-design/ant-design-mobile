@@ -26,5 +26,6 @@
 | --size                    | Size of the bubble.                                 | `48px`  |
 | --z-index                 | z-index of the bubble.                              | `1`     |
 | --border-radius           | border-radius of the bubble.                        | `50%`   |
+| --background              | background of the bubble.                           | `50%`   |
 
 **You must either set `--initial-position-top` or `--initial-position-bottom`. Also, you must either set `--initial-position-left` or `--initial-position-right`.**

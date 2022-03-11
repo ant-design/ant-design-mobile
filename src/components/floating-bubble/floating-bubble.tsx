@@ -19,6 +19,7 @@ export type FloatingBubbleProps = {
   | '--edge-distance'
   | '--size'
   | '--border-radius'
+  | '--background'
 >
 
 const defaultProps = {

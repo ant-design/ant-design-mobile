@@ -26,5 +26,6 @@
 | --size                    | 气泡大小                       | `48px` |
 | --z-index                 | 气泡的 z-index                 | `1`    |
 | --border-radius           | 气泡的 border-radius           | `50%`  |
+| --background              | 气泡的背景色                   |        |
 
 **在使用时，你必须设置 `--initial-position-top` 和 `--initial-position-bottom` 其中的一项，同时，也必须设置 `--initial-position-left` 和 `--initial-position-right` 其中的一项。**
