@@ -12,9 +12,7 @@
 
 ### 加入我们的社区钉钉群
 
-如果你希望更直接地和我们参与讨论，可以加入 antd-mobile 的社区钉钉群：
-
-<img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*8G6wSrrp1DoAAAAAAAAAAAAAARQnAQ" alt="社区钉钉群" width="300"></img>
+如果你希望更直接地和我们参与讨论，可以加入 antd-mobile 的开发者钉钉群：32473590。
 
 ## 我可以做什么？
 
