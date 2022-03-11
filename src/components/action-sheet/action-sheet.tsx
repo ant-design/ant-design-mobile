@@ -10,7 +10,7 @@ import React, {
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import Popup, { PopupProps } from '../popup'
+import Popup from '../popup'
 import Button from '../button'
 import { GetContainer } from '../../utils/render-to-container'
 import { renderToBody } from '../../utils/render-to-body'
