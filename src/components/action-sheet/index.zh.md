@@ -18,6 +18,8 @@
 | closeOnMaskClick | 点击遮罩层后是否关闭                                                        | `boolean`                                  | `true`          |
 | getContainer     | 指定挂载的 `HTML` 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
 | safeArea         | 是否开启安全区适配                                                          | `boolean`                                  | `true`          |
+| popupClassName   | `ActionSheet` 弹出层类名                                                    | `string`                                   | -               |
+| popupStyle       | `ActionSheet` 弹出层样式                                                    | `React.CSSProperties`                      | -               |
 
 ### Action
 

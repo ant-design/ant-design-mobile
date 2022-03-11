@@ -40,8 +40,8 @@ export type ActionSheetProps = {
   closeOnMaskClick?: boolean
   getContainer?: GetContainer
   safeArea?: boolean
-  popupClassName?: PopupProps['className']
-  popupStyle?: PopupProps['style']
+  popupClassName?: string
+  popupStyle?: React.CSSProperties
 } & NativeProps
 
 const defaultProps = {
