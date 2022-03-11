@@ -8,7 +8,7 @@ import { Modal } from './modal'
 
 export type { ModalProps } from './modal'
 export type { Action } from './modal-action-button'
-export type { ModalShowProps, ModalShowRef } from './show'
+export type { ModalShowProps, ModalShowHandler } from './show'
 export type { ModalAlertProps } from './alert'
 export type { ModalConfirmProps } from './confirm'
 
