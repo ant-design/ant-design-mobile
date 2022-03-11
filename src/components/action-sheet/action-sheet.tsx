@@ -147,6 +147,8 @@ export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
     useEffect(() => {
       if (!closedRef.current) {
         setVisible(true)
+      } else {
+        handleAfterClose()
       }
     }, [])
     function handleClose() {
@@ -157,15 +159,16 @@ export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
     useImperativeHandle(ref, () => ({
       close: handleClose,
     }))
+    function handleAfterClose() {
+      props.afterClose?.()
+      unmount()
+    }
     return (
       <ActionSheet
         {...props}
         visible={visible}
         onClose={handleClose}
-        afterClose={() => {
-          props.afterClose?.()
-          unmount()
-        }}
+        afterClose={handleAfterClose}
       />
     )
   })

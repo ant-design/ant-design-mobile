@@ -28,6 +28,8 @@ export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
     useEffect(() => {
       if (!closedRef.current) {
         setVisible(true)
+      } else {
+        handleAfterClose()
       }
     }, [])
     function handleClose() {
@@ -73,6 +75,8 @@ export function showMultiImageViewer(
     useEffect(() => {
       if (!closedRef.current) {
         setVisible(true)
+      } else {
+        handleAfterClose()
       }
     }, [])
     function handleClose() {
@@ -113,4 +117,8 @@ export function clearImageViewer() {
     handler.close()
   })
   handlerSet.clear()
+}
+
+export const getH = () => {
+  console.log(handlerSet)
 }

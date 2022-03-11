@@ -24,6 +24,8 @@ export function show(props: ModalShowProps) {
     useEffect(() => {
       if (!closedRef.current) {
         setVisible(true)
+      } else {
+        handleAfterClose()
       }
     }, [])
     function handleClose() {
