@@ -3,6 +3,7 @@ import React, {
   forwardRef,
   useEffect,
   useImperativeHandle,
+  useRef,
   useState,
 } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
@@ -19,10 +20,16 @@ export const closeFnSet = new Set<() => void>()
 export function show(props: ModalShowProps) {
   const Wrapper = forwardRef<ModalShowRef>((_, ref) => {
     const [visible, setVisible] = useState(false)
+    const closedRef = useRef(false)
     useEffect(() => {
-      setVisible(true)
+      if (!closedRef.current) {
+        setVisible(true)
+      } else {
+        handleAfterClose()
+      }
     }, [])
     function handleClose() {
+      closedRef.current = true
       props.onClose?.()
       // https://github.com/ant-design/ant-design-mobile/issues/4896
       setTimeout(() => setVisible(false))
@@ -30,7 +37,6 @@ export function show(props: ModalShowProps) {
     useImperativeHandle(ref, () => ({
       close: handleClose,
     }))
-
     function handleAfterClose() {
       props.afterClose?.()
       unmount()
