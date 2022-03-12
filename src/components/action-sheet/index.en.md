@@ -18,6 +18,8 @@
 | closeOnMaskClick | Whether to close after clicking the mask layer                                                                             | `boolean`                                  | `true`          |
 | getContainer     | Get the specified mounted `HTML` node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
 | safeArea         | Whether to enable safe area padding                                                                                        | `boolean`                                  | `true`          |
+| popupClassName   | `ActionSheet` popup class name                                                                                             | `string`                                   | -               |
+| popupStyle       | `ActionSheet` popup style                                                                                                  | `React.CSSProperties`                      | -               |
 
 ### Action
 
