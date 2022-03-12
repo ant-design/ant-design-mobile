@@ -1,7 +1,7 @@
 import React, { FC, InputHTMLAttributes, useRef, useState } from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
-import ImageViewer, { ImageViewerHandler } from '../image-viewer'
+import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
 import { useIsomorphicLayoutEffect, useMemoizedFn, useUnmount } from 'ahooks'
@@ -173,7 +173,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     e.target.value = '' // HACK: fix the same file doesn't trigger onChange
   }
 
-  const imageViewerHandlerRef = useRef<ImageViewerHandler | null>(null)
+  const imageViewerHandlerRef = useRef<ImageViewerShowHandler | null>(null)
 
   function previewImage(index: number) {
     imageViewerHandlerRef.current = ImageViewer.Multi.show({

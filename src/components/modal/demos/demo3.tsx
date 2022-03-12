@@ -16,6 +16,12 @@ export default () => {
           onClick={() => {
             Modal.alert({
               content: 'test',
+              onClose: () => {
+                console.log('onClose')
+              },
+              afterClose: () => {
+                console.log('afterClose')
+              },
             })
             Modal.clear()
           }}

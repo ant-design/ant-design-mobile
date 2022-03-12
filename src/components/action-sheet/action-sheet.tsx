@@ -1,21 +1,12 @@
-import React, {
-  createRef,
-  FC,
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useState,
-  ReactNode,
-  useRef,
-} from 'react'
+import React, { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import Popup from '../popup'
 import Button from '../button'
 import { GetContainer } from '../../utils/render-to-container'
-import { renderToBody } from '../../utils/render-to-body'
 import SafeArea from '../safe-area'
+import { renderImperatively } from '../../utils/render-imperatively'
 
 const classPrefix = `adm-action-sheet`
 
@@ -29,7 +20,7 @@ export type Action = {
 }
 
 export type ActionSheetProps = {
-  visible: boolean
+  visible?: boolean
   actions: Action[]
   extra?: React.ReactNode
   cancelText?: React.ReactNode
@@ -139,47 +130,12 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
   )
 }
 
-export type ActionSheetRef = {
+export type ActionSheetShowHandler = {
   close: () => void
 }
 
 export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
-  const Wrapper = forwardRef<ActionSheetRef>((_, ref) => {
-    const [visible, setVisible] = useState(false)
-    const closedRef = useRef(false)
-    useEffect(() => {
-      if (!closedRef.current) {
-        setVisible(true)
-      } else {
-        handleAfterClose()
-      }
-    }, [])
-    function handleClose() {
-      closedRef.current = true
-      props.onClose?.()
-      setVisible(false)
-    }
-    useImperativeHandle(ref, () => ({
-      close: handleClose,
-    }))
-    function handleAfterClose() {
-      props.afterClose?.()
-      unmount()
-    }
-    return (
-      <ActionSheet
-        {...props}
-        visible={visible}
-        onClose={handleClose}
-        afterClose={handleAfterClose}
-      />
-    )
-  })
-  const ref = createRef<ActionSheetRef>()
-  const unmount = renderToBody(<Wrapper ref={ref} />)
-  return {
-    close: () => {
-      ref.current?.close()
-    },
-  }
+  return renderImperatively(
+    <ActionSheet {...props} />
+  ) as ActionSheetShowHandler
 }

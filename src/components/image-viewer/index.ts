@@ -12,7 +12,7 @@ export type {
   MultiImageViewerProps,
   MultiImageViewerRef,
 } from './image-viewer'
-export type { ImageViewerHandler } from './methods'
+export type { ImageViewerShowHandler } from './methods'
 
 const Multi = attachPropertiesToComponent(MultiImageViewer, {
   show: showMultiImageViewer,

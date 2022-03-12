@@ -1,65 +1,25 @@
-import React, {
-  createRef,
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react'
-import { renderToBody } from '../../utils/render-to-body'
+import React from 'react'
 import { Dialog, DialogProps } from './dialog'
+import { renderImperatively } from '../../utils/render-imperatively'
 
 export type DialogShowProps = Omit<DialogProps, 'visible'>
 
-export type DialogShowRef = {
+export type DialogShowHandler = {
   close: () => void
 }
 
 export const closeFnSet = new Set<() => void>()
 
 export function show(props: DialogShowProps) {
-  const Wrapper = forwardRef<DialogShowRef>((_, ref) => {
-    const [visible, setVisible] = useState(false)
-    const closedRef = useRef(false)
-    useEffect(() => {
-      if (!closedRef.current) {
-        setVisible(true)
-      } else {
-        handleAfterClose()
-      }
-    }, [])
-    function handleClose() {
-      closedRef.current = true
-      props.onClose?.()
-      setTimeout(() => setVisible(false))
-    }
-    useImperativeHandle(ref, () => ({
-      close: handleClose,
-    }))
-
-    function handleAfterClose() {
-      props.afterClose?.()
-      unmount()
-      closeFnSet.delete(close)
-    }
-
-    return (
-      <Dialog
-        {...props}
-        visible={visible}
-        onClose={handleClose}
-        afterClose={handleAfterClose}
-      />
-    )
-  })
-  const ref = createRef<DialogShowRef>()
-  const unmount = renderToBody(<Wrapper ref={ref} />)
-  const close = () => {
-    ref.current?.close()
-  }
-  closeFnSet.add(close)
-
-  return {
-    close,
-  }
+  const handler: DialogShowHandler = renderImperatively(
+    <Dialog
+      {...props}
+      afterClose={() => {
+        closeFnSet.delete(handler.close)
+        props.afterClose?.()
+      }}
+    />
+  )
+  closeFnSet.add(handler.close)
+  return handler
 }
