@@ -1,4 +1,10 @@
-import React, { FC, ReactElement, useEffect, useRef, useState } from 'react'
+import React, {
+  ReactElement,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react'
 import { renderToBody } from './render-to-body'
 
 type ImperativeProps = {
@@ -7,9 +13,12 @@ type ImperativeProps = {
   afterClose?: () => void
 }
 
+type WrapperHandler = {
+  close: () => void
+}
+
 export function renderImperatively(element: ReactElement<ImperativeProps>) {
-  let close: () => void = () => {}
-  const Wrapper: FC = () => {
+  const Wrapper = React.forwardRef<WrapperHandler>((_, ref) => {
     const [visible, setVisible] = useState(false)
     const closedRef = useRef(false)
     useEffect(() => {
@@ -24,19 +33,25 @@ export function renderImperatively(element: ReactElement<ImperativeProps>) {
       setVisible(false)
       element.props.onClose?.()
     }
-    close = onClose
     function afterClose() {
       unmount()
       element.props.afterClose?.()
     }
+    useImperativeHandle(ref, () => ({
+      close: onClose,
+    }))
     return React.cloneElement(element, {
       ...element.props,
       visible,
       onClose,
       afterClose,
     })
+  })
+  const wrapperRef = React.createRef<WrapperHandler>()
+  const unmount = renderToBody(<Wrapper ref={wrapperRef} />)
+  function close() {
+    wrapperRef.current?.close()
   }
-  const unmount = renderToBody(<Wrapper />)
   return {
     close,
   }
