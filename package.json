@@ -79,6 +79,7 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-test-renderer": "^17.0.2",
+    "react-virtualized": "^9.22.3",
     "style-loader": "^3.3.1",
     "through2": "^4.0.2",
     "ts-jest": "27.1.3",

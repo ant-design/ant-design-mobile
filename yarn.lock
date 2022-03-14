@@ -1974,6 +1974,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.7":
+  version: 7.17.2
+  resolution: "@babel/runtime@npm:7.17.2"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: a48702d271ecc59c09c397856407afa29ff980ab537b3da58eeee1aeaa0f545402d340a1680c9af58aec94dfdcbccfb6abb211991b74686a86d03d3f6956cacd
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.14.5, @babel/template@npm:^7.3.3":
   version: 7.14.5
   resolution: "@babel/template@npm:7.14.5"
@@ -4294,6 +4303,7 @@ __metadata:
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
     react-test-renderer: ^17.0.2
+    react-virtualized: ^9.22.3
     staged-components: ^1.1.2
     style-loader: ^3.3.1
     through2: ^4.0.2
@@ -5534,6 +5544,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^1.0.4":
+  version: 1.1.1
+  resolution: "clsx@npm:1.1.1"
+  checksum: ff052650329773b9b245177305fc4c4dc3129f7b2be84af4f58dc5defa99538c61d4207be7419405a5f8f3d92007c954f4daba5a7b74e563d5de71c28c830063
+  languageName: node
+  linkType: hard
+
 "co@npm:^4.6.0":
   version: 4.6.0
   resolution: "co@npm:4.6.0"
@@ -6336,6 +6353,16 @@ __metadata:
   version: 1.12.2
   resolution: "dom-align@npm:1.12.2"
   checksum: 0523f4d7c84c7a4e92b0f1d088e7e110f6bd109fc8b6f1f89e14d33bba63d7b54de26d311652e1527ead2c0700f671593af55f216cb8a67a80d9fc5ed7a23b95
+  languageName: node
+  linkType: hard
+
+"dom-helpers@npm:^5.1.3":
+  version: 5.2.1
+  resolution: "dom-helpers@npm:5.2.1"
+  dependencies:
+    "@babel/runtime": ^7.8.7
+    csstype: ^3.0.2
+  checksum: 863ba9e086f7093df3376b43e74ce4422571d404fc9828bf2c56140963d5edf0e56160f9b2f3bb61b282c07f8fc8134f023c98fd684bddcb12daf7b0f14d951c
   languageName: node
   linkType: hard
 
@@ -13189,6 +13216,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-lifecycles-compat@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "react-lifecycles-compat@npm:3.0.4"
+  checksum: a904b0fc0a8eeb15a148c9feb7bc17cec7ef96e71188280061fc340043fd6d8ee3ff233381f0e8f95c1cf926210b2c4a31f38182c8f35ac55057e453d6df204f
+  languageName: node
+  linkType: hard
+
 "react-refresh@npm:0.10.0":
   version: 0.10.0
   resolution: "react-refresh@npm:0.10.0"
@@ -13277,6 +13311,23 @@ fsevents@^1.2.7:
   peerDependencies:
     react: 17.0.2
   checksum: e6b5c6ed2a0bde2c34f1ab9523ff9bc4c141a271daf730d6b852374e83acc0155d58ab71a318251e953ebfa65b8bebb9c5dce3eba1ccfcbef7cc4e1e8261c401
+  languageName: node
+  linkType: hard
+
+"react-virtualized@npm:^9.22.3":
+  version: 9.22.3
+  resolution: "react-virtualized@npm:9.22.3"
+  dependencies:
+    "@babel/runtime": ^7.7.2
+    clsx: ^1.0.4
+    dom-helpers: ^5.1.3
+    loose-envify: ^1.4.0
+    prop-types: ^15.7.2
+    react-lifecycles-compat: ^3.0.4
+  peerDependencies:
+    react: ^15.3.0 || ^16.0.0-alpha
+    react-dom: ^15.3.0 || ^16.0.0-alpha
+  checksum: 5e3b566592293bc0057bc6be4f6ee29c58c8931421d2882a3ef45ca9b24c6f3ea78bbc5a182c2916af6520845e5a90f569b3a63c9b5e89428720913e6d6239cc
   languageName: node
   linkType: hard
 

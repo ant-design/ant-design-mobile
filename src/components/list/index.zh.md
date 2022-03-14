@@ -6,6 +6,8 @@
 
 <code src="./demos/demo3.tsx"></code>
 
+<code src="./demos/demo4.tsx"></code>
+
 ## List
 
 ### 属性
@@ -50,3 +52,9 @@
 ### CSS 变量
 
 支持 List 中的 `--prefix-width`、`--active-background-color`、`--align-items`
+
+## FAQ
+
+### 列表能否支持虚拟滚动？
+
+List 本身不会支持虚拟滚动，可以结合 [react-virtualized](https://github.com/bvaughn/react-virtualized) 实现。

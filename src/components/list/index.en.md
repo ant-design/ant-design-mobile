@@ -6,6 +6,8 @@
 
 <code src="./demos/demo3.tsx"></code>
 
+<code src="./demos/demo4.tsx"></code>
+
 ## List
 
 ### Props
@@ -50,3 +52,9 @@
 ### CSS Variables
 
 Support following css variables in List: `--prefix-width`, `--active-background-color` and `--align-items`
+
+## FAQ
+
+### Whether to support virtualized list?
+
+List will not support virtualized list, you can implement it via using [react-virtualized](https://github.com/bvaughn/react-virtualized).
