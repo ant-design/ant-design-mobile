@@ -40,7 +40,7 @@ export type FormItemProps = Pick<
 > &
   Pick<
     ListItemProps,
-    'style' | 'onClick' | 'extra' | 'arrow' | 'description'
+    'style' | 'onClick' | 'extra' | 'clickable' | 'arrow' | 'description'
   > & {
     label?: React.ReactNode
     help?: React.ReactNode
@@ -78,6 +78,7 @@ type FormItemLayoutProps = Pick<
   | 'hidden'
   | 'layout'
   | 'extra'
+  | 'clickable'
   | 'arrow'
   | 'description'
   | 'childElementPosition'
@@ -198,6 +199,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       )}
       disabled={disabled}
       onClick={props.onClick}
+      clickable={props.clickable}
       arrow={arrow}
     >
       <div
@@ -241,6 +243,7 @@ export const FormItem: FC<FormItemProps> = props => {
     onClick,
     shouldUpdate,
     dependencies,
+    clickable,
     arrow,
     ...fieldProps
   } = props
@@ -321,6 +324,7 @@ export const FormItem: FC<FormItemProps> = props => {
         hidden={hidden}
         layout={layout}
         childElementPosition={childElementPosition}
+        clickable={clickable}
         arrow={arrow}
       >
         <NoStyleItemContext.Provider value={onSubMetaChange}>

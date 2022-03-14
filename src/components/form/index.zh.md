@@ -74,8 +74,6 @@ const validateMessages = {
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------- | -------------------------------------------------- |
 | label                                              | 标签名                                                                                                       | `ReactNode`                                   | -                                                  |
 | help                                               | 提示文本                                                                                                     | `ReactNode`                                   | -                                                  |
-| description                                        | 表单项下方区域                                                                                               | `ReactNode`                                   | -                                                  |
-| extra                                              | 表单项右侧区域                                                                                               | `ReactNode`                                   | -                                                  |
 | required                                           | 是否必选                                                                                                     | `boolean`                                     | `false`（如有设置 `rules`，则会根据 `rules` 判断） |
 | disabled                                           | 是否禁用                                                                                                     | `boolean`                                     | `false`                                            |
 | noStyle                                            | 不使用样式，只使用字段管理                                                                                   | `boolean`                                     | `false`                                            |
@@ -83,8 +81,6 @@ const validateMessages = {
 | layout                                             | 布局模式                                                                                                     | `'vertical' \| 'horizontal'`                  | 父级 Form 的 `layout`                              |
 | childElementPosition <Experimental></Experimental> | 表单控件部分的位置                                                                                           | `'normal' \| 'right'`                         | `'normal'`                                         |
 | hasFeedback                                        | 是否展示错误反馈                                                                                             | `boolean`                                     | `true`                                             |
-| arrow                                              | 是否展示右侧箭头                                                                                             | `boolean \| ReactNode`                        | -                                                  |
-| onClick                                            | 点击时触发                                                                                                   | `(e: React.MouseEvent) => void`               | -                                                  |
 | dependencies                                       | 设置依赖字段，说明见下                                                                                       | `NamePath[]`                                  | -                                                  |
 | valuePropName                                      | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | `string`                                      | `value`                                            |
 | name                                               | 字段名，支持数组                                                                                             | `NamePath`                                    | -                                                  |
@@ -94,6 +90,10 @@ const validateMessages = {
 | validateTrigger                                    | 设置字段校验的时机                                                                                           | `string \| string[]`                          | `onChange`                                         |
 | shouldUpdate                                       | 自定义字段更新逻辑，说明见下                                                                                 | `boolean \| (prevValue, curValue) => boolean` | `false`                                            |
 | initialValue                                       | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准                                          | `any`                                         | -                                                  |
+
+Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item](./list#listitem) 的以下属性：
+
+`onClick` `extra` `clickable` `arrow` `description`
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会**自动添加** `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，因此，如果你给 `Form.Item` 设置了 `name` 属性，**那么请确保它的 `children` 是一个有效的 `ReactElement` 控件**，并且能够接受上文中提到的 `value` 和 `onChange` 属性（或指定的其他属性），例如：
 
