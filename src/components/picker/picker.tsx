@@ -62,7 +62,7 @@ export const Picker = memo<PickerProps>(p => {
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
-      props.onConfirm?.(val, generateValueExtend(val))
+      props.onConfirm?.(val, innerExt)
     },
   })
 
@@ -82,8 +82,10 @@ export const Picker = memo<PickerProps>(p => {
     }
   }, [value])
 
+  const [innerExt, setInnerExt] = useState<PickerValueExtend>({ items: [] })
   const onChange = useMemoizedFn((val, ext) => {
     setInnerValue(val)
+    setInnerExt(ext)
     if (props.visible) {
       props.onSelect?.(val, ext)
     }
