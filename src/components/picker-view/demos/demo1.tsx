@@ -4,7 +4,11 @@ import { DemoBlock } from 'demos'
 import { basicColumns } from './columns-data'
 
 export default () => {
-  const [value, setValue] = useState<(string | null)[]>(['Mon', 'am'])
+  const [value, setValue] = useState<(string | number | boolean | null)[]>([
+    'Mon',
+    'am',
+    false,
+  ])
 
   return (
     <>

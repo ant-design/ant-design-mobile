@@ -10,4 +10,8 @@ export const basicColumns = [
     { label: '上午', value: 'am' },
     { label: '下午', value: 'pm' },
   ],
+  [
+    { label: '可用', value: true },
+    { label: '不可用', value: false },
+  ],
 ]

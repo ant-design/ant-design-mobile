@@ -3,13 +3,12 @@ import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import {
-  PickerColumn,
-  PickerColumnItem,
+import PickerView, {
   PickerValue,
+  PickerColumn,
   PickerValueExtend,
-} from './index'
-import PickerView from '../picker-view'
+  PickerColumnItem,
+} from '../picker-view'
 import { useColumns } from '../picker-view/use-columns'
 import { useConfig } from '../config-provider'
 import { usePickerValueExtend } from '../picker-view/use-picker-value-extend'

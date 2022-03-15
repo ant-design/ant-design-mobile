@@ -10,7 +10,7 @@ export function useColumns(
       typeof rawColumns === 'function' ? rawColumns(value) : rawColumns
     return columns.map(column =>
       column.map(item =>
-        typeof item === 'string'
+        typeof item !== 'object'
           ? {
               label: item,
               value: item,
