@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Button, Dialog, Space, Toast, Divider } from 'antd-mobile'
 import { DemoBlock, DemoDescription, lorem } from 'demos'
-import { DialogShowRef } from 'antd-mobile/es/components/dialog'
+import { DialogShowHandler } from 'antd-mobile/es/components/dialog'
 import { ExclamationCircleFill } from 'antd-mobile-icons'
 
 export default () => {
@@ -145,7 +145,7 @@ const Declarative = () => {
 
 // 自定义关闭操作
 function Imperative() {
-  const handler = useRef<DialogShowRef>()
+  const handler = useRef<DialogShowHandler>()
 
   return (
     <Button

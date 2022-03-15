@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag renders with color 1`] = `
+<div>
+  <span
+    class="adm-tag"
+    style="--border-color: #primary; --text-color: #ffffff; --background-color: #primary;"
+  >
+    primary
+  </span>
+  <span
+    class="adm-tag"
+    style="--border-color: #2db7f5; --text-color: #ffffff; --background-color: #2db7f5;"
+  >
+    #2db7f5
+  </span>
+</div>
+`;
+
+exports[`Tag renders with fill 1`] = `
+<div>
+  <span
+    class="adm-tag"
+    style="--border-color: #666666; --text-color: #666666; --background-color: transparent;"
+  >
+    outline
+  </span>
+  <span
+    class="adm-tag"
+    style="--border-color: #666666; --text-color: #ffffff; --background-color: #666666;"
+  >
+    solid
+  </span>
+</div>
+`;

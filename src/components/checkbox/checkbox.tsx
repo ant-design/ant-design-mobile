@@ -8,6 +8,7 @@ import { devWarning } from '../../utils/dev-log'
 import { CheckIcon } from './check-icon'
 import { IndeterminateIcon } from './indeterminate-icon'
 import { isDev } from '../../utils/is-dev'
+import { NativeInput } from './native-input'
 
 const classPrefix = `adm-checkbox`
 
@@ -39,7 +40,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
     value: props.checked,
     defaultValue: props.defaultChecked,
     onChange: props.onChange,
-  })
+  }) as [boolean, (v: boolean) => void]
   let disabled = props.disabled
 
   const { value } = props
@@ -97,16 +98,10 @@ export const Checkbox: FC<CheckboxProps> = p => {
         [`${classPrefix}-block`]: props.block,
       })}
     >
-      <input
+      <NativeInput
         type='checkbox'
         checked={checked}
-        onChange={e => {
-          setChecked(e.target.checked)
-        }}
-        onClick={e => {
-          e.stopPropagation()
-          e.nativeEvent.stopImmediatePropagation()
-        }}
+        onChange={setChecked}
         disabled={disabled}
         id={props.id}
       />

@@ -16,7 +16,7 @@ CascaderView 是 [Cascader](./cascader) 的内容区域。
 
 关于 `CascaderValue` `CascaderOption[]` `CascaderValueExtend` 的类型定义，请参考 [Cascader](./cascader#api) 的文档。
 
-### 加载中 <Badge>试验性</Badge>
+### 加载中 <Experimental></Experimental>
 
 你可以把 `CascaderView.optionSkeleton` 作为 `CascaderOption[]` 传入到 CascaderView 的 `options` 属性或者是 `CascaderOption` 的 `children` 中。CascaderView 会将其识别并显示出骨架屏效果。
 

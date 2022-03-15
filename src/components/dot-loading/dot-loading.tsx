@@ -57,7 +57,6 @@ export const DotLoading = memo<DotLoadingProps>(p => {
                       repeatCount='indefinite'
                       values='16; 6; 26; 16; 16'
                       keyTimes='0; 0.1; 0.3; 0.4; 1'
-                      id='circ-anim'
                     />
                   </rect>
                 ))}

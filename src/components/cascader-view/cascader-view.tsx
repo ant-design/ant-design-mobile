@@ -23,6 +23,7 @@ export type CascaderOption = {
 
 export type CascaderValueExtend = {
   items: (CascaderOption | null)[]
+  isLeaf: boolean
 }
 
 export type CascaderViewProps = {
@@ -87,6 +88,12 @@ export const CascaderView: FC<CascaderViewProps> = p => {
   useEffect(() => {
     setTabActiveKey(levels.length - 1)
   }, [value])
+  useEffect(() => {
+    const max = levels.length - 1
+    if (tabActiveKey > max) {
+      setTabActiveKey(max)
+    }
+  }, [tabActiveKey, levels])
 
   const onItemSelect = (selectValue: CascaderValue, depth: number) => {
     const next = value.slice(0, depth)

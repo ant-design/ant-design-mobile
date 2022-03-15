@@ -21,7 +21,6 @@ const SideMenu: FC<INavbarProps> = ({
     config: { mode },
     menu,
     nav: navItems,
-    base,
     meta,
   } = useContext(context)
   const isHiddenMenus =

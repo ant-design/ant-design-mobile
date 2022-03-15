@@ -12,6 +12,10 @@
 
 <code src="./demos/demo3.tsx"></code>
 
+### 内容区域存在多层嵌套
+
+<code src="./demos/demo-nested.tsx"></code>
+
 ### 属性
 
 ```ts | pure

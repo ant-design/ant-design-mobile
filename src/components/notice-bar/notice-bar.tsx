@@ -91,7 +91,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
     start()
   }, props.delay)
 
-  useResizeEffect(text => {
+  useResizeEffect(() => {
     start()
   }, containerRef)
 

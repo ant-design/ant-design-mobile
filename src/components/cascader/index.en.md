@@ -18,6 +18,7 @@ type CascaderOption = {
 
 type CascaderValueExtend = {
   items: (CascaderOption | null)[]
+  isLeaf: boolean
 }
 ```
 
@@ -37,6 +38,6 @@ type CascaderValueExtend = {
 | placeholder  | Hint text                                       | `string`                                                        | `'请选择'` |
 | children     | Render function of the selected options         | `(items: CascaderOption[]) => ReactNode`                        | -          |
 
-### Loading <Badge>Experimental</Badge>
+### Loading <Experimental></Experimental>
 
 You can pass `Cascader.optionSkeleton` as `CascaderOption[]` to the `options` property of Cascader or the `children` of `CascaderOption`. Cascader will recognize it and display the skeleton screen effect.

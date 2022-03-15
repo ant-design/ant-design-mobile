@@ -1,20 +1,12 @@
-import React, {
-  createRef,
-  FC,
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useState,
-  ReactNode,
-} from 'react'
+import React, { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import Popup from '../popup'
 import Button from '../button'
 import { GetContainer } from '../../utils/render-to-container'
-import { renderToBody } from '../../utils/render-to-body'
 import SafeArea from '../safe-area'
+import { renderImperatively } from '../../utils/render-imperatively'
 
 const classPrefix = `adm-action-sheet`
 
@@ -28,7 +20,7 @@ export type Action = {
 }
 
 export type ActionSheetProps = {
-  visible: boolean
+  visible?: boolean
   actions: Action[]
   extra?: React.ReactNode
   cancelText?: React.ReactNode
@@ -40,6 +32,8 @@ export type ActionSheetProps = {
   closeOnMaskClick?: boolean
   getContainer?: GetContainer
   safeArea?: boolean
+  popupClassName?: string
+  popupStyle?: React.CSSProperties
 } & NativeProps
 
 const defaultProps = {
@@ -64,7 +58,8 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
         }
       }}
       afterClose={props.afterClose}
-      className={`${classPrefix}-popup`}
+      className={classNames(`${classPrefix}-popup`, props.popupClassName)}
+      style={props.popupStyle}
       getContainer={props.getContainer}
     >
       {withNativeProps(
@@ -135,40 +130,12 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
   )
 }
 
-export type ActionSheetRef = {
+export type ActionSheetShowHandler = {
   close: () => void
 }
 
 export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
-  const Wrapper = forwardRef<ActionSheetRef>((_, ref) => {
-    const [visible, setVisible] = useState(false)
-    useEffect(() => {
-      setVisible(true)
-    }, [])
-    function handleClose() {
-      props.onClose?.()
-      setVisible(false)
-    }
-    useImperativeHandle(ref, () => ({
-      close: handleClose,
-    }))
-    return (
-      <ActionSheet
-        {...props}
-        visible={visible}
-        onClose={handleClose}
-        afterClose={() => {
-          props.afterClose?.()
-          unmount()
-        }}
-      />
-    )
-  })
-  const ref = createRef<ActionSheetRef>()
-  const unmount = renderToBody(<Wrapper ref={ref} />)
-  return {
-    close: () => {
-      ref.current?.close()
-    },
-  }
+  return renderImperatively(
+    <ActionSheet {...props} />
+  ) as ActionSheetShowHandler
 }

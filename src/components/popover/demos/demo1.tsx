@@ -4,7 +4,8 @@ import { DemoBlock } from 'demos'
 import { PopoverProps } from '../popover'
 
 export default () => {
-  const [placement, setPlacement] = useState<PopoverProps['placement']>('top')
+  const [placement, setPlacement] =
+    useState<PopoverProps['placement']>('top-start')
 
   useEffect(() => {
     let current = 0
@@ -39,7 +40,7 @@ export default () => {
       <DemoBlock title='深色背景' padding='12px 12px 64px'>
         <Popover
           content='Hello World'
-          placement='bottomLeft'
+          placement='bottom-start'
           mode='dark'
           trigger='click'
           visible
@@ -82,16 +83,16 @@ export default () => {
 }
 
 const directionList = [
+  'top-start',
   'top',
-  'topRight',
-  'rightTop',
+  'top-end',
+  'right-start',
   'right',
-  'rightBottom',
-  'bottomRight',
+  'right-end',
+  'bottom-end',
   'bottom',
-  'bottomLeft',
-  'leftBottom',
+  'bottom-start',
+  'left-end',
   'left',
-  'leftTop',
-  'topLeft',
+  'left-start',
 ] as const

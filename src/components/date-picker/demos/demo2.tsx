@@ -1,7 +1,7 @@
 import React from 'react'
 import { Picker } from 'antd-mobile'
 
-const now = new Date()
+new Date()
 
 const columns = [
   [

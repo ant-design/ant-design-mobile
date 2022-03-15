@@ -2,10 +2,10 @@ import React, { FC, useEffect, useRef, useState } from 'react'
 import { Button, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { UploadOutline } from 'antd-mobile-icons'
-import { ToastShowRef } from '../methods'
+import type { ToastHandler } from 'antd-mobile/es/components/toast'
 
 export default () => {
-  const handler = useRef<ToastShowRef>()
+  const handler = useRef<ToastHandler>()
 
   return (
     <>

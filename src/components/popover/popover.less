@@ -35,87 +35,6 @@
     display: none;
   }
 
-  // Offset the popover to account for the popover arrow
-  &-placement-top,
-  &-placement-topLeft,
-  &-placement-topRight {
-    padding-bottom: var(--arrow-size);
-    .adm-popover-arrow {
-      bottom: 0;
-      --arrow-icon-rotate: 0deg;
-    }
-  }
-  &-placement-top .adm-popover-arrow {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  &-placement-topLeft .adm-popover-arrow {
-    left: 12px;
-  }
-  &-placement-topRight .adm-popover-arrow {
-    right: 12px;
-  }
-
-  &-placement-right,
-  &-placement-rightTop,
-  &-placement-rightBottom {
-    padding-left: var(--arrow-size);
-    .adm-popover-arrow {
-      left: 0;
-      --arrow-icon-rotate: 90deg;
-    }
-  }
-  &-placement-right .adm-popover-arrow {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  &-placement-rightTop .adm-popover-arrow {
-    top: 12px;
-  }
-  &-placement-rightBottom .adm-popover-arrow {
-    bottom: 12px;
-  }
-
-  &-placement-bottom,
-  &-placement-bottomLeft,
-  &-placement-bottomRight {
-    padding-top: var(--arrow-size);
-    .adm-popover-arrow {
-      top: 0;
-      --arrow-icon-rotate: 180deg;
-    }
-  }
-  &-placement-bottom .adm-popover-arrow {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  &-placement-bottomLeft .adm-popover-arrow {
-    left: 12px;
-  }
-  &-placement-bottomRight .adm-popover-arrow {
-    right: 12px;
-  }
-
-  &-placement-left,
-  &-placement-leftTop,
-  &-placement-leftBottom {
-    padding-right: var(--arrow-size);
-    .adm-popover-arrow {
-      right: 0;
-      --arrow-icon-rotate: 270deg;
-    }
-  }
-  &-placement-left .adm-popover-arrow {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  &-placement-leftTop .adm-popover-arrow {
-    top: 12px;
-  }
-  &-placement-leftBottom .adm-popover-arrow {
-    bottom: 12px;
-  }
-
   &-inner {
     background-color: var(--background);
     background-clip: padding-box;
@@ -123,6 +42,7 @@
     box-shadow: 0 0 30px 0 rgba(51, 51, 51, 0.2);
     font-size: 15px;
     min-width: 32px;
+    max-width: calc(100vw - 24px);
     overflow-y: hidden;
     &-content {
       padding: var(--content-padding);

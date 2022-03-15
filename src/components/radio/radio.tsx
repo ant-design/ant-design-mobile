@@ -7,6 +7,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { CheckIcon } from '../checkbox/check-icon'
 import { devWarning } from '../../utils/dev-log'
 import { isDev } from '../../utils/is-dev'
+import { NativeInput } from '../checkbox/native-input'
 
 const classPrefix = `adm-radio`
 
@@ -35,7 +36,7 @@ export const Radio: FC<RadioProps> = p => {
     value: props.checked,
     defaultValue: props.defaultChecked,
     onChange: props.onChange,
-  })
+  }) as [boolean, (v: boolean) => void]
   let disabled = props.disabled
 
   const { value } = props
@@ -90,16 +91,10 @@ export const Radio: FC<RadioProps> = p => {
         [`${classPrefix}-block`]: props.block,
       })}
     >
-      <input
+      <NativeInput
         type='radio'
         checked={checked}
-        onChange={e => {
-          setChecked(e.target.checked)
-        }}
-        onClick={e => {
-          e.stopPropagation()
-          e.nativeEvent.stopImmediatePropagation()
-        }}
+        onChange={setChecked}
         disabled={disabled}
         id={props.id}
       />

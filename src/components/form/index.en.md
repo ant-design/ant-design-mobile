@@ -74,8 +74,6 @@ const validateMessages = {
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------- |
 | label                                              | Label name                                                                                                                                                                      | `ReactNode`                                   | -                                                                     |
 | help                                               | Prompt text                                                                                                                                                                     | `ReactNode`                                   | -                                                                     |
-| description                                        | The description area in the lower middle of the form item.                                                                                                                      | `ReactNode`                                   | -                                                                     |
-| extra                                              | The right area of the form item.                                                                                                                                                | `ReactNode`                                   | -                                                                     |
 | required                                           | Whether it is required                                                                                                                                                          | `boolean`                                     | `false`（if `rules` is set, it would be judged according to `rules`） |
 | disabled                                           | Whether it is disabled                                                                                                                                                          | `boolean`                                     | `false`                                                               |
 | noStyle                                            | No styles, only use field management                                                                                                                                            | `boolean`                                     | `false`                                                               |
@@ -83,8 +81,6 @@ const validateMessages = {
 | layout                                             | Layout mode                                                                                                                                                                     | `'vertical' \| 'horizontal'`                  | The `layout` of parent Form                                           |
 | childElementPosition <Experimental></Experimental> | Position of the widget.                                                                                                                                                         | `'normal' \| 'right'`                         | `'normal'`                                                            |
 | hasFeedback                                        | Whether to show error feedback                                                                                                                                                  | `boolean`                                     | `true`                                                                |
-| arrow                                              | Whether to show the arrow icon on the right side                                                                                                                                | `boolean \| ReactNode`                        | -                                                                     |
-| onClick                                            | Trigger when item get clicked                                                                                                                                                   | `(e: React.MouseEvent) => void`               | -                                                                     |
 | dependencies                                       | Set the dependency field. See below                                                                                                                                             | `NamePath[]`                                  | -                                                                     |
 | valuePropName                                      | Props of children node, for example, the prop of Switch is 'checked'. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps` | `string`                                      | `value`                                                               |
 | name                                               | Field name, support array                                                                                                                                                       | `NamePath`                                    | -                                                                     |
@@ -94,6 +90,10 @@ const validateMessages = {
 | validateTrigger                                    | When to validate the value of children node                                                                                                                                     | `string \| string[]`                          | `onChange`                                                            |
 | shouldUpdate                                       | Custom field update logic. See below                                                                                                                                            | `boolean \| (prevValue, curValue) => boolean` | `false`                                                               |
 | initialValue                                       | Config sub default value. Form `initialValues` get higher priority when conflict.                                                                                               | `any`                                         | -                                                                     |
+
+The layout of Form.Item is based on List.Item. So it also supports these props of [List.Item](./list#listitem):
+
+`onClick` `extra` `clickable` `arrow` `description`
 
 A control wrapped by `Form.Item` with the `name` property set, the form control will **automatically add** `value` (or other properties specified by `valuePropName`) `onChange` (or other properties specified by `trigger`), data synchronization will be taken over by Form. So if you set a `name` property on `Form.Item`, **make sure its `children` is a valid `ReactElement` control** and can accept the `value' mentioned above ` and `onChange` properties (or other properties specified), for example:
 
@@ -181,6 +181,21 @@ When `shouldUpdate` is a function, it will be called by form values update. Prov
 </Form.Item>
 ```
 
+### messageVariables
+
+You can modify the default verification information of Form.Item through `messageVariables`.
+
+```jsx
+<Form>
+  <Form.Item messageVariables={{ another: 'good' }} label="user">
+    <Input />
+  </Form.Item>
+  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
+    <Input />
+  </Form.Item>
+</Form>
+```
+
 ## Custom field
 
 Customized or third-party form controls can be used in Form, too. Controls must follow these conventions:
@@ -213,20 +228,37 @@ You can use `Form.Header` to group form items.
 
 <code src="./demos/demo-subscribe.tsx"></code>
 
-### messageVariables
+## Form.Array <Experimental></Experimental>
 
-You can modify the default verification information of Form.Item through `messageVariables`.
+Provides array management for fields.
 
-```jsx
-<Form>
-  <Form.Item messageVariables={{ another: 'good' }} label="user">
-    <Input />
-  </Form.Item>
-  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
-    <Input />
-  </Form.Item>
-</Form>
-```
+| Name         | Description                                                                       | Type                                                                          | Default |
+| ------------ | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------- |
+| name         | Field name, support array.                                                        | `NamePath[]`                                                                  | -       |
+| children     | Render function.                                                                  | `(fields: FormArrayField[], operation: FormArrayOperation) => ReactElement[]` | -       |
+| renderHeader | Render the header of each field.                                                  | `(field: FormArrayField, operation: FormArrayOperation) => ReactNode`         | -       |
+| renderAdd    | Render the content of add button.                                                 | `() => ReactNode`                                                             | -       |
+| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict. | `any[]`                                                                       | -       |
+
+### FormArrayField
+
+| Name  | Description      | Type     |
+| ----- | ---------------- | -------- |
+| index | The array index. | `number` |
+| key   | The unique key.  | `number` |
+
+### FormArrayOperation
+
+The operation functions for Form.Array.
+
+| Name   | Description     | Type                       |
+| ------ | --------------- | -------------------------- |
+| add    | Add a field.    | `(initValue: any) => void` |
+| remove | Remove a field. | `(index: number) => void`  |
+
+### Demo
+
+<code src="./demos/demo-array.tsx"></code>
 
 ## Some Common Type Definitions
 
@@ -243,3 +275,28 @@ You can modify the default verification information of Form.Item through `messag
 | touched    | Whether is operated      | `boolean`    |
 | validating | Whether is in validating | `boolean`    |
 | value      | Field value              | `any`        |
+
+### Rule
+
+Rule supports a config object, or a function returning config object:
+
+```tsx
+type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
+```
+
+| Name            | Description                                                                                                                            | Type                       |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| defaultField    | Validate rule for all array elements, valid when `type` is `array`                                                                     | `rule`                     |
+| enum            | Match enum value. You need to set `type` to `enum` to enable this                                                                      | `any[]`                    |
+| len             | Length of string, number, array                                                                                                        | `number`                   |
+| max             | `type` required: max length of `string`, `number`, `array`                                                                             | `number`                   |
+| message         | Error message. Will auto generate by [template](#validatemessages) if not provided                                                     | `string`                   |
+| min             | `type` required: min length of `string`, `number`, `array`                                                                             | `number`                   |
+| pattern         | Regex pattern                                                                                                                          | `RegExp`                   |
+| required        | Required field                                                                                                                         | `boolean`                  |
+| transform       | Transform value to the rule before validation                                                                                          | `(value) => any`           |
+| type            | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | `string`                   |
+| validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item                                                      | `string \| string[]`       |
+| validator       | Customize validation rule. Accept Promise as return. See [example](#custom-field)                                                      | `(rule, value) => Promise` |
+| warningOnly     | Warning only. Not block form submit                                                                                                    | `boolean`                  |
+| whitespace      | Failed if only has whitespace, only work with `type: 'string'` rule                                                                    | `boolean`                  |

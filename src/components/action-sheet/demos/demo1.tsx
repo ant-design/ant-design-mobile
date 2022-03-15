@@ -3,7 +3,7 @@ import { ActionSheet, Button, Dialog, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import type {
   Action,
-  ActionSheetRef,
+  ActionSheetShowHandler,
 } from 'antd-mobile/es/components/action-sheet'
 
 const actions: Action[] = [
@@ -109,7 +109,7 @@ function Events() {
 
 // 指令式
 function Imperative() {
-  const handler = useRef<ActionSheetRef>()
+  const handler = useRef<ActionSheetShowHandler>()
   const actions: Action[] = [
     {
       text: '复制',

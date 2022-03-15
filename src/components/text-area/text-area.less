@@ -3,6 +3,9 @@
   --color: var(--adm-color-text);
   --placeholder-color: var(--adm-color-light);
   --disabled-color: var(--adm-color-weak);
+  --text-align: left;
+  --count-text-align: right;
+
   width: 100%;
   max-width: 100%;
   max-height: 100%;
@@ -27,6 +30,7 @@
   outline: none;
   appearance: none;
   min-height: 1.5em;
+  text-align: var(--text-align);
 
   &::placeholder {
     color: var(--placeholder-color);
@@ -62,7 +66,7 @@
 }
 
 .adm-text-area-count {
-  text-align: right;
+  text-align: var(--count-text-align);
   color: var(--adm-color-weak);
   font-size: 17px;
   padding-top: 8px;

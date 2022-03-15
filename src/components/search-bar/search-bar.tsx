@@ -71,7 +71,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
 
   const renderCancelButton = () => {
     let isShowCancel = false
-    const showCancelButton = props.showCancelButton
+
     if (typeof props.showCancelButton === 'function') {
       isShowCancel = props.showCancelButton(hasFocus, value)
     } else {

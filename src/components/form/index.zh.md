@@ -74,8 +74,6 @@ const validateMessages = {
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------- | -------------------------------------------------- |
 | label                                              | 标签名                                                                                                       | `ReactNode`                                   | -                                                  |
 | help                                               | 提示文本                                                                                                     | `ReactNode`                                   | -                                                  |
-| description                                        | 表单项下方区域                                                                                               | `ReactNode`                                   | -                                                  |
-| extra                                              | 表单项右侧区域                                                                                               | `ReactNode`                                   | -                                                  |
 | required                                           | 是否必选                                                                                                     | `boolean`                                     | `false`（如有设置 `rules`，则会根据 `rules` 判断） |
 | disabled                                           | 是否禁用                                                                                                     | `boolean`                                     | `false`                                            |
 | noStyle                                            | 不使用样式，只使用字段管理                                                                                   | `boolean`                                     | `false`                                            |
@@ -83,8 +81,6 @@ const validateMessages = {
 | layout                                             | 布局模式                                                                                                     | `'vertical' \| 'horizontal'`                  | 父级 Form 的 `layout`                              |
 | childElementPosition <Experimental></Experimental> | 表单控件部分的位置                                                                                           | `'normal' \| 'right'`                         | `'normal'`                                         |
 | hasFeedback                                        | 是否展示错误反馈                                                                                             | `boolean`                                     | `true`                                             |
-| arrow                                              | 是否展示右侧箭头                                                                                             | `boolean \| ReactNode`                        | -                                                  |
-| onClick                                            | 点击时触发                                                                                                   | `(e: React.MouseEvent) => void`               | -                                                  |
 | dependencies                                       | 设置依赖字段，说明见下                                                                                       | `NamePath[]`                                  | -                                                  |
 | valuePropName                                      | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | `string`                                      | `value`                                            |
 | name                                               | 字段名，支持数组                                                                                             | `NamePath`                                    | -                                                  |
@@ -94,6 +90,10 @@ const validateMessages = {
 | validateTrigger                                    | 设置字段校验的时机                                                                                           | `string \| string[]`                          | `onChange`                                         |
 | shouldUpdate                                       | 自定义字段更新逻辑，说明见下                                                                                 | `boolean \| (prevValue, curValue) => boolean` | `false`                                            |
 | initialValue                                       | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准                                          | `any`                                         | -                                                  |
+
+Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item](./list#listitem) 的以下属性：
+
+`onClick` `extra` `clickable` `arrow` `description`
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会**自动添加** `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，因此，如果你给 `Form.Item` 设置了 `name` 属性，**那么请确保它的 `children` 是一个有效的 `ReactElement` 控件**，并且能够接受上文中提到的 `value` 和 `onChange` 属性（或指定的其他属性），例如：
 
@@ -228,6 +228,38 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 <code src="./demos/demo-subscribe.tsx"></code>
 
+## Form.Array <Experimental></Experimental>
+
+为字段提供数组化管理。
+
+| 属性         | 说明                                                                | 类型                                                                          | 默认值 |
+| ------------ | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------ |
+| name         | 字段名，支持数组                                                    | `NamePath[]`                                                                  | -      |
+| children     | 渲染函数                                                            | `(fields: FormArrayField[], operation: FormArrayOperation) => ReactElement[]` | -      |
+| renderHeader | 渲染每一项的头部内容                                                | `(field: FormArrayField, operation: FormArrayOperation) => ReactNode`         | -      |
+| renderAdd    | 渲染添加按钮的文案                                                  | `() => ReactNode`                                                             | -      |
+| initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | `any[]`                                                                       | -      |
+
+### FormArrayField
+
+| 属性  | 说明                | 类型     |
+| ----- | ------------------- | -------- |
+| index | 当前 Field 是第几项 | `number` |
+| key   | 唯一标识            | `number` |
+
+### FormArrayOperation
+
+Form.Array 渲染表单相关操作函数。
+
+| 属性   | 说明       | 类型                       |
+| ------ | ---------- | -------------------------- |
+| add    | 新增表单项 | `(initValue: any) => void` |
+| remove | 删除表单项 | `(index: number) => void`  |
+
+### 示例
+
+<code src="./demos/demo-array.tsx"></code>
+
 ## 一些通用的类型定义
 
 ### NamePath
@@ -243,3 +275,28 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | touched    | 是否被用户操作过 | `boolean`    |
 | validating | 是否正在校验     | `boolean`    |
 | value      | 字段对应值       | `any`        |
+
+### Rule
+
+Rule 支持接收 object 进行配置，也支持 function 来动态获取 form 的数据：
+
+```tsx
+type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
+```
+
+| 属性            | 说明                                                                                                                                | 类型                       |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| defaultField    | 仅在 `type` 为 `array` 类型时有效，用于指定数组元素的校验规则                                                                       | `rule`                     |
+| enum            | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`）                                                                                   | `any[]`                    |
+| len             | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度                                                         | `number`                   |
+| max             | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度                                     | `number`                   |
+| message         | 错误信息，不设置时会通过[模板](#validatemessages)自动生成                                                                           | `string`                   |
+| min             | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度                                     | `number`                   |
+| pattern         | 正则表达式匹配                                                                                                                      | `RegExp`                   |
+| required        | 是否为必选字段                                                                                                                      | `boolean`                  |
+| transform       | 将字段值转换成目标值后进行校验                                                                                                      | `(value) => any`           |
+| type            | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | `string`                   |
+| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集                                                                      | `string \| string[] `      |
+| validator       | 自定义校验，接收 Promise 作为返回值。[示例](#自定义表单字段)参考                                                                    | `(rule, value) => Promise` |
+| warningOnly     | 仅警告，不阻塞表单提交                                                                                                              | `boolean`                  |
+| whitespace      | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效                                                                        | `boolean`                  |

@@ -64,6 +64,7 @@ export default () => {
       </Form>
 
       <RefDemo />
+      <WarningOnlyDemo />
     </>
   )
 }
@@ -163,5 +164,35 @@ const DatePickerInputItem = () => {
         </Form.Item>
       )}
     </Form.Item>
+  )
+}
+
+const WarningOnlyDemo = () => {
+  const onFinish = (values: any) => {
+    console.log(values)
+  }
+
+  return (
+    <Form
+      onFinish={onFinish}
+      footer={
+        <Button block type='submit' color='primary' size='large'>
+          提交
+        </Button>
+      }
+    >
+      <Form.Header>非阻塞校验</Form.Header>
+      <Form.Item
+        name='email'
+        label='邮箱'
+        rules={[
+          { required: true },
+          { type: 'string', min: 6 },
+          { type: 'email', warningOnly: true },
+        ]}
+      >
+        <Input placeholder='请输入邮箱' />
+      </Form.Item>
+    </Form>
   )
 }

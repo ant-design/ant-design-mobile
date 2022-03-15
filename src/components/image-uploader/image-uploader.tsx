@@ -1,7 +1,7 @@
 import React, { FC, InputHTMLAttributes, useRef, useState } from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
-import ImageViewer, { ImageViewerHandler } from '../image-viewer'
+import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
 import { useIsomorphicLayoutEffect, useMemoizedFn, useUnmount } from 'ahooks'
@@ -37,7 +37,10 @@ export type ImageUploaderProps = {
   deletable?: boolean
   capture?: InputHTMLAttributes<unknown>['capture']
   onPreview?: (index: number, item: ImageUploadItem) => void
-  beforeUpload?: (file: File[]) => Promise<File[]> | File[]
+  beforeUpload?: (
+    file: File,
+    files: File[]
+  ) => Promise<File | null> | File | null
   upload: (file: File) => Promise<ImageUploadItem>
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
   preview?: boolean
@@ -82,6 +85,16 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   const { maxCount, onPreview } = props
 
+  async function processFile(file: File, fileList: File[]) {
+    const { beforeUpload } = props
+
+    let transformedFile: File | null | undefined = file
+
+    transformedFile = await beforeUpload?.(file, fileList)
+
+    return transformedFile
+  }
+
   async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.persist()
     const { files: rawFiles } = e.target
@@ -89,7 +102,13 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     let files = [].slice.call(rawFiles) as File[]
 
     if (props.beforeUpload) {
-      files = await props.beforeUpload(files)
+      const postFiles = files.map(file => {
+        return processFile(file, files)
+      })
+
+      await Promise.all(postFiles).then(filesList => {
+        files = filesList.filter(Boolean) as File[]
+      })
     }
 
     if (files.length === 0) {
@@ -154,7 +173,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     e.target.value = '' // HACK: fix the same file doesn't trigger onChange
   }
 
-  const imageViewerHandlerRef = useRef<ImageViewerHandler | null>(null)
+  const imageViewerHandlerRef = useRef<ImageViewerShowHandler | null>(null)
 
   function previewImage(index: number) {
     imageViewerHandlerRef.current = ImageViewer.Multi.show({

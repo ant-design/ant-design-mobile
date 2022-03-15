@@ -19,8 +19,6 @@ import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { CloseOutline } from 'antd-mobile-icons'
 
-const classPrefix = `adm-modal`
-
 export type ModalProps = {
   afterClose?: () => void
   afterShow?: () => void

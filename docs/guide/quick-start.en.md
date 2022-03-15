@@ -20,9 +20,7 @@ If you are developing an internal project in alibaba group or ant group, please 
 
 ## Compatibility
 
-If you don't do any additional processing, then antd-mobile default compatibility is iOS Safari >= 10 and Chrome >= 51 (that is, ES6 compatibility standard).
-
-With the following babel configuration, maximum compatibility can be achieved for iOS Safari >= 10 and Chrome >= 49:
+We recommend adding the following babel configuration, so that maximum compatibility can be achieved (iOS Safari >= 10 and Chrome >= 49):
 
 ```json
 {

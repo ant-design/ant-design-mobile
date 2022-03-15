@@ -99,20 +99,21 @@ describe('Radio.Group', () => {
         </Radio>
       </Radio.Group>
     )
-    const { container } = render(<Component />)
-    const [apple, orange, banana] = Array.from(
-      container.querySelectorAll('input')
-    )
-    expect(apple).not.toBeChecked()
-    expect(orange).toBeChecked()
-    expect(banana).not.toBeChecked()
 
-    userEvent.click(apple)
-    userEvent.click(orange)
-    userEvent.click(banana)
+    const { container, getByText } = render(<Component />)
 
-    expect(apple).not.toBeChecked()
-    expect(orange).toBeChecked()
-    expect(banana).not.toBeChecked()
+    let inputs = container.querySelectorAll('input')
+    expect(inputs.item(0)).not.toBeChecked()
+    expect(inputs.item(1)).toBeChecked()
+    expect(inputs.item(2)).not.toBeChecked()
+
+    userEvent.click(getByText('苹果'))
+    userEvent.click(getByText('橘子'))
+    userEvent.click(getByText('香蕉'))
+
+    inputs = container.querySelectorAll('input')
+    expect(inputs.item(0)).not.toBeChecked()
+    expect(inputs.item(1)).toBeChecked()
+    expect(inputs.item(2)).not.toBeChecked()
   })
 })

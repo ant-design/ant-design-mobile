@@ -4,23 +4,35 @@
 
 <code src="./demos/demo2.tsx"></code>
 
+<code src="./demos/demo3.tsx" debug></code>
+
 ## Popover
 
 ### Props
 
-| Name            | Description                                                                                  | Type                                                                                                                                                             | Default               |
-| --------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| children        | The element that triggered the popover                                                       | `React.ReactElement`                                                                                                                                             | -                     |
-| placement       | The position of the Popover                                                                  | `'top' \| 'left' \| 'right' \| 'bottom' \| 'topLeft' \| 'topRight' \| 'bottomLeft' \| 'bottomRight' \| 'leftTop' \| 'leftBottom' \| 'rightTop' \| 'rightBottom'` | `'top'`               |
-| defaultVisible  | Whether to show or hide by default                                                           | `boolean`                                                                                                                                                        | `false`               |
-| visible         | Whether to display pop-up content in controlled mode                                         | `boolean`                                                                                                                                                        | -                     |
-| onVisibleChange | Callback when the visible prop is changed                                                    | `(visible: boolean) => void`                                                                                                                                     | -                     |
-| trigger         | Event to trigger                                                                             | `'click'`                                                                                                                                                        | -                     |
-| getContainer    | The floating layer renders the parent node, which would be rendered on the `body` by default | `() => HTMLElement`                                                                                                                                              | `() => document.body` |
-| destroyOnHide   | When hiding, whether to destroy the content of `tooltip`                                     | `boolean`                                                                                                                                                        | `false`               |
-| content         | The content of the Popover                                                                   | `React.ReactNode`                                                                                                                                                | -                     |
-| mode            | Set bright color mode or black mode                                                          | `'light' \| 'dark'`                                                                                                                                              | `'light'`             |
-| stopPropagation | Stop the propagation of some events.                                                         | `PropagationEvent[]`                                                                                                                                             | `['click']`           |
+| Name            | Description                                                                                  | Type                                                                                                                                                                 | Default               |
+| --------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| children        | The element that triggered the popover                                                       | `React.ReactElement`                                                                                                                                                 | -                     |
+| placement       | The position of the Popover                                                                  | `'top' \| 'top-start' \| 'top-end' \| 'right' \| 'right-start' \| 'right-end' \| 'bottom' \| 'bottom-start' \| 'bottom-end' \| 'left' \| 'left-start' \| 'left-end'` | `'top'`               |
+| defaultVisible  | Whether to show or hide by default                                                           | `boolean`                                                                                                                                                            | `false`               |
+| visible         | Whether to display pop-up content in controlled mode                                         | `boolean`                                                                                                                                                            | -                     |
+| onVisibleChange | Callback when the visible prop is changed                                                    | `(visible: boolean) => void`                                                                                                                                         | -                     |
+| trigger         | Event to trigger                                                                             | `'click'`                                                                                                                                                            | -                     |
+| getContainer    | The floating layer renders the parent node, which would be rendered on the `body` by default | `() => HTMLElement`                                                                                                                                                  | `() => document.body` |
+| destroyOnHide   | When hiding, whether to destroy the content of `tooltip`                                     | `boolean`                                                                                                                                                            | `false`               |
+| content         | The content of the Popover                                                                   | `React.ReactNode`                                                                                                                                                    | -                     |
+| mode            | Set bright color mode or black mode                                                          | `'light' \| 'dark'`                                                                                                                                                  | `'light'`             |
+| stopPropagation | Stop the propagation of some events.                                                         | `PropagationEvent[]`                                                                                                                                                 | `['click']`           |
+
+Prior to version 5.5.0, the optional values for `placement` were:
+
+`top left right bottom topLeft topRight bottomLeft bottomRight leftTop leftBottom rightTop rightBottom`
+
+In 5.5.0 and later versions, the writing of `placement` has undergone some adjustments, becoming:
+
+`top top-start top-end right right-start right-end bottom bottom-start bottom-end left left-start left-end`
+
+In order to maintain compatibility, we still support the use of the old version of the writing method, but if you see the prompt here, please try to use the new version of the writing method.
 
 ### CSS Variables
 

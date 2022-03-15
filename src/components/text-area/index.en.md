@@ -20,9 +20,11 @@ In addition, the following native attributes are supported: `autoComplete` `disa
 
 ### CSS Variables
 
-| Name                | Description                   | Default                  |
-| ------------------- | ----------------------------- | ------------------------ |
-| --font-size         | font size                     | `17px`                   |
-| --color             | font color                    | `var(--adm-color-text)`  |
-| --placeholder-color | `placeholder` font color      | `var(--adm-color-light)` |
-| --disabled-color    | font color in disabled status | `var(--adm-color-weak)`  |
+| Name                | Description                    | Default                  |
+| ------------------- | ------------------------------ | ------------------------ |
+| --font-size         | font size.                     | `17px`                   |
+| --color             | font color.                    | `var(--adm-color-text)`  |
+| --placeholder-color | `placeholder` font color.      | `var(--adm-color-light)` |
+| --disabled-color    | font color in disabled status. | `var(--adm-color-weak)`  |
+| --text-align        | The alignment of text.         | `left`                   |
+| --count-text-align  | The alignment of count text.   | `right`                  |

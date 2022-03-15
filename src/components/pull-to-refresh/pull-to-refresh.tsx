@@ -104,17 +104,24 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       }
 
       const [, y] = state.movement
-      if (state.first) {
-        const element = elementRef.current
-        if (!element) return
-        const scrollParent = getScrollParent(element)
-        if (!scrollParent) return
-        const top =
-          'scrollTop' in scrollParent
-            ? scrollParent.scrollTop
-            : scrollParent.scrollY
-        if (top <= 0 && y > 0) {
-          pullingRef.current = true
+      if (state.first && y > 0) {
+        const target = state.event.target
+        if (!target || !(target instanceof Element)) return
+        let scrollParent = getScrollParent(target)
+        while (true) {
+          if (!scrollParent) return
+          const scrollTop = getScrollTop(scrollParent)
+          if (scrollTop > 0) {
+            return
+          }
+          if (scrollParent instanceof Window) {
+            break
+          }
+          scrollParent = getScrollParent(scrollParent.parentNode as Element)
+        }
+        pullingRef.current = true
+        function getScrollTop(element: Window | Element) {
+          return 'scrollTop' in element ? element.scrollTop : element.scrollY
         }
       }
 
