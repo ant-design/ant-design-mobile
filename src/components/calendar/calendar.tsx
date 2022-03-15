@@ -4,6 +4,7 @@ import React, {
   useMemo,
   useState,
   useImperativeHandle,
+  useCallback,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs, { Dayjs } from 'dayjs'
@@ -83,6 +84,23 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
     setBegin(dateRange[0] ? dayjs(dateRange[0]) : null)
     setEnd(dateRange[1] ? dayjs(dateRange[1]) : null)
   }, [dateRange[0], dateRange[1]])
+
+  const onChange = useCallback(
+    (d: [Dayjs, Dayjs | null]) => {
+      if (props.selectionMode === 'single') {
+        props.onChange?.(d[0].toDate())
+      } else if (props.selectionMode === 'range') {
+        if (d[1]) {
+          props.onChange?.([d[0].toDate(), d[1].toDate()])
+        }
+      }
+      if (!props.value || (d[0] && !d[1] && props.value)) {
+        setBegin(d[0])
+        setEnd(d[1])
+      }
+    },
+    [props.selectionMode, props.onChange, props.value]
+  )
 
   const [current, setCurrent] = useState(() =>
     dayjs(dateRange[0] ?? today).date(1)
@@ -190,27 +208,21 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           onClick={() => {
             if (!props.selectionMode) return
             if (props.selectionMode === 'single') {
-              setBegin(d)
-              setEnd(d)
-              props.onChange?.(d.toDate())
+              onChange([d, d])
             } else if (props.selectionMode === 'range') {
               if (begin !== null && end === null) {
-                if (begin.isSame(d.toDate())) {
+                if (begin.isSame(d.toDate()) && props.onChange) {
                   setBegin(null)
                   setEnd(null)
                 } else {
                   if (d.isBefore(begin)) {
-                    setEnd(begin)
-                    setBegin(d)
-                    props.onChange?.([d.toDate(), begin.toDate()])
+                    onChange([d, begin])
                   } else {
-                    setEnd(d)
-                    props.onChange?.([begin.toDate(), d.toDate()])
+                    onChange([begin, d])
                   }
                 }
               } else {
-                setBegin(d)
-                setEnd(null)
+                onChange([d, null])
               }
             }
             if (!inThisMonth) {
