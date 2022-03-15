@@ -26,7 +26,7 @@ module.exports = {
 }
 ```
 
-<Alert type="error">
+<Alert type="warning">
   即便你使用了 `babel-plugin-import`，你依然需要在入口文件中手动引入 `global` 文件。
 </Alert>
 
