@@ -10,9 +10,11 @@ import {
   PickerValueExtend,
 } from './index'
 import PickerView from '../picker-view'
-import { useColumns } from '../picker-view/use-columns'
+import {
+  generateColumnsExtend,
+  useColumnsAndExtend,
+} from '../picker-view/columns-extend'
 import { useConfig } from '../config-provider'
-import { usePickerValueExtend } from '../picker-view/use-picker-value-extend'
 import { useMemoizedFn } from 'ahooks'
 import SafeArea from '../safe-area'
 
@@ -62,13 +64,12 @@ export const Picker = memo<PickerProps>(p => {
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
-      props.onConfirm?.(val, generateValueExtend(val))
+      const extend = generateColumnsExtend(props.columns, val)
+      props.onConfirm?.(val, extend)
     },
   })
 
-  // TODO: columns generated twice in Picker and PickerView, which can be improved
-  const columns = useColumns(props.columns, value)
-  const generateValueExtend = usePickerValueExtend(columns)
+  const extend = useColumnsAndExtend(props.columns, value)
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
@@ -149,7 +150,7 @@ export const Picker = memo<PickerProps>(p => {
   return (
     <>
       {popupElement}
-      {props.children?.(generateValueExtend(value).items)}
+      {props.children?.(extend.items)}
     </>
   )
 })
