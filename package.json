@@ -9,7 +9,8 @@
     "postinstall": "husky install",
     "test": "jest",
     "test-with-coverage": "jest --coverage",
-    "publish": "npm publish ./lib --registry=https://registry.npmjs.org"
+    "publish": "npm publish ./lib --registry=https://registry.npmjs.org",
+    "publish-alpha": "npm publish ./lib --registry=https://registry.npmjs.org --tag alpha"
   },
   "dependencies": {
     "@floating-ui/dom": "^0.3.1",
