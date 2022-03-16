@@ -28,9 +28,10 @@ export type CalenderRef = {
 }
 
 export type CalendarProps = {
+  onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => string | null | undefined
-  onPageChange?: (year: number, month: number) => void
+  allowClear?: boolean
 } & (
   | {
       selectionMode?: undefined
@@ -56,6 +57,7 @@ export type CalendarProps = {
 const defaultProps = {
   weekStartsOn: 'Sunday',
   defaultValue: null,
+  allowClear: true,
 }
 
 export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
@@ -194,7 +196,20 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           onClick={() => {
             if (!props.selectionMode) return
             const date = d.toDate()
+            if (!inThisMonth) {
+              setCurrent(d.clone().date(1))
+            }
+            function shouldClear() {
+              if (!props.allowClear) return false
+              if (!dateRange) return false
+              const [begin, end] = dateRange
+              return d.isSame(begin, 'date') && d.isSame(end, 'day')
+            }
             if (props.selectionMode === 'single') {
+              if (props.allowClear && shouldClear()) {
+                setDateRange(null)
+                return
+              }
               setDateRange([date, date])
             } else if (props.selectionMode === 'range') {
               if (!dateRange) {
@@ -202,8 +217,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
                 setIntermediate(true)
                 return
               }
-              const [begin, end] = dateRange
-              if (d.isSame(begin, 'date') && d.isSame(end, 'day')) {
+              if (shouldClear()) {
                 setDateRange(null)
                 setIntermediate(false)
                 return
@@ -216,9 +230,6 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
                 setDateRange([date, date])
                 setIntermediate(true)
               }
-            }
-            if (!inThisMonth) {
-              setCurrent(d.clone().date(1))
             }
           }}
         >

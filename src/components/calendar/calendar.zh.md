@@ -15,6 +15,7 @@
 | onPageChange  | 切换月或年时触发                   | `(year: number, month: number) => void`                                                        | -          |
 | weekStartsOn  | 每周以周几作为第一天               | `'Monday' \| 'Sunday'`                                                                         | `'Sunday'` |
 | renderLabel   | 标注信息的渲染函数                 | `(date: Date) => string \| null \| undefined`                                                  | -          |
+| allowClear    | 是否允许再次点击后清除             | `boolean`                                                                                      | `true`     |
 
 ### CSS 变量
 

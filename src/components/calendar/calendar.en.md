@@ -17,6 +17,7 @@
 | onPageChange  | Trigger when changed year or month.                              | `(year: number, month: number) => void`                                                                                              | -          |
 | weekStartsOn  | Week starts on which day.                                        | `'Monday' \| 'Sunday'`                                                                                                               | `'Sunday'` |
 | renderLabel   | The label render function.                                       | `(date: Date) => string \| null \| undefined`                                                                                        | -          |
+| allowClear    | Whether to allow clearing after another click.                   | `boolean`                                                                                                                            | `true`     |
 
 ### CSS Variables
 
