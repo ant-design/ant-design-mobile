@@ -53,8 +53,8 @@ function CascadePickerDemo() {
         onClose={() => {
           setVisible(false)
         }}
-        onConfirm={val => {
-          console.log('onConfirm', val)
+        onConfirm={(val, extend) => {
+          console.log('onConfirm', val, extend.items)
         }}
         onSelect={val => {
           console.log('onSelect', val)

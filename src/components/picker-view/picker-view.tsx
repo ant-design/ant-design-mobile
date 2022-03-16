@@ -1,7 +1,7 @@
 import React, { memo, ReactNode, useCallback, useEffect, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { Wheel } from './wheel'
-import { useColumnsAndExtend } from './columns-extend'
+import { useColumnsExtend } from './columns-extend'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDebounceEffect } from 'ahooks'
 
@@ -58,7 +58,7 @@ export const PickerView = memo<PickerViewProps>(p => {
     }
   }, [props.value, innerValue])
 
-  const extend = useColumnsAndExtend(props.columns, innerValue)
+  const extend = useColumnsExtend(props.columns, innerValue)
   const columns = extend.columns
 
   useDebounceEffect(

@@ -12,7 +12,7 @@ import {
 import PickerView from '../picker-view'
 import {
   generateColumnsExtend,
-  useColumnsAndExtend,
+  useColumnsExtend,
 } from '../picker-view/columns-extend'
 import { useConfig } from '../config-provider'
 import { useMemoizedFn } from 'ahooks'
@@ -69,7 +69,7 @@ export const Picker = memo<PickerProps>(p => {
     },
   })
 
-  const extend = useColumnsAndExtend(props.columns, value)
+  const extend = useColumnsExtend(props.columns, value)
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
