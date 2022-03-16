@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { render, testA11y, fireEvent, waitFor, cleanup } from 'testing'
+import { render, testA11y, fireEvent, waitFor, cleanup, sleep } from 'testing'
 import ActionSheet, { Action } from '../'
 import Button from '../../button'
 import type { ActionSheetProps, ActionSheetShowHandler } from '..'
@@ -157,7 +157,7 @@ describe('ActionSheet', () => {
     await waitFor(() =>
       fireEvent.click(baseElement.querySelectorAll(`.adm-mask-aria-button`)[0])
     )
-
+    await sleep(1000)
     expect(baseElement.querySelectorAll(`.${classPrefix}`)[0]).toBeVisible()
   })
 
