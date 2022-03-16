@@ -1,19 +1,20 @@
 import React, {
   forwardRef,
   ReactNode,
-  useMemo,
   useState,
   useImperativeHandle,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs from 'dayjs'
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import { ArrowLeft } from './arrow-left'
 import { ArrowLeftDouble } from './arrow-left-double'
 import { useConfig } from '../config-provider'
 import isoWeek from 'dayjs/plugin/isoWeek'
-import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
+import { useUpdateEffect } from 'ahooks'
+import { usePropsValue } from '../../utils/use-props-value'
+import { convertValueToRange, DateRange } from './convert'
 
 dayjs.extend(isoWeek)
 
@@ -41,19 +42,20 @@ export type CalendarProps = {
       selectionMode: 'single'
       value?: Date | null
       defaultValue?: Date | null
-      onChange?: (val: Date) => void
+      onChange?: (val: Date | null) => void
     }
   | {
       selectionMode: 'range'
       value?: [Date, Date] | null
       defaultValue?: [Date, Date] | null
-      onChange?: (val: [Date, Date]) => void
+      onChange?: (val: [Date, Date] | null) => void
     }
 ) &
   NativeProps
 
 const defaultProps = {
   weekStartsOn: 'Sunday',
+  defaultValue: null,
 }
 
 export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
@@ -66,26 +68,25 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
     if (item) markItems.unshift(item)
   }
 
-  const dateRange = useMemo<[Date | null, Date | null]>(() => {
-    if (props.selectionMode === 'single') {
-      const value = props.value ?? props.defaultValue ?? null
-      return [value, value]
-    } else if (props.selectionMode === 'range') {
-      return props.value ?? props.defaultValue ?? [null, null]
-    } else {
-      return [null, null]
-    }
-  }, [props.selectionMode, props.value, props.defaultValue])
+  const [dateRange, setDateRange] = usePropsValue<DateRange>({
+    value:
+      props.value === undefined
+        ? undefined
+        : convertValueToRange(props.selectionMode, props.value),
+    defaultValue: convertValueToRange(props.selectionMode, props.defaultValue),
+    onChange: v => {
+      if (props.selectionMode === 'single') {
+        props.onChange?.(v ? v[0] : null)
+      } else if (props.selectionMode === 'range') {
+        props.onChange?.(v)
+      }
+    },
+  })
 
-  const [begin, setBegin] = useState<Dayjs | null>(null)
-  const [end, setEnd] = useState<Dayjs | null>(null)
-  useIsomorphicLayoutEffect(() => {
-    setBegin(dateRange[0] ? dayjs(dateRange[0]) : null)
-    setEnd(dateRange[1] ? dayjs(dateRange[1]) : null)
-  }, [dateRange[0], dateRange[1]])
+  const [intermediate, setIntermediate] = useState(false)
 
   const [current, setCurrent] = useState(() =>
-    dayjs(dateRange[0] ?? today).date(1)
+    dayjs(dateRange ? dateRange[0] : today).date(1)
   )
 
   useUpdateEffect(() => {
@@ -164,13 +165,18 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
     }
     while (cells.length < 6 * 7) {
       const d = iterator
-      const isSelect = (() => {
-        if (!begin) return false
-        if (d.isSame(begin, 'day')) return true
-        if (!end) return false
-        if (d.isSame(end, 'day')) return true
-        return d.isAfter(begin, 'day') && d.isBefore(end, 'day')
-      })()
+      let isSelect = false
+      let isBegin = false
+      let isEnd = false
+      if (dateRange) {
+        const [begin, end] = dateRange
+        isBegin = d.isSame(begin, 'day')
+        isEnd = d.isSame(end, 'day')
+        isSelect =
+          isBegin ||
+          isEnd ||
+          (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
+      }
       const inThisMonth = d.month() === current.month()
       cells.push(
         <div
@@ -181,36 +187,34 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
             inThisMonth && {
               [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
               [`${classPrefix}-cell-selected`]: isSelect,
-              [`${classPrefix}-cell-selected-begin`]:
-                isSelect && d.isSame(begin, 'day'),
-              [`${classPrefix}-cell-selected-end`]:
-                isSelect && (!end || d.isSame(end, 'day')),
+              [`${classPrefix}-cell-selected-begin`]: isBegin,
+              [`${classPrefix}-cell-selected-end`]: isEnd,
             }
           )}
           onClick={() => {
             if (!props.selectionMode) return
+            const date = d.toDate()
             if (props.selectionMode === 'single') {
-              setBegin(d)
-              setEnd(d)
-              props.onChange?.(d.toDate())
+              setDateRange([date, date])
             } else if (props.selectionMode === 'range') {
-              if (begin !== null && end === null) {
-                if (begin.isSame(d.toDate())) {
-                  setBegin(null)
-                  setEnd(null)
-                } else {
-                  if (d.isBefore(begin)) {
-                    setEnd(begin)
-                    setBegin(d)
-                    props.onChange?.([d.toDate(), begin.toDate()])
-                  } else {
-                    setEnd(d)
-                    props.onChange?.([begin.toDate(), d.toDate()])
-                  }
-                }
+              if (!dateRange) {
+                setDateRange([date, date])
+                setIntermediate(true)
+                return
+              }
+              const [begin, end] = dateRange
+              if (d.isSame(begin, 'date') && d.isSame(end, 'day')) {
+                setDateRange(null)
+                setIntermediate(false)
+                return
+              }
+              if (intermediate) {
+                const another = dateRange[0]
+                setDateRange(another > date ? [date, another] : [another, date])
+                setIntermediate(false)
               } else {
-                setBegin(d)
-                setEnd(null)
+                setDateRange([date, date])
+                setIntermediate(true)
               }
             }
             if (!inThisMonth) {
