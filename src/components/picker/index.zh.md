@@ -43,6 +43,30 @@ type PickerValueExtend = {
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
+**请留意，`columns` 属性的类型是二级数组**，第一级对应的是每一列，而第二级对应的是某一列中的每一个选项。因此，下面的这种写法是错误的：
+
+```jsx
+<Picker
+  columns={[
+    { label: 'Foo', value: 'foo' },
+    { label: 'Bar', value: 'bar' },
+  ]}
+/>
+```
+
+需要写成：
+
+```jsx
+<Picker
+  columns={[
+    [
+      { label: 'Foo', value: 'foo' },
+      { label: 'Bar', value: 'bar' },
+    ]
+  ]}
+/>
+```
+
 ### CSS 变量
 
 | 属性                      | 说明                                 | 默认值 | 全局变量 |

@@ -111,6 +111,30 @@ type DatePickerFilter = Partial<
 
 In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 
+**Please note that the type of the `columns` property is a two-level array**, the first level corresponds to each column, and the second level corresponds to each option in a column. Therefore, the following writing is wrong:
+
+```jsx
+<Picker
+  columns={[
+    { label: 'Foo', value: 'foo' },
+    { label: 'Bar', value: 'bar' },
+  ]}
+/>
+```
+
+Need to be written as:
+
+```jsx
+<Picker
+  columns={[
+    [
+      { label: 'Foo', value: 'foo' },
+      { label: 'Bar', value: 'bar' },
+    ]
+  ]}
+/>
+```
+
 ### CSS Variables
 
 Same as `Picker`.
