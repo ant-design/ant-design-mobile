@@ -39,6 +39,13 @@ const CollapsePanelContent: FC<{
   )
   const [{ height }, api] = useSpring(() => ({
     from: { height: 0 },
+    config: {
+      precision: 0.01,
+      mass: 1,
+      tension: 200,
+      friction: 25,
+      clamp: true,
+    },
   }))
 
   useMount(() => {
