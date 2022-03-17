@@ -91,6 +91,25 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       props.onBlur?.()
     }
 
+    const keyboard = props.keyboard
+    const keyboardElement =
+      keyboard &&
+      React.cloneElement(keyboard, {
+        onInput: v => {
+          setValue(value + v)
+          keyboard.props.onInput?.(v)
+        },
+        onDelete: () => {
+          setValue(value.slice(0, -1))
+          keyboard.props.onDelete?.()
+        },
+        visible: hasFocus,
+        onClose: () => {
+          rootRef.current?.blur()
+          keyboard.props.onClose?.()
+        },
+      } as NumberKeyboardProps)
+
     return withNativeProps(
       props,
       <div
@@ -126,19 +145,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             {props.placeholder}
           </div>
         )}
-        {props.keyboard &&
-          React.cloneElement(props.keyboard, {
-            onInput: v => {
-              setValue(value + v)
-            },
-            onDelete: () => {
-              setValue(value.slice(0, -1))
-            },
-            visible: hasFocus,
-            onClose: () => {
-              rootRef.current?.blur()
-            },
-          } as NumberKeyboardProps)}
+        {keyboardElement}
       </div>
     )
   }
