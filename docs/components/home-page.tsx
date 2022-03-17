@@ -290,7 +290,7 @@ export default () => {
 
 const footerGroups = [
   {
-    title: 'Ant Design Moible',
+    title: 'Ant Design Mobile',
     items: [
       {
         title: 'GitHub',
