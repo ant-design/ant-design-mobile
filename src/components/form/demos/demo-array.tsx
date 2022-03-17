@@ -32,9 +32,9 @@ export default () => {
               <AddCircleOutline /> 添加
             </span>
           )}
-          renderHeader={({ index, key }, { remove }) => (
+          renderHeader={({ index }, { remove }) => (
             <>
-              <span>联系人{key + 1}</span>
+              <span>联系人{index + 1}</span>
               <a onClick={() => remove(index)} style={{ float: 'right' }}>
                 删除
               </a>
