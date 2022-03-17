@@ -5,6 +5,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
   ReactElement,
+  useCallback,
 } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -65,11 +66,15 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
     const rootRef = useRef<HTMLDivElement>(null)
     const nativeInputRef = useRef<HTMLInputElement>(null)
 
+    const onFill = useCallback(value => {
+      props.onFill?.(value)
+    }, [])
+
     useEffect(() => {
       if (value.length >= cellLength) {
-        props.onFill?.(value)
+        onFill(value)
       }
-    }, [props.onFill, value, cellLength])
+    }, [onFill, value, cellLength])
 
     const onFocus = () => {
       if (!props.keyboard) {
