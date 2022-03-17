@@ -7,6 +7,6 @@
 | Name        | Description       | Type                                                       | Default |
 | ----------- | ----------------- | ---------------------------------------------------------- | ------- |
 | status      | Status types      | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning'` | -       |
-| title       | Title             | `string`                                                   | -       |
-| description | Description       | `string`                                                   | ''      |
+| title       | Title             | `ReactNode`                                                | -       |
+| description | Description       | `ReactNode`                                                | ''      |
 | icon        | Customized `icon` | `ReactNode`                                                | -       |
