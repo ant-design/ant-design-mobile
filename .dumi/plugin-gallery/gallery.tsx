@@ -20,20 +20,24 @@ const components = ComponentConfig['menus']['zh']['/zh/components'] as [
 const demos = Object.keys(DemosConfig)
 
 const componentToDemoPaths: Record<string, string[]> = {}
+const componentToTitle: Record<string, string> = {}
 
 components.forEach(group => {
   group.children.forEach(item => {
     const keyArrs = item.path.split('/')
     const key = keyArrs[keyArrs.length - 1]
-    componentToDemoPaths[item.title] = demos.filter(val =>
+    componentToDemoPaths[key] = demos.filter(val =>
       val.startsWith(`${key}-demo`)
     )
+    componentToTitle[key] = item.title
   })
 })
 
-export default ({}) => {
+export default props => {
   const [currentDemoIndex, setCurrentDemoIndex] = useState<number | null>(null)
   const [currentComponent, setCurrentComponent] = useState('')
+  const [title, setTitle] = useState('Ant Design Mobile')
+  const { history, match } = props
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -41,6 +45,12 @@ export default ({}) => {
       document.body.style.overflow = ''
     }
   })
+
+  useLayoutEffect(() => {
+    const { component = '' } = match.params
+    setCurrentComponent(component)
+    setTitle(componentToTitle[component] || 'Ant Design Mobile')
+  }, [match.params])
 
   useLayoutEffect(() => {
     if (!currentComponent) {
@@ -73,11 +83,11 @@ export default ({}) => {
         <NavBar
           backArrow={currentDemoIndex !== null}
           onBack={() => {
-            setCurrentComponent('')
+            history.push('/gallery')
           }}
           right={demoSwitcher}
         >
-          {currentComponent || 'Ant Design Mobile'}
+          {title}
         </NavBar>
       </div>
       {currentComponent && currentDemoIndex !== null && (
@@ -114,13 +124,15 @@ export default ({}) => {
           return (
             <List key={group.title} header={group.title}>
               {group.children.map(item => {
-                const demoPaths = componentToDemoPaths[item.title]
+                const keyArrs = item.path.split('/')
+                const key = keyArrs[keyArrs.length - 1]
+                const demoPaths = componentToDemoPaths[key]
                 if (demoPaths && demoPaths.length === 0) return null
                 return (
                   <List.Item
-                    key={item.title}
+                    key={key}
                     onClick={() => {
-                      setCurrentComponent(item.title)
+                      history.push(`/gallery/${key}`)
                     }}
                   >
                     {item.title}
