@@ -5,6 +5,7 @@ const zhCN = mergeLocale(base, {
   common: {
     confirm: '确定',
     cancel: '取消',
+    loading: '加载中……',
   },
   Cascader: {
     placeholder: '请选择',
@@ -38,6 +39,11 @@ const zhCN = mergeLocale(base, {
   },
   Modal: {
     ok: '我知道了',
+  },
+  PullToRefresh: {
+    pulling: '下拉刷新',
+    canRelease: '释放立即刷新',
+    complete: '刷新成功',
   },
 })
 

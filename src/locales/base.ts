@@ -2,6 +2,7 @@ export const base = {
   common: {
     confirm: 'Confirm',
     cancel: 'Cancel',
+    loading: 'Loading...',
   },
   Cascader: {
     placeholder: 'Selecting',
@@ -35,6 +36,11 @@ export const base = {
   },
   Modal: {
     ok: 'OK',
+  },
+  PullToRefresh: {
+    pulling: 'Scroll down to refresh',
+    canRelease: 'Release to refresh immediately',
+    complete: 'Refresh successful',
   },
 }
 
