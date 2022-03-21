@@ -6,6 +6,7 @@ import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import { supportsPassive } from '../../utils/supports-passive'
 import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
+import { useConfig } from '../config-provider'
 import { sleep } from '../../utils/sleep'
 
 const classPrefix = `adm-pull-to-refresh`
@@ -36,7 +37,17 @@ export const defaultProps = {
 }
 
 export const PullToRefresh: FC<PullToRefreshProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const { locale } = useConfig()
+  const props = mergeProps(
+    defaultProps,
+    {
+      refreshingText: locale.common.loading,
+      pullingText: locale.PullToRefresh.pulling,
+      canReleaseText: locale.PullToRefresh.canRelease,
+      completeText: locale.PullToRefresh.complete,
+    },
+    p
+  )
   const headHeight = props.headHeight ?? convertPx(40)
   const threshold = props.threshold ?? convertPx(60)
 
