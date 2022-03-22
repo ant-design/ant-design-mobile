@@ -14,9 +14,11 @@ export default () => {
     80: 80,
     100: 100,
   }
-  const [crtValue, setValue] = useState(20)
+  const [crtValue, setValue] = useState<number | [number, number]>(20)
 
-  const [onAfterChangeValue, setAfterValue] = useState(10)
+  const [onAfterChangeValue, setAfterValue] = useState<
+    number | [number, number]
+  >(10)
 
   const toastValue = (value: number | number[]) => {
     let text = ''
@@ -62,7 +64,7 @@ export default () => {
           marks={marks}
           ticks
           value={crtValue}
-          onChange={(value: number) => {
+          onChange={(value: number | [number, number]) => {
             setValue(value)
           }}
         />
@@ -72,10 +74,7 @@ export default () => {
         title={`拖拽结束监听 (最终拖拽值${onAfterChangeValue})`}
         padding='13px'
       >
-        <Slider
-          step={20}
-          onAfterChange={(value: number) => setAfterValue(value)}
-        />
+        <Slider step={20} onAfterChange={value => setAfterValue(value)} />
       </DemoBlock>
 
       <DemoBlock title='双滑块' padding='13px'>
