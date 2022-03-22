@@ -19,7 +19,7 @@
 | defaultValue  | Default value                                                                                                                                            | `number \| [number, number]`                  | `range ? [0, 0] : 0` |
 | onChange      | Triggered when the slider is dragged, and the current dragged value is passed in as a parameter                                                          | `(value: number \| [number, number]) => void` | -                    |
 | onAfterChange | Consistent with the trigger timing of `touchend`, pass the current value as a parameter                                                                  | `(value: number \| [number, number]) => void` | -                    |
-| icon          | Type of slider                                                                                                                                           | `ReactNode`                                   | -                    |
+| icon          | The icon of slider                                                                                                                                       | `ReactNode`                                   | `null`               |
 
 ### CSS Variables
 

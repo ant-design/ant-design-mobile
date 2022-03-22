@@ -108,16 +108,12 @@ export default () => {
           onAfterChange={toastValue}
         />
       </DemoBlock>
-      <DemoBlock title='自定义滑块类型' padding='13px'>
+      <DemoBlock title='自定义滑块图标' padding='13px'>
         <Slider
           className='my-slider'
           defaultValue={40}
           onAfterChange={toastValue}
-          icon={
-            <div className='my-custom-slier'>
-              <HeartOutline />
-            </div>
-          }
+          icon={<HeartOutline />}
         />
       </DemoBlock>
     </>

@@ -49,13 +49,9 @@ const Thumb: FC<ThumbProps> = props => {
       style={currentPosition()}
       {...bind()}
     >
-      {icon ? (
-        icon
-      ) : (
-        <div className={`${classPrefix}-thumb`}>
-          <ThumbIcon className={`${classPrefix}-thumb-icon`} />
-        </div>
-      )}
+      <div className={`${classPrefix}-thumb`}>
+        {icon ? icon : <ThumbIcon className={`${classPrefix}-thumb-icon`} />}
+      </div>
     </div>
   )
 }
