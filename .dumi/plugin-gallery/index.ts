@@ -6,6 +6,10 @@ export default (api: IApi) => {
       path: '/gallery',
       component: __dirname + '/gallery.tsx',
     })
+    routes.unshift({
+      path: '/gallery/:component',
+      component: __dirname + '/gallery.tsx',
+    })
     return routes
   })
 }
