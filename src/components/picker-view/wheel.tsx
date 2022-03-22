@@ -7,10 +7,11 @@ import { PickerColumnItem, PickerValue } from './index'
 import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { measureCSSLength } from '../../utils/measure-css-length'
+import { PickerProps } from '../picker'
 
 const classPrefix = `adm-picker-view`
 
-interface Props {
+interface Props extends Pick<PickerProps, 'renderLabel'> {
   index: number
   column: PickerColumnItem[]
   value: PickerValue
@@ -19,7 +20,7 @@ interface Props {
 
 export const Wheel = memo<Props>(
   props => {
-    const { value, column } = props
+    const { value, column, renderLabel } = props
     function onSelect(val: PickerValue) {
       props.onSelect(val, props.index)
     }
@@ -188,7 +189,7 @@ export const Wheel = memo<Props>(
                 aria-label={selected ? 'active' : ''}
               >
                 <div className={`${classPrefix}-column-item-label`}>
-                  {item.label}
+                  {renderLabel ? renderLabel(item) : item.label}
                 </div>
               </div>
             )

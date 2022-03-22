@@ -17,6 +17,7 @@ import {
 import { useConfig } from '../config-provider'
 import { useMemoizedFn } from 'ahooks'
 import SafeArea from '../safe-area'
+import { defaultRenderLabel } from './picker-utils'
 
 const classPrefix = `adm-picker`
 
@@ -34,6 +35,7 @@ export type PickerProps = {
   confirmText?: ReactNode
   cancelText?: ReactNode
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
+  renderLabel?: (item: PickerColumnItem) => ReactNode
 } & Pick<
   PopupProps,
   'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
@@ -48,6 +50,7 @@ export type PickerProps = {
 const defaultProps = {
   defaultValue: [],
   closeOnMaskClick: true,
+  renderLabel: defaultRenderLabel,
 }
 
 export const Picker = memo<PickerProps>(p => {
@@ -117,6 +120,7 @@ export const Picker = memo<PickerProps>(p => {
       <div className={`${classPrefix}-body`}>
         <PickerView
           columns={props.columns}
+          renderLabel={props.renderLabel}
           value={innerValue}
           onChange={onChange}
         />
