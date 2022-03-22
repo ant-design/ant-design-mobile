@@ -14,7 +14,7 @@ describe('Input', () => {
 
   test('should works given ref', async () => {
     const ref = createRef<InputRef>()
-    render(<Input ref={ref} value={undefined as any} />)
+    render(<Input ref={ref} />)
     expect(ref.current).toBeDefined()
     expect(ref.current?.nativeElement).toBeDefined()
   })
