@@ -19,16 +19,7 @@ import {
   GetContainer,
   renderToContainer,
 } from '../../utils/render-to-container'
-import {
-  arrow,
-  computePosition,
-  flip,
-  offset,
-  autoUpdate,
-  hide,
-  shift,
-  limitShift,
-} from './temp-floating-ui.min.js'
+import * as tfu from './temp-floating-ui.min.js'
 import { Wrapper } from './wrapper'
 import { useShouldRender } from '../../utils/should-render'
 import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
@@ -37,6 +28,17 @@ import { normalizePlacement } from './normalize-placement'
 import { convertPx } from '../../utils/convert-px'
 
 const classPrefix = `adm-popover`
+
+const {
+  arrow,
+  computePosition,
+  flip,
+  offset,
+  autoUpdate,
+  hide,
+  shift,
+  limitShift,
+} = tfu
 
 export type PopoverProps = {
   defaultVisible?: boolean
