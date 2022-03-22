@@ -4,6 +4,7 @@
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
+    "build:bundle": "gulp buildBundles",
     "build-doc": "dumi build",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "postinstall": "husky install",
@@ -86,6 +87,7 @@
     "ts-jest": "27.1.3",
     "ts-node": "10.7.0",
     "typescript": "~4.5.5",
+    "vite": "^2.8.6",
     "webpack": "^5.70.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-stream": "^7.0.0"
@@ -102,6 +104,22 @@
   "files": [
     "./lib"
   ],
+  "exports": {
+    ".": {
+      "node": {
+        "import": "./bundle/antd-mobile.es.js",
+        "require": "./bundle/antd-mobile.cjs.js"
+      },
+      "import": "./es/index.js",
+      "require": "./cjs/index.js",
+      "types": "./es/index.d.ts"
+    },
+    "./es": "./es/index.js",
+    "./cjs": "./cjs/index.js",
+    "./es/": "./es/",
+    "./bundle/": "./bundle/",
+    "./2x": "./2x"
+  },
   "sideEffects": [
     "**/*.css",
     "**/*.less",

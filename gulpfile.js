@@ -8,9 +8,11 @@ const del = require('del')
 const webpackStream = require('webpack-stream')
 const webpack = require('webpack')
 const through = require('through2')
+const vite = require('vite')
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const tsconfig = require('./tsconfig.json')
+const packageJson = require('./package.json')
 
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
 
@@ -95,6 +97,75 @@ function buildDeclaration() {
     .pipe(tsProject)
     .pipe(gulp.dest('lib/es/'))
     .pipe(gulp.dest('lib/cjs/'))
+}
+
+function getViteConfigForPackage({ minify, formats, external }) {
+  const name = 'antd-mobile'
+  return {
+    root: process.cwd(),
+
+    logLevel: 'silent',
+
+    build: {
+      lib: {
+        name,
+        entry: './lib/es/index.js',
+        formats,
+        fileName: format => {
+          const suffix = format === 'umd' ? '' : `.${format}`
+          return minify ? `${name}${suffix}.min.js` : `${name}${suffix}.js`
+        },
+      },
+      minify: minify ? 'terser' : false,
+      rollupOptions: {
+        external,
+        output: {
+          dir: './lib/bundle',
+          exports: 'named',
+          // Rewrite style.css output
+          // assetFileNames: (assetInfo) => {
+          //   if (assetInfo.name == 'style.css') {
+          //     if (minify) return `${name}.min.css`
+          //     return `${name}.css`
+          //   }
+          //   return assetInfo.name;
+          // },
+          globals: {
+            react: 'React',
+          },
+        },
+      },
+    },
+  }
+}
+
+async function buildBundles(cb) {
+  const dependencies = packageJson.dependencies || {}
+  const externals = Object.keys(dependencies)
+
+  const configs = [
+    // umd bundle
+    // getViteConfigForPackage({
+    //   minify: false,
+    //   formats: ['umd'],
+    //   external: ['react'],
+    // }),
+    // // umd bundle (minified)
+    // getViteConfigForPackage({
+    //   minify: true,
+    //   formats: ['umd'],
+    //   external: ['react'],
+    // }),
+    // esm/cjs bundle
+    getViteConfigForPackage({
+      minify: false,
+      formats: ['es', 'cjs'],
+      external: ['react', ...externals],
+    }),
+  ]
+
+  await Promise.all(configs.map(config => vite.build(config)))
+  cb && cb()
 }
 
 function umdWebpack() {
@@ -218,6 +289,7 @@ function build2xCSS() {
 }
 
 exports.umdWebpack = umdWebpack
+exports.buildBundles = buildBundles
 
 exports.default = gulp.series(
   clean,
@@ -229,5 +301,5 @@ exports.default = gulp.series(
   copyMetaFiles,
   generatePackageJSON,
   gulp.series(create2xFolder, build2xCSS),
-  gulp.parallel(umdWebpack)
+  gulp.parallel(umdWebpack, buildBundles)
 )
