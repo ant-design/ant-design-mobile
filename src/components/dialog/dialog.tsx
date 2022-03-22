@@ -56,9 +56,9 @@ export const Dialog: FC<DialogProps> = p => {
     scale: props.visible ? 1 : 0.8,
     opacity: props.visible ? 1 : 0,
     config: {
-      mass: 1,
+      mass: 1.2,
       tension: 200,
-      friction: 30,
+      friction: 25,
       clamp: true,
     },
     onStart: () => {
