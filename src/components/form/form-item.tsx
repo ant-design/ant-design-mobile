@@ -147,11 +147,16 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       {label}
       {requiredMark}
       {help && (
-        <span className={`${classPrefix}-label-help`}>
-          <Popover content={help} mode='dark' trigger='click'>
+        <Popover content={help} mode='dark' trigger='click'>
+          <span
+            className={`${classPrefix}-label-help`}
+            onClick={e => {
+              e.preventDefault()
+            }}
+          >
             <QuestionCircleOutline />
-          </Popover>
-        </span>
+          </span>
+        </Popover>
       )}
     </label>
   ) : null
