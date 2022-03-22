@@ -36,11 +36,12 @@ In addition, the following native attributes are supported: `maxLength` `minLeng
 
 ### Ref
 
-| Name  | Description                  | Type         |
-| ----- | ---------------------------- | ------------ |
-| clear | Clear the input content      | `() => void` |
-| focus | Let the input box get focus  | `() => void` |
-| blur  | Let the input box lose focus | `() => void` |
+| Name          | Description                  | Type                         |
+| ------------- | ---------------------------- | ---------------------------- |
+| clear         | Clear the input content      | `() => void`                 |
+| focus         | Let the input box get focus  | `() => void`                 |
+| blur          | Let the input box lose focus | `() => void`                 |
+| nativeElement | Native input element         | `HtmlInputElement` \| `null` |
 
 ## FAQ
 
