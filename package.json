@@ -4,7 +4,6 @@
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
-    "build:bundle": "gulp buildBundles",
     "build-doc": "dumi build",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "postinstall": "husky install",
