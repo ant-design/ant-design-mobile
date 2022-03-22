@@ -100,7 +100,7 @@ function buildDeclaration() {
 }
 
 function getViteConfigForPackage({ minify, formats, external }) {
-  const name = 'antd-mobile'
+  const name = packageJson.name
   return {
     root: process.cwd(),
 
@@ -122,14 +122,6 @@ function getViteConfigForPackage({ minify, formats, external }) {
         output: {
           dir: './lib/bundle',
           exports: 'named',
-          // Rewrite style.css output
-          // assetFileNames: (assetInfo) => {
-          //   if (assetInfo.name == 'style.css') {
-          //     if (minify) return `${name}.min.css`
-          //     return `${name}.css`
-          //   }
-          //   return assetInfo.name;
-          // },
           globals: {
             react: 'React',
           },
@@ -144,18 +136,6 @@ async function buildBundles(cb) {
   const externals = Object.keys(dependencies)
 
   const configs = [
-    // umd bundle
-    // getViteConfigForPackage({
-    //   minify: false,
-    //   formats: ['umd'],
-    //   external: ['react'],
-    // }),
-    // // umd bundle (minified)
-    // getViteConfigForPackage({
-    //   minify: true,
-    //   formats: ['umd'],
-    //   external: ['react'],
-    // }),
     // esm/cjs bundle
     getViteConfigForPackage({
       minify: false,
