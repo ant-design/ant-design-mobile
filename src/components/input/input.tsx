@@ -19,6 +19,7 @@ export type InputProps = Pick<
   | 'maxLength'
   | 'minLength'
   | 'autoComplete'
+  | 'autoFocus'
   | 'pattern'
   | 'inputMode'
   | 'type'
@@ -143,6 +144,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         max={props.max}
         min={props.min}
         autoComplete={props.autoComplete}
+        autoFocus={props.autoFocus}
         pattern={props.pattern}
         inputMode={props.inputMode}
         type={props.type}

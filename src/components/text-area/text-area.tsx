@@ -18,6 +18,7 @@ export type TextAreaProps = Pick<
     HTMLTextAreaElement
   >,
   | 'autoComplete'
+  | 'autoFocus'
   | 'disabled'
   | 'readOnly'
   | 'onFocus'
@@ -153,6 +154,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             props.onCompositionEnd?.(e)
           }}
           autoComplete={props.autoComplete}
+          autoFocus={props.autoFocus}
           disabled={props.disabled}
           readOnly={props.readOnly}
           onFocus={props.onFocus}
