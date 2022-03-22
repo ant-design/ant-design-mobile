@@ -2,7 +2,7 @@ import { show } from './show'
 import { ModalProps } from './index'
 import { ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
-import { useConfig } from '../config-provider'
+import { getDefaultConfig } from '../config-provider'
 
 export type ModalConfirmProps = Omit<
   ModalProps,
@@ -20,7 +20,7 @@ const defaultProps = {
 }
 
 export function confirm(p: ModalConfirmProps) {
-  const { locale } = useConfig()
+  const { locale } = getDefaultConfig()
   const props = mergeProps(
     defaultProps,
     {
