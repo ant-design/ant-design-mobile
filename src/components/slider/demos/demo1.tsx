@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Slider, Toast } from 'antd-mobile'
+import { HeartOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 
 import './demo1.less'
@@ -106,6 +107,18 @@ export default () => {
           className='my-slider'
           defaultValue={40}
           onAfterChange={toastValue}
+        />
+      </DemoBlock>
+      <DemoBlock title='自定义滑块类型' padding='13px'>
+        <Slider
+          className='my-slider'
+          defaultValue={40}
+          onAfterChange={toastValue}
+          icon={
+            <div className='my-custom-slier'>
+              <HeartOutline />
+            </div>
+          }
         />
       </DemoBlock>
     </>
