@@ -51,7 +51,7 @@ export type FormItemProps = Pick<
     hidden?: boolean
     layout?: FormLayout
     childElementPosition?: 'normal' | 'right'
-    children: ChildrenType
+    children?: ChildrenType
   } & NativeProps
 
 interface MemoInputProps {
