@@ -22,6 +22,7 @@ export type SliderProps = {
   ticks?: boolean
   disabled?: boolean
   range?: boolean
+  icon?: React.ReactNode
   onChange?: (value: SliderValue) => void
   onAfterChange?: (value: SliderValue) => void
 } & NativeProps<'--fill-color'>
@@ -37,7 +38,7 @@ const defaultProps = {
 
 export const Slider: FC<SliderProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const { min, max, disabled, marks, ticks, step } = props
+  const { min, max, disabled, marks, ticks, step, icon } = props
 
   function sortValue(val: [number, number]): [number, number] {
     return val.sort((a, b) => a - b)
@@ -141,6 +142,7 @@ export const Slider: FC<SliderProps> = p => {
   const renderThumb = (index: number) => {
     return (
       <Thumb
+        icon={icon}
         key={index}
         value={sliderValue[index]}
         min={min}
