@@ -75,3 +75,29 @@ Same as Popover.
 ### Ref
 
 Same as Popover.
+
+## FAQ
+
+### Why the Popover not show in some cases?
+
+Click Popover will trigger two click events, one for label, one for input.
+
+```jsx
+<label>
+  <Popover content='hello' trigger='click'>
+    <span>label</span>
+  </Popover>
+  <input />
+</label>
+```
+
+Default behavior can be prevented with `e.preventDefault()`.
+
+```jsx
+<label>
+  <Popover content='hello' trigger='click'>
+    <span onClick={e => e.preventDefault()}>label</span>
+  </Popover>
+  <input />
+</label>
+```
