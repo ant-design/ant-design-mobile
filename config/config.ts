@@ -150,6 +150,10 @@ const config: IConfig = {
         path: '/guide/import-on-demand',
       },
       {
+        title: 'Internationalization',
+        path: '/guide/i18n',
+      },
+      {
         title: 'About Experimental',
         path: '/zh/guide/what-is-experimental',
       },
@@ -160,10 +164,6 @@ const config: IConfig = {
       {
         title: 'SSR (Experimental)',
         path: '/guide/ssr',
-      },
-      {
-        title: 'Internationalization',
-        path: '/guide/i18n',
       },
     ],
     '/zh/guide': [
@@ -192,6 +192,10 @@ const config: IConfig = {
         path: '/zh/guide/import-on-demand',
       },
       {
+        title: '国际化',
+        path: '/zh/guide/i18n',
+      },
+      {
         title: '关于试验性',
         path: '/zh/guide/what-is-experimental',
       },
@@ -202,10 +206,6 @@ const config: IConfig = {
       {
         title: '服务端渲染 / SSR（试验性）',
         path: '/zh/guide/ssr',
-      },
-      {
-        title: '国际化',
-        path: '/zh/guide/i18n',
       },
     ],
     '/components': [
