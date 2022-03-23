@@ -82,7 +82,9 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     blur: () => {
       nativeInputRef.current?.blur()
     },
-    nativeElement: nativeInputRef.current,
+    get nativeElement() {
+      return nativeInputRef.current
+    },
   }))
 
   const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
