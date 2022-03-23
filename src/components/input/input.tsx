@@ -63,6 +63,7 @@ export type InputRef = {
   clear: () => void
   focus: () => void
   blur: () => void
+  nativeElement: HTMLInputElement | null
 }
 
 export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
@@ -80,6 +81,9 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     },
     blur: () => {
       nativeInputRef.current?.blur()
+    },
+    get nativeElement() {
+      return nativeInputRef.current
     },
   }))
 
