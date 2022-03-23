@@ -4,6 +4,7 @@ import { base } from './base'
 const typeTemplate = '${label} یک ${type} معتبر نیست'
 
 const faIR = mergeLocale(base, {
+  locale: 'fa-IR',
   common: {
     confirm: 'تایید',
     cancel: 'لغو',

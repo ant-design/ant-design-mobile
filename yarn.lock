@@ -4290,6 +4290,7 @@ __metadata:
     less: ^4.1.2
     lodash: ^4.17.21
     lorem-ipsum: ^2.0.4
+    mockdate: ^3.0.5
     postcss: ^8.4.8
     postcss-px-multiple: ^0.1.5
     postcss-pxtorem: ^6.0.0
@@ -11098,6 +11099,13 @@ fsevents@^1.2.7:
   bin:
     mkdirp: bin/cmd.js
   checksum: a96865108c6c3b1b8e1d5e9f11843de1e077e57737602de1b82030815f311be11f96f09cce59bd5b903d0b29834733e5313f9301e3ed6d6f6fba2eae0df4298f
+  languageName: node
+  linkType: hard
+
+"mockdate@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "mockdate@npm:3.0.5"
+  checksum: 72b66786d9e072379693f80bf9fb82eb5153c9741030a4294184e3ccaf952d0713fae8966f77780580cf902f8ec7ccc95577b0ad47980d255e2ffb71fc7ca49c
   languageName: node
   linkType: hard
 

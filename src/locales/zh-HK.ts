@@ -2,6 +2,7 @@ import { mergeLocale } from '../utils/merge-locale'
 import { base } from './base'
 
 const zhHK = mergeLocale(base, {
+  locale: 'zh-HK',
   common: {
     confirm: '確定',
     cancel: '取消',

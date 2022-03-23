@@ -2,6 +2,7 @@ import { mergeLocale } from '../utils/merge-locale'
 import { base } from './base'
 
 const zhTW = mergeLocale(base, {
+  locale: 'zh-TW',
   common: {
     confirm: '確定',
     cancel: '取消',
