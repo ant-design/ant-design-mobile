@@ -49,3 +49,29 @@ The return value of the `show` method is a component controller, which contains 
 | close | Function to close the ImageViewer | `() => void` |
 
 If you want to close all ImageViewers created by the `show` method. You can call `ImageViewer.clear()`.
+
+## FAQ
+
+### Why I updated the value of `defaultIndex`, but the image displayed by ImageViewer.Multi did not switch?
+
+ImageViewer.Multi is an [uncontrolled](https://reactjs.org/docs/glossary.html#controlled-vs-uncontrolled-components) component, `defaultIndex` is only read once when the component is loaded, After this, if you change the value of `defaultIndex`, it will not have any effect on the component. Therefore, the following writing method does not have the effect of switching pictures:
+
+```jsx
+<Button
+  onClick={() => {
+    setIndex(i => i + 1)
+  }}
+>
+  Next
+</Button>
+<ImageViewer.Multi
+  images={images}
+  defaultIndex={index}
+  visible={visible}
+  onClose={() => {
+    setVisible(false);
+  }}
+/>
+```
+
+You can use ref for manual manipulation of ImageViewer.Multi, or consider using `ImageViewer.show()`.
