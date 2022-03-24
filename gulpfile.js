@@ -42,16 +42,6 @@ function copyAssets() {
     .pipe(gulp.dest('lib/cjs/assets'))
 }
 
-function tempCopyFloatingUI() {
-  return gulp
-    .src([
-      './src/components/popover/temp-floating-ui.min.js',
-      './src/components/popover/temp-floating-ui.min.d.ts',
-    ])
-    .pipe(gulp.dest('lib/es/components/popover'))
-    .pipe(gulp.dest('lib/cjs/components/popover'))
-}
-
 function buildCJS() {
   return gulp
     .src(['lib/es/**/*.js'])
@@ -225,7 +215,6 @@ exports.default = gulp.series(
   buildCJS,
   gulp.parallel(buildDeclaration, buildStyle),
   copyAssets,
-  tempCopyFloatingUI,
   copyMetaFiles,
   generatePackageJSON,
   gulp.series(create2xFolder, build2xCSS),
