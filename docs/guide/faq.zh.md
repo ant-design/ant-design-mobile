@@ -68,3 +68,10 @@ html {
 ### 关于 React Hot Loader
 
 React Hot Loader 对项目有比较大的侵入性， 而 antd-mobile 中的很多组件（例如 Swiper Tabs Form TabBar SideBar Dropdown Space Steps）并不能和它兼容，而且 React Hot Loader 本身也在 README 中写了推荐大家不要再使用，所以请考虑移除 React Hot Loader 或将其替换为 [React Fast Refresh](https://github.com/facebook/react/issues/16604)。
+
+### 如何在 codesandbox 上写一个复现 demo
+
+codesandbox 是一个浏览器端的沙盒运行环境，支持多种流行的构建模板，可以用于快速原型开发、DEMO 展示、Bug 还原等等。
+
+1. 如果你有 bug 复现，可以参考[demo](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx)
+2. 也可以在[codesandbox](https://codesandbox.io/) 创建一个 sandbox，并在 issue 中 share 这个链接。
