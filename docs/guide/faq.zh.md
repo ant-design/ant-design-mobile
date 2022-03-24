@@ -74,4 +74,4 @@ React Hot Loader 对项目有比较大的侵入性， 而 antd-mobile 中的很�
 codesandbox 是一个浏览器端的沙盒运行环境，支持多种流行的构建模板，可以用于快速原型开发、DEMO 展示、Bug 还原等等。
 
 1. 如果你有 bug 复现，可以参考[demo](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx)
-2. 也可以在[codesandbox](https://codesandbox.io/) 创建一个 sandbox，并在 issue 中 share 这个链接。
+2. 也可以在[codesandbox](https://codesandbox.io/) 创建一个 sandbox, 并准确选择出现 bug 的版本的依赖，最后在 issue 中 share 这个链接。
