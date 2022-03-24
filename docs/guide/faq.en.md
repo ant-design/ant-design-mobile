@@ -76,12 +76,10 @@ Codesandbox is a browser-side sandbox runtime environment that supports a variet
 This is an online codesandbox demo of the simplest antd-mobile.
 
 <iframe
-  src="https://codesandbox.io/s/antd-mobile-snrxr"
+  src="https://codesandbox.io/embed/antd-mobile-snrxr?fontsize=14&hidenavigation=1&theme=dark"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   title="antd-mobile reproduction template"
-/>
-
--
+></iframe>
 
 1. create a CodesandBox
 

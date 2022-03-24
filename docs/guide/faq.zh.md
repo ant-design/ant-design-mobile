@@ -76,12 +76,10 @@ codesandbox 是一个浏览器端的沙盒运行环境，支持多种流行的�
 这是一个最简单的 antd-mobile 的在线 codesandbox 演示。
 
 <iframe
-  src="https://codesandbox.io/s/antd-mobile-snrxr"
+  src="https://codesandbox.io/embed/antd-mobile-snrxr?fontsize=14&hidenavigation=1&theme=dark"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   title="antd-mobile reproduction template"
-/>
-
--
+></iframe>
 
 1. 创建一个 codesandbox
 
