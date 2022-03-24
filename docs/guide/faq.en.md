@@ -73,5 +73,20 @@ React Hot Loader is relatively intrusive to the project, and many components in 
 
 Codesandbox is a browser-side sandbox runtime environment that supports a variety of popular build templates and can be used for rapid prototyping, DEMO presentations, Bug recovery, and more.
 
-1. If you have a bug repetition，you can refer to [demo](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx)。
-2. You can also create a sandbox at [codesandbox](https://codesandbox.io/) and accurately select the bug version of the dependency, and finally share the link in the issue.
+This is an online codesandbox demo of the simplest antd-mobile.
+
+<iframe
+  src="https://codesandbox.io/s/antd-mobile-snrxr"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="antd-mobile reproduction template"
+/>
+
+-
+
+1. create a CodesandBox
+
+   visit https://codesandbox.io/s/antd-mobile-snrxr to create a codesandbox online example
+
+2. To ensure accurate reproduction, make sure that the version of your bug is the same as the antd-mobile version in the CodesandBox dependency.
+
+3. When you're done reliving the code, don't forget to `save` to create a new instance, and then click the Share button appearing in the upper right corner to copy the URL to Issues.
