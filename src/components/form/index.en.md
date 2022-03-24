@@ -238,7 +238,7 @@ Provides array management for fields.
 | children     | Render function.                                                                  | `(fields: FormArrayField[], operation: FormArrayOperation) => ReactElement[]` | -       |
 | renderHeader | Render the header of each field.                                                  | `(field: FormArrayField, operation: FormArrayOperation) => ReactNode`         | -       |
 | renderAdd    | Render the content of add button.                                                 | `() => ReactNode`                                                             | -       |
-| onAdd        | Custom add function.                                                              | `void`                                                                        | -       |
+| onAdd        | Custom add function.                                                              | `(operation: FormArrayOperation) => void`                                     | -       |
 | initialValue | Config sub default value. Form `initialValues` get higher priority when conflict. | `any[]`                                                                       | -       |
 
 ### FormArrayField
