@@ -181,7 +181,6 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     if (!props.trigger) return
 
     function handleClick() {
-      console.log('handleClick')
       setVisible(v => !v)
     }
     targetElement.addEventListener('click', handleClick)
