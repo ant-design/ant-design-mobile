@@ -105,4 +105,4 @@ const esSP = mergeLocale(base, {
   },
 })
 
-export default esSP
+export default esES
