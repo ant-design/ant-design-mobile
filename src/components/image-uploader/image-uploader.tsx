@@ -196,7 +196,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      <Space className={`${classPrefix}-space`} wrap>
+      <Space className={`${classPrefix}-space`} wrap block>
         {value.map((fileItem, index) => (
           <PreviewItem
             key={fileItem.key ?? index}
