@@ -11,9 +11,7 @@ export function renderToContainer(
 ) {
   if (canUseDom) {
     const container = resolveContainer(getContainer)
-    if (container) {
-      return createPortal(node, container)
-    }
+    return createPortal(node, container)
   }
   return node
 }
