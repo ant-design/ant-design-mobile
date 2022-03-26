@@ -9,9 +9,11 @@ export function renderToContainer(
   getContainer: GetContainer,
   node: ReactElement
 ) {
-  if (canUseDom && getContainer) {
+  if (canUseDom) {
     const container = resolveContainer(getContainer)
-    return createPortal(node, container)
+    if (container) {
+      return createPortal(node, container)
+    }
   }
   return node
 }
