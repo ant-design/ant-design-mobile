@@ -35,6 +35,7 @@ import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
 import { DeprecatedPlacement, Placement } from './index'
 import { normalizePlacement } from './normalize-placement'
 import { convertPx } from '../../utils/convert-px'
+import { getDefaultConfig } from 'antd-mobile/es/components/config-provider'
 
 const classPrefix = `adm-popover`
 
@@ -62,7 +63,7 @@ const defaultProps = {
   placement: 'top' as Placement,
   defaultVisible: false,
   stopPropagation: ['click'],
-  getContainer: () => document.body,
+  getContainer: getDefaultConfig().locale.Popover.getContainer,
 }
 
 export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {

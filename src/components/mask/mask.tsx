@@ -8,7 +8,7 @@ import {
   GetContainer,
 } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
-import { useConfig } from '../config-provider'
+import { getDefaultConfig, useConfig } from '../config-provider'
 import { useShouldRender } from '../../utils/should-render'
 import {
   PropagationEvent,
@@ -44,7 +44,7 @@ const defaultProps = {
   color: 'black',
   opacity: 'default',
   disableBodyScroll: true,
-  getContainer: null,
+  getContainer: getDefaultConfig().locale.Mask.getContainer,
   stopPropagation: ['click'],
 }
 

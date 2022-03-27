@@ -15,6 +15,7 @@ import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
+import { getDefaultConfig } from 'antd-mobile/es/components/config-provider'
 
 const classPrefix = `adm-popup`
 
@@ -39,7 +40,7 @@ export type PopupProps = {
 const defaultProps = {
   position: 'bottom',
   visible: false,
-  getContainer: () => document.body,
+  getContainer: getDefaultConfig().locale.Popup.getContainer,
   mask: true,
   stopPropagation: ['click'],
 }

@@ -16,6 +16,7 @@ import {
 import AutoCenter from '../auto-center'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { getDefaultConfig } from '../config-provider'
 
 export type DialogProps = {
   afterClose?: () => void
@@ -45,7 +46,7 @@ const defaultProps = {
   closeOnAction: false,
   closeOnMaskClick: false,
   stopPropagation: ['click'],
-  getContainer: null,
+  getContainer: getDefaultConfig().locale.Dialog.getContainer,
 }
 
 export const Dialog: FC<DialogProps> = p => {

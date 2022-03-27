@@ -14,6 +14,7 @@ import {
 import Mask from '../mask'
 import { Slide } from './slide'
 import { Slides, SlidesRef } from './slides'
+import { getDefaultConfig } from 'antd-mobile/es/components/config-provider'
 
 const classPrefix = `adm-image-viewer`
 
@@ -28,7 +29,7 @@ export type ImageViewerProps = {
 
 const defaultProps = {
   maxZoom: 3,
-  getContainer: null,
+  getContainer: getDefaultConfig().locale.ImageViewer.getContainer,
   visible: false,
 }
 

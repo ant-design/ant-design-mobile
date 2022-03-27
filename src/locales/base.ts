@@ -16,6 +16,7 @@ export const base = {
   },
   Dialog: {
     ok: 'OK',
+    getContainer: null,
   },
   ErrorBlock: {
     default: {
@@ -91,14 +92,31 @@ export const base = {
   },
   Mask: {
     name: 'Mask',
+    getContainer: null,
   },
   Modal: {
     ok: 'OK',
+    getContainer: null,
   },
   PullToRefresh: {
     pulling: 'Scroll down to refresh',
     canRelease: 'Release to refresh immediately',
     complete: 'Refresh successful',
+  },
+  Toast: {
+    getContainer: document.body,
+    duration: 2000,
+    position: 'center',
+    maskClickable: true,
+  },
+  ImageViewer: {
+    getContainer: null,
+  },
+  Popover: {
+    getContainer: document.body,
+  },
+  Popup: {
+    getContainer: document.body,
   },
 }
 

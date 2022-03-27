@@ -9,6 +9,7 @@ import { resolveContainer } from '../../utils/get-container'
 import ReactDOM from 'react-dom'
 import { InternalToast, ToastProps } from './toast'
 import { mergeProps } from '../../utils/with-default-props'
+import { getDefaultConfig } from '../config-provider'
 
 const containers = [] as HTMLDivElement[]
 
@@ -21,10 +22,13 @@ function unmount(container: HTMLDivElement) {
 
 export type ToastShowProps = Omit<ToastProps, 'visible'>
 
+const { duration, position, getContainer, maskClickable } =
+  getDefaultConfig().locale.Toast
 const defaultProps = {
-  duration: 2000,
-  position: 'center',
-  maskClickable: true,
+  duration,
+  position,
+  maskClickable,
+  getContainer,
 }
 
 export type ToastHandler = {
@@ -39,7 +43,7 @@ export function show(p: ToastShowProps | string) {
     typeof p === 'string' ? { content: p } : p
   )
   let timer = 0
-  const { getContainer = () => document.body } = props
+  const { getContainer = getDefaultConfig().locale.Toast.getContainer } = props
   const container = document.createElement('div')
   const bodyContainer = resolveContainer(getContainer)
   bodyContainer.appendChild(container)
