@@ -190,59 +190,62 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       )
     }
 
-    return withStopPropagation(
-      props.stopPropagation,
-      withNativeProps(
-        props,
-        <div
-          className='adm-swipe-action'
-          {...bind()}
-          ref={rootRef}
-          onClickCapture={e => {
-            if (draggingRef.current) {
-              e.stopPropagation()
-              e.preventDefault()
-            }
-          }}
-        >
-          <animated.div className='adm-swipe-action-track' style={{ x }}>
+    return withNativeProps(
+      props,
+      <div
+        className='adm-swipe-action'
+        {...bind()}
+        ref={rootRef}
+        onClickCapture={e => {
+          if (draggingRef.current) {
+            e.stopPropagation()
+            e.preventDefault()
+          }
+        }}
+      >
+        <animated.div className='adm-swipe-action-track' style={{ x }}>
+          {withStopPropagation(
+            props.stopPropagation,
             <div
               className='adm-swipe-action-actions adm-swipe-action-actions-left'
               ref={leftRef}
             >
               {props.leftActions.map(renderAction)}
             </div>
-            <div
-              className='adm-swipe-action-content'
-              onClickCapture={e => {
-                if (x.goal !== 0) {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  api.start({
-                    x: 0,
-                  })
-                }
+          )}
+          <div
+            className='adm-swipe-action-content'
+            onClickCapture={e => {
+              if (x.goal !== 0) {
+                e.preventDefault()
+                e.stopPropagation()
+                api.start({
+                  x: 0,
+                })
+              }
+            }}
+          >
+            <animated.div
+              style={{
+                pointerEvents: x.to(v =>
+                  v !== 0 && x.goal !== 0 ? 'none' : 'unset'
+                ),
               }}
             >
-              <animated.div
-                style={{
-                  pointerEvents: x.to(v =>
-                    v !== 0 && x.goal !== 0 ? 'none' : 'unset'
-                  ),
-                }}
-              >
-                {props.children}
-              </animated.div>
-            </div>
+              {props.children}
+            </animated.div>
+          </div>
+          {withStopPropagation(
+            props.stopPropagation,
             <div
               className='adm-swipe-action-actions adm-swipe-action-actions-right'
               ref={rightRef}
             >
               {props.rightActions.map(renderAction)}
             </div>
-          </animated.div>
-        </div>
-      )
+          )}
+        </animated.div>
+      </div>
     )
   }
 )
