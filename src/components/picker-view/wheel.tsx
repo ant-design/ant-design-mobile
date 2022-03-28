@@ -1,4 +1,4 @@
-import React, { memo, useRef } from 'react'
+import React, { memo, ReactNode, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
@@ -7,19 +7,21 @@ import { PickerColumnItem, PickerValue } from './index'
 import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { measureCSSLength } from '../../utils/measure-css-length'
+import { PickerProps } from '../picker'
 
 const classPrefix = `adm-picker-view`
 
-interface Props {
+type Props = {
   index: number
   column: PickerColumnItem[]
   value: PickerValue
   onSelect: (value: PickerValue, index: number) => void
+  renderLabel: (item: PickerColumnItem) => ReactNode
 }
 
 export const Wheel = memo<Props>(
   props => {
-    const { value, column } = props
+    const { value, column, renderLabel } = props
     function onSelect(val: PickerValue) {
       props.onSelect(val, props.index)
     }
@@ -188,7 +190,7 @@ export const Wheel = memo<Props>(
                 aria-label={selected ? 'active' : ''}
               >
                 <div className={`${classPrefix}-column-item-label`}>
-                  {item.label}
+                  {renderLabel(item)}
                 </div>
               </div>
             )
