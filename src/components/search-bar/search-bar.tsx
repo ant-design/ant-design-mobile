@@ -67,6 +67,9 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
     clear: () => inputRef.current?.clear(),
     focus: () => inputRef.current?.focus(),
     blur: () => inputRef.current?.blur(),
+    get nativeElement() {
+      return inputRef.current?.nativeElement ?? null
+    },
   }))
 
   const renderCancelButton = () => {

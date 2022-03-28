@@ -68,3 +68,23 @@ For the detailed explanation, please refer to:
 ### About React Hot Loader
 
 React Hot Loader is relatively intrusive to the project, and many components in antd-mobile (such as Swiper Tabs Form TabBar SideBar Dropdown Space Steps) are not compatible with it, and React Hot Loader itself is also recommended in the README. Don't use it anymore, so please consider removing React Hot Loader or replacing it with [React Fast Refresh](https://github.com/facebook/react/issues/16604).
+
+### How to write a duplicate demo on CodesandBox
+
+Codesandbox is a browser-side sandbox runtime environment that supports a variety of popular build templates and can be used for rapid prototyping, DEMO presentations, Bug recovery, and more.
+
+This is an online codesandbox demo of the simplest antd-mobile.
+
+<iframe
+  src="https://codesandbox.io/embed/antd-mobile-snrxr?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="antd-mobile reproduction template"
+></iframe>
+
+1. create a CodesandBox
+
+   visit https://codesandbox.io/s/antd-mobile-snrxr to create a codesandbox online example
+
+2. To ensure accurate reproduction, make sure that the version of your bug is the same as the antd-mobile version in the CodesandBox dependency.
+
+3. When you're done reliving the code, don't forget to `save` to create a new instance, and then click the Share button appearing in the upper right corner to copy the URL to Issues.

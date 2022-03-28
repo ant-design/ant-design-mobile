@@ -8,7 +8,7 @@ body:
       description: |
         The exact version of antd-mobile you are using.
         你所使用的 antd-mobile 的准确版本。
-      placeholder: eg. 5.0.0-beta.21
+      placeholder: eg. 5.7.2
     validations:
       required: false
   - type: textarea

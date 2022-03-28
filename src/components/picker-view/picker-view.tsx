@@ -4,6 +4,8 @@ import { Wheel } from './wheel'
 import { useColumnsExtend } from './columns-extend'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDebounceEffect } from 'ahooks'
+import { PickerProps } from '../picker'
+import { defaultRenderLabel } from '../picker/picker-utils'
 
 const classPrefix = `adm-picker-view`
 
@@ -26,10 +28,12 @@ export type PickerViewProps = {
   value?: PickerValue[]
   defaultValue?: PickerValue[]
   onChange?: (value: PickerValue[], extend: PickerValueExtend) => void
-} & NativeProps<'--height' | '--item-height' | '--item-font-size'>
+} & Pick<PickerProps, 'renderLabel'> &
+  NativeProps<'--height' | '--item-height' | '--item-font-size'>
 
 const defaultProps = {
   defaultValue: [],
+  renderLabel: defaultRenderLabel,
 }
 
 export const PickerView = memo<PickerViewProps>(p => {
@@ -92,6 +96,7 @@ export const PickerView = memo<PickerViewProps>(p => {
           column={column}
           value={innerValue[index]}
           onSelect={handleSelect}
+          renderLabel={props.renderLabel}
         />
       ))}
       <div className={`${classPrefix}-mask`}>

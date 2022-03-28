@@ -75,3 +75,29 @@
 ### Ref
 
 同 Popover。
+
+## FAQ
+
+### 为什么有些情况下 Popover 不显示？
+
+点击 Popover 的时候会触发两次 click 事件，一次是 label 的，一次是 input 的。
+
+```jsx
+<label>
+  <Popover content='hello' trigger='click'>
+    <span>label</span>
+  </Popover>
+  <input />
+</label>
+```
+
+可以通过 `e.preventDefault()` 来阻止默认行为。
+
+```jsx
+<label>
+  <Popover content='hello' trigger='click'>
+    <span onClick={e => e.preventDefault()}>label</span>
+  </Popover>
+  <input />
+</label>
+```

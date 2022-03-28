@@ -18,6 +18,8 @@ import { Button } from 'antd-mobile'
 
 If you are developing an internal project in alibaba group or ant group, please read [this additional guide](https://yuque.antfin.com/antd-mobile/kfcgs3/md4or5).
 
+If you are using the umi framework, it is recommended to read "[How to solve the error after installing antd-mobile v5 in the umi project?](./faq#how-to-solve-the-error-after-installing-antd-mobile-v5-in-the-umi-project)" in the FAQ.
+
 ## Compatibility
 
 We recommend adding the following babel configuration, so that maximum compatibility can be achieved (iOS Safari >= 10 and Chrome >= 49):

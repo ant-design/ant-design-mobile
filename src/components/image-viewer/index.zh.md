@@ -49,3 +49,26 @@ const handlerMulti = ImageViewer.Multi.show(props)
 | close | 关闭图片查看器 | `() => void` |
 
 如果你想关闭全部通过指令式创建出来的 ImageViewer，可以调用 `ImageViewer.clear()`。
+
+## FAQ
+
+### 为什么我更新了 `defaultIndex` 的值，但是 ImageViewer.Multi 显示的图片并没有切换？
+
+ImageViewer.Multi 是一个[非受控](https://reactjs.org/docs/glossary.html#controlled-vs-uncontrolled-components)的组件，`defaultIndex` 只会在组件加载的时候读取一次，在此之后，如果你修改了 `defaultIndex` 的值，并不会对组件有任何的影响。因此，下面这种写法并不能起到切换图片的效果：
+
+```jsx
+<Button
+  onClick={() => {
+    setIndex(i => i + 1)
+  }}
+>
+  Next
+</Button>
+
+<ImageViewer.Multi
+  images={images}
+  defaultIndex={index}
+/>
+```
+
+你可以使用 ref 来对 ImageViewer.Multi 进行手动的操作，也可以考虑使用 `ImageViewer.show()`。

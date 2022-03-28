@@ -19,17 +19,7 @@ import {
   GetContainer,
   renderToContainer,
 } from '../../utils/render-to-container'
-import * as tfu from './temp-floating-ui.min.js'
-import { Wrapper } from './wrapper'
-import { useShouldRender } from '../../utils/should-render'
-import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
-import { DeprecatedPlacement, Placement } from './index'
-import { normalizePlacement } from './normalize-placement'
-import { convertPx } from '../../utils/convert-px'
-
-const classPrefix = `adm-popover`
-
-const {
+import {
   arrow,
   computePosition,
   flip,
@@ -38,7 +28,14 @@ const {
   hide,
   shift,
   limitShift,
-} = tfu
+} from '@floating-ui/dom'
+import { Wrapper } from './wrapper'
+import { useShouldRender } from '../../utils/should-render'
+import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
+import { DeprecatedPlacement, Placement } from './index'
+import { normalizePlacement } from './normalize-placement'
+import { convertPx } from '../../utils/convert-px'
+const classPrefix = `adm-popover`
 
 export type PopoverProps = {
   defaultVisible?: boolean
@@ -183,7 +180,6 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     if (!props.trigger) return
 
     function handleClick() {
-      console.log('handleClick')
       setVisible(v => !v)
     }
     targetElement.addEventListener('click', handleClick)

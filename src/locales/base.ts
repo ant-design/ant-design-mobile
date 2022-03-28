@@ -1,6 +1,7 @@
 const typeTemplate = '${label} is not a valid ${type}'
 
 export const base = {
+  locale: 'en',
   common: {
     confirm: 'Confirm',
     cancel: 'Cancel',

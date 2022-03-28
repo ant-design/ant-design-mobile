@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Slider, Toast } from 'antd-mobile'
+import { HeartOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 
 import './demo1.less'
@@ -13,9 +14,11 @@ export default () => {
     80: 80,
     100: 100,
   }
-  const [crtValue, setValue] = useState(20)
+  const [crtValue, setValue] = useState<number | [number, number]>(20)
 
-  const [onAfterChangeValue, setAfterValue] = useState(10)
+  const [onAfterChangeValue, setAfterValue] = useState<
+    number | [number, number]
+  >(10)
 
   const toastValue = (value: number | number[]) => {
     let text = ''
@@ -61,7 +64,7 @@ export default () => {
           marks={marks}
           ticks
           value={crtValue}
-          onChange={(value: number) => {
+          onChange={(value: number | [number, number]) => {
             setValue(value)
           }}
         />
@@ -71,10 +74,7 @@ export default () => {
         title={`拖拽结束监听 (最终拖拽值${onAfterChangeValue})`}
         padding='13px'
       >
-        <Slider
-          step={20}
-          onAfterChange={(value: number) => setAfterValue(value)}
-        />
+        <Slider step={20} onAfterChange={value => setAfterValue(value)} />
       </DemoBlock>
 
       <DemoBlock title='双滑块' padding='13px'>
@@ -106,6 +106,14 @@ export default () => {
           className='my-slider'
           defaultValue={40}
           onAfterChange={toastValue}
+        />
+      </DemoBlock>
+      <DemoBlock title='自定义滑块图标' padding='13px'>
+        <Slider
+          className='my-slider'
+          defaultValue={40}
+          onAfterChange={toastValue}
+          icon={<HeartOutline />}
         />
       </DemoBlock>
     </>
