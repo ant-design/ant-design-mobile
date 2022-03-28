@@ -12,6 +12,10 @@ import { useDrag } from '@use-gesture/react'
 import Button from '../button'
 import { nearest } from '../../utils/nearest'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import {
+  PropagationEvent,
+  withStopPropagation,
+} from '../../utils/with-stop-propagation'
 
 export type SwipeActionRef = {
   close: () => void
@@ -40,6 +44,7 @@ export type SwipeActionProps = {
   closeOnTouchOutside?: boolean
   closeOnAction?: boolean
   children: ReactNode
+  stopPropagation?: PropagationEvent[]
 } & NativeProps<'--background'>
 
 const defaultProps = {
@@ -47,6 +52,7 @@ const defaultProps = {
   leftActions: [] as Action[],
   closeOnTouchOutside: true,
   closeOnAction: true,
+  stopPropagation: ['click'],
 }
 
 export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
@@ -184,56 +190,59 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       )
     }
 
-    return withNativeProps(
-      props,
-      <div
-        className='adm-swipe-action'
-        {...bind()}
-        ref={rootRef}
-        onClickCapture={e => {
-          if (draggingRef.current) {
-            e.stopPropagation()
-            e.preventDefault()
-          }
-        }}
-      >
-        <animated.div className='adm-swipe-action-track' style={{ x }}>
-          <div
-            className='adm-swipe-action-actions adm-swipe-action-actions-left'
-            ref={leftRef}
-          >
-            {props.leftActions.map(renderAction)}
-          </div>
-          <div
-            className='adm-swipe-action-content'
-            onClickCapture={e => {
-              if (x.goal !== 0) {
-                e.preventDefault()
-                e.stopPropagation()
-                api.start({
-                  x: 0,
-                })
-              }
-            }}
-          >
-            <animated.div
-              style={{
-                pointerEvents: x.to(v =>
-                  v !== 0 && x.goal !== 0 ? 'none' : 'unset'
-                ),
+    return withStopPropagation(
+      props.stopPropagation,
+      withNativeProps(
+        props,
+        <div
+          className='adm-swipe-action'
+          {...bind()}
+          ref={rootRef}
+          onClickCapture={e => {
+            if (draggingRef.current) {
+              e.stopPropagation()
+              e.preventDefault()
+            }
+          }}
+        >
+          <animated.div className='adm-swipe-action-track' style={{ x }}>
+            <div
+              className='adm-swipe-action-actions adm-swipe-action-actions-left'
+              ref={leftRef}
+            >
+              {props.leftActions.map(renderAction)}
+            </div>
+            <div
+              className='adm-swipe-action-content'
+              onClickCapture={e => {
+                if (x.goal !== 0) {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  api.start({
+                    x: 0,
+                  })
+                }
               }}
             >
-              {props.children}
-            </animated.div>
-          </div>
-          <div
-            className='adm-swipe-action-actions adm-swipe-action-actions-right'
-            ref={rightRef}
-          >
-            {props.rightActions.map(renderAction)}
-          </div>
-        </animated.div>
-      </div>
+              <animated.div
+                style={{
+                  pointerEvents: x.to(v =>
+                    v !== 0 && x.goal !== 0 ? 'none' : 'unset'
+                  ),
+                }}
+              >
+                {props.children}
+              </animated.div>
+            </div>
+            <div
+              className='adm-swipe-action-actions adm-swipe-action-actions-right'
+              ref={rightRef}
+            >
+              {props.rightActions.map(renderAction)}
+            </div>
+          </animated.div>
+        </div>
+      )
     )
   }
 )
