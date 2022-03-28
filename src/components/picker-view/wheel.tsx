@@ -1,4 +1,4 @@
-import React, { memo, useRef } from 'react'
+import React, { memo, ReactNode, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
@@ -11,11 +11,12 @@ import { PickerProps } from '../picker'
 
 const classPrefix = `adm-picker-view`
 
-interface Props extends Pick<PickerProps, 'renderLabel'> {
+type Props = {
   index: number
   column: PickerColumnItem[]
   value: PickerValue
   onSelect: (value: PickerValue, index: number) => void
+  renderLabel: (item: PickerColumnItem) => ReactNode
 }
 
 export const Wheel = memo<Props>(
@@ -189,7 +190,7 @@ export const Wheel = memo<Props>(
                 aria-label={selected ? 'active' : ''}
               >
                 <div className={`${classPrefix}-column-item-label`}>
-                  {renderLabel ? renderLabel(item) : item.label}
+                  {renderLabel(item)}
                 </div>
               </div>
             )

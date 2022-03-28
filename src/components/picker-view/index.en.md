@@ -10,12 +10,13 @@ PickerView is the content area of [Picker](./picker/#picker).
 
 ### Props
 
-| Name         | Description                            | Type                                                           | Default |
-| ------------ | -------------------------------------- | -------------------------------------------------------------- | ------- |
-| columns      | Options to configure each column       | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -       |
-| value        | Selected options                       | `PickerValue[]`                                                | -       |
-| defaultValue | Default selected options               | `PickerValue[]`                                                | `[]`    |
-| onChange     | Triggered when the options are changed | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -       |
+| Name         | Description                                                  | Type                                                           | Default                |
+| ------------ | ------------------------------------------------------------ | -------------------------------------------------------------- | ---------------------- |
+| columns      | Options to configure each column                             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -                      |
+| value        | Selected options                                             | `PickerValue[]`                                                | -                      |
+| defaultValue | Default selected options                                     | `PickerValue[]`                                                | `[]`                   |
+| onChange     | Triggered when the options are changed                       | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
+| renderLabel  | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
 
 For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `PickerValueExtend`, please refer to the document of [Picker](./picker).
 

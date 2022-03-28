@@ -40,7 +40,7 @@ type PickerValueExtend = {
 | confirmText      | 确定按钮的文字               | `ReactNode`                                                    | `'确定'`               |
 | cancelText       | 取消按钮的文字               | `ReactNode`                                                    | `'取消'`               |
 | children         | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
-| renderLabel      | 自定义渲染每列展示的内容。   | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
+| renderLabel      | 自定义渲染每列展示的内容     | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 

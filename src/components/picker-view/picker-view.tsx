@@ -4,7 +4,8 @@ import { Wheel } from './wheel'
 import { useColumnsExtend } from './columns-extend'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDebounceEffect } from 'ahooks'
-import { PickerProps } from '../picker/picker'
+import { PickerProps } from '../picker'
+import { defaultRenderLabel } from '../picker/picker-utils'
 
 const classPrefix = `adm-picker-view`
 
@@ -32,6 +33,7 @@ export type PickerViewProps = {
 
 const defaultProps = {
   defaultValue: [],
+  renderLabel: defaultRenderLabel,
 }
 
 export const PickerView = memo<PickerViewProps>(p => {
