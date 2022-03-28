@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import { render, testA11y, screen, fireEvent } from 'testing'
 import Button from '../'
+import type { ButtonRef } from '..'
 
 const classPrefix = `adm-button`
 
@@ -124,5 +125,12 @@ describe('Button', () => {
     const { getByText } = render(<DefaultButton />)
     fireEvent.click(getByText('Button'))
     screen.getByText('加载中')
+  })
+
+  test('ref should work', async () => {
+    const ref = createRef<ButtonRef>()
+    render(<Button ref={ref}>Button</Button>)
+    expect(ref.current).toBeDefined()
+    expect(ref.current?.nativeElement).toBeDefined()
   })
 })
