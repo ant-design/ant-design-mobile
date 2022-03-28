@@ -52,7 +52,7 @@ const defaultProps = {
   leftActions: [] as Action[],
   closeOnTouchOutside: true,
   closeOnAction: true,
-  stopPropagation: ['click'],
+  stopPropagation: [],
 }
 
 export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
