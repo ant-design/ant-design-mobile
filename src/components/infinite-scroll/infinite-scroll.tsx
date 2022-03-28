@@ -11,8 +11,13 @@ function isWindow(element: any | Window): element is Window {
 
 const classPrefix = `adm-infinite-scroll`
 
+interface LoadMoreFunc {
+  (): Promise<void> | void
+  [key: string]: any
+}
+
 export type InfiniteScrollProps = {
-  loadMore: () => Promise<void>
+  loadMore: LoadMoreFunc
   hasMore: boolean
   threshold?: number
 } & NativeProps
