@@ -175,8 +175,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       ? withStopPropagation(
           props.stopPropagationForActionButtons,
           <a
-            onClick={e => {
-              e.stopPropagation()
+            onClick={() => {
               setExpanded(true)
             }}
           >
@@ -190,8 +189,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       ? withStopPropagation(
           props.stopPropagationForActionButtons,
           <a
-            onClick={e => {
-              e.stopPropagation()
+            onClick={() => {
               setExpanded(false)
             }}
           >
