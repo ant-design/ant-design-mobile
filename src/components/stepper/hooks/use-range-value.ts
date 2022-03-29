@@ -1,6 +1,6 @@
 import getMiniDecimal, {
   DecimalClass,
-} from 'rc-input-number/es/utils/MiniDecimal'
+} from 'rc-input-number/lib/utils/MiniDecimal'
 import { useMemo } from 'react'
 import { StepperProps } from '../stepper'
 

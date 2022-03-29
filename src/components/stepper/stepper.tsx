@@ -8,12 +8,12 @@ import Button from '../button'
 import getMiniDecimal, {
   DecimalClass,
   toFixed,
-} from 'rc-input-number/es/utils/MiniDecimal'
+} from 'rc-input-number/lib/utils/MiniDecimal'
 import {
   getNumberPrecision,
   num2str,
   validateNumber,
-} from 'rc-input-number/es/utils/numberUtil'
+} from 'rc-input-number/lib/utils/numberUtil'
 import { useUpdateEffect } from 'ahooks'
 import useRangeValue from './hooks/use-range-value'
 
@@ -194,7 +194,7 @@ export const Stepper: FC<StepperProps> = p => {
       if (!updateValue.equals(decimalValue)) {
         if (updateValue.isEmpty()) {
           if (allowEmpty) {
-            onChange?.(null)
+            onChange?.(null as any)
           }
         } else {
           onChange?.(updateValue.toNumber())
