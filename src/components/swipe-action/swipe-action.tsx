@@ -12,6 +12,10 @@ import { useDrag } from '@use-gesture/react'
 import Button from '../button'
 import { nearest } from '../../utils/nearest'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import {
+  PropagationEvent,
+  withStopPropagation,
+} from '../../utils/with-stop-propagation'
 
 export type SwipeActionRef = {
   close: () => void
@@ -40,6 +44,7 @@ export type SwipeActionProps = {
   closeOnTouchOutside?: boolean
   closeOnAction?: boolean
   children: ReactNode
+  stopPropagation?: PropagationEvent[]
 } & NativeProps<'--background'>
 
 const defaultProps = {
@@ -47,6 +52,7 @@ const defaultProps = {
   leftActions: [] as Action[],
   closeOnTouchOutside: true,
   closeOnAction: true,
+  stopPropagation: [],
 }
 
 export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
@@ -198,12 +204,15 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
         }}
       >
         <animated.div className='adm-swipe-action-track' style={{ x }}>
-          <div
-            className='adm-swipe-action-actions adm-swipe-action-actions-left'
-            ref={leftRef}
-          >
-            {props.leftActions.map(renderAction)}
-          </div>
+          {withStopPropagation(
+            props.stopPropagation,
+            <div
+              className='adm-swipe-action-actions adm-swipe-action-actions-left'
+              ref={leftRef}
+            >
+              {props.leftActions.map(renderAction)}
+            </div>
+          )}
           <div
             className='adm-swipe-action-content'
             onClickCapture={e => {
@@ -226,12 +235,15 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
               {props.children}
             </animated.div>
           </div>
-          <div
-            className='adm-swipe-action-actions adm-swipe-action-actions-right'
-            ref={rightRef}
-          >
-            {props.rightActions.map(renderAction)}
-          </div>
+          {withStopPropagation(
+            props.stopPropagation,
+            <div
+              className='adm-swipe-action-actions adm-swipe-action-actions-right'
+              ref={rightRef}
+            >
+              {props.rightActions.map(renderAction)}
+            </div>
+          )}
         </animated.div>
       </div>
     )
