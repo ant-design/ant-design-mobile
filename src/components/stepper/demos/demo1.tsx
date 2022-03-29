@@ -37,8 +37,8 @@ export default () => {
         <Stepper digits={0} />
       </DemoBlock>
 
-      <DemoBlock title='格式化到一位小数'>
-        <Stepper digits={1} />
+      <DemoBlock title='格式化到两位小数'>
+        <Stepper digits={2} step={0.01} />
       </DemoBlock>
     </>
   )
