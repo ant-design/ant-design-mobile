@@ -4342,6 +4342,7 @@ __metadata:
     prismjs: ^1.27.0
     qrcode.react: ^1.0.1
     rc-field-form: ^1.24.0
+    rc-input-number: ^7.3.4
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
@@ -5508,7 +5509,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:2.x, classnames@npm:^2.2.1, classnames@npm:^2.2.6, classnames@npm:^2.3.1":
+"classnames@npm:2.x, classnames@npm:^2.2.1, classnames@npm:^2.2.5, classnames@npm:^2.2.6, classnames@npm:^2.3.1":
   version: 2.3.1
   resolution: "classnames@npm:2.3.1"
   checksum: 14db8889d56c267a591f08b0834989fe542d47fac659af5a539e110cc4266694e8de86e4e3bbd271157dbd831361310a8293e0167141e80b0f03a0f175c80960
@@ -13028,6 +13029,20 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"rc-input-number@npm:^7.3.4":
+  version: 7.3.4
+  resolution: "rc-input-number@npm:7.3.4"
+  dependencies:
+    "@babel/runtime": ^7.10.1
+    classnames: ^2.2.5
+    rc-util: ^5.9.8
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 18cef039a8eb3a445547b6904912c87e8a72ec7ebd6caf2a758d2ac0ce9b2a25839db5f159d3de74861b18c38ba0ffe7b948f67e141fe9a12034c1894d2c3d1b
+  languageName: node
+  linkType: hard
+
 "rc-menu@npm:^9.0.0":
   version: 9.0.12
   resolution: "rc-menu@npm:9.0.12"
@@ -13164,6 +13179,20 @@ fsevents@^1.2.7:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: b4928a529d0fa0bf351b1f8658ee2f3d67567d047561b08358d58ab7280c23b0272e368e62ed217573f785e7cd8730dabba670a02fb53f934786391a56e98bb5
+  languageName: node
+  linkType: hard
+
+"rc-util@npm:^5.9.8":
+  version: 5.19.3
+  resolution: "rc-util@npm:5.19.3"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    react-is: ^16.12.0
+    shallowequal: ^1.1.0
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 40dcc17a978d65ef2cb59eb5b3b1eb11f2a8e77ebfce9d773ee74d35480e93c665f158286c75a6ade9af687c1e96c1500d693fc3153a94b600ee3a1cf5422fe4
   languageName: node
   linkType: hard
 
