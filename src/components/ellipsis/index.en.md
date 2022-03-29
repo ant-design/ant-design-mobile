@@ -12,4 +12,4 @@
 | expandText                      | Expand operation text                                                                | `string`                        | `''`    |
 | collapseText                    | Collapse operation text                                                              | `string`                        | `''`    |
 | stopPropagationForActionButtons | Prevent the event bubbling caused by the expand operation and the collapse operation | `PropagationEvent[]`            | `[]`    |
-| onClick                         | Trigger when clicked                                                                 | `(e: React.MouseEvent) => void` | -       |
+| onContentClick                  | Trigger when clicked text content                                                    | `(e: React.MouseEvent) => void` | -       |
