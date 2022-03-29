@@ -34,7 +34,7 @@ const esES = mergeLocale(base, {
       description: 'Intente refrescar la página',
     },
     empty: {
-      title: "Hmm, no pudimos encontrar eso...",
+      title: 'Hmm, no pudimos encontrar eso...',
       description: 'Quieres intentar una nueva búsqueda?',
     },
   },
