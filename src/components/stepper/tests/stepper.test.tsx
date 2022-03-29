@@ -154,4 +154,17 @@ describe('stepper', () => {
     const { container } = render(<Stepper inputReadOnly onChange={onChange} />)
     expect(container.querySelector('input[readonly]')).not.toBeNull()
   })
+
+  test('onFocus and onBlur works', () => {
+    const onBlur = jest.fn()
+    const onFocus = jest.fn()
+    const { container } = render(<Stepper onBlur={onBlur} onFocus={onFocus} />)
+
+    const input = container.getElementsByTagName('input')[0]
+    fireEvent.focus(input)
+    fireEvent.blur(input)
+
+    expect(onFocus).toHaveBeenCalledTimes(1)
+    expect(onBlur).toHaveBeenCalledTimes(1)
+  })
 })
