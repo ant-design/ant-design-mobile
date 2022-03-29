@@ -117,6 +117,7 @@
     "./es": "./es/index.js",
     "./cjs": "./cjs/index.js",
     "./es/": "./es/",
+    "./es/global": "./es/global/index.js",
     "./cjs/": "./cjs/",
     "./bundle/": "./bundle/",
     "./package.json": "./package.json",
