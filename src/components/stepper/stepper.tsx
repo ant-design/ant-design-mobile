@@ -184,7 +184,7 @@ export const Stepper: FC<StepperProps> = p => {
       isRangeValidate = true
     }
 
-    if (!inputReadOnly && !disabled && isRangeValidate) {
+    if (!disabled && isRangeValidate) {
       const numStr = updateValue.toString()
       const mergedPrecision = getPrecision(numStr, userTyping)
       if (mergedPrecision >= 0) {
