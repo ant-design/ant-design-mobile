@@ -119,6 +119,8 @@
     "./es/": "./es/",
     "./cjs/": "./cjs/",
     "./bundle/": "./bundle/",
+    "./package.json": "./package.json",
+    "./package": "./package.json",
     "./2x": "./2x"
   },
   "sideEffects": [
