@@ -8,7 +8,6 @@ import Button from '../button'
 import getMiniDecimal, {
   DecimalClass,
   toFixed,
-  ValueType,
 } from 'rc-input-number/es/utils/MiniDecimal'
 import {
   getNumberPrecision,
