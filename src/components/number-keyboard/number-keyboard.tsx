@@ -159,9 +159,6 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
             onBackspacePressEnd()
           }
         }}
-        onMouseUp={e => {
-          onKeyPress(e, key)
-        }}
         title={key}
         role='button'
       >
@@ -209,7 +206,6 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
                     onKeyPress(e, 'BACKSPACE')
                     onBackspacePressEnd()
                   }}
-                  onMouseUp={e => onKeyPress(e, 'BACKSPACE')}
                   title='BACKSPACE'
                   role='button'
                 >
@@ -218,7 +214,6 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
                 <div
                   className={`${classPrefix}-key extra-key ok-key`}
                   onTouchEnd={e => onKeyPress(e, 'OK')}
-                  onMouseUp={e => onKeyPress(e, 'OK')}
                   role='button'
                 >
                   {confirmText}
