@@ -116,6 +116,8 @@
     },
     "./es": "./es/index.js",
     "./cjs": "./cjs/index.js",
+    "./es/utils/*": "./es/utils/*.js",
+    "./es/*": "./es/*/index.js",
     "./es/": "./es/",
     "./cjs/": "./cjs/",
     "./bundle/": "./bundle/",
