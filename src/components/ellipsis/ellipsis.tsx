@@ -227,7 +227,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       className={classPrefix}
       onClick={e => {
         if (e.target === e.currentTarget) {
-          props?.onContentClick(e)
+          props.onContentClick(e)
         }
       }}
     >
