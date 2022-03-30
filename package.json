@@ -101,7 +101,9 @@
   "unpkg": "./umd/antd-mobile.js",
   "GravityCDN": "./umd/antd-mobile.js",
   "files": [
-    "./lib"
+    "es",
+    "lib",
+    "umd"
   ],
   "sideEffects": [
     "**/*.css",
