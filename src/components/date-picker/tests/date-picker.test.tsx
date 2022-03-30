@@ -91,7 +91,7 @@ describe('DatePicker', () => {
         precision='minute'
         value={now}
         onConfirm={val => {
-          fn(val.toString())
+          fn(val)
         }}
       />
     )
@@ -104,6 +104,10 @@ describe('DatePicker', () => {
       fireEvent.click(getByText('确定'))
     })
 
-    expect(fn.mock.calls[0][0]).toBe(now.toString())
+    const confirmedDay = dayjs(fn.mock.calls[0][0])
+    const formatTemplate = 'YYYY-MM-DD HH:mm'
+    expect(confirmedDay.format(formatTemplate)).toBe(
+      dayjs(now).format(formatTemplate)
+    )
   })
 })
