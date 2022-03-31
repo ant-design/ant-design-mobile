@@ -8,6 +8,7 @@ import { GetContainer } from '../../utils/render-to-container'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import SafeArea from '../safe-area'
 import { useMemoizedFn } from 'ahooks'
+import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -40,7 +41,12 @@ const defaultProps = {
 }
 
 export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const { globalConfig } = useConfig()
+  const props = mergeProps(
+    defaultProps,
+    { getContainer: globalConfig.getContainer },
+    p
+  )
   const {
     visible,
     title,

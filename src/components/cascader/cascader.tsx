@@ -39,10 +39,11 @@ const defaultProps = {
 }
 
 export const Cascader: FC<CascaderProps> = p => {
-  const { locale } = useConfig()
+  const { locale, globalConfig } = useConfig()
   const props = mergeProps(
     defaultProps,
     {
+      getContainer: globalConfig.getContainer,
       confirmText: locale.common.confirm,
       cancelText: locale.common.cancel,
       placeholder: locale.Cascader.placeholder,

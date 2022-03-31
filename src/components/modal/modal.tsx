@@ -18,6 +18,7 @@ import AutoCenter from '../auto-center'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { CloseOutline } from 'antd-mobile-icons'
+import { useConfig } from '../config-provider'
 
 export type ModalProps = {
   afterClose?: () => void
@@ -48,11 +49,13 @@ const defaultProps = {
   closeOnMaskClick: false,
   stopPropagation: ['click'],
   showCloseButton: false,
-  getContainer: null,
 }
 
 export const Modal: FC<ModalProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const {
+    globalConfig: { getContainer },
+  } = useConfig()
+  const props = mergeProps(defaultProps, { getContainer }, p)
 
   const unmountedRef = useUnmountedRef()
   const style = useSpring({

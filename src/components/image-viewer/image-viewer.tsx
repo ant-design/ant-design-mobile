@@ -14,6 +14,7 @@ import {
 import Mask from '../mask'
 import { Slide } from './slide'
 import { Slides, SlidesRef } from './slides'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-image-viewer`
 
@@ -28,12 +29,14 @@ export type ImageViewerProps = {
 
 const defaultProps = {
   maxZoom: 3,
-  getContainer: null,
   visible: false,
 }
 
 export const ImageViewer: FC<ImageViewerProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const {
+    globalConfig: { getContainer },
+  } = useConfig()
+  const props = mergeProps(defaultProps, { getContainer }, p)
 
   const node = (
     <Mask

@@ -7,6 +7,7 @@ import Button from '../button'
 import { GetContainer } from '../../utils/render-to-container'
 import SafeArea from '../safe-area'
 import { renderImperatively } from '../../utils/render-imperatively'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-action-sheet`
 
@@ -46,7 +47,10 @@ const defaultProps = {
 }
 
 export const ActionSheet: FC<ActionSheetProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const {
+    globalConfig: { getContainer },
+  } = useConfig()
+  const props = mergeProps(defaultProps, { getContainer }, p)
 
   return (
     <Popup

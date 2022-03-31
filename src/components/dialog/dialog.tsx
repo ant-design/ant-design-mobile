@@ -16,6 +16,7 @@ import {
 import AutoCenter from '../auto-center'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useConfig } from '../config-provider'
 
 export type DialogProps = {
   afterClose?: () => void
@@ -45,11 +46,13 @@ const defaultProps = {
   closeOnAction: false,
   closeOnMaskClick: false,
   stopPropagation: ['click'],
-  getContainer: null,
 }
 
 export const Dialog: FC<DialogProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const {
+    globalConfig: { getContainer },
+  } = useConfig()
+  const props = mergeProps(defaultProps, { getContainer }, p)
 
   const unmountedRef = useUnmountedRef()
   const style = useSpring({

@@ -1,21 +1,30 @@
 import React, { FC, useContext } from 'react'
 import { Locale } from '../../locales/base'
 import zhCN from '../../locales/zh-CN'
+import { globalConfig, GlobalConfig } from '../../global/global-config'
+import { mergeGlobalConfig } from '../../utils/merge-global-config'
 
 type Config = {
   locale: Locale
+  globalConfig: GlobalConfig
+}
+
+const defaultConfig = {
+  locale: zhCN,
+  globalConfig: globalConfig,
 }
 
 export const defaultConfigRef: {
   current: Config
 } = {
-  current: {
-    locale: zhCN,
-  },
+  current: defaultConfig,
 }
 
-export function setDefaultConfig(config: Config) {
-  defaultConfigRef.current = config
+export function setDefaultConfig(config: {
+  locale?: Locale
+  globalConfig?: Partial<GlobalConfig>
+}) {
+  defaultConfigRef.current = mergeGlobalConfig(defaultConfig, config)
 }
 
 export function getDefaultConfig() {
@@ -24,21 +33,17 @@ export function getDefaultConfig() {
 
 const ConfigContext = React.createContext<Config | null>(null)
 
-export type ConfigProviderProps = Config
+export type ConfigProviderProps = {
+  locale: Locale
+  globalConfig?: GlobalConfig
+}
 
 export const ConfigProvider: FC<ConfigProviderProps> = props => {
   const { children, ...config } = props
   const parentConfig = useConfig()
-
+  const value = mergeGlobalConfig(parentConfig, config)
   return (
-    <ConfigContext.Provider
-      value={{
-        ...parentConfig,
-        ...config,
-      }}
-    >
-      {children}
-    </ConfigContext.Provider>
+    <ConfigContext.Provider value={value}>{children}</ConfigContext.Provider>
   )
 }
 

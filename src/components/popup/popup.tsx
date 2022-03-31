@@ -15,6 +15,7 @@ import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-popup`
 
@@ -39,13 +40,15 @@ export type PopupProps = {
 const defaultProps = {
   position: 'bottom',
   visible: false,
-  getContainer: () => document.body,
   mask: true,
   stopPropagation: ['click'],
 }
 
 export const Popup: FC<PopupProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const {
+    globalConfig: { getContainer },
+  } = useConfig()
+  const props = mergeProps(defaultProps, { getContainer }, p)
 
   const bodyCls = classNames(
     `${classPrefix}-body`,

@@ -54,10 +54,11 @@ const defaultProps = {
 }
 
 export const Picker = memo<PickerProps>(p => {
-  const { locale } = useConfig()
+  const { locale, globalConfig } = useConfig()
   const props = mergeProps(
     defaultProps,
     {
+      getContainer: globalConfig.getContainer,
       confirmText: locale.common.confirm,
       cancelText: locale.common.cancel,
     },

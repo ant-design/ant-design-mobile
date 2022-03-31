@@ -35,6 +35,7 @@ import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
 import { DeprecatedPlacement, Placement } from './index'
 import { normalizePlacement } from './normalize-placement'
 import { convertPx } from '../../utils/convert-px'
+import { useConfig } from '../config-provider'
 const classPrefix = `adm-popover`
 
 export type PopoverProps = {
@@ -61,11 +62,13 @@ const defaultProps = {
   placement: 'top' as Placement,
   defaultVisible: false,
   stopPropagation: ['click'],
-  getContainer: () => document.body,
 }
 
 export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
-  const props = mergeProps(defaultProps, p)
+  const {
+    globalConfig: { getContainer },
+  } = useConfig()
+  const props = mergeProps(defaultProps, { getContainer }, p)
   const { mode = 'light' } = props
   const placement = normalizePlacement(props.placement)
 

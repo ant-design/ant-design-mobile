@@ -44,12 +44,14 @@ const defaultProps = {
   color: 'black',
   opacity: 'default',
   disableBodyScroll: true,
-  getContainer: null,
   stopPropagation: ['click'],
 }
 
 export const Mask: React.FC<MaskProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const {
+    globalConfig: { getContainer },
+  } = useConfig()
+  const props = mergeProps(defaultProps, { getContainer }, p)
   const { locale } = useConfig()
 
   const ref = useRef<HTMLDivElement>(null)

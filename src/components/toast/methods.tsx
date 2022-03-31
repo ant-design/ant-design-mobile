@@ -9,6 +9,10 @@ import { resolveContainer } from '../../utils/get-container'
 import ReactDOM from 'react-dom'
 import { InternalToast, ToastProps } from './toast'
 import { mergeProps } from '../../utils/with-default-props'
+import {
+  useConfig,
+  getDefaultConfig,
+} from 'antd-mobile/es/components/config-provider'
 
 const containers = [] as HTMLDivElement[]
 
@@ -21,10 +25,12 @@ function unmount(container: HTMLDivElement) {
 
 export type ToastShowProps = Omit<ToastProps, 'visible'>
 
+const { globalConfig } = getDefaultConfig()
+
 const defaultProps = {
-  duration: 2000,
-  position: 'center',
-  maskClickable: true,
+  duration: globalConfig.Toast?.duration,
+  position: globalConfig.Toast?.position,
+  maskClickable: globalConfig.Toast?.maskClickable,
 }
 
 export type ToastHandler = {
@@ -34,7 +40,7 @@ export type ToastHandler = {
 type ToastShowRef = ToastHandler
 
 export function show(p: ToastShowProps | string) {
-  const props = mergeProps(
+  let props = mergeProps(
     defaultProps,
     typeof p === 'string' ? { content: p } : p
   )
@@ -47,6 +53,11 @@ export function show(p: ToastShowProps | string) {
   containers.push(container)
 
   const TempToast = forwardRef<ToastShowRef>((_, ref) => {
+    const {
+      globalConfig: { getContainer, Toast },
+    } = useConfig()
+    props = mergeProps(props, { getContainer, ...Toast })
+    console.log('tosdd:', props)
     const [visible, setVisible] = useState(true)
     useEffect(() => {
       return () => {

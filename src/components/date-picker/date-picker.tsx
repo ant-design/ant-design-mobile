@@ -13,6 +13,7 @@ import {
 } from './date-picker-utils'
 import type { Precision, DatePickerFilter } from './date-picker-utils'
 import { bound } from '../../utils/bound'
+import { useConfig } from '../config-provider'
 
 export type DatePickerProps = Pick<
   PickerProps,
@@ -53,7 +54,10 @@ const defaultProps = {
 }
 
 export const DatePicker: FC<DatePickerProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const {
+    globalConfig: { getContainer },
+  } = useConfig()
+  const props = mergeProps(defaultProps, { getContainer }, p)
 
   const [value, setValue] = usePropsValue<Date | null>({
     value: props.value,
