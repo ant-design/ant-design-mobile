@@ -6,24 +6,26 @@ The support for SSR (server-side rendering) is still in the initial stage. If yo
 
 Using antd-mobile in Next.js requires some additional configuration.
 
-First, you need to install the dependencies `next-transpile-modules` and `next-images`:
+First, you need to install `next-transpile-modules`:
 
 ```bash
-$ npm install --save-dev next-transpile-modules next-images
+$ npm install --save-dev next-transpile-modules
 # or
-$ yarn add -D next-transpile-modules next-images
+$ yarn add -D next-transpile-modules
 ```
 
 Then configure it in `next.config.js`:
 
 ```js
-const withImages = require('next-images')
-
 const withTM = require('next-transpile-modules')([
   'antd-mobile',
 ]);
 
-module.exports = withTM(withImages({
+module.exports = withTM({
   // other Next.js configuration in your project
-}));
+});
 ```
+
+## Remix
+
+In the Remix project, antd-mobile will automatically import the corresponding files according to the current environment. In the server-side environment, antd-mobile will only load the js part of the logic, so you need to manually import `antd-mobile/bundle/antd-mobile.css`.

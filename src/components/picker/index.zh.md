@@ -25,21 +25,22 @@ type PickerValueExtend = {
 }
 ```
 
-| 属性             | 说明                         | 类型                                                           | 默认值   |
-| ---------------- | ---------------------------- | -------------------------------------------------------------- | -------- |
-| columns          | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
-| value            | 选中项                       | `PickerValue[]`                                                | -        |
-| defaultValue     | 默认选中项                   | `PickerValue[]`                                                | `[]`     |
-| onSelect         | 选项改变时触发               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
-| onConfirm        | 确认时触发                   | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
-| onCancel         | 取消时触发                   | `() => void`                                                   | -        |
-| onClose          | 确认和取消时都会触发关闭事件 | `() => void`                                                   | -        |
-| closeOnMaskClick | 点击遮罩层后是否关闭         | `boolean`                                                      | `true`   |
-| visible          | 是否显示选择器               | `boolean`                                                      | `false`  |
-| title            | 标题                         | `ReactNode`                                                    | -        |
-| confirmText      | 确定按钮的文字               | `ReactNode`                                                    | `'确定'` |
-| cancelText       | 取消按钮的文字               | `ReactNode`                                                    | `'取消'` |
-| children         | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
+| 属性             | 说明                         | 类型                                                           | 默认值                 |
+| ---------------- | ---------------------------- | -------------------------------------------------------------- | ---------------------- |
+| columns          | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -                      |
+| value            | 选中项                       | `PickerValue[]`                                                | -                      |
+| defaultValue     | 默认选中项                   | `PickerValue[]`                                                | `[]`                   |
+| onSelect         | 选项改变时触发               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
+| onConfirm        | 确认时触发                   | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
+| onCancel         | 取消时触发                   | `() => void`                                                   | -                      |
+| onClose          | 确认和取消时都会触发关闭事件 | `() => void`                                                   | -                      |
+| closeOnMaskClick | 点击遮罩层后是否关闭         | `boolean`                                                      | `true`                 |
+| visible          | 是否显示选择器               | `boolean`                                                      | `false`                |
+| title            | 标题                         | `ReactNode`                                                    | -                      |
+| confirmText      | 确定按钮的文字               | `ReactNode`                                                    | `'确定'`               |
+| cancelText       | 取消按钮的文字               | `ReactNode`                                                    | `'取消'`               |
+| children         | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
+| renderLabel      | 自定义渲染每列展示的内容     | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 

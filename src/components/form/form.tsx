@@ -123,6 +123,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     >
       <FormContext.Provider
         value={{
+          name: formProps.name,
           hasFeedback,
           layout,
           requiredMarkStyle,

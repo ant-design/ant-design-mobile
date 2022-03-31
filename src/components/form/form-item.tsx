@@ -253,8 +253,9 @@ export const FormItem: FC<FormItemProps> = props => {
     ...fieldProps
   } = props
 
-  const { validateTrigger: contextValidateTrigger } =
-    React.useContext(FieldContext)
+  const { name: formName } = useContext(FormContext)
+  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext)
+
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger
 
@@ -384,9 +385,10 @@ export const FormItem: FC<FormItemProps> = props => {
                 rule => !!(rule && typeof rule === 'object' && rule.required)
               )
 
-        const fieldId = (toArray(name).length && meta ? meta.name : []).join(
-          '_'
-        )
+        const nameList = toArray(name).length && meta ? meta.name : []
+        const fieldId = (
+          nameList.length > 0 && formName ? [formName, ...nameList] : nameList
+        ).join('_')
 
         if (shouldUpdate && dependencies) {
           devWarning(

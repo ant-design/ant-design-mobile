@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import classNames from 'classnames'
 import DotLoading from '../dot-loading'
 import { mergeProps } from '../../utils/with-default-props'
@@ -17,6 +17,7 @@ export type ButtonProps = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   type?: 'submit' | 'reset' | 'button'
   shape?: 'default' | 'rounded' | 'rectangular'
+  children?: React.ReactNode
 } & NativeProps<
   | '--text-color'
   | '--background-color'
@@ -25,6 +26,10 @@ export type ButtonProps = {
   | '--border-style'
   | '--border-color'
 >
+
+export type ButtonRef = {
+  nativeElement: HTMLButtonElement | null
+}
 
 const defaultProps = {
   color: 'default',
@@ -36,12 +41,21 @@ const defaultProps = {
   size: 'middle',
 }
 
-export const Button: FC<ButtonProps> = p => {
+export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const disabled = props.disabled || props.loading
+  const nativeButtonRef = useRef<HTMLButtonElement>(null)
+
+  useImperativeHandle(ref, () => ({
+    get nativeElement() {
+      return nativeButtonRef.current
+    },
+  }))
+
   return withNativeProps(
     props,
     <button
+      ref={nativeButtonRef}
       type={props.type}
       onClick={props.onClick}
       className={classNames(
@@ -71,4 +85,4 @@ export const Button: FC<ButtonProps> = p => {
       )}
     </button>
   )
-}
+})

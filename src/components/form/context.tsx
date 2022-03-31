@@ -3,12 +3,14 @@ import { FormLayout } from '.'
 import type { Meta, InternalNamePath } from 'rc-field-form/lib/interface'
 
 export type FormContextType = {
+  name?: string
   hasFeedback: boolean
   layout: FormLayout
   requiredMarkStyle: 'asterisk' | 'text-required' | 'text-optional'
 }
 
 export const defaultFormContext: FormContextType = {
+  name: undefined,
   hasFeedback: true,
   layout: 'vertical',
   requiredMarkStyle: 'asterisk',

@@ -29,3 +29,9 @@
 | --border-width     | 边框宽度 | `1px`                     | `--adm-button-border-width`     |
 | --border-style     | 边框样式 | `solid`                   | `--adm-button-border-style`     |
 | --border-color     | 边框颜色 | `var(--adm-border-color)` | `--adm-button-border-color`     |
+
+### Ref
+
+| 属性          | 说明             | 类型                          |
+| ------------- | ---------------- | ----------------------------- |
+| nativeElement | 原始 button 元素 | `HtmlButtonElement` \| `null` |

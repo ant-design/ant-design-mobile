@@ -11,6 +11,7 @@
 | onAction            | Triggered when operation button is clicked                                           | `(action: Action, e: React.MouseEvent) => void` | -       |
 | closeOnTouchOutside | Whether to return to the position automatically when other areas is clicked          | `boolean`                                       | `true`  |
 | closeOnAction       | Whether to return to the position automatically when the operation button is clicked | `boolean`                                       | `true`  |
+| stopPropagation     | Stop the propagation of some events.                                                 | `PropagationEvent[]`                            | `[]`    |
 
 ### Action
 

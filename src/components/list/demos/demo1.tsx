@@ -35,7 +35,9 @@ export default () => {
         <List.Item description='管理已授权的产品和设备' clickable>
           授权管理
         </List.Item>
-        <List.Item title='这里是标题'>这里是主信息</List.Item>
+        <List.Item title='副标题信息A' description='副标题信息B' clickable>
+          这里是主信息
+        </List.Item>
       </List>
 
       <List header='列表项禁用'>

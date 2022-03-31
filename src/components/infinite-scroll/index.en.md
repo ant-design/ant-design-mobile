@@ -47,3 +47,7 @@ If necessary, `<InfiniteScroll>` allows custom display content, this content can
 ### Does it support pulling down?
 
 Pulling down is another component: [PullToRefresh](./pull-to-refresh).
+
+### Why do I get an error when used with ahooks' `useDebounceFn` or `useThrottleFn`?
+
+InfiniteScroll itself already contains the logic to prevent concurrent repeated requests, so please do not use it with `useDebounceFn` or `useThrottleFn`, there will be logical conflicts between them.
