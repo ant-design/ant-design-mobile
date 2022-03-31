@@ -17,7 +17,7 @@ export default () => {
   const onSubmit = () => {
     const values = form.getFieldsValue()
     Dialog.alert({
-      content: JSON.stringify(values),
+      content: <pre>{JSON.stringify(values, null, 2)}</pre>,
     })
   }
 
