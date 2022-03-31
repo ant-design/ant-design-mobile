@@ -116,6 +116,7 @@
     },
     "./es": "./es/index.js",
     "./cjs": "./cjs/index.js",
+    "./es/locales/*": "./es/locales/*.js",
     "./es/utils/*": "./es/utils/*.js",
     "./es/*": "./es/*/index.js",
     "./es/": "./es/",
