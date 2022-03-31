@@ -25,12 +25,12 @@ function unmount(container: HTMLDivElement) {
 
 export type ToastShowProps = Omit<ToastProps, 'visible'>
 
-const { globalConfig } = getDefaultConfig()
-
-const defaultProps = {
-  duration: globalConfig.Toast?.duration,
-  position: globalConfig.Toast?.position,
-  maskClickable: globalConfig.Toast?.maskClickable,
+const defaultProps: Partial<
+  Pick<ToastProps, 'duration' | 'position' | 'maskClickable'>
+> = {
+  duration: undefined,
+  position: undefined,
+  maskClickable: undefined,
 }
 
 export type ToastHandler = {
@@ -40,12 +40,15 @@ export type ToastHandler = {
 type ToastShowRef = ToastHandler
 
 export function show(p: ToastShowProps | string) {
+  const { globalConfig } = getDefaultConfig()
   let props = mergeProps(
+    globalConfig.Toast,
     defaultProps,
     typeof p === 'string' ? { content: p } : p
   )
+  props = mergeProps(props, { getContainer: globalConfig.getContainer })
   let timer = 0
-  const { getContainer = () => document.body } = props
+  const { getContainer } = props
   const container = document.createElement('div')
   const bodyContainer = resolveContainer(getContainer)
   bodyContainer.appendChild(container)
@@ -57,7 +60,6 @@ export function show(p: ToastShowProps | string) {
       globalConfig: { getContainer, Toast },
     } = useConfig()
     props = mergeProps(props, { getContainer, ...Toast })
-    console.log('tosdd:', props)
     const [visible, setVisible] = useState(true)
     useEffect(() => {
       return () => {

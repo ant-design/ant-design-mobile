@@ -42,17 +42,18 @@ export default () => {
               })
             }}
           >
-            自定义全局配置
+            Dialog
           </Button>
           <Button
             onClick={() => {
               setDefaultConfig({
                 globalConfig: {
+                  getContainer: document.getElementById('root-wrap'),
                   Toast: { duration: 5000 },
                 },
               })
               Toast.show({
-                content: 'Toast duration 5000',
+                content: 'Toast getContainer #root-id duration 5000',
               })
             }}
           >
