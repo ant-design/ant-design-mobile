@@ -39,6 +39,7 @@ export type ModalProps = {
   maskClassName?: string
   stopPropagation?: PropagationEvent[]
   showCloseButton?: boolean
+  disableBodyScroll?: boolean
 } & NativeProps
 
 const defaultProps = {
@@ -159,6 +160,7 @@ export const Modal: FC<ModalProps> = p => {
           onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
           style={props.maskStyle}
           className={classNames(cls('mask'), props.maskClassName)}
+          disableBodyScroll={props.disableBodyScroll}
         />
         <div
           className={cls('wrap')}
