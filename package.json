@@ -10,7 +10,8 @@
     "test": "jest",
     "test-with-coverage": "jest --coverage",
     "publish": "npm publish ./lib --registry=https://registry.npmjs.org",
-    "publish-alpha": "npm publish ./lib --registry=https://registry.npmjs.org --tag alpha"
+    "publish:alpha": "npm publish ./lib --registry=https://registry.npmjs.org --tag alpha",
+    "publish:dev": "npm publish ./lib --registry=https://registry.npmjs.org --tag dev"
   },
   "dependencies": {
     "@floating-ui/dom": "^0.4.2",
