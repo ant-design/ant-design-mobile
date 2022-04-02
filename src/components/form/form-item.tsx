@@ -244,7 +244,7 @@ export const FormItem: FC<FormItemProps> = props => {
     children,
     messageVariables,
     trigger = 'onChange',
-    validateTrigger = trigger,
+    validateTrigger,
     onClick,
     shouldUpdate,
     dependencies,
@@ -257,7 +257,9 @@ export const FormItem: FC<FormItemProps> = props => {
   const { validateTrigger: contextValidateTrigger } = useContext(FieldContext)
 
   const mergedValidateTrigger =
-    validateTrigger !== undefined ? validateTrigger : contextValidateTrigger
+    (validateTrigger !== undefined
+      ? validateTrigger
+      : contextValidateTrigger) || trigger
 
   const updateRef = React.useRef(0)
   updateRef.current += 1
