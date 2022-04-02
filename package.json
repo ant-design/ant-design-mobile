@@ -46,6 +46,7 @@
     "@types/lodash": "^4.14.180",
     "@types/react": "^17.0.43",
     "@types/react-helmet": "^6.1.5",
+    "@types/react-is": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "babel-loader": "^8.2.4",
