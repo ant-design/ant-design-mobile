@@ -10,26 +10,27 @@
 
 ### Props
 
-| Name             | Description                                                                                                                   | Type                                                       | Default     |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
-| afterClose       | Callback after `Dialog` is completely closed                                                                                  | `() => void`                                               | -           |
-| afterShow        | Triggered after fully displayed                                                                                               | `() => void`                                               | -           |
-| image            | The `url` of the picture                                                                                                      | `string`                                                   | -           |
-| header           | The top area                                                                                                                  | `React.ReactNode`                                          | -           |
-| title            | The title of the Dialog                                                                                                       | `React.ReactNode`                                          | -           |
-| content          | The content of the Dialog                                                                                                     | `React.ReactNode`                                          | -           |
-| actions          | The list of the operation button, a secondary array can be passed in to realize multiple buttons side by side in the same row | `(Action \| Action[])[]`                                   | `[]`        |
-| onAction         | Triggered when the action button is clicked                                                                                   | `(action: Action, index: number) => void \| Promise<void>` | -           |
-| closeOnAction    | Whether to close after clicking the operation button                                                                          | `boolean`                                                  | `false`     |
-| onClose          | Triggered when closed                                                                                                         | `() => void`                                               | -           |
-| closeOnMaskClick | Whether to support clicking the mask to close the dialog box                                                                  | `boolean`                                                  | `false`     |
-| visible          | To show or hide                                                                                                               | `boolean`                                                  | `false`     |
-| getContainer     | The parent container of the custom dialog                                                                                     | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
-| bodyStyle        | `Dialog` content style                                                                                                        | `React.CSSProperties`                                      | -           |
-| bodyClassName    | `Dialog` content class name                                                                                                   | `string`                                                   | -           |
-| maskStyle        | `Dialog` mask style                                                                                                           | `React.CSSProperties`                                      | -           |
-| maskClassName    | `Dialog` mask class name                                                                                                      | `string`                                                   | -           |
-| stopPropagation  | Stop the propagation of some events.                                                                                          | `PropagationEvent[]`                                       | `['click']` |
+| Name              | Description                                                                                                                   | Type                                                       | Default     |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
+| afterClose        | Callback after `Dialog` is completely closed                                                                                  | `() => void`                                               | -           |
+| afterShow         | Triggered after fully displayed                                                                                               | `() => void`                                               | -           |
+| image             | The `url` of the picture                                                                                                      | `string`                                                   | -           |
+| header            | The top area                                                                                                                  | `React.ReactNode`                                          | -           |
+| title             | The title of the Dialog                                                                                                       | `React.ReactNode`                                          | -           |
+| content           | The content of the Dialog                                                                                                     | `React.ReactNode`                                          | -           |
+| actions           | The list of the operation button, a secondary array can be passed in to realize multiple buttons side by side in the same row | `(Action \| Action[])[]`                                   | `[]`        |
+| onAction          | Triggered when the action button is clicked                                                                                   | `(action: Action, index: number) => void \| Promise<void>` | -           |
+| closeOnAction     | Whether to close after clicking the operation button                                                                          | `boolean`                                                  | `false`     |
+| onClose           | Triggered when closed                                                                                                         | `() => void`                                               | -           |
+| closeOnMaskClick  | Whether to support clicking the mask to close the dialog box                                                                  | `boolean`                                                  | `false`     |
+| visible           | To show or hide                                                                                                               | `boolean`                                                  | `false`     |
+| getContainer      | The parent container of the custom dialog                                                                                     | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
+| bodyStyle         | `Dialog` content style                                                                                                        | `React.CSSProperties`                                      | -           |
+| bodyClassName     | `Dialog` content class name                                                                                                   | `string`                                                   | -           |
+| maskStyle         | `Dialog` mask style                                                                                                           | `React.CSSProperties`                                      | -           |
+| maskClassName     | `Dialog` mask class name                                                                                                      | `string`                                                   | -           |
+| stopPropagation   | Stop the propagation of some events.                                                                                          | `PropagationEvent[]`                                       | `['click']` |
+| disableBodyScroll | Whether to disable `body` scrolling                                                                                           | `boolean`                                                  | `true`      |
 
 ### Action
 
