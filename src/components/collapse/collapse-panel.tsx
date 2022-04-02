@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo, useRef } from 'react'
+import React, { FC, useMemo, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
 import { useSpring, animated } from '@react-spring/web'
