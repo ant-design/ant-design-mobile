@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar'
 import SideMenu from '../components/SideMenu'
 import { SlugList } from '../components/slug-list'
 import '../style/layout-default.less'
-import '../style/layout.less'
+import '../style/global.less'
 import styles from './index.less'
 
 const Features = (features: any) => (
