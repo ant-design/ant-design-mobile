@@ -26,6 +26,7 @@
 | children      | 自定义上传按钮                                                                | `ReactNode`                                                            | -         |
 | preview       | 是否支持预览                                                                  | `boolean`                                                              | `true`    |
 | showFailed    | 是否展示上传失败状态下的图片                                                  | `boolean`                                                              | `true`    |
+| imageFit      | 图片填充模式，同 [Image](./image#属性)                                        | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'`             | `cover`   |
 
 ### ImageUploadItem
 

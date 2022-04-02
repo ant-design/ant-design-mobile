@@ -25,6 +25,7 @@
 | children      | Custom upload button                                                                                                                                                     | `ReactNode`                                                            | -         |
 | preview       | Whether to support preview                                                                                                                                               | `boolean`                                                              | `true`    |
 | showFailed    | Whether to display pictures in the failed uploading state                                                                                                                | `boolean`                                                              | `true`    |
+| imageFit      | The fill mode of the image, same as [Image](./image#props)                                                                                                               | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'`             | `cover`   |
 
 ### ImageUploadItem
 

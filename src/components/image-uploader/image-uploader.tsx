@@ -7,6 +7,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { useIsomorphicLayoutEffect, useMemoizedFn, useUnmount } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import type { ImageProps } from '../image'
 
 export type TaskStatus = 'pending' | 'fail'
 
@@ -45,6 +46,7 @@ export type ImageUploaderProps = {
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
   preview?: boolean
   showFailed?: boolean
+  imageFit?: ImageProps['fit']
 } & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
@@ -59,6 +61,7 @@ const defaultProps = {
   accept: 'image/*',
   preview: true,
   showFailed: true,
+  imageFit: 'cover',
 }
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
@@ -202,6 +205,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             key={fileItem.key ?? index}
             url={fileItem.thumbnailUrl ?? fileItem.url}
             deletable={props.deletable}
+            imageFit={props.imageFit}
             onClick={() => {
               if (props.preview) {
                 previewImage(index)
@@ -225,6 +229,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               file={task.file}
               deletable={task.status !== 'pending'}
               status={task.status}
+              imageFit={props.imageFit}
               onDelete={() => {
                 setTasks(tasks.filter(x => x.id !== task.id))
               }}
