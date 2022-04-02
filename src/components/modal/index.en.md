@@ -10,27 +10,28 @@
 
 ### Props
 
-| Name             | Description                                                 | Type                                                       | Default     |
-| ---------------- | ----------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
-| afterClose       | Callback after `Modal` is completely closed                 | `() => void`                                               | -           |
-| afterShow        | Triggered after fully displayed                             | `() => void`                                               | -           |
-| image            | The `url` of the picture                                    | `string`                                                   | -           |
-| header           | The top area                                                | `React.ReactNode`                                          | -           |
-| title            | The title of the Modal                                      | `React.ReactNode`                                          | -           |
-| content          | The content of the Modal                                    | `React.ReactNode`                                          | -           |
-| actions          | The list of the operation button                            | `Action[]`                                                 | `[]`        |
-| onAction         | Triggered when the action button is clicked                 | `(action: Action, index: number) => void \| Promise<void>` | -           |
-| closeOnAction    | Whether to close after clicking the operation button        | `boolean`                                                  | `false`     |
-| onClose          | Triggered when closed                                       | `() => void`                                               | -           |
-| closeOnMaskClick | Whether to support clicking the mask to close the modal box | `boolean`                                                  | `false`     |
-| visible          | To show or hide                                             | `boolean`                                                  | `false`     |
-| getContainer     | The parent container of the custom modal                    | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
-| bodyStyle        | `Modal` content style                                       | `React.CSSProperties`                                      | -           |
-| bodyClassName    | `Modal` content class name                                  | `string`                                                   | -           |
-| maskStyle        | `Modal` mask style                                          | `React.CSSProperties`                                      | -           |
-| maskClassName    | `Modal` mask class name                                     | `string`                                                   | -           |
-| stopPropagation  | Stop the propagation of some events.                        | `PropagationEvent[]`                                       | `['click']` |
-| showCloseButton  | Whether to show a close button on the top right corner      | `boolean`                                                  | `false`     |
+| Name              | Description                                                 | Type                                                       | Default     |
+| ----------------- | ----------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
+| afterClose        | Callback after `Modal` is completely closed                 | `() => void`                                               | -           |
+| afterShow         | Triggered after fully displayed                             | `() => void`                                               | -           |
+| image             | The `url` of the picture                                    | `string`                                                   | -           |
+| header            | The top area                                                | `React.ReactNode`                                          | -           |
+| title             | The title of the Modal                                      | `React.ReactNode`                                          | -           |
+| content           | The content of the Modal                                    | `React.ReactNode`                                          | -           |
+| actions           | The list of the operation button                            | `Action[]`                                                 | `[]`        |
+| onAction          | Triggered when the action button is clicked                 | `(action: Action, index: number) => void \| Promise<void>` | -           |
+| closeOnAction     | Whether to close after clicking the operation button        | `boolean`                                                  | `false`     |
+| onClose           | Triggered when closed                                       | `() => void`                                               | -           |
+| closeOnMaskClick  | Whether to support clicking the mask to close the modal box | `boolean`                                                  | `false`     |
+| visible           | To show or hide                                             | `boolean`                                                  | `false`     |
+| getContainer      | The parent container of the custom modal                    | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
+| bodyStyle         | `Modal` content style                                       | `React.CSSProperties`                                      | -           |
+| bodyClassName     | `Modal` content class name                                  | `string`                                                   | -           |
+| maskStyle         | `Modal` mask style                                          | `React.CSSProperties`                                      | -           |
+| maskClassName     | `Modal` mask class name                                     | `string`                                                   | -           |
+| stopPropagation   | Stop the propagation of some events.                        | `PropagationEvent[]`                                       | `['click']` |
+| showCloseButton   | Whether to show a close button on the top right corner      | `boolean`                                                  | `false`     |
+| disableBodyScroll | Mask Whether to disable `body` scrolling                    | `boolean`                                                  | `true`      |
 
 ### Action
 
