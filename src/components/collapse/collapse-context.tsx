@@ -10,6 +10,8 @@ const CollapseContext = createContext<CollapseContextProps>({
   arrow: null,
 })
 
+CollapseContext.displayName = 'CollapseContext'
+
 const CollapseContextProvider = CollapseContext.Provider
 
 export const useCollapseContext = () => {
