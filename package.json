@@ -24,6 +24,7 @@
     "dayjs": "^1.11.0",
     "lodash": "^4.17.21",
     "rc-field-form": "^1.24.0",
+    "react-is": "^17.0.0",
     "staged-components": "^1.1.2",
     "tslib": "^2.3.1"
   },

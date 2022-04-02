@@ -3,6 +3,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
 import { usePropsValue } from '../../utils/use-props-value'
 import CollapseContextProvider from './collapse-context'
+import toArray from '../../utils/toArray'
 
 export const classPrefix = `adm-collapse`
 
@@ -65,14 +66,18 @@ export const Collapse: FC<CollapseProps> = props => {
     }
   }
 
-  const children = React.Children.map(props.children, child => {
-    return React.isValidElement(child)
-      ? React.cloneElement(child, {
-          ...child.props,
-          panelKey: child.key,
-          active: activeKeyList.includes(child.key as string),
-        })
-      : child
+  const children = toArray(props.children).map((child, index) => {
+    if (!React.isValidElement(child)) {
+      return child
+    }
+
+    const childProps = {
+      ...(child.props as any),
+      panelKey: child.key || String(index),
+      active: activeKeyList.includes(child.key as string),
+    }
+
+    return React.cloneElement(child, childProps)
   })
 
   return withNativeProps(
