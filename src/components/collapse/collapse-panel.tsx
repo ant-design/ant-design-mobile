@@ -1,8 +1,9 @@
-import React, { FC, useCallback, useRef } from 'react'
+import React, { FC, useCallback, useMemo, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
 import { useSpring, animated } from '@react-spring/web'
 import { useMount } from 'ahooks'
+
 import { useShouldRender } from '../../utils/should-render'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 import classNames from 'classnames'
@@ -108,26 +109,28 @@ export const CollapsePanel: FC<CollapsePanelProps> = props => {
     onClick?.(event)
   }
 
-  const renderArrow = useCallback(() => {
-    let arrowDom: React.ReactNode = <DownOutline />
+  const arrowNode = useMemo(() => {
+    if (typeof arrow === 'function') {
+      return arrow(active)
+    }
+
+    let icon: React.ReactNode = <DownOutline />
     if (props.arrow !== undefined) {
-      arrowDom = props.arrow
+      icon = props.arrow
     }
     if (arrow !== undefined) {
-      arrowDom = arrow
+      icon = arrow
     }
-    return typeof arrow === 'function' ? (
-      arrow(active)
-    ) : (
+    return (
       <div
         className={classNames(`${classPrefix}-arrow`, {
           [`${classPrefix}-arrow-active`]: active,
         })}
       >
-        {arrowDom}
+        {icon}
       </div>
     )
-  }, [active])
+  }, [active, arrow, props.arrow])
 
   return (
     <React.Fragment key={key}>
@@ -137,7 +140,7 @@ export const CollapsePanel: FC<CollapsePanelProps> = props => {
           className={`${classPrefix}-panel-header`}
           onClick={handleClick}
           disabled={disabled}
-          arrow={renderArrow()}
+          arrow={arrowNode}
         >
           {title}
         </List.Item>
