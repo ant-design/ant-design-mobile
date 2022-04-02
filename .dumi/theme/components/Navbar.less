@@ -1,19 +1,13 @@
 @import (reference) '../style/variables.less';
 
 .@{prefix}-navbar {
-  position: fixed;
-  z-index: 101;
-  top: 0;
-  left: 0;
-  right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
   height: @s-nav-height;
   white-space: nowrap;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(16px);
+  background: #ffffff;
   border-bottom: solid 1px @c-border;
 
   [data-prefers-color='dark'] & {

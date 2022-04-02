@@ -9,14 +9,9 @@ import SearchBar from './SearchBar'
 interface INavbarProps {
   location: any
   darkPrefix?: React.ReactNode
-  onMobileMenuClick: (ev: MouseEvent<HTMLButtonElement>) => void
 }
 
-const Navbar: FC<INavbarProps> = ({
-  onMobileMenuClick,
-  location,
-  darkPrefix,
-}) => {
+const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
   const {
     base,
     config: { title, logo },
@@ -25,10 +20,7 @@ const Navbar: FC<INavbarProps> = ({
 
   return (
     <div className='__dumi-default-navbar'>
-      <button
-        className='__dumi-default-navbar-toggle'
-        onClick={onMobileMenuClick}
-      />
+      <button className='__dumi-default-navbar-toggle' />
       <div className='left-part'>
         <Link className='__dumi-default-navbar-logo' to={base}>
           <img src={logo.toString()} alt='logo' />
