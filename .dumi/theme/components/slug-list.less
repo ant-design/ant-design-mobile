@@ -15,9 +15,8 @@
   max-height: calc(100vh - 140px);
   height: fit-content;
   margin-top: 90px;
-  background-color: #fff;
   box-sizing: content-box;
-  overflow: auto;
+  overflow: visible;
 
   [data-prefers-color='dark'] & {
     background-color: @c-bg-dark;
@@ -93,10 +92,11 @@
 }
 
 ul[role='slug-list'] {
-  &:empty {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+  margin: 0;
+  padding: 0 0 0 16px;
+  position: relative;
+  left: 12px;
+  background-color: #ffffff;
 
   li {
     > a.active {

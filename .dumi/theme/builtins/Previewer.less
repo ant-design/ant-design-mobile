@@ -34,18 +34,13 @@
   width: 100%;
   justify-content: flex-start;
   align-items: stretch;
-
-  > * {
-    border: 1px solid @c-border;
-    &:not(:last-child) {
-      border-right: none;
-    }
-  }
+  border-radius: 12px;
+  overflow: hidden;
+  --border-color: @c-border;
+  border: 1px solid var(--border-color);
 
   &[data-debug] {
-    > * {
-      border-color: #ffcb00;
-    }
+    --border-color: #ffcb00;
   }
 
   > .adm-doc-previewer-source {
@@ -89,5 +84,6 @@
   }
   > .adm-doc-previewer-device {
     flex: 0;
+    border-left: solid 1px var(--border-color);
   }
 }

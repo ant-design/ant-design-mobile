@@ -287,7 +287,7 @@ const config: IConfig = {
   hash: true,
   scripts: [
     `if (location.pathname.startsWith('/~demos/')) {
-      document.body.style.background = '#f5f7fa'
+      document.body.style.background = '#FAFBFC'
     }`,
     `
     if (!location.port) {

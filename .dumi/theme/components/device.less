@@ -16,7 +16,7 @@
 
   &-action {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 0 22px;
   }
@@ -26,11 +26,9 @@
     background: #ffffff;
     border-top: 1px solid @c-border;
 
-    > a,
-    > button {
+    > a {
       padding: 0;
-      width: 16px;
-      height: 16px;
+      margin-left: 12px;
       box-sizing: content-box;
       border: 2px solid transparent;
       transition: opacity 0.2s, background 0.2s;
@@ -80,5 +78,8 @@
   > iframe {
     flex: 1;
     border: 0;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow: hidden;
   }
 }
