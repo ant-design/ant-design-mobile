@@ -32,7 +32,7 @@
 
 - 请尽可能准确、具体地描述你认为的预期行为应该是什么样的，现在的行为又是什么样的
 - 请尽可能准备的附加上你的环境信息，包括但不限于：antd-mobile 的版本号、浏览器类型、设备型号、本地的构建环境/脚手架
-- 最好可以提供一份完整的可复现问题的 demo，我们推荐在 [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json) 直接创建一份 demo
+- 最好可以提供一份完整的可复现问题的 demo，我们推荐在 [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json) 或 [stackblitz](https://stackblitz.com/edit/antd-mobile?file=index.tsx) 直接创建一份 demo
 
 ### 回答其他社区同学的疑问
 

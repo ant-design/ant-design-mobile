@@ -46,7 +46,7 @@ For React, antd-mobile is compatible with versions >= 16.8.0.
 
 ## Playground
 
-If you don't want to configure your environment locally, you can also try it directly on [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json).
+If you don't want to configure your environment locally, you can also try it directly on [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json) or [stackblitz](https://stackblitz.com/edit/antd-mobile?file=index.tsx).
 
 ## Discussion Groups
 
