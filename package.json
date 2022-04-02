@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "5.9.3",
+  "version": "5.9.4-dev.1",
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
@@ -10,7 +10,8 @@
     "test": "jest",
     "test-with-coverage": "jest --coverage",
     "publish": "npm publish ./lib --registry=https://registry.npmjs.org",
-    "publish-alpha": "npm publish ./lib --registry=https://registry.npmjs.org --tag alpha"
+    "publish:alpha": "npm publish ./lib --registry=https://registry.npmjs.org --tag alpha",
+    "publish:dev": "npm publish ./lib --registry=https://registry.npmjs.org --tag dev"
   },
   "dependencies": {
     "@floating-ui/dom": "^0.4.2",
@@ -104,28 +105,6 @@
   "files": [
     "./lib"
   ],
-  "exports": {
-    ".": {
-      "node": {
-        "import": "./bundle/antd-mobile.es.js",
-        "require": "./bundle/antd-mobile.cjs.js"
-      },
-      "import": "./es/index.js",
-      "require": "./cjs/index.js",
-      "types": "./es/index.d.ts"
-    },
-    "./es": "./es/index.js",
-    "./cjs": "./cjs/index.js",
-    "./es/locales/*": "./es/locales/*.js",
-    "./es/utils/*": "./es/utils/*.js",
-    "./es/*": "./es/*/index.js",
-    "./es/": "./es/",
-    "./cjs/": "./cjs/",
-    "./bundle/": "./bundle/",
-    "./package.json": "./package.json",
-    "./package": "./package.json",
-    "./2x": "./2x"
-  },
   "sideEffects": [
     "**/*.css",
     "**/*.less",
