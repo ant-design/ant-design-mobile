@@ -14,6 +14,7 @@ import type { FormLayout } from './index'
 import Popover from '../popover'
 import { QuestionCircleOutline } from 'antd-mobile-icons'
 import { useConfig } from '../config-provider'
+import { undefinedFallback } from '../../utils/undefined-fallback'
 
 const NAME_SPLIT = '__SPLIT__'
 
@@ -256,8 +257,11 @@ export const FormItem: FC<FormItemProps> = props => {
   const { name: formName } = useContext(FormContext)
   const { validateTrigger: contextValidateTrigger } = useContext(FieldContext)
 
-  const mergedValidateTrigger =
-    validateTrigger !== undefined ? validateTrigger : contextValidateTrigger
+  const mergedValidateTrigger = undefinedFallback(
+    validateTrigger,
+    contextValidateTrigger,
+    trigger
+  )
 
   const updateRef = React.useRef(0)
   updateRef.current += 1
