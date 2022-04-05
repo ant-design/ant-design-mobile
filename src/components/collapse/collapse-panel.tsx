@@ -82,7 +82,7 @@ const CollapsePanelContent: FC<{
   )
 }
 
-export type CollapseInternalProps = {
+export type CollapsePanelInternalProps = {
   active: boolean
   panelKey: string
 }
@@ -100,7 +100,8 @@ export type CollapsePanelProps = {
 export const CollapsePanel: FC<CollapsePanelProps> = props => {
   const { children, title, disabled, onClick, forceRender, destroyOnClose } =
     props
-  const { active, panelKey: key } = props as unknown as CollapseInternalProps
+  const { active, panelKey: key } =
+    props as unknown as CollapsePanelInternalProps
 
   const { arrow, onCollapse } = useCollapseContext()
 
