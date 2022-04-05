@@ -5,6 +5,7 @@ import LocaleSelect from './LocaleSelect'
 import './Navbar.less'
 import p from '../../../package.json'
 import SearchBar from './SearchBar'
+import { Popover } from 'antd-mobile'
 
 interface INavbarProps {
   location: any
@@ -33,8 +34,8 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
           <SearchBar />
         </div>
         {navItems.map(nav => {
-          const child = Boolean(nav.children?.length) && (
-            <ul>
+          const popoverContent = Boolean(nav.children?.length) && (
+            <ul className='nav-popover-ul'>
               {nav.children.map(
                 item =>
                   !!item.path && (
@@ -45,18 +46,21 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
               )}
             </ul>
           )
-
-          return (
+          const span = (
             <span key={nav.title || nav.path}>
               {nav.path ? (
-                <NavLink to={nav.path} key={nav.path}>
-                  {nav.title}
-                </NavLink>
+                <NavLink to={nav.path}>{nav.title}</NavLink>
               ) : (
-                nav.title
+                <a>{nav.title}</a>
               )}
-              {child}
             </span>
+          )
+          return popoverContent ? (
+            <Popover content={popoverContent} trigger='click'>
+              {span}
+            </Popover>
+          ) : (
+            span
           )
         })}
         <div className='__dumi-default-navbar-tool'>
