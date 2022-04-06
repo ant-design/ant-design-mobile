@@ -4,6 +4,7 @@
 
 ### Props
 
-| Name            | Description                 | Type                            | Default    |
-| --------------- | --------------------------- | ------------------------------- | ---------- |
-| contentPosition | The position of the content | `'center' \| 'left' \| 'right'` | `'center'` |
+| Name            | Description                   | Type                            | Default        |
+| --------------- | ----------------------------- | ------------------------------- | -------------- |
+| contentPosition | The position of the content   | `'center' \| 'left' \| 'right'` | `'center'`     |
+| type            | The direction type of divider | `'horizontal' \| 'vertical'`    | `'horizontal'` |
