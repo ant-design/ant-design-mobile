@@ -29,45 +29,47 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
           <div className='version'>{`v${p.version}`}</div>
         </Link>
       </div>
-      <nav>
-        <div className='nav-item'>
-          <SearchBar />
-        </div>
-        {navItems.map(nav => {
-          const popoverContent = Boolean(nav.children?.length) && (
-            <ul className='nav-popover-ul'>
-              {nav.children.map(
-                item =>
-                  !!item.path && (
-                    <li key={item.path}>
-                      <NavLink to={item.path}>{item.title}</NavLink>
-                    </li>
-                  )
-              )}
-            </ul>
-          )
-          const span = (
-            <span key={nav.title || nav.path}>
-              {nav.path ? (
-                <NavLink to={nav.path}>{nav.title}</NavLink>
-              ) : (
-                <a>{nav.title}</a>
-              )}
-            </span>
-          )
-          return popoverContent ? (
-            <Popover content={popoverContent} trigger='click'>
-              {span}
-            </Popover>
-          ) : (
-            span
-          )
-        })}
-        <div className='__dumi-default-navbar-tool'>
-          <LocaleSelect location={location} />
-          {darkPrefix}
-        </div>
-      </nav>
+      <div className='middle-part'>
+        <SearchBar />
+      </div>
+      <div className='right-part'>
+        <nav>
+          {navItems.map(nav => {
+            const popoverContent = Boolean(nav.children?.length) && (
+              <ul className='nav-popover-ul'>
+                {nav.children.map(
+                  item =>
+                    !!item.path && (
+                      <li key={item.path}>
+                        <NavLink to={item.path}>{item.title}</NavLink>
+                      </li>
+                    )
+                )}
+              </ul>
+            )
+            const span = (
+              <span key={nav.title || nav.path}>
+                {nav.path ? (
+                  <NavLink to={nav.path}>{nav.title}</NavLink>
+                ) : (
+                  <a>{nav.title}</a>
+                )}
+              </span>
+            )
+            return popoverContent ? (
+              <Popover content={popoverContent} trigger='click'>
+                {span}
+              </Popover>
+            ) : (
+              span
+            )
+          })}
+          <div className='__dumi-default-navbar-tool'>
+            <LocaleSelect location={location} />
+            {darkPrefix}
+          </div>
+        </nav>
+      </div>
     </div>
   )
 }

@@ -1,11 +1,10 @@
 @import (reference) '../style/variables.less';
 
 .@{prefix}-navbar {
-  overflow-x: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
+  justify-content: flex-start;
+  padding: 0 0 0 32px;
   height: @s-nav-height;
   white-space: nowrap;
   background: #ffffff;
@@ -70,9 +69,20 @@
   }
 
   .left-part {
+    flex: none;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+  }
+  .middle-part {
+    flex: none;
+    padding-right: 12px;
+  }
+  .right-part {
+    flex: auto;
+    overflow-x: auto;
+    padding-right: 32px;
+    text-align: right;
   }
 
   nav {
