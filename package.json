@@ -16,6 +16,7 @@
   "dependencies": {
     "@floating-ui/dom": "^0.4.2",
     "@react-spring/web": "^9.4.4",
+    "@types/react-is": "^17.0.3",
     "@types/resize-observer-browser": "^0.1.7",
     "@use-gesture/react": "^10.2.10",
     "ahooks": "^3.1.14",
@@ -25,6 +26,7 @@
     "dayjs": "^1.11.0",
     "lodash": "^4.17.21",
     "rc-field-form": "^1.24.0",
+    "react-is": "^17.0.2",
     "staged-components": "^1.1.2",
     "tslib": "^2.3.1"
   },

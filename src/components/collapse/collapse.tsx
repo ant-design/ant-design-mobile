@@ -8,6 +8,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { useMount } from 'ahooks'
 import { useShouldRender } from '../../utils/should-render'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { traverseReactNode } from '../../utils/traverse-react-node'
 
 const classPrefix = `adm-collapse`
 
@@ -115,7 +116,7 @@ export type CollapseProps = (
 
 export const Collapse: FC<CollapseProps> = props => {
   const panels: ReactElement<ComponentProps<typeof CollapsePanel>>[] = []
-  React.Children.forEach(props.children, child => {
+  traverseReactNode(props.children, child => {
     if (!React.isValidElement(child)) return
     const key = child.key
     if (typeof key !== 'string') return
