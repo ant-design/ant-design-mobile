@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import { NativeProps } from '../../utils/native-props'
 
 export type IndexBarPanelProps = {

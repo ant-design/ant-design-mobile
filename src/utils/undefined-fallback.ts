@@ -10,7 +10,7 @@ export function undefinedFallback<T>(
   c: T | undefined,
   d: T
 ): T
-export function undefinedFallback<T>(...items: any[]) {
+export function undefinedFallback(...items: any[]) {
   let i: number
   for (i = 0; i < items.length; i++) {
     if (items[i] !== undefined) break

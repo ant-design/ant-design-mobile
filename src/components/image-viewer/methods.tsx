@@ -1,12 +1,4 @@
-import React, {
-  createRef,
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react'
-import { renderToBody } from '../../utils/render-to-body'
+import React from 'react'
 import {
   ImageViewerProps,
   ImageViewer,
