@@ -181,7 +181,7 @@ export const Wheel = memo<Props>(
             }
             return (
               <div
-                key={item.key || item.value}
+                key={item.key ?? item.value}
                 data-selected={item.value === value}
                 className={`${classPrefix}-column-item`}
                 onClick={handleClick}
