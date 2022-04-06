@@ -29,9 +29,9 @@ export default () => {
       <DemoBlock title='竖向分割线'>
         <>
           Text
-          <Divider type='vertical' />
+          <Divider direction='vertical' />
           <a href='#'>Link</a>
-          <Divider type='vertical' />
+          <Divider direction='vertical' />
           <a href='#'>Link</a>
         </>
       </DemoBlock>
