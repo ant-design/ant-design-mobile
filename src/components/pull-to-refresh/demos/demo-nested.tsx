@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { PullToRefresh, List, Tabs } from 'antd-mobile'
 import { sleep } from 'antd-mobile/es/utils/sleep'
 import styles from './demo-nested.less'
 import { lorem } from 'demos'
-
-let current = 1
 
 function getNextData() {
   const ret = {
@@ -13,11 +11,9 @@ function getNextData() {
   }
   for (let i = 0; i < 3; i++) {
     ret.headerItems.unshift(lorem.generateWords(1))
-    current++
   }
   for (let i = 0; i < 20; i++) {
     ret.bodyItems.unshift(lorem.generateWords(1))
-    current++
   }
   return ret
 }
