@@ -14,6 +14,7 @@ Picker 系列一共包括了三个组件：[Picker](#picker)、[CascadePicker](#
 type PickerColumnItem = {
   label: ReactNode
   value: string
+  key?: string | number
 }
 
 type PickerColumn = (string | PickerColumnItem)[]

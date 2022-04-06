@@ -19,6 +19,7 @@ export type PickerValueExtend = {
 export type PickerColumnItem = {
   label: ReactNode
   value: string
+  key?: string | number
 }
 
 export type PickerColumn = (string | PickerColumnItem)[]

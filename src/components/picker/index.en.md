@@ -14,6 +14,7 @@ The Picker series includes three components: [Picker](#picker), [CascadePicker](
 type PickerColumnItem = {
   label: ReactNode
   value: string
+  key?: string | number
 }
 
 type PickerColumn = (string | PickerColumnItem)[]

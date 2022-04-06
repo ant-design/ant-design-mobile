@@ -7,7 +7,6 @@ import { PickerColumnItem, PickerValue } from './index'
 import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { measureCSSLength } from '../../utils/measure-css-length'
-import { PickerProps } from '../picker'
 
 const classPrefix = `adm-picker-view`
 
@@ -182,7 +181,7 @@ export const Wheel = memo<Props>(
             }
             return (
               <div
-                key={item.value}
+                key={item.key ?? item.value}
                 data-selected={item.value === value}
                 className={`${classPrefix}-column-item`}
                 onClick={handleClick}
