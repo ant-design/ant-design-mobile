@@ -7,10 +7,12 @@ const classPrefix = `adm-divider`
 
 export type DividerProps = {
   contentPosition?: 'left' | 'right' | 'center'
+  type?: 'horizontal' | 'vertical'
 } & NativeProps
 
 const defaultProps = {
   contentPosition: 'center',
+  type: 'horizontal',
 }
 
 export const Divider: FC<DividerProps> = p => {
@@ -20,6 +22,7 @@ export const Divider: FC<DividerProps> = p => {
     <div
       className={classNames(
         classPrefix,
+        `${classPrefix}-${props.type}`,
         `${classPrefix}-${props.contentPosition}`
       )}
     >
