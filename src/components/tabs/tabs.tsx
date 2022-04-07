@@ -16,6 +16,7 @@ import { useResizeEffect } from '../../utils/use-resize-effect'
 import { mergeProps } from '../../utils/with-default-props'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 import { ShouldRender } from '../../utils/should-render'
+import { traverseReactNode } from '../../utils/traverse-react-node'
 
 const classPrefix = `adm-tabs`
 
@@ -58,7 +59,7 @@ export const Tabs: FC<TabsProps> = p => {
 
   const panes: ReactElement<ComponentProps<typeof Tab>>[] = []
 
-  React.Children.forEach(props.children, (child, index) => {
+  traverseReactNode(props.children, (child, index) => {
     if (!React.isValidElement(child)) return
     const key = child.key
     if (typeof key !== 'string') return

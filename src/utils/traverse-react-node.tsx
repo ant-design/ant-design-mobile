@@ -3,14 +3,16 @@ import { isFragment } from 'react-is'
 
 export function traverseReactNode(
   children: ReactNode,
-  fn: (child: ReactNode) => void
+  fn: (child: ReactNode, index: number) => void
 ) {
+  let i = 0
   function handle(target: ReactNode) {
     React.Children.forEach(target, child => {
-      if (isFragment(child)) {
-        handle(child.props.children)
+      if (!isFragment(child)) {
+        fn(child, i)
+        i += 1
       } else {
-        fn(child)
+        handle(child.props.children)
       }
     })
   }
