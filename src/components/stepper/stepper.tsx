@@ -7,6 +7,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { bound } from '../../utils/bound'
 import Input, { InputProps } from '../input'
 import Button from '../button'
+import Big from 'big.js'
 
 const classPrefix = `adm-stepper`
 
@@ -99,11 +100,19 @@ export const Stepper: FC<StepperProps> = p => {
   }
 
   const handleMinus = () => {
-    setValueWithCheck((value ?? 0) - step)
+    setValueWithCheck(
+      Big(value ?? 0)
+        .minus(step)
+        .toNumber()
+    )
   }
 
   const handlePlus = () => {
-    setValueWithCheck((value ?? 0) + step)
+    setValueWithCheck(
+      Big(value ?? 0)
+        .add(step)
+        .toNumber()
+    )
   }
 
   const minusDisabled = () => {

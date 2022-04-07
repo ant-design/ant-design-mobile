@@ -2944,6 +2944,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/big.js@npm:^6.1.3":
+  version: 6.1.3
+  resolution: "@types/big.js@npm:6.1.3"
+  checksum: bf52e25c1d91daf5f88e7c49d03465ac9ce537cb09697c7677e70f9a09727156f4278987959769aabbfcce9e225c50713ccd594ab0c3835a7712d8635f323f7c
+  languageName: node
+  linkType: hard
+
 "@types/eslint-scope@npm:^3.7.3":
   version: 3.7.3
   resolution: "@types/eslint-scope@npm:3.7.3"
@@ -4305,6 +4312,7 @@ __metadata:
     "@testing-library/react": ^12.1.4
     "@testing-library/react-hooks": 7.0.2
     "@testing-library/user-event": 13.5.0
+    "@types/big.js": ^6.1.3
     "@types/jest": ^27.4.1
     "@types/jest-axe": 3.5.3
     "@types/lodash": ^4.14.180
@@ -4319,6 +4327,7 @@ __metadata:
     antd-mobile-icons: ^0.2.2
     antd-mobile-v5-count: ^1.0.1
     babel-loader: ^8.2.4
+    big.js: ^6.1.1
     classnames: ^2.3.1
     css-loader: ^6.7.1
     dayjs: ^1.11.0
@@ -4934,6 +4943,13 @@ __metadata:
   version: 5.2.2
   resolution: "big.js@npm:5.2.2"
   checksum: b89b6e8419b097a8fb4ed2399a1931a68c612bce3cfd5ca8c214b2d017531191070f990598de2fc6f3f993d91c0f08aa82697717f6b3b8732c9731866d233c9e
+  languageName: node
+  linkType: hard
+
+"big.js@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "big.js@npm:6.1.1"
+  checksum: ba5db278e7d6700d7f92b7421e851bb65b6336d90b882869696c50574623c6be31f81500c3195fb1b391045163ffe62745e1c2bc30b35cb15e1b3e3ed135266b
   languageName: node
   linkType: hard
 
