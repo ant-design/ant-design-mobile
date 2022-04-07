@@ -61,11 +61,13 @@ export const Stepper: FC<StepperProps> = p => {
   const { disabled, step, max, min, inputReadOnly } = props
 
   const [value, setValue] = usePropsValue<number | null>(props as any)
-  const [inputValue, setInputValue] = useState(() => convertValueToText(value))
+  const [inputValue, setInputValue] = useState(() =>
+    convertValueToText(value, props.digits)
+  )
   function setValueWithCheck(v: number) {
     if (isNaN(v)) return
     let target = bound(v, props.min, props.max)
-    if (props.digits || props.digits === 0) {
+    if (props.digits !== undefined) {
       target = parseFloat(target.toFixed(props.digits))
     }
     setValue(target)
@@ -75,13 +77,13 @@ export const Stepper: FC<StepperProps> = p => {
 
   useEffect(() => {
     if (!hasFocus) {
-      setInputValue(convertValueToText(value))
+      setInputValue(convertValueToText(value, props.digits))
     }
   }, [hasFocus])
 
   useEffect(() => {
     if (!hasFocus) {
-      setInputValue(convertValueToText(value))
+      setInputValue(convertValueToText(value, props.digits))
     }
   }, [value])
 
@@ -183,9 +185,13 @@ export const Stepper: FC<StepperProps> = p => {
   )
 }
 
-function convertValueToText(value: number | null) {
+function convertValueToText(value: number | null, digits?: number) {
   if (value === null) return ''
-  return value.toString()
+  if (digits !== undefined) {
+    return value.toFixed(digits)
+  } else {
+    return value.toString()
+  }
 }
 
 function convertTextToValue(text: string) {
