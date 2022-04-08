@@ -22,6 +22,7 @@ export type RadioProps = {
   block?: boolean
   id?: string
   icon?: (checked: boolean) => React.ReactNode
+  children?: React.ReactNode
 } & NativeProps<'--icon-size' | '--font-size' | '--gap'>
 
 const defaultProps = {

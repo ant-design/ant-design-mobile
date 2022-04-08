@@ -47,6 +47,7 @@ export type ImageUploaderProps = {
   preview?: boolean
   showFailed?: boolean
   imageFit?: ImageProps['fit']
+  children?: React.ReactNode
 } & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`

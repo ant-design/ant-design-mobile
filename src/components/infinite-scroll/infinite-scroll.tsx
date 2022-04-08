@@ -16,6 +16,7 @@ export type InfiniteScrollProps = {
   loadMore: () => Promise<void>
   hasMore: boolean
   threshold?: number
+  children?: React.ReactNode
 } & NativeProps
 
 const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {

@@ -20,6 +20,7 @@ export type CollapsePanelProps = {
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
   arrow?: React.ReactNode | ((active: boolean) => React.ReactNode)
+  children?: React.ReactNode
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -30,6 +31,7 @@ const CollapsePanelContent: FC<{
   visible: boolean
   forceRender: boolean
   destroyOnClose: boolean
+  children?: React.ReactNode
 }> = props => {
   const { visible } = props
   const innerRef = useRef<HTMLDivElement>(null)
@@ -111,8 +113,9 @@ export type CollapseProps = (
   | ({
       accordion: true
     } & ValueProps<string | null>)
-) &
-  NativeProps
+) & {
+  children?: React.ReactNode
+} & NativeProps
 
 export const Collapse: FC<CollapseProps> = props => {
   const panels: ReactElement<ComponentProps<typeof CollapsePanel>>[] = []

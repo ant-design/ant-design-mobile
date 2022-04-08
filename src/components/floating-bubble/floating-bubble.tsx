@@ -10,6 +10,7 @@ export type FloatingBubbleProps = {
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   axis?: 'x' | 'y' | 'xy' | 'lock'
   magnetic?: 'x' | 'y'
+  children?: React.ReactNode
 } & NativeProps<
   | '--initial-position-left'
   | '--initial-position-right'

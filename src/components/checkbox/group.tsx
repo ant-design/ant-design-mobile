@@ -9,6 +9,7 @@ export interface CheckboxGroupProps {
   onChange?: (val: CheckboxValue[]) => void
   defaultValue?: CheckboxValue[]
   disabled?: boolean
+  children?: React.ReactNode
 }
 
 const defaultProps = {

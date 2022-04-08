@@ -34,6 +34,7 @@ export type PopupProps = {
   maskStyle?: React.CSSProperties
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   stopPropagation?: PropagationEvent[]
+  children?: React.ReactNode
 } & NativeProps<'--z-index'>
 
 const defaultProps = {

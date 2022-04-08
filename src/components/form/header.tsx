@@ -1,3 +1,3 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
-export const Header: FC = () => null
+export const Header: FC<{ children?: ReactNode }> = () => null

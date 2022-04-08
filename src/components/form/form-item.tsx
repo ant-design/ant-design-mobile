@@ -87,6 +87,7 @@ type FormItemLayoutProps = Pick<
   htmlFor?: string
   errors: string[]
   warnings: string[]
+  children: React.ReactNode
 }
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
