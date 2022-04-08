@@ -65,6 +65,10 @@ For the detailed explanation, please refer to:
 - [300ms tap delay, gone away](https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away)
 - [More Responsive Tapping on iOS](https://webkit.org/blog/5610/more-responsive-tapping-on-ios/)
 
+### In my project, the component gesture operation of antd-mobile cannot take effect, how to solve it?
+
+Please check if fastclick is introduced in the project, if so, try to remove it and try again.
+
 ### About React Hot Loader
 
 React Hot Loader is relatively intrusive to the project, and many components in antd-mobile (such as Swiper Tabs Form TabBar SideBar Dropdown Space Steps) are not compatible with it, and React Hot Loader itself is also recommended in the README. Don't use it anymore, so please consider removing React Hot Loader or replacing it with [React Fast Refresh](https://github.com/facebook/react/issues/16604).
@@ -72,14 +76,6 @@ React Hot Loader is relatively intrusive to the project, and many components in 
 ### How to write a duplicate demo on CodesandBox
 
 Codesandbox is a browser-side sandbox runtime environment that supports a variety of popular build templates and can be used for rapid prototyping, DEMO presentations, Bug recovery, and more.
-
-This is an online codesandbox demo of the simplest antd-mobile.
-
-<iframe
-  src="https://codesandbox.io/embed/antd-mobile-snrxr?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-  title="antd-mobile reproduction template"
-></iframe>
 
 1. create a CodesandBox
 

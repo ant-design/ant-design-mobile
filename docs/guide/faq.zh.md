@@ -65,6 +65,10 @@ html {
 - [300ms tap delay, gone away](https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away)
 - [More Responsive Tapping on iOS](https://webkit.org/blog/5610/more-responsive-tapping-on-ios/)
 
+### 在我的项目中，antd-mobile 的组件手势操作无法生效，该怎么解决？
+
+请检查项目中是不是引入了 fastclick，如果有的话，尝试移除掉再试一下。
+
 ### 关于 React Hot Loader
 
 React Hot Loader 对项目有比较大的侵入性， 而 antd-mobile 中的很多组件（例如 Swiper Tabs Form TabBar SideBar Dropdown Space Steps）并不能和它兼容，而且 React Hot Loader 本身也在 README 中写了推荐大家不要再使用，所以请考虑移除 React Hot Loader 或将其替换为 [React Fast Refresh](https://github.com/facebook/react/issues/16604)。
@@ -72,14 +76,6 @@ React Hot Loader 对项目有比较大的侵入性， 而 antd-mobile 中的很�
 ### 如何在 codesandbox 上写一个复现 demo
 
 codesandbox 是一个浏览器端的沙盒运行环境，支持多种流行的构建模板，可以用于快速原型开发、DEMO 展示、Bug 还原等等。
-
-这是一个最简单的 antd-mobile 的在线 codesandbox 演示。
-
-<iframe
-  src="https://codesandbox.io/embed/antd-mobile-snrxr?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-  title="antd-mobile reproduction template"
-></iframe>
 
 1. 创建一个 codesandbox
 
