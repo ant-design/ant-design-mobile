@@ -85,7 +85,7 @@ export const Stepper: FC<StepperProps> = p => {
     if (!hasFocus) {
       setInputValue(convertValueToText(value, props.digits))
     }
-  }, [value])
+  }, [value, props.digits])
 
   const handleInputChange = (v: string) => {
     setInputValue(v)
