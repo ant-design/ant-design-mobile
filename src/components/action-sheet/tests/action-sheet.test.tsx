@@ -154,11 +154,12 @@ describe('ActionSheet', () => {
     )
     fireEvent.click(getByText('button'))
 
-    await waitFor(() =>
+    await waitFor(() => {
       fireEvent.click(baseElement.querySelectorAll(`.adm-mask-aria-button`)[0])
-    )
-    await sleep(1000)
-    expect(baseElement.querySelectorAll(`.${classPrefix}`)[0]).toBeVisible()
+    })
+    await waitFor(() => {
+      expect(baseElement.querySelectorAll(`.${classPrefix}`)[0]).toBeVisible()
+    })
   })
 
   test('action click shound be called', async () => {

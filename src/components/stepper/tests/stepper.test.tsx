@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Stepper } from '../stepper'
 
 describe('stepper', () => {
-  test('control works', () => {
+  test('control works', async () => {
     const onChange = jest.fn()
 
     const Element = () => {
@@ -24,12 +24,12 @@ describe('stepper', () => {
     const { container } = render(<Element></Element>)
 
     // plus
-    container.getElementsByTagName('button')[1].click()
+    await waitFor(() => container.getElementsByTagName('button')[1].click())
     expect(onChange).toHaveBeenLastCalledWith(2)
 
     // plus
     container.getElementsByTagName('button')[1].click()
-    expect(container.getElementsByTagName('input')[0].value).toBe('2')
+    expect(onChange).toBeCalledTimes(1)
 
     const input = container.getElementsByTagName('input')[0]
 
@@ -68,18 +68,18 @@ describe('stepper', () => {
     })
   })
 
-  test('step works', () => {
+  test('step works', async () => {
     const onChange = jest.fn()
     const { container } = render(
       <Stepper defaultValue={0} step={100} onChange={onChange} />
     )
     // minus
-    container.getElementsByTagName('button')[0].click()
-    expect(onChange).toHaveBeenLastCalledWith(-100)
+    await waitFor(() => container.getElementsByTagName('button')[0].click())
+    expect(onChange.mock.calls[0][0]).toBe(-100)
 
     // plus
-    container.getElementsByTagName('button')[1].click()
-    expect(onChange).toHaveBeenLastCalledWith(0)
+    await waitFor(() => container.getElementsByTagName('button')[1].click())
+    expect(onChange.mock.calls[1][0]).toBe(0)
   })
 
   test('digits works', () => {
@@ -103,14 +103,13 @@ describe('stepper', () => {
 
     // max
     for (let i = 1; i <= 11; i++) {
-      container.getElementsByTagName('button')[1].click()
-
+      await waitFor(() => container.getElementsByTagName('button')[1].click())
       expect((onChange.mock as any).lastCall[0]).toBeLessThanOrEqual(0.2)
     }
 
     // min
     for (let i = 20; i >= -1; i--) {
-      container.getElementsByTagName('button')[0].click()
+      await waitFor(() => container.getElementsByTagName('button')[0].click())
       expect((onChange.mock as any).lastCall[0]).toBeGreaterThanOrEqual(0)
     }
 

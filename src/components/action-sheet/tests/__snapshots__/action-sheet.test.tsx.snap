@@ -2,7 +2,7 @@
 
 exports[`ActionSheet basic usage 1`] = `
 <body
-  class="adm-overflow-hidden"
+  class=""
 >
   <div>
     <button

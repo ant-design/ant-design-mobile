@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { fireEvent, render, testA11y, waitFor } from 'testing'
 import Switch from '..'
+import { sleep } from '../../../utils/sleep'
 
 const classPrefix = `adm-switch`
 
@@ -59,7 +60,7 @@ describe('Switch', () => {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve()
-          }, 1000)
+          }, 500)
         })
       }
       return <Switch beforeChange={() => beforeChange()} data-testid='switch' />
@@ -69,6 +70,7 @@ describe('Switch', () => {
     fireEvent.click(getByTestId('switch'))
     expect(getByTestId('switch')).toHaveClass(`${classPrefix}-disabled`)
 
+    await sleep(500)
     await waitFor(() => {
       expect(getByTestId('switch')).toHaveClass(`${classPrefix}-checked`)
     })

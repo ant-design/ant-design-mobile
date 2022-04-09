@@ -69,7 +69,7 @@ describe('ImageUploader', () => {
     await render(<App />)
 
     const input = await mockInputFile()
-    expect(input.files?.[0]).toBe(mockImg)
+    expect(input.files?.[0]).toStrictEqual(mockImg)
     expect($$(`.${classPrefix}-cell-image`).length).toBe(2)
   })
 
@@ -151,7 +151,7 @@ describe('ImageUploader', () => {
 
     fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
     await waitFor(() => fireEvent.click(getByText('确定')))
-    expect($$(`.${classPrefix}-cell-image`).length).toBe(0)
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(0))
   })
 
   test('custom upload button', async () => {
