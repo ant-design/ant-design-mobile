@@ -97,7 +97,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     )
     items = []
   }
-  traverseReactNode(props.children, child => {
+  traverseReactNode(props.children as ReactNode, child => {
     if (React.isValidElement(child)) {
       if (child.type === Header) {
         collect()
