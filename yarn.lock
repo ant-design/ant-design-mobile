@@ -2936,6 +2936,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/expect@npm:^1.20.4":
+  version: 1.20.4
+  resolution: "@types/expect@npm:1.20.4"
+  checksum: c09a9abec2c1776dd8948920dc3bad87b1206c843509d3d3002040983b1769b2e3914202a6c20b72e5c3fb5738a1ab87cb7be9d3fe9efabf2a324173b222a224
+  languageName: node
+  linkType: hard
+
 "@types/graceful-fs@npm:^4.1.2":
   version: 4.1.5
   resolution: "@types/graceful-fs@npm:4.1.5"
@@ -3078,6 +3085,13 @@ __metadata:
   version: 14.17.5
   resolution: "@types/node@npm:14.17.5"
   checksum: 8fba22a8df7bcea75039f08e00fcff8e331f6d367739a9631d3457bc3e8e5ddfdd60e1a5d685d9420312e9ed7cf2f2146d37224ec9f7d578fe8dd32ce3821e62
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14.14.41":
+  version: 14.18.12
+  resolution: "@types/node@npm:14.18.12"
+  checksum: 8a0273caa0584020adb8802784fc7d4f18f05e6c205335b7f3818a91d6b0c22736b9f51da3428d5bc54076ad47f1a4d6d57990a3ce8489a520ac66b2b3ff24bc
   languageName: node
   linkType: hard
 
@@ -3287,6 +3301,16 @@ __metadata:
   version: 2.0.6
   resolution: "@types/unist@npm:2.0.6"
   checksum: 25cb860ff10dde48b54622d58b23e66214211a61c84c0f15f88d38b61aa1b53d4d46e42b557924a93178c501c166aa37e28d7f6d994aba13d24685326272d5db
+  languageName: node
+  linkType: hard
+
+"@types/vinyl@npm:^2.0.4":
+  version: 2.0.6
+  resolution: "@types/vinyl@npm:2.0.6"
+  dependencies:
+    "@types/expect": ^1.20.4
+    "@types/node": "*"
+  checksum: 5012fb61e3a29e7deaac7e66b6d8cb73d87d15965c8a38cb69277c2beb851a9a8ec09d4a1b07a3151e143afc2e3a102ca368b9a0e08f2f29de9183c97f9c7d85
   languageName: node
   linkType: hard
 
@@ -4281,6 +4305,7 @@ __metadata:
     gulp-less: ^5.0.0
     gulp-postcss: ^9.0.1
     gulp-rename: ^2.0.0
+    gulp-replace: ^1.1.3
     gulp-typescript: ^6.0.0-alpha.1
     husky: ^7.0.4
     jest: 27.5.1
@@ -4893,6 +4918,13 @@ __metadata:
   version: 2.2.0
   resolution: "binary-extensions@npm:2.2.0"
   checksum: ccd267956c58d2315f5d3ea6757cf09863c5fc703e50fbeb13a7dc849b812ef76e3cf9ca8f35a0c48498776a7478d7b4a0418e1e2b8cb9cb9731f2922aaad7f8
+  languageName: node
+  linkType: hard
+
+"binaryextensions@npm:^2.2.0":
+  version: 2.3.0
+  resolution: "binaryextensions@npm:2.3.0"
+  checksum: e64e4658a611a753e0320b047a0045a063c6f2dd92d7a7fc06c25f7e72fb3700dabcf328e319c79f1038e6d0ea46edb0644686603d5f36bff3350d0e7eb198a9
   languageName: node
   linkType: hard
 
@@ -6737,7 +6769,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"escape-string-regexp@npm:^1.0.5":
+"escape-string-regexp@npm:^1.0.3, escape-string-regexp@npm:^1.0.5":
   version: 1.0.5
   resolution: "escape-string-regexp@npm:1.0.5"
   checksum: 6092fda75c63b110c706b6a9bfde8a612ad595b628f0bd2147eea1d3406723020810e591effc7db1da91d80a71a737a313567c5abb3813e8d9c71f4aa595b410
@@ -7862,6 +7894,19 @@ fsevents@^1.2.7:
   version: 2.0.0
   resolution: "gulp-rename@npm:2.0.0"
   checksum: b9add0d130487dee6067206eebfc3867e4e254117edef154e8c270e3111b112335439ac1cac1519d6a32541343e04bd299484253a333b4e34c7d430039953e99
+  languageName: node
+  linkType: hard
+
+"gulp-replace@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "gulp-replace@npm:1.1.3"
+  dependencies:
+    "@types/node": ^14.14.41
+    "@types/vinyl": ^2.0.4
+    istextorbinary: ^3.0.0
+    replacestream: ^4.0.3
+    yargs-parser: ">=5.0.0-security.0"
+  checksum: fa151a94acf40dcb080c66a7fbc405a6a7902f5537dc1c202e909097b3a19238a033186335e55669a646ea8639e9b8f3662894e58e0f2c0ac6ad9e9c22d1c935
   languageName: node
   linkType: hard
 
@@ -9233,6 +9278,16 @@ fsevents@^1.2.7:
     html-escaper: ^2.0.0
     istanbul-lib-report: ^3.0.0
   checksum: ef6e0d9ed05ecab1974c6eb46cc2a12d8570911934192db4ed40cf1978449240ea80aae32c4dd5555b67407cdf860212d1a9e415443af69641aa57ed1da5ebbb
+  languageName: node
+  linkType: hard
+
+"istextorbinary@npm:^3.0.0":
+  version: 3.3.0
+  resolution: "istextorbinary@npm:3.3.0"
+  dependencies:
+    binaryextensions: ^2.2.0
+    textextensions: ^3.2.0
+  checksum: b3f1cd8cd311a52258053828c6729cdeca0e537fe809f0a75998b6387fae6e3c9ab228e67a8ea9138ff7a5565233c0c5bf1736c3065f07246bdb9c625410ce73
   languageName: node
   linkType: hard
 
@@ -13714,6 +13769,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"replacestream@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "replacestream@npm:4.0.3"
+  dependencies:
+    escape-string-regexp: ^1.0.3
+    object-assign: ^4.0.1
+    readable-stream: ^2.0.2
+  checksum: ab9a48193eed4f30e24a659ed59235d96b0244b0b9e1dda0765483ea4d02f942172323ddb74395e82c1d03d2cbff983c6f72283d9d7184d0568943f8722411f1
+  languageName: node
+  linkType: hard
+
 "require-directory@npm:^2.1.1":
   version: 2.1.1
   resolution: "require-directory@npm:2.1.1"
@@ -14942,6 +15008,13 @@ resolve@^2.0.0-next.3:
   version: 0.2.0
   resolution: "text-table@npm:0.2.0"
   checksum: b6937a38c80c7f84d9c11dd75e49d5c44f71d95e810a3250bd1f1797fc7117c57698204adf676b71497acc205d769d65c16ae8fa10afad832ae1322630aef10a
+  languageName: node
+  linkType: hard
+
+"textextensions@npm:^3.2.0":
+  version: 3.3.0
+  resolution: "textextensions@npm:3.3.0"
+  checksum: d5f7b1f50b3c084c6ac0fd45489724f94852063fc0deda9c8bcb58df6a6c8a20c072ca123744bb0b9beb2fc468c0e4a92343f5e06f5e206ec7dcfa71324fab6b
   languageName: node
   linkType: hard
 
@@ -16202,6 +16275,13 @@ resolve@^2.0.0-next.3:
   version: 20.2.9
   resolution: "yargs-parser@npm:20.2.9"
   checksum: 8bb69015f2b0ff9e17b2c8e6bfe224ab463dd00ca211eece72a4cd8a906224d2703fb8a326d36fdd0e68701e201b2a60ed7cf81ce0fd9b3799f9fe7745977ae3
+  languageName: node
+  linkType: hard
+
+"yargs-parser@npm:>=5.0.0-security.0":
+  version: 21.0.1
+  resolution: "yargs-parser@npm:21.0.1"
+  checksum: c3ea2ed12cad0377ce3096b3f138df8267edf7b1aa7d710cd502fe16af417bafe4443dd71b28158c22fcd1be5dfd0e86319597e47badf42ff83815485887323a
   languageName: node
   linkType: hard
 

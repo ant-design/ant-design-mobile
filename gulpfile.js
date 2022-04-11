@@ -3,6 +3,7 @@ const less = require('gulp-less')
 const path = require('path')
 const postcss = require('gulp-postcss')
 const babel = require('gulp-babel')
+const replace = require('gulp-replace')
 const ts = require('gulp-typescript')
 const del = require('del')
 const webpackStream = require('webpack-stream')
@@ -210,6 +211,7 @@ function build2xCSS() {
       base: './lib/2x/',
     })
     .pipe(postcss([pxMultiplePlugin]))
+    .pipe(replace('--adm-hd: 1;', '--adm-hd: 2;'))
     .pipe(
       gulp.dest('./lib/2x', {
         overwrite: true,
