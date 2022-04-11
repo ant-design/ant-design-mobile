@@ -45,7 +45,7 @@ For TypeScript, antd-mobile is compatible with versions `>= 3.8`.
 For React, antd-mobile is compatible with versions `^16.8.0` and `^17.0.0`.
 
 <Alert type="warning">
-  Compatibility for React 18 is still in progress, please follow <a target="_blank" href="https://github.com/ant-design/ant-design-mobile/issues/5044)">this issue</a>.
+  Compatibility for React 18 is still in progress, please follow <a target="_blank" href="https://github.com/ant-design/ant-design-mobile/issues/5044">this issue</a>.
 </Alert>
 
 ## Playground
