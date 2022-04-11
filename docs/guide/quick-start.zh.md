@@ -45,7 +45,7 @@ import { Button } from 'antd-mobile'
 对于 React，我们兼容的版本是 `^16.8.0` 和 `^17.0.0`。
 
 <Alert type="warning">
-  对 React 18 的兼容处理还在进行之中，请关注 <a target="_blank" href="https://github.com/ant-design/ant-design-mobile/issues/5044)">这个 issue</a>
+  对 React 18 的兼容处理还在进行之中，请关注 <a target="_blank" href="https://github.com/ant-design/ant-design-mobile/issues/5044">这个 issue</a>
 </Alert>
 
 ## 在线体验
