@@ -1,8 +1,9 @@
-import React, { memo, ReactNode, useRef } from 'react'
+import React, { memo, ReactNode, useState, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from '@use-gesture/react'
+import { useDrag, useWheel, Handler, EventTypes } from '@use-gesture/react'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
+import { useLockScroll } from '../../utils/use-lock-scroll'
 import { PickerColumnItem, PickerValue } from './index'
 import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
@@ -16,6 +17,7 @@ type Props = {
   value: PickerValue
   onSelect: (value: PickerValue, index: number) => void
   renderLabel: (item: PickerColumnItem) => ReactNode
+  mouseWheel?: boolean
 }
 
 export const Wheel = memo<Props>(
@@ -76,40 +78,75 @@ export const Wheel = memo<Props>(
       onSelect(item.value)
     }
 
-    const bind = useDrag(
-      state => {
-        draggingRef.current = true
-        const min = -((column.length - 1) * itemHeight.current)
-        const max = 0
-        if (state.last) {
-          draggingRef.current = false
-          const position =
-            state.offset[1] + state.velocity[1] * state.direction[1] * 50
-          const targetIndex =
-            min < max
-              ? -Math.round(bound(position, min, max) / itemHeight.current)
-              : 0
-          scrollSelect(targetIndex)
-        } else {
-          const position = state.offset[1]
-          api.start({
-            y: rubberbandIfOutOfBounds(
-              position,
-              min,
-              max,
-              itemHeight.current * 50,
-              0.2
-            ),
-          })
-        }
-      },
-      {
-        axis: 'y',
-        from: () => [0, y.get()],
-        filterTaps: true,
-        pointer: { touch: true },
+    function handleWheel(
+      state: Parameters<
+        | Handler<'drag', EventTypes['drag']>
+        | Handler<'wheel', EventTypes['wheel']>
+      >[0]
+    ) {
+      state.event.stopPropagation()
+
+      if (state.type === 'wheel' && props.mouseWheel !== true) {
+        return
       }
-    )
+
+      draggingRef.current = true
+      const min = -((column.length - 1) * itemHeight.current)
+      const max = 0
+      if (state.last) {
+        draggingRef.current = false
+        const position =
+          state.offset[1] + state.velocity[1] * state.direction[1] * 50
+        const targetIndex =
+          min < max
+            ? -Math.round(bound(position, min, max) / itemHeight.current)
+            : 0
+        scrollSelect(targetIndex)
+      } else {
+        const position = state.offset[1]
+        api.start({
+          y: rubberbandIfOutOfBounds(
+            position,
+            min,
+            max,
+            itemHeight.current * 50,
+            0.2
+          ),
+        })
+      }
+    }
+
+    const drag = useDrag(handleWheel, {
+      axis: 'y',
+      from: () => [0, y.get()],
+      filterTaps: true,
+      pointer: { touch: true },
+    })
+
+    const wheel = useWheel(handleWheel, {
+      axis: 'y',
+      from: () => [0, y.get()],
+      preventDefault: true,
+    })
+
+    const wheelRef = useRef<HTMLDivElement>(null)
+    const { lock, unlock } = useLockScroll(wheelRef, false)
+
+    function lockScroll(evt: React.MouseEvent<HTMLDivElement>) {
+      evt.preventDefault()
+
+      if (props.mouseWheel === true) {
+        lock()
+      }
+    }
+
+    function unlockScroll(evt: React.MouseEvent<HTMLDivElement>) {
+      evt.preventDefault()
+
+      if (props.mouseWheel === true) {
+        unlock()
+      }
+    }
 
     let selectedIndex: number | null = null
 
@@ -123,7 +160,7 @@ export const Wheel = memo<Props>(
       const previous = column[previousIndex]
       const next = column[nextIndex]
       return (
-        <div className='adm-picker-view-column-accessible'>
+        <div ref={wheelRef} className='adm-picker-view-column-accessible'>
           <div
             className='adm-picker-view-column-accessible-current'
             role='button'
@@ -166,7 +203,14 @@ export const Wheel = memo<Props>(
     }
 
     return (
-      <div ref={rootRef} className={`${classPrefix}-column`} {...bind()}>
+      <div
+        ref={rootRef}
+        className={`${classPrefix}-column`}
+        onMouseOver={lockScroll}
+        onMouseOut={unlockScroll}
+        {...drag()}
+        {...wheel()}
+      >
         <animated.div
           style={{ translateY: y }}
           className={`${classPrefix}-column-wheel`}

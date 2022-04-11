@@ -29,6 +29,10 @@ export default () => {
           }}
         />
       </DemoBlock>
+
+      <DemoBlock title='鼠标滚轮模式' padding='0'>
+        <PickerView columns={basicColumns} mouseWheel={true} />
+      </DemoBlock>
     </>
   )
 }
