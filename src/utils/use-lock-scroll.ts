@@ -79,4 +79,9 @@ export function useLockScroll(
       }
     }
   }, [shouldLock])
+
+  return {
+    lock,
+    unlock,
+  }
 }
