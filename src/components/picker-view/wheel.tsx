@@ -86,10 +86,6 @@ export const Wheel = memo<Props>(
     ) {
       state.event.stopPropagation()
 
-      if (state.type === 'wheel' && props.mouseWheel !== true) {
-        return
-      }
-
       draggingRef.current = true
       const min = -((column.length - 1) * itemHeight.current)
       const max = 0
@@ -129,24 +125,21 @@ export const Wheel = memo<Props>(
       preventDefault: true,
     })
 
-    const wheelRef = useRef<HTMLDivElement>(null)
-    const { lock, unlock } = useLockScroll(wheelRef, false)
-
-    function lockScroll(evt: React.MouseEvent<HTMLDivElement>) {
-      evt.preventDefault()
-
-      if (props.mouseWheel === true) {
-        lock()
-      }
-    }
-
-    function unlockScroll(evt: React.MouseEvent<HTMLDivElement>) {
-      evt.preventDefault()
-
-      if (props.mouseWheel === true) {
-        unlock()
-      }
-    }
+    const { lock, unlock } = useLockScroll(rootRef, false)
+    const wheelProps =
+      props.mouseWheel === true
+        ? {
+            ...wheel(),
+            onMouseOver(evt: React.MouseEvent<HTMLDivElement>) {
+              evt.preventDefault()
+              lock()
+            },
+            onMouseOut(evt: React.MouseEvent<HTMLDivElement>) {
+              evt.preventDefault()
+              unlock()
+            },
+          }
+        : {}
 
     let selectedIndex: number | null = null
 
@@ -160,7 +153,7 @@ export const Wheel = memo<Props>(
       const previous = column[previousIndex]
       const next = column[nextIndex]
       return (
-        <div ref={wheelRef} className='adm-picker-view-column-accessible'>
+        <div className='adm-picker-view-column-accessible'>
           <div
             className='adm-picker-view-column-accessible-current'
             role='button'
@@ -206,10 +199,8 @@ export const Wheel = memo<Props>(
       <div
         ref={rootRef}
         className={`${classPrefix}-column`}
-        onMouseOver={lockScroll}
-        onMouseOut={unlockScroll}
         {...drag()}
-        {...wheel()}
+        {...wheelProps}
       >
         <animated.div
           style={{ translateY: y }}
