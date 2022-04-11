@@ -5,6 +5,7 @@ import zhCN from 'antd-mobile/es/locales/zh-CN'
 import zhTW from 'antd-mobile/es/locales/zh-TW'
 import zhHK from 'antd-mobile/es/locales/zh-HK'
 import enUS from 'antd-mobile/es/locales/en-US'
+import faIR from 'antd-mobile/es/locales/fa-IR'
 
 export default () => {
   return (
@@ -30,6 +31,12 @@ export default () => {
       <DemoBlock title='中文(香港繁体)'>
         <ConfigProvider locale={zhHK}>
           <ErrorBlock status='disconnected' />
+        </ConfigProvider>
+      </DemoBlock>
+
+      <DemoBlock title='波斯语'>
+        <ConfigProvider locale={faIR}>
+          <ErrorBlock />
         </ConfigProvider>
       </DemoBlock>
     </>
