@@ -14,16 +14,18 @@ PickerView is the content area of [Picker](./picker/#picker).
 | ------------ | -------------------------------------- | -------------------------------------------------------------- | ------- |
 | columns      | Options to configure each column       | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -       |
 | value        | Selected options                       | `PickerValue[]`                                                | -       |
-| defaultValue | Default selected options               | `PickerValue[]`                                                | -       |
+| defaultValue | Default selected options               | `PickerValue[]`                                                | `[]`    |
 | onChange     | Triggered when the options are changed | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -       |
 
 For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `PickerValueExtend`, please refer to the document of [Picker](./picker).
 
 ### CSS Variables
 
-| Name     | Description              | Default |
-| -------- | ------------------------ | ------- |
-| --height | height of the PickerView | `240px` |
+| Name             | Description                                               | Default |
+| ---------------- | --------------------------------------------------------- | ------- |
+| --height         | Height of PickerView.                                     | `240px` |
+| --item-height    | Height of option item. Only supports px rem and vw units. | `34px`  |
+| --item-font-size | Font size of option items.                                | `16px`  |
 
 ## CascadePickerView
 
@@ -43,15 +45,15 @@ Other props are the same as [PickerView](#pickerview), but `columns` are not sup
 
 ### CSS Variables
 
-| Name     | Description                  | Default |
-| -------- | ---------------------------- | ------- |
-| --height | height of the DatePickerView | `240px` |
+Same as `PickerView`.
 
 ## DatePickerView
 
 DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 
 <code src="../date-picker-view/demos/demo1.tsx"></code>
+
+<code src="../date-picker-view/demos/demo3.tsx"></code>
 
 <code src="../date-picker-view/demos/demo2.tsx" debug></code>
 
@@ -72,6 +74,4 @@ For the type definition and usage of `DatePickerFilter`, please refer to the doc
 
 ### CSS Variables
 
-| Name     | Description                  | Default |
-| -------- | ---------------------------- | ------- |
-| --height | height of the DatePickerView | `240px` |
+Same as `PickerView`.

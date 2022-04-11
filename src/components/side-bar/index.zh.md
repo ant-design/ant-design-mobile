@@ -2,7 +2,11 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+<code src="./demos/demo2.tsx"></code>
+
+<code src="./demos/demo3.tsx"></code>
+
+### 属性
 
 ### SideBar
 
@@ -21,10 +25,11 @@
 | disabled | 是否禁用         | `boolean`   | `false` |
 | badge    | 徽标             | `ReactNode` | -       |
 
-## CSS 变量
+### CSS 变量
 
-| 属性                 | 说明                 | 默认值 |
-| -------------------- | -------------------- | ------ |
-| --width              | 侧边导航宽度         | `96px` |
-| --height             | 侧边导航高度         | `100%` |
-| --item-border-radius | 当前激活`item`的圆角 | `8px`  |
+| 属性                 | 说明                 | 默认值    |
+| -------------------- | -------------------- | --------- |
+| --width              | 侧边导航宽度         | `96px`    |
+| --height             | 侧边导航高度         | `100%`    |
+| --item-border-radius | 当前激活`item`的圆角 | `8px`     |
+| --background-color   | 背景颜色             | `#f5f5f5` |

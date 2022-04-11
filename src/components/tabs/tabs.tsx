@@ -4,17 +4,18 @@ import React, {
   ReactElement,
   ComponentProps,
   useRef,
-  useLayoutEffect,
 } from 'react'
 import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { bound } from '../../utils/bound'
-import { useUpdateLayoutEffect, useThrottleFn } from 'ahooks'
+import { useThrottleFn, useIsomorphicLayoutEffect } from 'ahooks'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { mergeProps } from '../../utils/with-default-props'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { ShouldRender } from '../../utils/should-render'
 
 const classPrefix = `adm-tabs`
 
@@ -22,6 +23,7 @@ export type TabProps = {
   title: ReactNode
   disabled?: boolean
   forceRender?: boolean
+  destroyOnClose?: boolean
 } & NativeProps
 
 export const Tab: FC<TabProps> = () => {
@@ -35,7 +37,11 @@ export type TabsProps = {
   stretch?: boolean
   onChange?: (key: string) => void
 } & NativeProps<
-  '--fixed-active-line-width' | '--title-font-size' | '--content-padding'
+  | '--fixed-active-line-width'
+  | '--active-line-height'
+  | '--active-line-border-radius'
+  | '--title-font-size'
+  | '--content-padding'
 >
 
 const defaultProps = {
@@ -66,7 +72,10 @@ export const Tabs: FC<TabsProps> = p => {
   const [activeKey, setActiveKey] = usePropsValue({
     value: props.activeKey,
     defaultValue: props.defaultActiveKey ?? firstActiveKey,
-    onChange: props.onChange,
+    onChange: v => {
+      if (v === null) return
+      props.onChange?.(v)
+    },
   })
 
   const [{ x, width }, api] = useSpring(() => ({
@@ -157,21 +166,21 @@ export const Tabs: FC<TabsProps> = p => {
     })
   }
 
-  useLayoutEffect(() => {
-    animate(true)
+  useIsomorphicLayoutEffect(() => {
+    animate(!x.isAnimating)
   }, [])
 
-  useUpdateLayoutEffect(() => {
+  useIsomorphicUpdateLayoutEffect(() => {
     animate()
   }, [activeKey])
 
   useResizeEffect(() => {
-    animate(true)
+    animate(!x.isAnimating)
   }, tabListContainerRef)
 
   useMutationEffect(
     () => {
-      animate(true)
+      animate(!x.isAnimating)
     },
     tabListContainerRef,
     {
@@ -204,7 +213,7 @@ export const Tabs: FC<TabsProps> = p => {
     }
   )
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     updateMask(true)
   }, [])
 
@@ -281,21 +290,22 @@ export const Tabs: FC<TabsProps> = p => {
         if (pane.props.children === undefined) {
           return null
         }
-        if (pane.key === activeKey) {
-          return (
-            <div key={pane.key} className={`${classPrefix}-content`}>
+        const active = pane.key === activeKey
+        return (
+          <ShouldRender
+            key={pane.key}
+            active={active}
+            forceRender={pane.props.forceRender}
+            destroyOnClose={pane.props.destroyOnClose}
+          >
+            <div
+              className={`${classPrefix}-content`}
+              style={{ display: active ? 'block' : 'none' }}
+            >
               {pane.props.children}
             </div>
-          )
-        }
-        if (pane.props.forceRender) {
-          return (
-            <div key={pane.key} style={{ display: 'none' }}>
-              {pane.props.children}
-            </div>
-          )
-        }
-        return null
+          </ShouldRender>
+        )
       })}
     </div>
   )

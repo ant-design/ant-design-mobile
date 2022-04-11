@@ -3,6 +3,7 @@ import { DatePickerView } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 import { weekdayToZh } from './weekdayToZh'
+import { DatePickerFilter } from '../../date-picker'
 
 const now = new Date()
 
@@ -86,8 +87,8 @@ const weekdayLabelRenderer = (type: string, data: number) => {
   }
 }
 
-const dateFilter = {
-  day: (val: number, date: Date) => {
+const dateFilter: DatePickerFilter = {
+  day: (val, { date }) => {
     // 去除所有周末
     if (date.getDay() > 5 || date.getDay() === 0) {
       return false

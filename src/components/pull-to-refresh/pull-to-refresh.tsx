@@ -2,7 +2,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { getScrollParent } from '../../utils/get-scroll-parent'
-import React, { FC, ReactNode, useRef, useState } from 'react'
+import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import { supportsPassive } from '../../utils/supports-passive'
 import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
@@ -22,6 +22,7 @@ export type PullToRefreshProps = {
   completeDelay?: number
   headHeight?: number
   threshold?: number
+  disabled?: boolean
   renderText?: (status: PullStatus) => ReactNode
 }
 
@@ -31,6 +32,7 @@ export const defaultProps = {
   refreshingText: '加载中……',
   completeText: '刷新成功',
   completeDelay: 500,
+  disabled: false,
   onRefresh: () => {},
 }
 
@@ -63,6 +65,11 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
   const elementRef = useRef<HTMLDivElement>(null)
 
   const pullingRef = useRef(false)
+
+  //防止下拉时抖动
+  useEffect(() => {
+    elementRef.current?.addEventListener('touchmove', () => {})
+  }, [])
 
   async function doRefresh() {
     api.start({ height: headHeight })
@@ -108,17 +115,24 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       }
 
       const [, y] = state.movement
-      if (state.first) {
-        const element = elementRef.current
-        if (!element) return
-        const scrollParent = getScrollParent(element)
-        if (!scrollParent) return
-        const top =
-          'scrollTop' in scrollParent
-            ? scrollParent.scrollTop
-            : scrollParent.pageYOffset
-        if (top <= 0 && y > 0) {
-          pullingRef.current = true
+      if (state.first && y > 0) {
+        const target = state.event.target
+        if (!target || !(target instanceof Element)) return
+        let scrollParent = getScrollParent(target)
+        while (true) {
+          if (!scrollParent) return
+          const scrollTop = getScrollTop(scrollParent)
+          if (scrollTop > 0) {
+            return
+          }
+          if (scrollParent instanceof Window) {
+            break
+          }
+          scrollParent = getScrollParent(scrollParent.parentNode as Element)
+        }
+        pullingRef.current = true
+        function getScrollTop(element: Window | Element) {
+          return 'scrollTop' in element ? element.scrollTop : element.scrollY
         }
       }
 
@@ -139,6 +153,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       pointer: { touch: true },
       axis: 'y',
       target: elementRef,
+      enabled: !props.disabled,
       eventOptions: supportsPassive ? { passive: false } : false,
     }
   )

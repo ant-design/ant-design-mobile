@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageViewer.Multi calling ref.current.swipeTo before initialization 1`] = `
+<div>
+  <button
+    class="adm-button adm-button-default adm-button-shape-default"
+    type="button"
+  >
+    Show
+  </button>
+  <div
+    class="adm-mask"
+    style="background: rgba(0, 0, 0, 0.75); opacity: 0; display: none;"
+  >
+    <div
+      class="adm-mask-content"
+    />
+  </div>
+</div>
+`;
+
+exports[`ImageViewer.Multi calling ref.current.swipeTo before initialization 2`] = `
+<div>
+  <button
+    class="adm-button adm-button-default adm-button-shape-default"
+    type="button"
+  >
+    Show
+  </button>
+  <div
+    class="adm-mask"
+    style="background: rgba(0, 0, 0, 0.75); opacity: 1; display: unset;"
+  >
+    <div
+      class="adm-mask-content"
+    >
+      <div
+        class="adm-image-viewer-content"
+      >
+        <div
+          class="adm-image-viewer-slides"
+        >
+          <div
+            class="adm-image-viewer-indicator"
+          >
+            3 / 4
+          </div>
+          <div
+            class="adm-image-viewer-slides-inner"
+            style="transform: translate3d(-2048px,0,0);"
+          >
+            <div
+              class="adm-image-viewer-slide"
+            >
+              <div
+                class="adm-image-viewer-control"
+              >
+                <div
+                  class="adm-image-viewer-image-wrapper"
+                  style="transform: none;"
+                >
+                  <img
+                    alt="https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80"
+                    draggable="false"
+                    src="https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="adm-image-viewer-slide"
+            >
+              <div
+                class="adm-image-viewer-control"
+              >
+                <div
+                  class="adm-image-viewer-image-wrapper"
+                  style="transform: none;"
+                >
+                  <img
+                    alt="https://images.unsplash.com/photo-1601128533718-374ffcca299b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3128&q=80"
+                    draggable="false"
+                    src="https://images.unsplash.com/photo-1601128533718-374ffcca299b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3128&q=80"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="adm-image-viewer-slide"
+            >
+              <div
+                class="adm-image-viewer-control"
+              >
+                <div
+                  class="adm-image-viewer-image-wrapper"
+                  style="transform: none;"
+                >
+                  <img
+                    alt="https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3113&q=80"
+                    draggable="false"
+                    src="https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3113&q=80"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="adm-image-viewer-slide"
+            >
+              <div
+                class="adm-image-viewer-control"
+              >
+                <div
+                  class="adm-image-viewer-image-wrapper"
+                  style="transform: none;"
+                >
+                  <img
+                    alt="https://images.unsplash.com/photo-1624993590528-4ee743c9896e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=1000&q=80"
+                    draggable="false"
+                    src="https://images.unsplash.com/photo-1624993590528-4ee743c9896e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=1000&q=80"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

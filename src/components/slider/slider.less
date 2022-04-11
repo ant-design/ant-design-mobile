@@ -19,6 +19,7 @@
 
   &-fill {
     position: absolute;
+    z-index: 1;
     height: 4px;
     background-color: var(--fill-color);
   }
@@ -32,38 +33,41 @@
 
   &-tick {
     position: absolute;
-    top: -3.5px;
+    top: 50%;
     width: 11px;
     height: 11px;
     margin-left: -5px;
     background-color: #f5f5f5;
     border-radius: 50%;
+    transform: translate(0, -50%);
     &-active {
       background-color: var(--fill-color);
     }
   }
 
   &-thumb {
-    touch-action: none;
-    position: absolute;
     width: 22px;
     height: 22px;
+    margin: 5px;
     border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff url('../../assets/slider-thumb.svg') no-repeat center
-      center;
-    background-size: 10px 10px;
+    background: var(--adm-color-white);
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12),
       0 1.5px 3px -2px rgba(0, 0, 0, 0.25);
     &:focus {
       outline: none;
     }
   }
+  &-thumb-icon {
+    width: 10px;
+    height: 10px;
+    margin: 6px;
+    user-select: none;
+  }
   &-thumb-container {
+    cursor: grab;
     touch-action: none;
     position: absolute;
+    z-index: 2;
     width: 32px;
     height: 32px;
     border-radius: 50%;

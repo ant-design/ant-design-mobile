@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/extend-expect'
 import { render, RenderOptions, RenderResult } from '@testing-library/react'
 import { toHaveNoViolations, axe } from 'jest-axe'
 import * as React from 'react'
-import { RunOptions } from 'axe-core'
+import type { RunOptions } from 'axe-core'
 
 expect.extend(toHaveNoViolations)
 
@@ -116,3 +116,6 @@ export const testA11y = async (
 
   expect(results).toHaveNoViolations()
 }
+
+export const sleep = (time: number) =>
+  new Promise(resolve => setTimeout(resolve, time))

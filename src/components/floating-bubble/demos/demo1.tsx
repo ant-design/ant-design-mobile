@@ -11,7 +11,7 @@ export default () => {
     <div
       style={{
         textAlign: 'center',
-        paddingTop: '50vh',
+        padding: '50vh 32px 0',
       }}
     >
       <DemoDescription>尝试拖拽和点击一下气泡吧</DemoDescription>
@@ -19,7 +19,7 @@ export default () => {
         style={{
           '--initial-position-bottom': '24px',
           '--initial-position-right': '24px',
-          // '--edge-distance': '24px',
+          '--edge-distance': '24px',
         }}
         onClick={onClick}
       >

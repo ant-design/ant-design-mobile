@@ -2,40 +2,43 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## 属性
+<code src="./demos/demo2.tsx"></code>
 
-### Popover
+<code src="./demos/demo3.tsx" debug></code>
 
-| 属性            | 说明                                 | 类型                                                                                                                                                             | 默认值                |
-| --------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| children        | 触发 `popover` 的元素                | `React.ReactElement`                                                                                                                                             | -                     |
-| placement       | 气泡框位置                           | `'top' \| 'left' \| 'right' \| 'bottom' \| 'topLeft' \| 'topRight' \| 'bottomLeft' \| 'bottomRight' \| 'leftTop' \| 'leftBottom' \| 'rightTop' \| 'rightBottom'` | `'top'`               |
-| defaultVisible  | 默认是否显隐                         | `boolean`                                                                                                                                                        | `false`               |
-| visible         | 受控模式下，是否展示弹出内容         | `boolean`                                                                                                                                                        | -                     |
-| onVisibleChange | 显示隐藏的回调                       | `(visible: boolean) => void`                                                                                                                                     | -                     |
-| trigger         | 触发方式                             | `'click'`                                                                                                                                                        | -                     |
-| getContainer    | 浮层渲染父节点，默认渲染到 `body` 上 | `() => HTMLElement`                                                                                                                                              | `() => document.body` |
-| destroyOnHide   | 隐藏时，是否销毁 `tooltip` 内容      | `boolean`                                                                                                                                                        | `false`               |
-| content         | 弹出内容                             | `React.ReactNode`                                                                                                                                                | -                     |
-| mode            | 设置亮色模式或者黑色模式             | `'light' \| 'dark'`                                                                                                                                              | `'light'`             |
+## Popover
 
-### Popover.Menu
+### 属性
 
-除 `content` 外，其余全部属性继承自 `Popover`，特有属性如下：
+| 属性            | 说明                                 | 类型                                                                                                                                                                 | 默认值                |
+| --------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| children        | 触发 `popover` 的元素                | `React.ReactElement`                                                                                                                                                 | -                     |
+| placement       | 气泡框位置                           | `'top' \| 'top-start' \| 'top-end' \| 'right' \| 'right-start' \| 'right-end' \| 'bottom' \| 'bottom-start' \| 'bottom-end' \| 'left' \| 'left-start' \| 'left-end'` | `'top'`               |
+| defaultVisible  | 默认是否显隐                         | `boolean`                                                                                                                                                            | `false`               |
+| visible         | 受控模式下，是否展示弹出内容         | `boolean`                                                                                                                                                            | -                     |
+| onVisibleChange | 显示隐藏的回调                       | `(visible: boolean) => void`                                                                                                                                         | -                     |
+| trigger         | 触发方式                             | `'click'`                                                                                                                                                            | -                     |
+| getContainer    | 浮层渲染父节点，默认渲染到 `body` 上 | `() => HTMLElement`                                                                                                                                                  | `() => document.body` |
+| destroyOnHide   | 隐藏时，是否销毁 `tooltip` 内容      | `boolean`                                                                                                                                                            | `false`               |
+| content         | 弹出内容                             | `React.ReactNode`                                                                                                                                                    | -                     |
+| mode            | 设置亮色模式或者黑色模式             | `'light' \| 'dark'`                                                                                                                                                  | `'light'`             |
+| stopPropagation | 阻止某些事件的冒泡                   | `PropagationEvent[]`                                                                                                                                                 | `['click']`           |
 
-| 属性     | 说明                                 | 类型                     | 默认值 |
-| -------- | ------------------------------------ | ------------------------ | ------ |
-| actions  | 菜单列表，当弹出内容为标准菜单时使用 | `Action[]`               | -      |
-| onAction | 当使用菜单列表时，选中菜单的回调     | `(item: Action) => void` | -      |
+在 5.5.0 版本之前，`placement` 的可选值是：
 
-#### Action
+`top left right bottom topLeft topRight bottomLeft bottomRight leftTop leftBottom rightTop rightBottom`
 
-| 属性     | 说明                                 | 类型               | 默认值                   |
-| -------- | ------------------------------------ | ------------------ | ------------------------ |
-| text     | 菜单列表，当弹出内容为标准菜单时使用 | `ReactNode`        | -                        |
-| icon     | 菜单项的图标                         | `ReactNode`        | `null`                   |
-| key      | 菜单的唯一标识, 缺省时即为 `index`   | `string \| number` | `actions` 数组的 `index` |
-| disabled | 是否禁用                             | `boolean`          | `false`                  |
+而在 5.5.0 及之后的版本中，`placement` 的写法发生了一些调整，变为了：
+
+`top top-start top-end right right-start right-end bottom bottom-start bottom-end left left-start left-end`
+
+为了保持兼容，我们仍然支持使用旧版的写法，但是如果你看到了这里的提示，请尽量使用新版的写法。
+
+### CSS 变量
+
+| 属性      | 说明             | 默认值 | 全局变量                |
+| --------- | ---------------- | ------ | ----------------------- |
+| --z-index | 元素的 `z-index` | `1030` | `--adm-popover-z-index` |
 
 ### Ref
 
@@ -45,8 +48,30 @@
 | hide    | 隐藏气泡弹出框             | `() => void` |
 | visible | 气泡弹出框当前是否正在展示 | `boolean`    |
 
-## CSS 变量
+## Popover.Menu
 
-| 属性      | 说明             | 默认值 | 全局变量                |
-| --------- | ---------------- | ------ | ----------------------- |
-| --z-index | 元素的 `z-index` | `1030` | `--adm-popover-z-index` |
+### 属性
+
+除 `content` 外，其余全部属性继承自 `Popover`，特有属性如下：
+
+| 属性     | 说明                                 | 类型                     | 默认值 |
+| -------- | ------------------------------------ | ------------------------ | ------ |
+| actions  | 菜单列表，当弹出内容为标准菜单时使用 | `Action[]`               | -      |
+| onAction | 当使用菜单列表时，选中菜单的回调     | `(item: Action) => void` | -      |
+
+### Action
+
+| 属性     | 说明                                 | 类型               | 默认值                   |
+| -------- | ------------------------------------ | ------------------ | ------------------------ |
+| text     | 菜单列表，当弹出内容为标准菜单时使用 | `ReactNode`        | -                        |
+| icon     | 菜单项的图标                         | `ReactNode`        | `null`                   |
+| key      | 菜单的唯一标识, 缺省时即为 `index`   | `string \| number` | `actions` 数组的 `index` |
+| disabled | 是否禁用                             | `boolean`          | `false`                  |
+
+### CSS 变量
+
+同 Popover。
+
+### Ref
+
+同 Popover。

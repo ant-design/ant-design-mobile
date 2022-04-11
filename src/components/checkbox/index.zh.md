@@ -1,8 +1,8 @@
-# Checkbox 勾选框
+# Checkbox 复选框
 
 <code src="./demos/demo1.tsx"></code>
 
-## 属性
+### 属性
 
 ```ts | pure
 type CheckboxValue = string | number
@@ -31,7 +31,7 @@ type CheckboxValue = string | number
 | value        | 指定选中的选项 | `CheckboxValue[]`                  | `[]`    |
 | onChange     | 变化时回调函数 | `(value: CheckboxValue[]) => void` | -       |
 
-## CSS 变量
+### CSS 变量
 
 ### Checkbox
 

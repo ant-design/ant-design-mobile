@@ -1,10 +1,26 @@
 @class-prefix-form: ~'adm-form';
 
 .@{class-prefix-form} {
-  .adm-list {
-    --padding-left: 20px;
+  --border-inner: solid 1px var(--adm-border-color);
+  --border-top: solid 1px var(--adm-border-color);
+  --border-bottom: solid 1px var(--adm-border-color);
+
+  ---border-inner: var(--border-inner);
+  ---border-top: var(--border-top);
+  ---border-bottom: var(--border-bottom);
+  .adm-list.adm-list {
+    --padding-left: 16px;
+    --padding-right: 12px;
+    --border-inner: var(---border-inner);
+    --border-top: var(---border-top);
+    --border-bottom: var(---border-bottom);
   }
   .@{class-prefix-form}-footer {
-    padding: 12px;
+    padding: 20px 12px;
   }
+}
+
+.adm-form-list-operation {
+  text-align: center;
+  color: #1677ff;
 }

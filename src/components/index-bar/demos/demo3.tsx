@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { IndexBar, List, Search } from 'antd-mobile'
+import { IndexBar, List, SearchBar } from 'antd-mobile'
 import { LoremIpsum } from 'lorem-ipsum'
 import { IndexBarRef } from 'antd-mobile/es/components/index-bar'
 
@@ -35,7 +35,7 @@ export default () => {
 
   return (
     <div style={{ height: window.innerHeight }}>
-      <Search
+      <SearchBar
         value={searchText}
         onChange={value => setSearchText(value)}
         placeholder='请输入搜索关键词'

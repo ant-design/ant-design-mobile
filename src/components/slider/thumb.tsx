@@ -1,5 +1,6 @@
 import React, { FC, useRef, RefObject } from 'react'
 import { useDrag } from '@use-gesture/react'
+import { ThumbIcon } from './thumb-icon'
 
 const classPrefix = `adm-slider`
 
@@ -47,7 +48,9 @@ const Thumb: FC<ThumbProps> = props => {
       style={currentPosition()}
       {...bind()}
     >
-      <div className={`${classPrefix}-thumb`} />
+      <div className={`${classPrefix}-thumb`}>
+        <ThumbIcon className={`${classPrefix}-thumb-icon`} />
+      </div>
     </div>
   )
 }

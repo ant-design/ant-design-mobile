@@ -8,7 +8,7 @@ import './demo1.less'
 export default () => {
   return (
     <>
-      <DemoBlock title='Success'>
+      <DemoBlock title='Success' padding='0'>
         <Result
           status='success'
           title='操作成功'
@@ -16,7 +16,7 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='Error'>
+      <DemoBlock title='Error' padding='0'>
         <Result
           status='error'
           title='无法完成操作'
@@ -24,7 +24,7 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='Info'>
+      <DemoBlock title='Info' padding='0'>
         <Result
           status='info'
           title='信息提示'
@@ -32,7 +32,7 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='Waiting'>
+      <DemoBlock title='Waiting' padding='0'>
         <Result
           status='waiting'
           title='等待处理'
@@ -40,7 +40,7 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='Warning'>
+      <DemoBlock title='Warning' padding='0'>
         <Result
           status='warning'
           title='警告提示'
@@ -48,7 +48,7 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='自定义 icon'>
+      <DemoBlock title='自定义 icon' padding='0'>
         <Result
           icon={<SmileOutline />}
           status='success'

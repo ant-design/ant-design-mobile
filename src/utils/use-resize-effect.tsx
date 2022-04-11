@@ -1,12 +1,12 @@
-import { RefObject, useLayoutEffect } from 'react'
-import { usePersistFn } from 'ahooks'
+import { RefObject } from 'react'
+import { useIsomorphicLayoutEffect, useMemoizedFn } from 'ahooks'
 
 export function useResizeEffect<T extends HTMLElement>(
   effect: (target: T) => void,
   targetRef: RefObject<T>
 ) {
-  const fn = usePersistFn(effect)
-  useLayoutEffect(() => {
+  const fn = useMemoizedFn(effect)
+  useIsomorphicLayoutEffect(() => {
     const target = targetRef.current
     if (!target) return
     if (window.ResizeObserver) {

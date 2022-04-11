@@ -21,7 +21,6 @@ const SideMenu: FC<INavbarProps> = ({
     config: { mode },
     menu,
     nav: navItems,
-    base,
     meta,
   } = useContext(context)
   const isHiddenMenus =
@@ -66,8 +65,8 @@ const SideMenu: FC<INavbarProps> = ({
             </ul>
           )}
           {/* site mode locale select */}
-          <LocaleSelect location={location} />
-          {darkPrefix}
+          {/*<LocaleSelect location={location} />*/}
+          {/*{darkPrefix}*/}
         </div>
         {/* menu list */}
         <ul className='__dumi-default-menu-list'>

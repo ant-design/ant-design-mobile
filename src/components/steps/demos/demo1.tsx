@@ -1,11 +1,6 @@
 import React from 'react'
 import { Steps } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import {
-  CheckCircleFill,
-  ClockCircleFill,
-  HandPayCircleOutline,
-} from 'antd-mobile-icons'
 
 const { Step } = Steps
 
@@ -25,6 +20,7 @@ export default () => {
           <Step title='第一步' />
           <Step title='第二步' />
           <Step title='第三步' status='error' />
+          <Step title='第四步' />
         </Steps>
       </DemoBlock>
 
@@ -54,26 +50,6 @@ export default () => {
             description='完成时间：2020-12-01 12:30'
           />
           <Step title='审批失败' status='error' />
-        </Steps>
-      </DemoBlock>
-
-      <DemoBlock title='自定义图标'>
-        <Steps direction='vertical' current={1}>
-          <Step
-            title='第一步'
-            description='完成人1111'
-            icon={<CheckCircleFill />}
-          />
-          <Step
-            title='第二步'
-            description='完成人1111'
-            icon={<ClockCircleFill />}
-          />
-          <Step
-            title='第三步'
-            description='完成人1111'
-            icon={<HandPayCircleOutline />}
-          />
         </Steps>
       </DemoBlock>
     </>

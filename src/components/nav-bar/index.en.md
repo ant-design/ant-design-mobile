@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 | Name      | Description                                                                                         | Type                   | Default |
 | --------- | --------------------------------------------------------------------------------------------------- | ---------------------- | ------- |
@@ -13,7 +13,7 @@
 | children  | Title                                                                                               | `ReactNode`            | -       |
 | right     | The content of the right side                                                                       | `ReactNode`            | -       |
 
-## CSS Variables
+### CSS Variables
 
 | Name            | Description                     | Default |
 | --------------- | ------------------------------- | ------- |

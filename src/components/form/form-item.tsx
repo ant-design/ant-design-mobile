@@ -11,6 +11,9 @@ import { FormContext, NoStyleItemContext } from './context'
 import { toArray } from './utils'
 import List, { ListItemProps } from '../list'
 import type { FormLayout } from './index'
+import Popover from '../popover'
+import { QuestionCircleOutline } from 'antd-mobile-icons'
+import { useConfig } from '../config-provider'
 
 const NAME_SPLIT = '__SPLIT__'
 
@@ -23,9 +26,22 @@ type RcFieldProps = Omit<FieldProps, 'children'>
 
 const classPrefix = `adm-form-item`
 
-export type FormItemProps = RcFieldProps &
-  NativeProps &
-  Pick<ListItemProps, 'style' | 'onClick' | 'extra'> & {
+export type FormItemProps = Pick<
+  RcFieldProps,
+  | 'dependencies'
+  | 'valuePropName'
+  | 'name'
+  | 'rules'
+  | 'messageVariables'
+  | 'trigger'
+  | 'validateTrigger'
+  | 'shouldUpdate'
+  | 'initialValue'
+> &
+  Pick<
+    ListItemProps,
+    'style' | 'onClick' | 'extra' | 'clickable' | 'arrow' | 'description'
+  > & {
     label?: React.ReactNode
     help?: React.ReactNode
     hasFeedback?: boolean
@@ -34,8 +50,9 @@ export type FormItemProps = RcFieldProps &
     disabled?: boolean
     hidden?: boolean
     layout?: FormLayout
+    childElementPosition?: 'normal' | 'right'
     children: ChildrenType
-  }
+  } & NativeProps
 
 interface MemoInputProps {
   value: any
@@ -61,9 +78,14 @@ type FormItemLayoutProps = Pick<
   | 'hidden'
   | 'layout'
   | 'extra'
+  | 'clickable'
+  | 'arrow'
+  | 'description'
+  | 'childElementPosition'
 > & {
   htmlFor?: string
-  errors?: string[]
+  errors: string[]
+  warnings: string[]
 }
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
@@ -78,26 +100,86 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     children,
     htmlFor,
     hidden,
-    errors,
+    arrow,
+    childElementPosition = 'normal',
   } = props
 
   const context = useContext(FormContext)
 
-  const hasFeedback = props.hasFeedback || context.hasFeedback
+  const { locale } = useConfig()
+
+  const hasFeedback =
+    props.hasFeedback !== undefined ? props.hasFeedback : context.hasFeedback
   const layout = props.layout || context.layout
 
-  const feedback = hasFeedback && errors && errors.length > 0 ? errors[0] : null
+  const requiredMark = (() => {
+    const { requiredMarkStyle } = context
+    switch (requiredMarkStyle) {
+      case 'asterisk':
+        return (
+          required && (
+            <span className={`${classPrefix}-required-asterisk`}>*</span>
+          )
+        )
+      case 'text-required':
+        return (
+          required && (
+            <span className={`${classPrefix}-required-text`}>
+              ({locale.Form.required})
+            </span>
+          )
+        )
+      case 'text-optional':
+        return (
+          !required && (
+            <span className={`${classPrefix}-required-text`}>
+              ({locale.Form.optional})
+            </span>
+          )
+        )
+      default:
+        return null
+    }
+  })()
 
   const labelElement = label ? (
     <label className={`${classPrefix}-label`} htmlFor={htmlFor}>
       {label}
-      {required && <span className={`${classPrefix}-label-required`}>*</span>}
-      {help && <span className={`${classPrefix}-label-help`}>{help}</span>}
+      {requiredMark}
+      {help && (
+        <span className={`${classPrefix}-label-help`}>
+          <Popover content={help} mode='dark' trigger='click'>
+            <QuestionCircleOutline />
+          </Popover>
+        </span>
+      )}
     </label>
   ) : null
 
-  const descriptionElement = feedback && (
-    <div className={`${classPrefix}-footer`}>{feedback}</div>
+  const description = (
+    <>
+      {props.description}
+      {hasFeedback && (
+        <>
+          {props.errors.map((error, index) => (
+            <div
+              key={`error-${index}`}
+              className={`${classPrefix}-feedback-error`}
+            >
+              {error}
+            </div>
+          ))}
+          {props.warnings.map((warning, index) => (
+            <div
+              key={`warning-${index}`}
+              className={`${classPrefix}-feedback-warning`}
+            >
+              {warning}
+            </div>
+          ))}
+        </>
+      )}
+    </>
   )
 
   return (
@@ -106,14 +188,30 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       title={layout === 'vertical' && labelElement}
       prefix={layout === 'horizontal' && labelElement}
       extra={extra}
-      description={descriptionElement}
-      className={classNames(classPrefix, className, {
-        [`${classPrefix}-hidden`]: hidden,
-      })}
+      description={description}
+      className={classNames(
+        classPrefix,
+        className,
+        `${classPrefix}-${layout}`,
+        {
+          [`${classPrefix}-hidden`]: hidden,
+        }
+      )}
       disabled={disabled}
       onClick={props.onClick}
+      clickable={props.clickable}
+      arrow={arrow}
     >
-      {children}
+      <div
+        className={classNames(
+          `${classPrefix}-child`,
+          `${classPrefix}-child-position-${childElementPosition}`
+        )}
+      >
+        <div className={classNames(`${classPrefix}-child-inner`)}>
+          {children}
+        </div>
+      </div>
     </List.Item>
   )
 }
@@ -133,6 +231,8 @@ export const FormItem: FC<FormItemProps> = props => {
     noStyle,
     hidden,
     layout,
+    childElementPosition,
+    description,
     // Field 相关
     disabled,
     rules,
@@ -143,6 +243,8 @@ export const FormItem: FC<FormItemProps> = props => {
     onClick,
     shouldUpdate,
     dependencies,
+    clickable,
+    arrow,
     ...fieldProps
   } = props
 
@@ -192,6 +294,17 @@ export const FormItem: FC<FormItemProps> = props => {
       },
       curErrors
     )
+    const curWarnings = meta?.warnings ?? []
+    const warnings = Object.keys(subMetas).reduce(
+      (subWarnings: string[], key: string) => {
+        const warnings = subMetas[key]?.warnings ?? []
+        if (warnings.length) {
+          subWarnings = [...subWarnings, ...warnings]
+        }
+        return subWarnings
+      },
+      curWarnings
+    )
 
     return (
       <FormItemLayout
@@ -200,14 +313,19 @@ export const FormItem: FC<FormItemProps> = props => {
         label={label}
         extra={extra}
         help={help}
+        description={description}
         required={isRequired}
         disabled={disabled}
         hasFeedback={hasFeedback}
         htmlFor={fieldId}
         errors={errors}
+        warnings={warnings}
         onClick={onClick}
         hidden={hidden}
         layout={layout}
+        childElementPosition={childElementPosition}
+        clickable={clickable}
+        arrow={arrow}
       >
         <NoStyleItemContext.Provider value={onSubMetaChange}>
           {baseChildren}
@@ -248,6 +366,7 @@ export const FormItem: FC<FormItemProps> = props => {
       trigger={trigger}
       validateTrigger={mergedValidateTrigger}
       onMetaChange={onMetaChange}
+      messageVariables={Variables}
     >
       {(control, meta, context) => {
         let childNode: React.ReactNode = null
@@ -255,14 +374,9 @@ export const FormItem: FC<FormItemProps> = props => {
         const isRequired =
           required !== undefined
             ? required
-            : !!(
-                rules &&
-                rules.some(rule => {
-                  if (rule && typeof rule === 'object' && rule.required) {
-                    return true
-                  }
-                  return false
-                })
+            : rules &&
+              rules.some(
+                rule => !!(rule && typeof rule === 'object' && rule.required)
               )
 
         const fieldId = (toArray(name).length && meta ? meta.name : []).join(

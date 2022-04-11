@@ -12,7 +12,7 @@
 
 | 属性            | 说明                                  | 类型                                                  | 默认值          |
 | --------------- | ------------------------------------- | ----------------------------------------------------- | --------------- |
-| afterClose      | `Dialog` 完全关闭后的回调             | `() => void`                                          | -               |
+| afterClose      | `Toast` 完全关闭后的回调              | `() => void`                                          | -               |
 | maskStyle       | `Toast` 遮罩样式                      | `React.CSSProperties`                                 | -               |
 | maskClassName   | `Toast` 遮罩类名                      | `string`                                              | -               |
 | maskClickable   | 是否允许背景点击                      | `boolean`                                             | `true`          |
@@ -27,6 +27,20 @@
 
 你也可以直接传入一个字符串，`Toast.show` 会自动把它作为 `content`。
 
+`show` 方法的返回值为一个组件控制器，包含以下属性：
+
+| 属性  | 说明             | 类型         | 默认值 |
+| ----- | ---------------- | ------------ | ------ |
+| close | 关闭当前 `Toast` | `() => void` | -      |
+
 ### Toast.clear
 
 关闭所有显示中的 `Toast`。
+
+### Toast.config
+
+全局配置，支持配置 `duration`、`position` 和 `maskClickable`。配置方法如下：
+
+```ts
+Toast.config({ duration: 1000, position: 'top' })
+```

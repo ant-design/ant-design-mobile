@@ -1,6 +1,13 @@
-import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
+import React, {
+  useState,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+  ReactNode,
+} from 'react'
 import classNames from 'classnames'
 import Input, { InputRef, InputProps } from '../input'
+import Button from '../button'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutline } from 'antd-mobile-icons'
@@ -22,17 +29,25 @@ export type SearchBarProps = Pick<
   clearable?: boolean
   showCancelButton?: boolean | ((focus: boolean, value: string) => boolean)
   cancelText?: string
+  icon?: ReactNode
   clearOnCancel?: boolean
   onSearch?: (val: string) => void
   onChange?: (val: string) => void
   onCancel?: () => void
-} & NativeProps<'--background' | '--border-radius' | '--placeholder-color'>
+} & NativeProps<
+    | '--background'
+    | '--border-radius'
+    | '--placeholder-color'
+    | '--height'
+    | '--padding-left'
+  >
 
 const defaultProps = {
   clearable: true,
-  showCancelButton: false,
+  showCancelButton: false as NonNullable<SearchBarProps['showCancelButton']>,
   defaultValue: '',
   clearOnCancel: true,
+  icon: <SearchOutline />,
 }
 
 export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
@@ -56,6 +71,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
 
   const renderCancelButton = () => {
     let isShowCancel = false
+
     if (typeof props.showCancelButton === 'function') {
       isShowCancel = props.showCancelButton(hasFocus, value)
     } else {
@@ -64,14 +80,18 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
 
     return (
       isShowCancel && (
-        <div className={`${classPrefix}-suffix`}>
-          <a
-            onMouseDown={e => {
-              e.preventDefault()
-            }}
-            onTouchStart={e => {
-              e.preventDefault()
-            }}
+        <div
+          className={`${classPrefix}-suffix`}
+          onMouseDown={e => {
+            e.preventDefault()
+          }}
+          onTouchStart={e => {
+            e.preventDefault()
+          }}
+        >
+          <Button
+            fill='none'
+            className={`${classPrefix}-cancel-button`}
             onClick={() => {
               if (props.clearOnCancel) {
                 inputRef.current?.clear()
@@ -81,7 +101,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
             }}
           >
             {props.cancelText}
-          </a>
+          </Button>
         </div>
       )
     )
@@ -95,12 +115,14 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
       })}
     >
       <div className={`${classPrefix}-input-box`}>
-        <div className={`${classPrefix}-input-box-icon`}>
-          <SearchOutline />
-        </div>
+        {props.icon && (
+          <div className={`${classPrefix}-input-box-icon`}>{props.icon}</div>
+        )}
         <Input
           ref={inputRef}
-          className={`${classPrefix}-input`}
+          className={classNames(`${classPrefix}-input`, {
+            [`${classPrefix}-input-without-icon`]: !props.icon,
+          })}
           value={value}
           onChange={setValue}
           maxLength={props.maxLength}

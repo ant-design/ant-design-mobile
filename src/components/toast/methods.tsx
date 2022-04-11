@@ -1,4 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, {
+  createRef,
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import { resolveContainer } from '../../utils/get-container'
 import ReactDOM from 'react-dom'
 import { InternalToast, ToastProps } from './toast'
@@ -17,7 +23,15 @@ export type ToastShowProps = Omit<ToastProps, 'visible'>
 
 const defaultProps = {
   duration: 2000,
+  position: 'center',
+  maskClickable: true,
 }
+
+export type ToastHandler = {
+  close: () => void
+}
+
+type ToastShowRef = ToastHandler
 
 export function show(p: ToastShowProps | string) {
   const props = mergeProps(
@@ -32,7 +46,7 @@ export function show(p: ToastShowProps | string) {
   clear()
   containers.push(container)
 
-  const TempToast = () => {
+  const TempToast = forwardRef<ToastShowRef>((_, ref) => {
     const [visible, setVisible] = useState(true)
     useEffect(() => {
       return () => {
@@ -52,6 +66,10 @@ export function show(p: ToastShowProps | string) {
       }
     }, [])
 
+    useImperativeHandle(ref, () => ({
+      close: () => setVisible(false),
+    }))
+
     return (
       <InternalToast
         {...props}
@@ -62,8 +80,15 @@ export function show(p: ToastShowProps | string) {
         }}
       />
     )
-  }
-  ReactDOM.render(<TempToast />, container)
+  })
+
+  const ref = createRef<ToastShowRef>()
+  ReactDOM.render(<TempToast ref={ref} />, container)
+  return {
+    close: () => {
+      ref.current?.close()
+    },
+  } as ToastHandler
 }
 
 export function clear() {
@@ -71,5 +96,19 @@ export function clear() {
     const container = containers.pop()
     if (!container) break
     unmount(container)
+  }
+}
+
+export function config(
+  val: Pick<ToastProps, 'duration' | 'position' | 'maskClickable'>
+) {
+  if (val.duration !== undefined) {
+    defaultProps.duration = val.duration
+  }
+  if (val.position !== undefined) {
+    defaultProps.position = val.position
+  }
+  if (val.maskClickable !== undefined) {
+    defaultProps.maskClickable = val.maskClickable
   }
 }

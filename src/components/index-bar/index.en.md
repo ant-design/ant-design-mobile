@@ -28,7 +28,8 @@
 
 ### Props
 
-| Name  | Description | Type     | Default                          |
-| ----- | ----------- | -------- | -------------------------------- |
-| index | Index       | `string` | -                                |
-| title | Title       | `string` | `index` would be used by default |
+| Name  | Description                           | Type        | Default                                                  |
+| ----- | ------------------------------------- | ----------- | -------------------------------------------------------- |
+| index | Unique index.                         | `string`    | -                                                        |
+| title | The panel title in the main area.     | `ReactNode` | `index` would be used by default.                        |
+| brief | The brief title in the right sidebar. | `ReactNode` | The first character of `index` would be used by default. |

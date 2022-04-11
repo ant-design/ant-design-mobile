@@ -12,6 +12,10 @@
 
 <code src="./demos/demo3.tsx"></code>
 
+### Nested Scroll Areas
+
+<code src="./demos/demo-nested.tsx"></code>
+
 ### Props
 
 ```ts | pure
@@ -29,9 +33,14 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 | headHeight     | The height of the head prompt content area, the unit is px           | `number`                            | `40`             |
 | threshold      | How far to pull down to trigger refresh, unit is px                  | `number`                            | `60`             |
 | renderText     | Customize the pulling content according to the pulling status        | `(status: PullStatus) => ReactNode` | -                |
+| disabled       | Whether the PullToRefresh is disabled                                | `boolean`                           | `false`          |
 
 ## FAQ
 
 ### Does it support pull up to load more?
 
-Pull-up loading is another component: [InfiniteScroll](./infinite-scroll)
+Pull-up loading is another component: [InfiniteScroll](./infinite-scroll).
+
+### About the browser's default pull-down behavior
+
+Some browsers or webview containers have elastic effects or pull-to-refresh logic. We do not recommend using the PullToRefresh component in this environment. If you must use it, please disable the default pull-down and elastic effects of the outer browser. , otherwise PullToRefresh and the browser's default behavior may be triggered at the same time, resulting in a poor user experience.

@@ -12,7 +12,7 @@ The `show` method supports passing in a `props` object, which contains the follo
 
 | Name            | Description                                                        | Type                                                  | Default         |
 | --------------- | ------------------------------------------------------------------ | ----------------------------------------------------- | --------------- |
-| afterClose      | Callback after `Dialog` is completely closed                       | `() => void`                                          | -               |
+| afterClose      | Callback after `Toast` is completely closed                        | `() => void`                                          | -               |
 | maskStyle       | `Toast` mask style                                                 | `React.CSSProperties`                                 | -               |
 | maskClassName   | `Toast` mask class name                                            | `string`                                              | -               |
 | maskClickable   | Whether allowed to click the background                            | `boolean`                                             | `true`          |
@@ -27,6 +27,20 @@ The `show` method supports passing in a `props` object, which contains the follo
 
 You can also pass in a string directly, and `Toast.show` will automatically use it as `content`.
 
+The return value of the `show` method is a component controller, which contains the following properties:
+
+| Name  | Description                  | Type         | Default |
+| ----- | ---------------------------- | ------------ | ------- |
+| close | To close the current `Toast` | `() => void` | -       |
+
 ### Toast.clear
 
 Turn off `Toast` in all displays.
+
+### Toast.config
+
+Methods for global configuration. Support `duration`, `position` and `maskClickable`. The configuration method is as follows:
+
+```ts
+Toast.config({ duration: 1000, position: 'top' })
+```

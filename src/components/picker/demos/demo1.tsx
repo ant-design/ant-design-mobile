@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import { Picker, Button, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-
-const basicColumns = [
-  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],
-  ['1', '222222222222222222222222222222222', '3'],
-]
+import { basicColumns } from './columns-data'
 
 // 基础用法
 function BasicDemo() {

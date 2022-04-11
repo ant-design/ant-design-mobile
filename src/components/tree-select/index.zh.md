@@ -1,4 +1,4 @@
-# TreeSelect 级联选择器
+# TreeSelect 级联选择器 <Experimental></Experimental>
 
 <Alert type="error">
 此组件即将重写，请尽量不要使用。
@@ -6,7 +6,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### 属性
 
 ### TreeSelect
 

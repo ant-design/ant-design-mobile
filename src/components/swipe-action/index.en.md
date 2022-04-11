@@ -2,15 +2,15 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
-| Name                | Description                                                                          | Type                       | Default |
-| ------------------- | ------------------------------------------------------------------------------------ | -------------------------- | ------- |
-| rightActions        | List of operation buttons on the right                                               | `Action[]`                 | `[]`    |
-| leftActions         | List of operation buttons on the left                                                | `Action[]`                 | `[]`    |
-| onAction            | Triggered when operation button is clicked                                           | `(action: Action) => void` | -       |
-| closeOnTouchOutside | Whether to return to the position automatically when other areas is clicked          | `boolean`                  | `true`  |
-| closeOnAction       | Whether to return to the position automatically when the operation button is clicked | `boolean`                  | `true`  |
+| Name                | Description                                                                          | Type                                            | Default |
+| ------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------- | ------- |
+| rightActions        | List of operation buttons on the right                                               | `Action[]`                                      | `[]`    |
+| leftActions         | List of operation buttons on the left                                                | `Action[]`                                      | `[]`    |
+| onAction            | Triggered when operation button is clicked                                           | `(action: Action, e: React.MouseEvent) => void` | -       |
+| closeOnTouchOutside | Whether to return to the position automatically when other areas is clicked          | `boolean`                                       | `true`  |
+| closeOnAction       | Whether to return to the position automatically when the operation button is clicked | `boolean`                                       | `true`  |
 
 ### Action
 
@@ -28,7 +28,7 @@
 | close | Let the slide bar return to the position                                 | `() => void`                         |
 | show  | Slide out the operation button, the `side` parameter defaults to `right` | `(side?: 'left' \| 'right') => void` |
 
-## CSS Variables
+### CSS Variables
 
 | Name         | Description      | Default   |
 | ------------ | ---------------- | --------- |

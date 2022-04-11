@@ -1,12 +1,13 @@
 import React, { FC, ReactElement, ComponentProps, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
-import { RightOutline } from 'antd-mobile-icons'
+import { DownOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useMount, useUpdateLayoutEffect } from 'ahooks'
-import { useShouldRender } from '../../utils/use-should-render'
+import { useMount } from 'ahooks'
+import { useShouldRender } from '../../utils/should-render'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 
 const classPrefix = `adm-collapse`
 
@@ -17,7 +18,7 @@ export type CollapsePanelProps = {
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
-  arrow?: React.ReactNode
+  arrow?: React.ReactNode | ((active: boolean) => React.ReactNode)
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -38,6 +39,13 @@ const CollapsePanelContent: FC<{
   )
   const [{ height }, api] = useSpring(() => ({
     from: { height: 0 },
+    config: {
+      precision: 0.01,
+      mass: 1,
+      tension: 200,
+      friction: 25,
+      clamp: true,
+    },
   }))
 
   useMount(() => {
@@ -50,7 +58,7 @@ const CollapsePanelContent: FC<{
     })
   })
 
-  useUpdateLayoutEffect(() => {
+  useIsomorphicUpdateLayoutEffect(() => {
     const inner = innerRef.current
     if (!inner) return
     if (visible) {
@@ -92,7 +100,7 @@ type ValueProps<T> = {
   activeKey?: T
   defaultActiveKey?: T
   onChange?: (activeKey: T) => void
-  arrow?: React.ReactNode
+  arrow?: React.ReactNode | ((active: boolean) => React.ReactNode)
 }
 
 export type CollapseProps = (
@@ -167,16 +175,16 @@ export const Collapse: FC<CollapseProps> = props => {
           }
 
           const renderArrow = () => {
-            let arrow: React.ReactNode = <RightOutline />
+            let arrow: CollapseProps['arrow'] = <DownOutline />
             if (props.arrow !== undefined) {
               arrow = props.arrow
             }
-
             if (panel.props.arrow !== undefined) {
               arrow = panel.props.arrow
             }
-
-            return (
+            return typeof arrow === 'function' ? (
+              arrow(active)
+            ) : (
               <div
                 className={classNames(`${classPrefix}-arrow`, {
                   [`${classPrefix}-arrow-active`]: active,
@@ -192,11 +200,9 @@ export const Collapse: FC<CollapseProps> = props => {
               {withNativeProps(
                 panel.props,
                 <List.Item
-                  className={classNames(`${classPrefix}-panel-header`, {
-                    [`${classPrefix}-panel-header-disabled`]:
-                      panel.props.disabled,
-                  })}
-                  onClick={panel.props.disabled ? undefined : handleClick}
+                  className={`${classPrefix}-panel-header`}
+                  onClick={handleClick}
+                  disabled={panel.props.disabled}
                   arrow={renderArrow()}
                 >
                   {panel.props.title}

@@ -12,6 +12,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { useTabListScroll } from '../../utils/use-tab-list-scroll'
 import ScrollMask from '../scroll-mask'
+import { ShouldRender } from '../../utils/should-render'
 
 const classPrefix = `adm-jumbo-tabs`
 
@@ -20,6 +21,7 @@ export type JumboTabProps = {
   description: ReactNode
   disabled?: boolean
   forceRender?: boolean
+  destroyOnClose?: boolean
 } & NativeProps
 
 export const JumboTab: FC<JumboTabProps> = () => {
@@ -54,7 +56,10 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
   const [activeKey, setActiveKey] = usePropsValue({
     value: props.activeKey,
     defaultValue: props.defaultActiveKey ?? firstActiveKey,
-    onChange: props.onChange,
+    onChange: v => {
+      if (v === null) return
+      props.onChange?.(v)
+    },
   })
 
   const { scrollLeft, animate } = useTabListScroll(
@@ -110,21 +115,22 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
         if (pane.props.children === undefined) {
           return null
         }
-        if (pane.key === activeKey) {
-          return (
-            <div key={pane.key} className={`${classPrefix}-content`}>
+        const active = pane.key === activeKey
+        return (
+          <ShouldRender
+            key={pane.key}
+            active={active}
+            forceRender={pane.props.forceRender}
+            destroyOnClose={pane.props.destroyOnClose}
+          >
+            <div
+              className={`${classPrefix}-content`}
+              style={{ display: active ? 'block' : 'none' }}
+            >
               {pane.props.children}
             </div>
-          )
-        }
-        if (pane.props.forceRender) {
-          return (
-            <div key={pane.key} style={{ display: 'none' }}>
-              {pane.props.children}
-            </div>
-          )
-        }
-        return null
+          </ShouldRender>
+        )
       })}
     </div>
   )

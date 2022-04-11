@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useShouldRender } from '../../utils/use-should-render'
+import { useShouldRender } from '../../utils/should-render'
 import { DownFill } from 'antd-mobile-icons'
 
 const classPrefix = `adm-dropdown-item`
@@ -20,7 +20,7 @@ export type DropdownItemProps = {
 const Item: FC<DropdownItemProps> = props => {
   const cls = classNames(classPrefix, {
     [`${classPrefix}-active`]: props.active,
-    [`${classPrefix}-highlight`]: props.highlight,
+    [`${classPrefix}-highlight`]: props.highlight ?? props.active,
   })
 
   return withNativeProps(

@@ -1,0 +1,47 @@
+.gallery {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  flex: none;
+  border-bottom: solid 1px #eeeeee;
+}
+
+.body {
+  flex: auto;
+  min-height: 0;
+  height: 0;
+  overflow-y: scroll;
+  background: rgb(245, 247, 250);
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #eeeeee;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #999999;
+  }
+  &.demoBody {
+    overflow-y: hidden;
+  }
+}
+
+.guide {
+  background: #ffffff;
+  font-size: 15px;
+  padding: 12px;
+  border-bottom: solid 1px #eeeeee;
+}
+
+.logo {
+  display: block;
+  width: 40%;
+  margin: 0 auto;
+}
+
+.demoSwitcher {
+  font-size: 15px;
+}

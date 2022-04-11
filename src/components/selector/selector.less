@@ -1,19 +1,30 @@
 @class-prefix-selector: ~'adm-selector';
 
 .@{class-prefix-selector} {
-  --color: var(--adm-color-text);
+  --color: #f5f5f5;
   --checked-color: #e7f1ff;
+  --text-color: var(--adm-color-text);
+  --checked-text-color: var(--adm-color-primary);
+  --border: none;
+  --checked-border: none;
+  --border-radius: 2px;
+  --padding: 8px 16px;
 
   overflow: hidden;
   font-size: 15px;
   line-height: 1.4;
 
+  .adm-space.adm-space {
+    --gap: 12px;
+  }
+
   &-item {
-    padding: 8px;
+    padding: var(--padding);
     position: relative;
-    background-color: #f5f5f5;
-    border-radius: 2px;
-    color: #333;
+    background-color: var(--color);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    color: var(--text-color);
     opacity: 1;
     cursor: pointer;
     display: inline-block;
@@ -21,10 +32,16 @@
     overflow: hidden;
     vertical-align: top;
 
+    &-description {
+      font-size: 13px;
+      color: var(--adm-color-weak);
+    }
+
     &-active,
     &-multiple-active {
-      color: var(--adm-color-primary);
+      color: var(--checked-text-color);
       background-color: var(--checked-color);
+      border: var(--checked-border);
     }
 
     .@{class-prefix-selector}-check-mark-wrapper {
@@ -37,7 +54,7 @@
       border-bottom: solid 8px var(--adm-color-primary);
       border-left: solid 10px transparent;
       border-right: solid 10px var(--adm-color-primary);
-      > img {
+      > svg {
         position: absolute;
         left: 0;
         top: 0;

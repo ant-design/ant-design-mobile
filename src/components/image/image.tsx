@@ -5,7 +5,7 @@ import { PictureOutline, PictureWrongOutline } from 'antd-mobile-icons'
 import { staged } from 'staged-components'
 import { toCSSLength } from '../../utils/to-css-length'
 import { LazyDetector } from './lazy-detector'
-import { useUpdateLayoutEffect } from 'ahooks'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 
 const classPrefix = `adm-image`
 
@@ -20,6 +20,7 @@ export type ImageProps = {
   lazy?: boolean
   onClick?: (event: React.MouseEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
+  onLoad?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
 } & NativeProps<'--width' | '--height'> &
   Pick<
     React.ImgHTMLAttributes<HTMLImageElement>,
@@ -63,7 +64,7 @@ export const Image = staged<ImageProps>(p => {
   src = initialized ? props.src : undefined
   srcSet = initialized ? props.srcSet : undefined
 
-  useUpdateLayoutEffect(() => {
+  useIsomorphicUpdateLayoutEffect(() => {
     setLoaded(false)
     setFailed(false)
   }, [src])
@@ -78,8 +79,9 @@ export const Image = staged<ImageProps>(p => {
         src={src}
         alt={props.alt}
         onClick={props.onClick}
-        onLoad={() => {
+        onLoad={e => {
           setLoaded(true)
+          props.onLoad?.(e)
         }}
         onError={e => {
           setFailed(true)

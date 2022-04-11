@@ -1,9 +1,9 @@
 import React, { FC, ReactElement, ReactNode } from 'react'
 import classNames from 'classnames'
-import { iconRecord } from './error'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useConfig } from '../config-provider'
+import { imageRecord } from './images'
 
 const classPrefix = `adm-error-block`
 
@@ -13,7 +13,12 @@ export type ErrorBlockProps = {
   image?: string | ReactElement
   description?: ReactNode
   fullPage?: boolean
-} & NativeProps<'--image-height' | '--image-height-full-page'>
+} & NativeProps<
+  | '--image-height'
+  | '--image-height-full-page'
+  | '--image-width'
+  | '--image-width-full-page'
+>
 
 const defaultProps = {
   status: 'default',
@@ -21,17 +26,16 @@ const defaultProps = {
 
 export const ErrorBlock: FC<ErrorBlockProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const icon = iconRecord[props.status]
   const { locale } = useConfig()
   const contentPack = locale.ErrorBlock[props.status]
   const des =
     'description' in props ? props.description : contentPack.description
   const title = 'title' in props ? props.title : contentPack.title
-  let imageNode: ReactNode = <img src={icon} />
+  let imageNode: ReactNode = imageRecord[props.status]
 
   if (props.image) {
     if (typeof props.image === 'string') {
-      imageNode = <img src={props.image} />
+      imageNode = <img src={props.image} alt='error block image' />
     } else {
       imageNode = props.image
     }

@@ -2,31 +2,52 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+<code src="./demos/demo2.tsx"></code>
+
+## Selector
+
+### Props
+
+| Name          | Description                          | Type                                                                    | Default |
+| ------------- | ------------------------------------ | ----------------------------------------------------------------------- | ------- |
+| value         | Selected value                       | `SelectorValue[]`                                                       | -       |
+| defaultValue  | Selected value by default            | `SelectorValue[]`                                                       | `[]`    |
+| columns       | Number of the displayed columns      | `number`                                                                | -       |
+| options       | Optional selector                    | `SelectorOption[]`                                                      | -       |
+| multiple      | Whether to allow multiple selections | `boolean`                                                               | `false` |
+| disabled      | Whether to disable selecting         | `boolean`                                                               | `false` |
+| onChange      | Triggered when the value is changed  | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
+| showCheckMark | Whether to show the check mark       | `boolean`                                                               | `true`  |
+
+### CSS Variables
+
+| Name                 | Description                   | Default                    |
+| -------------------- | ----------------------------- | -------------------------- |
+| --color              | Background color              | `#f5f5f5`                  |
+| --checked-color      | Background color when checked | `#e7f1ff`                  |
+| --text-color         | Text color                    | `var(--adm-color-text)`    |
+| --checked-text-color | Text color when checked       | `var(--adm-color-primary)` |
+| --border             | border style                  | `none`                     |
+| --checked-border     | Border style when checked     | `none`                     |
+| --border-radius      | Border radius of options      | `2px`                      |
+| --padding            | Padding of options            | `8px 16px`                 |
+
+## Types
+
+### SelectorValue
 
 ```ts | pure
 type SelectorValue = string | number
 ```
 
-## Selector
+### SelectorOption
 
-| Name         | Description                            | Type                                                                    | Default |
-| ------------ | -------------------------------------- | ----------------------------------------------------------------------- | ------- |
-| value        | Selected value                         | `SelectorValue[]`                                                       | -       |
-| defaultValue | Selected value by default              | `SelectorValue[]`                                                       | `[]`    |
-| columns      | Number of the displayed columns        | `number`                                                                | -       |
-| options      | Optional selector                      | `SelectorOption[]`                                                      | -       |
-| multiple     | Whether to allow multiple selections   | `boolean`                                                               | `false` |
-| disabled     | Whether to diabled selections globally | `boolean`                                                               | `false` |
-| onChange     | Triggered when the value is changed    | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
-
-## SelectorOption
-
-| Name     | Description         | Type            | Default |
-| -------- | ------------------- | --------------- | ------- |
-| label    | Label text          | `string`        | -       |
-| value    | Value of the option | `SelectorValue` | -       |
-| disabled | Whether disabled    | `boolean`       | `false` |
+| Name        | Description         | Type            | Default |
+| ----------- | ------------------- | --------------- | ------- |
+| label       | Label text          | `ReactNode`     | -       |
+| description | Description text    | `ReactNode`     | -       |
+| value       | Value of the option | `SelectorValue` | -       |
+| disabled    | Whether disabled    | `boolean`       | `false` |
 
 ## Generics
 
@@ -39,9 +60,3 @@ type SelectorValue = string | number
   onChange={arr => console.log(arr)}
 />
 ```
-
-## CSS Variables
-
-| Name            | Description             | Default   |
-| --------------- | ----------------------- | --------- |
-| --checked-color | filled background color | `#e7f1ff` |

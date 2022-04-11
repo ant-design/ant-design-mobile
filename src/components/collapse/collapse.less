@@ -2,20 +2,16 @@
 
 .@{class-prefix-collapse} {
   &-panel-header {
-    &-disabled {
-      color: var(--adm-color-light);
-      cursor: not-allowed;
-      .@{class-prefix-collapse}-arrow {
-        color: var(--adm-color-light);
-      }
+    & .adm-list-item-content-main {
+      padding: 12px 0;
     }
   }
   &-arrow {
     transform: rotate(0deg);
     &-active {
-      transform: rotate(90deg);
+      transform: rotate(-180deg);
     }
-    transition: all ease 0.2s;
+    transition: all ease 0.3s;
   }
   &-panel-content {
     font-size: var(--adm-font-size-main);

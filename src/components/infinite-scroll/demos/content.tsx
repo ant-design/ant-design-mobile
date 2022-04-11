@@ -1,35 +1,6 @@
 import React, { useState } from 'react'
-import { InfiniteScroll, List, Loading } from 'antd-mobile'
-import { sleep } from 'antd-mobile/es/utils/sleep'
-
-let count = 0
-
-async function mockRequest() {
-  if (count >= 5) {
-    return []
-  }
-  await sleep(2000)
-  count++
-  return [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-  ]
-}
+import { InfiniteScroll, List, DotLoading } from 'antd-mobile'
+import { mockRequest } from './mock-request'
 
 const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
   return (
@@ -37,7 +8,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
       {hasMore ? (
         <>
           <span>Loading</span>
-          <Loading />
+          <DotLoading />
         </>
       ) : (
         <span>--- 我是有底线的 ---</span>

@@ -6,11 +6,14 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
+        感谢反馈问题，在你填写下面的这个表单之前，不放先阅读一下[如何提问](https://github.com/ant-design/ant-design-mobile/blob/master/.github/HOW_TO_ASK_QUESTIONS.md)
   - type: input
     id: antd-mobile-version
     attributes:
       label: Version of antd-mobile
-      description: The exact version of antd-mobile you are using.
+      description: |
+        The exact version of antd-mobile you are using.
+        你所使用的 antd-mobile 的准确版本。
       placeholder: eg. 5.0.0-beta.21
     validations:
       required: true
@@ -18,7 +21,9 @@ body:
     id: operating-system
     attributes:
       label: Operating system and its version
-      description: What operating system are you seeing the problem on? Also, we'd like to know its exact version.
+      description: |
+        What operating system are you seeing the problem on?
+        你是在哪个操作系统平台上发现的这个问题？
       multiple: true
       options:
         - iOS
@@ -30,7 +35,9 @@ body:
     id: browser
     attributes:
       label: Browser and its version
-      description: What browser are you seeing the problem on? Also, we'd like to know its exact version.
+      description: |
+        What browser are you seeing the problem on? Also, we'd like to know its exact version.
+        你是在哪个浏览器中发现的这个问题？最好可以提供浏览器准确的版本号。
       placeholder: eg. iOS Safari 13.1
     validations:
       required: false
@@ -38,22 +45,27 @@ body:
     id: reproduce
     attributes:
       label: Sandbox to reproduce
-      description: 'If possible, please try to attach a sandbox link to reproduce. You can create one from this: https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx'
+      description: |
+        If possible, please try to attach a sandbox link to reproduce. You can create one from [here](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx).
+        **尽可能提供一个复现 demo**。你可以在[这里](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx)创建一个 sandbox，然后把分享链接提供在这里。
     validations:
       required: false
   - type: textarea
     id: what-happened
     attributes:
       label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
+      description: |
+        Also tell us, what did you expect to happen?
+        出现了什么问题？以及，你期望的正确行为是什么？
     validations:
       required: false
   - type: textarea
     id: logs
     attributes:
       label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      description: |
+        Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+        如果有的话，请粘贴你遇到的报错信息或日志。下面输入框中的内容在 issue 提交后会被自动格式化成代码块。
       render: shell
   - type: markdown
     attributes:

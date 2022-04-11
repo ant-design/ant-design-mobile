@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef } from 'react'
-import Tabs, { TabPane } from 'rc-tabs'
+import { Tabs } from 'antd-mobile'
 // @ts-ignore
 import { history } from 'dumi'
 import type { IPreviewerComponentProps } from 'dumi/theme'
@@ -159,14 +159,15 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
         {!isSingleFile && (
           <Tabs
             className='__dumi-default-previewer-source-tab'
-            prefixCls='__dumi-default-tabs'
-            moreIcon='···'
+            // prefixCls='__dumi-default-tabs'
+            // moreIcon='···'
+            stretch={false}
             defaultActiveKey={currentFile}
             onChange={handleFileChange}
           >
             {Object.keys(props.sources).map(filename => (
-              <TabPane
-                tab={
+              <Tabs.Tab
+                title={
                   filename === '_'
                     ? `index.${getSourceType(
                         filename,

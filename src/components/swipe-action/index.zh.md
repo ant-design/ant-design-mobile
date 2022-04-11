@@ -2,15 +2,15 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## 属性
+### 属性
 
-| 属性                | 说明                         | 类型                       | 默认值 |
-| ------------------- | ---------------------------- | -------------------------- | ------ |
-| rightActions        | 右侧的操作按钮列表           | `Action[]`                 | `[]`   |
-| leftActions         | 左侧的操作按钮列表           | `Action[]`                 | `[]`   |
-| onAction            | 点击操作按钮时触发           | `(action: Action) => void` | -      |
-| closeOnTouchOutside | 是否在点击其他区域时自动归位 | `boolean`                  | `true` |
-| closeOnAction       | 是否在点击操作按钮时自动归位 | `boolean`                  | `true` |
+| 属性                | 说明                         | 类型                                            | 默认值 |
+| ------------------- | ---------------------------- | ----------------------------------------------- | ------ |
+| rightActions        | 右侧的操作按钮列表           | `Action[]`                                      | `[]`   |
+| leftActions         | 左侧的操作按钮列表           | `Action[]`                                      | `[]`   |
+| onAction            | 点击操作按钮时触发           | `(action: Action, e: React.MouseEvent) => void` | -      |
+| closeOnTouchOutside | 是否在点击其他区域时自动归位 | `boolean`                                       | `true` |
+| closeOnAction       | 是否在点击操作按钮时自动归位 | `boolean`                                       | `true` |
 
 ### Action
 
@@ -28,7 +28,7 @@
 | close | 让滑动条归位                              | `() => void`                         |
 | show  | 滑动出操作按钮，`side` 参数默认为 `right` | `(side?: 'left' \| 'right') => void` |
 
-## CSS 变量
+### CSS 变量
 
 | 属性         | 说明     | 默认值    |
 | ------------ | -------- | --------- |

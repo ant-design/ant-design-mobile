@@ -3,12 +3,10 @@
 ## Installation
 
 ```bash
-$ npm install --save antd-mobile@next
+$ npm install --save antd-mobile
 # or
-$ yarn add antd-mobile@next
+$ yarn add antd-mobile
 ```
-
-<Alert> During the beta phase we may release break changes in subsequent releases, so it is highly recommended to lock the version of antd-mobile with lockfiles or manually.</Alert>
 
 ## Import
 
@@ -20,11 +18,9 @@ import { Button } from 'antd-mobile'
 
 If you are developing an internal project in alibaba group or ant group, please read [this additional guide](https://yuque.antfin.com/antd-mobile/kfcgs3/md4or5).
 
-### Compatibility
+## Compatibility
 
-The current compatibility standards are iOS Safari >= 10 and Chrome >= 49.
-
-However, it is needed to add some babel config in your project:
+We recommend adding the following babel configuration, so that maximum compatibility can be achieved (iOS Safari >= 10 and Chrome >= 49):
 
 ```json
 {
@@ -42,8 +38,15 @@ However, it is needed to add some babel config in your project:
 }
 ```
 
-And of course, you can adjust the `targets` config according to your requirements. Or just don't do babel transpiling.
+For TypeScript, antd-mobile is compatible with versions >= 3.8.
+
+For React, antd-mobile is compatible with versions >= 16.8.0.
 
 ## Playground
 
 If you don't want to configure your environment locally, you can also try it directly on [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json).
+
+## Discussion Groups
+
+- [DingDing](https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ)
+- [Discord](https://discord.gg/jmNvw4WFYn)

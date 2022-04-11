@@ -10,10 +10,13 @@ import {
   PickerValueExtend,
 } from './index'
 import PickerView from '../picker-view'
-import { useColumns } from '../picker-view/use-columns'
+import {
+  generateColumnsExtend,
+  useColumnsExtend,
+} from '../picker-view/columns-extend'
 import { useConfig } from '../config-provider'
-import { usePickerValueExtend } from '../picker-view/use-picker-value-extend'
-import { usePersistFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
+import SafeArea from '../safe-area'
 
 const classPrefix = `adm-picker`
 
@@ -25,19 +28,26 @@ export type PickerProps = {
   onConfirm?: (value: PickerValue[], extend: PickerValueExtend) => void
   onCancel?: () => void
   onClose?: () => void
+  closeOnMaskClick?: boolean
   visible?: boolean
   title?: ReactNode
-  confirmText?: string
-  cancelText?: string
+  confirmText?: ReactNode
+  cancelText?: ReactNode
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
 } & Pick<
   PopupProps,
   'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
 > &
-  NativeProps
+  NativeProps<
+    | '--header-button-font-size'
+    | '--title-font-size'
+    | '--item-font-size'
+    | '--item-height'
+  >
 
 const defaultProps = {
   defaultValue: [],
+  closeOnMaskClick: true,
 }
 
 export const Picker = memo<PickerProps>(p => {
@@ -54,17 +64,16 @@ export const Picker = memo<PickerProps>(p => {
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
-      props.onConfirm?.(val, generateValueExtend(val))
+      const extend = generateColumnsExtend(props.columns, val)
+      props.onConfirm?.(val, extend)
     },
   })
 
-  // TODO: columns generated twice in Picker and PickerView, which can be improved
-  const columns = useColumns(props.columns, value)
-  const generateValueExtend = usePickerValueExtend(columns)
+  const extend = useColumnsExtend(props.columns, value)
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
   useEffect(() => {
-    if (!props.visible) {
+    if (innerValue !== value) {
       setInnerValue(value)
     }
   }, [props.visible])
@@ -74,7 +83,7 @@ export const Picker = memo<PickerProps>(p => {
     }
   }, [value])
 
-  const onChange = usePersistFn((val, ext) => {
+  const onChange = useMemoizedFn((val, ext) => {
     setInnerValue(val)
     if (props.visible) {
       props.onSelect?.(val, ext)
@@ -117,9 +126,11 @@ export const Picker = memo<PickerProps>(p => {
 
   const popupElement = (
     <Popup
+      className={`${classPrefix}-popup`}
       visible={props.visible}
       position='bottom'
       onMaskClick={() => {
+        if (!props.closeOnMaskClick) return
         props.onCancel?.()
         props.onClose?.()
       }}
@@ -132,13 +143,16 @@ export const Picker = memo<PickerProps>(p => {
       stopPropagation={props.stopPropagation}
     >
       {pickerElement}
+      <SafeArea position='bottom' />
     </Popup>
   )
 
   return (
     <>
       {popupElement}
-      {props.children?.(generateValueExtend(value).items)}
+      {props.children?.(extend.items)}
     </>
   )
 })
+
+Picker.displayName = 'Picker'

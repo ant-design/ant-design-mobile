@@ -1,9 +1,10 @@
 # Button
 
 <code src="./demos/demo1.tsx"></code>
-<code src="./demos/demo2.tsx" debug></code>
 
-## Props
+<code src="./demos/demo2.tsx"></code>
+
+### Props
 
 | Name        | Description                                  | Type                                                               | Default     |
 | ----------- | -------------------------------------------- | ------------------------------------------------------------------ | ----------- |
@@ -18,7 +19,7 @@
 | type        | The `type` prop of native `button` element.  | `'submit' \| 'reset' \| 'button'`                                  | `'button'`  |
 | shape       | The shape of the button.                     | `'default' \| 'rounded' \| 'rectangular'`                          | `'default'` |
 
-## CSS Variables
+### CSS Variables
 
 | Name               | Description                     | Default                   | Global                          |
 | ------------------ | ------------------------------- | ------------------------- | ------------------------------- |

@@ -2,24 +2,29 @@ import * as React from 'react'
 import { render, testA11y } from 'testing'
 import Badge from '../'
 
-const classPrefix = `adm-badge`
+describe('Badge', () => {
+  test('passes a11y test', async () => {
+    await testA11y(<Badge>test</Badge>)
+  })
 
-it('passes a11y test', async () => {
-  await testA11y(<Badge>test</Badge>)
-})
+  test('render without content', () => {
+    const renderer = render(<Badge content={123} data-testid='test-badge' />)
+    const element = renderer.getByTestId('test-badge')
+    expect(element).toHaveClass('adm-badge')
+    expect(element).toMatchSnapshot()
+  })
 
-test('renders with content', () => {
-  const { getByText } = render(<Badge content='新'>text</Badge>)
-  expect(getByText('新')).toHaveClass(`${classPrefix}-fixed`)
-})
+  test('render with content', () => {
+    const { container } = render(<Badge content='新'>text</Badge>)
+    expect(container).toMatchSnapshot()
+  })
 
-test('renders with color', () => {
-  const { getByText } = render(
-    <Badge color='#108ee9' content='新'>
-      text
-    </Badge>
-  )
-  expect(getByText('新')).toHaveStyle({
-    backgroundColor: 'rgb(16, 142, 233)',
+  test('renders with color', () => {
+    const { container } = render(
+      <Badge color='#108ee9' content='新'>
+        text
+      </Badge>
+    )
+    expect(container).toMatchSnapshot()
   })
 })

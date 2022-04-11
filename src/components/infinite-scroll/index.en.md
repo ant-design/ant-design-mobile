@@ -37,3 +37,13 @@ function loadMore() { // ok
 If necessary, `<InfiniteScroll>` allows custom display content, this content can contain any element, including svg and elements with css animation.
 
 <code src="./demos/content.tsx"></code>
+
+### Use with search
+
+<code src="./demos/demo3.tsx"></code>
+
+## FAQ
+
+### Does it support pulling down?
+
+Pulling down is another component: [PullToRefresh](./pull-to-refresh).

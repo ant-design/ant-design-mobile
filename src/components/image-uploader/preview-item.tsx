@@ -3,7 +3,7 @@ import { CloseOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
 import Image from '../image'
-import Loading from '../loading'
+import SpinLoading from '../spin-loading'
 import { useConfig } from '../config-provider'
 
 type Props = {
@@ -35,7 +35,7 @@ const PreviewItem: FC<Props> = props => {
       props.status === 'pending' && (
         <div className={`${classPrefix}-cell-mask`}>
           <span className={`${classPrefix}-cell-loading`}>
-            <Loading color='#fff' />
+            <SpinLoading color='white' />
             <span className={`${classPrefix}-cell-mask-message`}>
               {locale.ImageUploader.uploading}
             </span>

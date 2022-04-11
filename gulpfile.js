@@ -42,6 +42,16 @@ function copyAssets() {
     .pipe(gulp.dest('lib/cjs/assets'))
 }
 
+function tempCopyFloatingUI() {
+  return gulp
+    .src([
+      './src/components/popover/temp-floating-ui.min.js',
+      './src/components/popover/temp-floating-ui.min.d.ts',
+    ])
+    .pipe(gulp.dest('lib/es/components/popover'))
+    .pipe(gulp.dest('lib/cjs/components/popover'))
+}
+
 function buildCJS() {
   return gulp
     .src(['lib/es/**/*.js'])
@@ -63,7 +73,11 @@ function buildES() {
       ignore: ['**/demos/**/*', '**/tests/**/*'],
     })
     .pipe(tsProject)
-    .pipe(babel())
+    .pipe(
+      babel({
+        'plugins': ['./babel-transform-less-to-css'],
+      })
+    )
     .pipe(gulp.dest('lib/es/'))
 }
 
@@ -105,7 +119,9 @@ function umdWebpack() {
           },
           plugins: [
             new BundleAnalyzerPlugin({
-              analyzerMode: 'json',
+              analyzerMode: 'static',
+              openAnalyzer: false,
+              reportFilename: 'report/report.html',
             }),
           ],
           module: {
@@ -145,7 +161,8 @@ function umdWebpack() {
           },
           externals: [
             {
-              react: 'React',
+              'react': 'React',
+              'react-dom': 'ReactDOM',
             },
           ],
         },
@@ -205,8 +222,10 @@ exports.umdWebpack = umdWebpack
 exports.default = gulp.series(
   clean,
   buildES,
-  gulp.parallel(buildCJS, buildDeclaration, buildStyle),
+  buildCJS,
+  gulp.parallel(buildDeclaration, buildStyle),
   copyAssets,
+  tempCopyFloatingUI,
   copyMetaFiles,
   generatePackageJSON,
   gulp.series(create2xFolder, build2xCSS),

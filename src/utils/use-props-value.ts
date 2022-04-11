@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-import { usePersistFn, useUpdate } from 'ahooks'
+import { Dispatch, SetStateAction, useRef, useState } from 'react'
+import { useMemoizedFn, useUpdate } from 'ahooks'
 
 type Options<T> = {
   value?: T
@@ -17,12 +17,14 @@ export function usePropsValue<T>(options: Options<T>) {
     stateRef.current = value
   }
 
-  const setState = usePersistFn((v: T) => {
+  const setState = useMemoizedFn((v: SetStateAction<T>) => {
+    const nextValue =
+      typeof v === 'function' ? (v as (prevState: T) => T)(stateRef.current) : v
     if (value === undefined) {
-      stateRef.current = v
+      stateRef.current = nextValue
       update()
     }
-    onChange?.(v)
+    onChange?.(nextValue)
   })
   return [stateRef.current, setState] as const
 }

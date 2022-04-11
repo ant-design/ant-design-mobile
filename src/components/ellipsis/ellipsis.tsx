@@ -2,6 +2,11 @@ import React, { FC, useRef, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
+import { useIsomorphicLayoutEffect } from 'ahooks'
+import {
+  PropagationEvent,
+  withStopPropagation,
+} from '../../utils/with-stop-propagation'
 
 const classPrefix = `adm-ellipsis`
 
@@ -11,6 +16,7 @@ export type EllipsisProps = {
   rows?: number
   expandText?: string
   collapseText?: string
+  stopPropagationForActionButtons?: PropagationEvent[]
 } & NativeProps
 
 const defaultProps = {
@@ -18,6 +24,7 @@ const defaultProps = {
   rows: 1,
   expandText: '',
   collapseText: '',
+  stopPropagationForActionButtons: [],
 }
 
 type EllipsisedValue = {
@@ -33,7 +40,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   const [expanded, setExpanded] = useState(false)
   const [exceeded, setExceeded] = useState(false)
 
-  useResizeEffect(() => {
+  function calcEllipsised() {
     const root = rootRef.current
     if (!root) return
     const originStyle = window.getComputedStyle(root)
@@ -148,29 +155,46 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       setEllipsised(ellipsised)
     }
     document.body.removeChild(container)
-  }, rootRef)
+  }
+
+  useResizeEffect(calcEllipsised, rootRef)
+  useIsomorphicLayoutEffect(() => {
+    calcEllipsised()
+  }, [
+    props.content,
+    props.direction,
+    props.rows,
+    props.expandText,
+    props.collapseText,
+  ])
 
   const expandActionElement =
-    exceeded && props.expandText ? (
-      <a
-        onClick={() => {
-          setExpanded(true)
-        }}
-      >
-        {props.expandText}
-      </a>
-    ) : null
+    exceeded && props.expandText
+      ? withStopPropagation(
+          props.stopPropagationForActionButtons,
+          <a
+            onClick={() => {
+              setExpanded(true)
+            }}
+          >
+            {props.expandText}
+          </a>
+        )
+      : null
 
   const collapseActionElement =
-    exceeded && props.expandText ? (
-      <a
-        onClick={() => {
-          setExpanded(false)
-        }}
-      >
-        {props.collapseText}
-      </a>
-    ) : null
+    exceeded && props.expandText
+      ? withStopPropagation(
+          props.stopPropagationForActionButtons,
+          <a
+            onClick={() => {
+              setExpanded(false)
+            }}
+          >
+            {props.collapseText}
+          </a>
+        )
+      : null
 
   const renderContent = () => {
     if (!exceeded) {

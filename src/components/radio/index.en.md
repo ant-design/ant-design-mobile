@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 ```ts | pure
 type RadioValue = string | number
@@ -14,7 +14,7 @@ type RadioValue = string | number
 | -------------- | --------------------------------------------------------------------- | --------------------------------------- | ------- |
 | checked        | To specify whether it is currently selected                           | `boolean`                               | `false` |
 | defaultChecked | To specify whether it is currently selected by default                | `boolean`                               | `false` |
-| disabled       | Diabled state                                                         | `boolean`                               | `false` |
+| disabled       | Disabled state                                                        | `boolean`                               | `false` |
 | onChange       | Callback function when checked is changed                             | `(val: boolean) => void`                | -       |
 | value          | Value is carrying identification, used in `Group` mode                | `RadioValue`                            | -       |
 | block          | Whether to render as a block-level element                            | `boolean`                               | `false` |
@@ -25,12 +25,12 @@ type RadioValue = string | number
 
 | Name         | Description                                 | Type                          | Default |
 | ------------ | ------------------------------------------- | ----------------------------- | ------- |
-| defaultValue | Option selected by default                  | `RadioValue`                  | -       |
+| defaultValue | Option selected by default                  | `RadioValue \| null`          | `null`  |
 | disabled     | Disabled for the whole group                | `boolean`                     | `false` |
-| value        | Specified selected option                   | `RadioValue`                  | -       |
+| value        | Specified selected option                   | `RadioValue \| null`          | -       |
 | onChange     | Callback function when the value is changed | `(value: RadioValue) => void` | -       |
 
-## CSS Variables
+### CSS Variables
 
 ### Radio
 

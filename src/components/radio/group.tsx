@@ -18,7 +18,14 @@ const defaultProps = {
 
 export const Group: FC<RadioGroupProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const [value, setValue] = usePropsValue(props)
+  const [value, setValue] = usePropsValue({
+    value: props.value,
+    defaultValue: props.defaultValue,
+    onChange: v => {
+      if (v === null) return
+      props.onChange?.(v)
+    },
+  })
   return (
     <RadioGroupContext.Provider
       // TODO: 性能优化

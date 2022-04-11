@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import React, { FC, ReactNode, useState } from 'react'
-import SpinIcon from '../../assets/spin.svg'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { SpinIcon } from './spin-icon'
 
 const classPrefix = `adm-switch`
 
@@ -65,11 +65,7 @@ export const Switch: FC<SwitchProps> = p => {
       <div className={`${classPrefix}-checkbox`}>
         <div className={`${classPrefix}-handle`}>
           {(props.loading || changing) && (
-            <img
-              src={SpinIcon}
-              className={`${classPrefix}-icon`}
-              alt='switch-handle'
-            />
+            <SpinIcon className={`${classPrefix}-spin-icon`} />
           )}
         </div>
         <div className={`${classPrefix}-inner`}>

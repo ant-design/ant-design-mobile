@@ -10,7 +10,7 @@ If your environment does not support Tree Shaking, then you can manually introdu
 import Button from 'antd-mobile/es/components/button'
 ```
 
-It should be noted that when manually loading on demand, you also need to import the `global` file in the entry file to load some antd-mobile global logic and styles:
+It should be noted that **when manually loading on demand, you also need to import the `global` file in the entry file to load some antd-mobile global logic and styles**:
 
 ```js
 import 'antd-mobile/es/global'
@@ -26,6 +26,8 @@ module.exports = {
 }
 ```
 
-> Even if you use `babel-plugin-import`, you still need to manually import the `global` file in the entry file.
+<Alert type="error">
+  Even if you use `babel-plugin-import`, you still need to manually import the `global` file in the entry file.
+</Alert>
 
 It is not difficult to find that manual on-demand loading is very difficult to maintain, especially when there are multiple entry files in your project. So unless you have a sufficient understanding of the packaging and construction process and antd-mobile itself, we do not recommend this manual processing.

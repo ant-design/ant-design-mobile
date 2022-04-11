@@ -4,7 +4,9 @@ The `Input` component is layout-independent. It only includes the most basic inp
 
 <code src="./demos/demo1.tsx"></code>
 
-### API
+<code src="./demos/demo2.tsx"></code>
+
+### Props
 
 | Name         | Description                                                                                   | Type                                                 | Default |
 | ------------ | --------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------- |
@@ -16,20 +18,21 @@ The `Input` component is layout-independent. It only includes the most basic inp
 | readOnly     | Whether it is readonly or not                                                                 | `boolean`                                            | `false` |
 | clearable    | Whether to enable the clear icon, the input box will be cleared after clicking the clear icon | `boolean`                                            | `false` |
 | onClear      | Triggered after clicking the clear button                                                     | `() => void`                                         | -       |
-| id           | The id of the input element, usually used with label                                          | `string`                                             | -       |
+| id           | The `id` of the `input` element, usually used with `label`                                    | `string`                                             | -       |
 | onEnterPress | The callback when Enter key is pressed                                                        | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | -       |
+| min          | Minimum value, only valid when `type` is `number`                                             | `number`                                             | -       |
+| max          | Maximum value, only valid when `type` is `number`                                             | `number`                                             | -       |
 
-In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp`
+In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd`
 
 ### CSS Variables
 
-| Name                | Description               | Default                  |
-| ------------------- | ------------------------- | ------------------------ |
-| --font-size         | Text font size.           | `17px`                   |
-| --color             | Text color.               | `var(--adm-color-text)`  |
-| --placeholder-color | Placeholder text color.   | `var(--adm-color-light)` |
-| --disabled-color    | Text color when disabled. | `var(--adm-color-weak)`  |
-| --text-align        | The alignment of text.    | `left`                   |
+| Name                | Description             | Default                  |
+| ------------------- | ----------------------- | ------------------------ |
+| --font-size         | Text font size.         | `17px`                   |
+| --color             | Text color.             | `var(--adm-color-text)`  |
+| --placeholder-color | Placeholder text color. | `var(--adm-color-light)` |
+| --text-align        | The alignment of text.  | `left`                   |
 
 ### Ref
 
@@ -45,4 +48,4 @@ In addition, the following native attributes are supported: `maxLength` `minLeng
 
 In native `input`, `maxlength` only takes effect when `type` is `text`, `search`, `url`, `tel`, `email`, `password`, please refer to [MDN document](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-maxlength)。
 
-If you need to limit the number type to the input box, you can pass the `max` `min` prop.
+If you need to limit the input box with number type, you can pass the `max` `min` prop.

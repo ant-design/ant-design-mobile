@@ -8,35 +8,77 @@
   &-label {
     display: block;
     height: 100%;
+    line-height: 1.5;
     box-sizing: border-box;
-    color: #666;
     position: relative;
+    color: #666666;
 
-    &-required {
+    .adm-form-item-required-asterisk {
       position: absolute;
       left: -0.6em;
-      top: 0.2em;
+      top: 0;
+      font-family: SimSun, sans-serif;
       color: var(--adm-color-danger);
       user-select: none;
     }
+    .adm-form-item-required-text {
+      margin-left: 4px;
+      color: var(--adm-color-weak);
+    }
+
+    &-help {
+      margin-left: 4px;
+      cursor: pointer;
+    }
   }
 
-  &-footer {
+  &-child {
+    display: flex;
+    &-position-normal {
+      justify-content: normal;
+      > * {
+        flex: auto;
+      }
+    }
+    &-position-right {
+      justify-content: right;
+      > * {
+        flex: none;
+      }
+    }
+  }
+
+  &-feedback-error {
     color: var(--adm-color-danger);
+    margin-top: 4px;
+  }
+  &-feedback-warning {
+    color: var(--adm-color-warning);
+    margin-top: 4px;
   }
 
-  &-hidden {
+  &&-hidden {
     display: none;
   }
-}
 
-.adm-form-vertical {
-  .@{class-prefix-form-item} {
-    &-label {
-      margin-bottom: 4px;
+  &&-horizontal {
+    &.adm-list-item {
+      --align-items: stretch;
+      --prefix-width: 6em;
     }
-    &-footer {
-      margin-top: 4px;
+    .adm-list-item-content-prefix {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    .adm-list-item-content-extra {
+      align-self: center;
+    }
+  }
+
+  &&-vertical {
+    .adm-form-item-label {
+      font-size: 15px;
+      margin-bottom: 4px;
     }
   }
 }

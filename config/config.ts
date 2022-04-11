@@ -1,13 +1,14 @@
 import { components } from './components'
+import { IConfig } from 'dumi'
 
 const pxToRem = require('postcss-pxtorem')
 
-export default {
+const config: IConfig = {
   mode: 'site',
   title: 'Ant Design Mobile',
-  logo: 'https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*_JSuS4uucYAAAAAAAAAAAAAAARQnAQ',
+  logo: 'https://gw.alipayobjects.com/zos/bmw-prod/b874caa9-4458-412a-9ac6-a61486180a62.svg',
   favicon:
-    'https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*_JSuS4uucYAAAAAAAAAAAAAAARQnAQ',
+    'https://gw.alipayobjects.com/zos/bmw-prod/69a27fcc-ce52-4f27-83f1-c44541e9b65d.svg',
   navs: {
     'en': [
       {
@@ -149,6 +150,10 @@ export default {
         path: '/guide/import-on-demand',
       },
       {
+        title: 'About Experimental',
+        path: '/zh/guide/what-is-experimental',
+      },
+      {
         title: 'HD (Experimental)',
         path: '/guide/hd',
       },
@@ -181,6 +186,10 @@ export default {
       {
         title: '按需加载',
         path: '/zh/guide/import-on-demand',
+      },
+      {
+        title: '关于试验性',
+        path: '/zh/guide/what-is-experimental',
       },
       {
         title: '高清适配（试验性）',
@@ -304,7 +313,7 @@ export default {
     a[title='站长统计'] {
       display: none;
     }
-    body {
+    html {
       min-height: 100vh;
     }
     `,
@@ -322,15 +331,7 @@ export default {
       ],
     },
   },
-  hire: {
-    title: '招招招招招前端！！！！',
-    content: `
-<ul>
-  <li>ahooks、qiankun、antd mobile、l7 各种开源项目，快来并肩作战！</li>
-  <li>小组介绍：<a href="https://www.yuque.com/docs/share/8f763b3f-acd8-4ebf-a443-a0f45c5db293?#" target="_blank">http://topurl.cn/8wP</a></li>
-  <li>投递邮箱：brickspert.fjl@antfin.com</li>
-</ul>`,
-    email: 'brickspert.fjl@antfin.com',
-    slogan: '招招招招招前端！！！！',
-  },
+  plugins: ['./.dumi/plugin-gallery/index.ts'],
 }
+
+export default config

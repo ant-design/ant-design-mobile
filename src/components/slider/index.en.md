@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 ### Slider
 
@@ -20,7 +20,7 @@
 | onChange      | Triggered when the slider is dragged, and the current dragged value is passed in as a parameter                                                          | `(value: number \| [number, number]) => void` | -                    |
 | onAfterChange | Consistent with the trigger timing of `touchend`, pass the current value as a parameter                                                                  | `(value: number \| [number, number]) => void` | -                    |
 
-## CSS Variables
+### CSS Variables
 
 | Name         | Description  | Default                    |
 | ------------ | ------------ | -------------------------- |

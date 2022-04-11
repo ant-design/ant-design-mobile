@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Form.Item hidden 1`] = `
+<div>
+  <form
+    class="adm-form"
+  >
+    <div
+      class="adm-list adm-list-default"
+    >
+      <div
+        class="adm-list-body"
+      >
+        <div
+          class="adm-list-body-inner"
+        >
+          <div
+            class="adm-list-item adm-form-item adm-form-item-vertical adm-form-item-hidden"
+          >
+            <div
+              class="adm-list-item-content"
+            >
+              <div
+                class="adm-list-item-content-main"
+              >
+                <div
+                  class="adm-form-item-child adm-form-item-child-position-normal"
+                >
+                  <div
+                    class="adm-form-item-child-inner"
+                  >
+                    <div
+                      class="adm-input"
+                    >
+                      <input
+                        class="adm-input-element"
+                        id="test"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="adm-list-item-description"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Form Form.Item noStyle 1`] = `
+<div>
+  <form
+    class="adm-form"
+  >
+    <div
+      class="adm-list adm-list-default"
+    >
+      <div
+        class="adm-list-body"
+      >
+        <div
+          class="adm-list-body-inner"
+        >
+          <div
+            class="adm-input"
+          >
+            <input
+              class="adm-input-element"
+              id="test"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

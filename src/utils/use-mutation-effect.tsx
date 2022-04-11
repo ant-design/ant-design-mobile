@@ -1,12 +1,12 @@
 import { RefObject, useEffect } from 'react'
-import { usePersistFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
 
 export function useMutationEffect(
   effect: () => void,
   targetRef: RefObject<HTMLElement>,
   options: MutationObserverInit
 ) {
-  const fn = usePersistFn(effect)
+  const fn = useMemoizedFn(effect)
   useEffect(() => {
     const observer = new MutationObserver(() => {
       fn()

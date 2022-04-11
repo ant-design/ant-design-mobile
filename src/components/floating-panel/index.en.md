@@ -4,9 +4,11 @@
 
 ### Props
 
-| Name    | Description                                     | Type       | Description |
-| ------- | ----------------------------------------------- | ---------- | ----------- |
-| anchors | What height can be dragged to, the unit is `px` | `number[]` | -           |
+| Name                    | Description                                                                                                      | Type                                           | Description |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ----------- |
+| anchors                 | What height can be dragged to, the unit is `px`                                                                  | `number[]`                                     | -           |
+| onHeightChange          | Triggered when the height changes, the `animating` parameter indicates whether it is in the process of animation | `(height: number, animating: boolean) => void` |             |
+| handleDraggingOfContent | Whether to handle the drag event of the panel content area. If disabled, only the head area can be dragged       | `boolean`                                      | `true`      |
 
 ### Ref
 
@@ -28,3 +30,11 @@ type FloatingPanelRef = {
 
 ref.current.setHeight(100)
 ```
+
+### CSS Variables
+
+| Name            | Description                           | Default | Global                         |
+| --------------- | ------------------------------------- | ------- | ------------------------------ |
+| --border-radius | the border radius of the Panel header | `8px`   |                                |
+| --header-height | the height of the Panel header        | `28px`  |                                |
+| --z-index       | z-index of the Panel                  | `900`   | `--adm-floating-panel-z-index` |

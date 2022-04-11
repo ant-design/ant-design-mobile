@@ -1,7 +1,6 @@
 import React from 'react'
 import { Badge, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { CloseOutline, DownlandOutline } from 'antd-mobile-icons'
 
 import styles from './demo1.less'
 
@@ -16,10 +15,7 @@ export default () => {
           <Badge content='新'>
             <div className={styles.box} />
           </Badge>
-          <Badge content='更新啦'>
-            <div className={styles.box} />
-          </Badge>
-          <Badge>
+          <Badge content={Badge.dot}>
             <div className={styles.box} />
           </Badge>
         </Space>
@@ -50,15 +46,10 @@ export default () => {
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='自定义徽标内容'>
-        <Space style={{ '--gap': '24px' }}>
-          <Badge content={<DownlandOutline className={styles.badgeIcon} />}>
-            <div className={styles.box} />
-          </Badge>
-          <Badge content={<CloseOutline className={styles.badgeIcon} />}>
-            <div className={styles.box} />
-          </Badge>
-        </Space>
+      <DemoBlock title='带边框'>
+        <Badge content='更新啦' bordered>
+          <div className={`${styles.box} ${styles.dark}`} />
+        </Badge>
       </DemoBlock>
 
       <DemoBlock title='独立展示'>

@@ -1,4 +1,4 @@
-# 服务端渲染 / SSR（试验性）
+# 服务端渲染 / SSR <Experimental></Experimental>
 
 对 SSR（服务端渲染）的支持目前还处在比较初始的阶段，如果你在使用过程中发现了 bug，欢迎向我们提交 issue。
 

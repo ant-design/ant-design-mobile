@@ -1,21 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { Collapse, Loading, Result } from 'antd-mobile'
-import { DemoBlock, sleep } from 'demos'
-import { PlayOutline, MinusCircleOutline } from 'antd-mobile-icons'
-
-const DynamicContent = () => {
-  const [finished, setFinished] = useState(false)
-
-  useEffect(() => {
-    const loadData = async () => {
-      await sleep(1000)
-      setFinished(true)
-    }
-    loadData()
-  }, [])
-
-  return finished ? <Result status='success' title='处理成功' /> : <Loading />
-}
+import React from 'react'
+import { Collapse } from 'antd-mobile'
+import { DemoBlock, lorem } from 'demos'
 
 export default () => {
   return (
@@ -23,49 +8,13 @@ export default () => {
       <DemoBlock title='基础用法' padding='0' border='none'>
         <Collapse defaultActiveKey={['1']}>
           <Collapse.Panel key='1' title='第一项'>
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
+            {mockContents[0]}
           </Collapse.Panel>
           <Collapse.Panel key='2' title='第二项'>
-            这里是第二项的内容
+            {mockContents[1]}
           </Collapse.Panel>
           <Collapse.Panel key='3' title='第三项'>
-            这里是第三项的内容
-          </Collapse.Panel>
-        </Collapse>
-      </DemoBlock>
-
-      <DemoBlock title='自定义arrow' padding='0' border='none'>
-        <Collapse defaultActiveKey={['1']} arrow={<PlayOutline />}>
-          <Collapse.Panel key='1' title='第一项'>
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-            这里是第一项的内容
-            <br />
-          </Collapse.Panel>
-          <Collapse.Panel key='2' title='第二项' arrow={<MinusCircleOutline />}>
-            这里是第二项的内容
-          </Collapse.Panel>
-          <Collapse.Panel key='3' title='第三项'>
-            这里是第三项的内容
+            {mockContents[2]}
           </Collapse.Panel>
         </Collapse>
       </DemoBlock>
@@ -83,31 +32,10 @@ export default () => {
           </Collapse.Panel>
         </Collapse>
       </DemoBlock>
-
-      <DemoBlock title='禁用' padding='0' border='none'>
-        <Collapse>
-          <Collapse.Panel key='1' title='第一项'>
-            这里是第一项的内容
-          </Collapse.Panel>
-          <Collapse.Panel key='2' title='第二项' disabled>
-            这里是第二项的内容
-          </Collapse.Panel>
-          <Collapse.Panel key='3' title='第三项' disabled>
-            这里是第三项的内容
-          </Collapse.Panel>
-        </Collapse>
-      </DemoBlock>
-
-      <DemoBlock title='动态内容' padding='0' border='none'>
-        <Collapse accordion>
-          <Collapse.Panel key='1' title='第一项'>
-            <DynamicContent />
-          </Collapse.Panel>
-          <Collapse.Panel key='2' title='第二项'>
-            <DynamicContent />
-          </Collapse.Panel>
-        </Collapse>
-      </DemoBlock>
     </>
   )
 }
+
+const mockContents = Array(5)
+  .fill(null)
+  .map(() => lorem.generateParagraphs(1))

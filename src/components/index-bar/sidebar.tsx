@@ -1,11 +1,14 @@
-import React, { FC, useState } from 'react'
+import React, { FC, ReactNode, useState } from 'react'
 import classNames from 'classnames'
 
 const classPrefix = `adm-index-bar`
 
 type SidebarProps = {
-  indexes: string[]
-  activeIndex: string
+  indexItems: {
+    index: string
+    brief: ReactNode
+  }[]
+  activeIndex: string | null
   onActive: (index: string) => void
 }
 
@@ -43,7 +46,7 @@ export const Sidebar: FC<SidebarProps> = props => {
         }
       }}
     >
-      {props.indexes.map((index: string) => {
+      {props.indexItems.map(({ index, brief }) => {
         const active = index === props.activeIndex
         return (
           <div
@@ -63,7 +66,7 @@ export const Sidebar: FC<SidebarProps> = props => {
             key={index}
           >
             {interacting && active && (
-              <div className={`${classPrefix}-sidebar-bubble`}>{index}</div>
+              <div className={`${classPrefix}-sidebar-bubble`}>{brief}</div>
             )}
             <div
               className={classNames(`${classPrefix}-sidebar-item`, {
@@ -71,7 +74,7 @@ export const Sidebar: FC<SidebarProps> = props => {
               })}
               data-index={index}
             >
-              <div>{index}</div>
+              <div>{brief}</div>
             </div>
           </div>
         )

@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionSheet basic usage 1`] = `
+<body
+  class="adm-overflow-hidden"
+>
+  <div>
+    <button
+      class="adm-button adm-button-default adm-button-shape-default"
+      type="button"
+    >
+      button
+    </button>
+  </div>
+  <div
+    class="adm-popup adm-action-sheet-popup"
+    style="display: unset;"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 0.02608179366075892; display: unset;"
+    >
+      <div
+        aria-label="遮罩层"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 92.19667326069148%);"
+    >
+      <div
+        class="adm-action-sheet"
+      >
+        <div
+          class="adm-action-sheet-extra"
+        >
+          请选择你要进行的操作
+        </div>
+        <div
+          class="adm-action-sheet-button-list"
+        >
+          <div
+            class="adm-action-sheet-button-item-wrapper"
+          >
+            <button
+              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
+              type="button"
+            >
+              <div
+                class="adm-action-sheet-button-item-name"
+              >
+                复制
+              </div>
+            </button>
+          </div>
+          <div
+            class="adm-action-sheet-button-item-wrapper"
+          >
+            <button
+              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
+              type="button"
+            >
+              <div
+                class="adm-action-sheet-button-item-name"
+              >
+                修改
+              </div>
+            </button>
+          </div>
+          <div
+            class="adm-action-sheet-button-item-wrapper"
+          >
+            <button
+              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
+              type="button"
+            >
+              <div
+                class="adm-action-sheet-button-item-name"
+              >
+                删除
+              </div>
+            </button>
+          </div>
+        </div>
+        <div
+          class="adm-action-sheet-cancel"
+        >
+          <div
+            class="adm-action-sheet-button-item-wrapper"
+          >
+            <button
+              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
+              type="button"
+            >
+              <div
+                class="adm-action-sheet-button-item-name"
+              >
+                取消
+              </div>
+            </button>
+          </div>
+        </div>
+        <div
+          class="adm-safe-area adm-safe-area-position-bottom"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;

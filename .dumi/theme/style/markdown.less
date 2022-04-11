@@ -3,7 +3,7 @@
 .markdown {
   color: @c-text;
   font-size: 15px;
-  line-height: 1.60625;
+  line-height: 1.8;
 
   [data-prefers-color='dark'] & {
     color: @c-secondary-dark;
@@ -20,7 +20,8 @@
   h4,
   h5,
   h6 {
-    margin: 42px 0 18px;
+    margin-top: calc(3em - 30px);
+    margin-bottom: 18px;
     color: @c-heading;
     font-weight: 500;
     line-height: 1.40625;
@@ -97,6 +98,11 @@
   // paragraph
   p {
     margin: 16px 0;
+  }
+
+  strong {
+    border-bottom: solid #ffe7b2 4px;
+    font-weight: 600;
   }
 
   // inline code
@@ -191,12 +197,6 @@
 
     td:first-child {
       font-weight: 500;
-    }
-
-    a {
-      svg {
-        display: none;
-      }
     }
   }
 

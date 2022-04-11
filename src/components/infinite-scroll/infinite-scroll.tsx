@@ -1,9 +1,9 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { FC, useEffect, useRef } from 'react'
-import { useLockFn, usePersistFn } from 'ahooks'
+import React, { FC, useEffect, useRef, useState } from 'react'
+import { useLockFn, useMemoizedFn } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
-import Loading from '../loading'
+import DotLoading from '../dot-loading'
 
 function isWindow(element: any | Window): element is Window {
   return element === window
@@ -23,7 +23,7 @@ const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
       {hasMore ? (
         <>
           <span>加载中</span>
-          <Loading />
+          <DotLoading />
         </>
       ) : (
         <span>没有更多了</span>
@@ -37,26 +37,28 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   const doLoadMore = useLockFn(() => props.loadMore())
 
   const elementRef = useRef<HTMLDivElement>(null)
+  const [flag, setFlag] = useState({})
+  const nextFlagRef = useRef(flag)
 
-  const checkTimeoutRef = useRef<number>()
-  const check = usePersistFn(() => {
-    window.clearTimeout(checkTimeoutRef.current)
-    checkTimeoutRef.current = window.setTimeout(() => {
-      if (!props.hasMore) return
-      const element = elementRef.current
-      if (!element) return
-      if (!element.offsetParent) return
-      const parent = getScrollParent(element)
-      if (!parent) return
-      const rect = element.getBoundingClientRect()
-      const elementTop = rect.top
-      const current = isWindow(parent)
-        ? window.innerHeight
-        : parent.getBoundingClientRect().bottom
-      if (current >= elementTop - props.threshold) {
-        doLoadMore()
-      }
-    })
+  const check = useMemoizedFn(async () => {
+    if (nextFlagRef.current !== flag) return
+    if (!props.hasMore) return
+    const element = elementRef.current
+    if (!element) return
+    if (!element.offsetParent) return
+    const parent = getScrollParent(element)
+    if (!parent) return
+    const rect = element.getBoundingClientRect()
+    const elementTop = rect.top
+    const current = isWindow(parent)
+      ? window.innerHeight
+      : parent.getBoundingClientRect().bottom
+    if (current >= elementTop - props.threshold) {
+      const nextFlag = {}
+      nextFlagRef.current = nextFlag
+      await doLoadMore()
+      setFlag(nextFlag)
+    }
   })
 
   // 确保在内容不足时会自动触发加载事件

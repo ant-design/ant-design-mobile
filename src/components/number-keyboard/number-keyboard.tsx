@@ -7,7 +7,7 @@ import Popup, { PopupProps } from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import SafeArea from '../safe-area'
-import { usePersistFn } from 'ahooks'
+import { useMemoizedFn } from 'ahooks'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -70,7 +70,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
   const timeoutRef = useRef(-1)
   const intervalRef = useRef(-1)
 
-  const onDelete = usePersistFn(() => {
+  const onDelete = useMemoizedFn(() => {
     props.onDelete?.()
   })
 

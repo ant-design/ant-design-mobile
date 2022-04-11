@@ -2,7 +2,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## API
+### Props
 
 | Name      | Description                      | Type                         | Default        |
 | --------- | -------------------------------- | ---------------------------- | -------------- |
@@ -11,7 +11,7 @@
 | color     | Color                            | `'primary' \| 'white'`       | `'primary'`    |
 | direction | Layout direction                 | `'horizontal' \| 'vertical'` | `'horizontal'` |
 
-## CSS Variables
+### CSS Variables
 
 | Name                       | Description                               | Default                    |
 | -------------------------- | ----------------------------------------- | -------------------------- |

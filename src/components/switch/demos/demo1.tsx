@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Space, Switch } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { CloseOutline, CheckOutline } from 'antd-mobile-icons'
-import { useToggle } from 'ahooks'
 
 export default () => {
-  const [checked, { toggle: toggleChecked }] = useToggle(false)
+  const [checked, setChecked] = useState(false)
 
   return (
     <>
@@ -17,7 +16,7 @@ export default () => {
         <Switch
           checked={checked}
           onChange={checked => {
-            toggleChecked(checked)
+            setChecked(checked)
           }}
         />
       </DemoBlock>
@@ -30,8 +29,8 @@ export default () => {
         <Space wrap>
           <Switch uncheckedText='关' checkedText='开' />
           <Switch
-            checkedText={<CheckOutline />}
-            uncheckedText={<CloseOutline />}
+            checkedText={<CheckOutline fontSize={18} />}
+            uncheckedText={<CloseOutline fontSize={18} />}
           />
           <Switch uncheckedText='0' checkedText='1' />
         </Space>

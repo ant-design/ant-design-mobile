@@ -1,4 +1,4 @@
-# NumberKeyboard
+# NumberKeyboard <Experimental></Experimental>
 
 H5 numeric keyboard, can be used with password input box component or custom input box component
 
@@ -25,9 +25,3 @@ H5 numeric keyboard, can be used with password input box component or custom inp
 | safeArea        | Whether to enable safe area padding                                                                                         | `boolean`                                  | `true`                |
 
 In addition, the following attributes of [Popup](./popup) are supported: `stopPropagation`
-
-### CSS Variables
-
-| Name                   | Description                     | Default |
-| ---------------------- | ------------------------------- | ------- |
-| --adm-z-index-keyboard | The z-index of keyboard element | 1050    |

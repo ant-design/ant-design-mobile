@@ -41,3 +41,9 @@ function loadMore() { // 正确
 ### 配合搜索使用
 
 <code src="./demos/demo3.tsx"></code>
+
+## 常见问题
+
+### 是否支持下拉刷新？
+
+下拉刷新是另一个组件：[PullToRefresh](./pull-to-refresh)。
