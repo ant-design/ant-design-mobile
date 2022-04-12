@@ -137,6 +137,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
     setTasks(prev => [...prev, ...newTasks])
 
+    e.target.value = '' // HACK: fix the same file doesn't trigger onChange
     await Promise.all(
       newTasks.map(async currentTask => {
         try {
@@ -172,8 +173,6 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         }
       })
     ).catch(error => console.error(error))
-
-    e.target.value = '' // HACK: fix the same file doesn't trigger onChange
   }
 
   const imageViewerHandlerRef = useRef<ImageViewerShowHandler | null>(null)
