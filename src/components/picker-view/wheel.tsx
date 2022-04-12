@@ -1,4 +1,4 @@
-import React, { memo, ReactNode, useState, useRef } from 'react'
+import React, { memo, ReactNode, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag, useWheel, Handler, EventTypes } from '@use-gesture/react'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
