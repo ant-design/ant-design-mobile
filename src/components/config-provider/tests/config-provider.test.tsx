@@ -14,8 +14,10 @@ import zhTW from '../../../locales/zh-TW'
 import zhHK from '../../../locales/zh-HK'
 import enUS from '../../../locales/en-US'
 import faIR from '../../../locales/fa-IR'
+import esES from '../../../locales/es-ES'
+import koKR from '../../../locales/ko-KR'
 
-const locales = [zhCN, zhTW, zhHK, enUS, faIR]
+const locales = [zhCN, zhTW, zhHK, enUS, faIR, esES, koKR]
 
 describe('ConfigProvider', () => {
   beforeAll(() => {
