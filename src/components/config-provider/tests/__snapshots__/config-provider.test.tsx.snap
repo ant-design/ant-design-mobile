@@ -3323,7 +3323,7 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
       <div
         class="adm-calendar-title"
       >
-        2022/3
+        2022年3月
       </div>
       <a
         class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
@@ -3413,37 +3413,37 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
       <div
         class="adm-calendar-mark-cell"
       >
-        Sun
+        日
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Mon
+        一
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Tue
+        二
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Wed
+        三
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Thu
+        四
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Fri
+        五
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Sat
+        六
       </div>
     </div>
     <div
@@ -4216,7 +4216,7 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
                       class="adm-form-item-required-text"
                     >
                       (
-                      Required
+                      必填
                       )
                     </span>
                   </label>
@@ -4400,7 +4400,7 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
       <div
         class="adm-calendar-title"
       >
-        2022/3
+        2022年3月
       </div>
       <a
         class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
@@ -4490,37 +4490,37 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
       <div
         class="adm-calendar-mark-cell"
       >
-        Sun
+        日
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Mon
+        一
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Tue
+        二
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Wed
+        三
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Thu
+        四
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Fri
+        五
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Sat
+        六
       </div>
     </div>
     <div
@@ -5293,7 +5293,7 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
                       class="adm-form-item-required-text"
                     >
                       (
-                      Required
+                      必填
                       )
                     </span>
                   </label>
