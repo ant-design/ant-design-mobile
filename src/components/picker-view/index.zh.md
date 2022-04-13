@@ -10,13 +10,14 @@ PickerView 是 [Picker](./picker/#picker) 的内容区域。
 
 ### 属性
 
-| 属性         | 说明                     | 类型                                                           | 默认值                 |
-| ------------ | ------------------------ | -------------------------------------------------------------- | ---------------------- |
-| columns      | 配置每一列的选项         | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -                      |
-| value        | 选中项                   | `PickerValue[]`                                                | -                      |
-| defaultValue | 默认选中项               | `PickerValue[]`                                                | `[]`                   |
-| onChange     | 选项改变时触发           | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
-| renderLabel  | 自定义渲染每列展示的内容 | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
+| 属性         | 说明                         | 类型                                                           | 默认值                 |
+| ------------ | ---------------------------- | -------------------------------------------------------------- | ---------------------- |
+| columns      | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -                      |
+| value        | 选中项                       | `PickerValue[]`                                                | -                      |
+| defaultValue | 默认选中项                   | `PickerValue[]`                                                | `[]`                   |
+| onChange     | 选项改变时触发               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
+| renderLabel  | 自定义渲染每列展示的内容     | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
+| mouseWheel   | 是否允许通过鼠标滚轮进行选择 | `boolean`                                                      | `false`                |
 
 关于 `PickerColumnItem` `PickerColumn` `PickerValue` `PickerValueExtend` 的类型定义，请参考 [Picker](./picker) 的文档。
 
@@ -70,6 +71,7 @@ DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 | precision    | 精度                                                                                             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
 | renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode`                                            | -       |
 | filter       | 过滤可供选择的时间                                                                               | `DatePickerFilter`                                                                     | -       |
+| mouseWheel   | 是否允许通过鼠标滚轮进行选择                                                                     | `boolean`                                                                              | `false` |
 
 关于 `DatePickerFilter` 的类型定义和使用，请参考 [DatePicker](./picker#datepicker) 的文档。
 

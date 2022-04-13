@@ -15,7 +15,10 @@ import type {
   DatePickerFilter,
 } from '../date-picker/date-picker-utils'
 
-export type DatePickerViewProps = Pick<PickerViewProps, 'style'> & {
+export type DatePickerViewProps = Pick<
+  PickerViewProps,
+  'style' | 'mouseWheel'
+> & {
   value?: Date
   defaultValue?: Date
   onChange?: (value: Date) => void
@@ -73,6 +76,7 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
         )
       }
       value={pickerValue}
+      mouseWheel={props.mouseWheel}
       onChange={onChange}
     />
   )

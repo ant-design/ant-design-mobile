@@ -42,6 +42,7 @@ type PickerValueExtend = {
 | cancelText       | 取消按钮的文字               | `ReactNode`                                                    | `'取消'`               |
 | children         | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
 | renderLabel      | 自定义渲染每列展示的内容     | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
+| mouseWheel       | 是否允许通过鼠标滚轮进行选择 | `boolean`                                                      | `false`                |
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
@@ -122,6 +123,7 @@ type CascadePickerOption = {
 | children     | 所选项的渲染函数                                                                                 | `(value: Date) => ReactNode`                                                           | -       |
 | renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode`                                            | -       |
 | filter       | 过滤可供选择的时间                                                                               | `DatePickerFilter`                                                                     | -       |
+| mouseWheel   | 是否允许通过鼠标滚轮进行选择                                                                     | `boolean`                                                                              | `false` |
 
 ```typescript | pure
 type DatePickerFilter = Partial<

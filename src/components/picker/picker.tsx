@@ -36,6 +36,7 @@ export type PickerProps = {
   cancelText?: ReactNode
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
   renderLabel?: (item: PickerColumnItem) => ReactNode
+  mouseWheel?: boolean
 } & Pick<
   PopupProps,
   'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
@@ -122,6 +123,7 @@ export const Picker = memo<PickerProps>(p => {
           columns={props.columns}
           renderLabel={props.renderLabel}
           value={innerValue}
+          mouseWheel={props.mouseWheel}
           onChange={onChange}
         />
       </div>
