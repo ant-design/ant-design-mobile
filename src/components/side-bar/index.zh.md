@@ -6,6 +6,8 @@
 
 <code src="./demos/demo3.tsx"></code>
 
+<code src="./demos/demo4.tsx"></code>
+
 ### 属性
 
 ### SideBar
