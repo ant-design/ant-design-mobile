@@ -8,7 +8,7 @@ const zhCN = mergeLocale(base, {
   common: {
     confirm: '确定',
     cancel: '取消',
-    loading: '加载中……',
+    loading: '加载中',
   },
   Calendar: {
     markItems: ['一', '二', '三', '四', '五', '六', '日'],
@@ -91,6 +91,9 @@ const zhCN = mergeLocale(base, {
   },
   ImageUploader: {
     uploading: '上传中...',
+  },
+  InfiniteScroll: {
+    noMore: '没有更多了',
   },
   Mask: {
     name: '遮罩层',

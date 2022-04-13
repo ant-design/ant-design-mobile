@@ -8,7 +8,7 @@ const koKR = mergeLocale(base, {
   common: {
     confirm: '확인',
     cancel: '취소',
-    loading: '로딩중...',
+    loading: '로딩중',
   },
   Calendar: {
     markItems: ['월', '화', '수', '목', '금', '토', '일'],

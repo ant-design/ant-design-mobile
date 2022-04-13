@@ -29,7 +29,7 @@ export type PullToRefreshProps = {
 export const defaultProps = {
   pullingText: '下拉刷新',
   canReleaseText: '释放立即刷新',
-  refreshingText: '加载中……',
+  refreshingText: '加载中...',
   completeText: '刷新成功',
   completeDelay: 500,
   disabled: false,
@@ -41,7 +41,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
   const props = mergeProps(
     defaultProps,
     {
-      refreshingText: locale.common.loading,
+      refreshingText: `${locale.common.loading}...`,
       pullingText: locale.PullToRefresh.pulling,
       canReleaseText: locale.PullToRefresh.canRelease,
       completeText: locale.PullToRefresh.complete,
