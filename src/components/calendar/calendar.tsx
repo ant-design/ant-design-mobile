@@ -110,6 +110,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
         dayjs()
           .year(page.year)
           .month(page.month - 1)
+          .date(1)
       )
     },
     jumpToToday: () => {
