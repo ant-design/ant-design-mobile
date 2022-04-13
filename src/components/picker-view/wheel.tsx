@@ -3,11 +3,12 @@ import { useSpring, animated } from '@react-spring/web'
 import { useDrag, useWheel, Handler, EventTypes } from '@use-gesture/react'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
-import { useLockScroll } from '../../utils/use-lock-scroll'
 import { PickerColumnItem, PickerValue } from './index'
 import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { measureCSSLength } from '../../utils/measure-css-length'
+import { supportsPassive } from '../../utils/supports-passive'
+import { FullGestureState } from '@use-gesture/core/src/types/state'
 
 const classPrefix = `adm-picker-view`
 
@@ -78,14 +79,12 @@ export const Wheel = memo<Props>(
       onSelect(item.value)
     }
 
-    function handleWheel(
-      state: Parameters<
-        | Handler<'drag', EventTypes['drag']>
-        | Handler<'wheel', EventTypes['wheel']>
-      >[0]
-    ) {
-      state.event.stopPropagation()
-
+    const handleDrag = (
+      state: Pick<
+        FullGestureState<'drag'>,
+        'last' | 'offset' | 'velocity' | 'direction'
+      >
+    ) => {
       draggingRef.current = true
       const min = -((column.length - 1) * itemHeight.current)
       const max = 0
@@ -112,34 +111,33 @@ export const Wheel = memo<Props>(
       }
     }
 
-    const drag = useDrag(handleWheel, {
-      axis: 'y',
-      from: () => [0, y.get()],
-      filterTaps: true,
-      pointer: { touch: true },
-    })
+    useDrag(
+      state => {
+        state.event.stopPropagation()
+        handleDrag(state)
+      },
+      {
+        axis: 'y',
+        from: () => [0, y.get()],
+        filterTaps: true,
+        pointer: { touch: true },
+        target: rootRef,
+      }
+    )
 
-    const wheel = useWheel(handleWheel, {
-      axis: 'y',
-      from: () => [0, y.get()],
-      preventDefault: true,
-    })
-
-    const { lock, unlock } = useLockScroll(rootRef, false)
-    const wheelProps =
-      props.mouseWheel === true
-        ? {
-            ...wheel(),
-            onMouseOver(evt: React.MouseEvent<HTMLDivElement>) {
-              evt.preventDefault()
-              lock()
-            },
-            onMouseOut(evt: React.MouseEvent<HTMLDivElement>) {
-              evt.preventDefault()
-              unlock()
-            },
-          }
-        : {}
+    useWheel(
+      state => {
+        state.event.stopPropagation()
+        handleDrag(state)
+      },
+      {
+        axis: 'y',
+        from: () => [0, y.get()],
+        preventDefault: true,
+        target: props.mouseWheel ? rootRef : undefined,
+        eventOptions: supportsPassive ? { passive: false } : false,
+      }
+    )
 
     let selectedIndex: number | null = null
 
@@ -196,12 +194,7 @@ export const Wheel = memo<Props>(
     }
 
     return (
-      <div
-        ref={rootRef}
-        className={`${classPrefix}-column`}
-        {...drag()}
-        {...wheelProps}
-      >
+      <div ref={rootRef} className={`${classPrefix}-column`}>
         <animated.div
           style={{ translateY: y }}
           className={`${classPrefix}-column-wheel`}
