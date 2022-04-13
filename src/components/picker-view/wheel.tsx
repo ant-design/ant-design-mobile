@@ -1,6 +1,6 @@
 import React, { memo, ReactNode, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag, useWheel, Handler, EventTypes } from '@use-gesture/react'
+import { useDrag, useWheel } from '@use-gesture/react'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
