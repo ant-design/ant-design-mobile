@@ -42,7 +42,7 @@ type PickerValueExtend = {
 | cancelText       | Text of the cancel button                                    | `ReactNode`                                                    | `'取消'`               |
 | children         | Render function of the selected options                      | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
 | renderLabel      | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
-| mouseWheel       | Support mouse wheel events                                   | `boolean`                                                      | `false`                |
+| mouseWheel       | Whether to allow interact with mouse wheel                   | `boolean`                                                      | `false`                |
 
 In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
@@ -97,7 +97,7 @@ Same as `Picker`.
 | children     | The rendering function of the selected items                                                                                         | `(value: Date) => ReactNode`                                                           | -               |
 | renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                            | -               |
 | filter       | Filter available time                                                                                                                | `DatePickerFilter`                                                                     | -               |
-| mouseWheel   | Support mouse wheel events                                                                                                           | `boolean`                                                                              | `false`         |
+| mouseWheel   | Whether to allow interact with mouse wheel                                                                                           | `boolean`                                                                              | `false`         |
 
 ```typescript | pure
 type DatePickerFilter = Partial<

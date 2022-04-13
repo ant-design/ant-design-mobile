@@ -18,7 +18,7 @@ type Props = {
   value: PickerValue
   onSelect: (value: PickerValue, index: number) => void
   renderLabel: (item: PickerColumnItem) => ReactNode
-  mouseWheel?: boolean
+  mouseWheel: boolean
 }
 
 export const Wheel = memo<Props>(

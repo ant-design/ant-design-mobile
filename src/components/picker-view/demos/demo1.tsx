@@ -30,7 +30,7 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='鼠标滚轮模式' padding='0'>
+      <DemoBlock title='通过鼠标滚轮进行选择' padding='0'>
         <PickerView columns={basicColumns} mouseWheel={true} />
       </DemoBlock>
     </>

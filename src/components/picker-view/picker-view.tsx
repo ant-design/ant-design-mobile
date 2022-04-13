@@ -36,6 +36,7 @@ export type PickerViewProps = {
 const defaultProps = {
   defaultValue: [],
   renderLabel: defaultRenderLabel,
+  mouseWheel: false,
 }
 
 export const PickerView = memo<PickerViewProps>(p => {
