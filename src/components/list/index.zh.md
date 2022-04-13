@@ -8,6 +8,8 @@
 
 <code src="./demos/demo4.tsx"></code>
 
+<code src="./demos/demo5.tsx"></code>
+
 ## List
 
 ### 属性
@@ -58,3 +60,7 @@
 ### 列表能否支持虚拟滚动？
 
 List 本身不会支持虚拟滚动，可以结合 [react-virtualized](https://github.com/bvaughn/react-virtualized) 实现。
+
+### 列表能否支持拖拽排序？
+
+List 本身不会支持拖拽排序，可以结合 [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) 实现。
