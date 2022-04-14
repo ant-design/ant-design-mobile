@@ -224,6 +224,10 @@ You can use `Form.Header` to group form items.
 | to       | Same as the `dependencies` prop of Form.Item. | `NamePath[]`                                                            | -       |
 | children | Render function.                              | `(changedValues: Record<string, any>, form: FormInstance) => ReactNode` | -       |
 
+### useWatch
+
+<code src="./demos/demo-use-watch.tsx"></code>
+
 ### Demo
 
 <code src="./demos/demo-subscribe.tsx"></code>
