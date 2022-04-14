@@ -19,7 +19,7 @@ export type InfiniteScrollProps = {
 } & NativeProps
 
 const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
-  const { locale } = getDefaultConfig()
+  const { locale } = useConfig()
 
   return (
     <>
