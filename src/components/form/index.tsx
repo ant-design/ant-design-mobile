@@ -3,7 +3,7 @@ import { Form } from './form'
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import { FormItem } from './form-item'
 import { Header } from './header'
-import RcForm, { useForm } from 'rc-field-form'
+import { useWatch, useForm } from 'rc-field-form'
 import { FormSubscribe } from './form-subscribe'
 import { FormArray } from './form-array'
 
@@ -28,5 +28,5 @@ export default attachPropertiesToComponent(Form, {
   Header,
   Array: FormArray,
   useForm,
-  useWatch: RcForm.useWatch,
+  useWatch,
 })
