@@ -29,6 +29,7 @@ export type DatePickerProps = Pick<
   | 'title'
   | 'stopPropagation'
   | 'style'
+  | 'mouseWheel'
 > & {
   value?: Date | null
   defaultValue?: Date | null
@@ -117,6 +118,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
       onClick={props.onClick}
       title={props.title}
       stopPropagation={props.stopPropagation}
+      mouseWheel={props.mouseWheel}
     >
       {() => props.children?.(value)}
     </Picker>

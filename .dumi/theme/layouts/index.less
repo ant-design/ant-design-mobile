@@ -1,0 +1,28 @@
+@import '../style/variables.less';
+
+.layout {
+}
+
+.content {
+  display: flex;
+  width: 100vw;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  .side {
+    flex: none;
+  }
+  .main {
+    min-width: 0;
+    flex: auto;
+    padding: 12px 48px 24px;
+  }
+}
+
+.mainInner {
+  max-width: 1300px;
+  margin: auto;
+  article {
+    padding-bottom: 12px;
+  }
+}

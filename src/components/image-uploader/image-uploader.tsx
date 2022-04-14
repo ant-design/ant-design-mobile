@@ -7,6 +7,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { useIsomorphicLayoutEffect, useMemoizedFn, useUnmount } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import type { ImageProps } from '../image'
 
 export type TaskStatus = 'pending' | 'fail'
 
@@ -45,6 +46,7 @@ export type ImageUploaderProps = {
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
   preview?: boolean
   showFailed?: boolean
+  imageFit?: ImageProps['fit']
 } & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
@@ -59,6 +61,7 @@ const defaultProps = {
   accept: 'image/*',
   preview: true,
   showFailed: true,
+  imageFit: 'cover',
 }
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
@@ -134,6 +137,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
     setTasks(prev => [...prev, ...newTasks])
 
+    e.target.value = '' // HACK: fix the same file doesn't trigger onChange
     await Promise.all(
       newTasks.map(async currentTask => {
         try {
@@ -169,8 +173,6 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         }
       })
     ).catch(error => console.error(error))
-
-    e.target.value = '' // HACK: fix the same file doesn't trigger onChange
   }
 
   const imageViewerHandlerRef = useRef<ImageViewerShowHandler | null>(null)
@@ -196,12 +198,13 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      <Space className={`${classPrefix}-space`} wrap>
+      <Space className={`${classPrefix}-space`} wrap block>
         {value.map((fileItem, index) => (
           <PreviewItem
             key={fileItem.key ?? index}
             url={fileItem.thumbnailUrl ?? fileItem.url}
             deletable={props.deletable}
+            imageFit={props.imageFit}
             onClick={() => {
               if (props.preview) {
                 previewImage(index)
@@ -225,6 +228,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               file={task.file}
               deletable={task.status !== 'pending'}
               status={task.status}
+              imageFit={props.imageFit}
               onDelete={() => {
                 setTasks(tasks.filter(x => x.id !== task.id))
               }}

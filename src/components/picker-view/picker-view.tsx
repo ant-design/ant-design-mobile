@@ -4,6 +4,8 @@ import { Wheel } from './wheel'
 import { useColumnsExtend } from './columns-extend'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDebounceEffect } from 'ahooks'
+import { PickerProps } from '../picker'
+import { defaultRenderLabel } from '../picker/picker-utils'
 
 const classPrefix = `adm-picker-view`
 
@@ -17,6 +19,7 @@ export type PickerValueExtend = {
 export type PickerColumnItem = {
   label: ReactNode
   value: string
+  key?: string | number
 }
 
 export type PickerColumn = (string | PickerColumnItem)[]
@@ -25,11 +28,15 @@ export type PickerViewProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
+  mouseWheel?: boolean
   onChange?: (value: PickerValue[], extend: PickerValueExtend) => void
-} & NativeProps<'--height' | '--item-height' | '--item-font-size'>
+} & Pick<PickerProps, 'renderLabel'> &
+  NativeProps<'--height' | '--item-height' | '--item-font-size'>
 
 const defaultProps = {
   defaultValue: [],
+  renderLabel: defaultRenderLabel,
+  mouseWheel: false,
 }
 
 export const PickerView = memo<PickerViewProps>(p => {
@@ -92,6 +99,8 @@ export const PickerView = memo<PickerViewProps>(p => {
           column={column}
           value={innerValue[index]}
           onSelect={handleSelect}
+          renderLabel={props.renderLabel}
+          mouseWheel={props.mouseWheel}
         />
       ))}
       <div className={`${classPrefix}-mask`}>

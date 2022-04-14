@@ -29,3 +29,9 @@
 | --border-width     | Border width of the button.     | `1px`                     | `--adm-button-border-width`     |
 | --border-style     | Border style of the button.     | `solid`                   | `--adm-button-border-style`     |
 | --border-color     | Border color of the button.     | `var(--adm-border-color)` | `--adm-button-border-color`     |
+
+### Ref
+
+| Name          | Description           | Type                          |
+| ------------- | --------------------- | ----------------------------- |
+| nativeElement | Native button element | `HtmlButtonElement` \| `null` |

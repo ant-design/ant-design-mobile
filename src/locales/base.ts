@@ -1,9 +1,11 @@
 const typeTemplate = '${label} is not a valid ${type}'
 
 export const base = {
+  locale: 'en',
   common: {
     confirm: 'Confirm',
     cancel: 'Cancel',
+    loading: 'Loading',
   },
   Calendar: {
     markItems: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -87,11 +89,19 @@ export const base = {
   ImageUploader: {
     uploading: 'Uploading...',
   },
+  InfiniteScroll: {
+    noMore: 'No more',
+  },
   Mask: {
     name: 'Mask',
   },
   Modal: {
     ok: 'OK',
+  },
+  PullToRefresh: {
+    pulling: 'Scroll down to refresh',
+    canRelease: 'Release to refresh immediately',
+    complete: 'Refresh successful',
   },
 }
 

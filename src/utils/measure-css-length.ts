@@ -1,7 +1,16 @@
 import { isDev } from './is-dev'
 import { devError } from './dev-log'
 
-export function measureCSSLength(raw: string): number {
+export function measureCSSLength(raw: string | undefined | null): number {
+  if (raw === null || raw === undefined) {
+    if (isDev) {
+      devError(
+        'Global',
+        'Seems like the you will encounter a style messed problem. Please check the browser environment to make sure it supports CSS variables.'
+      )
+    }
+    return 0
+  }
   const withUnit = raw.trim()
   if (withUnit.endsWith('px')) {
     return parseFloat(withUnit)

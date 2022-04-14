@@ -37,6 +37,7 @@ export type DialogProps = {
   maskStyle?: React.CSSProperties
   maskClassName?: string
   stopPropagation?: PropagationEvent[]
+  disableBodyScroll?: boolean
 } & NativeProps
 
 const defaultProps = {
@@ -46,6 +47,7 @@ const defaultProps = {
   closeOnMaskClick: false,
   stopPropagation: ['click'],
   getContainer: null,
+  disableBodyScroll: true,
 }
 
 export const Dialog: FC<DialogProps> = p => {
@@ -56,9 +58,9 @@ export const Dialog: FC<DialogProps> = p => {
     scale: props.visible ? 1 : 0.8,
     opacity: props.visible ? 1 : 0,
     config: {
-      mass: 1,
+      mass: 1.2,
       tension: 200,
-      friction: 30,
+      friction: 25,
       clamp: true,
     },
     onStart: () => {
@@ -149,6 +151,7 @@ export const Dialog: FC<DialogProps> = p => {
         onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
         style={props.maskStyle}
         className={classNames(cls('mask'), props.maskClassName)}
+        disableBodyScroll={props.disableBodyScroll}
       />
       <div
         className={cls('wrap')}

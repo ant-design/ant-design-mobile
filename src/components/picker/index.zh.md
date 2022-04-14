@@ -14,6 +14,7 @@ Picker 系列一共包括了三个组件：[Picker](#picker)、[CascadePicker](#
 type PickerColumnItem = {
   label: ReactNode
   value: string
+  key?: string | number
 }
 
 type PickerColumn = (string | PickerColumnItem)[]
@@ -25,23 +26,49 @@ type PickerValueExtend = {
 }
 ```
 
-| 属性             | 说明                         | 类型                                                           | 默认值   |
-| ---------------- | ---------------------------- | -------------------------------------------------------------- | -------- |
-| columns          | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -        |
-| value            | 选中项                       | `PickerValue[]`                                                | -        |
-| defaultValue     | 默认选中项                   | `PickerValue[]`                                                | `[]`     |
-| onSelect         | 选项改变时触发               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
-| onConfirm        | 确认时触发                   | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -        |
-| onCancel         | 取消时触发                   | `() => void`                                                   | -        |
-| onClose          | 确认和取消时都会触发关闭事件 | `() => void`                                                   | -        |
-| closeOnMaskClick | 点击遮罩层后是否关闭         | `boolean`                                                      | `true`   |
-| visible          | 是否显示选择器               | `boolean`                                                      | `false`  |
-| title            | 标题                         | `ReactNode`                                                    | -        |
-| confirmText      | 确定按钮的文字               | `ReactNode`                                                    | `'确定'` |
-| cancelText       | 取消按钮的文字               | `ReactNode`                                                    | `'取消'` |
-| children         | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -        |
+| 属性             | 说明                         | 类型                                                           | 默认值                 |
+| ---------------- | ---------------------------- | -------------------------------------------------------------- | ---------------------- |
+| columns          | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -                      |
+| value            | 选中项                       | `PickerValue[]`                                                | -                      |
+| defaultValue     | 默认选中项                   | `PickerValue[]`                                                | `[]`                   |
+| onSelect         | 选项改变时触发               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
+| onConfirm        | 确认时触发                   | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
+| onCancel         | 取消时触发                   | `() => void`                                                   | -                      |
+| onClose          | 确认和取消时都会触发关闭事件 | `() => void`                                                   | -                      |
+| closeOnMaskClick | 点击遮罩层后是否关闭         | `boolean`                                                      | `true`                 |
+| visible          | 是否显示选择器               | `boolean`                                                      | `false`                |
+| title            | 标题                         | `ReactNode`                                                    | -                      |
+| confirmText      | 确定按钮的文字               | `ReactNode`                                                    | `'确定'`               |
+| cancelText       | 取消按钮的文字               | `ReactNode`                                                    | `'取消'`               |
+| children         | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
+| renderLabel      | 自定义渲染每列展示的内容     | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
+| mouseWheel       | 是否允许通过鼠标滚轮进行选择 | `boolean`                                                      | `false`                |
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
+
+**请留意，`columns` 属性的类型是二级数组**，第一级对应的是每一列，而第二级对应的是某一列中的每一个选项。因此，下面的这种写法是错误的：
+
+```jsx
+<Picker
+  columns={[
+    { label: 'Foo', value: 'foo' },
+    { label: 'Bar', value: 'bar' },
+  ]}
+/>
+```
+
+需要写成：
+
+```jsx
+<Picker
+  columns={[
+    [
+      { label: 'Foo', value: 'foo' },
+      { label: 'Bar', value: 'bar' },
+    ]
+  ]}
+/>
+```
 
 ### CSS 变量
 
@@ -96,6 +123,7 @@ type CascadePickerOption = {
 | children     | 所选项的渲染函数                                                                                 | `(value: Date) => ReactNode`                                                           | -       |
 | renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode`                                            | -       |
 | filter       | 过滤可供选择的时间                                                                               | `DatePickerFilter`                                                                     | -       |
+| mouseWheel   | 是否允许通过鼠标滚轮进行选择                                                                     | `boolean`                                                                              | `false` |
 
 ```typescript | pure
 type DatePickerFilter = Partial<

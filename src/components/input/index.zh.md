@@ -23,7 +23,7 @@
 | min          | 最小值，仅在 `type` 为 `number` 时生效       | `number`                                             | -       |
 | max          | 最大值，仅在 `type` 为 `number` 时生效       | `number`                                             | -       |
 
-此外还支持以下原生属性：`maxLength` `minLength` `autoComplete` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd`
+此外还支持以下原生属性：`maxLength` `minLength` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd`
 
 ### CSS 变量
 
@@ -36,11 +36,12 @@
 
 ### Ref
 
-| 属性  | 说明             | 类型         |
-| ----- | ---------------- | ------------ |
-| clear | 清空输入内容     | `() => void` |
-| focus | 让输入框获得焦点 | `() => void` |
-| blur  | 让输入框失去焦点 | `() => void` |
+| 属性          | 说明             | 类型                         |
+| ------------- | ---------------- | ---------------------------- |
+| clear         | 清空输入内容     | `() => void`                 |
+| focus         | 让输入框获得焦点 | `() => void`                 |
+| blur          | 让输入框失去焦点 | `() => void`                 |
+| nativeElement | 原始 input 元素  | `HtmlInputElement` \| `null` |
 
 ## FAQ
 

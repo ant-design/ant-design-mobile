@@ -14,7 +14,7 @@ body:
       description: |
         The exact version of antd-mobile you are using.
         你所使用的 antd-mobile 的准确版本。
-      placeholder: eg. 5.0.0-beta.21
+      placeholder: eg. 5.7.2
     validations:
       required: true
   - type: dropdown
@@ -46,8 +46,8 @@ body:
     attributes:
       label: Sandbox to reproduce
       description: |
-        If possible, please try to attach a sandbox link to reproduce. You can create one from [here](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx).
-        **尽可能提供一个复现 demo**。你可以在[这里](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx)创建一个 sandbox，然后把分享链接提供在这里。
+        If possible, please try to attach a sandbox link to reproduce. You can create one on [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx) or [stackblitz](https://stackblitz.com/edit/antd-mobile?file=index.tsx).
+        **尽可能提供一个复现 demo**。你可以在 [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx) 或 [stackblitz](https://stackblitz.com/edit/antd-mobile?file=index.tsx) 上创建一个 sandbox，然后把分享链接提供在这里。
     validations:
       required: false
   - type: textarea

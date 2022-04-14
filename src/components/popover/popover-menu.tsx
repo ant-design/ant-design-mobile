@@ -1,7 +1,5 @@
 import React, {
   forwardRef,
-  ReactElement,
-  Ref,
   useCallback,
   useImperativeHandle,
   useMemo,
@@ -28,6 +26,7 @@ export type PopoverMenuProps = Omit<PopoverProps, 'content'> & {
 export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps>(
   (props, ref) => {
     const innerRef = useRef<PopoverRef>(null)
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     useImperativeHandle(ref, () => innerRef.current!, [])
 
     const onClick = useCallback(

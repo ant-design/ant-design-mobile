@@ -129,6 +129,7 @@ export const Swiper = forwardRef(
           config: { tension: 200, friction: 30 },
           onRest: () => {
             if (draggingRef.current) return
+            if (!loop) return
             const rawX = position.get()
             const totalWidth = 100 * count
             const standardPosition = modulus(rawX, totalWidth)

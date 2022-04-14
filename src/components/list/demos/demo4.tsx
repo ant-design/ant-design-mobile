@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react'
 import { List, Image } from 'antd-mobile'
-import { List as VirtualizedList, AutoSizer } from 'react-virtualized/dist/es'
+import { List as VirtualizedList, AutoSizer } from 'react-virtualized'
 
 const rowCount = 1000
 

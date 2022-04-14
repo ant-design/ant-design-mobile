@@ -1,25 +1,29 @@
-import React, { memo, useRef } from 'react'
+import React, { memo, ReactNode, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from '@use-gesture/react'
+import { useDrag, useWheel } from '@use-gesture/react'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
 import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { measureCSSLength } from '../../utils/measure-css-length'
+import { supportsPassive } from '../../utils/supports-passive'
+import { FullGestureState } from '@use-gesture/core/src/types/state'
 
 const classPrefix = `adm-picker-view`
 
-interface Props {
+type Props = {
   index: number
   column: PickerColumnItem[]
   value: PickerValue
   onSelect: (value: PickerValue, index: number) => void
+  renderLabel: (item: PickerColumnItem) => ReactNode
+  mouseWheel: boolean
 }
 
 export const Wheel = memo<Props>(
   props => {
-    const { value, column } = props
+    const { value, column, renderLabel } = props
     function onSelect(val: PickerValue) {
       props.onSelect(val, props.index)
     }
@@ -75,38 +79,63 @@ export const Wheel = memo<Props>(
       onSelect(item.value)
     }
 
-    const bind = useDrag(
+    const handleDrag = (
+      state: Pick<
+        FullGestureState<'drag'>,
+        'last' | 'offset' | 'velocity' | 'direction'
+      >
+    ) => {
+      draggingRef.current = true
+      const min = -((column.length - 1) * itemHeight.current)
+      const max = 0
+      if (state.last) {
+        draggingRef.current = false
+        const position =
+          state.offset[1] + state.velocity[1] * state.direction[1] * 50
+        const targetIndex =
+          min < max
+            ? -Math.round(bound(position, min, max) / itemHeight.current)
+            : 0
+        scrollSelect(targetIndex)
+      } else {
+        const position = state.offset[1]
+        api.start({
+          y: rubberbandIfOutOfBounds(
+            position,
+            min,
+            max,
+            itemHeight.current * 50,
+            0.2
+          ),
+        })
+      }
+    }
+
+    useDrag(
       state => {
-        draggingRef.current = true
-        const min = -((column.length - 1) * itemHeight.current)
-        const max = 0
-        if (state.last) {
-          draggingRef.current = false
-          const position =
-            state.offset[1] + state.velocity[1] * state.direction[1] * 50
-          const targetIndex =
-            min < max
-              ? -Math.round(bound(position, min, max) / itemHeight.current)
-              : 0
-          scrollSelect(targetIndex)
-        } else {
-          const position = state.offset[1]
-          api.start({
-            y: rubberbandIfOutOfBounds(
-              position,
-              min,
-              max,
-              itemHeight.current * 50,
-              0.2
-            ),
-          })
-        }
+        state.event.stopPropagation()
+        handleDrag(state)
       },
       {
         axis: 'y',
         from: () => [0, y.get()],
         filterTaps: true,
         pointer: { touch: true },
+        target: rootRef,
+      }
+    )
+
+    useWheel(
+      state => {
+        state.event.stopPropagation()
+        handleDrag(state)
+      },
+      {
+        axis: 'y',
+        from: () => [0, y.get()],
+        preventDefault: true,
+        target: props.mouseWheel ? rootRef : undefined,
+        eventOptions: supportsPassive ? { passive: false } : false,
       }
     )
 
@@ -165,7 +194,7 @@ export const Wheel = memo<Props>(
     }
 
     return (
-      <div ref={rootRef} className={`${classPrefix}-column`} {...bind()}>
+      <div ref={rootRef} className={`${classPrefix}-column`}>
         <animated.div
           style={{ translateY: y }}
           className={`${classPrefix}-column-wheel`}
@@ -180,7 +209,7 @@ export const Wheel = memo<Props>(
             }
             return (
               <div
-                key={item.value}
+                key={item.key ?? item.value}
                 data-selected={item.value === value}
                 className={`${classPrefix}-column-item`}
                 onClick={handleClick}
@@ -188,7 +217,7 @@ export const Wheel = memo<Props>(
                 aria-label={selected ? 'active' : ''}
               >
                 <div className={`${classPrefix}-column-item-label`}>
-                  {item.label}
+                  {renderLabel(item)}
                 </div>
               </div>
             )

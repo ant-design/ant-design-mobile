@@ -14,6 +14,7 @@ import { Header } from './header'
 import { useConfig } from '../config-provider'
 import merge from 'lodash/merge'
 import { FormArray } from './form-array'
+import { traverseReactNode } from '../../utils/traverse-react-node'
 
 const classPrefix = 'adm-form'
 
@@ -96,7 +97,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     )
     items = []
   }
-  React.Children.forEach(props.children, child => {
+  traverseReactNode(props.children, child => {
     if (React.isValidElement(child)) {
       if (child.type === Header) {
         collect()
@@ -123,6 +124,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     >
       <FormContext.Provider
         value={{
+          name: formProps.name,
           hasFeedback,
           layout,
           requiredMarkStyle,

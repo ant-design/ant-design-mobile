@@ -13,6 +13,7 @@ import { useResizeEffect } from '../../utils/use-resize-effect'
 import { useTabListScroll } from '../../utils/use-tab-list-scroll'
 import ScrollMask from '../scroll-mask'
 import { ShouldRender } from '../../utils/should-render'
+import { traverseReactNode } from '../../utils/traverse-react-node'
 
 const classPrefix = `adm-jumbo-tabs`
 
@@ -42,7 +43,7 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
 
   const panes: ReactElement<ComponentProps<typeof JumboTab>>[] = []
 
-  React.Children.forEach(props.children, (child, index) => {
+  traverseReactNode(props.children, (child, index) => {
     if (!React.isValidElement(child)) return
     const key = child.key
     if (typeof key !== 'string') return

@@ -22,6 +22,7 @@ export interface FormArrayProps {
     field: FormArrayField,
     operation: FormArrayOperation
   ) => ReactNode
+  onAdd?: (operation: FormArrayOperation) => void
   renderAdd?: () => ReactNode
   children: (
     fields: FormArrayField[],
@@ -54,7 +55,7 @@ export const FormArray: React.FC<FormArrayProps> = props => {
               <List.Item
                 className='adm-form-list-operation'
                 onClick={() => {
-                  operation.add()
+                  props.onAdd ? props.onAdd(operation) : operation.add()
                 }}
                 arrow={false}
               >

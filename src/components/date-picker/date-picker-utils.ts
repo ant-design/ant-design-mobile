@@ -18,6 +18,15 @@ export type DatePickerFilter = Partial<
   >
 >
 
+const precisionLengthRecord: Record<DatePrecision, number> = {
+  year: 1,
+  month: 2,
+  day: 3,
+  hour: 4,
+  minute: 5,
+  second: 6,
+}
+
 export const convertDateToStringArray = (
   date: Date | undefined | null,
   precision: Precision
@@ -25,7 +34,9 @@ export const convertDateToStringArray = (
   if (precision.includes('week')) {
     return weekUtils.convertDateToStringArray(date)
   } else {
-    return dateUtils.convertDateToStringArray(date)
+    const datePrecision = precision as DatePrecision
+    const stringArray = dateUtils.convertDateToStringArray(date)
+    return stringArray.slice(0, precisionLengthRecord[datePrecision])
   }
 }
 

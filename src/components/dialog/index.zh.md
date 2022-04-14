@@ -10,26 +10,27 @@
 
 ### 属性
 
-| 属性             | 说明                                                     | 类型                                                       | 默认值      |
-| ---------------- | -------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
-| afterClose       | `Dialog` 完全关闭后的回调                                | `() => void`                                               | -           |
-| afterShow        | 完全展示后触发                                           | `() => void`                                               | -           |
-| image            | 图片 `url`                                               | `string`                                                   | -           |
-| header           | 顶部区域                                                 | `React.ReactNode`                                          | -           |
-| title            | 对话框标题                                               | `React.ReactNode`                                          | -           |
-| content          | 对话框内容                                               | `React.ReactNode`                                          | -           |
-| actions          | 操作按钮列表，可以传入二级数组来实现同一行内并排多个按钮 | `(Action \| Action[])[]`                                   | `[]`        |
-| onAction         | 点击操作按钮时触发                                       | `(action: Action, index: number) => void \| Promise<void>` | -           |
-| closeOnAction    | 点击操作按钮后后是否关闭                                 | `boolean`                                                  | `false`     |
-| onClose          | 关闭时触发                                               | `() => void`                                               | -           |
-| closeOnMaskClick | 是否支持点击遮罩关闭对话框                               | `boolean`                                                  | `false`     |
-| visible          | 显示隐藏                                                 | `boolean`                                                  | `false`     |
-| getContainer     | 自定义对话框的父容器                                     | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
-| bodyStyle        | `Dialog` 内容样式                                        | `React.CSSProperties`                                      | -           |
-| bodyClassName    | `Dialog` 内容类名                                        | `string`                                                   | -           |
-| maskStyle        | `Dialog` 遮罩样式                                        | `React.CSSProperties`                                      | -           |
-| maskClassName    | `Dialog` 遮罩类名                                        | `string`                                                   | -           |
-| stopPropagation  | 阻止某些事件的冒泡                                       | `PropagationEvent[]`                                       | `['click']` |
+| 属性              | 说明                                                     | 类型                                                       | 默认值      |
+| ----------------- | -------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
+| afterClose        | `Dialog` 完全关闭后的回调                                | `() => void`                                               | -           |
+| afterShow         | 完全展示后触发                                           | `() => void`                                               | -           |
+| image             | 图片 `url`                                               | `string`                                                   | -           |
+| header            | 顶部区域                                                 | `React.ReactNode`                                          | -           |
+| title             | 对话框标题                                               | `React.ReactNode`                                          | -           |
+| content           | 对话框内容                                               | `React.ReactNode`                                          | -           |
+| actions           | 操作按钮列表，可以传入二级数组来实现同一行内并排多个按钮 | `(Action \| Action[])[]`                                   | `[]`        |
+| onAction          | 点击操作按钮时触发                                       | `(action: Action, index: number) => void \| Promise<void>` | -           |
+| closeOnAction     | 点击操作按钮后后是否关闭                                 | `boolean`                                                  | `false`     |
+| onClose           | 关闭时触发                                               | `() => void`                                               | -           |
+| closeOnMaskClick  | 是否支持点击遮罩关闭对话框                               | `boolean`                                                  | `false`     |
+| visible           | 显示隐藏                                                 | `boolean`                                                  | `false`     |
+| getContainer      | 自定义对话框的父容器                                     | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
+| bodyStyle         | `Dialog` 内容样式                                        | `React.CSSProperties`                                      | -           |
+| bodyClassName     | `Dialog` 内容类名                                        | `string`                                                   | -           |
+| maskStyle         | `Dialog` 遮罩样式                                        | `React.CSSProperties`                                      | -           |
+| maskClassName     | `Dialog` 遮罩类名                                        | `string`                                                   | -           |
+| stopPropagation   | 阻止某些事件的冒泡                                       | `PropagationEvent[]`                                       | `['click']` |
+| disableBodyScroll | 是否禁用 `body` 滚动                                     | `boolean`                                                  | `true`      |
 
 ### Action
 

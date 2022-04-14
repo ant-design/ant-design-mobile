@@ -27,6 +27,7 @@ export default () => {
 
         <Form.Array
           name='contacts'
+          onAdd={operation => operation.add({ name: '张三' })}
           renderAdd={() => (
             <span>
               <AddCircleOutline /> 添加

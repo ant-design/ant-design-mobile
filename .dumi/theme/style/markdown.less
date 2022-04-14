@@ -2,7 +2,7 @@
 
 .markdown {
   color: @c-text;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.8;
 
   [data-prefers-color='dark'] & {
@@ -70,25 +70,24 @@
   h1 {
     margin-top: 32px;
     margin-bottom: 32px;
-    font-size: 42px;
+    font-size: 30px;
   }
 
   h2 {
-    font-size: 28px;
+    font-size: 24px;
     padding-bottom: 6px;
-    border-bottom: 4px solid @c-border;
   }
 
   h3 {
-    font-size: 20px;
-  }
-
-  h4 {
     font-size: 18px;
   }
 
-  h5 {
+  h4 {
     font-size: 16px;
+  }
+
+  h5 {
+    font-size: 15px;
   }
 
   h6 {
@@ -166,12 +165,16 @@
     }
   }
 
+  .__dumi-default-table-content {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid @c-border;
+  }
+
   // table
   table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid @c-border;
-
     [data-prefers-color='dark'] & {
       border: 1px solid #3b434b;
     }
@@ -179,7 +182,7 @@
     th,
     td {
       padding: 10px 24px;
-      border: 1px solid @c-border;
+      border: 1px solid @c-border-inner;
 
       [data-prefers-color='dark'] & {
         border: 1px solid #3b434b;
@@ -197,6 +200,20 @@
 
     td:first-child {
       font-weight: 500;
+    }
+    thead th {
+      border-top: none;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr td:first-child,
+    tr th:first-child {
+      border-left: none;
+    }
+    tr td:last-child,
+    tr th:last-child {
+      border-right: none;
     }
   }
 

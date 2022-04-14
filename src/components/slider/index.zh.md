@@ -19,6 +19,7 @@
 | defaultValue  | 默认值                                                                                          | `number \| [number, number]`                  | `range ? [0, 0] : 0` |
 | onChange      | 拖拽滑块时触发，并把当前拖拽的值作为参数传入                                                    | `(value: number \| [number, number]) => void` | -                    |
 | onAfterChange | 与 `touchend` 触发时机一致，把当前值作为参数传入                                                | `(value: number \| [number, number]) => void` | -                    |
+| icon          | 滑块的图标                                                                                      | `ReactNode`                                   | -                    |
 
 ### CSS 变量
 

@@ -11,6 +11,7 @@
 | onAction            | 点击操作按钮时触发           | `(action: Action, e: React.MouseEvent) => void` | -      |
 | closeOnTouchOutside | 是否在点击其他区域时自动归位 | `boolean`                                       | `true` |
 | closeOnAction       | 是否在点击操作按钮时自动归位 | `boolean`                                       | `true` |
+| stopPropagation     | 阻止某些事件的冒泡           | `PropagationEven[]`                             | `[]`   |
 
 ### Action
 

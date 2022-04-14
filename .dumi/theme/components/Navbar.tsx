@@ -5,18 +5,14 @@ import LocaleSelect from './LocaleSelect'
 import './Navbar.less'
 import p from '../../../package.json'
 import SearchBar from './SearchBar'
+import { Popover } from 'antd-mobile'
 
 interface INavbarProps {
   location: any
   darkPrefix?: React.ReactNode
-  onMobileMenuClick: (ev: MouseEvent<HTMLButtonElement>) => void
 }
 
-const Navbar: FC<INavbarProps> = ({
-  onMobileMenuClick,
-  location,
-  darkPrefix,
-}) => {
+const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
   const {
     base,
     config: { title, logo },
@@ -25,10 +21,7 @@ const Navbar: FC<INavbarProps> = ({
 
   return (
     <div className='__dumi-default-navbar'>
-      <button
-        className='__dumi-default-navbar-toggle'
-        onClick={onMobileMenuClick}
-      />
+      <button className='__dumi-default-navbar-toggle' />
       <div className='left-part'>
         <Link className='__dumi-default-navbar-logo' to={base}>
           <img src={logo.toString()} alt='logo' />
@@ -36,42 +29,47 @@ const Navbar: FC<INavbarProps> = ({
           <div className='version'>{`v${p.version}`}</div>
         </Link>
       </div>
-      <nav>
-        <div className='nav-item'>
-          <SearchBar />
-        </div>
-        {navItems.map(nav => {
-          const child = Boolean(nav.children?.length) && (
-            <ul>
-              {nav.children.map(
-                item =>
-                  !!item.path && (
-                    <li key={item.path}>
-                      <NavLink to={item.path}>{item.title}</NavLink>
-                    </li>
-                  )
-              )}
-            </ul>
-          )
-
-          return (
-            <span key={nav.title || nav.path}>
-              {nav.path ? (
-                <NavLink to={nav.path} key={nav.path}>
-                  {nav.title}
-                </NavLink>
-              ) : (
-                nav.title
-              )}
-              {child}
-            </span>
-          )
-        })}
-        <div className='__dumi-default-navbar-tool'>
-          <LocaleSelect location={location} />
-          {darkPrefix}
-        </div>
-      </nav>
+      <div className='middle-part'>
+        <SearchBar />
+      </div>
+      <div className='right-part'>
+        <nav>
+          {navItems.map(nav => {
+            const popoverContent = Boolean(nav.children?.length) && (
+              <ul className='nav-popover-ul'>
+                {nav.children.map(
+                  item =>
+                    !!item.path && (
+                      <li key={item.path}>
+                        <NavLink to={item.path}>{item.title}</NavLink>
+                      </li>
+                    )
+                )}
+              </ul>
+            )
+            const span = (
+              <span key={nav.title || nav.path}>
+                {nav.path ? (
+                  <NavLink to={nav.path}>{nav.title}</NavLink>
+                ) : (
+                  <a>{nav.title}</a>
+                )}
+              </span>
+            )
+            return popoverContent ? (
+              <Popover content={popoverContent} trigger='click'>
+                {span}
+              </Popover>
+            ) : (
+              span
+            )
+          })}
+          <div className='__dumi-default-navbar-tool'>
+            <LocaleSelect location={location} />
+            {darkPrefix}
+          </div>
+        </nav>
+      </div>
     </div>
   )
 }

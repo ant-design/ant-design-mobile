@@ -8,6 +8,8 @@
 
 <code src="./demos/demo4.tsx"></code>
 
+<code src="./demos/demo5.tsx"></code>
+
 ## List
 
 ### Props
@@ -58,3 +60,7 @@ Support following css variables in List: `--prefix-width`, `--active-background-
 ### Whether to support virtualized list?
 
 List will not support virtualized list, you can implement it via using [react-virtualized](https://github.com/bvaughn/react-virtualized).
+
+### Whether to support drag and drop the sorting?
+
+List will not support Drag and drop the sorting, you can implement it via using [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd).

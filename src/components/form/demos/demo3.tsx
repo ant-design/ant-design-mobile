@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd-mobile'
+import { Form, Input } from 'antd-mobile'
 
 export default function () {
   return (

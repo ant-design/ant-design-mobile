@@ -107,6 +107,11 @@ export const Mask: React.FC<MaskProps> = p => {
           ...props.style,
           display: active ? 'unset' : 'none',
         }}
+        onClick={e => {
+          if (e.target === e.currentTarget) {
+            props.onMaskClick?.(e)
+          }
+        }}
       >
         {props.onMaskClick && (
           <div

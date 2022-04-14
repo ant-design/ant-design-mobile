@@ -16,7 +16,7 @@ import dayjs from 'dayjs'
 export default () => {
   const onFinish = (values: any) => {
     Dialog.alert({
-      content: JSON.stringify(values),
+      content: <pre>{JSON.stringify(values, null, 2)}</pre>,
     })
   }
 
@@ -25,6 +25,7 @@ export default () => {
   return (
     <>
       <Form
+        name='form'
         onFinish={onFinish}
         footer={
           <Button block type='submit' color='primary' size='large'>

@@ -6,24 +6,26 @@
 
 在 Next.js 中使用 antd-mobile 需要做一些额外的配置。
 
-首先，需要安装 `next-transpile-modules` 和 `next-images` 依赖：
+首先，需要安装 `next-transpile-modules` 依赖：
 
 ```bash
-$ npm install --save-dev next-transpile-modules next-images
+$ npm install --save-dev next-transpile-modules
 # or
-$ yarn add -D next-transpile-modules next-images
+$ yarn add -D next-transpile-modules
 ```
 
 然后在 `next.config.js` 中进行配置：
 
 ```js
-const withImages = require('next-images')
-
 const withTM = require('next-transpile-modules')([
   'antd-mobile',
 ]);
 
-module.exports = withTM(withImages({
+module.exports = withTM({
   // 你项目中其他的 Next.js 配置
-}));
+});
 ```
+
+## Remix
+
+在 Remix 项目中，antd-mobile 会根据当前所处的环境自动 import 对应的文件。在服务端环境下，antd-mobile 会只加载 js 部分的逻辑，所以你需要再手动引入一下 `antd-mobile/bundle/antd-mobile.css`。

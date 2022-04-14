@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form, Input } from 'antd-mobile'
-import { DemoBlock, DemoDescription } from '../../../demos'
 
 export default () => {
   return (

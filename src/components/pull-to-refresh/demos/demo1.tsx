@@ -3,13 +3,10 @@ import { PullToRefresh, List } from 'antd-mobile'
 import { sleep } from 'antd-mobile/es/utils/sleep'
 import { lorem } from 'demos'
 
-let current = 1
-
 function getNextData() {
   const ret: string[] = []
   for (let i = 0; i < 18; i++) {
     ret.unshift(lorem.generateWords(1))
-    current++
   }
   return ret
 }

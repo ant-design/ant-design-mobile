@@ -153,6 +153,7 @@ export const Multiple: FC<MultipleProps> = p => {
 
     groupKeys = groupKeys.filter(i => !unusedKeys.includes(i))
 
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const groupOptions = groupKeys.map(i => optionsMap.get(i)!)
 
     setValue(groupKeys)

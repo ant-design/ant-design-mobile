@@ -4,9 +4,11 @@ import { base } from './base'
 const typeTemplate = '${label}不是一个有效的${type}'
 
 const zhCN = mergeLocale(base, {
+  locale: 'zh-CH',
   common: {
     confirm: '确定',
     cancel: '取消',
+    loading: '加载中',
   },
   Calendar: {
     markItems: ['一', '二', '三', '四', '五', '六', '日'],
@@ -90,11 +92,19 @@ const zhCN = mergeLocale(base, {
   ImageUploader: {
     uploading: '上传中...',
   },
+  InfiniteScroll: {
+    noMore: '没有更多了',
+  },
   Mask: {
     name: '遮罩层',
   },
   Modal: {
     ok: '我知道了',
+  },
+  PullToRefresh: {
+    pulling: '下拉刷新',
+    canRelease: '释放立即刷新',
+    complete: '刷新成功',
   },
 })
 

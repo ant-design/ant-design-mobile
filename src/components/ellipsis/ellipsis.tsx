@@ -17,6 +17,7 @@ export type EllipsisProps = {
   expandText?: string
   collapseText?: string
   stopPropagationForActionButtons?: PropagationEvent[]
+  onContentClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & NativeProps
 
 const defaultProps = {
@@ -25,6 +26,7 @@ const defaultProps = {
   expandText: '',
   collapseText: '',
   stopPropagationForActionButtons: [],
+  onContentClick: () => {},
 }
 
 type EllipsisedValue = {
@@ -220,7 +222,15 @@ export const Ellipsis: FC<EllipsisProps> = p => {
 
   return withNativeProps(
     props,
-    <div ref={rootRef} className={classPrefix}>
+    <div
+      ref={rootRef}
+      className={classPrefix}
+      onClick={e => {
+        if (e.target === e.currentTarget) {
+          props.onContentClick(e)
+        }
+      }}
+    >
       {renderContent()}
     </div>
   )

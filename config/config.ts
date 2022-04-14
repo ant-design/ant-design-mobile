@@ -150,6 +150,10 @@ const config: IConfig = {
         path: '/guide/import-on-demand',
       },
       {
+        title: 'Internationalization',
+        path: '/guide/i18n',
+      },
+      {
         title: 'About Experimental',
         path: '/zh/guide/what-is-experimental',
       },
@@ -186,6 +190,10 @@ const config: IConfig = {
       {
         title: '按需加载',
         path: '/zh/guide/import-on-demand',
+      },
+      {
+        title: '国际化',
+        path: '/zh/guide/i18n',
       },
       {
         title: '关于试验性',
@@ -279,7 +287,7 @@ const config: IConfig = {
   hash: true,
   scripts: [
     `if (location.pathname.startsWith('/~demos/')) {
-      document.body.style.background = '#f5f7fa'
+      document.body.style.background = '#FAFBFC'
     }`,
     `
     if (!location.port) {

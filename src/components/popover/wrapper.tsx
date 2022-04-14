@@ -1,4 +1,4 @@
-import React, { createRef } from 'react'
+import React from 'react'
 import { findDOMNode } from 'react-dom'
 
 export class Wrapper extends React.Component<{}, {}> {

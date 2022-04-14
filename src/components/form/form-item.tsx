@@ -14,6 +14,7 @@ import type { FormLayout } from './index'
 import Popover from '../popover'
 import { QuestionCircleOutline } from 'antd-mobile-icons'
 import { useConfig } from '../config-provider'
+import { undefinedFallback } from '../../utils/undefined-fallback'
 
 const NAME_SPLIT = '__SPLIT__'
 
@@ -51,7 +52,7 @@ export type FormItemProps = Pick<
     hidden?: boolean
     layout?: FormLayout
     childElementPosition?: 'normal' | 'right'
-    children: ChildrenType
+    children?: ChildrenType
   } & NativeProps
 
 interface MemoInputProps {
@@ -147,11 +148,16 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       {label}
       {requiredMark}
       {help && (
-        <span className={`${classPrefix}-label-help`}>
-          <Popover content={help} mode='dark' trigger='click'>
+        <Popover content={help} mode='dark' trigger='click'>
+          <span
+            className={`${classPrefix}-label-help`}
+            onClick={e => {
+              e.preventDefault()
+            }}
+          >
             <QuestionCircleOutline />
-          </Popover>
-        </span>
+          </span>
+        </Popover>
       )}
     </label>
   ) : null
@@ -239,7 +245,7 @@ export const FormItem: FC<FormItemProps> = props => {
     children,
     messageVariables,
     trigger = 'onChange',
-    validateTrigger,
+    validateTrigger = trigger,
     onClick,
     shouldUpdate,
     dependencies,
@@ -248,10 +254,14 @@ export const FormItem: FC<FormItemProps> = props => {
     ...fieldProps
   } = props
 
-  const { validateTrigger: contextValidateTrigger } =
-    React.useContext(FieldContext)
-  const mergedValidateTrigger =
-    validateTrigger !== undefined ? validateTrigger : contextValidateTrigger
+  const { name: formName } = useContext(FormContext)
+  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext)
+
+  const mergedValidateTrigger = undefinedFallback(
+    validateTrigger,
+    contextValidateTrigger,
+    trigger
+  )
 
   const updateRef = React.useRef(0)
   updateRef.current += 1
@@ -379,9 +389,10 @@ export const FormItem: FC<FormItemProps> = props => {
                 rule => !!(rule && typeof rule === 'object' && rule.required)
               )
 
-        const fieldId = (toArray(name).length && meta ? meta.name : []).join(
-          '_'
-        )
+        const nameList = toArray(name).length && meta ? meta.name : []
+        const fieldId = (
+          nameList.length > 0 && formName ? [formName, ...nameList] : nameList
+        ).join('_')
 
         if (shouldUpdate && dependencies) {
           devWarning(

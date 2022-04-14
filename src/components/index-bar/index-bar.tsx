@@ -14,6 +14,7 @@ import { Sidebar } from './sidebar'
 import { convertPx } from '../../utils/convert-px'
 import { Panel } from './panel'
 import { devWarning } from '../../utils/dev-log'
+import { traverseReactNode } from '../../utils/traverse-react-node'
 
 const classPrefix = `adm-index-bar`
 
@@ -41,7 +42,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   }[] = []
   const panels: ReactElement[] = []
 
-  React.Children.forEach(props.children, child => {
+  traverseReactNode(props.children, child => {
     if (!React.isValidElement(child)) return
     if (child.type !== Panel) {
       devWarning(

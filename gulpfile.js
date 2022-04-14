@@ -3,14 +3,17 @@ const less = require('gulp-less')
 const path = require('path')
 const postcss = require('gulp-postcss')
 const babel = require('gulp-babel')
+const replace = require('gulp-replace')
 const ts = require('gulp-typescript')
 const del = require('del')
 const webpackStream = require('webpack-stream')
 const webpack = require('webpack')
 const through = require('through2')
+const vite = require('vite')
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const tsconfig = require('./tsconfig.json')
+const packageJson = require('./package.json')
 
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
 
@@ -40,16 +43,6 @@ function copyAssets() {
     .pipe(gulp.dest('lib/assets'))
     .pipe(gulp.dest('lib/es/assets'))
     .pipe(gulp.dest('lib/cjs/assets'))
-}
-
-function tempCopyFloatingUI() {
-  return gulp
-    .src([
-      './src/components/popover/temp-floating-ui.min.js',
-      './src/components/popover/temp-floating-ui.min.d.ts',
-    ])
-    .pipe(gulp.dest('lib/es/components/popover'))
-    .pipe(gulp.dest('lib/cjs/components/popover'))
 }
 
 function buildCJS() {
@@ -95,6 +88,55 @@ function buildDeclaration() {
     .pipe(tsProject)
     .pipe(gulp.dest('lib/es/'))
     .pipe(gulp.dest('lib/cjs/'))
+}
+
+function getViteConfigForPackage({ minify, formats, external }) {
+  const name = packageJson.name
+  return {
+    root: process.cwd(),
+
+    logLevel: 'silent',
+
+    build: {
+      lib: {
+        name,
+        entry: './lib/es/index.js',
+        formats,
+        fileName: format => {
+          const suffix = format === 'umd' ? '' : `.${format}`
+          return minify ? `${name}${suffix}.min.js` : `${name}${suffix}.js`
+        },
+      },
+      minify: minify ? 'terser' : false,
+      rollupOptions: {
+        external,
+        output: {
+          dir: './lib/bundle',
+          exports: 'named',
+          globals: {
+            react: 'React',
+          },
+        },
+      },
+    },
+  }
+}
+
+async function buildBundles(cb) {
+  const dependencies = packageJson.dependencies || {}
+  const externals = Object.keys(dependencies)
+
+  const configs = [
+    // esm/cjs bundle
+    getViteConfigForPackage({
+      minify: false,
+      formats: ['es', 'cjs'],
+      external: ['react', ...externals],
+    }),
+  ]
+
+  await Promise.all(configs.map(config => vite.build(config)))
+  cb && cb()
 }
 
 function umdWebpack() {
@@ -161,8 +203,18 @@ function umdWebpack() {
           },
           externals: [
             {
-              'react': 'React',
-              'react-dom': 'ReactDOM',
+              react: {
+                commonjs: 'react',
+                commonjs2: 'react',
+                amd: 'react',
+                root: 'React',
+              },
+              'react-dom': {
+                commonjs: 'react-dom',
+                commonjs2: 'react-dom',
+                amd: 'react-dom',
+                root: 'ReactDOM',
+              },
             },
           ],
         },
@@ -210,6 +262,7 @@ function build2xCSS() {
       base: './lib/2x/',
     })
     .pipe(postcss([pxMultiplePlugin]))
+    .pipe(replace('--adm-hd: 1;', '--adm-hd: 2;'))
     .pipe(
       gulp.dest('./lib/2x', {
         overwrite: true,
@@ -218,6 +271,7 @@ function build2xCSS() {
 }
 
 exports.umdWebpack = umdWebpack
+exports.buildBundles = buildBundles
 
 exports.default = gulp.series(
   clean,
@@ -225,9 +279,8 @@ exports.default = gulp.series(
   buildCJS,
   gulp.parallel(buildDeclaration, buildStyle),
   copyAssets,
-  tempCopyFloatingUI,
   copyMetaFiles,
   generatePackageJSON,
   gulp.series(create2xFolder, build2xCSS),
-  gulp.parallel(umdWebpack)
+  gulp.parallel(umdWebpack, buildBundles)
 )

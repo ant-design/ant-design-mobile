@@ -4,13 +4,10 @@ import { sleep } from 'antd-mobile/es/utils/sleep'
 import { PullStatus } from 'antd-mobile/es/components/pull-to-refresh'
 import { lorem } from 'demos'
 
-let current = 1
-
 function getNextData() {
   const ret: string[] = []
   for (let i = 0; i < 18; i++) {
     ret.unshift(lorem.generateWords(1))
-    current++
   }
   return ret
 }

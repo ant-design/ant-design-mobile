@@ -69,7 +69,7 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
       if (value.length >= cellLength) {
         props.onFill?.(value)
       }
-    }, [props.onFill, value, cellLength])
+    }, [value, cellLength])
 
     const onFocus = () => {
       if (!props.keyboard) {
