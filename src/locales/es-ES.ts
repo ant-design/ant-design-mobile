@@ -8,7 +8,7 @@ const esES = mergeLocale(base, {
   common: {
     confirm: 'Confirmar',
     cancel: 'Cancelar',
-    loading: 'Cargando...',
+    loading: 'Cargando',
   },
   Calendar: {
     markItems: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],

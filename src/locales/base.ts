@@ -5,7 +5,7 @@ export const base = {
   common: {
     confirm: 'Confirm',
     cancel: 'Cancel',
-    loading: 'Loading...',
+    loading: 'Loading',
   },
   Calendar: {
     markItems: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -88,6 +88,9 @@ export const base = {
   },
   ImageUploader: {
     uploading: 'Uploading...',
+  },
+  InfiniteScroll: {
+    noMore: 'No more',
   },
   Mask: {
     name: 'Mask',
