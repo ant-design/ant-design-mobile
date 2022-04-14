@@ -3,7 +3,7 @@ import React, { FC, useEffect, useRef, useState } from 'react'
 import { useLockFn, useMemoizedFn } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
-import { getDefaultConfig } from '../config-provider'
+import { useConfig } from '../config-provider'
 import DotLoading from '../dot-loading'
 
 function isWindow(element: any | Window): element is Window {
