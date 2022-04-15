@@ -23,7 +23,7 @@
 | min          | 最小值，仅在 `type` 为 `number` 时生效       | `number`                                             | -       |
 | max          | 最大值，仅在 `type` 为 `number` 时生效       | `number`                                             | -       |
 
-此外还支持以下原生属性：`maxLength` `minLength` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd`
+此外还支持以下原生属性：`maxLength` `minLength` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd` `onClick`
 
 ### CSS 变量
 

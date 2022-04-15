@@ -25,6 +25,7 @@ export type TextAreaProps = Pick<
   | 'onBlur'
   | 'onCompositionStart'
   | 'onCompositionEnd'
+  | 'onClick'
 > & {
   onChange?: (val: string) => void
   value?: string
@@ -159,6 +160,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           readOnly={props.readOnly}
           onFocus={props.onFocus}
           onBlur={props.onBlur}
+          onClick={props.onClick}
         />
         {count}
       </div>
