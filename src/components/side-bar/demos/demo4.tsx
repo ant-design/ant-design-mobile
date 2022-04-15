@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { SideBar } from 'antd-mobile'
 import styles from './demo4.less'
-import classNames from 'classnames'
 import { lorem } from '../../../demos'
 import { useThrottleFn } from 'ahooks'
 
