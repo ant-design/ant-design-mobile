@@ -195,7 +195,6 @@ export const Swiper = forwardRef(
           },
           rubberband: props.rubberband,
           axis: isVertical ? 'y' : 'x',
-          preventScroll: !isVertical,
           pointer: {
             touch: true,
           },
