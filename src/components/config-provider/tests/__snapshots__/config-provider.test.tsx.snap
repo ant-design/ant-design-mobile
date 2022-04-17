@@ -3323,7 +3323,7 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
       <div
         class="adm-calendar-title"
       >
-        2022년3일
+        2022년 3월
       </div>
       <a
         class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
