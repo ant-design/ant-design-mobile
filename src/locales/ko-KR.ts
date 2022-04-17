@@ -12,7 +12,7 @@ const koKR = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['월', '화', '수', '목', '금', '토', '일'],
-    renderYearAndMonth: (year: number, month: number) => `${year}년${month}일`,
+    renderYearAndMonth: (year: number, month: number) => `${year}년 ${month}월`,
   },
   Cascader: {
     placeholder: '선택됨',
