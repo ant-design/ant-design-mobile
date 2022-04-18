@@ -23,7 +23,7 @@ The `Input` component is layout-independent. It only includes the most basic inp
 | min          | Minimum value, only valid when `type` is `number`                                             | `number`                                             | -       |
 | max          | Maximum value, only valid when `type` is `number`                                             | `number`                                             | -       |
 
-In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd`
+In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd` `onClick`
 
 ### CSS Variables
 
