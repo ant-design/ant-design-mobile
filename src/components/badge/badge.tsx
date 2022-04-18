@@ -10,6 +10,7 @@ export type BadgeProps = {
   content?: React.ReactNode | typeof dot
   color?: string
   bordered?: boolean
+  children?: React.ReactNode
 } & NativeProps<'--right' | '--top' | '--color'>
 
 export const Badge: FC<BadgeProps> = props => {

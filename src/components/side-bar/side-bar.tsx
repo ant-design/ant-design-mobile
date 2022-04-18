@@ -23,6 +23,7 @@ export type SideBarProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
+  children?: React.ReactNode
 } & NativeProps<
   '--width' | '--height' | '--item-border-radius' | '--background-color'
 >

@@ -25,6 +25,7 @@ export type TabProps = {
   disabled?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
+  children?: ReactNode
 } & NativeProps
 
 export const Tab: FC<TabProps> = () => {
@@ -37,6 +38,7 @@ export type TabsProps = {
   activeLineMode?: 'auto' | 'full' | 'fixed'
   stretch?: boolean
   onChange?: (key: string) => void
+  children?: React.ReactNode
 } & NativeProps<
   | '--fixed-active-line-width'
   | '--active-line-height'

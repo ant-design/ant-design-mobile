@@ -8,6 +8,7 @@ const classPrefix = `adm-list`
 export type ListProps = {
   header?: ReactNode
   mode?: 'default' | 'card' // 默认是整宽的列表，card 模式下展示为带 margin 和圆角的卡片
+  children?: ReactNode
 } & NativeProps<
   | '--header-font-size'
   | '--prefix-width'

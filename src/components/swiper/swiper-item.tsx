@@ -3,6 +3,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 type Props = {
   onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  children?: React.ReactNode
 } & NativeProps
 
 export const SwiperItem: FC<Props> = props => {

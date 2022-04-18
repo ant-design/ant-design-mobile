@@ -6,6 +6,7 @@ interface Props {
   padding?: string
   border?: string
   background?: string
+  children?: React.ReactNode
 }
 
 export const DemoBlock: FC<Props> = props => {

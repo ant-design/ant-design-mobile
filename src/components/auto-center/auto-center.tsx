@@ -3,7 +3,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = 'adm-auto-center'
 
-export type AutoCenterProps = NativeProps
+export type AutoCenterProps = { children?: React.ReactNode } & NativeProps
 
 export const AutoCenter: FC<AutoCenterProps> = props => {
   return withNativeProps(

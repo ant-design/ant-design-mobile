@@ -24,6 +24,7 @@ export type PullToRefreshProps = {
   threshold?: number
   disabled?: boolean
   renderText?: (status: PullStatus) => ReactNode
+  children?: React.ReactNode
 }
 
 export const defaultProps = {

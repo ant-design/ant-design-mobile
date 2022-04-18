@@ -14,6 +14,7 @@ type Direction = 'horizontal' | 'vertical'
 export type StepsProps = {
   current?: number
   direction?: Direction
+  children?: React.ReactNode
 } & NativeProps<
   | '--title-font-size'
   | '--description-font-size'

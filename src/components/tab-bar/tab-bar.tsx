@@ -23,6 +23,7 @@ export type TabBarProps = {
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
   safeArea?: boolean
+  children?: React.ReactNode
 } & NativeProps
 
 const classPrefix = `adm-tab-bar`
