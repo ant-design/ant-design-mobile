@@ -51,6 +51,7 @@ describe('Form', () => {
     })
 
     expect($$(`.${classPrefix}-item-feedback-error`).length).toBeTruthy()
+    expect($$(`.${classPrefix}-item-has-error`).length).toBeTruthy()
     expect(console.error).toBeCalledTimes(0)
 
     fireEvent.change(getByLabelText(/name/i), { target: { value: 'name' } })
