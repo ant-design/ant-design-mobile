@@ -76,9 +76,14 @@ describe('Button', () => {
     expect(button).toBeDisabled()
   })
 
-  test('renders with loading and loadingText', () => {
+  test('loading with custom loadingText and loadingIcon', () => {
     const { getByTestId } = render(
-      <Button loading data-testid='btn' loadingText='加载中'>
+      <Button
+        loading
+        data-testid='btn'
+        loadingText='加载中'
+        loadingIcon={<div>loadingIcon</div>}
+      >
         Loading
       </Button>
     )
@@ -90,6 +95,7 @@ describe('Button', () => {
     }).toThrow(/Unable to find an element with the text: Loading./)
 
     screen.getByText('加载中')
+    screen.getByText('loadingIcon')
   })
 
   test('renders with type', () => {
