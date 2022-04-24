@@ -202,6 +202,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
         `${classPrefix}-${layout}`,
         {
           [`${classPrefix}-hidden`]: hidden,
+          [`${classPrefix}-has-error`]: props.errors.length,
         }
       )}
       disabled={disabled}
