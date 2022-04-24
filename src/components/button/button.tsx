@@ -13,6 +13,7 @@ export type ButtonProps = {
   block?: boolean
   loading?: boolean
   loadingText?: string
+  loadingIcon?: React.ReactNode
   disabled?: boolean
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   type?: 'submit' | 'reset' | 'button'
@@ -36,6 +37,7 @@ const defaultProps = {
   fill: 'solid',
   block: false,
   loading: false,
+  loadingIcon: <DotLoading color='currentColor' />,
   type: 'button',
   shape: 'default',
   size: 'middle',
@@ -77,7 +79,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
     >
       {props.loading ? (
         <div className={`${classPrefix}-loading-wrapper`}>
-          <DotLoading color='currentColor' />
+          {props.loadingIcon}
           {props.loadingText}
         </div>
       ) : (
