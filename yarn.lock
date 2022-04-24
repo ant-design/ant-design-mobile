@@ -4458,7 +4458,7 @@ __metadata:
     prism-react-renderer: ^1.3.1
     prismjs: ^1.27.0
     qrcode.react: ^1.0.1
-    rc-field-form: ^1.24.0
+    rc-field-form: ^1.26.2
     react: ^17.0.2
     react-beautiful-dnd: ^13.1.0
     react-dom: ^17.0.2
@@ -13414,9 +13414,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rc-field-form@npm:^1.24.0":
-  version: 1.24.0
-  resolution: "rc-field-form@npm:1.24.0"
+"rc-field-form@npm:^1.26.2":
+  version: 1.26.2
+  resolution: "rc-field-form@npm:1.26.2"
   dependencies:
     "@babel/runtime": ^7.8.4
     async-validator: ^4.0.2
@@ -13424,7 +13424,7 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 9df11592fb9c736170ee1ef33b64a9d8cfc790f3f6a72457f2a1d805939b1f3bc3a161590962bd772fd96e97029d4c3ea36cb202fc5000097719194b6fafe261
+  checksum: ed6049f524cb3f1d0ad255ccdda53eaf5a784db2d40f25d7288e6e4f4645e531f44069fdd2ca54b73ba261436f08471802a998f11839847fffa6568830b3effd
   languageName: node
   linkType: hard
 
