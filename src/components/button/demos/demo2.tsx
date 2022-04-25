@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Space } from 'antd-mobile'
-import { DemoBlock } from 'demos'
+import { DemoBlock, sleep } from 'demos'
 import { SearchOutline } from 'antd-mobile-icons'
 
 export default () => {
@@ -30,6 +30,14 @@ export default () => {
             Loading
           </Button>
           <Button loading>Loading</Button>
+          <Button
+            loading='auto'
+            onClick={async () => {
+              await sleep(1000)
+            }}
+          >
+            Auto Loading
+          </Button>
         </Space>
       </DemoBlock>
 
