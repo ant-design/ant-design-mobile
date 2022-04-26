@@ -16,7 +16,6 @@ import {
   MailOutline,
   GlobalOutline,
 } from 'antd-mobile-icons'
-import { DemoDescription } from 'demos'
 
 import styles from './demo3.less'
 
@@ -70,15 +69,15 @@ const nearbyList = [
   },
 ]
 
-const anchors = [300, window.innerHeight * 0.2, window.innerHeight * 0.8]
+const anchors = [72, 72 + 119, window.innerHeight * 0.8]
 
 export default () => {
   const [focus, setFocus] = useState(false)
   const ref = useRef<FloatingPanelRef>(null)
 
   return (
-    <div style={{ height: '100vh', position: 'relative' }}>
-      <Maps />
+    <>
+      <iframe src='https://amap.com' className={styles.map} />
 
       <FloatingPanel anchors={anchors} ref={ref}>
         <Space block className={styles.search}>
@@ -115,17 +114,6 @@ export default () => {
           ))}
         </List>
       </FloatingPanel>
-    </div>
+    </>
   )
 }
-
-const Maps = () => (
-  <div
-    style={{
-      textAlign: 'center',
-      padding: '30vh 12px 0',
-    }}
-  >
-    <DemoDescription>地图背景</DemoDescription>
-  </div>
-)
