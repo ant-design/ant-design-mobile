@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { FloatingPanel } from 'antd-mobile'
 import { DemoDescription } from 'demos'
 
@@ -7,15 +7,21 @@ const minHeight = anchors[0]
 const maxHeight = anchors[anchors.length - 1]
 
 export default () => {
-  const onHeightChange = (height: number, animating: boolean) => {
-    setPercent(Math.abs(height / maxHeight))
+  const targetRef = useRef<HTMLDivElement>(null)
+
+  const onHeightChange = (height: number) => {
+    const ratio = height / maxHeight
+    console.log(ratio)
+    const target = targetRef.current
+    if (!target) return
+    target.style.height = '100%'
+    target.style.backgroundImage = `linear-gradient(rgba(185,147,214,${ratio}),rgba(140,166,219,${ratio}))`
   }
 
-  const [percent, setPercent] = useState<number>(minHeight / maxHeight)
-  const style = {
-    height: maxHeight,
-    backgroundImage: `linear-gradient(rgba(185,147,214,${percent}),rgba(140,166,219,${percent}))`,
-  }
+  useEffect(() => {
+    onHeightChange(minHeight)
+  }, [])
+
   return (
     <div
       style={{
@@ -25,7 +31,7 @@ export default () => {
       <DemoDescription>结合onHeightChange实现透明度变化</DemoDescription>
 
       <FloatingPanel anchors={anchors} onHeightChange={onHeightChange}>
-        <div style={style} />
+        <div ref={targetRef} />
       </FloatingPanel>
     </div>
   )
