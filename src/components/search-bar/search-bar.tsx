@@ -27,6 +27,7 @@ export type SearchBarProps = Pick<
   maxLength?: number
   placeholder?: string
   clearable?: boolean
+  onlyShowClearWhenFocus?: boolean
   showCancelButton?: boolean | ((focus: boolean, value: string) => boolean)
   cancelText?: string
   icon?: ReactNode
@@ -44,6 +45,7 @@ export type SearchBarProps = Pick<
 
 const defaultProps = {
   clearable: true,
+  onlyShowClearWhenFocus: false,
   showCancelButton: false as NonNullable<SearchBarProps['showCancelButton']>,
   defaultValue: '',
   clearOnCancel: true,
@@ -131,6 +133,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
           maxLength={props.maxLength}
           placeholder={props.placeholder}
           clearable={props.clearable}
+          onlyShowClearWhenFocus={props.onlyShowClearWhenFocus}
           onFocus={e => {
             setHasFocus(true)
             props.onFocus?.(e)

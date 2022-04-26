@@ -40,6 +40,7 @@ export type InputProps = Pick<
   disabled?: boolean
   readOnly?: boolean
   clearable?: boolean
+  onlyShowClearWhenFocus?: boolean
   onClear?: () => void
   id?: string
   onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
@@ -59,6 +60,7 @@ export type InputProps = Pick<
 
 const defaultProps = {
   defaultValue: '',
+  onlyShowClearWhenFocus: true,
 }
 
 export type InputRef = {
@@ -116,6 +118,15 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     }
   }
 
+  const shouldShowClear = (() => {
+    if (!props.clearable || !value || props.readOnly) return false
+    if (props.onlyShowClearWhenFocus) {
+      return hasFocus
+    } else {
+      return true
+    }
+  })()
+
   return withNativeProps(
     props,
     <div
@@ -161,7 +172,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         onCompositionEnd={props.onCompositionEnd}
         onClick={props.onClick}
       />
-      {props.clearable && !!value && !props.readOnly && hasFocus && (
+      {shouldShowClear && (
         <div
           className={`${classPrefix}-clear`}
           onMouseDown={e => {
