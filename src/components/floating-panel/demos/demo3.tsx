@@ -98,7 +98,7 @@ export default () => {
             <Space block justify='around'>
               {locations.map(item => (
                 <div key={item.name} className={styles.item}>
-                  <Avatar src={item.avatar} />
+                  <Avatar src={item.avatar} style={{ margin: 'auto' }} />
                   {item.name}
                 </div>
               ))}
