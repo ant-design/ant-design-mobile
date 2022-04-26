@@ -3,6 +3,7 @@ import React, {
   ReactNode,
   useState,
   useImperativeHandle,
+  useMemo,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs from 'dayjs'
@@ -32,6 +33,8 @@ export type CalendarProps = {
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => string | null | undefined
   allowClear?: boolean
+  max?: Date
+  min?: Date
 } & (
   | {
       selectionMode?: undefined
@@ -160,6 +163,9 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
     </div>
   )
 
+  const maxDay = useMemo(() => props.max && dayjs(props.max), [props.max])
+  const minDay = useMemo(() => props.min && dayjs(props.min), [props.min])
+
   function renderCells() {
     const cells: ReactNode[] = []
     let iterator = current.subtract(current.isoWeekday(), 'day')
@@ -181,12 +187,16 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
       }
       const inThisMonth = d.month() === current.month()
+      const disabled =
+        !inThisMonth ||
+        (maxDay && d.isAfter(maxDay, 'day')) ||
+        (minDay && d.isBefore(minDay, 'day'))
       cells.push(
         <div
           key={d.valueOf()}
           className={classNames(
             `${classPrefix}-cell`,
-            inThisMonth ? `${classPrefix}-cell-in` : `${classPrefix}-cell-out`,
+            disabled && `${classPrefix}-cell-disabled`,
             inThisMonth && {
               [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
               [`${classPrefix}-cell-selected`]: isSelect,
@@ -196,6 +206,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           )}
           onClick={() => {
             if (!props.selectionMode) return
+            if (disabled) return
             const date = d.toDate()
             if (!inThisMonth) {
               setCurrent(d.clone().date(1))

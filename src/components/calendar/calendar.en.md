@@ -18,6 +18,8 @@
 | weekStartsOn  | Week starts on which day.                                        | `'Monday' \| 'Sunday'`                                                                                                               | `'Sunday'` |
 | renderLabel   | The label render function.                                       | `(date: Date) => string \| null \| undefined`                                                                                        | -          |
 | allowClear    | Whether to allow clearing after another click.                   | `boolean`                                                                                                                            | `true`     |
+| min           | Minimum value of selectable range.                               | `Date`                                                                                                                               | -          |
+| max           | The maximum value of a selectable range.                         | `Date`                                                                                                                               | -          |
 
 ### CSS Variables
 

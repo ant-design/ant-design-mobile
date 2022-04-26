@@ -16,6 +16,8 @@
 | weekStartsOn  | 每周以周几作为第一天               | `'Monday' \| 'Sunday'`                                                                         | `'Sunday'` |
 | renderLabel   | 标注信息的渲染函数                 | `(date: Date) => string \| null \| undefined`                                                  | -          |
 | allowClear    | 是否允许再次点击后清除             | `boolean`                                                                                      | `true`     |
+| min           | 可选择范围的最小值                 | `Date`                                                                                         | -          |
+| max           | 可选择范围的最大值                 | `Date`                                                                                         | -          |
 
 ### CSS 变量
 
