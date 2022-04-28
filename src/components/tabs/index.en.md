@@ -46,3 +46,7 @@
 ### Does Tabs support sticky effect?
 
 Yes, but Tabs doesn't have a property like `sticky`. You can add the CSS `position: sticky` to the outer container of Tabs to achieve the ceiling effect.
+
+### How does Tabs work with Swiper, PullToRefresh, and InfiniteScroll to implement a complex information flow interface?
+
+You can refer to this [demo](https://codesandbox.io/s/mystifying-glitter-knpc7u?file=/src/components/getPullToRefreshlData.tsx).

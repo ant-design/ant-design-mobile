@@ -22,3 +22,5 @@
 | disabled       | 是否禁用                    | `boolean`   | `false` |
 | forceRender    | 被隐藏时是否渲染 `DOM` 结构 | `boolean`   | `false` |
 | destroyOnClose | 不可见时卸载内容            | `boolean`   | `false` |
+
+JumboTabs 的用法和 Tabs 非常相似，所以关于更多的用法上的指引，请参阅 [Tabs](./tabs) 的文档。

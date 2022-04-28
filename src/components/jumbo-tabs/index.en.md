@@ -22,3 +22,5 @@
 | disabled       | Whether to disable the tab                        | `boolean`   | `false` |
 | forceRender    | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
 | destroyOnClose | Unmount content when not visible                  | `boolean`   | `false` |
+
+The usage of JumboTabs is very similar to that of Tabs, so see the documentation for [Tabs](./tabs) for more usage guidelines.
