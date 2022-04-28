@@ -7,6 +7,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { useIsomorphicLayoutEffect, useMemoizedFn, useUnmount } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useConfig } from '../config-provider'
 import type { ImageProps } from '../image'
 
 export type TaskStatus = 'pending' | 'fail'
@@ -66,6 +67,7 @@ const defaultProps = {
 }
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
+  const { locale } = useConfig()
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
   const updateValue = useMemoizedFn(
@@ -244,6 +246,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               <span
                 className={`${classPrefix}-cell ${classPrefix}-upload-button`}
                 role='button'
+                aria-label={locale.ImageUploader.upload}
               >
                 <span className={`${classPrefix}-upload-button-icon`}>
                   <AddOutline />
@@ -258,6 +261,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
                 type='file'
                 className={`${classPrefix}-input`}
                 onChange={onChange}
+                aria-hidden
               />
             )}
           </div>

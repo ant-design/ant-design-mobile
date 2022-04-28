@@ -91,6 +91,7 @@ const zhCN = mergeLocale(base, {
   },
   ImageUploader: {
     uploading: '上传中...',
+    upload: '上传',
   },
   InfiniteScroll: {
     noMore: '没有更多了',

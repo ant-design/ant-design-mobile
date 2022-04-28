@@ -88,6 +88,7 @@ export const base = {
   },
   ImageUploader: {
     uploading: 'Uploading...',
+    upload: 'Upload',
   },
   InfiniteScroll: {
     noMore: 'No more',
