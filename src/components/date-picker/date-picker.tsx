@@ -107,6 +107,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
       value={pickerValue}
       onCancel={props.onCancel}
       onClose={props.onClose}
+      closeOnMaskClick={props.closeOnMaskClick}
       visible={props.visible}
       confirmText={props.confirmText}
       cancelText={props.cancelText}
