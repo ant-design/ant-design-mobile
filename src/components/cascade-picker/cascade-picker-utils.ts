@@ -1,11 +1,12 @@
 import { PickerColumn } from '../picker-view'
 import { CascadePickerOption } from './cascade-picker'
+import { SubOptionsRecord } from './use-cascade-picker-options'
 
 export function generateCascadePickerColumns(
   value: string[],
   options: CascadePickerOption[],
   depth: number,
-  subOptionsRecord: Record<string, CascadePickerOption[]>
+  subOptionsRecord: SubOptionsRecord
 ) {
   const columns: PickerColumn[] = []
   columns.push(
@@ -21,11 +22,12 @@ export function generateCascadePickerColumns(
       columns.push([])
     } else {
       columns.push(
-        subOptions.map(option => ({
+        subOptions.children.map(option => ({
           label: option.label,
           value: option.value,
         }))
       )
+      subOptionsRecord = subOptions.subOptionsRecord
     }
   }
   return columns

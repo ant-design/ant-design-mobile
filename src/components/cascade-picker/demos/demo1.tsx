@@ -19,6 +19,18 @@ function CascadePickerDemo() {
         {
           label: '宁波',
           value: '宁波',
+          children: [
+            {
+              label: '街道',
+              value: '街道',
+              children: [
+                {
+                  label: '小区1',
+                  value: '小区1',
+                },
+              ],
+            },
+          ],
         },
       ],
     },
@@ -33,6 +45,18 @@ function CascadePickerDemo() {
         {
           label: '苏州',
           value: '苏州',
+          children: [
+            {
+              label: '街道',
+              value: '街道',
+              children: [
+                {
+                  label: '小区2',
+                  value: '小区2',
+                },
+              ],
+            },
+          ],
         },
       ],
     },
