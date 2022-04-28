@@ -7,6 +7,7 @@ export type FormContextType = {
   hasFeedback: boolean
   layout: FormLayout
   requiredMarkStyle: 'asterisk' | 'text-required' | 'text-optional'
+  disabled: boolean
 }
 
 export const defaultFormContext: FormContextType = {
@@ -14,6 +15,7 @@ export const defaultFormContext: FormContextType = {
   hasFeedback: true,
   layout: 'vertical',
   requiredMarkStyle: 'asterisk',
+  disabled: false,
 }
 
 export const FormContext =

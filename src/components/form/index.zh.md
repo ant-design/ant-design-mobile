@@ -16,6 +16,7 @@
 | ----------------- | ------------------------------------------------------------ | -------------------------------------------------- | ------------ |
 | mode              | 支持默认和卡片两种模式                                       | `'default' \| 'card'`                              | `'default'`  |
 | layout            | 布局模式                                                     | `'vertical' \| 'horizontal'`                       | `'vertical'` |
+| disabled          | 是否禁用                                                     | `boolean`                                          | `false`      |
 | hasFeedback       | 是否展示错误反馈                                             | `boolean`                                          | `true`       |
 | requiredMarkStyle | 必填选填的标记样式                                           | `'asterisk' \| 'text-required' \| 'text-optional'` | `'asterisk'` |
 | footer            | 表单尾部的内容，常常用来放置提交按钮                         | `ReactNode`                                        | -            |
@@ -75,7 +76,7 @@ const validateMessages = {
 | label                                              | 标签名                                                                                                       | `ReactNode`                                   | -                                                  |
 | help                                               | 提示文本                                                                                                     | `ReactNode`                                   | -                                                  |
 | required                                           | 是否必选                                                                                                     | `boolean`                                     | `false`（如有设置 `rules`，则会根据 `rules` 判断） |
-| disabled                                           | 是否禁用                                                                                                     | `boolean`                                     | `false`                                            |
+| disabled                                           | 是否禁用                                                                                                     | `boolean`                                     | 父级 Form 的 `disabled`                            |
 | noStyle                                            | 不使用样式，只使用字段管理                                                                                   | `boolean`                                     | `false`                                            |
 | hidden                                             | 是否隐藏整个字段                                                                                             | `boolean`                                     | `false`                                            |
 | layout                                             | 布局模式                                                                                                     | `'vertical' \| 'horizontal'`                  | 父级 Form 的 `layout`                              |
