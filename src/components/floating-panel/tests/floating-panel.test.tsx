@@ -101,7 +101,7 @@ describe('FloatingPanel', () => {
     const panelEl = getByTestId('panel')
 
     mockDrag(panelEl, 0, -(anchors[1] + 100))
-    await waitFor(() => expect(fn).toBeCalled)
+    await waitFor(() => expect(fn).toBeCalled())
 
     // animating: true
     expect(fn.mock.calls[0][1]).toBeTruthy()
