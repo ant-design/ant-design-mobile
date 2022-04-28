@@ -9,7 +9,6 @@ import type {
 } from 'rc-field-form'
 import { defaultFormContext, FormContext, FormContextType } from './context'
 import { mergeProps } from '../../utils/with-default-props'
-import type { FormLayout } from '.'
 import { Header } from './header'
 import { useConfig } from '../config-provider'
 import merge from 'lodash/merge'
@@ -50,7 +49,6 @@ export type FormProps = Pick<
   NativeProps<'--border-inner' | '--border-top' | '--border-bottom'> &
   Partial<FormContextType> & {
     footer?: ReactNode
-    layout?: FormLayout
     mode?: ListProps['mode']
   }
 
@@ -66,6 +64,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     layout,
     footer,
     mode,
+    disabled,
     requiredMarkStyle,
     ...formProps
   } = props
@@ -128,6 +127,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
           hasFeedback,
           layout,
           requiredMarkStyle,
+          disabled: disabled,
         }}
       >
         {lists}

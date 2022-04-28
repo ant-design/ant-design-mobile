@@ -98,7 +98,6 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     label,
     help,
     required,
-    disabled,
     children,
     htmlFor,
     hidden,
@@ -113,6 +112,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const hasFeedback =
     props.hasFeedback !== undefined ? props.hasFeedback : context.hasFeedback
   const layout = props.layout || context.layout
+  const disabled = props.disabled ?? context.disabled
 
   const requiredMark = (() => {
     const { requiredMarkStyle } = context
