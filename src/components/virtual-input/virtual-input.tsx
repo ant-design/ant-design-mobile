@@ -108,6 +108,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           rootRef.current?.blur()
           keyboard.props.onClose?.()
         },
+        getContainer: null,
       } as NumberKeyboardProps)
 
     return withNativeProps(
