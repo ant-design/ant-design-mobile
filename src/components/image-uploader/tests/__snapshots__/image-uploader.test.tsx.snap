@@ -1,0 +1,918 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageUploader \`preview\` & \`onPreview\` prop 1`] = `
+<div>
+  <div
+    class="adm-image-uploader"
+  >
+    <div
+      class="adm-space adm-space-wrap adm-space-block adm-space-horizontal adm-image-uploader-space"
+    >
+      <div
+        class="adm-space-item"
+      >
+        <div
+          class="adm-image-uploader-cell"
+        >
+          <div
+            class="adm-image adm-image-uploader-cell-image"
+          >
+            <div
+              class="adm-image-tip"
+            >
+              <svg
+                class="antd-mobile-icon"
+                height="1em"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 48 48"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>
+                  1492DA84-4DEE-4368-967C-5E77B755D70E@2x
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="PictureOutline-PictureOutline"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    id="PictureOutline-编组"
+                  >
+                    <rect
+                      fill="#FFFFFF"
+                      height="48"
+                      id="PictureOutline-矩形"
+                      opacity="0"
+                      width="48"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M38,4 C41.3137085,4 44,6.6862915 44,10 L44,38 C44,41.3137085 41.3137085,44 38,44 L10,44 C6.6862915,44 4,41.3137085 4,38 L4,10 C4,6.6862915 6.6862915,4 10,4 L38,4 Z M38,7 L10,7 C8.40231912,7 7.09633912,8.24891996 7.00509269,9.82372721 L7,10 L7,38 C7,39.5976809 8.24891996,40.9036609 9.82372721,40.9949073 L10,41 L38,41 C39.5976809,41 40.9036609,39.75108 40.9949073,38.1762728 L41,38 L41,37.332 L32.7808252,29.1126218 C32.0818755,28.4136721 30.9683937,28.3819016 30.2317592,29.0173105 L30.1291748,29.1126218 L17.242,41.9990101 L13,41.9990101 L28.6265729,26.372583 C30.18867,24.8104858 32.72133,24.8104858 34.2834271,26.372583 L40.3171606,32.4061764 C40.4733721,32.5623843 40.7266381,32.5623814 40.882846,32.4061699 C40.9578585,32.3311556 41,32.2294154 41,32.1233304 L41,10 C41,8.40231912 39.75108,7.09633912 38.1762728,7.00509269 L38,7 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状"
+                    />
+                    <path
+                      d="M16,12 C18.7614237,12 21,14.2385763 21,17 C21,19.7614237 18.7614237,22 16,22 C13.2385763,22 11,19.7614237 11,17 C11,14.2385763 13.2385763,12 16,12 Z M16,15 C14.8954305,15 14,15.8954305 14,17 C14,18.1045695 14.8954305,19 16,19 C17.1045695,19 18,18.1045695 18,17 C18,15.8954305 17.1045695,15 16,15 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状结合"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <img
+              class="adm-image-img"
+              src="https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60"
+              style="object-fit: cover; display: none;"
+            />
+          </div>
+          <span
+            class="adm-image-uploader-cell-delete"
+          >
+            <svg
+              class="antd-mobile-icon adm-image-uploader-cell-delete-icon"
+              height="1em"
+              style="vertical-align: -0.125em;"
+              viewBox="0 0 48 48"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <title>
+                BE4E7D81-3958-4F2E-9956-E6071199885F@2x
+              </title>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                id="CloseOutline-CloseOutline"
+                stroke="none"
+                stroke-width="1"
+              >
+                <g
+                  id="CloseOutline-编组"
+                >
+                  <rect
+                    fill="#FFFFFF"
+                    height="48"
+                    id="CloseOutline-矩形"
+                    opacity="0"
+                    width="48"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M10.6085104,8.11754663 L24.1768397,21.8195031 L24.1768397,21.8195031 L37.7443031,8.1175556 C37.8194278,8.04168616 37.9217669,7.999 38.0285372,7.999 L41.1040268,7.999 C41.3249407,7.999 41.5040268,8.1780861 41.5040268,8.399 C41.5040268,8.50440471 41.4624226,8.60554929 41.3882578,8.68044752 L26.2773302,23.9408235 L26.2773302,23.9408235 L41.5021975,39.3175645 C41.65763,39.4745475 41.6563731,39.7278104 41.4993901,39.8832429 C41.4244929,39.9574004 41.3233534,39.999 41.2179546,39.999 L38.1434012,39.999 C38.0366291,39.999 37.9342885,39.9563124 37.8591634,39.8804408 L24.1768397,26.0621438 L24.1768397,26.0621438 L10.4936501,39.8804497 C10.4185257,39.9563159 10.3161889,39.999 10.2094212,39.999 L7.13584526,39.999 C6.91493136,39.999 6.73584526,39.8199139 6.73584526,39.599 C6.73584526,39.4936017 6.77744443,39.3924627 6.85160121,39.3175656 L22.0763492,23.9408235 L22.0763492,23.9408235 L6.96554081,8.68044639 C6.81010226,8.52346929 6.81134951,8.27020637 6.9683266,8.11476782 C7.04322474,8.04060377 7.14436883,7.999 7.24977299,7.999 L10.3242852,7.999 C10.4310511,7.999 10.5333863,8.04168267 10.6085104,8.11754663 Z"
+                    fill="currentColor"
+                    fill-rule="nonzero"
+                    id="CloseOutline-路径"
+                  />
+                </g>
+              </g>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="adm-space-item"
+      >
+        <div
+          class="adm-image-uploader-upload-button-wrap"
+        >
+          <span
+            aria-label="上传"
+            class="adm-image-uploader-cell adm-image-uploader-upload-button"
+            role="button"
+          >
+            <span
+              class="adm-image-uploader-upload-button-icon"
+            >
+              <svg
+                class="antd-mobile-icon"
+                height="1em"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 48 48"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>
+                  33A15659-CFDC-4686-8D0F-7D06C2598A9B@2x
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="AddOutline-AddOutline"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    id="AddOutline-add"
+                  >
+                    <rect
+                      fill="#FFFFFF"
+                      height="48"
+                      id="AddOutline-矩形"
+                      opacity="0"
+                      width="48"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M25.1,6.5 C25.3209139,6.5 25.5,6.6790861 25.5,6.9 L25.5,22.5 L41.1,22.5 C41.3209139,22.5 41.5,22.6790861 41.5,22.9 L41.5,25.1 C41.5,25.3209139 41.3209139,25.5 41.1,25.5 L25.5,25.5 L25.5,41.1 C25.5,41.3209139 25.3209139,41.5 25.1,41.5 L22.9,41.5 C22.6790861,41.5 22.5,41.3209139 22.5,41.1 L22.5,25.5 L6.9,25.5 C6.6790861,25.5 6.5,25.3209139 6.5,25.1 L6.5,22.9 C6.5,22.6790861 6.6790861,22.5 6.9,22.5 L22.5,22.5 L22.5,6.9 C22.5,6.6790861 22.6790861,6.5 22.9,6.5 L25.1,6.5 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="AddOutline-路径"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </span>
+          <input
+            accept="image/*"
+            aria-hidden="true"
+            class="adm-image-uploader-input"
+            type="file"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ImageUploader custom upload button 1`] = `
+<div>
+  <div
+    class="adm-image-uploader"
+  >
+    <div
+      class="adm-space adm-space-wrap adm-space-block adm-space-horizontal adm-image-uploader-space"
+    >
+      <div
+        class="adm-space-item"
+      >
+        <div
+          class="adm-image-uploader-cell"
+        >
+          <div
+            class="adm-image adm-image-uploader-cell-image"
+          >
+            <div
+              class="adm-image-tip"
+            >
+              <svg
+                class="antd-mobile-icon"
+                height="1em"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 48 48"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>
+                  1492DA84-4DEE-4368-967C-5E77B755D70E@2x
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="PictureOutline-PictureOutline"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    id="PictureOutline-编组"
+                  >
+                    <rect
+                      fill="#FFFFFF"
+                      height="48"
+                      id="PictureOutline-矩形"
+                      opacity="0"
+                      width="48"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M38,4 C41.3137085,4 44,6.6862915 44,10 L44,38 C44,41.3137085 41.3137085,44 38,44 L10,44 C6.6862915,44 4,41.3137085 4,38 L4,10 C4,6.6862915 6.6862915,4 10,4 L38,4 Z M38,7 L10,7 C8.40231912,7 7.09633912,8.24891996 7.00509269,9.82372721 L7,10 L7,38 C7,39.5976809 8.24891996,40.9036609 9.82372721,40.9949073 L10,41 L38,41 C39.5976809,41 40.9036609,39.75108 40.9949073,38.1762728 L41,38 L41,37.332 L32.7808252,29.1126218 C32.0818755,28.4136721 30.9683937,28.3819016 30.2317592,29.0173105 L30.1291748,29.1126218 L17.242,41.9990101 L13,41.9990101 L28.6265729,26.372583 C30.18867,24.8104858 32.72133,24.8104858 34.2834271,26.372583 L40.3171606,32.4061764 C40.4733721,32.5623843 40.7266381,32.5623814 40.882846,32.4061699 C40.9578585,32.3311556 41,32.2294154 41,32.1233304 L41,10 C41,8.40231912 39.75108,7.09633912 38.1762728,7.00509269 L38,7 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状"
+                    />
+                    <path
+                      d="M16,12 C18.7614237,12 21,14.2385763 21,17 C21,19.7614237 18.7614237,22 16,22 C13.2385763,22 11,19.7614237 11,17 C11,14.2385763 13.2385763,12 16,12 Z M16,15 C14.8954305,15 14,15.8954305 14,17 C14,18.1045695 14.8954305,19 16,19 C17.1045695,19 18,18.1045695 18,17 C18,15.8954305 17.1045695,15 16,15 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状结合"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <img
+              class="adm-image-img"
+              src="https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60"
+              style="object-fit: cover; display: none;"
+            />
+          </div>
+          <span
+            class="adm-image-uploader-cell-delete"
+          >
+            <svg
+              class="antd-mobile-icon adm-image-uploader-cell-delete-icon"
+              height="1em"
+              style="vertical-align: -0.125em;"
+              viewBox="0 0 48 48"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <title>
+                BE4E7D81-3958-4F2E-9956-E6071199885F@2x
+              </title>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                id="CloseOutline-CloseOutline"
+                stroke="none"
+                stroke-width="1"
+              >
+                <g
+                  id="CloseOutline-编组"
+                >
+                  <rect
+                    fill="#FFFFFF"
+                    height="48"
+                    id="CloseOutline-矩形"
+                    opacity="0"
+                    width="48"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M10.6085104,8.11754663 L24.1768397,21.8195031 L24.1768397,21.8195031 L37.7443031,8.1175556 C37.8194278,8.04168616 37.9217669,7.999 38.0285372,7.999 L41.1040268,7.999 C41.3249407,7.999 41.5040268,8.1780861 41.5040268,8.399 C41.5040268,8.50440471 41.4624226,8.60554929 41.3882578,8.68044752 L26.2773302,23.9408235 L26.2773302,23.9408235 L41.5021975,39.3175645 C41.65763,39.4745475 41.6563731,39.7278104 41.4993901,39.8832429 C41.4244929,39.9574004 41.3233534,39.999 41.2179546,39.999 L38.1434012,39.999 C38.0366291,39.999 37.9342885,39.9563124 37.8591634,39.8804408 L24.1768397,26.0621438 L24.1768397,26.0621438 L10.4936501,39.8804497 C10.4185257,39.9563159 10.3161889,39.999 10.2094212,39.999 L7.13584526,39.999 C6.91493136,39.999 6.73584526,39.8199139 6.73584526,39.599 C6.73584526,39.4936017 6.77744443,39.3924627 6.85160121,39.3175656 L22.0763492,23.9408235 L22.0763492,23.9408235 L6.96554081,8.68044639 C6.81010226,8.52346929 6.81134951,8.27020637 6.9683266,8.11476782 C7.04322474,8.04060377 7.14436883,7.999 7.24977299,7.999 L10.3242852,7.999 C10.4310511,7.999 10.5333863,8.04168267 10.6085104,8.11754663 Z"
+                    fill="currentColor"
+                    fill-rule="nonzero"
+                    id="CloseOutline-路径"
+                  />
+                </g>
+              </g>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="adm-space-item"
+      >
+        <div
+          class="adm-image-uploader-upload-button-wrap"
+        >
+          <div>
+            custom upload button
+          </div>
+          <input
+            accept="image/*"
+            aria-hidden="true"
+            class="adm-image-uploader-input"
+            type="file"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ImageUploader upload status 1`] = `
+<div>
+  <div
+    class="adm-image-uploader"
+  >
+    <div
+      class="adm-space adm-space-wrap adm-space-block adm-space-horizontal adm-image-uploader-space"
+    >
+      <div
+        class="adm-space-item"
+      >
+        <div
+          class="adm-image-uploader-cell"
+        >
+          <div
+            class="adm-image adm-image-uploader-cell-image"
+          >
+            <div
+              class="adm-image-tip"
+            >
+              <svg
+                class="antd-mobile-icon"
+                height="1em"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 48 48"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>
+                  1492DA84-4DEE-4368-967C-5E77B755D70E@2x
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="PictureOutline-PictureOutline"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    id="PictureOutline-编组"
+                  >
+                    <rect
+                      fill="#FFFFFF"
+                      height="48"
+                      id="PictureOutline-矩形"
+                      opacity="0"
+                      width="48"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M38,4 C41.3137085,4 44,6.6862915 44,10 L44,38 C44,41.3137085 41.3137085,44 38,44 L10,44 C6.6862915,44 4,41.3137085 4,38 L4,10 C4,6.6862915 6.6862915,4 10,4 L38,4 Z M38,7 L10,7 C8.40231912,7 7.09633912,8.24891996 7.00509269,9.82372721 L7,10 L7,38 C7,39.5976809 8.24891996,40.9036609 9.82372721,40.9949073 L10,41 L38,41 C39.5976809,41 40.9036609,39.75108 40.9949073,38.1762728 L41,38 L41,37.332 L32.7808252,29.1126218 C32.0818755,28.4136721 30.9683937,28.3819016 30.2317592,29.0173105 L30.1291748,29.1126218 L17.242,41.9990101 L13,41.9990101 L28.6265729,26.372583 C30.18867,24.8104858 32.72133,24.8104858 34.2834271,26.372583 L40.3171606,32.4061764 C40.4733721,32.5623843 40.7266381,32.5623814 40.882846,32.4061699 C40.9578585,32.3311556 41,32.2294154 41,32.1233304 L41,10 C41,8.40231912 39.75108,7.09633912 38.1762728,7.00509269 L38,7 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状"
+                    />
+                    <path
+                      d="M16,12 C18.7614237,12 21,14.2385763 21,17 C21,19.7614237 18.7614237,22 16,22 C13.2385763,22 11,19.7614237 11,17 C11,14.2385763 13.2385763,12 16,12 Z M16,15 C14.8954305,15 14,15.8954305 14,17 C14,18.1045695 14.8954305,19 16,19 C17.1045695,19 18,18.1045695 18,17 C18,15.8954305 17.1045695,15 16,15 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状结合"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <img
+              class="adm-image-img"
+              src="https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60"
+              style="object-fit: cover; display: none;"
+            />
+          </div>
+          <span
+            class="adm-image-uploader-cell-delete"
+          >
+            <svg
+              class="antd-mobile-icon adm-image-uploader-cell-delete-icon"
+              height="1em"
+              style="vertical-align: -0.125em;"
+              viewBox="0 0 48 48"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <title>
+                BE4E7D81-3958-4F2E-9956-E6071199885F@2x
+              </title>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                id="CloseOutline-CloseOutline"
+                stroke="none"
+                stroke-width="1"
+              >
+                <g
+                  id="CloseOutline-编组"
+                >
+                  <rect
+                    fill="#FFFFFF"
+                    height="48"
+                    id="CloseOutline-矩形"
+                    opacity="0"
+                    width="48"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M10.6085104,8.11754663 L24.1768397,21.8195031 L24.1768397,21.8195031 L37.7443031,8.1175556 C37.8194278,8.04168616 37.9217669,7.999 38.0285372,7.999 L41.1040268,7.999 C41.3249407,7.999 41.5040268,8.1780861 41.5040268,8.399 C41.5040268,8.50440471 41.4624226,8.60554929 41.3882578,8.68044752 L26.2773302,23.9408235 L26.2773302,23.9408235 L41.5021975,39.3175645 C41.65763,39.4745475 41.6563731,39.7278104 41.4993901,39.8832429 C41.4244929,39.9574004 41.3233534,39.999 41.2179546,39.999 L38.1434012,39.999 C38.0366291,39.999 37.9342885,39.9563124 37.8591634,39.8804408 L24.1768397,26.0621438 L24.1768397,26.0621438 L10.4936501,39.8804497 C10.4185257,39.9563159 10.3161889,39.999 10.2094212,39.999 L7.13584526,39.999 C6.91493136,39.999 6.73584526,39.8199139 6.73584526,39.599 C6.73584526,39.4936017 6.77744443,39.3924627 6.85160121,39.3175656 L22.0763492,23.9408235 L22.0763492,23.9408235 L6.96554081,8.68044639 C6.81010226,8.52346929 6.81134951,8.27020637 6.9683266,8.11476782 C7.04322474,8.04060377 7.14436883,7.999 7.24977299,7.999 L10.3242852,7.999 C10.4310511,7.999 10.5333863,8.04168267 10.6085104,8.11754663 Z"
+                    fill="currentColor"
+                    fill-rule="nonzero"
+                    id="CloseOutline-路径"
+                  />
+                </g>
+              </g>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="adm-space-item"
+      >
+        <div
+          class="adm-image-uploader-cell"
+        >
+          <div
+            class="adm-image adm-image-uploader-cell-image"
+          >
+            <div
+              class="adm-image-tip"
+            >
+              <svg
+                class="antd-mobile-icon"
+                height="1em"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 48 48"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>
+                  1492DA84-4DEE-4368-967C-5E77B755D70E@2x
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="PictureOutline-PictureOutline"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    id="PictureOutline-编组"
+                  >
+                    <rect
+                      fill="#FFFFFF"
+                      height="48"
+                      id="PictureOutline-矩形"
+                      opacity="0"
+                      width="48"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M38,4 C41.3137085,4 44,6.6862915 44,10 L44,38 C44,41.3137085 41.3137085,44 38,44 L10,44 C6.6862915,44 4,41.3137085 4,38 L4,10 C4,6.6862915 6.6862915,4 10,4 L38,4 Z M38,7 L10,7 C8.40231912,7 7.09633912,8.24891996 7.00509269,9.82372721 L7,10 L7,38 C7,39.5976809 8.24891996,40.9036609 9.82372721,40.9949073 L10,41 L38,41 C39.5976809,41 40.9036609,39.75108 40.9949073,38.1762728 L41,38 L41,37.332 L32.7808252,29.1126218 C32.0818755,28.4136721 30.9683937,28.3819016 30.2317592,29.0173105 L30.1291748,29.1126218 L17.242,41.9990101 L13,41.9990101 L28.6265729,26.372583 C30.18867,24.8104858 32.72133,24.8104858 34.2834271,26.372583 L40.3171606,32.4061764 C40.4733721,32.5623843 40.7266381,32.5623814 40.882846,32.4061699 C40.9578585,32.3311556 41,32.2294154 41,32.1233304 L41,10 C41,8.40231912 39.75108,7.09633912 38.1762728,7.00509269 L38,7 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状"
+                    />
+                    <path
+                      d="M16,12 C18.7614237,12 21,14.2385763 21,17 C21,19.7614237 18.7614237,22 16,22 C13.2385763,22 11,19.7614237 11,17 C11,14.2385763 13.2385763,12 16,12 Z M16,15 C14.8954305,15 14,15.8954305 14,17 C14,18.1045695 14.8954305,19 16,19 C17.1045695,19 18,18.1045695 18,17 C18,15.8954305 17.1045695,15 16,15 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状结合"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <img
+              class="adm-image-img"
+              src=""
+              style="object-fit: cover; display: none;"
+            />
+          </div>
+          <div
+            class="adm-image-uploader-cell-mask"
+          >
+            <span
+              class="adm-image-uploader-cell-loading"
+            >
+              <div
+                class="adm-spin-loading"
+                style="--color: var(--adm-color-white); --percent: 30;"
+              >
+                <svg
+                  class="adm-spin-loading-svg"
+                  viewBox="0 0 32 32"
+                >
+                  <circle
+                    class="adm-spin-loading-fill"
+                    cx="16"
+                    cy="16"
+                    fill="transparent"
+                    r="15"
+                    stroke-dasharray="94.2477796076937"
+                    stroke-dashoffset="30"
+                    stroke-linecap="square"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <span
+                class="adm-image-uploader-cell-mask-message"
+              >
+                上传中...
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-space-item"
+      >
+        <div
+          class="adm-image-uploader-upload-button-wrap"
+        >
+          <span
+            aria-label="上传"
+            class="adm-image-uploader-cell adm-image-uploader-upload-button"
+            role="button"
+          >
+            <span
+              class="adm-image-uploader-upload-button-icon"
+            >
+              <svg
+                class="antd-mobile-icon"
+                height="1em"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 48 48"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>
+                  33A15659-CFDC-4686-8D0F-7D06C2598A9B@2x
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="AddOutline-AddOutline"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    id="AddOutline-add"
+                  >
+                    <rect
+                      fill="#FFFFFF"
+                      height="48"
+                      id="AddOutline-矩形"
+                      opacity="0"
+                      width="48"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M25.1,6.5 C25.3209139,6.5 25.5,6.6790861 25.5,6.9 L25.5,22.5 L41.1,22.5 C41.3209139,22.5 41.5,22.6790861 41.5,22.9 L41.5,25.1 C41.5,25.3209139 41.3209139,25.5 41.1,25.5 L25.5,25.5 L25.5,41.1 C25.5,41.3209139 25.3209139,41.5 25.1,41.5 L22.9,41.5 C22.6790861,41.5 22.5,41.3209139 22.5,41.1 L22.5,25.5 L6.9,25.5 C6.6790861,25.5 6.5,25.3209139 6.5,25.1 L6.5,22.9 C6.5,22.6790861 6.6790861,22.5 6.9,22.5 L22.5,22.5 L22.5,6.9 C22.5,6.6790861 22.6790861,6.5 22.9,6.5 L25.1,6.5 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="AddOutline-路径"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </span>
+          <input
+            accept="image/*"
+            aria-hidden="true"
+            class="adm-image-uploader-input"
+            type="file"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ImageUploader upload status 2`] = `
+<div>
+  <div
+    class="adm-image-uploader"
+  >
+    <div
+      class="adm-space adm-space-wrap adm-space-block adm-space-horizontal adm-image-uploader-space"
+    >
+      <div
+        class="adm-space-item"
+      >
+        <div
+          class="adm-image-uploader-cell"
+        >
+          <div
+            class="adm-image adm-image-uploader-cell-image"
+          >
+            <div
+              class="adm-image-tip"
+            >
+              <svg
+                class="antd-mobile-icon"
+                height="1em"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 48 48"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>
+                  1492DA84-4DEE-4368-967C-5E77B755D70E@2x
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="PictureOutline-PictureOutline"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    id="PictureOutline-编组"
+                  >
+                    <rect
+                      fill="#FFFFFF"
+                      height="48"
+                      id="PictureOutline-矩形"
+                      opacity="0"
+                      width="48"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M38,4 C41.3137085,4 44,6.6862915 44,10 L44,38 C44,41.3137085 41.3137085,44 38,44 L10,44 C6.6862915,44 4,41.3137085 4,38 L4,10 C4,6.6862915 6.6862915,4 10,4 L38,4 Z M38,7 L10,7 C8.40231912,7 7.09633912,8.24891996 7.00509269,9.82372721 L7,10 L7,38 C7,39.5976809 8.24891996,40.9036609 9.82372721,40.9949073 L10,41 L38,41 C39.5976809,41 40.9036609,39.75108 40.9949073,38.1762728 L41,38 L41,37.332 L32.7808252,29.1126218 C32.0818755,28.4136721 30.9683937,28.3819016 30.2317592,29.0173105 L30.1291748,29.1126218 L17.242,41.9990101 L13,41.9990101 L28.6265729,26.372583 C30.18867,24.8104858 32.72133,24.8104858 34.2834271,26.372583 L40.3171606,32.4061764 C40.4733721,32.5623843 40.7266381,32.5623814 40.882846,32.4061699 C40.9578585,32.3311556 41,32.2294154 41,32.1233304 L41,10 C41,8.40231912 39.75108,7.09633912 38.1762728,7.00509269 L38,7 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状"
+                    />
+                    <path
+                      d="M16,12 C18.7614237,12 21,14.2385763 21,17 C21,19.7614237 18.7614237,22 16,22 C13.2385763,22 11,19.7614237 11,17 C11,14.2385763 13.2385763,12 16,12 Z M16,15 C14.8954305,15 14,15.8954305 14,17 C14,18.1045695 14.8954305,19 16,19 C17.1045695,19 18,18.1045695 18,17 C18,15.8954305 17.1045695,15 16,15 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状结合"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <img
+              class="adm-image-img"
+              src="https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60"
+              style="object-fit: cover; display: none;"
+            />
+          </div>
+          <span
+            class="adm-image-uploader-cell-delete"
+          >
+            <svg
+              class="antd-mobile-icon adm-image-uploader-cell-delete-icon"
+              height="1em"
+              style="vertical-align: -0.125em;"
+              viewBox="0 0 48 48"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <title>
+                BE4E7D81-3958-4F2E-9956-E6071199885F@2x
+              </title>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                id="CloseOutline-CloseOutline"
+                stroke="none"
+                stroke-width="1"
+              >
+                <g
+                  id="CloseOutline-编组"
+                >
+                  <rect
+                    fill="#FFFFFF"
+                    height="48"
+                    id="CloseOutline-矩形"
+                    opacity="0"
+                    width="48"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M10.6085104,8.11754663 L24.1768397,21.8195031 L24.1768397,21.8195031 L37.7443031,8.1175556 C37.8194278,8.04168616 37.9217669,7.999 38.0285372,7.999 L41.1040268,7.999 C41.3249407,7.999 41.5040268,8.1780861 41.5040268,8.399 C41.5040268,8.50440471 41.4624226,8.60554929 41.3882578,8.68044752 L26.2773302,23.9408235 L26.2773302,23.9408235 L41.5021975,39.3175645 C41.65763,39.4745475 41.6563731,39.7278104 41.4993901,39.8832429 C41.4244929,39.9574004 41.3233534,39.999 41.2179546,39.999 L38.1434012,39.999 C38.0366291,39.999 37.9342885,39.9563124 37.8591634,39.8804408 L24.1768397,26.0621438 L24.1768397,26.0621438 L10.4936501,39.8804497 C10.4185257,39.9563159 10.3161889,39.999 10.2094212,39.999 L7.13584526,39.999 C6.91493136,39.999 6.73584526,39.8199139 6.73584526,39.599 C6.73584526,39.4936017 6.77744443,39.3924627 6.85160121,39.3175656 L22.0763492,23.9408235 L22.0763492,23.9408235 L6.96554081,8.68044639 C6.81010226,8.52346929 6.81134951,8.27020637 6.9683266,8.11476782 C7.04322474,8.04060377 7.14436883,7.999 7.24977299,7.999 L10.3242852,7.999 C10.4310511,7.999 10.5333863,8.04168267 10.6085104,8.11754663 Z"
+                    fill="currentColor"
+                    fill-rule="nonzero"
+                    id="CloseOutline-路径"
+                  />
+                </g>
+              </g>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="adm-space-item"
+      >
+        <div
+          class="adm-image-uploader-cell adm-image-uploader-cell-fail"
+        >
+          <div
+            class="adm-image adm-image-uploader-cell-image"
+          >
+            <div
+              class="adm-image-tip"
+            >
+              <svg
+                class="antd-mobile-icon"
+                height="1em"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 48 48"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>
+                  1492DA84-4DEE-4368-967C-5E77B755D70E@2x
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="PictureOutline-PictureOutline"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    id="PictureOutline-编组"
+                  >
+                    <rect
+                      fill="#FFFFFF"
+                      height="48"
+                      id="PictureOutline-矩形"
+                      opacity="0"
+                      width="48"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M38,4 C41.3137085,4 44,6.6862915 44,10 L44,38 C44,41.3137085 41.3137085,44 38,44 L10,44 C6.6862915,44 4,41.3137085 4,38 L4,10 C4,6.6862915 6.6862915,4 10,4 L38,4 Z M38,7 L10,7 C8.40231912,7 7.09633912,8.24891996 7.00509269,9.82372721 L7,10 L7,38 C7,39.5976809 8.24891996,40.9036609 9.82372721,40.9949073 L10,41 L38,41 C39.5976809,41 40.9036609,39.75108 40.9949073,38.1762728 L41,38 L41,37.332 L32.7808252,29.1126218 C32.0818755,28.4136721 30.9683937,28.3819016 30.2317592,29.0173105 L30.1291748,29.1126218 L17.242,41.9990101 L13,41.9990101 L28.6265729,26.372583 C30.18867,24.8104858 32.72133,24.8104858 34.2834271,26.372583 L40.3171606,32.4061764 C40.4733721,32.5623843 40.7266381,32.5623814 40.882846,32.4061699 C40.9578585,32.3311556 41,32.2294154 41,32.1233304 L41,10 C41,8.40231912 39.75108,7.09633912 38.1762728,7.00509269 L38,7 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状"
+                    />
+                    <path
+                      d="M16,12 C18.7614237,12 21,14.2385763 21,17 C21,19.7614237 18.7614237,22 16,22 C13.2385763,22 11,19.7614237 11,17 C11,14.2385763 13.2385763,12 16,12 Z M16,15 C14.8954305,15 14,15.8954305 14,17 C14,18.1045695 14.8954305,19 16,19 C17.1045695,19 18,18.1045695 18,17 C18,15.8954305 17.1045695,15 16,15 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="PictureOutline-形状结合"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <img
+              class="adm-image-img"
+              src=""
+              style="object-fit: cover; display: none;"
+            />
+          </div>
+          <span
+            class="adm-image-uploader-cell-delete"
+          >
+            <svg
+              class="antd-mobile-icon adm-image-uploader-cell-delete-icon"
+              height="1em"
+              style="vertical-align: -0.125em;"
+              viewBox="0 0 48 48"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <title>
+                BE4E7D81-3958-4F2E-9956-E6071199885F@2x
+              </title>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                id="CloseOutline-CloseOutline"
+                stroke="none"
+                stroke-width="1"
+              >
+                <g
+                  id="CloseOutline-编组"
+                >
+                  <rect
+                    fill="#FFFFFF"
+                    height="48"
+                    id="CloseOutline-矩形"
+                    opacity="0"
+                    width="48"
+                    x="0"
+                    y="0"
+                  />
+                  <path
+                    d="M10.6085104,8.11754663 L24.1768397,21.8195031 L24.1768397,21.8195031 L37.7443031,8.1175556 C37.8194278,8.04168616 37.9217669,7.999 38.0285372,7.999 L41.1040268,7.999 C41.3249407,7.999 41.5040268,8.1780861 41.5040268,8.399 C41.5040268,8.50440471 41.4624226,8.60554929 41.3882578,8.68044752 L26.2773302,23.9408235 L26.2773302,23.9408235 L41.5021975,39.3175645 C41.65763,39.4745475 41.6563731,39.7278104 41.4993901,39.8832429 C41.4244929,39.9574004 41.3233534,39.999 41.2179546,39.999 L38.1434012,39.999 C38.0366291,39.999 37.9342885,39.9563124 37.8591634,39.8804408 L24.1768397,26.0621438 L24.1768397,26.0621438 L10.4936501,39.8804497 C10.4185257,39.9563159 10.3161889,39.999 10.2094212,39.999 L7.13584526,39.999 C6.91493136,39.999 6.73584526,39.8199139 6.73584526,39.599 C6.73584526,39.4936017 6.77744443,39.3924627 6.85160121,39.3175656 L22.0763492,23.9408235 L22.0763492,23.9408235 L6.96554081,8.68044639 C6.81010226,8.52346929 6.81134951,8.27020637 6.9683266,8.11476782 C7.04322474,8.04060377 7.14436883,7.999 7.24977299,7.999 L10.3242852,7.999 C10.4310511,7.999 10.5333863,8.04168267 10.6085104,8.11754663 Z"
+                    fill="currentColor"
+                    fill-rule="nonzero"
+                    id="CloseOutline-路径"
+                  />
+                </g>
+              </g>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="adm-space-item"
+      >
+        <div
+          class="adm-image-uploader-upload-button-wrap"
+        >
+          <span
+            aria-label="上传"
+            class="adm-image-uploader-cell adm-image-uploader-upload-button"
+            role="button"
+          >
+            <span
+              class="adm-image-uploader-upload-button-icon"
+            >
+              <svg
+                class="antd-mobile-icon"
+                height="1em"
+                style="vertical-align: -0.125em;"
+                viewBox="0 0 48 48"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <title>
+                  33A15659-CFDC-4686-8D0F-7D06C2598A9B@2x
+                </title>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  id="AddOutline-AddOutline"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    id="AddOutline-add"
+                  >
+                    <rect
+                      fill="#FFFFFF"
+                      height="48"
+                      id="AddOutline-矩形"
+                      opacity="0"
+                      width="48"
+                      x="0"
+                      y="0"
+                    />
+                    <path
+                      d="M25.1,6.5 C25.3209139,6.5 25.5,6.6790861 25.5,6.9 L25.5,22.5 L41.1,22.5 C41.3209139,22.5 41.5,22.6790861 41.5,22.9 L41.5,25.1 C41.5,25.3209139 41.3209139,25.5 41.1,25.5 L25.5,25.5 L25.5,41.1 C25.5,41.3209139 25.3209139,41.5 25.1,41.5 L22.9,41.5 C22.6790861,41.5 22.5,41.3209139 22.5,41.1 L22.5,25.5 L6.9,25.5 C6.6790861,25.5 6.5,25.3209139 6.5,25.1 L6.5,22.9 C6.5,22.6790861 6.6790861,22.5 6.9,22.5 L22.5,22.5 L22.5,6.9 C22.5,6.6790861 22.6790861,6.5 22.9,6.5 L25.1,6.5 Z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                      id="AddOutline-路径"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </span>
+          <input
+            accept="image/*"
+            aria-hidden="true"
+            class="adm-image-uploader-input"
+            type="file"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
