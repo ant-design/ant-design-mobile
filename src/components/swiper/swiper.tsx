@@ -57,7 +57,7 @@ const defaultProps = {
   rubberband: true,
 }
 
-export const Swiper = forwardRef(
+export const Swiper = forwardRef<SwiperRef, SwiperProps>(
   staged<SwiperProps, SwiperRef>((p, ref) => {
     const props = mergeProps(defaultProps, p)
 
