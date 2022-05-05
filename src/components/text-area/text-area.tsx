@@ -1,6 +1,6 @@
 import React, {
   forwardRef,
-  useEffect,
+  useLayoutEffect,
   useImperativeHandle,
   useRef,
 } from 'react'
@@ -91,7 +91,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       },
     }))
 
-    useEffect(() => {
+    useLayoutEffect(() => {
       if (!autoSize) return
       const textArea = nativeTextAreaRef.current
       if (!textArea) return
