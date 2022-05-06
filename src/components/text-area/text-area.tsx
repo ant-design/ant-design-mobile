@@ -1,10 +1,6 @@
-import React, {
-  forwardRef,
-  useLayoutEffect,
-  useImperativeHandle,
-  useRef,
-} from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import type { ReactNode } from 'react'
+import { useIsomorphicLayoutEffect } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
@@ -91,7 +87,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       },
     }))
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       if (!autoSize) return
       const textArea = nativeTextAreaRef.current
       if (!textArea) return
