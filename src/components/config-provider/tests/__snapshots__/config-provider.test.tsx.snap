@@ -9,7 +9,7 @@ exports[`ConfigProvider should display the text as en 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -51,7 +51,7 @@ exports[`ConfigProvider should display the text as en 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -95,7 +95,7 @@ exports[`ConfigProvider should display the text as en 1`] = `
         2022/3
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -134,7 +134,7 @@ exports[`ConfigProvider should display the text as en 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -1269,7 +1269,7 @@ exports[`ConfigProvider should display the text as es 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -1311,7 +1311,7 @@ exports[`ConfigProvider should display the text as es 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -1355,7 +1355,7 @@ exports[`ConfigProvider should display the text as es 1`] = `
         2022/3
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -1394,7 +1394,7 @@ exports[`ConfigProvider should display the text as es 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -2529,7 +2529,7 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -2571,7 +2571,7 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -2615,7 +2615,7 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
         2022/3
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -2654,7 +2654,7 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -3789,7 +3789,7 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -3831,7 +3831,7 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -3875,7 +3875,7 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
         2022년 3월
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -3914,7 +3914,7 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -5049,7 +5049,7 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -5091,7 +5091,7 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -5135,7 +5135,7 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
         2022年3月
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -5174,7 +5174,7 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -6309,7 +6309,7 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -6351,7 +6351,7 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -6395,7 +6395,7 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
         2022年3月
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -6434,7 +6434,7 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -7569,7 +7569,7 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -7611,7 +7611,7 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -7655,7 +7655,7 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
         2022年3月
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -7694,7 +7694,7 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
