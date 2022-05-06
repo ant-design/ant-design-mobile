@@ -123,7 +123,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
   const header = (
     <div className={`${classPrefix}-header`}>
       <a
-        className={`${classPrefix}-arrow-button`}
+        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-year`}
         onClick={() => {
           setCurrent(current.subtract(1, 'year'))
         }}
@@ -131,7 +131,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
         <ArrowLeftDouble />
       </a>
       <a
-        className={`${classPrefix}-arrow-button`}
+        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
         onClick={() => {
           setCurrent(current.subtract(1, 'month'))
         }}
@@ -145,7 +145,11 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
         )}
       </div>
       <a
-        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-right`}
+        className={classNames(
+          `${classPrefix}-arrow-button`,
+          `${classPrefix}-arrow-button-right`,
+          `${classPrefix}-arrow-button-right-month`
+        )}
         onClick={() => {
           setCurrent(current.add(1, 'month'))
         }}
@@ -153,7 +157,11 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
         <ArrowLeft />
       </a>
       <a
-        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-right`}
+        className={classNames(
+          `${classPrefix}-arrow-button`,
+          `${classPrefix}-arrow-button-right`,
+          `${classPrefix}-arrow-button-right-year`
+        )}
         onClick={() => {
           setCurrent(current.add(1, 'year'))
         }}
