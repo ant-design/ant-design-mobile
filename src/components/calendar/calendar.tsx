@@ -29,6 +29,10 @@ export type CalenderRef = {
 }
 
 export type CalendarProps = {
+  prevLabel?: React.ReactNode
+  prev2Label?: React.ReactNode
+  nextLabel?: React.ReactNode
+  next2Label?: React.ReactNode
   onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => string | null | undefined
@@ -61,6 +65,10 @@ const defaultProps = {
   weekStartsOn: 'Sunday',
   defaultValue: null,
   allowClear: true,
+  prevLabel: <ArrowLeft />,
+  prev2Label: <ArrowLeftDouble />,
+  nextLabel: <ArrowLeft />,
+  next2Label: <ArrowLeftDouble />,
 }
 
 export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
@@ -128,7 +136,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           setCurrent(current.subtract(1, 'year'))
         }}
       >
-        <ArrowLeftDouble />
+        {props.prev2Label}
       </a>
       <a
         className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
@@ -136,7 +144,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           setCurrent(current.subtract(1, 'month'))
         }}
       >
-        <ArrowLeft />
+        {props.prevLabel}
       </a>
       <div className={`${classPrefix}-title`}>
         {locale.Calendar.renderYearAndMonth(
@@ -154,7 +162,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           setCurrent(current.add(1, 'month'))
         }}
       >
-        <ArrowLeft />
+        {props.nextLabel}
       </a>
       <a
         className={classNames(
@@ -166,7 +174,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           setCurrent(current.add(1, 'year'))
         }}
       >
-        <ArrowLeftDouble />
+        {props.next2Label}
       </a>
     </div>
   )

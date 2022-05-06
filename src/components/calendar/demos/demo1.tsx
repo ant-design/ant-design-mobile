@@ -18,6 +18,18 @@ export default () => {
         </DemoDescription>
       </DemoBlock>
 
+      <DemoBlock title='自定义导航'>
+        <Calendar
+          prevLabel={<span>上一月</span>}
+          nextLabel={<span>下一月</span>}
+          prev2Label={<span>上一年</span>}
+          next2Label={<span>下一年</span>}
+        />
+        <DemoDescription>
+          如果你不设置 selectionMode 属性，那么日历默认是不支持进行选择操作的
+        </DemoDescription>
+      </DemoBlock>
+
       <DemoBlock title='选择某一天'>
         <Calendar
           selectionMode='single'

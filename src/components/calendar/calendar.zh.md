@@ -18,6 +18,10 @@
 | allowClear    | 是否允许再次点击后清除             | `boolean`                                                                                      | `true`     |
 | min           | 可选择范围的最小值                 | `Date`                                                                                         | -          |
 | max           | 可选择范围的最大值                 | `Date`                                                                                         | -          |
+| prevLabel     | 导航窗格上的“上一月”按钮的内容     | `React.ReactNode`                                                                              | `<`        |
+| nextLabel     | 导航窗格上的“下一月”按钮的内容     | `React.ReactNode`                                                                              | `>`        |
+| prev2Label    | 导航窗格上的“上一年”按钮的内容     | `React.ReactNode`                                                                              | `<<`       |
+| next2Label    | 导航窗格上的“下一年”按钮的内容     | `React.ReactNode`                                                                              | `>>`       |
 
 ### CSS 变量
 

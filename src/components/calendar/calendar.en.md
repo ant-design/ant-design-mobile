@@ -20,6 +20,10 @@
 | allowClear    | Whether to allow clearing after another click.                   | `boolean`                                                                                                                            | `true`     |
 | min           | Minimum value of selectable range.                               | `Date`                                                                                                                               | -          |
 | max           | The maximum value of a selectable range.                         | `Date`                                                                                                                               | -          |
+| prevLabel     | Contents of the Last Month button on the navigation pane         | `React.ReactNode`                                                                                                                    | `<`        |
+| nextLabel     | Contents of the Next Month button on the navigation pane         | `React.ReactNode`                                                                                                                    | `>`        |
+| prev2Label    | Contents of the Last year button on the navigation pane          | `React.ReactNode`                                                                                                                    | `<<`       |
+| next2Label    | Contents of the next Year button on the navigation pane          | `React.ReactNode`                                                                                                                    | `>>`       |
 
 ### CSS Variables
 
