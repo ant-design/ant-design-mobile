@@ -9,7 +9,7 @@ exports[`Calendar controlled mode 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -51,7 +51,7 @@ exports[`Calendar controlled mode 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -95,7 +95,7 @@ exports[`Calendar controlled mode 1`] = `
         2022年4月
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -134,7 +134,7 @@ exports[`Calendar controlled mode 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -736,7 +736,7 @@ exports[`Calendar custom label 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -778,7 +778,7 @@ exports[`Calendar custom label 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -822,7 +822,7 @@ exports[`Calendar custom label 1`] = `
         2022年3月
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -861,7 +861,7 @@ exports[`Calendar custom label 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -1495,7 +1495,7 @@ exports[`Calendar jump to a day 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -1537,7 +1537,7 @@ exports[`Calendar jump to a day 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -1581,7 +1581,7 @@ exports[`Calendar jump to a day 1`] = `
         2021年1月
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -1620,7 +1620,7 @@ exports[`Calendar jump to a day 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -2228,7 +2228,7 @@ exports[`Calendar jump to a day 2`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -2270,7 +2270,7 @@ exports[`Calendar jump to a day 2`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -2314,7 +2314,7 @@ exports[`Calendar jump to a day 2`] = `
         2022年3月
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -2353,7 +2353,7 @@ exports[`Calendar jump to a day 2`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -2955,7 +2955,7 @@ exports[`Calendar range mode 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -2997,7 +2997,7 @@ exports[`Calendar range mode 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -3041,7 +3041,7 @@ exports[`Calendar range mode 1`] = `
         2022年3月
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -3080,7 +3080,7 @@ exports[`Calendar range mode 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -3682,7 +3682,7 @@ exports[`Calendar single mode 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -3724,7 +3724,7 @@ exports[`Calendar single mode 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -3768,7 +3768,7 @@ exports[`Calendar single mode 1`] = `
         2022年3月
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -3807,7 +3807,7 @@ exports[`Calendar single mode 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -4409,7 +4409,7 @@ exports[`Calendar week start on Monday 1`] = `
       class="adm-calendar-header"
     >
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -4451,7 +4451,7 @@ exports[`Calendar week start on Monday 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -4495,7 +4495,7 @@ exports[`Calendar week start on Monday 1`] = `
         2022年3月
       </div>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -4534,7 +4534,7 @@ exports[`Calendar week start on Monday 1`] = `
         </svg>
       </a>
       <a
-        class="adm-calendar-arrow-button adm-calendar-arrow-button-right"
+        class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
