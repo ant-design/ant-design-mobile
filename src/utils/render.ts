@@ -19,6 +19,7 @@ let createRoot: CreateRoot
 try {
   const mainVersion = Number((version || '').split('.')[0])
   if (mainVersion >= 18) {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     createRoot = require('react-dom/client').createRoot
   }
 } catch (e) {
