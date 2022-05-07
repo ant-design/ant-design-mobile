@@ -29,10 +29,10 @@ export type CalenderRef = {
 }
 
 export type CalendarProps = {
-  prevLabel?: React.ReactNode
-  prev2Label?: React.ReactNode
-  nextLabel?: React.ReactNode
-  next2Label?: React.ReactNode
+  prevMonthButton?: React.ReactNode
+  prevYearButton?: React.ReactNode
+  nextMonthButton?: React.ReactNode
+  nextYearButton?: React.ReactNode
   onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => string | null | undefined
@@ -65,10 +65,10 @@ const defaultProps = {
   weekStartsOn: 'Sunday',
   defaultValue: null,
   allowClear: true,
-  prevLabel: <ArrowLeft />,
-  prev2Label: <ArrowLeftDouble />,
-  nextLabel: <ArrowLeft />,
-  next2Label: <ArrowLeftDouble />,
+  prevMonthButton: <ArrowLeft />,
+  prevYearButton: <ArrowLeftDouble />,
+  nextMonthButton: <ArrowLeft />,
+  nextYearButton: <ArrowLeftDouble />,
 }
 
 export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
@@ -136,7 +136,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           setCurrent(current.subtract(1, 'year'))
         }}
       >
-        {props.prev2Label}
+        {props.prevYearButton}
       </a>
       <a
         className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
@@ -144,7 +144,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           setCurrent(current.subtract(1, 'month'))
         }}
       >
-        {props.prevLabel}
+        {props.prevMonthButton}
       </a>
       <div className={`${classPrefix}-title`}>
         {locale.Calendar.renderYearAndMonth(
@@ -162,7 +162,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           setCurrent(current.add(1, 'month'))
         }}
       >
-        {props.nextLabel}
+        {props.nextMonthButton}
       </a>
       <a
         className={classNames(
@@ -174,7 +174,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           setCurrent(current.add(1, 'year'))
         }}
       >
-        {props.next2Label}
+        {props.nextYearButton}
       </a>
     </div>
   )
