@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { fireEvent, render, testA11y, waitFor } from 'testing'
+import React from 'react'
+import { render, testA11y } from 'testing'
 import ErrorBlock from '..'
 
 const classPrefix = `adm-error-block`

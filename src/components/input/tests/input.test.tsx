@@ -1,5 +1,5 @@
 import React, { createRef } from 'react'
-import { fireEvent, render, testA11y, userEvent } from 'testing'
+import { render } from 'testing'
 import Input from '..'
 import { InputRef } from '../input'
 

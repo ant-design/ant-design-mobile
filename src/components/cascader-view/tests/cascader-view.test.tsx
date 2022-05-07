@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, testA11y, waitFor } from 'testing'
+import { fireEvent, render, testA11y } from 'testing'
 import CascaderView from '../'
 import { options, sameValueOptions } from '../../cascader/demos/data'
 

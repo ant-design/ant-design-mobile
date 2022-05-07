@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, testA11y, waitFor } from 'testing'
+import { fireEvent, render, waitFor } from 'testing'
 import Form from '..'
 import Input from '../../input'
 import Button from '../../button'
