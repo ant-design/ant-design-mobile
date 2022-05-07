@@ -25,9 +25,6 @@ export default () => {
           prevYearButton={<span>上一年</span>}
           nextYearButton={<span>下一年</span>}
         />
-        <DemoDescription>
-          如果你不设置 selectionMode 属性，那么日历默认是不支持进行选择操作的
-        </DemoDescription>
       </DemoBlock>
 
       <DemoBlock title='选择某一天'>
