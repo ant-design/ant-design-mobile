@@ -82,6 +82,10 @@ const config: IConfig = {
             title: '参与贡献',
             path: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
           },
+          {
+            title: '博客',
+            path: 'https://www.yuque.com/awmleer/rocket',
+          },
         ],
       },
       {
