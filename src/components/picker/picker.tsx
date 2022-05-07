@@ -18,6 +18,7 @@ import { useConfig } from '../config-provider'
 import { useMemoizedFn } from 'ahooks'
 import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
+import classNames from 'classnames'
 
 const classPrefix = `adm-picker`
 
@@ -37,6 +38,8 @@ export type PickerProps = {
   children?: (items: (PickerColumnItem | null)[]) => ReactNode
   renderLabel?: (item: PickerColumnItem) => ReactNode
   mouseWheel?: boolean
+  popupClassName?: string
+  popupStyle?: React.CSSProperties
 } & Pick<
   PopupProps,
   'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
@@ -132,7 +135,8 @@ export const Picker = memo<PickerProps>(p => {
 
   const popupElement = (
     <Popup
-      className={`${classPrefix}-popup`}
+      style={props.popupStyle}
+      className={classNames(`${classPrefix}-popup`, props.popupClassName)}
       visible={props.visible}
       position='bottom'
       onMaskClick={() => {
