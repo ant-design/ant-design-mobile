@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ReactNode, memo } from 'react'
+import classNames from 'classnames'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -18,8 +19,7 @@ import { useConfig } from '../config-provider'
 import { useMemoizedFn } from 'ahooks'
 import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
-import classNames from 'classnames'
-import { useShouldRender } from 'antd-mobile/src/utils/should-render'
+import { useShouldRender } from '../../utils/should-render'
 
 const classPrefix = `adm-picker`
 
