@@ -17,6 +17,7 @@ export type TextAreaProps = Pick<
   | 'autoFocus'
   | 'disabled'
   | 'readOnly'
+  | 'name'
   | 'onFocus'
   | 'onBlur'
   | 'onCompositionStart'
@@ -154,6 +155,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           autoFocus={props.autoFocus}
           disabled={props.disabled}
           readOnly={props.readOnly}
+          name={props.name}
           onFocus={props.onFocus}
           onBlur={props.onBlur}
           onClick={props.onClick}

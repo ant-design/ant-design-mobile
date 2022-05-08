@@ -23,6 +23,7 @@ export type InputProps = Pick<
   | 'pattern'
   | 'inputMode'
   | 'type'
+  | 'name'
   | 'onFocus'
   | 'onBlur'
   | 'autoCapitalize'
@@ -164,6 +165,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         pattern={props.pattern}
         inputMode={props.inputMode}
         type={props.type}
+        name={props.name}
         autoCapitalize={props.autoCapitalize}
         autoCorrect={props.autoCorrect}
         onKeyDown={handleKeydown}
