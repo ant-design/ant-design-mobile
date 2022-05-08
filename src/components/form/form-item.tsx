@@ -1,4 +1,4 @@
-import React, { FC, useContext, useCallback, useState } from 'react'
+import React, { FC, useContext, useCallback, useState, useRef } from 'react'
 import classNames from 'classnames'
 import { NativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
@@ -6,9 +6,8 @@ import type { FieldProps } from 'rc-field-form/lib/Field'
 import FieldContext from 'rc-field-form/lib/FieldContext'
 import type { Meta, InternalNamePath } from 'rc-field-form/lib/interface'
 import { devWarning } from '../../utils/dev-log'
-
 import { FormContext, NoStyleItemContext } from './context'
-import { toArray } from './utils'
+import { toArray, isSafeSetRefComponent } from './utils'
 import List, { ListItemProps } from '../list'
 import type { FormLayout } from './index'
 import Popover from '../popover'
@@ -41,7 +40,7 @@ export type FormItemProps = Pick<
 > &
   Pick<
     ListItemProps,
-    'style' | 'onClick' | 'extra' | 'clickable' | 'arrow' | 'description'
+    'style' | 'extra' | 'clickable' | 'arrow' | 'description'
   > & {
     label?: React.ReactNode
     help?: React.ReactNode
@@ -53,6 +52,10 @@ export type FormItemProps = Pick<
     layout?: FormLayout
     childElementPosition?: 'normal' | 'right'
     children?: ChildrenType
+    onClick?: (
+      e: React.MouseEvent,
+      widgetRef: React.MutableRefObject<any>
+    ) => void
   } & NativeProps
 
 interface MemoInputProps {
@@ -75,7 +78,6 @@ type FormItemLayoutProps = Pick<
   | 'disabled'
   | 'label'
   | 'help'
-  | 'onClick'
   | 'hidden'
   | 'layout'
   | 'extra'
@@ -84,6 +86,7 @@ type FormItemLayoutProps = Pick<
   | 'description'
   | 'childElementPosition'
 > & {
+  onClick?: (e: React.MouseEvent) => void
   htmlFor?: string
   errors: string[]
   warnings: string[]
@@ -265,7 +268,9 @@ export const FormItem: FC<FormItemProps> = props => {
     trigger
   )
 
-  const updateRef = React.useRef(0)
+  const widgetRef = useRef<any>(null)
+
+  const updateRef = useRef(0)
   updateRef.current += 1
 
   const [subMetas, setSubMetas] = useState<Record<string, Meta>>({})
@@ -332,7 +337,7 @@ export const FormItem: FC<FormItemProps> = props => {
         htmlFor={fieldId}
         errors={errors}
         warnings={warnings}
-        onClick={onClick}
+        onClick={e => onClick?.(e, widgetRef)}
         hidden={hidden}
         layout={layout}
         childElementPosition={childElementPosition}
@@ -435,6 +440,21 @@ export const FormItem: FC<FormItemProps> = props => {
             )
           }
           const childProps = { ...children.props, ...control }
+
+          if (isSafeSetRefComponent(children)) {
+            childProps.ref = (instance: any) => {
+              const originRef = (children as any).ref
+              if (originRef) {
+                if (typeof originRef === 'function') {
+                  originRef(instance)
+                }
+                if ('current' in originRef) {
+                  originRef.current = instance
+                }
+              }
+              widgetRef.current = instance
+            }
+          }
 
           if (!childProps.id) {
             childProps.id = fieldId
