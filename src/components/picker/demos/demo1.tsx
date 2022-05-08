@@ -37,7 +37,7 @@ function RefDemo() {
   const ref = useRef<PickerRef>(null)
   const [value, setValue] = useState<(string | null)[]>(['M'])
   return (
-    <>
+    <Space>
       <Button
         onClick={() => {
           ref.current?.open()
@@ -53,7 +53,17 @@ function RefDemo() {
           setValue(v)
         }}
       />
-    </>
+
+      <Picker
+        columns={basicColumns}
+        value={value}
+        onConfirm={v => {
+          setValue(v)
+        }}
+      >
+        {(items, { open }) => <Button onClick={open}>选择</Button>}
+      </Picker>
+    </Space>
   )
 }
 
@@ -90,7 +100,7 @@ export default () => {
         <BasicDemo />
       </DemoBlock>
 
-      <DemoBlock title='ref控制显示隐藏'>
+      <DemoBlock title='内部控制 visible'>
         <RefDemo />
       </DemoBlock>
 

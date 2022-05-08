@@ -1,20 +1,11 @@
-import React, {
-  forwardRef,
-  ReactNode,
-  useCallback,
-  useImperativeHandle,
-  useMemo,
-} from 'react'
+import React, { forwardRef, ReactNode, useCallback, useMemo } from 'react'
 import { useMemoizedFn } from 'ahooks'
 import Picker from '../picker'
 import type { PickerProps, PickerValue, PickerColumn } from '../picker'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import {
-  Actions,
-  useControllableVisible,
-} from '../../utils/use-controllable-visible'
+import { Actions } from '../../utils/use-controllable-visible'
 import {
   convertDateToStringArray,
   convertStringArrayToDate,
@@ -75,16 +66,6 @@ export const DatePicker = forwardRef<Actions, DatePickerProps>((p, ref) => {
     },
   })
 
-  const [visible, actions] = useControllableVisible(props.visible)
-  useImperativeHandle(ref, () => actions)
-
-  const onClose = useMemoizedFn(() => {
-    props.onClose?.()
-    if (typeof props.visible !== 'boolean') {
-      actions.close()
-    }
-  })
-
   const now = useMemo(() => new Date(), [])
 
   const pickerValue = useMemo(() => {
@@ -123,12 +104,13 @@ export const DatePicker = forwardRef<Actions, DatePickerProps>((p, ref) => {
   return withNativeProps(
     props,
     <Picker
+      ref={ref}
       columns={columns}
       value={pickerValue}
       onCancel={props.onCancel}
-      onClose={onClose}
+      onClose={props.onClose}
       closeOnMaskClick={props.closeOnMaskClick}
-      visible={visible}
+      visible={props.visible}
       confirmText={props.confirmText}
       cancelText={props.cancelText}
       onConfirm={onConfirm}
@@ -141,7 +123,7 @@ export const DatePicker = forwardRef<Actions, DatePickerProps>((p, ref) => {
       stopPropagation={props.stopPropagation}
       mouseWheel={props.mouseWheel}
     >
-      {() => props.children?.(value, actions)}
+      {(_, actions) => props.children?.(value, actions)}
     </Picker>
   )
 })
