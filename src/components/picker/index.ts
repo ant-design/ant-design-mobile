@@ -4,6 +4,10 @@ import { Picker } from './picker'
 import { prompt } from './prompt'
 
 export type { PickerProps } from './picker'
+export type {
+  Actions,
+  Actions as PickerRef,
+} from '../../utils/use-controllable-visible'
 
 export type {
   PickerValue,

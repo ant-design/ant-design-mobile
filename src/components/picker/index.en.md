@@ -40,7 +40,7 @@ type PickerValueExtend = {
 | title            | Title                                                        | `ReactNode`                                                    | -                      |
 | confirmText      | Text of the ok button                                        | `ReactNode`                                                    | `'确定'`               |
 | cancelText       | Text of the cancel button                                    | `ReactNode`                                                    | `'取消'`               |
-| children         | Render function of the selected options                      | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
+| children         | Render function of the selected options                      | `(items: PickerColumnItem[], actions: Actions) => ReactNode`   | -                      |
 | renderLabel      | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
 | mouseWheel       | Whether to allow interact with mouse wheel                   | `boolean`                                                      | `false`                |
 | popupClassName   | The custom class name of the popup                          | `string`                                                       | -                      |
@@ -96,7 +96,7 @@ Same as `Picker`.
 | min          | Minimum value                                                                                                                        | `Date`                                                                                 | ten years ago   |
 | max          | Max value                                                                                                                            | `Date`                                                                                 | ten years later |
 | precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'`         |
-| children     | The rendering function of the selected items                                                                                         | `(value: Date) => ReactNode`                                                           | -               |
+| children     | The rendering function of the selected items                                                                                         | `(value: Date, actions: Actions) => ReactNode`                                         | -               |
 | renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                            | -               |
 | filter       | Filter available time                                                                                                                | `DatePickerFilter`                                                                     | -               |
 | mouseWheel   | Whether to allow interact with mouse wheel                                                                                           | `boolean`                                                                              | `false`         |

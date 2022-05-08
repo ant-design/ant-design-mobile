@@ -40,7 +40,7 @@ type PickerValueExtend = {
 | title            | 标题                         | `ReactNode`                                                    | -                      |
 | confirmText      | 确定按钮的文字               | `ReactNode`                                                    | `'确定'`               |
 | cancelText       | 取消按钮的文字               | `ReactNode`                                                    | `'取消'`               |
-| children         | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
+| children         | 所选项的渲染函数             | `(items: PickerColumnItem[], actions: Actions) => ReactNode`   | -                      |
 | renderLabel      | 自定义渲染每列展示的内容     | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
 | mouseWheel       | 是否允许通过鼠标滚轮进行选择 | `boolean`                                                      | `false`                |
 | popupClassName   | Popup 弹层容器的自定义类名            | `string`                                                       | -                      |
@@ -122,7 +122,7 @@ type CascadePickerOption = {
 | min          | 最小值                                                                                           | `Date`                                                                                 | 十年前  |
 | max          | 最大值                                                                                           | `Date`                                                                                 | 十年后  |
 | precision    | 精度                                                                                             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
-| children     | 所选项的渲染函数                                                                                 | `(value: Date) => ReactNode`                                                           | -       |
+| children     | 所选项的渲染函数                                                                                 | `(value: Date, actions: Actions) => ReactNode`                                         | -       |
 | renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode`                                            | -       |
 | filter       | 过滤可供选择的时间                                                                               | `DatePickerFilter`                                                                     | -       |
 | mouseWheel   | 是否允许通过鼠标滚轮进行选择                                                                     | `boolean`                                                                              | `false` |

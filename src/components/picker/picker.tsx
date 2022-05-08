@@ -1,4 +1,10 @@
-import React, { useState, useEffect, ReactNode, memo } from 'react'
+import React, {
+  useState,
+  useEffect,
+  ReactNode,
+  forwardRef,
+  useImperativeHandle,
+} from 'react'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -19,6 +25,10 @@ import { useMemoizedFn } from 'ahooks'
 import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
 import classNames from 'classnames'
+import {
+  Actions,
+  useControllableVisible,
+} from '../../utils/use-controllable-visible'
 
 const classPrefix = `adm-picker`
 
@@ -35,7 +45,7 @@ export type PickerProps = {
   title?: ReactNode
   confirmText?: ReactNode
   cancelText?: ReactNode
-  children?: (items: (PickerColumnItem | null)[]) => ReactNode
+  children?: (items: (PickerColumnItem | null)[], actions: Actions) => ReactNode
   renderLabel?: (item: PickerColumnItem) => ReactNode
   mouseWheel?: boolean
   popupClassName?: string
@@ -57,7 +67,7 @@ const defaultProps = {
   renderLabel: defaultRenderLabel,
 }
 
-export const Picker = memo<PickerProps>(p => {
+export const Picker = forwardRef<Actions, PickerProps>((p, ref) => {
   const { locale } = useConfig()
   const props = mergeProps(
     defaultProps,
@@ -67,6 +77,10 @@ export const Picker = memo<PickerProps>(p => {
     },
     p
   )
+
+  const [visible, actions] = useControllableVisible(props.visible)
+
+  useImperativeHandle(ref, () => actions)
 
   const [value, setValue] = usePropsValue({
     ...props,
@@ -83,17 +97,24 @@ export const Picker = memo<PickerProps>(p => {
     if (innerValue !== value) {
       setInnerValue(value)
     }
-  }, [props.visible])
+  }, [visible])
   useEffect(() => {
-    if (!props.visible) {
+    if (!visible) {
       setInnerValue(value)
     }
   }, [value])
 
   const onChange = useMemoizedFn((val, ext) => {
     setInnerValue(val)
-    if (props.visible) {
+    if (visible) {
       props.onSelect?.(val, ext)
+    }
+  })
+
+  const onClose = useMemoizedFn(() => {
+    props.onClose?.()
+    if (typeof props.visible !== 'boolean') {
+      actions.close()
     }
   })
 
@@ -105,7 +126,7 @@ export const Picker = memo<PickerProps>(p => {
           className={`${classPrefix}-header-button`}
           onClick={() => {
             props.onCancel?.()
-            props.onClose?.()
+            onClose()
           }}
         >
           {props.cancelText}
@@ -115,7 +136,7 @@ export const Picker = memo<PickerProps>(p => {
           className={`${classPrefix}-header-button`}
           onClick={() => {
             setValue(innerValue)
-            props.onClose?.()
+            onClose()
           }}
         >
           {props.confirmText}
@@ -137,12 +158,12 @@ export const Picker = memo<PickerProps>(p => {
     <Popup
       style={props.popupStyle}
       className={classNames(`${classPrefix}-popup`, props.popupClassName)}
-      visible={props.visible}
+      visible={visible}
       position='bottom'
       onMaskClick={() => {
         if (!props.closeOnMaskClick) return
         props.onCancel?.()
-        props.onClose?.()
+        onClose()
       }}
       getContainer={props.getContainer}
       destroyOnClose
@@ -160,7 +181,7 @@ export const Picker = memo<PickerProps>(p => {
   return (
     <>
       {popupElement}
-      {props.children?.(extend.items)}
+      {props.children?.(extend.items, actions)}
     </>
   )
 })

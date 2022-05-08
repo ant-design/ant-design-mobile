@@ -1,10 +1,20 @@
-import React, { FC, ReactNode, useCallback, useMemo } from 'react'
+import React, {
+  forwardRef,
+  ReactNode,
+  useCallback,
+  useImperativeHandle,
+  useMemo,
+} from 'react'
 import { useMemoizedFn } from 'ahooks'
 import Picker from '../picker'
 import type { PickerProps, PickerValue, PickerColumn } from '../picker'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import {
+  Actions,
+  useControllableVisible,
+} from '../../utils/use-controllable-visible'
 import {
   convertDateToStringArray,
   convertStringArrayToDate,
@@ -38,7 +48,7 @@ export type DatePickerProps = Pick<
   min?: Date
   max?: Date
   precision?: Precision
-  children?: (value: Date | null) => ReactNode
+  children?: (value: Date | null, actions: Actions) => ReactNode
   renderLabel?: (type: Precision, data: number) => ReactNode
   filter?: DatePickerFilter
 } & NativeProps
@@ -53,7 +63,7 @@ const defaultProps = {
   defaultValue: null as Date | null,
 }
 
-export const DatePicker: FC<DatePickerProps> = p => {
+export const DatePicker = forwardRef<Actions, DatePickerProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
 
   const [value, setValue] = usePropsValue<Date | null>({
@@ -63,6 +73,16 @@ export const DatePicker: FC<DatePickerProps> = p => {
       if (v === null) return
       props.onConfirm?.(v)
     },
+  })
+
+  const [visible, actions] = useControllableVisible(props.visible)
+  useImperativeHandle(ref, () => actions)
+
+  const onClose = useMemoizedFn(() => {
+    props.onClose?.()
+    if (typeof props.visible !== 'boolean') {
+      actions.close()
+    }
   })
 
   const now = useMemo(() => new Date(), [])
@@ -106,9 +126,9 @@ export const DatePicker: FC<DatePickerProps> = p => {
       columns={columns}
       value={pickerValue}
       onCancel={props.onCancel}
-      onClose={props.onClose}
+      onClose={onClose}
       closeOnMaskClick={props.closeOnMaskClick}
-      visible={props.visible}
+      visible={visible}
       confirmText={props.confirmText}
       cancelText={props.cancelText}
       onConfirm={onConfirm}
@@ -121,7 +141,7 @@ export const DatePicker: FC<DatePickerProps> = p => {
       stopPropagation={props.stopPropagation}
       mouseWheel={props.mouseWheel}
     >
-      {() => props.children?.(value)}
+      {() => props.children?.(value, actions)}
     </Picker>
   )
-}
+})
