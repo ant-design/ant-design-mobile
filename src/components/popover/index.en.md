@@ -103,3 +103,13 @@ Default behavior can be prevented with `e.preventDefault()`.
   <input />
 </label>
 ```
+
+### What if the warning `findDOMNode is deprecated in StrictMode.` appears in the browser console?
+
+If React StrictMode is enabled in your project, you may encounter the following warning:
+
+```text
+Warning: findDOMNode is deprecated in StrictMode. findDOMNode was passed an instance of Wrapper which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/ link/strict-mode-find-node
+```
+
+Don't panic, this is expected behavior, because we haven't found a better alternative, so we can only continue to use the deprecated `findDOMNode` API. Please just ignore this error.

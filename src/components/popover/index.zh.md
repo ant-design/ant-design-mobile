@@ -103,3 +103,13 @@
   <input />
 </label>
 ```
+
+### 浏览器控制台中出现了 `findDOMNode is deprecated in StrictMode.` 这样的警告怎么办？
+
+如果你的项目中开启了 React 的 StrictMode，那么可能会遇到下面这样的警告：
+
+```text
+Warning: findDOMNode is deprecated in StrictMode. findDOMNode was passed an instance of Wrapper which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node
+```
+
+请不要惊慌，这是预期的行为，因为我们还没有找到更好的替代方案，所以只能继续用 `findDOMNode` 这个已经被弃用的 API，请忽略这个报错就好。
