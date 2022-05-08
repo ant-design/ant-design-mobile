@@ -8,18 +8,22 @@
 
 ### Props
 
-| Name          | Description                                                      | Type                                                                                                                                 | Default    |
-| ------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
-| selectionMode | The selection mode. Disable selection when this prop is not set. | `'single' \| 'range'`                                                                                                                | -          |
-| value         | The selected date or date range.                                 | `Date \| null` when selection mode is "single". `[Date, Date] \| null` when selection mode is "range"                                | -          |
-| defaultValue  | The default selected date or date range.                         | Same as `value` prop.                                                                                                                | -          |
-| onChange      | Trigger when selected date changes.                              | `(val: Date \| null) => void` when selection mode is "single". `(val: [Date, Date] \| null) => void` when selection mode is "range". | -          |
-| onPageChange  | Trigger when changed year or month.                              | `(year: number, month: number) => void`                                                                                              | -          |
-| weekStartsOn  | Week starts on which day.                                        | `'Monday' \| 'Sunday'`                                                                                                               | `'Sunday'` |
-| renderLabel   | The label render function.                                       | `(date: Date) => string \| null \| undefined`                                                                                        | -          |
-| allowClear    | Whether to allow clearing after another click.                   | `boolean`                                                                                                                            | `true`     |
-| min           | Minimum value of selectable range.                               | `Date`                                                                                                                               | -          |
-| max           | The maximum value of a selectable range.                         | `Date`                                                                                                                               | -          |
+| Name            | Description                                                      | Type                                                                                                                                 | Default    |
+| --------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| selectionMode   | The selection mode. Disable selection when this prop is not set. | `'single' \| 'range'`                                                                                                                | -          |
+| value           | The selected date or date range.                                 | `Date \| null` when selection mode is "single". `[Date, Date] \| null` when selection mode is "range"                                | -          |
+| defaultValue    | The default selected date or date range.                         | Same as `value` prop.                                                                                                                | -          |
+| onChange        | Trigger when selected date changes.                              | `(val: Date \| null) => void` when selection mode is "single". `(val: [Date, Date] \| null) => void` when selection mode is "range". | -          |
+| onPageChange    | Trigger when changed year or month.                              | `(year: number, month: number) => void`                                                                                              | -          |
+| weekStartsOn    | Week starts on which day.                                        | `'Monday' \| 'Sunday'`                                                                                                               | `'Sunday'` |
+| renderLabel     | The label render function.                                       | `(date: Date) => string \| null \| undefined`                                                                                        | -          |
+| allowClear      | Whether to allow clearing after another click.                   | `boolean`                                                                                                                            | `true`     |
+| min             | Minimum value of selectable range.                               | `Date`                                                                                                                               | -          |
+| max             | The maximum value of a selectable range.                         | `Date`                                                                                                                               | -          |
+| prevMonthButton | Contents of the Last Month button on the navigation pane         | `React.ReactNode`                                                                                                                    | `<`        |
+| nextMonthButton | Contents of the Next Month button on the navigation pane         | `React.ReactNode`                                                                                                                    | `>`        |
+| prevYearButton  | Contents of the Last year button on the navigation pane          | `React.ReactNode`                                                                                                                    | `<<`       |
+| nextYearButton  | Contents of the next Year button on the navigation pane          | `React.ReactNode`                                                                                                                    | `>>`       |
 
 ### CSS Variables
 
