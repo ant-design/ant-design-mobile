@@ -1,8 +1,7 @@
-import { Form, Input, DatePicker, Button, Toast } from 'antd-mobile'
-import dayjs from 'dayjs'
+import { Form, Input, Button, Toast } from 'antd-mobile'
 import React, { useRef } from 'react'
-import { PickerRef } from 'antd-mobile/es/components/picker'
 import { DemoBlock } from 'antd-mobile/src/demos'
+import { InputRef } from 'antd-mobile/es/components/input'
 
 class Age extends React.Component {
   log = () => {
@@ -21,7 +20,7 @@ function SimpleFunctionComponent(props: any) {
 }
 
 export default () => {
-  const ref = useRef<PickerRef>(null)
+  const ref = useRef<InputRef>(null)
   return (
     <DemoBlock title='收集子组件 Ref'>
       <Form
@@ -33,13 +32,13 @@ export default () => {
         onFinish={v => console.log(v)}
       >
         <Form.Item
-          label='forwardRef'
+          label='forwardRef 并且设置 ref'
           name='key1'
           onClick={(_, widgetRef) => {
-            console.log(widgetRef.current)
+            console.log(widgetRef.current, ref.current === widgetRef.current)
           }}
         >
-          <Input />
+          <Input ref={ref} />
         </Form.Item>
         <Form.Item
           label='Class 组件'
@@ -49,21 +48,6 @@ export default () => {
           }}
         >
           <Age />
-        </Form.Item>
-        <Form.Item
-          label='forwardRef 并设置 ref'
-          name='key3'
-          trigger='onConfirm'
-          onClick={(_, widgetRef) => {
-            widgetRef.current?.open()
-            console.log(ref, widgetRef, ref.current === widgetRef.current)
-          }}
-        >
-          <DatePicker ref={ref}>
-            {value =>
-              value ? dayjs(value).format('YYYY-MM-DD') : '请选择日期'
-            }
-          </DatePicker>
         </Form.Item>
         <Form.Item
           label='memo Function'
