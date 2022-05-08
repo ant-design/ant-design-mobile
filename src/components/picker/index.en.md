@@ -43,8 +43,10 @@ type PickerValueExtend = {
 | children         | Render function of the selected options                      | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
 | renderLabel      | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
 | mouseWheel       | Whether to allow interact with mouse wheel                   | `boolean`                                                      | `false`                |
-| popupClassName   | The custom class name of the popup                          | `string`                                                       | -                      |
-| popupStyle       | The custom style of the popup                               | `React.CSSProperties `                                         | -                      |
+| popupClassName   | The custom class name of the popup                           | `string`                                                       | -                      |
+| popupStyle       | The custom style of the popup                                | `React.CSSProperties `                                         | -                      |
+| destroyOnClose   | Unmount content when not visible                             | `boolean`                                                      | `false`                |
+| forceRender      | Render content forcely                                       | `boolean`                                                      | `false`                |
 
 In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 

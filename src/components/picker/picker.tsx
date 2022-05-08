@@ -19,6 +19,7 @@ import { useMemoizedFn } from 'ahooks'
 import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
 import classNames from 'classnames'
+import { useShouldRender } from 'antd-mobile/src/utils/should-render'
 
 const classPrefix = `adm-picker`
 
@@ -40,6 +41,8 @@ export type PickerProps = {
   mouseWheel?: boolean
   popupClassName?: string
   popupStyle?: React.CSSProperties
+  forceRender?: boolean
+  destroyOnClose?: boolean
 } & Pick<
   PopupProps,
   'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
@@ -52,6 +55,7 @@ export type PickerProps = {
   >
 
 const defaultProps = {
+  visible: false,
   defaultValue: [],
   closeOnMaskClick: true,
   renderLabel: defaultRenderLabel,
@@ -96,6 +100,12 @@ export const Picker = memo<PickerProps>(p => {
       props.onSelect?.(val, ext)
     }
   })
+
+  const shouldRender = useShouldRender(
+    props.visible,
+    props.forceRender,
+    props.destroyOnClose
+  )
 
   const pickerElement = withNativeProps(
     props,
@@ -152,7 +162,7 @@ export const Picker = memo<PickerProps>(p => {
       forceRender={true}
       stopPropagation={props.stopPropagation}
     >
-      {pickerElement}
+      {shouldRender && pickerElement}
       <SafeArea position='bottom' />
     </Popup>
   )

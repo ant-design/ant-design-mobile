@@ -43,8 +43,11 @@ type PickerValueExtend = {
 | children         | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
 | renderLabel      | 自定义渲染每列展示的内容     | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
 | mouseWheel       | 是否允许通过鼠标滚轮进行选择 | `boolean`                                                      | `false`                |
-| popupClassName   | Popup 弹层容器的自定义类名            | `string`                                                       | -                      |
-| popupStyle       | Popup 弹层容器的自定义样式            | `React.CSSProperties `                                         | -                      |
+| popupClassName   | Popup 弹层容器的自定义类名   | `string`                                                       | -                      |
+| popupStyle       | Popup 弹层容器的自定义样式   | `React.CSSProperties `                                         | -                      |
+| popupStyle       | Popup 弹层容器的自定义样式   | `React.CSSProperties `                                         | -                      |
+| destroyOnClose   | 不可见时卸载内容             | `boolean`                                                      | `false`                |
+| forceRender      | 强制渲染内容                 | `boolean`                                                      | `false`                |
 
 此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
