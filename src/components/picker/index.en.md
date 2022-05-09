@@ -46,7 +46,43 @@ type PickerValueExtend = {
 | popupClassName   | The custom class name of the popup                           | `string`                                                           | -                      |
 | popupStyle       | The custom style of the popup                                | `React.CSSProperties `                                             | -                      |
 
-In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
+In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`.
+
+**Please note that the type of the `columns` property is a two-level array**, the first level corresponds to each column, and the second level corresponds to each option in a column. Therefore, the following writing is wrong:
+
+```jsx
+<Picker
+   columns={[
+     { label: 'Foo', value: 'foo' },
+     { label: 'Bar', value: 'bar' },
+   ]}
+/>
+```
+
+need to be written as:
+
+```jsx
+<Picker
+   columns={[
+     [
+       { label: 'Foo', value: 'foo' },
+       { label: 'Bar', value: 'bar' },
+     ]
+   ]}
+/>
+```
+
+### PickerActions
+
+| Name   | Description                         | Type         |
+| ------ | ----------------------------------- | ------------ |
+| open   | Open Picker.                        | `() => void` |
+| close  | Close Picker.                       | `() => void` |
+| toggle | Toggle the visible state of Picker. | `() => void` |
+
+### Ref
+
+Same as PickerActions.
 
 ### CSS Variables
 
@@ -76,6 +112,10 @@ type CascadePickerOption = {
 | options | Data of the tree options | `CascadePickerOption[]` | -       |
 
 Other props are the same as `Picker`, but `columns` are not supported.
+
+### Ref
+
+Same as Picker.
 
 ### CSS Variables
 
@@ -117,29 +157,9 @@ type DatePickerFilter = Partial<
 
 In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
 
-**Please note that the type of the `columns` property is a two-level array**, the first level corresponds to each column, and the second level corresponds to each option in a column. Therefore, the following writing is wrong:
+### Ref
 
-```jsx
-<Picker
-  columns={[
-    { label: 'Foo', value: 'foo' },
-    { label: 'Bar', value: 'bar' },
-  ]}
-/>
-```
-
-Need to be written as:
-
-```jsx
-<Picker
-  columns={[
-    [
-      { label: 'Foo', value: 'foo' },
-      { label: 'Bar', value: 'bar' },
-    ]
-  ]}
-/>
-```
+Same as Picker.
 
 ### CSS Variables
 

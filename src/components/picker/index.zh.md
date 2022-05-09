@@ -72,6 +72,18 @@ type PickerValueExtend = {
 />
 ```
 
+### PickerActions
+
+| 属性   | 说明                         | 类型         |
+| ------ | ---------------------------- | ------------ |
+| open   | 显示 Picker                  | `() => void` |
+| close  | 关闭 Picker                  | `() => void` |
+| toggle | 切换 Picker 的显示和隐藏状态 | `() => void` |
+
+### Ref
+
+同 PickerActions。
+
 ### CSS 变量
 
 | 属性                      | 说明                                 | 默认值 | 全局变量 |
@@ -100,6 +112,10 @@ type CascadePickerOption = {
 | options | 树形的选项数据 | `CascadePickerOption[]` | -      |
 
 其他属性同 `Picker`，但不支持 `columns`。
+
+### Ref
+
+同 Picker。
 
 ### CSS 变量
 
@@ -142,6 +158,10 @@ type DatePickerFilter = Partial<
 ```
 
 此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`。
+
+### Ref
+
+同 Picker。
 
 ### CSS 变量
 
