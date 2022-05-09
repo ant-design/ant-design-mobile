@@ -25,10 +25,13 @@ import { useMemoizedFn } from 'ahooks'
 import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
 import classNames from 'classnames'
-import {
-  Actions,
-  useControllableVisible,
-} from '../../utils/use-controllable-visible'
+
+export type PickerActions = {
+  open: () => void
+  close: () => void
+  toggle: () => void
+}
+export type PickerRef = PickerActions
 
 const classPrefix = `adm-picker`
 
@@ -45,7 +48,10 @@ export type PickerProps = {
   title?: ReactNode
   confirmText?: ReactNode
   cancelText?: ReactNode
-  children?: (items: (PickerColumnItem | null)[], actions: Actions) => ReactNode
+  children?: (
+    items: (PickerColumnItem | null)[],
+    actions: PickerActions
+  ) => ReactNode
   renderLabel?: (item: PickerColumnItem) => ReactNode
   mouseWheel?: boolean
   popupClassName?: string
@@ -67,7 +73,7 @@ const defaultProps = {
   renderLabel: defaultRenderLabel,
 }
 
-export const Picker = forwardRef<Actions, PickerProps>((p, ref) => {
+export const Picker = forwardRef<PickerRef, PickerProps>((p, ref) => {
   const { locale } = useConfig()
   const props = mergeProps(
     defaultProps,
@@ -78,7 +84,27 @@ export const Picker = forwardRef<Actions, PickerProps>((p, ref) => {
     p
   )
 
-  const [visible, actions] = useControllableVisible(props.visible)
+  const [visible, setVisible] = usePropsValue({
+    value: props.visible,
+    defaultValue: false,
+    onChange: v => {
+      if (v === false) {
+        props.onClose?.()
+      }
+    },
+  })
+
+  const actions: PickerActions = {
+    toggle: () => {
+      setVisible(v => !v)
+    },
+    open: () => {
+      setVisible(true)
+    },
+    close: () => {
+      setVisible(false)
+    },
+  }
 
   useImperativeHandle(ref, () => actions)
 
@@ -111,13 +137,6 @@ export const Picker = forwardRef<Actions, PickerProps>((p, ref) => {
     }
   })
 
-  const onClose = useMemoizedFn(() => {
-    props.onClose?.()
-    if (typeof props.visible !== 'boolean') {
-      actions.close()
-    }
-  })
-
   const pickerElement = withNativeProps(
     props,
     <div className={classPrefix}>
@@ -126,7 +145,7 @@ export const Picker = forwardRef<Actions, PickerProps>((p, ref) => {
           className={`${classPrefix}-header-button`}
           onClick={() => {
             props.onCancel?.()
-            onClose()
+            setVisible(false)
           }}
         >
           {props.cancelText}
@@ -136,7 +155,7 @@ export const Picker = forwardRef<Actions, PickerProps>((p, ref) => {
           className={`${classPrefix}-header-button`}
           onClick={() => {
             setValue(innerValue)
-            onClose()
+            setVisible(false)
           }}
         >
           {props.confirmText}
@@ -163,7 +182,7 @@ export const Picker = forwardRef<Actions, PickerProps>((p, ref) => {
       onMaskClick={() => {
         if (!props.closeOnMaskClick) return
         props.onCancel?.()
-        onClose()
+        setVisible(false)
       }}
       getContainer={props.getContainer}
       destroyOnClose
