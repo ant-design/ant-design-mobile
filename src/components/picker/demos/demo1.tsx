@@ -1,8 +1,7 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Picker, Button, Space, Toast } from 'antd-mobile'
-import { DemoBlock } from 'demos'
+import { DemoBlock, DemoDescription } from 'demos'
 import { basicColumns } from './columns-data'
-import type { PickerRef } from 'antd-mobile/es/components/picker'
 
 // 基础用法
 function BasicDemo() {
@@ -32,38 +31,18 @@ function BasicDemo() {
   )
 }
 
-// 使用 ref 控制 visible
-function RefDemo() {
-  const ref = useRef<PickerRef>(null)
+function ActionsDemo() {
   const [value, setValue] = useState<(string | null)[]>(['M'])
   return (
-    <Space>
-      <Button
-        onClick={() => {
-          ref.current?.open()
-        }}
-      >
-        选择
-      </Button>
-      <Picker
-        ref={ref}
-        columns={basicColumns}
-        value={value}
-        onConfirm={v => {
-          setValue(v)
-        }}
-      />
-
-      <Picker
-        columns={basicColumns}
-        value={value}
-        onConfirm={v => {
-          setValue(v)
-        }}
-      >
-        {(items, { open }) => <Button onClick={open}>选择</Button>}
-      </Picker>
-    </Space>
+    <Picker
+      columns={basicColumns}
+      value={value}
+      onConfirm={v => {
+        setValue(v)
+      }}
+    >
+      {(_, actions) => <Button onClick={actions.open}>选择</Button>}
+    </Picker>
   )
 }
 
@@ -100,12 +79,18 @@ export default () => {
         <BasicDemo />
       </DemoBlock>
 
-      <DemoBlock title='内部控制 visible'>
-        <RefDemo />
-      </DemoBlock>
-
       <DemoBlock title='渲染所选值'>
         <RenderChildrenDemo />
+      </DemoBlock>
+
+      <DemoBlock title='使用 actions 来控制显示/隐藏'>
+        <Space direction='vertical' block>
+          <ActionsDemo />
+          <DemoDescription>
+            在 children 渲染函数中，你可以使用第二个参数 actions
+            来非常方便的控制 Picker 的显示或隐藏
+          </DemoDescription>
+        </Space>
       </DemoBlock>
 
       <DemoBlock title='指令式调用'>

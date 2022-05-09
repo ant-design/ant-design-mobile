@@ -1,9 +1,8 @@
-import React, { useRef, useState } from 'react'
-import { Button, CascadePicker, Space } from 'antd-mobile'
+import React, { useState } from 'react'
+import { Button, CascadePicker } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 import { AsyncDemo } from './async-demo'
-import { CascadePickerRef } from 'antd-mobile/es/components/cascade-picker'
 
 const options = [
   {
@@ -91,49 +90,11 @@ function CascadePickerDemo() {
   )
 }
 
-function CascadePickerInnerVisibleDemo() {
-  const ref = useRef<CascadePickerRef>(null)
-  return (
-    <Space>
-      <Button onClick={() => ref.current?.open()}>选择</Button>
-      <CascadePicker
-        ref={ref}
-        title='级联选择'
-        options={options}
-        onConfirm={(val, extend) => {
-          console.log('onConfirm', val, extend.items)
-        }}
-        onSelect={val => {
-          console.log('onSelect', val)
-        }}
-      />
-
-      <CascadePicker
-        ref={ref}
-        title='级联选择'
-        options={options}
-        onConfirm={(val, extend) => {
-          console.log('onConfirm', val, extend.items)
-        }}
-        onSelect={val => {
-          console.log('onSelect', val)
-        }}
-      >
-        {(items, { open }) => <Button onClick={open}>选择</Button>}
-      </CascadePicker>
-    </Space>
-  )
-}
-
 export default () => {
   return (
     <>
       <DemoBlock title='级联选择'>
         <CascadePickerDemo />
-      </DemoBlock>
-
-      <DemoBlock title='内部控制 visible'>
-        <CascadePickerInnerVisibleDemo />
       </DemoBlock>
 
       <DemoBlock title='异步获取选项'>
