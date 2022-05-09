@@ -4,6 +4,7 @@ import React, {
   ReactNode,
   forwardRef,
   useImperativeHandle,
+  memo,
 } from 'react'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
@@ -73,136 +74,138 @@ const defaultProps = {
   renderLabel: defaultRenderLabel,
 }
 
-export const Picker = forwardRef<PickerRef, PickerProps>((p, ref) => {
-  const { locale } = useConfig()
-  const props = mergeProps(
-    defaultProps,
-    {
-      confirmText: locale.common.confirm,
-      cancelText: locale.common.cancel,
-    },
-    p
-  )
+export const Picker = forwardRef<PickerRef, PickerProps>(
+  memo((p, ref) => {
+    const { locale } = useConfig()
+    const props = mergeProps(
+      defaultProps,
+      {
+        confirmText: locale.common.confirm,
+        cancelText: locale.common.cancel,
+      },
+      p
+    )
 
-  const [visible, setVisible] = usePropsValue({
-    value: props.visible,
-    defaultValue: false,
-    onChange: v => {
-      if (v === false) {
-        props.onClose?.()
-      }
-    },
-  })
+    const [visible, setVisible] = usePropsValue({
+      value: props.visible,
+      defaultValue: false,
+      onChange: v => {
+        if (v === false) {
+          props.onClose?.()
+        }
+      },
+    })
 
-  const actions: PickerActions = {
-    toggle: () => {
-      setVisible(v => !v)
-    },
-    open: () => {
-      setVisible(true)
-    },
-    close: () => {
-      setVisible(false)
-    },
-  }
-
-  useImperativeHandle(ref, () => actions)
-
-  const [value, setValue] = usePropsValue({
-    ...props,
-    onChange: val => {
-      const extend = generateColumnsExtend(props.columns, val)
-      props.onConfirm?.(val, extend)
-    },
-  })
-
-  const extend = useColumnsExtend(props.columns, value)
-
-  const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
-  useEffect(() => {
-    if (innerValue !== value) {
-      setInnerValue(value)
-    }
-  }, [visible])
-  useEffect(() => {
-    if (!visible) {
-      setInnerValue(value)
-    }
-  }, [value])
-
-  const onChange = useMemoizedFn((val, ext) => {
-    setInnerValue(val)
-    if (visible) {
-      props.onSelect?.(val, ext)
-    }
-  })
-
-  const pickerElement = withNativeProps(
-    props,
-    <div className={classPrefix}>
-      <div className={`${classPrefix}-header`}>
-        <a
-          className={`${classPrefix}-header-button`}
-          onClick={() => {
-            props.onCancel?.()
-            setVisible(false)
-          }}
-        >
-          {props.cancelText}
-        </a>
-        <div className={`${classPrefix}-header-title`}>{props.title}</div>
-        <a
-          className={`${classPrefix}-header-button`}
-          onClick={() => {
-            setValue(innerValue)
-            setVisible(false)
-          }}
-        >
-          {props.confirmText}
-        </a>
-      </div>
-      <div className={`${classPrefix}-body`}>
-        <PickerView
-          columns={props.columns}
-          renderLabel={props.renderLabel}
-          value={innerValue}
-          mouseWheel={props.mouseWheel}
-          onChange={onChange}
-        />
-      </div>
-    </div>
-  )
-
-  const popupElement = (
-    <Popup
-      style={props.popupStyle}
-      className={classNames(`${classPrefix}-popup`, props.popupClassName)}
-      visible={visible}
-      position='bottom'
-      onMaskClick={() => {
-        if (!props.closeOnMaskClick) return
-        props.onCancel?.()
+    const actions: PickerActions = {
+      toggle: () => {
+        setVisible(v => !v)
+      },
+      open: () => {
+        setVisible(true)
+      },
+      close: () => {
         setVisible(false)
-      }}
-      getContainer={props.getContainer}
-      destroyOnClose
-      afterShow={props.afterShow}
-      afterClose={props.afterClose}
-      onClick={props.onClick}
-      forceRender={true}
-      stopPropagation={props.stopPropagation}
-    >
-      {pickerElement}
-      <SafeArea position='bottom' />
-    </Popup>
-  )
+      },
+    }
 
-  return (
-    <>
-      {popupElement}
-      {props.children?.(extend.items, actions)}
-    </>
-  )
-})
+    useImperativeHandle(ref, () => actions)
+
+    const [value, setValue] = usePropsValue({
+      ...props,
+      onChange: val => {
+        const extend = generateColumnsExtend(props.columns, val)
+        props.onConfirm?.(val, extend)
+      },
+    })
+
+    const extend = useColumnsExtend(props.columns, value)
+
+    const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
+    useEffect(() => {
+      if (innerValue !== value) {
+        setInnerValue(value)
+      }
+    }, [visible])
+    useEffect(() => {
+      if (!visible) {
+        setInnerValue(value)
+      }
+    }, [value])
+
+    const onChange = useMemoizedFn((val, ext) => {
+      setInnerValue(val)
+      if (visible) {
+        props.onSelect?.(val, ext)
+      }
+    })
+
+    const pickerElement = withNativeProps(
+      props,
+      <div className={classPrefix}>
+        <div className={`${classPrefix}-header`}>
+          <a
+            className={`${classPrefix}-header-button`}
+            onClick={() => {
+              props.onCancel?.()
+              setVisible(false)
+            }}
+          >
+            {props.cancelText}
+          </a>
+          <div className={`${classPrefix}-header-title`}>{props.title}</div>
+          <a
+            className={`${classPrefix}-header-button`}
+            onClick={() => {
+              setValue(innerValue)
+              setVisible(false)
+            }}
+          >
+            {props.confirmText}
+          </a>
+        </div>
+        <div className={`${classPrefix}-body`}>
+          <PickerView
+            columns={props.columns}
+            renderLabel={props.renderLabel}
+            value={innerValue}
+            mouseWheel={props.mouseWheel}
+            onChange={onChange}
+          />
+        </div>
+      </div>
+    )
+
+    const popupElement = (
+      <Popup
+        style={props.popupStyle}
+        className={classNames(`${classPrefix}-popup`, props.popupClassName)}
+        visible={visible}
+        position='bottom'
+        onMaskClick={() => {
+          if (!props.closeOnMaskClick) return
+          props.onCancel?.()
+          setVisible(false)
+        }}
+        getContainer={props.getContainer}
+        destroyOnClose
+        afterShow={props.afterShow}
+        afterClose={props.afterClose}
+        onClick={props.onClick}
+        forceRender={true}
+        stopPropagation={props.stopPropagation}
+      >
+        {pickerElement}
+        <SafeArea position='bottom' />
+      </Popup>
+    )
+
+    return (
+      <>
+        {popupElement}
+        {props.children?.(extend.items, actions)}
+      </>
+    )
+  })
+)
 
 Picker.displayName = 'Picker'
