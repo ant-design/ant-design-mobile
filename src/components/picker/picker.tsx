@@ -74,8 +74,8 @@ const defaultProps = {
   renderLabel: defaultRenderLabel,
 }
 
-export const Picker = forwardRef<PickerRef, PickerProps>(
-  memo((p, ref) => {
+export const Picker = memo(
+  forwardRef<PickerRef, PickerProps>((p, ref) => {
     const { locale } = useConfig()
     const props = mergeProps(
       defaultProps,
