@@ -85,6 +85,8 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
         opacity: state.active ? 0.8 : 1,
       })
     },
+    // eslint-disable-next-line
+    // @ts-ignore
     {
       axis: props.axis === 'xy' ? undefined : props.axis,
       pointer: {

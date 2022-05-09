@@ -155,7 +155,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       axis: 'y',
       target: elementRef,
       enabled: !props.disabled,
-      eventOptions: supportsPassive ? { passive: false } : false,
+      eventOptions: supportsPassive ? { passive: false } : undefined,
     }
   )
 
