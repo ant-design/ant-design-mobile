@@ -108,6 +108,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     let files = [].slice.call(rawFiles) as File[]
 
     if (props.beforeUpload) {
+      e.target.value = ''
       const postFiles = files.map(file => {
         return processFile(file, files)
       })
