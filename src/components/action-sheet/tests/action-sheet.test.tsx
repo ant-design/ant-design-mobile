@@ -40,10 +40,16 @@ describe('ActionSheet', () => {
     )
     fireEvent.click(getByText('button'))
 
-    await waitFor(() => {
+    await waitFor(() =>
       expect(baseElement.querySelectorAll(`.${classPrefix}`)[0]).toBeVisible()
-      expect(document.body).toHaveClass('adm-overflow-hidden')
-    })
+    )
+
+    await waitFor(() =>
+      // end of animation
+      expect(baseElement.querySelectorAll('.adm-popup-body')[0]).toHaveStyle(
+        'transform: translate(0, 0%);'
+      )
+    )
 
     expect(baseElement).toMatchSnapshot()
   })
