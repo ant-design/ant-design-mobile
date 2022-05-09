@@ -42,6 +42,7 @@ describe('ActionSheet', () => {
 
     await waitFor(() => {
       expect(baseElement.querySelectorAll(`.${classPrefix}`)[0]).toBeVisible()
+      expect(document.body).toHaveClass('adm-overflow-hidden')
     })
 
     expect(baseElement).toMatchSnapshot()
