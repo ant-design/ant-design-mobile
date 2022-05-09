@@ -3670,6 +3670,8 @@ __metadata:
     webpack: ^5.70.0
     webpack-bundle-analyzer: ^4.5.0
     webpack-stream: ^7.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
   linkType: soft
 
