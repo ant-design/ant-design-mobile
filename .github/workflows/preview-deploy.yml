@@ -36,7 +36,7 @@ jobs:
         uses: peter-evans/find-comment@v2
         id: fc
         with:
-          issue-number: ${{ github.event.pull_request.number }}
+          issue-number: ${{ steps.pr.outputs.id }}
           comment-author: 'github-actions[bot]'
           body-includes: PR preview
       - name: create comment
