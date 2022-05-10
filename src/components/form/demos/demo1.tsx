@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { RefObject } from 'react'
 import {
   Form,
   Input,
@@ -12,6 +12,7 @@ import {
   Switch,
 } from 'antd-mobile'
 import dayjs from 'dayjs'
+import type { DatePickerRef } from 'antd-mobile/es/components/date-picker'
 
 export default () => {
   const onFinish = (values: any) => {
@@ -19,8 +20,6 @@ export default () => {
       content: <pre>{JSON.stringify(values, null, 2)}</pre>,
     })
   }
-
-  const [pickerVisible, setPickerVisible] = useState(false)
 
   return (
     <>
@@ -44,16 +43,11 @@ export default () => {
           name='birthday'
           label='生日'
           trigger='onConfirm'
-          onClick={() => {
-            setPickerVisible(true)
+          onClick={(e, datePickerRef: RefObject<DatePickerRef>) => {
+            datePickerRef.current?.open()
           }}
         >
-          <DatePicker
-            visible={pickerVisible}
-            onClose={() => {
-              setPickerVisible(false)
-            }}
-          >
+          <DatePicker>
             {value =>
               value ? dayjs(value).format('YYYY-MM-DD') : '请选择日期'
             }

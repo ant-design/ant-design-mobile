@@ -309,3 +309,94 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validator       | Customize validation rule. Accept Promise as return. See [example](#custom-field)                                                      | `(rule, value) => Promise` |
 | warningOnly     | Warning only. Not block form submit                                                                                                    | `boolean`                  |
 | whitespace      | Failed if only has whitespace, only work with `type: 'string'` rule                                                                    | `boolean`                  |
+
+## FAQ
+
+### How does Form.Item work with Picker / DatePicker / CascadePicker?
+
+First, we can render the currently selected value through the `children` rendering function of Picker. Here we have taken DatePicker as an example, but the same is true for the other two Pickers:
+
+```jsx
+<DatePicker>
+  {value =>
+    value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
+  }
+</DatePicker>
+```
+
+Next we need to deal with the show/hide state of the Picker, which is where the Picker component is the most different and confusing from other form components. If we put the Picker directly in the Form.Item, there is no way to show it to the user, no matter how clicked, it will not let Picker pops up:
+
+```tsx
+<Form.Item
+  name='birthday'
+  label='Birthday'
+>
+  <DatePicker>
+    {value =>
+      value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
+    }
+  </DatePicker>
+</Form.Item>
+```
+
+In most cases, the effect we need to achieve is that clicking on the outer Form.Item will trigger the display of the inner Picker. However, on Form.Item, how can I control the Picker? Maybe you'll want to declare a state yourself to control manually, for example:
+
+```tsx
+const [visible, setVisible] = useState(false)
+```
+
+```tsx
+<Form.Item
+  name='birthday'
+  label='Birthday'
+  onClick={() => {
+    setVisible(true)
+  }}
+>
+  <DatePicker
+    visible={visible}
+    onClose={() => {
+      setVisible(false)
+    }}
+  >
+    {value =>
+      value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
+    }
+  </DatePicker>
+</Form.Item>
+```
+
+But this is too cumbersome to write, and if there are multiple Pickers in a form or it is used with Form.Array, it will crash.
+
+So antd-mobile provides a convenient method, you can directly get the ref of the internal `children` in the `onClick` event of Form.Item, so we can write:
+
+```tsx
+<Form.Item
+  name='birthday'
+  label='Birthday'
+  onClick={(e, datePickerRef: RefObject<DatePickerRef>) => {
+    datePickerRef.current?.open() // ⬅️
+  }}
+>
+  <DatePicker>
+    {value =>
+      value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
+    }
+  </DatePicker>
+</Form.Item>
+```
+
+Finally, don't forget that the Picker component's confirmation event is `onConfirm` not `onChange`, so you need to configure `trigger`:
+
+```tsx
+<Form.Item
+  name='birthday'
+  label='Birthday'
+  trigger='onConfirm'  // ⬅️
+  onClick={(e, datePickerRef: RefObject<DatePickerRef>) => {
+    datePickerRef.current?.open()
+  }}
+>
+  ...
+</Form.Item>
+```

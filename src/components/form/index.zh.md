@@ -51,14 +51,15 @@
 
 ### validateMessages
 
-Form 为验证提供了[默认的错误提示信息](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts)，你可以通过配置 `validateMessages` 属性，修改对应的提示模板。一种常见的使用方式，是配置国际化提示信息：
+Form 为验证提供了[默认的错误提示信息](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts)
+，你可以通过配置 `validateMessages` 属性，修改对应的提示模板。一种常见的使用方式，是配置国际化提示信息：
 
 ```jsx
 const validateMessages = {
   required: "'${name}' 是必选字段",
   // ...
 };
-<Form validateMessages={validateMessages} />;
+<Form validateMessages={validateMessages}/>;
 ```
 
 ### CSS 变量
@@ -99,11 +100,13 @@ Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item
 
 `extra` `clickable` `arrow` `description`
 
-被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会**自动添加** `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，因此，如果你给 `Form.Item` 设置了 `name` 属性，**那么请确保它的 `children` 是一个有效的 `ReactElement` 控件**，并且能够接受上文中提到的 `value` 和 `onChange` 属性（或指定的其他属性），例如：
+被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会**自动添加** `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger`
+指定的其他属性），数据同步将被 Form 接管，因此，如果你给 `Form.Item` 设置了 `name` 属性，**那么请确保它的 `children` 是一个有效的 `ReactElement` 控件**
+，并且能够接受上文中提到的 `value` 和 `onChange` 属性（或指定的其他属性），例如：
 
 ```jsx
 <Form.Item name='foo'>
-  <Input />
+  <Input/>
 </Form.Item>
 ```
 
@@ -111,7 +114,7 @@ Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item
 
 ```jsx
 <Form.Item name='foo'>
-  <Input />
+  <Input/>
   <div>hello</div>
 </Form.Item>
 // 错误：Form.Item 的 children 中包含了多个元素
@@ -120,7 +123,7 @@ Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item
 ```jsx
 <Form.Item name='foo'>
   hello
-  <Input />
+  <Input/>
 </Form.Item>
 // 错误：同上，Form.Item 的 children 中包含了多个元素
 ```
@@ -128,7 +131,7 @@ Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item
 ```jsx
 <Form.Item name='foo'>
   <div>
-    <Input />
+    <Input/>
   </div>
 </Form.Item>
 // 错误：Form.Item 的 children 其实是 div，而 div 并不能接受 value 和 onChange 属性
@@ -137,7 +140,8 @@ Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item
 同时请注意：
 
 1. 你**不再需要也不应该**用 `onChange` 来做数据收集同步（你可以使用 Form 的 `onValuesChange`），但还是可以继续监听 `onChange` 事件。
-2. 你不能用控件的 `value` 或 `defaultValue` 等属性来设置表单域的值，默认值可以用 Form 里的 `initialValues` 来设置。注意 `initialValues` 不能被 `setState` 动态更新，你需要用 `setFieldsValue` 来更新。
+2. 你不能用控件的 `value` 或 `defaultValue` 等属性来设置表单域的值，默认值可以用 Form 里的 `initialValues` 来设置。注意 `initialValues` 不能被 `setState`
+   动态更新，你需要用 `setFieldsValue` 来更新。
 3. 你不应该用 `setState`，可以使用 `form.setFieldsValue` 来动态改变表单值。
 
 举个例子，下面的这种写法是错误的：
@@ -146,20 +150,25 @@ Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item
 <Form.Item name='foo'>
   <Input
     value={myInputValue} // 错误：value 不应该被手动控制
-    onChange={(v) => { setMyInputValue(v) }} // 错误：虽然你可以监听 onChange 事件，但是你不应该在这里去维护自己的状态
+    onChange={(v) => {
+      setMyInputValue(v)
+    }} // 错误：虽然你可以监听 onChange 事件，但是你不应该在这里去维护自己的状态
   />
 </Form.Item>
 ```
 
 ### dependencies
 
-当字段间存在依赖关系时使用。如果一个字段设置了 `dependencies` 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 `dependencies` 后，“密码”字段更新会重新触发“校验密码”的校验逻辑。
+当字段间存在依赖关系时使用。如果一个字段设置了 `dependencies`
+属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 `dependencies`
+后，“密码”字段更新会重新触发“校验密码”的校验逻辑。
 
 `dependencies` 不应和 `shouldUpdate` 一起使用，因为这可能带来更新逻辑的混乱。
 
 ### shouldUpdate
 
-Form 通过增量更新方式，只更新被修改的字段相关组件以达到性能优化目的。大部分场景下，你只需要编写代码或者与 [`dependencies`](#dependencies) 属性配合校验即可。而在某些特定场景，例如修改某个字段值后出现新的字段选项、或者纯粹希望表单任意变化都对某一个区域进行渲染。你可以通过 `shouldUpdate` 修改 Form.Item 的更新逻辑。
+Form 通过增量更新方式，只更新被修改的字段相关组件以达到性能优化目的。大部分场景下，你只需要编写代码或者与 [`dependencies`](#dependencies)
+属性配合校验即可。而在某些特定场景，例如修改某个字段值后出现新的字段选项、或者纯粹希望表单任意变化都对某一个区域进行渲染。你可以通过 `shouldUpdate` 修改 Form.Item 的更新逻辑。
 
 当 `shouldUpdate` 为 `true` 时，Form 的任意变化都会使该 Form.Item 重新渲染。这对于自定义渲染一些区域十分有帮助：
 
@@ -178,7 +187,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
   {() => {
     return (
       <Form.Item name="other">
-        <Input />
+        <Input/>
       </Form.Item>
     );
   }}
@@ -191,11 +200,11 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 ```jsx
 <Form>
-  <Form.Item messageVariables={{ another: 'good' }} label="user">
-    <Input />
+  <Form.Item messageVariables={{another: 'good'}} label="user">
+    <Input/>
   </Form.Item>
-  <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
-    <Input />
+  <Form.Item messageVariables={{label: 'good'}} label={<span>user</span>}>
+    <Input/>
   </Form.Item>
 </Form>
 ```
@@ -309,3 +318,94 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validator       | 自定义校验，接收 Promise 作为返回值。[示例](#自定义表单字段)参考                                                                    | `(rule, value) => Promise` |
 | warningOnly     | 仅警告，不阻塞表单提交                                                                                                              | `boolean`                  |
 | whitespace      | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效                                                                        | `boolean`                  |
+
+## FAQ
+
+### Form.Item 如何配合 Picker / DatePicker / CascadePicker 使用？
+
+首先，我们可以通过 Picker 的 `children` 渲染函数，来渲染当前已经选择的值，这里我们已 DatePicker 为例，但是对于其他两种 Picker，也是大同小异的：
+
+```jsx
+<DatePicker>
+  {value =>
+    value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
+  }
+</DatePicker>
+```
+
+接下来我们需要处理 Picker 的显示/隐藏状态，这是 Picker 组件和其他表单组件差异最大、也最容易让人迷惑的地方了。如果我们直接把 Picker 放在 Form.Item 里面，是没有办法展示给用户的，无论怎么点击，都不会让 Picker 弹出来：
+
+```tsx
+<Form.Item
+  name='birthday'
+  label='Birthday'
+>
+  <DatePicker>
+    {value =>
+      value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
+    }
+  </DatePicker>
+</Form.Item>
+```
+
+在绝大多数情况下，我们需要实现的效果是，点击外层的 Form.Item，会触发内部 Picker 的显示。但是，在 Form.Item 上，怎么才能控制到 Picker 呢？或许你会想自己声明一个 state 来手动控制，例如：
+
+```tsx
+const [visible, setVisible] = useState(false)
+```
+
+```tsx
+<Form.Item
+  name='birthday'
+  label='Birthday'
+  onClick={() => {
+    setVisible(true)
+  }}
+>
+  <DatePicker
+    visible={visible}
+    onClose={() => {
+      setVisible(false)
+    }}
+  >
+    {value =>
+      value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
+    }
+  </DatePicker>
+</Form.Item>
+```
+
+但是这样写实在是太繁琐了，而且如果一个表单内存在多个 Picker 或者要配合 Form.Array 使用时，简直会令人崩溃。
+
+所以 antd-mobile 提供了一个便捷方法，你可以在 Form.Item 的 `onClick` 事件中，直接获取到内部 `children` 的 ref，因此我们可以这么写：
+
+```tsx
+<Form.Item
+  name='birthday'
+  label='Birthday'
+  onClick={(e, datePickerRef: RefObject<DatePickerRef>) => {
+    datePickerRef.current?.open() // ⬅️
+  }}
+>
+  <DatePicker>
+    {value =>
+      value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
+    }
+  </DatePicker>
+</Form.Item>
+```
+
+最后，别忘了 Picker 组件的确认事件是 `onConfirm` 而不是 `onChange`，因此你需要配置一下 `trigger`：
+
+```tsx
+<Form.Item
+  name='birthday'
+  label='Birthday'
+  trigger='onConfirm'  // ⬅️
+  onClick={(e, datePickerRef: RefObject<DatePickerRef>) => {
+    datePickerRef.current?.open()
+  }}
+>
+  ...
+</Form.Item>
+```
