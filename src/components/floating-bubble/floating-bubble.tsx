@@ -85,8 +85,6 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
         opacity: state.active ? 0.8 : 1,
       })
     },
-    // eslint-disable-next-line
-    // @ts-ignore
     {
       axis: props.axis === 'xy' ? undefined : props.axis,
       pointer: {
@@ -95,7 +93,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       // the component won't trigger drag logic if the user just clicked on the component.
       filterTaps: true,
       // set constraints to the user gesture
-      bounds: boundaryRef,
+      bounds: boundaryRef as any, // Temp fix. Seems to be a bug with use-gesture.
       from: () => [x.get(), y.get()],
     }
   )
