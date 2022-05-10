@@ -337,7 +337,7 @@ export const FormItem: FC<FormItemProps> = props => {
         htmlFor={fieldId}
         errors={errors}
         warnings={warnings}
-        onClick={e => onClick?.(e, widgetRef)}
+        onClick={onClick && (e => onClick(e, widgetRef))}
         hidden={hidden}
         layout={layout}
         childElementPosition={childElementPosition}
