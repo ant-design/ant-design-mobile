@@ -42,10 +42,10 @@ import { Button } from 'antd-mobile'
 
 对于 TypeScript，我们兼容的版本是 `>= 3.8`。
 
-对于 React，我们兼容的版本是 `^16.8.0` 和 `^17.0.0`。
+对于 React，我们兼容的版本是 `^16.8.0` `^17.0.0` `^18.0.0`。
 
 <Alert type="warning">
-  对 React 18 的兼容处理还在进行之中，请关注 <a target="_blank" href="https://github.com/ant-design/ant-design-mobile/issues/5044">这个 issue</a>
+  对 React 18 的兼容处理还处于试验性阶段，如果你在 React 18 的项目中发现了 antd-mobile 的问题，可以在 <a target="_blank" href="https://github.com/ant-design/ant-design-mobile/issues/new/choose">这里</a> 提交 issue。
 </Alert>
 
 ## 在线体验
