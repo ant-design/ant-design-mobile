@@ -143,7 +143,7 @@ export const Dialog: FC<DialogProps> = p => {
     <div
       className={cls()}
       style={{
-        display: active ? 'unset' : 'none',
+        display: active ? undefined : 'none',
       }}
     >
       <Mask
@@ -156,7 +156,7 @@ export const Dialog: FC<DialogProps> = p => {
       <div
         className={cls('wrap')}
         style={{
-          pointerEvents: props.visible ? 'unset' : 'none',
+          pointerEvents: props.visible ? undefined : 'none',
         }}
       >
         <animated.div style={style}>{body}</animated.div>

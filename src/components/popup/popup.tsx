@@ -94,7 +94,7 @@ export const Popup: FC<PopupProps> = p => {
       <div
         className={classPrefix}
         onClick={props.onClick}
-        style={{ display: active ? 'unset' : 'none' }}
+        style={{ display: active ? undefined : 'none' }}
       >
         {props.mask && (
           <Mask

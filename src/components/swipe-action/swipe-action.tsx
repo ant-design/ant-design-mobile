@@ -228,7 +228,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
             <animated.div
               style={{
                 pointerEvents: x.to(v =>
-                  v !== 0 && x.goal !== 0 ? 'none' : 'unset'
+                  v !== 0 && x.goal !== 0 ? 'none' : undefined
                 ),
               }}
             >
