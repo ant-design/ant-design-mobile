@@ -8,7 +8,7 @@
 
 <code src="./demos/demo2.tsx"></code>
 
-<code src="./demos/demo6.tsx"></code>
+<code src="./demos/demo6.tsx" debug></code>
 
 ## Form
 
