@@ -304,7 +304,6 @@ const config: IConfig = {
       gtag('config', 'UA-72788897-2');
     }
     `,
-    'https://s9.cnzz.com/z_stat.php?id=1280306924&web_id=1280306924',
     {
       src: 'https://www.googletagmanager.com/gtag/js?id=UA-72788897-2',
       async: true,
