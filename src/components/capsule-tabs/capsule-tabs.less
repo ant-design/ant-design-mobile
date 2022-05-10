@@ -2,6 +2,8 @@
 
 .@{class-prefix-tabs} {
   position: relative;
+  // Hack for auto scroll fail when the parent element is a flex layout
+  min-width: 0;
 
   &-header {
     position: relative;
