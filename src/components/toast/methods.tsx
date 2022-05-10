@@ -6,14 +6,14 @@ import React, {
   useState,
 } from 'react'
 import { resolveContainer } from '../../utils/get-container'
-import ReactDOM from 'react-dom'
 import { InternalToast, ToastProps } from './toast'
 import { mergeProps } from '../../utils/with-default-props'
+import { render, unmount as reactUnmount } from '../../utils/render'
 
 const containers = [] as HTMLDivElement[]
 
 function unmount(container: HTMLDivElement) {
-  const unmountResult = ReactDOM.unmountComponentAtNode(container)
+  const unmountResult = reactUnmount(container)
   if (unmountResult && container.parentNode) {
     container.parentNode.removeChild(container)
   }
@@ -83,7 +83,7 @@ export function show(p: ToastShowProps | string) {
   })
 
   const ref = createRef<ToastShowRef>()
-  ReactDOM.render(<TempToast ref={ref} />, container)
+  render(<TempToast ref={ref} />, container)
   return {
     close: () => {
       ref.current?.close()

@@ -135,7 +135,9 @@ export const Wheel = memo<Props>(
         from: () => [0, y.get()],
         preventDefault: true,
         target: props.mouseWheel ? rootRef : undefined,
-        eventOptions: supportsPassive ? { passive: false } : false,
+        eventOptions: supportsPassive
+          ? { passive: false }
+          : (false as unknown as AddEventListenerOptions),
       }
     )
 

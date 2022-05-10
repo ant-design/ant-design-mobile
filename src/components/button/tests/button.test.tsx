@@ -1,5 +1,5 @@
 import React, { createRef } from 'react'
-import { render, testA11y, screen, fireEvent, sleep, act } from 'testing'
+import { render, testA11y, screen, fireEvent, sleep, waitFor } from 'testing'
 import Button from '../'
 import type { ButtonRef } from '..'
 
@@ -134,18 +134,19 @@ describe('Button', () => {
   })
 
   test('renders with async onClick and auto loading', async () => {
-    await act(async () => {
-      const { getByText } = render(
-        <Button
-          loading='auto'
-          loadingText='加载中'
-          onClick={async () => {
-            await sleep(300)
-          }}
-        >
-          Button
-        </Button>
-      )
+    const { getByText } = render(
+      <Button
+        loading='auto'
+        loadingText='加载中'
+        onClick={async () => {
+          await sleep(300)
+        }}
+      >
+        Button
+      </Button>
+    )
+
+    await waitFor(async () => {
       fireEvent.click(getByText('Button'))
       await sleep(100)
       screen.getByText('加载中')

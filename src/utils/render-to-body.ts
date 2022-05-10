@@ -1,15 +1,15 @@
-import ReactDOM from 'react-dom'
 import { ReactElement } from 'react'
+import { render, unmount as reactUnmount } from './render'
 
 export function renderToBody(element: ReactElement) {
   const container = document.createElement('div')
   document.body.appendChild(container)
   function unmount() {
-    const unmountResult = ReactDOM.unmountComponentAtNode(container)
+    const unmountResult = reactUnmount(container)
     if (unmountResult && container.parentNode) {
       container.parentNode.removeChild(container)
     }
   }
-  ReactDOM.render(element, container)
+  render(element, container)
   return unmount
 }

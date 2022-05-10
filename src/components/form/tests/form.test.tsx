@@ -46,8 +46,9 @@ describe('Form', () => {
 
     console.error = jest.fn()
 
+    fireEvent.click(getByText('submit'))
     await waitFor(() => {
-      fireEvent.click(getByText('submit'))
+      expect($$(`.${classPrefix}-item-feedback-error`).length).toBeTruthy()
     })
 
     expect($$(`.${classPrefix}-item-feedback-error`).length).toBeTruthy()
@@ -59,11 +60,11 @@ describe('Form', () => {
       target: { value: 'address' },
     })
 
-    await waitFor(() => {
-      fireEvent.click(getByText('submit'))
-    })
+    fireEvent.click(getByText('submit'))
     expect(console.error).toBeCalledTimes(0)
-    expect(fn.mock.calls[0][0]).toEqual({ name: 'name', address: 'address' })
+    await waitFor(() => {
+      expect(fn.mock.calls[0][0]).toEqual({ name: 'name', address: 'address' })
+    })
   })
 
   test('renders with horizontal layout', async () => {
@@ -152,11 +153,11 @@ describe('Form', () => {
       </Form>
     )
 
-    await waitFor(() => {
-      fireEvent.submit(getByTestId('form'))
-    })
+    fireEvent.submit(getByTestId('form'))
 
-    expect(getByTestId('form')).toHaveTextContent(`'test' is required`)
+    await waitFor(() => {
+      expect(getByTestId('form')).toHaveTextContent(`'test' is required`)
+    })
   })
 
   test("`shouldUpdate` shouldn't work with render props", async () => {

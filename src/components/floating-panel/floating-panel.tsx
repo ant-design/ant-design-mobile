@@ -109,7 +109,9 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         from: () => [0, y.get()],
         pointer: { touch: true },
         target: elementRef,
-        eventOptions: supportsPassive ? { passive: false } : false,
+        eventOptions: supportsPassive
+          ? { passive: false }
+          : (false as unknown as AddEventListenerOptions),
       }
     )
 

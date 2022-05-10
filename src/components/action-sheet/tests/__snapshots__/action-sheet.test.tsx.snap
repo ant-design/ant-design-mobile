@@ -18,7 +18,7 @@ exports[`ActionSheet basic usage 1`] = `
   >
     <div
       class="adm-mask"
-      style="background: rgba(0, 0, 0, 0.55); opacity: 0.02608179366075892; display: unset;"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1; display: unset;"
     >
       <div
         aria-label="遮罩层"
@@ -31,7 +31,7 @@ exports[`ActionSheet basic usage 1`] = `
     </div>
     <div
       class="adm-popup-body adm-popup-body-position-bottom"
-      style="transform: translate(0, 92.19667326069148%);"
+      style="transform: translate(0, 0%);"
     >
       <div
         class="adm-action-sheet"
