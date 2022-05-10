@@ -72,7 +72,6 @@ export type PickerProps = {
   >
 
 const defaultProps = {
-  visible: false,
   defaultValue: [],
   closeOnMaskClick: true,
   renderLabel: defaultRenderLabel,
@@ -144,7 +143,7 @@ export const Picker = memo(
     })
 
     const shouldRender = useShouldRender(
-      props.visible,
+      visible,
       props.forceRender,
       props.destroyOnClose
     )
