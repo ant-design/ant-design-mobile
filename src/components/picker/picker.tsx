@@ -6,6 +6,7 @@ import React, {
   useImperativeHandle,
   memo,
 } from 'react'
+import classNames from 'classnames'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -25,7 +26,7 @@ import { useConfig } from '../config-provider'
 import { useMemoizedFn } from 'ahooks'
 import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
-import classNames from 'classnames'
+import { useShouldRender } from '../../utils/should-render'
 
 export type PickerActions = {
   open: () => void
@@ -57,6 +58,8 @@ export type PickerProps = {
   mouseWheel?: boolean
   popupClassName?: string
   popupStyle?: React.CSSProperties
+  forceRender?: boolean
+  destroyOnClose?: boolean
 } & Pick<
   PopupProps,
   'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
@@ -139,6 +142,12 @@ export const Picker = memo(
       }
     })
 
+    const shouldRender = useShouldRender(
+      visible,
+      props.forceRender,
+      props.destroyOnClose
+    )
+
     const pickerElement = withNativeProps(
       props,
       <div className={classPrefix}>
@@ -194,7 +203,7 @@ export const Picker = memo(
         forceRender={true}
         stopPropagation={props.stopPropagation}
       >
-        {pickerElement}
+        {shouldRender && pickerElement}
         <SafeArea position='bottom' />
       </Popup>
     )
