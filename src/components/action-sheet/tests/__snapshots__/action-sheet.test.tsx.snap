@@ -14,11 +14,11 @@ exports[`ActionSheet basic usage 1`] = `
   </div>
   <div
     class="adm-popup adm-action-sheet-popup"
-    style="display: unset;"
+    style=""
   >
     <div
       class="adm-mask"
-      style="background: rgba(0, 0, 0, 0.55); opacity: 1; display: unset;"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
     >
       <div
         aria-label="遮罩层"

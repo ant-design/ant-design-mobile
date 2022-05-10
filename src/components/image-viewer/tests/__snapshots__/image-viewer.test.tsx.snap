@@ -29,7 +29,7 @@ exports[`ImageViewer.Multi calling ref.current.swipeTo before initialization 2`]
   </button>
   <div
     class="adm-mask"
-    style="background: rgba(0, 0, 0, 0.75); opacity: 1; display: unset;"
+    style="background: rgba(0, 0, 0, 0.75); opacity: 1;"
   >
     <div
       class="adm-mask-content"
