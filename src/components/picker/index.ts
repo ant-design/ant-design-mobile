@@ -3,7 +3,7 @@ import { attachPropertiesToComponent } from '../../utils/attach-properties-to-co
 import { Picker } from './picker'
 import { prompt } from './prompt'
 
-export type { PickerProps } from './picker'
+export type { PickerProps, PickerRef, PickerActions } from './picker'
 
 export type {
   PickerValue,

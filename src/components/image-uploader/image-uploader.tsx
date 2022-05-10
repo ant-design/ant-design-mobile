@@ -106,6 +106,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     const { files: rawFiles } = e.target
     if (!rawFiles) return
     let files = [].slice.call(rawFiles) as File[]
+    e.target.value = '' // HACK: fix the same file doesn't trigger onChange
 
     if (props.beforeUpload) {
       const postFiles = files.map(file => {
@@ -140,7 +141,6 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
     setTasks(prev => [...prev, ...newTasks])
 
-    e.target.value = '' // HACK: fix the same file doesn't trigger onChange
     await Promise.all(
       newTasks.map(async currentTask => {
         try {
