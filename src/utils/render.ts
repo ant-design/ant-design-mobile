@@ -10,6 +10,9 @@ type CreateRoot = (container: ContainerType) => Root
 const fullClone = {
   ...ReactDOM,
 } as typeof ReactDOM & {
+  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED?: {
+    usingClientEntryPoint?: boolean
+  }
   createRoot?: CreateRoot
 }
 
@@ -18,12 +21,24 @@ const { version, render: reactRender, unmountComponentAtNode } = fullClone
 let createRoot: CreateRoot
 try {
   const mainVersion = Number((version || '').split('.')[0])
-  if (mainVersion >= 18) {
+  if (mainVersion >= 18 && fullClone.createRoot) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    createRoot = require('react-dom/client').createRoot
+    createRoot = fullClone.createRoot
   }
 } catch (e) {
   // Do nothing;
+}
+
+function toggleWarning(skip: boolean) {
+  const { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } = fullClone
+
+  if (
+    __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED &&
+    typeof __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED === 'object'
+  ) {
+    __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.usingClientEntryPoint =
+      skip
+  }
 }
 
 const MARK = '__antd_mobile_root__'
@@ -38,7 +53,9 @@ function legacyRender(node: ReactElement, container: ContainerType) {
 }
 
 function concurrentRender(node: ReactElement, container: ContainerType) {
+  toggleWarning(true)
   const root = container[MARK] || createRoot(container)
+  toggleWarning(false)
   root.render(node)
   container[MARK] = root
 }
