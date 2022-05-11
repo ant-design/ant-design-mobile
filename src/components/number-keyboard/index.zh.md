@@ -1,6 +1,8 @@
 # NumberKeyboard 数字键盘 <Experimental></Experimental>
 
-H5 数字键盘，可以配合密码输入框组件或自定义的输入框组件使用
+可以配合密码输入框组件或自定义的输入框组件使用。
+
+如果情况允许的话，我们更推荐使用系统或客户端提供的原生键盘。虚拟数字键盘只是一些特殊的场景下的补充。
 
 <code src="./demos/demo1.tsx"></code>
 
@@ -25,3 +27,9 @@ H5 数字键盘，可以配合密码输入框组件或自定义的输入框组�
 | safeArea        | 是否开启安全区适配                                                        | `boolean`                                  | `true`                |
 
 此外还支持 [Popup](./popup) 的以下属性: `stopPropagation`
+
+## FAQ
+
+### 数字键盘是否支持自动从短信中读取验证码？
+
+不支持。
