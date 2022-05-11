@@ -31,7 +31,7 @@ export type PopupProps = {
   bodyClassName?: string
   bodyStyle?: React.CSSProperties
   maskClassName?: string
-  maskStyle?: React.CSSProperties
+  maskStyle?: React.CSSProperties & Partial<Record<'--z-index', string>>
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   stopPropagation?: PropagationEvent[]
   children?: React.ReactNode

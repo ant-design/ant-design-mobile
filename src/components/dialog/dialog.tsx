@@ -34,7 +34,7 @@ export type DialogProps = {
   getContainer?: GetContainer
   bodyStyle?: React.CSSProperties
   bodyClassName?: string
-  maskStyle?: React.CSSProperties
+  maskStyle?: React.CSSProperties & Partial<Record<'--z-index', string>>
   maskClassName?: string
   stopPropagation?: PropagationEvent[]
   disableBodyScroll?: boolean

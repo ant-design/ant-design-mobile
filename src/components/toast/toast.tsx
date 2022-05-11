@@ -12,7 +12,7 @@ const classPrefix = `adm-toast`
 
 export interface ToastProps {
   afterClose?: () => void
-  maskStyle?: React.CSSProperties
+  maskStyle?: React.CSSProperties & Partial<Record<'--z-index', string>>
   maskClassName?: string
   maskClickable?: boolean
   content?: ReactNode
