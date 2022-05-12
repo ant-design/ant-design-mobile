@@ -75,7 +75,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
   }))
 
   const renderCancelButton = () => {
-    let isShowCancel = false
+    let isShowCancel: boolean
 
     if (typeof props.showCancelButton === 'function') {
       isShowCancel = props.showCancelButton(hasFocus, value)
@@ -85,15 +85,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
 
     return (
       isShowCancel && (
-        <div
-          className={`${classPrefix}-suffix`}
-          onMouseDown={e => {
-            e.preventDefault()
-          }}
-          onTouchStart={e => {
-            e.preventDefault()
-          }}
-        >
+        <div className={`${classPrefix}-suffix`}>
           <Button
             fill='none'
             className={`${classPrefix}-cancel-button`}
