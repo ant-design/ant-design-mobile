@@ -29,8 +29,8 @@
 | --content-padding           | `tab` 内容区的 `padding`                                               | `12px`                      |
 | --active-line-height        | 当前激活 `tab` 下划线的高度                                            | `2px`                       |
 | --active-line-border-radius | 当前激活 `tab` 下划线的圆角                                            | `var(--active-line-height)` |
-| --active-title-color        | 当前激活 `tab` 选项文字颜色                                            | `--adm-color-primary`       |
-| --active-line-color         | 当前激活 `tab` 下划线的颜色                                            | `--adm-color-primary`       |
+| --active-title-color        | 当前激活 `tab` 选项文字颜色                                            | `var(--adm-color-primary)`  |
+| --active-line-color         | 当前激活 `tab` 下划线的颜色                                            | `var(--adm-color-primary)`  |
 
 ## Tabs.Tab
 
