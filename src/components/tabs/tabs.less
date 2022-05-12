@@ -5,6 +5,8 @@
   --content-padding: 12px;
   --active-line-height: 2px;
   --active-line-border-radius: var(--active-line-height);
+  --active-line-color: var(--adm-color-primary);
+  --active-title-color: var(--adm-color-primary);
   position: relative;
   // Hack for auto scroll fail when the parent element is a flex layout
   min-width: 0;
@@ -42,7 +44,7 @@
     cursor: pointer;
   }
   &-tab-active {
-    color: var(--adm-color-primary);
+    color: var(--active-title-color);
   }
   &-tab-disabled {
     opacity: 0.5;
@@ -52,8 +54,7 @@
     position: absolute;
     bottom: 0;
     height: var(--active-line-height);
-    color: var(--adm-color-primary);
-    background: var(--adm-color-primary);
+    background: var(--active-line-color);
     border-radius: var(--active-line-border-radius);
   }
   &-content {
