@@ -2,6 +2,7 @@ import React, { ReactNode, useMemo } from 'react'
 import classNames from 'classnames'
 import { CheckOutline, CloseOutline } from 'antd-mobile-icons'
 import Mask from '../mask'
+import type { MaskProps } from '../mask'
 import { mergeProps } from '../../utils/with-default-props'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
 import { GetContainer } from '../../utils/render-to-container'
@@ -12,7 +13,7 @@ const classPrefix = `adm-toast`
 
 export interface ToastProps {
   afterClose?: () => void
-  maskStyle?: React.CSSProperties
+  maskStyle?: MaskProps['style']
   maskClassName?: string
   maskClickable?: boolean
   content?: ReactNode

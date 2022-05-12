@@ -3,6 +3,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import { useUnmountedRef } from 'ahooks'
 import Mask from '../mask'
+import type { MaskProps } from '../mask'
 import { Action, ModalActionButton } from './modal-action-button'
 import Image from '../image'
 import Space from '../space'
@@ -35,7 +36,7 @@ export type ModalProps = {
   getContainer?: GetContainer
   bodyStyle?: React.CSSProperties
   bodyClassName?: string
-  maskStyle?: React.CSSProperties
+  maskStyle?: MaskProps['style']
   maskClassName?: string
   stopPropagation?: PropagationEvent[]
   showCloseButton?: boolean

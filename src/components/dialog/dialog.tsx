@@ -3,6 +3,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import { useUnmountedRef } from 'ahooks'
 import Mask from '../mask'
+import type { MaskProps } from '../mask'
 import { Action, DialogActionButton } from './dialog-action-button'
 import Image from '../image'
 import {
@@ -34,7 +35,7 @@ export type DialogProps = {
   getContainer?: GetContainer
   bodyStyle?: React.CSSProperties
   bodyClassName?: string
-  maskStyle?: React.CSSProperties
+  maskStyle?: MaskProps['style']
   maskClassName?: string
   stopPropagation?: PropagationEvent[]
   disableBodyScroll?: boolean
