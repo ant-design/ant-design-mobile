@@ -30,6 +30,8 @@
 | --content-padding           | Padding of the tab content                                                                  | `12px`                      |
 | --active-line-height        | The height of the active tab underline                                                      | `2px`                       |
 | --active-line-border-radius | The borderRadius of the active tab underline                                                | `var(--active-line-height)` |
+| --active-title-color        | The color of the active tab title                                                           | `--adm-color-primary`       |
+| --active-line-color         | The color of the active tab underline                                                       | `--adm-color-primary`       |
 
 ## Tabs.Tab
 

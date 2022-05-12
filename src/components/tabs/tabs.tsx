@@ -45,6 +45,8 @@ export type TabsProps = {
   | '--active-line-border-radius'
   | '--title-font-size'
   | '--content-padding'
+  | '--active-title-color'
+  | '--active-line-color'
 >
 
 const defaultProps = {
