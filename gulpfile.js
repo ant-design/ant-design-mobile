@@ -239,6 +239,8 @@ function generatePackageJSON() {
         delete parsed.devDependencies
         delete parsed.publishConfig
         delete parsed.files
+        delete parsed.resolutions
+        delete parsed.packageManager
         const stringified = JSON.stringify(parsed, null, 2)
         file.contents = Buffer.from(stringified)
         cb(null, file)
