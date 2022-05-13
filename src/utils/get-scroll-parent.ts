@@ -21,7 +21,10 @@ export function getScrollParent(
       return root
     }
     const { overflowY } = window.getComputedStyle(node)
-    if (overflowStylePatterns.includes(overflowY)) {
+    if (
+      overflowStylePatterns.includes(overflowY) &&
+      node.scrollHeight > node.clientHeight
+    ) {
       return node
     }
     node = node.parentNode as Element
