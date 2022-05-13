@@ -13,7 +13,7 @@
 | closeable | 是否可关闭                       | `boolean`                                   | `false`             |
 | onClose   | 关闭时的回调                     | `() => void`                                | -                   |
 | extra     | 额外操作区域，显示在关闭按钮左侧 | `React.ReactNode`                           | -                   |
-| icon      | 左侧广播图标                     | `React.ReactNode`                           | `<SoundOutlined />` |
+| icon      | 左侧广播图标                     | `React.ReactNode`                           | `<SoundOutline />` |
 
 ### CSS 变量
 
