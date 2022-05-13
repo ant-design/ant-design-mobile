@@ -38,6 +38,7 @@
     "@babel/preset-typescript": "^7.16.7",
     "@docsearch/react": "^3.0.0",
     "@jest/types": "27.5.1",
+    "@statoscope/webpack-plugin": "^5.20.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/react-hooks": "^8.0.0",

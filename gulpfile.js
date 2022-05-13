@@ -14,6 +14,7 @@ const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const tsconfig = require('./tsconfig.json')
 const packageJson = require('./package.json')
+const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default
 
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
 
@@ -156,6 +157,9 @@ function umdWebpack() {
           optimization: {
             usedExports: true,
           },
+          performance: {
+            hints: false,
+          },
           resolve: {
             extensions: ['.js', '.json'],
           },
@@ -164,6 +168,11 @@ function umdWebpack() {
               analyzerMode: 'static',
               openAnalyzer: false,
               reportFilename: 'report/report.html',
+            }),
+            new StatoscopeWebpackPlugin({
+              saveReportTo: 'report/statoscope/report.html',
+              saveStatsTo: 'report/statoscope/stats.json',
+              open: false,
             }),
           ],
           module: {
