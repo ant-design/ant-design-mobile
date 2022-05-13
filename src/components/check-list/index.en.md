@@ -1,8 +1,10 @@
 # CheckList
 
+The bottom layer of `CheckList` is implemented based on `List`, which is a list that can be checked.
+
 <code src="./demos/demo1.tsx"></code>
 
-The bottom layer of `CheckList` is implemented based on `List`, which is a list that can be checked.
+<code src="./demos/demo2.tsx"></code>
 
 ## CheckList
 

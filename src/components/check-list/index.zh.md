@@ -1,8 +1,10 @@
 # CheckList 可勾选列表
 
+`CheckList` 底层是基于 `List` 实现的，是可以进行勾选的列表。
+
 <code src="./demos/demo1.tsx"></code>
 
-`CheckList` 底层是基于 `List` 实现的，是可以进行勾选的列表。
+<code src="./demos/demo2.tsx"></code>
 
 ## CheckList
 
