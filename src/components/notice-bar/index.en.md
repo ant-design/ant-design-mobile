@@ -13,7 +13,7 @@
 | closeable | Whether it can be closed                                             | `boolean`                                   | `false`             |
 | onClose   | Callback when closed                                                 | `() => void`                                | -                   |
 | extra     | Additional operating area, displayed to the left of the close button | `React.ReactNode`                           | -                   |
-| icon      | Radio icon on the left                                               | `React.ReactNode`                           | `<SoundOutlined />` |
+| icon      | Radio icon on the left                                               | `React.ReactNode`                           | `<SoundOutline />` |
 
 ### CSS Variables
 
