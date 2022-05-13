@@ -54,9 +54,12 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
     if (!parent) return
     const rect = element.getBoundingClientRect()
     const elementTop = rect.top
-    const current = isWindow(parent)
+    let current = isWindow(parent)
       ? window.innerHeight
       : parent.getBoundingClientRect().bottom
+    if (current > window.innerHeight) {
+      current = window.innerHeight
+    }
     if (current >= elementTop - props.threshold) {
       const nextFlag = {}
       nextFlagRef.current = nextFlag
