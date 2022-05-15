@@ -4,7 +4,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useIsomorphicLayoutEffect, useMemoizedFn, useUnmount } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUnmount } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useConfig } from '../config-provider'
@@ -70,11 +70,6 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   const { locale } = useConfig()
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
-  const updateValue = useMemoizedFn(
-    (updater: (prev: ImageUploadItem[]) => ImageUploadItem[]) => {
-      setValue(updater(value))
-    }
-  )
 
   const [tasks, setTasks] = useState<Task[]>([])
 
@@ -156,7 +151,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               return task
             })
           })
-          updateValue(prev => {
+          setValue(prev => {
             const newVal = { ...result }
             return [...prev, newVal]
           })
