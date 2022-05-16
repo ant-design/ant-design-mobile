@@ -13,10 +13,6 @@ export type BadgeProps = {
   children?: React.ReactNode
 } & NativeProps<'--right' | '--top' | '--color'>
 
-type BadgeStyle = React.CSSProperties & {
-  '--color': BadgeProps['color']
-}
-
 export const Badge: FC<BadgeProps> = props => {
   const { content, color, children } = props
 
@@ -29,15 +25,18 @@ export const Badge: FC<BadgeProps> = props => {
     props.bordered && `${classPrefix}-bordered`
   )
 
-  const badgeStyle: BadgeStyle = {
-    '--color': color,
-  }
-
   const element =
     content || content === 0
       ? withNativeProps(
           props,
-          <div className={badgeCls} style={badgeStyle}>
+          <div
+            className={badgeCls}
+            style={
+              {
+                '--color': color,
+              } as BadgeProps['style']
+            }
+          >
             {!isDot && (
               <div className={`${classPrefix}-content`}>{content}</div>
             )}
