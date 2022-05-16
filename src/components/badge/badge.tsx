@@ -34,7 +34,7 @@ export const Badge: FC<BadgeProps> = props => {
             style={
               {
                 '--color': color,
-              } as any
+              } as BadgeProps['style']
             }
           >
             {!isDot && (
