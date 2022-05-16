@@ -36,6 +36,8 @@
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@commitlint/cli": "^16.3.0",
+    "@commitlint/config-conventional": "^16.2.4",
     "@docsearch/react": "^3.0.0",
     "@jest/types": "27.5.1",
     "@statoscope/webpack-plugin": "^5.20.1",
