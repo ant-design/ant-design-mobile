@@ -204,7 +204,6 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
       }
       const inThisMonth = d.month() === current.month()
       const disabled =
-        !inThisMonth ||
         (maxDay && d.isAfter(maxDay, 'day')) ||
         (minDay && d.isBefore(minDay, 'day'))
       cells.push(
@@ -212,7 +211,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           key={d.valueOf()}
           className={classNames(
             `${classPrefix}-cell`,
-            disabled && `${classPrefix}-cell-disabled`,
+            (disabled || !inThisMonth) && `${classPrefix}-cell-disabled`,
             inThisMonth && {
               [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
               [`${classPrefix}-cell-selected`]: isSelect,
