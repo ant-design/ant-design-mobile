@@ -20,12 +20,12 @@
 
 ### SideBar.Item
 
-| 属性     | 说明             | 类型        | 默认值  |
-| -------- | ---------------- | ----------- | ------- |
-| key      | 对应 `activeKey` | `string`    | -       |
-| title    | 显示内容         | `ReactNode` | -       |
-| disabled | 是否禁用         | `boolean`   | `false` |
-| badge    | 徽标             | `ReactNode` | -       |
+| 属性     | 说明             | 类型                    | 默认值  |
+| -------- | ---------------- | ----------------------- | ------- |
+| key      | 对应 `activeKey` | `string`                | -       |
+| title    | 显示内容         | `ReactNode`             | -       |
+| disabled | 是否禁用         | `boolean`               | `false` |
+| badge    | 徽标             | `BadgeProps['content']` | -       |
 
 ### CSS 变量
 

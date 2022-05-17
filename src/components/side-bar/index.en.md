@@ -20,12 +20,12 @@
 
 ### SideBar.Item
 
-| Name     | Description                   | Type        | Default |
-| -------- | ----------------------------- | ----------- | ------- |
-| key      | Corresponding to `activeKey`  | `string`    | -       |
-| title    | Title of the `item`           | `ReactNode` | -       |
-| disabled | Should the `item` be disabled | `boolean`   | `false` |
-| badge    | Badge of the `item`           | `ReactNode` | -       |
+| Name     | Description                   | Type                    | Default |
+| -------- | ----------------------------- | ----------------------- | ------- |
+| key      | Corresponding to `activeKey`  | `string`                | -       |
+| title    | Title of the `item`           | `ReactNode`             | -       |
+| disabled | Should the `item` be disabled | `boolean`               | `false` |
+| badge    | Badge of the `item`           | `BadgeProps['content']` | -       |
 
 ### CSS Variables
 
