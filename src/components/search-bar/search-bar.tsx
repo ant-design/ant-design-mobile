@@ -93,7 +93,6 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
               if (props.clearOnCancel) {
                 inputRef.current?.clear()
               }
-              inputRef.current?.blur()
               props.onCancel?.()
             }}
           >
@@ -131,7 +130,9 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
             props.onFocus?.(e)
           }}
           onBlur={e => {
-            setHasFocus(false)
+            setTimeout(() => {
+              setHasFocus(false)
+            })
             props.onBlur?.(e)
           }}
           onClear={props.onClear}
