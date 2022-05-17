@@ -205,7 +205,7 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
       }
       const inThisMonth = d.month() === current.month()
       const disabled = props.shouldDisableDate
-        ? props.shouldDisableDate(d.toDate()) === true
+        ? props.shouldDisableDate(d.toDate())
         : (maxDay && d.isAfter(maxDay, 'day')) ||
           (minDay && d.isBefore(minDay, 'day'))
       cells.push(
