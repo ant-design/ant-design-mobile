@@ -5,7 +5,7 @@ export default function () {
   return (
     <>
       <Form layout='horizontal' mode='card'>
-        <Form.Header>卡片模式 & 分组</Form.Header>
+        <Form.Header>卡片模式及分组</Form.Header>
         <Form.Item label='手机号'>
           <Input placeholder='请输入' />
         </Form.Item>
@@ -25,7 +25,7 @@ export default function () {
         <Form.Header />
       </Form>
       <Form layout='horizontal' mode='card'>
-        <Form.Header>在表单字段内增加额外内容</Form.Header>
+        <Form.Header>带辅助操作</Form.Header>
         <Form.Item label='短信验证码' extra={<a>发送验证码</a>}>
           <Input placeholder='请输入' />
         </Form.Item>

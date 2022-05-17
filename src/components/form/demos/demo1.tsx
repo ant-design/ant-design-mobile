@@ -24,6 +24,42 @@ export default () => {
   return (
     <>
       <Form
+        layout='horizontal'
+        footer={
+          <Button block type='submit' color='primary' size='large'>
+            提交
+          </Button>
+        }
+      >
+        <Form.Header>水平布局表单</Form.Header>
+        <Form.Item
+          name='name'
+          label='姓名'
+          rules={[{ required: true, message: '姓名不能为空' }]}
+        >
+          <Input onChange={console.log} placeholder='请输入姓名' />
+        </Form.Item>
+        <Form.Item name='address' label='地址' help='详情地址'>
+          <TextArea
+            placeholder='请输入地址'
+            maxLength={100}
+            rows={2}
+            showCount
+          />
+        </Form.Item>
+        <Form.Item name='amount' label='数量' childElementPosition='right'>
+          <Stepper />
+        </Form.Item>
+        <Form.Item
+          name='delivery'
+          label='送货上门'
+          childElementPosition='right'
+        >
+          <Switch />
+        </Form.Item>
+      </Form>
+
+      <Form
         name='form'
         onFinish={onFinish}
         footer={
@@ -32,7 +68,7 @@ export default () => {
           </Button>
         }
       >
-        <Form.Header>基础用法</Form.Header>
+        <Form.Header>竖直布局表单</Form.Header>
         <Form.Item name='name' label='姓名' rules={[{ required: true }]}>
           <Input placeholder='请输入姓名' />
         </Form.Item>
@@ -83,42 +119,6 @@ export default () => {
         </Form.Item>
         <Form.Item name='disabledField' label='禁用' disabled>
           <Input placeholder='禁止输入' />
-        </Form.Item>
-      </Form>
-
-      <Form
-        layout='horizontal'
-        footer={
-          <Button block type='submit' color='primary' size='large'>
-            提交
-          </Button>
-        }
-      >
-        <Form.Header>水平布局</Form.Header>
-        <Form.Item
-          name='name'
-          label='姓名'
-          rules={[{ required: true, message: '姓名不能为空' }]}
-        >
-          <Input onChange={console.log} placeholder='请输入姓名' />
-        </Form.Item>
-        <Form.Item name='address' label='地址' help='详情地址'>
-          <TextArea
-            placeholder='请输入地址'
-            maxLength={100}
-            rows={2}
-            showCount
-          />
-        </Form.Item>
-        <Form.Item name='amount' label='数量' childElementPosition='right'>
-          <Stepper />
-        </Form.Item>
-        <Form.Item
-          name='delivery'
-          label='送货上门'
-          childElementPosition='right'
-        >
-          <Switch />
         </Form.Item>
       </Form>
     </>

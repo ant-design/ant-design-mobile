@@ -26,7 +26,7 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='基本的气泡'>
+      <DemoBlock title='基础用法'>
         <Popover
           content='Hello World'
           trigger='click'
@@ -37,7 +37,7 @@ export default () => {
         </Popover>
       </DemoBlock>
 
-      <DemoBlock title='深色背景' padding='12px 12px 64px'>
+      <DemoBlock title='深色气泡' padding='12px 12px 64px'>
         <Popover
           content='Hello World'
           placement='bottom-start'
@@ -49,7 +49,7 @@ export default () => {
         </Popover>
       </DemoBlock>
 
-      <DemoBlock title='多种位置'>
+      <DemoBlock title='气泡位置'>
         <Popover
           key={placement}
           visible

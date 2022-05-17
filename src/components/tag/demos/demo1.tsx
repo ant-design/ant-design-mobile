@@ -5,28 +5,11 @@ import { DemoBlock } from 'demos'
 export default () => {
   return (
     <>
-      <DemoBlock title='基本用法'>
+      <DemoBlock title='基础用法'>
         <Tag>123</Tag>
       </DemoBlock>
 
-      <DemoBlock title='默认提供 5 种通用标签颜色'>
-        <Space>
-          <Tag color='default'>Default</Tag>
-          <Tag color='primary'>测试</Tag>
-          <Tag color='success'>Success</Tag>
-          <Tag color='warning'>Warning</Tag>
-          <Tag color='danger'>Danger</Tag>
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title='自定义颜色'>
-        <Space>
-          <Tag color='#2db7f5'>#2db7f5</Tag>
-          <Tag color='#87d068'>#87d068</Tag>
-          <Tag color='#108ee9'>#108ee9</Tag>
-        </Space>
-      </DemoBlock>
-      <DemoBlock title='线框填充'>
+      <DemoBlock title='线框标签'>
         <Space>
           <Tag color='primary' fill='outline'>
             Primary
@@ -40,13 +23,31 @@ export default () => {
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='圆角'>
+      <DemoBlock title='语义标签'>
+        <Space>
+          <Tag color='default'>Default</Tag>
+          <Tag color='primary'>测试</Tag>
+          <Tag color='success'>Success</Tag>
+          <Tag color='warning'>Warning</Tag>
+          <Tag color='danger'>Danger</Tag>
+        </Space>
+      </DemoBlock>
+
+      <DemoBlock title='圆角标签'>
         <Tag round color='#2db7f5'>
           kongxin
         </Tag>
       </DemoBlock>
 
-      <DemoBlock title='通过 CSS 变量进行个性化'>
+      <DemoBlock title='自定义颜色'>
+        <Space>
+          <Tag color='#2db7f5'>#2db7f5</Tag>
+          <Tag color='#87d068'>#87d068</Tag>
+          <Tag color='#108ee9'>#108ee9</Tag>
+        </Space>
+      </DemoBlock>
+
+      <DemoBlock title='通过 CSS 变量个性化'>
         <Space>
           <Tag
             color='primary'

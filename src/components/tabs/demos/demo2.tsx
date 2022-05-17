@@ -5,7 +5,7 @@ import { DemoBlock } from 'demos'
 export default () => {
   return (
     <>
-      <DemoBlock title='配合 Badge 使用' padding='0'>
+      <DemoBlock title='搭配 Badge 使用' padding='0'>
         <Tabs>
           <Tabs.Tab title='水果' key='fruits'>
             菠萝
@@ -26,7 +26,7 @@ export default () => {
         </Tabs>
       </DemoBlock>
 
-      <DemoBlock title='自定义当前激活的下划线长度' padding='0'>
+      <DemoBlock title='自定义选中项下划线长度' padding='0'>
         <Tabs
           activeLineMode='fixed'
           style={{
@@ -51,7 +51,7 @@ export default () => {
         </Tabs>
       </DemoBlock>
 
-      <DemoBlock title='自定义选项卡头的文字大小' padding='0'>
+      <DemoBlock title='自定义字体大小' padding='0'>
         <Tabs
           style={{
             '--title-font-size': '13px',

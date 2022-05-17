@@ -17,39 +17,11 @@ export default () => {
             <Radio />
           </div>
           <Radio>有描述的单选框</Radio>
-          <Radio defaultChecked>默认选中</Radio>
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='状态'>
-        <Radio defaultChecked disabled>
-          禁用状态
-        </Radio>
-      </DemoBlock>
-
-      <DemoBlock title='选项组'>
-        <Radio.Group
-          value={value}
-          onChange={val => {
-            setValue(val as string)
-          }}
-        >
-          <Space direction='vertical'>
-            <Radio value='apple'>苹果</Radio>
-            <Radio value='orange'>橘子</Radio>
-            <Radio value='banana'>香蕉</Radio>
-          </Space>
-        </Radio.Group>
-      </DemoBlock>
-
-      <DemoBlock title='整组禁用'>
-        <Radio.Group defaultValue='orange' disabled>
-          <Space direction='vertical'>
-            <Radio value='apple'>苹果</Radio>
-            <Radio value='orange'>橘子</Radio>
-            <Radio value='banana'>香蕉</Radio>
-          </Space>
-        </Radio.Group>
+      <DemoBlock title='默认选中'>
+        <Radio defaultChecked>默认选中</Radio>
       </DemoBlock>
 
       <DemoBlock title='占满整行宽度'>
@@ -59,7 +31,7 @@ export default () => {
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='自定义 icon'>
+      <DemoBlock title='自定义图标'>
         <Radio.Group
           value={value}
           onChange={val => {
@@ -104,6 +76,12 @@ export default () => {
           }}
         >
           小号的单选框
+        </Radio>
+      </DemoBlock>
+
+      <DemoBlock title='禁用状态'>
+        <Radio defaultChecked disabled>
+          禁用状态
         </Radio>
       </DemoBlock>
     </>

@@ -30,7 +30,7 @@ const DynamicContent = () => {
 export default () => {
   return (
     <>
-      <DemoBlock title='禁用' padding='0' border='none'>
+      <DemoBlock title='禁用' padding='0'>
         <Collapse>
           <Collapse.Panel key='1' title='第一项'>
             这里是第一项的内容
@@ -44,7 +44,7 @@ export default () => {
         </Collapse>
       </DemoBlock>
 
-      <DemoBlock title='自定义折叠图标' padding='0' border='none'>
+      <DemoBlock title='自定义折叠图标' padding='0'>
         <Collapse
           defaultActiveKey={['1']}
           arrow={active => (active ? <MinusOutline /> : <AddOutline />)}
@@ -72,7 +72,7 @@ export default () => {
         </Collapse>
       </DemoBlock>
 
-      <DemoBlock title='动态内容' padding='0' border='none'>
+      <DemoBlock title='动态内容' padding='0'>
         <Collapse accordion>
           <Collapse.Panel key='1' title='第一项'>
             <DynamicContent />

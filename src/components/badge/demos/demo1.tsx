@@ -7,7 +7,7 @@ import styles from './demo1.less'
 export default () => {
   return (
     <>
-      <DemoBlock title='基本用法'>
+      <DemoBlock title='基础用法'>
         <Space style={{ '--gap': '24px' }}>
           <Badge content='5'>
             <div className={styles.box} />
@@ -18,6 +18,19 @@ export default () => {
           <Badge content={Badge.dot}>
             <div className={styles.box} />
           </Badge>
+        </Space>
+      </DemoBlock>
+
+      <DemoBlock title='带边框'>
+        <Badge content='更新啦' bordered>
+          <div className={`${styles.box} ${styles.dark}`} />
+        </Badge>
+      </DemoBlock>
+
+      <DemoBlock title='独立使用'>
+        <Space>
+          <Badge content='99+' />
+          <Badge content='新消息!' />
         </Space>
       </DemoBlock>
 
@@ -43,19 +56,6 @@ export default () => {
           <Badge color='orange' content={Badge.dot} style={{ '--top': '100%' }}>
             <div className={styles.box} />
           </Badge>
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title='带边框'>
-        <Badge content='更新啦' bordered>
-          <div className={`${styles.box} ${styles.dark}`} />
-        </Badge>
-      </DemoBlock>
-
-      <DemoBlock title='独立展示'>
-        <Space>
-          <Badge content='99+' />
-          <Badge content='新消息!' />
         </Space>
       </DemoBlock>
     </>

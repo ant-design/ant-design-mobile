@@ -41,7 +41,7 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='基本用法' padding='0'>
+      <DemoBlock title='基础用法' padding='0'>
         <TabBar>
           {tabs.map(item => (
             <TabBar.Item key={item.key} icon={item.icon} title={item.title} />

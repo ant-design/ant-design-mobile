@@ -19,7 +19,7 @@ const actions: Action[] = [
 export default () => {
   return (
     <>
-      <DemoBlock title='浅色的气泡菜单'>
+      <DemoBlock title='浅色气泡菜单'>
         <Popover.Menu
           actions={actions}
           placement='bottom-start'
@@ -30,7 +30,7 @@ export default () => {
         </Popover.Menu>
       </DemoBlock>
 
-      <DemoBlock title='深色的气泡菜单'>
+      <DemoBlock title='深色气泡菜单'>
         <Popover.Menu
           mode='dark'
           actions={actions}
@@ -42,7 +42,7 @@ export default () => {
         </Popover.Menu>
       </DemoBlock>
 
-      <DemoBlock title='不含图标的气泡菜单'>
+      <DemoBlock title='无图标气泡菜单'>
         <Popover.Menu
           actions={actions.map(action => ({
             ...action,

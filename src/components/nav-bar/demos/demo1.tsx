@@ -23,11 +23,11 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='基础使用' padding='0'>
+      <DemoBlock title='基础用法' padding='0'>
         <NavBar onBack={back}>标题</NavBar>
       </DemoBlock>
 
-      <DemoBlock title='自定义返回按钮的文字' padding='0'>
+      <DemoBlock title='返回按钮显示文字' padding='0'>
         <NavBar back='返回' onBack={back}>
           标题
         </NavBar>
@@ -57,16 +57,7 @@ export default () => {
         </NavBar>
       </DemoBlock>
 
-      <DemoBlock title='自定义标题内容' padding='0'>
-        <NavBar onBack={back}>
-          <div>
-            <div>标题</div>
-            <div className='my-nav-bar-subtitle'>副标题</div>
-          </div>
-        </NavBar>
-      </DemoBlock>
-
-      <DemoBlock title='自定义高度和下边框' padding='0'>
+      <DemoBlock title='自定义高度及边框' padding='0'>
         <NavBar
           style={{
             '--height': '36px',
@@ -78,8 +69,17 @@ export default () => {
         </NavBar>
       </DemoBlock>
 
-      <DemoBlock title='标题超长自动省略' padding='0'>
+      <DemoBlock title='标题超长' padding='0'>
         <NavBar onBack={back}>这是一条很长很长很长很长很长很长的标题</NavBar>
+      </DemoBlock>
+
+      <DemoBlock title='显示副标题' padding='0'>
+        <NavBar onBack={back}>
+          <div>
+            <div>标题</div>
+            <div className='my-nav-bar-subtitle'>副标题</div>
+          </div>
+        </NavBar>
       </DemoBlock>
     </>
   )

@@ -13,7 +13,8 @@ export default () => {
           <Avatar src={demoAvatarImages[3]} />
         </Space>
       </DemoBlock>
-      <DemoBlock title='默认图'>
+
+      <DemoBlock title='占位头像'>
         <Space block direction='vertical'>
           <Avatar src='' />
           <DemoDescription>
@@ -21,14 +22,16 @@ export default () => {
           </DemoDescription>
         </Space>
       </DemoBlock>
-      <DemoBlock title='自定义大小'>
+
+      <DemoBlock title='自定义尺寸'>
         <Space block wrap>
           <Avatar src={demoAvatarImages[0]} style={{ '--size': '32px' }} />
           <Avatar src={demoAvatarImages[0]} style={{ '--size': '48px' }} />
           <Avatar src={demoAvatarImages[0]} style={{ '--size': '64px' }} />
         </Space>
       </DemoBlock>
-      <DemoBlock title='配合列表使用' padding='0' border='none'>
+
+      <DemoBlock title='配合列表使用' padding='0'>
         <List>
           <List.Item
             prefix={<Avatar src={demoAvatarImages[0]} />}

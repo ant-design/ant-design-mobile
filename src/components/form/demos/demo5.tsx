@@ -4,8 +4,8 @@ import { Form, Input } from 'antd-mobile'
 export default () => {
   return (
     <>
-      <div style={{ background: '#ffffff', padding: '16px', fontSize: '15px' }}>
-        Form 支持三种必填选填的展示样式
+      <div style={{ padding: '16px', fontSize: '15px', color: '#697b8c' }}>
+        三种必选填方式
       </div>
       <Form requiredMarkStyle='asterisk'>
         <Form.Header>星号</Form.Header>

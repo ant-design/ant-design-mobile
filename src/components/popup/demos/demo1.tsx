@@ -12,7 +12,7 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='不同位置'>
+      <DemoBlock title='弹出位置'>
         <Space direction='vertical'>
           <>
             <Button

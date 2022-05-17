@@ -5,7 +5,7 @@ import { DemoBlock, lorem } from 'demos'
 export default () => {
   return (
     <>
-      <DemoBlock title='基础用法' padding='0' border='none'>
+      <DemoBlock title='基础用法' padding='0'>
         <Collapse defaultActiveKey={['1']}>
           <Collapse.Panel key='1' title='第一项'>
             {mockContents[0]}
@@ -19,7 +19,7 @@ export default () => {
         </Collapse>
       </DemoBlock>
 
-      <DemoBlock title='手风琴模式' padding='0' border='none'>
+      <DemoBlock title='手风琴模式' padding='0'>
         <Collapse accordion>
           <Collapse.Panel key='1' title='第一项'>
             手风琴模式只能同时展开一个

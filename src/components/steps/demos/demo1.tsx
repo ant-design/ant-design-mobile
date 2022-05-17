@@ -7,7 +7,7 @@ const { Step } = Steps
 export default () => {
   return (
     <>
-      <DemoBlock title='横向'>
+      <DemoBlock title='横向步骤条'>
         <Steps current={1}>
           <Step title='标题1' description='描述' />
           <Step title='标题2' description='描述' />
@@ -15,7 +15,7 @@ export default () => {
         </Steps>
       </DemoBlock>
 
-      <DemoBlock title='横向（失败状态）'>
+      <DemoBlock title='横向步骤条失败'>
         <Steps current={2}>
           <Step title='第一步' />
           <Step title='第二步' />
@@ -24,7 +24,7 @@ export default () => {
         </Steps>
       </DemoBlock>
 
-      <DemoBlock title='纵向'>
+      <DemoBlock title='纵向步骤条'>
         <Steps direction='vertical'>
           <Step title='填写机构信息' status='process' />
           <Step title='签约机构' status='wait' />
@@ -32,7 +32,7 @@ export default () => {
         </Steps>
       </DemoBlock>
 
-      <DemoBlock title='纵向（失败状态）'>
+      <DemoBlock title='纵向步骤条失败'>
         <Steps direction='vertical'>
           <Step
             title='填写机构信息'

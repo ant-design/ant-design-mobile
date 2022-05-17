@@ -1,7 +1,7 @@
 import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
 import React from 'react'
 import classNames from 'classnames'
-import Badge from '../badge'
+import Badge, { BadgeProps } from '../badge'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { Corner } from './corner'
@@ -12,7 +12,7 @@ const classPrefix = `adm-side-bar`
 export type SideBarItemProps = {
   title?: ReactNode
   disabled?: boolean
-  badge?: ReactNode
+  badge?: BadgeProps['content']
 } & NativeProps
 
 export const SideBarItem: FC<SideBarItemProps> = () => {

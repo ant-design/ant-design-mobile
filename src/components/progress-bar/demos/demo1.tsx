@@ -6,7 +6,7 @@ export default () => {
   const [percent, setPercent] = useState<number>(10)
   return (
     <>
-      <DemoBlock title='基本用法'>
+      <DemoBlock title='基础用法'>
         <Space direction='vertical' block>
           <div>
             <Button

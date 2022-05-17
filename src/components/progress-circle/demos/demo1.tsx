@@ -8,7 +8,7 @@ import styles from './demo1.less'
 export default () => {
   return (
     <>
-      <DemoBlock title='基本用法'>
+      <DemoBlock title='基础用法'>
         <ProgressCircle percent={50}>50%</ProgressCircle>
       </DemoBlock>
 

@@ -5,7 +5,7 @@ import { DemoBlock } from 'demos'
 export default () => {
   return (
     <>
-      <DemoBlock title='基本用法' padding='0'>
+      <DemoBlock title='基础用法' padding='0'>
         <Tabs>
           <Tabs.Tab title='水果' key='fruits'>
             菠萝
@@ -16,14 +16,6 @@ export default () => {
           <Tabs.Tab title='动物' key='animals'>
             蚂蚁
           </Tabs.Tab>
-        </Tabs>
-      </DemoBlock>
-
-      <DemoBlock title='禁用' padding='0'>
-        <Tabs>
-          <Tabs.Tab title='水果' key='fruits' />
-          <Tabs.Tab title='蔬菜' key='vegetables' />
-          <Tabs.Tab title='动物' key='animals' disabled />
         </Tabs>
       </DemoBlock>
 
@@ -58,6 +50,14 @@ export default () => {
           <Tabs.Tab title='水果' key='fruits' />
           <Tabs.Tab title='蔬菜' key='vegetables' />
           <Tabs.Tab title='动物' key='animals' />
+        </Tabs>
+      </DemoBlock>
+
+      <DemoBlock title='禁用状态' padding='0'>
+        <Tabs>
+          <Tabs.Tab title='水果' key='fruits' />
+          <Tabs.Tab title='蔬菜' key='vegetables' />
+          <Tabs.Tab title='动物' key='animals' disabled />
         </Tabs>
       </DemoBlock>
     </>
