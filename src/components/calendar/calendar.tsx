@@ -204,10 +204,10 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
       }
       const inThisMonth = d.month() === current.month()
-      const disabled =
-        props.shouldDisableDate?.(d.toDate()) ??
-        ((maxDay && d.isAfter(maxDay, 'day')) ||
-          (minDay && d.isBefore(minDay, 'day')))
+      const disabled = props.shouldDisableDate
+        ? props.shouldDisableDate(d.toDate()) === true
+        : (maxDay && d.isAfter(maxDay, 'day')) ||
+          (minDay && d.isBefore(minDay, 'day'))
       cells.push(
         <div
           key={d.valueOf()}
