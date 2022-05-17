@@ -335,7 +335,7 @@ const config: IConfig = {
     //   rootValue: 50,
     //   propList: ['*'],
     // }),
-    postcssDisableCSSVars(),
+    // postcssDisableCSSVars(),
   ],
   themeConfig: {
     hd: {
