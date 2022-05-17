@@ -7,6 +7,11 @@ import { isPromise } from '../../utils/validate'
 
 const classPrefix = `adm-button`
 
+type NativeButtonProps = React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>
+
 export type ButtonProps = {
   color?: 'default' | 'primary' | 'success' | 'warning' | 'danger'
   fill?: 'solid' | 'outline' | 'none'
@@ -22,14 +27,18 @@ export type ButtonProps = {
   type?: 'submit' | 'reset' | 'button'
   shape?: 'default' | 'rounded' | 'rectangular'
   children?: React.ReactNode
-} & NativeProps<
-  | '--text-color'
-  | '--background-color'
-  | '--border-radius'
-  | '--border-width'
-  | '--border-style'
-  | '--border-color'
->
+} & Pick<
+  NativeButtonProps,
+  'onMouseDown' | 'onMouseUp' | 'onTouchStart' | 'onTouchEnd'
+> &
+  NativeProps<
+    | '--text-color'
+    | '--background-color'
+    | '--border-radius'
+    | '--border-width'
+    | '--border-style'
+    | '--border-color'
+  >
 
 export type ButtonRef = {
   nativeElement: HTMLButtonElement | null
@@ -98,6 +107,10 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
         `${classPrefix}-shape-${props.shape}`
       )}
       disabled={disabled}
+      onMouseDown={props.onMouseDown}
+      onMouseUp={props.onMouseUp}
+      onTouchStart={props.onTouchStart}
+      onTouchEnd={props.onTouchEnd}
     >
       {loading ? (
         <div className={`${classPrefix}-loading-wrapper`}>

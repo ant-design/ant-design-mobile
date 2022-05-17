@@ -20,6 +20,8 @@
 | type        | 原生 `button` 元素的 `type` 属性                                                    | `'submit' \| 'reset' \| 'button'`                                                   | `'button'`                            |
 | shape       | 按钮的形状                                                                          | `'default' \| 'rounded' \| 'rectangular'`                                           | `'default'`                           |
 
+此外，还支持原生 `button` 元素的以下属性：`onMouseDown` `onMouseUp` `onTouchStart` `onTouchEnd`。
+
 ### CSS 变量
 
 | 属性               | 说明     | 默认值                    | 全局变量                        |

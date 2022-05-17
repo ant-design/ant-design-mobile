@@ -20,6 +20,8 @@
 | type        | The `type` prop of native `button` element.                                                                             | `'submit' \| 'reset' \| 'button'`                                                   | `'button'`                            |
 | shape       | The shape of the button.                                                                                                | `'default' \| 'rounded' \| 'rectangular'`                                           | `'default'`                           |
 
+In addition, the following properties of the native `button` element are supported: `onMouseDown` `onMouseUp` `onTouchStart` `onTouchEnd`.
+
 ### CSS Variables
 
 | Name               | Description                     | Default                   | Global                          |
