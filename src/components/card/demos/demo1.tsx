@@ -50,7 +50,9 @@ export default () => {
           <div className={styles.footer} onClick={e => e.stopPropagation()}>
             <Button
               color='primary'
-              onClick={() => Toast.show('点击了底部按钮')}
+              onClick={() => {
+                Toast.show('点击了底部按钮')
+              }}
             >
               底部按钮
             </Button>
