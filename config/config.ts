@@ -2,6 +2,7 @@ import { components } from './components'
 import { IConfig } from 'dumi'
 
 const pxToRem = require('postcss-pxtorem')
+const postcssDisableCSSVars = require('../scripts/postcss-disable-css-vars.js')
 
 const config: IConfig = {
   mode: 'site',
@@ -329,12 +330,13 @@ const config: IConfig = {
     }
     `,
   ],
-  // extraPostCSSPlugins: [
-  //   pxToRem({
-  //     rootValue: 50,
-  //     propList: ['*'],
-  //   }),
-  // ],
+  extraPostCSSPlugins: [
+    // pxToRem({
+    //   rootValue: 50,
+    //   propList: ['*'],
+    // }),
+    postcssDisableCSSVars(),
+  ],
   themeConfig: {
     hd: {
       rules: [
