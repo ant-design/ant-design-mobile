@@ -18,7 +18,7 @@ export type ButtonProps = {
   disabled?: boolean
   onClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => void | Promise<void>
+  ) => void | Promise<void> | unknown
   type?: 'submit' | 'reset' | 'button'
   shape?: 'default' | 'rounded' | 'rectangular'
   children?: React.ReactNode
