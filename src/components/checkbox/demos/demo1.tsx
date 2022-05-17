@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { Checkbox, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { SmileFill, SmileOutline } from 'antd-mobile-icons'
 
 export default () => {
-  const [value, setValue] = useState<string[]>([])
   return (
     <>
       <DemoBlock title='基础用法'>
@@ -64,7 +62,9 @@ const DemoIndeterminate = () => {
       >
         <Space direction='vertical'>
           {items.map(item => (
-            <Checkbox value={item}>{item}</Checkbox>
+            <Checkbox key={item} value={item}>
+              {item}
+            </Checkbox>
           ))}
         </Space>
       </Checkbox.Group>

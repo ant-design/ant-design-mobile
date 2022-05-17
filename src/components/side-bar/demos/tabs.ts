@@ -1,5 +1,4 @@
 import { Badge } from 'antd-mobile'
-import { SideBarItemProps } from '../side-bar'
 
 export const tabs = [
   {
