@@ -41,8 +41,14 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   const doLoadMore = useLockFn(() => props.loadMore())
 
   const elementRef = useRef<HTMLDivElement>(null)
+
+  // Prevent duplicated trigger of `check` function
   const [flag, setFlag] = useState({})
   const nextFlagRef = useRef(flag)
+
+  const [scrollParent, setScrollParent] = useState<
+    Window | Element | null | undefined
+  >()
 
   const check = useMemoizedFn(async () => {
     if (nextFlagRef.current !== flag) return
@@ -51,6 +57,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
     if (!element) return
     if (!element.offsetParent) return
     const parent = getScrollParent(element)
+    setScrollParent(parent)
     if (!parent) return
     const rect = element.getBoundingClientRect()
     const elementTop = rect.top
@@ -73,16 +80,15 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   useEffect(() => {
     const element = elementRef.current
     if (!element) return
-    const parent = getScrollParent(element)
-    if (!parent) return
+    if (!scrollParent) return
     function onScroll() {
       check()
     }
-    parent.addEventListener('scroll', onScroll)
+    scrollParent.addEventListener('scroll', onScroll)
     return () => {
-      parent.removeEventListener('scroll', onScroll)
+      scrollParent.removeEventListener('scroll', onScroll)
     }
-  }, [])
+  }, [scrollParent])
 
   return withNativeProps(
     props,
