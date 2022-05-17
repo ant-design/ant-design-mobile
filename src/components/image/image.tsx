@@ -1,11 +1,12 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React, { ReactNode, useState, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { PictureOutline, PictureWrongOutline } from 'antd-mobile-icons'
 import { staged } from 'staged-components'
 import { toCSSLength } from '../../utils/to-css-length'
 import { LazyDetector } from './lazy-detector'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { ImageIcon } from './image-icon'
+import { BrokenImageIcon } from './broken-image-icon'
 
 const classPrefix = `adm-image`
 
@@ -37,12 +38,12 @@ const defaultProps = {
   fit: 'fill',
   placeholder: (
     <div className={`${classPrefix}-tip`}>
-      <PictureOutline />
+      <ImageIcon />
     </div>
   ),
   fallback: (
     <div className={`${classPrefix}-tip`}>
-      <PictureWrongOutline />
+      <BrokenImageIcon />
     </div>
   ),
   lazy: false,
