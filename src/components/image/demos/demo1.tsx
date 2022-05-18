@@ -5,13 +5,13 @@ import { DemoBlock } from 'demos'
 import styles from './demo1.less'
 
 const demoSrc =
-  'https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60'
+  'https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=60'
 const demoSrc2 =
   'https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80'
 
 export default () => {
   return (
-    <>
+    <div style={{ userSelect: 'none' }}>
       <DemoBlock title='基础用法'>
         <Image src={demoSrc} />
       </DemoBlock>
@@ -69,6 +69,6 @@ export default () => {
       <DemoBlock title='懒加载'>
         <Image lazy src={demoSrc2} />
       </DemoBlock>
-    </>
+    </div>
   )
 }

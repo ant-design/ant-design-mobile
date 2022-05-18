@@ -15,6 +15,7 @@
 | placeholder | 加载时的占位                        | `ReactNode`                                                      | 默认占位 |
 | fallback    | 加载失败的占位                      | `ReactNode`                                                      | 默认占位 |
 | lazy        | 是否懒加载图片                      | `boolean`                                                        | `false`  |
+| draggable   | 是否允许用户拖拽图片                | `boolean`                                                        | `false`  |
 | onError     | 加载失败时触发                      | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -        |
 | onClick     | 图片点击事件                        | `(event: React.MouseEvent<HTMLImageElement, Event>) => void`     | -        |
 | onLoad      | 图片加载完时触发                    | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -        |

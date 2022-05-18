@@ -19,6 +19,7 @@ export type ImageProps = {
   placeholder?: ReactNode
   fallback?: ReactNode
   lazy?: boolean
+  draggable?: boolean
   onClick?: (event: React.MouseEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
   onLoad?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
@@ -47,6 +48,7 @@ const defaultProps = {
     </div>
   ),
   lazy: false,
+  draggable: false,
 }
 
 export const Image = staged<ImageProps>(p => {
@@ -99,6 +101,7 @@ export const Image = staged<ImageProps>(p => {
         sizes={props.sizes}
         srcSet={srcSet}
         useMap={props.useMap}
+        draggable={props.draggable}
       />
     )
     return (
