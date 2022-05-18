@@ -42,6 +42,12 @@ If necessary, `<InfiniteScroll>` allows custom display content, this content can
 
 <code src="./demos/demo3.tsx"></code>
 
+### Infinite virtualized List
+
+An example of infinite virtualized list via using [react-virtualized](https://github.com/bvaughn/react-virtualized)
+
+<code src="./demos/demo2.tsx"></code>
+
 ## FAQ
 
 ### Does it support pulling down?
