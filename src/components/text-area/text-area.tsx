@@ -147,7 +147,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onCompositionEnd={e => {
             compositingRef.current = false
             if (maxLength) {
-              let v = (e.target as HTMLTextAreaElement).value
+              const v = (e.target as HTMLTextAreaElement).value
               setValue([...v].slice(0, maxLength).join(''))
             }
             props.onCompositionEnd?.(e)
