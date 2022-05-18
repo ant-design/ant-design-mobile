@@ -42,6 +42,12 @@ function loadMore() { // 正确
 
 <code src="./demos/demo3.tsx"></code>
 
+### 滚动加载无限长列表
+
+结合 [react-virtualized](https://github.com/bvaughn/react-virtualized) 实现滚动加载无限长列表
+
+<code src="./demos/demo2.tsx"></code>
+
 ## 常见问题
 
 ### 是否支持下拉刷新？
