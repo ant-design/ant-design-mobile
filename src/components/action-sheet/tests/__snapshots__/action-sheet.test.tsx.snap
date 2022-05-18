@@ -47,44 +47,41 @@ exports[`ActionSheet basic usage 1`] = `
           <div
             class="adm-action-sheet-button-item-wrapper"
           >
-            <button
-              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
-              type="button"
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
             >
               <div
                 class="adm-action-sheet-button-item-name"
               >
                 复制
               </div>
-            </button>
+            </a>
           </div>
           <div
             class="adm-action-sheet-button-item-wrapper"
           >
-            <button
-              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
-              type="button"
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
             >
               <div
                 class="adm-action-sheet-button-item-name"
               >
                 修改
               </div>
-            </button>
+            </a>
           </div>
           <div
             class="adm-action-sheet-button-item-wrapper"
           >
-            <button
-              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
-              type="button"
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
             >
               <div
                 class="adm-action-sheet-button-item-name"
               >
                 删除
               </div>
-            </button>
+            </a>
           </div>
         </div>
         <div
@@ -93,16 +90,15 @@ exports[`ActionSheet basic usage 1`] = `
           <div
             class="adm-action-sheet-button-item-wrapper"
           >
-            <button
-              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
-              type="button"
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
             >
               <div
                 class="adm-action-sheet-button-item-name"
               >
                 取消
               </div>
-            </button>
+            </a>
           </div>
         </div>
         <div

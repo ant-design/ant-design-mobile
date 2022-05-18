@@ -19,26 +19,24 @@
   &-button-list {
     border-bottom: 1px solid var(--adm-border-color);
   }
-  &-button-item {
-    text-align: center;
+  &-button-item-wrapper {
     border-bottom: 1px solid var(--adm-border-color);
-    display: block;
-    background-color: #ffffff;
     &:last-child {
       border-bottom: none;
     }
+  }
+  &-button-item {
+    text-align: center;
+    display: block;
+    background-color: #ffffff;
+    padding: 16px;
     &:active {
       background-color: #eeeeee;
-    }
-    .adm-action-sheet-button-item-inner {
-      padding: 16px;
     }
     &-disabled {
       cursor: not-allowed;
       pointer-events: none;
-      .adm-action-sheet-button-item-inner {
-        opacity: 0.4;
-      }
+      opacity: 0.4;
     }
     &-name {
       color: var(--adm-color-text);

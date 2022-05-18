@@ -69,25 +69,27 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
           )}
           <div className={`${classPrefix}-button-list`}>
             {props.actions.map((action, index) => (
-              <a
+              <div
                 key={action.key}
-                className={classNames(
-                  'adm-plain-anchor',
-                  `${classPrefix}-button-item`,
-                  {
-                    [`${classPrefix}-button-item-danger`]: action.danger,
-                    [`${classPrefix}-button-item-disabled`]: action.disabled,
-                  }
-                )}
-                onClick={() => {
-                  action.onClick?.()
-                  props.onAction?.(action, index)
-                  if (props.closeOnAction) {
-                    props.onClose?.()
-                  }
-                }}
+                className={`${classPrefix}-button-item-wrapper`}
               >
-                <div className={`${classPrefix}-button-item-inner`}>
+                <a
+                  className={classNames(
+                    'adm-plain-anchor',
+                    `${classPrefix}-button-item`,
+                    {
+                      [`${classPrefix}-button-item-danger`]: action.danger,
+                      [`${classPrefix}-button-item-disabled`]: action.disabled,
+                    }
+                  )}
+                  onClick={() => {
+                    action.onClick?.()
+                    props.onAction?.(action, index)
+                    if (props.closeOnAction) {
+                      props.onClose?.()
+                    }
+                  }}
+                >
                   <div className={`${classPrefix}-button-item-name`}>
                     {action.text}
                   </div>
@@ -96,28 +98,28 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                       {action.description}
                     </div>
                   )}
-                </div>
-              </a>
+                </a>
+              </div>
             ))}
           </div>
 
           {props.cancelText && (
             <div className={`${classPrefix}-cancel`}>
-              <a
-                className={classNames(
-                  'adm-plain-anchor',
-                  `${classPrefix}-button-item`
-                )}
-                onClick={() => {
-                  props.onClose?.()
-                }}
-              >
-                <div className={`${classPrefix}-button-item-inner`}>
+              <div className={`${classPrefix}-button-item-wrapper`}>
+                <a
+                  className={classNames(
+                    'adm-plain-anchor',
+                    `${classPrefix}-button-item`
+                  )}
+                  onClick={() => {
+                    props.onClose?.()
+                  }}
+                >
                   <div className={`${classPrefix}-button-item-name`}>
                     {props.cancelText}
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
             </div>
           )}
 

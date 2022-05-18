@@ -56,6 +56,7 @@ describe('ActionSheet', () => {
 
   test('renders Imperative', async () => {
     const onClose = jest.fn()
+
     function Imperative() {
       const handler = React.useRef<ActionSheetShowHandler>()
       const actions: Action[] = [
@@ -86,6 +87,7 @@ describe('ActionSheet', () => {
         </>
       )
     }
+
     const { getByText, baseElement } = await render(<Imperative />)
     fireEvent.click(getByText('显示'))
     await waitFor(() => {
@@ -123,9 +125,17 @@ describe('ActionSheet', () => {
 
     const { getByText } = await render(<App actions={actions} visible />)
 
-    expect(getByText('修改').parentElement).toBeDisabled()
+    expect(getByText('修改').parentElement).toHaveClass(
+      `${classPrefix}-button-item-disabled`,
+      {
+        exact: false,
+      }
+    )
     expect(getByText('删除').parentElement).toHaveClass(
-      `${classPrefix}-button-item-danger`
+      `${classPrefix}-button-item-danger`,
+      {
+        exact: false,
+      }
     )
   })
 
