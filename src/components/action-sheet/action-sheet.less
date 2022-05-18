@@ -13,19 +13,33 @@
     justify-content: center;
     color: var(--adm-color-weak);
     font-size: 15px;
-    padding: 18px 16px;
+    padding: 18px 12px;
     border-bottom: 1px solid var(--adm-border-color);
   }
-  &-button-item-wrapper {
-    background-color: #ffffff;
-    border-top: 1px solid var(--adm-border-color);
-    &:first-child {
-      border-top: none;
-    }
+  &-button-list {
+    border-bottom: 1px solid var(--adm-border-color);
   }
   &-button-item {
-    padding: 14px;
     text-align: center;
+    border-bottom: 1px solid var(--adm-border-color);
+    display: block;
+    background-color: #ffffff;
+    &:last-child {
+      border-bottom: none;
+    }
+    &:active {
+      background-color: #eeeeee;
+    }
+    .adm-action-sheet-button-item-inner {
+      padding: 16px;
+    }
+    &-disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      .adm-action-sheet-button-item-inner {
+        opacity: 0.4;
+      }
+    }
     &-name {
       color: var(--adm-color-text);
       font-size: 18px;
@@ -33,7 +47,7 @@
     &-description {
       font-size: 12px;
       color: var(--adm-color-weak);
-      padding-top: 4px;
+      padding-top: 2px;
     }
     &-danger {
       .@{class-prefix-action-sheet}-button-item-name {
