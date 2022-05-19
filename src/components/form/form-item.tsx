@@ -358,9 +358,7 @@ export const FormItem: FC<FormItemProps> = props => {
   }
 
   let Variables: Record<string, string> = {}
-  if (typeof label === 'string') {
-    Variables.label = label
-  }
+  Variables.label = typeof label === 'string' ? label : ''
   if (messageVariables) {
     Variables = { ...Variables, ...messageVariables }
   }
