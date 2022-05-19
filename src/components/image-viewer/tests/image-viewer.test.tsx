@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { render, testA11y, fireEvent, sleep } from 'testing'
+import { render, testA11y, fireEvent, waitFor } from 'testing'
 import ImageViewer, { MultiImageViewerRef } from '../index'
 import Button from '../../button'
 
@@ -43,7 +43,12 @@ describe('ImageViewer.Multi', () => {
     const renderer = render(<App />)
     expect(renderer.container).toMatchSnapshot()
     fireEvent.click(renderer.getByText('Show'))
-    await sleep(1000)
+    await waitFor(() =>
+      // end of animation
+      expect(document.querySelectorAll('.adm-mask')[0]).toHaveStyle(
+        'opacity: 1;'
+      )
+    )
     expect(renderer.getByText('3 / 4')).not.toBeNull()
     expect(renderer.container).toMatchSnapshot()
   })
