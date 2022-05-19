@@ -10,6 +10,7 @@ module.exports = {
       '<rootDir>/fileTransformer.js',
   },
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
+  setupFiles: ['<rootDir>/src/tests/setup.ts'],
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   globals: {
     'ts-jest': {
