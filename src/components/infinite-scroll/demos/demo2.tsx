@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState, useRef } from 'react'
+import React, { CSSProperties, useState } from 'react'
 import { List, Image, InfiniteScroll } from 'antd-mobile'
 import {
   List as VirtualizedList,
@@ -23,7 +23,6 @@ const item = {
 export default () => {
   const [data, setData] = useState<Item[]>(Array(20).fill(item))
   const [hasMore, setHasMore] = useState(true)
-  const scrollRef = useRef<HTMLDivElement>(null)
   async function loadMore() {
     const append = await mockRequest()
     setData(val => [...val, ...Array(append.length).fill(item)])
@@ -63,15 +62,13 @@ export default () => {
   }
 
   return (
-    <div ref={scrollRef}>
+    <div>
       <WindowScroller
-        // Element to attach scroll event listeners. Defaults to window.
-        scrollElement={scrollRef.current || undefined}
         onScroll={({ scrollTop }) => {
           console.log('scrollTop', scrollTop)
         }}
       >
-        {({ height }) => (
+        {({ height, scrollTop, isScrolling }) => (
           <List>
             <AutoSizer disableHeight>
               {({ width }) => (
@@ -81,8 +78,10 @@ export default () => {
                   rowRenderer={rowRenderer}
                   width={width}
                   height={height}
-                  rowHeight={60}
+                  rowHeight={70}
                   overscanRowCount={10}
+                  isScrolling={isScrolling}
+                  scrollTop={scrollTop}
                 />
               )}
             </AutoSizer>
