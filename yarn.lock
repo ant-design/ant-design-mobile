@@ -2116,19 +2116,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/core@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "@floating-ui/core@npm:0.7.0"
-  checksum: 79a2f2c1a9b12149008723bc6f3c677ba8cba5f7835a2a4be1d4696816941703769b3809335f9b46c23e2091610d52617459f16b0a1027ac47995dd59134dbee
+"@floating-ui/core@npm:^0.7.1":
+  version: 0.7.1
+  resolution: "@floating-ui/core@npm:0.7.1"
+  checksum: e38ca88a318e17b48b5f891b1a61190c62fe15d7027aba4c9a6905883fdabe0318f9e16ce8a33b529e37f9d2560d60ea3ec6280231f5d5656fd4d87163b4d0ee
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@floating-ui/dom@npm:0.5.0"
+"@floating-ui/dom@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@floating-ui/dom@npm:0.5.1"
   dependencies:
-    "@floating-ui/core": ^0.7.0
-  checksum: e2e592d0a775ed61d6921257e622010cc0f2cd78cd29a945baa34ce14d834d65ac23d492329d2158f81cbe653394f2b1886d753ae4fcff1f94600a65dd025195
+    "@floating-ui/core": ^0.7.1
+  checksum: 436dfcc8906241b3466a95e9b5de448e708d91e516ccf7cee20a8e7b55e2616fd97c9f9a8a4ddb65c5fa50d3c3bb99aacf2c0899a57c6051c39be4358d5e9c81
   languageName: node
   linkType: hard
 
@@ -4383,7 +4383,7 @@ __metadata:
     "@commitlint/cli": ^17.0.0
     "@commitlint/config-conventional": ^17.0.0
     "@docsearch/react": ^3.1.0
-    "@floating-ui/dom": ^0.5.0
+    "@floating-ui/dom": ^0.5.1
     "@jest/types": 28.1.0
     "@react-spring/web": ^9.4.5
     "@statoscope/webpack-plugin": ^5.20.1

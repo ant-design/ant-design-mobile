@@ -14,7 +14,7 @@
     "publish:dev": "npm publish ./lib --registry=https://registry.npmjs.org --tag dev"
   },
   "dependencies": {
-    "@floating-ui/dom": "^0.5.0",
+    "@floating-ui/dom": "^0.5.1",
     "@react-spring/web": "^9.4.5",
     "@use-gesture/react": "10.2.14",
     "ahooks": "^3.3.12",
