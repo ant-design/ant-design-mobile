@@ -75,7 +75,7 @@
     "gulp-typescript": "^6.0.0-alpha.1",
     "husky": "^8.0.1",
     "jest": "28.1.0",
-    "jest-axe": "^6.0.0",
+    "jest-axe": "^5.0.0",
     "jest-environment-jsdom": "28.1.0",
     "jest-watch-typeahead": "1.1.0",
     "less": "^4.1.2",

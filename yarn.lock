@@ -4428,7 +4428,7 @@ __metadata:
     gulp-typescript: ^6.0.0-alpha.1
     husky: ^8.0.1
     jest: 28.1.0
-    jest-axe: ^6.0.0
+    jest-axe: ^5.0.0
     jest-environment-jsdom: 28.1.0
     jest-watch-typeahead: 1.1.0
     less: ^4.1.2
@@ -4824,10 +4824,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:4.4.1":
-  version: 4.4.1
-  resolution: "axe-core@npm:4.4.1"
-  checksum: ad14c5b71059dc3d24ef2519b8cd96e98b4a572379396201ce449d1c4262181821d6ca9550df65b22371faf06d28bbe94d391fe5675f2a08e6550f7b5da8416d
+"axe-core@npm:4.2.1":
+  version: 4.2.1
+  resolution: "axe-core@npm:4.2.1"
+  checksum: 0a9b6104b091836277e0d3a725bf740ab0e90e413d7833dad0d9390b59213cb9456f4a3aaf712d735e63d68963696f3daa39d517cc5f87609424e7ab1c913370
   languageName: node
   linkType: hard
 
@@ -9868,15 +9868,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-axe@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "jest-axe@npm:6.0.0"
+"jest-axe@npm:^5.0.0":
+  version: 5.0.1
+  resolution: "jest-axe@npm:5.0.1"
   dependencies:
-    axe-core: 4.4.1
+    axe-core: 4.2.1
     chalk: 4.1.0
     jest-matcher-utils: 27.0.2
     lodash.merge: 4.6.2
-  checksum: 9efe60394aa90ec86bf7fbd08aa2ceb8b813cd5b8d5b24fe03192c9bd2745770a5f3c56faa53c1909b28d0f23735648290dd494d6431460e1310ff2394080879
+  checksum: fdfece62dd4b0658d7f78c80892d87ab46484b796ac1ba2ef9d1f03910b3827fb7418c76c28aa73bf782553ee2b664d21edf3ddb20f2dcb5c9117b3a21cd420e
   languageName: node
   linkType: hard
 
