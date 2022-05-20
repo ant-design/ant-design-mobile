@@ -215,8 +215,16 @@ const config: IConfig = {
     ],
     '/components': [
       {
-        title: 'Basic',
-        children: components.basic,
+        title: 'Common',
+        children: components.common,
+      },
+      {
+        title: 'Layout',
+        children: components.layout,
+      },
+      {
+        title: 'Navigation',
+        children: components.navigation,
       },
       {
         title: 'Data Display',
@@ -231,8 +239,8 @@ const config: IConfig = {
         children: components.feedback,
       },
       {
-        title: 'Navigation & Layout',
-        children: components.navigationAndLayout,
+        title: 'Guidance',
+        children: components.guidance,
       },
       {
         title: 'Other',
@@ -245,15 +253,24 @@ const config: IConfig = {
     ],
     '/zh/components': [
       {
-        title: '基础',
-        children: components.basic,
+        title: '通用',
+        children: components.common,
       },
       {
-        title: '数据展示',
+        title: '布局',
+        children: components.layout,
+      },
+      {
+        title: '导航',
+        children: components.navigation,
+      },
+
+      {
+        title: '信息展示',
         children: components.dataDisplay,
       },
       {
-        title: '数据录入',
+        title: '信息录入',
         children: components.dataEntry,
       },
       {
@@ -261,8 +278,8 @@ const config: IConfig = {
         children: components.feedback,
       },
       {
-        title: '导航和布局',
-        children: components.navigationAndLayout,
+        title: '引导提示',
+        children: components.guidance,
       },
       {
         title: '其他',
