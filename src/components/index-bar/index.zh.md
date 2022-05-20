@@ -1,5 +1,11 @@
 # IndexBar 序列
 
+根据字母 A ～ Z 排列内容。
+
+## 何时使用
+
+适用于列表的分类显示和快速定位。
+
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx"></code>
 <code src="./demos/demo3.tsx" debug></code>

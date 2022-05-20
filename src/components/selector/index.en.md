@@ -1,5 +1,11 @@
 # Selector
 
+Select one or more from a set of options.
+
+## When to use
+
+Provides multiple options for the user to choose from, typically used in filters and forms.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

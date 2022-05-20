@@ -1,5 +1,13 @@
 # Swiper
 
+A set of rotating areas.
+
+## When to use
+
+- When there is a set of flat content.
+- When the content space is insufficient, it can be stored in the form of a revolving lantern for carousel display.
+- Often used for a set of images or card carousels.
+
 ### Basic Usage
 
 <code src="./demos/demo1.tsx"></code>

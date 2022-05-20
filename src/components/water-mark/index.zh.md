@@ -1,5 +1,11 @@
 # WaterMark 水印
 
+页面上添加特定的文字或图案。
+
+## 何时使用
+
+适用于防止信息盗用。
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

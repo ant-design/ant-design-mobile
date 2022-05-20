@@ -1,5 +1,11 @@
 # FloatingPanel
 
+Content panel.
+
+## When to use
+
+Users can freely and flexibly slide up and down to browse the content, which is often used for map navigation.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo3.tsx"></code>

@@ -1,5 +1,11 @@
 # ErrorBlock 异常
 
+使用场景插画表示页面异常。
+
+## 何时使用
+
+适用于六种异常场景的反馈提示。
+
 <code src="./demos/demo-basic.tsx"></code>
 
 <code src="./demos/demo-full-page.tsx"></code>

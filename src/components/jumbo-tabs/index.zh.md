@@ -1,5 +1,11 @@
 # JumboTabs 复杂选项卡
 
+内容组之间进行导航切换。
+
+## 何时使用
+
+选项需要有进一步描述时，用在展示型界面的列表或模块中。
+
 <code src="./demos/demo1.tsx"></code>
 
 ## JumboTabs

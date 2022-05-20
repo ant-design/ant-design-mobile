@@ -1,5 +1,11 @@
 # IndexBar
 
+Arrange the content according to the letters A-Z.
+
+## When to use
+
+Category display and quick positioning for lists.
+
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx"></code>
 <code src="./demos/demo3.tsx" debug></code>

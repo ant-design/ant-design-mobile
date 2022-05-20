@@ -1,5 +1,10 @@
 # Space
 
+Keep the same width in the arrangement of elements.
+
+## When to use
+
+Useful for multiple elements to maintain the same spacing horizontally or vertically.
 <code src="./demos/demo1.tsx"></code>
 
 ### Props

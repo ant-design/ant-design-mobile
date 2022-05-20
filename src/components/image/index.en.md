@@ -1,5 +1,12 @@
 # Image
 
+Previewable pictures.
+
+## When to use
+
+- Use when you need to show pictures.
+- Display loading when loading large images or fault-tolerant handling when loading fails.
+
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx" debug></code>
 

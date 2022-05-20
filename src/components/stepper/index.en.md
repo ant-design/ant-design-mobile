@@ -1,5 +1,11 @@
 # Stepper
 
+A two-stage control that increases, decreases or modifies values.
+
+## When to use
+
+It is suitable for inputting and adjusting the current value within a certain range.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

@@ -1,5 +1,11 @@
 # Skeleton 骨架屏
 
+用图形表示内容占位。
+
+## 何时使用
+
+在需要等待加载内容的位置提供一个占位图形组合。
+
 <code src="./demos/demo1.tsx"></code>
 
 ## Skeleton

@@ -1,5 +1,11 @@
 # Mask
 
+Dark background layer.
+
+## When to use
+
+Often used in the background layer of a modal window to make the visual focus stand out on the modal window itself.
+
 <code src="./demos/demo1.tsx"></code>
 
 ### Props

@@ -1,5 +1,12 @@
 # Image 图片
 
+可预览的图片。
+
+## 何时使用
+
+- 需要展示图片时使用。
+- 加载大图时显示 loading 或加载失败时容错处理。
+
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx" debug></code>
 

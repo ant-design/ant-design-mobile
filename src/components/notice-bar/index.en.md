@@ -1,18 +1,24 @@
 # NoticeBar
 
+Displays a set of message notifications.
+
+## When to use
+
+It is applicable to the notification of information in the current page, which is a more conspicuous in-page notification method.
+
 <code src="./demos/demo1.tsx"></code>
 
 ### Props
 
-| Name      | Description                                                          | Type                                        | Default             |
-| --------- | -------------------------------------------------------------------- | ------------------------------------------- | ------------------- |
-| color     | The type of the NoticeBar                                            | `'default' \| 'alert' \| 'error' \| 'info'` | `'default'`         |
-| delay     | Delay to start scrolling, unit `ms`                                  | `number`                                    | `2000`              |
-| speed     | Scroll speed, unit `px/s`                                            | `number`                                    | `50`                |
-| content   | The content of the NoticeBar                                         | `React.ReactNode`                           | -                   |
-| closeable | Whether it can be closed                                             | `boolean`                                   | `false`             |
-| onClose   | Callback when closed                                                 | `() => void`                                | -                   |
-| extra     | Additional operating area, displayed to the left of the close button | `React.ReactNode`                           | -                   |
+| Name      | Description                                                          | Type                                        | Default            |
+| --------- | -------------------------------------------------------------------- | ------------------------------------------- | ------------------ |
+| color     | The type of the NoticeBar                                            | `'default' \| 'alert' \| 'error' \| 'info'` | `'default'`        |
+| delay     | Delay to start scrolling, unit `ms`                                  | `number`                                    | `2000`             |
+| speed     | Scroll speed, unit `px/s`                                            | `number`                                    | `50`               |
+| content   | The content of the NoticeBar                                         | `React.ReactNode`                           | -                  |
+| closeable | Whether it can be closed                                             | `boolean`                                   | `false`            |
+| onClose   | Callback when closed                                                 | `() => void`                                | -                  |
+| extra     | Additional operating area, displayed to the left of the close button | `React.ReactNode`                           | -                  |
 | icon      | Radio icon on the left                                               | `React.ReactNode`                           | `<SoundOutline />` |
 
 ### CSS Variables

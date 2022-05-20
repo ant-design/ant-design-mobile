@@ -1,5 +1,11 @@
 # VirtualInput 虚拟输入框 <Experimental></Experimental>
 
+与 Input 输入框外观、用法一致。
+
+## 何时使用
+
+需要配合虚拟键盘使用时。
+
 <code src="./demos/demo1.tsx"></code>
 
 ### 属性

@@ -1,5 +1,12 @@
 # Checkbox
 
+Make multiple selections in a set of options.
+
+## When to use
+
+- When making multiple selections from a set of options.
+- Used alone to indicate a switch between two states, similar to switch. The difference is that switching the switch will directly trigger the state change, while the checkbox is generally used for state marking and needs to cooperate with the submit operation.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

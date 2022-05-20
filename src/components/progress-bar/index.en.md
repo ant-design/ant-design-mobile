@@ -1,5 +1,11 @@
 # ProgressBar
 
+Percentage progress is represented as a bar graph.
+
+## When to use
+
+It is suitable for displaying the current progress of the task.
+
 <code src="./demos/demo1.tsx"></code>
 
 ### Props

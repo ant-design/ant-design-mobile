@@ -1,5 +1,11 @@
 # SideBar
 
+Display the navigation bar vertically.
+
+## When to use
+
+Users are required to quickly navigate to a collection of content and switch back and forth between multiple pieces of content.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

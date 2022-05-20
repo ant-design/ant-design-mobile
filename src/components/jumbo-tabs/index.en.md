@@ -1,5 +1,11 @@
 # JumboTabs
 
+Navigate between content groups.
+
+## When to use
+
+Used in lists or modules in presentational interfaces when options require further description.
+
 <code src="./demos/demo1.tsx"></code>
 
 ## JumboTabs

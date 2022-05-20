@@ -1,5 +1,11 @@
 # NavBar
 
+Provides global navigation for pages.
+
+## When to use
+
+Need to display the title and action of the current page content.
+
 <code src="./demos/demo1.tsx"></code>
 
 ### Props

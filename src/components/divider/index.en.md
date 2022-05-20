@@ -1,5 +1,12 @@
 # Divider
 
+A dividing line that separates content.
+
+## When to use
+
+- Split text paragraphs in different chapters.
+- Split inline text/links, such as the action column of a table.
+
 <code src="./demos/demo1.tsx"></code>
 
 ### Props

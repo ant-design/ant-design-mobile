@@ -1,5 +1,11 @@
 # PasscodeInput 密码输入框 <Experimental></Experimental>
 
+密码输入本文框。
+
+## 何时使用
+
+适用于输入密码时需要脱敏显示。
+
 密码、验证码输入框
 
 <code src="./demos/demo1.tsx"></code>

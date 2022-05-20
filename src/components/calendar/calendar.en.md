@@ -1,5 +1,11 @@
 # Calendar <Experimental></Experimental>
 
+Used to select a date or date range.
+
+## When to use
+
+When the user needs to enter a date, he can select it in the pop-up date panel.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

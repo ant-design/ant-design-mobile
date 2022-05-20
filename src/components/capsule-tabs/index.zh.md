@@ -1,5 +1,11 @@
 # CapsuleTabs 胶囊选项卡
 
+内容组之间进行导航切换。
+
+## 何时使用
+
+选项卡的另外一种样式，用在展示型界面的列表或模块中。
+
 <code src="./demos/demo1.tsx"></code>
 
 ## CapsuleTabs

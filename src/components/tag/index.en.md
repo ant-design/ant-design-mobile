@@ -1,5 +1,12 @@
 # Tag
 
+Small tags for tagging and categorization.
+
+## When to use
+
+- Attributes and dimensions suitable for marking things.
+- sort.
+
 <code src="./demos/demo1.tsx"></code>
 
 ### Props
