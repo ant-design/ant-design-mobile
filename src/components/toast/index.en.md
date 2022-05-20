@@ -1,5 +1,11 @@
 # Toast
 
+Lightweight feedback on the result of an operation that disappears without user action.
+
+## When to use
+
+It is suitable for use when the change of page content cannot directly reflect the operation result.
+
 <code src="./demos/demo1.tsx"></code>
 
 ## Imperative API

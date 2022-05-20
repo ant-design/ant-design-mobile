@@ -1,5 +1,11 @@
 # InfiniteScroll 无限滚动
 
+列表滚动到底部自动加载更多数据。
+
+## 何时使用
+
+用户想看到新的数据时，可以上滑页面自动加载数据。
+
 当 `hasMore` 属性为 `true` 时，用户页面滚动到底部 `threshold` (默认为 250px)时无限滚动组件会调用定义的 `loadMore` 函数。
 
 <code src="./demos/demo1.tsx"></code>

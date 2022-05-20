@@ -1,5 +1,11 @@
 # CheckList 可勾选列表
 
+列表的勾选操作。
+
+## 何时使用
+
+在一组列表项中选择一个或多个。
+
 `CheckList` 底层是基于 `List` 实现的，是可以进行勾选的列表。
 
 <code src="./demos/demo1.tsx"></code>

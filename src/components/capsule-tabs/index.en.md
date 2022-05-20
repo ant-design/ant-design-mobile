@@ -1,5 +1,11 @@
 # CapsuleTabs
 
+Navigate between content groups.
+
+## When to use
+
+Another style for tabs, used in lists or modules in presentational interfaces.
+
 <code src="./demos/demo1.tsx"></code>
 
 ## CapsuleTabs

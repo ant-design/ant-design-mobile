@@ -1,5 +1,11 @@
 # Cascader 级联选择
 
+多层级数据的选择。
+
+## 何时使用
+
+需要从一组相关联的数据集合进行选择，例如省市区，公司层级，事物分类等。
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

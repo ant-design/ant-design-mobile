@@ -1,5 +1,11 @@
 # Stepper 步进器
 
+一种两段式控制，增加、减少或修改数值。
+
+## 何时使用
+
+适用于在一定范围内输入、调整当前数值。
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

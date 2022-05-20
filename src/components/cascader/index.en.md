@@ -1,5 +1,11 @@
 # Cascader
 
+Selection of multi-level data.
+
+## When to use
+
+You need to select from a set of related data sets, such as provinces, municipalities, company levels, classifications of things, etc.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

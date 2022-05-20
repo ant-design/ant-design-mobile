@@ -1,5 +1,11 @@
 # SwipeAction
 
+Function extension for lists.
+
+## When to use
+
+Swipe to reveal hidden function menus.
+
 <code src="./demos/demo1.tsx"></code>
 
 ### Props

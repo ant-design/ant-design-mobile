@@ -1,5 +1,11 @@
 # Steps
 
+A navigation bar that guides the user through a process to complete a task.
+
+## When to use
+
+When a task is complex or has precedence, break it down into a series of steps to simplify the task.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

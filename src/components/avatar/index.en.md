@@ -1,5 +1,11 @@
 # Avatar
 
+Used to represent a user or thing.
+
+## When to use
+
+It is necessary to show the characteristics of people or things more intuitively.
+
 <code src="./demos/demo1.tsx"></code>
 
 ### Props

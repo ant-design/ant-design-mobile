@@ -1,5 +1,11 @@
 # CheckList
 
+Checklist operation.
+
+## When to use
+
+Select one or more of a set of list items.
+
 The bottom layer of `CheckList` is implemented based on `List`, which is a list that can be checked.
 
 <code src="./demos/demo1.tsx"></code>

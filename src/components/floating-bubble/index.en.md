@@ -1,5 +1,11 @@
 # FloatingBubble <Experimental></Experimental>
 
+A clickable bubble that hovers at the edge of the page.
+
+## When to use
+
+Suitable for providing extra functionality to the current page.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

@@ -1,5 +1,11 @@
 # PullToRefresh
 
+An interaction to load new content with a finger pull-to-refresh in a list.
+
+## When to use
+
+It is suitable for updating the content of the current page.
+
 ### Basic Usage
 
 <code src="./demos/demo1.tsx"></code>

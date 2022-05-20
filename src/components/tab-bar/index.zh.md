@@ -1,5 +1,11 @@
 # TabBar 标签栏
 
+页面底部导航标签。
+
+## 何时使用
+
+适用于在不同页面之间进行切换。
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

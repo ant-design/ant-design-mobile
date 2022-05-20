@@ -1,5 +1,11 @@
 # Tabs
 
+Navigate between content groups.
+
+## When to use
+
+The current content needs to be divided into groups of the same hierarchical structure for content switching display, which is often used at the top of a form or list.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

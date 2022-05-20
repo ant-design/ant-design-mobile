@@ -1,5 +1,11 @@
 # PasscodeInput <Experimental></Experimental>
 
+Enter the password into this text box.
+
+## When to use
+
+It is suitable for desensitization display when entering password.
+
 Input for password, captcha and verification code.
 
 <code src="./demos/demo1.tsx"></code>

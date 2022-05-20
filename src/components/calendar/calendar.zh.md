@@ -1,5 +1,11 @@
 # Calendar 日历 <Experimental></Experimental>
 
+用于选择日期或日期区间。
+
+## 何时使用
+
+当用户需要输入一个日期，可以在弹出的日期面板进行选择。
+
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx"></code>
 <code src="./demos/demo3.tsx"></code>

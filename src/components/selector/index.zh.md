@@ -1,5 +1,12 @@
 # Selector 选择组
 
+
+在一组选项中选择一个或多个。
+
+## 何时使用
+
+提供多个选项供用户选择，一般在筛选和表单中使用。
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

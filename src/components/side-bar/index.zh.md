@@ -1,5 +1,11 @@
 # SideBar 侧边导航
 
+垂直展示导航栏。
+
+## 何时使用
+
+需要用户快速导航至某一项内容集合，并可以在多个内容之间来回切换。
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

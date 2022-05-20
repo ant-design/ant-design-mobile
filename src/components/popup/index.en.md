@@ -1,5 +1,11 @@
 # Popup
 
+Slide or pop out a custom content area from the screen.
+
+## When to use
+
+It is suitable for displaying pop-up windows, information prompts, selection input, switching, etc., and supports multiple pop-up layer overlay display.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

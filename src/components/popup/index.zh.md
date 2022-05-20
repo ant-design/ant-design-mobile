@@ -1,5 +1,11 @@
 # Popup 弹出层
 
+从屏幕滑出或弹出一块自定义内容区。
+
+## 何时使用
+
+适用于展示弹窗、信息提示、选择输入、切换等内容，支持多个弹出层叠加展示。
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

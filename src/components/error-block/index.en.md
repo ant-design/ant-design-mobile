@@ -1,5 +1,11 @@
 # ErrorBlock
 
+Use scene illustrations to indicate page exceptions.
+
+## When to use
+
+Feedback prompts for six abnormal scenarios.
+
 <code src="./demos/demo-basic.tsx"></code>
 
 <code src="./demos/demo-full-page.tsx"></code>

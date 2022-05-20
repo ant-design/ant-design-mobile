@@ -1,5 +1,11 @@
 # Card
 
+Universal card container.
+
+## When to use
+
+It can carry text, lists, pictures, paragraphs, etc., which is convenient for users to browse the content.
+
 <code src="./demos/demo1.tsx"></code>
 
 ### Props

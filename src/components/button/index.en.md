@@ -1,5 +1,11 @@
 # Button
 
+Used to start an immediate operation.
+
+## When to use
+
+Marks or encapsulates a group of operation commands, responds to user click behavior, and triggers corresponding business logic.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
