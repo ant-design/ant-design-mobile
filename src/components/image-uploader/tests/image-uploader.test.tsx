@@ -11,6 +11,7 @@ import {
 } from 'testing'
 import ImageUploader, { ImageUploadItem } from '..'
 import Dialog from '../../dialog'
+import { act } from '@testing-library/react'
 
 const classPrefix = `adm-image-uploader`
 
@@ -69,31 +70,42 @@ describe('ImageUploader', () => {
     await render(<App />)
 
     const input = await mockInputFile()
-    expect(input.files?.[0]).toStrictEqual(mockImg)
+    expect(input.files?.length ?? 0).toBe(0)
     expect($$(`.${classPrefix}-cell-image`).length).toBe(2)
   })
 
   test('upload status', async () => {
-    const fn = jest.fn()
-    console.error = fn
+    const originConsoleError = console.error
+    let uploadFailCount = 0
+    console.error = jest.fn((...args: any[]) => {
+      if (args[0]?.toString().includes('Fail to upload')) {
+        uploadFailCount++
+      } else {
+        originConsoleError(...args)
+      }
+    })
 
     const { container } = await render(
       <App upload={mockUploadFail} showUpload />
     )
 
-    mockInputFile()
+    await act(async () => {
+      await mockInputFile()
+    })
 
     await waitFor(() => {
       screen.getByText('上传中...')
-      expect(container).toMatchSnapshot()
     })
+    expect(container).toHaveTextContent('上传中...')
+    expect(container).toMatchSnapshot()
 
     await waitFor(() => {
       expect($$(`.${classPrefix}-cell-fail`)[0]).toBeVisible()
-      expect(container).toMatchSnapshot()
     })
 
-    expect(fn.mock.calls[0][0].message).toContain('Fail to upload')
+    expect(container).toMatchSnapshot()
+
+    expect(uploadFailCount).toBe(1)
   })
 
   test('limit size', async () => {
@@ -110,7 +122,7 @@ describe('ImageUploader', () => {
     const input = await mockInputFile()
 
     expect(fn.mock.calls[0][0]).toContain('The file is too large!')
-    expect(input.files?.[0]).toMatchObject({})
+    expect(input.files?.length ?? 0).toBe(0)
   })
 
   test('limit count', async () => {
