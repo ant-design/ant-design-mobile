@@ -97,7 +97,6 @@ describe('ImageUploader', () => {
       screen.getByText('上传中...')
     })
     expect(container).toHaveTextContent('上传中...')
-    expect(container).toMatchSnapshot()
 
     await waitFor(() => {
       expect($$(`.${classPrefix}-cell-fail`)[0]).toBeVisible()
