@@ -1,4 +1,4 @@
-<img src="https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*hjjDS5Yy-ooAAAAAAAAAAAAAARQnAQ" alt="logo" width="100%" />
+<img alt="logo" src="https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*hjjDS5Yy-ooAAAAAAAAAAAAAARQnAQ" width="100%" />
 
 <p align="center">
   <a href="https://mobile.ant.design">English Doc</a>
@@ -10,16 +10,17 @@
   <a href="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ">钉钉</a>
 </p>
 
-![npm (tag)](https://img.shields.io/npm/v/antd-mobile)
-![GitHub Release Date](https://img.shields.io/github/release-date/ant-design/ant-design-mobile)
-![npm](https://img.shields.io/npm/dw/antd-mobile)
-![npm](https://img.shields.io/npm/dw/antd-mobile-v5-count?label=downloads%285.x%29)
-![gzip size](https://img.badgesize.io/https:/unpkg.com/antd-mobile/umd/antd-mobile.js?label=gzip%20size&compression=gzip)
+[![npm (tag)](https://img.shields.io/npm/v/antd-mobile)](https://www.npmjs.com/package/antd-mobile)
+[![GitHub Release Date](https://img.shields.io/github/release-date/ant-design/ant-design-mobile)](https://github.com/ant-design/ant-design-mobile/releases)
+[![npm](https://img.shields.io/npm/dw/antd-mobile)](https://www.npmjs.com/package/antd-mobile)
+[![npm](https://img.shields.io/npm/dw/antd-mobile-v5-count?label=downloads%285.x%29)](https://www.npmjs.com/package/antd-mobile)
+[![jsdelivr](https://img.shields.io/jsdelivr/npm/hm/antd-mobile)](https://www.jsdelivr.com/package/npm/antd-mobile)
+[![gzip size](https://img.badgesize.io/https:/unpkg.com/antd-mobile/umd/antd-mobile.js?label=gzip%20size&compression=gzip)](https://unpkg.com/browse/antd-mobile@5/umd/antd-mobile.js)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/ant-design/ant-design-mobile.svg)](http://isitmaintained.com/project/ant-design/ant-design-mobile 'Average time to resolve an issue')
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/ant-design/ant-design-mobile.svg)](http://isitmaintained.com/project/ant-design/ant-design-mobile 'Percentage of issues still open')
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ant-design/ant-design-mobile/Check/v5)
-[![codecov](https://codecov.io/gh/ant-design/ant-design-mobile/branch/master/graph/badge.svg?token=2kJyJBg1nK)](https://codecov.io/gh/ant-design/ant-design-mobile)
-![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mobile)
+[![codecov](https://img.shields.io/codecov/c/gh/ant-design/ant-design-mobile?token=2kJyJBg1nK)](https://codecov.io/gh/ant-design/ant-design-mobile)
+[![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mobile)](https://github.com/ant-design/ant-design-mobile)
 
 ```bash
 $ npm install --save antd-mobile
