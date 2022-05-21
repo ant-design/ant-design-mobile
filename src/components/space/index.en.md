@@ -2,10 +2,15 @@
 
 Keep the same width in the arrangement of elements.
 
-## When to use
+## When to Use
 
 Useful for multiple elements to maintain the same spacing horizontally or vertically.
+
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## Space
 
 ### Props
 

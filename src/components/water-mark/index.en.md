@@ -2,13 +2,17 @@
 
 Add specific text or patterns to the page.
 
-## When to use
+## When to Use
 
 Suitable for preventing information theft.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## WaterMark
 
 ### Props
 

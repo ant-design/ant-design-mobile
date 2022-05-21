@@ -2,9 +2,11 @@
 
 It is used for notification of important information or feedback of operation, with a small number of options for users to operate.
 
-## When to use
+## When to Use
 
 When users need to process transactions, but do not want to jump to pages to interrupt the workflow, you can use Modal to open a floating layer in the middle of the current page to carry the corresponding operations.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 

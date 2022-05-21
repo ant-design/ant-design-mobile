@@ -8,6 +8,8 @@
 
 `CheckList` 底层是基于 `List` 实现的，是可以进行勾选的列表。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

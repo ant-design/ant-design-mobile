@@ -6,7 +6,11 @@
 
 需要配合虚拟键盘使用时。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## VirtualInput
 
 ### 属性
 

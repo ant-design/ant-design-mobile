@@ -2,14 +2,18 @@
 
 switch selector.
 
-## When to use
+## When to Use
 
 - When it is necessary to represent a switch state/switch between two states.
 - The difference from checkbox is that switching switch will directly trigger state change, while checkbox is generally used for state marking and needs to cooperate with submit operation.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## Switch
 
 ### Props
 

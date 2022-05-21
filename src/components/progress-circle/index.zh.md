@@ -6,7 +6,11 @@
 
 适用于展示任务当前进度。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## ProgressCircle
 
 ### 属性
 

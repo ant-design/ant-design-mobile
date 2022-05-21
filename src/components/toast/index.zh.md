@@ -6,9 +6,13 @@
 
 适用于页面内容的变化不能直接反应操作结果时使用。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
-## 指令式 API
+## Toast
+
+### 指令式 API
 
 `Toast` 只支持指令式调用。
 

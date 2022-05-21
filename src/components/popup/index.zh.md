@@ -6,9 +6,13 @@
 
 适用于展示弹窗、信息提示、选择输入、切换等内容，支持多个弹出层叠加展示。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## Popup
 
 ### 属性
 

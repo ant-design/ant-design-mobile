@@ -2,7 +2,7 @@
 
 Loading state for pages and blocks.
 
-## When to use
+## When to Use
 
 When the page is partially waiting for asynchronous data or is being rendered, appropriate loading animations can effectively relieve the user's anxiety.
 

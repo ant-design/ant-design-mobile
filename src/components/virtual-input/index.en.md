@@ -2,11 +2,15 @@
 
 Consistent with the appearance and usage of the Input input box.
 
-## When to use
+## When to Use
 
 When you need to use it with the virtual keyboard.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## VirtualInput
 
 ### Props
 

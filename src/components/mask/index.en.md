@@ -2,11 +2,15 @@
 
 Dark background layer.
 
-## When to use
+## When to Use
 
 Often used in the background layer of a modal window to make the visual focus stand out on the modal window itself.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## Mask
 
 ### Props
 

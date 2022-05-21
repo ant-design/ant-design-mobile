@@ -2,11 +2,15 @@
 
 Displays a set of message notifications.
 
-## When to use
+## When to Use
 
 It is applicable to the notification of information in the current page, which is a more conspicuous in-page notification method.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## NoticeBar
 
 ### Props
 

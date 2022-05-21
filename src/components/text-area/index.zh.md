@@ -6,7 +6,11 @@
 
 需要折行的长文本输入。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## TextArea
 
 ### 属性
 

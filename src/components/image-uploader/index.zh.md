@@ -1,7 +1,12 @@
 # ImageUploader 图片上传 <Experimental></Experimental>
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
 <code src="./demos/demo2.tsx"></code>
+
+## ImageUploader
 
 ### 属性
 

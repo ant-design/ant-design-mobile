@@ -2,9 +2,11 @@
 
 Navigate between content groups.
 
-## When to use
+## When to Use
 
 Used in lists or modules in presentational interfaces when options require further description.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 

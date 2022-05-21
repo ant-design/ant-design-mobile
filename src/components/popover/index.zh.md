@@ -6,6 +6,8 @@
 
 适用于功能的导航，只可由导航栏上图标唤起，通常用于收纳低频使用的功能。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

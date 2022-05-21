@@ -2,15 +2,17 @@
 
 Swipe input showing current value and selectable range.
 
-## When to use
+## When to Use
 
 When the user needs to select within the numerical interval/custom interval, it can be a continuous or discrete value.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
 
-### Props
+## Slider
 
-### Slider
+### Props
 
 | Name          | Description                                                                                                                                              | Type                                          | Default              |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | -------------------- |

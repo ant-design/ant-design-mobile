@@ -6,6 +6,8 @@
 
 需要点开图片查看细节，配合缩略图使用。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 ## ImageViewer

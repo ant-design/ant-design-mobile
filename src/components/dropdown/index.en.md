@@ -2,9 +2,11 @@
 
 The menu panel that pops down.
 
-## When to use
+## When to Use
 
 It is suitable for filtering, sorting and changing the display range or order of the current page content.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx"></code>

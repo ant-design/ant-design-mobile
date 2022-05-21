@@ -6,7 +6,11 @@
 
 适用于当前页面内信息的通知，是一种较醒目的页面内通知方式。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## NoticeBar
 
 ### 属性
 

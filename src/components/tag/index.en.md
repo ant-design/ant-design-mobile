@@ -2,12 +2,16 @@
 
 Small tags for tagging and categorization.
 
-## When to use
+## When to Use
 
 - Attributes and dimensions suitable for marking things.
 - sort.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## Tag
 
 ### Props
 

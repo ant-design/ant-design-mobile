@@ -6,11 +6,15 @@
 
 适用于为当前页面提供额外功能。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
 
 <code src="./demos/demo3.tsx"></code>
+
+## FloatingBubble
 
 ### 属性
 

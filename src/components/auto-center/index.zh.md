@@ -6,4 +6,6 @@
 
 内容不够整行宽度、或达到满宽后使用。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>

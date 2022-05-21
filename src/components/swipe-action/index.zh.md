@@ -6,7 +6,11 @@
 
 通过滑动操作来展示隐藏的功能菜单。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## SwipeAction
 
 ### 属性
 

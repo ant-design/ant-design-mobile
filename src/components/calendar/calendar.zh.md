@@ -6,9 +6,13 @@
 
 当用户需要输入一个日期，可以在弹出的日期面板进行选择。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx"></code>
 <code src="./demos/demo3.tsx"></code>
+
+## Calendar
 
 ### 属性
 

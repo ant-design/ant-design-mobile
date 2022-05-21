@@ -2,9 +2,11 @@
 
 Select one or more from a set of options.
 
-## When to use
+## When to Use
 
 Provides multiple options for the user to choose from, typically used in filters and forms.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 

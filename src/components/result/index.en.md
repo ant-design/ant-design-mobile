@@ -2,11 +2,15 @@
 
 Feedback on the result of the previous operation.
 
-## When to use
+## When to Use
 
 It is used when there is an important operation that needs to inform the user of the processing result, and the feedback content is complex.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## Result
 
 ### Props
 

@@ -2,11 +2,15 @@
 
 Function extension for lists.
 
-## When to use
+## When to Use
 
 Swipe to reveal hidden function menus.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## SwipeAction
 
 ### Props
 

@@ -6,9 +6,13 @@
 
 适用于在一定范围内输入、调整当前数值。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## Stepper
 
 ### 属性
 

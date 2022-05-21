@@ -6,6 +6,8 @@ PickerView 系列一共包括了三个组件：[PickerView](#pickerview)、[Casc
 
 PickerView 是 [Picker](./picker/#picker) 的内容区域。
 
+### 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 ### 属性
@@ -33,6 +35,8 @@ PickerView 是 [Picker](./picker/#picker) 的内容区域。
 
 CascadePickerView 是 [CascadePicker](./picker/#cascadepicker) 的内容区域。
 
+### 示例
+
 <code src="../cascade-picker-view/demos/demo1.tsx"></code>
 
 ### 属性
@@ -52,6 +56,8 @@ CascadePickerView 是 [CascadePicker](./picker/#cascadepicker) 的内容区域�
 ## DatePickerView
 
 DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
+
+### 示例
 
 <code src="../date-picker-view/demos/demo1.tsx"></code>
 

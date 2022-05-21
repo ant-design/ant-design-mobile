@@ -6,7 +6,11 @@
 
 需要显示当前页面内容的标题和操作。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## NavBar
 
 ### 属性
 

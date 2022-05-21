@@ -6,6 +6,8 @@
 
 适用于列表的分类显示和快速定位。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx"></code>
 <code src="./demos/demo3.tsx" debug></code>

@@ -6,6 +6,8 @@
 
 当前内容需要分成同层级结构的组，进行内容切换展示，常用在表单或者列表的顶部。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

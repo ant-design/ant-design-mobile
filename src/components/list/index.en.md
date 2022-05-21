@@ -2,9 +2,11 @@
 
 Generic list.
 
-## When to use
+## When to Use
 
 Carry text, lists, pictures, paragraphs, etc. cleanly and efficiently in the form of a list.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 

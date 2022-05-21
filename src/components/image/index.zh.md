@@ -7,8 +7,13 @@
 - 需要展示图片时使用。
 - 加载大图时显示 loading 或加载失败时容错处理。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
 <code src="./demos/demo2.tsx" debug></code>
+
+## Image
 
 ### 属性
 

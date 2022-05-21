@@ -7,6 +7,8 @@
 
 提供多个选项供用户选择，一般在筛选和表单中使用。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

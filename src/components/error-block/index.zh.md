@@ -12,6 +12,8 @@
 
 <code src="./demos/demo2.tsx"></code>
 
+## ErrorBlock
+
 ### 属性
 
 | 属性        | 说明           | 类型                                               | 默认值      |

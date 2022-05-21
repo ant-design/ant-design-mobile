@@ -1,7 +1,12 @@
 # ImageUploader <Experimental></Experimental>
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
 <code src="./demos/demo2.tsx"></code>
+
+## ImageUploader
 
 ### Props
 

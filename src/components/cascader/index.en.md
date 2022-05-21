@@ -2,13 +2,17 @@
 
 Selection of multi-level data.
 
-## When to use
+## When to Use
 
 You need to select from a set of related data sets, such as provinces, municipalities, company levels, classifications of things, etc.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## Cascader
 
 ### Props
 

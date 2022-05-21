@@ -6,6 +6,8 @@
 
 在需要等待加载内容的位置提供一个占位图形组合。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 ## Skeleton

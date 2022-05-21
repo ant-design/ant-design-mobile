@@ -2,13 +2,17 @@
 
 Make a single selection in a set of options.
 
-## When to use
+## When to Use
 
 All options of the radio button are visible by default, which is convenient for users to select in the comparison, so the options should not be too many.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## Radio
 
 ### Props
 

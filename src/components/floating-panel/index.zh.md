@@ -6,11 +6,15 @@
 
 用户可自由灵活上下滑动浏览内容，常用于地图导航。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo3.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## FloatingPanel
 
 ### 属性
 

@@ -4,7 +4,11 @@
 此组件即将重写，请尽量不要使用。
 </Alert>
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## TreeSelect
 
 ### 属性
 

@@ -6,9 +6,13 @@
 
 单选框所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## Radio
 
 ### 属性
 

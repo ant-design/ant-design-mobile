@@ -2,7 +2,7 @@
 
 Displays a scrollable list of one or more option sets.
 
-## When to use
+## When to Use
 
 - Provides one or more sets of association options for the user to choose from.
 - When there are less than 5 options, it is recommended to tile the options directly, using Radio is a better choice.
@@ -10,6 +10,8 @@ Displays a scrollable list of one or more option sets.
 The Picker series includes three components: [Picker](#picker), [CascadePicker](#cascadepicker) and [DatePicker](#datepicker).
 
 ## Picker
+
+### Demos
 
 <code src="./demos/demo1.tsx"></code>
 
@@ -104,6 +106,8 @@ Same as PickerActions.
 
 ## CascadePicker
 
+### Demos
+
 <code src="../cascade-picker/demos/demo1.tsx"></code>
 
 ### Props
@@ -131,6 +135,8 @@ Same as Picker.
 Same as `Picker`.
 
 ## DatePicker
+
+### Demos
 
 <code src="../date-picker/demos/demo1.tsx"></code>
 

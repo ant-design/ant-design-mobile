@@ -2,9 +2,11 @@
 
 Navigate between content groups.
 
-## When to use
+## When to Use
 
 Another style for tabs, used in lists or modules in presentational interfaces.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 
@@ -19,6 +21,8 @@ Another style for tabs, used in lists or modules in presentational interfaces.
 | onChange         | Callback when switching panel                                              | `(key: string) => void` | -                           |
 
 ## CapsuleTabs.Tab
+
+### Props
 
 | Name           | Description                                       | Type        | Default |
 | -------------- | ------------------------------------------------- | ----------- | ------- |

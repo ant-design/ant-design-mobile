@@ -8,7 +8,11 @@
 
 密码、验证码输入框
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## PasscodeInput
 
 ### 属性
 

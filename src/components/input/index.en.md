@@ -2,15 +2,19 @@
 
 Entering content through the keyboard is the most basic form field wrapper.
 
-## When to use
+## When to Use
 
 It is generally used in form pages to collect information, and provides two types of text boxes and selection boxes.
 
 The `Input` component is layout-independent. It only includes the most basic input box part. If you want to add borders, titles, or some operation buttons to it, you can use it with the `List` or `Form` components.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## Input
 
 ### Props
 

@@ -2,11 +2,15 @@
 
 Display numbers, text, and small red dots in the upper right corner.
 
-## When to use
+## When to Use
 
 It is suitable for reminders of productized new news, new functions, new services, etc., and attracts users to deal with it through eye-catching visual forms.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## Badge
 
 ### Props
 

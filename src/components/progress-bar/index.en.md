@@ -2,11 +2,15 @@
 
 Percentage progress is represented as a bar graph.
 
-## When to use
+## When to Use
 
 It is suitable for displaying the current progress of the task.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## ProgressBar
 
 ### Props
 

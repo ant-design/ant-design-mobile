@@ -6,7 +6,11 @@
 
 适用于于信息为空时的占位提示。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## Empty
 
 ### 属性
 

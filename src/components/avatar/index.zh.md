@@ -6,7 +6,11 @@
 
 需要更加直观的展现人物或事物特征。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## Avatar
 
 ### 属性
 

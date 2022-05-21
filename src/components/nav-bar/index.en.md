@@ -2,11 +2,15 @@
 
 Provides global navigation for pages.
 
-## When to use
+## When to Use
 
 Need to display the title and action of the current page content.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## NavBar
 
 ### Props
 

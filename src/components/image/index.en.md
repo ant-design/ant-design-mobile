@@ -2,13 +2,18 @@
 
 Previewable pictures.
 
-## When to use
+## When to Use
 
 - Use when you need to show pictures.
 - Display loading when loading large images or fault-tolerant handling when loading fails.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
 <code src="./demos/demo2.tsx" debug></code>
+
+## Image
 
 ### Props
 

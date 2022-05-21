@@ -2,11 +2,15 @@
 
 Graphical representation of the degree of rating scale.
 
-## When to use
+## When to Use
 
 Useful for showing things ratings and quick scoring.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## Rate
 
 ### Props
 

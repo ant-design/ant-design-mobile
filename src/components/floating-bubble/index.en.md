@@ -2,15 +2,19 @@
 
 A clickable bubble that hovers at the edge of the page.
 
-## When to use
+## When to Use
 
 Suitable for providing extra functionality to the current page.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
 
 <code src="./demos/demo3.tsx"></code>
+
+## FloatingBubble
 
 ### Props
 

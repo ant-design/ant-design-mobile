@@ -6,7 +6,11 @@
 
 适用于展示事物评级以及快速打分。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## Rate
 
 ### 属性
 

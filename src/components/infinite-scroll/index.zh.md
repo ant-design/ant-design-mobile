@@ -8,7 +8,11 @@
 
 当 `hasMore` 属性为 `true` 时，用户页面滚动到底部 `threshold` (默认为 250px)时无限滚动组件会调用定义的 `loadMore` 函数。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
+
+## InfiniteScroll
 
 ### 属性
 

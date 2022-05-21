@@ -2,12 +2,16 @@
 
 A dividing line that separates content.
 
-## When to use
+## When to Use
 
 - Split text paragraphs in different chapters.
 - Split inline text/links, such as the action column of a table.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## Divider
 
 ### Props
 

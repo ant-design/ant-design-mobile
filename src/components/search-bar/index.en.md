@@ -2,13 +2,17 @@
 
 The input box component of the search scene.
 
-## When to use
+## When to Use
 
 Narrow down the information pool to get targeted information quickly and easily.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## SearchBar
 
 ### Props
 

@@ -2,11 +2,15 @@
 
 Indicates which page of the multi-page view is currently displayed.
 
-## When to use
+## When to Use
 
 Applicable to indicate that the current content block can be scrolled horizontally to turn pages.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## PageIndicator
 
 ### Props
 

@@ -2,15 +2,19 @@
 
 Content panel.
 
-## When to use
+## When to Use
 
 Users can freely and flexibly slide up and down to browse the content, which is often used for map navigation.
+
+## Demos
 
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo3.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>
+
+## FloatingPanel
 
 ### Props
 

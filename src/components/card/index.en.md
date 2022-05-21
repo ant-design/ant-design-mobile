@@ -2,11 +2,15 @@
 
 Universal card container.
 
-## When to use
+## When to Use
 
 It can carry text, lists, pictures, paragraphs, etc., which is convenient for users to browse the content.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## Card
 
 ### Props
 

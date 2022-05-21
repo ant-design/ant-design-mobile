@@ -2,11 +2,15 @@
 
 Use the scene illustration to indicate that the content is empty.
 
-## When to use
+## When to Use
 
 A placeholder prompt for when the information is empty.
 
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## Empty
 
 ### Props
 

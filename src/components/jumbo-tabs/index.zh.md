@@ -6,6 +6,8 @@
 
 选项需要有进一步描述时，用在展示型界面的列表或模块中。
 
+## 示例
+
 <code src="./demos/demo1.tsx"></code>
 
 ## JumboTabs

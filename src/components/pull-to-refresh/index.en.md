@@ -2,9 +2,11 @@
 
 An interaction to load new content with a finger pull-to-refresh in a list.
 
-## When to use
+## When to Use
 
 It is suitable for updating the content of the current page.
+
+## Demos
 
 ### Basic Usage
 
@@ -21,6 +23,8 @@ It is suitable for updating the content of the current page.
 ### Nested Scroll Areas
 
 <code src="./demos/demo-nested.tsx"></code>
+
+## PullToRefresh
 
 ### Props
 
