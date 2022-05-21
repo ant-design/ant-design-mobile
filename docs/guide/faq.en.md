@@ -84,3 +84,7 @@ Codesandbox is a browser-side sandbox runtime environment that supports a variet
 2. To ensure accurate reproduction, make sure that the version of your bug is the same as the antd-mobile version in the CodesandBox dependency.
 
 3. When you're done reliving the code, don't forget to `save` to create a new instance, and then click the Share button appearing in the upper right corner to copy the URL to Issues.
+
+### Does antd-mobile have umd package on CDN?
+
+Yes, you can find it at [unpkg](https://unpkg.com/browse/antd-mobile@5/umd/antd-mobile.js) or [jsdelivr](https://www.jsdelivr.com/package/npm/antd-mobile?path=umd). Of course, you can also deploy it yourself.

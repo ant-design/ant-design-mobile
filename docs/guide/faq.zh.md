@@ -84,3 +84,7 @@ codesandbox 是一个浏览器端的沙盒运行环境，支持多种流行的�
 2. 为了保证准确复现，请保证你出现 bug 的版本与 codesandbox 依赖中的 antd-mobile 版本一致。
 
 3. 完成代码复现后，别忘了`保存`以创建一个新的实例，然后点击右上角出现的 share 按钮，复制 url 到 issues 中。
+
+### antd-mobile 有 CDN 上的 umd 包吗？
+
+有的，你可以在 [unpkg](https://unpkg.com/browse/antd-mobile@5/umd/antd-mobile.js) 或 [jsdelivr](https://www.jsdelivr.com/package/npm/antd-mobile?path=umd) 上找到。当然，你也可以自己部署。
