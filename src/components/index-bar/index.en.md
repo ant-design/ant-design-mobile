@@ -16,9 +16,10 @@ Category display and quick positioning for lists.
 
 ### Props
 
-| Name   | Description                                           | Type      | Default |
-| ------ | ----------------------------------------------------- | --------- | ------- |
-| sticky | Whether to turn on the anchor point automatic ceiling | `boolean` | `true`  |
+| Name          | Description                                           | Type                      | Default |
+| ------------- | ----------------------------------------------------- | ------------------------- | ------- |
+| sticky        | Whether to turn on the anchor point automatic ceiling | `boolean`                 | `true`  |
+| onIndexChange | Trigger when the anchor point changed                 | `(index: string) => void` | -       |
 
 ### Ref
 
