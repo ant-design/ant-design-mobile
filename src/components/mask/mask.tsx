@@ -71,7 +71,7 @@ export const Mask: React.FC<MaskProps> = p => {
     config: {
       precision: 0.01,
       mass: 1,
-      tension: 200,
+      tension: 250,
       friction: 30,
       clamp: true,
     },
