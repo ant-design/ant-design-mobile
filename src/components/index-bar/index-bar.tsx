@@ -20,6 +20,7 @@ const classPrefix = `adm-index-bar`
 
 export type IndexBarProps = {
   sticky?: boolean
+  onIndexChange?: (index: string) => void
   children?: React.ReactNode
 } & NativeProps<'--sticky-offset-top'>
 
@@ -91,6 +92,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
       if (panelIndex === index) {
         body.scrollTop = panel.offsetTop
         setActiveIndex(index)
+        activeIndex !== index && props.onIndexChange?.(index)
         return
       }
     }
@@ -110,6 +112,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
         if (!panelIndex) continue
         if (panel.offsetTop + panel.clientHeight - titleHeight > scrollTop) {
           setActiveIndex(panelIndex)
+          activeIndex !== panelIndex && props.onIndexChange?.(panelIndex)
           return
         }
       }
