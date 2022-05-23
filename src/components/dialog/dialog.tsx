@@ -52,6 +52,8 @@ const defaultProps = {
   stopPropagation: ['click'],
   getContainer: null,
   disableBodyScroll: true,
+  destroyOnClose: false,
+  forceRender: false,
 }
 
 export const Dialog: FC<DialogProps> = p => {

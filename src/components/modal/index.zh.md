@@ -40,6 +40,8 @@
 | stopPropagation   | 阻止某些事件的冒泡           | `PropagationEvent[]`                                       | `['click']` |
 | showCloseButton   | 是否在右上角显示关闭图标按钮 | `boolean`                                                  | `false`     |
 | disableBodyScroll | 遮罩层是否禁用 `body` 滚动   | `boolean`                                                  | `true`      |
+| destroyOnClose    | 不可见时卸载内容             | `boolean`                                                  | `false`     |
+| forceRender       | 被隐藏时是否渲染 `DOM` 结构  | `boolean`                                                  | `false`     |
 
 ### Action
 

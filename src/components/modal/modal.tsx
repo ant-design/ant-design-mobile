@@ -55,6 +55,8 @@ const defaultProps = {
   showCloseButton: false,
   getContainer: null,
   disableBodyScroll: true,
+  destroyOnClose: false,
+  forceRender: false,
 }
 
 export const Modal: FC<ModalProps> = p => {

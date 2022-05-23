@@ -1,10 +1,12 @@
 # Modal
 
-It is used for notification of important information or feedback of operation, with a small number of options for users to operate.
+It is used for notification of important information or feedback of operation, with a small number of options for users
+to operate.
 
 ## When to Use
 
-When users need to process transactions, but do not want to jump to pages to interrupt the workflow, you can use Modal to open a floating layer in the middle of the current page to carry the corresponding operations.
+When users need to process transactions, but do not want to jump to pages to interrupt the workflow, you can use Modal
+to open a floating layer in the middle of the current page to carry the corresponding operations.
 
 ## Demos
 
@@ -40,6 +42,8 @@ When users need to process transactions, but do not want to jump to pages to int
 | stopPropagation   | Stop the propagation of some events.                        | `PropagationEvent[]`                                       | `['click']` |
 | showCloseButton   | Whether to show a close button on the top right corner      | `boolean`                                                  | `false`     |
 | disableBodyScroll | Mask Whether to disable `body` scrolling                    | `boolean`                                                  | `true`      |
+| destroyOnClose    | Unmount content when not visible                            | `boolean`                                                  | `false`     |
+| forceRender       | Whether to render the `DOM` structure when hidden           | `boolean`                                                  | `false`     |
 
 ### Action
 
@@ -64,7 +68,8 @@ You can use `Modal` in an imperative way:
 const handler = Modal.show(props)
 ```
 
-You can directly open the modal box by calling the `show` method on the `Modal`. The type of the `props` parameter is the same as the above table, but the `visible` prop is not supported.
+You can directly open the modal box by calling the `show` method on the `Modal`. The type of the `props` parameter is
+the same as the above table, but the `visible` prop is not supported.
 
 When the modal box is closed, the component instance would be automatically destroyed.
 
@@ -74,11 +79,13 @@ The return value of the `show` method is a component controller, which contains 
 | ----- | ------------------ | ------------ | ------- |
 | close | To close the modal | `() => void` | -       |
 
-`show` is just a very basic method. In actual business, the following `alert` and `confirm` methods are more commonly used:
+`show` is just a very basic method. In actual business, the following `alert` and `confirm` methods are more commonly
+used:
 
 ### Modal.alert
 
-`alert` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return value is not a controller object, but `Promise<void>`.
+`alert` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return value
+is not a controller object, but `Promise<void>`.
 
 In addition, it supports the following props:
 
@@ -89,7 +96,8 @@ In addition, it supports the following props:
 
 ### Modal.confirm
 
-`confirm` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return value is not a controller object, but `Promise<boolean>`.
+`confirm` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return
+value is not a controller object, but `Promise<boolean>`.
 
 In addition, it supports the following props:
 
@@ -102,4 +110,5 @@ In addition, it supports the following props:
 
 ### Modal.clear
 
-You can directly close all modals by calling the `clear` method on `Modal`. Usually, you can use it in router change event to close all modals automatically without using modal reference to close.
+You can directly close all modals by calling the `clear` method on `Modal`. Usually, you can use it in router change
+event to close all modals automatically without using modal reference to close.

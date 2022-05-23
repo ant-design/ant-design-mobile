@@ -1,10 +1,12 @@
 # Dialog
 
-It is used for notification of important information or feedback of operation, with a small number of options for users to operate.
+It is used for notification of important information or feedback of operation, with a small number of options for users
+to operate.
 
 ## When to Use
 
-When users need to process transactions, but do not want to jump to pages to interrupt the workflow, you can use Modal to open a floating layer in the middle of the current page to carry the corresponding operations.
+When users need to process transactions, but do not want to jump to pages to interrupt the workflow, you can use Modal
+to open a floating layer in the middle of the current page to carry the corresponding operations.
 
 ## Demos
 
@@ -39,6 +41,8 @@ When users need to process transactions, but do not want to jump to pages to int
 | maskClassName     | `Dialog` mask class name                                                                                                      | `string`                                                   | -           |
 | stopPropagation   | Stop the propagation of some events.                                                                                          | `PropagationEvent[]`                                       | `['click']` |
 | disableBodyScroll | Whether to disable `body` scrolling                                                                                           | `boolean`                                                  | `true`      |
+| destroyOnClose    | Unmount content when not visible                                                                                              | `boolean`                                                  | `false`     |
+| forceRender       | Whether to render the `DOM` structure when hidden                                                                             | `boolean`                                                  | `false`     |
 
 ### Action
 
@@ -63,7 +67,8 @@ You can use `Dialog` in an imperative way:
 const handler = Dialog.show(props)
 ```
 
-You can directly open the dialog box by calling the `show` method on the `Dialog`. The type of the `props` parameter is the same as the above table, but the `visible` prop is not supported.
+You can directly open the dialog box by calling the `show` method on the `Dialog`. The type of the `props` parameter is
+the same as the above table, but the `visible` prop is not supported.
 
 When the dialog box is closed, the component instance would be automatically destroyed.
 
@@ -73,11 +78,13 @@ The return value of the `show` method is a component controller, which contains 
 | ----- | ------------------- | ------------ | ------- |
 | close | To close the dialog | `() => void` | -       |
 
-`show` is just a very basic method. In actual business, the following `alert` and `confirm` methods are more commonly used:
+`show` is just a very basic method. In actual business, the following `alert` and `confirm` methods are more commonly
+used:
 
 ### Dialog.alert
 
-`alert` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return value is not a controller object, but `Promise<void>`.
+`alert` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return value
+is not a controller object, but `Promise<void>`.
 
 In addition, it supports the following props:
 
@@ -88,7 +95,8 @@ In addition, it supports the following props:
 
 ### Dialog.confirm
 
-`confirm` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return value is not a controller object, but `Promise<boolean>`.
+`confirm` accepts the same parameters as `show`, but does not support the `closeOnAction` `actions` prop. Its return
+value is not a controller object, but `Promise<boolean>`.
 
 In addition, it supports the following props:
 
@@ -99,7 +107,8 @@ In addition, it supports the following props:
 | cancelText  | The content of the cancel button             | `ReactNode`                   | `'Cancel'` |
 | onCancel    | Triggered when the cancel button is clicked  | `() => void \| Promise<void>` | -          |
 
-It should be noted that for the Dialog created by **instructive**, ** will not perceive the re-rendering of the parent component and the update of the state in it**, so the following writing is completely wrong:
+It should be noted that for the Dialog created by **instructive**, ** will not perceive the re-rendering of the parent
+component and the update of the state in it**, so the following writing is completely wrong:
 
 ```tsx
 export default function App() {
@@ -112,7 +121,9 @@ export default function App() {
           <Input
             placeholder="Please enter verification code"
             value={captcha} // Updates to the captcha state in App will not be passed to the Dialog
-            onChange={(v) => {setCaptcha(v)}}
+            onChange={(v) => {
+              setCaptcha(v)
+            }}
           />
         </div>
       )
@@ -126,8 +137,11 @@ export default function App() {
 }
 ```
 
-If you need to include a lot of complex states and logic in Dialog, you can use declarative syntax, or consider encapsulating the internal state and logic as a separate component, see [#4762](https://github.com /ant-design/ant-design-mobile/issues/4762).
+If you need to include a lot of complex states and logic in Dialog, you can use declarative syntax, or consider
+encapsulating the internal state and logic as a separate component, see [#4762](https://github.com
+/ant-design/ant-design-mobile/issues/4762).
 
 ### Dialog.clear
 
-You can directly close all dialogs by calling the `clear` method on `Dialog`. Usually, you can use it in router change event to close all dialogs automatically without using dialog reference to close.
+You can directly close all dialogs by calling the `clear` method on `Dialog`. Usually, you can use it in router change
+event to close all dialogs automatically without using dialog reference to close.
