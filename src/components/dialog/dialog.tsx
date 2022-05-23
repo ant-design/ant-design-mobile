@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import { useUnmountedRef } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import Mask from '../mask'
 import type { MaskProps } from '../mask'
 import { Action, DialogActionButton } from './dialog-action-button'
@@ -18,6 +18,7 @@ import AutoCenter from '../auto-center'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { ShouldRender } from '../../utils/should-render'
+import { useInnerVisible } from '../../utils/use-inner-visible'
 
 export type DialogProps = {
   afterClose?: () => void
@@ -69,9 +70,6 @@ export const Dialog: FC<DialogProps> = p => {
       friction: 25,
       clamp: true,
     },
-    onStart: () => {
-      setActive(true)
-    },
     onRest: () => {
       if (unmountedRef.current) return
       setActive(props.visible)
@@ -84,6 +82,13 @@ export const Dialog: FC<DialogProps> = p => {
   })
 
   const [active, setActive] = useState(props.visible)
+  useIsomorphicLayoutEffect(() => {
+    if (props.visible) {
+      setActive(true)
+    }
+  }, [props.visible])
+
+  const maskVisible = useInnerVisible(active && props.visible)
 
   const body = (
     <div
@@ -144,41 +149,39 @@ export const Dialog: FC<DialogProps> = p => {
     </div>
   )
 
-  const node = withNativeProps(
-    props,
-    <ShouldRender
-      active={props.visible}
-      forceRender={props.forceRender}
-      destroyOnClose={props.destroyOnClose}
-    >
+  const node = withStopPropagation(
+    props.stopPropagation,
+    withNativeProps(
+      props,
       <div
         className={cls()}
         style={{
           display: active ? undefined : 'none',
+          pointerEvents: active ? undefined : 'none',
         }}
       >
         <Mask
-          visible={props.visible}
+          visible={maskVisible}
           onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
           style={props.maskStyle}
           className={classNames(cls('mask'), props.maskClassName)}
           disableBodyScroll={props.disableBodyScroll}
         />
-        <div
-          className={cls('wrap')}
-          style={{
-            pointerEvents: props.visible ? undefined : 'none',
-          }}
-        >
+        <div className={cls('wrap')}>
           <animated.div style={style}>{body}</animated.div>
         </div>
       </div>
-    </ShouldRender>
+    )
   )
 
-  return renderToContainer(
-    props.getContainer,
-    withStopPropagation(props.stopPropagation, node)
+  return (
+    <ShouldRender
+      active={active}
+      forceRender={props.forceRender}
+      destroyOnClose={props.destroyOnClose}
+    >
+      {renderToContainer(props.getContainer, node)}
+    </ShouldRender>
   )
 }
 

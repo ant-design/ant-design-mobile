@@ -9,7 +9,7 @@ import {
 } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
-import { useShouldRender } from '../../utils/should-render'
+import { ShouldRender, useShouldRender } from '../../utils/should-render'
 import {
   PropagationEvent,
   withStopPropagation,
@@ -89,12 +89,6 @@ export const Mask: React.FC<MaskProps> = p => {
     },
   })
 
-  const shouldRender = useShouldRender(
-    active,
-    props.forceRender,
-    props.destroyOnClose
-  )
-
   const node = withStopPropagation(
     props.stopPropagation,
     withNativeProps(
@@ -103,9 +97,9 @@ export const Mask: React.FC<MaskProps> = p => {
         className={classPrefix}
         ref={ref}
         style={{
+          ...props.style,
           background,
           opacity,
-          ...props.style,
           display: active ? undefined : 'none',
         }}
         onClick={e => {
@@ -122,12 +116,18 @@ export const Mask: React.FC<MaskProps> = p => {
             onClick={props.onMaskClick}
           />
         )}
-        <div className={`${classPrefix}-content`}>
-          {shouldRender && props.children}
-        </div>
+        <div className={`${classPrefix}-content`}>{props.children}</div>
       </animated.div>
     )
   )
 
-  return renderToContainer(props.getContainer, node)
+  return (
+    <ShouldRender
+      active={active}
+      forceRender={props.forceRender}
+      destroyOnClose={props.destroyOnClose}
+    >
+      {renderToContainer(props.getContainer, node)}
+    </ShouldRender>
+  )
 }
