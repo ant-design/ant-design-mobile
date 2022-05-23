@@ -19,6 +19,7 @@ import AutoCenter from '../auto-center'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { CloseOutline } from 'antd-mobile-icons'
+import { ShouldRender } from '../../utils/should-render'
 
 export type ModalProps = {
   afterClose?: () => void
@@ -41,6 +42,8 @@ export type ModalProps = {
   stopPropagation?: PropagationEvent[]
   showCloseButton?: boolean
   disableBodyScroll?: boolean
+  destroyOnClose?: boolean
+  forceRender?: boolean
 } & NativeProps
 
 const defaultProps = {
@@ -151,28 +154,34 @@ export const Modal: FC<ModalProps> = p => {
     props.stopPropagation,
     withNativeProps(
       props,
-      <div
-        className={cls()}
-        style={{
-          display: active ? undefined : 'none',
-        }}
+      <ShouldRender
+        active={props.visible}
+        forceRender={props.forceRender}
+        destroyOnClose={props.destroyOnClose}
       >
-        <Mask
-          visible={props.visible}
-          onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
-          style={props.maskStyle}
-          className={classNames(cls('mask'), props.maskClassName)}
-          disableBodyScroll={props.disableBodyScroll}
-        />
         <div
-          className={cls('wrap')}
+          className={cls()}
           style={{
-            pointerEvents: props.visible ? undefined : 'none',
+            display: active ? undefined : 'none',
           }}
         >
-          <animated.div style={style}>{body}</animated.div>
+          <Mask
+            visible={props.visible}
+            onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
+            style={props.maskStyle}
+            className={classNames(cls('mask'), props.maskClassName)}
+            disableBodyScroll={props.disableBodyScroll}
+          />
+          <div
+            className={cls('wrap')}
+            style={{
+              pointerEvents: props.visible ? undefined : 'none',
+            }}
+          >
+            <animated.div style={style}>{body}</animated.div>
+          </div>
         </div>
-      </div>
+      </ShouldRender>
     )
   )
 
