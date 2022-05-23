@@ -75,6 +75,7 @@
 | -------- | ------------------------------------ | ------------------ | ------------------------ |
 | text     | 菜单列表，当弹出内容为标准菜单时使用 | `ReactNode`        | -                        |
 | icon     | 菜单项的图标                         | `ReactNode`        | `null`                   |
+| onClick     | 点击时触发     | `() => void`       | -       |
 | key      | 菜单的唯一标识, 缺省时即为 `index`   | `string \| number` | `actions` 数组的 `index` |
 | disabled | 是否禁用                             | `boolean`          | `false`                  |
 
