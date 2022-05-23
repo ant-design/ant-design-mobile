@@ -3856,21 +3856,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@use-gesture/core@npm:10.2.14":
-  version: 10.2.14
-  resolution: "@use-gesture/core@npm:10.2.14"
-  checksum: a7e8971486a4b64f8a62c3b0994c0b91f1f7075ce29422502e7a4cc004e445b65afdf01646bc36bcda77fcf749d8d6275d4881b0ee675d7832e3c8fbbaa1ee5f
+"@use-gesture/core@npm:10.2.12":
+  version: 10.2.12
+  resolution: "@use-gesture/core@npm:10.2.12"
+  checksum: 067153e118ebc945544eaa049d7b3e385677d278d24af15999d65c63d86921bfc8f455294ecd479425be4c635e686e71d0023b39bbbe54931a51395647a150e3
   languageName: node
   linkType: hard
 
-"@use-gesture/react@npm:10.2.14":
-  version: 10.2.14
-  resolution: "@use-gesture/react@npm:10.2.14"
+"@use-gesture/react@npm:10.2.12":
+  version: 10.2.12
+  resolution: "@use-gesture/react@npm:10.2.12"
   dependencies:
-    "@use-gesture/core": 10.2.14
+    "@use-gesture/core": 10.2.12
   peerDependencies:
     react: ">= 16.8.0"
-  checksum: a64bbbfe77935d19ed3fa6c0a1c3582a19fea41bba1d63b4bfa9ffc1b9760556a7bc3e73bd2dbc4facd91cc1a1512bd07509b40860f1b2e557845bd4ef18118e
+  checksum: c22753d132a3cf5f43f529ed353a0307c7d6d484953791b888d7962b4ce72a5ecb9f2bed926ed68284a99ad6f33c1a700708c077ea9cf0fe80a9f7d5891145ec
   languageName: node
   linkType: hard
 
@@ -4404,7 +4404,7 @@ __metadata:
     "@types/resize-observer-browser": ^0.1.7
     "@typescript-eslint/eslint-plugin": ^5.25.0
     "@typescript-eslint/parser": ^5.25.0
-    "@use-gesture/react": 10.2.14
+    "@use-gesture/react": 10.2.12
     ahooks: ^3.3.12
     antd-mobile-icons: ^0.2.2
     antd-mobile-v5-count: ^1.0.1
