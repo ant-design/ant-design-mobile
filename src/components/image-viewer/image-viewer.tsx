@@ -12,6 +12,7 @@ import {
   renderToContainer,
 } from '../../utils/render-to-container'
 import Mask from '../mask'
+import SafeArea from '../safe-area'
 import { Slide } from './slide'
 import { Slides, SlidesRef } from './slides'
 
@@ -24,6 +25,7 @@ export type ImageViewerProps = {
   visible?: boolean
   onClose?: () => void
   afterClose?: () => void
+  renderFooter?: (image: string) => React.ReactNode
 }
 
 const defaultProps = {
@@ -53,6 +55,12 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
           />
         )}
       </div>
+      {props.image && (
+        <div className={`${classPrefix}-footer`}>
+          {props.renderFooter?.(props.image)}
+          <SafeArea position='bottom' />
+        </div>
+      )}
     </Mask>
   )
   return renderToContainer(props.getContainer, node)
@@ -60,10 +68,14 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
 
 export type MultiImageViewerRef = SlidesRef
 
-export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
+export type MultiImageViewerProps = Omit<
+  ImageViewerProps,
+  'image' | 'renderFooter'
+> & {
   images?: string[]
   defaultIndex?: number
   onIndexChange?: (index: number) => void
+  renderFooter?: (image: string, index: number) => React.ReactNode
 }
 
 const multiDefaultProps = {
@@ -106,6 +118,12 @@ export const MultiImageViewer = forwardRef<
           />
         )}
       </div>
+      {props.images && (
+        <div className={`${classPrefix}-footer`}>
+          {props.renderFooter?.(props.images[defaultIndex], defaultIndex)}
+          <SafeArea position='bottom' />
+        </div>
+      )}
     </Mask>
   )
   return renderToContainer(props.getContainer, node)

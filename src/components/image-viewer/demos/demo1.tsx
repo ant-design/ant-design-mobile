@@ -50,6 +50,64 @@ const Multi = () => {
   )
 }
 
+// 自定义footer
+const ViewWithFooter = () => {
+  const [imageVisible, setImageVisible] = useState(false)
+  const [multiVisible, setMultiVisible] = useState(false)
+
+  const renderFooter = (image: string, index?: number) => {
+    return (
+      <div style={{ textAlign: 'center' }}>
+        <Button
+          color='primary'
+          fill='outline'
+          onClick={() => {
+            console.log('Loading...')
+          }}
+        >
+          查看原图{index !== undefined ? index + 1 : ''}
+        </Button>
+      </div>
+    )
+  }
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setImageVisible(true)
+        }}
+      >
+        单张图片
+      </Button>
+      <ImageViewer
+        image={demoImage}
+        visible={imageVisible}
+        onClose={() => {
+          setImageVisible(false)
+        }}
+        renderFooter={renderFooter}
+      />
+      <Button
+        onClick={() => {
+          setMultiVisible(true)
+        }}
+      >
+        多张图片
+      </Button>
+      <ImageViewer.Multi
+        images={demoImages}
+        visible={multiVisible}
+        defaultIndex={1}
+        onClose={() => {
+          setMultiVisible(false)
+        }}
+        renderFooter={renderFooter}
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -84,6 +142,10 @@ export default () => {
         >
           显示图片并在3秒后关闭
         </Button>
+      </DemoBlock>
+
+      <DemoBlock title='自定义footer'>
+        <ViewWithFooter />
       </DemoBlock>
     </>
   )
