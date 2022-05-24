@@ -40,6 +40,10 @@ We recommend adding the following babel configuration, so that maximum compatibi
 }
 ```
 
+<Alert type="warning">
+  Do not exclude node_modules from babel compilation, otherwise the above configuration will not work
+</Alert>
+
 For TypeScript, antd-mobile is compatible with versions `>= 3.8`.
 
 For React, antd-mobile is compatible with versions `^16.8.0` and `^17.0.0`.

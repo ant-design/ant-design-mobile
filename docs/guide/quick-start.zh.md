@@ -40,6 +40,10 @@ import { Button } from 'antd-mobile'
 }
 ```
 
+<Alert type="warning">
+  不要把 node_modules 排除在 babel 编译之外，不然上面的配置不会有效果
+</Alert>
+
 对于 TypeScript，我们兼容的版本是 `>= 3.8`。
 
 对于 React，我们兼容的版本是 `^16.8.0` `^17.0.0` `^18.0.0`。
