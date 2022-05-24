@@ -60,7 +60,7 @@ function buildCJS() {
 function buildES() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
-    module: 'ESNext',
+    module: 'ES6',
   })
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
@@ -78,7 +78,7 @@ function buildES() {
 function buildDeclaration() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
-    module: 'ESNext',
+    module: 'ES6',
     declaration: true,
     emitDeclarationOnly: true,
   })
