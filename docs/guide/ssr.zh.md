@@ -28,4 +28,4 @@ module.exports = withTM({
 
 ## Remix
 
-在 Remix 项目中，antd-mobile 会根据当前所处的环境自动 import 对应的文件。在服务端环境下，antd-mobile 会只加载 js 部分的逻辑，所以你需要再手动引入一下 `antd-mobile/bundle/antd-mobile.css`。
+在 Remix 项目中，antd-mobile 会根据当前所处的环境自动 import 对应的文件。在服务端环境下，antd-mobile 会只加载 js 部分的逻辑，所以你需要再手动引入一下 `antd-mobile/bundle/style.css`。
