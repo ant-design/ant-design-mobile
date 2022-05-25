@@ -1,5 +1,5 @@
 name: General Issue
-description: Open a blank issue.
+description: Open a blank issue
 body:
   - type: input
     id: antd-mobile-version
