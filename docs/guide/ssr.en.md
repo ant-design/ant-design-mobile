@@ -28,4 +28,38 @@ module.exports = withTM({
 
 ## Remix
 
-In the Remix project, antd-mobile will automatically import the corresponding files according to the current environment. In the server-side environment, antd-mobile will only load the js part of the logic, so you need to manually import `antd-mobile/bundle/style.css`.
+Using antd-mobile in Remix requires some additional configuration.
+
+Add antd-mobile config in `tsconfig.json` `compilerOptions.paths` field, Add `global.d.ts` in `include` field:
+
+```json
+{
+  "include": ["remix.env.d.ts", "global.d.ts", "**/*.ts", "**/*.tsx"],
+  "compilerOptions": {
+    ...
+    "paths": {
+      "antd-mobile": ["node_modules/antd-mobile/bundle/antd-mobile.es.js"]
+    }
+  }
+}
+```
+
+Add `global.d.ts` file in project root dir.
+
+```ts
+declare module 'antd-mobile' {
+  export * from 'antd-mobile/es';
+}
+```
+
+Import style file in `app/root.tsx`:
+
+```ts
+import styles from "antd-mobile/bundle/style.css";
+
+export function links() {
+  return [{ rel: "stylesheet", href: styles }];
+}
+```
+
+- [remix template](https://github.com/3lang3/antd-mobile-template/tree/main/remix)

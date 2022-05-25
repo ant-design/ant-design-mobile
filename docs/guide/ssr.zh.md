@@ -30,7 +30,7 @@ module.exports = withTM({
 
 在 Remix 中使用 antd-mobile 需要做一些额外的配置。
 
-调整 `tsconfig.json` 的 `compilerOptions.paths` 中新增 antd-mobile 配置，在 `include` 中添加 `global.d.ts`:
+在 `tsconfig.json` 的 `compilerOptions.paths` 中新增 antd-mobile 配置，`include` 中添加 `global.d.ts`:
 
 ```json
 {
