@@ -15,6 +15,7 @@ export type SideBarItemProps = {
   badge?: BadgeProps['content']
 } & NativeProps
 
+/* istanbul ignore next */
 export const SideBarItem: FC<SideBarItemProps> = () => {
   return null
 }
