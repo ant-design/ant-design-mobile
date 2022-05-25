@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { ImageViewer, Button } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { demoImage, demoImages } from './images'
+import styles from './demo1.less'
 
 // 单张图片预览
 const Single = () => {
@@ -50,23 +51,20 @@ const Multi = () => {
   )
 }
 
-// 自定义footer
 const ViewWithFooter = () => {
-  const [imageVisible, setImageVisible] = useState(false)
-  const [multiVisible, setMultiVisible] = useState(false)
+  const [visible, setVisible] = useState(false)
 
-  const renderFooter = (image: string, index?: number) => {
+  const renderFooter = (image: string, index: number) => {
     return (
-      <div style={{ textAlign: 'center' }}>
-        <Button
-          color='primary'
-          fill='outline'
+      <div className={styles.footer}>
+        <div
+          className={styles.footerButton}
           onClick={() => {
             console.log('Loading...')
           }}
         >
-          查看原图{index !== undefined ? index + 1 : ''}
-        </Button>
+          查看原图{index + 1}
+        </div>
       </div>
     )
   }
@@ -75,32 +73,17 @@ const ViewWithFooter = () => {
     <>
       <Button
         onClick={() => {
-          setImageVisible(true)
+          setVisible(true)
         }}
       >
-        单张图片
-      </Button>
-      <ImageViewer
-        image={demoImage}
-        visible={imageVisible}
-        onClose={() => {
-          setImageVisible(false)
-        }}
-        renderFooter={renderFooter}
-      />
-      <Button
-        onClick={() => {
-          setMultiVisible(true)
-        }}
-      >
-        多张图片
+        显示图片
       </Button>
       <ImageViewer.Multi
         images={demoImages}
-        visible={multiVisible}
+        visible={visible}
         defaultIndex={1}
         onClose={() => {
-          setMultiVisible(false)
+          setVisible(false)
         }}
         renderFooter={renderFooter}
       />
@@ -144,7 +127,7 @@ export default () => {
         </Button>
       </DemoBlock>
 
-      <DemoBlock title='自定义footer'>
+      <DemoBlock title='自定义底部额外内容'>
         <ViewWithFooter />
       </DemoBlock>
     </>

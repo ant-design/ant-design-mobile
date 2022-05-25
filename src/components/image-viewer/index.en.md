@@ -20,16 +20,18 @@ You need to click on the picture to view the details and use it with the thumbna
 | visible      | Whether to show or hide                                                                                                     | `boolean`                                  | `false`         |
 | onClose      | Triggered when it is closed                                                                                                 | `boolean`                                  | -               |
 | afterClose   | Triggered when it is completely closed                                                                                      | `() => void`                               | -               |
+| renderFooter | Render extra content on footer                                                                                              | `(image: string) => ReactNode`             | -               |
 
 ## ImageViewer.Multi
 
 On the basis of `ImageViewer`, the following props have been added:
 
-| Name          | Description                                 | Type                      | Default |
-| ------------- | ------------------------------------------- | ------------------------- | ------- |
-| images        | Url list of image resources                 | `string[]`                | `[]`    |
-| defaultIndex  | Which picture would be displayed by default | `number`                  | `0`     |
-| onIndexChange | Triggered when the picture is switched      | `(index: number) => void` | -       |
+| Name          | Description                                 | Type                                          | Default |
+| ------------- | ------------------------------------------- | --------------------------------------------- | ------- |
+| images        | Url list of image resources                 | `string[]`                                    | `[]`    |
+| defaultIndex  | Which picture would be displayed by default | `number`                                      | `0`     |
+| onIndexChange | Triggered when the picture is switched      | `(index: number) => void`                     | -       |
+| renderFooter  | Render extra content on footer              | `(image: string, index: number) => ReactNode` | -       |
 
 At the same time, the `image` prop is removed.
 

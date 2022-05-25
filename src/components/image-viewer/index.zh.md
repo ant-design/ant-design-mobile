@@ -20,18 +20,18 @@
 | visible      | 是否显示                                                                  | `boolean`                                  | `false`         |
 | onClose      | 关闭时触发                                                                | `boolean`                                  | -               |
 | afterClose   | 完全关闭后触发                                                            | `() => void`                               | -               |
+| renderFooter | 渲染底部额外内容                                                          | `(image: string) => ReactNode`             | -               |
 
 ## ImageViewer.Multi
 
-在 `ImageViewer` 的基础上，增加了以下属性：
+| 属性          | 说明                | 类型                                          | 默认值 |
+| ------------- | ------------------- | --------------------------------------------- | ------ |
+| images        | 图片资源的 url 列表 | `string[]`                                    | `[]`   |
+| defaultIndex  | 默认显示第几张图片  | `number`                                      | `0`    |
+| onIndexChange | 切换图片时触发      | `(index: number) => void`                     | -      |
+| renderFooter  | 渲染底部额外内容    | `(image: string, index: number) => ReactNode` | -      |
 
-| 属性          | 说明                | 类型                      | 默认值 |
-| ------------- | ------------------- | ------------------------- | ------ |
-| images        | 图片资源的 url 列表 | `string[]`                | `[]`   |
-| defaultIndex  | 默认显示第几张图片  | `number`                  | `0`    |
-| onIndexChange | 切换图片时触发      | `(index: number) => void` | -      |
-
-同时，去掉了 `image` 属性。
+其他属性同 `ImageViewer`，但是去掉了 `image` 属性。
 
 ### Ref
 
