@@ -28,4 +28,4 @@ module.exports = withTM({
 
 ## Remix
 
-In the Remix project, antd-mobile will automatically import the corresponding files according to the current environment. In the server-side environment, antd-mobile will only load the js part of the logic, so you need to manually import `antd-mobile/bundle/antd-mobile.css`.
+In the Remix project, antd-mobile will automatically import the corresponding files according to the current environment. In the server-side environment, antd-mobile will only load the js part of the logic, so you need to manually import `antd-mobile/bundle/style.css`.
