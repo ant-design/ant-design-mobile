@@ -52,4 +52,18 @@ describe('ImageViewer.Multi', () => {
     expect(renderer.getByText('3 / 4')).not.toBeNull()
     expect(renderer.container).toMatchSnapshot()
   })
+
+  test('rendering with footer', async () => {
+    function App() {
+      return (
+        <ImageViewer.Multi
+          images={demoImages}
+          visible
+          renderFooter={() => <Button>查看原图</Button>}
+        />
+      )
+    }
+    const renderer = render(<App />)
+    expect(renderer.container).toMatchSnapshot()
+  })
 })

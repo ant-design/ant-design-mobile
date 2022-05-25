@@ -4,6 +4,7 @@ import React, {
   useImperativeHandle,
   useRef,
   useState,
+  useCallback,
 } from 'react'
 
 import { mergeProps } from '../../utils/with-default-props'
@@ -12,6 +13,7 @@ import {
   renderToContainer,
 } from '../../utils/render-to-container'
 import Mask from '../mask'
+import SafeArea from '../safe-area'
 import { Slide } from './slide'
 import { Slides, SlidesRef } from './slides'
 
@@ -24,6 +26,7 @@ export type ImageViewerProps = {
   visible?: boolean
   onClose?: () => void
   afterClose?: () => void
+  renderFooter?: (image: string) => React.ReactNode
 }
 
 const defaultProps = {
@@ -53,6 +56,12 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
           />
         )}
       </div>
+      {props.image && (
+        <div className={`${classPrefix}-footer`}>
+          {props.renderFooter?.(props.image)}
+          <SafeArea position='bottom' />
+        </div>
+      )}
     </Mask>
   )
   return renderToContainer(props.getContainer, node)
@@ -60,10 +69,14 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
 
 export type MultiImageViewerRef = SlidesRef
 
-export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
+export type MultiImageViewerProps = Omit<
+  ImageViewerProps,
+  'image' | 'renderFooter'
+> & {
   images?: string[]
   defaultIndex?: number
   onIndexChange?: (index: number) => void
+  renderFooter?: (image: string, index: number) => React.ReactNode
 }
 
 const multiDefaultProps = {
@@ -75,15 +88,23 @@ export const MultiImageViewer = forwardRef<
   MultiImageViewerProps
 >((p, ref) => {
   const props = mergeProps(multiDefaultProps, p)
-  const [defaultIndex, setDefaultIndex] = useState(props.defaultIndex)
+  const [index, setIndex] = useState(props.defaultIndex)
 
   const slidesRef = useRef<SlidesRef>(null)
   useImperativeHandle(ref, () => ({
     swipeTo: (index: number, immediate?: boolean) => {
-      setDefaultIndex(index)
+      setIndex(index)
       slidesRef.current?.swipeTo(index, immediate)
     },
   }))
+
+  const onSlideChange = useCallback(
+    (index: number) => {
+      setIndex(index)
+      props.onIndexChange?.(index)
+    },
+    [props.onIndexChange]
+  )
 
   const node = (
     <Mask
@@ -96,8 +117,8 @@ export const MultiImageViewer = forwardRef<
         {props.images && (
           <Slides
             ref={slidesRef}
-            defaultIndex={defaultIndex}
-            onIndexChange={props.onIndexChange}
+            defaultIndex={index}
+            onIndexChange={onSlideChange}
             images={props.images}
             onTap={() => {
               props.onClose?.()
@@ -106,6 +127,12 @@ export const MultiImageViewer = forwardRef<
           />
         )}
       </div>
+      {props.images && (
+        <div className={`${classPrefix}-footer`}>
+          {props.renderFooter?.(props.images[index], index)}
+          <SafeArea position='bottom' />
+        </div>
+      )}
     </Mask>
   )
   return renderToContainer(props.getContainer, node)
