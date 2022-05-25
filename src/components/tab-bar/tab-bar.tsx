@@ -14,6 +14,7 @@ export type TabBarItemProps = {
   badge?: BadgeProps['content']
 } & NativeProps
 
+/* istanbul ignore next */
 export const TabBarItem: FC<TabBarItemProps> = () => {
   return null
 }
