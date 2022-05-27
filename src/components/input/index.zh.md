@@ -61,3 +61,7 @@
 在原生 `input` 中，`maxlength` 只在 `type` 为 `text`, `search`, `url`, `tel`, `email`, `password` 时生效，请参考 [MDN 上的文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-maxlength)。
 
 如果需要对 number 类型的输入框进行限制，可以通过 `max` `min` 属性。
+
+### 在 iOS 下，当我使用输入法输入文字时，点击清除按钮，为什么有时候会导致输入框失去焦点？
+
+这是预期行为，具体当原因请查阅这个 [issue](https://github.com/ant-design/ant-design-mobile/issues/5212)。

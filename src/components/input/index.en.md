@@ -61,3 +61,7 @@ In addition, the following native attributes are supported: `maxLength` `minLeng
 In native `input`, `maxlength` only takes effect when `type` is `text`, `search`, `url`, `tel`, `email`, `password`, please refer to [MDN document](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-maxlength)。
 
 If you need to limit the input box with number type, you can pass the `max` `min` prop.
+
+### On iOS devices, when I use the input method to input text and click the clear button, why does the input box lose focus sometimes?
+
+This is expected behavior, see this [issue](https://github.com/ant-design/ant-design-mobile/issues/5212) for details on why.
