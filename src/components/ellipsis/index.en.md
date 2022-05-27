@@ -1,4 +1,4 @@
-# Ellipsis <Experimental></Experimental>
+# Ellipsis
 
 When the display space is not enough, hide some content and replace it with "...".
 

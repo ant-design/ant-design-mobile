@@ -1,4 +1,4 @@
-# Ellipsis 文本省略 <Experimental></Experimental>
+# Ellipsis 文本省略
 
 展示空间不足时，隐去部分内容并用“...”替代。
 
