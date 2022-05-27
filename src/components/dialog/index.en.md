@@ -138,8 +138,7 @@ export default function App() {
 ```
 
 If you need to include a lot of complex states and logic in Dialog, you can use declarative syntax, or consider
-encapsulating the internal state and logic as a separate component, see [#4762](https://github.com
-/ant-design/ant-design-mobile/issues/4762).
+encapsulating the internal state and logic as a separate component, see [#4762](https://github.com/ant-design/ant-design-mobile/issues/4762).
 
 ### Dialog.clear
 
