@@ -6,6 +6,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { bound } from '../../utils/bound'
+import { isIOS } from '../../utils/validate'
 
 const classPrefix = `adm-input`
 
@@ -75,6 +76,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
   const [hasFocus, setHasFocus] = useState(false)
+  const compositionStartRef = useRef(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
 
   useImperativeHandle(ref, () => ({
@@ -170,8 +172,14 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         autoCorrect={props.autoCorrect}
         onKeyDown={handleKeydown}
         onKeyUp={props.onKeyUp}
-        onCompositionStart={props.onCompositionStart}
-        onCompositionEnd={props.onCompositionEnd}
+        onCompositionStart={e => {
+          compositionStartRef.current = true
+          props.onCompositionStart?.(e)
+        }}
+        onCompositionEnd={e => {
+          compositionStartRef.current = false
+          props.onCompositionEnd?.(e)
+        }}
         onClick={props.onClick}
       />
       {shouldShowClear && (
@@ -183,6 +191,12 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
           onClick={() => {
             setValue('')
             props.onClear?.()
+
+            // https://github.com/ant-design/ant-design-mobile/issues/5212
+            if (isIOS() && compositionStartRef.current) {
+              compositionStartRef.current = false
+              nativeInputRef.current?.blur()
+            }
           }}
         >
           <CloseCircleFill />
