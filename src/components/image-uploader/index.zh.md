@@ -24,8 +24,7 @@
 | deletable     | 是否展示删除按钮                                                              | `boolean`                                                              | `true`    |
 | capture       | 图片选取模式，可选值为 `camera`（直接调起摄像头）                             | `boolean \| string`                                                    | -         |
 | onPreview     | 点击预览图片                                                                  | `(index: number, item: ImageUploadItem) => void`                       | -         |
-| beforeUpload  | 文件读取前的回调函数，返回 `null` 可终止文件读取，支持返回 `Promise`          | `(file: File, files: File[]) => Promise<File \| null> \| File \| null` |
-| -             |
+| beforeUpload  | 文件读取前的回调函数，返回 `null` 可终止文件读取，支持返回 `Promise`          | `(file: File, files: File[]) => Promise<File \| null> \| File \| null` | -         |
 | upload        | 上传方法，入参是需要被上传的文件对象，经过异步处理之后，返回上传结果          | `(file: File) => Promise<ImageUploadItem>`                             | -         |
 | onDelete      | 删除已上传成功的图片时触发，如果返回 `false` 表示阻止删除，支持返回 `Promise` | `(item: ImageUploadItem) => boolean \| Promise<boolean> \| void`       | -         |
 | children      | 自定义上传按钮                                                                | `ReactNode`                                                            | -         |
