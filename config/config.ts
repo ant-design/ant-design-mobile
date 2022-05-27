@@ -1,6 +1,12 @@
 import { components } from './components'
 import { IConfig } from 'dumi'
 
+const shouldDisableCSSVar = Boolean(process.env.DISABLE_CSS_VAR)
+
+if (shouldDisableCSSVar) {
+  console.info('\nCSS Variables has been disabled for dev purpose.\n')
+}
+
 const pxToRem = require('postcss-pxtorem')
 const postcssDisableCSSVars = require('../scripts/postcss-disable-css-vars.js')
 
@@ -352,8 +358,8 @@ const config: IConfig = {
     //   rootValue: 50,
     //   propList: ['*'],
     // }),
-    // postcssDisableCSSVars(),
-  ],
+    shouldDisableCSSVar && postcssDisableCSSVars(),
+  ].filter(i => i),
   themeConfig: {
     hd: {
       rules: [
