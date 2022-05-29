@@ -16,7 +16,7 @@
   "dependencies": {
     "@floating-ui/dom": "^0.5.2",
     "@react-spring/web": "^9.4.5",
-    "@use-gesture/react": "10.2.12",
+    "@use-gesture/react": "10.2.15",
     "ahooks": "^3.4.0",
     "antd-mobile-icons": "^0.2.2",
     "antd-mobile-v5-count": "^1.0.1",
