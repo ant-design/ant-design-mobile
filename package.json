@@ -99,7 +99,7 @@
     "through2": "^4.0.2",
     "ts-jest": "28.0.3",
     "ts-node": "10.8.0",
-    "typescript": "~4.5.5",
+    "typescript": "~4.6.4",
     "vite": "^2.9.9",
     "webpack": "^5.72.1",
     "webpack-bundle-analyzer": "^4.5.0",
@@ -138,5 +138,5 @@
     "branch": "master",
     "platform": "github"
   },
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@3.2.1"
 }
