@@ -6,6 +6,7 @@ import {
   waitFor,
   waitForElementToBeRemoved,
   sleep,
+  actSleep,
 } from 'testing'
 import Dialog, { DialogAlertProps } from '..'
 import { act } from '@testing-library/react'
@@ -164,15 +165,17 @@ describe('Dialog', () => {
 
     const { getByText, getAllByText } = await render(<Confirm />)
     fireEvent.click(getByText('btn'))
-    await act(async () => {
-      await fireEvent.click(getAllByText('确定')[0])
+    act(() => {
+      fireEvent.click(getAllByText('确定')[0])
     })
+    await actSleep(100)
     expect(fn.mock.calls[0][0]).toBe(true)
 
     fireEvent.click(getByText('btn'))
-    await act(async () => {
-      await fireEvent.click(getAllByText('取消')[1])
+    act(() => {
+      fireEvent.click(getAllByText('取消')[1])
     })
+    await actSleep(100)
     expect(fn.mock.calls[1][0]).toBe(false)
   })
 

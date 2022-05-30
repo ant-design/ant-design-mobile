@@ -165,16 +165,18 @@ describe('Modal', () => {
 
     const { getByText, getAllByText } = await render(<Confirm />)
     fireEvent.click(getByText('btn'))
-    await act(async () => {
-      await fireEvent.click(getAllByText('确定')[0])
-    })
-    expect(fn.mock.calls[0][0]).toBe(true)
-
-    fireEvent.click(getByText('btn'))
+    await actSleep(100)
     act(() => {
-      fireEvent.click(getAllByText('取消')[1])
+      fireEvent.click(getAllByText('确定')[0])
     })
     await actSleep(100)
+    fireEvent.click(getByText('btn'))
+    await actSleep(100)
+    act(() => {
+      fireEvent.click(getAllByText('取消')[0])
+    })
+    await actSleep(100)
+    expect(fn.mock.calls[0][0]).toBe(true)
     expect(fn.mock.calls[1][0]).toBe(false)
   })
 
