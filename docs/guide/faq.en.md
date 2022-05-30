@@ -22,6 +22,10 @@ For new projects, we recommend using the v5 version directly.
 
 For old projects, we recommend a gradual [migration plan](./migration).
 
+### How to check the exact version of antd-mobile installed in the project?
+
+Open `node_modules/antd-mobile/package.json`, the value of the `version` field is the exact version of antd-mobile installed in the current project.
+
 ### How to solve the error after installing antd-mobile v5 in the umi project?
 
 Due to the conflict between the old version of the umi plugin and antd-mobile v5, you may encounter errors similar to the following:
