@@ -129,7 +129,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
           }
         }
         const leftPartMiddle = Math.floor((leftPart[0] + leftPart[1]) / 2)
-        const rightPartMiddle = Math.floor((rightPart[0] + rightPart[1]) / 2)
+        const rightPartMiddle = Math.ceil((rightPart[0] + rightPart[1]) / 2)
         container.innerText =
           props.content.slice(0, leftPartMiddle) +
           '...' +
