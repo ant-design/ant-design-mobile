@@ -2,7 +2,7 @@ import { isDev } from './is-dev'
 import { devError } from './dev-log'
 
 export function measureCSSLength(raw: string | undefined | null): number {
-  if (raw === null || raw === undefined) {
+  if (raw === null || raw === undefined || raw === '') {
     if (isDev) {
       devError(
         'Global',
@@ -25,7 +25,7 @@ export function measureCSSLength(raw: string | undefined | null): number {
     if (isDev) {
       devError(
         'Global',
-        'You are using a not supported CSS unit. Only `px` `rem` and `vw` are supported.'
+        `You are using a not supported CSS unit in \`${raw}\`. Only \`px\` \`rem\` and \`vw\` are supported.`
       )
     }
     return 0
