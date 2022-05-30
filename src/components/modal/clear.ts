@@ -4,4 +4,5 @@ export function clear() {
   closeFnSet.forEach(close => {
     close()
   })
+  closeFnSet.clear()
 }
