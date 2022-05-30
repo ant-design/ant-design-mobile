@@ -2,6 +2,7 @@ import React, { memo } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { useSpring, animated } from '@react-spring/web'
+import { isMotionReduced } from '../../utils/reduce-and-restore-motion'
 
 const classPrefix = 'adm-spin-loading'
 
@@ -25,14 +26,16 @@ export const SpinLoading = memo<SpinLoadingProps>(p => {
   const props = mergeProps(defaultProps, p)
 
   const { percent } = useSpring({
-    loop: {
-      reverse: true,
-    },
+    loop: isMotionReduced()
+      ? false
+      : {
+          reverse: true,
+        },
     from: {
-      percent: 30,
+      percent: 80,
     },
     to: {
-      percent: 80,
+      percent: 30,
     },
     config: {
       duration: 1200,

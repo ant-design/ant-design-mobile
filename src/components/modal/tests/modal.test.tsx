@@ -5,6 +5,7 @@ import {
   fireEvent,
   waitFor,
   waitForElementToBeRemoved,
+  actSleep,
 } from 'testing'
 import Modal, { ModalAlertProps } from '..'
 import { act } from '@testing-library/react'
@@ -63,7 +64,10 @@ describe('Modal', () => {
     const afterShow = jest.fn()
     const { getByText } = await render(<ModalAlert afterShow={afterShow} />)
 
-    fireEvent.click(getByText('btn'))
+    act(() => {
+      fireEvent.click(getByText('btn'))
+    })
+    await actSleep(100)
     await waitForModalShow()
     expect(afterShow).toBeCalled()
   })
@@ -167,9 +171,10 @@ describe('Modal', () => {
     expect(fn.mock.calls[0][0]).toBe(true)
 
     fireEvent.click(getByText('btn'))
-    await act(async () => {
-      await fireEvent.click(getAllByText('取消')[1])
+    act(() => {
+      fireEvent.click(getAllByText('取消')[1])
     })
+    await actSleep(100)
     expect(fn.mock.calls[1][0]).toBe(false)
   })
 

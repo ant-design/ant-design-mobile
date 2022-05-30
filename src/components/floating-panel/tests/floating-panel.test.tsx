@@ -9,6 +9,7 @@ import {
 } from 'testing'
 import FloatingPanel, { FloatingPanelRef } from '..'
 import { patchCreateEvent } from '../../../tests/gesture/utils'
+import { reduceMotion, restoreMotion } from 'antd-mobile'
 
 const classPrefix = `adm-floating-panel`
 
@@ -95,6 +96,7 @@ describe('FloatingPanel', () => {
   })
 
   test('height change', async () => {
+    restoreMotion()
     const fn = jest.fn()
     const { getByTestId } = await render(<App onHeightChange={fn} />)
 
@@ -117,6 +119,7 @@ describe('FloatingPanel', () => {
     expect(fn.mock.calls[fn.mock.calls.length - 1][0]).toBe(
       anchors[anchors.length - 1]
     )
+    reduceMotion()
   })
 
   test('set height in an imperative way', async () => {

@@ -3,6 +3,10 @@ import { render, testA11y, fireEvent, waitFor, cleanup, sleep } from 'testing'
 import ActionSheet, { Action } from '../'
 import Button from '../../button'
 import type { ActionSheetProps, ActionSheetShowHandler } from '..'
+import {
+  reduceMotion,
+  restoreMotion,
+} from '../../../utils/reduce-and-restore-motion'
 
 const classPrefix = `adm-action-sheet`
 
@@ -35,6 +39,7 @@ describe('ActionSheet', () => {
   })
 
   test('basic usage', async () => {
+    restoreMotion()
     const { getByText, baseElement } = await render(
       <App extra='请选择你要进行的操作' cancelText='取消' />
     )
@@ -52,6 +57,7 @@ describe('ActionSheet', () => {
     )
 
     expect(baseElement).toMatchSnapshot()
+    reduceMotion()
   })
 
   test('renders Imperative', async () => {

@@ -81,3 +81,5 @@ export { default as VirtualInput } from './components/virtual-input'
 export { default as WaterMark } from './components/water-mark'
 
 export { createErrorBlock } from './components/error-block'
+
+export { reduceMotion, restoreMotion } from './utils/reduce-and-restore-motion'

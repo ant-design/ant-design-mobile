@@ -5,6 +5,7 @@ import {
   fireEvent,
   waitFor,
   waitForElementToBeRemoved,
+  sleep,
 } from 'testing'
 import Dialog, { DialogAlertProps } from '..'
 import { act } from '@testing-library/react'
@@ -63,8 +64,17 @@ describe('Dialog', () => {
     const afterShow = jest.fn()
     const { getByText } = await render(<DialogAlert afterShow={afterShow} />)
 
-    fireEvent.click(getByText('btn'))
-    await waitForDialogShow()
+    await act(async () => {
+      fireEvent.click(getByText('btn'))
+    })
+    await sleep(20)
+
+    const wrap = $$(`.${classPrefix}-wrap`)[0]
+    const animatedDiv = wrap.childNodes[0]
+
+    expect(animatedDiv).toHaveStyle({
+      opacity: 1,
+    })
     expect(afterShow).toBeCalled()
   })
 
