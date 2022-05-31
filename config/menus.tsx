@@ -47,7 +47,7 @@ export const menus = {
       path: '/zh/guide/what-is-experimental',
     },
     {
-      title: 'HD (Experimental)',
+      title: 'HD',
       path: '/guide/hd',
     },
     {
@@ -93,7 +93,7 @@ export const menus = {
       path: '/zh/guide/what-is-experimental',
     },
     {
-      title: '高清适配（试验性）',
+      title: '高清适配',
       path: '/zh/guide/hd',
     },
     {

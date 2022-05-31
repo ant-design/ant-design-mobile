@@ -1,4 +1,4 @@
-# HD Adaptation <Experimental></Experimental>
+# HD Adaptation
 
 In some projects, you may want to use 2 times the size of the style file. In order to reduce your access cost, antd-mobile has built-in a set of preprocessed 2 times the size of the code, placed in the `2x` subdirectory.
 
