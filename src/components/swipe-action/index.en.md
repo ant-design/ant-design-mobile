@@ -16,21 +16,21 @@ Swipe to reveal hidden function menus.
 
 | Name                | Description                                                                          | Type                                            | Default |
 | ------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------- | ------- |
-| rightActions        | List of operation buttons on the right                                               | `Action[]`                                      | `[]`    |
+| closeOnAction       | Whether to return to the position automatically when the operation button is clicked | `boolean`                                       | `true`  |
+| closeOnTouchOutside | Whether to return to the position automatically when other areas is clicked          | `boolean`                                       | `true`  |
 | leftActions         | List of operation buttons on the left                                                | `Action[]`                                      | `[]`    |
 | onAction            | Triggered when operation button is clicked                                           | `(action: Action, e: React.MouseEvent) => void` | -       |
-| closeOnTouchOutside | Whether to return to the position automatically when other areas is clicked          | `boolean`                                       | `true`  |
-| closeOnAction       | Whether to return to the position automatically when the operation button is clicked | `boolean`                                       | `true`  |
+| rightActions        | List of operation buttons on the right                                               | `Action[]`                                      | `[]`    |
 | stopPropagation     | Stop the propagation of some events.                                                 | `PropagationEvent[]`                            | `[]`    |
 
 ### Action
 
 | Name    | Description               | Type                                                                             | Default   |
 | ------- | ------------------------- | -------------------------------------------------------------------------------- | --------- |
-| key     | The unique identification | `string \| number`                                                               | -         |
-| text    | Text                      | `ReactNode`                                                                      | -         |
 | color   | Color                     | `'light' \| 'weak' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| string` | `'light'` |
+| key     | The unique identification | `string \| number`                                                               | -         |
 | onClick | Trigger when clicked      | `(e: React.MouseEvent) => void`                                                  | -         |
+| text    | Text                      | `ReactNode`                                                                      | -         |
 
 ## Ref
 

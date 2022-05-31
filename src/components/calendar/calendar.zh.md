@@ -18,21 +18,21 @@
 
 | 属性              | 说明                                           | 类型                                                                                           | 默认值     |
 | ----------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------- |
-| selectionMode     | 选择模式，不设置的话表示不支持选择             | `'single' \| 'range'`                                                                          | -          |
-| value             | 选择的日期                                     | 单选模式下为 `Date \| null`，多选模式下为 `[Date, Date] \| null`                               | -          |
+| allowClear        | 是否允许再次点击后清除                         | `boolean`                                                                                      | `true`     |
 | defaultValue      | 默认选择的日期                                 | 同 `value` 属性                                                                                | -          |
+| max               | 可选择范围的最大值                             | `Date`                                                                                         | -          |
+| min               | 可选择范围的最小值                             | `Date`                                                                                         | -          |
+| nextMonthButton   | 导航窗格上的“下一月”按钮的内容                 | `React.ReactNode`                                                                              | `>`        |
+| nextYearButton    | 导航窗格上的“下一年”按钮的内容                 | `React.ReactNode`                                                                              | `>>`       |
 | onChange          | 选择日期变化时触发                             | 单选模式下为 `(val: Date \| null) => void`，多选模式下为 `(val: [Date, Date] \| null) => void` | -          |
 | onPageChange      | 切换月或年时触发                               | `(year: number, month: number) => void`                                                        | -          |
-| weekStartsOn      | 每周以周几作为第一天                           | `'Monday' \| 'Sunday'`                                                                         | `'Sunday'` |
-| renderLabel       | 标注信息的渲染函数                             | `(date: Date) => string \| null \| undefined`                                                  | -          |
-| allowClear        | 是否允许再次点击后清除                         | `boolean`                                                                                      | `true`     |
-| min               | 可选择范围的最小值                             | `Date`                                                                                         | -          |
-| max               | 可选择范围的最大值                             | `Date`                                                                                         | -          |
-| shouldDisableDate | 判断日期是否可选，使用后会忽略 min 和 max 设置 | `(date: Date) => boolean`                                                                      | -          |
 | prevMonthButton   | 导航窗格上的“上一月”按钮的内容                 | `React.ReactNode`                                                                              | `<`        |
-| nextMonthButton   | 导航窗格上的“下一月”按钮的内容                 | `React.ReactNode`                                                                              | `>`        |
 | prevYearButton    | 导航窗格上的“上一年”按钮的内容                 | `React.ReactNode`                                                                              | `<<`       |
-| nextYearButton    | 导航窗格上的“下一年”按钮的内容                 | `React.ReactNode`                                                                              | `>>`       |
+| renderLabel       | 标注信息的渲染函数                             | `(date: Date) => string \| null \| undefined`                                                  | -          |
+| selectionMode     | 选择模式，不设置的话表示不支持选择             | `'single' \| 'range'`                                                                          | -          |
+| shouldDisableDate | 判断日期是否可选，使用后会忽略 min 和 max 设置 | `(date: Date) => boolean`                                                                      | -          |
+| value             | 选择的日期                                     | 单选模式下为 `Date \| null`，多选模式下为 `[Date, Date] \| null`                               | -          |
+| weekStartsOn      | 每周以周几作为第一天                           | `'Monday' \| 'Sunday'`                                                                         | `'Sunday'` |
 
 ### CSS 变量
 

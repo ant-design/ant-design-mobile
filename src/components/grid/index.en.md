@@ -24,8 +24,8 @@ It is used as a function entry in pages with strong recommendation properties, s
 | Name             | Description                       | Default      | Global |
 | ---------------- | --------------------------------- | ------------ | ------ |
 | --gap            | The gap between items.            | `0`          | -      |
-| --gap-vertical   | The vertical gap between items.   | `var(--gap)` | -      |
 | --gap-horizontal | The horizontal gap between items. | `var(--gap)` | -      |
+| --gap-vertical   | The vertical gap between items.   | `var(--gap)` | -      |
 
 ## Grid.Item
 
@@ -33,8 +33,8 @@ It is used as a function entry in pages with strong recommendation properties, s
 
 | Name    | Description      | Type                                                            | Default |
 | ------- | ---------------- | --------------------------------------------------------------- | ------- |
-| span    | Span             | `number`                                                        | `1`     |
 | onClick | The click event. | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | -       |
+| span    | Span             | `number`                                                        | `1`     |
 
 ## FAQ
 

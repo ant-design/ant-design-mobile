@@ -19,18 +19,18 @@ Previewable pictures.
 
 | Name        | Description                                                         | Type                                                             | Default             |
 | ----------- | ------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------- |
-| src         | The address of the image                                            | `string`                                                         | -                   |
 | alt         | The description of the image                                        | `string`                                                         | -                   |
-| width       | The width of the image, if a number is passed in, the unit is `px`  | `string \| number`                                               | -                   |
-| height      | The height of the image, if a number is passed in, the unit is `px` | `string \| number`                                               | -                   |
-| fit         | The fill mode of the image                                          | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'`       | `'fill'`            |
-| placeholder | Placeholder when loading                                            | `ReactNode`                                                      | default placeholder |
-| fallback    | Placeholder when failed to load                                     | `ReactNode`                                                      | default placeholder |
-| lazy        | Whether to load image lazily                                        | `boolean`                                                        | `false`             |
 | draggable   | Whether to allow users to drag the image                            | `boolean`                                                        | `false`             |
-| onError     | Callback when failed to load                                        | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -                   |
+| fallback    | Placeholder when failed to load                                     | `ReactNode`                                                      | default placeholder |
+| fit         | The fill mode of the image                                          | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'`       | `'fill'`            |
+| height      | The height of the image, if a number is passed in, the unit is `px` | `string \| number`                                               | -                   |
+| lazy        | Whether to load image lazily                                        | `boolean`                                                        | `false`             |
 | onClick     | The click event                                                     | `(event: React.MouseEvent<HTMLImageElement, Event>) => void`     | -                   |
+| onError     | Callback when failed to load                                        | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -                   |
 | onLoad      | Triggered when image loaded                                         | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -                   |
+| placeholder | Placeholder when loading                                            | `ReactNode`                                                      | default placeholder |
+| src         | The address of the image                                            | `string`                                                         | -                   |
+| width       | The width of the image, if a number is passed in, the unit is `px`  | `string \| number`                                               | -                   |
 
 In addition, the following HTML native attributes are also supported: `crossOrigin`、`decoding`、`loading`、`referrerPolicy`、`sizes`、`srcSet`、`useMap`
 
@@ -40,8 +40,8 @@ In addition, the following HTML native attributes are also supported: `crossOrig
 
 | Name     | Description          | Default | Global               |
 | -------- | -------------------- | ------- | -------------------- |
-| --width  | The width of image.  | `auto`  | `--adm-image-width`  |
 | --height | The height of image. | `auto`  | `--adm-image-height` |
+| --width  | The width of image.  | `auto`  | `--adm-image-width`  |
 
 ## FAQ
 

@@ -18,27 +18,27 @@ Provides multiple options for the user to choose from, typically used in filters
 
 | Name          | Description                          | Type                                                                    | Default |
 | ------------- | ------------------------------------ | ----------------------------------------------------------------------- | ------- |
-| value         | Selected value                       | `SelectorValue[]`                                                       | -       |
-| defaultValue  | Selected value by default            | `SelectorValue[]`                                                       | `[]`    |
 | columns       | Number of the displayed columns      | `number`                                                                | -       |
-| options       | Optional selector                    | `SelectorOption[]`                                                      | -       |
-| multiple      | Whether to allow multiple selections | `boolean`                                                               | `false` |
+| defaultValue  | Selected value by default            | `SelectorValue[]`                                                       | `[]`    |
 | disabled      | Whether to disable selecting         | `boolean`                                                               | `false` |
+| multiple      | Whether to allow multiple selections | `boolean`                                                               | `false` |
 | onChange      | Triggered when the value is changed  | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
+| options       | Optional selector                    | `SelectorOption[]`                                                      | -       |
 | showCheckMark | Whether to show the check mark       | `boolean`                                                               | `true`  |
+| value         | Selected value                       | `SelectorValue[]`                                                       | -       |
 
 ### CSS Variables
 
 | Name                 | Description                   | Default                    |
 | -------------------- | ----------------------------- | -------------------------- |
-| --color              | Background color              | `#f5f5f5`                  |
-| --checked-color      | Background color when checked | `#e7f1ff`                  |
-| --text-color         | Text color                    | `var(--adm-color-text)`    |
-| --checked-text-color | Text color when checked       | `var(--adm-color-primary)` |
 | --border             | border style                  | `none`                     |
-| --checked-border     | Border style when checked     | `none`                     |
 | --border-radius      | Border radius of options      | `2px`                      |
+| --checked-border     | Border style when checked     | `none`                     |
+| --checked-color      | Background color when checked | `#e7f1ff`                  |
+| --checked-text-color | Text color when checked       | `var(--adm-color-primary)` |
+| --color              | Background color              | `#f5f5f5`                  |
 | --padding            | Padding of options            | `8px 16px`                 |
+| --text-color         | Text color                    | `var(--adm-color-text)`    |
 
 ## Types
 
@@ -52,10 +52,10 @@ type SelectorValue = string | number
 
 | Name        | Description         | Type            | Default |
 | ----------- | ------------------- | --------------- | ------- |
-| label       | Label text          | `ReactNode`     | -       |
 | description | Description text    | `ReactNode`     | -       |
-| value       | Value of the option | `SelectorValue` | -       |
 | disabled    | Whether disabled    | `boolean`       | `false` |
+| label       | Label text          | `ReactNode`     | -       |
+| value       | Value of the option | `SelectorValue` | -       |
 
 ## Generics
 

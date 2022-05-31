@@ -23,14 +23,14 @@ The `show` method supports passing in a `props` object, which contains the follo
 | Name            | Description                                                        | Type                                                  | Default         |
 | --------------- | ------------------------------------------------------------------ | ----------------------------------------------------- | --------------- |
 | afterClose      | Callback after `Toast` is completely closed                        | `() => void`                                          | -               |
-| maskStyle       | `Toast` mask style                                                 | `React.CSSProperties`                                 | -               |
+| content         | `Toast` text content                                               | `React.ReactNode`                                     | -               |
+| duration        | Prompt duration, if it is `0`, it will not be closed automatically | `number`                                              | `2000`          |
+| getContainer    | The customized parent container of the light prompt                | `HTMLElement \| (() => HTMLElement) \| null`          | `document.body` |
+| icon            | `Toast` icon                                                       | `'success' \| 'fail' \| 'loading' \| React.ReactNode` | -               |
 | maskClassName   | `Toast` mask class name                                            | `string`                                              | -               |
 | maskClickable   | Whether allowed to click the background                            | `boolean`                                             | `true`          |
-| content         | `Toast` text content                                               | `React.ReactNode`                                     | -               |
-| icon            | `Toast` icon                                                       | `'success' \| 'fail' \| 'loading' \| React.ReactNode` | -               |
-| duration        | Prompt duration, if it is `0`, it will not be closed automatically | `number`                                              | `2000`          |
+| maskStyle       | `Toast` mask style                                                 | `React.CSSProperties`                                 | -               |
 | position        | Vertical display position                                          | `'top' \| 'bottom' \| 'center'`                       | `'center'`      |
-| getContainer    | The customized parent container of the light prompt                | `HTMLElement \| (() => HTMLElement) \| null`          | `document.body` |
 | stopPropagation | Stop the propagation of some events.                               | `PropagationEvent[]`                                  | `['click']`     |
 
 > Only one light reminder is allowed to pop up at the same time, and the newly appeared `Toast` will squeeze out the previously displayed `Toast`.

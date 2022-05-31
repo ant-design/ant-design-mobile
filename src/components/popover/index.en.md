@@ -23,16 +23,16 @@ Navigation applicable to functions can only be evoked by the icons on the naviga
 | Name            | Description                                                                                  | Type                                                                                                                                                                 | Default               |
 | --------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | children        | The element that triggered the popover                                                       | `React.ReactElement`                                                                                                                                                 | -                     |
-| placement       | The position of the Popover                                                                  | `'top' \| 'top-start' \| 'top-end' \| 'right' \| 'right-start' \| 'right-end' \| 'bottom' \| 'bottom-start' \| 'bottom-end' \| 'left' \| 'left-start' \| 'left-end'` | `'top'`               |
-| defaultVisible  | Whether to show or hide by default                                                           | `boolean`                                                                                                                                                            | `false`               |
-| visible         | Whether to display pop-up content in controlled mode                                         | `boolean`                                                                                                                                                            | -                     |
-| onVisibleChange | Callback when the visible prop is changed                                                    | `(visible: boolean) => void`                                                                                                                                         | -                     |
-| trigger         | Event to trigger                                                                             | `'click'`                                                                                                                                                            | -                     |
-| getContainer    | The floating layer renders the parent node, which would be rendered on the `body` by default | `() => HTMLElement`                                                                                                                                                  | `() => document.body` |
-| destroyOnHide   | When hiding, whether to destroy the content of `tooltip`                                     | `boolean`                                                                                                                                                            | `false`               |
 | content         | The content of the Popover                                                                   | `React.ReactNode`                                                                                                                                                    | -                     |
+| defaultVisible  | Whether to show or hide by default                                                           | `boolean`                                                                                                                                                            | `false`               |
+| destroyOnHide   | When hiding, whether to destroy the content of `tooltip`                                     | `boolean`                                                                                                                                                            | `false`               |
+| getContainer    | The floating layer renders the parent node, which would be rendered on the `body` by default | `() => HTMLElement`                                                                                                                                                  | `() => document.body` |
 | mode            | Set bright color mode or black mode                                                          | `'light' \| 'dark'`                                                                                                                                                  | `'light'`             |
+| onVisibleChange | Callback when the visible prop is changed                                                    | `(visible: boolean) => void`                                                                                                                                         | -                     |
+| placement       | The position of the Popover                                                                  | `'top' \| 'top-start' \| 'top-end' \| 'right' \| 'right-start' \| 'right-end' \| 'bottom' \| 'bottom-start' \| 'bottom-end' \| 'left' \| 'left-start' \| 'left-end'` | `'top'`               |
 | stopPropagation | Stop the propagation of some events.                                                         | `PropagationEvent[]`                                                                                                                                                 | `['click']`           |
+| trigger         | Event to trigger                                                                             | `'click'`                                                                                                                                                            | -                     |
+| visible         | Whether to display pop-up content in controlled mode                                         | `boolean`                                                                                                                                                            | -                     |
 
 Prior to version 5.5.0, the optional values for `placement` were:
 
@@ -54,8 +54,8 @@ In order to maintain compatibility, we still support the use of the old version 
 
 | Name    | Description                      | Type         |
 | ------- | -------------------------------- | ------------ |
-| show    | Show the Popover                 | `() => void` |
 | hide    | Hide the Popover                 | `() => void` |
+| show    | Show the Popover                 | `() => void` |
 | visible | Whether the Popover is diplaying | `boolean`    |
 
 ## Popover.Menu
@@ -73,11 +73,11 @@ Except for `content`, all other attributes are inherited from `Popover`, the uni
 
 | Name     | Description                                                | Type               | Default                   |
 | -------- | ---------------------------------------------------------- | ------------------ | ------------------------- |
-| text     | Menu list, used when the pop-up content is a standard menu | `ReactNode`        | -                         |
-| icon     | The icon of the menu item                                  | `ReactNode`        | `null`                    |
-| onClick     | Triggered on click            | `() => void`       | -       |
-| key      | The unique identifier of the menu, the default is `index`  | `string \| number` | `actions` array's `index` |
 | disabled | Whether disabled                                           | `boolean`          | `false`                   |
+| icon     | The icon of the menu item                                  | `ReactNode`        | `null`                    |
+| key      | The unique identifier of the menu, the default is `index`  | `string \| number` | `actions` array's `index` |
+| onClick  | Triggered on click                                         | `() => void`       | -                         |
+| text     | Menu list, used when the pop-up content is a standard menu | `ReactNode`        | -                         |
 
 ### CSS Variables
 

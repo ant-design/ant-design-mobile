@@ -16,7 +16,7 @@
 
 | 属性        | 说明          | 类型                                                       | 默认值 |
 | ----------- | ------------- | ---------------------------------------------------------- | ------ |
-| status      | 状态类型      | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning'` | -      |
-| title       | 标题          | `ReactNode`                                                | -      |
 | description | 描述          | `ReactNode`                                                | ''     |
 | icon        | 自定义 `icon` | `ReactNode`                                                | -      |
+| status      | 状态类型      | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning'` | -      |
+| title       | 标题          | `ReactNode`                                                | -      |
