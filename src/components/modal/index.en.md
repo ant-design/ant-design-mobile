@@ -112,3 +112,9 @@ In addition, it supports the following props:
 
 You can directly close all modals by calling the `clear` method on `Modal`. Usually, you can use it in router change
 event to close all modals automatically without using modal reference to close.
+
+## FAQ
+
+### Are there any pop-up windows with no content, no buttons, and no margins?
+
+Yes, you can directly use the lower-level [CenterPopup](./popup#centerpopup) component.

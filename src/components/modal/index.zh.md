@@ -105,3 +105,9 @@ const handler = Modal.show(props)
 ### Modal.clear
 
 可以通过调用 `Modal` 上的 `clear` 方法关闭所有打开的弹窗，通常用于路由监听中，处理路由前进、后退不能关闭弹窗的问题。
+
+## FAQ
+
+### 有没有不含内容、不含各种按钮、不含边距的弹窗？
+
+有，可以直接使用更底层的 [CenterPopup](./popup#centerpopup) 组件。

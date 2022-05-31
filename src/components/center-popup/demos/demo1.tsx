@@ -4,7 +4,7 @@ import { DemoBlock } from 'demos'
 import styles from './demo1.less'
 
 export default () => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
   return (
     <DemoBlock title='中心弹出的弹层'>
       <Button
