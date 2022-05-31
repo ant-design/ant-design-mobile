@@ -3,30 +3,16 @@
 .@{class-prefix-dialog} {
   --z-index: var(--adm-dialog-z-index, 1000);
 
-  position: fixed;
-  z-index: var(--z-index);
-
-  .@{class-prefix-dialog}-mask {
-    z-index: 0;
+  ---z-index: var(--z-index);
+  .adm-center-popup {
+    --z-index: var(---z-index);
   }
-}
-
-.@{class-prefix-dialog}-wrap {
-  position: fixed;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  width: 75vw;
-  max-width: 500px;
-  transform: translate(-50%, -50%);
 }
 
 .@{class-prefix-dialog}-body {
   width: 100%;
   max-height: 70vh;
   font-size: 14px;
-  background-color: white;
-  border-radius: 8px;
   overflow: hidden;
 
   display: flex;
@@ -41,57 +27,57 @@
   &:not(.adm-dialog-with-image) {
     padding-top: 20px;
   }
+}
 
-  .adm-dialog-image-container {
-    margin-bottom: 12px;
-    max-height: 40vh;
+.adm-dialog-image-container {
+  margin-bottom: 12px;
+  max-height: 40vh;
+}
+.adm-dialog-header {
+  margin-bottom: 8px;
+  padding: 0 12px;
+}
+.adm-dialog-title {
+  margin-bottom: 8px;
+  padding: 0 12px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+}
+.adm-dialog-content {
+  padding: 0 12px 20px;
+  max-height: 70vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+  &-empty {
+    padding: 0;
+    height: 12px;
   }
-  .adm-dialog-header {
-    margin-bottom: 8px;
-    padding: 0 12px;
-  }
-  .adm-dialog-title {
-    margin-bottom: 8px;
-    padding: 0 12px;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-    text-align: center;
-  }
-  .adm-dialog-content {
-    padding: 0 12px 20px;
-    max-height: 70vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    font-size: 15px;
-    line-height: 1.4;
-    color: #333;
-    &-empty {
-      padding: 0;
-      height: 12px;
+}
+.@{class-prefix-dialog}-footer {
+  user-select: none;
+  .adm-dialog-action-row {
+    display: flex;
+    align-items: stretch;
+    border-top: 0.5px solid var(--adm-border-color);
+    > * {
+      flex: 1;
     }
-  }
-  .@{class-prefix-dialog}-footer {
-    user-select: none;
-    .adm-dialog-action-row {
-      display: flex;
-      align-items: stretch;
-      border-top: 0.5px solid var(--adm-border-color);
-      > * {
-        flex: 1;
+    > .adm-dialog-button {
+      padding: 10px;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 0;
+      &-bold {
+        font-weight: bold;
       }
-      > .adm-dialog-button {
-        padding: 10px;
-        font-size: 18px;
-        line-height: 25px;
-        border-radius: 0;
-        &-bold {
-          font-weight: bold;
-        }
-        border-right: solid 0.5px var(--adm-border-color);
-        &:last-child {
-          border-right: none;
-        }
+      border-right: solid 0.5px var(--adm-border-color);
+      &:last-child {
+        border-right: none;
       }
     }
   }

@@ -1,107 +1,51 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
-import Mask from '../mask'
-import type { MaskProps } from '../mask'
 import { Action, ModalActionButton } from './modal-action-button'
 import Image from '../image'
 import Space from '../space'
-import {
-  GetContainer,
-  renderToContainer,
-} from '../../utils/render-to-container'
-import {
-  PropagationEvent,
-  withStopPropagation,
-} from '../../utils/with-stop-propagation'
 import AutoCenter from '../auto-center'
-import { useSpring, animated } from '@react-spring/web'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { NativeProps } from '../../utils/native-props'
 import { CloseOutline } from 'antd-mobile-icons'
-import { ShouldRender } from '../../utils/should-render'
-import { useInnerVisible } from '../../utils/use-inner-visible'
+import CenterPopup, { CenterPopupProps } from '../center-popup'
 
-export type ModalProps = {
-  afterClose?: () => void
-  afterShow?: () => void
+export type ModalProps = Pick<
+  CenterPopupProps,
+  | 'afterClose'
+  | 'afterShow'
+  | 'bodyClassName'
+  | 'bodyStyle'
+  | 'destroyOnClose'
+  | 'disableBodyScroll'
+  | 'forceRender'
+  | 'getContainer'
+  | 'maskClassName'
+  | 'maskStyle'
+  | 'stopPropagation'
+  | 'visible'
+> & {
   image?: string
   header?: ReactNode
   title?: ReactNode
   content?: ReactNode
   actions?: Action[]
   onAction?: (action: Action, index: number) => void | Promise<void>
-  closeOnAction?: boolean
   onClose?: () => void
+  closeOnAction?: boolean
   closeOnMaskClick?: boolean
-  visible?: boolean
-  getContainer?: GetContainer
-  bodyStyle?: React.CSSProperties
-  bodyClassName?: string
-  maskStyle?: MaskProps['style']
-  maskClassName?: string
-  stopPropagation?: PropagationEvent[]
   showCloseButton?: boolean
-  disableBodyScroll?: boolean
-  destroyOnClose?: boolean
-  forceRender?: boolean
 } & NativeProps
 
 const defaultProps = {
-  visible: false,
   actions: [] as Action[],
   closeOnAction: false,
   closeOnMaskClick: false,
-  stopPropagation: ['click'],
-  showCloseButton: false,
-  getContainer: null,
-  disableBodyScroll: true,
-  destroyOnClose: false,
-  forceRender: false,
 }
 
 export const Modal: FC<ModalProps> = p => {
   const props = mergeProps(defaultProps, p)
-
-  const unmountedRef = useUnmountedRef()
-  const style = useSpring({
-    scale: props.visible ? 1 : 0.8,
-    opacity: props.visible ? 1 : 0,
-    config: {
-      mass: 1.2,
-      tension: 200,
-      friction: 25,
-      clamp: true,
-    },
-    onRest: () => {
-      if (unmountedRef.current) return
-      setActive(props.visible)
-      if (props.visible) {
-        props.afterShow?.()
-      } else {
-        props.afterClose?.()
-      }
-    },
-  })
-
-  const [active, setActive] = useState(props.visible)
-  useIsomorphicLayoutEffect(() => {
-    if (props.visible) {
-      setActive(true)
-    }
-  }, [props.visible])
-
-  const maskVisible = useInnerVisible(active && props.visible)
-
-  const body = (
-    <div
-      className={classNames(
-        cls('body'),
-        props.image && cls('with-image'),
-        props.bodyClassName
-      )}
-      style={props.bodyStyle}
-    >
+  const element = (
+    <>
       {props.showCloseButton && (
         <a
           className={classNames(cls('close'), 'adm-plain-anchor')}
@@ -154,44 +98,37 @@ export const Modal: FC<ModalProps> = p => {
           )
         })}
       </Space>
-    </div>
-  )
-
-  const node = withStopPropagation(
-    props.stopPropagation,
-    withNativeProps(
-      props,
-      <div
-        className={cls()}
-        style={{
-          display: active ? undefined : 'none',
-          pointerEvents: active ? undefined : 'none',
-        }}
-      >
-        <Mask
-          visible={maskVisible}
-          forceRender={props.forceRender}
-          destroyOnClose={props.destroyOnClose}
-          onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
-          style={props.maskStyle}
-          className={classNames(cls('mask'), props.maskClassName)}
-          disableBodyScroll={props.disableBodyScroll}
-        />
-        <div className={cls('wrap')}>
-          <animated.div style={style}>{body}</animated.div>
-        </div>
-      </div>
-    )
+    </>
   )
 
   return (
-    <ShouldRender
-      active={active}
-      forceRender={props.forceRender}
+    <CenterPopup
+      afterClose={props.afterClose}
+      afterShow={props.afterShow}
+      onMaskClick={
+        props.closeOnMaskClick
+          ? () => {
+              props.onClose?.()
+            }
+          : undefined
+      }
+      visible={props.visible}
+      getContainer={props.getContainer}
+      bodyStyle={props.bodyStyle}
+      bodyClassName={classNames(
+        cls('body'),
+        props.image && cls('with-image'),
+        props.bodyClassName
+      )}
+      maskStyle={props.maskStyle}
+      maskClassName={props.maskClassName}
+      stopPropagation={props.stopPropagation}
+      disableBodyScroll={props.disableBodyScroll}
       destroyOnClose={props.destroyOnClose}
+      forceRender={props.forceRender}
     >
-      {renderToContainer(props.getContainer, node)}
-    </ShouldRender>
+      {element}
+    </CenterPopup>
   )
 }
 
