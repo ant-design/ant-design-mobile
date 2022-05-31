@@ -14,13 +14,13 @@ You need to click on the picture to view the details and use it with the thumbna
 
 | Name         | Description                                                                                                                 | Type                                       | Default         |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
+| afterClose   | Triggered when it is completely closed                                                                                      | `() => void`                               | -               |
+| getContainer | To get the specified mounted HTML node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
 | image        | The `url` of the image resource                                                                                             | `string`                                   | -               |
 | maxZoom      | The maximum zoom ratio                                                                                                      | `number`                                   | `3`             |
-| getContainer | To get the specified mounted HTML node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
-| visible      | Whether to show or hide                                                                                                     | `boolean`                                  | `false`         |
 | onClose      | Triggered when it is closed                                                                                                 | `boolean`                                  | -               |
-| afterClose   | Triggered when it is completely closed                                                                                      | `() => void`                               | -               |
 | renderFooter | Render extra content on footer                                                                                              | `(image: string) => ReactNode`             | -               |
+| visible      | Whether to show or hide                                                                                                     | `boolean`                                  | `false`         |
 
 ## ImageViewer.Multi
 
@@ -28,8 +28,8 @@ On the basis of `ImageViewer`, the following props have been added:
 
 | Name          | Description                                 | Type                                          | Default |
 | ------------- | ------------------------------------------- | --------------------------------------------- | ------- |
-| images        | Url list of image resources                 | `string[]`                                    | `[]`    |
 | defaultIndex  | Which picture would be displayed by default | `number`                                      | `0`     |
+| images        | Url list of image resources                 | `string[]`                                    | `[]`    |
 | onIndexChange | Triggered when the picture is switched      | `(index: number) => void`                     | -       |
 | renderFooter  | Render extra content on footer              | `(image: string, index: number) => ReactNode` | -       |
 

@@ -30,10 +30,10 @@
 
 | 属性                 | 说明                 | 默认值    |
 | -------------------- | -------------------- | --------- |
-| --width              | 侧边导航宽度         | `96px`    |
+| --background-color   | 背景颜色             | `#f5f5f5` |
 | --height             | 侧边导航高度         | `100%`    |
 | --item-border-radius | 当前激活`item`的圆角 | `8px`     |
-| --background-color   | 背景颜色             | `#f5f5f5` |
+| --width              | 侧边导航宽度         | `96px`    |
 
 ## SideBar.Item
 
@@ -41,7 +41,7 @@
 
 | 属性     | 说明             | 类型                    | 默认值  |
 | -------- | ---------------- | ----------------------- | ------- |
+| badge    | 徽标             | `BadgeProps['content']` | -       |
+| disabled | 是否禁用         | `boolean`               | `false` |
 | key      | 对应 `activeKey` | `string`                | -       |
 | title    | 显示内容         | `ReactNode`             | -       |
-| disabled | 是否禁用         | `boolean`               | `false` |
-| badge    | 徽标             | `BadgeProps['content']` | -       |

@@ -16,7 +16,7 @@ It is used when there is an important operation that needs to inform the user of
 
 | Name        | Description       | Type                                                       | Default |
 | ----------- | ----------------- | ---------------------------------------------------------- | ------- |
-| status      | Status types      | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning'` | -       |
-| title       | Title             | `ReactNode`                                                | -       |
 | description | Description       | `ReactNode`                                                | ''      |
 | icon        | Customized `icon` | `ReactNode`                                                | -       |
+| status      | Status types      | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning'` | -       |
+| title       | Title             | `ReactNode`                                                | -       |

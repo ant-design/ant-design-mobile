@@ -37,25 +37,25 @@ type PickerValueExtend = {
 
 | Name             | Description                                                  | Type                                                               | Default                |
 | ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------------ | ---------------------- |
-| columns          | Options to configure each column                             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])`     | -                      |
-| value            | Selected options                                             | `PickerValue[]`                                                    | -                      |
-| defaultValue     | Default selected options                                     | `PickerValue[]`                                                    | `[]`                   |
-| onSelect         | Triggered when the options are changed                       | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                      |
-| onConfirm        | Triggered when confirming                                    | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                      |
-| onCancel         | Triggered when cancelling                                    | `() => void`                                                       | -                      |
-| onClose          | Triggered when confirming or cancelling                      | `() => void`                                                       | -                      |
-| closeOnMaskClick | Whether to close after clicking the mask layer               | `boolean`                                                          | `true`                 |
-| visible          | Whether to show or hide the Picker                           | `boolean`                                                          | `false`                |
-| title            | Title                                                        | `ReactNode`                                                        | -                      |
-| confirmText      | Text of the ok button                                        | `ReactNode`                                                        | `'确定'`               |
 | cancelText       | Text of the cancel button                                    | `ReactNode`                                                        | `'取消'`               |
 | children         | Render function of the selected options                      | `(items: PickerColumnItem[], actions: PickerActions) => ReactNode` | -                      |
-| renderLabel      | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode`                            | `(item) => item.label` |
-| mouseWheel       | Whether to allow interact with mouse wheel                   | `boolean`                                                          | `false`                |
-| popupClassName   | The custom class name of the popup                           | `string`                                                           | -                      |
-| popupStyle       | The custom style of the popup                                | `React.CSSProperties `                                             | -                      |
+| closeOnMaskClick | Whether to close after clicking the mask layer               | `boolean`                                                          | `true`                 |
+| columns          | Options to configure each column                             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])`     | -                      |
+| confirmText      | Text of the ok button                                        | `ReactNode`                                                        | `'确定'`               |
+| defaultValue     | Default selected options                                     | `PickerValue[]`                                                    | `[]`                   |
 | destroyOnClose   | Unmount content when not visible                             | `boolean`                                                          | `false`                |
 | forceRender      | Render content forcely                                       | `boolean`                                                          | `false`                |
+| mouseWheel       | Whether to allow interact with mouse wheel                   | `boolean`                                                          | `false`                |
+| onCancel         | Triggered when cancelling                                    | `() => void`                                                       | -                      |
+| onClose          | Triggered when confirming or cancelling                      | `() => void`                                                       | -                      |
+| onConfirm        | Triggered when confirming                                    | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                      |
+| onSelect         | Triggered when the options are changed                       | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                      |
+| popupClassName   | The custom class name of the popup                           | `string`                                                           | -                      |
+| popupStyle       | The custom style of the popup                                | `React.CSSProperties `                                             | -                      |
+| renderLabel      | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode`                            | `(item) => item.label` |
+| title            | Title                                                        | `ReactNode`                                                        | -                      |
+| value            | Selected options                                             | `PickerValue[]`                                                    | -                      |
+| visible          | Whether to show or hide the Picker                           | `boolean`                                                          | `false`                |
 
 In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`.
 
@@ -87,8 +87,8 @@ need to be written as:
 
 | Name   | Description                         | Type         |
 | ------ | ----------------------------------- | ------------ |
-| open   | Open Picker.                        | `() => void` |
 | close  | Close Picker.                       | `() => void` |
+| open   | Open Picker.                        | `() => void` |
 | toggle | Toggle the visible state of Picker. | `() => void` |
 
 ### Ref
@@ -100,9 +100,9 @@ Same as PickerActions.
 | Name                      | Description                                               | Default | Global |
 | ------------------------- | --------------------------------------------------------- | ------- | ------ |
 | --header-button-font-size | Font size of confirm and cancel button.                   | `15px`  | -      |
-| --title-font-size         | Font size of title.                                       | `15px`  | -      |
 | --item-font-size          | Font size of option items.                                | `16px`  | -      |
 | --item-height             | Height of option item. Only supports px rem and vw units. | `34px`  | -      |
+| --title-font-size         | Font size of title.                                       | `15px`  | -      |
 
 ## CascadePicker
 
@@ -144,17 +144,17 @@ Same as `Picker`.
 
 | Name         | Description                                                                                                                          | Type                                                                                   | Default         |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- | --------------- |
-| value        | Selected value                                                                                                                       | `Date`                                                                                 | -               |
-| defaultValue | Default selected value                                                                                                               | `Date`                                                                                 | -               |
-| onSelect     | Triggered when the options are changed                                                                                               | `(value: Date) => void`                                                                | -               |
-| onConfirm    | Triggered when confirming                                                                                                            | `(value: Date) => void`                                                                | -               |
-| min          | Minimum value                                                                                                                        | `Date`                                                                                 | ten years ago   |
-| max          | Max value                                                                                                                            | `Date`                                                                                 | ten years later |
-| precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'`         |
 | children     | The rendering function of the selected items                                                                                         | `(value: Date, actions: PickerActions) => ReactNode`                                   | -               |
-| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                            | -               |
+| defaultValue | Default selected value                                                                                                               | `Date`                                                                                 | -               |
 | filter       | Filter available time                                                                                                                | `DatePickerFilter`                                                                     | -               |
+| max          | Max value                                                                                                                            | `Date`                                                                                 | ten years later |
+| min          | Minimum value                                                                                                                        | `Date`                                                                                 | ten years ago   |
 | mouseWheel   | Whether to allow interact with mouse wheel                                                                                           | `boolean`                                                                              | `false`         |
+| onConfirm    | Triggered when confirming                                                                                                            | `(value: Date) => void`                                                                | -               |
+| onSelect     | Triggered when the options are changed                                                                                               | `(value: Date) => void`                                                                | -               |
+| precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'`         |
+| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                            | -               |
+| value        | Selected value                                                                                                                       | `Date`                                                                                 | -               |
 
 ```typescript | pure
 type DatePickerFilter = Partial<

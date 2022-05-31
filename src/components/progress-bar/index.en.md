@@ -22,6 +22,6 @@ It is suitable for displaying the current progress of the task.
 
 | Name          | Description             | Default                    | Global                           |
 | ------------- | ----------------------- | -------------------------- | -------------------------------- |
-| --track-width | The width of line.      | `3px`                      | `--adm-progress-bar-track-width` |
-| --track-color | The color of line.      | `#e5e5e5`                  | `--adm-progress-bar-track-color` |
 | --fill-color  | The color of fill part. | `var(--adm-color-primary)` | `--adm-progress-bar-fill-color`  |
+| --track-color | The color of line.      | `#e5e5e5`                  | `--adm-progress-bar-track-color` |
+| --track-width | The width of line.      | `3px`                      | `--adm-progress-bar-track-width` |

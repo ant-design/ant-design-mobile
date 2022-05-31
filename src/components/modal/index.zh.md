@@ -20,41 +20,41 @@
 
 | 属性              | 说明                         | 类型                                                       | 默认值      |
 | ----------------- | ---------------------------- | ---------------------------------------------------------- | ----------- |
+| actions           | 操作按钮列表                 | `Action[]`                                                 | `[]`        |
 | afterClose        | `Modal` 完全关闭后的回调     | `() => void`                                               | -           |
 | afterShow         | 完全展示后触发               | `() => void`                                               | -           |
-| image             | 图片 `url`                   | `string`                                                   | -           |
-| header            | 顶部区域                     | `React.ReactNode`                                          | -           |
-| title             | 弹窗标题                     | `React.ReactNode`                                          | -           |
-| content           | 弹窗内容                     | `React.ReactNode`                                          | -           |
-| actions           | 操作按钮列表                 | `Action[]`                                                 | `[]`        |
-| onAction          | 点击操作按钮时触发           | `(action: Action, index: number) => void \| Promise<void>` | -           |
-| closeOnAction     | 点击操作按钮后后是否关闭     | `boolean`                                                  | `false`     |
-| onClose           | 关闭时触发                   | `() => void`                                               | -           |
-| closeOnMaskClick  | 是否支持点击遮罩关闭弹窗     | `boolean`                                                  | `false`     |
-| visible           | 显示隐藏                     | `boolean`                                                  | `false`     |
-| getContainer      | 自定义弹窗的父容器           | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
-| bodyStyle         | `Modal` 内容样式             | `React.CSSProperties`                                      | -           |
 | bodyClassName     | `Modal` 内容类名             | `string`                                                   | -           |
-| maskStyle         | `Modal` 遮罩样式             | `React.CSSProperties`                                      | -           |
-| maskClassName     | `Modal` 遮罩类名             | `string`                                                   | -           |
-| stopPropagation   | 阻止某些事件的冒泡           | `PropagationEvent[]`                                       | `['click']` |
-| showCloseButton   | 是否在右上角显示关闭图标按钮 | `boolean`                                                  | `false`     |
-| disableBodyScroll | 遮罩层是否禁用 `body` 滚动   | `boolean`                                                  | `true`      |
+| bodyStyle         | `Modal` 内容样式             | `React.CSSProperties`                                      | -           |
+| closeOnAction     | 点击操作按钮后后是否关闭     | `boolean`                                                  | `false`     |
+| closeOnMaskClick  | 是否支持点击遮罩关闭弹窗     | `boolean`                                                  | `false`     |
+| content           | 弹窗内容                     | `React.ReactNode`                                          | -           |
 | destroyOnClose    | 不可见时卸载内容             | `boolean`                                                  | `false`     |
+| disableBodyScroll | 遮罩层是否禁用 `body` 滚动   | `boolean`                                                  | `true`      |
 | forceRender       | 被隐藏时是否渲染 `DOM` 结构  | `boolean`                                                  | `false`     |
+| getContainer      | 自定义弹窗的父容器           | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
+| header            | 顶部区域                     | `React.ReactNode`                                          | -           |
+| image             | 图片 `url`                   | `string`                                                   | -           |
+| maskClassName     | `Modal` 遮罩类名             | `string`                                                   | -           |
+| maskStyle         | `Modal` 遮罩样式             | `React.CSSProperties`                                      | -           |
+| onAction          | 点击操作按钮时触发           | `(action: Action, index: number) => void \| Promise<void>` | -           |
+| onClose           | 关闭时触发                   | `() => void`                                               | -           |
+| showCloseButton   | 是否在右上角显示关闭图标按钮 | `boolean`                                                  | `false`     |
+| stopPropagation   | 阻止某些事件的冒泡           | `PropagationEvent[]`                                       | `['click']` |
+| title             | 弹窗标题                     | `React.ReactNode`                                          | -           |
+| visible           | 显示隐藏                     | `boolean`                                                  | `false`     |
 
 ### Action
 
 | 属性      | 说明           | 类型                          | 默认值  |
 | --------- | -------------- | ----------------------------- | ------- |
-| key       | 唯一标记       | `string \| number`            | -       |
-| text      | 标题           | `string`                      | -       |
-| disabled  | 是否为禁用状态 | `boolean`                     | `false` |
+| className | `Action` 类名  | `string`                      | -       |
 | danger    | 是否为危险状态 | `boolean`                     | `false` |
+| disabled  | 是否为禁用状态 | `boolean`                     | `false` |
+| key       | 唯一标记       | `string \| number`            | -       |
+| onClick   | 点击时触发     | `() => void \| Promise<void>` | -       |
 | primary   | 是否为主要状态 | `boolean`                     | `false` |
 | style     | `Action` 样式  | `React.CSSProperties`         | -       |
-| className | `Action` 类名  | `string`                      | -       |
-| onClick   | 点击时触发     | `() => void \| Promise<void>` | -       |
+| text      | 标题           | `string`                      | -       |
 
 ## 指令式
 
@@ -97,10 +97,10 @@ const handler = Modal.show(props)
 
 | 属性        | 说明               | 类型                          | 默认值   |
 | ----------- | ------------------ | ----------------------------- | -------- |
-| confirmText | 确认按钮的内容     | `ReactNode`                   | `'确认'` |
-| onConfirm   | 点击确认按钮时触发 | `() => void \| Promise<void>` | -        |
 | cancelText  | 取消按钮的内容     | `ReactNode`                   | `'取消'` |
+| confirmText | 确认按钮的内容     | `ReactNode`                   | `'确认'` |
 | onCancel    | 点击取消按钮时触发 | `() => void \| Promise<void>` | -        |
+| onConfirm   | 点击确认按钮时触发 | `() => void \| Promise<void>` | -        |
 
 ### Modal.clear
 

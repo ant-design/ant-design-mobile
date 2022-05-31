@@ -16,31 +16,31 @@
 
 | 属性             | 说明                                                                        | 类型                                       | 默认值          |
 | ---------------- | --------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
-| visible          | 显示隐藏                                                                    | `boolean`                                  | `false`         |
 | actions          | 面板选项列表                                                                | `Action[]`                                 | `[]`            |
-| extra            | 顶部的额外区域                                                              | `ReactNode`                                | -               |
-| cancelText       | 取消按钮文字，如果设置为空则不显示取消按钮                                  | `ReactNode`                                | -               |
-| onAction         | 点击选项时触发，禁用或加载状态下不会触发                                    | `(action: Action, index: number) => void`  | -               |
-| onClose          | 关闭时触发                                                                  | `() => void`                               | -               |
 | afterClose       | 完全关闭后触发                                                              | `() => void`                               | -               |
-| onMaskClick      | 点击遮罩层时触发                                                            | `() => void`                               | -               |
+| cancelText       | 取消按钮文字，如果设置为空则不显示取消按钮                                  | `ReactNode`                                | -               |
 | closeOnAction    | 点击选项后是否关闭                                                          | `boolean`                                  | `false`         |
 | closeOnMaskClick | 点击遮罩层后是否关闭                                                        | `boolean`                                  | `true`          |
+| extra            | 顶部的额外区域                                                              | `ReactNode`                                | -               |
 | getContainer     | 指定挂载的 `HTML` 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
-| safeArea         | 是否开启安全区适配                                                          | `boolean`                                  | `true`          |
+| onAction         | 点击选项时触发，禁用或加载状态下不会触发                                    | `(action: Action, index: number) => void`  | -               |
+| onClose          | 关闭时触发                                                                  | `() => void`                               | -               |
+| onMaskClick      | 点击遮罩层时触发                                                            | `() => void`                               | -               |
 | popupClassName   | `ActionSheet` 弹出层类名                                                    | `string`                                   | -               |
 | popupStyle       | `ActionSheet` 弹出层样式                                                    | `React.CSSProperties`                      | -               |
+| safeArea         | 是否开启安全区适配                                                          | `boolean`                                  | `true`          |
+| visible          | 显示隐藏                                                                    | `boolean`                                  | `false`         |
 
 ### Action
 
 | 属性        | 说明           | 类型               | 默认值  |
 | ----------- | -------------- | ------------------ | ------- |
-| key         | 唯一标记       | `string \| number` | -       |
-| text        | 标题           | `ReactNode`        | -       |
-| disabled    | 是否为禁用状态 | `boolean`          | `false` |
 | danger      | 是否为危险状态 | `boolean`          | `false` |
 | description | 描述           | `ReactNode`        | -       |
+| disabled    | 是否为禁用状态 | `boolean`          | `false` |
+| key         | 唯一标记       | `string \| number` | -       |
 | onClick     | 点击时触发     | `() => void`       | -       |
+| text        | 标题           | `ReactNode`        | -       |
 
 ### 指令式
 

@@ -25,10 +25,10 @@ When a task is complex or has precedence, break it down into a series of steps t
 
 | Name                     | Description                                         | Default |
 | ------------------------ | --------------------------------------------------- | ------- |
-| --title-font-size        | Font size of title.                                 | `13px`  |
 | --description-font-size  | Font size of description.                           | `12px`  |
-| --indicator-margin-right | The extra space between indicator and text content. | `0`     |
 | --icon-size              | Size of the icons in the indicator.                 | `18px`  |
+| --indicator-margin-right | The extra space between indicator and text content. | `0`     |
+| --title-font-size        | Font size of title.                                 | `13px`  |
 
 ## Steps.Step
 
@@ -36,7 +36,7 @@ When a task is complex or has precedence, break it down into a series of steps t
 
 | Name        | Description                                                                                                                                                                                                                                               | Type                                         | Default  |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | -------- |
-| title       | Title                                                                                                                                                                                                                                                     | `ReactNode`                                  | -        |
 | description | Detailed description of the Steps, optional                                                                                                                                                                                                               | `ReactNode`                                  | -        |
 | icon        | Type of the Steps icon                                                                                                                                                                                                                                    | `ReactNode`                                  | -        |
 | status      | The specified status. When this property is not configured, the `current` of `Steps` would be used to automatically specify the state; if the prop does not match the state specified by `current`, the automatically matched state would be overwritten. | `'wait' \| 'process' \| 'finish' \| 'error'` | `'wait'` |
+| title       | Title                                                                                                                                                                                                                                                     | `ReactNode`                                  | -        |

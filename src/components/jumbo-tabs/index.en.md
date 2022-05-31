@@ -24,11 +24,11 @@ Used in lists or modules in presentational interfaces when options require furth
 
 | Name           | Description                                       | Type        | Default |
 | -------------- | ------------------------------------------------- | ----------- | ------- |
-| key            | Corresponding to `activeKey`                      | `string`    | -       |
-| title          | The displayed text of the tab header              | `ReactNode` | -       |
 | description    | The description text                              | `ReactNode` | -       |
+| destroyOnClose | Unmount content when not visible                  | `boolean`   | `false` |
 | disabled       | Whether to disable the tab                        | `boolean`   | `false` |
 | forceRender    | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
-| destroyOnClose | Unmount content when not visible                  | `boolean`   | `false` |
+| key            | Corresponding to `activeKey`                      | `string`    | -       |
+| title          | The displayed text of the tab header              | `ReactNode` | -       |
 
 The usage of JumboTabs is very similar to that of Tabs, so see the documentation for [Tabs](./tabs) for more usage guidelines.

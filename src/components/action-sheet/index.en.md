@@ -16,31 +16,31 @@ Triggered by user operation, it provides a set of two or more options related to
 
 | Name             | Description                                                                                                                | Type                                       | Default         |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
-| visible          | To show or hide the action sheet                                                                                           | `boolean`                                  | `false`         |
 | actions          | The option list of the the action sheet                                                                                    | `Action[]`                                 | `[]`            |
-| extra            | The extra area at the top of the the action sheet                                                                          | `ReactNode`                                | -               |
-| cancelText       | The text of the cancel button , if it is null, the cancel button would not be displayed                                    | `ReactNode`                                | -               |
-| onAction         | Triggered when an option is clicked, never triggered when the ActionSheet is disabled or loading                           | `(action: Action, index: number) => void`  | -               |
-| onClose          | Triggered when closed                                                                                                      | `() => void`                               | -               |
 | afterClose       | Triggered when completely closed                                                                                           | `() => void`                               | -               |
-| onMaskClick      | Triggered when the mask layer is clicked                                                                                   | `() => void`                               | -               |
+| cancelText       | The text of the cancel button , if it is null, the cancel button would not be displayed                                    | `ReactNode`                                | -               |
 | closeOnAction    | Whether to close after clicking the option                                                                                 | `boolean`                                  | `false`         |
 | closeOnMaskClick | Whether to close after clicking the mask layer                                                                             | `boolean`                                  | `true`          |
+| extra            | The extra area at the top of the the action sheet                                                                          | `ReactNode`                                | -               |
 | getContainer     | Get the specified mounted `HTML` node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
-| safeArea         | Whether to enable safe area padding                                                                                        | `boolean`                                  | `true`          |
+| onAction         | Triggered when an option is clicked, never triggered when the ActionSheet is disabled or loading                           | `(action: Action, index: number) => void`  | -               |
+| onClose          | Triggered when closed                                                                                                      | `() => void`                               | -               |
+| onMaskClick      | Triggered when the mask layer is clicked                                                                                   | `() => void`                               | -               |
 | popupClassName   | `ActionSheet` popup class name                                                                                             | `string`                                   | -               |
 | popupStyle       | `ActionSheet` popup style                                                                                                  | `React.CSSProperties`                      | -               |
+| safeArea         | Whether to enable safe area padding                                                                                        | `boolean`                                  | `true`          |
+| visible          | To show or hide the action sheet                                                                                           | `boolean`                                  | `false`         |
 
 ### Action
 
 | Name        | Description                   | Type               | Default |
 | ----------- | ----------------------------- | ------------------ | ------- |
-| key         | The unique mark               | `string \| number` | -       |
-| text        | Title                         | `ReactNode`        | -       |
-| disabled    | Whether disabled or not       | `boolean`          | `false` |
 | danger      | Whether dangerous or not      | `boolean`          | `false` |
 | description | The description of the action | `ReactNode`        | -       |
+| disabled    | Whether disabled or not       | `boolean`          | `false` |
+| key         | The unique mark               | `string \| number` | -       |
 | onClick     | Triggered on click            | `() => void`       | -       |
+| text        | Title                         | `ReactNode`        | -       |
 
 ### Imperative
 

@@ -25,31 +25,31 @@
 
 | 属性              | 说明                                                         | 类型                                               | 默认值       |
 | ----------------- | ------------------------------------------------------------ | -------------------------------------------------- | ------------ |
-| mode              | 支持默认和卡片两种模式                                       | `'default' \| 'card'`                              | `'default'`  |
-| layout            | 布局模式                                                     | `'vertical' \| 'horizontal'`                       | `'vertical'` |
 | disabled          | 是否禁用                                                     | `boolean`                                          | `false`      |
-| hasFeedback       | 是否展示错误反馈                                             | `boolean`                                          | `true`       |
-| requiredMarkStyle | 必填选填的标记样式                                           | `'asterisk' \| 'text-required' \| 'text-optional'` | `'asterisk'` |
 | footer            | 表单尾部的内容，常常用来放置提交按钮                         | `ReactNode`                                        | -            |
 | form              | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | `FormInstance`                                     | -            |
+| hasFeedback       | 是否展示错误反馈                                             | `boolean`                                          | `true`       |
 | initialValues     | 表单默认值，只有初始化以及重置时生效                         | `object`                                           | -            |
+| layout            | 布局模式                                                     | `'vertical' \| 'horizontal'`                       | `'vertical'` |
+| mode              | 支持默认和卡片两种模式                                       | `'default' \| 'card'`                              | `'default'`  |
 | name              | 表单名称，会作为表单字段 `id` 前缀使用                       | `string`                                           | -            |
-| preserve          | 当字段被删除时保留字段值                                     | `boolean`                                          | `true`       |
-| validateMessages  | 验证提示模板，说明见下                                       | `ValidateMessages`                                 | -            |
-| validateTrigger   | 统一设置字段触发验证的时机                                   | `string \| string[]`                               | `'onChange'` |
 | onFieldsChange    | 字段更新时触发                                               | `(changedFields, allFields) => void`               | -            |
 | onFinish          | 提交表单且数据验证成功后触发                                 | `(values) => void`                                 | -            |
 | onFinishFailed    | 提交表单且数据验证失败后触发                                 | `({ values, errorFields, outOfDate }) => void`     | -            |
 | onValuesChange    | 字段值更新时触发                                             | `(changedValues, allValues) => void`               | -            |
+| preserve          | 当字段被删除时保留字段值                                     | `boolean`                                          | `true`       |
+| requiredMarkStyle | 必填选填的标记样式                                           | `'asterisk' \| 'text-required' \| 'text-optional'` | `'asterisk'` |
+| validateMessages  | 验证提示模板，说明见下                                       | `ValidateMessages`                                 | -            |
+| validateTrigger   | 统一设置字段触发验证的时机                                   | `string \| string[]`                               | `'onChange'` |
 
 ### FormInstance
 
 | 属性            | 说明                                                                                                       | 类型                                                                                                        |
 | --------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| getFieldValue   | 获取对应字段名的值                                                                                         | `(name: NamePath) => any`                                                                                   |
-| getFieldsValue  | 获取一组字段名对应的值，会按照对应结构返回。默认返回现存字段值，当调用 `getFieldsValue(true)` 时返回所有值 | `(nameList?: NamePath[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any` |
 | getFieldError   | 获取对应字段名的错误信息                                                                                   | `(name: NamePath) => string[]`                                                                              |
+| getFieldValue   | 获取对应字段名的值                                                                                         | `(name: NamePath) => any`                                                                                   |
 | getFieldsError  | 获取一组字段名对应的错误信息，返回为数组形式                                                               | `(nameList?: NamePath[]) => FieldError[]`                                                                   |
+| getFieldsValue  | 获取一组字段名对应的值，会按照对应结构返回。默认返回现存字段值，当调用 `getFieldsValue(true)` 时返回所有值 | `(nameList?: NamePath[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any` |
 | isFieldTouched  | 检查对应字段是否被用户操作过                                                                               | `(name: NamePath) => boolean`                                                                               |
 | isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过                          | `(nameList?: NamePath[], allTouched?: boolean) => boolean`                                                  |
 | resetFields     | 重置一组字段到 `initialValues`                                                                             | `(fields?: FieldData[]) => void`                                                                            |
@@ -75,9 +75,9 @@ const validateMessages = {
 
 | 变量名          | 描述                   | 默认值                              |
 | --------------- | ---------------------- | ----------------------------------- |
+| --border-bottom | 表单容器底部的边框样式 | `solid 1px var(--adm-border-color)` |
 | --border-inner  | 表单项之间的边框样式   | `solid 1px var(--adm-border-color)` |
 | --border-top    | 表单容器顶部的边框样式 | `solid 1px var(--adm-border-color)` |
-| --border-bottom | 表单容器底部的边框样式 | `solid 1px var(--adm-border-color)` |
 
 ## Form.Item
 
@@ -85,25 +85,25 @@ const validateMessages = {
 
 | 属性                                               | 说明                                                                                                         | 类型                                                           | 默认值                                             |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | -------------------------------------------------- |
-| label                                              | 标签名                                                                                                       | `ReactNode`                                                    | -                                                  |
-| help                                               | 提示文本                                                                                                     | `ReactNode`                                                    | -                                                  |
-| required                                           | 是否必选                                                                                                     | `boolean`                                                      | `false`（如有设置 `rules`，则会根据 `rules` 判断） |
-| disabled                                           | 是否禁用                                                                                                     | `boolean`                                                      | 父级 Form 的 `disabled`                            |
-| noStyle                                            | 不使用样式，只使用字段管理                                                                                   | `boolean`                                                      | `false`                                            |
-| hidden                                             | 是否隐藏整个字段                                                                                             | `boolean`                                                      | `false`                                            |
-| layout                                             | 布局模式                                                                                                     | `'vertical' \| 'horizontal'`                                   | 父级 Form 的 `layout`                              |
 | childElementPosition <Experimental></Experimental> | 表单控件部分的位置                                                                                           | `'normal' \| 'right'`                                          | `'normal'`                                         |
-| hasFeedback                                        | 是否展示错误反馈                                                                                             | `boolean`                                                      | `true`                                             |
 | dependencies                                       | 设置依赖字段，说明见下                                                                                       | `NamePath[]`                                                   | -                                                  |
-| valuePropName                                      | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | `string`                                                       | `value`                                            |
-| name                                               | 字段名，支持数组                                                                                             | `NamePath`                                                     | -                                                  |
-| rules                                              | 校验规则，设置字段的校验逻辑                                                                                 | `Rule[]`                                                       | -                                                  |
+| disabled                                           | 是否禁用                                                                                                     | `boolean`                                                      | 父级 Form 的 `disabled`                            |
+| hasFeedback                                        | 是否展示错误反馈                                                                                             | `boolean`                                                      | `true`                                             |
+| help                                               | 提示文本                                                                                                     | `ReactNode`                                                    | -                                                  |
+| hidden                                             | 是否隐藏整个字段                                                                                             | `boolean`                                                      | `false`                                            |
+| initialValue                                       | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准                                          | `any`                                                          | -                                                  |
+| label                                              | 标签名                                                                                                       | `ReactNode`                                                    | -                                                  |
+| layout                                             | 布局模式                                                                                                     | `'vertical' \| 'horizontal'`                                   | 父级 Form 的 `layout`                              |
 | messageVariables                                   | 默认验证字段的信息                                                                                           | `Record<string, string>`                                       | -                                                  |
+| name                                               | 字段名，支持数组                                                                                             | `NamePath`                                                     | -                                                  |
+| noStyle                                            | 不使用样式，只使用字段管理                                                                                   | `boolean`                                                      | `false`                                            |
+| onClick                                            | 点击事件并收集子组件 Ref                                                                                     | `(e:React.MouseEvent, widgetRef: React.MutableRefObject<any>)` | -                                                  |
+| required                                           | 是否必选                                                                                                     | `boolean`                                                      | `false`（如有设置 `rules`，则会根据 `rules` 判断） |
+| rules                                              | 校验规则，设置字段的校验逻辑                                                                                 | `Rule[]`                                                       | -                                                  |
+| shouldUpdate                                       | 自定义字段更新逻辑，说明见下                                                                                 | `boolean \| (prevValue, curValue) => boolean`                  | `false`                                            |
 | trigger                                            | 设置收集字段值变更的时机                                                                                     | `string`                                                       | `onChange`                                         |
 | validateTrigger                                    | 设置字段校验的时机                                                                                           | `string \| string[]`                                           | `onChange`                                         |
-| shouldUpdate                                       | 自定义字段更新逻辑，说明见下                                                                                 | `boolean \| (prevValue, curValue) => boolean`                  | `false`                                            |
-| initialValue                                       | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准                                          | `any`                                                          | -                                                  |
-| onClick                                            | 点击事件并收集子组件 Ref                                                                                     | `(e:React.MouseEvent, widgetRef: React.MutableRefObject<any>)` | -                                                  |
+| valuePropName                                      | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | `string`                                                       | `value`                                            |
 
 Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item](./list#listitem) 的以下属性：
 
@@ -243,8 +243,8 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 | 属性     | 说明                           | 类型                                                                    | 默认值 |
 | -------- | ------------------------------ | ----------------------------------------------------------------------- | ------ |
-| to       | 同 Form.Item 的 `dependencies` | `NamePath[]`                                                            | -      |
 | children | 渲染函数                       | `(changedValues: Record<string, any>, form: FormInstance) => ReactNode` | -      |
+| to       | 同 Form.Item 的 `dependencies` | `NamePath[]`                                                            | -      |
 
 ### 示例
 
@@ -260,12 +260,12 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 | 属性         | 说明                                                                | 类型                                                                          | 默认值 |
 | ------------ | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------ |
-| name         | 字段名，支持数组                                                    | `NamePath[]`                                                                  | -      |
 | children     | 渲染函数                                                            | `(fields: FormArrayField[], operation: FormArrayOperation) => ReactElement[]` | -      |
-| renderHeader | 渲染每一项的头部内容                                                | `(field: FormArrayField, operation: FormArrayOperation) => ReactNode`         | -      |
-| renderAdd    | 渲染添加按钮的文案                                                  | `() => ReactNode`                                                             | -      |
-| onAdd        | 自定义添加方法                                                      | `(operation: FormArrayOperation) => void`                                     | -      |
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | `any[]`                                                                       | -      |
+| name         | 字段名，支持数组                                                    | `NamePath[]`                                                                  | -      |
+| onAdd        | 自定义添加方法                                                      | `(operation: FormArrayOperation) => void`                                     | -      |
+| renderAdd    | 渲染添加按钮的文案                                                  | `() => ReactNode`                                                             | -      |
+| renderHeader | 渲染每一项的头部内容                                                | `(field: FormArrayField, operation: FormArrayOperation) => ReactNode`         | -      |
 
 ### FormArrayField
 

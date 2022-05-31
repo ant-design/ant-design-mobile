@@ -29,10 +29,10 @@
 
 | 属性  | 说明                                        | 类型                                            | 默认值 |
 | ----- | ------------------------------------------- | ----------------------------------------------- | ------ |
+| badge | 徽标，同 [Badge](./badge) 的 `content` 属性 | `React.ReactNode \| typeof Badge.dot`           | -      |
+| icon  | 图标                                        | `ReactNode \| ((active: boolean) => ReactNode)` | -      |
 | key   | 对应 `activeKey`                            | `string`                                        | -      |
 | title | 标题                                        | `ReactNode \| ((active: boolean) => ReactNode)` | -      |
-| icon  | 图标                                        | `ReactNode \| ((active: boolean) => ReactNode)` | -      |
-| badge | 徽标，同 [Badge](./badge) 的 `content` 属性 | `React.ReactNode \| typeof Badge.dot`           | -      |
 
 ## FAQ
 

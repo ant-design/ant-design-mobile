@@ -22,9 +22,9 @@ Provides a placeholder graphic composition where you need to wait for content to
 
 | Name            | Description    | Default |
 | --------------- | -------------- | ------- |
-| --width         | Width.         | `100%`  |
-| --height        | Height.        | `0`     |
 | --border-radius | Border radius. | `0`     |
+| --height        | Height.        | `0`     |
+| --width         | Width.         | `100%`  |
 
 ## Skeleton.Title
 

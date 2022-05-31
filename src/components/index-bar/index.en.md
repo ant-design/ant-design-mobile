@@ -18,8 +18,8 @@ Category display and quick positioning for lists.
 
 | Name          | Description                                           | Type                      | Default |
 | ------------- | ----------------------------------------------------- | ------------------------- | ------- |
-| sticky        | Whether to turn on the anchor point automatic ceiling | `boolean`                 | `true`  |
 | onIndexChange | Trigger when the anchor point changed                 | `(index: string) => void` | -       |
+| sticky        | Whether to turn on the anchor point automatic ceiling | `boolean`                 | `true`  |
 
 ### Ref
 
@@ -39,6 +39,6 @@ Category display and quick positioning for lists.
 
 | Name  | Description                           | Type        | Default                                                  |
 | ----- | ------------------------------------- | ----------- | -------------------------------------------------------- |
+| brief | The brief title in the right sidebar. | `ReactNode` | The first character of `index` would be used by default. |
 | index | Unique index.                         | `string`    | -                                                        |
 | title | The panel title in the main area.     | `ReactNode` | `index` would be used by default.                        |
-| brief | The brief title in the right sidebar. | `ReactNode` | The first character of `index` would be used by default. |

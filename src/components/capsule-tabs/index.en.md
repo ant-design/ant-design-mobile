@@ -26,10 +26,10 @@ Another style for tabs, used in lists or modules in presentational interfaces.
 
 | Name           | Description                                       | Type        | Default |
 | -------------- | ------------------------------------------------- | ----------- | ------- |
-| key            | Corresponding to `activeKey`                      | `string`    | -       |
-| title          | The displayed text of the tab header              | `ReactNode` | -       |
+| destroyOnClose | Unmount content when not visible                  | `boolean`   | `false` |
 | disabled       | Whether to disable the tab                        | `boolean`   | `false` |
 | forceRender    | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
-| destroyOnClose | Unmount content when not visible                  | `boolean`   | `false` |
+| key            | Corresponding to `activeKey`                      | `string`    | -       |
+| title          | The displayed text of the tab header              | `ReactNode` | -       |
 
 The usage of CapsuleTabs is very similar to that of Tabs, so see the documentation for [Tabs](./tabs) for more usage guidelines.

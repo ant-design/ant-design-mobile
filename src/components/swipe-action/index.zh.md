@@ -16,21 +16,21 @@
 
 | 属性                | 说明                         | 类型                                            | 默认值 |
 | ------------------- | ---------------------------- | ----------------------------------------------- | ------ |
-| rightActions        | 右侧的操作按钮列表           | `Action[]`                                      | `[]`   |
+| closeOnAction       | 是否在点击操作按钮时自动归位 | `boolean`                                       | `true` |
+| closeOnTouchOutside | 是否在点击其他区域时自动归位 | `boolean`                                       | `true` |
 | leftActions         | 左侧的操作按钮列表           | `Action[]`                                      | `[]`   |
 | onAction            | 点击操作按钮时触发           | `(action: Action, e: React.MouseEvent) => void` | -      |
-| closeOnTouchOutside | 是否在点击其他区域时自动归位 | `boolean`                                       | `true` |
-| closeOnAction       | 是否在点击操作按钮时自动归位 | `boolean`                                       | `true` |
+| rightActions        | 右侧的操作按钮列表           | `Action[]`                                      | `[]`   |
 | stopPropagation     | 阻止某些事件的冒泡           | `PropagationEven[]`                             | `[]`   |
 
 ### Action
 
 | 属性    | 说明       | 类型                                                                             | 默认值    |
 | ------- | ---------- | -------------------------------------------------------------------------------- | --------- |
-| key     | 唯一标识   | `string \| number`                                                               | -         |
-| text    | 文字       | `ReactNode`                                                                      | -         |
 | color   | 颜色       | `'light' \| 'weak' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| string` | `'light'` |
+| key     | 唯一标识   | `string \| number`                                                               | -         |
 | onClick | 点击时触发 | `(e: React.MouseEvent) => void`                                                  | -         |
+| text    | 文字       | `ReactNode`                                                                      | -         |
 
 ## Ref
 

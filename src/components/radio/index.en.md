@@ -24,14 +24,14 @@ type RadioValue = string | number
 
 | Name           | Description                                                           | Type                                    | Default |
 | -------------- | --------------------------------------------------------------------- | --------------------------------------- | ------- |
+| block          | Whether to render as a block-level element                            | `boolean`                               | `false` |
 | checked        | To specify whether it is currently selected                           | `boolean`                               | `false` |
 | defaultChecked | To specify whether it is currently selected by default                | `boolean`                               | `false` |
 | disabled       | Disabled state                                                        | `boolean`                               | `false` |
+| icon           | Customized `icon` icon                                                | `(checked: boolean) => React.ReactNode` | -       |
+| id             | The id of the input element, often used in conjunction with the label | `string`                                | -       |
 | onChange       | Callback function when checked is changed                             | `(val: boolean) => void`                | -       |
 | value          | Value is carrying identification, used in `Group` mode                | `RadioValue`                            | -       |
-| block          | Whether to render as a block-level element                            | `boolean`                               | `false` |
-| id             | The id of the input element, often used in conjunction with the label | `string`                                | -       |
-| icon           | Customized `icon` icon                                                | `(checked: boolean) => React.ReactNode` | -       |
 
 ### Radio.Group
 
@@ -39,8 +39,8 @@ type RadioValue = string | number
 | ------------ | ------------------------------------------- | ----------------------------- | ------- |
 | defaultValue | Option selected by default                  | `RadioValue \| null`          | `null`  |
 | disabled     | Disabled for the whole group                | `boolean`                     | `false` |
-| value        | Specified selected option                   | `RadioValue \| null`          | -       |
 | onChange     | Callback function when the value is changed | `(value: RadioValue) => void` | -       |
+| value        | Specified selected option                   | `RadioValue \| null`          | -       |
 
 ### CSS Variables
 
@@ -48,6 +48,6 @@ type RadioValue = string | number
 
 | Name        | Description                                               | Default |
 | ----------- | --------------------------------------------------------- | ------- |
-| --icon-size | Size of the check icon.                                   | `22px`  |
 | --font-size | Font size of the description label.                       | `17px`  |
 | --gap       | The gap between the check icon and the description label. | `8px`   |
+| --icon-size | Size of the check icon.                                   | `22px`  |
