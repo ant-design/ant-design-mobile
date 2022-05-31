@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { useState, useRef, FC } from 'react'
+import React, { useState, useRef, FC, PropsWithChildren } from 'react'
 import { useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -19,24 +19,24 @@ import {
 
 const classPrefix = `adm-popup`
 
-export type PopupProps = {
-  visible?: boolean
-  mask?: boolean
-  onMaskClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+export type PopupProps = PropsWithChildren<{
+  afterClose?: () => void
+  afterShow?: () => void
+  bodyClassName?: string
+  bodyStyle?: React.CSSProperties
   destroyOnClose?: boolean
   forceRender?: boolean
   getContainer?: GetContainer
-  afterShow?: () => void
-  afterClose?: () => void
-  position?: 'bottom' | 'top' | 'left' | 'right'
-  bodyClassName?: string
-  bodyStyle?: React.CSSProperties
+  mask?: boolean
   maskClassName?: string
   maskStyle?: MaskProps['style']
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  onMaskClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  position?: 'bottom' | 'top' | 'left' | 'right'
   stopPropagation?: PropagationEvent[]
-  children?: React.ReactNode
-} & NativeProps<'--z-index'>
+  visible?: boolean
+}> &
+  NativeProps<'--z-index'>
 
 const defaultProps = {
   position: 'bottom',
