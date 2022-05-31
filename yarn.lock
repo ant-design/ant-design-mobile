@@ -3498,6 +3498,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/use-sync-external-store@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "@types/use-sync-external-store@npm:0.0.3"
+  checksum: 161ddb8eec5dbe7279ac971531217e9af6b99f7783213566d2b502e2e2378ea19cf5e5ea4595039d730aa79d3d35c6567d48599f69773a02ffcff1776ec2a44e
+  languageName: node
+  linkType: hard
+
 "@types/vinyl@npm:^2.0.4":
   version: 2.0.6
   resolution: "@types/vinyl@npm:2.0.6"
@@ -4487,6 +4494,7 @@ __metadata:
     "@types/react-is": ^17.0.3
     "@types/react-virtualized": ^9.21.21
     "@types/resize-observer-browser": ^0.1.7
+    "@types/use-sync-external-store": ^0.0.3
     "@typescript-eslint/eslint-plugin": ^5.26.0
     "@typescript-eslint/parser": ^5.26.0
     "@use-gesture/react": 10.2.15
@@ -4543,6 +4551,7 @@ __metadata:
     ts-node: 10.8.0
     tslib: ^2.4.0
     typescript: ~4.6.4
+    use-sync-external-store: ^1.1.0
     vite: ^2.9.9
     webpack: ^5.72.1
     webpack-bundle-analyzer: ^4.5.0
@@ -16597,6 +16606,15 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: 96e64977a573244fd11350a3141b2cf57fb72dd9dd902f387c8a0a565d0a948bc81588bd7378c6ef6defc0d1119f37f73aac4a7a287c8443abd444bd4e7bbea8
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "use-sync-external-store@npm:1.1.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 8993a0b642f91d7fcdbb02b7b3ac984bd3af4769686f38291fe7fcfe73dfb73d6c64d20dfb7e5e7fbf5a6da8f5392d6f8e5b00c243a04975595946e82c02b883
   languageName: node
   linkType: hard
 

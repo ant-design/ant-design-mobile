@@ -27,7 +27,8 @@
     "rc-field-form": "^1.26.6",
     "react-is": "^17.0.2",
     "staged-components": "^1.1.3",
-    "tslib": "^2.4.0"
+    "tslib": "^2.4.0",
+    "use-sync-external-store": "^1.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -56,6 +57,7 @@
     "@types/react-is": "^17.0.3",
     "@types/react-virtualized": "^9.21.21",
     "@types/resize-observer-browser": "^0.1.7",
+    "@types/use-sync-external-store": "^0.0.3",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "babel-loader": "^8.2.5",
