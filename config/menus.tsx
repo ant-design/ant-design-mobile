@@ -54,6 +54,10 @@ export const menus = {
       title: 'SSR (Experimental)',
       path: '/guide/ssr',
     },
+    {
+      title: 'Reduce Motion (Experimental)',
+      path: '/guide/reduce-motion',
+    },
   ],
   '/zh/guide': [
     {
@@ -95,6 +99,10 @@ export const menus = {
     {
       title: '服务端渲染 / SSR（试验性）',
       path: '/zh/guide/ssr',
+    },
+    {
+      title: '减弱动效（试验性）',
+      path: '/zh/guide/reduce-motion',
     },
   ],
   '/components': [
