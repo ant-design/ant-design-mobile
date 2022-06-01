@@ -18,6 +18,8 @@ const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default
 
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
 
+const rename = require('gulp-rename')
+
 function clean() {
   return del('./lib/**')
 }
@@ -26,7 +28,7 @@ function buildStyle() {
   return gulp
     .src(['./src/**/*.less'], {
       base: './src/',
-      ignore: ['**/demos/**/*', '**/tests/**/*'],
+      ignore: ['**/demos/**/*', '**/tests/**/*', '*.patch.less'],
     })
     .pipe(
       less({
@@ -36,6 +38,27 @@ function buildStyle() {
     )
     .pipe(gulp.dest('./lib/es'))
     .pipe(gulp.dest('./lib/cjs'))
+}
+
+function buildPatchStyle() {
+  return gulp
+    .src(['./src/**/*.patch.less'], {
+      base: './src/',
+    })
+    .pipe(
+      less({
+        paths: [path.join(__dirname, 'src')],
+        relativeUrls: true,
+      })
+    )
+    .pipe(
+      rename(path => ({
+        dirname: '',
+        basename: path.basename.replace(/\.patch$/, ''),
+        extname: '.css',
+      }))
+    )
+    .pipe(gulp.dest('./lib/css-var-patch'))
 }
 
 function copyAssets() {
@@ -289,6 +312,7 @@ exports.default = gulp.series(
   buildES,
   buildCJS,
   gulp.parallel(buildDeclaration, buildStyle),
+  buildPatchStyle,
   copyAssets,
   copyMetaFiles,
   generatePackageJSON,
