@@ -191,11 +191,11 @@ describe('Modal', () => {
       </button>
     )
 
-    await actClick(getByText('btn'), 20)
+    await actClick(getByText('btn'))
     expect($$(`.${classPrefix}-button`)).toHaveLength(actions.length)
     expect($$(`.${classPrefix}-button`)[1]).toHaveClass('adm-button-danger')
     expect($$(`.${classPrefix}-button`)[2]).toHaveClass('adm-button-disabled')
-    await actClick(getByText('read'), 20)
+    await actClick(getByText('read'))
     expect($$('.adm-modal').length).toBe(0)
   })
 

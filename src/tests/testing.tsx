@@ -134,8 +134,10 @@ export async function actClick(
   element: Document | Element | Window | Node,
   wait?: number
 ) {
-  fireEvent.click(element)
-  if (wait !== undefined) {
-    await actSleep(wait)
-  }
+  await act(async () => {
+    fireEvent.click(element)
+    if (wait !== undefined) {
+      await sleep(wait)
+    }
+  })
 }
