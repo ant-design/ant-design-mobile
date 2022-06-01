@@ -5,7 +5,6 @@ import {
   fireEvent,
   waitFor,
   waitForElementToBeRemoved,
-  sleep,
   actSleep,
 } from 'testing'
 import Dialog, { DialogAlertProps } from '..'
@@ -19,21 +18,11 @@ function $$(className: string) {
 
 const waitForMaskShow = async () => {
   await waitFor(() => {
-    expect($$(`.${classPrefix}-mask`)[0]).toHaveStyle({
+    expect($$('.adm-mask')[0]).toHaveStyle({
       'opacity': 1,
     })
   })
-  return $$(`.${classPrefix}-mask`)[0]
-}
-
-const waitForDialogShow = async () => {
-  const wrap = $$(`.${classPrefix}-wrap`)[0]
-  const animatedDiv = wrap.childNodes[0]
-  await waitFor(() => {
-    expect(animatedDiv).toHaveStyle({
-      'opacity': 1,
-    })
-  })
+  return $$('.adm-mask')[0]
 }
 
 describe('Dialog', () => {
@@ -68,14 +57,7 @@ describe('Dialog', () => {
     await act(async () => {
       fireEvent.click(getByText('btn'))
     })
-    await sleep(20)
-
-    const wrap = $$(`.${classPrefix}-wrap`)[0]
-    const animatedDiv = wrap.childNodes[0]
-
-    expect(animatedDiv).toHaveStyle({
-      opacity: 1,
-    })
+    await actSleep(20)
     expect(afterShow).toBeCalled()
   })
 
@@ -216,9 +198,11 @@ describe('Dialog', () => {
     expect($$(`.${classPrefix}-button`)[1]).toHaveClass('adm-button-danger')
     expect($$(`.${classPrefix}-button`)[2]).toHaveClass('adm-button-disabled')
 
-    fireEvent.click(getByText('read'))
-    const dialog = $$(`.${classPrefix}`)[0]
-    await waitForElementToBeRemoved(dialog, { timeout: 1000 })
+    act(() => {
+      fireEvent.click(getByText('read'))
+    })
+    await actSleep(20)
+    expect($$(`.${classPrefix}`).length).toBe(0)
   })
 
   test('action onClick', async () => {

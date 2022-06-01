@@ -6,6 +6,7 @@ import {
   waitFor,
   waitForElementToBeRemoved,
   actSleep,
+  actClick,
 } from 'testing'
 import Modal, { ModalAlertProps } from '..'
 import { act } from '@testing-library/react'
@@ -18,21 +19,11 @@ function $$(className: string) {
 
 const waitForMaskShow = async () => {
   await waitFor(() => {
-    expect($$(`.${classPrefix}-mask`)[0]).toHaveStyle({
+    expect($$('.adm-mask')[0]).toHaveStyle({
       'opacity': 1,
     })
   })
-  return $$(`.${classPrefix}-mask`)[0]
-}
-
-const waitForModalShow = async () => {
-  const wrap = $$(`.${classPrefix}-wrap`)[0]
-  const animatedDiv = wrap.childNodes[0]
-  await waitFor(() => {
-    expect(animatedDiv).toHaveStyle({
-      'opacity': 1,
-    })
-  })
+  return $$('.adm-mask')[0]
 }
 
 describe('Modal', () => {
@@ -63,24 +54,15 @@ describe('Modal', () => {
   test('afterShow should be called', async () => {
     const afterShow = jest.fn()
     const { getByText } = await render(<ModalAlert afterShow={afterShow} />)
-
-    act(() => {
-      fireEvent.click(getByText('btn'))
-    })
-    await actSleep(100)
-    await waitForModalShow()
+    await actClick(getByText('btn'), 20)
     expect(afterShow).toBeCalled()
   })
 
   test('onConfirm should be called', async () => {
     const onConfirm = jest.fn()
     const { getByText } = await render(<ModalAlert onConfirm={onConfirm} />)
-
-    fireEvent.click(getByText('btn'))
-    await act(async () => {
-      await fireEvent.click(getByText('我知道了'))
-    })
-
+    await actClick(getByText('btn'), 20)
+    await actClick(getByText('我知道了'), 20)
     expect(onConfirm).toBeCalled()
   })
 
@@ -101,8 +83,7 @@ describe('Modal', () => {
 
   test('show close button', async () => {
     const { getByText } = await render(<ModalAlert showCloseButton />)
-
-    fireEvent.click(getByText('btn'))
+    await actClick(getByText('btn'), 20)
     expect($$(`.${classPrefix}-close`)).toHaveLength(1)
   })
 
@@ -116,7 +97,7 @@ describe('Modal', () => {
       />
     )
 
-    fireEvent.click(getByText('btn'))
+    await actClick(getByText('btn'))
     expect($$(`.${classPrefix}-header`)).toHaveLength(1)
     expect($$(`.${classPrefix}-title`)).toHaveLength(1)
     expect($$(`.${classPrefix}-image-container`)).toHaveLength(1)
@@ -140,11 +121,8 @@ describe('Modal', () => {
       </button>
     )
 
-    fireEvent.click(getByText('btn'))
-    await act(async () => {
-      await fireEvent.click(getByText('我知道了'))
-    })
-
+    await actClick(getByText('btn'), 20)
+    await actClick(getByText('我知道了'), 20)
     expect(fn).toBeCalled()
   })
 
@@ -213,14 +191,12 @@ describe('Modal', () => {
       </button>
     )
 
-    fireEvent.click(getByText('btn'))
+    await actClick(getByText('btn'), 20)
     expect($$(`.${classPrefix}-button`)).toHaveLength(actions.length)
     expect($$(`.${classPrefix}-button`)[1]).toHaveClass('adm-button-danger')
     expect($$(`.${classPrefix}-button`)[2]).toHaveClass('adm-button-disabled')
-
-    fireEvent.click(getByText('read'))
-    const modal = $$(`.${classPrefix}`)[0]
-    await waitForElementToBeRemoved(modal)
+    await actClick(getByText('read'), 20)
+    expect($$('.adm-modal').length).toBe(0)
   })
 
   test('without actions', async () => {

@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import {
   act,
+  fireEvent,
   render,
   RenderOptions,
   RenderResult,
@@ -127,4 +128,14 @@ export const sleep = (time: number) =>
 
 export const actSleep = (time: number) => {
   return act(() => sleep(time))
+}
+
+export async function actClick(
+  element: Document | Element | Window | Node,
+  wait?: number
+) {
+  fireEvent.click(element)
+  if (wait !== undefined) {
+    await actSleep(wait)
+  }
 }
