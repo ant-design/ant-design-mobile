@@ -65,3 +65,7 @@ If you need to limit the input box with number type, you can pass the `max` `min
 ### On iOS devices, when I use the input method to input text and click the clear button, why does the input box lose focus sometimes?
 
 This is expected behavior, see this [issue](https://github.com/ant-design/ant-design-mobile/issues/5212) for details on why.
+
+### Under iOS, why is `autoFocus` set but still can't get focus automatically?
+
+This is expected behavior because the iOS system has limitations on focusing. See this [issue](https://github.com/ant-design/ant-design-mobile/issues/5256) for specific reasons.

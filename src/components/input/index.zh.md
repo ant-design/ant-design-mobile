@@ -65,3 +65,7 @@
 ### 在 iOS 下，当我使用输入法输入文字时，点击清除按钮，为什么有时候会导致输入框失去焦点？
 
 这是预期行为，具体当原因请查阅这个 [issue](https://github.com/ant-design/ant-design-mobile/issues/5212)。
+
+### 在 iOS 下，为什么设置了 `autoFocus` 还是不能自动获取焦点？
+
+这是预期行为，因为 iOS 系统对聚焦有限制。具体原因请查阅这个 [issue](https://github.com/ant-design/ant-design-mobile/issues/5256)。
