@@ -10,6 +10,8 @@ When the user needs to select within the numerical interval/custom interval, it 
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ## Slider
 
 ### Props
