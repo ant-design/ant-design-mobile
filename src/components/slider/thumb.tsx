@@ -51,7 +51,7 @@ const Thumb: FC<ThumbProps> = props => {
   const renderPopoverContent =
     typeof props.popover === 'function'
       ? props.popover
-      : Boolean(props.popover)
+      : props.popover
       ? (value: number) => value.toString()
       : null
 
