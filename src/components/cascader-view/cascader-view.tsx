@@ -32,6 +32,7 @@ export type CascaderViewProps = {
   defaultValue?: CascaderValue[]
   onChange?: (value: CascaderValue[], extend: CascaderValueExtend) => void
   placeholder?: string
+  onTabsChange?: (key: string) => void
 } & NativeProps<'--height'>
 
 const defaultProps = {
@@ -108,7 +109,10 @@ export const CascaderView: FC<CascaderViewProps> = p => {
     <div className={classPrefix}>
       <Tabs
         activeKey={tabActiveKey.toString()}
-        onChange={key => setTabActiveKey(parseInt(key))}
+        onChange={key => {
+          setTabActiveKey(parseInt(key))
+          props.onTabsChange?.(key)
+        }}
         stretch={false}
         className={`${classPrefix}-tabs`}
       >

@@ -14,6 +14,7 @@ CascaderView is the content area of [Cascader](./cascader).
 | ------------ | ----------------------------------------------- | --------------------------------------------------------------- | ---------- |
 | defaultValue | Default selected options                        | `CascaderValue[]`                                               | `[]`       |
 | onChange     | Triggered when the selected options are changed | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | -          |
+| onTabsChange | Callback when switching panel                   | `(key: string) => void`                                         | -          |
 | options      | Data of the cascade options                     | `CascaderOption[]`                                              | -          |
 | placeholder  | Hint text                                       | `string`                                                        | `'请选择'` |
 | value        | Selected options                                | `CascaderValue[]`                                               | -          |
