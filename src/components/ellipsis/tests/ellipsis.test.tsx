@@ -22,7 +22,8 @@ describe('Ellipsis', () => {
         if (this.innerText.includes('...')) {
           const row = Math.ceil(
             // the width of '...' is equal to a Chinese char
-            (this.innerText.replaceAll('...', '中').length / content.length) * 4
+            (this.innerText.replace(/\.\.\./g, '中').length / content.length) *
+              4
           )
           return lineHeight * row
         }
