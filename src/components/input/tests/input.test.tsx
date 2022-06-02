@@ -1,5 +1,5 @@
 import React, { createRef } from 'react'
-import { render } from 'testing'
+import { render, sleep } from 'testing'
 import Input from '..'
 import { InputRef } from '../input'
 
@@ -17,5 +17,26 @@ describe('Input', () => {
     render(<Input ref={ref} />)
     expect(ref.current).toBeDefined()
     expect(ref.current?.nativeElement).toBeDefined()
+  })
+
+  test('should works useImperativeHandle', async () => {
+    const ref = createRef<InputRef>()
+    const onFocus = jest.fn()
+    const onBlur = jest.fn()
+    render(
+      <Input
+        defaultValue={'testValue'}
+        ref={ref}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
+    )
+    ref.current?.focus()
+    expect(onFocus).toBeCalledTimes(1)
+    ref.current?.blur()
+    expect(onBlur).toBeCalledTimes(1)
+    ref.current?.clear()
+    await sleep(100)
+    expect(ref.current?.nativeElement?.value).toEqual('')
   })
 })
