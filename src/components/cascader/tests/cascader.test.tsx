@@ -10,6 +10,7 @@ describe('Cascader', () => {
 
   test('basic usage', async () => {
     const onConfirm = jest.fn()
+    const onTabsChange = jest.fn()
     const App = () => {
       const [visible, setVisible] = useState(false)
 
@@ -24,6 +25,7 @@ describe('Cascader', () => {
           </button>
 
           <Cascader
+            onTabsChange={onTabsChange}
             options={options}
             visible={visible}
             onClose={() => {
@@ -38,11 +40,12 @@ describe('Cascader', () => {
     const { getByText } = await render(<App />)
 
     fireEvent.click(getByText('Choose'))
-
     await waitFor(() => {
       fireEvent.click(getByText('浙江'))
       fireEvent.click(getByText('杭州'))
     })
+    fireEvent.click(getByText('请选择'))
+    expect(onTabsChange).toBeCalled()
 
     fireEvent.click(getByText('确定'))
 
