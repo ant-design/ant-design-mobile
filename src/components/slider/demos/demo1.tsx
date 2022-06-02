@@ -59,6 +59,10 @@ export default () => {
         <Slider step={20} defaultValue={40} />
       </DemoBlock>
 
+      <DemoBlock title='在拖动时显示悬浮提示'>
+        <Slider step={20} defaultValue={60} popover />
+      </DemoBlock>
+
       <DemoBlock title='指定值(受控组件)'>
         <Slider
           marks={marks}

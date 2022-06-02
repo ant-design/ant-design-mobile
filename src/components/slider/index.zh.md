@@ -24,6 +24,7 @@
 | min           | 最小值                                                                                          | `number`                                      | `0`                  |
 | onAfterChange | 与 `touchend` 触发时机一致，把当前值作为参数传入                                                | `(value: number \| [number, number]) => void` | -                    |
 | onChange      | 拖拽滑块时触发，并把当前拖拽的值作为参数传入                                                    | `(value: number \| [number, number]) => void` | -                    |
+| popover       | 是否在拖动时显示悬浮提示，支持传入函数自定义渲染内容                                            | `boolean \| ((value: number) => ReactNode)`   | `false`              |
 | range         | 是否为双滑块                                                                                    | `boolean`                                     | `false`              |
 | step          | 步距，取值必须大于 `0`，并且可被 `(max - min)` 整除。当 `marks` 不为空对象时，`step` 的配置失效 | `number`                                      | `1`                  |
 | ticks         | 是否显示刻度                                                                                    | `boolean`                                     | `false`              |

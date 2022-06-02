@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useRef } from 'react'
+import React, { FC, ReactNode, useMemo, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
@@ -22,7 +22,8 @@ export type SliderProps = {
   ticks?: boolean
   disabled?: boolean
   range?: boolean
-  icon?: React.ReactNode
+  icon?: ReactNode
+  popover?: boolean | ((value: number) => ReactNode)
   onChange?: (value: SliderValue) => void
   onAfterChange?: (value: SliderValue) => void
 } & NativeProps<'--fill-color'>
@@ -34,6 +35,7 @@ const defaultProps = {
   ticks: false,
   range: false,
   disabled: false,
+  popover: false,
 }
 
 export const Slider: FC<SliderProps> = p => {
@@ -142,13 +144,14 @@ export const Slider: FC<SliderProps> = p => {
   const renderThumb = (index: number) => {
     return (
       <Thumb
-        icon={icon}
         key={index}
         value={sliderValue[index]}
         min={min}
         max={max}
         disabled={disabled}
         trackRef={trackRef}
+        icon={icon}
+        popover={props.popover}
         onDrag={(position, first, last) => {
           if (first) {
             dragLockRef.current += 1
