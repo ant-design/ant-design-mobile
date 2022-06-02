@@ -191,7 +191,9 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
   useEffect(() => {
     const floatingElement = floatingRef.current
     if (!targetElement || !floatingElement) return
-    return autoUpdate(targetElement, floatingElement, update)
+    return autoUpdate(targetElement, floatingElement, update, {
+      elementResize: typeof ResizeObserver !== 'undefined',
+    })
   }, [targetElement])
 
   useClickAway(
