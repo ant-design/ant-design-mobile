@@ -3,7 +3,7 @@ import { Slider, Toast } from 'antd-mobile'
 import { HeartOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
 
-import './demo1.less'
+import styles from './demo1.less'
 
 export default () => {
   const marks = {
@@ -33,19 +33,19 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='基础用法' padding='13px'>
+      <DemoBlock title='基础用法'>
         <Slider onAfterChange={toastValue} />
       </DemoBlock>
 
-      <DemoBlock title='显示刻度并指定步距' padding='13px'>
+      <DemoBlock title='显示刻度并指定步距'>
         <Slider ticks step={10} />
       </DemoBlock>
 
-      <DemoBlock title='传入刻度标记' padding='13px'>
+      <DemoBlock title='传入刻度标记'>
         <Slider marks={marks} ticks />
       </DemoBlock>
 
-      <DemoBlock title='最大/最小值' padding='13px'>
+      <DemoBlock title='最大/最小值'>
         <Slider
           step={100}
           min={100}
@@ -55,11 +55,11 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='默认值' padding='13px'>
+      <DemoBlock title='默认值'>
         <Slider step={20} defaultValue={40} />
       </DemoBlock>
 
-      <DemoBlock title='指定值(受控组件)' padding='13px'>
+      <DemoBlock title='指定值(受控组件)'>
         <Slider
           marks={marks}
           ticks
@@ -70,14 +70,11 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock
-        title={`拖拽结束监听 (最终拖拽值${onAfterChangeValue})`}
-        padding='13px'
-      >
+      <DemoBlock title={`拖拽结束监听 (最终拖拽值${onAfterChangeValue})`}>
         <Slider step={20} onAfterChange={value => setAfterValue(value)} />
       </DemoBlock>
 
-      <DemoBlock title='双滑块' padding='13px'>
+      <DemoBlock title='双滑块'>
         <Slider
           marks={marks}
           ticks
@@ -89,11 +86,11 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='禁用状态' padding='13px'>
+      <DemoBlock title='禁用状态'>
         <Slider marks={marks} ticks disabled value={40} />
       </DemoBlock>
 
-      <DemoBlock title='自定义样式（通过 style）' padding='13px'>
+      <DemoBlock title='自定义样式（通过 style）'>
         <Slider
           style={{ '--fill-color': '#00b578' }}
           defaultValue={40}
@@ -101,19 +98,18 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='自定义样式（通过 className）' padding='13px'>
+      <DemoBlock title='自定义样式（通过 className）'>
         <Slider
-          className='my-slider'
+          className={styles.mySlider}
           defaultValue={40}
           onAfterChange={toastValue}
         />
       </DemoBlock>
-      <DemoBlock title='自定义滑块图标' padding='13px'>
+      <DemoBlock title='自定义滑块图标'>
         <Slider
-          className='my-slider'
           defaultValue={40}
           onAfterChange={toastValue}
-          icon={<HeartOutline />}
+          icon={<HeartOutline className={styles.myThumbIcon} />}
         />
       </DemoBlock>
     </>
