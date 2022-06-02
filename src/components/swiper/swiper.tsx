@@ -7,6 +7,7 @@ import React, {
   useMemo,
   useRef,
   useState,
+  CSSProperties,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -291,7 +292,8 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         }
       }
 
-      const style: any = {
+      const style: CSSProperties &
+        Record<'--slide-size' | '--track-offset', string> = {
         '--slide-size': `${props.slideSize}%`,
         '--track-offset': `${props.trackOffset}%`,
       }
