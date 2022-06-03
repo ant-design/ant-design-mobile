@@ -42,6 +42,7 @@ type CascaderValueExtend = {
 | onClose      | 确认和取消时都会触发关闭事件 | `() => void`                                                    | -          |
 | onConfirm    | 确认时触发                   | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | -          |
 | onSelect     | 选项改变时触发               | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | -          |
+| onTabsChange | 切换面板的回调               | `(index: number) => void`                                       | -          |
 | options      | 级联数据                     | `CascaderOption[]`                                              | -          |
 | placeholder  | 未选中时的提示文案           | `string`                                                        | `'请选择'` |
 | title        | 标题                         | `ReactNode`                                                     | -          |

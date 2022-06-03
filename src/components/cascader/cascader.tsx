@@ -28,6 +28,7 @@ export type CascaderProps = {
   confirmText?: ReactNode
   cancelText?: ReactNode
   children?: (items: (CascaderOption | null)[]) => ReactNode
+  onTabsChange?: (index: number) => void
 } & Pick<
   PopupProps,
   'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'

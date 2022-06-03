@@ -20,10 +20,16 @@ describe('CascaderView', () => {
 
   test('basic usage', async () => {
     const onChange = jest.fn()
+    const onTabsChange = jest.fn()
     const { getByText, container } = await render(
-      <CascaderView options={options} onChange={onChange} />
+      <CascaderView
+        options={options}
+        onChange={onChange}
+        onTabsChange={onTabsChange}
+      />
     )
-
+    fireEvent.click(getByText('请选择'))
+    expect(onTabsChange).toBeCalled()
     fireEvent.click(getByText('浙江'))
     expect(container).toMatchSnapshot()
 

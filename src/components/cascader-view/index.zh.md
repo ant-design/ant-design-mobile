@@ -14,6 +14,7 @@ CascaderView 是 [Cascader](./cascader) 的内容区域。
 | ------------ | ------------------ | --------------------------------------------------------------- | ---------- |
 | defaultValue | 默认选中项         | `CascaderValue[]`                                               | `[]`       |
 | onChange     | 选项改变时触发     | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | -          |
+| onTabsChange | 切换面板的回调     | `(index: number) => void`                                       | -          |
 | options      | 配置每一列的选项   | `CascaderOption[]`                                              | -          |
 | placeholder  | 未选中时的提示文案 | `string`                                                        | `'请选择'` |
 | value        | 选中项             | `CascaderValue[]`                                               | -          |
