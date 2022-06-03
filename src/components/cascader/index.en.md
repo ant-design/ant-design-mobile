@@ -42,7 +42,7 @@ type CascaderValueExtend = {
 | onClose      | Triggered when confirming or cancelling         | `() => void`                                                    | -          |
 | onConfirm    | Triggered when confirming                       | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | -          |
 | onSelect     | Triggered when the selected options are changed | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | -          |
-| onTabsChange | Callback when switching panel                   | `(key: string) => void`                                         | -          |
+| onTabsChange | Callback when switching panel                   | `(index: number) => void`                                       | -          |
 | options      | Data of the cascade options                     | `CascaderOption[]`                                              | -          |
 | placeholder  | Hint text                                       | `string`                                                        | `'请选择'` |
 | title        | Title                                           | `ReactNode`                                                     | -          |
