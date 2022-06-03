@@ -89,6 +89,12 @@ codesandbox 是一个浏览器端的沙盒运行环境，支持多种流行的�
 
 3. 完成代码复现后，别忘了`保存`以创建一个新的实例，然后点击右上角出现的 share 按钮，复制 url。
 
+### 文档 demo 中出现的 `import xxx from 'demos'` 是什么？
+
+`demos` 并不是一个 npm 包，而是 antd-mobile 项目中创建的一个别名。它的实现在[这里](https://github.com/ant-design/ant-design-mobile/blob/master/src/demos/index.ts)。
+
+请不要尝试 `npm install demos`。你可以直接忽略它们。
+
 ### antd-mobile 有 CDN 上的 umd 包吗？
 
 有的，你可以在 [unpkg](https://unpkg.com/browse/antd-mobile@5/umd/antd-mobile.js) 或 [jsdelivr](https://www.jsdelivr.com/package/npm/antd-mobile?path=umd) 上找到。当然，你也可以自己部署。
