@@ -161,4 +161,26 @@ describe('Button', () => {
     expect(ref.current).toBeDefined()
     expect(ref.current?.nativeElement).toBeDefined()
   })
+
+  test('renders with async onClick and auto loading when Promise reject', async () => {
+    const error = new Error('mock request fail')
+    const mockFail = jest.fn().mockRejectedValue(error)
+    const { getByText } = render(
+      <Button
+        loading='auto'
+        loadingText='加载中'
+        onClick={async () => {
+          await expect(mockFail).rejects.toBe(error)
+        }}
+      >
+        Button
+      </Button>
+    )
+    await waitFor(async () => {
+      fireEvent.click(getByText('Button'))
+      screen.getByText('加载中')
+      await sleep(100)
+      screen.getByText('Button')
+    })
+  })
 })
