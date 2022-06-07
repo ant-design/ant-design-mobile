@@ -175,25 +175,28 @@ describe('Button', () => {
     expect(ref.current?.nativeElement).toBeDefined()
   })
 
-  test('renders with async onClick and auto loading when Promise reject', async () => {
-    const error = new Error('mock request fail')
-    const mockFail = jest.fn().mockRejectedValue(error)
-    const { getByText } = render(
-      <Button
-        loading='auto'
-        loadingText='加载中'
-        onClick={async () => {
-          await expect(mockFail).rejects.toBe(error)
-        }}
-      >
+  test('renders with async onClick and auto loading when mock request failed', async () => {
+    jest.useFakeTimers()
+    const mockRequestFailed = async function () {
+      await sleep(100)
+      throw new Error('mock request failed')
+    }
+    render(
+      <Button loading='auto' loadingText='加载中' onClick={mockRequestFailed}>
         Button
       </Button>
     )
-    await waitFor(async () => {
-      fireEvent.click(getByText('Button'))
-      screen.getByText('加载中')
-      await sleep(100)
-      screen.getByText('Button')
+
+    fireEvent.click(screen.getByText('Button'))
+    await waitFor(() => {
+      expect(screen.getByText('加载中')).toBeInTheDocument()
     })
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+    await waitFor(() => {
+      expect(screen.getByText('Button')).toBeInTheDocument()
+    })
+    jest.useRealTimers()
   })
 })

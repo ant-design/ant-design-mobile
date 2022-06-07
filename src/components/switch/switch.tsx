@@ -46,7 +46,7 @@ export const Switch: FC<SwitchProps> = p => {
         setChanging(false)
       } catch (e) {
         setChanging(false)
-        throw e
+        console.error(e)
       }
     } else {
       setChecked(nextChecked)

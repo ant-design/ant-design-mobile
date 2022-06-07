@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { fireEvent, render, testA11y, waitFor } from 'testing'
+import { fireEvent, render, testA11y, waitFor, sleep, act } from 'testing'
 import Switch from '..'
-import { sleep } from '../../../utils/sleep'
 
 const classPrefix = `adm-switch`
 
@@ -71,6 +70,29 @@ describe('Switch', () => {
     jest.runAllTimers()
     await waitFor(() => {
       expect(getByTestId('switch')).toHaveClass(`${classPrefix}-checked`)
+    })
+    jest.useRealTimers()
+  })
+
+  test('`beforeChange` in async mode when mock request failed', async () => {
+    jest.useFakeTimers()
+    const mockRequestFailed = async function () {
+      await sleep(100)
+      throw new Error('mock request failed')
+    }
+    const { getByTestId } = render(
+      <Switch beforeChange={mockRequestFailed} data-testid='switch' />
+    )
+
+    fireEvent.click(getByTestId('switch'))
+    await waitFor(() => {
+      expect(getByTestId('switch')).toHaveClass(`${classPrefix}-disabled`)
+    })
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+    await waitFor(() => {
+      expect(getByTestId('switch')).not.toHaveClass(`${classPrefix}-checked`)
     })
     jest.useRealTimers()
   })

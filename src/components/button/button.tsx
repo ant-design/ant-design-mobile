@@ -80,7 +80,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
         setInnerLoading(false)
       } catch (e) {
         setInnerLoading(false)
-        throw e
+        console.error(e)
       }
     }
   }
