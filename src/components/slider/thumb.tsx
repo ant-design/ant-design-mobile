@@ -69,7 +69,7 @@ const Thumb: FC<ThumbProps> = props => {
     >
       {renderPopoverContent ? (
         <Popover
-          content={`${value}`}
+          content={renderPopoverContent(value)}
           placement='top'
           visible={dragging}
           getContainer={null}
