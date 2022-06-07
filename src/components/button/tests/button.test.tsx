@@ -1,5 +1,13 @@
 import React, { createRef } from 'react'
-import { render, testA11y, screen, fireEvent, sleep, waitFor } from 'testing'
+import {
+  render,
+  testA11y,
+  screen,
+  fireEvent,
+  sleep,
+  waitFor,
+  act,
+} from 'testing'
 import Button from '../'
 import type { ButtonRef } from '..'
 
@@ -134,6 +142,7 @@ describe('Button', () => {
   })
 
   test('renders with async onClick and auto loading', async () => {
+    jest.useFakeTimers()
     const { getByText } = render(
       <Button
         loading='auto'
@@ -146,13 +155,17 @@ describe('Button', () => {
       </Button>
     )
 
+    fireEvent.click(getByText('Button'))
     await waitFor(async () => {
-      fireEvent.click(getByText('Button'))
-      await sleep(100)
-      screen.getByText('加载中')
-      await sleep(300)
-      screen.getByText('Button')
+      expect(screen.getByText('加载中')).toBeInTheDocument()
     })
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+    await waitFor(async () => {
+      expect(screen.getByText('Button')).toBeInTheDocument()
+    })
+    jest.useRealTimers()
   })
 
   test('ref should work', async () => {

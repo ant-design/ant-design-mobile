@@ -11,7 +11,7 @@ describe('Avatar', () => {
   })
 
   test('default image', async () => {
-    await render(<Avatar src='' />)
+    render(<Avatar src='' />)
     expect(document.querySelectorAll('.adm-avatar-fallback')[0]).toBeVisible()
   })
 })

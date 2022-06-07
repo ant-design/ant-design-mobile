@@ -50,7 +50,7 @@ describe('TabBar', () => {
 
   test('basic usage', async () => {
     const onChange = jest.fn()
-    const { getByText } = await render(
+    const { getByText } = render(
       <TabBar onChange={onChange} defaultActiveKey='personalCenter'>
         {tabs.map(item => (
           <TabBar.Item
@@ -84,7 +84,7 @@ describe('TabBar', () => {
         </TabBar>
       )
     }
-    const { getByText } = await render(<App />)
+    const { getByText } = render(<App />)
 
     expect(getByText('Todo').parentElement).toHaveClass(
       `${classPrefix}-item-active`
@@ -96,7 +96,7 @@ describe('TabBar', () => {
   })
 
   test('safe area', async () => {
-    await render(
+    render(
       <TabBar safeArea>
         {tabs.map(item => (
           <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
@@ -109,14 +109,14 @@ describe('TabBar', () => {
   })
 
   test('the children should be react valid element', async () => {
-    await render(<TabBar>{1}</TabBar>)
+    render(<TabBar>{1}</TabBar>)
     expect(
       document.querySelectorAll(`.${classPrefix}-wrap`)[0]
     ).toBeEmptyDOMElement()
   })
 
   test('item content', async () => {
-    const { container } = await render(
+    const { container } = render(
       <TabBar>
         <TabBar.Item key='icon' icon={<AppOutline />} />
         <TabBar.Item key='title' title='title' />

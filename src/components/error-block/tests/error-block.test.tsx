@@ -10,13 +10,13 @@ describe('ErrorBlock', () => {
   })
 
   test('renders with empty statsu', async () => {
-    const { container } = await render(<ErrorBlock status='empty' />)
+    const { container } = render(<ErrorBlock status='empty' />)
 
     expect(container).toMatchSnapshot()
   })
 
   test('renders with fullPage', async () => {
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <ErrorBlock fullPage data-testid='error-block' />
     )
 
@@ -24,7 +24,7 @@ describe('ErrorBlock', () => {
   })
 
   test('renders with customize props', async () => {
-    const { container } = await render(
+    const { container } = render(
       <>
         <ErrorBlock
           image='https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'
@@ -47,7 +47,7 @@ describe('ErrorBlock', () => {
   })
 
   test('renders when image is ReactElement', async () => {
-    const { container } = await render(
+    const { container } = render(
       <ErrorBlock
         image={
           <div>

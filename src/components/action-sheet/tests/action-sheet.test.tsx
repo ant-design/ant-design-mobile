@@ -40,7 +40,7 @@ describe('ActionSheet', () => {
 
   test('basic usage', async () => {
     restoreMotion()
-    const { getByText, baseElement } = await render(
+    const { getByText, baseElement } = render(
       <App extra='请选择你要进行的操作' cancelText='取消' />
     )
     fireEvent.click(getByText('button'))
@@ -94,7 +94,7 @@ describe('ActionSheet', () => {
       )
     }
 
-    const { getByText, baseElement } = await render(<Imperative />)
+    const { getByText, baseElement } = render(<Imperative />)
     fireEvent.click(getByText('显示'))
     await waitFor(() => {
       expect(baseElement.querySelectorAll(`.${classPrefix}`)[0]).toBeVisible()
@@ -109,7 +109,7 @@ describe('ActionSheet', () => {
   })
 
   test('rendered to the current node', async () => {
-    const { getByText, container } = await render(<App getContainer={null} />)
+    const { getByText, container } = render(<App getContainer={null} />)
     fireEvent.click(getByText('button'))
 
     await waitFor(() => {
@@ -129,7 +129,7 @@ describe('ActionSheet', () => {
       },
     ]
 
-    const { getByText } = await render(<App actions={actions} visible />)
+    const { getByText } = render(<App actions={actions} visible />)
 
     expect(getByText('修改').parentElement).toHaveClass(
       `${classPrefix}-button-item-disabled`,
@@ -148,7 +148,7 @@ describe('ActionSheet', () => {
   test('onAction shound be called', async () => {
     const onAction = jest.fn()
 
-    const { getByText } = await render(<App onAction={onAction} visible />)
+    const { getByText } = render(<App onAction={onAction} visible />)
 
     fireEvent.click(getByText('复制'))
     expect(onAction).toBeCalled()
@@ -156,7 +156,7 @@ describe('ActionSheet', () => {
 
   test('should close after clicking the option', async () => {
     const onClose = jest.fn()
-    const { getByText, baseElement } = await render(<App closeOnAction />)
+    const { getByText, baseElement } = render(<App closeOnAction />)
 
     fireEvent.click(getByText('button'))
     await waitFor(() => {
@@ -172,7 +172,7 @@ describe('ActionSheet', () => {
   })
 
   test('should not close after clicking the mask layer', async () => {
-    const { getByText, baseElement } = await render(
+    const { getByText, baseElement } = render(
       <App actions={actions} closeOnMaskClick={false} />
     )
     fireEvent.click(getByText('button'))
@@ -195,14 +195,14 @@ describe('ActionSheet', () => {
       },
     ]
 
-    const { getByText } = await render(<App actions={actions} visible />)
+    const { getByText } = render(<App actions={actions} visible />)
     fireEvent.click(getByText('删除'))
     expect(onClick).toBeCalled()
   })
 
   test('onMaskClick should be called', async () => {
     const onMaskClick = jest.fn()
-    await render(<App actions={actions} visible onMaskClick={onMaskClick} />)
+    render(<App actions={actions} visible onMaskClick={onMaskClick} />)
     fireEvent.click(document.querySelectorAll(`.adm-mask-aria-button`)[0])
 
     expect(onMaskClick).toBeCalled()

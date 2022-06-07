@@ -67,7 +67,7 @@ describe('ImageUploader', () => {
   })
 
   test('basic usage', async () => {
-    await render(<App />)
+    render(<App />)
 
     const input = await mockInputFile()
     expect(input.files?.length ?? 0).toBe(0)
@@ -85,9 +85,7 @@ describe('ImageUploader', () => {
       }
     })
 
-    const { container } = await render(
-      <App upload={mockUploadFail} showUpload />
-    )
+    const { container } = render(<App upload={mockUploadFail} showUpload />)
 
     await act(async () => {
       await mockInputFile()
@@ -116,7 +114,7 @@ describe('ImageUploader', () => {
       }
       return file
     }
-    await render(<App beforeUpload={beforeUpload} />)
+    render(<App beforeUpload={beforeUpload} />)
 
     const input = await mockInputFile()
 
@@ -128,7 +126,7 @@ describe('ImageUploader', () => {
     const maxCount = 3
     const fn = jest.fn()
 
-    await render(
+    render(
       <App
         multiple
         maxCount={maxCount}
@@ -149,7 +147,7 @@ describe('ImageUploader', () => {
   })
 
   test('delete image', async () => {
-    const { getByText } = await render(
+    const { getByText } = render(
       <App
         multiple
         onDelete={() => {
@@ -166,7 +164,7 @@ describe('ImageUploader', () => {
   })
 
   test('custom upload button', async () => {
-    const { container } = await render(
+    const { container } = render(
       <App>
         <div>custom upload button</div>
       </App>
@@ -176,18 +174,18 @@ describe('ImageUploader', () => {
   })
 
   test('`disableUpload` prop', async () => {
-    await render(<App disableUpload />)
+    render(<App disableUpload />)
     expect($$(`.${classPrefix}-input`).length).toBe(0)
   })
 
   test('`deletable` prop', async () => {
-    await render(<App deletable={false} />)
+    render(<App deletable={false} />)
     expect($$(`.${classPrefix}-cell-delete`).length).toBe(0)
   })
 
   test('`preview` & `onPreview` prop', async () => {
     const fn = jest.fn()
-    await render(<App preview={false} onPreview={fn} />)
+    render(<App preview={false} onPreview={fn} />)
     fireEvent.click($$('.adm-image-img')[0])
     expect(fn).toBeCalled()
     // don't show the image view
@@ -195,7 +193,7 @@ describe('ImageUploader', () => {
 
     cleanup()
 
-    const { container } = await render(<App onPreview={fn} />)
+    const { container } = render(<App onPreview={fn} />)
     fireEvent.click($$(`.adm-image-img`)[0])
     await waitFor(() => {
       expect(fn).toBeCalledTimes(2)

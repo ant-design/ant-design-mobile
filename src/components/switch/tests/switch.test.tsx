@@ -11,9 +11,7 @@ describe('Switch', () => {
   })
 
   test('renders with disabled', async () => {
-    const { getByTestId } = await render(
-      <Switch data-testid='switch' disabled />
-    )
+    const { getByTestId } = render(<Switch data-testid='switch' disabled />)
 
     expect(getByTestId('switch')).toHaveClass(`${classPrefix}-disabled`)
   })
@@ -32,7 +30,7 @@ describe('Switch', () => {
       )
     }
 
-    const { getByTestId } = await render(<App />)
+    const { getByTestId } = render(<App />)
     fireEvent.click(getByTestId('switch'))
     expect(getByTestId('switch')).toHaveClass(`${classPrefix}-checked`)
     fireEvent.click(getByTestId('switch'))
@@ -41,7 +39,7 @@ describe('Switch', () => {
 
   test('`beforeChange` should not work with loading', async () => {
     const beforeChange = jest.fn()
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <Switch data-testid='switch' loading beforeChange={beforeChange} />
     )
 
@@ -55,6 +53,7 @@ describe('Switch', () => {
   })
 
   test('`beforeChange` in async mode', async () => {
+    jest.useFakeTimers()
     const App = () => {
       const beforeChange = (): Promise<void> => {
         return new Promise(resolve => {
@@ -66,13 +65,13 @@ describe('Switch', () => {
       return <Switch beforeChange={() => beforeChange()} data-testid='switch' />
     }
 
-    const { getByTestId } = await render(<App />)
+    const { getByTestId } = render(<App />)
     fireEvent.click(getByTestId('switch'))
     expect(getByTestId('switch')).toHaveClass(`${classPrefix}-disabled`)
-
-    await sleep(500)
+    jest.runAllTimers()
     await waitFor(() => {
       expect(getByTestId('switch')).toHaveClass(`${classPrefix}-checked`)
     })
+    jest.useRealTimers()
   })
 })

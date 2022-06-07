@@ -27,7 +27,7 @@ describe('JumboTabs', () => {
   })
 
   test('basic usage', async () => {
-    const { getByText } = await render(<Basic defaultActiveKey='animals' />)
+    const { getByText } = render(<Basic defaultActiveKey='animals' />)
     expect(getByText('Ant')).toBeVisible()
     expect(getByText('animals').parentElement).toHaveClass(
       `${classPrefix}-tab-active`
@@ -44,7 +44,7 @@ describe('JumboTabs', () => {
       const [activeKey, setActiveKey] = useState<string | null>(null)
       return <Basic activeKey={activeKey} onChange={key => setActiveKey(key)} />
     }
-    const { getByText } = await render(<App />)
+    const { getByText } = render(<App />)
     expect(document.querySelectorAll(`.${classPrefix}-tab-active`).length).toBe(
       0
     )
@@ -54,7 +54,7 @@ describe('JumboTabs', () => {
 
   test('disabled tab', async () => {
     const onChange = jest.fn()
-    const { getByText } = await render(
+    const { getByText } = render(
       <JumboTabs onChange={onChange}>
         <JumboTabs.Tab title='fruits' description='description' key='fruits' />
         <JumboTabs.Tab
@@ -79,7 +79,7 @@ describe('JumboTabs', () => {
   })
 
   test('render the DOM structure when hidden', async () => {
-    const { queryByText } = await render(
+    const { queryByText } = render(
       <JumboTabs>
         <JumboTabs.Tab title='fruits' description='description' key='fruits'>
           Apple
@@ -106,7 +106,7 @@ describe('JumboTabs', () => {
   })
 
   test('unmount content when not visible', async () => {
-    const { getByText, queryByText } = await render(
+    const { getByText, queryByText } = render(
       <JumboTabs>
         <JumboTabs.Tab
           title='fruits'

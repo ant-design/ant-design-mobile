@@ -28,7 +28,7 @@ const waitForMaskShow = async () => {
 
 describe('Modal', () => {
   afterEach(async () => {
-    await act(() => {
+    act(() => {
       Modal.clear()
     })
     document.body.innerHTML = ''
@@ -53,14 +53,14 @@ describe('Modal', () => {
 
   test('afterShow should be called', async () => {
     const afterShow = jest.fn()
-    const { getByText } = await render(<ModalAlert afterShow={afterShow} />)
+    const { getByText } = render(<ModalAlert afterShow={afterShow} />)
     await actClick(getByText('btn'), 20)
     expect(afterShow).toBeCalled()
   })
 
   test('onConfirm should be called', async () => {
     const onConfirm = jest.fn()
-    const { getByText } = await render(<ModalAlert onConfirm={onConfirm} />)
+    const { getByText } = render(<ModalAlert onConfirm={onConfirm} />)
     await actClick(getByText('btn'), 20)
     await actClick(getByText('我知道了'), 20)
     expect(onConfirm).toBeCalled()
@@ -69,7 +69,7 @@ describe('Modal', () => {
   test('close on mask click', async () => {
     const onClose = jest.fn()
     const afterClose = jest.fn()
-    const { getByText } = await render(
+    const { getByText } = render(
       <ModalAlert closeOnMaskClick onClose={onClose} afterClose={afterClose} />
     )
 
@@ -82,13 +82,13 @@ describe('Modal', () => {
   })
 
   test('show close button', async () => {
-    const { getByText } = await render(<ModalAlert showCloseButton />)
+    const { getByText } = render(<ModalAlert showCloseButton />)
     await actClick(getByText('btn'), 20)
     expect($$(`.${classPrefix}-close`)).toHaveLength(1)
   })
 
   test('custom content', async () => {
-    const { getByText } = await render(
+    const { getByText } = render(
       <ModalAlert
         header={<div>header</div>}
         title='title'
@@ -108,7 +108,7 @@ describe('Modal', () => {
 
   test('wait for alert to complete', async () => {
     const fn = jest.fn()
-    const { getByText } = await render(
+    const { getByText } = render(
       <button
         onClick={async () => {
           await Modal.alert({
@@ -141,7 +141,7 @@ describe('Modal', () => {
       </button>
     )
 
-    const { getByText, getAllByText } = await render(<Confirm />)
+    const { getByText, getAllByText } = render(<Confirm />)
     fireEvent.click(getByText('btn'))
     await actSleep(100)
     act(() => {
@@ -177,7 +177,7 @@ describe('Modal', () => {
       },
     ]
 
-    const { getByText } = await render(
+    const { getByText } = render(
       <button
         onClick={() => {
           Modal.show({
@@ -200,7 +200,7 @@ describe('Modal', () => {
   })
 
   test('without actions', async () => {
-    const { getByText } = await render(
+    const { getByText } = render(
       <button
         onClick={() => {
           Modal.show({
@@ -227,7 +227,7 @@ describe('Modal', () => {
       },
     ]
 
-    const { getByText } = await render(
+    const { getByText } = render(
       <button
         onClick={() => {
           Modal.show({
@@ -242,7 +242,7 @@ describe('Modal', () => {
 
     fireEvent.click(getByText('btn'))
     await act(async () => {
-      await fireEvent.click(getByText('ok'))
+      fireEvent.click(getByText('ok'))
     })
 
     expect(onClick).toBeCalled()

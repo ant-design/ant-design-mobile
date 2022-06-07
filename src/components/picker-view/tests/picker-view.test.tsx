@@ -42,7 +42,7 @@ describe('PickerView', () => {
       )
     }
 
-    const { getByTestId } = await render(<App />)
+    const { getByTestId } = render(<App />)
 
     const wheelEl = document.body.querySelectorAll(`.${classPrefix}-column`)[0]
 

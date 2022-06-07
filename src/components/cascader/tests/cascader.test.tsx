@@ -37,7 +37,7 @@ describe('Cascader', () => {
       )
     }
 
-    const { getByText } = await render(<App />)
+    const { getByText } = render(<App />)
 
     fireEvent.click(getByText('Choose'))
     await waitFor(() => {
@@ -62,7 +62,7 @@ describe('Cascader', () => {
       fn(value)
     }
 
-    const { getByText } = await render(<button onClick={onClick}>Popup</button>)
+    const { getByText } = render(<button onClick={onClick}>Popup</button>)
 
     fireEvent.click(getByText('Popup'))
 
