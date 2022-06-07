@@ -55,17 +55,26 @@ export default () => {
   --adm-color-success: #00b578;
   --adm-color-warning: #ff8f1f;
   --adm-color-danger: #ff3141;
+
   --adm-color-white: #ffffff;
+  --adm-color-text: #333333;
+  --adm-color-text-secondary: #666666;
   --adm-color-weak: #999999;
   --adm-color-light: #cccccc;
-  --adm-border-color: #eeeeee;
-  --adm-font-size-main: 13px;
-  --adm-color-text: #333333;
+  --adm-color-border: #eeeeee;
+  --adm-color-box: #f5f5f5;
+  --adm-color-background: #ffffff;
+
+  --adm-font-size-main: var(--adm-font-size-5);
 
   --adm-font-family: -apple-system, blinkmacsystemfont, 'Helvetica Neue',
   helvetica, segoe ui, arial, roboto, 'PingFang SC', 'miui',
   'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
 }
 ```
+
+<Alert type="warning">
+  从 5.14.0 版本起，--adm-border-color 变量已经被弃用了，如果你在项目中用到了它，请替换为 --adm-color-border。我们将在下个大版本中移除 --adm-border-color。
+</Alert>
 
 此外，每个组件也有自己对应的 CSS 全局变量，你可以在它们的文档页面中找到，具体请参阅 [CSS 变量](./css-variables) 章节。
