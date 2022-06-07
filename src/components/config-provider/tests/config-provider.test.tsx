@@ -54,7 +54,7 @@ describe('ConfigProvider', () => {
   )
   locales.forEach(locale => {
     test(`should display the text as ${locale.locale}`, async () => {
-      const { container } = await render(
+      const { container } = render(
         <ConfigProvider locale={locale}>
           <App />
         </ConfigProvider>

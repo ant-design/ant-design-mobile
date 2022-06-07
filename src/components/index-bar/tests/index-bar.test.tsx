@@ -54,7 +54,7 @@ describe('IndexBar', () => {
   })
 
   test('mouse event', async () => {
-    await render(<App />)
+    render(<App />)
 
     const indexEls = document.querySelectorAll(`.${classPrefix}-sidebar-row`)
 
@@ -79,7 +79,7 @@ describe('IndexBar', () => {
 
   test('set active index when scroll', async () => {
     mockPxTester(35)
-    const { getByText } = await render(<App />)
+    const { getByText } = render(<App />)
 
     const bodyEl = document.querySelectorAll(`.${classPrefix}-body`)[0]
     const elements = document.querySelectorAll(`.${classPrefix}-anchor`)
@@ -108,7 +108,7 @@ describe('IndexBar', () => {
   })
 
   test('unable to sticky', async () => {
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <IndexBar sticky={false} data-testid='indexbar'>
         <IndexBar.Panel index='A' key='A'>
           A
@@ -123,7 +123,7 @@ describe('IndexBar', () => {
   })
 
   test('touch event', async () => {
-    await render(<App />)
+    render(<App />)
 
     const indexEls = document.querySelectorAll(`.${classPrefix}-sidebar-row`)
 
@@ -140,7 +140,7 @@ describe('IndexBar', () => {
   })
 
   test('the children must be react valid element', async () => {
-    await render(<IndexBar>{1}</IndexBar>)
+    render(<IndexBar>{1}</IndexBar>)
     expect(
       document.querySelectorAll(`.${classPrefix}-body`)[0]
     ).toBeEmptyDOMElement()
@@ -149,7 +149,7 @@ describe('IndexBar', () => {
   test('warning when the children id not `IndexBar.Panel` components`', async () => {
     const warnSpy = jest.spyOn(console, 'warn').mockImplementationOnce(() => {})
 
-    await render(
+    render(
       <IndexBar>
         <div />
       </IndexBar>
@@ -177,7 +177,7 @@ describe('IndexBar', () => {
         </>
       )
     }
-    const { getByText } = await render(<App />)
+    const { getByText } = render(<App />)
     fireEvent.click(getByText('btn'))
     expect(getByText('B').parentElement).toHaveClass(
       `${classPrefix}-sidebar-item-active`
@@ -185,7 +185,7 @@ describe('IndexBar', () => {
   })
 
   test('touch move when not interact', async () => {
-    await render(<App />)
+    render(<App />)
 
     const indexEls = document.querySelectorAll(`.${classPrefix}-sidebar-row`)
     fireEvent.touchMove(indexEls[1], { touches: [{ clientX: 0, clientY: 10 }] })
@@ -195,7 +195,7 @@ describe('IndexBar', () => {
   })
 
   test('touch move when not get element from point', async () => {
-    await render(<App />)
+    render(<App />)
 
     const indexEls = document.querySelectorAll(`.${classPrefix}-sidebar-row`)
     // mock target
@@ -211,7 +211,7 @@ describe('IndexBar', () => {
 
 describe('IndexBar.Panel', () => {
   test('`brief` prop', async () => {
-    await render(
+    render(
       <IndexBar>
         {groups.map(group => {
           const { title, items } = group

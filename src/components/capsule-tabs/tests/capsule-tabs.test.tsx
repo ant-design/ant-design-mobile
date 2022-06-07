@@ -23,7 +23,7 @@ describe('CapsuleTabs', () => {
   })
 
   test('basic usage', async () => {
-    const { getByText } = await render(<Basic defaultActiveKey='animals' />)
+    const { getByText } = render(<Basic defaultActiveKey='animals' />)
     expect(getByText('Ant')).toBeVisible()
     expect(getByText('animals')).toHaveClass(`${classPrefix}-tab-active`)
     fireEvent.click(getByText('vegetables'))
@@ -36,7 +36,7 @@ describe('CapsuleTabs', () => {
       const [activeKey, setActiveKey] = useState<string | null>(null)
       return <Basic activeKey={activeKey} onChange={key => setActiveKey(key)} />
     }
-    const { getByText } = await render(<App />)
+    const { getByText } = render(<App />)
     expect(document.querySelectorAll(`.${classPrefix}-tab-active`).length).toBe(
       0
     )
@@ -46,7 +46,7 @@ describe('CapsuleTabs', () => {
 
   test('disabled tab', async () => {
     const onChange = jest.fn()
-    const { getByText } = await render(
+    const { getByText } = render(
       <CapsuleTabs onChange={onChange}>
         <CapsuleTabs.Tab title='fruits' key='fruits' />
         <CapsuleTabs.Tab title='vegetables' key='vegetables' />
@@ -60,7 +60,7 @@ describe('CapsuleTabs', () => {
   })
 
   test('render the DOM structure when hidden', async () => {
-    const { queryByText } = await render(
+    const { queryByText } = render(
       <CapsuleTabs>
         <CapsuleTabs.Tab title='fruits' key='fruits'>
           Apple
@@ -78,7 +78,7 @@ describe('CapsuleTabs', () => {
   })
 
   test('unmount content when not visible', async () => {
-    const { getByText, queryByText } = await render(
+    const { getByText, queryByText } = render(
       <CapsuleTabs>
         <CapsuleTabs.Tab title='fruits' key='fruits' destroyOnClose>
           Apple

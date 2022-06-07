@@ -36,7 +36,7 @@ describe('TabBar', () => {
 
   test('basic usage', async () => {
     const onChange = jest.fn()
-    const { getByText } = await render(
+    const { getByText } = render(
       <SideBar onChange={onChange} defaultActiveKey='key2'>
         {tabs.map(item => (
           <SideBar.Item key={item.key} title={item.title} badge={item.badge} />
@@ -63,7 +63,7 @@ describe('TabBar', () => {
         </SideBar>
       )
     }
-    const { getByText } = await render(<App />)
+    const { getByText } = render(<App />)
     const items = document.querySelectorAll(`.${classPrefix}-item`)
     expect(items[2]).toHaveClass(`${classPrefix}-item-active`)
     fireEvent.click(getByText('item1'))
@@ -72,7 +72,7 @@ describe('TabBar', () => {
 
   test('disabled item', async () => {
     const onChange = jest.fn()
-    const { getByText } = await render(
+    const { getByText } = render(
       <SideBar onChange={onChange}>
         {tabs.map(item => (
           <SideBar.Item
@@ -91,14 +91,14 @@ describe('TabBar', () => {
   })
 
   test('the children should be react valid element', async () => {
-    await render(<SideBar>{1}</SideBar>)
+    render(<SideBar>{1}</SideBar>)
     expect(
       document.querySelectorAll(`.${classPrefix}-items`)[0]
     ).toBeEmptyDOMElement()
   })
 
   test('item content', async () => {
-    const { container } = await render(
+    const { container } = render(
       <SideBar>
         <SideBar.Item key='title' title='title' />
         <SideBar.Item key='empty' />
