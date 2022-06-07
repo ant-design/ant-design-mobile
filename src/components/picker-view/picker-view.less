@@ -3,7 +3,7 @@
 .@{class-prefix-picker-view} {
   --height: 240px;
   --item-height: 34px;
-  --item-font-size: 16px;
+  --item-font-size: var(--adm-font-size-8);
   height: var(--height);
   width: 100%;
   display: flex;
@@ -99,8 +99,8 @@
     height: var(--item-height);
     box-sizing: border-box;
     flex: none;
-    border-top: solid 1px var(--adm-border-color);
-    border-bottom: solid 1px var(--adm-border-color);
+    border-top: solid 1px var(--adm-color-border);
+    border-bottom: solid 1px var(--adm-color-border);
   }
   &-top {
     background: linear-gradient(

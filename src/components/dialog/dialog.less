@@ -12,7 +12,7 @@
 .@{class-prefix-dialog}-body {
   width: 100%;
   max-height: 70vh;
-  font-size: 14px;
+  font-size: var(--adm-font-size-6);
   overflow: hidden;
 
   display: flex;
@@ -41,7 +41,7 @@
   margin-bottom: 8px;
   padding: 0 12px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: var(--adm-font-size-10);
   line-height: 25px;
   text-align: center;
 }
@@ -50,9 +50,9 @@
   max-height: 70vh;
   overflow-x: hidden;
   overflow-y: auto;
-  font-size: 15px;
+  font-size: var(--adm-font-size-7);
   line-height: 1.4;
-  color: #333;
+  color: var(--adm-color-text);
   &-empty {
     padding: 0;
     height: 12px;
@@ -63,19 +63,19 @@
   .adm-dialog-action-row {
     display: flex;
     align-items: stretch;
-    border-top: 0.5px solid var(--adm-border-color);
+    border-top: 0.5px solid var(--adm-color-border);
     > * {
       flex: 1;
     }
     > .adm-dialog-button {
       padding: 10px;
-      font-size: 18px;
+      font-size: var(--adm-font-size-10);
       line-height: 25px;
       border-radius: 0;
       &-bold {
         font-weight: bold;
       }
-      border-right: solid 0.5px var(--adm-border-color);
+      border-right: solid 0.5px var(--adm-color-border);
       &:last-child {
         border-right: none;
       }

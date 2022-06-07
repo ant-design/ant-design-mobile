@@ -1,15 +1,15 @@
 .adm-list {
-  --header-font-size: 15px;
+  --header-font-size: var(--adm-font-size-7);
   --prefix-width: 'auto';
   --prefix-padding-right: 12px;
   --align-items: center;
-  --active-background-color: var(--adm-border-color);
-  --border-inner: solid 1px var(--adm-border-color);
-  --border-top: solid 1px var(--adm-border-color);
-  --border-bottom: solid 1px var(--adm-border-color);
+  --active-background-color: var(--adm-color-border);
+  --border-inner: solid 1px var(--adm-color-border);
+  --border-top: solid 1px var(--adm-color-border);
+  --border-bottom: solid 1px var(--adm-color-border);
   --padding-left: 12px;
   --padding-right: 12px;
-  --font-size: 17px;
+  --font-size: var(--adm-font-size-9);
 
   &-header {
     color: var(--adm-color-weak);
@@ -17,7 +17,7 @@
     padding: 8px var(--padding-right) 8px var(--padding-left);
   }
   &-body {
-    background-color: #ffffff;
+    background-color: var(--adm-color-background);
     overflow: hidden;
     font-size: var(--font-size);
   }
@@ -45,12 +45,12 @@
   display: block;
   padding-left: var(--padding-left);
   position: relative;
-  background-color: #ffffff;
+  background-color: var(--adm-color-background);
   line-height: 1.5;
   &-title,
   &-description {
     color: var(--adm-color-weak);
-    font-size: 13px;
+    font-size: var(--adm-font-size-main);
   }
   &-content {
     display: flex;
@@ -70,7 +70,7 @@
     &-extra {
       flex: none;
       padding-left: 12px;
-      font-size: 15px;
+      font-size: var(--adm-font-size-7);
       color: var(--adm-color-weak);
     }
     &-arrow {

@@ -3,7 +3,7 @@
 .adm-search-bar {
   --height: 32px;
   --padding-left: 8px;
-  --background: #f5f5f5;
+  --background: var(--adm-color-box);
   --border-radius: 6px;
   --placeholder-color: var(--adm-color-weak);
   ---placeholder-color: var(--placeholder-color);
@@ -24,7 +24,7 @@
     .adm-search-bar-input-box-icon {
       flex: none;
       color: var(--adm-color-light);
-      font-size: 16px;
+      font-size: var(--adm-font-size-8);
     }
     .adm-search-bar-input {
       flex: auto;
@@ -33,7 +33,7 @@
       box-sizing: border-box;
       &.adm-input {
         --placeholder-color: var(---placeholder-color);
-        --font-size: 15px;
+        --font-size: var(--adm-font-size-7);
       }
       .adm-input-element {
         line-height: 19px;

@@ -38,6 +38,7 @@ const config: IConfig = {
   scripts: [
     `if (location.pathname.startsWith('/~demos/')) {
       document.body.style.background = '#FAFBFC'
+      // document.body.style.background = '#262629' // for dark mode
     }`,
     `
     if (!location.port) {

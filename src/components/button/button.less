@@ -6,12 +6,12 @@
   --text-color: var(--adm-button-text-color, var(--adm-color-text));
   --background-color: var(
     --adm-button-background-color,
-    var(--adm-color-white)
+    var(--adm-color-background)
   );
   --border-radius: var(--adm-button-border-radius, 4px);
   --border-width: var(--adm-button-border-width, 1px);
   --border-style: var(--adm-button-border-style, solid);
-  --border-color: var(--adm-button-border-color, var(--adm-border-color));
+  --border-color: var(--adm-button-border-color, var(--adm-color-border));
 
   color: var(--text-color);
   background-color: var(--background-color);
@@ -21,7 +21,7 @@
   height: auto;
   padding: 7px 12px;
   margin: 0;
-  font-size: 17px;
+  font-size: var(--adm-font-size-9);
   line-height: 1.4;
   text-align: center;
   border: var(--border-width) var(--border-style) var(--border-color);
@@ -107,7 +107,7 @@
   &&-mini {
     padding-top: 3px;
     padding-bottom: 3px;
-    font-size: 13px;
+    font-size: var(--adm-font-size-main);
     &.@{class-prefix-button}-shape-rounded {
       padding-left: 9px;
       padding-right: 9px;
@@ -116,12 +116,12 @@
   &&-small {
     padding-top: 3px;
     padding-bottom: 3px;
-    font-size: 15px;
+    font-size: var(--adm-font-size-7);
   }
   &&-large {
     padding-top: 11px;
     padding-bottom: 11px;
-    font-size: 18px;
+    font-size: var(--adm-font-size-10);
   }
   &&-shape-rounded {
     --border-radius: 1000px;
