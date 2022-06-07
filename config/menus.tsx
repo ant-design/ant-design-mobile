@@ -35,6 +35,10 @@ export const menus = {
       path: '/guide/theming',
     },
     {
+      title: 'Dark Mode (Experimental)',
+      path: '/guide/dark-mode',
+    },
+    {
       title: 'Load on Demand',
       path: '/guide/import-on-demand',
     },
@@ -79,6 +83,10 @@ export const menus = {
     {
       title: '主题',
       path: '/zh/guide/theming',
+    },
+    {
+      title: '暗黑模式（试验性）',
+      path: '/zh/guide/dark-mode',
     },
     {
       title: '按需加载',

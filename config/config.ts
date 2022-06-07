@@ -37,8 +37,7 @@ const config: IConfig = {
   hash: true,
   scripts: [
     `if (location.pathname.startsWith('/~demos/')) {
-      document.body.style.background = '#FAFBFC'
-      // document.body.style.background = '#262629' // for dark mode
+      document.documentElement.setAttribute('data-is-demo', 'true')
     }`,
     `
     if (!location.port) {
@@ -59,19 +58,6 @@ const config: IConfig = {
   locales: [
     ['en', 'English'],
     ['zh', '中文'],
-  ],
-  styles: [
-    `
-    html {
-      touch-action: manipulation;
-    }
-    #root .__dumi-default-mobile-demo-layout {
-      padding: 0;
-    }
-    html {
-      min-height: 100vh;
-    }
-    `,
   ],
   extraPostCSSPlugins: [
     // pxToRem({
