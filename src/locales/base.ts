@@ -92,6 +92,8 @@ export const base = {
   },
   InfiniteScroll: {
     noMore: 'No more',
+    failedToLoad: 'Failed to load',
+    retry: 'Retry',
   },
   Mask: {
     name: 'Mask',

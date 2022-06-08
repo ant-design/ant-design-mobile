@@ -13,32 +13,39 @@ function isWindow(element: any | Window): element is Window {
 const classPrefix = `adm-infinite-scroll`
 
 export type InfiniteScrollProps = {
-  loadMore: () => Promise<void>
+  loadMore: (isRetry: boolean) => Promise<void>
   hasMore: boolean
   threshold?: number
-  children?: React.ReactNode
+  children?:
+    | React.ReactNode
+    | ((
+        hasMore: boolean,
+        failed: boolean,
+        retry: () => void
+      ) => React.ReactNode)
 } & NativeProps
 
-const InfiniteScrollContent = ({ hasMore }: { hasMore: boolean }) => {
-  const { locale } = useConfig()
-
-  return (
-    <>
-      {hasMore ? (
-        <>
-          <span>{locale.common.loading}</span>
-          <DotLoading />
-        </>
-      ) : (
-        <span>{locale.InfiniteScroll.noMore}</span>
-      )}
-    </>
-  )
+const defaultProps: Required<
+  Pick<InfiniteScrollProps, 'threshold' | 'children'>
+> = {
+  threshold: 250,
+  children: (hasMore: boolean, failed: boolean, retry: () => void) => (
+    <InfiniteScrollContent hasMore={hasMore} failed={failed} retry={retry} />
+  ),
 }
 
 export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
-  const props = mergeProps({ threshold: 250 }, p)
-  const doLoadMore = useLockFn(() => props.loadMore())
+  const props = mergeProps(defaultProps, p)
+
+  const [failed, setFailed] = useState(false)
+  const doLoadMore = useLockFn(async (isRetry: boolean) => {
+    try {
+      await props.loadMore(isRetry)
+    } catch (e) {
+      setFailed(true)
+      throw e
+    }
+  })
 
   const elementRef = useRef<HTMLDivElement>(null)
 
@@ -67,7 +74,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
     if (current >= elementTop - props.threshold) {
       const nextFlag = {}
       nextFlagRef.current = nextFlag
-      await doLoadMore()
+      await doLoadMore(false)
       setFlag(nextFlag)
     }
   })
@@ -90,11 +97,53 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
     }
   }, [scrollParent])
 
+  function retry() {
+    setFailed(false)
+    doLoadMore(true)
+  }
+
   return withNativeProps(
     props,
     <div className={classPrefix} ref={elementRef}>
-      {props.children && props.children}
-      {!props.children && <InfiniteScrollContent hasMore={props.hasMore} />}
+      {typeof props.children === 'function'
+        ? props.children(props.hasMore, failed, retry)
+        : props.children}
     </div>
+  )
+}
+
+const InfiniteScrollContent: FC<{
+  hasMore: boolean
+  failed: boolean
+  retry: () => void
+}> = props => {
+  const { locale } = useConfig()
+
+  if (!props.hasMore) {
+    return <span>{locale.InfiniteScroll.noMore}</span>
+  }
+
+  if (props.failed) {
+    return (
+      <span>
+        <span className={`${classPrefix}-failed-text`}>
+          {locale.InfiniteScroll.failedToLoad}
+        </span>
+        <a
+          onClick={() => {
+            props.retry()
+          }}
+        >
+          {locale.InfiniteScroll.retry}
+        </a>
+      </span>
+    )
+  }
+
+  return (
+    <>
+      <span>{locale.common.loading}</span>
+      <DotLoading />
+    </>
   )
 }

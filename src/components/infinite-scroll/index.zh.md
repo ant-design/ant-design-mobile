@@ -16,11 +16,12 @@
 
 ### 属性
 
-| 属性      | 说明                                       | 类型                  | 默认值 |
-| --------- | ------------------------------------------ | --------------------- | ------ |
-| hasMore   | 是否还有更多内容                           | `boolean`             | -      |
-| loadMore  | 加载更多的回调函数                         | `() => Promise<void>` | -      |
-| threshold | 触发加载事件的滚动触底距离阈值，单位为像素 | `number`              | `250`  |
+| 属性      | 说明                                       | 类型                                                                                             | 默认值         |
+| --------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------------- |
+| children  | 渲染自定义指引内容                         | `React.ReactNode \| ((hasMore: boolean, failed: boolean, retry: () => void) => React.ReactNode)` | 默认的指引提示 |
+| hasMore   | 是否还有更多内容                           | `boolean`                                                                                        | -              |
+| loadMore  | 加载更多的回调函数                         | `(isRetry: boolean) => Promise<void>`                                                            | -              |
+| threshold | 触发加载事件的滚动触底距离阈值，单位为像素 | `number`                                                                                         | `250`          |
 
 InfiniteScroll 会自动对 `loadMore` 函数加锁，避免重复的请求，但是前提是 `loadMore` 函数需要返回一个正确的 Promise，下面是正确和错误的用法示例：
 
@@ -57,6 +58,10 @@ function loadMore() { // 正确
 结合 [react-virtualized](https://github.com/bvaughn/react-virtualized) 实现滚动加载无限长列表
 
 <code src="./demos/demo2.tsx"></code>
+
+### 请求失败时支持点击重试
+
+<code src="./demos/demo4.tsx"></code>
 
 ## 常见问题
 

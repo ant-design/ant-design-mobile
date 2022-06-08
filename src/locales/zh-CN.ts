@@ -95,6 +95,8 @@ const zhCN = mergeLocale(base, {
   },
   InfiniteScroll: {
     noMore: '没有更多了',
+    failedToLoad: '加载失败',
+    retry: '重新加载',
   },
   Mask: {
     name: '遮罩层',
