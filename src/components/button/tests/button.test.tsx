@@ -176,27 +176,29 @@ describe('Button', () => {
   })
 
   test('renders with async onClick and auto loading when mock request failed', async () => {
-    jest.useFakeTimers()
-    const mockRequestFailed = async function () {
-      await sleep(100)
-      throw new Error('mock request failed')
-    }
-    render(
-      <Button loading='auto' loadingText='加载中' onClick={mockRequestFailed}>
-        Button
-      </Button>
-    )
+    expect(async () => {
+      jest.useFakeTimers()
+      const mockRequestFailed = async function () {
+        await sleep(100)
+        throw new Error('mock request failed')
+      }
+      render(
+        <Button loading='auto' loadingText='加载中' onClick={mockRequestFailed}>
+          Button
+        </Button>
+      )
 
-    fireEvent.click(screen.getByText('Button'))
-    await waitFor(() => {
-      expect(screen.getByText('加载中')).toBeInTheDocument()
-    })
-    act(() => {
-      jest.runOnlyPendingTimers()
-    })
-    await waitFor(() => {
-      expect(screen.getByText('Button')).toBeInTheDocument()
-    })
-    jest.useRealTimers()
+      fireEvent.click(screen.getByText('Button'))
+      await waitFor(() => {
+        expect(screen.getByText('加载中')).toBeInTheDocument()
+      })
+      act(() => {
+        jest.runOnlyPendingTimers()
+      })
+      await waitFor(() => {
+        expect(screen.getByText('Button')).toBeInTheDocument()
+      })
+      jest.useRealTimers()
+    }).not.toThrowError()
   })
 })
