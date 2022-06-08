@@ -22,7 +22,7 @@
 }
 
 .@{class-prefix-picker}-header {
-  flex: none;
+  flex-shrink: 0;
   border-bottom: solid 1px var(--adm-color-border);
   display: flex;
   justify-content: space-between;
@@ -43,8 +43,7 @@
 }
 
 .@{class-prefix-picker}-body {
-  flex: auto;
-  height: 100%;
+  flex: 1;
   width: 100%;
   > .adm-picker-view {
     --height: 100%;
