@@ -75,25 +75,27 @@ describe('Switch', () => {
   })
 
   test('`beforeChange` in async mode when mock request failed', async () => {
-    jest.useFakeTimers()
-    const mockRequestFailed = async function () {
-      await sleep(100)
-      throw new Error('mock request failed')
-    }
-    const { getByTestId } = render(
-      <Switch beforeChange={mockRequestFailed} data-testid='switch' />
-    )
+    expect(async () => {
+      jest.useFakeTimers()
+      const mockRequestFailed = async function () {
+        await sleep(100)
+        throw new Error('mock request failed')
+      }
+      const { getByTestId } = render(
+        <Switch beforeChange={mockRequestFailed} data-testid='switch' />
+      )
 
-    fireEvent.click(getByTestId('switch'))
-    await waitFor(() => {
-      expect(getByTestId('switch')).toHaveClass(`${classPrefix}-disabled`)
-    })
-    act(() => {
-      jest.runOnlyPendingTimers()
-    })
-    await waitFor(() => {
-      expect(getByTestId('switch')).not.toHaveClass(`${classPrefix}-checked`)
-    })
-    jest.useRealTimers()
+      fireEvent.click(getByTestId('switch'))
+      await waitFor(() => {
+        expect(getByTestId('switch')).toHaveClass(`${classPrefix}-disabled`)
+      })
+      act(() => {
+        jest.runOnlyPendingTimers()
+      })
+      await waitFor(() => {
+        expect(getByTestId('switch')).not.toHaveClass(`${classPrefix}-checked`)
+      })
+      jest.useRealTimers()
+    }).not.toThrowError()
   })
 })
