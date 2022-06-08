@@ -59,7 +59,7 @@
 
 当然，你也可以"局部性"地进行调整，只需要把对应的 CSS 变量添加到对应的父级节点上。
 
-## CSS 变量降级 <Experimental></Experimental>
+## CSS 变量自动降级 <Experimental></Experimental>
 
 CSS 变量在 iOS Safari `>= 10` 和 Chrome `>= 49` 版本下是有原生支持的，这在大多数情况下都足够满足你的项目需要了。但是如果你的项目需要兼容 iOS 9，那就需要用特殊的方式来实现兼容了。
 

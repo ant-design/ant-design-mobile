@@ -59,7 +59,7 @@ In this way, all the Buttons in page will be affected.
 
 Of course, you can also adjust style for only part of the page. All you need to do is bind the global CSS variables to the root dom element of that area.
 
-## CSS Variables Fallback
+## CSS Variables Auto Fallback
 
 CSS variables are natively supported in iOS Safari `>= 10` and Chrome `>= 49`, which should be sufficient for your project in most cases. But if your project needs to be compatible with iOS 9, you need to use a special way to achieve compatibility.
 

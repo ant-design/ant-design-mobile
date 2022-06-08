@@ -48,9 +48,7 @@ For TypeScript, antd-mobile is compatible with versions `>= 3.8`.
 
 For React, antd-mobile is compatible with versions `^16.8.0` and `^17.0.0`.
 
-<Alert type="warning">
-  Compatibility with React 18 is still in the experimental stage. If you find problems with antd-mobile in your React 18 project, you can submit an issue <a target="_blank" href="https://github.com/ant-design/ant-design-mobile/issues/new/choose">here</a> .
-</Alert>
+Since iOS 9 does not support CSS variables, if you need to support iOS 9, please refer to [this document](./css-variables#css-variables-auto-fallback) to enable automatic CSS variable degradation, and set target ios in babel configuration to `9`.
 
 ## Playground
 
