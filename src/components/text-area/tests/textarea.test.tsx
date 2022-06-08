@@ -1,6 +1,5 @@
 import React, { createRef } from 'react'
-import { act } from 'react-dom/test-utils'
-import { render, fireEvent } from 'testing'
+import { render, fireEvent, act } from 'testing'
 import TextArea, { TextAreaRef } from '..'
 
 const classPrefix = 'adm-text-area'
