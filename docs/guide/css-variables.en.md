@@ -58,3 +58,37 @@ Let's assume you need to adjust the style of all the Buttons in your project. In
 In this way, all the Buttons in page will be affected.
 
 Of course, you can also adjust style for only part of the page. All you need to do is bind the global CSS variables to the root dom element of that area.
+
+## CSS Variables Auto Fallback
+
+CSS variables are natively supported in iOS Safari `>= 10` and Chrome `>= 49`, which should be sufficient for your project in most cases. But if your project needs to be compatible with iOS 9, you need to use a special way to achieve compatibility.
+
+CSS variables are highly dynamic, and there is no reliable polyfill solution in the industry, so antd-mobile has officially provided a patch CSS since version `5.14.0`:
+
+```js
+import 'antd-mobile/bundle/css-vars-patch.css'
+```
+
+You can include it in your project to ensure that component styles don't get messed up in iOS 9.
+
+> For `2x` projects, please import the corresponding `antd-mobile/2x/bundle/css-vars-patch.css`
+
+This patch CSS will automatically determine the current browser environment and will only take effect if the browser does not support CSS variables. So in most cases, it won't take effect, and it won't have a direct impact on your project. But when it takes effect, all features that depend on CSS variables will no longer take effect, such as: theme settings, component styling based on CSS variables, dark mode.
+
+Currently, only the following components support CSS variable degradation. We are still improving the CSS variable degradation capabilities of other components. Please pay attention to the subsequent releases:
+
+- Button
+- CenterPopup
+- ErrorBlock
+- Image
+- Mask
+- Modal
+- PageIndicator
+- Popover
+- PopoverMenu
+- ScrollMask
+- Space
+- SpinLoading
+- Swiper
+- Tabs
+- Toast

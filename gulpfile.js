@@ -40,25 +40,16 @@ function buildStyle() {
     .pipe(gulp.dest('./lib/cjs'))
 }
 
-function buildPatchStyle() {
+function copyPatchStyle() {
   return gulp
-    .src(['./src/**/*.patch.less'], {
-      base: './src/',
-    })
+    .src(['./lib/es/global/css-vars-patch.css'])
     .pipe(
-      less({
-        paths: [path.join(__dirname, 'src')],
-        relativeUrls: true,
+      rename({
+        dirname: '',
+        extname: '.css',
       })
     )
-    .pipe(
-      rename(path => ({
-        dirname: '',
-        basename: path.basename.replace(/\.patch$/, ''),
-        extname: '.css',
-      }))
-    )
-    .pipe(gulp.dest('./lib/css-var-patch'))
+    .pipe(gulp.dest('./lib/bundle'))
 }
 
 function copyAssets() {
@@ -281,7 +272,7 @@ function generatePackageJSON() {
     .pipe(gulp.dest('./lib/'))
 }
 
-function create2xFolder() {
+function init2xFolder() {
   return gulp
     .src('./lib/**', {
       base: './lib/',
@@ -312,10 +303,10 @@ exports.default = gulp.series(
   buildES,
   buildCJS,
   gulp.parallel(buildDeclaration, buildStyle),
-  buildPatchStyle,
+  copyPatchStyle,
   copyAssets,
   copyMetaFiles,
   generatePackageJSON,
-  gulp.series(create2xFolder, build2xCSS),
-  gulp.parallel(umdWebpack, buildBundles)
+  gulp.parallel(umdWebpack, buildBundles),
+  gulp.series(init2xFolder, build2xCSS)
 )

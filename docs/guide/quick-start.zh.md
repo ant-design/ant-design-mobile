@@ -48,9 +48,7 @@ import { Button } from 'antd-mobile'
 
 对于 React，我们兼容的版本是 `^16.8.0` `^17.0.0` `^18.0.0`。
 
-<Alert type="warning">
-  对 React 18 的兼容处理还处于试验性阶段，如果你在 React 18 的项目中发现了 antd-mobile 的问题，可以在 <a target="_blank" href="https://github.com/ant-design/ant-design-mobile/issues/new/choose">这里</a> 提交 issue。
-</Alert>
+由于 iOS 9 并不支持 CSS 变量，因此如果你需要支持 iOS 9，请参考 [这篇文档](./css-variables#css-变量自动降级) 启用 CSS 变量自动降级，并且将 babel 配置中的 target ios 设置为 `9`。
 
 ## 在线体验
 

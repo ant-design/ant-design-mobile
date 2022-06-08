@@ -1,0 +1,26 @@
+.adm-swiper {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  &-track {
+    padding: 0;
+  }
+}
+
+.adm-swiper-horizontal {
+  .adm-swiper-track {
+    transform: translateX(0%);
+    &-inner {
+      width: 100%;
+    }
+  }
+}
+.adm-swiper-vertical {
+  .adm-swiper-track {
+    transform: translateY(0%);
+    &-inner {
+      height: 100%;
+    }
+  }
+}

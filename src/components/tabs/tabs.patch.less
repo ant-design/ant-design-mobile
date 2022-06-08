@@ -1,0 +1,28 @@
+@class-prefix-tabs: ~'adm-tabs';
+
+.@{class-prefix-tabs} {
+  &-header {
+    border-bottom: solid 1px #eeeeee;
+  }
+
+  &-tab {
+    font-size: 17px;
+  }
+  &-tab-active {
+    color: #1677ff;
+  }
+  &-tab-line {
+    height: 2px;
+    background: #1677ff;
+    border-radius: 2px;
+  }
+  &-content {
+    padding: 12px;
+  }
+  &-header-mask-left {
+    background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
+  }
+  &-header-mask-right {
+    background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0));
+  }
+}

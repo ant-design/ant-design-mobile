@@ -1,0 +1,22 @@
+@class-prefix-popover: ~'adm-popover';
+
+.@{class-prefix-popover} {
+  &&-dark {
+    color: #ffffff;
+    .adm-popover-inner {
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+  }
+  z-index: 1030;
+
+  &-inner {
+    background-color: #ffffff;
+    font-size: 15px;
+    &-content {
+      padding: 8px 12px;
+    }
+  }
+  &-arrow {
+    display: none !important;
+  }
+}

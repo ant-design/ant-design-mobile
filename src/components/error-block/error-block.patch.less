@@ -1,0 +1,29 @@
+@class-prefix-error-block: ~'adm-error-block';
+
+.@{class-prefix-error-block} {
+  &-image {
+    height: 100px;
+    width: auto;
+  }
+
+  &-description {
+    font-size: var(--adm-font-size-4);
+    &-title {
+      font-size: var(--adm-font-size-7);
+    }
+  }
+
+  &-full-page {
+    padding-top: calc(50vh - 200px);
+    .@{class-prefix-error-block}-image {
+      height: 200px;
+      width: auto;
+    }
+    .@{class-prefix-error-block}-description {
+      font-size: var(--adm-font-size-main);
+      &-title {
+        color: #333333;
+      }
+    }
+  }
+}
