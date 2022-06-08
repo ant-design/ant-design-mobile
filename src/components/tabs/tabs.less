@@ -1,7 +1,7 @@
 @class-prefix-tabs: ~'adm-tabs';
 
 .@{class-prefix-tabs} {
-  --title-font-size: 17px;
+  --title-font-size: var(--adm-font-size-9);
   --content-padding: 12px;
   --active-line-height: 2px;
   --active-line-border-radius: var(--active-line-height);
@@ -13,7 +13,7 @@
 
   &-header {
     position: relative;
-    border-bottom: solid 1px var(--adm-border-color);
+    border-bottom: solid 1px var(--adm-color-border);
   }
 
   &-tab-list {
@@ -71,10 +71,18 @@
   }
   &-header-mask-left {
     left: 0;
-    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+    background: linear-gradient(
+      to right,
+      var(--adm-color-background),
+      rgba(255, 255, 255, 0)
+    );
   }
   &-header-mask-right {
     right: 0;
-    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+    background: linear-gradient(
+      to left,
+      var(--adm-color-background),
+      rgba(255, 255, 255, 0)
+    );
   }
 }

@@ -22,6 +22,8 @@ import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
 import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
 
+const classPrefix = `adm-swiper`
+
 export type SwiperRef = {
   swipeTo: (index: number) => void
   swipeNext: () => void
@@ -250,11 +252,11 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       function renderTrackInner() {
         if (loop) {
           return (
-            <div className='adm-swiper-track-inner'>
+            <div className={`${classPrefix}-track-inner`}>
               {React.Children.map(validChildren, (child, index) => {
                 return (
                   <animated.div
-                    className='adm-swiper-slide'
+                    className={`${classPrefix}-slide`}
                     style={{
                       [isVertical ? 'y' : 'x']: position.to(position => {
                         let finalPosition = -position + index * 100
@@ -277,7 +279,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         } else {
           return (
             <animated.div
-              className='adm-swiper-track-inner'
+              className={`${classPrefix}-track-inner`}
               style={{
                 [isVertical ? 'y' : 'x']: position.to(
                   position => `${-position}%`
@@ -285,7 +287,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               }}
             >
               {React.Children.map(validChildren, child => {
-                return <div className='adm-swiper-slide'>{child}</div>
+                return <div className={`${classPrefix}-slide`}>{child}</div>
               })}
             </animated.div>
           )
@@ -301,13 +303,16 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       return withNativeProps(
         props,
         <div
-          className={classNames('adm-swiper', `adm-swiper-${props.direction}`)}
+          className={classNames(
+            classPrefix,
+            `${classPrefix}-${props.direction}`
+          )}
           style={style}
         >
           <div
             ref={trackRef}
-            className={classNames('adm-swiper-track', {
-              'adm-swiper-track-allow-touch-move': props.allowTouchMove,
+            className={classNames(`${classPrefix}-track`, {
+              [`${classPrefix}-track-allow-touch-move`]: props.allowTouchMove,
             })}
             onClickCapture={e => {
               if (draggingRef.current) {
@@ -319,7 +324,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
             {renderTrackInner()}
           </div>
           {props.indicator === undefined ? (
-            <div className='adm-swiper-indicator'>
+            <div className={`${classPrefix}-indicator`}>
               <PageIndicator
                 {...props.indicatorProps}
                 total={count}

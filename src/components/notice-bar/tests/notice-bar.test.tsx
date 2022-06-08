@@ -10,14 +10,14 @@ describe('NoticeBar', () => {
   })
 
   test('the type of the bar', async () => {
-    const renderer = await render(
+    const renderer = render(
       <NoticeBar content='notice' data-testid='default' />
     )
     expect(renderer.getByTestId('default')).toHaveClass(
       `${classPrefix}-default`
     )
 
-    const renderer2 = await render(
+    const renderer2 = render(
       <NoticeBar content='notice' color='alert' data-testid='alert' />
     )
     expect(renderer2.getByTestId('alert')).toHaveClass(`${classPrefix}-alert`)
@@ -25,7 +25,7 @@ describe('NoticeBar', () => {
 
   test('can be close', async () => {
     const fn = jest.fn()
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <NoticeBar content='notice' closeable data-testid='notice' onClose={fn} />
     )
 
@@ -39,21 +39,21 @@ describe('NoticeBar', () => {
   })
 
   test('`icon` prop', async () => {
-    const { getByText } = await render(
+    const { getByText } = render(
       <NoticeBar content='notice' icon={<div>custom icon</div>} />
     )
     expect(getByText('custom icon')).toBeVisible()
   })
 
   test('`extra` prop', async () => {
-    const { getByText } = await render(
+    const { getByText } = render(
       <NoticeBar content='notice' extra={<div>custom extra</div>} />
     )
     expect(getByText('custom extra')).toBeVisible()
   })
 
   test('long content', async () => {
-    const { container, debug } = await render(
+    const { container, debug } = render(
       <NoticeBar
         delay={100}
         speed={500}

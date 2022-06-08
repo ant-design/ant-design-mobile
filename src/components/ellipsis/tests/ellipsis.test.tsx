@@ -41,35 +41,35 @@ describe('Ellipsis', () => {
   })
 
   test('direction start', async () => {
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <Ellipsis content={content} direction='start' data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
   test('direction middle', async () => {
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <Ellipsis content={content} direction='middle' data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
   test('direction end', async () => {
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <Ellipsis content={content} direction='end' data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
   test('multi line', async () => {
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <Ellipsis content={content} rows={3} data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
   test('expand and collapse', async () => {
-    const { getByTestId, getByText } = await render(
+    const { getByTestId, getByText } = render(
       <Ellipsis
         content={content}
         expandText='expand'
@@ -86,7 +86,7 @@ describe('Ellipsis', () => {
 
   test('content click', async () => {
     const onClick = jest.fn()
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <Ellipsis
         content={content}
         data-testid='ellipsis'
@@ -102,7 +102,7 @@ describe('Ellipsis', () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       value: lineHeight,
     })
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <Ellipsis content='abc' data-testid='ellipsis' />
     )
 

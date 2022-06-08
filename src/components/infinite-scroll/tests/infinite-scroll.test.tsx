@@ -69,7 +69,7 @@ describe('InfiniteScroll', () => {
   }
 
   test('basic usage', async () => {
-    const { getByText } = await render(<App />)
+    const { getByText } = render(<App />)
 
     // mock scroll
     getBoundingClientRectMock.mockReturnValue({
@@ -88,7 +88,7 @@ describe('InfiniteScroll', () => {
   })
 
   test('customized content', async () => {
-    await render(<App content={true} />)
+    render(<App content={true} />)
 
     // mock scroll
     getBoundingClientRectMock.mockReturnValue({

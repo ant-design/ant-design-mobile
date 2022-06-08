@@ -19,7 +19,7 @@ describe('Calendar', () => {
 
   test('single mode', async () => {
     const fn = jest.fn()
-    const { container, getByText } = await render(
+    const { container, getByText } = render(
       <Calendar
         selectionMode='single'
         defaultValue={singleDate}
@@ -36,7 +36,7 @@ describe('Calendar', () => {
 
   test('range mode', async () => {
     const fn = jest.fn()
-    const { container, getByText } = await render(
+    const { container, getByText } = render(
       <Calendar selectionMode='range' defaultValue={rangeDate} onChange={fn} />
     )
 
@@ -73,7 +73,7 @@ describe('Calendar', () => {
       )
     }
 
-    const { container, getByText } = await render(<App />)
+    const { container, getByText } = render(<App />)
     const [startEl, endEl] = [getByText(8), getByText(15)]
     fireEvent.click(startEl)
     fireEvent.click(endEl)
@@ -82,7 +82,7 @@ describe('Calendar', () => {
 
   test('page change', async () => {
     const fn = jest.fn()
-    await render(<Calendar selectionMode='single' onPageChange={fn} />)
+    render(<Calendar selectionMode='single' onPageChange={fn} />)
 
     const btns = document.querySelectorAll(`.${classPrefix}-arrow-button-right`)
     const titleEl = document.querySelector(`.${classPrefix}-title`)
@@ -120,7 +120,7 @@ describe('Calendar', () => {
         </>
       )
     }
-    const { container, getByText } = await render(<App />)
+    const { container, getByText } = render(<App />)
 
     fireEvent.click(getByText('jumpTo'))
     expect(container).toMatchSnapshot()
@@ -130,12 +130,12 @@ describe('Calendar', () => {
   })
 
   test('week start on Monday', async () => {
-    const { container } = await render(<Calendar weekStartsOn='Monday' />)
+    const { container } = render(<Calendar weekStartsOn='Monday' />)
     expect(container).toMatchSnapshot()
   })
 
   test(`can't allow to clear`, async () => {
-    const { getByText } = await render(
+    const { getByText } = render(
       <Calendar selectionMode='single' allowClear={false} />
     )
 
@@ -147,7 +147,7 @@ describe('Calendar', () => {
 
   test('custom label', async () => {
     const today = dayjs()
-    const { container } = await render(
+    const { container } = render(
       <Calendar
         renderLabel={date => {
           if (dayjs(date).isSame(today, 'day')) return '今天'

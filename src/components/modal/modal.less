@@ -12,7 +12,7 @@
 .@{class-prefix-modal}-body {
   width: 100%;
   max-height: 70vh;
-  font-size: 14px;
+  font-size: var(--adm-font-size-6);
   overflow: hidden;
 
   display: flex;
@@ -42,7 +42,7 @@
   margin-bottom: 8px;
   padding: 0 12px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: var(--adm-font-size-10);
   line-height: 25px;
   text-align: center;
 }
@@ -51,9 +51,9 @@
   max-height: 70vh;
   overflow-x: hidden;
   overflow-y: auto;
-  font-size: 15px;
+  font-size: var(--adm-font-size-7);
   line-height: 1.4;
-  color: #333;
+  color: var(--adm-color-text);
 }
 .adm-modal-close {
   position: absolute;
@@ -61,7 +61,7 @@
   top: 8px;
   color: var(--adm-color-weak);
   padding: 4px;
-  font-size: 18px;
+  font-size: var(--adm-font-size-10);
 }
 
 .adm-modal-footer {
@@ -75,7 +75,7 @@
     --gap-vertical: 20px;
   }
   .adm-modal-button {
-    font-size: 18px;
+    font-size: var(--adm-font-size-10);
     line-height: 25px;
     &:not(.adm-modal-button-primary) {
       padding-top: 0;

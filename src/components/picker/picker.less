@@ -1,9 +1,9 @@
 @class-prefix-picker: ~'adm-picker';
 
 .@{class-prefix-picker} {
-  --header-button-font-size: 15px;
-  --title-font-size: 15px;
-  --item-font-size: 16px;
+  --header-button-font-size: var(--adm-font-size-7);
+  --title-font-size: var(--adm-font-size-7);
+  --item-font-size: var(--adm-font-size-8);
   --item-height: 34px;
 
   width: 100%;
@@ -23,7 +23,7 @@
 
 .@{class-prefix-picker}-header {
   flex: none;
-  border-bottom: solid 1px var(--adm-border-color);
+  border-bottom: solid 1px var(--adm-color-border);
   display: flex;
   justify-content: space-between;
   align-items: center;

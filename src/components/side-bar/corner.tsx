@@ -8,7 +8,7 @@ export const Corner = memo<NativeProps>(props =>
       <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
         <path
           d='M30,0 C13.4314575,3.04359188e-15 -2.02906125e-15,13.4314575 0,30 L0,30 L0,0 Z'
-          fill='var(--adm-color-white)'
+          fill='var(--adm-color-background)'
           transform='translate(15.000000, 15.000000) scale(-1, -1) translate(-15.000000, -15.000000) '
         />
       </g>

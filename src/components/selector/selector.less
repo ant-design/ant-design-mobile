@@ -1,7 +1,7 @@
 @class-prefix-selector: ~'adm-selector';
 
 .@{class-prefix-selector} {
-  --color: #f5f5f5;
+  --color: var(--adm-color-box);
   --checked-color: #e7f1ff;
   --text-color: var(--adm-color-text);
   --checked-text-color: var(--adm-color-primary);
@@ -11,7 +11,7 @@
   --padding: 8px 16px;
 
   overflow: hidden;
-  font-size: 15px;
+  font-size: var(--adm-font-size-7);
   line-height: 1.4;
 
   .adm-space.adm-space {
@@ -33,7 +33,7 @@
     vertical-align: top;
 
     &-description {
-      font-size: 13px;
+      font-size: var(--adm-font-size-main);
       color: var(--adm-color-weak);
     }
 

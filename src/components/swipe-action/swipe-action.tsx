@@ -17,6 +17,8 @@ import {
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
 
+const classPrefix = `adm-swipe-action`
+
 export type SwipeActionRef = {
   close: () => void
   show: (side?: 'left' | 'right') => void
@@ -173,7 +175,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       return (
         <Button
           key={action.key}
-          className='adm-swipe-action-action-button'
+          className={`${classPrefix}-action-button`}
           style={{
             '--background-color': colorRecord[color] ?? color,
           }}
@@ -193,7 +195,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
     return withNativeProps(
       props,
       <div
-        className='adm-swipe-action'
+        className={classPrefix}
         {...bind()}
         ref={rootRef}
         onClickCapture={e => {
@@ -203,18 +205,18 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
           }
         }}
       >
-        <animated.div className='adm-swipe-action-track' style={{ x }}>
+        <animated.div className={`${classPrefix}-track`} style={{ x }}>
           {withStopPropagation(
             props.stopPropagation,
             <div
-              className='adm-swipe-action-actions adm-swipe-action-actions-left'
+              className={`${classPrefix}-actions ${classPrefix}-actions-left`}
               ref={leftRef}
             >
               {props.leftActions.map(renderAction)}
             </div>
           )}
           <div
-            className='adm-swipe-action-content'
+            className={`${classPrefix}-content`}
             onClickCapture={e => {
               if (x.goal !== 0) {
                 e.preventDefault()
@@ -238,7 +240,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
           {withStopPropagation(
             props.stopPropagation,
             <div
-              className='adm-swipe-action-actions adm-swipe-action-actions-right'
+              className={`${classPrefix}-actions ${classPrefix}-actions-right`}
               ref={rightRef}
             >
               {props.rightActions.map(renderAction)}

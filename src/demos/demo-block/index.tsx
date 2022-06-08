@@ -27,5 +27,5 @@ export const DemoBlock: FC<Props> = props => {
 
 DemoBlock.defaultProps = {
   padding: '12px 12px',
-  background: '#ffffff',
+  background: 'var(--adm-color-background)',
 }

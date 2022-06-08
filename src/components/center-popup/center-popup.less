@@ -1,7 +1,10 @@
 @class-prefix-center-popup: ~'adm-center-popup';
 
 .@{class-prefix-center-popup} {
-  --background-color: var(--adm-center-popup-background-color, #ffffff);
+  --background-color: var(
+    --adm-center-popup-background-color,
+    var(--adm-color-background)
+  );
   --border-radius: var(--adm-center-popup-border-radius, 8px);
   --max-width: var(--adm-center-popup-max-width, 75vw);
   --min-width: var(--adm-center-popup-min-width, 280px);

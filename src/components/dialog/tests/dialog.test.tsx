@@ -52,7 +52,7 @@ describe('Dialog', () => {
 
   test('afterShow should be called', async () => {
     const afterShow = jest.fn()
-    const { getByText } = await render(<DialogAlert afterShow={afterShow} />)
+    const { getByText } = render(<DialogAlert afterShow={afterShow} />)
 
     await act(async () => {
       fireEvent.click(getByText('btn'))
@@ -63,11 +63,11 @@ describe('Dialog', () => {
 
   test('onConfirm should be called', async () => {
     const onConfirm = jest.fn()
-    const { getByText } = await render(<DialogAlert onConfirm={onConfirm} />)
+    const { getByText } = render(<DialogAlert onConfirm={onConfirm} />)
 
     fireEvent.click(getByText('btn'))
     await act(async () => {
-      await fireEvent.click(getByText('我知道了'))
+      fireEvent.click(getByText('我知道了'))
     })
 
     expect(onConfirm).toBeCalled()
@@ -76,7 +76,7 @@ describe('Dialog', () => {
   test('close on mask click', async () => {
     const onClose = jest.fn()
     const afterClose = jest.fn()
-    const { getByText } = await render(
+    const { getByText } = render(
       <DialogAlert closeOnMaskClick onClose={onClose} afterClose={afterClose} />
     )
 
@@ -89,7 +89,7 @@ describe('Dialog', () => {
   })
 
   test('custom content', async () => {
-    const { getByText } = await render(
+    const { getByText } = render(
       <DialogAlert
         header={<div>header</div>}
         title='title'
@@ -109,7 +109,7 @@ describe('Dialog', () => {
 
   test('wait for alert to complete', async () => {
     const fn = jest.fn()
-    const { getByText } = await render(
+    const { getByText } = render(
       <button
         onClick={async () => {
           await Dialog.alert({
@@ -124,7 +124,7 @@ describe('Dialog', () => {
 
     fireEvent.click(getByText('btn'))
     await act(async () => {
-      await fireEvent.click(getByText('我知道了'))
+      fireEvent.click(getByText('我知道了'))
     })
 
     expect(fn).toBeCalled()
@@ -145,7 +145,7 @@ describe('Dialog', () => {
       </button>
     )
 
-    const { getByText, getAllByText } = await render(<Confirm />)
+    const { getByText, getAllByText } = render(<Confirm />)
     fireEvent.click(getByText('btn'))
     act(() => {
       fireEvent.click(getAllByText('确定')[0])
@@ -179,7 +179,7 @@ describe('Dialog', () => {
       },
     ]
 
-    const { getByText } = await render(
+    const { getByText } = render(
       <button
         onClick={() => {
           Dialog.show({
@@ -215,7 +215,7 @@ describe('Dialog', () => {
       },
     ]
 
-    const { getByText } = await render(
+    const { getByText } = render(
       <button
         onClick={() => {
           Dialog.show({
@@ -230,7 +230,7 @@ describe('Dialog', () => {
 
     fireEvent.click(getByText('btn'))
     await act(async () => {
-      await fireEvent.click(getByText('ok'))
+      fireEvent.click(getByText('ok'))
     })
 
     expect(onClick).toBeCalled()

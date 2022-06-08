@@ -23,7 +23,7 @@ describe('Tabs', () => {
   })
 
   test('basic usage', async () => {
-    const { getByText } = await render(<Basic defaultActiveKey='animals' />)
+    const { getByText } = render(<Basic defaultActiveKey='animals' />)
     expect(getByText('Ant')).toBeVisible()
     expect(getByText('animals')).toHaveClass(`${classPrefix}-tab-active`)
     fireEvent.click(getByText('vegetables'))
@@ -36,7 +36,7 @@ describe('Tabs', () => {
       const [activeKey, setActiveKey] = useState<string | null>(null)
       return <Basic activeKey={activeKey} onChange={key => setActiveKey(key)} />
     }
-    const { getByText } = await render(<App />)
+    const { getByText } = render(<App />)
     expect(document.querySelectorAll(`.${classPrefix}-tab-active`).length).toBe(
       0
     )
@@ -46,7 +46,7 @@ describe('Tabs', () => {
 
   test('disabled tab', async () => {
     const onChange = jest.fn()
-    const { getByText } = await render(
+    const { getByText } = render(
       <Tabs onChange={onChange}>
         <Tabs.Tab title='fruits' key='fruits' />
         <Tabs.Tab title='vegetables' key='vegetables' />
@@ -60,10 +60,8 @@ describe('Tabs', () => {
   })
 
   test('`activeLineMode` prop', async () => {
-    const { container: fullContainer } = await render(
-      <Basic activeLineMode='full' />
-    )
-    const { container: fixedContainer } = await render(
+    const { container: fullContainer } = render(<Basic activeLineMode='full' />)
+    const { container: fixedContainer } = render(
       <Basic activeLineMode='fixed' />
     )
     expect(fullContainer).toMatchSnapshot()
@@ -71,16 +69,14 @@ describe('Tabs', () => {
   })
 
   test('not stretch', async () => {
-    const { getByTestId } = await render(
-      <Basic stretch={false} data-testid='tabs' />
-    )
+    const { getByTestId } = render(<Basic stretch={false} data-testid='tabs' />)
     expect(getByTestId('tabs')).not.toHaveClass(
       `${classPrefix}-tab-wrapper-stretch`
     )
   })
 
   test('render the DOM structure when hidden', async () => {
-    const { queryByText } = await render(
+    const { queryByText } = render(
       <Tabs>
         <Tabs.Tab title='fruits' key='fruits'>
           Apple
@@ -98,7 +94,7 @@ describe('Tabs', () => {
   })
 
   test('unmount content when not visible', async () => {
-    const { getByText, queryByText } = await render(
+    const { getByText, queryByText } = render(
       <Tabs>
         <Tabs.Tab title='fruits' key='fruits' destroyOnClose>
           Apple

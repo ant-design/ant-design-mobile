@@ -1,7 +1,7 @@
 @class-prefix-virtual-input: ~'adm-virtual-input';
 
 .@{class-prefix-virtual-input} {
-  --font-size: 17px;
+  --font-size: var(--adm-font-size-9);
   --color: var(--adm-color-text);
   --placeholder-color: var(--adm-color-light);
   --disabled-color: var(--adm-color-weak);
@@ -102,6 +102,6 @@
   cursor: pointer;
   .antd-mobile-icon {
     display: block;
-    font-size: 14px;
+    font-size: var(--adm-font-size-6);
   }
 }

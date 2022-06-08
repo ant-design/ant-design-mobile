@@ -55,17 +55,26 @@ The following are the global CSS variables currently provided by antd-mobile:
   --adm-color-success: #00b578;
   --adm-color-warning: #ff8f1f;
   --adm-color-danger: #ff3141;
+
   --adm-color-white: #ffffff;
+  --adm-color-text: #333333;
+  --adm-color-text-secondary: #666666;
   --adm-color-weak: #999999;
   --adm-color-light: #cccccc;
-  --adm-border-color: #eeeeee;
-  --adm-font-size-main: 13px;
-  --adm-color-text: #333333;
+  --adm-color-border: #eeeeee;
+  --adm-color-box: #f5f5f5;
+  --adm-color-background: #ffffff;
+
+  --adm-font-size-main: var(--adm-font-size-5);
 
   --adm-font-family: -apple-system, blinkmacsystemfont, 'Helvetica Neue',
   helvetica, segoe ui, arial, roboto, 'PingFang SC', 'miui',
   'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
 }
 ```
+
+<Alert type="warning">
+  The --adm-border-color variable has been deprecated since version 5.14.0, if you use it in your project, please replace it with --adm-color-border. We will remove --adm-border-color in the next major release.
+</Alert>
 
 Besides, every component has its own global CSS variables. You can find more information in their document page. For detailed explanation, please refer the [CSS Variables](./css-variables) chapter.
