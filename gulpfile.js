@@ -42,7 +42,7 @@ function buildStyle() {
 
 function buildPatchStyle() {
   return gulp
-    .src(['./src/**/*.patch.less'], {
+    .src(['./src/global/css-vars-patch.less'], {
       base: './src/',
     })
     .pipe(
@@ -52,13 +52,12 @@ function buildPatchStyle() {
       })
     )
     .pipe(
-      rename(path => ({
+      rename({
         dirname: '',
-        basename: path.basename.replace(/\.patch$/, ''),
         extname: '.css',
-      }))
+      })
     )
-    .pipe(gulp.dest('./lib/css-var-patch'))
+    .pipe(gulp.dest('./lib/bundle'))
 }
 
 function copyAssets() {
