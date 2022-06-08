@@ -33,7 +33,7 @@
 | --edge-distance           | 和屏幕四周的最小间距           | `0`                        |
 | --initial-position-bottom | 初始状态组件距离屏幕下边的距离 | -                          |
 | --initial-position-left   | 初始状态组件距离屏幕左边的距离 | -                          |
-| --initial-position-right  | 初始状态组件距离屏幕左边的距离 | -                          |
+| --initial-position-right  | 初始状态组件距离屏幕右边的距离 | -                          |
 | --initial-position-top    | 初始状态组件距离屏幕上边的距离 | -                          |
 | --size                    | 气泡大小                       | `48px`                     |
 | --z-index                 | 气泡的 z-index                 | `1`                        |
