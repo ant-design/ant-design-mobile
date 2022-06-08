@@ -1,0 +1,31 @@
+@class-prefix-modal: ~'adm-modal';
+
+.@{class-prefix-modal}-body {
+  font-size: 14px;
+}
+
+.adm-modal-title {
+  font-size: 18px;
+}
+.adm-modal-content {
+  font-size: 15px;
+  color: #333333;
+}
+.adm-modal-close {
+  color: #999999;
+  font-size: 18px;
+}
+
+.adm-modal-footer {
+  &.adm-space.adm-space-vertical {
+    > .adm-space-item.adm-space-item {
+      margin-bottom: 20px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .adm-modal-button {
+    font-size: 18px;
+  }
+}
