@@ -38,9 +38,9 @@ export const InternalToast: React.FC<ToastProps> = p => {
     if (icon === null || icon === undefined) return null
     switch (icon) {
       case 'success':
-        return <CheckOutline />
+        return <CheckOutline className={`${classPrefix}-success`} />
       case 'fail':
-        return <CloseOutline />
+        return <CloseOutline className={`${classPrefix}-fail`} />
       case 'loading':
         return (
           <SpinLoading color='white' className={`${classPrefix}-loading`} />
