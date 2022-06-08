@@ -17,7 +17,10 @@ type WrapperHandler = {
   close: () => void
 }
 
-export function renderImperatively(element: ReactElement<ImperativeProps>) {
+export function renderImperatively(
+  element: ReactElement<ImperativeProps>,
+  container?: HTMLElement
+) {
   const Wrapper = React.forwardRef<WrapperHandler>((_, ref) => {
     const [visible, setVisible] = useState(false)
     const closedRef = useRef(false)
@@ -48,7 +51,7 @@ export function renderImperatively(element: ReactElement<ImperativeProps>) {
     })
   })
   const wrapperRef = React.createRef<WrapperHandler>()
-  const unmount = renderToBody(<Wrapper ref={wrapperRef} />)
+  const unmount = renderToBody(<Wrapper ref={wrapperRef} />, container)
   function close() {
     wrapperRef.current?.close()
   }

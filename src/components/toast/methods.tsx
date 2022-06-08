@@ -1,23 +1,10 @@
-import React, {
-  createRef,
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from 'react'
+import React from 'react'
 import { resolveContainer } from '../../utils/get-container'
 import { InternalToast, ToastProps } from './toast'
 import { mergeProps } from '../../utils/with-default-props'
-import { render, unmount as reactUnmount } from '../../utils/render'
+import { renderImperatively } from '../../utils/render-imperatively'
 
-const containers = [] as HTMLDivElement[]
-
-function unmount(container: HTMLDivElement) {
-  const unmountResult = reactUnmount(container)
-  if (unmountResult && container.parentNode) {
-    container.parentNode.removeChild(container)
-  }
-}
+export const closeFns = [] as (() => void)[]
 
 export type ToastShowProps = Omit<ToastProps, 'visible'>
 
@@ -31,8 +18,6 @@ export type ToastHandler = {
   close: () => void
 }
 
-type ToastShowRef = ToastHandler
-
 export function show(p: ToastShowProps | string) {
   const props = mergeProps(
     defaultProps,
@@ -40,62 +25,36 @@ export function show(p: ToastShowProps | string) {
   )
   let timer = 0
   const { getContainer = () => document.body } = props
-  const container = document.createElement('div')
   const bodyContainer = resolveContainer(getContainer)
-  bodyContainer.appendChild(container)
   clear()
-  containers.push(container)
 
-  const TempToast = forwardRef<ToastShowRef>((_, ref) => {
-    const [visible, setVisible] = useState(true)
-    useEffect(() => {
-      return () => {
+  const handler: ToastHandler = renderImperatively(
+    <InternalToast
+      {...props}
+      afterClose={() => {
         props.afterClose?.()
-      }
-    }, [])
+      }}
+    />,
+    bodyContainer
+  )
 
-    useEffect(() => {
-      if (props.duration === 0) {
-        return
-      }
-      timer = window.setTimeout(() => {
-        setVisible(false)
-      }, props.duration)
-      return () => {
-        window.clearTimeout(timer)
-      }
-    }, [])
+  closeFns.push(handler.close)
 
-    useImperativeHandle(ref, () => ({
-      close: () => setVisible(false),
-    }))
+  if (props.duration !== 0) {
+    window.clearTimeout(timer)
+    timer = window.setTimeout(() => {
+      handler.close()
+    }, props.duration)
+  }
 
-    return (
-      <InternalToast
-        {...props}
-        getContainer={() => container}
-        visible={visible}
-        afterClose={() => {
-          unmount(container)
-        }}
-      />
-    )
-  })
-
-  const ref = createRef<ToastShowRef>()
-  render(<TempToast ref={ref} />, container)
-  return {
-    close: () => {
-      ref.current?.close()
-    },
-  } as ToastHandler
+  return handler
 }
 
 export function clear() {
   while (true) {
-    const container = containers.pop()
-    if (!container) break
-    unmount(container)
+    const closeFn = closeFns.pop()
+    if (!closeFn) break
+    closeFn()
   }
 }
 
