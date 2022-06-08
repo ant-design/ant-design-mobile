@@ -1,11 +1,5 @@
 import React, { useState } from 'react'
-import {
-  render,
-  fireEvent,
-  sleep,
-  screen,
-  waitForElementToBeRemoved,
-} from 'testing'
+import { render, fireEvent, sleep, screen, act, actSleep } from 'testing'
 import InfiniteScroll from '..'
 import { List } from 'antd-mobile'
 
@@ -62,7 +56,7 @@ describe('InfiniteScroll', () => {
           ))}
         </List>
         <InfiniteScroll loadMore={loadMore} hasMore={hasMore}>
-          {content ? <InfiniteScrollContent hasMore={hasMore} /> : null}
+          {content ? <InfiniteScrollContent hasMore={hasMore} /> : undefined}
         </InfiniteScroll>
       </>
     )
@@ -76,13 +70,15 @@ describe('InfiniteScroll', () => {
       top: 800,
     } as DOMRect)
 
-    fireEvent.scroll(window)
+    act(() => {
+      fireEvent.scroll(window)
+    })
+    await actSleep(1000)
 
     // loading
     await screen.findByText('加载中')
 
     // no more
-    await waitForElementToBeRemoved(getByText('加载中'))
     await screen.findByText('没有更多了')
     expect(document.querySelectorAll('.adm-list-item').length).toBe(count * 3)
   })
