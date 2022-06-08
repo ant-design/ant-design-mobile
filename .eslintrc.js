@@ -15,6 +15,16 @@ module.exports = {
     'project': 'tsconfig.json',
     'sourceType': 'module',
   },
+  'ignorePatterns': [
+    'config',
+    '.eslintrc.js',
+    'fileTransformer.js',
+    'gulpfile.js',
+    'jest.config.js',
+    'babel-transform-less-to-css.js',
+    'scripts/postcss-disable-css-vars.js',
+    'src/tests/mocks/style-mock.js',
+  ],
   'plugins': ['@typescript-eslint'],
   'rules': {
     '@typescript-eslint/explicit-function-return-type': 'off',
