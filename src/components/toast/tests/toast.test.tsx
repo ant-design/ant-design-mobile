@@ -5,7 +5,7 @@ import {
   waitForElementToBeRemoved,
   actClick,
   act,
-  sleep,
+  actSleep,
 } from 'testing'
 import Toast, { ToastHandler } from '..'
 
@@ -48,11 +48,20 @@ describe('Toast', () => {
     ))
 
     const { getByText } = render(<>{items}</>)
-    for (const icon of icons) {
-      await actClick(getByText(icon), 0)
-      const iconEl = document.querySelectorAll(`.${classPrefix}-${icon}`)[0]
-      expect(iconEl).toBeInTheDocument()
-    }
+    await actClick(getByText('success'), 1)
+    expect(
+      document.querySelectorAll(`.${classPrefix}-icon-success`)[0]
+    ).toBeInTheDocument()
+
+    await actClick(getByText('fail'))
+    expect(
+      document.querySelectorAll(`.${classPrefix}-icon-fail`)[0]
+    ).toBeInTheDocument()
+
+    await actClick(getByText('loading'), 0)
+    expect(
+      document.querySelectorAll(`.${classPrefix}-loading`)[0]
+    ).toBeInTheDocument()
   })
 
   test('custom icon', () => {
@@ -181,7 +190,7 @@ describe('Toast', () => {
 
     fireEvent.click(getByText('show'))
     const mask2 = document.querySelectorAll('.adm-mask')[0]
-    actClick(getByText('clear'))
+    fireEvent.click(getByText('clear'))
     await waitForElementToBeRemoved(mask2)
   })
 
@@ -203,7 +212,7 @@ describe('Toast', () => {
     const mask = document.querySelectorAll('.adm-mask')[0]
     expect(main).toHaveStyle('top: 20%')
     expect(mask).toHaveStyle('pointer-events: auto')
-    await sleep(15)
+    await actSleep(15)
     waitForElementToBeRemoved(mask)
   })
 })
