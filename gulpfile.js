@@ -282,17 +282,32 @@ function init2xFolder() {
 }
 
 function build2xCSS() {
-  return gulp
-    .src('./lib/2x/**/*.css', {
-      base: './lib/2x/',
-    })
-    .pipe(postcss([pxMultiplePlugin]))
-    .pipe(replace('--adm-hd: 1;', '--adm-hd: 2;'))
-    .pipe(
-      gulp.dest('./lib/2x', {
-        overwrite: true,
+  return (
+    gulp
+      .src('./lib/2x/**/*.css', {
+        base: './lib/2x/',
       })
-    )
+      // Hack fix since postcss-px-multiple ignores the `@supports` block
+      .pipe(
+        replace(
+          '@supports not (color: var(--adm-color-text))',
+          '@media screen and (min-width: 999999px)'
+        )
+      )
+      .pipe(postcss([pxMultiplePlugin]))
+      .pipe(
+        replace(
+          '@media screen and (min-width: 999999px)',
+          '@supports not (color: var(--adm-color-text))'
+        )
+      )
+      .pipe(replace('--adm-hd: 1;', '--adm-hd: 2;'))
+      .pipe(
+        gulp.dest('./lib/2x', {
+          overwrite: true,
+        })
+      )
+  )
 }
 
 exports.umdWebpack = umdWebpack
