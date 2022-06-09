@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./lib",
     "rootDirs": ["src", "config"],
     "target": "ES6",
     "moduleResolution": "node",
