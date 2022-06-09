@@ -6,6 +6,7 @@ import {
   waitFor,
   waitForElementToBeRemoved,
   actSleep,
+  actClick,
 } from 'testing'
 import Dialog, { DialogAlertProps } from '..'
 import { act } from '@testing-library/react'
@@ -198,10 +199,7 @@ describe('Dialog', () => {
     expect($$(`.${classPrefix}-button`)[1]).toHaveClass('adm-button-danger')
     expect($$(`.${classPrefix}-button`)[2]).toHaveClass('adm-button-disabled')
 
-    act(() => {
-      fireEvent.click(getByText('read'))
-    })
-    await actSleep(20)
+    await actClick(getByText('read'), 20)
     expect($$(`.${classPrefix}`).length).toBe(0)
   })
 

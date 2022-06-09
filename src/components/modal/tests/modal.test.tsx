@@ -10,6 +10,10 @@ import {
 } from 'testing'
 import Modal, { ModalAlertProps } from '..'
 import { act } from '@testing-library/react'
+import {
+  reduceMotion,
+  restoreMotion,
+} from '../../../utils/reduce-and-restore-motion'
 
 const classPrefix = `adm-modal`
 
@@ -195,7 +199,7 @@ describe('Modal', () => {
     expect($$(`.${classPrefix}-button`)).toHaveLength(actions.length)
     expect($$(`.${classPrefix}-button`)[1]).toHaveClass('adm-button-danger')
     expect($$(`.${classPrefix}-button`)[2]).toHaveClass('adm-button-disabled')
-    await actClick(getByText('read'))
+    await actClick(getByText('read'), 10)
     expect($$('.adm-modal').length).toBe(0)
   })
 
