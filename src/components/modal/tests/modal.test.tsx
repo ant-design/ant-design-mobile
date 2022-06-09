@@ -10,10 +10,6 @@ import {
 } from 'testing'
 import Modal, { ModalAlertProps } from '..'
 import { act } from '@testing-library/react'
-import {
-  reduceMotion,
-  restoreMotion,
-} from '../../../utils/reduce-and-restore-motion'
 
 const classPrefix = `adm-modal`
 
