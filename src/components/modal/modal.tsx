@@ -103,6 +103,8 @@ export const Modal: FC<ModalProps> = p => {
 
   return (
     <CenterPopup
+      className={classNames(cls(), props.className)}
+      style={props.style}
       afterClose={props.afterClose}
       afterShow={props.afterShow}
       onMaskClick={
