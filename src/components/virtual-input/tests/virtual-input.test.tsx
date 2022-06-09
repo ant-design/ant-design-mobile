@@ -1,5 +1,5 @@
 import React, { createRef } from 'react'
-import { render, fireEvent, act, screen, waitFor, sleep } from 'testing'
+import { render, fireEvent, act, screen, waitFor } from 'testing'
 import NumberKeyboard from '../../number-keyboard'
 import { VirtualInput, VirtualInputRef } from '../virtual-input'
 
@@ -70,16 +70,13 @@ describe('VirtualInput', () => {
 
   test('keyboard', async () => {
     const KeyBoardClassPrefix = 'adm-number-keyboard'
-    const Wrapper = () => {
-      return (
-        <VirtualInput
-          data-testid='virtualInput'
-          clearable
-          keyboard={<NumberKeyboard title='title' />}
-        />
-      )
-    }
-    render(<Wrapper />)
+    render(
+      <VirtualInput
+        data-testid='virtualInput'
+        clearable
+        keyboard={<NumberKeyboard title='title' />}
+      />
+    )
     expect(
       document.querySelector(`.${KeyBoardClassPrefix}-popup`)
     ).not.toBeVisible()
