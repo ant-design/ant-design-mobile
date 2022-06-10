@@ -48,7 +48,7 @@ export const Badge: FC<BadgeProps> = props => {
 
   return children ? (
     <div
-      className={classNames(`${classPrefix}-wrap`, props.wrapperClassName)}
+      className={classNames(`${classPrefix}-wrapper`, props.wrapperClassName)}
       style={props.wrapperStyle}
     >
       {children}

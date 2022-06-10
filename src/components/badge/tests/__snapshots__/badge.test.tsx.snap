@@ -3,7 +3,7 @@
 exports[`Badge render with content 1`] = `
 <div>
   <div
-    class="adm-badge-wrap"
+    class="adm-badge-wrapper"
   >
     text
     <div
@@ -35,7 +35,7 @@ exports[`Badge render without content 1`] = `
 exports[`Badge renders with color 1`] = `
 <div>
   <div
-    class="adm-badge-wrap"
+    class="adm-badge-wrapper"
   >
     text
     <div
