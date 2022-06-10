@@ -85,7 +85,7 @@ export const menus = {
       path: '/zh/guide/theming',
     },
     {
-      title: '暗黑模式（试验性）',
+      title: '深色模式（试验性）',
       path: '/zh/guide/dark-mode',
     },
     {
