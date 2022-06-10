@@ -12,7 +12,7 @@ exports[`TabBar item content 1`] = `
         class="adm-side-bar-item adm-side-bar-item-active"
       >
         <div
-          class="adm-badge-wrap"
+          class="adm-badge-wrapper"
         >
           <div
             class="adm-side-bar-item-title"
@@ -45,7 +45,7 @@ exports[`TabBar item content 1`] = `
           </g>
         </svg>
         <div
-          class="adm-badge-wrap"
+          class="adm-badge-wrapper"
         >
           <div
             class="adm-side-bar-item-title"

@@ -12,7 +12,7 @@ exports[`TabBar item content 1`] = `
         class="adm-tab-bar-item adm-tab-bar-item-active"
       >
         <div
-          class="adm-badge-wrap"
+          class="adm-badge-wrapper"
         >
           <div
             class="adm-tab-bar-item-icon"
@@ -64,7 +64,7 @@ exports[`TabBar item content 1`] = `
         class="adm-tab-bar-item"
       >
         <div
-          class="adm-badge-wrap"
+          class="adm-badge-wrapper"
         >
           <div
             class="adm-tab-bar-item-title"
