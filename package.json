@@ -5,7 +5,7 @@
     "start": "dumi dev",
     "build": "gulp",
     "build-doc": "dumi build",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint": "eslint .",
     "postinstall": "husky install",
     "test": "jest",
     "test-with-coverage": "jest --coverage",
