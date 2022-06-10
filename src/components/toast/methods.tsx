@@ -1,10 +1,13 @@
 import React from 'react'
-import { resolveContainer } from '../../utils/get-container'
 import { InternalToast, ToastProps } from './toast'
 import { mergeProps } from '../../utils/with-default-props'
-import { renderImperatively } from '../../utils/render-imperatively'
+import {
+  ImperativeHandler,
+  renderImperatively,
+} from '../../utils/render-imperatively'
 
-export const closeFns = [] as (() => void)[]
+let currentHandler: ImperativeHandler | null = null
+let currentTimeout: number | null = null
 
 export type ToastShowProps = Omit<ToastProps, 'visible'>
 
@@ -23,39 +26,37 @@ export function show(p: ToastShowProps | string) {
     defaultProps,
     typeof p === 'string' ? { content: p } : p
   )
-  let timer = 0
-  const { getContainer = () => document.body } = props
-  const bodyContainer = resolveContainer(getContainer)
-  clear()
 
-  const handler: ToastHandler = renderImperatively(
+  const element = (
     <InternalToast
       {...props}
       afterClose={() => {
         props.afterClose?.()
       }}
-    />,
-    bodyContainer
+    />
   )
 
-  closeFns.push(handler.close)
+  if (currentHandler) {
+    currentHandler.replace(element)
+  } else {
+    currentHandler = renderImperatively(element)
+  }
 
+  if (currentTimeout) {
+    window.clearTimeout(currentTimeout)
+  }
   if (props.duration !== 0) {
-    window.clearTimeout(timer)
-    timer = window.setTimeout(() => {
-      handler.close()
+    currentTimeout = window.setTimeout(() => {
+      clear()
     }, props.duration)
   }
 
-  return handler
+  return currentHandler as ToastHandler
 }
 
 export function clear() {
-  while (true) {
-    const closeFn = closeFns.pop()
-    if (!closeFn) break
-    closeFn()
-  }
+  currentHandler?.close()
+  currentHandler = null
 }
 
 export function config(

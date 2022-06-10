@@ -13,17 +13,19 @@ type ImperativeProps = {
   afterClose?: () => void
 }
 
-type WrapperHandler = {
+type TargetElement = ReactElement<ImperativeProps>
+
+export type ImperativeHandler = {
   close: () => void
+  replace: (element: TargetElement) => void
 }
 
-export function renderImperatively(
-  element: ReactElement<ImperativeProps>,
-  container?: HTMLElement
-) {
-  const Wrapper = React.forwardRef<WrapperHandler>((_, ref) => {
+export function renderImperatively(element: TargetElement) {
+  const Wrapper = React.forwardRef<ImperativeHandler>((_, ref) => {
     const [visible, setVisible] = useState(false)
     const closedRef = useRef(false)
+    const [elementToRender, setElementToRender] = useState(element)
+    const keyRef = useRef(0)
     useEffect(() => {
       if (!closedRef.current) {
         setVisible(true)
@@ -34,28 +36,35 @@ export function renderImperatively(
     function onClose() {
       closedRef.current = true
       setVisible(false)
-      element.props.onClose?.()
+      elementToRender.props.onClose?.()
     }
     function afterClose() {
       unmount()
-      element.props.afterClose?.()
+      elementToRender.props.afterClose?.()
     }
     useImperativeHandle(ref, () => ({
       close: onClose,
+      replace: element => {
+        keyRef.current++
+        setElementToRender(element)
+      },
     }))
-    return React.cloneElement(element, {
-      ...element.props,
+    return React.cloneElement(elementToRender, {
+      ...elementToRender.props,
+      key: keyRef.current,
       visible,
       onClose,
       afterClose,
     })
   })
-  const wrapperRef = React.createRef<WrapperHandler>()
-  const unmount = renderToBody(<Wrapper ref={wrapperRef} />, container)
-  function close() {
-    wrapperRef.current?.close()
-  }
+  const wrapperRef = React.createRef<ImperativeHandler>()
+  const unmount = renderToBody(<Wrapper ref={wrapperRef} />)
   return {
-    close,
-  }
+    close: () => {
+      wrapperRef.current?.close()
+    },
+    replace: element => {
+      wrapperRef.current?.replace(element)
+    },
+  } as ImperativeHandler
 }

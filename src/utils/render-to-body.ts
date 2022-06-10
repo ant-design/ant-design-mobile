@@ -1,12 +1,9 @@
 import { ReactElement } from 'react'
 import { render, unmount as reactUnmount } from './render'
 
-export function renderToBody(
-  element: ReactElement,
-  bodyContainer: HTMLElement = document.body
-) {
+export function renderToBody(element: ReactElement) {
   const container = document.createElement('div')
-  bodyContainer.appendChild(container)
+  document.body.appendChild(container)
   function unmount() {
     const unmountResult = reactUnmount(container)
     if (unmountResult && container.parentNode) {
