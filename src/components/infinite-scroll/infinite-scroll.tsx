@@ -100,6 +100,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   function retry() {
     setFailed(false)
     doLoadMore(true)
+    setFlag(nextFlagRef.current)
   }
 
   return withNativeProps(
