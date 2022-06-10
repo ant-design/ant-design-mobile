@@ -14,11 +14,13 @@ It is suitable for reminders of productized new news, new functions, new service
 
 ### Props
 
-| Name     | Description                                                                                                                                                        | Type                                  | Default |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- | ------- |
-| bordered | Whether to have border.                                                                                                                                            | `boolean`                             | `false` |
-| color    | The background color of the Badge. Equivalent to setting the `--color` CSS variable.                                                                               | `string`                              | -       |
-| content  | The content of the Badge: if `null` `undefined` `''` or nothing is passed, it would not be displayed; if `Badge.dot` is passed, a small red dot would be displayed | `React.ReactNode \| typeof Badge.dot` | -       |
+| Name             | Description                                                                                                                                                        | Type                                  | Default |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- | ------- |
+| bordered         | Whether to have border.                                                                                                                                            | `boolean`                             | `false` |
+| color            | The background color of the Badge. Equivalent to setting the `--color` CSS variable.                                                                               | `string`                              | -       |
+| content          | The content of the Badge: if `null` `undefined` `''` or nothing is passed, it would not be displayed; if `Badge.dot` is passed, a small red dot would be displayed | `React.ReactNode \| typeof Badge.dot` | -       |
+| wrapperClassName | `Badge` wrap class name                                                                                                                                            | `string`                              | -       |
+| wrapperStyle     | `Badge` wrap style                                                                                                                                                 | `React.CSSProperties`                 | -       |
 
 ### CSS Variables
 
