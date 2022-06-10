@@ -27,4 +27,21 @@ describe('Badge', () => {
     )
     expect(container).toMatchSnapshot()
   })
+
+  test('test wrapperClassName & wrapperStyle', () => {
+    const { getByTestId } = render(
+      <Badge
+        color='#108ee9'
+        content='新'
+        wrapperClassName='test'
+        data-testid='test-badge-wrap'
+        wrapperStyle={{ color: 'red' }}
+      >
+        text
+      </Badge>
+    )
+    const element = getByTestId('test-badge-wrap')
+    expect(element.parentNode).toHaveClass('test')
+    expect(element.parentNode).toHaveStyle('color: red')
+  })
 })

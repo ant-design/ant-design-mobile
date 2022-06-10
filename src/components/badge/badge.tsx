@@ -11,6 +11,8 @@ export type BadgeProps = {
   color?: string
   bordered?: boolean
   children?: React.ReactNode
+  wrapperClassName?: string
+  wrapperStyle?: React.CSSProperties
 } & NativeProps<'--right' | '--top' | '--color'>
 
 export const Badge: FC<BadgeProps> = props => {
@@ -45,7 +47,10 @@ export const Badge: FC<BadgeProps> = props => {
       : null
 
   return children ? (
-    <div className={`${classPrefix}-wrap`}>
+    <div
+      className={classNames(`${classPrefix}-wrap`, props.wrapperClassName)}
+      style={props.wrapperStyle}
+    >
       {children}
       {element}
     </div>
