@@ -38,3 +38,12 @@
 | --font-size         | 字号                   | `17px`                   |
 | --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-light)` |
 | --text-align        | 文字对齐方式           | `left`                   |
+
+### Ref
+
+| 属性          | 说明                | 类型                            |
+| ------------- | ------------------- | ------------------------------- |
+| blur          | 让输入框失去焦点    | `() => void`                    |
+| clear         | 清空输入内容        | `() => void`                    |
+| focus         | 让输入框获得焦点    | `() => void`                    |
+| nativeElement | 原始 text-area 元素 | `HTMLTextAreaElement` \| `null` |

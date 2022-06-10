@@ -38,3 +38,12 @@ In addition, the following native attributes are supported: `autoComplete` `auto
 | --font-size         | font size.                     | `17px`                   |
 | --placeholder-color | `placeholder` font color.      | `var(--adm-color-light)` |
 | --text-align        | The alignment of text.         | `left`                   |
+
+### Ref
+
+| Name          | Description                  | Type                            |
+| ------------- | ---------------------------- | ------------------------------- |
+| blur          | Let the input box lose focus | `() => void`                    |
+| clear         | Clear the input content      | `() => void`                    |
+| focus         | Let the input box get focus  | `() => void`                    |
+| nativeElement | Native text-area element     | `HTMLTextAreaElement` \| `null` |
