@@ -51,6 +51,7 @@ export type TextAreaRef = {
   clear: () => void
   focus: () => void
   blur: () => void
+  nativeElement: HTMLTextAreaElement | null
 }
 
 const defaultProps = {
@@ -85,6 +86,9 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       },
       blur: () => {
         nativeTextAreaRef.current?.blur()
+      },
+      get nativeElement() {
+        return nativeTextAreaRef.current
       },
     }))
 

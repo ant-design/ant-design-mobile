@@ -89,6 +89,7 @@ describe('TextArea', () => {
     expect(textarea.value).toBe('abc')
     act(() => ref.current?.clear())
     expect(textarea.value).toBe('')
+    expect(ref.current?.nativeElement).toBeDefined()
   })
 
   test('render custom count', () => {
