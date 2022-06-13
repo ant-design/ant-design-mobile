@@ -27,14 +27,7 @@ export function show(p: ToastShowProps | string) {
     typeof p === 'string' ? { content: p } : p
   )
 
-  const element = (
-    <InternalToast
-      {...props}
-      afterClose={() => {
-        props.afterClose?.()
-      }}
-    />
-  )
+  const element = <InternalToast {...props} />
 
   if (currentHandler) {
     currentHandler.replace(element)

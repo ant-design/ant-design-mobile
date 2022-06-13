@@ -46,6 +46,7 @@ export function renderImperatively(element: TargetElement) {
       close: onClose,
       replace: element => {
         keyRef.current++
+        elementToRender.props.afterClose?.()
         setElementToRender(element)
       },
     }))
