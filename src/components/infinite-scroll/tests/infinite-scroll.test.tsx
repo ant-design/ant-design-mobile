@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
-import { render, fireEvent, sleep, screen, act, actSleep } from 'testing'
-import InfiniteScroll from '..'
+import { render, fireEvent, sleep, screen, act } from 'testing'
+import InfiniteScroll, { InfiniteScrollProps } from '..'
 import { List } from 'antd-mobile'
 
 let count = 0
+const time = 1000
 export async function mockRequest() {
   if (count >= 2) {
     return []
   }
-  await sleep(100)
+  await sleep(time)
   count++
   return ['A', 'B', 'C']
 }
@@ -33,13 +34,15 @@ describe('InfiniteScroll', () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
       value: {},
     })
+
+    jest.useFakeTimers()
   })
 
-  const InfiniteScrollContent = ({ hasMore }: { hasMore?: boolean }) => {
-    return <>{hasMore ? <span>Loading</span> : <span>Baseline</span>}</>
-  }
+  afterAll(() => {
+    jest.useRealTimers()
+  })
 
-  const App = ({ content }: { content?: boolean }) => {
+  const App = (props?: Partial<InfiniteScrollProps>) => {
     const [data, setData] = useState<string[]>([])
     const [hasMore, setHasMore] = useState(true)
     async function loadMore() {
@@ -55,48 +58,59 @@ describe('InfiniteScroll', () => {
             <List.Item key={index}>{item}</List.Item>
           ))}
         </List>
-        <InfiniteScroll loadMore={loadMore} hasMore={hasMore}>
-          {content ? <InfiniteScrollContent hasMore={hasMore} /> : undefined}
+        <InfiniteScroll loadMore={loadMore} hasMore={hasMore} {...props}>
+          {props?.children}
         </InfiniteScroll>
       </>
     )
   }
 
   test('basic usage', async () => {
-    const { getByText } = render(<App />)
+    render(<App />)
 
     // mock scroll
     getBoundingClientRectMock.mockReturnValue({
       top: 800,
     } as DOMRect)
-
-    act(() => {
-      fireEvent.scroll(window)
-    })
-    await actSleep(1000)
+    fireEvent.scroll(window)
 
     // loading
-    await screen.findByText('加载中')
+    screen.findByText('加载中')
+
+    await Promise.resolve()
+    await act(async () => {
+      jest.advanceTimersByTime(time)
+    })
+    await act(async () => {
+      jest.advanceTimersByTime(time)
+    })
 
     // no more
-    await screen.findByText('没有更多了')
+    screen.findByText('没有更多了')
     expect(document.querySelectorAll('.adm-list-item').length).toBe(count * 3)
   })
 
   test('customized content', async () => {
-    render(<App content={true} />)
+    render(
+      <App>
+        {hasMore => (hasMore ? <span>Loading</span> : <span>Baseline</span>)}
+      </App>
+    )
 
-    // mock scroll
     getBoundingClientRectMock.mockReturnValue({
       top: 800,
     } as DOMRect)
-
     fireEvent.scroll(window)
+    screen.findByText('Loading')
 
-    // loading
-    await screen.findByText('Loading')
+    await Promise.resolve()
+    await act(async () => {
+      jest.advanceTimersByTime(time)
+    })
+    await act(async () => {
+      jest.advanceTimersByTime(time)
+    })
 
-    // no more
-    await screen.findByText('Baseline')
+    screen.findByText('Baseline')
   })
 })
