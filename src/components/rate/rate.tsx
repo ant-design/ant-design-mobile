@@ -2,8 +2,8 @@ import React, { FC } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { StarFill } from 'antd-mobile-icons'
 import { usePropsValue } from '../../utils/use-props-value'
+import { Star } from './star'
 
 const classPrefix = `adm-rate`
 
@@ -21,7 +21,7 @@ export type RateProps = {
 const defaultProps = {
   count: 5,
   allowHalf: false,
-  character: <StarFill />,
+  character: <Star />,
   defaultValue: 0,
   readOnly: false,
   allowClear: true,
