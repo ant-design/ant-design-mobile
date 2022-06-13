@@ -4502,10 +4502,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"antd-mobile-icons@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "antd-mobile-icons@npm:0.2.2"
-  checksum: a2eedba8a0e97cd758d03f4255d8fe6acce97ce6e64a25cad03ff8732123b104786e6fb8d8b7743b0b936979b4ad5a7ca3e9d60952b08d264ec71d3d34561344
+"antd-mobile-icons@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "antd-mobile-icons@npm:0.3.0"
+  checksum: aca96d6f1106fc685351ca1266b7fdce645e10648624afcaec66b9e152a7f7ad37e61d1ac2e97926792b495cb7c3970dd00509c15eb77b8c53fc16b71e9dd3c3
   languageName: node
   linkType: hard
 
@@ -4553,7 +4553,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.27.1
     "@use-gesture/react": 10.2.15
     ahooks: ^3.4.1
-    antd-mobile-icons: ^0.2.2
+    antd-mobile-icons: ^0.3.0
     antd-mobile-v5-count: ^1.0.1
     babel-loader: ^8.2.5
     big.js: ^6.1.1

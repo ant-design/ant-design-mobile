@@ -18,7 +18,7 @@
     "@react-spring/web": "^9.4.5",
     "@use-gesture/react": "10.2.15",
     "ahooks": "^3.4.1",
-    "antd-mobile-icons": "^0.2.2",
+    "antd-mobile-icons": "^0.3.0",
     "antd-mobile-v5-count": "^1.0.1",
     "big.js": "^6.1.1",
     "classnames": "^2.3.1",
