@@ -301,7 +301,6 @@ function build2xCSS() {
           '@supports not (color: var(--adm-color-text))'
         )
       )
-      .pipe(replace('--adm-hd: 1;', '--adm-hd: 2;'))
       .pipe(
         gulp.dest('./lib/2x', {
           overwrite: true,

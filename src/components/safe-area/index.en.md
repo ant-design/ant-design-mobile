@@ -29,3 +29,15 @@ It should be noted that the demo below cannot be seen in the desktop browser:
 | Name     | Description               | Type                | Default |
 | -------- | ------------------------- | ------------------- | ------- |
 | position | Position of the safe area | `'top' \| 'bottom'` | -       |
+
+### CSS Variables
+
+| Name       | Description        | Default | Global                     |
+| ---------- | ------------------ | ------- | -------------------------- |
+| --multiple | Displayed multiple | `1`     | `--adm-safe-area-multiple` |
+
+## FAQ
+
+### In the rem layout, what should I do if the height of the SafeArea is small?
+
+Some rem schemes will set the overall scaling of the web page through the viewport meta. In this case, the SafeArea will also be scaled correspondingly, so the height is likely to be abnormal. At this time, you can adjust the display multiplier of SafeArea through the global `--adm-safe-area-multiple` CSS variable. For example, if your project framework scales the entire page to 0.5 times, then you can set `--adm -safe-area-multiple: 2` to make corresponding compensation adjustments.
