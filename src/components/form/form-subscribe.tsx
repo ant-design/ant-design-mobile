@@ -1,5 +1,5 @@
-import React, { FC, memo } from 'react'
-import { useWatch } from 'rc-field-form'
+import React, { FC, memo, useContext } from 'react'
+import { FieldContext, useWatch } from 'rc-field-form'
 import { useUpdate } from 'ahooks'
 import type { FormInstance } from 'rc-field-form'
 import type { NamePath } from 'rc-field-form/es/interface'
@@ -19,22 +19,21 @@ export interface FormSubscribeProps {
 
 export const FormSubscribe: FC<FormSubscribeProps> = props => {
   const update = useUpdate()
+  const form = useContext(FieldContext)
   return (
-    <Form.Item noStyle dependencies={props.to}>
-      {form => (
-        <>
-          {props.children(form.getFieldsValue(props.to), form)}
-          {props.to.map(namePath => (
-            <Watcher
-              key={namePath.toString()}
-              form={form}
-              namePath={namePath}
-              onChange={update}
-            />
-          ))}
-        </>
-      )}
-    </Form.Item>
+    <>
+      <Form.Item noStyle>
+        {props.children(form.getFieldsValue(props.to), form)}
+      </Form.Item>
+      {props.to.map(namePath => (
+        <Watcher
+          key={namePath.toString()}
+          form={form}
+          namePath={namePath}
+          onChange={update}
+        />
+      ))}
+    </>
   )
 }
 
