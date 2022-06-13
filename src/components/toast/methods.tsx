@@ -21,14 +21,26 @@ export type ToastHandler = {
   close: () => void
 }
 
+const ToastInner = (
+  props: ToastShowProps & {
+    onClose?: () => void
+  }
+) => <InternalToast {...props} />
+
 export function show(p: ToastShowProps | string) {
   const props = mergeProps(
     defaultProps,
     typeof p === 'string' ? { content: p } : p
   )
 
-  const element = <InternalToast {...props} />
-
+  const element = (
+    <ToastInner
+      {...props}
+      onClose={() => {
+        currentHandler = null
+      }}
+    />
+  )
   if (currentHandler) {
     currentHandler.replace(element)
   } else {
