@@ -73,16 +73,17 @@ describe('InfiniteScroll', () => {
       top: 800,
     } as DOMRect)
     fireEvent.scroll(window)
-
     // loading
     screen.findByText('加载中')
 
-    await Promise.resolve()
     await act(async () => {
-      jest.advanceTimersByTime(time)
+      jest.runAllTimers()
     })
     await act(async () => {
-      jest.advanceTimersByTime(time)
+      jest.runAllTimers()
+    })
+    await act(async () => {
+      jest.runAllTimers()
     })
 
     // no more
@@ -103,12 +104,14 @@ describe('InfiniteScroll', () => {
     fireEvent.scroll(window)
     screen.findByText('Loading')
 
-    await Promise.resolve()
     await act(async () => {
-      jest.advanceTimersByTime(time)
+      jest.runAllTimers()
     })
     await act(async () => {
-      jest.advanceTimersByTime(time)
+      jest.runAllTimers()
+    })
+    await act(async () => {
+      jest.runAllTimers()
     })
 
     screen.findByText('Baseline')
