@@ -43,3 +43,10 @@ test('renders with event', async () => {
     expect(onBodyClick).toBeCalledTimes(1)
   })
 })
+
+test('renders without children', async () => {
+  const { getByTestId } = render(
+    <Card title={'标题'} data-testid='test-card-id' />
+  )
+  expect(getByTestId('test-card-id')).not.toHaveClass(`${classPrefix}-body`)
+})
