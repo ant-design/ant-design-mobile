@@ -97,9 +97,9 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
     }
   }, [scrollParent])
 
-  function retry() {
+  async function retry() {
     setFailed(false)
-    doLoadMore(true)
+    await doLoadMore(true)
     setFlag(nextFlagRef.current)
   }
 
