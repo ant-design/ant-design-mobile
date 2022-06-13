@@ -207,4 +207,29 @@ describe('ActionSheet', () => {
 
     expect(onMaskClick).toBeCalled()
   })
+
+  test('click cancel button should close', async () => {
+    const onClose = jest.fn()
+    const WithCancelButton = () => {
+      const [visible, setVisible] = React.useState(false)
+      return (
+        <>
+          <Button onClick={() => setVisible(true)}>button</Button>
+          <ActionSheet
+            visible={visible}
+            actions={actions}
+            cancelText='取消'
+            onClose={onClose}
+          />
+        </>
+      )
+    }
+    const { getByText } = render(<WithCancelButton />)
+
+    fireEvent.click(getByText('button'))
+    await waitFor(() => {
+      fireEvent.click(getByText('取消'))
+    })
+    expect(onClose).toBeCalled()
+  })
 })
