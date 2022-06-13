@@ -73,7 +73,6 @@ export const WaterMark: FC<WaterMarkProps> = p => {
         const img = new Image()
         img.crossOrigin = 'anonymous'
         img.referrerPolicy = 'no-referrer'
-        img.src = image
         img.onload = () => {
           ctx.drawImage(
             img,
@@ -85,6 +84,7 @@ export const WaterMark: FC<WaterMarkProps> = p => {
           ctx.restore()
           setBase64Url(canvas.toDataURL())
         }
+        img.src = image
       } else if (content) {
         ctx.textBaseline = 'middle'
         ctx.textAlign = 'center'
@@ -101,7 +101,7 @@ export const WaterMark: FC<WaterMarkProps> = p => {
         setBase64Url(canvas.toDataURL())
       }
     } else {
-      throw new Error('当前环境不支持Canvas')
+      throw new Error('Canvas is not supported in the current environment')
     }
   }, [
     gapX,

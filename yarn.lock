@@ -4563,6 +4563,7 @@ __metadata:
     husky: ^8.0.1
     jest: 28.1.1
     jest-axe: ^6.0.0
+    jest-canvas-mock: ^2.4.0
     jest-environment-jsdom: 28.1.1
     jest-watch-typeahead: 1.1.0
     less: ^4.1.3
@@ -5930,7 +5931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-name@npm:~1.1.4":
+"color-name@npm:^1.1.4, color-name@npm:~1.1.4":
   version: 1.1.4
   resolution: "color-name@npm:1.1.4"
   checksum: b0445859521eb4021cd0fb0cc1a75cecf67fceecae89b63f62b201cca8d345baf8b952c966862a9d9a2632987d4f6581f0ec8d957dfacece86f0a7919316f610
@@ -6420,6 +6421,13 @@ __metadata:
   bin:
     cssesc: bin/cssesc
   checksum: f8c4ababffbc5e2ddf2fa9957dda1ee4af6048e22aeda1869d0d00843223c1b13ad3f5d88b51caa46c994225eacb636b764eb807a8883e2fb6f99b4f4e8c48b2
+  languageName: node
+  linkType: hard
+
+"cssfontparser@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "cssfontparser@npm:1.2.1"
+  checksum: 952d487cddab591fb944f2a4c326a7736bc963784a6d92b6ad4051f3bf5ee49a732eff62e29a52ff085197cb07f5bd66525a2245ded7fd356113ac81be9238b9
   languageName: node
   linkType: hard
 
@@ -10015,6 +10023,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-canvas-mock@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "jest-canvas-mock@npm:2.4.0"
+  dependencies:
+    cssfontparser: ^1.2.1
+    moo-color: ^1.0.2
+  checksum: feda3c9a3301dc8f1ce3eee3d6cd944d3e2f50d713f1a3f159bdd85b88b275871c400dc0a4a50d14b36eef347dde2d7223e50d1109501b80668d87253712675e
+  languageName: node
+  linkType: hard
+
 "jest-changed-files@npm:^28.0.2":
   version: 28.0.2
   resolution: "jest-changed-files@npm:28.0.2"
@@ -11919,6 +11937,15 @@ __metadata:
   version: 3.0.5
   resolution: "mockdate@npm:3.0.5"
   checksum: 72b66786d9e072379693f80bf9fb82eb5153c9741030a4294184e3ccaf952d0713fae8966f77780580cf902f8ec7ccc95577b0ad47980d255e2ffb71fc7ca49c
+  languageName: node
+  linkType: hard
+
+"moo-color@npm:^1.0.2":
+  version: 1.0.3
+  resolution: "moo-color@npm:1.0.3"
+  dependencies:
+    color-name: ^1.1.4
+  checksum: 02bf59b6bbd5e86641bc062e2dc0843e6e579e18ef67e1c8e93bfc01945df578f20e66ce16aa9632db2aa0e16806e0914a26eb345a804f45fff1ae12a8906a29
   languageName: node
   linkType: hard
 
