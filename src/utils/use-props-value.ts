@@ -20,10 +20,8 @@ export function usePropsValue<T>(options: Options<T>) {
   const setState = useMemoizedFn((v: SetStateAction<T>) => {
     const nextValue =
       typeof v === 'function' ? (v as (prevState: T) => T)(stateRef.current) : v
-    if (value === undefined) {
-      stateRef.current = nextValue
-      update()
-    }
+    stateRef.current = nextValue
+    update()
     onChange?.(nextValue)
   })
   return [stateRef.current, setState] as const
