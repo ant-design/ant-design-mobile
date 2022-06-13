@@ -1,6 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React, { FC, useEffect, useRef, useState } from 'react'
-import { useLockFn, useMemoizedFn } from 'ahooks'
+import { useLockFn, useThrottleFn } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
 import { useConfig } from '../config-provider'
@@ -57,29 +57,36 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
     Window | Element | null | undefined
   >()
 
-  const check = useMemoizedFn(async () => {
-    if (nextFlagRef.current !== flag) return
-    if (!props.hasMore) return
-    const element = elementRef.current
-    if (!element) return
-    if (!element.offsetParent) return
-    const parent = getScrollParent(element)
-    setScrollParent(parent)
-    if (!parent) return
-    const rect = element.getBoundingClientRect()
-    const elementTop = rect.top
-    const current = isWindow(parent)
-      ? window.innerHeight
-      : parent.getBoundingClientRect().bottom
-    if (current >= elementTop - props.threshold) {
-      const nextFlag = {}
-      nextFlagRef.current = nextFlag
-      await doLoadMore(false)
-      setFlag(nextFlag)
+  const { run: check } = useThrottleFn(
+    async () => {
+      if (nextFlagRef.current !== flag) return
+      if (!props.hasMore) return
+      const element = elementRef.current
+      if (!element) return
+      if (!element.offsetParent) return
+      const parent = getScrollParent(element)
+      setScrollParent(parent)
+      if (!parent) return
+      const rect = element.getBoundingClientRect()
+      const elementTop = rect.top
+      const current = isWindow(parent)
+        ? window.innerHeight
+        : parent.getBoundingClientRect().bottom
+      if (current >= elementTop - props.threshold) {
+        const nextFlag = {}
+        nextFlagRef.current = nextFlag
+        await doLoadMore(false)
+        setFlag(nextFlag)
+      }
+    },
+    {
+      wait: 100,
+      leading: true,
+      trailing: true,
     }
-  })
+  )
 
-  // 确保在内容不足时会自动触发加载事件
+  // Make sure to trigger `loadMore` when content changes
   useEffect(() => {
     check()
   })
