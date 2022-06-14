@@ -166,31 +166,32 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     </label>
   ) : null
 
-  const description = (
-    <>
-      {props.description}
-      {hasFeedback && (
-        <>
-          {props.errors.map((error, index) => (
-            <div
-              key={`error-${index}`}
-              className={`${classPrefix}-feedback-error`}
-            >
-              {error}
-            </div>
-          ))}
-          {props.warnings.map((warning, index) => (
-            <div
-              key={`warning-${index}`}
-              className={`${classPrefix}-feedback-warning`}
-            >
-              {warning}
-            </div>
-          ))}
-        </>
-      )}
-    </>
-  )
+  const description =
+    props.description || hasFeedback ? (
+      <>
+        {props.description}
+        {hasFeedback && (
+          <>
+            {props.errors.map((error, index) => (
+              <div
+                key={`error-${index}`}
+                className={`${classPrefix}-feedback-error`}
+              >
+                {error}
+              </div>
+            ))}
+            {props.warnings.map((warning, index) => (
+              <div
+                key={`warning-${index}`}
+                className={`${classPrefix}-feedback-warning`}
+              >
+                {warning}
+              </div>
+            ))}
+          </>
+        )}
+      </>
+    ) : null
 
   return (
     <List.Item
