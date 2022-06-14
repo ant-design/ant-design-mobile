@@ -24,12 +24,14 @@ describe('stepper', () => {
     }
     const { container } = render(<Element></Element>)
 
+    const plusButton = container.getElementsByTagName('button')[1]
+
     // plus
-    await waitFor(() => container.getElementsByTagName('button')[1].click())
+    fireEvent.click(plusButton)
     expect(onChange).toHaveBeenLastCalledWith(2)
 
     // plus
-    await waitFor(() => container.getElementsByTagName('button')[1].click())
+    fireEvent.click(plusButton)
     expect(onChange).toBeCalledTimes(1)
 
     const input = container.getElementsByTagName('input')[0]
@@ -74,12 +76,16 @@ describe('stepper', () => {
     const { container } = render(
       <Stepper defaultValue={0} step={100} onChange={onChange} />
     )
+
+    const minusButton = container.getElementsByTagName('button')[0]
+    const plusButton = container.getElementsByTagName('button')[1]
+
     // minus
-    await waitFor(() => container.getElementsByTagName('button')[0].click())
+    fireEvent.click(minusButton)
     expect(onChange.mock.calls[0][0]).toBe(-100)
 
     // plus
-    await waitFor(() => container.getElementsByTagName('button')[1].click())
+    fireEvent.click(plusButton)
     expect(onChange.mock.calls[1][0]).toBe(0)
   })
 
@@ -102,15 +108,18 @@ describe('stepper', () => {
       />
     )
 
+    const minusButton = container.getElementsByTagName('button')[0]
+    const plusButton = container.getElementsByTagName('button')[1]
+
     // max
     for (let i = 1; i <= 11; i++) {
-      await waitFor(() => container.getElementsByTagName('button')[1].click())
+      fireEvent.click(plusButton)
       expect((onChange.mock as any).lastCall[0]).toBeLessThanOrEqual(0.2)
     }
 
     // min
     for (let i = 20; i >= -1; i--) {
-      await waitFor(() => container.getElementsByTagName('button')[0].click())
+      fireEvent.click(minusButton)
       expect((onChange.mock as any).lastCall[0]).toBeGreaterThanOrEqual(0)
     }
 
@@ -148,8 +157,12 @@ describe('stepper', () => {
     const onChange = jest.fn()
     const { container } = render(<Stepper disabled onChange={onChange} />)
 
-    await waitFor(() => container.getElementsByTagName('button')[0].click())
-    await waitFor(() => container.getElementsByTagName('button')[1].click())
+    const minusButton = container.getElementsByTagName('button')[0]
+    const plusButton = container.getElementsByTagName('button')[1]
+
+    fireEvent.click(minusButton)
+    fireEvent.click(plusButton)
+
     fireEvent.change(container.getElementsByTagName('input')[0], {
       target: {
         value: 1000,
