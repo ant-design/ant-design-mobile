@@ -3,7 +3,6 @@ import { FieldContext, useWatch } from 'rc-field-form'
 import { useUpdate } from 'ahooks'
 import type { FormInstance } from 'rc-field-form'
 import type { NamePath } from 'rc-field-form/es/interface'
-import Form from '.'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 
 type RenderChildren<Values = any> = (
@@ -22,9 +21,7 @@ export const FormSubscribe: FC<FormSubscribeProps> = props => {
   const form = useContext(FieldContext)
   return (
     <>
-      <Form.Item noStyle>
-        {props.children(form.getFieldsValue(props.to), form)}
-      </Form.Item>
+      {props.children(form.getFieldsValue(props.to), form)}
       {props.to.map(namePath => (
         <Watcher
           key={namePath.toString()}
