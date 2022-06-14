@@ -36,6 +36,7 @@
 | --border-bottom           | 列表容器底部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
 | --border-inner            | 列表项底部的边框样式                                                                | `solid 1px var(--adm-border-color)` |
 | --border-top              | 列表容器顶部的边框样式                                                              | `solid 1px var(--adm-border-color)` |
+| --extra-max-width         | extra 部分的最大宽度                                                                | `70%`                               |
 | --font-size               | Body 内容的字体大小                                                                 | `17px`                              |
 | --header-font-size        | 头部的字体大小                                                                      | `15px`                              |
 | --padding-left            | 列表项和列表头部左侧的 padding                                                      | `12px`                              |

@@ -26,10 +26,7 @@ export default function () {
       </Form>
       <Form layout='horizontal' mode='card'>
         <Form.Header>带辅助操作</Form.Header>
-        <Form.Item
-          label='短信验证码'
-          extra={<a style={{ whiteSpace: 'nowrap' }}>发送验证码</a>}
-        >
+        <Form.Item label='短信验证码' extra={<a>发送验证码</a>}>
           <Input placeholder='请输入' />
         </Form.Item>
       </Form>

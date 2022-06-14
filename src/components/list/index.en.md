@@ -36,6 +36,7 @@ Carry text, lists, pictures, paragraphs, etc. cleanly and efficiently in the for
 | --border-bottom           | Border style of the list bottom                                                                 | `solid 1px var(--adm-border-color)` |
 | --border-inner            | Border style of the list item bottom                                                            | `solid 1px var(--adm-border-color)` |
 | --border-top              | Border style of the list top                                                                    | `solid 1px var(--adm-border-color)` |
+| --extra-max-width         | The max width of the extra part                                                                 | `70%`                               |
 | --font-size               | The font-size of the list body                                                                  | `17px`                              |
 | --header-font-size        | The font-size of the header                                                                     | `15px`                              |
 | --padding-left            | The padding-left of list item and header                                                        | `12px`                              |

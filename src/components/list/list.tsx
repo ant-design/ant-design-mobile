@@ -10,17 +10,18 @@ export type ListProps = {
   mode?: 'default' | 'card' // 默认是整宽的列表，card 模式下展示为带 margin 和圆角的卡片
   children?: ReactNode
 } & NativeProps<
-  | '--header-font-size'
-  | '--prefix-width'
-  | '--prefix-padding-right'
-  | '--align-items'
   | '--active-background-color'
+  | '--align-items'
+  | '--border-bottom'
   | '--border-inner'
   | '--border-top'
-  | '--border-bottom'
+  | '--extra-max-width'
+  | '--font-size'
+  | '--header-font-size'
   | '--padding-left'
   | '--padding-right'
-  | '--font-size'
+  | '--prefix-padding-right'
+  | '--prefix-width'
 >
 
 const defaultProps = {
