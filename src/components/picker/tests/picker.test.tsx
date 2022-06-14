@@ -1,11 +1,8 @@
 import React, { createRef, useState } from 'react'
-import { render, createEvent, fireEvent, waitFor } from 'testing'
+import { render, fireEvent, waitFor } from 'testing'
 import { basicColumns } from '../demos/columns-data'
-import { patchCreateEvent } from '../../../tests/gesture/utils'
 import Picker, { PickerRef } from '..'
 import Button from '../../button'
-
-patchCreateEvent(createEvent)
 
 describe('Picker', () => {
   test('renderLabel works', async () => {

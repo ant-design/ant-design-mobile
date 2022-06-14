@@ -1,14 +1,6 @@
 import React, { useRef, forwardRef } from 'react'
-import {
-  render,
-  testA11y,
-  fireEvent,
-  waitFor,
-  createEvent,
-  sleep,
-} from 'testing'
+import { render, testA11y, fireEvent, waitFor } from 'testing'
 import FloatingPanel, { FloatingPanelRef } from '..'
-import { patchCreateEvent } from '../../../tests/gesture/utils'
 import { reduceMotion, restoreMotion } from 'antd-mobile'
 
 const classPrefix = `adm-floating-panel`
@@ -38,22 +30,16 @@ const data = [
   'T',
 ]
 
-patchCreateEvent(createEvent)
-
 async function mockDrag(el: Element, startY: number, endY: number) {
-  fireEvent.pointerDown(el, {
-    pointerId: 1,
-    clientX: 0,
+  fireEvent.mouseDown(el, {
     clientY: startY,
     buttons: 1,
   })
-  fireEvent.pointerMove(el, {
-    pointerId: 1,
-    clientX: 10,
+  fireEvent.mouseMove(el, {
     clientY: endY,
     buttons: 1,
   })
-  fireEvent.pointerUp(el, { pointerId: 1 })
+  fireEvent.mouseUp(el)
 }
 
 describe('FloatingPanel', () => {
