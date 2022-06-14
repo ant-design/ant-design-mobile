@@ -1,6 +1,6 @@
 import { render, waitFor } from '@testing-library/react'
 import React, { useEffect, useState } from 'react'
-import { fireEvent, act } from 'testing'
+import { fireEvent } from 'testing'
 import { Stepper } from '../stepper'
 
 describe('stepper', () => {
@@ -34,20 +34,14 @@ describe('stepper', () => {
 
     const input = container.getElementsByTagName('input')[0]
 
-    await act(async () => {
-      fireEvent.focus(input)
-    })
+    fireEvent.focus(input)
 
     // input change
-    await act(async () => {
-      fireEvent.change(container.getElementsByTagName('input')[0], {
-        target: { value: 1000 },
-      })
+    fireEvent.change(container.getElementsByTagName('input')[0], {
+      target: { value: 1000 },
     })
 
-    await act(async () => {
-      fireEvent.blur(input)
-    })
+    fireEvent.blur(input)
 
     expect(container.getElementsByTagName('input')[0].value).toBe('1000')
   })
@@ -62,17 +56,13 @@ describe('stepper', () => {
 
     expect(input.value).toBe('100')
 
-    await act(async () => {
-      fireEvent.change(input, {
-        target: {
-          value: '',
-        },
-      })
+    fireEvent.change(input, {
+      target: {
+        value: '',
+      },
     })
 
-    await act(async () => {
-      fireEvent.blur(input)
-    })
+    fireEvent.blur(input)
 
     await waitFor(() => {
       expect(onChange).toHaveBeenLastCalledWith(100)
@@ -126,22 +116,18 @@ describe('stepper', () => {
 
     const input = container.getElementsByTagName('input')[0]
     // input change
-    await act(async () => {
-      fireEvent.change(input, {
-        target: { value: 1000 },
-      })
+    fireEvent.change(input, {
+      target: { value: 1000 },
     })
 
-    await act(async () => {
-      fireEvent.blur(input)
-    })
+    fireEvent.blur(input)
 
     await waitFor(() => {
       expect(onChange).toHaveBeenLastCalledWith(0.2)
     })
   })
 
-  test('allowEmpty works', async () => {
+  test('allowEmpty works', () => {
     const onChange = jest.fn()
     const { container } = render(
       <Stepper defaultValue={100} allowEmpty onChange={onChange} />
@@ -149,12 +135,10 @@ describe('stepper', () => {
 
     const input = container.getElementsByTagName('input')[0]
 
-    await act(async () => {
-      fireEvent.change(input, {
-        target: {
-          value: '',
-        },
-      })
+    fireEvent.change(input, {
+      target: {
+        value: '',
+      },
     })
 
     expect(onChange).toHaveBeenLastCalledWith(null)
@@ -166,12 +150,10 @@ describe('stepper', () => {
 
     await waitFor(() => container.getElementsByTagName('button')[0].click())
     await waitFor(() => container.getElementsByTagName('button')[1].click())
-    await act(async () => {
-      fireEvent.change(container.getElementsByTagName('input')[0], {
-        target: {
-          value: 1000,
-        },
-      })
+    fireEvent.change(container.getElementsByTagName('input')[0], {
+      target: {
+        value: 1000,
+      },
     })
     expect(onChange).toHaveBeenCalledTimes(0)
   })
@@ -182,19 +164,16 @@ describe('stepper', () => {
     expect(container.querySelector('input[readonly]')).not.toBeNull()
   })
 
-  test('onFocus and onBlur works', async () => {
+  test('onFocus and onBlur works', () => {
     const onBlur = jest.fn()
     const onFocus = jest.fn()
     const { container } = render(<Stepper onBlur={onBlur} onFocus={onFocus} />)
 
     const input = container.getElementsByTagName('input')[0]
-    await act(async () => {
-      fireEvent.focus(input)
-    })
 
-    await act(async () => {
-      fireEvent.blur(input)
-    })
+    fireEvent.focus(input)
+
+    fireEvent.blur(input)
 
     expect(onFocus).toHaveBeenCalledTimes(1)
     expect(onBlur).toHaveBeenCalledTimes(1)
@@ -204,27 +183,21 @@ describe('stepper', () => {
     const { container } = render(<Stepper defaultValue={1000} />, {})
 
     const input = container.getElementsByTagName('input')[0]
-    await act(async () => {
-      fireEvent.focus(input)
+
+    fireEvent.focus(input)
+
+    fireEvent.compositionStart(input)
+
+    fireEvent.change(input, {
+      target: {
+        value: '中文',
+      },
     })
 
-    await act(async () => {
-      fireEvent.compositionStart(input)
-    })
+    fireEvent.compositionEnd(input)
 
-    await act(async () => {
-      fireEvent.change(input, {
-        target: {
-          value: '中文',
-        },
-      })
-    })
-    await act(async () => {
-      fireEvent.compositionEnd(input)
-    })
-    await act(async () => {
-      fireEvent.blur(input)
-    })
+    fireEvent.blur(input)
+
     await waitFor(() => {
       expect(input.value).toBe('1000')
     })
