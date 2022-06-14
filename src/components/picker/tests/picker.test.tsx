@@ -1,8 +1,10 @@
 import React, { createRef, useState } from 'react'
-import { render, fireEvent, waitFor } from 'testing'
+import { render, fireEvent, waitFor, screen, actClick } from 'testing'
 import { basicColumns } from '../demos/columns-data'
 import Picker, { PickerRef } from '..'
 import Button from '../../button'
+
+const maskClassPrefix = 'adm-mask'
 
 describe('Picker', () => {
   test('renderLabel works', async () => {
@@ -29,7 +31,7 @@ describe('Picker', () => {
     const afterShow = jest.fn()
     const afterClose = jest.fn()
     const onCancel = jest.fn()
-    const { getByTestId, getByText } = render(
+    render(
       <Picker
         onCancel={onCancel}
         cancelText='取消'
@@ -53,27 +55,19 @@ describe('Picker', () => {
       </Picker>
     )
 
-    fireEvent.click(getByTestId('toggle'))
-    await waitFor(() => {
-      expect(afterShow).toBeCalled()
-    })
-    fireEvent.click(getByTestId('close'))
-    await waitFor(() => {
-      expect(afterClose).toBeCalled()
-    })
-    fireEvent.click(getByTestId('open'))
-    await waitFor(() => {
-      expect(afterShow).toBeCalled()
-    })
-    fireEvent.click(getByText('取消'))
-    await waitFor(() => {
-      expect(onCancel).toBeCalled()
-    })
+    fireEvent.click(screen.getByTestId('toggle'))
+    await waitFor(() => expect(afterShow).toBeCalledTimes(1))
+    fireEvent.click(screen.getByTestId('close'))
+    await waitFor(() => expect(afterClose).toBeCalledTimes(1))
+    fireEvent.click(screen.getByTestId('open'))
+    await waitFor(() => expect(afterShow).toBeCalledTimes(2))
+    fireEvent.click(screen.getByText('取消'))
+    await waitFor(() => expect(onCancel).toBeCalledTimes(1))
   })
 
   test('test Picker onMaskClick', async () => {
-    const onCancel = jest.fn()
-    const PickerTestComponent = () => {
+    const onCancel1 = jest.fn()
+    const PickerTestComponent1 = () => {
       const [visible, setVisible] = useState(false)
       return (
         <>
@@ -83,20 +77,50 @@ describe('Picker', () => {
           <Picker
             columns={basicColumns}
             visible={visible}
-            onCancel={onCancel}
+            onCancel={onCancel1}
           />
         </>
       )
     }
-    const { getByTestId } = render(<PickerTestComponent />)
+    const { unmount } = render(<PickerTestComponent1 />)
 
-    fireEvent.click(getByTestId('button'))
-    await waitFor(() => {
-      fireEvent.click(document.querySelectorAll('.adm-mask')[0])
-    })
-    await waitFor(() => {
-      expect(onCancel).toBeCalled()
-    })
+    await actClick(screen.getByTestId('button'))
+    await waitFor(() =>
+      expect(
+        document.querySelectorAll(`.${maskClassPrefix}`)[0]
+      ).toBeInTheDocument()
+    )
+    fireEvent.click(document.querySelectorAll(`.${maskClassPrefix}`)[0])
+    expect(onCancel1).toBeCalled()
+    unmount()
+
+    const onCancel2 = jest.fn()
+    const PickerTestComponent2 = () => {
+      const [visible, setVisible] = useState(false)
+      return (
+        <>
+          <Button onClick={() => setVisible(true)} data-testid={'button'}>
+            button
+          </Button>
+          <Picker
+            columns={basicColumns}
+            visible={visible}
+            onCancel={onCancel2}
+            closeOnMaskClick={false}
+          />
+        </>
+      )
+    }
+
+    render(<PickerTestComponent2 />)
+    await actClick(screen.getByTestId('button'))
+    await waitFor(() =>
+      expect(
+        document.querySelectorAll(`.${maskClassPrefix}`)[0]
+      ).toBeInTheDocument()
+    )
+    fireEvent.click(document.querySelectorAll(`.${maskClassPrefix}`)[0])
+    expect(onCancel2).not.toBeCalled()
   })
 
   test('test imperative call', async () => {
@@ -104,28 +128,21 @@ describe('Picker', () => {
     const onConfirm = jest.fn()
     const onClick = async () => {
       const value = await Picker.prompt({
-        onConfirm: () => {
-          onConfirm()
-        },
+        onConfirm,
         columns: basicColumns,
       })
       fn(value)
     }
 
-    const { getByText } = render(
-      <Button onClick={onClick}>imperativePicker</Button>
-    )
-    fireEvent.click(getByText('imperativePicker'))
-    fireEvent.click(getByText('取消'))
-    await waitFor(() => {
-      expect(fn.mock.calls[0][0]).toBeNull()
-    })
+    render(<Button onClick={onClick}>imperativePicker</Button>)
+    await actClick(screen.getByText('imperativePicker'))
+    await actClick(screen.getByText('取消'))
+    await waitFor(() => expect(fn.mock.calls[0][0]).toBeNull())
 
-    fireEvent.click(getByText('imperativePicker'))
-    fireEvent.click(getByText('确定'))
-    await waitFor(() => {
-      expect(onConfirm).toBeCalled()
-    })
+    await actClick(screen.getByText('imperativePicker'))
+    await actClick(screen.getByText('确定'))
+    await waitFor(() => expect(fn.mock.calls[1][0]).toEqual(['Mon', 'am']))
+    expect(onConfirm).toBeCalled()
   })
 
   test('test Picker should work given ref', async () => {
@@ -140,8 +157,6 @@ describe('Picker', () => {
       />
     )
     ref.current?.open()
-    await waitFor(() => {
-      expect(afterShow).toBeCalled()
-    })
+    await waitFor(() => expect(afterShow).toBeCalled())
   })
 })
