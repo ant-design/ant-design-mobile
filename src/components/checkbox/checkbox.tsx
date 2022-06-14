@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react'
+import React, { FC, forwardRef, useContext, useImperativeHandle } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { CheckboxGroupContext } from './group-context'
@@ -32,7 +32,13 @@ const defaultProps = {
   indeterminate: false,
 }
 
-export const Checkbox: FC<CheckboxProps> = p => {
+export type CheckboxRef = {
+  check: () => void
+  uncheck: () => void
+  toggle: () => void
+}
+
+export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
   const groupContext = useContext(CheckboxGroupContext)
 
   const props = mergeProps(defaultProps, p)
@@ -73,6 +79,18 @@ export const Checkbox: FC<CheckboxProps> = p => {
     disabled = disabled || groupContext.disabled
   }
 
+  useImperativeHandle(ref, () => ({
+    check: () => {
+      setChecked(true)
+    },
+    uncheck: () => {
+      setChecked(false)
+    },
+    toggle: () => {
+      setChecked(!checked)
+    },
+  }))
+
   const renderIcon = () => {
     if (props.icon) {
       return (
@@ -112,4 +130,4 @@ export const Checkbox: FC<CheckboxProps> = p => {
       )}
     </label>
   )
-}
+})

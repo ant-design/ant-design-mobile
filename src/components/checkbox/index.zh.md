@@ -13,6 +13,8 @@
 
 <code src="./demos/demo2.tsx"></code>
 
+<code src="./demos/demo3.tsx"></code>
+
 ## Checkbox
 
 ### 属性
@@ -20,8 +22,6 @@
 ```ts | pure
 type CheckboxValue = string | number
 ```
-
-### Checkbox
 
 | 参数           | 说明                                         | 类型                                                            | 默认值  |
 | -------------- | -------------------------------------------- | --------------------------------------------------------------- | ------- |
@@ -35,7 +35,25 @@ type CheckboxValue = string | number
 | onChange       | 变化时回调函数                               | `(val: boolean) => void`                                        | -       |
 | value          | 携带的标识值，用于 `Group` 模式              | `CheckboxValue`                                                 | -       |
 
-### Checkbox.Group
+### Ref
+
+| 属性    | 说明                         | 类型         |
+| ------- | ---------------------------- | ------------ |
+| check   | 触发 Checkbox 的选中         | `() => void` |
+| uncheck | 触发 Checkbox 的取消选中     | `() => void` |
+| toggle  | 触发 Checkbox 的选中状态切换 | `() => void` |
+
+### CSS 变量
+
+| 属性        | 说明                     | 默认值 |
+| ----------- | ------------------------ | ------ |
+| --font-size | 右侧文字描述的大小       | `17px` |
+| --gap       | 图标和文字描述之间的间距 | `8px`  |
+| --icon-size | 勾选图标的大小           | `22px` |
+
+## Checkbox.Group
+
+### 属性
 
 | 参数         | 说明           | 类型                               | 默认值  |
 | ------------ | -------------- | ---------------------------------- | ------- |
@@ -43,13 +61,3 @@ type CheckboxValue = string | number
 | disabled     | 整组失效       | `boolean`                          | `false` |
 | onChange     | 变化时回调函数 | `(value: CheckboxValue[]) => void` | -       |
 | value        | 指定选中的选项 | `CheckboxValue[]`                  | `[]`    |
-
-### CSS 变量
-
-### Checkbox
-
-| 属性        | 说明                     | 默认值 |
-| ----------- | ------------------------ | ------ |
-| --font-size | 右侧文字描述的大小       | `17px` |
-| --gap       | 图标和文字描述之间的间距 | `8px`  |
-| --icon-size | 勾选图标的大小           | `22px` |

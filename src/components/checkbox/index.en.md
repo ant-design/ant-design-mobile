@@ -13,6 +13,8 @@ Make multiple selections in a set of options.
 
 <code src="./demos/demo2.tsx"></code>
 
+<code src="./demos/demo3.tsx"></code>
+
 ## Checkbox
 
 ### Props
@@ -20,8 +22,6 @@ Make multiple selections in a set of options.
 ```ts | pure
 type CheckboxValue = string | number
 ```
-
-### Checkbox
 
 | Name           | Description                                                           | Type                                                            | Default |
 | -------------- | --------------------------------------------------------------------- | --------------------------------------------------------------- | ------- |
@@ -35,7 +35,25 @@ type CheckboxValue = string | number
 | onChange       | Callback function when changing                                       | `(val: boolean) => void`                                        | -       |
 | value          | The value carrying identification, used in `Group` mode               | `CheckboxValue`                                                 | -       |
 
-### Checkbox.Group
+### Ref
+
+| Name    | Description                                      | Type         |
+| ------- | ------------------------------------------------ | ------------ |
+| check   | Trigger the check of the Checkbox                | `() => void` |
+| uncheck | Trigger the uncheck of the Checkbox              | `() => void` |
+| toggle  | Trigger the checked state toggle of the Checkbox | `() => void` |
+
+### CSS Variables
+
+| Name        | Description                                               | Default |
+| ----------- | --------------------------------------------------------- | ------- |
+| --font-size | Font size of the description label.                       | `17px`  |
+| --gap       | The gap between the check icon and the description label. | `8px`   |
+| --icon-size | Size of the check icon.                                   | `22px`  |
+
+## Checkbox.Group
+
+### Props
 
 | Name         | Description                     | Type                               | Default |
 | ------------ | ------------------------------- | ---------------------------------- | ------- |
@@ -43,13 +61,3 @@ type CheckboxValue = string | number
 | disabled     | To make whole group failure     | `boolean`                          | `false` |
 | onChange     | Callback function when changing | `(value: CheckboxValue[]) => void` | -       |
 | value        | To specify the selected option  | `CheckboxValue[]`                  | `[]`    |
-
-### CSS Variables
-
-### Checkbox
-
-| Name        | Description                                               | Default |
-| ----------- | --------------------------------------------------------- | ------- |
-| --font-size | Font size of the description label.                       | `17px`  |
-| --gap       | The gap between the check icon and the description label. | `8px`   |
-| --icon-size | Size of the check icon.                                   | `22px`  |
