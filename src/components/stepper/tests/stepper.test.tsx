@@ -153,7 +153,7 @@ describe('stepper', () => {
     expect(onChange).toHaveBeenLastCalledWith(null)
   })
 
-  test('disabled works', async () => {
+  test('disabled works', () => {
     const onChange = jest.fn()
     const { container } = render(<Stepper disabled onChange={onChange} />)
 
