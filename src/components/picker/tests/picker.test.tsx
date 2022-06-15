@@ -132,13 +132,11 @@ describe('Picker', () => {
     fireEvent.click(screen.getByText('imperativePicker'))
     await act(() => sleep(0))
     fireEvent.click(screen.getByText('取消'))
-    await act(() => sleep(0))
     await waitFor(() => expect(fn.mock.calls[0][0]).toBeNull())
 
     fireEvent.click(screen.getByText('imperativePicker'))
     await act(() => sleep(0))
     fireEvent.click(screen.getByText('确定'))
-    await act(() => sleep(0))
     await waitFor(() => expect(fn.mock.calls[1][0]).toEqual(['Mon', 'am']))
     expect(onConfirm).toBeCalled()
   })
