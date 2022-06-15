@@ -48,7 +48,7 @@ describe('Dialog', () => {
   )
 
   test('a11y', async () => {
-    await testA11y(<Dialog visible={true} content='a11y' />)
+    await testA11y(<Dialog visible={true} content='a11y' aria-label='test' />)
   })
 
   test('afterShow should be called', async () => {
