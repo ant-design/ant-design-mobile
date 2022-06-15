@@ -109,6 +109,9 @@ const zhCN = mergeLocale(base, {
     canRelease: '释放立即刷新',
     complete: '刷新成功',
   },
+  Slider: {
+    name: '滑动输入条',
+  },
   Switch: {
     name: '开关',
   },

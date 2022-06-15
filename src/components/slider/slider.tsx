@@ -170,6 +170,7 @@ export const Slider: FC<SliderProps> = p => {
             }, 100)
           }
         }}
+        aria-label={props['aria-label']}
       />
     )
   }
