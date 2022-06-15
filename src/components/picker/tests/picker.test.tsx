@@ -1,10 +1,8 @@
 import React, { createRef, useState } from 'react'
-import { render, fireEvent, waitFor, screen, actClick } from 'testing'
+import { render, fireEvent, waitFor, screen, sleep, act } from 'testing'
 import { basicColumns } from '../demos/columns-data'
 import Picker, { PickerRef } from '..'
 import Button from '../../button'
-
-const maskClassPrefix = 'adm-mask'
 
 describe('Picker', () => {
   test('renderLabel works', async () => {
@@ -66,6 +64,7 @@ describe('Picker', () => {
   })
 
   test('test Picker onMaskClick', async () => {
+    const maskClassPrefix = 'adm-mask'
     const onCancel1 = jest.fn()
     const PickerTestComponent1 = () => {
       const [visible, setVisible] = useState(false)
@@ -84,14 +83,12 @@ describe('Picker', () => {
     }
     const { unmount } = render(<PickerTestComponent1 />)
 
-    await actClick(screen.getByTestId('button'))
+    fireEvent.click(screen.getByTestId('button'))
     await waitFor(() =>
-      expect(
-        document.querySelectorAll(`.${maskClassPrefix}`)[0]
-      ).toBeInTheDocument()
+      fireEvent.click(document.querySelectorAll(`.${maskClassPrefix}`)[0])
     )
-    fireEvent.click(document.querySelectorAll(`.${maskClassPrefix}`)[0])
-    expect(onCancel1).toBeCalled()
+
+    expect(onCancel1).toBeCalledTimes(1)
     unmount()
 
     const onCancel2 = jest.fn()
@@ -113,13 +110,10 @@ describe('Picker', () => {
     }
 
     render(<PickerTestComponent2 />)
-    await actClick(screen.getByTestId('button'))
+    fireEvent.click(screen.getByTestId('button'))
     await waitFor(() =>
-      expect(
-        document.querySelectorAll(`.${maskClassPrefix}`)[0]
-      ).toBeInTheDocument()
+      fireEvent.click(document.querySelectorAll(`.${maskClassPrefix}`)[0])
     )
-    fireEvent.click(document.querySelectorAll(`.${maskClassPrefix}`)[0])
     expect(onCancel2).not.toBeCalled()
   })
 
@@ -135,12 +129,16 @@ describe('Picker', () => {
     }
 
     render(<Button onClick={onClick}>imperativePicker</Button>)
-    await actClick(screen.getByText('imperativePicker'))
-    await actClick(screen.getByText('取消'))
+    fireEvent.click(screen.getByText('imperativePicker'))
+    await act(() => sleep(0))
+    fireEvent.click(screen.getByText('取消'))
+    await act(() => sleep(0))
     await waitFor(() => expect(fn.mock.calls[0][0]).toBeNull())
 
-    await actClick(screen.getByText('imperativePicker'))
-    await actClick(screen.getByText('确定'))
+    fireEvent.click(screen.getByText('imperativePicker'))
+    await act(() => sleep(0))
+    fireEvent.click(screen.getByText('确定'))
+    await act(() => sleep(0))
     await waitFor(() => expect(fn.mock.calls[1][0]).toEqual(['Mon', 'am']))
     expect(onConfirm).toBeCalled()
   })
