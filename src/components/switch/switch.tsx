@@ -4,6 +4,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { SpinIcon } from './spin-icon'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-switch`
 
@@ -26,6 +27,7 @@ export const Switch: FC<SwitchProps> = p => {
   const props = mergeProps(defaultProps, p)
   const disabled = props.disabled || props.loading || false
   const [changing, setChanging] = useState(false)
+  const { locale } = useConfig()
 
   const [checked, setChecked] = usePropsValue({
     value: props.checked,
@@ -61,6 +63,10 @@ export const Switch: FC<SwitchProps> = p => {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled || changing,
       })}
+      role='switch'
+      aria-label={locale.Switch.name}
+      aria-checked={checked}
+      aria-disabled={disabled}
     >
       <div className={`${classPrefix}-checkbox`}>
         <div className={`${classPrefix}-handle`}>

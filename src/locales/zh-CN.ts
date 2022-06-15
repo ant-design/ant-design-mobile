@@ -109,6 +109,9 @@ const zhCN = mergeLocale(base, {
     canRelease: '释放立即刷新',
     complete: '刷新成功',
   },
+  Switch: {
+    name: '开关',
+  },
 })
 
 export default zhCN
