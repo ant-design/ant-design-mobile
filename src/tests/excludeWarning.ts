@@ -1,15 +1,16 @@
 const originError = console.error
 
-// remove px tester warning
+const errorMsgSegment = [
+  // remove px tester warning
+  'The px tester is not rendering properly. Please make sure you have imported `antd-mobile/es/global`.',
+  // remove CSS variables warning
+  'supports CSS variables',
+]
 export function excludeWarning() {
   const errorSpy = jest
     .spyOn(console, 'error')
     .mockImplementation((msg, ...rest) => {
-      if (
-        String(msg).includes(
-          'The px tester is not rendering properly. Please make sure you have imported `antd-mobile/es/global`.'
-        )
-      ) {
+      if (errorMsgSegment.some(segment => String(msg).includes(segment))) {
         return
       }
       originError(msg, ...rest)
