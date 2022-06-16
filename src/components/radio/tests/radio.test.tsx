@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, testA11y, userEvent } from 'testing'
+import { fireEvent, render, testA11y, userEvent, screen } from 'testing'
 import Radio from '../'
 import { RadioGroupProps } from '../group'
 
@@ -21,6 +21,17 @@ describe('Radio', () => {
     fireEvent.click(radio)
     expect(input).toBeChecked()
     expect(radio).toHaveClass(`${classPrefix}-checked`)
+  })
+
+  test('onChange should be call once when the selected item is clicked multiple times', async () => {
+    const onChange = jest.fn()
+    render(
+      <Radio value='1' onChange={onChange}>
+        1
+      </Radio>
+    )
+    await userEvent.tripleClick(screen.getByRole('radio', { name: '1' }))
+    expect(onChange).toBeCalledTimes(1)
   })
 })
 
@@ -115,5 +126,17 @@ describe('Radio.Group', () => {
     expect(inputs.item(0)).not.toBeChecked()
     expect(inputs.item(1)).toBeChecked()
     expect(inputs.item(2)).not.toBeChecked()
+  })
+
+  test('onChange should be call once when the selected item is clicked multiple times', async () => {
+    const onChange = jest.fn()
+    render(
+      <Radio.Group onChange={onChange}>
+        <Radio value='1'>1</Radio>
+        <Radio value='2'>2</Radio>
+      </Radio.Group>
+    )
+    await userEvent.tripleClick(screen.getByRole('radio', { name: '1' }))
+    expect(onChange).toBeCalledTimes(1)
   })
 })
