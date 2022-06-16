@@ -2,8 +2,7 @@ import React, { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import Popup from '../popup'
-import { GetContainer } from '../../utils/render-to-container'
+import Popup, { PopupProps } from '../popup'
 import SafeArea from '../safe-area'
 import { renderImperatively } from '../../utils/render-imperatively'
 
@@ -25,15 +24,17 @@ export type ActionSheetProps = {
   cancelText?: React.ReactNode
   onAction?: (action: Action, index: number) => void
   onClose?: () => void
-  afterClose?: () => void
   onMaskClick?: () => void
   closeOnAction?: boolean
   closeOnMaskClick?: boolean
-  getContainer?: GetContainer
   safeArea?: boolean
   popupClassName?: string
   popupStyle?: React.CSSProperties
-} & NativeProps
+} & Pick<
+  PopupProps,
+  'afterClose' | 'getContainer' | 'destroyOnClose' | 'forceRender'
+> &
+  NativeProps
 
 const defaultProps = {
   visible: false,
@@ -42,6 +43,8 @@ const defaultProps = {
   closeOnAction: false,
   closeOnMaskClick: true,
   safeArea: true,
+  destroyOnClose: false,
+  forceRender: false,
 }
 
 export const ActionSheet: FC<ActionSheetProps> = p => {
@@ -60,6 +63,8 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
       className={classNames(`${classPrefix}-popup`, props.popupClassName)}
       style={props.popupStyle}
       getContainer={props.getContainer}
+      destroyOnClose={props.destroyOnClose}
+      forceRender={props.forceRender}
     >
       {withNativeProps(
         props,
