@@ -28,7 +28,7 @@ export const NativeInput: FC<Props> = props => {
   return (
     <input
       ref={inputRef}
-      type='checkbox'
+      type={props.type}
       checked={props.checked}
       onChange={() => {}}
       disabled={props.disabled}
