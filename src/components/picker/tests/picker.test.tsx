@@ -117,7 +117,31 @@ describe('Picker', () => {
     expect(onCancel2).not.toBeCalled()
   })
 
-  test('test imperative call', async () => {
+  test('Picker.prompt with cancel', async () => {
+    jest.useFakeTimers()
+    const fn = jest.fn()
+    const onCancel = jest.fn()
+    const onClick = async () => {
+      const value = await Picker.prompt({
+        onCancel,
+        columns: basicColumns,
+      })
+      fn(value)
+    }
+
+    render(<button onClick={onClick}>imperativePicker</button>)
+    fireEvent.click(screen.getByText('imperativePicker'))
+    const cancel = await screen.findByText('取消')
+    fireEvent.click(cancel)
+    await act(async () => {
+      await Promise.resolve()
+    })
+    expect(onCancel).toBeCalled()
+    expect(fn).toBeCalledWith(null)
+    jest.useRealTimers()
+  })
+
+  test('Picker.prompt with cancel', async () => {
     jest.useFakeTimers()
     const fn = jest.fn()
     const onConfirm = jest.fn()
@@ -131,21 +155,13 @@ describe('Picker', () => {
 
     render(<button onClick={onClick}>imperativePicker</button>)
     fireEvent.click(screen.getByText('imperativePicker'))
-    const cancel = await screen.findByText('取消')
-    fireEvent.click(cancel)
-    await act(async () => {
-      await Promise.resolve()
-    })
-    expect(fn.mock.calls[0][0]).toBeNull()
-
-    fireEvent.click(screen.getByText('imperativePicker'))
-    const ok = await screen.findByText('确定', {}, { timeout: 2000 })
+    const ok = await screen.findByText('确定')
     fireEvent.click(ok)
     await act(async () => {
       await Promise.resolve()
     })
     expect(onConfirm).toBeCalled()
-    expect(fn.mock.calls[1][0]).toEqual(['Mon', 'am'])
+    expect(fn).toBeCalledWith(['Mon', 'am'])
     jest.useRealTimers()
   })
 
