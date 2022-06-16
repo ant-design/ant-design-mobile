@@ -1,5 +1,5 @@
 import React, { createRef, useState } from 'react'
-import { render, fireEvent, waitFor, screen, sleep, act } from 'testing'
+import { render, fireEvent, waitFor, screen, act } from 'testing'
 import { basicColumns } from '../demos/columns-data'
 import Picker, { PickerRef } from '..'
 import Button from '../../button'
@@ -118,6 +118,7 @@ describe('Picker', () => {
   })
 
   test('test imperative call', async () => {
+    jest.useFakeTimers()
     const fn = jest.fn()
     const onConfirm = jest.fn()
     const onClick = async () => {
@@ -128,17 +129,24 @@ describe('Picker', () => {
       fn(value)
     }
 
-    render(<Button onClick={onClick}>imperativePicker</Button>)
+    render(<button onClick={onClick}>imperativePicker</button>)
     fireEvent.click(screen.getByText('imperativePicker'))
-    await act(() => sleep(0))
-    fireEvent.click(screen.getByText('取消'))
-    await waitFor(() => expect(fn.mock.calls[0][0]).toBeNull())
+    const cancel = await screen.findByText('取消')
+    fireEvent.click(cancel)
+    await act(async () => {
+      await Promise.resolve()
+    })
+    expect(fn.mock.calls[0][0]).toBeNull()
 
     fireEvent.click(screen.getByText('imperativePicker'))
-    await act(() => sleep(0))
-    fireEvent.click(screen.getByText('确定'))
-    await waitFor(() => expect(fn.mock.calls[1][0]).toEqual(['Mon', 'am']))
+    const ok = await screen.findByText('确定', {}, { timeout: 2000 })
+    fireEvent.click(ok)
+    await act(async () => {
+      await Promise.resolve()
+    })
     expect(onConfirm).toBeCalled()
+    expect(fn.mock.calls[1][0]).toEqual(['Mon', 'am'])
+    jest.useRealTimers()
   })
 
   test('test Picker should work given ref', async () => {
@@ -152,7 +160,7 @@ describe('Picker', () => {
         ref={ref}
       />
     )
-    ref.current?.open()
+    act(() => ref.current?.open())
     await waitFor(() => expect(afterShow).toBeCalled())
   })
 })

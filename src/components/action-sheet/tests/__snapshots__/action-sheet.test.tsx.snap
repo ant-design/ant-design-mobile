@@ -14,7 +14,6 @@ exports[`ActionSheet basic usage 1`] = `
   </div>
   <div
     class="adm-popup adm-action-sheet-popup"
-    style=""
   >
     <div
       class="adm-mask"
