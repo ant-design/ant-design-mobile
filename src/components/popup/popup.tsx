@@ -11,11 +11,11 @@ import {
   renderToContainer,
 } from '../../utils/render-to-container'
 import { useSpring, animated } from '@react-spring/web'
-import { useShouldRender } from '../../utils/should-render'
 import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
+import { ShouldRender } from '../../utils/should-render'
 
 const classPrefix = `adm-popup`
 
@@ -59,11 +59,6 @@ export const Popup: FC<PopupProps> = p => {
 
   const [active, setActive] = useState(props.visible)
   useLockScroll(ref, active)
-  const shouldRender = useShouldRender(
-    active,
-    props.forceRender,
-    props.destroyOnClose
-  )
 
   const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({
@@ -129,11 +124,19 @@ export const Popup: FC<PopupProps> = p => {
           }}
           ref={ref}
         >
-          {shouldRender && props.children}
+          {props.children}
         </animated.div>
       </div>
     )
   )
 
-  return renderToContainer(props.getContainer, node)
+  return (
+    <ShouldRender
+      active={active}
+      forceRender={props.forceRender}
+      destroyOnClose={props.destroyOnClose}
+    >
+      {renderToContainer(props.getContainer, node)}
+    </ShouldRender>
+  )
 }
