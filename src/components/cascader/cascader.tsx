@@ -31,12 +31,20 @@ export type CascaderProps = {
   onTabsChange?: (index: number) => void
 } & Pick<
   PopupProps,
-  'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
+  | 'getContainer'
+  | 'afterShow'
+  | 'afterClose'
+  | 'onClick'
+  | 'stopPropagation'
+  | 'destroyOnClose'
+  | 'forceRender'
 > &
   NativeProps
 
 const defaultProps = {
   defaultValue: [],
+  destroyOnClose: true,
+  forceRender: false,
 }
 
 export const Cascader: FC<CascaderProps> = p => {
@@ -120,7 +128,8 @@ export const Cascader: FC<CascaderProps> = p => {
         props.onClose?.()
       }}
       getContainer={props.getContainer}
-      destroyOnClose
+      destroyOnClose={props.destroyOnClose}
+      forceRender={props.forceRender}
       afterShow={props.afterShow}
       afterClose={props.afterClose}
       onClick={props.onClick}

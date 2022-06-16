@@ -4,7 +4,6 @@ import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import { shuffle } from '../../utils/shuffle'
 import Popup, { PopupProps } from '../popup'
-import { GetContainer } from '../../utils/render-to-container'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import SafeArea from '../safe-area'
 import { useMemoizedFn } from 'ahooks'
@@ -14,7 +13,6 @@ const classPrefix = 'adm-number-keyboard'
 export type NumberKeyboardProps = {
   visible?: boolean
   title?: string
-  getContainer?: GetContainer
   confirmText?: string | null
   customKey?: '-' | '.' | 'X'
   randomOrder?: boolean
@@ -23,11 +21,17 @@ export type NumberKeyboardProps = {
   onDelete?: () => void
   onClose?: () => void
   onConfirm?: () => void
-  afterShow?: () => void
-  afterClose?: () => void
   closeOnConfirm?: boolean
   safeArea?: boolean
-} & Pick<PopupProps, 'stopPropagation'> &
+} & Pick<
+  PopupProps,
+  | 'afterClose'
+  | 'afterShow'
+  | 'getContainer'
+  | 'destroyOnClose'
+  | 'forceRender'
+  | 'stopPropagation'
+> &
   NativeProps
 
 const defaultProps = {
@@ -37,6 +41,8 @@ const defaultProps = {
   confirmText: null,
   closeOnConfirm: true,
   safeArea: true,
+  destroyOnClose: false,
+  forceRender: false,
 }
 
 export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
@@ -176,6 +182,8 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       afterShow={props.afterShow}
       className={`${classPrefix}-popup`}
       stopPropagation={props.stopPropagation}
+      destroyOnClose={props.destroyOnClose}
+      forceRender={props.forceRender}
     >
       {withNativeProps(
         props,
