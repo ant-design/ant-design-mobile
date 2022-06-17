@@ -21,6 +21,8 @@ Triggered by user operation, it provides a set of two or more options related to
 | cancelText       | The text of the cancel button , if it is null, the cancel button would not be displayed                                    | `ReactNode`                                | -               |
 | closeOnAction    | Whether to close after clicking the option                                                                                 | `boolean`                                  | `false`         |
 | closeOnMaskClick | Whether to close after clicking the mask layer                                                                             | `boolean`                                  | `true`          |
+| destroyOnClose   | Unmount content when not visible                                                                                           | `boolean`                                  | `false`         |
+| forceRender      | Render content forcely                                                                                                     | `boolean`                                  | `false`         |
 | extra            | The extra area at the top of the the action sheet                                                                          | `ReactNode`                                | -               |
 | getContainer     | Get the specified mounted `HTML` node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
 | onAction         | Triggered when an option is clicked, never triggered when the ActionSheet is disabled or loading                           | `(action: Action, index: number) => void`  | -               |
