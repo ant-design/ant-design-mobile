@@ -25,6 +25,7 @@ export default () => {
 }
 
 const filter: DatePickerFilter = {
+  year: val => val > new Date().getFullYear() - 3,
   month: val => {
     // 只显示双数月份
     if (val % 2 !== 0) {
@@ -53,6 +54,7 @@ const filter: DatePickerFilter = {
 }
 
 const weekFilter: DatePickerFilter = {
+  year: val => val > new Date().getFullYear() - 3,
   'week': val => {
     // 去除每年的前10周
     if (val < 10) {
