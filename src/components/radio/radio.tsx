@@ -95,10 +95,7 @@ export const Radio: FC<RadioProps> = p => {
       <NativeInput
         type='radio'
         checked={checked}
-        onChange={innerChecked => {
-          if (checked === innerChecked) return
-          setChecked(innerChecked)
-        }}
+        onChange={setChecked}
         disabled={disabled}
         id={props.id}
       />

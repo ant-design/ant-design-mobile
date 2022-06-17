@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useRef } from 'react'
+import { useMemoizedFn } from 'ahooks'
 
 interface Props {
   type: 'checkbox' | 'radio'
@@ -10,15 +11,17 @@ interface Props {
 
 export const NativeInput: FC<Props> = props => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const handleClick = useMemoizedFn((e: MouseEvent) => {
+    e.stopPropagation()
+    e.stopImmediatePropagation()
+    const latestChecked = (e.target as HTMLInputElement).checked
+    if (latestChecked === props.checked) return
+    props.onChange(latestChecked)
+  })
   useEffect(() => {
     if (props.disabled) return
     if (!inputRef.current) return
     const input = inputRef.current
-    function handleClick(e: MouseEvent) {
-      e.stopPropagation()
-      e.stopImmediatePropagation()
-      props.onChange(input.checked)
-    }
     input.addEventListener('click', handleClick)
     return () => {
       input.removeEventListener('click', handleClick)
