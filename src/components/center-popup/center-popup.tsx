@@ -33,6 +33,8 @@ export type CenterPopupProps = PropsWithChildren<{
   onMaskClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   stopPropagation?: PropagationEvent[]
   visible?: boolean
+  // These props currently are only used internally. They are not exported to users:
+  role?: string
 }> &
   NativeProps<
     | '--background-color'
@@ -120,7 +122,11 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
             disableBodyScroll={false}
           />
         )}
-        <div className='adm-center-popup-wrap'>
+        <div
+          className='adm-center-popup-wrap'
+          role={props.role}
+          aria-label={props['aria-label']}
+        >
           <animated.div style={style} ref={ref}>
             {body}
           </animated.div>

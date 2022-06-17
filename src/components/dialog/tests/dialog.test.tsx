@@ -5,8 +5,7 @@ import {
   fireEvent,
   waitFor,
   waitForElementToBeRemoved,
-  actSleep,
-  actClick,
+  screen,
 } from 'testing'
 import Dialog, { DialogAlertProps } from '..'
 import { act } from '@testing-library/react'
@@ -15,15 +14,6 @@ const classPrefix = `adm-dialog`
 
 function $$(className: string) {
   return document.querySelectorAll(className)
-}
-
-const waitForMaskShow = async () => {
-  await waitFor(() => {
-    expect($$('.adm-mask')[0]).toHaveStyle({
-      'opacity': 1,
-    })
-  })
-  return $$('.adm-mask')[0]
 }
 
 describe('Dialog', () => {
@@ -48,41 +38,34 @@ describe('Dialog', () => {
   )
 
   test('a11y', async () => {
-    await testA11y(<Dialog visible={true} content='a11y' />)
+    await testA11y(<Dialog visible={true} content='a11y' aria-label='test' />)
   })
 
   test('afterShow should be called', async () => {
     const afterShow = jest.fn()
-    const { getByText } = render(<DialogAlert afterShow={afterShow} />)
-
-    await act(async () => {
-      fireEvent.click(getByText('btn'))
-    })
-    await actSleep(20)
-    expect(afterShow).toBeCalled()
+    render(<DialogAlert afterShow={afterShow} />)
+    fireEvent.click(screen.getByRole('button'))
+    await waitFor(() => expect(afterShow).toBeCalled())
   })
 
   test('onConfirm should be called', async () => {
     const onConfirm = jest.fn()
-    const { getByText } = render(<DialogAlert onConfirm={onConfirm} />)
-
-    fireEvent.click(getByText('btn'))
-    await act(async () => {
-      fireEvent.click(getByText('我知道了'))
-    })
-
+    render(<DialogAlert onConfirm={onConfirm} />)
+    fireEvent.click(screen.getByRole('button', { name: 'btn' }))
+    fireEvent.click(screen.getByRole('button', { name: '我知道了' }))
     expect(onConfirm).toBeCalled()
+    await waitForElementToBeRemoved(screen.getByRole('dialog'))
   })
 
   test('close on mask click', async () => {
     const onClose = jest.fn()
     const afterClose = jest.fn()
-    const { getByText } = render(
+    render(
       <DialogAlert closeOnMaskClick onClose={onClose} afterClose={afterClose} />
     )
 
-    fireEvent.click(getByText('btn'))
-    const mask = await waitForMaskShow()
+    fireEvent.click(screen.getByRole('button', { name: 'btn' }))
+    const mask = await screen.findByRole('button', { name: '遮罩层' })
     fireEvent.click(mask)
     await waitForElementToBeRemoved(mask)
     expect(onClose).toBeCalled()
@@ -90,7 +73,7 @@ describe('Dialog', () => {
   })
 
   test('custom content', async () => {
-    const { getByText } = render(
+    render(
       <DialogAlert
         header={<div>header</div>}
         title='title'
@@ -99,7 +82,7 @@ describe('Dialog', () => {
       />
     )
 
-    fireEvent.click(getByText('btn'))
+    fireEvent.click(screen.getByRole('button', { name: 'btn' }))
     expect($$(`.${classPrefix}-header`)).toHaveLength(1)
     expect($$(`.${classPrefix}-title`)).toHaveLength(1)
     expect($$(`.${classPrefix}-image-container`)).toHaveLength(1)
@@ -110,7 +93,7 @@ describe('Dialog', () => {
 
   test('wait for alert to complete', async () => {
     const fn = jest.fn()
-    const { getByText } = render(
+    render(
       <button
         onClick={async () => {
           await Dialog.alert({
@@ -123,11 +106,11 @@ describe('Dialog', () => {
       </button>
     )
 
-    fireEvent.click(getByText('btn'))
+    fireEvent.click(screen.getByRole('button', { name: 'btn' }))
+    fireEvent.click(screen.getByRole('button', { name: '我知道了' }))
     await act(async () => {
-      fireEvent.click(getByText('我知道了'))
+      await Promise.resolve()
     })
-
     expect(fn).toBeCalled()
   })
 
@@ -146,19 +129,21 @@ describe('Dialog', () => {
       </button>
     )
 
-    const { getByText, getAllByText } = render(<Confirm />)
-    fireEvent.click(getByText('btn'))
-    act(() => {
-      fireEvent.click(getAllByText('确定')[0])
+    render(<Confirm />)
+    const btn = screen.getByRole('button', { name: 'btn' })
+    fireEvent.click(btn)
+    fireEvent.click(screen.getByRole('button', { name: '确定' }))
+    await act(async () => {
+      await Promise.resolve()
     })
-    await actSleep(100)
     expect(fn.mock.calls[0][0]).toBe(true)
+    await waitForElementToBeRemoved(screen.getByRole('dialog'))
 
-    fireEvent.click(getByText('btn'))
-    act(() => {
-      fireEvent.click(getAllByText('取消')[1])
+    fireEvent.click(btn)
+    fireEvent.click(screen.getByRole('button', { name: '取消' }))
+    await act(async () => {
+      await Promise.resolve()
     })
-    await actSleep(100)
     expect(fn.mock.calls[1][0]).toBe(false)
   })
 
@@ -180,7 +165,7 @@ describe('Dialog', () => {
       },
     ]
 
-    const { getByText } = render(
+    render(
       <button
         onClick={() => {
           Dialog.show({
@@ -194,17 +179,20 @@ describe('Dialog', () => {
       </button>
     )
 
-    fireEvent.click(getByText('btn'))
+    fireEvent.click(screen.getByRole('button', { name: 'btn' }))
+    const download = screen.getByRole('button', { name: 'download' })
+    const share = screen.getByRole('button', { name: 'share' })
     expect($$(`.${classPrefix}-button`)).toHaveLength(actions.length)
-    expect($$(`.${classPrefix}-button`)[1]).toHaveClass('adm-button-danger')
-    expect($$(`.${classPrefix}-button`)[2]).toHaveClass('adm-button-disabled')
-
-    await actClick(getByText('read'), 20)
-    expect($$(`.${classPrefix}`).length).toBe(0)
+    expect(download).toHaveClass('adm-button-danger')
+    expect(share).toHaveClass('adm-button-disabled')
+    expect(share).toBeDisabled()
+    fireEvent.click(download)
+    await waitForElementToBeRemoved(screen.getByRole('dialog'))
   })
 
   test('action onClick', async () => {
-    const onClick = jest.fn()
+    const promise = Promise.resolve()
+    const onClick = jest.fn(() => promise)
     const actions = [
       {
         key: 'ok',
@@ -213,7 +201,7 @@ describe('Dialog', () => {
       },
     ]
 
-    const { getByText } = render(
+    render(
       <button
         onClick={() => {
           Dialog.show({
@@ -226,11 +214,11 @@ describe('Dialog', () => {
       </button>
     )
 
-    fireEvent.click(getByText('btn'))
-    await act(async () => {
-      fireEvent.click(getByText('ok'))
-    })
-
+    fireEvent.click(screen.getByRole('button', { name: 'btn' }))
+    fireEvent.click(screen.getByRole('button', { name: 'ok' }))
     expect(onClick).toBeCalled()
+    await act(async () => {
+      await promise
+    })
   })
 })
