@@ -36,6 +36,7 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
       <div className='right-part'>
         <nav>
           {navItems.map(nav => {
+            const key = nav.title || nav.path
             const actions: Action[] =
               Boolean(nav.children?.length) &&
               nav.children.map(item => ({
@@ -45,7 +46,7 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
                 },
               }))
             const span = (
-              <span key={nav.title || nav.path}>
+              <span key={key}>
                 {nav.path ? (
                   <NavLink to={nav.path}>{nav.title}</NavLink>
                 ) : (
@@ -54,7 +55,7 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
               </span>
             )
             return actions ? (
-              <Popover.Menu trigger='click' actions={actions}>
+              <Popover.Menu trigger='click' actions={actions} key={key}>
                 {span}
               </Popover.Menu>
             ) : (

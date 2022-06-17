@@ -9,6 +9,10 @@ export const navs = {
       path: '/components',
     },
     {
+      title: 'Resources',
+      path: '/resources',
+    },
+    {
       title: 'Discover More',
       children: [
         {
@@ -55,6 +59,10 @@ export const navs = {
     {
       title: '组件',
       path: '/zh/components',
+    },
+    {
+      title: '资源',
+      path: '/zh/resources',
     },
     {
       title: '了解更多',
