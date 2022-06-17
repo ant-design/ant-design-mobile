@@ -6,6 +6,7 @@ import {
   screen,
   sleep,
   act,
+  waitForElementToBeRemoved,
 } from 'testing'
 import * as React from 'react'
 import DatePicker from '../'
@@ -156,17 +157,22 @@ describe('DatePicker', () => {
     }
 
     render(<Button onClick={onClick}>DatePicker</Button>)
-    fireEvent.click(screen.getByText('DatePicker'))
+    const button = screen.getByText('DatePicker')
+    fireEvent.click(button)
+    const cancel = await screen.findByText('取消')
+    const popup = document.querySelectorAll('.adm-popup')[0]
     await act(() => sleep(0))
-    fireEvent.click(screen.getByText('取消'))
-    await waitFor(() => expect(fn.mock.calls[0][0]).toBeNull())
+    fireEvent.click(cancel)
+    await waitForElementToBeRemoved(popup)
+    expect(fn.mock.calls[0][0]).toBeNull()
 
-    fireEvent.click(screen.getByText('DatePicker'))
+    fireEvent.click(button)
+    const confirm = await screen.findByText('确定')
+    const popup2 = document.querySelectorAll('.adm-popup')[0]
     await act(() => sleep(0))
-    fireEvent.click(screen.getByText('确定'))
-    await waitFor(() =>
-      expect(fn.mock.calls[1][0]).toEqual(today.toDateString())
-    )
+    fireEvent.click(confirm)
+    await waitForElementToBeRemoved(popup2)
+    expect(fn.mock.calls[1][0]).toEqual(today.toDateString())
     expect(onConfirm).toBeCalled()
   })
 })
