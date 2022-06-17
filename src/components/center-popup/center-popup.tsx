@@ -33,6 +33,7 @@ export type CenterPopupProps = PropsWithChildren<{
   onMaskClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   stopPropagation?: PropagationEvent[]
   visible?: boolean
+  // These props currently are only used internally. They are not exported to users:
   role?: string
 }> &
   NativeProps<
