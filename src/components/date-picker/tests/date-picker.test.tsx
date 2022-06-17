@@ -1,7 +1,16 @@
-import { render, testA11y, fireEvent, waitFor } from 'testing'
+import {
+  render,
+  testA11y,
+  fireEvent,
+  waitFor,
+  screen,
+  sleep,
+  act,
+} from 'testing'
 import * as React from 'react'
 import DatePicker from '../'
 import dayjs from 'dayjs'
+import Button from '../../button'
 
 const classPrefix = `adm-picker`
 
@@ -109,5 +118,55 @@ describe('DatePicker', () => {
     expect(confirmedDay.format(formatTemplate)).toBe(
       dayjs(now).format(formatTemplate)
     )
+  })
+
+  test('precision week', async () => {
+    const today = new Date()
+    const fn = jest.fn()
+    const { getByText } = render(
+      <DatePicker
+        visible
+        precision='week-day'
+        value={now}
+        onConfirm={val => {
+          fn(val.toDateString())
+        }}
+      />
+    )
+
+    expect(
+      document.body.querySelectorAll(`.${classPrefix}-view-column`).length
+    ).toBe(3)
+    await waitFor(() => {
+      fireEvent.click(getByText('确定'))
+    })
+    expect(fn.mock.calls[0][0]).toEqual(today.toDateString())
+  })
+
+  test('test imperative call', async () => {
+    const today = new Date()
+    const fn = jest.fn()
+    const onConfirm = jest.fn()
+    const onClick = async () => {
+      const value = await DatePicker.prompt({
+        defaultValue: now,
+        onConfirm,
+      })
+      fn(value ? value.toDateString() : null)
+    }
+
+    render(<Button onClick={onClick}>DatePicker</Button>)
+    fireEvent.click(screen.getByText('DatePicker'))
+    await act(() => sleep(0))
+    fireEvent.click(screen.getByText('取消'))
+    await waitFor(() => expect(fn.mock.calls[0][0]).toBeNull())
+
+    fireEvent.click(screen.getByText('DatePicker'))
+    await act(() => sleep(0))
+    fireEvent.click(screen.getByText('确定'))
+    await waitFor(() =>
+      expect(fn.mock.calls[1][0]).toEqual(today.toDateString())
+    )
+    expect(onConfirm).toBeCalled()
   })
 })
