@@ -52,7 +52,7 @@ export default () => {
       <div className={styles.main}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <h1 className={styles.title}>Ant Design Mobile 5.0</h1>
+            <h1 className={styles.title}>Ant Design Mobile</h1>
             <p className={styles.description}>
               {trans(
                 'Explore the limits of mobile web experience',
