@@ -21,3 +21,9 @@ sidemenu: false
 <ResourceCard title="Codesandbox" description="在线写 demo" link="https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json" image="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*y2TGQ7YiM04AAAAAAAAAAAAAARQnAQ"></ResourceCard>
 
 <ResourceCard title="Stackblitz" description="在线写 demo" link="https://stackblitz.com/edit/antd-mobile?file=index.tsx" image="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*zC-qR7qz-WMAAAAAAAAAAAAAARQnAQ"></ResourceCard>
+
+## 其他相关链接
+
+[2.x 文档站点](https://antd-mobile-v2.surge.sh)
+
+[3.x 文档站点（alpha）](https://antd-mobile-v3.surge.sh)

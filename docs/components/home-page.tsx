@@ -288,6 +288,8 @@ export default () => {
   )
 }
 
+// TODO: add i18n for footer
+
 const footerGroups = [
   {
     title: 'Ant Design Mobile',
@@ -311,6 +313,10 @@ const footerGroups = [
       {
         title: '提问与反馈',
         link: 'https://github.com/ant-design/ant-design-mobile/issues/new/choose',
+      },
+      {
+        title: '博客',
+        link: 'https://www.yuque.com/awmleer/rocket',
       },
     ],
   },
