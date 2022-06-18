@@ -55,7 +55,6 @@ const defaultProps = {
   defaultValue: 0,
   step: 1,
   disabled: false,
-  minus: false,
   minusDisabled: false,
   plusDisabled: false,
   allowEmpty: false,
