@@ -171,6 +171,24 @@ describe('stepper', () => {
     expect(onChange).toHaveBeenCalledTimes(0)
   })
 
+  test('minus disabled and plus disabled works', () => {
+    const onChange = jest.fn()
+    const { container: minusDisabledContainer } = render(
+      <Stepper minusDisabled onChange={onChange} />
+    )
+    const { container: plusDisabledContainer } = render(
+      <Stepper plusDisabled onChange={onChange} />
+    )
+
+    const minusButton = minusDisabledContainer.getElementsByTagName('button')[0]
+    const plusButton = plusDisabledContainer.getElementsByTagName('button')[1]
+
+    fireEvent.click(minusButton)
+    fireEvent.click(plusButton)
+
+    expect(onChange).toHaveBeenCalledTimes(0)
+  })
+
   test('inputReadOnly works', () => {
     const onChange = jest.fn()
     const { container } = render(<Stepper inputReadOnly onChange={onChange} />)
