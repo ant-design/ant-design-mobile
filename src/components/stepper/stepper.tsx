@@ -32,6 +32,8 @@ export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> &
     step?: number
     digits?: number
     disabled?: boolean
+    minusDisabled?: boolean
+    plusDisabled?: boolean
     inputReadOnly?: boolean
   } & NativeProps<
     | '--height'
@@ -53,12 +55,23 @@ const defaultProps = {
   defaultValue: 0,
   step: 1,
   disabled: false,
+  minus: false,
+  minusDisabled: false,
+  plusDisabled: false,
   allowEmpty: false,
 }
 
 export const Stepper: FC<StepperProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const { disabled, step, max, min, inputReadOnly } = props
+  const {
+    disabled,
+    minusDisabled,
+    plusDisabled,
+    step,
+    max,
+    min,
+    inputReadOnly,
+  } = props
 
   const [value, setValue] = usePropsValue<number | null>(props as any)
   const [inputValue, setInputValue] = useState(() =>
@@ -117,8 +130,9 @@ export const Stepper: FC<StepperProps> = p => {
     )
   }
 
-  const minusDisabled = () => {
+  const minusButtonDisabled = () => {
     if (disabled) return true
+    if (minusDisabled) return true
     if (value === null) return false
     if (min !== undefined) {
       return value <= min
@@ -126,8 +140,9 @@ export const Stepper: FC<StepperProps> = p => {
     return false
   }
 
-  const plusDisabled = () => {
+  const plusButtonDisabled = () => {
     if (disabled) return true
+    if (plusDisabled) return true
     if (value === null) return false
     if (max !== undefined) {
       return value >= max
@@ -145,7 +160,7 @@ export const Stepper: FC<StepperProps> = p => {
       <Button
         className={`${classPrefix}-minus`}
         onClick={handleMinus}
-        disabled={minusDisabled()}
+        disabled={minusButtonDisabled()}
         fill='none'
         shape='rectangular'
         color='primary'
@@ -174,7 +189,7 @@ export const Stepper: FC<StepperProps> = p => {
       <Button
         className={`${classPrefix}-plus`}
         onClick={handlePlus}
-        disabled={plusDisabled()}
+        disabled={plusButtonDisabled()}
         fill='none'
         shape='rectangular'
         color='primary'

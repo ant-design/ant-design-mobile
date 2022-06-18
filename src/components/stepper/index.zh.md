@@ -16,20 +16,22 @@
 
 ### 属性
 
-| 参数          | 说明                                                  | 类型                                              | 默认值  |
-| ------------- | ----------------------------------------------------- | ------------------------------------------------- | ------- |
-| allowEmpty    | 是否允许内容为空                                      | `boolean`                                         | `false` |
-| defaultValue  | 默认值                                                | `number \| null`                                  | `0`     |
-| digits        | 格式化到小数点后固定位数，设置为 `0` 表示格式化到整数 | `number`                                          | -       |
-| disabled      | 是否禁用步进器                                        | `boolean`                                         | `false` |
-| inputReadOnly | 输入框是否只读                                        | `boolean`                                         | `false` |
-| max           | 最大值                                                | `number`                                          | -       |
-| min           | 最小值                                                | `number`                                          | -       |
-| onBlur        | 输入框失去焦点时触发                                  | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
-| onChange      | 变化时的回调                                          | `(value: number \| null) => void`                 | -       |
-| onFocus       | 输入框获得焦点时触发                                  | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
-| step          | 每次改变步数，可以为小数                              | `number`                                          | `1`     |
-| value         | 当前数，受控值                                        | `number \| null`                                  | -       |
+| 参数               | 说明                                                  | 类型                                              | 默认值  |
+| ------------------ | ----------------------------------------------------- | ------------------------------------------------- | ------- |
+| allowEmpty         | 是否允许内容为空                                      | `boolean`                                         | `false` |
+| defaultValue       | 默认值                                                | `number \| null`                                  | `0`     |
+| digits             | 格式化到小数点后固定位数，设置为 `0` 表示格式化到整数 | `number`                                          | -       |
+| disabled           | 是否禁用步进器                                        | `boolean`                                         | `false` |
+| inputReadOnly      | 输入框是否只读                                        | `boolean`                                         | `false` |
+| max                | 最大值                                                | `number`                                          | -       |
+| min                | 最小值                                                | `number`                                          | -       |
+| minusDisabled      | 是否禁用减小按钮                                      | `boolean`                                         | `false` |
+| onBlur             | 输入框失去焦点时触发                                  | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
+| onChange           | 变化时的回调                                          | `(value: number \| null) => void`                 | -       |
+| onFocus            | 输入框获得焦点时触发                                  | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
+| plusButtonDisabled | 是否禁用增大按钮                                      | `boolean`                                         | `false` |
+| step               | 每次改变步数，可以为小数                              | `number`                                          | `1`     |
+| value              | 当前数，受控值                                        | `number \| null`                                  | -       |
 
 当 `allowEmpty` 为 `true` 时，`onChange` 的 `value` 参数可能会为 `null`，在使用时请留意。
 

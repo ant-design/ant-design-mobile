@@ -16,20 +16,22 @@ It is suitable for inputting and adjusting the current value within a certain ra
 
 ### Props
 
-| Name          | Description                                                                                    | Type                                              | Default |
-| ------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------- |
-| allowEmpty    | Whether to allow empty content.                                                                | `boolean`                                         | `false` |
-| defaultValue  | Default value                                                                                  | `number \| null`                                  | `0`     |
-| digits        | Format to a fixed number of digits after the decimal point, set to `0` means format to integer | `number`                                          | -       |
-| disabled      | Whether to disabled Stepper                                                                    | `boolean`                                         | `false` |
-| inputReadOnly | Whether input readonly or not                                                                  | `boolean`                                         | `false` |
-| max           | Max value                                                                                      | `number`                                          | -       |
-| min           | Min value                                                                                      | `number`                                          | -       |
-| onBlur        | Triggered when the input lose focus                                                            | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
-| onChange      | Callback when value is changed                                                                 | `(value: number \| null) => void`                 | -       |
-| onFocus       | Triggered when the input get focus                                                             | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
-| step          | Change the number of steps each time, it can be a decimal                                      | `number`                                          | `1`     |
-| value         | Current number, controlled value                                                               | `number \| null`                                  | -       |
+| Name               | Description                                                                                    | Type                                              | Default |
+| ------------------ | ---------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------- |
+| allowEmpty         | Whether to allow empty content.                                                                | `boolean`                                         | `false` |
+| defaultValue       | Default value                                                                                  | `number \| null`                                  | `0`     |
+| digits             | Format to a fixed number of digits after the decimal point, set to `0` means format to integer | `number`                                          | -       |
+| disabled           | Whether to disabled Stepper                                                                    | `boolean`                                         | `false` |
+| inputReadOnly      | Whether input readonly or not                                                                  | `boolean`                                         | `false` |
+| max                | Max value                                                                                      | `number`                                          | -       |
+| min                | Min value                                                                                      | `number`                                          | -       |
+| minusDisabled      | Whether to disabled the minus button                                                           | `boolean`                                         | `false` |
+| onBlur             | Triggered when the input lose focus                                                            | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
+| onChange           | Callback when value is changed                                                                 | `(value: number \| null) => void`                 | -       |
+| onFocus            | Triggered when the input get focus                                                             | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
+| plusButtonDisabled | Whether to disabled the plus button                                                            | `boolean`                                         | `false` |
+| step               | Change the number of steps each time, it can be a decimal                                      | `number`                                          | `1`     |
+| value              | Current number, controlled value                                                               | `number \| null`                                  | -       |
 
 When `allowEmpty` is `true`, the `value` parameter of `onChange` may be `null`, please pay attention when using it.
 

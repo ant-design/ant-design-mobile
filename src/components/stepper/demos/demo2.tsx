@@ -9,6 +9,10 @@ export default () => {
         <Stepper disabled />
       </DemoBlock>
 
+      <DemoBlock title='单个按钮禁用状态'>
+        <Stepper minusDisabled defaultValue={10000} step={10000} />
+      </DemoBlock>
+
       <DemoBlock title='输入框只读状态'>
         <Stepper inputReadOnly />
       </DemoBlock>
