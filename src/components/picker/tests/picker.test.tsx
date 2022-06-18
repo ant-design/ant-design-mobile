@@ -1,5 +1,13 @@
 import React, { createRef, useState } from 'react'
-import { render, fireEvent, waitFor, screen, sleep, act } from 'testing'
+import {
+  render,
+  fireEvent,
+  waitFor,
+  screen,
+  sleep,
+  act,
+  waitForElementToBeRemoved,
+} from 'testing'
 import { basicColumns } from '../demos/columns-data'
 import Picker, { PickerRef } from '..'
 import Button from '../../button'
@@ -129,15 +137,22 @@ describe('Picker', () => {
     }
 
     render(<Button onClick={onClick}>imperativePicker</Button>)
-    fireEvent.click(screen.getByText('imperativePicker'))
+    const button = screen.getByText('imperativePicker')
+    fireEvent.click(button)
+    const cancel = await screen.findByText('取消')
+    const popup = document.querySelectorAll('.adm-popup')[0]
     await act(() => sleep(0))
-    fireEvent.click(screen.getByText('取消'))
-    await waitFor(() => expect(fn.mock.calls[0][0]).toBeNull())
+    fireEvent.click(cancel)
+    await waitForElementToBeRemoved(popup)
+    expect(fn.mock.calls[0][0]).toBeNull()
 
-    fireEvent.click(screen.getByText('imperativePicker'))
+    fireEvent.click(button)
+    const confirm = await screen.findByText('确定')
+    const popup2 = document.querySelectorAll('.adm-popup')[0]
     await act(() => sleep(0))
-    fireEvent.click(screen.getByText('确定'))
-    await waitFor(() => expect(fn.mock.calls[1][0]).toEqual(['Mon', 'am']))
+    fireEvent.click(confirm)
+    await waitForElementToBeRemoved(popup2)
+    expect(fn.mock.calls[1][0]).toEqual(['Mon', 'am'])
     expect(onConfirm).toBeCalled()
   })
 
@@ -152,7 +167,9 @@ describe('Picker', () => {
         ref={ref}
       />
     )
-    ref.current?.open()
+    act(() => {
+      ref.current?.open()
+    })
     await waitFor(() => expect(afterShow).toBeCalled())
   })
 })

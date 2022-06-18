@@ -26,7 +26,6 @@ import { useConfig } from '../config-provider'
 import { useMemoizedFn } from 'ahooks'
 import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
-import { useShouldRender } from '../../utils/should-render'
 
 export type PickerActions = {
   open: () => void
@@ -58,11 +57,15 @@ export type PickerProps = {
   mouseWheel?: boolean
   popupClassName?: string
   popupStyle?: React.CSSProperties
-  forceRender?: boolean
-  destroyOnClose?: boolean
 } & Pick<
   PopupProps,
-  'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
+  | 'getContainer'
+  | 'afterShow'
+  | 'afterClose'
+  | 'onClick'
+  | 'stopPropagation'
+  | 'forceRender'
+  | 'destroyOnClose'
 > &
   NativeProps<
     | '--header-button-font-size'
@@ -75,6 +78,8 @@ const defaultProps = {
   defaultValue: [],
   closeOnMaskClick: true,
   renderLabel: defaultRenderLabel,
+  destroyOnClose: false,
+  forceRender: false,
 }
 
 export const Picker = memo(
@@ -142,12 +147,6 @@ export const Picker = memo(
       }
     })
 
-    const shouldRender = useShouldRender(
-      visible,
-      props.forceRender,
-      props.destroyOnClose
-    )
-
     const pickerElement = withNativeProps(
       props,
       <div className={classPrefix}>
@@ -196,14 +195,14 @@ export const Picker = memo(
           setVisible(false)
         }}
         getContainer={props.getContainer}
-        destroyOnClose
+        destroyOnClose={props.destroyOnClose}
         afterShow={props.afterShow}
         afterClose={props.afterClose}
         onClick={props.onClick}
-        forceRender={true}
+        forceRender={props.forceRender}
         stopPropagation={props.stopPropagation}
       >
-        {shouldRender && pickerElement}
+        {pickerElement}
         <SafeArea position='bottom' />
       </Popup>
     )

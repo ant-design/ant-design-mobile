@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, useContext, useImperativeHandle } from 'react'
+import React, { forwardRef, useContext, useImperativeHandle } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { CheckboxGroupContext } from './group-context'
