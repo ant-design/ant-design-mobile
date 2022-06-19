@@ -56,7 +56,7 @@ to open a floating layer in the middle of the current page to carry the correspo
 | onClick   | Triggered on click                | `() => void \| Promise<void>` | -       |
 | primary   | Whether in primary state or not   | `boolean`                     | `false` |
 | style     | Style of the action button        | `React.CSSProperties`         | -       |
-| text      | The title                         | `string`                      | -       |
+| text      | The title                         | `React.ReactNode`             | -       |
 
 ## Imperative
 
