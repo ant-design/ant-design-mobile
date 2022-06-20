@@ -101,6 +101,7 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
             style={props.maskStyle}
             className={classNames('adm-center-popup-mask', props.maskClassName)}
             disableBodyScroll={false}
+            stopPropagation={props.stopPropagation}
           />
         )}
         <div

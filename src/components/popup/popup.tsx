@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { useState, useRef, FC, PropsWithChildren } from 'react'
-import { useUnmountedRef } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
@@ -11,6 +11,7 @@ import { withStopPropagation } from '../../utils/with-stop-propagation'
 import { ShouldRender } from '../../utils/should-render'
 import { CloseOutline } from 'antd-mobile-icons'
 import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
+import { useInnerVisible } from '../../utils/use-inner-visible'
 
 const classPrefix = `adm-popup`
 
@@ -34,9 +35,14 @@ export const Popup: FC<PopupProps> = p => {
     `${classPrefix}-body-position-${props.position}`
   )
 
-  const ref = useRef<HTMLDivElement>(null)
-
   const [active, setActive] = useState(props.visible)
+  useIsomorphicLayoutEffect(() => {
+    if (props.visible) {
+      setActive(true)
+    }
+  }, [props.visible])
+
+  const ref = useRef<HTMLDivElement>(null)
   useLockScroll(ref, props.disableBodyScroll && active)
 
   const unmountedRef = useUnmountedRef()
@@ -47,9 +53,6 @@ export const Popup: FC<PopupProps> = p => {
       mass: 0.4,
       tension: 300,
       friction: 30,
-    },
-    onStart: () => {
-      setActive(true)
     },
     onRest: () => {
       if (unmountedRef.current) return
@@ -62,6 +65,8 @@ export const Popup: FC<PopupProps> = p => {
     },
   })
 
+  const maskVisible = useInnerVisible(active && props.visible)
+
   const node = withStopPropagation(
     props.stopPropagation,
     withNativeProps(
@@ -73,7 +78,9 @@ export const Popup: FC<PopupProps> = p => {
       >
         {props.mask && (
           <Mask
-            visible={props.visible}
+            visible={maskVisible}
+            forceRender={props.forceRender}
+            destroyOnClose={props.destroyOnClose}
             onMaskClick={e => {
               props.onMaskClick?.(e)
               if (props.closeOnMaskClick) {
