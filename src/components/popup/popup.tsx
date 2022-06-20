@@ -10,7 +10,7 @@ import { useSpring, animated } from '@react-spring/web'
 import { withStopPropagation } from '../../utils/with-stop-propagation'
 import { ShouldRender } from '../../utils/should-render'
 import { CloseOutline } from 'antd-mobile-icons'
-import { PopupBaseProps } from './popup-base-props'
+import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
 
 const classPrefix = `adm-popup`
 
@@ -21,13 +21,8 @@ export type PopupProps = PopupBaseProps &
   NativeProps<'--z-index'>
 
 const defaultProps = {
-  closeOnMaskClick: false,
-  getContainer: () => document.body,
-  mask: true,
+  ...defaultPopupBaseProps,
   position: 'bottom',
-  showCloseButton: false,
-  stopPropagation: ['click'],
-  visible: false,
 }
 
 export const Popup: FC<PopupProps> = p => {
@@ -42,7 +37,7 @@ export const Popup: FC<PopupProps> = p => {
   const ref = useRef<HTMLDivElement>(null)
 
   const [active, setActive] = useState(props.visible)
-  useLockScroll(ref, active)
+  useLockScroll(ref, props.disableBodyScroll && active)
 
   const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({

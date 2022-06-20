@@ -10,6 +10,7 @@ export type PopupBaseProps = {
   bodyStyle?: React.CSSProperties
   closeOnMaskClick?: boolean
   destroyOnClose?: boolean
+  disableBodyScroll?: boolean
   forceRender?: boolean
   getContainer?: GetContainer
   mask?: boolean
@@ -21,4 +22,16 @@ export type PopupBaseProps = {
   showCloseButton?: boolean
   stopPropagation?: PropagationEvent[]
   visible?: boolean
+}
+
+export const defaultPopupBaseProps = {
+  closeOnMaskClick: false,
+  destroyOnClose: false,
+  disableBodyScroll: true,
+  forceRender: false,
+  getContainer: null,
+  mask: true,
+  showCloseButton: false,
+  stopPropagation: ['click'],
+  visible: false,
 }

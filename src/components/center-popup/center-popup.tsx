@@ -11,11 +11,13 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { ShouldRender } from '../../utils/should-render'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { CloseOutline } from 'antd-mobile-icons'
-import { PopupBaseProps } from '../popup/popup-base-props'
+import {
+  defaultPopupBaseProps,
+  PopupBaseProps,
+} from '../popup/popup-base-props'
 
 export type CenterPopupProps = PopupBaseProps &
   PropsWithChildren<{
-    disableBodyScroll?: boolean
     // These props currently are only used internally. They are not exported to users:
     role?: string
   }> &
@@ -27,17 +29,7 @@ export type CenterPopupProps = PopupBaseProps &
     | '--z-index'
   >
 
-const defaultProps = {
-  closeOnMaskClick: false,
-  destroyOnClose: false,
-  disableBodyScroll: true,
-  forceRender: false,
-  getContainer: null,
-  mask: true,
-  showCloseButton: false,
-  stopPropagation: ['click'],
-  visible: false,
-}
+const defaultProps = defaultPopupBaseProps
 
 export const CenterPopup: FC<CenterPopupProps> = p => {
   const props = mergeProps(defaultProps, p)
