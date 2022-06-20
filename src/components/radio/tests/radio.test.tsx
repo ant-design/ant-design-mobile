@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, testA11y, userEvent } from 'testing'
+import { fireEvent, render, testA11y, userEvent, screen } from 'testing'
 import Radio from '../'
 import { RadioGroupProps } from '../group'
 
@@ -11,42 +11,50 @@ describe('Radio', () => {
   })
 
   test('basic - should check', async () => {
-    const { container } = render(<Radio>Radio</Radio>)
+    render(<Radio>Radio</Radio>)
 
-    const input = container.querySelectorAll('input')[0]
-    const radio = container.getElementsByTagName('label')[0]
-    expect(input).not.toBeChecked()
-    expect(radio).toHaveClass(`${classPrefix}`)
+    const radio = screen.getByRole('radio')
+    const label = document.getElementsByTagName('label')[0]
+    expect(radio).not.toBeChecked()
+    expect(label).toHaveClass(`${classPrefix}`)
 
-    fireEvent.click(radio)
-    expect(input).toBeChecked()
-    expect(radio).toHaveClass(`${classPrefix}-checked`)
+    fireEvent.click(label)
+    expect(radio).toBeChecked()
+    expect(label).toHaveClass(`${classPrefix}-checked`)
+  })
+
+  test('onChange should be call once when the selected item is clicked multiple times', async () => {
+    const onChange = jest.fn()
+    render(
+      <Radio value='1' onChange={onChange}>
+        1
+      </Radio>
+    )
+    await userEvent.tripleClick(screen.getByRole('radio'))
+    expect(onChange).toBeCalledTimes(1)
   })
 })
 
 describe('Radio.Group', () => {
   test('renders with disabled', async () => {
-    const { container } = render(<Radio disabled>Radio</Radio>)
-    const input = container.querySelectorAll('input')[0]
-    const radio = container.getElementsByTagName('label')[0]
-    expect(radio).toHaveClass(`${classPrefix}-disabled`)
-    expect(input).not.toBeChecked()
-    fireEvent.click(radio)
-    expect(input).not.toBeChecked()
+    render(<Radio disabled>Radio</Radio>)
+    const radio = screen.getByRole('radio')
+    const label = document.getElementsByTagName('label')[0]
+    expect(label).toHaveClass(`${classPrefix}-disabled`)
+    expect(radio).not.toBeChecked()
+    fireEvent.click(label)
+    expect(radio).not.toBeChecked()
   })
 
-  test('default values', async () => {
-    const Component = () => (
+  test('default values', () => {
+    render(
       <Radio.Group defaultValue={'apple'}>
         <Radio value='apple'>苹果</Radio>
         <Radio value='orange'>橘子</Radio>
         <Radio value='banana'>香蕉</Radio>
       </Radio.Group>
     )
-    const { container } = render(<Component />)
-    const [apple, orange, banana] = Array.from(
-      container.querySelectorAll('input')
-    )
+    const [apple, orange, banana] = screen.getAllByRole('radio')
     expect(apple).toBeChecked()
     expect(orange).not.toBeChecked()
     expect(banana).not.toBeChecked()
@@ -64,19 +72,14 @@ describe('Radio.Group', () => {
       checked = value
     })
 
-    const Component = (props: RadioGroupProps) => (
-      <Radio.Group {...props}>
+    render(
+      <Radio.Group value={checked} onChange={onChange}>
         <Radio value='apple'>苹果</Radio>
         <Radio value='orange'>橘子</Radio>
         <Radio value='banana'>香蕉</Radio>
       </Radio.Group>
     )
-    const { container } = render(
-      <Component value={checked} onChange={onChange} />
-    )
-    const [apple, orange, banana] = Array.from(
-      container.querySelectorAll('input')
-    )
+    const [apple, orange, banana] = screen.getAllByRole('radio')
     expect(apple).toBeChecked()
     expect(orange).not.toBeChecked()
     expect(banana).not.toBeChecked()
@@ -88,7 +91,7 @@ describe('Radio.Group', () => {
   })
 
   test('group disabled', () => {
-    const Component = () => (
+    const { container, getByText } = render(
       <Radio.Group defaultValue={'orange'} disabled>
         <Radio value='apple'>苹果</Radio>
         <Radio value='orange' disabled>
@@ -100,20 +103,29 @@ describe('Radio.Group', () => {
       </Radio.Group>
     )
 
-    const { container, getByText } = render(<Component />)
+    const [apple, orange, banana] = screen.getAllByRole('radio')
+    expect(apple).not.toBeChecked()
+    expect(orange).toBeChecked()
+    expect(banana).not.toBeChecked()
 
-    let inputs = container.querySelectorAll('input')
-    expect(inputs.item(0)).not.toBeChecked()
-    expect(inputs.item(1)).toBeChecked()
-    expect(inputs.item(2)).not.toBeChecked()
+    userEvent.click(screen.getByText('苹果'))
+    userEvent.click(screen.getByText('橘子'))
+    userEvent.click(screen.getByText('香蕉'))
 
-    userEvent.click(getByText('苹果'))
-    userEvent.click(getByText('橘子'))
-    userEvent.click(getByText('香蕉'))
+    expect(apple).not.toBeChecked()
+    expect(orange).toBeChecked()
+    expect(banana).not.toBeChecked()
+  })
 
-    inputs = container.querySelectorAll('input')
-    expect(inputs.item(0)).not.toBeChecked()
-    expect(inputs.item(1)).toBeChecked()
-    expect(inputs.item(2)).not.toBeChecked()
+  test('onChange should be call once when the selected item is clicked multiple times', async () => {
+    const onChange = jest.fn()
+    render(
+      <Radio.Group onChange={onChange}>
+        <Radio value='1'>1</Radio>
+        <Radio value='2'>2</Radio>
+      </Radio.Group>
+    )
+    await userEvent.tripleClick(screen.getByRole('radio', { name: '1' }))
+    expect(onChange).toBeCalledTimes(1)
   })
 })

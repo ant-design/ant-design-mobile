@@ -1,4 +1,3 @@
-import { PickerColumnItem } from '../picker-view'
 import { ReactNode } from 'react'
 import dayjs from 'dayjs'
 import isoWeek from 'dayjs/plugin/isoWeek'
@@ -65,18 +64,6 @@ export function generateDatePickerColumns(
 
   const rank = precisionRankRecord[precision]
 
-  if (rank >= precisionRankRecord.year) {
-    const years: PickerColumnItem[] = []
-    for (let i = minYear; i <= maxYear; i++) {
-      const value = i.toString()
-      years.push({
-        label: renderLabel ? renderLabel('year', i) : value,
-        value,
-      })
-    }
-    ret.push(years)
-  }
-
   const selectedYear = parseInt(selected[0])
   const firstDayInSelectedMonth = dayjs(
     convertStringArrayToDate([selected[0], selected[1], '1'])
@@ -119,6 +106,20 @@ export function generateDatePickerColumns(
       )
     }
     return column
+  }
+
+  if (rank >= precisionRankRecord.year) {
+    const lower = minYear
+    const upper = maxYear
+    const years = generateColumn(lower, upper, 'year')
+    ret.push(
+      years.map(v => {
+        return {
+          label: renderLabel('year', v),
+          value: v.toString(),
+        }
+      })
+    )
   }
 
   if (rank >= precisionRankRecord.month) {

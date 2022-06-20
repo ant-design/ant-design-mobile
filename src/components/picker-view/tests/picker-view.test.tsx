@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { render, testA11y, fireEvent, waitFor, createEvent } from 'testing'
+import { render, testA11y, fireEvent, waitFor } from 'testing'
 import PickerView from '../'
 import { basicColumns } from '../demos/columns-data'
-import { patchCreateEvent } from '../../../tests/gesture/utils'
 
 const classPrefix = `adm-picker-view`
 
@@ -13,8 +12,6 @@ const mockStyleHtml = `
   }
 </style>
 `
-
-patchCreateEvent(createEvent)
 
 describe('PickerView', () => {
   beforeAll(() => {
@@ -45,20 +42,14 @@ describe('PickerView', () => {
     const { getByTestId } = render(<App />)
 
     const wheelEl = document.body.querySelectorAll(`.${classPrefix}-column`)[0]
-
-    fireEvent.pointerDown(wheelEl, {
-      pointerId: 1,
-      clientX: 0,
-      clientY: 0,
+    fireEvent.mouseDown(wheelEl, {
       buttons: 1,
     })
-    fireEvent.pointerMove(wheelEl, {
-      pointerId: 1,
-      clientX: 10,
+    fireEvent.mouseMove(wheelEl, {
       clientY: -100,
       buttons: 1,
     })
-    fireEvent.pointerUp(wheelEl, { pointerId: 1 })
+    fireEvent.mouseUp(wheelEl)
 
     await waitFor(() => {
       expect(getByTestId('res')).toHaveTextContent(

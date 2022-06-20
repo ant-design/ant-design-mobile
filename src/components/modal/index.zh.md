@@ -54,7 +54,7 @@
 | onClick   | 点击时触发     | `() => void \| Promise<void>` | -       |
 | primary   | 是否为主要状态 | `boolean`                     | `false` |
 | style     | `Action` 样式  | `React.CSSProperties`         | -       |
-| text      | 标题           | `string`                      | -       |
+| text      | 标题           | `React.ReactNode`             | -       |
 
 ## 指令式
 

@@ -52,7 +52,7 @@ export default () => {
       <div className={styles.main}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <h1 className={styles.title}>Ant Design Mobile 5.0</h1>
+            <h1 className={styles.title}>Ant Design Mobile</h1>
             <p className={styles.description}>
               {trans(
                 'Explore the limits of mobile web experience',
@@ -288,6 +288,8 @@ export default () => {
   )
 }
 
+// TODO: add i18n for footer
+
 const footerGroups = [
   {
     title: 'Ant Design Mobile',
@@ -311,6 +313,10 @@ const footerGroups = [
       {
         title: '提问与反馈',
         link: 'https://github.com/ant-design/ant-design-mobile/issues/new/choose',
+      },
+      {
+        title: '博客',
+        link: 'https://www.yuque.com/awmleer/rocket',
       },
     ],
   },

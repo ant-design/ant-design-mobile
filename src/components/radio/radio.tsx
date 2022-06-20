@@ -58,13 +58,13 @@ export const Radio: FC<RadioProps> = p => {
     }
 
     checked = groupContext.value.includes(value)
-    setChecked = (checked: boolean) => {
-      if (checked) {
+    setChecked = (innerChecked: boolean) => {
+      if (innerChecked) {
         groupContext.check(value)
       } else {
         groupContext.uncheck(value)
       }
-      props.onChange?.(checked)
+      props.onChange?.(innerChecked)
     }
     disabled = disabled || groupContext.disabled
   }

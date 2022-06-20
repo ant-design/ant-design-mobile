@@ -106,6 +106,9 @@ export const base = {
     canRelease: 'Release to refresh immediately',
     complete: 'Refresh successful',
   },
+  Switch: {
+    name: 'Switch',
+  },
 }
 
 export type Locale = typeof base
