@@ -3,7 +3,7 @@ import { base } from './base'
 
 const typeTemplate = '${label} bukan ${type} yang valid'
 
-const zhCN = mergeLocale(base, {
+const idID = mergeLocale(base, {
   locale: 'id-ID',
   common: {
     confirm: 'Yakin',
@@ -112,4 +112,4 @@ const zhCN = mergeLocale(base, {
   },
 })
 
-export default zhCN
+export default idID
