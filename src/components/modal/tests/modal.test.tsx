@@ -76,7 +76,7 @@ describe('Modal', () => {
   test('show close button', async () => {
     render(<ModalAlert showCloseButton />)
     fireEvent.click(screen.getByRole('button', { name: 'btn' }))
-    expect($$(`.${classPrefix}-close`)).toHaveLength(1)
+    expect($$(`.adm-center-popup-close`)).toHaveLength(1)
   })
 
   test('custom content', async () => {

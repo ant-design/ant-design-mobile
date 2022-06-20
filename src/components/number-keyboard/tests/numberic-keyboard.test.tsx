@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { fireEvent, render, testA11y, waitFor } from 'testing'
+import { fireEvent, render, sleep, testA11y, waitFor } from 'testing'
 import NumberKeyboard from '..'
 
 const classPrefix = 'adm-number-keyboard'
@@ -34,13 +34,14 @@ describe('NumberKeyboard', () => {
       expect(onClose).toBeCalledTimes(1)
     })
 
-    // 点击数字
-    fireEvent.touchEnd(getByText('0'))
-    fireEvent.touchEnd(getByTitle(''))
-    await waitFor(() => {
-      expect(onInput).toBeCalledTimes(1)
-      expect(inputValue).toEqual('0')
+    // touch every key button
+    document.querySelectorAll(`.${classPrefix}-key`).forEach(element => {
+      fireEvent.touchEnd(element)
     })
+
+    await sleep(100)
+    expect(onInput).toBeCalledTimes(10)
+    expect(inputValue).toEqual('0')
   })
 
   test('renders with customKey', async () => {

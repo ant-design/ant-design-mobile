@@ -725,6 +725,114 @@ exports[`ConfigProvider should display the text as en 1`] = `
     </div>
   </div>
   <div
+    class="adm-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="Mask"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-cascader"
+      >
+        <div
+          class="adm-cascader-header"
+        >
+          <a
+            class="adm-cascader-header-button"
+          >
+            Cancel
+          </a>
+          <div
+            class="adm-cascader-header-title"
+          />
+          <a
+            class="adm-cascader-header-button"
+          >
+            Confirm
+          </a>
+        </div>
+        <div
+          class="adm-cascader-body"
+        >
+          <div
+            class="adm-cascader-view"
+          >
+            <div
+              class="adm-tabs adm-cascader-view-tabs"
+            >
+              <div
+                class="adm-tabs-header"
+              >
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-left"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-right"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-tab-list"
+                >
+                  <div
+                    class="adm-tabs-tab-line"
+                    style="width: 0px; transform: none;"
+                  />
+                  <div
+                    class="adm-tabs-tab-wrapper"
+                  >
+                    <div
+                      class="adm-tabs-tab adm-tabs-tab-active"
+                    >
+                      <div
+                        class="adm-cascader-view-header-title"
+                      >
+                        Selecting
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="adm-tabs-content"
+                style="display: block;"
+              >
+                <div
+                  class="adm-cascader-view-content"
+                >
+                  <div
+                    class="adm-list adm-list-default adm-check-list"
+                  >
+                    <div
+                      class="adm-list-body"
+                    >
+                      <div
+                        class="adm-list-body-inner"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="adm-error-block"
   >
     <div
@@ -1012,6 +1120,73 @@ exports[`ConfigProvider should display the text as en 1`] = `
       </div>
     </div>
   </form>
+  <div
+    class="adm-popup adm-picker-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="Mask"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-picker"
+      >
+        <div
+          class="adm-picker-header"
+        >
+          <a
+            class="adm-picker-header-button"
+          >
+            Cancel
+          </a>
+          <div
+            class="adm-picker-header-title"
+          />
+          <a
+            class="adm-picker-header-button"
+          >
+            Confirm
+          </a>
+        </div>
+        <div
+          class="adm-picker-body"
+        >
+          <div
+            class="adm-picker-view"
+          >
+            <div
+              class="adm-picker-view-mask"
+            >
+              <div
+                class="adm-picker-view-mask-top"
+              />
+              <div
+                class="adm-picker-view-mask-middle"
+              />
+              <div
+                class="adm-picker-view-mask-bottom"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-safe-area adm-safe-area-position-bottom"
+      />
+    </div>
+  </div>
   <div
     class="adm-search-bar"
   >
@@ -1941,6 +2116,114 @@ exports[`ConfigProvider should display the text as es 1`] = `
     </div>
   </div>
   <div
+    class="adm-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="Máscara"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-cascader"
+      >
+        <div
+          class="adm-cascader-header"
+        >
+          <a
+            class="adm-cascader-header-button"
+          >
+            Cancelar
+          </a>
+          <div
+            class="adm-cascader-header-title"
+          />
+          <a
+            class="adm-cascader-header-button"
+          >
+            Confirmar
+          </a>
+        </div>
+        <div
+          class="adm-cascader-body"
+        >
+          <div
+            class="adm-cascader-view"
+          >
+            <div
+              class="adm-tabs adm-cascader-view-tabs"
+            >
+              <div
+                class="adm-tabs-header"
+              >
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-left"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-right"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-tab-list"
+                >
+                  <div
+                    class="adm-tabs-tab-line"
+                    style="width: 0px; transform: none;"
+                  />
+                  <div
+                    class="adm-tabs-tab-wrapper"
+                  >
+                    <div
+                      class="adm-tabs-tab adm-tabs-tab-active"
+                    >
+                      <div
+                        class="adm-cascader-view-header-title"
+                      >
+                        Seleccionando
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="adm-tabs-content"
+                style="display: block;"
+              >
+                <div
+                  class="adm-cascader-view-content"
+                >
+                  <div
+                    class="adm-list adm-list-default adm-check-list"
+                  >
+                    <div
+                      class="adm-list-body"
+                    >
+                      <div
+                        class="adm-list-body-inner"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="adm-error-block"
   >
     <div
@@ -2228,6 +2511,73 @@ exports[`ConfigProvider should display the text as es 1`] = `
       </div>
     </div>
   </form>
+  <div
+    class="adm-popup adm-picker-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="Máscara"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-picker"
+      >
+        <div
+          class="adm-picker-header"
+        >
+          <a
+            class="adm-picker-header-button"
+          >
+            Cancelar
+          </a>
+          <div
+            class="adm-picker-header-title"
+          />
+          <a
+            class="adm-picker-header-button"
+          >
+            Confirmar
+          </a>
+        </div>
+        <div
+          class="adm-picker-body"
+        >
+          <div
+            class="adm-picker-view"
+          >
+            <div
+              class="adm-picker-view-mask"
+            >
+              <div
+                class="adm-picker-view-mask-top"
+              />
+              <div
+                class="adm-picker-view-mask-middle"
+              />
+              <div
+                class="adm-picker-view-mask-bottom"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-safe-area adm-safe-area-position-bottom"
+      />
+    </div>
+  </div>
   <div
     class="adm-search-bar"
   >
@@ -3157,6 +3507,114 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
     </div>
   </div>
   <div
+    class="adm-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="ماسک"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-cascader"
+      >
+        <div
+          class="adm-cascader-header"
+        >
+          <a
+            class="adm-cascader-header-button"
+          >
+            لغو
+          </a>
+          <div
+            class="adm-cascader-header-title"
+          />
+          <a
+            class="adm-cascader-header-button"
+          >
+            تایید
+          </a>
+        </div>
+        <div
+          class="adm-cascader-body"
+        >
+          <div
+            class="adm-cascader-view"
+          >
+            <div
+              class="adm-tabs adm-cascader-view-tabs"
+            >
+              <div
+                class="adm-tabs-header"
+              >
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-left"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-right"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-tab-list"
+                >
+                  <div
+                    class="adm-tabs-tab-line"
+                    style="width: 0px; transform: none;"
+                  />
+                  <div
+                    class="adm-tabs-tab-wrapper"
+                  >
+                    <div
+                      class="adm-tabs-tab adm-tabs-tab-active"
+                    >
+                      <div
+                        class="adm-cascader-view-header-title"
+                      >
+                        انتخاب کنید
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="adm-tabs-content"
+                style="display: block;"
+              >
+                <div
+                  class="adm-cascader-view-content"
+                >
+                  <div
+                    class="adm-list adm-list-default adm-check-list"
+                  >
+                    <div
+                      class="adm-list-body"
+                    >
+                      <div
+                        class="adm-list-body-inner"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="adm-error-block"
   >
     <div
@@ -3444,6 +3902,73 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
       </div>
     </div>
   </form>
+  <div
+    class="adm-popup adm-picker-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="ماسک"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-picker"
+      >
+        <div
+          class="adm-picker-header"
+        >
+          <a
+            class="adm-picker-header-button"
+          >
+            لغو
+          </a>
+          <div
+            class="adm-picker-header-title"
+          />
+          <a
+            class="adm-picker-header-button"
+          >
+            تایید
+          </a>
+        </div>
+        <div
+          class="adm-picker-body"
+        >
+          <div
+            class="adm-picker-view"
+          >
+            <div
+              class="adm-picker-view-mask"
+            >
+              <div
+                class="adm-picker-view-mask-top"
+              />
+              <div
+                class="adm-picker-view-mask-middle"
+              />
+              <div
+                class="adm-picker-view-mask-bottom"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-safe-area adm-safe-area-position-bottom"
+      />
+    </div>
+  </div>
   <div
     class="adm-search-bar"
   >
@@ -4373,6 +4898,114 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
     </div>
   </div>
   <div
+    class="adm-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="Masques"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-cascader"
+      >
+        <div
+          class="adm-cascader-header"
+        >
+          <a
+            class="adm-cascader-header-button"
+          >
+            Annuler
+          </a>
+          <div
+            class="adm-cascader-header-title"
+          />
+          <a
+            class="adm-cascader-header-button"
+          >
+            Valider
+          </a>
+        </div>
+        <div
+          class="adm-cascader-body"
+        >
+          <div
+            class="adm-cascader-view"
+          >
+            <div
+              class="adm-tabs adm-cascader-view-tabs"
+            >
+              <div
+                class="adm-tabs-header"
+              >
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-left"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-right"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-tab-list"
+                >
+                  <div
+                    class="adm-tabs-tab-line"
+                    style="width: 0px; transform: none;"
+                  />
+                  <div
+                    class="adm-tabs-tab-wrapper"
+                  >
+                    <div
+                      class="adm-tabs-tab adm-tabs-tab-active"
+                    >
+                      <div
+                        class="adm-cascader-view-header-title"
+                      >
+                        Veuillez sélectionner
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="adm-tabs-content"
+                style="display: block;"
+              >
+                <div
+                  class="adm-cascader-view-content"
+                >
+                  <div
+                    class="adm-list adm-list-default adm-check-list"
+                  >
+                    <div
+                      class="adm-list-body"
+                    >
+                      <div
+                        class="adm-list-body-inner"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="adm-error-block"
   >
     <div
@@ -4660,6 +5293,73 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
       </div>
     </div>
   </form>
+  <div
+    class="adm-popup adm-picker-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="Masques"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-picker"
+      >
+        <div
+          class="adm-picker-header"
+        >
+          <a
+            class="adm-picker-header-button"
+          >
+            Annuler
+          </a>
+          <div
+            class="adm-picker-header-title"
+          />
+          <a
+            class="adm-picker-header-button"
+          >
+            Valider
+          </a>
+        </div>
+        <div
+          class="adm-picker-body"
+        >
+          <div
+            class="adm-picker-view"
+          >
+            <div
+              class="adm-picker-view-mask"
+            >
+              <div
+                class="adm-picker-view-mask-top"
+              />
+              <div
+                class="adm-picker-view-mask-middle"
+              />
+              <div
+                class="adm-picker-view-mask-bottom"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-safe-area adm-safe-area-position-bottom"
+      />
+    </div>
+  </div>
   <div
     class="adm-search-bar"
   >
@@ -5589,6 +6289,114 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
     </div>
   </div>
   <div
+    class="adm-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="Маска қабаты"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-cascader"
+      >
+        <div
+          class="adm-cascader-header"
+        >
+          <a
+            class="adm-cascader-header-button"
+          >
+            Бастарту
+          </a>
+          <div
+            class="adm-cascader-header-title"
+          />
+          <a
+            class="adm-cascader-header-button"
+          >
+            OK
+          </a>
+        </div>
+        <div
+          class="adm-cascader-body"
+        >
+          <div
+            class="adm-cascader-view"
+          >
+            <div
+              class="adm-tabs adm-cascader-view-tabs"
+            >
+              <div
+                class="adm-tabs-header"
+              >
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-left"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-right"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-tab-list"
+                >
+                  <div
+                    class="adm-tabs-tab-line"
+                    style="width: 0px; transform: none;"
+                  />
+                  <div
+                    class="adm-tabs-tab-wrapper"
+                  >
+                    <div
+                      class="adm-tabs-tab adm-tabs-tab-active"
+                    >
+                      <div
+                        class="adm-cascader-view-header-title"
+                      >
+                        Таңдаңыз
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="adm-tabs-content"
+                style="display: block;"
+              >
+                <div
+                  class="adm-cascader-view-content"
+                >
+                  <div
+                    class="adm-list adm-list-default adm-check-list"
+                  >
+                    <div
+                      class="adm-list-body"
+                    >
+                      <div
+                        class="adm-list-body-inner"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="adm-error-block"
   >
     <div
@@ -5876,6 +6684,73 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
       </div>
     </div>
   </form>
+  <div
+    class="adm-popup adm-picker-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="Маска қабаты"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-picker"
+      >
+        <div
+          class="adm-picker-header"
+        >
+          <a
+            class="adm-picker-header-button"
+          >
+            Бастарту
+          </a>
+          <div
+            class="adm-picker-header-title"
+          />
+          <a
+            class="adm-picker-header-button"
+          >
+            OK
+          </a>
+        </div>
+        <div
+          class="adm-picker-body"
+        >
+          <div
+            class="adm-picker-view"
+          >
+            <div
+              class="adm-picker-view-mask"
+            >
+              <div
+                class="adm-picker-view-mask-top"
+              />
+              <div
+                class="adm-picker-view-mask-middle"
+              />
+              <div
+                class="adm-picker-view-mask-bottom"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-safe-area adm-safe-area-position-bottom"
+      />
+    </div>
+  </div>
   <div
     class="adm-search-bar"
   >
@@ -6805,6 +7680,114 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
     </div>
   </div>
   <div
+    class="adm-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="마스크"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-cascader"
+      >
+        <div
+          class="adm-cascader-header"
+        >
+          <a
+            class="adm-cascader-header-button"
+          >
+            취소
+          </a>
+          <div
+            class="adm-cascader-header-title"
+          />
+          <a
+            class="adm-cascader-header-button"
+          >
+            확인
+          </a>
+        </div>
+        <div
+          class="adm-cascader-body"
+        >
+          <div
+            class="adm-cascader-view"
+          >
+            <div
+              class="adm-tabs adm-cascader-view-tabs"
+            >
+              <div
+                class="adm-tabs-header"
+              >
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-left"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-right"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-tab-list"
+                >
+                  <div
+                    class="adm-tabs-tab-line"
+                    style="width: 0px; transform: none;"
+                  />
+                  <div
+                    class="adm-tabs-tab-wrapper"
+                  >
+                    <div
+                      class="adm-tabs-tab adm-tabs-tab-active"
+                    >
+                      <div
+                        class="adm-cascader-view-header-title"
+                      >
+                        선택됨
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="adm-tabs-content"
+                style="display: block;"
+              >
+                <div
+                  class="adm-cascader-view-content"
+                >
+                  <div
+                    class="adm-list adm-list-default adm-check-list"
+                  >
+                    <div
+                      class="adm-list-body"
+                    >
+                      <div
+                        class="adm-list-body-inner"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="adm-error-block"
   >
     <div
@@ -7092,6 +8075,73 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
       </div>
     </div>
   </form>
+  <div
+    class="adm-popup adm-picker-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="마스크"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-picker"
+      >
+        <div
+          class="adm-picker-header"
+        >
+          <a
+            class="adm-picker-header-button"
+          >
+            취소
+          </a>
+          <div
+            class="adm-picker-header-title"
+          />
+          <a
+            class="adm-picker-header-button"
+          >
+            확인
+          </a>
+        </div>
+        <div
+          class="adm-picker-body"
+        >
+          <div
+            class="adm-picker-view"
+          >
+            <div
+              class="adm-picker-view-mask"
+            >
+              <div
+                class="adm-picker-view-mask-top"
+              />
+              <div
+                class="adm-picker-view-mask-middle"
+              />
+              <div
+                class="adm-picker-view-mask-bottom"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-safe-area adm-safe-area-position-bottom"
+      />
+    </div>
+  </div>
   <div
     class="adm-search-bar"
   >
@@ -8021,6 +9071,114 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
     </div>
   </div>
   <div
+    class="adm-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="遮罩层"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-cascader"
+      >
+        <div
+          class="adm-cascader-header"
+        >
+          <a
+            class="adm-cascader-header-button"
+          >
+            取消
+          </a>
+          <div
+            class="adm-cascader-header-title"
+          />
+          <a
+            class="adm-cascader-header-button"
+          >
+            确定
+          </a>
+        </div>
+        <div
+          class="adm-cascader-body"
+        >
+          <div
+            class="adm-cascader-view"
+          >
+            <div
+              class="adm-tabs adm-cascader-view-tabs"
+            >
+              <div
+                class="adm-tabs-header"
+              >
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-left"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-right"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-tab-list"
+                >
+                  <div
+                    class="adm-tabs-tab-line"
+                    style="width: 0px; transform: none;"
+                  />
+                  <div
+                    class="adm-tabs-tab-wrapper"
+                  >
+                    <div
+                      class="adm-tabs-tab adm-tabs-tab-active"
+                    >
+                      <div
+                        class="adm-cascader-view-header-title"
+                      >
+                        请选择
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="adm-tabs-content"
+                style="display: block;"
+              >
+                <div
+                  class="adm-cascader-view-content"
+                >
+                  <div
+                    class="adm-list adm-list-default adm-check-list"
+                  >
+                    <div
+                      class="adm-list-body"
+                    >
+                      <div
+                        class="adm-list-body-inner"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="adm-error-block"
   >
     <div
@@ -8308,6 +9466,73 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
       </div>
     </div>
   </form>
+  <div
+    class="adm-popup adm-picker-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="遮罩层"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-picker"
+      >
+        <div
+          class="adm-picker-header"
+        >
+          <a
+            class="adm-picker-header-button"
+          >
+            取消
+          </a>
+          <div
+            class="adm-picker-header-title"
+          />
+          <a
+            class="adm-picker-header-button"
+          >
+            确定
+          </a>
+        </div>
+        <div
+          class="adm-picker-body"
+        >
+          <div
+            class="adm-picker-view"
+          >
+            <div
+              class="adm-picker-view-mask"
+            >
+              <div
+                class="adm-picker-view-mask-top"
+              />
+              <div
+                class="adm-picker-view-mask-middle"
+              />
+              <div
+                class="adm-picker-view-mask-bottom"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-safe-area adm-safe-area-position-bottom"
+      />
+    </div>
+  </div>
   <div
     class="adm-search-bar"
   >
@@ -9237,6 +10462,114 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
     </div>
   </div>
   <div
+    class="adm-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="遮罩層"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-cascader"
+      >
+        <div
+          class="adm-cascader-header"
+        >
+          <a
+            class="adm-cascader-header-button"
+          >
+            取消
+          </a>
+          <div
+            class="adm-cascader-header-title"
+          />
+          <a
+            class="adm-cascader-header-button"
+          >
+            確定
+          </a>
+        </div>
+        <div
+          class="adm-cascader-body"
+        >
+          <div
+            class="adm-cascader-view"
+          >
+            <div
+              class="adm-tabs adm-cascader-view-tabs"
+            >
+              <div
+                class="adm-tabs-header"
+              >
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-left"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-right"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-tab-list"
+                >
+                  <div
+                    class="adm-tabs-tab-line"
+                    style="width: 0px; transform: none;"
+                  />
+                  <div
+                    class="adm-tabs-tab-wrapper"
+                  >
+                    <div
+                      class="adm-tabs-tab adm-tabs-tab-active"
+                    >
+                      <div
+                        class="adm-cascader-view-header-title"
+                      >
+                        請選擇
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="adm-tabs-content"
+                style="display: block;"
+              >
+                <div
+                  class="adm-cascader-view-content"
+                >
+                  <div
+                    class="adm-list adm-list-default adm-check-list"
+                  >
+                    <div
+                      class="adm-list-body"
+                    >
+                      <div
+                        class="adm-list-body-inner"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="adm-error-block"
   >
     <div
@@ -9524,6 +10857,73 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
       </div>
     </div>
   </form>
+  <div
+    class="adm-popup adm-picker-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="遮罩層"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-picker"
+      >
+        <div
+          class="adm-picker-header"
+        >
+          <a
+            class="adm-picker-header-button"
+          >
+            取消
+          </a>
+          <div
+            class="adm-picker-header-title"
+          />
+          <a
+            class="adm-picker-header-button"
+          >
+            確定
+          </a>
+        </div>
+        <div
+          class="adm-picker-body"
+        >
+          <div
+            class="adm-picker-view"
+          >
+            <div
+              class="adm-picker-view-mask"
+            >
+              <div
+                class="adm-picker-view-mask-top"
+              />
+              <div
+                class="adm-picker-view-mask-middle"
+              />
+              <div
+                class="adm-picker-view-mask-bottom"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-safe-area adm-safe-area-position-bottom"
+      />
+    </div>
+  </div>
   <div
     class="adm-search-bar"
   >
@@ -10453,6 +11853,114 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
     </div>
   </div>
   <div
+    class="adm-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="遮罩層"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-cascader"
+      >
+        <div
+          class="adm-cascader-header"
+        >
+          <a
+            class="adm-cascader-header-button"
+          >
+            取消
+          </a>
+          <div
+            class="adm-cascader-header-title"
+          />
+          <a
+            class="adm-cascader-header-button"
+          >
+            確定
+          </a>
+        </div>
+        <div
+          class="adm-cascader-body"
+        >
+          <div
+            class="adm-cascader-view"
+          >
+            <div
+              class="adm-tabs adm-cascader-view-tabs"
+            >
+              <div
+                class="adm-tabs-header"
+              >
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-left"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-header-mask adm-tabs-header-mask-right"
+                  style="opacity: 0;"
+                />
+                <div
+                  class="adm-tabs-tab-list"
+                >
+                  <div
+                    class="adm-tabs-tab-line"
+                    style="width: 0px; transform: none;"
+                  />
+                  <div
+                    class="adm-tabs-tab-wrapper"
+                  >
+                    <div
+                      class="adm-tabs-tab adm-tabs-tab-active"
+                    >
+                      <div
+                        class="adm-cascader-view-header-title"
+                      >
+                        請選擇
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="adm-tabs-content"
+                style="display: block;"
+              >
+                <div
+                  class="adm-cascader-view-content"
+                >
+                  <div
+                    class="adm-list adm-list-default adm-check-list"
+                  >
+                    <div
+                      class="adm-list-body"
+                    >
+                      <div
+                        class="adm-list-body-inner"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="adm-error-block"
   >
     <div
@@ -10740,6 +12248,73 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
       </div>
     </div>
   </form>
+  <div
+    class="adm-popup adm-picker-popup"
+  >
+    <div
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
+    >
+      <div
+        aria-label="遮罩層"
+        class="adm-mask-aria-button"
+        role="button"
+      />
+      <div
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-picker"
+      >
+        <div
+          class="adm-picker-header"
+        >
+          <a
+            class="adm-picker-header-button"
+          >
+            取消
+          </a>
+          <div
+            class="adm-picker-header-title"
+          />
+          <a
+            class="adm-picker-header-button"
+          >
+            確定
+          </a>
+        </div>
+        <div
+          class="adm-picker-body"
+        >
+          <div
+            class="adm-picker-view"
+          >
+            <div
+              class="adm-picker-view-mask"
+            >
+              <div
+                class="adm-picker-view-mask-top"
+              />
+              <div
+                class="adm-picker-view-mask-middle"
+              />
+              <div
+                class="adm-picker-view-mask-bottom"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-safe-area adm-safe-area-position-bottom"
+      />
+    </div>
+  </div>
   <div
     class="adm-search-bar"
   >
