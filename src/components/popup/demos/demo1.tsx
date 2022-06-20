@@ -9,6 +9,7 @@ export default () => {
   const [visible4, setVisible4] = useState(false)
   const [visible5, setVisible5] = useState(false)
   const [visible6, setVisible6] = useState(false)
+  const [visible7, setVisible7] = useState(false)
 
   return (
     <>
@@ -111,6 +112,24 @@ export default () => {
                 borderTopLeftRadius: '8px',
                 borderTopRightRadius: '8px',
                 minHeight: '40vh',
+              }}
+            >
+              {mockContent}
+            </Popup>
+          </>
+          <>
+            <Button
+              onClick={() => {
+                setVisible7(true)
+              }}
+            >
+              显示关闭按钮
+            </Button>
+            <Popup
+              visible={visible7}
+              showCloseButton
+              onClose={() => {
+                setVisible7(false)
               }}
             >
               {mockContent}

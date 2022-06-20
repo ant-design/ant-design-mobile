@@ -4,46 +4,30 @@ import { useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
-import type { MaskProps } from '../mask'
 import { useLockScroll } from '../../utils/use-lock-scroll'
-import {
-  GetContainer,
-  renderToContainer,
-} from '../../utils/render-to-container'
+import { renderToContainer } from '../../utils/render-to-container'
 import { useSpring, animated } from '@react-spring/web'
-import {
-  PropagationEvent,
-  withStopPropagation,
-} from '../../utils/with-stop-propagation'
+import { withStopPropagation } from '../../utils/with-stop-propagation'
 import { ShouldRender } from '../../utils/should-render'
+import { CloseOutline } from 'antd-mobile-icons'
+import { PopupBaseProps } from './popup-base-props'
 
 const classPrefix = `adm-popup`
 
-export type PopupProps = PropsWithChildren<{
-  afterClose?: () => void
-  afterShow?: () => void
-  bodyClassName?: string
-  bodyStyle?: React.CSSProperties
-  destroyOnClose?: boolean
-  forceRender?: boolean
-  getContainer?: GetContainer
-  mask?: boolean
-  maskClassName?: string
-  maskStyle?: MaskProps['style']
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  onMaskClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  position?: 'bottom' | 'top' | 'left' | 'right'
-  stopPropagation?: PropagationEvent[]
-  visible?: boolean
-}> &
+export type PopupProps = PopupBaseProps &
+  PropsWithChildren<{
+    position?: 'bottom' | 'top' | 'left' | 'right'
+  }> &
   NativeProps<'--z-index'>
 
 const defaultProps = {
-  position: 'bottom',
-  visible: false,
+  closeOnMaskClick: false,
   getContainer: () => document.body,
   mask: true,
+  position: 'bottom',
+  showCloseButton: false,
   stopPropagation: ['click'],
+  visible: false,
 }
 
 export const Popup: FC<PopupProps> = p => {
@@ -95,7 +79,12 @@ export const Popup: FC<PopupProps> = p => {
         {props.mask && (
           <Mask
             visible={props.visible}
-            onMaskClick={props.onMaskClick}
+            onMaskClick={e => {
+              props.onMaskClick?.(e)
+              if (props.closeOnMaskClick) {
+                props.onClose?.()
+              }
+            }}
             className={props.maskClassName}
             style={props.maskStyle}
             disableBodyScroll={false}
@@ -124,6 +113,19 @@ export const Popup: FC<PopupProps> = p => {
           }}
           ref={ref}
         >
+          {props.showCloseButton && (
+            <a
+              className={classNames(
+                `${classPrefix}-close-icon`,
+                'adm-plain-anchor'
+              )}
+              onClick={() => {
+                props.onClose?.()
+              }}
+            >
+              <CloseOutline />
+            </a>
+          )}
           {props.children}
         </animated.div>
       </div>

@@ -1,13 +1,7 @@
 import React, { FC, PropsWithChildren, useRef, useState } from 'react'
-import {
-  GetContainer,
-  renderToContainer,
-} from '../../utils/render-to-container'
-import Mask, { MaskProps } from '../mask'
-import {
-  PropagationEvent,
-  withStopPropagation,
-} from '../../utils/with-stop-propagation'
+import { renderToContainer } from '../../utils/render-to-container'
+import Mask from '../mask'
+import { withStopPropagation } from '../../utils/with-stop-propagation'
 import { mergeProps } from '../../utils/with-default-props'
 import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { animated, useSpring } from '@react-spring/web'
@@ -16,26 +10,15 @@ import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { ShouldRender } from '../../utils/should-render'
 import { useLockScroll } from '../../utils/use-lock-scroll'
+import { CloseOutline } from 'antd-mobile-icons'
+import { PopupBaseProps } from '../popup/popup-base-props'
 
-export type CenterPopupProps = PropsWithChildren<{
-  afterClose?: () => void
-  afterShow?: () => void
-  bodyClassName?: string
-  bodyStyle?: React.CSSProperties
-  destroyOnClose?: boolean
-  disableBodyScroll?: boolean
-  forceRender?: boolean
-  getContainer?: GetContainer
-  mask?: boolean
-  maskClassName?: string
-  maskStyle?: MaskProps['style']
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  onMaskClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  stopPropagation?: PropagationEvent[]
-  visible?: boolean
-  // These props currently are only used internally. They are not exported to users:
-  role?: string
-}> &
+export type CenterPopupProps = PopupBaseProps &
+  PropsWithChildren<{
+    disableBodyScroll?: boolean
+    // These props currently are only used internally. They are not exported to users:
+    role?: string
+  }> &
   NativeProps<
     | '--background-color'
     | '--border-radius'
@@ -45,6 +28,7 @@ export type CenterPopupProps = PropsWithChildren<{
   >
 
 const defaultProps = {
+  closeOnMaskClick: false,
   destroyOnClose: false,
   disableBodyScroll: true,
   forceRender: false,
@@ -116,7 +100,12 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
             visible={maskVisible}
             forceRender={props.forceRender}
             destroyOnClose={props.destroyOnClose}
-            onMaskClick={props.onMaskClick}
+            onMaskClick={e => {
+              props.onMaskClick?.(e)
+              if (props.closeOnMaskClick) {
+                props.onClose?.()
+              }
+            }}
             style={props.maskStyle}
             className={classNames('adm-center-popup-mask', props.maskClassName)}
             disableBodyScroll={false}
@@ -128,6 +117,19 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
           aria-label={props['aria-label']}
         >
           <animated.div style={style} ref={ref}>
+            {props.showCloseButton && (
+              <a
+                className={classNames(
+                  'adm-center-popup-close',
+                  'adm-plain-anchor'
+                )}
+                onClick={() => {
+                  props.onClose?.()
+                }}
+              >
+                <CloseOutline />
+              </a>
+            )}
             {body}
           </animated.div>
         </div>
