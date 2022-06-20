@@ -7,6 +7,7 @@ import Popup, { PopupProps } from '../popup'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import SafeArea from '../safe-area'
 import { useMemoizedFn } from 'ahooks'
+import numberKeyboard from './index'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -150,6 +151,13 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       'mid-key': index === 9 && !!confirmText,
     })
 
+    const ariaProps = key
+      ? {
+          role: 'button',
+          title: key,
+        }
+      : undefined
+
     return (
       <div
         key={key}
@@ -165,8 +173,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
             onBackspacePressEnd()
           }
         }}
-        title={key}
-        role='button'
+        {...ariaProps}
       >
         {key === 'BACKSPACE' ? <TextDeletionOutline /> : key}
       </div>
