@@ -11,7 +11,7 @@ const idID = mergeLocale(base, {
     loading: 'memuat',
   },
   Calendar: {
-    markItems: ['Senin, Selasa, Rabu, Kamis,Jumat, Sabtu, Minggu'],
+    markItems: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
     renderYearAndMonth: (year: number, month: number) =>
       `${year} Tahun ${month} Bulan`,
   },
