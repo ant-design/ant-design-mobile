@@ -32,6 +32,19 @@ export default () => {
         </Space>
       </DemoBlock>
 
+      <DemoBlock title='显示进度文字'>
+        <Space direction='vertical' block>
+          <ProgressBar percent={50} text />
+          <ProgressBar
+            percent={50}
+            text='已完成 3/6 步'
+            style={{
+              '--text-width': '80px',
+            }}
+          />
+        </Space>
+      </DemoBlock>
+
       <DemoBlock title='指定线条宽度'>
         <Space direction='vertical' block>
           <ProgressBar

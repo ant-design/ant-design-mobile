@@ -1,18 +1,23 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
+import { isNodeWithContent } from '../../utils/is-node-with-content'
 
 const classPrefix = `adm-progress-bar`
 
 export type ProgressBarProps = {
   percent?: number
   rounded?: boolean
-} & NativeProps<'--track-width' | '--track-color' | '--fill-color'>
+  text?: boolean | ReactNode | ((percent: number) => ReactNode)
+} & NativeProps<
+  '--track-width' | '--track-color' | '--fill-color' | '--text-width'
+>
 
 const defaultProps = {
   percent: 0,
   rounded: true,
+  text: false,
 }
 
 export const ProgressBar: FC<ProgressBarProps> = p => {
@@ -20,6 +25,16 @@ export const ProgressBar: FC<ProgressBarProps> = p => {
   const fillStyle = {
     width: `${props.percent}%`,
   }
+
+  const textElement = (function () {
+    if (props.text === true) {
+      return `${props.percent}%`
+    }
+    if (typeof props.text === 'function') {
+      return (props.text as (percent: number) => ReactNode)(props.percent)
+    }
+    return props.text
+  })()
 
   return withNativeProps(
     props,
@@ -32,6 +47,9 @@ export const ProgressBar: FC<ProgressBarProps> = p => {
       <div className={`${classPrefix}-trail`}>
         <div className={`${classPrefix}-fill`} style={fillStyle} />
       </div>
+      {isNodeWithContent(textElement) && (
+        <div className={`${classPrefix}-text`}>{textElement}</div>
+      )}
     </div>
   )
 }
