@@ -3,8 +3,6 @@ import { render, testA11y } from 'testing'
 import List from '..'
 import { ListRef } from '../list'
 
-const classPrefix = `adm-list`
-
 describe('list', () => {
   test('a11y', async () => {
     await testA11y(
@@ -16,12 +14,13 @@ describe('list', () => {
 
   test('should works given ref', async () => {
     const ref = createRef<ListRef>()
-    render(
+    const { baseElement } = render(
       <List ref={ref}>
         <List.Item>1</List.Item>
       </List>
     )
     expect(ref.current).toBeDefined()
     expect(ref.current?.nativeElement).toBeDefined()
+    expect(baseElement).toMatchSnapshot()
   })
 })
