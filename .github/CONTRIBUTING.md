@@ -57,3 +57,4 @@ v2 版本现在已经不再进行官方维护了，如果你想对 v2 进行修�
 ## 附录
 
 - [Using ARIA](https://w3c.github.io/using-aria/)
+- [ISO Language Codes](https://www.w3schools.com/tags/ref_language_codes.asp) and [ISO Country Codes](https://www.w3schools.com/tags/ref_country_codes.asp) for locale files naming
