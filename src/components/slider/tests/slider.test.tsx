@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, testA11y, fireEvent } from 'testing'
+import { render, testA11y, fireEvent, screen } from 'testing'
 import Slider from '..'
 
 const classPrefix = `adm-slider`
@@ -34,7 +34,7 @@ describe('Slider', () => {
 
   test('basic usage', () => {
     const { container } = render(<Slider />)
-    const thumb = $$(`.${classPrefix}-thumb-container`)[0]
+    const thumb = screen.getByRole('slider')
     drag(thumb, 20)
     expect(container).toMatchSnapshot()
   })
@@ -42,7 +42,7 @@ describe('Slider', () => {
   test('show ticks and set step', () => {
     jest.useFakeTimers()
     render(<Slider ticks step={10} />)
-    const thumb = $$(`.${classPrefix}-thumb-container`)[0]
+    const thumb = screen.getByRole('slider')
     const track = $$(`.${classPrefix}-track`)[0]
     drag(thumb, 18)
     expect($$(`.${classPrefix}-ticks`)[0]).toBeInTheDocument()
@@ -69,8 +69,7 @@ describe('Slider', () => {
       100: 100,
     }
     render(<Slider ticks marks={marks} />)
-    const thumb = $$(`.${classPrefix}-thumb-container`)[0]
-    drag(thumb, 35)
+    drag(screen.getByRole('slider'), 35)
     expect($$(`.${classPrefix}-mark`)[0]).toBeInTheDocument()
     expect($$(`.${classPrefix}-mark-text`)[2]).toHaveClass(
       `${classPrefix}-mark-text-active`
@@ -82,8 +81,7 @@ describe('Slider', () => {
     render(
       <Slider step={100} min={0} max={1000} onAfterChange={onAfterChange} />
     )
-    const thumb = $$(`.${classPrefix}-thumb-container`)[0]
-    drag(thumb, 40)
+    drag(screen.getByRole('slider'), 40)
     expect(onAfterChange).toBeCalledWith(400)
   })
 
@@ -95,7 +93,7 @@ describe('Slider', () => {
   test('swipe and track click when disabled', () => {
     render(<Slider disabled ticks />)
     expect($$(`.${classPrefix}`)[0]).toHaveClass(`${classPrefix}-disabled`)
-    const thumb = $$(`.${classPrefix}-thumb-container`)[0]
+    const thumb = screen.getByRole('slider')
     const fill = $$(`.${classPrefix}-fill`)[0]
     const track = $$(`.${classPrefix}-track`)[0]
 
@@ -115,8 +113,8 @@ describe('Slider', () => {
     jest.useFakeTimers()
     const onAfterChange = jest.fn()
     render(<Slider step={20} ticks range onAfterChange={onAfterChange} />)
-    const thumb1 = $$(`.${classPrefix}-thumb-container`)[0]
-    const thumb2 = $$(`.${classPrefix}-thumb-container`)[1]
+    const thumb1 = screen.getAllByRole('slider')[0]
+    const thumb2 = screen.getAllByRole('slider')[1]
     const track = $$(`.${classPrefix}-track`)[0]
 
     drag(thumb2, 80)
@@ -133,7 +131,7 @@ describe('Slider', () => {
   test('show popover when swiping', () => {
     render(<Slider popover />)
 
-    const thumb = $$(`.${classPrefix}-thumb-container`)[0]
+    const thumb = screen.getByRole('slider')
     fireEvent.mouseDown(thumb, {
       buttons: 1,
     })
@@ -152,7 +150,7 @@ describe('Slider', () => {
       <Slider popover={value => <div>popover {value}</div>} />
     )
 
-    const thumb = $$(`.${classPrefix}-thumb-container`)[0]
+    const thumb = screen.getByRole('slider')
     fireEvent.mouseDown(thumb, {
       buttons: 1,
     })
@@ -166,7 +164,7 @@ describe('Slider', () => {
 
   test('track click will be useless when swiping', () => {
     render(<Slider />)
-    const thumb = $$(`.${classPrefix}-thumb-container`)[0]
+    const thumb = screen.getByRole('slider')
     const track = $$(`.${classPrefix}-track`)[0]
     drag(thumb, 10)
     fireEvent.click(track, { clientX: 60 })
