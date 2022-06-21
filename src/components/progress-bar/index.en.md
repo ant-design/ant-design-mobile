@@ -10,6 +10,8 @@ It is suitable for displaying the current progress of the task.
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ## ProgressBar
 
 ### Props
