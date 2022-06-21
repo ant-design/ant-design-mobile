@@ -14,9 +14,10 @@ It is suitable for displaying the current progress of the task.
 
 ### Props
 
-| Name    | Description                 | Type     | Default |
-| ------- | --------------------------- | -------- | ------- |
-| percent | Percent of the progress bar | `number` | `0`     |
+| Name    | Description                  | Type      | Default |
+| ------- | ---------------------------- | --------- | ------- |
+| percent | Percent of the progress bar  | `number`  | `0`     |
+| rounded | Whether to round the corners | `boolean` | `true`  |
 
 ### CSS Variables
 

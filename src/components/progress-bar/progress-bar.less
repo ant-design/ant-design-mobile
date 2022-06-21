@@ -8,12 +8,17 @@
     background: var(--track-color);
     overflow: hidden;
     height: var(--track-width);
-    border-radius: var(--track-width);
   }
   &-fill {
     transition: width 0.3s;
     background: var(--fill-color);
     height: var(--track-width);
+  }
+}
+
+.@{class-prefix-progress-bar}-rounded {
+  .@{class-prefix-progress-bar}-trail,
+  .@{class-prefix-progress-bar}-fill {
     border-radius: var(--track-width);
   }
 }

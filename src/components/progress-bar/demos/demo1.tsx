@@ -49,6 +49,10 @@ export default () => {
         </Space>
       </DemoBlock>
 
+      <DemoBlock title='直角的进度条'>
+        <ProgressBar percent={50} rounded={false} />
+      </DemoBlock>
+
       <DemoBlock title='指定线条颜色'>
         <Space block direction='vertical'>
           <ProgressBar
