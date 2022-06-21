@@ -24,4 +24,4 @@
 | ------------- | ---------- | -------------------------- | -------------------------------- |
 | --fill-color  | 填充的颜色 | `var(--adm-color-primary)` | `--adm-progress-bar-fill-color`  |
 | --track-color | 线条的颜色 | `#e5e5e5`                  | `--adm-progress-bar-track-color` |
-| --track-width | 线条宽度   | `3px`                      | `--adm-progress-bar-track-width` |
+| --track-width | 线条宽度   | `8px`                      | `--adm-progress-bar-track-width` |
