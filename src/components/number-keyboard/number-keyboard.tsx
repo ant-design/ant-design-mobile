@@ -7,7 +7,6 @@ import Popup, { PopupProps } from '../popup'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import SafeArea from '../safe-area'
 import { useMemoizedFn } from 'ahooks'
-import numberKeyboard from './index'
 
 const classPrefix = 'adm-number-keyboard'
 
