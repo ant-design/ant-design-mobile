@@ -28,7 +28,20 @@
   max-width: var(--max-width);
   transform: translate(-50%, -50%);
 }
+
 .@{class-prefix-center-popup}-body {
   background-color: var(--background-color);
   border-radius: var(--border-radius);
+}
+
+.@{class-prefix-center-popup}-close {
+  position: absolute;
+  z-index: 100;
+  right: 8px;
+  top: 8px;
+
+  cursor: pointer;
+  padding: 4px;
+  font-size: 18px;
+  color: var(--adm-color-weak);
 }

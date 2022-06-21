@@ -2,6 +2,8 @@ import React, { FC, useRef, RefObject, useState, ReactNode } from 'react'
 import { useDrag } from '@use-gesture/react'
 import { ThumbIcon } from './thumb-icon'
 import { Popover } from '../popover/popover'
+import { useConfig } from '../config-provider'
+import { NativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-slider`
 
@@ -14,11 +16,12 @@ type ThumbProps = {
   trackRef: RefObject<HTMLDivElement>
   icon?: React.ReactNode
   popover: boolean | ((value: number) => ReactNode)
-}
+} & NativeProps
 
 const Thumb: FC<ThumbProps> = props => {
   const { value, min, max, disabled, onDrag, icon } = props
   const prevValue = useRef(value)
+  const { locale } = useConfig()
 
   const currentPosition = () => {
     return {
@@ -66,6 +69,12 @@ const Thumb: FC<ThumbProps> = props => {
       className={`${classPrefix}-thumb-container`}
       style={currentPosition()}
       {...bind()}
+      role='slider'
+      aria-label={props['aria-label'] || locale.Slider.name}
+      aria-valuemax={max}
+      aria-valuemin={min}
+      aria-valuenow={value}
+      aria-disabled={disabled}
     >
       {renderPopoverContent ? (
         <Popover

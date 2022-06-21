@@ -106,6 +106,9 @@ export const base = {
     canRelease: 'Release to refresh immediately',
     complete: 'Refresh successful',
   },
+  Slider: {
+    name: 'Slider',
+  },
   Switch: {
     name: 'Switch',
   },
