@@ -152,6 +152,7 @@ export const Picker = memo(
       <div className={classPrefix}>
         <div className={`${classPrefix}-header`}>
           <a
+            role='button'
             className={`${classPrefix}-header-button`}
             onClick={() => {
               props.onCancel?.()
@@ -162,6 +163,7 @@ export const Picker = memo(
           </a>
           <div className={`${classPrefix}-header-title`}>{props.title}</div>
           <a
+            role='button'
             className={`${classPrefix}-header-button`}
             onClick={() => {
               setValue(innerValue)
