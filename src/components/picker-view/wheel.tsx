@@ -163,41 +163,38 @@ export const Wheel = memo<Props>(
           >
             -
           </div>
-          <div>
-            {previous && (
-              <div
-                className='adm-picker-view-column-accessible-button'
-                onClick={() => {
-                  scrollSelect(previousIndex)
-                }}
-                role='button'
-                aria-label={`选择上一项：${previous.label}`}
-              >
-                -
-              </div>
-            )}
+          <div
+            className='adm-picker-view-column-accessible-button'
+            onClick={() => {
+              if (!previous) return
+              scrollSelect(previousIndex)
+            }}
+            role={previous ? 'button' : 'text'}
+            aria-label={
+              !previous ? '没有上一项' : `选择上一项：${previous.label}`
+            }
+          >
+            -
           </div>
-          <div>
-            {next && (
-              <div
-                className='adm-picker-view-column-accessible-button'
-                onClick={() => {
-                  scrollSelect(nextIndex)
-                }}
-                role='button'
-                aria-label={`选择下一项：${next.label}`}
-              >
-                -
-              </div>
-            )}
+          <div
+            className='adm-picker-view-column-accessible-button'
+            onClick={() => {
+              if (!next) return
+              scrollSelect(nextIndex)
+            }}
+            role={next ? 'button' : 'text'}
+            aria-label={!next ? '没有下一项' : `选择下一项：${next.label}`}
+          >
+            -
           </div>
         </div>
       )
     }
 
     return (
-      <div ref={rootRef} className={`${classPrefix}-column`}>
+      <div className={`${classPrefix}-column`}>
         <animated.div
+          ref={rootRef}
           style={{ translateY: y }}
           className={`${classPrefix}-column-wheel`}
           aria-hidden
