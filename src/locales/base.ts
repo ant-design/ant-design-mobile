@@ -109,6 +109,10 @@ export const base = {
   Slider: {
     name: 'Slider',
   },
+  Stepper: {
+    decrease: 'decrease',
+    increase: 'increase',
+  },
   Switch: {
     name: 'Switch',
   },
