@@ -39,11 +39,11 @@ export type ListRef = {
 
 export const List = forwardRef<ListRef, ListProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
-  const nativeListRef = useRef<HTMLDivElement>(null)
+  const nativeElementRef = useRef<HTMLDivElement>(null)
 
   useImperativeHandle(ref, () => ({
     get nativeElement() {
-      return nativeListRef.current
+      return nativeElementRef.current
     },
   }))
 
@@ -51,7 +51,7 @@ export const List = forwardRef<ListRef, ListProps>((p, ref) => {
     props,
     <div
       className={classNames(classPrefix, `${classPrefix}-${props.mode}`)}
-      ref={nativeListRef}
+      ref={nativeElementRef}
     >
       {props.header && (
         <div className={`${classPrefix}-header`}>{props.header}</div>
