@@ -44,6 +44,12 @@ Carry text, lists, pictures, paragraphs, etc. cleanly and efficiently in the for
 | --prefix-padding-right    | The padding-right of the prefix part                                                            | `12px`                              |
 | --prefix-width            | Width of the prefix part.                                                                       | `auto`                              |
 
+### Ref
+
+| Name          | Description        | Type                       |
+| ------------- | ------------------ | -------------------------- |
+| nativeElement | Native div element | `HTMLDivElement` \| `null` |
+
 ## List.Item
 
 ### Props
