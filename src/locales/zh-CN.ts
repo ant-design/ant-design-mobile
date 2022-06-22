@@ -112,6 +112,10 @@ const zhCN = mergeLocale(base, {
   Slider: {
     name: '滑动输入条',
   },
+  Stepper: {
+    decrease: '减少',
+    increase: '增加',
+  },
   Switch: {
     name: '开关',
   },
