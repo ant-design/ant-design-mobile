@@ -29,7 +29,7 @@ export const defaultPopupBaseProps = {
   destroyOnClose: false,
   disableBodyScroll: true,
   forceRender: false,
-  getContainer: null,
+  getContainer: () => document.body,
   mask: true,
   showCloseButton: false,
   stopPropagation: ['click'],
