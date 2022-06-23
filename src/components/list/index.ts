@@ -3,7 +3,7 @@ import { attachPropertiesToComponent } from '../../utils/attach-properties-to-co
 import { List } from './list'
 import { ListItem } from './list-item'
 
-export type { ListProps } from './list'
+export type { ListProps, ListRef } from './list'
 export type { ListItemProps } from './list-item'
 
 export default attachPropertiesToComponent(List, {

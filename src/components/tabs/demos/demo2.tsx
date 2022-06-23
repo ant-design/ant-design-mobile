@@ -1,6 +1,8 @@
 import React from 'react'
 import { Tabs, Badge } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import { AppstoreOutline } from 'antd-mobile-icons'
+import styles from './demo2.less'
 
 export default () => {
   return (
@@ -61,6 +63,19 @@ export default () => {
           <Tabs.Tab title='蔬菜' key='vegetables' />
           <Tabs.Tab title='动物' key='animals' />
         </Tabs>
+      </DemoBlock>
+
+      <DemoBlock title='自定义拓展图标' padding='0'>
+        <div className={styles.customHeader}>
+          <Tabs className={styles.tabs}>
+            <Tabs.Tab title='超长的tab111' key='1' />
+            <Tabs.Tab title='超长的tab2' key='2' />
+            <Tabs.Tab title='超长的tab333' key='3' />
+            <Tabs.Tab title='超长的tab4444' key='4' />
+            <Tabs.Tab title='超长的tab55555' key='5' />
+          </Tabs>
+          <AppstoreOutline className={styles.moreIcon} />
+        </div>
       </DemoBlock>
     </>
   )

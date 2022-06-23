@@ -1148,6 +1148,7 @@ exports[`ConfigProvider should display the text as en 1`] = `
         >
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             Cancel
           </a>
@@ -1156,6 +1157,7 @@ exports[`ConfigProvider should display the text as en 1`] = `
           />
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             Confirm
           </a>
@@ -2539,6 +2541,7 @@ exports[`ConfigProvider should display the text as es 1`] = `
         >
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             Cancelar
           </a>
@@ -2547,6 +2550,7 @@ exports[`ConfigProvider should display the text as es 1`] = `
           />
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             Confirmar
           </a>
@@ -3930,6 +3934,7 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
         >
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             لغو
           </a>
@@ -3938,6 +3943,7 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
           />
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             تایید
           </a>
@@ -5321,6 +5327,7 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
         >
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             Annuler
           </a>
@@ -5329,6 +5336,7 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
           />
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             Valider
           </a>
@@ -6712,6 +6720,7 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
         >
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             Batal 
           </a>
@@ -6720,6 +6729,7 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
           />
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             Yakin
           </a>
@@ -8103,6 +8113,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
         >
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             Бастарту
           </a>
@@ -8111,6 +8122,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
           />
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             OK
           </a>
@@ -9494,6 +9506,7 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
         >
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             취소
           </a>
@@ -9502,6 +9515,7 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
           />
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             확인
           </a>
@@ -10885,6 +10899,7 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
         >
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             取消
           </a>
@@ -10893,6 +10908,7 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
           />
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             确定
           </a>
@@ -12276,6 +12292,7 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
         >
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             取消
           </a>
@@ -12284,6 +12301,7 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
           />
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             確定
           </a>
@@ -13667,6 +13685,7 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
         >
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             取消
           </a>
@@ -13675,6 +13694,7 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
           />
           <a
             class="adm-picker-header-button"
+            role="button"
           >
             確定
           </a>

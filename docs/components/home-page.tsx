@@ -82,7 +82,7 @@ export default () => {
               return (
                 <li key={item.title}>
                   <p>
-                    <img src={item.img} />
+                    <img src={item.img} style={{ width: 74, height: 84 }} />
                   </p>
                   <p>{item.title}</p>
                   <p>{item.txt}</p>

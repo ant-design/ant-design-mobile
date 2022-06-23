@@ -44,6 +44,12 @@
 | --prefix-padding-right    | prefix 部分的右侧 padding                                                           | `12px`                              |
 | --prefix-width            | prefix 部分的宽度                                                                   | `auto`                              |
 
+### Ref
+
+| 属性          | 说明          | 类型                       |
+| ------------- | ------------- | -------------------------- |
+| nativeElement | 原始 div 元素 | `HTMLDivElement` \| `null` |
+
 ## List.Item
 
 ### 属性

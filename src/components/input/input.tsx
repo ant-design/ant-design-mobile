@@ -15,6 +15,11 @@ type NativeInputProps = React.DetailedHTMLProps<
   HTMLInputElement
 >
 
+type AriaProps = {
+  // These props currently are only used internally. They are not exported to users:
+  role?: string
+}
+
 export type InputProps = Pick<
   NativeInputProps,
   | 'maxLength'
@@ -34,6 +39,7 @@ export type InputProps = Pick<
   | 'onCompositionStart'
   | 'onCompositionEnd'
   | 'onClick'
+  | 'step'
 > & {
   value?: string
   defaultValue?: string
@@ -58,7 +64,8 @@ export type InputProps = Pick<
   max?: number
 } & NativeProps<
     '--font-size' | '--color' | '--placeholder-color' | '--text-align'
-  >
+  > &
+  AriaProps
 
 const defaultProps = {
   defaultValue: '',
@@ -181,6 +188,10 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
           props.onCompositionEnd?.(e)
         }}
         onClick={props.onClick}
+        role={props.role}
+        aria-valuenow={props['aria-valuenow']}
+        aria-valuemax={props['aria-valuemax']}
+        aria-valuemin={props['aria-valuemin']}
       />
       {shouldShowClear && (
         <div

@@ -39,6 +39,7 @@ describe('WaterMark', () => {
   })
 
   test('throw error when Canvas is not supported', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
     const mockCanvasContext = jest.spyOn(
       HTMLCanvasElement.prototype,
       'getContext'
@@ -48,5 +49,6 @@ describe('WaterMark', () => {
       'Canvas is not supported in the current environment'
     )
     mockCanvasContext.mockRestore()
+    errorSpy.mockRestore()
   })
 })
