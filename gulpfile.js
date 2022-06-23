@@ -10,6 +10,8 @@ const webpackStream = require('webpack-stream')
 const webpack = require('webpack')
 const through = require('through2')
 const vite = require('vite')
+const rename = require('gulp-rename')
+const autoprefixer = require('autoprefixer')
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const tsconfig = require('./tsconfig.json')
@@ -17,8 +19,6 @@ const packageJson = require('./package.json')
 const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default
 
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
-
-const rename = require('gulp-rename')
 
 function clean() {
   return del('./lib/**')
@@ -35,6 +35,13 @@ function buildStyle() {
         paths: [path.join(__dirname, 'src')],
         relativeUrls: true,
       })
+    )
+    .pipe(
+      postcss([
+        autoprefixer({
+          overrideBrowserslist: 'iOS >= 10, Chrome >= 49',
+        }),
+      ])
     )
     .pipe(gulp.dest('./lib/es'))
     .pipe(gulp.dest('./lib/cjs'))
