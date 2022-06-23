@@ -4,7 +4,7 @@ import { attachPropertiesToComponent } from '../../utils/attach-properties-to-co
 import './cascader.less'
 import { optionSkeleton } from '../cascader-view/option-skeleton'
 
-export type { CascaderProps } from './cascader'
+export type { CascaderProps, CascaderRef, CascaderActions } from './cascader'
 
 export type {
   CascaderValue,
