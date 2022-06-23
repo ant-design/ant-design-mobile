@@ -41,6 +41,10 @@ const config: IConfig = {
       name: 'description',
       content: 'Essential UI blocks for building mobile web apps.',
     },
+    {
+      name: 'google-site-verification',
+      content: '2saDOufpfJI4y1cqfxvuviYg8bfo4gLmiEtSnt2oh50',
+    },
   ],
   hash: true,
   scripts: [
