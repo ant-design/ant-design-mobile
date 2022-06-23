@@ -68,6 +68,7 @@ const Dark: FC<darkProps> = ({ darkSwitch, onDarkSwitchClick, isSideMenu }) => {
     }
     if (toColor === prefersColor) return
     setColor(toColor)
+    document.documentElement.setAttribute('data-prefers-color-scheme', toColor)
   }
 
   const getSvg = baseColor => {
