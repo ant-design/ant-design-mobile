@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 0 0 32px;
+  padding: 0 32px;
   height: @s-nav-height;
   white-space: nowrap;
   background: #ffffff;
@@ -53,6 +53,10 @@
       font-size: 20px;
       color: #080e29;
       font-weight: 500;
+
+      [data-prefers-color='dark'] & {
+        color: unset;
+      }
     }
 
     .version {
