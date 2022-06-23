@@ -4555,6 +4555,7 @@ __metadata:
     ahooks: ^3.4.1
     antd-mobile-icons: ^0.3.0
     antd-mobile-v5-count: ^1.0.1
+    autoprefixer: ^9.8.8
     babel-loader: ^8.2.5
     big.js: ^6.1.1
     classnames: ^2.3.1
@@ -4956,7 +4957,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^9.6.1":
+"autoprefixer@npm:^9.6.1, autoprefixer@npm:^9.8.8":
   version: 9.8.8
   resolution: "autoprefixer@npm:9.8.8"
   dependencies:

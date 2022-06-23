@@ -60,6 +60,7 @@
     "@types/use-sync-external-store": "^0.0.3",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
+    "autoprefixer": "^9.8.8",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "del": "^6.1.1",
