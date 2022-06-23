@@ -37,6 +37,7 @@ const defaultProps = {
   actions: [] as Action[],
   closeOnAction: false,
   closeOnMaskClick: false,
+  getContainer: null,
 }
 
 export const Dialog: FC<DialogProps> = p => {

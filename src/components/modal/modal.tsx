@@ -39,6 +39,7 @@ const defaultProps = {
   actions: [] as Action[],
   closeOnAction: false,
   closeOnMaskClick: false,
+  getContainer: null,
 }
 
 export const Modal: FC<ModalProps> = p => {
