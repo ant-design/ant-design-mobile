@@ -33,6 +33,14 @@ const config: IConfig = {
       content:
         'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover',
     },
+    {
+      name: 'keywords',
+      content: 'antd-mobile, ant design mobile, React mobile components',
+    },
+    {
+      name: 'description',
+      content: 'Essential UI blocks for building mobile web apps.',
+    },
   ],
   hash: true,
   scripts: [
@@ -74,6 +82,9 @@ const config: IConfig = {
     },
   },
   plugins: ['./.dumi/plugin-gallery/index.ts'],
+  // ssr: {},
+  exportStatic: {},
+  dynamicImport: {},
 }
 
 export default config
