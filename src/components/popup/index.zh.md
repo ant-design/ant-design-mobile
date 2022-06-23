@@ -55,7 +55,7 @@
 
 ### 属性
 
-除 `position` 属性外，其他属性同 Popup。
+CenterPopup 不支持 `position` 属性，并且 `getContainer` 的默认值是 `null`，其他属性同 Popup。
 
 ### CSS 变量
 

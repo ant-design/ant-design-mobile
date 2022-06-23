@@ -48,7 +48,7 @@ multiple pop-up layer overlay display.
 
 ## CenterPopup
 
-Unlike Popup, CenterPopup pops up from the middle, and Dialog and Modal are implemented based on it.
+CenterPopup does not support the `position` property, and the default value of `getContainer` is `null`, other properties are the same as Popup.
 
 ### Demos
 
