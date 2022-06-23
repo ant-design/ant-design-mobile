@@ -62,4 +62,19 @@ describe('CascaderView', () => {
     click(2, 0)
     expect(container).toMatchSnapshot()
   })
+
+  test('avoid render empty children', async () => {
+    const onChange = jest.fn()
+    const options = [{ label: '第一层', value: '1', children: [] }]
+    const { container } = render(
+      <CascaderView options={options} onChange={onChange} />
+    )
+
+    click(0, 0)
+    expect(onChange).toBeCalledTimes(1)
+    expect(onChange.mock.calls[0][0]).toStrictEqual(['1'])
+    expect(
+      container.querySelectorAll(`.${classPrefix}-header-title`).length
+    ).toBe(1)
+  })
 })

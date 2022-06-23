@@ -71,7 +71,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
         selected: target,
         options: currentOptions,
       })
-      if (!target || !target.children) {
+      if (!target || !target.children || target.children.length === 0) {
         reachedEnd = true
         break
       }
