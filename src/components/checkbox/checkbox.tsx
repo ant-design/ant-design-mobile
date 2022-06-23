@@ -1,4 +1,10 @@
-import React, { forwardRef, useContext, useImperativeHandle } from 'react'
+import React, {
+  forwardRef,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { CheckboxGroupContext } from './group-context'
@@ -42,7 +48,7 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
   const groupContext = useContext(CheckboxGroupContext)
 
   const props = mergeProps(defaultProps, p)
-
+  const labelRef = useRef<HTMLLabelElement>(null)
   let [checked, setChecked] = usePropsValue({
     value: props.checked,
     defaultValue: props.defaultChecked,
@@ -51,6 +57,21 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
   let disabled = props.disabled
 
   const { value } = props
+
+  const handleClick = (e: MouseEvent) => {
+    e.stopPropagation()
+    e.stopImmediatePropagation()
+  }
+
+  useEffect(() => {
+    if (!labelRef.current) return
+    const label = labelRef.current
+    label.addEventListener('click', handleClick)
+    return () => {
+      label.removeEventListener('click', handleClick)
+    }
+  }, [])
+
   if (groupContext && value !== undefined) {
     if (isDev) {
       if (p.checked !== undefined) {
@@ -110,6 +131,7 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
   return withNativeProps(
     props,
     <label
+      ref={labelRef}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked && !props.indeterminate,
         [`${classPrefix}-indeterminate`]: props.indeterminate,

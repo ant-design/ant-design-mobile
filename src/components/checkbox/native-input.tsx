@@ -12,8 +12,6 @@ interface Props {
 export const NativeInput: FC<Props> = props => {
   const inputRef = useRef<HTMLInputElement>(null)
   const handleClick = useMemoizedFn((e: MouseEvent) => {
-    e.stopPropagation()
-    e.stopImmediatePropagation()
     const latestChecked = (e.target as HTMLInputElement).checked
     if (latestChecked === props.checked) return
     props.onChange(latestChecked)
