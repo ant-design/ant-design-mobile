@@ -40,10 +40,12 @@ export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
+  placeholder?: ReactNode
   onSelect?: (value: PickerValue[], extend: PickerValueExtend) => void
   onConfirm?: (value: PickerValue[], extend: PickerValueExtend) => void
   onCancel?: () => void
   onClose?: () => void
+  onShow?: () => void
   closeOnMaskClick?: boolean
   visible?: boolean
   title?: ReactNode
@@ -133,6 +135,9 @@ export const Picker = memo(
       if (innerValue !== value) {
         setInnerValue(value)
       }
+      if (visible) {
+        props.onShow?.()
+      }
     }, [visible])
     useEffect(() => {
       if (!visible) {
@@ -175,6 +180,7 @@ export const Picker = memo(
         </div>
         <div className={`${classPrefix}-body`}>
           <PickerView
+            placeholder={props.placeholder}
             columns={props.columns}
             renderLabel={props.renderLabel}
             value={innerValue}

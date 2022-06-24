@@ -6,6 +6,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDebounceEffect } from 'ahooks'
 import { PickerProps } from '../picker'
 import { defaultRenderLabel } from '../picker/picker-utils'
+import { isUndefined } from 'lodash'
 
 const classPrefix = `adm-picker-view`
 
@@ -29,6 +30,7 @@ export type PickerViewProps = {
   value?: PickerValue[]
   defaultValue?: PickerValue[]
   mouseWheel?: boolean
+  placeholder?: ReactNode
   onChange?: (value: PickerValue[], extend: PickerValueExtend) => void
 } & Pick<PickerProps, 'renderLabel'> &
   NativeProps<'--height' | '--item-height' | '--item-font-size'>
@@ -104,9 +106,15 @@ export const PickerView = memo<PickerViewProps>(p => {
         />
       ))}
       <div className={`${classPrefix}-mask`}>
-        <div className={`${classPrefix}-mask-top`} />
-        <div className={`${classPrefix}-mask-middle`} />
-        <div className={`${classPrefix}-mask-bottom`} />
+        {!isUndefined(props?.placeholder) ? (
+          props?.placeholder
+        ) : (
+          <>
+            <div className={`${classPrefix}-mask-top`} />
+            <div className={`${classPrefix}-mask-middle`} />
+            <div className={`${classPrefix}-mask-bottom`} />
+          </>
+        )}
       </div>
     </div>
   )
