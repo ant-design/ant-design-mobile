@@ -12,6 +12,10 @@
   transition: background-color ease 0.5s;
   &:hover {
     background-color: #f5f5f5;
+
+    [data-prefers-color='dark'] & {
+      background-color: #333;
+    }
   }
   img {
     flex: none;
@@ -29,9 +33,17 @@
     font-weight: 400;
     color: rgba(0, 0, 0, 0.85);
     margin-bottom: 4px;
+
+    [data-prefers-color='dark'] & {
+      color: rgba(255, 255, 255, 0.65);
+    }
   }
   .description {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.65);
+
+    [data-prefers-color='dark'] & {
+      color: rgba(255, 255, 255, 0.65);
+    }
   }
 }

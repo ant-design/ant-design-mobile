@@ -115,13 +115,7 @@ export default () => {
               <div className={styles.development_pos}></div>
             </div>
 
-            <div
-              className={styles.resourcesCard}
-              style={{
-                backgroundColor: 'rgba(223,246,255,0.3)',
-                background: 'rgba(223,246,255,0.3)',
-              }}
-            >
+            <div className={styles.resourcesCard}>
               <p className={styles.development_con_title}>
                 <span>{trans('All Components', '组件列表')}</span>
                 <a href={trans('/components/button', '/zh/components/button')}>
