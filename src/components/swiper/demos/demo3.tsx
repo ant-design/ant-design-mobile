@@ -35,10 +35,7 @@ const WithPopup: FC = () => {
             </div>
           </Swiper.Item>
           <Swiper.Item>
-            <div
-              className={styles.contentFull}
-              style={{ background: '#ffffff' }}
-            >
+            <div className={styles.contentFull}>
               <Button
                 onClick={() => {
                   setVisible(false)

@@ -36,7 +36,7 @@
   align-items: stretch;
   border-radius: 12px;
   overflow: hidden;
-  --border-color: @c-border;
+  --border-color: var(--doc-border-color);
   border: 1px solid var(--border-color);
 
   &[data-debug] {
@@ -78,6 +78,11 @@
           border-bottom-left-radius: 12px;
           .@{prefix}-code-block {
             background: #ffffff;
+
+            [data-prefers-color='dark'] & {
+              color: @c-text-dark;
+              background: #262626;
+            }
           }
         }
       }

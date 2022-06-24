@@ -46,7 +46,7 @@ export default () => {
             '--border-inner': 'none',
             '--height': '36px',
             '--input-width': '70px',
-            '--input-background-color': '#ffffff',
+            '--input-background-color': 'var(--adm-color-background)',
             '--active-border': '1px solid #1677ff',
           }}
           defaultValue={10000}

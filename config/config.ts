@@ -85,7 +85,7 @@ const config: IConfig = {
       ],
     },
   },
-  plugins: ['./.dumi/plugin-gallery/index.ts'],
+  plugins: ['./.dumi/plugin-gallery/index.ts', './.dumi/plugin-theme/index.ts'],
   // ssr: {},
   exportStatic: {},
   dynamicImport: {},
