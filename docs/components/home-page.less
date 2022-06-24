@@ -65,6 +65,9 @@
         margin-left: -40%;
         position: relative;
         z-index: 0;
+        [data-prefers-color='dark'] & {
+          visibility: hidden;
+        }
         @media (max-width: 1300px) {
           & {
             width: 820px;
@@ -132,17 +135,15 @@
         padding-right: 24px;
         padding-top: 32px;
 
+        [data-prefers-color='dark'] & {
+          background: #323233;
+        }
+
         &:nth-child(2) {
           background-color: rgba(223, 246, 255, 0.3);
 
           [data-prefers-color='dark'] & {
-            background-color: #fafcfe;
-            mask: linear-gradient(
-              0deg,
-              rgba(0, 0, 0, 0.6) 0%,
-              rgba(0, 0, 0, 0.8) 50%,
-              #000000 100%
-            );
+            background-color: #323233;
           }
         }
 
@@ -202,6 +203,9 @@
         display: flex;
         justify-content: space-between;
         padding: 32px;
+        [data-prefers-color='dark'] & {
+          background: #323233;
+        }
         > div {
           width: 274px;
           p:nth-child(1) {
@@ -290,12 +294,6 @@
       color: rgba(255, 255, 255, 0.65);
       text-align: center;
       line-height: 22px;
-    }
-  }
-
-  img {
-    [data-prefers-color='dark'] & {
-      filter: invert(1) hue-rotate(180deg);
     }
   }
 }
