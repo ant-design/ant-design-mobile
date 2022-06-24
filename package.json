@@ -4,7 +4,7 @@
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
-    "build-doc": "dumi build",
+    "build-doc": "dumi build && echo '!.*' > dist/.surgeignore",
     "lint": "eslint .",
     "postinstall": "husky install",
     "test": "jest",
