@@ -96,7 +96,6 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       if (!autoSize) return
       const textArea = nativeTextAreaRef.current
       if (!textArea) return
-      textArea.style.height = 'auto'
       let height = textArea.scrollHeight
       if (typeof autoSize === 'object') {
         const computedStyle = window.getComputedStyle(textArea)
