@@ -13,7 +13,11 @@ const ListItemWithCheckbox: FC<
   const checkboxRef = useRef<CheckboxRef>(null)
   return (
     <List.Item
-      prefix={<Checkbox value={props.item} ref={checkboxRef} />}
+      prefix={
+        <div onClick={e => e.stopPropagation()}>
+          <Checkbox value={props.item} ref={checkboxRef} />
+        </div>
+      }
       onClick={() => {
         checkboxRef.current?.toggle()
       }}
