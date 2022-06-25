@@ -180,7 +180,7 @@ export const Picker = memo(
         </div>
         <div className={`${classPrefix}-body`}>
           <PickerView
-            placeholder={props?.placeholder}
+            placeholder={props.placeholder}
             columns={props.columns}
             renderLabel={props.renderLabel}
             value={innerValue}

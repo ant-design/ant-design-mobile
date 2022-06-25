@@ -31,6 +31,8 @@ export type DatePickerProps = Pick<
   | 'confirmText'
   | 'cancelText'
   | 'getContainer'
+  | 'onShow'
+  | 'placeholder'
   | 'afterShow'
   | 'afterClose'
   | 'onClick'
@@ -126,6 +128,8 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
         onConfirm={onConfirm}
         onSelect={onSelect}
         getContainer={props.getContainer}
+        onShow={props.onShow}
+        placeholder={props.placeholder}
         afterShow={props.afterShow}
         afterClose={props.afterClose}
         onClick={props.onClick}
