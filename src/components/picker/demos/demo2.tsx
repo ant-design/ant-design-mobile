@@ -3,7 +3,7 @@ import { Button, Picker, Skeleton, Space, Toast } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
 import { basicColumns } from './columns-data'
 import { mockRequest } from './mockRequest'
-import { useLockFn } from 'ahooks'
+import { useRequest } from 'ahooks'
 
 type PickerColumnItem = {
   label: ReactNode
@@ -46,7 +46,7 @@ export default function () {
           }}
         />
       </DemoBlock>
-      <DemoBlock title='懒加载columns'>
+      <DemoBlock title='懒加载数据'>
         <LazyLoadColumnsDemo />
       </DemoBlock>
     </>
@@ -55,39 +55,41 @@ export default function () {
 
 function LazyLoadColumnsDemo() {
   const [visible, setVisible] = useState(false)
-  const [loading, setLoading] = useState(false)
   const [columns, setColumns] = useState<PickerColumn[]>([])
 
-  const lazyLoadColumns = useLockFn(async () => {
-    if (!columns[0]?.length) {
-      setLoading(true)
+  const { loading, runAsync } = useRequest(mockRequest, {
+    manual: true,
+  })
+
+  const onShow = async () => {
+    if (!columns.length && !loading) {
       try {
-        const columnsData = await mockRequest(1000)
-        setColumns(columnsData)
+        const data = await runAsync(1500)
+        setColumns(data)
       } catch (error) {
         Toast.show('请求失败')
-      } finally {
-        setLoading(false)
       }
     }
-  })
+  }
 
   return (
     <>
-      <Button
-        onClick={() => {
-          setVisible(true)
-        }}
-      >
-        懒加载数据
-      </Button>
-      <DemoDescription>
-        你可以传入placeholder在数据请求成功前占位展示，数据请求成功后则不会重复请求，
-        上述例子中使用了ahooks的useLockFn，请求结束前不会重复发出请求
-      </DemoDescription>
+      <Space direction='vertical' block>
+        <Button
+          onClick={() => {
+            setVisible(true)
+          }}
+        >
+          懒加载数据
+        </Button>
+        <DemoDescription>
+          异步请求结束前，你可以传入placeholder占位展示，
+          请求结束后，可以把placeholder手动置为undefined，防止请求失败Picker一直显示placeholder
+        </DemoDescription>
+      </Space>
       <Picker
         placeholder={loading ? <PlaceHolder /> : undefined}
-        onShow={lazyLoadColumns}
+        onShow={onShow}
         columns={columns}
         visible={visible}
         onClose={() => {
