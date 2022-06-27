@@ -82,13 +82,10 @@ function LazyLoadColumnsDemo() {
         >
           懒加载数据
         </Button>
-        <DemoDescription>
-          异步请求结束前，你可以传入placeholder占位展示，
-          请求结束后，可以把placeholder手动置为undefined，防止请求失败Picker一直显示placeholder
-        </DemoDescription>
       </Space>
       <Picker
-        placeholder={loading ? <PlaceHolder /> : undefined}
+        loadingContent={null}
+        loading={loading}
         onShow={onShow}
         columns={columns}
         visible={visible}
@@ -97,13 +94,5 @@ function LazyLoadColumnsDemo() {
         }}
       />
     </>
-  )
-}
-
-const PlaceHolder = () => {
-  return (
-    <div style={{ padding: '40px 60px' }}>
-      <Skeleton.Paragraph lineCount={5} animated />
-    </div>
   )
 }

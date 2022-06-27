@@ -32,7 +32,8 @@ export type DatePickerProps = Pick<
   | 'cancelText'
   | 'getContainer'
   | 'onShow'
-  | 'placeholder'
+  | 'loading'
+  | 'loadingContent'
   | 'afterShow'
   | 'afterClose'
   | 'onClick'
@@ -129,7 +130,8 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
         onSelect={onSelect}
         getContainer={props.getContainer}
         onShow={props.onShow}
-        placeholder={props.placeholder}
+        loading={props.loading}
+        loadingContent={props.loadingContent}
         afterShow={props.afterShow}
         afterClose={props.afterClose}
         onClick={props.onClick}

@@ -40,7 +40,8 @@ export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
-  placeholder?: ReactNode
+  loading?: boolean
+  loadingContent?: ReactNode
   onSelect?: (value: PickerValue[], extend: PickerValueExtend) => void
   onConfirm?: (value: PickerValue[], extend: PickerValueExtend) => void
   onCancel?: () => void
@@ -180,7 +181,8 @@ export const Picker = memo(
         </div>
         <div className={`${classPrefix}-body`}>
           <PickerView
-            placeholder={props.placeholder}
+            loading={props.loading}
+            loadingContent={props.loadingContent}
             columns={props.columns}
             renderLabel={props.renderLabel}
             value={innerValue}
