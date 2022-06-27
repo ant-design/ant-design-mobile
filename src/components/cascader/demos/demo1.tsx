@@ -22,7 +22,6 @@ function BasicDemo() {
         onClose={() => {
           setVisible(false)
         }}
-        onTabsChange={console.log}
       />
     </>
   )
