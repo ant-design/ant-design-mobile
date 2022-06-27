@@ -9,6 +9,7 @@ import { useCascaderValueExtend } from './use-cascader-value-extend'
 import { useConfig } from '../config-provider'
 import { optionSkeleton } from './option-skeleton'
 import Skeleton from '../skeleton'
+import { useUpdateEffect } from 'ahooks'
 
 const classPrefix = `adm-cascader-view`
 
@@ -55,6 +56,9 @@ export const CascaderView: FC<CascaderViewProps> = p => {
     },
   })
   const [tabActiveIndex, setTabActiveIndex] = useState<number>(0)
+  useUpdateEffect(() => {
+    props.onTabsChange?.(tabActiveIndex)
+  }, [tabActiveIndex])
 
   const generateValueExtend = useCascaderValueExtend(props.options)
 
@@ -112,7 +116,6 @@ export const CascaderView: FC<CascaderViewProps> = p => {
         onChange={key => {
           const activeIndex = parseInt(key)
           setTabActiveIndex(activeIndex)
-          props.onTabsChange?.(activeIndex)
         }}
         stretch={false}
         className={`${classPrefix}-tabs`}
