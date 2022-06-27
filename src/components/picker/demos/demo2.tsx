@@ -1,17 +1,10 @@
-import React, { useState, ReactNode } from 'react'
-import { Button, Picker, Skeleton, Space, Toast } from 'antd-mobile'
+import React, { useState } from 'react'
+import { Button, Picker, Space, Toast } from 'antd-mobile'
+import type { PickerColumn } from 'antd-mobile/es/components/picker'
 import { DemoBlock, DemoDescription } from 'demos'
 import { basicColumns } from './columns-data'
 import { mockRequest } from './mockRequest'
 import { useRequest } from 'ahooks'
-
-type PickerColumnItem = {
-  label: ReactNode
-  value: string
-  key?: string | number
-}
-
-type PickerColumn = (string | PickerColumnItem)[]
 
 export default function () {
   const [visible, setVisible] = useState(false)

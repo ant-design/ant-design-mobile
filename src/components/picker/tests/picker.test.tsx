@@ -9,17 +9,9 @@ import {
   waitForElementToBeRemoved,
 } from 'testing'
 import { basicColumns } from '../demos/columns-data'
-import Picker, { PickerRef } from '..'
+import Picker, { PickerRef, PickerColumnItem, PickerColumn } from '..'
 import Button from '../../button'
 import { useRequest } from 'ahooks'
-
-type PickerColumnItem = {
-  label: ReactNode
-  value: string
-  key?: string | number
-}
-
-type PickerColumn = (string | PickerColumnItem)[]
 
 async function mockRequest({ delay }: { delay: number }) {
   await sleep(delay)
