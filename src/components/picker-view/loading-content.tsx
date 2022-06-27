@@ -3,7 +3,7 @@ import { Skeleton } from 'antd-mobile'
 
 export const LoadingContent = () => {
   return (
-    <div style={{ padding: '40px 15%' }}>
+    <div style={{ width: '100%', height: '100%', padding: '40px 15%' }}>
       <Skeleton.Paragraph lineCount={5} animated />
     </div>
   )

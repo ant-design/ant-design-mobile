@@ -64,7 +64,7 @@ function LazyLoadColumnsDemo() {
   const onShow = async () => {
     if (!columns.length && !loading) {
       try {
-        const data = await runAsync(1500)
+        const data = await runAsync({ delay: 2000 })
         setColumns(data)
       } catch (error) {
         Toast.show('请求失败')
@@ -75,6 +75,10 @@ function LazyLoadColumnsDemo() {
   return (
     <>
       <Space direction='vertical' block>
+        <DemoDescription>
+          你可以在Picker显示时通过onShow发起异步请求，CascadePicker 和
+          DatePicker 也同样支持。
+        </DemoDescription>
         <Button
           onClick={() => {
             setVisible(true)
@@ -84,7 +88,6 @@ function LazyLoadColumnsDemo() {
         </Button>
       </Space>
       <Picker
-        loadingContent={null}
         loading={loading}
         onShow={onShow}
         columns={columns}
