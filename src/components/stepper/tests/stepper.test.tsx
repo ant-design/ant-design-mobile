@@ -49,6 +49,11 @@ describe('stepper', () => {
 
     fireEvent.change(input, {
       target: {
+        value: '200',
+      },
+    })
+    fireEvent.change(input, {
+      target: {
         value: '',
       },
     })

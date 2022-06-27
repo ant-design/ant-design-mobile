@@ -137,7 +137,7 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
         <a
           className={`${classPrefix}-header-button`}
           onClick={() => {
-            setValue(innerValue)
+            setValue(innerValue, true)
             setVisible(false)
           }}
         >

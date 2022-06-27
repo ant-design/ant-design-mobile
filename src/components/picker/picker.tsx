@@ -166,7 +166,7 @@ export const Picker = memo(
             role='button'
             className={`${classPrefix}-header-button`}
             onClick={() => {
-              setValue(innerValue)
+              setValue(innerValue, true)
               setVisible(false)
             }}
           >
