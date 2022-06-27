@@ -29,7 +29,7 @@ describe('CascaderView', () => {
       />
     )
     fireEvent.click(getByText('请选择'))
-    expect(onTabsChange).toBeCalled()
+    expect(onTabsChange).not.toBeCalled()
     fireEvent.click(getByText('浙江'))
     expect(container).toMatchSnapshot()
 

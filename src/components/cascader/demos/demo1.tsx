@@ -23,7 +23,7 @@ function BasicDemo() {
         onClose={() => {
           setVisible(false)
         }}
-        value={value}
+        // value={value}
         onConfirm={v => {
           setValue(v)
         }}
