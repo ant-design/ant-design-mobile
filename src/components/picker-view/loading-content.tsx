@@ -1,5 +1,5 @@
 import React from 'react'
-import { Skeleton } from 'antd-mobile'
+import Skeleton from '../skeleton'
 
 export const LoadingContent = () => {
   return (

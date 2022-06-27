@@ -1,4 +1,4 @@
-import React, { createRef, useState } from 'react'
+import React, { createRef, ReactNode, useState } from 'react'
 import {
   render,
   fireEvent,
@@ -11,6 +11,20 @@ import {
 import { basicColumns } from '../demos/columns-data'
 import Picker, { PickerRef } from '..'
 import Button from '../../button'
+import { useRequest } from 'ahooks'
+
+type PickerColumnItem = {
+  label: ReactNode
+  value: string
+  key?: string | number
+}
+
+type PickerColumn = (string | PickerColumnItem)[]
+
+async function mockRequest({ delay }: { delay: number }) {
+  await sleep(delay)
+  return basicColumns
+}
 
 describe('Picker', () => {
   test('renderLabel works', async () => {
@@ -171,5 +185,57 @@ describe('Picker', () => {
       ref.current?.open()
     })
     await waitFor(() => expect(afterShow).toBeCalled())
+  })
+
+  const LazyLoadColumnsDemo = (props: any) => {
+    const [visible, setVisible] = useState(false)
+    const [columns, setColumns] = useState<PickerColumn[]>([])
+
+    const { loading, runAsync } = useRequest(mockRequest, {
+      manual: true,
+    })
+
+    const onShow = async () => {
+      if (!columns.length && !loading) {
+        const data = await runAsync({ delay: 0 })
+        setColumns(data)
+      }
+    }
+
+    return (
+      <>
+        <Button
+          data-testid={'button'}
+          onClick={() => {
+            setVisible(true)
+          }}
+        >
+          button
+        </Button>
+        <Picker
+          loading={loading}
+          loadingContent={<div data-testid={'loading-content'}>loading</div>}
+          onShow={onShow}
+          columns={columns}
+          visible={visible}
+          onConfirm={props.onConfirm}
+        />
+      </>
+    )
+  }
+
+  test('test Picker loading and async fetch data by onShow', async () => {
+    const fn = jest.fn()
+    const onConfirm = (val: PickerColumnItem) => {
+      fn(val)
+    }
+    render(<LazyLoadColumnsDemo onConfirm={onConfirm} />)
+    fireEvent.click(screen.getByTestId('button'))
+    expect(screen.getByTestId('loading-content')).toBeInTheDocument()
+    await act(() => sleep(0))
+    const confirm = await screen.findByText('确定')
+    await act(() => sleep(0))
+    fireEvent.click(confirm)
+    expect(fn.mock.calls[0][0]).toEqual(['Mon', 'am'])
   })
 })

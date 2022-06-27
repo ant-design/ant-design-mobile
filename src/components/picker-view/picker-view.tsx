@@ -93,7 +93,7 @@ export const PickerView = memo<PickerViewProps>(p => {
   }, [])
 
   const renderLoadingContent = () => {
-    if (props.loading) {
+    if (!props.loadingContent) {
       return <LoadingContent />
     }
     return props.loadingContent
