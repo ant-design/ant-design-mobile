@@ -12,9 +12,10 @@ describe('usePropsValue', () => {
       })
     )
 
-    act(() => result.current[1]('1'))
+    const setState = result.current[1]
+    act(() => setState('1'))
     expect(onChange).toBeCalledTimes(1)
-    act(() => result.current[1]('1'))
+    act(() => setState('1'))
     expect(onChange).toBeCalledTimes(1)
   })
 
@@ -23,7 +24,8 @@ describe('usePropsValue', () => {
     const { result } = renderHook(usePropsValue, {
       initialProps: { value: '1', defaultValue: '', onChange },
     })
-    act(() => result.current[1]('1'))
+    const setState = result.current[1]
+    act(() => setState('1'))
     expect(onChange).toBeCalledTimes(0)
   })
 
@@ -32,7 +34,21 @@ describe('usePropsValue', () => {
     const { result } = renderHook(usePropsValue, {
       initialProps: { value: '1', defaultValue: '', onChange },
     })
-    act(() => result.current[1]('1', true))
+    const setState = result.current[1]
+    act(() => setState('1', true))
     expect(onChange).toBeCalledTimes(1)
+  })
+
+  test('inner value should always be the same with outer value', () => {
+    const { result, rerender } = renderHook(usePropsValue, {
+      initialProps: { value: '0', defaultValue: '' },
+    })
+    for (let i = 0; i < 3; i++) {
+      rerender({
+        value: i.toString(),
+        defaultValue: '',
+      })
+      expect(result.current[0]).toBe(i.toString())
+    }
   })
 })
