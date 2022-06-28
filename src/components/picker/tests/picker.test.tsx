@@ -220,6 +220,7 @@ describe('Picker', () => {
     await act(() => sleep(0))
     const confirm = await screen.findByText('确定')
     fireEvent.click(confirm)
+    await act(() => sleep(0))
     expect(fn.mock.calls[0][0]).toEqual(['Mon', 'am'])
   })
 })
