@@ -1,4 +1,4 @@
-import React, { createRef, ReactNode, useState } from 'react'
+import React, { createRef, useState } from 'react'
 import {
   render,
   fireEvent,
@@ -219,8 +219,8 @@ describe('Picker', () => {
     expect(screen.getByTestId('loading-content')).toBeInTheDocument()
     await act(() => sleep(0))
     const confirm = await screen.findByText('确定')
-    fireEvent.click(confirm)
     await act(() => sleep(0))
+    fireEvent.click(confirm)
     expect(fn.mock.calls[0][0]).toEqual(['Mon', 'am'])
   })
 })
