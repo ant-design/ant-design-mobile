@@ -48,7 +48,6 @@ type PickerValueExtend = {
 | mouseWheel       | 是否允许通过鼠标滚轮进行选择 | `boolean`                                                          | `false`                      |
 | onCancel         | 取消时触发                   | `() => void`                                                       | -                            |
 | onClose          | 确认和取消时都会触发关闭事件 | `() => void`                                                       | -                            |
-| onShow           | 显示时触发                   | `() => void`                                                       | -                            |
 | onConfirm        | 确认时触发                   | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                            |
 | onSelect         | 选项改变时触发               | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                            |
 | popupClassName   | Popup 弹层容器的自定义类名   | `string`                                                           | -                            |
@@ -177,7 +176,7 @@ type DatePickerFilter = Partial<
 >
 ```
 
-此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `onShow` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation` `loading` `loadingContent`。
+此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation` `loading` `loadingContent`。
 
 ### Ref
 

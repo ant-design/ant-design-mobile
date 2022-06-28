@@ -40,6 +40,7 @@ const defaultProps = {
   defaultValue: [],
   renderLabel: defaultRenderLabel,
   mouseWheel: false,
+  loadingContent: <LoadingContent />,
 }
 
 export const PickerView = memo<PickerViewProps>(p => {
@@ -92,13 +93,6 @@ export const PickerView = memo<PickerViewProps>(p => {
     })
   }, [])
 
-  const renderLoadingContent = () => {
-    if (!props.loadingContent) {
-      return <LoadingContent />
-    }
-    return props.loadingContent
-  }
-
   return withNativeProps(
     props,
     <div className={`${classPrefix}`}>
@@ -115,7 +109,7 @@ export const PickerView = memo<PickerViewProps>(p => {
       ))}
       <div className={`${classPrefix}-mask`}>
         {props.loading ? (
-          renderLoadingContent()
+          props.loadingContent
         ) : (
           <>
             <div className={`${classPrefix}-mask-top`} />

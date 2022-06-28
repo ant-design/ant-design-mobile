@@ -46,7 +46,6 @@ export type PickerProps = {
   onConfirm?: (value: PickerValue[], extend: PickerValueExtend) => void
   onCancel?: () => void
   onClose?: () => void
-  onShow?: () => void
   closeOnMaskClick?: boolean
   visible?: boolean
   title?: ReactNode
@@ -135,9 +134,6 @@ export const Picker = memo(
     useEffect(() => {
       if (innerValue !== value) {
         setInnerValue(value)
-      }
-      if (visible) {
-        props.onShow?.()
       }
     }, [visible])
     useEffect(() => {

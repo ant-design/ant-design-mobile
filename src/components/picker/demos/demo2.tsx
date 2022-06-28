@@ -4,7 +4,6 @@ import type { PickerColumn } from 'antd-mobile/es/components/picker'
 import { DemoBlock, DemoDescription } from 'demos'
 import { basicColumns } from './columns-data'
 import { mockRequest } from './mockRequest'
-import { useRequest } from 'ahooks'
 
 export default function () {
   const [visible, setVisible] = useState(false)
@@ -49,18 +48,19 @@ export default function () {
 function LazyLoadColumnsDemo() {
   const [visible, setVisible] = useState(false)
   const [columns, setColumns] = useState<PickerColumn[]>([])
+  const [loading, setLoading] = useState(false)
 
-  const { loading, runAsync } = useRequest(mockRequest, {
-    manual: true,
-  })
-
-  const onShow = async () => {
+  const handleClick = async () => {
+    setVisible(true)
     if (!columns.length && !loading) {
       try {
-        const data = await runAsync({ delay: 2000 })
+        setLoading(true)
+        const data = await mockRequest({ delay: 2000 })
         setColumns(data)
       } catch (error) {
         Toast.show('请求失败')
+      } finally {
+        setLoading(false)
       }
     }
   }
@@ -68,21 +68,15 @@ function LazyLoadColumnsDemo() {
   return (
     <>
       <Space direction='vertical' block>
+        <Button onClick={handleClick}>懒加载数据</Button>
         <DemoDescription>
-          你可以在Picker显示时通过onShow发起异步请求，CascadePicker 和
-          DatePicker 也同样支持。
+          你可以在Picker显示时发起异步请求获取数据，提供了默认的骨架屏loading样式，CascadePicker
+          和 DatePicker
+          也同样支持，你也可以传入loadingContent自定义loading样式。
         </DemoDescription>
-        <Button
-          onClick={() => {
-            setVisible(true)
-          }}
-        >
-          懒加载数据
-        </Button>
       </Space>
       <Picker
         loading={loading}
-        onShow={onShow}
         columns={columns}
         visible={visible}
         onClose={() => {

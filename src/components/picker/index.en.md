@@ -48,7 +48,6 @@ type PickerValueExtend = {
 | mouseWheel       | Whether to allow interact with mouse wheel                   | `boolean`                                                          | `false`                                                                    |
 | onCancel         | Triggered when cancelling                                    | `() => void`                                                       | -                                                                          |
 | onClose          | Triggered when confirming or cancelling                      | `() => void`                                                       | -                                                                          |
-| onShow           | Triggered when show the Picker                               | `() => void`                                                       | -                                                                          |
 | onConfirm        | Triggered when confirming                                    | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                                                                          |
 | onSelect         | Triggered when the options are changed                       | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                                                                          |
 | popupClassName   | The custom class name of the popup                           | `string`                                                           | -                                                                          |
@@ -175,7 +174,7 @@ type DatePickerFilter = Partial<
 >
 ```
 
-In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `onShow` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation` `loading` `loadingContent`
+In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation` `loading` `loadingContent`
 
 ### Ref
 

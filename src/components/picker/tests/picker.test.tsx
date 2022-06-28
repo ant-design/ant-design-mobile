@@ -11,7 +11,6 @@ import {
 import { basicColumns } from '../demos/columns-data'
 import Picker, { PickerRef, PickerColumnItem, PickerColumn } from '..'
 import Button from '../../button'
-import { useRequest } from 'ahooks'
 
 async function mockRequest({ delay }: { delay: number }) {
   await sleep(delay)
@@ -182,32 +181,26 @@ describe('Picker', () => {
   const LazyLoadColumnsDemo = (props: any) => {
     const [visible, setVisible] = useState(false)
     const [columns, setColumns] = useState<PickerColumn[]>([])
+    const [loading, setLoading] = useState(false)
 
-    const { loading, runAsync } = useRequest(mockRequest, {
-      manual: true,
-    })
-
-    const onShow = async () => {
+    const handleClick = async () => {
+      setVisible(true)
       if (!columns.length && !loading) {
-        const data = await runAsync({ delay: 0 })
+        setLoading(true)
+        const data = await mockRequest({ delay: 0 })
+        setLoading(false)
         setColumns(data)
       }
     }
 
     return (
       <>
-        <Button
-          data-testid={'button'}
-          onClick={() => {
-            setVisible(true)
-          }}
-        >
+        <Button data-testid={'button'} onClick={handleClick}>
           button
         </Button>
         <Picker
           loading={loading}
           loadingContent={<div data-testid={'loading-content'}>loading</div>}
-          onShow={onShow}
           columns={columns}
           visible={visible}
           onConfirm={props.onConfirm}
@@ -216,7 +209,7 @@ describe('Picker', () => {
     )
   }
 
-  test('test Picker loading and async fetch data by onShow', async () => {
+  test('test Picker loading and loadingContent', async () => {
     const fn = jest.fn()
     const onConfirm = (val: PickerColumnItem) => {
       fn(val)
@@ -226,7 +219,6 @@ describe('Picker', () => {
     expect(screen.getByTestId('loading-content')).toBeInTheDocument()
     await act(() => sleep(0))
     const confirm = await screen.findByText('确定')
-    await act(() => sleep(0))
     fireEvent.click(confirm)
     expect(fn.mock.calls[0][0]).toEqual(['Mon', 'am'])
   })
