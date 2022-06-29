@@ -55,3 +55,7 @@ Image 默认是渲染为 block 元素的，如果你需要让它变为 inline-bl
   <Image />
 </div>
 ```
+
+### `onContainerClick` 和 `onClick` 有什么区别？
+
+`onContainerClick` 是容器点击事件，而 `onClick` 是图片点击事件。在图片加载成功之前或图片加载失败后，`onClick` 是不会触发的，但 `onContainerClick` 是可以正常触发的。

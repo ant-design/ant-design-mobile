@@ -55,3 +55,7 @@ Image is rendered as a block element by default. If you need to make it an inlin
   <Image />
 </div>
 ```
+
+### What is the difference between `onContainerClick` and `onClick`?
+
+`onContainerClick` is the container click event, and `onClick` is the image click event. `onClick` will not fire before the image is loaded successfully or after the image fails to load, but `onContainerClick` can be fired normally.
