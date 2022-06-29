@@ -77,17 +77,17 @@ describe('InfiniteScroll', () => {
     screen.findByText('加载中')
 
     await act(async () => {
-      jest.runAllTimers()
+      jest.advanceTimersByTime(time)
     })
     await act(async () => {
-      jest.runAllTimers()
+      jest.advanceTimersByTime(time)
     })
     await act(async () => {
-      jest.runAllTimers()
+      jest.advanceTimersByTime(time)
     })
 
     // no more
-    screen.findByText('没有更多了')
+    expect(await screen.findByText('没有更多了')).toBeInTheDocument()
     expect(document.querySelectorAll('.adm-list-item').length).toBe(count * 3)
   })
 
@@ -105,15 +105,15 @@ describe('InfiniteScroll', () => {
     screen.findByText('Loading')
 
     await act(async () => {
-      jest.runAllTimers()
+      jest.advanceTimersByTime(time)
     })
     await act(async () => {
-      jest.runAllTimers()
+      jest.advanceTimersByTime(time)
     })
     await act(async () => {
-      jest.runAllTimers()
+      jest.advanceTimersByTime(time)
     })
 
-    screen.findByText('Baseline')
+    expect(await screen.findByText('Baseline')).toBeInTheDocument()
   })
 })
