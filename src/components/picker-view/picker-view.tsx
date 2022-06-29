@@ -6,7 +6,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDebounceEffect } from 'ahooks'
 import { PickerProps } from '../picker'
 import { defaultRenderLabel } from '../picker/picker-utils'
-import { LoadingContent } from './loading-content'
+import SpinLoading from '../spin-loading'
 
 const classPrefix = `adm-picker-view`
 
@@ -40,7 +40,11 @@ const defaultProps = {
   defaultValue: [],
   renderLabel: defaultRenderLabel,
   mouseWheel: false,
-  loadingContent: <LoadingContent />,
+  loadingContent: (
+    <div className={`${classPrefix}-loading-content`}>
+      <SpinLoading />
+    </div>
+  ),
 }
 
 export const PickerView = memo<PickerViewProps>(p => {
@@ -96,28 +100,28 @@ export const PickerView = memo<PickerViewProps>(p => {
   return withNativeProps(
     props,
     <div className={`${classPrefix}`}>
-      {columns.map((column, index) => (
-        <Wheel
-          key={index}
-          index={index}
-          column={column}
-          value={innerValue[index]}
-          onSelect={handleSelect}
-          renderLabel={props.renderLabel}
-          mouseWheel={props.mouseWheel}
-        />
-      ))}
-      <div className={`${classPrefix}-mask`}>
-        {props.loading ? (
-          props.loadingContent
-        ) : (
-          <>
+      {props.loading ? (
+        props.loadingContent
+      ) : (
+        <>
+          {columns.map((column, index) => (
+            <Wheel
+              key={index}
+              index={index}
+              column={column}
+              value={innerValue[index]}
+              onSelect={handleSelect}
+              renderLabel={props.renderLabel}
+              mouseWheel={props.mouseWheel}
+            />
+          ))}
+          <div className={`${classPrefix}-mask`}>
             <div className={`${classPrefix}-mask-top`} />
             <div className={`${classPrefix}-mask-middle`} />
             <div className={`${classPrefix}-mask-bottom`} />
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </div>
   )
 })
