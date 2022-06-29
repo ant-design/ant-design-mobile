@@ -132,12 +132,13 @@ describe('Dialog', () => {
     render(<Confirm />)
     const btn = screen.getByRole('button', { name: 'btn' })
     fireEvent.click(btn)
+    const dialog = screen.getByRole('dialog')
     fireEvent.click(screen.getByRole('button', { name: '确定' }))
     await act(async () => {
       await Promise.resolve()
     })
     expect(fn.mock.calls[0][0]).toBe(true)
-    await waitForElementToBeRemoved(screen.getByRole('dialog'))
+    await waitForElementToBeRemoved(dialog)
 
     fireEvent.click(btn)
     fireEvent.click(screen.getByRole('button', { name: '取消' }))
