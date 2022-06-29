@@ -8,10 +8,11 @@ import {
   sleep,
   screen,
   cleanup,
+  act,
+  waitForElementToBeRemoved,
 } from 'testing'
 import ImageUploader, { ImageUploadItem } from '..'
 import Dialog from '../../dialog'
-import { act } from '@testing-library/react'
 
 const classPrefix = `adm-image-uploader`
 
@@ -137,7 +138,7 @@ describe('ImageUploader', () => {
       />
     )
 
-    const input = await mockInputFile([
+    await mockInputFile([
       new File(['one'], 'one.png', { type: 'image/png' }),
       new File(['two'], 'two.png', { type: 'image/png' }),
       new File(['three'], 'three.png', { type: 'image/png' }),
@@ -148,7 +149,7 @@ describe('ImageUploader', () => {
   })
 
   test('delete image', async () => {
-    const { getByText } = render(
+    render(
       <App
         multiple
         onDelete={() => {
@@ -160,8 +161,11 @@ describe('ImageUploader', () => {
     )
 
     fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
-    await waitFor(() => fireEvent.click(getByText('确定')))
+    const button = await screen.findByText('确定')
+    const dialog = screen.getByRole('dialog')
+    fireEvent.click(button)
     await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(0))
+    await waitForElementToBeRemoved(dialog)
   })
 
   test('custom upload button', async () => {
