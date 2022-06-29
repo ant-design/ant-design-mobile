@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom'
 import { reduceMotion } from '../utils/reduce-and-restore-motion'
 import { mockGlobalStyles } from './mock-global-styles'
 

@@ -1,6 +1,11 @@
 import React, { memo, ReactNode, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag, useWheel } from '@use-gesture/react'
+import {
+  EventTypes,
+  FullGestureState,
+  useDrag,
+  useWheel,
+} from '@use-gesture/react'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
@@ -8,7 +13,6 @@ import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { measureCSSLength } from '../../utils/measure-css-length'
 import { supportsPassive } from '../../utils/supports-passive'
-import { FullGestureState } from '@use-gesture/core/src/types/state'
 
 const classPrefix = `adm-picker-view`
 
@@ -80,10 +84,13 @@ export const Wheel = memo<Props>(
     }
 
     const handleDrag = (
-      state: Pick<
-        FullGestureState<'drag'>,
-        'last' | 'offset' | 'velocity' | 'direction'
-      >
+      state:
+        | (Omit<FullGestureState<'wheel'>, 'event'> & {
+            event: EventTypes['wheel']
+          })
+        | (Omit<FullGestureState<'drag'>, 'event'> & {
+            event: EventTypes['drag']
+          })
     ) => {
       draggingRef.current = true
       const min = -((column.length - 1) * itemHeight.current)

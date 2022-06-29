@@ -6,6 +6,8 @@
 npm install --save antd-mobile-icons
 # or
 yarn add antd-mobile-icons
+# or
+pnpm add antd-mobile-icons
 ```
 
 然后从这个包中引入你所需要的图标即可：

@@ -14,6 +14,8 @@ First, install `antd-mobile-v2`:
 $ npm install --save antd-mobile-v2
 # or
 $ yarn add antd-mobile-v2
+# or
+$ pnpm add antd-mobile-v2
 ```
 
 And then, replace everything that uses `antd-mobile` with `antd-mobile-v2`. For example:
@@ -38,6 +40,8 @@ Finally, reinstall the `antd-mobile` package as v5:
 $ npm install --save antd-mobile
 # or
 $ yarn add antd-mobile
+# or
+$ pnpm add antd-mobile
 ```
 
 Now, the `antd-mobile` in project is v5, and `antd-mobile-v2` is v2.
@@ -58,6 +62,8 @@ You can use npm alias to install v5:
 $ npm install --save antd-mobile-v5@npm:antd-mobile@5
 # or
 $ yarn add antd-mobile-v5@npm:antd-mobile@5
+# or
+$ pnpm add antd-mobile-v5@npm:antd-mobile@5
 ```
 
 And after that, the corresponding `package.json` is:

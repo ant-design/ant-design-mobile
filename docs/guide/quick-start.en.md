@@ -6,6 +6,8 @@
 $ npm install --save antd-mobile
 # or
 $ yarn add antd-mobile
+# or
+$ pnpm add antd-mobile
 ```
 
 ## Import
