@@ -71,7 +71,7 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
   )
 
   useResizeEffect(() => {
-    animate(!scrollLeft.isAnimating)
+    animate(true)
   }, rootRef)
 
   return withNativeProps(

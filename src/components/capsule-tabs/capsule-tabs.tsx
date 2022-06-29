@@ -70,7 +70,7 @@ export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
   )
 
   useResizeEffect(() => {
-    animate(!scrollLeft.isAnimating)
+    animate(true)
   }, rootRef)
 
   return withNativeProps(

@@ -45,7 +45,7 @@ export const useTabListScroll = (
     api.start({
       scrollLeft: nextScrollLeft,
       from: { scrollLeft: containerScrollLeft },
-      immediate,
+      immediate: immediate && !scrollLeft.isAnimating,
     })
   }
 
