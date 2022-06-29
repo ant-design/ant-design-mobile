@@ -276,8 +276,8 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
 
   const mark = (
     <div className={`${classPrefix}-mark`}>
-      {markItems.map(item => (
-        <div key={item} className={`${classPrefix}-mark-cell`}>
+      {markItems.map((item, index) => (
+        <div key={index} className={`${classPrefix}-mark-cell`}>
           {item}
         </div>
       ))}
