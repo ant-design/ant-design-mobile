@@ -23,6 +23,7 @@ export type ImageProps = {
   onClick?: (event: React.MouseEvent<HTMLImageElement, Event>) => void
   onError?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
   onLoad?: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void
+  onContainerClick?: (event: React.MouseEvent<HTMLDivElement, Event>) => void
 } & NativeProps<'--width' | '--height'> &
   Pick<
     React.ImgHTMLAttributes<HTMLImageElement>,
@@ -123,7 +124,12 @@ export const Image = staged<ImageProps>(p => {
   }
   return withNativeProps(
     props,
-    <div ref={ref} className={classPrefix} style={style}>
+    <div
+      ref={ref}
+      className={classPrefix}
+      style={style}
+      onClick={props.onContainerClick}
+    >
       {props.lazy && !initialized && (
         <LazyDetector
           onActive={() => {
