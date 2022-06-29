@@ -9,8 +9,13 @@ import {
   waitForElementToBeRemoved,
 } from 'testing'
 import { basicColumns } from '../demos/columns-data'
-import Picker, { PickerRef } from '..'
+import Picker, { PickerRef, PickerColumnItem, PickerColumn } from '..'
 import Button from '../../button'
+
+async function mockRequest({ delay }: { delay: number }) {
+  await sleep(delay)
+  return basicColumns
+}
 
 describe('Picker', () => {
   test('renderLabel works', async () => {
@@ -171,5 +176,51 @@ describe('Picker', () => {
       ref.current?.open()
     })
     await waitFor(() => expect(afterShow).toBeCalled())
+  })
+
+  const LazyLoadColumnsDemo = (props: any) => {
+    const [visible, setVisible] = useState(false)
+    const [columns, setColumns] = useState<PickerColumn[]>([])
+    const [loading, setLoading] = useState(false)
+
+    const handleClick = async () => {
+      setVisible(true)
+      if (!columns.length && !loading) {
+        setLoading(true)
+        const data = await mockRequest({ delay: 0 })
+        setLoading(false)
+        setColumns(data)
+      }
+    }
+
+    return (
+      <>
+        <Button data-testid={'button'} onClick={handleClick}>
+          button
+        </Button>
+        <Picker
+          loading={loading}
+          loadingContent={<div data-testid={'loading-content'}>loading</div>}
+          columns={columns}
+          visible={visible}
+          onConfirm={props.onConfirm}
+        />
+      </>
+    )
+  }
+
+  test('test Picker loading and loadingContent', async () => {
+    const fn = jest.fn()
+    const onConfirm = (val: PickerColumnItem) => {
+      fn(val)
+    }
+    render(<LazyLoadColumnsDemo onConfirm={onConfirm} />)
+    fireEvent.click(screen.getByTestId('button'))
+    expect(screen.getByTestId('loading-content')).toBeInTheDocument()
+    await act(() => sleep(0))
+    const confirm = await screen.findByText('确定')
+    await act(() => sleep(0))
+    fireEvent.click(confirm)
+    expect(fn.mock.calls[0][0]).toEqual(['Mon', 'am'])
   })
 })
