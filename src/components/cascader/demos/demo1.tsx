@@ -7,7 +7,6 @@ import { options, longOptions } from './data'
 // 基础用法
 function BasicDemo() {
   const [visible, setVisible] = useState(false)
-  const [value, setValue] = useState<string[]>(['浙江', '杭州', '西湖区'])
   return (
     <>
       <Button
@@ -22,10 +21,6 @@ function BasicDemo() {
         visible={visible}
         onClose={() => {
           setVisible(false)
-        }}
-        value={value}
-        onConfirm={v => {
-          setValue(v)
         }}
       />
     </>

@@ -27,7 +27,7 @@ function drag(element: Element, clientY: number) {
   fireEvent.mouseUp(element)
 }
 
-describe('InfiniteScroll', () => {
+describe('PullToRefresh', () => {
   const originWindowProto = Object.getPrototypeOf(window)
   const getBoundingClientRectMock = jest.spyOn(
     HTMLElement.prototype,

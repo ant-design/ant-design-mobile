@@ -1,6 +1,11 @@
-import { excludeWarning } from './excludeWarning'
 import { reduceMotion } from '../utils/reduce-and-restore-motion'
+import { mockGlobalStyles } from './mock-global-styles'
 
-excludeWarning()
-
+mockGlobalStyles()
 reduceMotion()
+
+jest.mock('../utils/convert-px', () => {
+  return {
+    convertPx: jest.fn(px => px),
+  }
+})

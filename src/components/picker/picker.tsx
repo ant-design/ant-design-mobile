@@ -172,7 +172,7 @@ export const Picker = memo(
             )}
             onClick={() => {
               if (props.loading) return
-              setValue(innerValue)
+              setValue(innerValue, true)
               setVisible(false)
             }}
             aria-disabled={props.loading}

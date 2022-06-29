@@ -90,7 +90,7 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
 
     const onConfirm = useCallback(
       (val: PickerValue[]) => {
-        setValue(convertStringArrayToDate(val, props.precision))
+        setValue(convertStringArrayToDate(val, props.precision), true)
       },
       [setValue, props.precision]
     )
