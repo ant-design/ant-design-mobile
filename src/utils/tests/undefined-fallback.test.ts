@@ -12,6 +12,3 @@ describe('undefinedFallback', () => {
     expect(undefinedFallback(undefined, 'foo', undefined, 'bar')).toBe('foo')
   })
 })
-
-const a = undefinedFallback('foo', undefined)
-console.log(a)

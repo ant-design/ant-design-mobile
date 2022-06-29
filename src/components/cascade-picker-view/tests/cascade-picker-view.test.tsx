@@ -5,19 +5,7 @@ import { options } from '../demos/options-data'
 
 const classPrefix = `adm-picker-view`
 
-const mockStyleHtml = `
-<style>
-  .adm-picker-view-column-wheel {
-    --item-height: 34px;
-  }
-</style>
-`
-
 describe('CascadePickerView', () => {
-  beforeAll(() => {
-    document.head.innerHTML += mockStyleHtml
-  })
-
   test('a11y', async () => {
     await waitFor(() => testA11y(<CascadePickerView options={options} />))
   })

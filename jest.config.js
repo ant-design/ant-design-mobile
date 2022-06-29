@@ -10,8 +10,11 @@ module.exports = {
       '<rootDir>/fileTransformer.js',
   },
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
-  setupFiles: ['<rootDir>/src/tests/setup.ts', 'jest-canvas-mock'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  setupFiles: ['jest-canvas-mock'],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    '<rootDir>/src/tests/setup.ts',
+  ],
   globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.json',

@@ -39,7 +39,7 @@ exports[`ImageViewer.Multi calling ref.current.swipeTo before initialization 2`]
           </div>
           <div
             class="adm-image-viewer-slides-inner"
-            style="transform: translate3d(-2048px,0,0);"
+            style="transform: translate3d(-2080px,0,0);"
           >
             <div
               class="adm-image-viewer-slide"
