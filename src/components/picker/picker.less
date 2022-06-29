@@ -32,6 +32,13 @@
     font-size: var(--header-button-font-size);
     display: inline-block;
     padding: 8px 8px;
+    &-disabled {
+      &,
+      &:active {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
   }
   &-title {
     padding: 4px 4px;

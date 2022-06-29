@@ -166,11 +166,16 @@ export const Picker = memo(
           <div className={`${classPrefix}-header-title`}>{props.title}</div>
           <a
             role='button'
-            className={`${classPrefix}-header-button`}
+            className={classNames(
+              `${classPrefix}-header-button`,
+              props.loading && `${classPrefix}-header-button-disabled`
+            )}
             onClick={() => {
+              if (props.loading) return
               setValue(innerValue)
               setVisible(false)
             }}
+            aria-disabled={props.loading}
           >
             {props.confirmText}
           </a>
