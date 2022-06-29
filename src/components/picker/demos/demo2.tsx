@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Picker, Space, Toast } from 'antd-mobile'
+import { Button, Picker, Space } from 'antd-mobile'
 import type { PickerColumn } from 'antd-mobile/es/components/picker'
 import { DemoBlock, DemoDescription } from 'demos'
 import { basicColumns } from './columns-data'
@@ -48,20 +48,14 @@ export default function () {
 function LazyLoadColumnsDemo() {
   const [visible, setVisible] = useState(false)
   const [columns, setColumns] = useState<PickerColumn[]>([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const handleClick = async () => {
     setVisible(true)
-    if (!columns.length && !loading) {
-      try {
-        setLoading(true)
-        const data = await mockRequest({ delay: 2000 })
-        setColumns(data)
-      } catch (error) {
-        Toast.show('请求失败')
-      } finally {
-        setLoading(false)
-      }
+    if (!columns.length) {
+      const data = await mockRequest({ delay: 2000 })
+      setColumns(data)
+      setLoading(false)
     }
   }
 
