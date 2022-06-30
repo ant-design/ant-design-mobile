@@ -55,7 +55,7 @@ export const Wheel = memo<Props>(
 
     useIsomorphicLayoutEffect(() => {
       if (draggingRef.current) return
-      if (!value) return
+      if (value === null) return
       const targetIndex = column.findIndex(item => item.value === value)
       if (targetIndex < 0) return
       const finalPosition = targetIndex * -itemHeight.current
