@@ -44,6 +44,24 @@
         );
       })();
     </script>
+    <script>
+      (function () {
+        var cache = localStorage.getItem("dumi:prefers-color");
+        var isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var enums = ["light", "dark", "auto"];
+
+        document.documentElement.setAttribute(
+          "data-prefers-color-scheme",
+          cache === enums[2]
+            ? isDark
+              ? enums[1]
+              : enums[0]
+            : enums.indexOf(cache) > -1
+            ? cache
+            : enums[0]
+        );
+      })();
+    </script>
     <title>Tag 标签 - Ant Design Mobile</title>
   </head>
   <body>
@@ -69,6 +87,6 @@
       src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-2"
       async="true"
     ></script>
-    <script src="/umi.ea77c940.js"></script>
+    <script src="/umi.116cc046.js"></script>
   </body>
 </html>
