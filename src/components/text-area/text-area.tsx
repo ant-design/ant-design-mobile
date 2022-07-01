@@ -100,11 +100,17 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       if (typeof autoSize === 'object') {
         const computedStyle = window.getComputedStyle(textArea)
         const lineHeight = parseFloat(computedStyle.lineHeight)
-        if (autoSize.minRows) {
-          height = Math.max(height, autoSize.minRows * lineHeight)
-        }
-        if (autoSize.maxRows) {
-          height = Math.min(height, autoSize.maxRows * lineHeight)
+        if (value) {
+          if (autoSize.minRows) {
+            height = Math.max(height, autoSize.minRows * lineHeight)
+          }
+          if (autoSize.maxRows) {
+            height = Math.min(height, autoSize.maxRows * lineHeight)
+          }
+        } else {
+          if (autoSize.minRows) {
+            height = autoSize.minRows * lineHeight
+          }
         }
       }
       textArea.style.height = `${height}px`
