@@ -8,15 +8,40 @@ export default () => {
   return (
     <>
       <DemoBlock title='自定义大小'>
-        <Radio
-          style={{
-            '--icon-size': '18px',
-            '--font-size': '14px',
-            '--gap': '6px',
-          }}
-        >
-          小号的单选框
-        </Radio>
+        <Radio.Group defaultValue='1'>
+          <Space direction='vertical'>
+            <Radio
+              value='small'
+              style={{
+                '--icon-size': '18px',
+                '--font-size': '14px',
+                '--gap': '6px',
+              }}
+            >
+              小
+            </Radio>
+            <Radio
+              value='middle'
+              style={{
+                '--icon-size': '22px',
+                '--font-size': '16px',
+                '--gap': '8px',
+              }}
+            >
+              中
+            </Radio>
+            <Radio
+              value='large'
+              style={{
+                '--icon-size': '28px',
+                '--font-size': '20px',
+                '--gap': '10px',
+              }}
+            >
+              大
+            </Radio>
+          </Space>
+        </Radio.Group>
       </DemoBlock>
       <DemoBlock title='自定义图标'>
         <Radio.Group
