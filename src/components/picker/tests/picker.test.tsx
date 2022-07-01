@@ -12,11 +12,6 @@ import { basicColumns } from '../demos/columns-data'
 import Picker, { PickerRef, PickerColumnItem, PickerColumn } from '..'
 import Button from '../../button'
 
-async function mockRequest({ delay }: { delay: number }) {
-  await sleep(delay)
-  return basicColumns
-}
-
 describe('Picker', () => {
   test('renderLabel works', async () => {
     const { baseElement } = render(
@@ -178,45 +173,40 @@ describe('Picker', () => {
     await waitFor(() => expect(afterShow).toBeCalled())
   })
 
-  const LazyLoadColumnsDemo = (props: any) => {
-    const [visible, setVisible] = useState(false)
-    const [columns, setColumns] = useState<PickerColumn[]>([])
-    const [loading, setLoading] = useState(false)
-
-    const handleClick = async () => {
-      setVisible(true)
-      if (!columns.length && !loading) {
-        setLoading(true)
-        const data = await mockRequest({ delay: 0 })
-        setLoading(false)
-        setColumns(data)
-      }
-    }
-
-    return (
-      <>
-        <Button data-testid={'button'} onClick={handleClick}>
-          button
-        </Button>
-        <Picker
-          loading={loading}
-          loadingContent={<div data-testid={'loading-content'}>loading</div>}
-          columns={columns}
-          visible={visible}
-          onConfirm={props.onConfirm}
-        />
-      </>
-    )
-  }
-
   test('test Picker loading and loadingContent', async () => {
     const fn = jest.fn()
-    const onConfirm = (val: PickerColumnItem) => {
-      fn(val)
+
+    const Loading = () => {
+      const [visible, setVisible] = useState(false)
+      const [loading, setLoading] = useState(false)
+
+      async function mockRequest(delay: number) {
+        await sleep(delay)
+      }
+
+      const handleClick = async () => {
+        setVisible(true)
+        setLoading(true)
+        await mockRequest(0)
+        setLoading(false)
+      }
+
+      return (
+        <>
+          <Button onClick={handleClick}>button</Button>
+          <Picker
+            loading={loading}
+            loadingContent={<div>loading</div>}
+            columns={basicColumns}
+            visible={visible}
+            onConfirm={fn}
+          />
+        </>
+      )
     }
-    render(<LazyLoadColumnsDemo onConfirm={onConfirm} />)
-    fireEvent.click(screen.getByTestId('button'))
-    expect(screen.getByTestId('loading-content')).toBeInTheDocument()
+    render(<Loading />)
+    fireEvent.click(screen.getByText('button'))
+    expect(screen.getByText('loading')).toBeInTheDocument()
     await act(() => sleep(0))
     const confirm = await screen.findByText('确定')
     await act(() => sleep(0))
