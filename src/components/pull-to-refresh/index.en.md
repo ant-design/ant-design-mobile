@@ -49,7 +49,7 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 
 ### Does it support pull up to load more?
 
-Pull-up loading is another component: [InfiniteScroll](./infinite-scroll).
+Pull-up loading is another component: [InfiniteScroll](/components/infinite-scroll).
 
 ### About the browser's default pull-down behavior
 

@@ -4,7 +4,7 @@ The PickerView series includes three components: [PickerView](#pickerview), [Cas
 
 ## PickerView
 
-PickerView is the content area of [Picker](./picker/#picker).
+PickerView is the content area of [Picker](/components/picker/#picker).
 
 ### Demos
 
@@ -23,7 +23,7 @@ PickerView is the content area of [Picker](./picker/#picker).
 | loading        | Should the Picker displays as loading state                  | `boolean`                                                      | `false`                                                                    |
 | loadingContent | The loading content displayed in loading state               | `ReactNode`                                                    | `provide a default loading content and display the skeleton screen effect` |
 
-For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `PickerValueExtend`, please refer to the document of [Picker](./picker).
+For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `PickerValueExtend`, please refer to the document of [Picker](/components/picker).
 
 ### CSS Variables
 
@@ -35,7 +35,7 @@ For the type definition of `PickerColumnItem` `PickerColumn` `PickerValue` `Pick
 
 ## CascadePickerView
 
-CascadePickerView is the content area of [CascadePicker](./picker/#cascadepicker).
+CascadePickerView is the content area of [CascadePicker](/components/picker/#cascadepicker).
 
 ### Demos
 
@@ -47,7 +47,7 @@ CascadePickerView is the content area of [CascadePicker](./picker/#cascadepicker
 | ------- | ------------------------ | ----------------------- | ------- |
 | options | Data of the tree options | `CascadePickerOption[]` | -       |
 
-For the type definition of `CascadePickerOption`, please refer to the document of [CascadePicker](./picker/#cascadepicker).
+For the type definition of `CascadePickerOption`, please refer to the document of [CascadePicker](/components/picker/#cascadepicker).
 
 Other props are the same as [PickerView](#pickerview), but `columns` are not supported.
 
@@ -57,7 +57,7 @@ Same as `PickerView`.
 
 ## DatePickerView
 
-DatePickerView is the content area of [DatePicker](./picker/#datepicker).
+DatePickerView is the content area of [DatePicker](/components/picker/#datepicker).
 
 ### Demos
 
@@ -83,7 +83,7 @@ DatePickerView is the content area of [DatePicker](./picker/#datepicker).
 | loading        | Should the Picker displays as loading state                                                                                          | `boolean`                                                                              | `false`                                                                    |
 | loadingContent | The loading content displayed in loading state                                                                                       | `ReactNode`                                                                            | `provide a default loading content and display the skeleton screen effect` |
 
-For the type definition and usage of `DatePickerFilter`, please refer to the document of [DatePicker](./picker#datepicker).
+For the type definition and usage of `DatePickerFilter`, please refer to the document of [DatePicker](/components/picker#datepicker).
 
 ### CSS Variables
 

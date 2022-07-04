@@ -20,7 +20,7 @@ import { Button } from 'antd-mobile'
 
 If you are developing an internal project in alibaba group or ant group, please read [this additional guide](https://yuque.antfin.com/antd-mobile/kfcgs3/md4or5).
 
-If you are using the umi framework, it is recommended to read "[How to solve the error after installing antd-mobile v5 in the umi project?](./faq#how-to-solve-the-error-after-installing-antd-mobile-v5-in-the-umi-project)" in the FAQ.
+If you are using the umi framework, it is recommended to read "[How to solve the error after installing antd-mobile v5 in the umi project?](/guide/faq#how-to-solve-the-error-after-installing-antd-mobile-v5-in-the-umi-project)" in the FAQ.
 
 ## Compatibility
 
@@ -50,7 +50,7 @@ For TypeScript, antd-mobile is compatible with versions `>= 3.8`.
 
 For React, antd-mobile is compatible with versions `^16.8.0` and `^17.0.0`.
 
-Since iOS 9 does not support CSS variables, if you need to support iOS 9, please refer to [this document](./css-variables#css-variables-auto-fallback) to enable automatic CSS variable degradation, and set target ios in babel configuration to `9`.
+Since iOS 9 does not support CSS variables, if you need to support iOS 9, please refer to [this document](/guide/css-variables#css-variables-auto-fallback) to enable automatic CSS variable degradation, and set target ios in babel configuration to `9`.
 
 ## Playground
 

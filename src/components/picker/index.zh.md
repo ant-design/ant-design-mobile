@@ -59,7 +59,7 @@ type PickerValueExtend = {
 | loading          | 是否处于加载状态             | `boolean`                                                          | `false`                      |
 | loadingContent   | 加载状态下展示的内容         | `ReactNode`                                                        | `默认提供了骨架屏的加载效果` |
 
-此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
+此外还支持 [Popup](/zh/components/popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
 **请留意，`columns` 属性的类型是二级数组**，第一级对应的是每一列，而第二级对应的是某一列中的每一个选项。因此，下面的这种写法是错误的：
 

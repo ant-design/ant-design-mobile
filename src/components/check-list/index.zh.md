@@ -28,11 +28,11 @@
 | readOnly     | 是否只读       | `boolean`                   | `false`            |
 | value        | 选中项         | `string[]`                  | `[]`               |
 
-此外，还支持 [List](./list) 的 `mode` 属性
+此外，还支持 [List](/zh/components/list) 的 `mode` 属性
 
 ### CSS 变量
 
-同 [List](./list/#list-2)
+同 [List](/zh/components/list/#list-2)
 
 ## CheckList.Item
 
@@ -44,8 +44,8 @@
 | readOnly | 是否只读 | `boolean` | `false` |
 | value    | 选项值   | `string`  | -       |
 
-此外，还支持 [List.Item](./list) 的以下属性：`title` `children` `description` `prefix` `onClick`
+此外，还支持 [List.Item](/zh/components/list) 的以下属性：`title` `children` `description` `prefix` `onClick`
 
 ### CSS 变量
 
-同 [List.Item](./list/#listitem-1)
+同 [List.Item](/zh/components/list/#listitem-1)

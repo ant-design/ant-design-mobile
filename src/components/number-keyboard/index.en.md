@@ -38,7 +38,7 @@ If possible, we recommend using the native keyboard provided by the system or cl
 | title           | The title of the keyboard                                                                                                   | `string`                                   | -                     |
 | visible         | Whether to show or hide                                                                                                     | `boolean`                                  | -                     |
 
-In addition, the following attributes of [Popup](./popup) are supported: `stopPropagation`
+In addition, the following attributes of [Popup](/components/popup) are supported: `stopPropagation`
 
 ## FAQ
 

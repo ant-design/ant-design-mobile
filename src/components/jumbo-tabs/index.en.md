@@ -31,4 +31,4 @@ Used in lists or modules in presentational interfaces when options require furth
 | key            | Corresponding to `activeKey`                      | `string`    | -       |
 | title          | The displayed text of the tab header              | `ReactNode` | -       |
 
-The usage of JumboTabs is very similar to that of Tabs, so see the documentation for [Tabs](./tabs) for more usage guidelines.
+The usage of JumboTabs is very similar to that of Tabs, so see the documentation for [Tabs](/components/tabs) for more usage guidelines.

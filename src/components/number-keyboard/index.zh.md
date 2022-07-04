@@ -38,7 +38,7 @@
 | title           | 键盘标题                                                                  | `string`                                   | -                     |
 | visible         | 是否展示                                                                  | `boolean`                                  | -                     |
 
-此外还支持 [Popup](./popup) 的以下属性: `stopPropagation`
+此外还支持 [Popup](/zh/components/popup) 的以下属性: `stopPropagation`
 
 ## FAQ
 

@@ -1,6 +1,6 @@
 # CascaderView 级联选择视图
 
-CascaderView 是 [Cascader](./cascader) 的内容区域。
+CascaderView 是 [Cascader](/zh/components/cascader) 的内容区域。
 
 ## 示例
 
@@ -19,7 +19,7 @@ CascaderView 是 [Cascader](./cascader) 的内容区域。
 | placeholder  | 未选中时的提示文案 | `string`                                                        | `'请选择'` |
 | value        | 选中项             | `CascaderValue[]`                                               | -          |
 
-关于 `CascaderValue` `CascaderOption[]` `CascaderValueExtend` 的类型定义，请参考 [Cascader](./cascader#api) 的文档。
+关于 `CascaderValue` `CascaderOption[]` `CascaderValueExtend` 的类型定义，请参考 [Cascader](/zh/components/cascader#api) 的文档。
 
 ### 加载中 <Experimental></Experimental>
 

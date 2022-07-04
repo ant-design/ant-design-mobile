@@ -1,6 +1,6 @@
 # CascaderView
 
-CascaderView is the content area of [Cascader](./cascader).
+CascaderView is the content area of [Cascader](/components/cascader).
 
 ## Demos
 
@@ -19,7 +19,7 @@ CascaderView is the content area of [Cascader](./cascader).
 | placeholder  | Hint text                                       | `string`                                                        | `'请选择'` |
 | value        | Selected options                                | `CascaderValue[]`                                               | -          |
 
-For the type definition of `CascaderValue` `CascaderOption` `CascaderValueExtend`, please refer to the document of [Cascader](./cascader#api).
+For the type definition of `CascaderValue` `CascaderOption` `CascaderValueExtend`, please refer to the document of [Cascader](/components/cascader#api).
 
 ### Loading <Experimental></Experimental>
 

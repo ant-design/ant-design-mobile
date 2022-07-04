@@ -59,7 +59,7 @@ type PickerValueExtend = {
 | loading          | Should the Picker displays as loading state                  | `boolean`                                                          | `false`                                                                    |
 | loadingContent   | The loading content displayed in loading state               | `ReactNode`                                                        | `provide a default loading content and display the skeleton screen effect` |
 
-In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`.
+In addition, the following attributes of [Popup](/components/popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`.
 
 **Please note that the type of the `columns` property is a two-level array**, the first level corresponds to each column, and the second level corresponds to each option in a column. Therefore, the following writing is wrong:
 

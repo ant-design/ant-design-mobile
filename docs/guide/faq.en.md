@@ -20,7 +20,7 @@ V2 has been released a long time ago. In the last two years, we have developed t
 
 For new projects, we recommend using the v5 version directly.
 
-For old projects, we recommend a gradual [migration plan](./migration).
+For old projects, we recommend a gradual [migration plan](/guide/migration).
 
 ### How to check the exact version of antd-mobile installed in the project?
 
@@ -46,7 +46,7 @@ The solution is to upgrade the plug-in:
 
 ### How do I migrate from v2 to v5?
 
-Please refer to the [migration guide](./migration).
+Please refer to the [migration guide](/guide/migration).
 
 ### How to avoid the 300ms delay of click?
 

@@ -105,7 +105,7 @@ const validateMessages = {
 | validateTrigger                                    | 设置字段校验的时机                                                                                           | `string \| string[]`                                           | `onChange`                                         |
 | valuePropName                                      | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | `string`                                                       | `value`                                            |
 
-Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item](./list#listitem) 的以下属性：
+Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item](/zh/components/list#listitem) 的以下属性：
 
 `extra` `clickable` `arrow` `description`
 

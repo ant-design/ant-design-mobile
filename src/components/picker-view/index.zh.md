@@ -4,7 +4,7 @@ PickerView 系列一共包括了三个组件：[PickerView](#pickerview)、[Casc
 
 ## PickerView
 
-PickerView 是 [Picker](./picker/#picker) 的内容区域。
+PickerView 是 [Picker](/zh/components/picker/#picker) 的内容区域。
 
 ### 示例
 
@@ -23,7 +23,7 @@ PickerView 是 [Picker](./picker/#picker) 的内容区域。
 | loading        | 是否处于加载状态             | `boolean`                                                      | `false`                      |
 | loadingContent | 加载状态下展示的内容         | `ReactNode`                                                    | `默认提供了骨架屏的加载效果` |
 
-关于 `PickerColumnItem` `PickerColumn` `PickerValue` `PickerValueExtend` 的类型定义，请参考 [Picker](./picker) 的文档。
+关于 `PickerColumnItem` `PickerColumn` `PickerValue` `PickerValueExtend` 的类型定义，请参考 [Picker](/zh/components/picker) 的文档。
 
 ### CSS 变量
 
@@ -35,7 +35,7 @@ PickerView 是 [Picker](./picker/#picker) 的内容区域。
 
 ## CascadePickerView
 
-CascadePickerView 是 [CascadePicker](./picker/#cascadepicker) 的内容区域。
+CascadePickerView 是 [CascadePicker](/zh/components/picker/#cascadepicker) 的内容区域。
 
 ### 示例
 
@@ -47,7 +47,7 @@ CascadePickerView 是 [CascadePicker](./picker/#cascadepicker) 的内容区域�
 | ------- | -------------- | ----------------------- | ------ |
 | options | 树形的选项数据 | `CascadePickerOption[]` | -      |
 
-关于 `CascadePickerOption` 的类型定义，请参考 [CascadePicker](./picker/#cascadepicker) 的文档。
+关于 `CascadePickerOption` 的类型定义，请参考 [CascadePicker](/zh/components/picker/#cascadepicker) 的文档。
 
 其他属性同 [PickerView](#pickerview)，但不支持 `columns`。
 
@@ -57,7 +57,7 @@ CascadePickerView 是 [CascadePicker](./picker/#cascadepicker) 的内容区域�
 
 ## DatePickerView
 
-DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
+DatePickerView 是 [DatePicker](/zh/components/picker/#datepicker) 的内容区域。
 
 ### 示例
 
@@ -83,7 +83,7 @@ DatePickerView 是 [DatePicker](./picker/#datepicker) 的内容区域。
 | loading        | 是否处于加载状态                                                                                 | `boolean`                                                                              | `false`                      |
 | loadingContent | 加载状态下展示的内容                                                                             | `ReactNode`                                                                            | `默认提供了骨架屏的加载效果` |
 
-关于 `DatePickerFilter` 的类型定义和使用，请参考 [DatePicker](./picker#datepicker) 的文档。
+关于 `DatePickerFilter` 的类型定义和使用，请参考 [DatePicker](/zh/components/picker#datepicker) 的文档。
 
 ### CSS 变量
 

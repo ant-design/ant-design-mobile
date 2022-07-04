@@ -46,4 +46,4 @@
 
 ## Ref
 
-同 [Input](./input)
+同 [Input](/zh/components/input)

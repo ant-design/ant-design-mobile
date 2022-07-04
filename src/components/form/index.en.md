@@ -104,7 +104,7 @@ const validateMessages = {
 | validateTrigger                                    | When to validate the value of children node                                                                                                                                     | `string \| string[]`                                           | `onChange`                                                            |
 | valuePropName                                      | Props of children node, for example, the prop of Switch is 'checked'. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps` | `string`                                                       | `value`                                                               |
 
-The layout of Form.Item is based on List.Item. So it also supports these props of [List.Item](./list#listitem):
+The layout of Form.Item is based on List.Item. So it also supports these props of [List.Item](/components/list#listitem):
 
 `extra` `clickable` `arrow` `description`
 
