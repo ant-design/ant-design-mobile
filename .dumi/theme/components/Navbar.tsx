@@ -1,5 +1,5 @@
-import { FC, useMemo } from 'react'
-import React, { useContext } from 'react'
+import type { FC } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { context, Link, NavLink } from 'dumi/theme'
 import LocaleSelect from './LocaleSelect'
 import './Navbar.less'
