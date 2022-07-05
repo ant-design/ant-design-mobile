@@ -72,7 +72,7 @@ const defaultProps = {
   nextYearButton: <ArrowLeftDouble />,
 }
 
-export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
+export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   const today = dayjs()
   const props = mergeProps(defaultProps, p)
   const { locale } = useConfig()
