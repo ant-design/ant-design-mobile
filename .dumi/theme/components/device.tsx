@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import React, { useState, useContext, useEffect } from 'react'
-import QRCode from 'qrcode.react'
+import { QRCodeSVG } from 'qrcode.react'
 import { context } from 'dumi/theme'
 import { usePrefersColor } from 'dumi/theme'
 import './device.less'
@@ -28,7 +28,7 @@ export const Device: FC<IDeviceProps> = ({ url }) => {
       <iframe title='dumi-previewer' src={url} key={renderKey} />
       <div className='adm-doc-device-action'>
         <a onClick={() => setRenderKey(Math.random())}>{refreshIcon}</a>
-        <Popover content={<QRCode value={url} size={96} />} trigger='click'>
+        <Popover content={<QRCodeSVG value={url} size={96} />} trigger='click'>
           <a>{qrIcon}</a>
         </Popover>
         <a href={url} target='_blank' rel='noreferrer'>
