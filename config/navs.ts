@@ -35,6 +35,10 @@ export const navs = {
       path: '/zh/resources',
     },
     {
+      title: '国内镜像',
+      path: 'http://ant-design-mobile.antgroup.com',
+    },
+    {
       title: '发布日志',
       path: 'https://github.com/ant-design/ant-design-mobile/releases',
     },

@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { context, Link, NavLink } from 'dumi/theme'
 import LocaleSelect from './LocaleSelect'
 import './Navbar.less'
@@ -17,8 +17,23 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
   const {
     base,
     config: { title, logo },
-    nav: navItems,
+    nav,
+    locale,
   } = useContext(context)
+
+  const navItems = useMemo(() => {
+    const isCN = !!locale && /^zh|cn$/i.test(locale)
+
+    if (
+      isCN &&
+      typeof window !== undefined &&
+      window.location.host === 'ant-design-mobile.antgroup.com'
+    ) {
+      return nav.filter(item => item.title !== '国内镜像')
+    }
+
+    return nav
+  }, [nav, locale])
 
   return (
     <div className='__dumi-default-navbar'>
