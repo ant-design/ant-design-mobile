@@ -23,7 +23,7 @@ const classPrefix = 'adm-calendar'
 
 type Page = { month: number; year: number }
 
-export type CalenderRef = {
+export type CalendarRef = {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
   jumpToToday: () => void
 }
