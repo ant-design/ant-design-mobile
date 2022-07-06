@@ -48,6 +48,9 @@ export const Rate: FC<RateProps> = p => {
             setValue(v)
           }
         }}
+        role='radio'
+        aria-checked={value >= v}
+        aria-label={'' + v}
       >
         {props.character}
       </div>
@@ -55,7 +58,11 @@ export const Rate: FC<RateProps> = p => {
   }
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div
+      className={classPrefix}
+      role='radiogroup'
+      aria-readonly={props.readOnly}
+    >
       {starList.map((_, i) => (
         <div key={i} className={classNames(`${classPrefix}-box`)}>
           {props.allowHalf && renderStar(i + 0.5, true)}
