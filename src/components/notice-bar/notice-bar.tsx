@@ -131,13 +131,15 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
         <span className={`${classPrefix}-right`}>
           {props.extra}
           {props.closeable && (
-            <CloseOutline
-              className={`${classPrefix}-close-icon`}
+            <div
+              className={`${classPrefix}-close`}
               onClick={() => {
                 setVisible(false)
                 props.onClose?.()
               }}
-            />
+            >
+              <CloseOutline className={`${classPrefix}-close-icon`} />
+            </div>
           )}
         </span>
       )}
