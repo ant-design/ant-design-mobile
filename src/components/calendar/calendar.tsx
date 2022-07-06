@@ -35,7 +35,7 @@ export type CalendarProps = {
   nextYearButton?: React.ReactNode
   onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
-  renderLabel?: (date: Date) => string | null | undefined
+  renderLabel?: (date: Date) => React.ReactNode
   allowClear?: boolean
   max?: Date
   min?: Date
