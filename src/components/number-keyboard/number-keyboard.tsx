@@ -121,7 +121,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     return (
       <div
         className={classNames(`${classPrefix}-header`, {
-          'with-title': !!title,
+          [`${classPrefix}-header-with-title`]: !!title,
         })}
       >
         {title && <div className={`${classPrefix}-title`}>{title}</div>}
@@ -145,9 +145,9 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
   const renderKey = (key: string, index: number) => {
     const isNumberKey = /^\d$/.test(key)
     const className = classNames(`${classPrefix}-key`, {
-      'number-key': isNumberKey,
-      'sign-key': !isNumberKey && key,
-      'mid-key': index === 9 && !!confirmText,
+      [`${classPrefix}-key-number`]: isNumberKey,
+      [`${classPrefix}-key-sign`]: !isNumberKey && key,
+      [`${classPrefix}-key-mid`]: index === 9 && !!confirmText,
     })
 
     const ariaProps = key
@@ -204,7 +204,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
           <div className={`${classPrefix}-wrapper`}>
             <div
               className={classNames(`${classPrefix}-main`, {
-                'confirmed-style': !!confirmText,
+                [`${classPrefix}-main-confirmed-style`]: !!confirmText,
               })}
             >
               {keys.map(renderKey)}
@@ -212,7 +212,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
             {!!confirmText && (
               <div className={`${classPrefix}-confirm`}>
                 <div
-                  className={`${classPrefix}-key extra-key bs-key`}
+                  className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-bs`}
                   onTouchStart={() => {
                     onBackspacePressStart()
                   }}
@@ -226,7 +226,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
                   <TextDeletionOutline />
                 </div>
                 <div
-                  className={`${classPrefix}-key extra-key ok-key`}
+                  className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-ok`}
                   onTouchEnd={e => onKeyPress(e, 'OK')}
                   role='button'
                 >
