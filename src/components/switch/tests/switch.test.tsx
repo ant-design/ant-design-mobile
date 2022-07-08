@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
-import { fireEvent, render, testA11y, waitFor, screen, sleep } from 'testing'
+import {
+  fireEvent,
+  render,
+  testA11y,
+  waitFor,
+  screen,
+  sleep,
+  act,
+} from 'testing'
 import Switch from '..'
 
 const classPrefix = `adm-switch`
@@ -89,10 +97,10 @@ describe('Switch', () => {
     const switchEl = screen.getByRole('switch')
     fireEvent.click(switchEl)
     expect(switchEl).toHaveClass(`${classPrefix}-disabled`)
-    jest.runAllTimers()
-    await waitFor(() => {
-      expect(switchEl).toHaveClass(`${classPrefix}-checked`)
+    await act(async () => {
+      jest.runAllTimers()
     })
+    expect(switchEl).toHaveClass(`${classPrefix}-checked`)
     jest.useRealTimers()
   })
 })
