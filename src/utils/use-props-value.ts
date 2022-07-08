@@ -27,7 +27,7 @@ export function usePropsValue<T>(options: Options<T>) {
       if (!forceTrigger && nextValue === stateRef.current) return
       stateRef.current = nextValue
       update()
-      onChange?.(nextValue)
+      return onChange?.(nextValue)
     }
   )
   return [stateRef.current, setState] as const
