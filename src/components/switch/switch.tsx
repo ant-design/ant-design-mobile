@@ -14,7 +14,8 @@ export type SwitchProps = {
   disabled?: boolean
   checked?: boolean
   defaultChecked?: boolean
-  beforeChange?: (val: boolean) => Promise<void> // Deprecated
+  /** @deprecated use `onChange` instead */
+  beforeChange?: (val: boolean) => Promise<void>
   onChange?: (checked: boolean) => void | Promise<void>
   checkedText?: ReactNode
   uncheckedText?: ReactNode
