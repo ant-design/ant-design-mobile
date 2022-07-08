@@ -81,6 +81,7 @@ describe('NumberKeyboard', () => {
       `${classPrefix}-key-extra ${classPrefix}-key-ok`
     )
     expect(del).toHaveClass(`${classPrefix}-key-extra ${classPrefix}-key-bs`)
+    expect(screen.getByTitle('0')).toHaveClass(`${classPrefix}-key-mid`)
 
     mockClick(confirm)
     expect(onConfirm).toBeCalled()
@@ -132,5 +133,30 @@ describe('NumberKeyboard', () => {
     jest.runOnlyPendingTimers()
     expect(onDelete).toBeCalledTimes(2)
     jest.useRealTimers()
+  })
+
+  test('render with multiple customKeys', () => {
+    const onInput = jest.fn()
+    render(<NumberKeyboard customKey={['-', '.']} visible onInput={onInput} />)
+    const left = screen.getByText('-')
+    const right = screen.getByText('.')
+    expect(left).toBeInTheDocument()
+    expect(right).toBeInTheDocument()
+
+    mockClick(left)
+    expect(onInput).toBeCalledWith('-')
+    mockClick(right)
+    expect(onInput).toBeCalledWith('.')
+  })
+
+  test('render with multiple customKeys and confirmText', () => {
+    render(
+      <NumberKeyboard customKey={['-', '.']} visible confirmText='confirm' />
+    )
+    const left = screen.getByTitle('-')
+    const right = screen.getByTitle('.')
+    expect(left).toBeInTheDocument()
+    expect(right).toBeInTheDocument()
+    expect(screen.getByTitle('0')).not.toHaveClass(`${classPrefix}-key-mid`)
   })
 })
