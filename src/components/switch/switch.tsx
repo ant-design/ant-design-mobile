@@ -14,6 +14,7 @@ export type SwitchProps = {
   checked?: boolean
   defaultChecked?: boolean
   beforeChange?: (val: boolean) => Promise<void>
+  onChangeError?: (e: any) => boolean | void
   onChange?: (checked: boolean) => void
   checkedText?: ReactNode
   uncheckedText?: ReactNode
@@ -48,7 +49,9 @@ export const Switch: FC<SwitchProps> = p => {
         setChanging(false)
       } catch (e) {
         setChanging(false)
-        throw e
+        if (props.onChangeError?.(e) !== true) {
+          throw e
+        }
       }
     } else {
       setChecked(nextChecked)

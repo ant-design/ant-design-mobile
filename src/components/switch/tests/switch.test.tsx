@@ -69,4 +69,33 @@ describe('Switch', () => {
     })
     jest.useRealTimers()
   })
+
+  test('`beforeChange` throw error and get caught in `onChangeError`', async () => {
+    jest.useFakeTimers()
+    const App = () => {
+      const beforeChange = (): Promise<void> => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            reject()
+          }, 500)
+        })
+      }
+      function onChangeError(e: any) {
+        return true
+      }
+      return (
+        <Switch beforeChange={beforeChange} onChangeError={onChangeError} />
+      )
+    }
+
+    render(<App />)
+    const switchEl = screen.getByRole('switch')
+    fireEvent.click(switchEl)
+    expect(switchEl).toHaveClass(`${classPrefix}-disabled`)
+    jest.runAllTimers()
+    await waitFor(() => {
+      expect(switchEl).not.toHaveClass(`${classPrefix}-checked`)
+    })
+    jest.useRealTimers()
+  })
 })

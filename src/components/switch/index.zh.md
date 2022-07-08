@@ -17,16 +17,17 @@
 
 ### 属性
 
-| 参数           | 说明             | 类型                              | 默认值  |
-| -------------- | ---------------- | --------------------------------- | ------- |
-| beforeChange   | 变化前执行       | `(val: boolean) => Promise<void>` | -       |
-| checked        | 指定当前是否打开 | `boolean`                         | `false` |
-| checkedText    | 选中时的内容     | `ReactNode`                       | -       |
-| defaultChecked | 初始是否打开     | `boolean`                         | `false` |
-| disabled       | 禁用状态         | `boolean`                         | `false` |
-| loading        | 加载状态         | `boolean`                         | `false` |
-| onChange       | 变化时回调函数   | `(val: boolean) => void`          | -       |
-| uncheckedText  | 非选中时的内容   | `ReactNode`                       | -       |
+| 参数           | 说明                                                                       | 类型                              | 默认值  |
+| -------------- | -------------------------------------------------------------------------- | --------------------------------- | ------- |
+| beforeChange   | 变化前执行                                                                 | `(val: boolean) => Promise<void>` | -       |
+| checked        | 指定当前是否打开                                                           | `boolean`                         | `false` |
+| checkedText    | 选中时的内容                                                               | `ReactNode`                       | -       |
+| defaultChecked | 初始是否打开                                                               | `boolean`                         | `false` |
+| disabled       | 禁用状态                                                                   | `boolean`                         | `false` |
+| loading        | 加载状态                                                                   | `boolean`                         | `false` |
+| onChange       | 变化时回调函数                                                             | `(val: boolean) => void`          | -       |
+| onChangeError  | 当 `beforeChange` 执行报错时触发，返回 `true` 可以阻止 Switch 再次抛出异常 | `(e: any) => boolean \| void`     | -       |
+| uncheckedText  | 非选中时的内容                                                             | `ReactNode`                       | -       |
 
 ### CSS 变量
 

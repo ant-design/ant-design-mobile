@@ -17,16 +17,17 @@ switch selector.
 
 ### Props
 
-| Name           | Description                                 | Type                              | Default |
-| -------------- | ------------------------------------------- | --------------------------------- | ------- |
-| beforeChange   | Execute before change                       | `(val: boolean) => Promise<void>` | -       |
-| checked        | Specify whether it is currently opened      | `boolean`                         | `false` |
-| checkedText    | Selected text                               | `ReactNode`                       | -       |
-| defaultChecked | Whether to open initially                   | `boolean`                         | `false` |
-| disabled       | Disabled status                             | `boolean`                         | `false` |
-| loading        | Loading status                              | `boolean`                         | `false` |
-| onChange       | Callback function when the value is changed | `(val: boolean) => void`          | -       |
-| uncheckedText  | Non-selected text                           | `ReactNode`                       | -       |
+| Name           | Description                                                                                                            | Type                              | Default |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ------- |
+| beforeChange   | Execute before change                                                                                                  | `(val: boolean) => Promise<void>` | -       |
+| checked        | Specify whether it is currently opened                                                                                 | `boolean`                         | `false` |
+| checkedText    | Selected text                                                                                                          | `ReactNode`                       | -       |
+| defaultChecked | Whether to open initially                                                                                              | `boolean`                         | `false` |
+| disabled       | Disabled status                                                                                                        | `boolean`                         | `false` |
+| loading        | Loading status                                                                                                         | `boolean`                         | `false` |
+| onChange       | Callback function when the value is changed                                                                            | `(val: boolean) => void`          | -       |
+| onChangeError  | Triggered when `beforeChange` executes an error, returning `true` can prevent Switch from throwing the exception again | `(e: any) => boolean \| void`     | -       |
+| uncheckedText  | Non-selected text                                                                                                      | `ReactNode`                       | -       |
 
 ### CSS Variables
 
