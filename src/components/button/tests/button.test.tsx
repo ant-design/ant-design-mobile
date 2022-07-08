@@ -27,10 +27,18 @@ describe('Button', () => {
         <Button color='warning'>Warning</Button>
       </>
     )
-    expect(getByText('Primary')).toHaveClass(`${classPrefix}-primary`)
-    expect(getByText('Success')).toHaveClass(`${classPrefix}-success`)
-    expect(getByText('Danger')).toHaveClass(`${classPrefix}-danger`)
-    expect(getByText('Warning')).toHaveClass(`${classPrefix}-warning`)
+    expect(getByText('Primary').closest('button')).toHaveClass(
+      `${classPrefix}-primary`
+    )
+    expect(getByText('Success').closest('button')).toHaveClass(
+      `${classPrefix}-success`
+    )
+    expect(getByText('Danger').closest('button')).toHaveClass(
+      `${classPrefix}-danger`
+    )
+    expect(getByText('Warning').closest('button')).toHaveClass(
+      `${classPrefix}-warning`
+    )
   })
 
   test('renders with fill', () => {
@@ -41,9 +49,15 @@ describe('Button', () => {
         <Button fill='none'>none</Button>
       </>
     )
-    expect(getByText('outline')).toHaveClass(`${classPrefix}-fill-outline`)
-    expect(getByText('none')).toHaveClass(`${classPrefix}-fill-none`)
-    expect(getByText('solid')).not.toHaveClass(`${classPrefix}-fill-solid`)
+    expect(getByText('outline').closest('button')).toHaveClass(
+      `${classPrefix}-fill-outline`
+    )
+    expect(getByText('none').closest('button')).toHaveClass(
+      `${classPrefix}-fill-none`
+    )
+    expect(getByText('solid').closest('button')).not.toHaveClass(
+      `${classPrefix}-fill-solid`
+    )
   })
 
   test('renders with size', () => {
@@ -63,10 +77,16 @@ describe('Button', () => {
         </Button>
       </>
     )
-    expect(getByText('Mini')).toHaveClass(`${classPrefix}-mini`)
-    expect(getByText('Small')).toHaveClass(`${classPrefix}-small`)
-    expect(getByText('Middle')).toHaveClass(`${classPrefix}`)
-    expect(getByText('Large')).toHaveClass(`${classPrefix}-large`)
+    expect(getByText('Mini').closest('button')).toHaveClass(
+      `${classPrefix}-mini`
+    )
+    expect(getByText('Small').closest('button')).toHaveClass(
+      `${classPrefix}-small`
+    )
+    expect(getByText('Middle').closest('button')).toHaveClass(`${classPrefix}`)
+    expect(getByText('Large').closest('button')).toHaveClass(
+      `${classPrefix}-large`
+    )
   })
 
   test('renders with block', () => {
@@ -75,7 +95,9 @@ describe('Button', () => {
         Block
       </Button>
     )
-    expect(getByText('Block')).toHaveClass(`${classPrefix}-block`)
+    expect(getByText('Block').closest('button')).toHaveClass(
+      `${classPrefix}-block`
+    )
   })
 
   test('renders with disabled', () => {
