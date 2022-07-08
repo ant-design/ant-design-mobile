@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { fireEvent, render, testA11y, waitFor, screen } from 'testing'
+import { fireEvent, render, testA11y, waitFor, screen, sleep } from 'testing'
 import Switch from '..'
 
 const classPrefix = `adm-switch`
@@ -70,21 +70,18 @@ describe('Switch', () => {
     jest.useRealTimers()
   })
 
-  test('`beforeChange` throw error and get caught in `onChangeError`', async () => {
+  test('`onChange` returns a Promise', async () => {
     jest.useFakeTimers()
     const App = () => {
-      const beforeChange = (): Promise<void> => {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            reject()
-          }, 500)
-        })
-      }
-      function onChangeError(e: any) {
-        return true
-      }
+      const [checked, setChecked] = useState(false)
       return (
-        <Switch beforeChange={beforeChange} onChangeError={onChangeError} />
+        <Switch
+          checked={checked}
+          onChange={async val => {
+            await sleep(1000)
+            setChecked(val)
+          }}
+        />
       )
     }
 
@@ -94,7 +91,7 @@ describe('Switch', () => {
     expect(switchEl).toHaveClass(`${classPrefix}-disabled`)
     jest.runAllTimers()
     await waitFor(() => {
-      expect(switchEl).not.toHaveClass(`${classPrefix}-checked`)
+      expect(switchEl).toHaveClass(`${classPrefix}-checked`)
     })
     jest.useRealTimers()
   })
