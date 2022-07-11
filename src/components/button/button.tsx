@@ -118,7 +118,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
           {props.loadingText}
         </div>
       ) : (
-        props.children
+        <span>{props.children}</span>
       )}
     </button>
   )

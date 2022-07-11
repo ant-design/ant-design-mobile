@@ -6,7 +6,9 @@ exports[`ImageViewer.Multi calling ref.current.swipeTo before initialization 1`]
     class="adm-button adm-button-default adm-button-shape-default"
     type="button"
   >
-    Show
+    <span>
+      Show
+    </span>
   </button>
 </div>
 `;
@@ -17,7 +19,9 @@ exports[`ImageViewer.Multi calling ref.current.swipeTo before initialization 2`]
     class="adm-button adm-button-default adm-button-shape-default"
     type="button"
   >
-    Show
+    <span>
+      Show
+    </span>
   </button>
   <div
     class="adm-mask"
@@ -234,7 +238,9 @@ exports[`ImageViewer.Multi rendering with footer 1`] = `
           class="adm-button adm-button-default adm-button-shape-default"
           type="button"
         >
-          查看原图
+          <span>
+            查看原图
+          </span>
         </button>
         <div
           class="adm-safe-area adm-safe-area-position-bottom"
