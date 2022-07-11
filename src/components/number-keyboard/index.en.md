@@ -14,6 +14,8 @@ If possible, we recommend using the native keyboard provided by the system or cl
 
 <code src="./demos/demo1.tsx"></code>
 
+<code src="./demos/demo2.tsx"></code>
+
 ## NumberKeyboard
 
 ### Props
@@ -24,7 +26,7 @@ If possible, we recommend using the native keyboard provided by the system or cl
 | afterShow       | Callback when the keyboard is completely bounced                                                                            | `() => void`                               | -                     |
 | closeOnConfirm  | Whether to automatically close when the ok button is clicked                                                                | `boolean`                                  | `true`                |
 | confirmText     | The text of the confirm button, if `null` is set, it would be shown                                                         | `string \| null`                           | `null`                |
-| customKey       | Customized button                                                                                                           | `'-' \| '.' \| 'X'`                        | -                     |
+| customKey       | Customized button                                                                                                           | `string \| [string, string]`               | -                     |
 | destroyOnClose  | Unmount content when not visible                                                                                            | `boolean`                                  | `false`               |
 | forceRender     | Render content forcely                                                                                                      | `boolean`                                  | `false`               |
 | getContainer    | To get the specified mounted HTML node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `() => document.body` |

@@ -14,7 +14,7 @@ export type NumberKeyboardProps = {
   visible?: boolean
   title?: string
   confirmText?: string | null
-  customKey?: '-' | '.' | 'X'
+  customKey?: string | [string, string]
   randomOrder?: boolean
   showCloseButton?: boolean
   onInput?: (v: string) => void
@@ -63,12 +63,16 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
   const keys = useMemo(() => {
     const defaultKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     const keyList = randomOrder ? shuffle(defaultKeys) : defaultKeys
+    const customKeys = Array.isArray(customKey) ? customKey : [customKey]
     keyList.push('0')
     if (confirmText) {
-      keyList.push(customKey || '')
+      if (customKeys.length === 2) {
+        keyList.splice(9, 0, customKeys.pop())
+      }
+      keyList.push(customKeys[0] || '')
     } else {
-      keyList.splice(9, 0, customKey || '')
-      keyList.push('BACKSPACE')
+      keyList.splice(9, 0, customKeys[0] || '')
+      keyList.push(customKeys[1] || 'BACKSPACE')
     }
     return keyList
   }, [customKey, confirmText, randomOrder, randomOrder && visible])
@@ -91,7 +95,6 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     clearInterval(intervalRef.current)
   }
 
-  // 点击键盘按键
   const onKeyPress = (
     e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
     key: string
@@ -109,13 +112,12 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
         }
         break
       default:
-        // 当 customKey 不存在时，点击该键不应该触发 onInput
+        // onInput should't be called when customKey doesn't exist
         if (key !== '') onInput?.(key)
         break
     }
   }
 
-  // 渲染 title 和 close button
   const renderHeader = () => {
     if (!showCloseButton && !title) return null
     return (
@@ -141,13 +143,13 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     )
   }
 
-  // 渲染基础键盘按键
   const renderKey = (key: string, index: number) => {
     const isNumberKey = /^\d$/.test(key)
     const className = classNames(`${classPrefix}-key`, {
       [`${classPrefix}-key-number`]: isNumberKey,
       [`${classPrefix}-key-sign`]: !isNumberKey && key,
-      [`${classPrefix}-key-mid`]: index === 9 && !!confirmText,
+      [`${classPrefix}-key-mid`]:
+        index === 9 && !!confirmText && keys.length < 12,
     })
 
     const ariaProps = key
