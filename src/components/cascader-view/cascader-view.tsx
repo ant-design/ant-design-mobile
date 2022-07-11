@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useMemo } from 'react'
+import React, { FC, ReactNode, useState, useEffect, useMemo } from 'react'
 import classNames from 'classnames'
 import Tabs from '../tabs'
 import CheckList from '../check-list'
@@ -34,6 +34,7 @@ export type CascaderViewProps = {
   onChange?: (value: CascaderValue[], extend: CascaderValueExtend) => void
   placeholder?: string
   onTabsChange?: (index: number) => void
+  activeIcon?: ReactNode
 } & NativeProps<'--height'>
 
 const defaultProps = {
@@ -158,6 +159,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
                     onChange={selectValue =>
                       onItemSelect(selectValue[0], index)
                     }
+                    activeIcon={props.activeIcon}
                   >
                     {level.options.map(option => {
                       const active = value[index] === option.value
