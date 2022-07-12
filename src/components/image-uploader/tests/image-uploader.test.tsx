@@ -63,10 +63,9 @@ describe('ImageUploader', () => {
     )
   }
 
-  // FIXME: This test will log some errors about `Not implemented: window.computedStyle(elt, pseudoElt)` so we disabled it temporarily.
-  // test('a11y', async () => {
-  //   await testA11y(<App />)
-  // })
+  test('a11y', async () => {
+    await testA11y(<App />)
+  })
 
   test('basic usage', async () => {
     render(<App />)
