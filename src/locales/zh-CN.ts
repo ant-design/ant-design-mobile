@@ -98,6 +98,9 @@ const zhCN = mergeLocale(base, {
     failedToLoad: '加载失败',
     retry: '重新加载',
   },
+  Input: {
+    clear: '清除',
+  },
   Mask: {
     name: '遮罩层',
   },
@@ -108,6 +111,9 @@ const zhCN = mergeLocale(base, {
     pulling: '下拉刷新',
     canRelease: '释放立即刷新',
     complete: '刷新成功',
+  },
+  SearchBar: {
+    name: '搜索框',
   },
   Slider: {
     name: '滑动输入条',

@@ -7,6 +7,7 @@ import classNames from 'classnames'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { bound } from '../../utils/bound'
 import { isIOS } from '../../utils/validate'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-input`
 
@@ -85,6 +86,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   const [hasFocus, setHasFocus] = useState(false)
   const compositionStartRef = useRef(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
+  const { locale } = useConfig()
 
   useImperativeHandle(ref, () => ({
     clear: () => {
@@ -192,6 +194,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         aria-valuenow={props['aria-valuenow']}
         aria-valuemax={props['aria-valuemax']}
         aria-valuemin={props['aria-valuemin']}
+        aria-label={props['aria-label']}
       />
       {shouldShowClear && (
         <div
@@ -209,6 +212,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
               nativeInputRef.current?.blur()
             }
           }}
+          aria-label={locale.Input.clear}
         >
           <CloseCircleFill />
         </div>
