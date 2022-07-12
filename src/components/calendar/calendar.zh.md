@@ -28,7 +28,7 @@
 | onPageChange      | 切换月或年时触发                               | `(year: number, month: number) => void`                                                        | -          |
 | prevMonthButton   | 导航窗格上的“上一月”按钮的内容                 | `React.ReactNode`                                                                              | `<`        |
 | prevYearButton    | 导航窗格上的“上一年”按钮的内容                 | `React.ReactNode`                                                                              | `<<`       |
-| renderLabel       | 标注信息的渲染函数                             | `(date: Date) => string \| null \| undefined`                                                  | -          |
+| renderLabel       | 标注信息的渲染函数                             | `(date: Date) => ReactNode \| null \| undefined`                                               | -          |
 | selectionMode     | 选择模式，不设置的话表示不支持选择             | `'single' \| 'range'`                                                                          | -          |
 | shouldDisableDate | 判断日期是否可选，使用后会忽略 min 和 max 设置 | `(date: Date) => boolean`                                                                      | -          |
 | value             | 选择的日期                                     | 单选模式下为 `Date \| null`，多选模式下为 `[Date, Date] \| null`                               | -          |
