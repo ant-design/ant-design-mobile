@@ -5,6 +5,7 @@ import { TaskStatus } from './image-uploader'
 import Image from '../image'
 import SpinLoading from '../spin-loading'
 import { useConfig } from '../config-provider'
+import type { ImageProps } from '../image'
 
 type Props = {
   onClick?: () => void
@@ -13,13 +14,14 @@ type Props = {
   url?: string
   file?: File
   status?: TaskStatus
+  imageFit: ImageProps['fit']
 }
 
 const classPrefix = `adm-image-uploader`
 
 const PreviewItem: FC<Props> = props => {
   const { locale } = useConfig()
-  const { url, file, deletable, onDelete } = props
+  const { url, file, deletable, onDelete, imageFit } = props
   const src = useMemo(() => {
     if (url) {
       return url
@@ -65,7 +67,7 @@ const PreviewItem: FC<Props> = props => {
       <Image
         className={`${classPrefix}-cell-image`}
         src={src}
-        fit='cover'
+        fit={imageFit}
         onClick={props.onClick}
       />
       {renderLoading()}

@@ -12,6 +12,7 @@ export type NavBarProps = {
   left?: ReactNode
   right?: ReactNode
   onBack?: () => void
+  children?: React.ReactNode
 } & NativeProps<'--height' | '--border-bottom'>
 
 const defaultProps = {

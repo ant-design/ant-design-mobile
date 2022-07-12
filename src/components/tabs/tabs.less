@@ -1,15 +1,19 @@
 @class-prefix-tabs: ~'adm-tabs';
 
 .@{class-prefix-tabs} {
-  --title-font-size: 17px;
+  --title-font-size: var(--adm-font-size-9);
   --content-padding: 12px;
   --active-line-height: 2px;
   --active-line-border-radius: var(--active-line-height);
+  --active-line-color: var(--adm-color-primary);
+  --active-title-color: var(--adm-color-primary);
   position: relative;
+  // Hack for auto scroll fail when the parent element is a flex layout
+  min-width: 0;
 
   &-header {
     position: relative;
-    border-bottom: solid 1px var(--adm-border-color);
+    border-bottom: solid 1px var(--adm-color-border);
   }
 
   &-tab-list {
@@ -40,7 +44,7 @@
     cursor: pointer;
   }
   &-tab-active {
-    color: var(--adm-color-primary);
+    color: var(--active-title-color);
   }
   &-tab-disabled {
     opacity: 0.5;
@@ -50,8 +54,7 @@
     position: absolute;
     bottom: 0;
     height: var(--active-line-height);
-    color: var(--adm-color-primary);
-    background: var(--adm-color-primary);
+    background: var(--active-line-color);
     border-radius: var(--active-line-border-radius);
   }
   &-content {
@@ -68,10 +71,18 @@
   }
   &-header-mask-left {
     left: 0;
-    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+    background: linear-gradient(
+      to right,
+      var(--adm-color-background),
+      rgba(255, 255, 255, 0)
+    );
   }
   &-header-mask-right {
     right: 0;
-    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+    background: linear-gradient(
+      to left,
+      var(--adm-color-background),
+      rgba(255, 255, 255, 0)
+    );
   }
 }

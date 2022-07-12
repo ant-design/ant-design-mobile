@@ -2,14 +2,12 @@ import React, { useState } from 'react'
 import { PullToRefresh, List } from 'antd-mobile'
 import { sleep } from 'antd-mobile/es/utils/sleep'
 import { PullStatus } from 'antd-mobile/es/components/pull-to-refresh'
-
-let current = 1
+import { lorem } from 'demos'
 
 function getNextData() {
   const ret: string[] = []
   for (let i = 0; i < 18; i++) {
-    ret.unshift(current.toString())
-    current++
+    ret.unshift(lorem.generateWords(1))
   }
   return ret
 }
@@ -34,8 +32,8 @@ export default () => {
       }}
     >
       <List style={{ minHeight: '100vh' }}>
-        {data.map(item => (
-          <List.Item key={item}>{item}</List.Item>
+        {data.map((item, index) => (
+          <List.Item key={index}>{item}</List.Item>
         ))}
       </List>
     </PullToRefresh>

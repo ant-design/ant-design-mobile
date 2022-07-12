@@ -3,9 +3,9 @@
 .@{class-prefix-notice-bar} {
   --background-color: #ababab;
   --border-color: #999999;
-  --text-color: #ffffff;
-  --font-size: 15px;
-  --icon-font-size: 18px;
+  --text-color: var(--adm-color-white);
+  --font-size: var(--adm-font-size-7);
+  --icon-font-size: var(--adm-font-size-10);
   --height: 38px;
 
   height: var(--height);
@@ -67,7 +67,17 @@
     flex-shrink: 0;
     margin-left: 12px;
   }
+
+  &-close {
+    width: 24px;
+    height: 24px;
+    margin-right: -3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &-close-icon {
-    font-size: 18px;
+    font-size: var(--adm-font-size-10);
   }
 }

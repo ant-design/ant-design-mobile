@@ -1,12 +1,13 @@
 @class-prefix-safe-area: ~'adm-safe-area';
 
 .@{class-prefix-safe-area} {
+  --multiple: var(--adm-safe-area-multiple, 1);
   display: block;
   width: 100%;
   &-position-top {
-    padding-top: env(safe-area-inset-top);
+    padding-top: calc(env(safe-area-inset-top) * var(--multiple));
   }
   &-position-bottom {
-    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: calc(env(safe-area-inset-bottom) * var(--multiple));
   }
 }

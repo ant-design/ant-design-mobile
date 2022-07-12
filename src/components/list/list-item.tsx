@@ -2,6 +2,7 @@ import React, { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
+import { isNodeWithContent } from '../../utils/is-node-with-content'
 
 const classPrefix = `adm-list-item`
 
@@ -25,24 +26,24 @@ export const ListItem: FC<ListItemProps> = props => {
 
   const content = (
     <div className={`${classPrefix}-content`}>
-      {props.prefix && (
+      {isNodeWithContent(props.prefix) && (
         <div className={`${classPrefix}-content-prefix`}>{props.prefix}</div>
       )}
       <div className={`${classPrefix}-content-main`}>
-        {props.title && (
+        {isNodeWithContent(props.title) && (
           <div className={`${classPrefix}-title`}>{props.title}</div>
         )}
         {props.children}
-        {props.description && (
+        {isNodeWithContent(props.description) && (
           <div className={`${classPrefix}-description`}>
             {props.description}
           </div>
         )}
       </div>
-      {props.extra && (
+      {isNodeWithContent(props.extra) && (
         <div className={`${classPrefix}-content-extra`}>{props.extra}</div>
       )}
-      {arrow && (
+      {isNodeWithContent(arrow) && (
         <div className={`${classPrefix}-content-arrow`}>
           {arrow === true ? <RightOutline /> : arrow}
         </div>

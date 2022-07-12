@@ -1,4 +1,11 @@
-import React, { FC } from 'react'
+import React, {
+  FC,
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useState,
+  useCallback,
+} from 'react'
 
 import { mergeProps } from '../../utils/with-default-props'
 import {
@@ -6,8 +13,9 @@ import {
   renderToContainer,
 } from '../../utils/render-to-container'
 import Mask from '../mask'
+import SafeArea from '../safe-area'
 import { Slide } from './slide'
-import { Slides } from './slides'
+import { Slides, SlidesRef } from './slides'
 
 const classPrefix = `adm-image-viewer`
 
@@ -18,6 +26,7 @@ export type ImageViewerProps = {
   visible?: boolean
   onClose?: () => void
   afterClose?: () => void
+  renderFooter?: (image: string) => React.ReactNode
 }
 
 const defaultProps = {
@@ -47,24 +56,55 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
           />
         )}
       </div>
+      {props.image && (
+        <div className={`${classPrefix}-footer`}>
+          {props.renderFooter?.(props.image)}
+          <SafeArea position='bottom' />
+        </div>
+      )}
     </Mask>
   )
   return renderToContainer(props.getContainer, node)
 }
 
-export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
+export type MultiImageViewerRef = SlidesRef
+
+export type MultiImageViewerProps = Omit<
+  ImageViewerProps,
+  'image' | 'renderFooter'
+> & {
   images?: string[]
   defaultIndex?: number
   onIndexChange?: (index: number) => void
+  renderFooter?: (image: string, index: number) => React.ReactNode
 }
 
 const multiDefaultProps = {
   ...defaultProps,
   defaultIndex: 0,
 }
-
-export const MultiImageViewer: FC<MultiImageViewerProps> = p => {
+export const MultiImageViewer = forwardRef<
+  MultiImageViewerRef,
+  MultiImageViewerProps
+>((p, ref) => {
   const props = mergeProps(multiDefaultProps, p)
+  const [index, setIndex] = useState(props.defaultIndex)
+
+  const slidesRef = useRef<SlidesRef>(null)
+  useImperativeHandle(ref, () => ({
+    swipeTo: (index: number, immediate?: boolean) => {
+      setIndex(index)
+      slidesRef.current?.swipeTo(index, immediate)
+    },
+  }))
+
+  const onSlideChange = useCallback(
+    (index: number) => {
+      setIndex(index)
+      props.onIndexChange?.(index)
+    },
+    [props.onIndexChange]
+  )
 
   const node = (
     <Mask
@@ -76,8 +116,9 @@ export const MultiImageViewer: FC<MultiImageViewerProps> = p => {
       <div className={`${classPrefix}-content`}>
         {props.images && (
           <Slides
-            defaultIndex={props.defaultIndex}
-            onIndexChange={props.onIndexChange}
+            ref={slidesRef}
+            defaultIndex={index}
+            onIndexChange={onSlideChange}
             images={props.images}
             onTap={() => {
               props.onClose?.()
@@ -86,7 +127,13 @@ export const MultiImageViewer: FC<MultiImageViewerProps> = p => {
           />
         )}
       </div>
+      {props.images && (
+        <div className={`${classPrefix}-footer`}>
+          {props.renderFooter?.(props.images[index], index)}
+          <SafeArea position='bottom' />
+        </div>
+      )}
     </Mask>
   )
   return renderToContainer(props.getContainer, node)
-}
+})

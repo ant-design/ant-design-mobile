@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should works with \`value={null}\` 1`] = `
+<div>
+  <div
+    class="adm-input"
+  >
+    <input
+      class="adm-input-element"
+      value=""
+    />
+  </div>
+</div>
+`;

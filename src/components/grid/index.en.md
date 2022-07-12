@@ -1,5 +1,13 @@
 # Grid
 
+Used for navigation of multiple sub-functions in the business.
+
+## When to Use
+
+It is used as a function entry in pages with strong recommendation properties, such as the home page.
+
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
 
 ## Grid
@@ -16,8 +24,8 @@
 | Name             | Description                       | Default      | Global |
 | ---------------- | --------------------------------- | ------------ | ------ |
 | --gap            | The gap between items.            | `0`          | -      |
-| --gap-vertical   | The vertical gap between items.   | `var(--gap)` | -      |
 | --gap-horizontal | The horizontal gap between items. | `var(--gap)` | -      |
+| --gap-vertical   | The vertical gap between items.   | `var(--gap)` | -      |
 
 ## Grid.Item
 
@@ -25,8 +33,8 @@
 
 | Name    | Description      | Type                                                            | Default |
 | ------- | ---------------- | --------------------------------------------------------------- | ------- |
-| span    | Span             | `number`                                                        | `1`     |
 | onClick | The click event. | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | -       |
+| span    | Span             | `number`                                                        | `1`     |
 
 ## FAQ
 

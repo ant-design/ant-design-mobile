@@ -2,15 +2,16 @@
 @class-prefix-dropdown-item: ~'adm-dropdown-item';
 
 .@{class-prefix-dropdown} {
-  background-color: white;
+  background-color: var(--adm-color-background);
 
   .@{class-prefix-dropdown}-nav {
     display: flex;
+    border-bottom: 1px solid transparent;
   }
 
   &-open {
     .@{class-prefix-dropdown}-nav {
-      border-bottom: 1px solid var(--adm-border-color);
+      border-bottom-color: var(--adm-color-border);
     }
   }
 
@@ -26,7 +27,7 @@
       align-items: center;
       position: relative;
       max-width: 100%;
-      font-size: 13px;
+      font-size: var(--adm-font-size-main);
       padding: 12px;
       &-text {
         margin-right: 5px;
@@ -37,7 +38,7 @@
       &-arrow {
         color: var(--adm-color-light);
         font-size: 9px;
-        transform: rotate(0deg) translateY(-1px);
+        transform: rotate(0deg) translateY(1px);
         transition: all ease 0.2s;
         &-active {
           transform: rotate(-180deg) translateY(-1px);
@@ -53,7 +54,6 @@
     }
 
     &-active {
-      color: var(--adm-color-primary);
       .@{class-prefix-dropdown-item}-title:after {
         margin-top: -1px;
         transform: rotate(135deg);
@@ -62,7 +62,7 @@
 
     &-content {
       width: 100%;
-      background: white;
+      background: var(--adm-color-background);
       &-hidden {
         display: none;
       }

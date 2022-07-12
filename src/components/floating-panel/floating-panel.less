@@ -3,16 +3,14 @@
   --header-height: 28px;
   --z-index: var(--adm-floating-panel-z-index, 900);
 
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-  background: var(--adm-color-white);
   position: fixed;
   z-index: var(--z-index);
-  top: 100vh;
+  bottom: 0;
   left: 0;
   width: 100vw;
   display: flex;
   flex-direction: column;
+  touch-action: none;
   &-mask {
     display: block;
     width: 100%;
@@ -29,7 +27,7 @@
     bottom: -100vh;
     height: 100vh;
     width: 100vw;
-    background: var(--adm-color-white);
+    background: var(--adm-color-background);
   }
   .adm-floating-panel-header {
     flex: none;
@@ -39,6 +37,10 @@
     align-items: center;
     cursor: grab;
     user-select: none;
+    background-color: var(--adm-color-background);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+
     .adm-floating-panel-bar {
       height: 3px;
       width: 20px;
@@ -49,5 +51,6 @@
   .adm-floating-panel-content {
     flex: 1;
     overflow-y: scroll;
+    background: var(--adm-color-background);
   }
 }

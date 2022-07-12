@@ -1,5 +1,11 @@
 # Loading
 
+Loading state for pages and blocks.
+
+## When to Use
+
+When the page is partially waiting for asynchronous data or is being rendered, appropriate loading animations can effectively relieve the user's anxiety.
+
 ## DotLoading
 
 <code src="../dot-loading/demos/demo1.tsx"></code>

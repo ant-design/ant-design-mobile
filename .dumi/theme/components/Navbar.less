@@ -1,23 +1,19 @@
 @import (reference) '../style/variables.less';
 
 .@{prefix}-navbar {
-  position: fixed;
-  z-index: 101;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: none;
+  display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 32px;
   height: @s-nav-height;
   white-space: nowrap;
-  background: #fff;
-  border-bottom: solid 1px @c-border;
+  background: #ffffff;
+  border-bottom: solid 1px var(--doc-border-color);
 
   [data-prefers-color='dark'] & {
     background: @c-bg-dark;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.65);
+    border-bottom: solid 1px @c-border-dark;
   }
 
   @media @mobile {
@@ -44,42 +40,54 @@
   }
 
   &-logo {
-    display: inline-block;
-    height: 36px;
-    color: #080e29;
-    font-weight: 500;
+    display: flex;
+    height: 48px;
     text-decoration: none;
-    font-size: 20px;
-    line-height: 36px;
+    align-items: center;
 
-    [data-prefers-color='dark'] & {
-      color: @c-heading-dark;
+    img {
+      height: 100%;
+      margin-right: 4px;
     }
 
-    &:not([data-plaintext]) {
-      padding-left: 48px;
-      background: url(@img-logo) no-repeat 0 / contain;
-    }
+    .title {
+      font-size: 20px;
+      color: #080e29;
+      font-weight: 500;
 
-    @media @mobile {
-      height: 28px;
-      line-height: 28px;
-
-      &:not([data-plaintext]) {
-        padding-left: 36px;
+      [data-prefers-color='dark'] & {
+        color: @c-text-dark;
       }
     }
-  }
 
-  &-version {
-    color: @c-weak;
-    display: inline-block;
-    margin-left: 8px;
-    font-size: 14px;
+    .version {
+      color: @c-weak;
+      display: block;
+      margin-left: 8px;
+      font-size: 12px;
+      padding-top: 4px;
+    }
   }
 
   &-tool {
     display: inline-block;
+  }
+
+  .left-part {
+    flex: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .middle-part {
+    flex: none;
+    padding-right: 12px;
+  }
+  .right-part {
+    flex: auto;
+    overflow-x: auto;
+    padding-right: 32px;
+    text-align: right;
   }
 
   nav {
@@ -89,7 +97,7 @@
     }
     > span {
       position: relative;
-      margin-left: 40px;
+      margin-left: 32px;
       display: inline-block;
       color: @c-text;
       height: @s-nav-height;
@@ -124,8 +132,8 @@
           position: absolute;
           top: 0;
           bottom: 0;
-          right: -18px;
-          left: -18px;
+          right: -16px;
+          left: -16px;
         }
 
         &.active::after {
@@ -141,56 +149,7 @@
       }
 
       + *:not(a) {
-        margin-left: 40px;
-      }
-
-      // second nav
-      > ul {
-        list-style: none;
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin: 0;
-        min-width: 100px;
-        padding: 8px 18px;
-        line-height: 2;
-        background-color: #fff;
-        box-shadow: 0 8px 24px -2px rgba(0, 0, 0, 0.08);
-        transform: translate(-50%);
-        transform-origin: top;
-        border-radius: 1px;
-        transition: all 0.2s;
-
-        [data-prefers-color='dark'] & {
-          background-color: @c-bg-dark;
-        }
-
-        a {
-          position: relative;
-          display: block;
-          color: @c-text;
-          text-decoration: none;
-
-          [data-prefers-color='dark'] & {
-            color: @c-text-dark;
-          }
-
-          &:hover,
-          &.active {
-            color: @c-primary;
-
-            [data-prefers-color='dark'] & {
-              color: @c-primary-dark;
-            }
-          }
-        }
-      }
-
-      &:not(:hover) > ul {
-        visibility: hidden;
-        pointer-events: none;
-        transform: translate(-50%) scaleY(0.9);
-        opacity: 0;
+        margin-left: 28px;
       }
     }
 
@@ -206,8 +165,25 @@
       }
     }
   }
+}
 
-  &[data-mode='site'] {
-    display: flex;
+.nav-popover-ul {
+  list-style: none;
+  margin: 0;
+  min-width: 100px;
+  padding: 4px 12px;
+  line-height: 2;
+  background-color: #fff;
+
+  a {
+    position: relative;
+    display: block;
+    color: @c-text;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      color: @c-primary;
+    }
   }
 }

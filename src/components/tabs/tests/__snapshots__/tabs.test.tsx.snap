@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs \`activeLineMode\` prop 1`] = `
+<div>
+  <div
+    class="adm-tabs"
+  >
+    <div
+      class="adm-tabs-header"
+    >
+      <div
+        class="adm-tabs-header-mask adm-tabs-header-mask-left"
+        style="opacity: 0;"
+      />
+      <div
+        class="adm-tabs-header-mask adm-tabs-header-mask-right"
+        style="opacity: 0;"
+      />
+      <div
+        class="adm-tabs-tab-list"
+      >
+        <div
+          class="adm-tabs-tab-line"
+          style="width: 0px; transform: none;"
+        />
+        <div
+          class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
+        >
+          <div
+            class="adm-tabs-tab adm-tabs-tab-active"
+          >
+            fruits
+          </div>
+        </div>
+        <div
+          class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
+        >
+          <div
+            class="adm-tabs-tab"
+          >
+            vegetables
+          </div>
+        </div>
+        <div
+          class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
+        >
+          <div
+            class="adm-tabs-tab"
+          >
+            animals
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="adm-tabs-content"
+      style="display: block;"
+    >
+      Apple
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs \`activeLineMode\` prop 2`] = `
+<div>
+  <div
+    class="adm-tabs"
+  >
+    <div
+      class="adm-tabs-header"
+    >
+      <div
+        class="adm-tabs-header-mask adm-tabs-header-mask-left"
+        style="opacity: 0;"
+      />
+      <div
+        class="adm-tabs-header-mask adm-tabs-header-mask-right"
+        style="opacity: 0;"
+      />
+      <div
+        class="adm-tabs-tab-list"
+      >
+        <div
+          class="adm-tabs-tab-line"
+          style="transform: none;"
+        />
+        <div
+          class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
+        >
+          <div
+            class="adm-tabs-tab adm-tabs-tab-active"
+          >
+            fruits
+          </div>
+        </div>
+        <div
+          class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
+        >
+          <div
+            class="adm-tabs-tab"
+          >
+            vegetables
+          </div>
+        </div>
+        <div
+          class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
+        >
+          <div
+            class="adm-tabs-tab"
+          >
+            animals
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="adm-tabs-content"
+      style="display: block;"
+    >
+      Apple
+    </div>
+  </div>
+</div>
+`;

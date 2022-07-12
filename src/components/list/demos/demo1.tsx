@@ -15,7 +15,7 @@ export default () => {
         <List.Item>3</List.Item>
       </List>
 
-      <List header='可点击的功能列表'>
+      <List header='可点击列表'>
         <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
           账单
         </List.Item>
@@ -27,7 +27,7 @@ export default () => {
         </List.Item>
       </List>
 
-      <List header='复杂布局'>
+      <List header='复杂列表'>
         <List.Item extra={<Switch defaultChecked />}>新消息通知</List.Item>
         <List.Item extra='未开启' clickable>
           大字号模式
@@ -35,10 +35,12 @@ export default () => {
         <List.Item description='管理已授权的产品和设备' clickable>
           授权管理
         </List.Item>
-        <List.Item title='这里是标题'>这里是主信息</List.Item>
+        <List.Item title='副标题信息A' description='副标题信息B' clickable>
+          这里是主信息
+        </List.Item>
       </List>
 
-      <List header='列表项禁用'>
+      <List header='禁用状态'>
         <List.Item disabled clickable prefix={<UnorderedListOutline />}>
           账单
         </List.Item>

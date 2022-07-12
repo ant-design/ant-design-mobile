@@ -3,7 +3,6 @@ import React, {
   ReactElement,
   useEffect,
   useImperativeHandle,
-  useLayoutEffect,
   useRef,
   useState,
 } from 'react'
@@ -14,6 +13,7 @@ import { NumberKeyboardProps } from '../number-keyboard'
 import { usePropsValue } from '../../utils/use-props-value'
 import classNames from 'classnames'
 import { CloseCircleFill } from 'antd-mobile-icons'
+import { useIsomorphicLayoutEffect } from 'ahooks'
 
 const classPrefix = 'adm-virtual-input'
 
@@ -63,7 +63,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       content.scrollLeft = content.clientWidth
     }
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       scrollToEnd()
     }, [value])
     useEffect(() => {
@@ -90,6 +90,26 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       setHasFocus(false)
       props.onBlur?.()
     }
+
+    const keyboard = props.keyboard
+    const keyboardElement =
+      keyboard &&
+      React.cloneElement(keyboard, {
+        onInput: v => {
+          setValue(value + v)
+          keyboard.props.onInput?.(v)
+        },
+        onDelete: () => {
+          setValue(value.slice(0, -1))
+          keyboard.props.onDelete?.()
+        },
+        visible: hasFocus,
+        onClose: () => {
+          rootRef.current?.blur()
+          keyboard.props.onClose?.()
+        },
+        getContainer: null,
+      } as NumberKeyboardProps)
 
     return withNativeProps(
       props,
@@ -126,19 +146,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             {props.placeholder}
           </div>
         )}
-        {props.keyboard &&
-          React.cloneElement(props.keyboard, {
-            onInput: v => {
-              setValue(value + v)
-            },
-            onDelete: () => {
-              setValue(value.slice(0, -1))
-            },
-            visible: hasFocus,
-            onClose: () => {
-              rootRef.current?.blur()
-            },
-          } as NumberKeyboardProps)}
+        {keyboardElement}
       </div>
     )
   }

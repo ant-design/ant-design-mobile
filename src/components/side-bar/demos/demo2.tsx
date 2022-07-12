@@ -7,23 +7,7 @@ import styles from './demo2.less'
 export default () => {
   return (
     <>
-      <DemoBlock title='自定义宽度' padding='0'>
-        <SideBar style={{ '--width': '120px' }}>
-          {tabs.map(item => (
-            <SideBar.Item key={item.key} title={item.title} />
-          ))}
-        </SideBar>
-      </DemoBlock>
-
-      <DemoBlock title='自定义选项圆角' padding='0'>
-        <SideBar style={{ '--item-border-radius': '0px' }}>
-          {tabs.map(item => (
-            <SideBar.Item key={item.key} title={item.title} />
-          ))}
-        </SideBar>
-      </DemoBlock>
-
-      <DemoBlock title='增加计数' padding='0'>
+      <DemoBlock title='选项带数字' padding='0'>
         <SideBar>
           <SideBar.Item
             key='key1'
@@ -43,6 +27,22 @@ export default () => {
               </div>
             }
           />
+        </SideBar>
+      </DemoBlock>
+
+      <DemoBlock title='自定义列宽' padding='0'>
+        <SideBar style={{ '--width': '120px' }}>
+          {tabs.map(item => (
+            <SideBar.Item key={item.key} title={item.title} />
+          ))}
+        </SideBar>
+      </DemoBlock>
+
+      <DemoBlock title='自定义选中项圆角' padding='0'>
+        <SideBar style={{ '--item-border-radius': '0px' }}>
+          {tabs.map(item => (
+            <SideBar.Item key={item.key} title={item.title} />
+          ))}
         </SideBar>
       </DemoBlock>
     </>

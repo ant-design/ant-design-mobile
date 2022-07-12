@@ -6,38 +6,8 @@ import {
   DotLoading,
   SearchBar,
 } from 'antd-mobile'
-import { sleep } from 'demos'
-
 import styles from './demo3.less'
-
-let count = 0
-
-async function mockRequest() {
-  if (count >= 5) {
-    return []
-  }
-  await sleep(2000)
-  count++
-  return [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-  ]
-}
+import { mockRequest } from './mock-request'
 
 export default () => {
   const [data, setData] = useState<string[]>([])

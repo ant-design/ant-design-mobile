@@ -27,6 +27,7 @@ export type SearchBarProps = Pick<
   maxLength?: number
   placeholder?: string
   clearable?: boolean
+  onlyShowClearWhenFocus?: boolean
   showCancelButton?: boolean | ((focus: boolean, value: string) => boolean)
   cancelText?: string
   icon?: ReactNode
@@ -44,7 +45,8 @@ export type SearchBarProps = Pick<
 
 const defaultProps = {
   clearable: true,
-  showCancelButton: false,
+  onlyShowClearWhenFocus: false,
+  showCancelButton: false as NonNullable<SearchBarProps['showCancelButton']>,
   defaultValue: '',
   clearOnCancel: true,
   icon: <SearchOutline />,
@@ -67,10 +69,14 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
     clear: () => inputRef.current?.clear(),
     focus: () => inputRef.current?.focus(),
     blur: () => inputRef.current?.blur(),
+    get nativeElement() {
+      return inputRef.current?.nativeElement ?? null
+    },
   }))
 
   const renderCancelButton = () => {
-    let isShowCancel = false
+    let isShowCancel: boolean
+
     if (typeof props.showCancelButton === 'function') {
       isShowCancel = props.showCancelButton(hasFocus, value)
     } else {
@@ -79,15 +85,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
 
     return (
       isShowCancel && (
-        <div
-          className={`${classPrefix}-suffix`}
-          onMouseDown={e => {
-            e.preventDefault()
-          }}
-          onTouchStart={e => {
-            e.preventDefault()
-          }}
-        >
+        <div className={`${classPrefix}-suffix`}>
           <Button
             fill='none'
             className={`${classPrefix}-cancel-button`}
@@ -97,6 +95,9 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
               }
               inputRef.current?.blur()
               props.onCancel?.()
+            }}
+            onMouseDown={e => {
+              e.preventDefault()
             }}
           >
             {props.cancelText}
@@ -127,6 +128,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
           maxLength={props.maxLength}
           placeholder={props.placeholder}
           clearable={props.clearable}
+          onlyShowClearWhenFocus={props.onlyShowClearWhenFocus}
           onFocus={e => {
             setHasFocus(true)
             props.onFocus?.(e)

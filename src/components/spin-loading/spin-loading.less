@@ -1,11 +1,6 @@
 .adm-spin-loading {
   --color: var(--adm-color-weak);
   --size: 32px;
-  --track-width: calc(var(--size) / 16);
-
-  --pi: 3.14159265358979;
-  --radius: calc(var(--size) / 2 - var(--track-width) / 2);
-  --circumference: calc(var(--radius) * var(--pi) * 2);
 
   width: var(--size);
   height: var(--size);
@@ -15,13 +10,6 @@
     animation: adm-spin-loading-rotate 0.8s infinite linear;
     > .adm-spin-loading-fill {
       stroke: var(--color);
-      stroke-width: var(--track-width);
-      stroke-dasharray: var(--circumference);
-      stroke-linecap: square;
-      animation: adm-spin-loading-fill 1s infinite alternate-reverse linear;
-      r: var(--radius);
-      cx: calc(var(--size) / 2);
-      cy: calc(var(--size) / 2);
     }
   }
 }
@@ -32,14 +20,5 @@
   }
   to {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes adm-spin-loading-fill {
-  from {
-    stroke-dashoffset: calc(var(--circumference) * (1 - 0.4));
-  }
-  to {
-    stroke-dashoffset: calc(var(--circumference) * (1 - 0.8));
   }
 }

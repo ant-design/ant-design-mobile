@@ -1,8 +1,9 @@
-import React, { FC } from 'react'
+import React, { forwardRef } from 'react'
 import Picker from '../picker'
-import type { PickerProps } from '../picker'
-import { useCascadePickerOptions } from './use-cascade-picker-options'
-import { generateCascadePickerColumns } from './cascade-picker-utils'
+import type { PickerProps, PickerRef } from '../picker'
+import { useColumnsFn } from './cascade-picker-utils'
+
+export type CascadePickerRef = PickerRef
 
 export type CascadePickerOption = {
   label: string
@@ -14,21 +15,11 @@ export type CascadePickerProps = Omit<PickerProps, 'columns'> & {
   options: CascadePickerOption[]
 }
 
-export const CascadePicker: FC<CascadePickerProps> = props => {
-  const { options, ...pickerProps } = props
-  const { depth, subOptionsRecord } = useCascadePickerOptions(options)
+export const CascadePicker = forwardRef<CascadePickerRef, CascadePickerProps>(
+  (props, ref) => {
+    const { options, ...pickerProps } = props
+    const columnsFn = useColumnsFn(options)
 
-  return (
-    <Picker
-      {...pickerProps}
-      columns={selected =>
-        generateCascadePickerColumns(
-          selected as string[],
-          options,
-          depth,
-          subOptionsRecord
-        )
-      }
-    />
-  )
-}
+    return <Picker {...pickerProps} ref={ref} columns={columnsFn} />
+  }
+)

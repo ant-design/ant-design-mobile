@@ -3,6 +3,11 @@ import React from 'react'
 import { Calendar } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
+const min = new Date()
+min.setDate(5)
+const max = new Date()
+max.setDate(20)
+
 export default () => {
   const today = dayjs()
   return (
@@ -19,6 +24,9 @@ export default () => {
             }
           }}
         />
+      </DemoBlock>
+      <DemoBlock title='限制日期范围'>
+        <Calendar min={min} max={max} selectionMode='range' />
       </DemoBlock>
     </>
   )

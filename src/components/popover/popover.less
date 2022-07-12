@@ -1,34 +1,26 @@
-@import './animation.less';
-
 @class-prefix-popover: ~'adm-popover';
-
-@popover-arrow-width: 12px;
-@popover-distance: @popover-arrow-width;
-@border-radius-base: 4px;
-@box-shadow-base: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
-  0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-@shadow-color: rgba(0, 0, 0, 0.15);
-@popover-min-width: 32px;
-@popover-min-height: 32px;
 
 .@{class-prefix-popover} {
   --z-index: var(--adm-popover-z-index, 1030);
 
-  &-light {
-    --popover-bg: #ffffff;
-  }
+  --background: #ffffff;
+  --arrow-size: 8px;
+  --content-padding: 8px 12px;
 
-  &-dark {
-    --popover-bg: rgba(0, 0, 0);
+  &&-dark {
+    --background: rgba(0, 0, 0, 0.75);
     --adm-color-text: #ffffff;
-    color: white;
+    color: #ffffff;
+    .adm-popover-inner {
+      box-shadow: none;
+    }
   }
 
+  color: #333333;
   position: absolute;
   top: 0;
   left: 0;
   z-index: var(--z-index);
-  font-weight: normal;
   white-space: normal;
   text-align: left;
   cursor: auto;
@@ -44,226 +36,41 @@
     display: none;
   }
 
-  // Offset the popover to account for the popover arrow
-  &-placement-top,
-  &-placement-topLeft,
-  &-placement-topRight {
-    padding-bottom: @popover-distance;
-    &.leaving {
-      animation-name: amSlideUpOut;
-      animation-duration: 200ms;
-    }
-    &.entering {
-      animation-name: amSlideUpIn;
-      animation-duration: 200ms;
-    }
-  }
-
-  &-placement-right,
-  &-placement-rightTop,
-  &-placement-rightBottom {
-    padding-left: @popover-distance;
-    &.leaving {
-      animation-name: amSlideRightOut;
-      animation-duration: 200ms;
-    }
-    &.entering {
-      animation-name: amSlideRightIn;
-      animation-duration: 200ms;
-    }
-  }
-
-  &-placement-bottom,
-  &-placement-bottomLeft,
-  &-placement-bottomRight {
-    padding-top: @popover-distance;
-    &.leaving {
-      animation-name: amSlideDownOut;
-      animation-duration: 200ms;
-    }
-    &.entering {
-      animation-name: amSlideDownIn;
-      animation-duration: 200ms;
-    }
-  }
-
-  &-placement-left,
-  &-placement-leftTop,
-  &-placement-leftBottom {
-    padding-right: @popover-distance;
-    &.leaving {
-      animation-name: amSlideLeftOut;
-      animation-duration: 200ms;
-    }
-    &.entering {
-      animation-name: amSlideLeftIn;
-      animation-duration: 200ms;
-    }
-  }
-
   &-inner {
-    background-color: var(--popover-bg);
+    background-color: var(--background);
     background-clip: padding-box;
-    border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
-    box-shadow: ~'0 0 8px @{shadow-color} \9';
-    min-width: @popover-min-width;
-    min-height: @popover-min-height;
+    border-radius: 8px;
+    box-shadow: 0 0 30px 0 rgba(51, 51, 51, 0.2);
+    font-size: var(--adm-font-size-7);
+    width: max-content;
+    min-width: 32px;
+    max-width: calc(100vw - 24px);
     overflow-y: hidden;
     &-content {
-      padding: 12px;
-    }
-
-    &-menu {
-      min-width: 120px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      &-with-icon {
-        min-width: 140px;
-      }
-      &-icon {
-        margin-right: 12px;
-        font-size: 20px;
-        line-height: 1;
-        vertical-align: -0.075em;
-      }
-      cursor: pointer;
-      border-bottom: 1px solid var(--adm-border-color);
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      & button {
-        border-radius: 0;
-        padding: 10px 12px;
-        text-align: left;
-      }
+      padding: var(--content-padding);
     }
   }
-
-  &-menu {
-    .@{class-prefix-popover}-inner {
-      &-content {
-        padding: 0;
-      }
-    }
-  }
-
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    /* IE10+ */
-    &-inner {
-      box-shadow: @box-shadow-base;
-    }
-  }
-
-  // Arrows
-  // .popover-arrow is outer, .popover-arrow:after is inner
 
   &-arrow {
     position: absolute;
     display: block;
-    width: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
-    height: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
+    height: var(--arrow-size);
+    width: var(--arrow-size);
+    overflow: visible;
     background: transparent;
   }
-  &-arrow-content {
-    position: absolute;
-    width: sqrt(@popover-arrow-width * @popover-arrow-width);
-    height: sqrt(@popover-arrow-width * @popover-arrow-width);
-    inset: 0;
+
+  &-arrow-icon {
     display: block;
-    margin: auto;
-    background-color: var(--popover-bg);
-    content: '';
-    pointer-events: auto;
-  }
-
-  &-placement-top > &-content > &-arrow >,
-  &-placement-topLeft > &-content > &-arrow,
-  &-placement-topRight > &-content > &-arrow {
-    bottom: @popover-distance - @popover-arrow-width + 1px;
-  }
-  &-placement-top > &-content > &-arrow > &-arrow-content,
-  &-placement-topLeft > &-content > &-arrow > &-arrow-content,
-  &-placement-topRight > &-content > &-arrow > &-arrow-content {
-    transform: translateY(-4.24264069px) rotate(45deg);
-  }
-  &-placement-top > &-content > &-arrow {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  &-placement-topLeft > &-content > &-arrow {
-    left: 16px;
-  }
-  &-placement-topRight > &-content > &-arrow {
-    right: 16px;
-  }
-
-  &-placement-right > &-content > &-arrow,
-  &-placement-rightTop > &-content > &-arrow,
-  &-placement-rightBottom > &-content > &-arrow {
-    left: @popover-distance - @popover-arrow-width + 1px;
-  }
-
-  &-placement-right > &-content > &-arrow > &-arrow-content,
-  &-placement-rightTop > &-content > &-arrow > &-arrow-content,
-  &-placement-rightBottom > &-content > &-arrow > &-arrow-content {
-    transform: translate(4.24264069px) rotate(45deg);
-  }
-  &-placement-right > &-content > &-arrow {
+    height: var(--arrow-size);
+    width: 15px;
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-  }
-  &-placement-rightTop > &-content > &-arrow {
-    top: 12px;
-  }
-  &-placement-rightBottom > &-content > &-arrow {
-    bottom: 12px;
-  }
-
-  &-placement-bottom > &-content > &-arrow,
-  &-placement-bottomLeft > &-content > &-arrow,
-  &-placement-bottomRight > &-content > &-arrow {
-    top: @popover-distance - @popover-arrow-width + 1px;
-  }
-  &-placement-bottom > &-content > &-arrow > &-arrow-content,
-  &-placement-bottomLeft > &-content > &-arrow > &-arrow-content,
-  &-placement-bottomRight > &-content > &-arrow > &-arrow-content {
-    transform: translateY(4.24264069px) rotate(45deg);
-  }
-  &-placement-bottom > &-content > &-arrow {
     left: 50%;
-    transform: translateX(-50%);
-  }
-  &-placement-bottomLeft > &-content > &-arrow {
-    left: 16px;
-  }
-  &-placement-bottomRight > &-content > &-arrow {
-    right: 16px;
+    transform: translate(-50%, -50%) rotate(var(--arrow-icon-rotate));
   }
 
-  &-placement-left > &-content > &-arrow,
-  &-placement-leftTop > &-content > &-arrow,
-  &-placement-leftBottom > &-content > &-arrow {
-    right: @popover-distance - @popover-arrow-width + 1px;
-  }
-
-  &-placement-left > &-content > &-arrow > &-arrow-content,
-  &-placement-leftTop > &-content > &-arrow > &-arrow-content,
-  &-placement-leftBottom > &-content > &-arrow > &-arrow-content {
-    transform: translate(-4.24264069px) rotate(45deg);
-  }
-
-  &-placement-left > &-content > &-arrow {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  &-placement-leftTop > &-content > &-arrow {
-    top: 12px;
-  }
-  &-placement-leftBottom > &-content > &-arrow {
-    bottom: 12px;
+  .adm-popover-arrow {
+    color: var(--background);
   }
 }

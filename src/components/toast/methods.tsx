@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { resolveContainer } from '../../utils/get-container'
-import ReactDOM from 'react-dom'
+import React from 'react'
 import { InternalToast, ToastProps } from './toast'
 import { mergeProps } from '../../utils/with-default-props'
+import {
+  ImperativeHandler,
+  renderImperatively,
+} from '../../utils/render-imperatively'
 
-const containers = [] as HTMLDivElement[]
-
-function unmount(container: HTMLDivElement) {
-  const unmountResult = ReactDOM.unmountComponentAtNode(container)
-  if (unmountResult && container.parentNode) {
-    container.parentNode.removeChild(container)
-  }
-}
+let currentHandler: ImperativeHandler | null = null
+let currentTimeout: number | null = null
 
 export type ToastShowProps = Omit<ToastProps, 'visible'>
 
@@ -21,59 +17,51 @@ const defaultProps = {
   maskClickable: true,
 }
 
+export type ToastHandler = {
+  close: () => void
+}
+
+const ToastInner = (
+  props: ToastShowProps & {
+    onClose?: () => void
+  }
+) => <InternalToast {...props} />
+
 export function show(p: ToastShowProps | string) {
   const props = mergeProps(
     defaultProps,
     typeof p === 'string' ? { content: p } : p
   )
-  let timer = 0
-  const { getContainer = () => document.body } = props
-  const container = document.createElement('div')
-  const bodyContainer = resolveContainer(getContainer)
-  bodyContainer.appendChild(container)
-  clear()
-  containers.push(container)
 
-  const TempToast = () => {
-    const [visible, setVisible] = useState(true)
-    useEffect(() => {
-      return () => {
-        props.afterClose?.()
-      }
-    }, [])
-
-    useEffect(() => {
-      if (props.duration === 0) {
-        return
-      }
-      timer = window.setTimeout(() => {
-        setVisible(false)
-      }, props.duration)
-      return () => {
-        window.clearTimeout(timer)
-      }
-    }, [])
-
-    return (
-      <InternalToast
-        {...props}
-        getContainer={() => container}
-        visible={visible}
-        afterClose={() => {
-          unmount(container)
-        }}
-      />
-    )
+  const element = (
+    <ToastInner
+      {...props}
+      onClose={() => {
+        currentHandler = null
+      }}
+    />
+  )
+  if (currentHandler) {
+    currentHandler.replace(element)
+  } else {
+    currentHandler = renderImperatively(element)
   }
-  ReactDOM.render(<TempToast />, container)
+
+  if (currentTimeout) {
+    window.clearTimeout(currentTimeout)
+  }
+  if (props.duration !== 0) {
+    currentTimeout = window.setTimeout(() => {
+      clear()
+    }, props.duration)
+  }
+
+  return currentHandler as ToastHandler
 }
 
 export function clear() {
-  while (true) {
-    const container = containers.pop()
-    if (!container) break
-    unmount(container)
-  }
+  currentHandler?.close()
+  currentHandler = null
 }
 
 export function config(

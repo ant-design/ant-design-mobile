@@ -9,7 +9,7 @@ import {
 } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
-import { useShouldRender } from '../../utils/use-should-render'
+import { ShouldRender } from '../../utils/should-render'
 import {
   PropagationEvent,
   withStopPropagation,
@@ -35,6 +35,7 @@ export type MaskProps = {
   afterShow?: () => void
   afterClose?: () => void
   stopPropagation?: PropagationEvent[]
+  children?: React.ReactNode
 } & NativeProps<'--z-index'>
 
 const defaultProps = {
@@ -70,7 +71,7 @@ export const Mask: React.FC<MaskProps> = p => {
     config: {
       precision: 0.01,
       mass: 1,
-      tension: 200,
+      tension: 250,
       friction: 30,
       clamp: true,
     },
@@ -88,12 +89,6 @@ export const Mask: React.FC<MaskProps> = p => {
     },
   })
 
-  const shouldRender = useShouldRender(
-    active,
-    props.forceRender,
-    props.destroyOnClose
-  )
-
   const node = withStopPropagation(
     props.stopPropagation,
     withNativeProps(
@@ -102,10 +97,15 @@ export const Mask: React.FC<MaskProps> = p => {
         className={classPrefix}
         ref={ref}
         style={{
+          ...props.style,
           background,
           opacity,
-          ...props.style,
-          display: active ? 'unset' : 'none',
+          display: active ? undefined : 'none',
+        }}
+        onClick={e => {
+          if (e.target === e.currentTarget) {
+            props.onMaskClick?.(e)
+          }
         }}
       >
         {props.onMaskClick && (
@@ -116,12 +116,18 @@ export const Mask: React.FC<MaskProps> = p => {
             onClick={props.onMaskClick}
           />
         )}
-        <div className={`${classPrefix}-content`}>
-          {shouldRender && props.children}
-        </div>
+        <div className={`${classPrefix}-content`}>{props.children}</div>
       </animated.div>
     )
   )
 
-  return renderToContainer(props.getContainer, node)
+  return (
+    <ShouldRender
+      active={active}
+      forceRender={props.forceRender}
+      destroyOnClose={props.destroyOnClose}
+    >
+      {renderToContainer(props.getContainer, node)}
+    </ShouldRender>
+  )
 }

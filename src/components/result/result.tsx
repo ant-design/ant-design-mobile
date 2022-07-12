@@ -21,8 +21,8 @@ const iconRecord = {
 
 export type ResultProps = {
   status: 'success' | 'error' | 'info' | 'waiting' | 'warning'
-  title: string
-  description?: string
+  title: ReactNode
+  description?: ReactNode
   icon?: ReactNode
 } & NativeProps
 

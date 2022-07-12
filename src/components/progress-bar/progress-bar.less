@@ -1,19 +1,35 @@
 @class-prefix-progress-bar: ~'adm-progress-bar';
 
 .@{class-prefix-progress-bar} {
-  --track-width: var(--adm-progress-bar-track-width, 3px);
+  --track-width: var(--adm-progress-bar-track-width, 8px);
   --track-color: var(--adm-progress-bar-track-color, #e5e5e5);
-  --fill-color: var(--adm-progress-bar-fill-color, #1677ff);
+  --fill-color: var(--adm-progress-bar-fill-color, var(--adm-color-primary));
+  --text-width: var(--adm-progress-bar-text-width, 40px);
+
+  display: flex;
+  align-items: center;
   &-trail {
+    flex: auto;
     background: var(--track-color);
     overflow: hidden;
     height: var(--track-width);
-    border-radius: var(--track-width);
   }
   &-fill {
     transition: width 0.3s;
     background: var(--fill-color);
-    height: 100%;
+    height: var(--track-width);
+  }
+  &-text {
+    flex: none;
+    width: calc(var(--text-width) + 8px);
+    padding-left: 8px;
+    color: #999999;
+  }
+}
+
+.@{class-prefix-progress-bar}-rounded {
+  .@{class-prefix-progress-bar}-trail,
+  .@{class-prefix-progress-bar}-fill {
     border-radius: var(--track-width);
   }
 }

@@ -1,4 +1,5 @@
 module.exports = {
+  ignorePatterns: ['/*', '!/src', '/src/**/*.js'],
   'env': {
     'browser': true,
     'es6': true,
@@ -22,6 +23,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
+    '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/camelcase': 'off',
     'react/prop-types': 'off',
     'react/jsx-no-target-blank': 'off',
@@ -72,6 +74,14 @@ module.exports = {
       'rules': {
         'react/react-in-jsx-scope': 'off',
         'react/display-name': 'off',
+      },
+    },
+    {
+      'files': ['**/tests/**/*'],
+      'rules': {
+        'react/react-in-jsx-scope': 'off',
+        'react/display-name': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
       },
     },
   ],

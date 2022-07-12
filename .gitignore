@@ -6,7 +6,9 @@
 .doc/
 .umi/
 .umi-production/
+/report/
 /report.json
+/report.html
 
 # build
 /dist/

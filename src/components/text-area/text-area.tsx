@@ -1,14 +1,10 @@
-import React, {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-} from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import type { ReactNode } from 'react'
-import classNames from 'classnames'
-import { NativeProps } from '../../utils/native-props'
+import { useIsomorphicLayoutEffect } from 'ahooks'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { devError } from '../../utils/dev-log'
 
 const classPrefix = 'adm-text-area'
 
@@ -17,7 +13,16 @@ export type TextAreaProps = Pick<
     React.TextareaHTMLAttributes<HTMLTextAreaElement>,
     HTMLTextAreaElement
   >,
-  'autoComplete' | 'disabled' | 'readOnly' | 'onFocus' | 'onBlur'
+  | 'autoComplete'
+  | 'autoFocus'
+  | 'disabled'
+  | 'readOnly'
+  | 'name'
+  | 'onFocus'
+  | 'onBlur'
+  | 'onCompositionStart'
+  | 'onCompositionEnd'
+  | 'onClick'
 > & {
   onChange?: (val: string) => void
   value?: string
@@ -34,37 +39,42 @@ export type TextAreaProps = Pick<
       }
   id?: string
 } & NativeProps<
-    '--font-size' | '--color' | '--placeholder-color' | '--disabled-color'
+    | '--font-size'
+    | '--color'
+    | '--placeholder-color'
+    | '--disabled-color'
+    | '--text-align'
+    | '--count-text-align'
   >
 
 export type TextAreaRef = {
   clear: () => void
   focus: () => void
   blur: () => void
+  nativeElement: HTMLTextAreaElement | null
 }
 
 const defaultProps = {
   rows: 2,
-  showCount: false,
-  autoSize: false,
+  showCount: false as NonNullable<TextAreaProps['showCount']>,
+  autoSize: false as NonNullable<TextAreaProps['autoSize']>,
   defaultValue: '',
 }
 
 export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
   (p: TextAreaProps, ref) => {
     const props = mergeProps(defaultProps, p)
-    const {
-      className,
-      style,
-      defaultValue: outerDefaultValue,
-      value: outerValue,
-      onChange: outerOnChange,
-      rows: rows,
-      autoSize: autoSize,
-      showCount,
-      ...textAreaProps
-    } = props
-    const [value, setValue] = usePropsValue(props)
+    const { autoSize, showCount, maxLength } = props
+    const [value, setValue] = usePropsValue({
+      ...props,
+      value: props.value === null ? '' : props.value,
+    })
+    if (props.value === null) {
+      devError(
+        'TextArea',
+        '`value` prop on `TextArea` should not be `null`. Consider using an empty string to clear the component.'
+      )
+    }
     const nativeTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
     useImperativeHandle(ref, () => ({
@@ -77,9 +87,12 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       blur: () => {
         nativeTextAreaRef.current?.blur()
       },
+      get nativeElement() {
+        return nativeTextAreaRef.current
+      },
     }))
 
-    useEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       if (!autoSize) return
       const textArea = nativeTextAreaRef.current
       if (!textArea) return
@@ -98,40 +111,59 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       textArea.style.height = `${height}px`
     }, [value, autoSize])
 
+    const compositingRef = useRef(false)
+
     let count
+    const valueLength = [...value].length
     if (typeof showCount === 'function') {
-      count = showCount(value.length, props.maxLength)
+      count = showCount(valueLength, maxLength)
     } else if (showCount) {
       count = (
         <div className={`${classPrefix}-count`}>
-          {props.maxLength === undefined
-            ? value.length
-            : value.length + '/' + props.maxLength}
+          {maxLength === undefined
+            ? valueLength
+            : valueLength + '/' + maxLength}
         </div>
       )
     }
 
-    return (
-      <div
-        className={classNames(`${classPrefix}-wrapper`, className)}
-        style={style}
-      >
+    return withNativeProps(
+      props,
+      <div className={classPrefix}>
         <textarea
           ref={nativeTextAreaRef}
-          {...textAreaProps}
-          className={classPrefix}
-          rows={rows}
+          className={`${classPrefix}-element`}
+          rows={props.rows}
           value={value}
+          placeholder={props.placeholder}
           onChange={e => {
-            setValue(e.target.value)
-          }}
-          onFocus={e => {
-            props.onFocus?.(e)
-          }}
-          onBlur={e => {
-            props.onBlur?.(e)
+            let v = e.target.value
+            if (maxLength && !compositingRef.current) {
+              v = [...v].slice(0, maxLength).join('')
+            }
+            setValue(v)
           }}
           id={props.id}
+          onCompositionStart={e => {
+            compositingRef.current = true
+            props.onCompositionStart?.(e)
+          }}
+          onCompositionEnd={e => {
+            compositingRef.current = false
+            if (maxLength) {
+              const v = (e.target as HTMLTextAreaElement).value
+              setValue([...v].slice(0, maxLength).join(''))
+            }
+            props.onCompositionEnd?.(e)
+          }}
+          autoComplete={props.autoComplete}
+          autoFocus={props.autoFocus}
+          disabled={props.disabled}
+          readOnly={props.readOnly}
+          name={props.name}
+          onFocus={props.onFocus}
+          onBlur={props.onBlur}
+          onClick={props.onClick}
         />
         {count}
       </div>

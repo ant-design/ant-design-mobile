@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import { Checkbox, Dropdown, Space } from 'antd-mobile'
+import { Checkbox, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { SmileFill, SmileOutline } from 'antd-mobile-icons'
 
 export default () => {
-  const [value, setValue] = useState<string[]>([])
   return (
     <>
       <DemoBlock title='基础用法'>
@@ -16,38 +14,12 @@ export default () => {
           >
             <Checkbox />
           </div>
-          <Checkbox>有描述的勾选框</Checkbox>
-          <Checkbox defaultChecked>默认选中</Checkbox>
-          <Checkbox defaultChecked disabled>
-            禁用状态
-          </Checkbox>
-          <Checkbox indeterminate={true}>半选</Checkbox>
+          <Checkbox>有描述的复选框</Checkbox>
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='选项组'>
-        <Checkbox.Group
-          value={value}
-          onChange={val => {
-            setValue(val as string[])
-          }}
-        >
-          <Space direction='vertical'>
-            <Checkbox value='apple'>苹果</Checkbox>
-            <Checkbox value='orange'>橘子</Checkbox>
-            <Checkbox value='banana'>香蕉</Checkbox>
-          </Space>
-        </Checkbox.Group>
-      </DemoBlock>
-
-      <DemoBlock title='整组禁用'>
-        <Checkbox.Group defaultValue={['orange', 'banana']} disabled>
-          <Space direction='vertical'>
-            <Checkbox value='apple'>苹果</Checkbox>
-            <Checkbox value='orange'>橘子</Checkbox>
-            <Checkbox value='banana'>香蕉</Checkbox>
-          </Space>
-        </Checkbox.Group>
+      <DemoBlock title='默认选中'>
+        <Checkbox defaultChecked>默认选中</Checkbox>
       </DemoBlock>
 
       <DemoBlock title='占满整行宽度'>
@@ -57,32 +29,45 @@ export default () => {
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='自定义图标'>
-        <Checkbox
-          value='banana'
-          icon={checked =>
-            checked ? (
-              <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
-            ) : (
-              <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
-            )
-          }
-        >
-          自定义图标
-        </Checkbox>
-      </DemoBlock>
-
-      <DemoBlock title='自定义大小'>
-        <Checkbox
-          style={{
-            '--icon-size': '18px',
-            '--font-size': '14px',
-            '--gap': '6px',
-          }}
-        >
-          小号的勾选框
-        </Checkbox>
+      <DemoBlock title='全选和半选'>
+        <DemoIndeterminate />
       </DemoBlock>
     </>
+  )
+}
+
+const DemoIndeterminate = () => {
+  const items = ['Apple', 'Orange', 'Banana']
+  const [value, setValue] = useState(['Apple'])
+  return (
+    <Space direction='vertical'>
+      <Checkbox
+        indeterminate={value.length > 0 && value.length < items.length}
+        checked={value.length === items.length}
+        onChange={checked => {
+          if (checked) {
+            setValue(items)
+          } else {
+            setValue([])
+          }
+        }}
+      >
+        半选
+      </Checkbox>
+      <Checkbox.Group
+        value={value}
+        onChange={v => {
+          setValue(v as string[])
+        }}
+      >
+        <Space direction='vertical'>
+          {items.map(item => (
+            <Checkbox key={item} value={item}>
+              {item}
+            </Checkbox>
+          ))}
+        </Space>
+      </Checkbox.Group>
+    </Space>
   )
 }

@@ -8,8 +8,8 @@
 
 .@{class-prefix-switch} {
   --checked-color: var(--adm-color-primary);
-  --height: 30px;
-  --width: 50px;
+  --height: 31px;
+  --width: 51px;
   --border-width: 2px;
 
   display: inline-block;
@@ -28,7 +28,7 @@
     height: var(--height);
     box-sizing: border-box;
     border-radius: 31px;
-    background: #e5e5e5;
+    background: var(--adm-color-border);
     z-index: 0;
     overflow: hidden;
     line-height: var(--height);
@@ -42,7 +42,7 @@
       height: calc(var(--height) - 2 * var(--border-width));
       border-radius: calc(var(--height) - 2 * var(--border-width));
       box-sizing: border-box;
-      background: #fff;
+      background: var(--adm-color-background);
       z-index: 1;
       transition: all 200ms;
       transform: scale(1);
@@ -56,7 +56,7 @@
     width: calc(var(--height) - 2 * var(--border-width));
     height: calc(var(--height) - 2 * var(--border-width));
     border-radius: calc(var(--height) - 2 * var(--border-width));
-    background: #fff;
+    background: var(--adm-color-white);
     position: absolute;
     z-index: 2;
     top: var(--border-width);
@@ -69,9 +69,14 @@
   &-inner {
     position: relative;
     z-index: 1;
-    margin: 0 10px 0 calc(var(--height) - var(--border-width) + 5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px 0 calc(var(--height) - var(--border-width) + 4px);
+    height: 100%;
     color: var(--adm-color-weak);
     transition: margin 200ms;
+    font-size: var(--adm-font-size-7);
   }
 
   /* 选中状态 */
@@ -99,7 +104,7 @@
   }
 
   /* loading图标 */
-  &-icon {
+  &-spin-icon {
     width: 14px;
     height: 14px;
     animation: loading-rotate 1s linear infinite;

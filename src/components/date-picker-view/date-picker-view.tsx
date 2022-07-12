@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useCallback, useMemo } from 'react'
 import PickerView from '../picker-view'
-import type { PickerValue } from '../picker-view'
+import type { PickerValue, PickerViewProps } from '../picker-view'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -15,7 +15,10 @@ import type {
   DatePickerFilter,
 } from '../date-picker/date-picker-utils'
 
-export type DatePickerViewProps = {
+export type DatePickerViewProps = Pick<
+  PickerViewProps,
+  'style' | 'mouseWheel' | 'loading' | 'loadingContent'
+> & {
   value?: Date
   defaultValue?: Date
   onChange?: (value: Date) => void
@@ -24,7 +27,7 @@ export type DatePickerViewProps = {
   precision?: Precision
   renderLabel?: (type: Precision, data: number) => ReactNode
   filter?: DatePickerFilter
-} & NativeProps<'--height'>
+} & NativeProps
 
 const thisYear = new Date().getFullYear()
 
@@ -72,7 +75,10 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
           props.filter
         )
       }
+      loading={props.loading}
+      loadingContent={props.loadingContent}
       value={pickerValue}
+      mouseWheel={props.mouseWheel}
       onChange={onChange}
     />
   )

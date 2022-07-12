@@ -1,15 +1,12 @@
-import React, {
-  useState,
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-  useLayoutEffect,
-} from 'react'
+import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
+import { useIsomorphicLayoutEffect } from 'ahooks'
+import { bound } from '../../utils/bound'
+import { isIOS } from '../../utils/validate'
 
 const classPrefix = `adm-input`
 
@@ -18,22 +15,31 @@ type NativeInputProps = React.DetailedHTMLProps<
   HTMLInputElement
 >
 
+type AriaProps = {
+  // These props currently are only used internally. They are not exported to users:
+  role?: string
+}
+
 export type InputProps = Pick<
   NativeInputProps,
   | 'maxLength'
   | 'minLength'
-  | 'max'
-  | 'min'
   | 'autoComplete'
+  | 'autoFocus'
   | 'pattern'
   | 'inputMode'
   | 'type'
+  | 'name'
   | 'onFocus'
   | 'onBlur'
   | 'autoCapitalize'
   | 'autoCorrect'
   | 'onKeyDown'
   | 'onKeyUp'
+  | 'onCompositionStart'
+  | 'onCompositionEnd'
+  | 'onClick'
+  | 'step'
 > & {
   value?: string
   defaultValue?: string
@@ -42,6 +48,7 @@ export type InputProps = Pick<
   disabled?: boolean
   readOnly?: boolean
   clearable?: boolean
+  onlyShowClearWhenFocus?: boolean
   onClear?: () => void
   id?: string
   onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
@@ -53,24 +60,30 @@ export type InputProps = Pick<
     | 'previous'
     | 'search'
     | 'send'
+  min?: number
+  max?: number
 } & NativeProps<
     '--font-size' | '--color' | '--placeholder-color' | '--text-align'
-  >
+  > &
+  AriaProps
 
 const defaultProps = {
   defaultValue: '',
+  onlyShowClearWhenFocus: true,
 }
 
 export type InputRef = {
   clear: () => void
   focus: () => void
   blur: () => void
+  nativeElement: HTMLInputElement | null
 }
 
 export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
   const [hasFocus, setHasFocus] = useState(false)
+  const compositionStartRef = useRef(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
 
   useImperativeHandle(ref, () => ({
@@ -83,6 +96,9 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     blur: () => {
       nativeInputRef.current?.blur()
     },
+    get nativeElement() {
+      return nativeInputRef.current
+    },
   }))
 
   const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -92,13 +108,34 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     props.onKeyDown?.(e)
   }
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!props.enterKeyHint) return
     nativeInputRef.current?.setAttribute('enterkeyhint', props.enterKeyHint)
     return () => {
       nativeInputRef.current?.removeAttribute('enterkeyhint')
     }
   }, [props.enterKeyHint])
+
+  function checkValue() {
+    let nextValue = value
+    if (props.type === 'number') {
+      nextValue =
+        nextValue &&
+        bound(parseFloat(nextValue), props.min, props.max).toString()
+    }
+    if (nextValue !== value) {
+      setValue(nextValue)
+    }
+  }
+
+  const shouldShowClear = (() => {
+    if (!props.clearable || !value || props.readOnly) return false
+    if (props.onlyShowClearWhenFocus) {
+      return hasFocus
+    } else {
+      return true
+    }
+  })()
 
   return withNativeProps(
     props,
@@ -121,6 +158,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         }}
         onBlur={e => {
           setHasFocus(false)
+          checkValue()
           props.onBlur?.(e)
         }}
         id={props.id}
@@ -132,15 +170,30 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         max={props.max}
         min={props.min}
         autoComplete={props.autoComplete}
+        autoFocus={props.autoFocus}
         pattern={props.pattern}
         inputMode={props.inputMode}
         type={props.type}
+        name={props.name}
         autoCapitalize={props.autoCapitalize}
         autoCorrect={props.autoCorrect}
         onKeyDown={handleKeydown}
         onKeyUp={props.onKeyUp}
+        onCompositionStart={e => {
+          compositionStartRef.current = true
+          props.onCompositionStart?.(e)
+        }}
+        onCompositionEnd={e => {
+          compositionStartRef.current = false
+          props.onCompositionEnd?.(e)
+        }}
+        onClick={props.onClick}
+        role={props.role}
+        aria-valuenow={props['aria-valuenow']}
+        aria-valuemax={props['aria-valuemax']}
+        aria-valuemin={props['aria-valuemin']}
       />
-      {props.clearable && !!value && (
+      {shouldShowClear && (
         <div
           className={`${classPrefix}-clear`}
           onMouseDown={e => {
@@ -149,6 +202,12 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
           onClick={() => {
             setValue('')
             props.onClear?.()
+
+            // https://github.com/ant-design/ant-design-mobile/issues/5212
+            if (isIOS() && compositionStartRef.current) {
+              compositionStartRef.current = false
+              nativeInputRef.current?.blur()
+            }
           }}
         >
           <CloseCircleFill />

@@ -1,6 +1,17 @@
 # Collapse
 
+A content area that can be collapsed/expanded.
+
+## When to Use
+
+- Group and hide complex areas to keep pages tidy.
+- An accordion is a special type of accordion panel that only allows a single content area to expand.
+
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+<code src="./demos/demo2.tsx"></code>
 
 ## Collapse
 
@@ -8,11 +19,11 @@
 
 | Name             | Description                                                                             | Type                                                                                                             | Default |
 | ---------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------- |
-| defaultActiveKey | The `key` of the expanded panel by default                                              | accordion mode: `string \| null` <br/>non-accordion mode: `string[]`                                             | -       |
-| activeKey        | The `key` of the currently expanded panel                                               | accordion mode: `string \| null` <br/>non-accordion mode: `string[]`                                             | -       |
 | accordion        | Whether to enable accordion mode                                                        | `boolean`                                                                                                        | `false` |
-| onChange         | Triggered when the panel is switched                                                    | accordion mode: `(activeKey: string \| null) => void` <br /> non-accordion mode: `(activeKey: string[]) => void` | -       |
+| activeKey        | The `key` of the currently expanded panel                                               | accordion mode: `string \| null` <br/>non-accordion mode: `string[]`                                             | -       |
 | arrow            | Custom arrow. if you pass a ReactNode, antd-mobile will add a rotate animation for you. | `React.ReactNode \| ((active: boolean) => React.ReactNode)`                                                      | -       |
+| defaultActiveKey | The `key` of the expanded panel by default                                              | accordion mode: `string \| null` <br/>non-accordion mode: `string[]`                                             | -       |
+| onChange         | Triggered when the panel is switched                                                    | accordion mode: `(activeKey: string \| null) => void` <br /> non-accordion mode: `(activeKey: string[]) => void` | -       |
 
 ## Collapse.Panel
 
@@ -20,10 +31,10 @@
 
 | Name           | Description                                       | Type                                                        | Default |
 | -------------- | ------------------------------------------------- | ----------------------------------------------------------- | ------- |
-| key            | The unique identifier                             | `string`                                                    | -       |
-| title          | The content on the left side of the title bar     | `ReactNode`                                                 | -       |
+| arrow          | Custom arrow                                      | `React.ReactNode \| ((active: boolean) => React.ReactNode)` | -       |
+| destroyOnClose | Unmount content when not visible                  | `boolean`                                                   | `false` |
 | disabled       | Whether disabled or not                           | `boolean`                                                   | `false` |
 | forceRender    | Whether to render the `DOM` structure when hidden | `boolean`                                                   | `false` |
-| destroyOnClose | Unmount content when not visible                  | `boolean`                                                   | `false` |
+| key            | The unique identifier                             | `string`                                                    | -       |
 | onClick        | The click event of title bar                      | `(event: React.MouseEvent<Element, MouseEvent>) => void`    | -       |
-| arrow          | Custom arrow                                      | `React.ReactNode \| ((active: boolean) => React.ReactNode)` | -       |
+| title          | The content on the left side of the title bar     | `ReactNode`                                                 | -       |

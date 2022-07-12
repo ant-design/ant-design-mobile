@@ -18,18 +18,19 @@
     width: var(--image-width);
     max-width: 100%;
 
-    & img {
+    & svg,
+    img {
       height: 100%;
     }
   }
 
   &-description {
-    font-size: 12px;
+    font-size: var(--adm-font-size-4);
     color: #999;
     line-height: 1.4;
     margin-top: 12px;
     &-title {
-      font-size: 15px;
+      font-size: var(--adm-font-size-7);
     }
     &-subtitle {
       margin-top: 8px;
@@ -48,10 +49,10 @@
     }
     .@{class-prefix-error-block}-description {
       margin-top: 20px;
-      font-size: 13px;
+      font-size: var(--adm-font-size-main);
       &-title {
         font-size: 20px;
-        color: #333;
+        color: var(--adm-color-text);
       }
     }
   }

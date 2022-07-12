@@ -1,26 +1,13 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useLayoutEffect, useState } from 'react'
 import type { IRouteComponentProps } from '@umijs/types'
 import { context, Link } from 'dumi/theme'
 import Navbar from '../components/Navbar'
 import SideMenu from '../components/SideMenu'
+import Dark from '../components/Dark'
+import { SlugList } from '../components/slug-list'
 import '../style/layout-default.less'
-import '../style/layout.less'
-
-const Hero = (hero: any) => (
-  <>
-    <div className='__dumi-default-layout-hero'>
-      {hero.image && <img src={hero.image} width={400} />}
-      <h1>{hero.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: hero.desc }} />
-      {hero.actions &&
-        hero.actions.map((action: any) => (
-          <Link to={action.link} key={action.text}>
-            <button type='button'>{action.text}</button>
-          </Link>
-        ))}
-    </div>
-  </>
-)
+import '../style/global.less'
+import styles from './index.less'
 
 const Features = (features: any) => (
   <div className='__dumi-default-layout-features'>
@@ -45,20 +32,12 @@ const Features = (features: any) => (
 const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
   const {
     config: { mode, repository },
-    nav: navItems,
     meta,
     locale,
   } = useContext(context)
-  const { url: repoUrl, branch, platform } = repository
-  const [menuCollapsed, setMenuCollapsed] = useState<boolean>(true)
-  const isSiteMode = mode === 'site'
-  const showHero = isSiteMode && meta.hero
-  const showFeatures = isSiteMode && meta.features
-  const showSideMenu =
-    meta.sidemenu !== false && !showHero && !showFeatures && !meta.gapless
+  const { url: repoUrl, branch } = repository
+  const showSideMenu = meta.sidemenu !== false && !meta.gapless
   const showSlugs =
-    !showHero &&
-    !showFeatures &&
     Boolean(meta.slugs?.length) &&
     (meta.toc === 'content' || meta.toc === undefined) &&
     !meta.gapless
@@ -67,61 +46,74 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
   const updatedTime: any = `${updatedTimeIns.toLocaleDateString([], {
     hour12: false,
   })} ${updatedTimeIns.toLocaleTimeString([], { hour12: false })}`
+  const [darkSwitch, setDarkSwitch] = useState<boolean>(false)
+
+  useLayoutEffect(() => {
+    if (window !== window.parent) {
+      return
+    }
+    if (
+      window.innerWidth <= 600 &&
+      !window.location.pathname.startsWith('/gallery')
+    ) {
+      window.location.href = '/gallery'
+    }
+  }, [])
 
   return (
     <div
-      className='__dumi-default-layout'
+      className={styles.layout}
       data-route={location.pathname}
       data-show-sidemenu={String(showSideMenu)}
       data-show-slugs={String(showSlugs)}
-      data-site-mode={isSiteMode}
       data-gapless={String(!!meta.gapless)}
       onClick={() => {
-        if (menuCollapsed) return
-        setMenuCollapsed(true)
+        setDarkSwitch(false)
       }}
     >
       <Navbar
         location={location}
-        onMobileMenuClick={ev => {
-          setMenuCollapsed(val => !val)
-          ev.stopPropagation()
-        }}
+        darkPrefix={
+          <Dark
+            darkSwitch={darkSwitch}
+            onDarkSwitchClick={ev => {
+              setDarkSwitch(val => !val)
+              ev.stopPropagation()
+            }}
+            isSideMenu={false}
+          />
+        }
       />
       {meta.full ? (
         <>{children}</>
       ) : (
-        <>
-          <SideMenu mobileMenuCollapsed={menuCollapsed} location={location} />
-          {/*{showSlugs && (*/}
-          {/*  <SlugList slugs={meta.slugs} className='__dumi-default-layout-toc' />*/}
-          {/*)}*/}
-          {showHero && Hero(meta.hero)}
-          {showFeatures && Features(meta.features)}
-          <div className='__dumi-default-layout-content'>
-            <div className='__dumi-default-mobile-content'>
-              <article>{children}</article>
-            </div>
-            {!showHero && !showFeatures && meta.filePath && !meta.gapless && (
-              <div className='__dumi-default-layout-footer-meta'>
-                <Link to={`${repoUrl}/edit/${branch}/${meta.filePath}`}>
-                  {isCN ? `在 GitHub 上编辑此页` : `Edit this doc on GitHub`}
-                </Link>
-                <span
-                  data-updated-text={isCN ? '最后更新时间：' : 'Last update: '}
-                >
-                  {updatedTime}
-                </span>
-              </div>
-            )}
-            {(showHero || showFeatures) && meta.footer && (
-              <div
-                className='__dumi-default-layout-footer'
-                dangerouslySetInnerHTML={{ __html: meta.footer }}
-              />
-            )}
+        <div className={styles.content}>
+          <div className={styles.side}>
+            <SideMenu location={location} />
           </div>
-        </>
+          <div className={styles.main}>
+            <div className={styles.mainInner}>
+              <article>{children}</article>
+              {meta.filePath && !meta.gapless && (
+                <div className='__dumi-default-layout-footer-meta'>
+                  <Link to={`${repoUrl}/edit/${branch}/${meta.filePath}`}>
+                    {isCN ? `在 GitHub 上编辑此页` : `Edit this doc on GitHub`}
+                  </Link>
+                  <span
+                    data-updated-text={
+                      isCN ? '最后更新时间：' : 'Last update: '
+                    }
+                  >
+                    {updatedTime}
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+          <div className={styles.side}>
+            <SlugList slugs={meta.slugs} />
+          </div>
+        </div>
       )}
     </div>
   )

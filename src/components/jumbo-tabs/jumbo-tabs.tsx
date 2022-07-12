@@ -12,6 +12,8 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { useTabListScroll } from '../../utils/use-tab-list-scroll'
 import ScrollMask from '../scroll-mask'
+import { ShouldRender } from '../../utils/should-render'
+import { traverseReactNode } from '../../utils/traverse-react-node'
 
 const classPrefix = `adm-jumbo-tabs`
 
@@ -20,6 +22,8 @@ export type JumboTabProps = {
   description: ReactNode
   disabled?: boolean
   forceRender?: boolean
+  destroyOnClose?: boolean
+  children?: React.ReactNode
 } & NativeProps
 
 export const JumboTab: FC<JumboTabProps> = () => {
@@ -30,6 +34,7 @@ export type JumboTabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
+  children?: React.ReactNode
 } & NativeProps
 
 export const JumboTabs: FC<JumboTabsProps> = props => {
@@ -40,7 +45,7 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
 
   const panes: ReactElement<ComponentProps<typeof JumboTab>>[] = []
 
-  React.Children.forEach(props.children, (child, index) => {
+  traverseReactNode(props.children, (child, index) => {
     if (!React.isValidElement(child)) return
     const key = child.key
     if (typeof key !== 'string') return
@@ -113,21 +118,22 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
         if (pane.props.children === undefined) {
           return null
         }
-        if (pane.key === activeKey) {
-          return (
-            <div key={pane.key} className={`${classPrefix}-content`}>
+        const active = pane.key === activeKey
+        return (
+          <ShouldRender
+            key={pane.key}
+            active={active}
+            forceRender={pane.props.forceRender}
+            destroyOnClose={pane.props.destroyOnClose}
+          >
+            <div
+              className={`${classPrefix}-content`}
+              style={{ display: active ? 'block' : 'none' }}
+            >
               {pane.props.children}
             </div>
-          )
-        }
-        if (pane.props.forceRender) {
-          return (
-            <div key={pane.key} style={{ display: 'none' }}>
-              {pane.props.children}
-            </div>
-          )
-        }
-        return null
+          </ShouldRender>
+        )
       })}
     </div>
   )

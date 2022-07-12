@@ -3,14 +3,20 @@ const less = require('gulp-less')
 const path = require('path')
 const postcss = require('gulp-postcss')
 const babel = require('gulp-babel')
+const replace = require('gulp-replace')
 const ts = require('gulp-typescript')
 const del = require('del')
 const webpackStream = require('webpack-stream')
 const webpack = require('webpack')
 const through = require('through2')
+const vite = require('vite')
+const rename = require('gulp-rename')
+const autoprefixer = require('autoprefixer')
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const tsconfig = require('./tsconfig.json')
+const packageJson = require('./package.json')
+const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default
 
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
 
@@ -22,7 +28,7 @@ function buildStyle() {
   return gulp
     .src(['./src/**/*.less'], {
       base: './src/',
-      ignore: ['**/demos/**/*', '**/tests/**/*'],
+      ignore: ['**/demos/**/*', '**/tests/**/*', '*.patch.less'],
     })
     .pipe(
       less({
@@ -30,8 +36,27 @@ function buildStyle() {
         relativeUrls: true,
       })
     )
+    .pipe(
+      postcss([
+        autoprefixer({
+          overrideBrowserslist: 'iOS >= 10, Chrome >= 49',
+        }),
+      ])
+    )
     .pipe(gulp.dest('./lib/es'))
     .pipe(gulp.dest('./lib/cjs'))
+}
+
+function copyPatchStyle() {
+  return gulp
+    .src(['./lib/es/global/css-vars-patch.css'])
+    .pipe(
+      rename({
+        dirname: '',
+        extname: '.css',
+      })
+    )
+    .pipe(gulp.dest('./lib/bundle'))
 }
 
 function copyAssets() {
@@ -56,7 +81,7 @@ function buildCJS() {
 function buildES() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
-    module: 'ESNext',
+    module: 'ES6',
   })
   return gulp
     .src(['src/**/*.{ts,tsx}'], {
@@ -74,7 +99,7 @@ function buildES() {
 function buildDeclaration() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
-    module: 'ESNext',
+    module: 'ES6',
     declaration: true,
     emitDeclarationOnly: true,
   })
@@ -85,6 +110,55 @@ function buildDeclaration() {
     .pipe(tsProject)
     .pipe(gulp.dest('lib/es/'))
     .pipe(gulp.dest('lib/cjs/'))
+}
+
+function getViteConfigForPackage({ minify, formats, external }) {
+  const name = packageJson.name
+  return {
+    root: process.cwd(),
+
+    logLevel: 'silent',
+
+    build: {
+      lib: {
+        name,
+        entry: './lib/es/index.js',
+        formats,
+        fileName: format => {
+          const suffix = format === 'umd' ? '' : `.${format}`
+          return minify ? `${name}${suffix}.min.js` : `${name}${suffix}.js`
+        },
+      },
+      minify: minify ? 'terser' : false,
+      rollupOptions: {
+        external,
+        output: {
+          dir: './lib/bundle',
+          exports: 'named',
+          globals: {
+            react: 'React',
+          },
+        },
+      },
+    },
+  }
+}
+
+async function buildBundles(cb) {
+  const dependencies = packageJson.dependencies || {}
+  const externals = Object.keys(dependencies)
+
+  const configs = [
+    // esm/cjs bundle
+    getViteConfigForPackage({
+      minify: false,
+      formats: ['es', 'cjs'],
+      external: ['react', ...externals],
+    }),
+  ]
+
+  await Promise.all(configs.map(config => vite.build(config)))
+  cb && cb()
 }
 
 function umdWebpack() {
@@ -104,12 +178,22 @@ function umdWebpack() {
           optimization: {
             usedExports: true,
           },
+          performance: {
+            hints: false,
+          },
           resolve: {
             extensions: ['.js', '.json'],
           },
           plugins: [
             new BundleAnalyzerPlugin({
-              analyzerMode: 'json',
+              analyzerMode: 'static',
+              openAnalyzer: false,
+              reportFilename: 'report/report.html',
+            }),
+            new StatoscopeWebpackPlugin({
+              saveReportTo: 'report/statoscope/report.html',
+              saveStatsTo: 'report/statoscope/stats.json',
+              open: false,
             }),
           ],
           module: {
@@ -149,7 +233,18 @@ function umdWebpack() {
           },
           externals: [
             {
-              react: 'React',
+              react: {
+                commonjs: 'react',
+                commonjs2: 'react',
+                amd: 'react',
+                root: 'React',
+              },
+              'react-dom': {
+                commonjs: 'react-dom',
+                commonjs2: 'react-dom',
+                amd: 'react-dom',
+                root: 'ReactDOM',
+              },
             },
           ],
         },
@@ -174,6 +269,8 @@ function generatePackageJSON() {
         delete parsed.devDependencies
         delete parsed.publishConfig
         delete parsed.files
+        delete parsed.resolutions
+        delete parsed.packageManager
         const stringified = JSON.stringify(parsed, null, 2)
         file.contents = Buffer.from(stringified)
         cb(null, file)
@@ -182,7 +279,7 @@ function generatePackageJSON() {
     .pipe(gulp.dest('./lib/'))
 }
 
-function create2xFolder() {
+function init2xFolder() {
   return gulp
     .src('./lib/**', {
       base: './lib/',
@@ -192,28 +289,45 @@ function create2xFolder() {
 }
 
 function build2xCSS() {
-  return gulp
-    .src('./lib/2x/**/*.css', {
-      base: './lib/2x/',
-    })
-    .pipe(postcss([pxMultiplePlugin]))
-    .pipe(
-      gulp.dest('./lib/2x', {
-        overwrite: true,
+  return (
+    gulp
+      .src('./lib/2x/**/*.css', {
+        base: './lib/2x/',
       })
-    )
+      // Hack fix since postcss-px-multiple ignores the `@supports` block
+      .pipe(
+        replace(
+          '@supports not (color: var(--adm-color-text))',
+          '@media screen and (min-width: 999999px)'
+        )
+      )
+      .pipe(postcss([pxMultiplePlugin]))
+      .pipe(
+        replace(
+          '@media screen and (min-width: 999999px)',
+          '@supports not (color: var(--adm-color-text))'
+        )
+      )
+      .pipe(
+        gulp.dest('./lib/2x', {
+          overwrite: true,
+        })
+      )
+  )
 }
 
 exports.umdWebpack = umdWebpack
+exports.buildBundles = buildBundles
 
 exports.default = gulp.series(
   clean,
   buildES,
   buildCJS,
   gulp.parallel(buildDeclaration, buildStyle),
+  copyPatchStyle,
   copyAssets,
   copyMetaFiles,
   generatePackageJSON,
-  gulp.series(create2xFolder, build2xCSS),
-  gulp.parallel(umdWebpack)
+  gulp.parallel(umdWebpack, buildBundles),
+  gulp.series(init2xFolder, build2xCSS)
 )

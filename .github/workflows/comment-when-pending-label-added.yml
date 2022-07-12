@@ -1,0 +1,23 @@
+name: Comment When Pending Label Added
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  create-comment:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'pending'
+    steps:
+      - name: Create comment
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hi, ${{ github.event.issue.user.login }}.
+
+            It seems that this issue is a bit vague and lacks some necessary information. It is recommended to read [How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html).
+
+            看起来这条 issue 描述得有些模糊，缺少一些必要的信息，推荐阅读一下[提问指引](https://github.com/ant-design/ant-design-mobile/blob/master/.github/HOW_TO_ASK_QUESTIONS.md)。

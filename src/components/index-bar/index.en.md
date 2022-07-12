@@ -1,5 +1,13 @@
 # IndexBar
 
+Arrange the content according to the letters A-Z.
+
+## When to Use
+
+Category display and quick positioning for lists.
+
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
 <code src="./demos/demo2.tsx"></code>
 <code src="./demos/demo3.tsx" debug></code>
@@ -8,9 +16,10 @@
 
 ### Props
 
-| Name   | Description                                           | Type      | Default |
-| ------ | ----------------------------------------------------- | --------- | ------- |
-| sticky | Whether to turn on the anchor point automatic ceiling | `boolean` | `true`  |
+| Name          | Description                                           | Type                      | Default |
+| ------------- | ----------------------------------------------------- | ------------------------- | ------- |
+| onIndexChange | Trigger when the anchor point changed                 | `(index: string) => void` | -       |
+| sticky        | Whether to turn on the anchor point automatic ceiling | `boolean`                 | `true`  |
 
 ### Ref
 
@@ -28,7 +37,8 @@
 
 ### Props
 
-| Name  | Description | Type     | Default                          |
-| ----- | ----------- | -------- | -------------------------------- |
-| index | Index       | `string` | -                                |
-| title | Title       | `string` | `index` would be used by default |
+| Name  | Description                           | Type        | Default                                                  |
+| ----- | ------------------------------------- | ----------- | -------------------------------------------------------- |
+| brief | The brief title in the right sidebar. | `ReactNode` | The first character of `index` would be used by default. |
+| index | Unique index.                         | `string`    | -                                                        |
+| title | The panel title in the main area.     | `ReactNode` | `index` would be used by default.                        |

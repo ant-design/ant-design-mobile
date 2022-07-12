@@ -1,18 +1,14 @@
-import React, {
-  FC,
-  InputHTMLAttributes,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { FC, InputHTMLAttributes, useRef, useState } from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
-import ImageViewer, { ImageViewerHandler } from '../image-viewer'
+import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useMemoizedFn, useUnmount } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUnmount } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useConfig } from '../config-provider'
+import type { ImageProps } from '../image'
 
 export type TaskStatus = 'pending' | 'fail'
 
@@ -42,11 +38,17 @@ export type ImageUploaderProps = {
   showUpload?: boolean
   deletable?: boolean
   capture?: InputHTMLAttributes<unknown>['capture']
-  onPreview?: (index: number) => void
-  beforeUpload?: (file: File[]) => Promise<File[]> | File[]
+  onPreview?: (index: number, item: ImageUploadItem) => void
+  beforeUpload?: (
+    file: File,
+    files: File[]
+  ) => Promise<File | null> | File | null
   upload: (file: File) => Promise<ImageUploadItem>
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
   preview?: boolean
+  showFailed?: boolean
+  imageFit?: ImageProps['fit']
+  children?: React.ReactNode
 } & NativeProps<'--cell-size'>
 
 const classPrefix = `adm-image-uploader`
@@ -60,20 +62,18 @@ const defaultProps = {
   defaultValue: [] as ImageUploadItem[],
   accept: 'image/*',
   preview: true,
+  showFailed: true,
+  imageFit: 'cover',
 }
 
 export const ImageUploader: FC<ImageUploaderProps> = p => {
+  const { locale } = useConfig()
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
-  const updateValue = useMemoizedFn(
-    (updater: (prev: ImageUploadItem[]) => ImageUploadItem[]) => {
-      setValue(updater(value))
-    }
-  )
 
   const [tasks, setTasks] = useState<Task[]>([])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setTasks(prev =>
       prev.filter(task => {
         if (task.url === undefined) return true
@@ -86,14 +86,31 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   const { maxCount, onPreview } = props
 
+  async function processFile(file: File, fileList: File[]) {
+    const { beforeUpload } = props
+
+    let transformedFile: File | null | undefined = file
+
+    transformedFile = await beforeUpload?.(file, fileList)
+
+    return transformedFile
+  }
+
   async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.persist()
     const { files: rawFiles } = e.target
     if (!rawFiles) return
     let files = [].slice.call(rawFiles) as File[]
+    e.target.value = '' // HACK: fix the same file doesn't trigger onChange
 
     if (props.beforeUpload) {
-      files = await props.beforeUpload(files)
+      const postFiles = files.map(file => {
+        return processFile(file, files)
+      })
+
+      await Promise.all(postFiles).then(filesList => {
+        files = filesList.filter(Boolean) as File[]
+      })
     }
 
     if (files.length === 0) {
@@ -134,7 +151,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               return task
             })
           })
-          updateValue(prev => {
+          setValue(prev => {
             const newVal = { ...result }
             return [...prev, newVal]
           })
@@ -154,11 +171,9 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         }
       })
     ).catch(error => console.error(error))
-
-    e.target.value = '' // HACK: fix the same file doesn't trigger onChange
   }
 
-  const imageViewerHandlerRef = useRef<ImageViewerHandler | null>(null)
+  const imageViewerHandlerRef = useRef<ImageViewerShowHandler | null>(null)
 
   function previewImage(index: number) {
     imageViewerHandlerRef.current = ImageViewer.Multi.show({
@@ -181,17 +196,18 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      <Space className={`${classPrefix}-space`} wrap>
+      <Space className={`${classPrefix}-space`} wrap block>
         {value.map((fileItem, index) => (
           <PreviewItem
             key={fileItem.key ?? index}
             url={fileItem.thumbnailUrl ?? fileItem.url}
             deletable={props.deletable}
+            imageFit={props.imageFit}
             onClick={() => {
               if (props.preview) {
                 previewImage(index)
               }
-              onPreview && onPreview(index)
+              onPreview && onPreview(index, fileItem)
             }}
             onDelete={async () => {
               const canDelete = await props.onDelete?.(fileItem)
@@ -200,17 +216,23 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             }}
           />
         ))}
-        {tasks.map(task => (
-          <PreviewItem
-            key={task.id}
-            file={task.file}
-            deletable={task.status !== 'pending'}
-            status={task.status}
-            onDelete={() => {
-              setTasks(tasks.filter(x => x.id !== task.id))
-            }}
-          />
-        ))}
+        {tasks.map(task => {
+          if (!props.showFailed && task.status === 'fail') {
+            return null
+          }
+          return (
+            <PreviewItem
+              key={task.id}
+              file={task.file}
+              deletable={task.status !== 'pending'}
+              status={task.status}
+              imageFit={props.imageFit}
+              onDelete={() => {
+                setTasks(tasks.filter(x => x.id !== task.id))
+              }}
+            />
+          )
+        })}
         {showUpload && (
           <div className={`${classPrefix}-upload-button-wrap`}>
             {props.children ? (
@@ -219,6 +241,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               <span
                 className={`${classPrefix}-cell ${classPrefix}-upload-button`}
                 role='button'
+                aria-label={locale.ImageUploader.upload}
               >
                 <span className={`${classPrefix}-upload-button-icon`}>
                   <AddOutline />
@@ -233,6 +256,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
                 type='file'
                 className={`${classPrefix}-input`}
                 onChange={onChange}
+                aria-hidden
               />
             )}
           </div>

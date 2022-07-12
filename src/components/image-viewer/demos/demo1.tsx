@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
 import { ImageViewer, Button } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-
-const demoImages = [
-  'https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80',
-  'https://images.unsplash.com/photo-1601128533718-374ffcca299b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3128&q=80',
-  'https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3113&q=80',
-  'https://images.unsplash.com/photo-1624993590528-4ee743c9896e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=1000&q=80',
-]
+import { demoImage, demoImages } from './images'
+import styles from './demo1.less'
 
 // 单张图片预览
 const Single = () => {
@@ -22,7 +17,7 @@ const Single = () => {
         显示图片
       </Button>
       <ImageViewer
-        image={demoImages[0]}
+        image={demoImage}
         visible={visible}
         onClose={() => {
           setVisible(false)
@@ -56,6 +51,46 @@ const Multi = () => {
   )
 }
 
+const ViewWithFooter = () => {
+  const [visible, setVisible] = useState(false)
+
+  const renderFooter = (image: string, index: number) => {
+    return (
+      <div className={styles.footer}>
+        <div
+          className={styles.footerButton}
+          onClick={() => {
+            console.log('Loading...')
+          }}
+        >
+          查看原图{index + 1}
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        显示图片
+      </Button>
+      <ImageViewer.Multi
+        images={demoImages}
+        visible={visible}
+        defaultIndex={1}
+        onClose={() => {
+          setVisible(false)
+        }}
+        renderFooter={renderFooter}
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -81,7 +116,7 @@ export default () => {
         <Button
           onClick={() => {
             const handler = ImageViewer.show({
-              image: demoImages[2],
+              image: demoImage,
             })
             setTimeout(() => {
               handler.close()
@@ -90,6 +125,10 @@ export default () => {
         >
           显示图片并在3秒后关闭
         </Button>
+      </DemoBlock>
+
+      <DemoBlock title='自定义底部额外内容'>
+        <ViewWithFooter />
       </DemoBlock>
     </>
   )

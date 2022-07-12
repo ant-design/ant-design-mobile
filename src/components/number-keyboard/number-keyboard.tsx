@@ -4,7 +4,6 @@ import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import { shuffle } from '../../utils/shuffle'
 import Popup, { PopupProps } from '../popup'
-import { GetContainer } from '../../utils/render-to-container'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import SafeArea from '../safe-area'
 import { useMemoizedFn } from 'ahooks'
@@ -14,20 +13,25 @@ const classPrefix = 'adm-number-keyboard'
 export type NumberKeyboardProps = {
   visible?: boolean
   title?: string
-  getContainer?: GetContainer
   confirmText?: string | null
-  customKey?: '-' | '.' | 'X'
+  customKey?: string | [string, string]
   randomOrder?: boolean
   showCloseButton?: boolean
   onInput?: (v: string) => void
   onDelete?: () => void
   onClose?: () => void
   onConfirm?: () => void
-  afterShow?: () => void
-  afterClose?: () => void
   closeOnConfirm?: boolean
   safeArea?: boolean
-} & Pick<PopupProps, 'stopPropagation'> &
+} & Pick<
+  PopupProps,
+  | 'afterClose'
+  | 'afterShow'
+  | 'getContainer'
+  | 'destroyOnClose'
+  | 'forceRender'
+  | 'stopPropagation'
+> &
   NativeProps
 
 const defaultProps = {
@@ -37,6 +41,8 @@ const defaultProps = {
   confirmText: null,
   closeOnConfirm: true,
   safeArea: true,
+  destroyOnClose: false,
+  forceRender: false,
 }
 
 export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
@@ -57,12 +63,16 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
   const keys = useMemo(() => {
     const defaultKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     const keyList = randomOrder ? shuffle(defaultKeys) : defaultKeys
+    const customKeys = Array.isArray(customKey) ? customKey : [customKey]
     keyList.push('0')
     if (confirmText) {
-      keyList.push(customKey || '')
+      if (customKeys.length === 2) {
+        keyList.splice(9, 0, customKeys.pop())
+      }
+      keyList.push(customKeys[0] || '')
     } else {
-      keyList.splice(9, 0, customKey || '')
-      keyList.push('BACKSPACE')
+      keyList.splice(9, 0, customKeys[0] || '')
+      keyList.push(customKeys[1] || 'BACKSPACE')
     }
     return keyList
   }, [customKey, confirmText, randomOrder, randomOrder && visible])
@@ -85,7 +95,6 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     clearInterval(intervalRef.current)
   }
 
-  // 点击键盘按键
   const onKeyPress = (
     e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
     key: string
@@ -103,19 +112,18 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
         }
         break
       default:
-        // 当 customKey 不存在时，点击该键不应该触发 onInput
+        // onInput should't be called when customKey doesn't exist
         if (key !== '') onInput?.(key)
         break
     }
   }
 
-  // 渲染 title 和 close button
   const renderHeader = () => {
     if (!showCloseButton && !title) return null
     return (
       <div
         className={classNames(`${classPrefix}-header`, {
-          'with-title': !!title,
+          [`${classPrefix}-header-with-title`]: !!title,
         })}
       >
         {title && <div className={`${classPrefix}-title`}>{title}</div>}
@@ -135,14 +143,21 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
     )
   }
 
-  // 渲染基础键盘按键
   const renderKey = (key: string, index: number) => {
     const isNumberKey = /^\d$/.test(key)
     const className = classNames(`${classPrefix}-key`, {
-      'number-key': isNumberKey,
-      'sign-key': !isNumberKey && key,
-      'mid-key': index === 9 && !!confirmText,
+      [`${classPrefix}-key-number`]: isNumberKey,
+      [`${classPrefix}-key-sign`]: !isNumberKey && key,
+      [`${classPrefix}-key-mid`]:
+        index === 9 && !!confirmText && keys.length < 12,
     })
+
+    const ariaProps = key
+      ? {
+          role: 'button',
+          title: key,
+        }
+      : undefined
 
     return (
       <div
@@ -159,11 +174,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
             onBackspacePressEnd()
           }
         }}
-        onMouseUp={e => {
-          onKeyPress(e, key)
-        }}
-        title={key}
-        role='button'
+        {...ariaProps}
       >
         {key === 'BACKSPACE' ? <TextDeletionOutline /> : key}
       </div>
@@ -179,6 +190,8 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       afterShow={props.afterShow}
       className={`${classPrefix}-popup`}
       stopPropagation={props.stopPropagation}
+      destroyOnClose={props.destroyOnClose}
+      forceRender={props.forceRender}
     >
       {withNativeProps(
         props,
@@ -193,7 +206,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
           <div className={`${classPrefix}-wrapper`}>
             <div
               className={classNames(`${classPrefix}-main`, {
-                'confirmed-style': !!confirmText,
+                [`${classPrefix}-main-confirmed-style`]: !!confirmText,
               })}
             >
               {keys.map(renderKey)}
@@ -201,7 +214,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
             {!!confirmText && (
               <div className={`${classPrefix}-confirm`}>
                 <div
-                  className={`${classPrefix}-key extra-key bs-key`}
+                  className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-bs`}
                   onTouchStart={() => {
                     onBackspacePressStart()
                   }}
@@ -209,16 +222,14 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
                     onKeyPress(e, 'BACKSPACE')
                     onBackspacePressEnd()
                   }}
-                  onMouseUp={e => onKeyPress(e, 'BACKSPACE')}
                   title='BACKSPACE'
                   role='button'
                 >
                   <TextDeletionOutline />
                 </div>
                 <div
-                  className={`${classPrefix}-key extra-key ok-key`}
+                  className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-ok`}
                   onTouchEnd={e => onKeyPress(e, 'OK')}
-                  onMouseUp={e => onKeyPress(e, 'OK')}
                   role='button'
                 >
                   {confirmText}

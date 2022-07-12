@@ -10,11 +10,9 @@ import { useDrag } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
 import { supportsPassive } from '../../utils/supports-passive'
 import { nearest } from '../../utils/nearest'
-
-export type FloatingPanelProps = {
-  anchors: number[]
-  children: ReactNode
-} & NativeProps<'--border-radius' | '--z-index'>
+import { mergeProps } from '../../utils/with-default-props'
+import { useLockScroll } from '../../utils/use-lock-scroll'
+import { useMemoizedFn } from 'ahooks'
 
 export type FloatingPanelRef = {
   setHeight: (
@@ -25,8 +23,20 @@ export type FloatingPanelRef = {
   ) => void
 }
 
+export type FloatingPanelProps = {
+  anchors: number[]
+  children: ReactNode
+  onHeightChange?: (height: number, animating: boolean) => void
+  handleDraggingOfContent?: boolean
+} & NativeProps<'--border-radius' | '--z-index' | '--header-height'>
+
+const defaultProps = {
+  handleDraggingOfContent: true,
+}
+
 export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
-  (props, ref) => {
+  (p, ref) => {
+    const props = mergeProps(defaultProps, p)
     const { anchors } = props
     const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
 
@@ -43,9 +53,14 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       bottom: possibles[0],
     }
 
+    const onHeightChange = useMemoizedFn(props.onHeightChange ?? (() => {}))
+
     const [{ y }, api] = useSpring(() => ({
       y: bounds.bottom,
       config: { tension: 300 },
+      onChange: result => {
+        onHeightChange(-result.value.y, y.isAnimating)
+      },
     }))
 
     useDrag(
@@ -57,6 +72,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
           if (header === target || header?.contains(target)) {
             pullingRef.current = true
           } else {
+            if (!props.handleDraggingOfContent) return
             const reachedTop = y.goal <= bounds.top
             const content = contentRef.current
             if (!content) return
@@ -93,7 +109,9 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         from: () => [0, y.get()],
         pointer: { touch: true },
         target: elementRef,
-        eventOptions: supportsPassive ? { passive: false } : false,
+        eventOptions: supportsPassive
+          ? { passive: false }
+          : (false as unknown as AddEventListenerOptions),
       }
     )
 
@@ -115,6 +133,8 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       [api]
     )
 
+    useLockScroll(elementRef, true)
+
     return withNativeProps(
       props,
       <animated.div
@@ -122,7 +142,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         className='adm-floating-panel'
         style={{
           height: maxHeight,
-          y,
+          translateY: y.to(y => `calc(100% + (${y}px))`),
         }}
       >
         <div

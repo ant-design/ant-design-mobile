@@ -2,8 +2,8 @@ import React, { FC } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { StarFill } from 'antd-mobile-icons'
 import { usePropsValue } from '../../utils/use-props-value'
+import { Star } from './star'
 
 const classPrefix = `adm-rate`
 
@@ -16,12 +16,12 @@ export type RateProps = {
   readOnly?: boolean
   value?: number
   onChange?: (value: number) => void
-} & NativeProps<'--star-size' | '--active-color'>
+} & NativeProps<'--star-size' | '--active-color' | '--inactive-color'>
 
 const defaultProps = {
   count: 5,
   allowHalf: false,
-  character: <StarFill />,
+  character: <Star />,
   defaultValue: 0,
   readOnly: false,
   allowClear: true,
@@ -48,6 +48,9 @@ export const Rate: FC<RateProps> = p => {
             setValue(v)
           }
         }}
+        role='radio'
+        aria-checked={value >= v}
+        aria-label={'' + v}
       >
         {props.character}
       </div>
@@ -55,7 +58,11 @@ export const Rate: FC<RateProps> = p => {
   }
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div
+      className={classPrefix}
+      role='radiogroup'
+      aria-readonly={props.readOnly}
+    >
       {starList.map((_, i) => (
         <div key={i} className={classNames(`${classPrefix}-box`)}>
           {props.allowHalf && renderStar(i + 0.5, true)}

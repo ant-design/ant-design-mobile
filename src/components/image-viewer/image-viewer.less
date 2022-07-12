@@ -4,15 +4,21 @@
   &-content {
     width: 100vw;
     height: 100vh;
-    max-height: -webkit-fill-available;
     touch-action: none;
     user-select: none;
+  }
+  &-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
   }
   &-slides {
     height: 100%;
     position: relative;
     z-index: 1;
     cursor: grab;
+    touch-action: none;
     &-inner {
       height: 100%;
       white-space: nowrap;
@@ -35,6 +41,7 @@
     width: 100%;
     height: 100%;
     cursor: grab;
+    touch-action: none;
   }
   &-image-wrapper {
     width: 100%;
@@ -55,6 +62,6 @@
     top: 12px;
     transform: translateX(-50%);
     color: #e6e6e6;
-    font-size: 14px;
+    font-size: var(--adm-font-size-6);
   }
 }

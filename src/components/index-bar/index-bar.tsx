@@ -4,6 +4,7 @@ import React, {
   useState,
   useImperativeHandle,
   ReactElement,
+  ReactNode,
 } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -13,11 +14,13 @@ import { Sidebar } from './sidebar'
 import { convertPx } from '../../utils/convert-px'
 import { Panel } from './panel'
 import { devWarning } from '../../utils/dev-log'
+import { traverseReactNode } from '../../utils/traverse-react-node'
 
 const classPrefix = `adm-index-bar`
 
 export type IndexBarProps = {
   sticky?: boolean
+  onIndexChange?: (index: string) => void
   children?: React.ReactNode
 } & NativeProps<'--sticky-offset-top'>
 
@@ -34,10 +37,13 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
 
-  const indexes: string[] = []
+  const indexItems: {
+    index: string
+    brief: ReactNode
+  }[] = []
   const panels: ReactElement[] = []
 
-  React.Children.forEach(props.children, child => {
+  traverseReactNode(props.children, child => {
     if (!React.isValidElement(child)) return
     if (child.type !== Panel) {
       devWarning(
@@ -46,7 +52,10 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
       )
       return
     }
-    indexes.push(child.props.index)
+    indexItems.push({
+      index: child.props.index,
+      brief: child.props.brief ?? child.props.index.charAt(0),
+    })
     panels.push(
       withNativeProps(
         child.props,
@@ -64,7 +73,10 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
     )
   })
 
-  const [activeIndex, setActiveIndex] = useState(indexes[0])
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const firstItem = indexItems[0]
+    return firstItem ? firstItem.index : null
+  })
 
   useImperativeHandle(ref, () => ({ scrollTo }))
 
@@ -80,6 +92,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
       if (panelIndex === index) {
         body.scrollTop = panel.offsetTop
         setActiveIndex(index)
+        activeIndex !== index && props.onIndexChange?.(index)
         return
       }
     }
@@ -99,6 +112,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
         if (!panelIndex) continue
         if (panel.offsetTop + panel.clientHeight - titleHeight > scrollTop) {
           setActiveIndex(panelIndex)
+          activeIndex !== panelIndex && props.onIndexChange?.(panelIndex)
           return
         }
       }
@@ -114,7 +128,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
       })}
     >
       <Sidebar
-        indexes={indexes}
+        indexItems={indexItems}
         activeIndex={activeIndex}
         onActive={index => {
           scrollTo(index)

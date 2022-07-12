@@ -9,27 +9,55 @@
 
 .@{class-prefix-popup}-body {
   position: fixed;
-  background-color: #ffffff;
+  background-color: var(--adm-color-background);
   z-index: calc(var(--z-index) + 10);
+
+  .@{class-prefix-popup}-close-icon {
+    position: absolute;
+    z-index: 100;
+  }
 
   &-position-bottom {
     width: 100%;
     bottom: 0;
     left: 0;
+    .@{class-prefix-popup}-close-icon {
+      right: 8px;
+      top: 8px;
+    }
   }
   &-position-top {
     width: 100%;
     top: 0;
     left: 0;
+    .@{class-prefix-popup}-close-icon {
+      right: 8px;
+      bottom: 8px;
+    }
   }
   &-position-left {
     height: 100%;
     top: 0;
     left: 0;
+    .@{class-prefix-popup}-close-icon {
+      right: 8px;
+      top: 8px;
+    }
   }
   &-position-right {
     height: 100%;
     top: 0;
     right: 0;
+    .@{class-prefix-popup}-close-icon {
+      left: 8px;
+      top: 8px;
+    }
   }
+}
+
+.@{class-prefix-popup}-close-icon {
+  cursor: pointer;
+  padding: 4px;
+  font-size: 18px;
+  color: var(--adm-color-weak);
 }

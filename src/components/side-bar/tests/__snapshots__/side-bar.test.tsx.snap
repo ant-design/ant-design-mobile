@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabBar item content 1`] = `
+<div>
+  <div
+    class="adm-side-bar"
+  >
+    <div
+      class="adm-side-bar-items"
+    >
+      <div
+        class="adm-side-bar-item adm-side-bar-item-active"
+      >
+        <div
+          class="adm-badge-wrapper"
+        >
+          <div
+            class="adm-side-bar-item-title"
+          >
+            <div
+              class="adm-side-bar-item-highlight"
+            />
+            title
+          </div>
+        </div>
+      </div>
+      <div
+        class="adm-side-bar-item"
+      >
+        <svg
+          class="adm-side-bar-item-corner adm-side-bar-item-corner-top"
+          viewBox="0 0 30 30"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            stroke="none"
+            stroke-width="1"
+          >
+            <path
+              d="M30,0 C13.4314575,3.04359188e-15 -2.02906125e-15,13.4314575 0,30 L0,30 L0,0 Z"
+              fill="var(--adm-color-background)"
+              transform="translate(15.000000, 15.000000) scale(-1, -1) translate(-15.000000, -15.000000) "
+            />
+          </g>
+        </svg>
+        <div
+          class="adm-badge-wrapper"
+        >
+          <div
+            class="adm-side-bar-item-title"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="adm-side-bar-extra-space"
+    />
+  </div>
+</div>
+`;

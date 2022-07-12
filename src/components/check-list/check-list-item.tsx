@@ -43,7 +43,11 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
     props,
     <List.Item
       title={props.title}
-      className={classNames(classPrefix, readOnly && `${classPrefix}-readonly`)}
+      className={classNames(
+        classPrefix,
+        readOnly && `${classPrefix}-readonly`,
+        active && `${classPrefix}-active`
+      )}
       description={props.description}
       prefix={props.prefix}
       onClick={e => {

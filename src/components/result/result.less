@@ -1,12 +1,8 @@
 @class-prefix-result: ~'adm-result';
 
 .@{class-prefix-result} {
-  --bg-color: var(--adm-color-white);
-  --color: var(--adm-color-text);
-  --adm-color-weak: var(--adm-color-weak);
-
   padding: 32px 12px;
-  background-color: var(--bg-color);
+  background-color: var(--adm-color-background);
 
   &-icon {
     box-sizing: border-box;
@@ -21,8 +17,8 @@
   }
 
   &-title {
-    color: var(--color);
-    font-size: 18px;
+    color: var(--adm-color-text);
+    font-size: var(--adm-font-size-10);
     line-height: 1.4;
     text-align: center;
   }
@@ -30,7 +26,7 @@
   &-description {
     margin-top: 8px;
     color: var(--adm-color-weak);
-    font-size: 13px;
+    font-size: var(--adm-font-size-main);
     line-height: 1.4;
     text-align: center;
   }

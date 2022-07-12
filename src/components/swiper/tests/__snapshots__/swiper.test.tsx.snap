@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Swiper loop 1`] = `
+<div>
+  <div
+    class="adm-swiper adm-swiper-horizontal"
+    style="--slide-size: 100%; --track-offset: 0%;"
+  >
+    <div
+      class="adm-swiper-track adm-swiper-track-allow-touch-move"
+    >
+      <div
+        class="adm-swiper-track-inner"
+      >
+        <div
+          class="adm-swiper-slide"
+          style="left: -0%; transform: translate3d(100%,0,0);"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              1
+            </div>
+          </div>
+        </div>
+        <div
+          class="adm-swiper-slide"
+          style="left: -100%; transform: translate3d(-100%,0,0);"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              2
+            </div>
+          </div>
+        </div>
+        <div
+          class="adm-swiper-slide"
+          style="left: -200%; transform: none;"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="adm-swiper-indicator"
+    >
+      <div
+        class="adm-page-indicator adm-page-indicator-horizontal adm-page-indicator-color-primary"
+      >
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot adm-page-indicator-dot-active"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Swiper loop 2`] = `
+<div>
+  <div
+    class="adm-swiper adm-swiper-horizontal"
+    style="--slide-size: 100%; --track-offset: 0%;"
+  >
+    <div
+      class="adm-swiper-track adm-swiper-track-allow-touch-move"
+    >
+      <div
+        class="adm-swiper-track-inner"
+      >
+        <div
+          class="adm-swiper-slide"
+          style="left: -0%; transform: none;"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              1
+            </div>
+          </div>
+        </div>
+        <div
+          class="adm-swiper-slide"
+          style="left: -100%; transform: translate3d(100%,0,0);"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              2
+            </div>
+          </div>
+        </div>
+        <div
+          class="adm-swiper-slide"
+          style="left: -200%; transform: translate3d(-100%,0,0);"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="adm-swiper-indicator"
+    >
+      <div
+        class="adm-page-indicator adm-page-indicator-horizontal adm-page-indicator-color-primary"
+      >
+        <div
+          class="adm-page-indicator-dot adm-page-indicator-dot-active"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

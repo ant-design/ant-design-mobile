@@ -1,9 +1,11 @@
-import React, { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import { NativeProps } from '../../utils/native-props'
 
-export type IndexBarAnchorProps = {
+export type IndexBarPanelProps = {
   index: string
-  title?: string
+  title?: ReactNode
+  brief?: ReactNode
+  children?: ReactNode
 } & NativeProps
 
-export const Panel: FC<IndexBarAnchorProps> = () => null
+export const Panel: FC<IndexBarPanelProps> = () => null

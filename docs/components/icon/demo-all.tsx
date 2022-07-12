@@ -1,12 +1,12 @@
-import React, { useState, ComponentType } from 'react'
+import React, { useState, ComponentType, useContext } from 'react'
 import { Grid, SearchBar, Selector, Space, Toast } from 'antd-mobile'
 import * as Icons from 'antd-mobile-icons'
 import { useDebounceEffect } from 'ahooks'
-import { useCopy } from 'dumi/theme'
+import { useCopy, context } from 'dumi/theme'
 import './demo-all.less'
 
 const classPrefix = 'adm-icon-doc'
-const nameDic = {
+const nameDicZh = {
   outline: '线框风格',
   fill: '实底风格',
   copyName: '复制名称',
@@ -15,27 +15,14 @@ const nameDic = {
   copySucceeded: '复制成功',
 }
 
-const iconTypes = [
-  {
-    label: nameDic.outline,
-    value: 'outline',
-  },
-  {
-    label: nameDic.fill,
-    value: 'fill',
-  },
-]
-
-const copyTypes = [
-  {
-    label: nameDic.copyName,
-    value: 'name',
-  },
-  {
-    label: nameDic.copyJSX,
-    value: 'jsx',
-  },
-]
+const nameDicEn = {
+  outline: 'Outlined',
+  fill: 'Filled',
+  copyName: 'Copy Name',
+  copyJSX: 'Copy JSX',
+  searchPlaceholder: 'Search Icon',
+  copySucceeded: 'Copied Successfully',
+}
 
 type IconItem = {
   name: string
@@ -67,6 +54,30 @@ for (let key in Icons) {
 }
 
 export default () => {
+  const { locale } = useContext(context)
+  const nameDic = locale === 'zh' ? nameDicZh : nameDicEn
+  const iconTypes = [
+    {
+      label: nameDic.outline,
+      value: 'outline',
+    },
+    {
+      label: nameDic.fill,
+      value: 'fill',
+    },
+  ]
+
+  const copyTypes = [
+    {
+      label: nameDic.copyName,
+      value: 'name',
+    },
+    {
+      label: nameDic.copyJSX,
+      value: 'jsx',
+    },
+  ]
+
   const [displayedItems, setDisplayedItems] = useState<typeof items>(items)
   const [searchValue, setSearchValue] = useState<string>('')
   const [copyType, setCopyType] = useState<string>(copyTypes[1].value)
@@ -124,7 +135,7 @@ export default () => {
         <Selector
           options={copyTypes}
           value={[copyType]}
-          onChange={(val: string[]) => setCopyType(val[0])}
+          onChange={(val: string[]) => setCopyType(val[0] || copyType)}
           className={`${classPrefix}-copy-type-selector`}
         />
         <SearchBar
@@ -139,7 +150,7 @@ export default () => {
         const iconType_ = type.value as 'outline' | 'fill'
         if (iconType.includes(iconType_)) {
           return (
-            <>
+            <React.Fragment key={iconType_}>
               {displayedItems[iconType_].length > 0 && (
                 <h3>{nameDic[iconType_]}</h3>
               )}
@@ -157,7 +168,7 @@ export default () => {
                   </Grid.Item>
                 ))}
               </Grid>
-            </>
+            </React.Fragment>
           )
         }
       })}

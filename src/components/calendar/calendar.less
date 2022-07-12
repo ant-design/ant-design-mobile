@@ -19,7 +19,7 @@
       }
     }
     .adm-calendar-title {
-      font-size: 18px;
+      font-size: var(--adm-font-size-10);
       flex: auto;
       text-align: center;
     }
@@ -48,7 +48,7 @@
     &&-today {
       color: var(--adm-color-primary);
     }
-    &&-out {
+    &&-disabled {
       color: var(--adm-color-light);
       .adm-calendar-cell-bottom {
         color: var(--adm-color-light);
@@ -72,17 +72,21 @@
       }
     }
 
+    &&-disabled&&-selected {
+      color: var(--adm-color-light);
+    }
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     & &-top {
       flex: none;
-      font-size: 18px;
+      font-size: var(--adm-font-size-10);
     }
     & &-bottom {
       flex: none;
-      font-size: 12px;
+      font-size: var(--adm-font-size-4);
       height: 12px;
       line-height: 12px;
       color: var(--adm-color-weak);
@@ -94,10 +98,10 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: solid 1px var(--adm-border-color);
+    border-bottom: solid 1px var(--adm-color-border);
     height: 45px;
     box-sizing: border-box;
-    font-size: 15px;
+    font-size: var(--adm-font-size-7);
     padding: 0 8px;
     & &-cell {
       flex: 1;

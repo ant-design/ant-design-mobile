@@ -1,9 +1,12 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import { Button, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { UploadOutline } from 'antd-mobile-icons'
+import type { ToastHandler } from 'antd-mobile/es/components/toast'
 
 export default () => {
+  const handler = useRef<ToastHandler>()
+
   return (
     <>
       <DemoBlock title='基础用法'>
@@ -120,7 +123,7 @@ export default () => {
           <Button
             block
             onClick={() => {
-              Toast.show({
+              handler.current = Toast.show({
                 content: '这条提示不会自动消失',
                 duration: 0,
                 position: 'top',
@@ -136,6 +139,14 @@ export default () => {
             }}
           >
             清除
+          </Button>
+          <Button
+            block
+            onClick={() => {
+              handler.current?.close()
+            }}
+          >
+            关闭
           </Button>
         </Space>
       </DemoBlock>

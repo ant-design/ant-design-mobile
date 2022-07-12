@@ -26,6 +26,15 @@ export default () => {
           自定义样式
         </Divider>
       </DemoBlock>
+      <DemoBlock title='竖向分割线'>
+        <>
+          Text
+          <Divider direction='vertical' />
+          <a href='#'>Link</a>
+          <Divider direction='vertical' />
+          <a href='#'>Link</a>
+        </>
+      </DemoBlock>
     </>
   )
 }

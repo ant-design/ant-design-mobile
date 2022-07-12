@@ -1,0 +1,13 @@
+@import './demo-global.less';
+@import '../style/variables.less';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  --doc-border-color: @c-border;
+  &[data-prefers-color='dark'] {
+    --doc-border-color: @c-border-dark;
+  }
+}

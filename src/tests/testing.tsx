@@ -1,8 +1,13 @@
 import '@testing-library/jest-dom/extend-expect'
-import { render, RenderOptions, RenderResult } from '@testing-library/react'
+import {
+  act,
+  fireEvent,
+  render,
+  RenderOptions,
+  RenderResult,
+} from '@testing-library/react'
 import { toHaveNoViolations, axe } from 'jest-axe'
 import * as React from 'react'
-import { RunOptions } from 'axe-core'
 
 expect.extend(toHaveNoViolations)
 
@@ -79,8 +84,6 @@ export { default as userEvent } from '@testing-library/user-event'
 // override render method
 export { customRender as render }
 
-type TestA11YOptions = TestOptions & { axeOptions?: RunOptions }
-
 /**
  * Validates against common a11y mistakes.
  *
@@ -104,15 +107,17 @@ type TestA11YOptions = TestOptions & { axeOptions?: RunOptions }
  *
  * @see https://github.com/nickcolley/jest-axe#testing-react-with-react-testing-library
  */
-export const testA11y = async (
-  ui: UI | Element,
-  { axeOptions, ...options }: TestA11YOptions = {}
-) => {
-  const container = React.isValidElement(ui)
-    ? customRender(ui, options).container
-    : ui
+export const testA11y = async (ui: UI | Element) => {
+  const container = React.isValidElement(ui) ? customRender(ui).container : ui
 
-  const results = await axe(container, axeOptions)
+  const results = await axe(container)
 
   expect(results).toHaveNoViolations()
+}
+
+export const sleep = (time: number) =>
+  new Promise<void>(resolve => setTimeout(resolve, time))
+
+export const actSleep = (time: number) => {
+  return act(() => sleep(time))
 }

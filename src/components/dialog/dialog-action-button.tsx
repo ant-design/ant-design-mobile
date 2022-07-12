@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 import Button from '../button'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -18,25 +18,11 @@ export const DialogActionButton: FC<{
 }> = props => {
   const { action } = props
 
-  const [loading, setLoading] = useState(false)
-
-  async function handleClick() {
-    setLoading(true)
-    try {
-      const promise = props.onAction()
-      await promise
-      setLoading(false)
-    } catch (e) {
-      setLoading(false)
-      throw e
-    }
-  }
-
   return withNativeProps(
     props.action,
     <Button
       key={action.key}
-      onClick={handleClick}
+      onClick={props.onAction}
       className={classNames('adm-dialog-button', {
         'adm-dialog-button-bold': action.bold,
       })}
@@ -44,7 +30,7 @@ export const DialogActionButton: FC<{
       shape='rectangular'
       block
       color={action.danger ? 'danger' : 'primary'}
-      loading={loading}
+      loading='auto'
       disabled={action.disabled}
     >
       {action.text}

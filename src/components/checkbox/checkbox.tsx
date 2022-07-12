@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react'
+import React, { forwardRef, useContext, useImperativeHandle } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { CheckboxGroupContext } from './group-context'
@@ -6,6 +6,9 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { devWarning } from '../../utils/dev-log'
 import { CheckIcon } from './check-icon'
+import { IndeterminateIcon } from './indeterminate-icon'
+import { isDev } from '../../utils/is-dev'
+import { NativeInput } from './native-input'
 
 const classPrefix = `adm-checkbox`
 
@@ -21,6 +24,7 @@ export type CheckboxProps = {
   block?: boolean
   id?: string
   icon?: (checked: boolean, indeterminate: boolean) => React.ReactNode
+  children?: React.ReactNode
 } & NativeProps<'--icon-size' | '--font-size' | '--gap'>
 
 const defaultProps = {
@@ -28,7 +32,13 @@ const defaultProps = {
   indeterminate: false,
 }
 
-export const Checkbox: FC<CheckboxProps> = p => {
+export type CheckboxRef = {
+  check: () => void
+  uncheck: () => void
+  toggle: () => void
+}
+
+export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
   const groupContext = useContext(CheckboxGroupContext)
 
   const props = mergeProps(defaultProps, p)
@@ -37,27 +47,25 @@ export const Checkbox: FC<CheckboxProps> = p => {
     value: props.checked,
     defaultValue: props.defaultChecked,
     onChange: props.onChange,
-  })
+  }) as [boolean, (v: boolean) => void]
   let disabled = props.disabled
-
-  const usageWarning = () => {
-    if (p.checked !== undefined) {
-      devWarning(
-        'Checkbox',
-        'When used with `Checkbox.Group`, the `checked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
-      )
-    }
-    if (p.defaultChecked !== undefined) {
-      devWarning(
-        'Checkbox',
-        'When used with `Checkbox.Group`, the `defaultChecked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
-      )
-    }
-  }
 
   const { value } = props
   if (groupContext && value !== undefined) {
-    usageWarning()
+    if (isDev) {
+      if (p.checked !== undefined) {
+        devWarning(
+          'Checkbox',
+          'When used within `Checkbox.Group`, the `checked` prop of `Checkbox` will not work.'
+        )
+      }
+      if (p.defaultChecked !== undefined) {
+        devWarning(
+          'Checkbox',
+          'When used within `Checkbox.Group`, the `defaultChecked` prop of `Checkbox` will not work.'
+        )
+      }
+    }
 
     checked = groupContext.value.includes(value)
     setChecked = (checked: boolean) => {
@@ -71,6 +79,18 @@ export const Checkbox: FC<CheckboxProps> = p => {
     disabled = disabled || groupContext.disabled
   }
 
+  useImperativeHandle(ref, () => ({
+    check: () => {
+      setChecked(true)
+    },
+    uncheck: () => {
+      setChecked(false)
+    },
+    toggle: () => {
+      setChecked(!checked)
+    },
+  }))
+
   const renderIcon = () => {
     if (props.icon) {
       return (
@@ -82,11 +102,7 @@ export const Checkbox: FC<CheckboxProps> = p => {
 
     return (
       <div className={`${classPrefix}-icon`}>
-        {props.indeterminate ? (
-          <div className={`${classPrefix}-indeterminate-checked`} />
-        ) : (
-          checked && <CheckIcon className={`${classPrefix}-icon-checked`} />
-        )}
+        {props.indeterminate ? <IndeterminateIcon /> : checked && <CheckIcon />}
       </div>
     )
   }
@@ -101,16 +117,10 @@ export const Checkbox: FC<CheckboxProps> = p => {
         [`${classPrefix}-block`]: props.block,
       })}
     >
-      <input
+      <NativeInput
         type='checkbox'
         checked={checked}
-        onChange={e => {
-          setChecked(e.target.checked)
-        }}
-        onClick={e => {
-          e.stopPropagation()
-          e.nativeEvent.stopImmediatePropagation()
-        }}
+        onChange={setChecked}
         disabled={disabled}
         id={props.id}
       />
@@ -120,4 +130,4 @@ export const Checkbox: FC<CheckboxProps> = p => {
       )}
     </label>
   )
-}
+})

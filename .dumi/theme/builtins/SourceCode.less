@@ -1,13 +1,16 @@
 @import (reference) '../style/variables.less';
 
 .@{prefix}-code-block {
-  position: relative;
-  font-size: 14px;
+  //position: relative;
+  font-size: 13px;
   & > .prism-code {
     font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
       'Liberation Mono', monospace;
   }
   background-color: @c-light-bg;
+  border-radius: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
 
   [data-prefers-color='dark'] & {
     color: @c-text-dark;

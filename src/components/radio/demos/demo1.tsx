@@ -1,107 +1,56 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Radio, Space } from 'antd-mobile'
-import { DemoBlock } from 'demos'
-import { SmileOutline, SmileFill } from 'antd-mobile-icons'
+import { DemoBlock, DemoDescription } from 'demos'
+import styles from './demo1.less'
 
 export default () => {
-  const [value, setValue] = useState<string>()
   return (
     <>
       <DemoBlock title='基础用法'>
         <Space direction='vertical'>
-          <div
-            onClick={() => {
-              console.log('点击了')
-            }}
-          >
-            <Radio />
-          </div>
-          <Radio>有描述的勾选框</Radio>
-          <Radio defaultChecked>默认选中</Radio>
-          <Radio defaultChecked disabled>
-            禁用状态
-          </Radio>
+          <Radio />
+          <Radio>有描述的单选框</Radio>
         </Space>
       </DemoBlock>
 
       <DemoBlock title='选项组'>
-        <Radio.Group
-          value={value}
-          onChange={(val: string) => {
-            setValue(val)
-          }}
-        >
+        <Radio.Group defaultValue='1'>
           <Space direction='vertical'>
-            <Radio value='apple'>苹果</Radio>
-            <Radio value='orange'>橘子</Radio>
-            <Radio value='banana'>香蕉</Radio>
-          </Space>
-        </Radio.Group>
-      </DemoBlock>
-
-      <DemoBlock title='整组禁用'>
-        <Radio.Group defaultValue='orange' disabled>
-          <Space direction='vertical'>
-            <Radio value='apple'>苹果</Radio>
-            <Radio value='orange'>橘子</Radio>
-            <Radio value='banana'>香蕉</Radio>
+            <Radio value='1'>第一项</Radio>
+            <Radio value='2'>第二项</Radio>
+            <Radio value='3'>第三项</Radio>
           </Space>
         </Radio.Group>
       </DemoBlock>
 
       <DemoBlock title='占满整行宽度'>
         <Space direction='vertical' block>
-          <Radio block>块级元素</Radio>
-          <Radio>非块级元素</Radio>
+          <Radio.Group>
+            <Space direction='vertical' block>
+              <Radio value='1' block className={styles.blockIndicator}>
+                块级元素
+              </Radio>
+              <Radio value='2' className={styles.blockIndicator}>
+                非块级元素
+              </Radio>
+            </Space>
+          </Radio.Group>
+          <DemoDescription>
+            单选框的块级元素会占满整行，而非块级元素不会。灰色的背景标识了元素所占据的空间和可点击的区域。
+          </DemoDescription>
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='自定义 icon'>
-        <Radio.Group
-          value={value}
-          onChange={(val: string) => {
-            setValue(val)
-          }}
-        >
+      <DemoBlock title='禁用状态'>
+        <Radio.Group defaultValue='2'>
           <Space direction='vertical'>
-            <Radio
-              value='radio1'
-              icon={checked =>
-                checked ? (
-                  <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
-                ) : (
-                  <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
-                )
-              }
-            >
-              单选框一
+            <Radio value='1' disabled>
+              第一项
             </Radio>
-            <Radio
-              value='radio2'
-              icon={checked =>
-                checked ? (
-                  <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
-                ) : (
-                  <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
-                )
-              }
-            >
-              单选框二
-            </Radio>
+            <Radio value='2'>第二项</Radio>
+            <Radio value='3'>第三项</Radio>
           </Space>
         </Radio.Group>
-      </DemoBlock>
-
-      <DemoBlock title='自定义大小'>
-        <Radio
-          style={{
-            '--icon-size': '18px',
-            '--font-size': '14px',
-            '--gap': '6px',
-          }}
-        >
-          小号的勾选框
-        </Radio>
       </DemoBlock>
     </>
   )

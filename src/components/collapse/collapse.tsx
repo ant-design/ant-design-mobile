@@ -5,8 +5,10 @@ import { DownOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useMount, useUpdateLayoutEffect } from 'ahooks'
-import { useShouldRender } from '../../utils/use-should-render'
+import { useMount } from 'ahooks'
+import { useShouldRender } from '../../utils/should-render'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { traverseReactNode } from '../../utils/traverse-react-node'
 
 const classPrefix = `adm-collapse`
 
@@ -18,6 +20,7 @@ export type CollapsePanelProps = {
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
   arrow?: React.ReactNode | ((active: boolean) => React.ReactNode)
+  children?: React.ReactNode
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -28,6 +31,7 @@ const CollapsePanelContent: FC<{
   visible: boolean
   forceRender: boolean
   destroyOnClose: boolean
+  children?: React.ReactNode
 }> = props => {
   const { visible } = props
   const innerRef = useRef<HTMLDivElement>(null)
@@ -38,6 +42,13 @@ const CollapsePanelContent: FC<{
   )
   const [{ height }, api] = useSpring(() => ({
     from: { height: 0 },
+    config: {
+      precision: 0.01,
+      mass: 1,
+      tension: 200,
+      friction: 25,
+      clamp: true,
+    },
   }))
 
   useMount(() => {
@@ -50,7 +61,7 @@ const CollapsePanelContent: FC<{
     })
   })
 
-  useUpdateLayoutEffect(() => {
+  useIsomorphicUpdateLayoutEffect(() => {
     const inner = innerRef.current
     if (!inner) return
     if (visible) {
@@ -102,12 +113,13 @@ export type CollapseProps = (
   | ({
       accordion: true
     } & ValueProps<string | null>)
-) &
-  NativeProps
+) & {
+  children?: React.ReactNode
+} & NativeProps
 
 export const Collapse: FC<CollapseProps> = props => {
   const panels: ReactElement<ComponentProps<typeof CollapsePanel>>[] = []
-  React.Children.forEach(props.children, child => {
+  traverseReactNode(props.children, child => {
     if (!React.isValidElement(child)) return
     const key = child.key
     if (typeof key !== 'string') return

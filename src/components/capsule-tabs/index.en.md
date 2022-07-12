@@ -1,5 +1,13 @@
 # CapsuleTabs
 
+Navigate between content groups.
+
+## When to Use
+
+Another style for tabs, used in lists or modules in presentational interfaces.
+
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
 
 ## CapsuleTabs
@@ -14,9 +22,14 @@
 
 ## CapsuleTabs.Tab
 
-| Name        | Description                                       | Type        | Default |
-| ----------- | ------------------------------------------------- | ----------- | ------- |
-| key         | Corresponding to `activeKey`                      | `string`    | -       |
-| title       | The displayed text of the tab header              | `ReactNode` | -       |
-| disabled    | Whether to disable the tab                        | `boolean`   | `false` |
-| forceRender | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
+### Props
+
+| Name           | Description                                       | Type        | Default |
+| -------------- | ------------------------------------------------- | ----------- | ------- |
+| destroyOnClose | Unmount content when not visible                  | `boolean`   | `false` |
+| disabled       | Whether to disable the tab                        | `boolean`   | `false` |
+| forceRender    | Whether to render the `DOM` structure when hidden | `boolean`   | `false` |
+| key            | Corresponding to `activeKey`                      | `string`    | -       |
+| title          | The displayed text of the tab header              | `ReactNode` | -       |
+
+The usage of CapsuleTabs is very similar to that of Tabs, so see the documentation for [Tabs](/components/tabs) for more usage guidelines.

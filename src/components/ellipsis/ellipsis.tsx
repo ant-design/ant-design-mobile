@@ -1,7 +1,12 @@
-import React, { FC, useLayoutEffect, useRef, useState } from 'react'
+import React, { FC, useRef, useState } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
+import { useIsomorphicLayoutEffect } from 'ahooks'
+import {
+  PropagationEvent,
+  withStopPropagation,
+} from '../../utils/with-stop-propagation'
 
 const classPrefix = `adm-ellipsis`
 
@@ -11,6 +16,8 @@ export type EllipsisProps = {
   rows?: number
   expandText?: string
   collapseText?: string
+  stopPropagationForActionButtons?: PropagationEvent[]
+  onContentClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 } & NativeProps
 
 const defaultProps = {
@@ -18,6 +25,8 @@ const defaultProps = {
   rows: 1,
   expandText: '',
   collapseText: '',
+  stopPropagationForActionButtons: [],
+  onContentClick: () => {},
 }
 
 type EllipsisedValue = {
@@ -52,7 +61,6 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     container.style.textOverflow = 'clip'
     container.style.whiteSpace = 'normal'
     container.style.webkitLineClamp = 'unset'
-    container.style.webkitBoxOrient = 'unset'
     container.style.display = 'block'
     const lineHeight = pxToNumber(originStyle.lineHeight)
     const maxHeight = Math.floor(
@@ -120,7 +128,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
           }
         }
         const leftPartMiddle = Math.floor((leftPart[0] + leftPart[1]) / 2)
-        const rightPartMiddle = Math.floor((rightPart[0] + rightPart[1]) / 2)
+        const rightPartMiddle = Math.ceil((rightPart[0] + rightPart[1]) / 2)
         container.innerText =
           props.content.slice(0, leftPartMiddle) +
           '...' +
@@ -151,7 +159,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   }
 
   useResizeEffect(calcEllipsised, rootRef)
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     calcEllipsised()
   }, [
     props.content,
@@ -162,26 +170,32 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   ])
 
   const expandActionElement =
-    exceeded && props.expandText ? (
-      <a
-        onClick={() => {
-          setExpanded(true)
-        }}
-      >
-        {props.expandText}
-      </a>
-    ) : null
+    exceeded && props.expandText
+      ? withStopPropagation(
+          props.stopPropagationForActionButtons,
+          <a
+            onClick={() => {
+              setExpanded(true)
+            }}
+          >
+            {props.expandText}
+          </a>
+        )
+      : null
 
   const collapseActionElement =
-    exceeded && props.expandText ? (
-      <a
-        onClick={() => {
-          setExpanded(false)
-        }}
-      >
-        {props.collapseText}
-      </a>
-    ) : null
+    exceeded && props.expandText
+      ? withStopPropagation(
+          props.stopPropagationForActionButtons,
+          <a
+            onClick={() => {
+              setExpanded(false)
+            }}
+          >
+            {props.collapseText}
+          </a>
+        )
+      : null
 
   const renderContent = () => {
     if (!exceeded) {
@@ -207,7 +221,15 @@ export const Ellipsis: FC<EllipsisProps> = p => {
 
   return withNativeProps(
     props,
-    <div ref={rootRef} className={classPrefix}>
+    <div
+      ref={rootRef}
+      className={classPrefix}
+      onClick={e => {
+        if (e.target === e.currentTarget) {
+          props.onContentClick(e)
+        }
+      }}
+    >
       {renderContent()}
     </div>
   )

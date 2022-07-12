@@ -4,7 +4,8 @@
 
 | Version     | Supported |
 | ----------- | --------- |
-| 5.0.0-beta  | Y         |
+| 5.0.0-rc    | Y         |
+| 5.0.0-beta  | N         |
 | 5.0.0-alpha | N         |
 | 2.x         | N         |
 

@@ -1,33 +1,10 @@
 import React from 'react'
 import { Button, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { SearchOutline } from 'antd-mobile-icons'
 
 export default () => {
   return (
     <>
-      <DemoBlock title='不同颜色的按钮'>
-        <Space wrap>
-          <Button
-            onClick={() => {
-              alert('hello.')
-            }}
-          >
-            Default
-          </Button>
-          <Button color='primary'>Primary</Button>
-          <Button color='success'>Success</Button>
-          <Button color='danger'>Danger</Button>
-          <Button color='warning'>Warning</Button>
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title='块级按钮'>
-        <Button block color='primary' size='large'>
-          Block Button
-        </Button>
-      </DemoBlock>
-
       <DemoBlock title='填充模式'>
         <Space wrap>
           <Button color='primary' fill='solid'>
@@ -42,7 +19,13 @@ export default () => {
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='不同大小的按钮'>
+      <DemoBlock title='块级按钮'>
+        <Button block color='primary' size='large'>
+          Block Button
+        </Button>
+      </DemoBlock>
+
+      <DemoBlock title='按钮尺寸'>
         <Space wrap align='center'>
           <Button size='mini' color='primary'>
             Mini
@@ -59,44 +42,19 @@ export default () => {
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='禁用状态'>
+      <DemoBlock title='语义按钮'>
         <Space wrap>
-          <Button disabled>Disabled</Button>
-          <Button disabled color='primary'>
-            Disabled
+          <Button
+            onClick={() => {
+              alert('hello.')
+            }}
+          >
+            Default
           </Button>
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title='加载状态'>
-        <Space wrap>
-          <Button loading color='primary' loadingText='加载中'>
-            Loading
-          </Button>
-          <Button loading>Loading</Button>
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title='带图标的按钮'>
-        <Button>
-          <Space>
-            <SearchOutline />
-            <span>搜索</span>
-          </Space>
-        </Button>
-      </DemoBlock>
-
-      <DemoBlock title='不同类型圆角'>
-        <Space wrap>
-          <Button shape='default' color='primary'>
-            Default Button
-          </Button>
-          <Button block shape='rounded' color='primary'>
-            Rounded Button
-          </Button>
-          <Button block shape='rectangular' color='primary'>
-            Rectangular Button
-          </Button>
+          <Button color='primary'>Primary</Button>
+          <Button color='success'>Success</Button>
+          <Button color='danger'>Danger</Button>
+          <Button color='warning'>Warning</Button>
         </Space>
       </DemoBlock>
     </>

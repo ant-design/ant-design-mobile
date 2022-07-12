@@ -2,6 +2,7 @@ import { show } from './show'
 import { DialogProps } from './index'
 import { ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
+import { getDefaultConfig } from '../config-provider'
 
 export type DialogConfirmProps = Omit<
   DialogProps,
@@ -19,7 +20,15 @@ const defaultProps = {
 }
 
 export function confirm(p: DialogConfirmProps) {
-  const props = mergeProps(defaultProps, p)
+  const { locale } = getDefaultConfig()
+  const props = mergeProps(
+    defaultProps,
+    {
+      confirmText: locale.common.confirm,
+      cancelText: locale.common.cancel,
+    },
+    p
+  )
   return new Promise<boolean>(resolve => {
     show({
       ...props,

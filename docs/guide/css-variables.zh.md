@@ -58,3 +58,37 @@
 这样页面上全部的 Button 都会受到调整。
 
 当然，你也可以"局部性"地进行调整，只需要把对应的 CSS 变量添加到对应的父级节点上。
+
+## CSS 变量自动降级 <Experimental></Experimental>
+
+CSS 变量在 iOS Safari `>= 10` 和 Chrome `>= 49` 版本下是有原生支持的，这在大多数情况下都足够满足你的项目需要了。但是如果你的项目需要兼容 iOS 9，那就需要用特殊的方式来实现兼容了。
+
+CSS 变量具有很高的动态性，业界并没有很可靠的 polyfill 方案，因此 antd-mobile 从 `5.14.0` 版本开始，官方提供了一份补丁 CSS：
+
+```js
+import 'antd-mobile/bundle/css-vars-patch.css'
+```
+
+你可以在项目中引入它，来确保在 iOS 9 下组件样式也不会乱掉。
+
+> 对于 `2x` 项目，请引入对应的 `antd-mobile/2x/bundle/css-vars-patch.css`
+
+这份 patch CSS 会自动判断当前的浏览器环境，并且只在浏览器不支持 CSS 变量时才会生效。所以在大部分情况下，它都不会生效，对于你的项目也不会有直接的影响。但是当它生效时，所有依赖 CSS 变量的特性都不会再生效，例如：主题设置、基于 CSS 变量的组件样式调整、深色模式。
+
+目前，只有以下组件支持了 CSS 变量降级，其他组件的 CSS 变量降级能力我们还在持续完善中，请关注后续的发布：
+
+- Button
+- CenterPopup
+- ErrorBlock
+- Image
+- Mask
+- Modal
+- PageIndicator
+- Popover
+- PopoverMenu
+- ScrollMask
+- Space
+- SpinLoading
+- Swiper
+- Tabs
+- Toast

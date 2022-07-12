@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Button, DatePicker, DatePickerView, Picker, Toast } from 'antd-mobile'
+import React from 'react'
+import { Picker } from 'antd-mobile'
 
-const now = new Date()
+new Date()
 
 const columns = [
   [

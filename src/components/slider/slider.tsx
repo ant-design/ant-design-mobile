@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useRef } from 'react'
+import React, { FC, ReactNode, useMemo, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
@@ -22,6 +22,8 @@ export type SliderProps = {
   ticks?: boolean
   disabled?: boolean
   range?: boolean
+  icon?: ReactNode
+  popover?: boolean | ((value: number) => ReactNode)
   onChange?: (value: SliderValue) => void
   onAfterChange?: (value: SliderValue) => void
 } & NativeProps<'--fill-color'>
@@ -33,11 +35,12 @@ const defaultProps = {
   ticks: false,
   range: false,
   disabled: false,
+  popover: false,
 }
 
 export const Slider: FC<SliderProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const { min, max, disabled, marks, ticks, step } = props
+  const { min, max, disabled, marks, ticks, step, icon } = props
 
   function sortValue(val: [number, number]): [number, number] {
     return val.sort((a, b) => a - b)
@@ -147,6 +150,8 @@ export const Slider: FC<SliderProps> = p => {
         max={max}
         disabled={disabled}
         trackRef={trackRef}
+        icon={icon}
+        popover={props.popover}
         onDrag={(position, first, last) => {
           if (first) {
             dragLockRef.current += 1
@@ -165,6 +170,7 @@ export const Slider: FC<SliderProps> = p => {
             }, 100)
           }
         }}
+        aria-label={props['aria-label']}
       />
     )
   }

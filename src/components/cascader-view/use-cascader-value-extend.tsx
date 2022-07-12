@@ -21,7 +21,23 @@ export function useCascaderValueExtend(options: CascaderOption[]) {
           if (!target.children) break
           currentOptions = target.children
         }
+
         return ret
+      },
+      val => JSON.stringify(val)
+    )
+  }, [options])
+
+  const generateIsLeaf = useMemo(() => {
+    return memoize(
+      (val: CascaderValue[]) => {
+        const children = val.reduce((currentOptions, v) => {
+          return (
+            currentOptions.find(option => option.value === v)?.children || []
+          )
+        }, options)
+
+        return children.length === 0
       },
       val => JSON.stringify(val)
     )
@@ -31,6 +47,9 @@ export function useCascaderValueExtend(options: CascaderOption[]) {
     return {
       get items() {
         return generateItems(val)
+      },
+      get isLeaf() {
+        return generateIsLeaf(val)
       },
     }
   }

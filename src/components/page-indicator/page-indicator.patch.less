@@ -1,0 +1,34 @@
+.adm-page-indicator {
+  &-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 1px;
+    background: rgba(0, 0, 0, 0.2);
+
+    &-active {
+      border-radius: 1px;
+      background: #1677ff;
+    }
+  }
+  &-color-white {
+    .adm-page-indicator-dot-active.adm-page-indicator-dot-active {
+      background: #ffffff;
+    }
+  }
+  &-horizontal {
+    .adm-page-indicator-dot {
+      margin-right: 3px;
+      &-active {
+        width: 13px;
+      }
+    }
+  }
+  &-vertical {
+    .adm-page-indicator-dot {
+      margin-bottom: 3px;
+      &-active {
+        height: 13px;
+      }
+    }
+  }
+}

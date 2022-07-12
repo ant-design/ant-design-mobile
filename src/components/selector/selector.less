@@ -1,11 +1,17 @@
 @class-prefix-selector: ~'adm-selector';
 
 .@{class-prefix-selector} {
-  --color: var(--adm-color-text);
+  --color: var(--adm-color-box);
   --checked-color: #e7f1ff;
+  --text-color: var(--adm-color-text);
+  --checked-text-color: var(--adm-color-primary);
+  --border: none;
+  --checked-border: none;
+  --border-radius: 2px;
+  --padding: 8px 16px;
 
   overflow: hidden;
-  font-size: 15px;
+  font-size: var(--adm-font-size-7);
   line-height: 1.4;
 
   .adm-space.adm-space {
@@ -13,11 +19,12 @@
   }
 
   &-item {
-    padding: 8px 16px;
+    padding: var(--padding);
     position: relative;
-    background-color: #f5f5f5;
-    border-radius: 2px;
-    color: #333;
+    background-color: var(--color);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    color: var(--text-color);
     opacity: 1;
     cursor: pointer;
     display: inline-block;
@@ -26,14 +33,15 @@
     vertical-align: top;
 
     &-description {
-      font-size: 13px;
+      font-size: var(--adm-font-size-main);
       color: var(--adm-color-weak);
     }
 
     &-active,
     &-multiple-active {
-      color: var(--adm-color-primary);
+      color: var(--checked-text-color);
       background-color: var(--checked-color);
+      border: var(--checked-border);
     }
 
     .@{class-prefix-selector}-check-mark-wrapper {

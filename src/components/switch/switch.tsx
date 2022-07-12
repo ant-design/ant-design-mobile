@@ -1,9 +1,11 @@
 import classNames from 'classnames'
 import React, { FC, ReactNode, useState } from 'react'
-import SpinIcon from '../../assets/spin.svg'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { SpinIcon } from './spin-icon'
+import { useConfig } from '../config-provider'
+import { isPromise } from '../../utils/validate'
 
 const classPrefix = `adm-switch`
 
@@ -12,8 +14,9 @@ export type SwitchProps = {
   disabled?: boolean
   checked?: boolean
   defaultChecked?: boolean
+  /** @deprecated use `onChange` instead */
   beforeChange?: (val: boolean) => Promise<void>
-  onChange?: (checked: boolean) => void
+  onChange?: (checked: boolean) => void | Promise<void>
   checkedText?: ReactNode
   uncheckedText?: ReactNode
 } & NativeProps<'--checked-color' | '--width' | '--height' | '--border-width'>
@@ -26,6 +29,7 @@ export const Switch: FC<SwitchProps> = p => {
   const props = mergeProps(defaultProps, p)
   const disabled = props.disabled || props.loading || false
   const [changing, setChanging] = useState(false)
+  const { locale } = useConfig()
 
   const [checked, setChecked] = usePropsValue({
     value: props.checked,
@@ -42,14 +46,22 @@ export const Switch: FC<SwitchProps> = p => {
       setChanging(true)
       try {
         await props.beforeChange(nextChecked)
-        setChecked(nextChecked)
         setChanging(false)
       } catch (e) {
         setChanging(false)
         throw e
       }
-    } else {
-      setChecked(nextChecked)
+    }
+    const result = setChecked(nextChecked)
+    if (isPromise(result)) {
+      setChanging(true)
+      try {
+        await result
+        setChanging(false)
+      } catch (e) {
+        setChanging(false)
+        throw e
+      }
     }
   }
 
@@ -61,15 +73,15 @@ export const Switch: FC<SwitchProps> = p => {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled || changing,
       })}
+      role='switch'
+      aria-label={locale.Switch.name}
+      aria-checked={checked}
+      aria-disabled={disabled}
     >
       <div className={`${classPrefix}-checkbox`}>
         <div className={`${classPrefix}-handle`}>
           {(props.loading || changing) && (
-            <img
-              src={SpinIcon}
-              className={`${classPrefix}-icon`}
-              alt='switch-handle'
-            />
+            <SpinIcon className={`${classPrefix}-spin-icon`} />
           )}
         </div>
         <div className={`${classPrefix}-inner`}>

@@ -2,10 +2,11 @@ import { mergeProps } from '../../utils/with-default-props'
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { getScrollParent } from '../../utils/get-scroll-parent'
-import React, { FC, ReactNode, useRef, useState } from 'react'
+import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import { supportsPassive } from '../../utils/supports-passive'
 import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
+import { useConfig } from '../config-provider'
 import { sleep } from '../../utils/sleep'
 
 const classPrefix = `adm-pull-to-refresh`
@@ -23,12 +24,13 @@ export type PullToRefreshProps = {
   threshold?: number
   disabled?: boolean
   renderText?: (status: PullStatus) => ReactNode
+  children?: React.ReactNode
 }
 
 export const defaultProps = {
   pullingText: '下拉刷新',
   canReleaseText: '释放立即刷新',
-  refreshingText: '加载中……',
+  refreshingText: '加载中...',
   completeText: '刷新成功',
   completeDelay: 500,
   disabled: false,
@@ -36,7 +38,17 @@ export const defaultProps = {
 }
 
 export const PullToRefresh: FC<PullToRefreshProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const { locale } = useConfig()
+  const props = mergeProps(
+    defaultProps,
+    {
+      refreshingText: `${locale.common.loading}...`,
+      pullingText: locale.PullToRefresh.pulling,
+      canReleaseText: locale.PullToRefresh.canRelease,
+      completeText: locale.PullToRefresh.complete,
+    },
+    p
+  )
   const headHeight = props.headHeight ?? convertPx(40)
   const threshold = props.threshold ?? convertPx(60)
 
@@ -54,6 +66,11 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
   const elementRef = useRef<HTMLDivElement>(null)
 
   const pullingRef = useRef(false)
+
+  //防止下拉时抖动
+  useEffect(() => {
+    elementRef.current?.addEventListener('touchmove', () => {})
+  }, [])
 
   async function doRefresh() {
     api.start({ height: headHeight })
@@ -99,17 +116,24 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       }
 
       const [, y] = state.movement
-      if (state.first) {
-        const element = elementRef.current
-        if (!element) return
-        const scrollParent = getScrollParent(element)
-        if (!scrollParent) return
-        const top =
-          'scrollTop' in scrollParent
-            ? scrollParent.scrollTop
-            : scrollParent.pageYOffset
-        if (top <= 0 && y > 0) {
-          pullingRef.current = true
+      if (state.first && y > 0) {
+        const target = state.event.target
+        if (!target || !(target instanceof Element)) return
+        let scrollParent = getScrollParent(target)
+        while (true) {
+          if (!scrollParent) return
+          const scrollTop = getScrollTop(scrollParent)
+          if (scrollTop > 0) {
+            return
+          }
+          if (scrollParent instanceof Window) {
+            break
+          }
+          scrollParent = getScrollParent(scrollParent.parentNode as Element)
+        }
+        pullingRef.current = true
+        function getScrollTop(element: Window | Element) {
+          return 'scrollTop' in element ? element.scrollTop : element.scrollY
         }
       }
 
@@ -131,7 +155,9 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       axis: 'y',
       target: elementRef,
       enabled: !props.disabled,
-      eventOptions: supportsPassive ? { passive: false } : false,
+      eventOptions: supportsPassive
+        ? { passive: false }
+        : (false as unknown as AddEventListenerOptions),
     }
   )
 

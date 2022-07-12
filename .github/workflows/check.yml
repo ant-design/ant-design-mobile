@@ -8,20 +8,47 @@ jobs:
   check:
     runs-on: ubuntu-18.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup node and yarn
-        uses: actions/setup-node@v2
+      - name: Check
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
-          cache: 'yarn'
-      - name: Node version
-        run: node -v
-      - name: Yarn version
-        run: yarn -v
-      - name: Install
-        run: yarn install
+          node-version: '16'
+
+      - name: Install pnpm
+        id: pnpm-install
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
+
       - name: Test
-        run: yarn test
+        run: pnpm test-with-coverage
+
+      - name: Codecov
+        uses: codecov/codecov-action@v2.1.0
+        with:
+          directory: ./coverage/
+
+      - name: Build
+        run: pnpm build

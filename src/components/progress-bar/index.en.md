@@ -1,17 +1,32 @@
 # ProgressBar
 
+Percentage progress is represented as a bar graph.
+
+## When to Use
+
+It is suitable for displaying the current progress of the task.
+
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+<code src="./demos/demo2.tsx"></code>
+
+## ProgressBar
 
 ### Props
 
-| Name    | Description                 | Type     | Default |
-| ------- | --------------------------- | -------- | ------- |
-| percent | Percent of the progress bar | `number` | `0`     |
+| Name    | Description                                                        | Type                                                       | Default |
+| ------- | ------------------------------------------------------------------ | ---------------------------------------------------------- | ------- |
+| percent | Percent of the progress bar                                        | `number`                                                   | `0`     |
+| rounded | Whether to round the corners                                       | `boolean`                                                  | `true`  |
+| text    | Whether to display progress text, support custom rendering content | `boolean \| ReactNode \| ((percent: number) => ReactNode)` | `false` |
 
 ### CSS Variables
 
-| Name          | Description             | Default   | Global                           |
-| ------------- | ----------------------- | --------- | -------------------------------- |
-| --track-width | The width of line.      | `3px`     | `--adm-progress-bar-track-width` |
-| --track-color | The color of line.      | `#e5e5e5` | `--adm-progress-bar-track-color` |
-| --fill-color  | The color of fill part. | `#1677FF` | `--adm-progress-bar-fill-color`  |
+| Name          | Description                | Default                    | Global                           |
+| ------------- | -------------------------- | -------------------------- | -------------------------------- |
+| --fill-color  | The color of fill part.    | `var(--adm-color-primary)` | `--adm-progress-bar-fill-color`  |
+| --track-color | The color of line.         | `#e5e5e5`                  | `--adm-progress-bar-track-color` |
+| --track-width | The width of line.         | `8px`                      | `--adm-progress-bar-track-width` |
+| --text-width  | The width of text content. | `40px`                     | `--adm-progress-bar-text-width`  |

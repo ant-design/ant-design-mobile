@@ -2,7 +2,7 @@
 
 .@{class-prefix-slider} {
   --fill-color: var(--adm-color-primary);
-  padding: 4px 12px;
+  padding: 5px 14px;
   list-style: none;
   user-select: none;
 
@@ -13,30 +13,33 @@
   &-track {
     position: relative;
     width: 100%;
-    height: 4px;
-    background-color: #f5f5f5;
+    height: 3px;
+    background-color: var(--adm-color-box);
+    border-radius: 3px;
   }
 
   &-fill {
     position: absolute;
-    height: 4px;
+    z-index: 1;
+    height: 3px;
+    border-radius: 3px;
     background-color: var(--fill-color);
   }
 
   &-ticks {
     position: absolute;
     width: 100%;
-    height: 4px;
+    height: 3px;
     background: transparent;
   }
 
   &-tick {
     position: absolute;
-    top: -3.5px;
-    width: 11px;
-    height: 11px;
-    margin-left: -5px;
-    background-color: #f5f5f5;
+    top: -2px;
+    width: 7px;
+    height: 7px;
+    margin-left: -3px;
+    background-color: var(--adm-color-box);
     border-radius: 50%;
     &-active {
       background-color: var(--fill-color);
@@ -44,26 +47,30 @@
   }
 
   &-thumb {
-    touch-action: none;
-    position: absolute;
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
+    margin: 2px;
     border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff url('../../assets/slider-thumb.svg') no-repeat center
-      center;
-    background-size: 10px 10px;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.12),
-      0 1.5px 3px -2px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    line-height: 28px;
+    background: var(--adm-color-white);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+    color: var(--fill-color);
     &:focus {
       outline: none;
     }
   }
+  &-thumb-icon {
+    width: 12px;
+    height: 12px;
+    margin: 8px;
+    user-select: none;
+  }
   &-thumb-container {
+    cursor: grab;
     touch-action: none;
     position: absolute;
+    z-index: 2;
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -75,16 +82,16 @@
     position: relative;
     width: 100%;
     overflow: visible;
-    font-size: 12px;
-    height: 12px;
-    margin-top: 4px;
+    font-size: var(--adm-font-size-3);
+    height: 11px;
+    margin-top: 10px;
   }
 
   &-mark-text {
     position: absolute;
     display: inline-block;
-    line-height: 16px;
-    color: #999;
+    line-height: 1;
+    color: var(--adm-color-text);
     text-align: center;
     word-break: keep-all;
     user-select: none;

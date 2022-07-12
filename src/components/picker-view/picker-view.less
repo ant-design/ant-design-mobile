@@ -2,12 +2,14 @@
 
 .@{class-prefix-picker-view} {
   --height: 240px;
+  --item-height: 34px;
+  --item-font-size: var(--adm-font-size-8);
   height: var(--height);
   width: 100%;
   display: flex;
   position: relative;
   overflow: hidden;
-  background: var(--adm-color-white);
+  background: var(--adm-color-background);
 }
 
 .@{class-prefix-picker-view}-column {
@@ -21,7 +23,7 @@
     width: 100%;
     cursor: grab;
     position: absolute;
-    top: calc(50% - 17px);
+    top: calc(50% - var(--item-height) / 2);
     left: 0;
     &::before {
       content: ' ';
@@ -41,9 +43,9 @@
     }
   }
   &-item {
-    font-size: 16px;
+    font-size: var(--item-font-size);
     padding: 0 6px;
-    height: 34px;
+    height: var(--item-height);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,6 +65,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  z-index: 0;
+  padding-bottom: 1px;
   > * {
     flex: 1;
     text-overflow: ellipsis;
@@ -80,7 +84,7 @@
 
 .@{class-prefix-picker-view}-mask {
   position: absolute;
-  z-index: 100;
+  z-index: 10000;
   left: 0;
   top: 0;
   width: 100%;
@@ -93,26 +97,36 @@
     flex: auto;
   }
   &-middle {
-    height: 34px;
+    height: var(--item-height);
     box-sizing: border-box;
     flex: none;
-    border-top: solid 1px var(--adm-border-color);
-    border-bottom: solid 1px var(--adm-border-color);
+    border-top: solid 1px var(--adm-color-border);
+    border-bottom: solid 1px var(--adm-color-border);
   }
   &-top {
-    background: linear-gradient(
+    background: var(--adm-color-background);
+    mask: linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.6) 0%,
-      rgba(255, 255, 255, 0.8) 50%,
-      rgba(255, 255, 255, 1)
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.8) 50%,
+      rgba(0, 0, 0, 1) 100%
     );
   }
   &-bottom {
-    background: linear-gradient(
+    background: var(--adm-color-background);
+    mask: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.6) 0%,
-      rgba(255, 255, 255, 0.8) 50%,
-      rgba(255, 255, 255, 1)
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.8) 50%,
+      rgba(0, 0, 0, 1) 100%
     );
   }
+}
+
+.@{class-prefix-picker-view}-loading-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

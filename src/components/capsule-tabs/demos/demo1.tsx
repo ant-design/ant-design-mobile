@@ -5,7 +5,7 @@ import { DemoBlock } from 'demos'
 export default () => {
   return (
     <>
-      <DemoBlock title='基本用法' padding='0'>
+      <DemoBlock title='基础用法' padding='0'>
         <CapsuleTabs>
           <CapsuleTabs.Tab title='水果' key='fruits'>
             菠萝
@@ -19,7 +19,7 @@ export default () => {
         </CapsuleTabs>
       </DemoBlock>
 
-      <DemoBlock title='超长自动滚动' padding='0'>
+      <DemoBlock title='超长自动滑动' padding='0'>
         <CapsuleTabs defaultActiveKey='1'>
           <CapsuleTabs.Tab title='Espresso' key='1'>
             1
@@ -53,7 +53,7 @@ export default () => {
         </CapsuleTabs>
       </DemoBlock>
 
-      <DemoBlock title='禁用' padding='0'>
+      <DemoBlock title='禁用状态' padding='0'>
         <CapsuleTabs>
           <CapsuleTabs.Tab title='水果' key='fruits' />
           <CapsuleTabs.Tab title='蔬菜' key='vegetables' />

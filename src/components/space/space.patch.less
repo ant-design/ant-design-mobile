@@ -1,0 +1,21 @@
+@class-prefix-space: ~'adm-space';
+
+.@{class-prefix-space} {
+  &-vertical {
+    > .@{class-prefix-space}-item {
+      margin-bottom: 8px;
+    }
+  }
+  &-horizontal {
+    > .@{class-prefix-space}-item {
+      margin-right: 8px;
+    }
+    &.@{class-prefix-space}-wrap {
+      flex-wrap: wrap;
+      margin-bottom: -8px;
+      > .@{class-prefix-space}-item {
+        padding-bottom: 8px;
+      }
+    }
+  }
+}

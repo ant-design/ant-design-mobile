@@ -2,7 +2,11 @@ import { attachPropertiesToComponent } from '../../utils/attach-properties-to-co
 import { prompt } from './prompt'
 import { CascadePicker } from './cascade-picker'
 
-export type { CascadePickerProps, CascadePickerOption } from './cascade-picker'
+export type {
+  CascadePickerProps,
+  CascadePickerRef,
+  CascadePickerOption,
+} from './cascade-picker'
 
 export default attachPropertiesToComponent(CascadePicker, {
   prompt,

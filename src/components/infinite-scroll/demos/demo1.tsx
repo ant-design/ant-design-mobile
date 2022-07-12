@@ -1,35 +1,6 @@
 import React, { useState } from 'react'
 import { InfiniteScroll, List } from 'antd-mobile'
-import { sleep } from 'antd-mobile/es/utils/sleep'
-
-let count = 0
-
-async function mockRequest() {
-  if (count >= 5) {
-    return []
-  }
-  await sleep(2000)
-  count++
-  return [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-  ]
-}
+import { mockRequest } from './mock-request'
 
 export default () => {
   const [data, setData] = useState<string[]>([])

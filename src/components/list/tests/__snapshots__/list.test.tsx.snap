@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`list should works given ref 1`] = `
+<body>
+  <div>
+    <div
+      class="adm-list adm-list-default"
+    >
+      <div
+        class="adm-list-body"
+      >
+        <div
+          class="adm-list-body-inner"
+        >
+          <div
+            class="adm-list-item"
+          >
+            <div
+              class="adm-list-item-content"
+            >
+              <div
+                class="adm-list-item-content-main"
+              >
+                1
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

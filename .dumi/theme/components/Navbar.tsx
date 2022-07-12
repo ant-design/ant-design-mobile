@@ -1,85 +1,88 @@
-import type { FC, MouseEvent } from 'react'
-import React, { useContext } from 'react'
+import type { FC } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { context, Link, NavLink } from 'dumi/theme'
 import LocaleSelect from './LocaleSelect'
 import './Navbar.less'
 import p from '../../../package.json'
 import SearchBar from './SearchBar'
+import { Popover } from 'antd-mobile'
+import { Action } from 'antd-mobile/es/components/popover'
 
 interface INavbarProps {
   location: any
   darkPrefix?: React.ReactNode
-  onMobileMenuClick: (ev: MouseEvent<HTMLButtonElement>) => void
 }
 
-const Navbar: FC<INavbarProps> = ({
-  onMobileMenuClick,
-  location,
-  darkPrefix,
-}) => {
+const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
   const {
     base,
-    config: { mode, title, logo },
-    nav: navItems,
+    config: { title, logo },
+    nav,
+    locale,
   } = useContext(context)
 
-  return (
-    <div className='__dumi-default-navbar' data-mode={mode}>
-      {/* menu toogle button (only for mobile) */}
-      <button
-        className='__dumi-default-navbar-toggle'
-        onClick={onMobileMenuClick}
-      />
-      {/* logo & title */}
-      <div>
-        <Link
-          className='__dumi-default-navbar-logo'
-          style={{
-            backgroundImage: logo ? `url('${logo}')` : undefined,
-          }}
-          to={base}
-          data-plaintext={logo === false || undefined}
-        >
-          {title}
-        </Link>
-        <div className='__dumi-default-navbar-version'>{`v${p.version}`}</div>
-      </div>
-      <nav>
-        <div className='nav-item'>
-          <SearchBar />
-        </div>
-        {navItems.map(nav => {
-          const child = Boolean(nav.children?.length) && (
-            <ul>
-              {nav.children.map(
-                item =>
-                  !!item.path && (
-                    <li key={item.path}>
-                      <NavLink to={item.path}>{item.title}</NavLink>
-                    </li>
-                  )
-              )}
-            </ul>
-          )
+  const navItems = useMemo(() => {
+    const isCN = !!locale && /^zh|cn$/i.test(locale)
 
-          return (
-            <span key={nav.title || nav.path}>
-              {nav.path ? (
-                <NavLink to={nav.path} key={nav.path}>
-                  {nav.title}
-                </NavLink>
-              ) : (
-                nav.title
-              )}
-              {child}
-            </span>
-          )
-        })}
-        <div className='__dumi-default-navbar-tool'>
-          <LocaleSelect location={location} />
-          {darkPrefix}
-        </div>
-      </nav>
+    if (
+      isCN &&
+      typeof window !== undefined &&
+      window.location.host === 'ant-design-mobile.antgroup.com'
+    ) {
+      return nav.filter(item => item.title !== '国内镜像')
+    }
+
+    return nav
+  }, [nav, locale])
+
+  return (
+    <div className='__dumi-default-navbar'>
+      <button className='__dumi-default-navbar-toggle' />
+      <div className='left-part'>
+        <Link className='__dumi-default-navbar-logo' to={base}>
+          <img src={logo.toString()} alt='logo' />
+          <div className='title'>{title}</div>
+          <div className='version'>{`v${p.version}`}</div>
+        </Link>
+      </div>
+      <div className='middle-part'>
+        <SearchBar />
+      </div>
+      <div className='right-part'>
+        <nav>
+          {navItems.map(nav => {
+            const key = nav.title || nav.path
+            const actions: Action[] =
+              Boolean(nav.children?.length) &&
+              nav.children.map(item => ({
+                text: item.title,
+                onClick: () => {
+                  window.open(item.path, '_blank')
+                },
+              }))
+            const span = (
+              <span key={key}>
+                {nav.path ? (
+                  <NavLink to={nav.path}>{nav.title}</NavLink>
+                ) : (
+                  <a>{nav.title}</a>
+                )}
+              </span>
+            )
+            return actions ? (
+              <Popover.Menu trigger='click' actions={actions} key={key}>
+                {span}
+              </Popover.Menu>
+            ) : (
+              span
+            )
+          })}
+          <div className='__dumi-default-navbar-tool'>
+            <LocaleSelect location={location} />
+            {darkPrefix}
+          </div>
+        </nav>
+      </div>
     </div>
   )
 }
