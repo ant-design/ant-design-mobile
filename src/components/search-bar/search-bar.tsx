@@ -144,6 +144,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
             inputRef.current?.blur()
             props.onSearch?.(value)
           }}
+          aria-label={locale.SearchBar.name}
         />
       </div>
       {renderCancelButton()}

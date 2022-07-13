@@ -1060,9 +1060,11 @@ exports[`ConfigProvider should display the text as en 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Search Bar"
         class="adm-input adm-search-bar-input"
       >
         <input
+          aria-label="Search Bar"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
@@ -2276,9 +2278,11 @@ exports[`ConfigProvider should display the text as es 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Search Bar"
         class="adm-input adm-search-bar-input"
       >
         <input
+          aria-label="Search Bar"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
@@ -3492,9 +3496,11 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Search Bar"
         class="adm-input adm-search-bar-input"
       >
         <input
+          aria-label="Search Bar"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
@@ -4708,9 +4714,11 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Search Bar"
         class="adm-input adm-search-bar-input"
       >
         <input
+          aria-label="Search Bar"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
@@ -5924,9 +5932,11 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Search Bar"
         class="adm-input adm-search-bar-input"
       >
         <input
+          aria-label="Search Bar"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
@@ -7140,9 +7150,11 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Search Bar"
         class="adm-input adm-search-bar-input"
       >
         <input
+          aria-label="Search Bar"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
@@ -8356,9 +8368,11 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Search Bar"
         class="adm-input adm-search-bar-input"
       >
         <input
+          aria-label="Search Bar"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
@@ -9572,9 +9586,11 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
         </svg>
       </div>
       <div
+        aria-label="搜索框"
         class="adm-input adm-search-bar-input"
       >
         <input
+          aria-label="搜索框"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
@@ -10788,9 +10804,11 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Search Bar"
         class="adm-input adm-search-bar-input"
       >
         <input
+          aria-label="Search Bar"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
@@ -12004,9 +12022,11 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
         </svg>
       </div>
       <div
+        aria-label="Search Bar"
         class="adm-input adm-search-bar-input"
       >
         <input
+          aria-label="Search Bar"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"

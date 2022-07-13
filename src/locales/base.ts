@@ -95,6 +95,9 @@ export const base = {
     failedToLoad: 'Failed to load',
     retry: 'Retry',
   },
+  Input: {
+    clear: 'clear',
+  },
   Mask: {
     name: 'Mask',
   },
@@ -105,6 +108,9 @@ export const base = {
     pulling: 'Scroll down to refresh',
     canRelease: 'Release to refresh immediately',
     complete: 'Refresh successful',
+  },
+  SearchBar: {
+    name: 'Search Bar',
   },
   Slider: {
     name: 'Slider',
