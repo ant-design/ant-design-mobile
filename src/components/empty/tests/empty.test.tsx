@@ -14,4 +14,9 @@ describe('Result', () => {
     render(<Empty image='url' />)
     expect(screen.getByRole('img')).toHaveAttribute('src', 'url')
   })
+
+  test('renders with custom image', () => {
+    render(<Empty image={<div>empty</div>} />)
+    expect(screen.getByText('empty')).toBeInTheDocument()
+  })
 })
