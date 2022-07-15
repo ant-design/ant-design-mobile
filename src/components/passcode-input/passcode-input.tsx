@@ -119,9 +119,10 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
         cells.push(
           <div
             className={classNames(`${classPrefix}-cell`, {
-              caret: props.caret && caretIndex === i && focused,
-              focused: focusedIndex === i && focused,
-              dot: !props.plain && chars[i],
+              [`${classPrefix}-cell-caret`]:
+                props.caret && caretIndex === i && focused,
+              [`${classPrefix}-cell-focused`]: focusedIndex === i && focused,
+              [`${classPrefix}-cell-dot`]: !props.plain && chars[i],
             })}
             key={i}
           >
@@ -133,9 +134,9 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
     }
 
     const cls = classNames(classPrefix, {
-      focused: focused,
-      error: props.error,
-      seperated: props.seperated,
+      [`${classPrefix}-focused`]: focused,
+      [`${classPrefix}-error`]: props.error,
+      [`${classPrefix}-seperated`]: props.seperated,
     })
 
     return (

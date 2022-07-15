@@ -27,42 +27,44 @@
     background: var(--adm-color-background);
   }
 
-  &:not(.seperated) {
+  &:not(.@{class-prefix-passcode-input}-seperated) {
     border-radius: var(--border-radius);
     overflow: hidden;
     border: 1px solid var(--border-color);
     .@{class-prefix-passcode-input}-cell:not(:last-child) {
       border-right: 1px solid var(--border-color);
     }
-    &.focused {
+    &.@{class-prefix-passcode-input}-focused {
       border-color: var(--adm-color-primary);
       box-shadow: 0 0 2px 0 var(--adm-color-primary);
       outline: none;
     }
-    &.error {
+    &.@{class-prefix-passcode-input}-error {
       border-color: var(--adm-color-danger);
       box-shadow: 0 0 2px 0 var(--adm-color-danger);
       animation: 100ms ease-in-out 0s 3 normal none running adm-shake-horizontal;
     }
   }
 
-  &.seperated &-cell {
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-    &:not(:last-child) {
-      margin-right: var(--cell-gap);
-    }
-    &.focused {
-      border-color: var(--adm-color-primary);
-      box-shadow: 0 0 2px 0 var(--adm-color-primary);
+  &&-seperated {
+    .@{class-prefix-passcode-input}-cell {
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      &:not(:last-child) {
+        margin-right: var(--cell-gap);
+      }
+      &-focused {
+        border-color: var(--adm-color-primary);
+        box-shadow: 0 0 2px 0 var(--adm-color-primary);
+      }
     }
   }
 
-  &.seperated.focused {
+  &-seperated&-focused {
     outline: none;
   }
 
-  &.seperated.error {
+  &&-seperated&-error {
     animation: 100ms ease-in-out 0s 3 normal none running adm-shake-horizontal;
     .@{class-prefix-passcode-input}-cell {
       border-color: var(--adm-color-danger);
@@ -70,21 +72,25 @@
     }
   }
 
-  &-cell.dot::before {
-    content: '';
-    width: var(--dot-size);
-    height: var(--dot-size);
-    border-radius: 50%;
-    background: var(--adm-color-text);
+  &-cell {
+    &-dot::before {
+      content: '';
+      width: var(--dot-size);
+      height: var(--dot-size);
+      border-radius: 50%;
+      background: var(--adm-color-text);
+    }
   }
 
-  &-cell.caret::after {
-    content: '';
-    width: 2px;
-    height: 1.1em;
-    margin-left: 1px;
-    background: var(--adm-color-primary);
-    animation: 1s linear infinite adm-caret-blink;
+  &-cell {
+    &-caret::after {
+      content: '';
+      width: 2px;
+      height: 1.1em;
+      margin-left: 1px;
+      background: var(--adm-color-primary);
+      animation: 1s linear infinite adm-caret-blink;
+    }
   }
 
   > .@{class-prefix-passcode-input}-native-input {
