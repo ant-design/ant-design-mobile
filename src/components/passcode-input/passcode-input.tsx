@@ -12,6 +12,7 @@ import type { NumberKeyboardProps } from '../number-keyboard'
 import classNames from 'classnames'
 import { bound } from '../../utils/bound'
 import { usePropsValue } from '../../utils/use-props-value'
+import { useConfig } from '../config-provider'
 
 export type PasscodeInputProps = {
   value?: string
@@ -58,6 +59,7 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
       props.length > 0 && props.length < Infinity
         ? Math.floor(props.length)
         : defaultProps.length
+    const { locale } = useConfig()
 
     const [focused, setFocused] = useState(false)
     const [value, setValue] = usePropsValue(props)
@@ -146,6 +148,8 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
             className={cls}
             onFocus={onFocus}
             onBlur={onBlur}
+            role='button'
+            aria-label={locale.PasscodeInput.name}
           >
             <div className={`${classPrefix}-cell-container`}>
               {renderCells()}
@@ -160,6 +164,7 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
               onChange={e => {
                 setValue(e.target.value.slice(0, props.length))
               }}
+              aria-hidden
             />
           </div>
         )}

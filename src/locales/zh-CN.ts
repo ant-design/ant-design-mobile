@@ -107,6 +107,9 @@ const zhCN = mergeLocale(base, {
   Modal: {
     ok: '我知道了',
   },
+  PasscodeInput: {
+    name: '密码输入框',
+  },
   PullToRefresh: {
     pulling: '下拉刷新',
     canRelease: '释放立即刷新',
