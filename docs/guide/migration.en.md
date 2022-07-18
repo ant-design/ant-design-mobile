@@ -82,4 +82,4 @@ import { Button } from 'antd-mobile' // v2
 import { Button } from 'antd-mobile-v5' // v5
 ```
 
-Need to be noted, not every package manager has a well support for npm alias.
+Please note that npm aliases are not well supported by all package managers
