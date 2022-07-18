@@ -91,6 +91,8 @@ export const Rate: FC<RateProps> = p => {
       ))}
 
       <input
+        role='slider'
+        aria-label='hidden'
         type='range'
         className={classNames(`${classPrefix}-range`)}
         step={0.01}

@@ -21,11 +21,19 @@ describe('Rate', () => {
   test('allowHalf should be work', () => {
     render(<Rate allowHalf />)
     const radio = screen.getByRole('radio', { name: '1.5' })
-    fireEvent.click(radio)
+    const input = screen.getByRole('slider')
+    fireEvent.change(input, {
+      target: {
+        value: 1.5,
+      },
+    })
     expect(radio).toHaveClass(`${classPrefix}-star-half`)
     expect(radio).toHaveClass(`${classPrefix}-star-active`)
-
-    fireEvent.click(radio)
+    fireEvent.change(input, {
+      target: {
+        value: 0,
+      },
+    })
     expect(
       document.querySelectorAll(`.${classPrefix}-star-active`)
     ).toHaveLength(0)
