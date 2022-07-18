@@ -9,100 +9,102 @@ exports[`ActionSheet basic usage 1`] = `
       class="adm-button adm-button-default adm-button-shape-default"
       type="button"
     >
-      button
+      <span>
+        button
+      </span>
     </button>
+  </div>
+  <div
+    class="adm-popup adm-action-sheet-popup"
+  >
     <div
-      class="adm-popup adm-action-sheet-popup"
+      class="adm-mask"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
     >
       <div
-        class="adm-mask"
-        style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
-      >
-        <div
-          aria-label="遮罩层"
-          class="adm-mask-aria-button"
-          role="button"
-        />
-        <div
-          class="adm-mask-content"
-        />
-      </div>
+        aria-label="遮罩层"
+        class="adm-mask-aria-button"
+        role="button"
+      />
       <div
-        class="adm-popup-body adm-popup-body-position-bottom"
-        style="transform: translate(0, 0%);"
+        class="adm-mask-content"
+      />
+    </div>
+    <div
+      class="adm-popup-body adm-popup-body-position-bottom"
+      style="transform: translate(0, 0%);"
+    >
+      <div
+        class="adm-action-sheet"
       >
         <div
-          class="adm-action-sheet"
+          class="adm-action-sheet-extra"
+        >
+          请选择你要进行的操作
+        </div>
+        <div
+          class="adm-action-sheet-button-list"
         >
           <div
-            class="adm-action-sheet-extra"
+            class="adm-action-sheet-button-item-wrapper"
           >
-            请选择你要进行的操作
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
+            >
+              <div
+                class="adm-action-sheet-button-item-name"
+              >
+                复制
+              </div>
+            </a>
           </div>
           <div
-            class="adm-action-sheet-button-list"
+            class="adm-action-sheet-button-item-wrapper"
           >
-            <div
-              class="adm-action-sheet-button-item-wrapper"
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
             >
-              <a
-                class="adm-plain-anchor adm-action-sheet-button-item"
+              <div
+                class="adm-action-sheet-button-item-name"
               >
-                <div
-                  class="adm-action-sheet-button-item-name"
-                >
-                  复制
-                </div>
-              </a>
-            </div>
-            <div
-              class="adm-action-sheet-button-item-wrapper"
-            >
-              <a
-                class="adm-plain-anchor adm-action-sheet-button-item"
-              >
-                <div
-                  class="adm-action-sheet-button-item-name"
-                >
-                  修改
-                </div>
-              </a>
-            </div>
-            <div
-              class="adm-action-sheet-button-item-wrapper"
-            >
-              <a
-                class="adm-plain-anchor adm-action-sheet-button-item"
-              >
-                <div
-                  class="adm-action-sheet-button-item-name"
-                >
-                  删除
-                </div>
-              </a>
-            </div>
+                修改
+              </div>
+            </a>
           </div>
           <div
-            class="adm-action-sheet-cancel"
+            class="adm-action-sheet-button-item-wrapper"
           >
-            <div
-              class="adm-action-sheet-button-item-wrapper"
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
             >
-              <a
-                class="adm-plain-anchor adm-action-sheet-button-item"
+              <div
+                class="adm-action-sheet-button-item-name"
               >
-                <div
-                  class="adm-action-sheet-button-item-name"
-                >
-                  取消
-                </div>
-              </a>
-            </div>
+                删除
+              </div>
+            </a>
           </div>
-          <div
-            class="adm-safe-area adm-safe-area-position-bottom"
-          />
         </div>
+        <div
+          class="adm-action-sheet-cancel"
+        >
+          <div
+            class="adm-action-sheet-button-item-wrapper"
+          >
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
+            >
+              <div
+                class="adm-action-sheet-button-item-name"
+              >
+                取消
+              </div>
+            </a>
+          </div>
+        </div>
+        <div
+          class="adm-safe-area adm-safe-area-position-bottom"
+        />
       </div>
     </div>
   </div>

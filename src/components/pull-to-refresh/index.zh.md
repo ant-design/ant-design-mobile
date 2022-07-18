@@ -49,7 +49,7 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 
 ### 是否支持上拉加载更多？
 
-上拉加载更多是另一个组件：[InfiniteScroll](./infinite-scroll)。
+上拉加载更多是另一个组件：[InfiniteScroll](/zh/components/infinite-scroll)。
 
 ### 关于浏览器的默认下拉行为
 

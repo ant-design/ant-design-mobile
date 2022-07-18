@@ -12,6 +12,8 @@
     justify-content: center;
     .@{class-prefix-empty}-image {
       width: 64px;
+      // Hack fix for iOS 11.4, see: https://github.com/ant-design/ant-design-mobile/issues/5400
+      height: intrinsic;
     }
   }
 

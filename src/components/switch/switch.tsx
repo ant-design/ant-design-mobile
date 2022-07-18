@@ -5,6 +5,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { SpinIcon } from './spin-icon'
 import { useConfig } from '../config-provider'
+import { isPromise } from '../../utils/validate'
 
 const classPrefix = `adm-switch`
 
@@ -13,8 +14,9 @@ export type SwitchProps = {
   disabled?: boolean
   checked?: boolean
   defaultChecked?: boolean
+  /** @deprecated use `onChange` instead */
   beforeChange?: (val: boolean) => Promise<void>
-  onChange?: (checked: boolean) => void
+  onChange?: (checked: boolean) => void | Promise<void>
   checkedText?: ReactNode
   uncheckedText?: ReactNode
 } & NativeProps<'--checked-color' | '--width' | '--height' | '--border-width'>
@@ -44,14 +46,22 @@ export const Switch: FC<SwitchProps> = p => {
       setChanging(true)
       try {
         await props.beforeChange(nextChecked)
-        setChecked(nextChecked)
         setChanging(false)
       } catch (e) {
         setChanging(false)
         throw e
       }
-    } else {
-      setChecked(nextChecked)
+    }
+    const result = setChecked(nextChecked)
+    if (isPromise(result)) {
+      setChanging(true)
+      try {
+        await result
+        setChanging(false)
+      } catch (e) {
+        setChanging(false)
+        throw e
+      }
     }
   }
 

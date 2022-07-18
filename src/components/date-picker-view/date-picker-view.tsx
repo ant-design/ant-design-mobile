@@ -17,7 +17,7 @@ import type {
 
 export type DatePickerViewProps = Pick<
   PickerViewProps,
-  'style' | 'mouseWheel'
+  'style' | 'mouseWheel' | 'loading' | 'loadingContent'
 > & {
   value?: Date
   defaultValue?: Date
@@ -75,6 +75,8 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
           props.filter
         )
       }
+      loading={props.loading}
+      loadingContent={props.loadingContent}
       value={pickerValue}
       mouseWheel={props.mouseWheel}
       onChange={onChange}

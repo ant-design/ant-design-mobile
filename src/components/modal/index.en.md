@@ -117,4 +117,4 @@ event to close all modals automatically without using modal reference to close.
 
 ### Are there any pop-up windows with no content, no buttons, and no margins?
 
-Yes, you can directly use the lower-level [CenterPopup](./popup#centerpopup) component.
+Yes, you can directly use the lower-level [CenterPopup](/components/popup#centerpopup) component.

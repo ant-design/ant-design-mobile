@@ -32,4 +32,4 @@ Another style for tabs, used in lists or modules in presentational interfaces.
 | key            | Corresponding to `activeKey`                      | `string`    | -       |
 | title          | The displayed text of the tab header              | `ReactNode` | -       |
 
-The usage of CapsuleTabs is very similar to that of Tabs, so see the documentation for [Tabs](./tabs) for more usage guidelines.
+The usage of CapsuleTabs is very similar to that of Tabs, so see the documentation for [Tabs](/components/tabs) for more usage guidelines.

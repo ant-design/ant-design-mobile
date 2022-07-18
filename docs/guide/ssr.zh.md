@@ -12,6 +12,8 @@
 $ npm install --save-dev next-transpile-modules
 # or
 $ yarn add -D next-transpile-modules
+# or
+$ pnpm add -D next-transpile-modules
 ```
 
 然后在 `next.config.js` 中进行配置：

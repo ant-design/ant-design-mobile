@@ -15,21 +15,9 @@ import Button from '../../button'
 
 const classPrefix = `adm-picker`
 
-const mockStyleHtml = `
-<style>
-  .adm-picker-view-column {
-    --item-height: 34px;
-  }
-</style>
-`
-
 const now = new Date()
 
 describe('DatePicker', () => {
-  beforeAll(() => {
-    document.head.innerHTML += mockStyleHtml
-  })
-
   test('passes a11y test', async () => {
     await waitFor(() => testA11y(<DatePicker />))
   })

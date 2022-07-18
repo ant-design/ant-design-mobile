@@ -77,4 +77,4 @@ export default () => {
   从 5.14.0 版本起，--adm-border-color 变量已经被弃用了，如果你在项目中用到了它，请替换为 --adm-color-border。我们将在下个大版本中移除 --adm-border-color。
 </Alert>
 
-此外，每个组件也有自己对应的 CSS 全局变量，你可以在它们的文档页面中找到，具体请参阅 [CSS 变量](./css-variables) 章节。
+此外，每个组件也有自己对应的 CSS 全局变量，你可以在它们的文档页面中找到，具体请参阅 [CSS 变量](/zh/guide/css-variables) 章节。

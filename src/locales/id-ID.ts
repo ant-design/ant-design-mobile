@@ -110,7 +110,7 @@ const idID = mergeLocale(base, {
     canRelease: 'Lepaskan untuk menyegarkan segera',
     complete: 'Segarkan berhasil',
   },
-  SearchBar: {
+ SearchBar: {
     name: 'Bilah Pencarian',
   },
   Slider: {

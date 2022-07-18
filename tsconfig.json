@@ -13,7 +13,7 @@
     "sourceMap": true,
     "baseUrl": "./",
     "typeRoots": ["./src/typings", "./node_modules/@types"],
-    "lib": ["ES2015", "DOM"],
+    "lib": ["ES2016", "DOM"],
     "paths": {
       "antd-mobile": ["src/index.ts"],
       "antd-mobile/src/*": ["src/*"],

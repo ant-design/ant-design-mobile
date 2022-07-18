@@ -13,6 +13,19 @@ export const navs = {
       path: '/resources',
     },
     {
+      title: 'Legacy Versions',
+      children: [
+        {
+          title: 'v2',
+          path: 'https://antd-mobile-v2.surge.sh',
+        },
+        {
+          title: 'v3 alpha',
+          path: 'https://antd-mobile-v3.surge.sh',
+        },
+      ],
+    },
+    {
       title: 'Releases',
       path: 'https://github.com/ant-design/ant-design-mobile/releases',
     },
@@ -33,6 +46,23 @@ export const navs = {
     {
       title: '资源',
       path: '/zh/resources',
+    },
+    {
+      title: '国内镜像',
+      path: 'http://ant-design-mobile.antgroup.com',
+    },
+    {
+      title: '返回旧版',
+      children: [
+        {
+          title: 'v2',
+          path: 'https://antd-mobile-v2.surge.sh',
+        },
+        {
+          title: 'v3 alpha',
+          path: 'https://antd-mobile-v3.surge.sh',
+        },
+      ],
     },
     {
       title: '发布日志',

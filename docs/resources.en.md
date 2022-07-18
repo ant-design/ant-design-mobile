@@ -10,7 +10,9 @@ Here is a summary of resources related to Ant Design Mobile.
 
 Here are the downloads of Ant Design Mobile related design resources and design tools, and more design resources are being sorted out and improved.
 
-<ResourceCard title="Sketch Components" description="The Sketch component templates" link="https://gw.alipayobjects.com/os/bmw-prod/2cc73ac4-894a-4848-af0c-17817ad1da85.sketch" image="https://gw.alipayobjects.com/zos/bmw-prod/49ece2a4-b8c3-4e95-8d40-c67dc95c3d85.svg"></ResourceCard>
+<ResourceCard title="Sketch Components" description="The Sketch component templates" link="https://gw.alipayobjects.com/os/bmw-prod/c68904d2-7c9e-43db-a219-4a093f0d452d.sketch" image="https://gw.alipayobjects.com/zos/bmw-prod/49ece2a4-b8c3-4e95-8d40-c67dc95c3d85.svg"></ResourceCard>
+
+<ResourceCard title="Figma Components" description="The Figma component templates" link="https://gw.alipayobjects.com/os/bmw-prod/8a148021-e590-419a-b092-ba9879a89e40.zip" image="https://gw.alipayobjects.com/zos/bmw-prod/680becab-ceb6-4aab-8ee8-3a7ef839ca40.svg"></ResourceCard>
 
 <ResourceCard title="Press Kit" description="The logos and banners of antd-mobile" link="https://gw.alipayobjects.com/os/bmw-prod/ef00ee0b-7fda-4698-8ebf-b6367b582395.zip" image="https://gw.alipayobjects.com/zos/bmw-prod/be366cde-85c9-401e-8a74-cf2126fd99eb.svg"></ResourceCard>
 

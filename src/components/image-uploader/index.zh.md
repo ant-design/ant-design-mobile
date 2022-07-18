@@ -19,7 +19,7 @@
 | defaultValue  | 默认已上传的文件列表                                                          | `ImageUploadItem[]`                                                    | -         |
 | deletable     | 是否展示删除按钮                                                              | `boolean`                                                              | `true`    |
 | disableUpload | 是否禁用上传按钮                                                              | `boolean`                                                              | `false`   |
-| imageFit      | 图片填充模式，同 [Image](./image#属性)                                        | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'`             | `cover`   |
+| imageFit      | 图片填充模式，同 [Image](/zh/components/image#属性)                           | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'`             | `cover`   |
 | maxCount      | 最多上传几张图片，超出数量会自动隐藏上传按钮，`0` 表示不做限制                | `number`                                                               | `0`       |
 | multiple      | 是否支持选择多张图片                                                          | `boolean`                                                              | `false`   |
 | onChange      | 已上传的文件列表变化时触发                                                    | `(items: ImageUploadItem[]) => void`                                   | -         |

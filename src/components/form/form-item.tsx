@@ -1,6 +1,6 @@
 import React, { FC, useContext, useCallback, useState, useRef } from 'react'
 import classNames from 'classnames'
-import { NativeProps } from '../../utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
 import type { FieldProps } from 'rc-field-form/lib/Field'
 import FieldContext from 'rc-field-form/lib/FieldContext'
@@ -91,7 +91,7 @@ type FormItemLayoutProps = Pick<
   errors: string[]
   warnings: string[]
   children: React.ReactNode
-}
+} & NativeProps
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const {
@@ -193,7 +193,8 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       </>
     ) : null
 
-  return (
+  return withNativeProps(
+    props,
     <List.Item
       style={style}
       title={layout === 'vertical' && labelElement}
@@ -324,7 +325,8 @@ export const FormItem: FC<FormItemProps> = props => {
       curWarnings
     )
 
-    return (
+    return withNativeProps(
+      props,
       <FormItemLayout
         className={className}
         style={style}

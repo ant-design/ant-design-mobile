@@ -67,7 +67,7 @@ function loadMore() { // 正确
 
 ### 是否支持下拉刷新？
 
-下拉刷新是另一个组件：[PullToRefresh](./pull-to-refresh)。
+下拉刷新是另一个组件：[PullToRefresh](/zh/components/pull-to-refresh)。
 
 ### 为什么配合 ahooks 的 `useDebounceFn` 或者 `useThrottleFn` 使用时会出现报错？
 

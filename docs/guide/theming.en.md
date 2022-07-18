@@ -77,4 +77,4 @@ The following are the global CSS variables currently provided by antd-mobile:
   The --adm-border-color variable has been deprecated since version 5.14.0, if you use it in your project, please replace it with --adm-color-border. We will remove --adm-border-color in the next major release.
 </Alert>
 
-Besides, every component has its own global CSS variables. You can find more information in their document page. For detailed explanation, please refer the [CSS Variables](./css-variables) chapter.
+Besides, every component has its own global CSS variables. You can find more information in their document page. For detailed explanation, please refer the [CSS Variables](/guide/css-variables) chapter.

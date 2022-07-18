@@ -1,4 +1,9 @@
-import React, { FC, ReactNode } from 'react'
+import React, {
+  forwardRef,
+  ReactNode,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -28,11 +33,26 @@ const defaultProps = {
   mode: 'default',
 }
 
-export const List: FC<ListProps> = p => {
+export type ListRef = {
+  nativeElement: HTMLDivElement | null
+}
+
+export const List = forwardRef<ListRef, ListProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
+  const nativeElementRef = useRef<HTMLDivElement>(null)
+
+  useImperativeHandle(ref, () => ({
+    get nativeElement() {
+      return nativeElementRef.current
+    },
+  }))
+
   return withNativeProps(
     props,
-    <div className={classNames(classPrefix, `${classPrefix}-${props.mode}`)}>
+    <div
+      className={classNames(classPrefix, `${classPrefix}-${props.mode}`)}
+      ref={nativeElementRef}
+    >
       {props.header && (
         <div className={`${classPrefix}-header`}>{props.header}</div>
       )}
@@ -41,4 +61,4 @@ export const List: FC<ListProps> = p => {
       </div>
     </div>
   )
-}
+})

@@ -12,6 +12,8 @@ First, you need to install `next-transpile-modules`:
 $ npm install --save-dev next-transpile-modules
 # or
 $ yarn add -D next-transpile-modules
+# or
+$ pnpm add -D next-transpile-modules
 ```
 
 Then configure it in `next.config.js`:

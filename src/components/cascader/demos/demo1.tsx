@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { Cascader, Button, Space, Toast } from 'antd-mobile'
-import { DemoBlock } from 'demos'
+import { DemoBlock, DemoDescription } from 'demos'
 
 import { options, longOptions } from './data'
 
 // 基础用法
 function BasicDemo() {
   const [visible, setVisible] = useState(false)
-  const [value, setValue] = useState<string[]>(['浙江', '杭州', '西湖区'])
   return (
     <>
       <Button
@@ -22,10 +21,6 @@ function BasicDemo() {
         visible={visible}
         onClose={() => {
           setVisible(false)
-        }}
-        value={value}
-        onConfirm={v => {
-          setValue(v)
         }}
       />
     </>
@@ -69,6 +64,21 @@ function RenderChildrenDemo() {
   )
 }
 
+function ActionsDemo() {
+  const [value, setValue] = useState<string[]>([])
+  return (
+    <Cascader
+      options={options}
+      value={value}
+      onConfirm={v => {
+        setValue(v)
+      }}
+    >
+      {(_, actions) => <Button onClick={actions.open}>选择</Button>}
+    </Cascader>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -108,6 +118,16 @@ export default () => {
         >
           选择
         </Button>
+      </DemoBlock>
+
+      <DemoBlock title='使用 actions 来控制显示/隐藏'>
+        <Space direction='vertical' block>
+          <ActionsDemo />
+          <DemoDescription>
+            在 children 渲染函数中，你可以使用第二个参数 actions
+            来非常方便的控制 Picker 的显示或隐藏
+          </DemoDescription>
+        </Space>
       </DemoBlock>
     </>
   )

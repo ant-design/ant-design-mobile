@@ -9,7 +9,7 @@ import {
   waitForElementToBeRemoved,
 } from 'testing'
 import { basicColumns } from '../demos/columns-data'
-import Picker, { PickerRef } from '..'
+import Picker, { PickerRef, PickerColumnItem, PickerColumn } from '..'
 import Button from '../../button'
 
 describe('Picker', () => {
@@ -171,5 +171,46 @@ describe('Picker', () => {
       ref.current?.open()
     })
     await waitFor(() => expect(afterShow).toBeCalled())
+  })
+
+  test('test Picker loading and loadingContent', async () => {
+    const fn = jest.fn()
+
+    const Loading = () => {
+      const [visible, setVisible] = useState(false)
+      const [loading, setLoading] = useState(false)
+
+      async function mockRequest(delay: number) {
+        await sleep(delay)
+      }
+
+      const handleClick = async () => {
+        setVisible(true)
+        setLoading(true)
+        await mockRequest(0)
+        setLoading(false)
+      }
+
+      return (
+        <>
+          <Button onClick={handleClick}>button</Button>
+          <Picker
+            loading={loading}
+            loadingContent={<div>loading</div>}
+            columns={basicColumns}
+            visible={visible}
+            onConfirm={fn}
+          />
+        </>
+      )
+    }
+    render(<Loading />)
+    fireEvent.click(screen.getByText('button'))
+    expect(screen.getByText('loading')).toBeInTheDocument()
+    await act(() => sleep(0))
+    const confirm = await screen.findByText('确定')
+    await act(() => sleep(0))
+    fireEvent.click(confirm)
+    expect(fn.mock.calls[0][0]).toEqual(['Mon', 'am'])
   })
 })

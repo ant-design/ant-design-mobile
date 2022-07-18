@@ -20,7 +20,7 @@ v2 已经是很久之前发布的版本了，最近两年在公司内部，我�
 
 对于新项目，我们推荐直接使用 v5 版本。
 
-对于旧项目，我们建议采用渐进式的[迁移方案](./migration)。
+对于旧项目，我们建议采用渐进式的[迁移方案](/zh/guide/migration)。
 
 ### 如何查看项目中安装的 antd-mobile 的准确版本？
 
@@ -46,7 +46,7 @@ These dependencies were not found:
 
 ### 从 v2 如何迁移到 v5？
 
-请参考[迁移指南](./migration)。
+请参考[迁移指南](/zh/guide/migration)。
 
 ### 如何避免 300ms 的点击延迟？
 

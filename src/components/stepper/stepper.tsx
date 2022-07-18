@@ -8,6 +8,7 @@ import { bound } from '../../utils/bound'
 import Input, { InputProps } from '../input'
 import Button from '../button'
 import Big from 'big.js'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-stepper`
 
@@ -59,6 +60,7 @@ const defaultProps = {
 export const Stepper: FC<StepperProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { disabled, step, max, min, inputReadOnly } = props
+  const { locale } = useConfig()
 
   const [value, setValue] = usePropsValue<number | null>(props as any)
   const [inputValue, setInputValue] = useState(() =>
@@ -149,6 +151,7 @@ export const Stepper: FC<StepperProps> = p => {
         fill='none'
         shape='rectangular'
         color='primary'
+        aria-label={locale.Stepper.decrease}
       >
         <MinusOutline />
       </Button>
@@ -169,6 +172,10 @@ export const Stepper: FC<StepperProps> = p => {
             props.onBlur?.(e)
           }}
           readOnly={inputReadOnly}
+          role='spinbutton'
+          aria-valuenow={Number(inputValue)}
+          aria-valuemax={max}
+          aria-valuemin={min}
         />
       </div>
       <Button
@@ -178,6 +185,7 @@ export const Stepper: FC<StepperProps> = p => {
         fill='none'
         shape='rectangular'
         color='primary'
+        aria-label={locale.Stepper.increase}
       >
         <AddOutline />
       </Button>

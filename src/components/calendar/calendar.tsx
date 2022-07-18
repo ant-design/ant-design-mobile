@@ -23,7 +23,7 @@ const classPrefix = 'adm-calendar'
 
 type Page = { month: number; year: number }
 
-export type CalenderRef = {
+export type CalendarRef = {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
   jumpToToday: () => void
 }
@@ -35,7 +35,7 @@ export type CalendarProps = {
   nextYearButton?: React.ReactNode
   onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
-  renderLabel?: (date: Date) => string | null | undefined
+  renderLabel?: (date: Date) => React.ReactNode
   allowClear?: boolean
   max?: Date
   min?: Date
@@ -72,7 +72,7 @@ const defaultProps = {
   nextYearButton: <ArrowLeftDouble />,
 }
 
-export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
+export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   const today = dayjs()
   const props = mergeProps(defaultProps, p)
   const { locale } = useConfig()
@@ -276,8 +276,8 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
 
   const mark = (
     <div className={`${classPrefix}-mark`}>
-      {markItems.map(item => (
-        <div key={item} className={`${classPrefix}-mark-cell`}>
+      {markItems.map((item, index) => (
+        <div key={index} className={`${classPrefix}-mark-cell`}>
           {item}
         </div>
       ))}

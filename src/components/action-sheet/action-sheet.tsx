@@ -139,7 +139,9 @@ export type ActionSheetShowHandler = {
   close: () => void
 }
 
-export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
+export function showActionSheet(
+  props: Omit<ActionSheetProps, 'visible' | 'destroyOnClose' | 'forceRender'>
+) {
   return renderImperatively(
     <ActionSheet {...props} />
   ) as ActionSheetShowHandler

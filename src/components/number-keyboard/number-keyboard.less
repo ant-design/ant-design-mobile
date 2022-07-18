@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     flex: 1;
-    &.confirmed-style .sign-key {
+    &&-confirmed-style .@{class-prefix-number-keyboard}-key-sign {
       background-color: var(--adm-color-white);
     }
   }
@@ -32,12 +32,12 @@
     align-items: center;
     padding: 0 12px;
     color: var(--adm-color-weak);
-    background-color: var(--adm-color-white);
+    background-color: var(--adm-color-background);
     &-close-button {
       padding: 0 12px;
       font-size: 16px;
     }
-    &.with-title {
+    &&-with-title {
       justify-content: space-between;
       .@{class-prefix-number-keyboard}-header-close-button {
         padding-right: 0;
@@ -93,37 +93,33 @@
       box-sizing: content-box;
     }
 
-    &.mid-key {
+    &&-mid {
       flex-basis: 66.67%;
     }
 
-    &.sign-key:active::before {
+    &&-sign:active::before {
       opacity: 0.1;
     }
 
-    &.extra-key {
+    &&-extra {
       border-left: solid 1px var(--adm-color-border);
       border-right: none;
     }
 
-    &.extra-key,
-    &.number-key {
-      background-color: var(--adm-color-white);
+    &&-extra,
+    &&-number {
+      background-color: var(--adm-color-background);
       &:active::before {
         opacity: 0.1;
       }
     }
 
-    &.ok-key {
+    &&-ok {
       background-color: var(--adm-color-primary);
       color: var(--adm-color-white);
       height: 144px;
       font-size: 16px;
       border: none;
     }
-  }
-
-  &-bs-key {
-    height: 20px;
   }
 }

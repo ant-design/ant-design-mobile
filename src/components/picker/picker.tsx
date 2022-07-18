@@ -40,6 +40,8 @@ export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
+  loading?: boolean
+  loadingContent?: ReactNode
   onSelect?: (value: PickerValue[], extend: PickerValueExtend) => void
   onConfirm?: (value: PickerValue[], extend: PickerValueExtend) => void
   onCancel?: () => void
@@ -152,6 +154,7 @@ export const Picker = memo(
       <div className={classPrefix}>
         <div className={`${classPrefix}-header`}>
           <a
+            role='button'
             className={`${classPrefix}-header-button`}
             onClick={() => {
               props.onCancel?.()
@@ -162,17 +165,25 @@ export const Picker = memo(
           </a>
           <div className={`${classPrefix}-header-title`}>{props.title}</div>
           <a
-            className={`${classPrefix}-header-button`}
+            role='button'
+            className={classNames(
+              `${classPrefix}-header-button`,
+              props.loading && `${classPrefix}-header-button-disabled`
+            )}
             onClick={() => {
-              setValue(innerValue)
+              if (props.loading) return
+              setValue(innerValue, true)
               setVisible(false)
             }}
+            aria-disabled={props.loading}
           >
             {props.confirmText}
           </a>
         </div>
         <div className={`${classPrefix}-body`}>
           <PickerView
+            loading={props.loading}
+            loadingContent={props.loadingContent}
             columns={props.columns}
             renderLabel={props.renderLabel}
             value={innerValue}

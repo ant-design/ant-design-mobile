@@ -26,12 +26,20 @@
           color: rgba(0, 0, 0, 0.9);
           line-height: 1;
           margin: 0;
+
+          [data-prefers-color='dark'] & {
+            color: unset;
+          }
         }
         .description {
           font-size: 20px;
           color: rgba(0, 0, 0, 0.85);
           line-height: 28px;
           margin-bottom: 56px;
+
+          [data-prefers-color='dark'] & {
+            color: unset;
+          }
         }
         .buttons {
           margin-top: 28px;
@@ -57,6 +65,9 @@
         margin-left: -40%;
         position: relative;
         z-index: 0;
+        [data-prefers-color='dark'] & {
+          visibility: hidden;
+        }
         @media (max-width: 1300px) {
           & {
             width: 820px;
@@ -94,6 +105,10 @@
           margin-top: 30px;
           margin-bottom: 8px;
           text-align: center;
+
+          [data-prefers-color='dark'] & {
+            color: unset;
+          }
         }
         p:nth-child(3) {
           width: 210px;
@@ -119,6 +134,19 @@
         padding-left: 32px;
         padding-right: 24px;
         padding-top: 32px;
+
+        [data-prefers-color='dark'] & {
+          background: #323233;
+        }
+
+        &:nth-child(2) {
+          background-color: rgba(223, 246, 255, 0.3);
+
+          [data-prefers-color='dark'] & {
+            background-color: #323233;
+          }
+        }
+
         .development_con_title {
           height: 32px;
           line-height: 32px;
@@ -127,6 +155,9 @@
           span {
             font-size: 20px;
             color: rgba(0, 0, 0, 0.85);
+            [data-prefers-color='dark'] & {
+              color: unset;
+            }
           }
           a {
             font-size: 14px;
@@ -172,6 +203,9 @@
         display: flex;
         justify-content: space-between;
         padding: 32px;
+        [data-prefers-color='dark'] & {
+          background: #323233;
+        }
         > div {
           width: 274px;
           p:nth-child(1) {
@@ -181,6 +215,10 @@
             line-height: 32px;
             margin-top: 0;
             margin-bottom: 8px;
+
+            [data-prefers-color='dark'] & {
+              color: unset;
+            }
           }
           p:nth-child(2) {
             font-size: 14px;

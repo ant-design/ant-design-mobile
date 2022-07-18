@@ -29,7 +29,10 @@ export type CenterPopupProps = PopupBaseProps &
     | '--z-index'
   >
 
-const defaultProps = defaultPopupBaseProps
+const defaultProps = {
+  ...defaultPopupBaseProps,
+  getContainer: null,
+}
 
 export const CenterPopup: FC<CenterPopupProps> = p => {
   const props = mergeProps(defaultProps, p)

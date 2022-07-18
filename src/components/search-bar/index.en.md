@@ -46,4 +46,4 @@ Narrow down the information pool to get targeted information quickly and easily.
 
 ## Ref
 
-The same as [Input](./input)
+The same as [Input](/components/input)

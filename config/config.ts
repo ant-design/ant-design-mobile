@@ -33,6 +33,18 @@ const config: IConfig = {
       content:
         'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover',
     },
+    {
+      name: 'keywords',
+      content: 'antd-mobile, ant design mobile, React mobile components',
+    },
+    {
+      name: 'description',
+      content: 'Essential UI blocks for building mobile web apps.',
+    },
+    {
+      name: 'google-site-verification',
+      content: '2saDOufpfJI4y1cqfxvuviYg8bfo4gLmiEtSnt2oh50',
+    },
   ],
   hash: true,
   scripts: [
@@ -73,7 +85,10 @@ const config: IConfig = {
       ],
     },
   },
-  plugins: ['./.dumi/plugin-gallery/index.ts'],
+  plugins: ['./.dumi/plugin-gallery/index.ts', './.dumi/plugin-theme/index.ts'],
+  // ssr: {},
+  exportStatic: {},
+  dynamicImport: {},
 }
 
 export default config
