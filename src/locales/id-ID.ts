@@ -110,6 +110,19 @@ const idID = mergeLocale(base, {
     canRelease: 'Lepaskan untuk menyegarkan segera',
     complete: 'Segarkan berhasil',
   },
+  SearchBar: {
+    name: 'Bilah Pencarian',
+  },
+  Slider: {
+    name: 'Penggeser',
+  },
+  Stepper: {
+    decrease: 'mengurangi',
+    increase: 'meningkat',
+  },
+  Switch: {
+    name: 'Mengalihkan',
+  },
 })
 
 export default idID
