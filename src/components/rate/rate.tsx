@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -30,6 +30,7 @@ const defaultProps = {
 export const Rate: FC<RateProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
+  const initialValue = useRef(value)
   const starList = Array(props.count).fill(null)
 
   function renderStar(v: number, half: boolean) {
@@ -40,14 +41,6 @@ export const Rate: FC<RateProps> = p => {
           [`${classPrefix}-star-half`]: half,
           [`${classPrefix}-star-readonly`]: props.readOnly,
         })}
-        onClick={() => {
-          if (props.readOnly) return
-          if (props.allowClear && value === v) {
-            setValue(0)
-          } else {
-            setValue(v)
-          }
-        }}
         role='radio'
         aria-checked={value >= v}
         aria-label={'' + v}
@@ -56,6 +49,33 @@ export const Rate: FC<RateProps> = p => {
       </div>
     )
   }
+
+  const clearEvent = (val: number) => {
+    if (props.readOnly) return
+    if (!props.allowClear) return
+
+    const roundValue = Math.round(val)
+    const floorValue = Math.floor(val)
+    const ceilValue = Math.ceil(val)
+
+    if (props.allowHalf) {
+      if (floorValue === roundValue) {
+        if (floorValue + 0.5 === initialValue.current) {
+          setValue(0)
+        }
+        return
+      }
+      if (ceilValue === initialValue.current) {
+        setValue(0)
+      }
+      return
+    }
+
+    if (ceilValue === initialValue.current) {
+      setValue(0)
+    }
+  }
+
   return withNativeProps(
     props,
     <div
@@ -69,6 +89,44 @@ export const Rate: FC<RateProps> = p => {
           {renderStar(i + 1, false)}
         </div>
       ))}
+
+      <input
+        type='range'
+        className={classNames(`${classPrefix}-range`)}
+        step={0.01}
+        max={props.count}
+        defaultValue={value}
+        onChange={val => {
+          if (props.readOnly) return
+          const numberVal = +val.target.value
+          const roundValue = Math.round(numberVal)
+          const floorValue = Math.floor(numberVal)
+          const ceilValue = Math.ceil(numberVal)
+          if (!numberVal) {
+            setValue(numberVal)
+            return
+          }
+
+          if (roundValue === floorValue && props.allowHalf) {
+            setValue(floorValue + 0.5)
+            return
+          }
+
+          setValue(ceilValue)
+        }}
+        onMouseDown={() => {
+          initialValue.current = value
+        }}
+        onMouseUp={e => {
+          clearEvent(+(e.target as HTMLInputElement).value)
+        }}
+        onTouchStart={() => {
+          initialValue.current = value
+        }}
+        onTouchEnd={e => {
+          clearEvent(+(e.target as HTMLInputElement).value)
+        }}
+      />
     </div>
   )
 }

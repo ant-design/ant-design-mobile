@@ -5,8 +5,22 @@
   --active-color: #ffd21e;
   --inactive-color: var(--adm-color-border);
   display: inline-flex;
+  position: relative;
   &-box {
     position: relative;
+  }
+
+  &-range {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+
+    &::-webkit-slider-thumb {
+      margin-top: -100%;
+    }
   }
 
   &-star {
