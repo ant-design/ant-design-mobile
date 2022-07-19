@@ -97,4 +97,4 @@ Please don't try `npm install demos`. You can just ignore them.
 
 ### Does antd-mobile have umd package on CDN?
 
-Yes, you can find it at [unpkg](https://unpkg.com/browse/antd-mobile@5/umd/antd-mobile.js) or [jsdelivr](https://www.jsdelivr.com/package/npm/antd-mobile?path=umd). Of course, you can also deploy it yourself.
+Yes, please refer to [this document](/guide/pre-built-bundles) for specific usage.

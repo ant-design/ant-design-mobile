@@ -97,4 +97,4 @@ codesandbox 是一个浏览器端的沙盒运行环境，支持多种流行的�
 
 ### antd-mobile 有 CDN 上的 umd 包吗？
 
-有的，你可以在 [unpkg](https://unpkg.com/browse/antd-mobile@5/umd/antd-mobile.js) 或 [jsdelivr](https://www.jsdelivr.com/package/npm/antd-mobile?path=umd) 上找到。当然，你也可以自己部署。
+有的，具体用法请参考[这篇文档](/zh/guide/pre-built-bundles)。
