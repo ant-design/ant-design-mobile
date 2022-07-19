@@ -104,6 +104,9 @@ export const base = {
   Modal: {
     ok: 'OK',
   },
+  PasscodeInput: {
+    name: 'Passcode Input',
+  },
   PullToRefresh: {
     pulling: 'Scroll down to refresh',
     canRelease: 'Release to refresh immediately',
