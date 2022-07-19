@@ -45,6 +45,7 @@ export type CascaderProps = {
     actions: CascaderActions
   ) => ReactNode
   onTabsChange?: (index: number) => void
+  activeIcon?: ReactNode
 } & Pick<
   PopupProps,
   | 'getContainer'

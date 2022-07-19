@@ -34,6 +34,7 @@ type CascaderValueExtend = {
 
 | 属性           | 说明                         | 类型                                                               | 默认值     |
 | -------------- | ---------------------------- | ------------------------------------------------------------------ | ---------- |
+| activeIcon     | 选中图标                     | `ReactNode`                                                        | -          |
 | cancelText     | 取消按钮的文字               | `ReactNode`                                                        | `'取消'`   |
 | children       | 所选项的渲染函数             | `(items: CascaderOption[], actions: CascaderActions) => ReactNode` | -          |
 | confirmText    | 确定按钮的文字               | `ReactNode`                                                        | `'确定'`   |

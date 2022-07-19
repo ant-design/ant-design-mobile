@@ -12,6 +12,7 @@ CascaderView 是 [Cascader](/zh/components/cascader) 的内容区域。
 
 | 属性         | 说明               | 类型                                                            | 默认值     |
 | ------------ | ------------------ | --------------------------------------------------------------- | ---------- |
+| activeIcon   | 选中图标           | `ReactNode`                                                     | -          |
 | defaultValue | 默认选中项         | `CascaderValue[]`                                               | `[]`       |
 | onChange     | 选项改变时触发     | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | -          |
 | onTabsChange | 切换面板的回调     | `(index: number) => void`                                       | -          |
