@@ -23,6 +23,9 @@ export default () => {
 
 // 配合列表使用
 const WithList: FC = () => {
+  const onActionsReveal = (side: 'left' | 'right') => {
+    console.log('side', side)
+  }
   const leftActions: Action[] = [
     {
       key: 'pin',
@@ -55,6 +58,7 @@ const WithList: FC = () => {
           key={item}
           leftActions={leftActions}
           rightActions={rightActions}
+          onActionsReveal={onActionsReveal}
         >
           <List.Item>{item}</List.Item>
         </SwipeAction>
