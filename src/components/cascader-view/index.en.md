@@ -12,6 +12,7 @@ CascaderView is the content area of [Cascader](/components/cascader).
 
 | Name         | Description                                     | Type                                                            | Default    |
 | ------------ | ----------------------------------------------- | --------------------------------------------------------------- | ---------- |
+| activeIcon   | The icon displayed when selected                | `ReactNode`                                                     | -          |
 | defaultValue | Default selected options                        | `CascaderValue[]`                                               | `[]`       |
 | onChange     | Triggered when the selected options are changed | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | -          |
 | onTabsChange | Callback when switching panel                   | `(index: number) => void`                                       | -          |
