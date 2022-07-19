@@ -4,6 +4,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { Star } from './star'
+import Slider from '../slider'
 
 const classPrefix = `adm-rate`
 
@@ -44,36 +45,32 @@ export const Rate: FC<RateProps> = p => {
         role='radio'
         aria-checked={value >= v}
         aria-label={'' + v}
+        onClick={() => {
+          if (props.readOnly) return
+          if (props.allowClear && value === v) {
+            setValue(0)
+          } else {
+            setValue(v)
+          }
+        }}
       >
         {props.character}
       </div>
     )
   }
 
-  const clearEvent = (val: number) => {
-    if (props.readOnly) return
-    if (!props.allowClear) return
+  const getNearNum = (val: number) => {
+    if (!val) return 0
 
     const roundValue = Math.round(val)
     const floorValue = Math.floor(val)
     const ceilValue = Math.ceil(val)
 
     if (props.allowHalf) {
-      if (floorValue === roundValue) {
-        if (floorValue + 0.5 === initialValue.current) {
-          setValue(0)
-        }
-        return
-      }
-      if (ceilValue === initialValue.current) {
-        setValue(0)
-      }
-      return
+      return roundValue > val ? roundValue : floorValue + 0.5
     }
 
-    if (ceilValue === initialValue.current) {
-      setValue(0)
-    }
+    return ceilValue
   }
 
   return withNativeProps(
@@ -90,45 +87,35 @@ export const Rate: FC<RateProps> = p => {
         </div>
       ))}
 
-      <input
-        role='slider'
-        aria-label='hidden'
-        type='range'
-        className={classNames(`${classPrefix}-range`)}
-        step={0.01}
-        max={props.count}
-        defaultValue={value}
-        onChange={val => {
-          if (props.readOnly) return
-          const numberVal = +val.target.value
-          const roundValue = Math.round(numberVal)
-          const floorValue = Math.floor(numberVal)
-          const ceilValue = Math.ceil(numberVal)
-          if (!numberVal) {
-            setValue(numberVal)
-            return
-          }
+      {withNativeProps(
+        {
+          ...props,
+          style: {
+            '--slider-translate': value === 0 ? 0 : '-100%',
+          },
+        },
+        <Slider
+          className={classNames(`${classPrefix}-range`)}
+          value={value}
+          max={props.count}
+          step={0.1}
+          onAfterChange={val => {
+            if (props.readOnly) return
+            const afterValue = getNearNum(val as number)
+            if (props.allowClear && afterValue === initialValue.current) {
+              setValue(0)
+              initialValue.current = 0
+              return
+            }
 
-          if (roundValue === floorValue && props.allowHalf) {
-            setValue(floorValue + 0.5)
-            return
-          }
-
-          setValue(ceilValue)
-        }}
-        onMouseDown={() => {
-          initialValue.current = value
-        }}
-        onMouseUp={e => {
-          clearEvent(+(e.target as HTMLInputElement).value)
-        }}
-        onTouchStart={() => {
-          initialValue.current = value
-        }}
-        onTouchEnd={e => {
-          clearEvent(+(e.target as HTMLInputElement).value)
-        }}
-      />
+            initialValue.current = afterValue
+          }}
+          onChange={val => {
+            if (props.readOnly) return
+            setValue(getNearNum(val as number))
+          }}
+        ></Slider>
+      )}
     </div>
   )
 }

@@ -10,16 +10,26 @@
     position: relative;
   }
 
-  &-range {
+  &-range.adm-slider {
     position: absolute;
     top: 0;
-    height: 100%;
+    left: 0;
+    height: 0;
     width: 100%;
     cursor: pointer;
-    opacity: 0;
+    padding: 0;
+    // iPhone下完全为0会触发原生的滚动
+    opacity: 0.01;
+    --slider-translate: 0;
+    .adm-slider-fill,
+    .adm-slider-track-container,
+    .adm-slider-track {
+      padding: 0;
+      height: 0;
+    }
 
-    &::-webkit-slider-thumb {
-      margin-top: -100%;
+    .adm-slider-thumb-container {
+      transform: translateX(var(--slider-translate));
     }
   }
 
