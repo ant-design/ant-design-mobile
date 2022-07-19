@@ -148,10 +148,12 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
     useImperativeHandle(ref, () => ({
       show: (side: 'left' | 'right' = 'right') => {
         if (side === 'right') {
+          p.onActionsReveal?.('right')
           api.start({
             x: -getRightWidth(),
           })
         } else if (side === 'left') {
+          p.onActionsReveal?.('left')
           api.start({
             x: getLeftWidth(),
           })
