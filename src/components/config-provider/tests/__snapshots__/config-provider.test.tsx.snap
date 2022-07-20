@@ -5054,65 +5054,37 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
       <div
         class="adm-calendar-mark-cell"
       >
-<<<<<<< HEAD
-        Sun
-=======
         Minggu
->>>>>>> upstream/master
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-<<<<<<< HEAD
-        Senin, Selasa, Rabu, Kamis,Jumat, Sabtu, Minggu
-=======
         Senin
->>>>>>> upstream/master
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-<<<<<<< HEAD
-        Tue
-=======
         Selasa
->>>>>>> upstream/master
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-<<<<<<< HEAD
-        Wed
-=======
         Rabu
->>>>>>> upstream/master
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-<<<<<<< HEAD
-        Thu
-=======
         Kamis
->>>>>>> upstream/master
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-<<<<<<< HEAD
-        Fri
-=======
         Jumat
->>>>>>> upstream/master
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-<<<<<<< HEAD
-        Sat
-=======
         Sabtu
->>>>>>> upstream/master
       </div>
     </div>
     <div
@@ -5960,17 +5932,11 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
         </svg>
       </div>
       <div
-<<<<<<< HEAD
-        class="adm-input adm-search-bar-input"
-      >
-        <input
-=======
         aria-label="Search Bar"
         class="adm-input adm-search-bar-input"
       >
         <input
           aria-label="Search Bar"
->>>>>>> upstream/master
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
