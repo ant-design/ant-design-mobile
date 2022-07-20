@@ -20,6 +20,7 @@ Swipe to reveal hidden function menus.
 | closeOnTouchOutside | Whether to return to the position automatically when other areas is clicked          | `boolean`                                       | `true`  |
 | leftActions         | List of operation buttons on the left                                                | `Action[]`                                      | `[]`    |
 | onAction            | Triggered when operation button is clicked                                           | `(action: Action, e: React.MouseEvent) => void` | -       |
+| onActionsReveal     | Triggered when operation button appears                                              | `(side?: 'left' \| 'right') => void`            | -       |
 | rightActions        | List of operation buttons on the right                                               | `Action[]`                                      | `[]`    |
 | stopPropagation     | Stop the propagation of some events.                                                 | `PropagationEvent[]`                            | `[]`    |
 

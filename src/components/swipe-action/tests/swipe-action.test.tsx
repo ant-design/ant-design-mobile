@@ -65,7 +65,8 @@ describe('SwipeAction', () => {
   })
 
   test('swipe from left to right', async () => {
-    const { getByTestId, getByText } = render(<App />)
+    const fn = jest.fn()
+    const { getByTestId, getByText } = render(<App onActionsReveal={fn} />)
 
     jest.useFakeTimers()
     swipe(getByTestId('swipe'), [
@@ -82,11 +83,12 @@ describe('SwipeAction', () => {
     jest.runAllTimers()
     fireEvent.click(getByText('pin'))
     await waitFor(() => expect(track).toHaveStyle(`transform: none`))
+    await waitFor(() => expect(fn).toHaveBeenCalled())
   })
 
   test('swipe from right to left', async () => {
-    const { getByTestId } = render(<App />)
-
+    const fn = jest.fn()
+    const { getByTestId } = render(<App onActionsReveal={fn} />)
     swipe(getByTestId('swipe'), [
       {
         clientX: 50,
@@ -97,6 +99,7 @@ describe('SwipeAction', () => {
     await waitFor(() =>
       expect(track).toHaveStyle(`transform: translate3d(-${width}px,0,0);`)
     )
+    await waitFor(() => expect(fn).toHaveBeenCalled())
   })
 
   test('manual return to the position', async () => {

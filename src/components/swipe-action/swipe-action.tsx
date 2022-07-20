@@ -47,6 +47,7 @@ export type SwipeActionProps = {
   closeOnAction?: boolean
   children: ReactNode
   stopPropagation?: PropagationEvent[]
+  onActionsReveal?: (side: 'left' | 'right') => void
 } & NativeProps<'--background'>
 
 const defaultProps = {
@@ -96,8 +97,10 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
           const rightWidth = getRightWidth()
           let position = offsetX + state.velocity[0] * state.direction[0] * 50
           if (offsetX > 0) {
+            props.onActionsReveal?.('left')
             position = Math.max(0, position)
           } else if (offsetX < 0) {
+            props.onActionsReveal?.('right')
             position = Math.min(0, position)
           } else {
             position = 0
