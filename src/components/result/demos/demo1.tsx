@@ -1,5 +1,5 @@
 import React from 'react'
-import { Result } from 'antd-mobile'
+import { Result, Card } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { SmileOutline } from 'antd-mobile-icons'
 
@@ -55,6 +55,60 @@ export default () => {
           title='Well done'
           description='内容详情可折行，建议不超过两行建议不超过两行建议不超过两行'
         />
+      </DemoBlock>
+
+      <DemoBlock title='操作按钮' padding='0'>
+        <Result
+          status='success'
+          title='Well done'
+          description='内容详情可折行，建议不超过两行建议不超过两行建议不超过两行'
+          primaryButtonValue='确认'
+          secondaryButtonValue='取消'
+        />
+      </DemoBlock>
+
+      <DemoBlock title='操作按钮' padding='0'>
+        <Result
+          status='success'
+          title='Well done'
+          description='内容详情可折行，建议不超过两行建议不超过两行建议不超过两行'
+          primaryButtonValue='确认'
+          secondaryButtonValue='取消'
+        />
+      </DemoBlock>
+
+      <DemoBlock title='详细信息' padding='0'>
+        <Result
+          status='success'
+          title='Well done'
+          description='内容详情可折行，建议不超过两行建议不超过两行建议不超过两行'
+          primaryButtonValue='确认'
+          secondaryButtonValue='取消'
+          details={[
+            {
+              label: '这是一条描述',
+              value: '1',
+            },
+            {
+              label: '这是一条描述',
+              value: '2',
+            },
+            {
+              label: '这是一条描述',
+              value: '3',
+            },
+            {
+              label: '这是一条描述',
+              value: '4',
+            },
+          ]}
+        />
+      </DemoBlock>
+
+      <DemoBlock title='自定义内容'>
+        <Result title='操作成功'>
+          <Card title='卡片标题'>卡片内容</Card>
+        </Result>
       </DemoBlock>
     </>
   )

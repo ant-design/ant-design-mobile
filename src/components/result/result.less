@@ -25,10 +25,33 @@
 
   &-description {
     margin-top: 8px;
-    color: var(--adm-color-weak);
+    color: var(--description-color);
     font-size: var(--adm-font-size-main);
     line-height: 1.4;
     text-align: center;
+  }
+  &-details {
+    margin-top: 8px;
+    &-item {
+      text-align: center;
+      line-height: 1.4;
+    }
+    &-open {
+      color: var(--adm-color-primary);
+      transition: opacity 0.2s ease-in-out;
+      margin-top: 8px;
+      cursor: pointer;
+      width: fit-content;
+    }
+  }
+  &-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 12px;
+    &-primary {
+      margin-left: 10px;
+    }
   }
 }
 
