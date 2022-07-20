@@ -26,3 +26,18 @@ It is used when there is an important operation that needs to inform the user of
 | onPrimaryButtonClick   | Event after clicking the main operation button                                                                  | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void \| Promise<void>` | -        |
 | secondaryButtonValue   | The text of the auxiliary operation button. If it is undefined, null or empty, the button will not be displayed | `ReactNode`                                                                         | -        |
 | onSecondaryButtonClick | Event after clicking the auxiliary operation button                                                             | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void \| Promise<void>` | -        |
+
+### ResultPageDetail
+
+| Name  | Description      | Type        | Default |
+| ----- | ---------------- | ----------- | ------- |
+| label | Label            | `ReactNode` | -       |
+| value | Value            | `ReactNode` |
+| major | Font bold or not | `Boolean`   |
+
+### CSS Variables
+
+| Name | Description | Default |
+| ---- | ---- | | ------ |
+| --background-color | background color | `var(--adm-color-primary)` |
+| --description-color | description color | `#84b9ff` |

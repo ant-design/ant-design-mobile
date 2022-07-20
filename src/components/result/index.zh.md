@@ -29,11 +29,11 @@
 
 ### ResultPageDetail 类型
 
-| 属性  | 说明         | 类型        | 默认值 | 必填 |
-| ----- | ------------ | ----------- | ------ | ---- |
-| label | 描述内容     | `ReactNode` | -      | Y    |
-| value | 描述内容标识 | `ReactNode` | Y      |
-| major | 字体是否加粗 | `Boolean`   | N      |
+| 属性  | 说明         | 类型        | 默认值 |
+| ----- | ------------ | ----------- | ------ |
+| label | 描述内容     | `ReactNode` | -      |
+| value | 描述内容标识 | `ReactNode` |
+| major | 字体是否加粗 | `Boolean`   |
 
 ### Css 变量
 
