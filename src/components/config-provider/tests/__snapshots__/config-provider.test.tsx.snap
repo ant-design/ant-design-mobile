@@ -5932,11 +5932,11 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
         </svg>
       </div>
       <div
-        aria-label="Search Bar"
+        aria-label="Bilah Pencarian"
         class="adm-input adm-search-bar-input"
       >
         <input
-          aria-label="Search Bar"
+          aria-label="Bilah Pencarian"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
