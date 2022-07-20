@@ -10,15 +10,14 @@ const webpackStream = require('webpack-stream')
 const webpack = require('webpack')
 const through = require('through2')
 const vite = require('vite')
+const rename = require('gulp-rename')
+const autoprefixer = require('autoprefixer')
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const tsconfig = require('./tsconfig.json')
 const packageJson = require('./package.json')
 const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default
-
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
-
-const rename = require('gulp-rename')
 
 function clean() {
   return del('./lib/**')
@@ -35,6 +34,13 @@ function buildStyle() {
         paths: [path.join(__dirname, 'src')],
         relativeUrls: true,
       })
+    )
+    .pipe(
+      postcss([
+        autoprefixer({
+          overrideBrowserslist: 'iOS >= 10, Chrome >= 49',
+        }),
+      ])
     )
     .pipe(gulp.dest('./lib/es'))
     .pipe(gulp.dest('./lib/cjs'))
@@ -105,7 +111,7 @@ function buildDeclaration() {
     .pipe(gulp.dest('lib/cjs/'))
 }
 
-function getViteConfigForPackage({ minify, formats, external }) {
+function getViteConfigForPackage({ formats, external }) {
   const name = packageJson.name
   return {
     root: process.cwd(),
@@ -117,19 +123,16 @@ function getViteConfigForPackage({ minify, formats, external }) {
         name,
         entry: './lib/es/index.js',
         formats,
-        fileName: format => {
-          const suffix = format === 'umd' ? '' : `.${format}`
-          return minify ? `${name}${suffix}.min.js` : `${name}${suffix}.js`
-        },
+        fileName: format => `${name}.${format}.js`,
       },
-      minify: minify ? 'terser' : false,
       rollupOptions: {
         external,
         output: {
           dir: './lib/bundle',
           exports: 'named',
           globals: {
-            react: 'React',
+            'react': 'React',
+            'react-dom': 'ReactDOM',
           },
         },
       },
@@ -138,15 +141,10 @@ function getViteConfigForPackage({ minify, formats, external }) {
 }
 
 async function buildBundles(cb) {
-  const dependencies = packageJson.dependencies || {}
-  const externals = Object.keys(dependencies)
-
   const configs = [
-    // esm/cjs bundle
     getViteConfigForPackage({
-      minify: false,
-      formats: ['es', 'cjs'],
-      external: ['react', ...externals],
+      formats: ['es', 'cjs', 'umd'],
+      external: ['react', 'react-dom'],
     }),
   ]
 
@@ -154,6 +152,31 @@ async function buildBundles(cb) {
   cb && cb()
 }
 
+function buildCompatibleUMD() {
+  return gulp
+    .src('lib/bundle/antd-mobile.umd.js')
+    .pipe(
+      babel({
+        presets: [
+          [
+            '@babel/env',
+            {
+              targets: {
+                'chrome': '49',
+                'ios': '9',
+              },
+            },
+          ],
+        ],
+      })
+    )
+    .pipe(rename('antd-mobile.compatible.umd.js'))
+    .pipe(gulp.dest('lib/bundle/'))
+    .pipe(rename('antd-mobile.js'))
+    .pipe(gulp.dest('lib/umd/'))
+}
+
+// Deprecated
 function umdWebpack() {
   return gulp
     .src('lib/es/index.js')
@@ -276,7 +299,6 @@ function init2xFolder() {
   return gulp
     .src('./lib/**', {
       base: './lib/',
-      ignore: ['./lib/2x/demos/**/*'],
     })
     .pipe(gulp.dest('./lib/2x/'))
 }
@@ -321,6 +343,8 @@ exports.default = gulp.series(
   copyAssets,
   copyMetaFiles,
   generatePackageJSON,
-  gulp.parallel(umdWebpack, buildBundles),
-  gulp.series(init2xFolder, build2xCSS)
+  buildBundles,
+  buildCompatibleUMD,
+  gulp.series(init2xFolder, build2xCSS),
+  umdWebpack
 )

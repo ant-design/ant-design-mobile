@@ -1,49 +1,29 @@
 import classNames from 'classnames'
 import React, { useState, useRef, FC, PropsWithChildren } from 'react'
-import { useUnmountedRef } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
-import type { MaskProps } from '../mask'
 import { useLockScroll } from '../../utils/use-lock-scroll'
-import {
-  GetContainer,
-  renderToContainer,
-} from '../../utils/render-to-container'
+import { renderToContainer } from '../../utils/render-to-container'
 import { useSpring, animated } from '@react-spring/web'
-import { useShouldRender } from '../../utils/should-render'
-import {
-  PropagationEvent,
-  withStopPropagation,
-} from '../../utils/with-stop-propagation'
+import { withStopPropagation } from '../../utils/with-stop-propagation'
+import { ShouldRender } from '../../utils/should-render'
+import { CloseOutline } from 'antd-mobile-icons'
+import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
+import { useInnerVisible } from '../../utils/use-inner-visible'
 
 const classPrefix = `adm-popup`
 
-export type PopupProps = PropsWithChildren<{
-  afterClose?: () => void
-  afterShow?: () => void
-  bodyClassName?: string
-  bodyStyle?: React.CSSProperties
-  destroyOnClose?: boolean
-  forceRender?: boolean
-  getContainer?: GetContainer
-  mask?: boolean
-  maskClassName?: string
-  maskStyle?: MaskProps['style']
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  onMaskClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  position?: 'bottom' | 'top' | 'left' | 'right'
-  stopPropagation?: PropagationEvent[]
-  visible?: boolean
-}> &
+export type PopupProps = PopupBaseProps &
+  PropsWithChildren<{
+    position?: 'bottom' | 'top' | 'left' | 'right'
+  }> &
   NativeProps<'--z-index'>
 
 const defaultProps = {
+  ...defaultPopupBaseProps,
   position: 'bottom',
-  visible: false,
-  getContainer: () => document.body,
-  mask: true,
-  stopPropagation: ['click'],
 }
 
 export const Popup: FC<PopupProps> = p => {
@@ -55,15 +35,15 @@ export const Popup: FC<PopupProps> = p => {
     `${classPrefix}-body-position-${props.position}`
   )
 
-  const ref = useRef<HTMLDivElement>(null)
-
   const [active, setActive] = useState(props.visible)
-  useLockScroll(ref, active)
-  const shouldRender = useShouldRender(
-    active,
-    props.forceRender,
-    props.destroyOnClose
-  )
+  useIsomorphicLayoutEffect(() => {
+    if (props.visible) {
+      setActive(true)
+    }
+  }, [props.visible])
+
+  const ref = useRef<HTMLDivElement>(null)
+  useLockScroll(ref, props.disableBodyScroll && active)
 
   const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({
@@ -73,9 +53,6 @@ export const Popup: FC<PopupProps> = p => {
       mass: 0.4,
       tension: 300,
       friction: 30,
-    },
-    onStart: () => {
-      setActive(true)
     },
     onRest: () => {
       if (unmountedRef.current) return
@@ -88,6 +65,8 @@ export const Popup: FC<PopupProps> = p => {
     },
   })
 
+  const maskVisible = useInnerVisible(active && props.visible)
+
   const node = withStopPropagation(
     props.stopPropagation,
     withNativeProps(
@@ -99,8 +78,15 @@ export const Popup: FC<PopupProps> = p => {
       >
         {props.mask && (
           <Mask
-            visible={props.visible}
-            onMaskClick={props.onMaskClick}
+            visible={maskVisible}
+            forceRender={props.forceRender}
+            destroyOnClose={props.destroyOnClose}
+            onMaskClick={e => {
+              props.onMaskClick?.(e)
+              if (props.closeOnMaskClick) {
+                props.onClose?.()
+              }
+            }}
             className={props.maskClassName}
             style={props.maskStyle}
             disableBodyScroll={false}
@@ -129,11 +115,32 @@ export const Popup: FC<PopupProps> = p => {
           }}
           ref={ref}
         >
-          {shouldRender && props.children}
+          {props.showCloseButton && (
+            <a
+              className={classNames(
+                `${classPrefix}-close-icon`,
+                'adm-plain-anchor'
+              )}
+              onClick={() => {
+                props.onClose?.()
+              }}
+            >
+              <CloseOutline />
+            </a>
+          )}
+          {props.children}
         </animated.div>
       </div>
     )
   )
 
-  return renderToContainer(props.getContainer, node)
+  return (
+    <ShouldRender
+      active={active}
+      forceRender={props.forceRender}
+      destroyOnClose={props.destroyOnClose}
+    >
+      {renderToContainer(props.getContainer, node)}
+    </ShouldRender>
+  )
 }

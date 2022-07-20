@@ -54,7 +54,7 @@
 | onClick   | 点击时触发     | `() => void \| Promise<void>` | -       |
 | primary   | 是否为主要状态 | `boolean`                     | `false` |
 | style     | `Action` 样式  | `React.CSSProperties`         | -       |
-| text      | 标题           | `string`                      | -       |
+| text      | 标题           | `React.ReactNode`             | -       |
 
 ## 指令式
 
@@ -110,4 +110,4 @@ const handler = Modal.show(props)
 
 ### 有没有不含内容、不含各种按钮、不含边距的弹窗？
 
-有，可以直接使用更底层的 [CenterPopup](./popup#centerpopup) 组件。
+有，可以直接使用更底层的 [CenterPopup](/zh/components/popup#centerpopup) 组件。

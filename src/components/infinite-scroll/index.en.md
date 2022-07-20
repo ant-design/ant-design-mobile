@@ -67,7 +67,7 @@ An example of infinite virtualized list via using [react-virtualized](https://gi
 
 ### Does it support pulling down?
 
-Pulling down is another component: [PullToRefresh](./pull-to-refresh).
+Pulling down is another component: [PullToRefresh](/components/pull-to-refresh).
 
 ### Why do I get an error when used with ahooks' `useDebounceFn` or `useThrottleFn`?
 

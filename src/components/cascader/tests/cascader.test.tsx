@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { fireEvent, render, testA11y, waitFor } from 'testing'
 import Cascader from '../'
-import { options } from '../../cascader/demos/data'
+import { options } from '../demos/data'
 
 describe('Cascader', () => {
   test('a11y', async () => {
@@ -45,7 +45,7 @@ describe('Cascader', () => {
       fireEvent.click(getByText('杭州'))
     })
     fireEvent.click(getByText('请选择'))
-    expect(onTabsChange).toBeCalled()
+    expect(onTabsChange).toBeCalledTimes(2)
 
     fireEvent.click(getByText('确定'))
 

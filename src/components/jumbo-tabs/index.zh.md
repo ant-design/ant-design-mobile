@@ -31,4 +31,4 @@
 | key            | 对应 `activeKey`            | `string`    | -       |
 | title          | 选项卡头显示文字            | `ReactNode` | -       |
 
-JumboTabs 的用法和 Tabs 非常相似，所以关于更多的用法上的指引，请参阅 [Tabs](./tabs) 的文档。
+JumboTabs 的用法和 Tabs 非常相似，所以关于更多的用法上的指引，请参阅 [Tabs](/zh/components/tabs) 的文档。

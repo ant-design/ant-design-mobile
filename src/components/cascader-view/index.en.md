@@ -1,6 +1,6 @@
 # CascaderView
 
-CascaderView is the content area of [Cascader](./cascader).
+CascaderView is the content area of [Cascader](/components/cascader).
 
 ## Demos
 
@@ -12,6 +12,7 @@ CascaderView is the content area of [Cascader](./cascader).
 
 | Name         | Description                                     | Type                                                            | Default    |
 | ------------ | ----------------------------------------------- | --------------------------------------------------------------- | ---------- |
+| activeIcon   | The icon displayed when selected                | `ReactNode`                                                     | -          |
 | defaultValue | Default selected options                        | `CascaderValue[]`                                               | `[]`       |
 | onChange     | Triggered when the selected options are changed | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | -          |
 | onTabsChange | Callback when switching panel                   | `(index: number) => void`                                       | -          |
@@ -19,7 +20,7 @@ CascaderView is the content area of [Cascader](./cascader).
 | placeholder  | Hint text                                       | `string`                                                        | `'请选择'` |
 | value        | Selected options                                | `CascaderValue[]`                                               | -          |
 
-For the type definition of `CascaderValue` `CascaderOption` `CascaderValueExtend`, please refer to the document of [Cascader](./cascader#api).
+For the type definition of `CascaderValue` `CascaderOption` `CascaderValueExtend`, please refer to the document of [Cascader](/components/cascader#api).
 
 ### Loading <Experimental></Experimental>
 

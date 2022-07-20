@@ -9,21 +9,8 @@ export const navs = {
       path: '/components',
     },
     {
-      title: 'Discover More',
-      children: [
-        {
-          title: 'Playground',
-          path: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json',
-        },
-        {
-          title: 'Roadmap',
-          path: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
-        },
-        {
-          title: 'Contributing',
-          path: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
-        },
-      ],
+      title: 'Resources',
+      path: '/resources',
     },
     {
       title: 'Legacy Versions',
@@ -57,25 +44,12 @@ export const navs = {
       path: '/zh/components',
     },
     {
-      title: '了解更多',
-      children: [
-        {
-          title: '在线体验',
-          path: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json',
-        },
-        {
-          title: 'Roadmap',
-          path: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
-        },
-        {
-          title: '参与贡献',
-          path: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
-        },
-        {
-          title: '博客',
-          path: 'https://www.yuque.com/awmleer/rocket',
-        },
-      ],
+      title: '资源',
+      path: '/zh/resources',
+    },
+    {
+      title: '国内镜像',
+      path: 'http://ant-design-mobile.antgroup.com',
     },
     {
       title: '返回旧版',
@@ -83,10 +57,6 @@ export const navs = {
         {
           title: 'v2',
           path: 'https://antd-mobile-v2.surge.sh',
-        },
-        {
-          title: 'v2 国内站点',
-          path: 'https://antd-mobile-doc-v2.gitee.io',
         },
         {
           title: 'v3 alpha',

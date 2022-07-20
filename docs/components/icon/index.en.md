@@ -6,6 +6,8 @@ The icons are in a separate npm package. If you want to use the icons, you need 
 npm install --save antd-mobile-icons
 # or
 yarn add antd-mobile-icons
+# or
+pnpm add antd-mobile-icons
 ```
 
 Then just import the icons you need from this package:

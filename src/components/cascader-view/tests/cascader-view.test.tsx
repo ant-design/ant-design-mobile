@@ -29,7 +29,7 @@ describe('CascaderView', () => {
       />
     )
     fireEvent.click(getByText('请选择'))
-    expect(onTabsChange).toBeCalled()
+    expect(onTabsChange).toBeCalledTimes(0)
     fireEvent.click(getByText('浙江'))
     expect(container).toMatchSnapshot()
 
@@ -40,6 +40,7 @@ describe('CascaderView', () => {
     expect(container).toMatchSnapshot()
 
     expect(onChange).toBeCalledTimes(3)
+    expect(onTabsChange).toBeCalledTimes(2)
     expect(onChange.mock.calls[2][0]).toEqual(['浙江', '杭州', '西湖区'])
   })
 

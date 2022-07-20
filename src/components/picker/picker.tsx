@@ -26,7 +26,6 @@ import { useConfig } from '../config-provider'
 import { useMemoizedFn } from 'ahooks'
 import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
-import { useShouldRender } from '../../utils/should-render'
 
 export type PickerActions = {
   open: () => void
@@ -41,6 +40,8 @@ export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
+  loading?: boolean
+  loadingContent?: ReactNode
   onSelect?: (value: PickerValue[], extend: PickerValueExtend) => void
   onConfirm?: (value: PickerValue[], extend: PickerValueExtend) => void
   onCancel?: () => void
@@ -58,11 +59,15 @@ export type PickerProps = {
   mouseWheel?: boolean
   popupClassName?: string
   popupStyle?: React.CSSProperties
-  forceRender?: boolean
-  destroyOnClose?: boolean
 } & Pick<
   PopupProps,
-  'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
+  | 'getContainer'
+  | 'afterShow'
+  | 'afterClose'
+  | 'onClick'
+  | 'stopPropagation'
+  | 'forceRender'
+  | 'destroyOnClose'
 > &
   NativeProps<
     | '--header-button-font-size'
@@ -75,6 +80,8 @@ const defaultProps = {
   defaultValue: [],
   closeOnMaskClick: true,
   renderLabel: defaultRenderLabel,
+  destroyOnClose: false,
+  forceRender: false,
 }
 
 export const Picker = memo(
@@ -142,17 +149,12 @@ export const Picker = memo(
       }
     })
 
-    const shouldRender = useShouldRender(
-      visible,
-      props.forceRender,
-      props.destroyOnClose
-    )
-
     const pickerElement = withNativeProps(
       props,
       <div className={classPrefix}>
         <div className={`${classPrefix}-header`}>
           <a
+            role='button'
             className={`${classPrefix}-header-button`}
             onClick={() => {
               props.onCancel?.()
@@ -163,17 +165,25 @@ export const Picker = memo(
           </a>
           <div className={`${classPrefix}-header-title`}>{props.title}</div>
           <a
-            className={`${classPrefix}-header-button`}
+            role='button'
+            className={classNames(
+              `${classPrefix}-header-button`,
+              props.loading && `${classPrefix}-header-button-disabled`
+            )}
             onClick={() => {
-              setValue(innerValue)
+              if (props.loading) return
+              setValue(innerValue, true)
               setVisible(false)
             }}
+            aria-disabled={props.loading}
           >
             {props.confirmText}
           </a>
         </div>
         <div className={`${classPrefix}-body`}>
           <PickerView
+            loading={props.loading}
+            loadingContent={props.loadingContent}
             columns={props.columns}
             renderLabel={props.renderLabel}
             value={innerValue}
@@ -196,14 +206,14 @@ export const Picker = memo(
           setVisible(false)
         }}
         getContainer={props.getContainer}
-        destroyOnClose
+        destroyOnClose={props.destroyOnClose}
         afterShow={props.afterShow}
         afterClose={props.afterClose}
         onClick={props.onClick}
-        forceRender={true}
+        forceRender={props.forceRender}
         stopPropagation={props.stopPropagation}
       >
-        {shouldRender && pickerElement}
+        {pickerElement}
         <SafeArea position='bottom' />
       </Popup>
     )

@@ -36,7 +36,7 @@
   &[data-iframe] {
     .@{prefix}-previewer-browser-nav {
       padding: 2px 6px;
-      background-color: @c-border;
+      background-color: var(--doc-border-color);
 
       &::before {
         @s-btn: 12px;
@@ -77,11 +77,7 @@
     > div:last-child {
       padding: 1.2em 1em 1em;
       color: @c-text;
-      border-top: 1px solid @c-border;
-
-      [data-prefers-color='dark'] & {
-        border-color: @c-border-dark;
-      }
+      border-top: 1px solid var(--doc-border-color);
     }
 
     .markdown > p:first-child {
@@ -144,11 +140,7 @@
     height: 40px;
     padding: 0 1em;
     align-items: center;
-    border-top: 1px dashed @c-border;
-
-    [data-prefers-color='dark'] & {
-      border-color: @c-border-dark;
-    }
+    border-top: 1px dashed var(--doc-border-color);
 
     > a:not(:last-child),
     > button:not(:last-child) {
@@ -340,7 +332,7 @@
   &-dropdown {
     position: absolute;
     background: #fff;
-    border: 1px solid @c-border;
+    border: 1px solid var(--doc-border-color);
     max-height: 200px;
     overflow: auto;
 
@@ -359,7 +351,7 @@
         }
 
         &:not(:last-child) {
-          border-bottom: 1px dashed @c-border;
+          border-bottom: 1px dashed var(--doc-border-color);
         }
       }
     }

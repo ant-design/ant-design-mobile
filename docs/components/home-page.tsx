@@ -52,7 +52,7 @@ export default () => {
       <div className={styles.main}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <h1 className={styles.title}>Ant Design Mobile 5.0</h1>
+            <h1 className={styles.title}>Ant Design Mobile</h1>
             <p className={styles.description}>
               {trans(
                 'Explore the limits of mobile web experience',
@@ -82,7 +82,7 @@ export default () => {
               return (
                 <li key={item.title}>
                   <p>
-                    <img src={item.img} />
+                    <img src={item.img} style={{ width: 74, height: 84 }} />
                   </p>
                   <p>{item.title}</p>
                   <p>{item.txt}</p>
@@ -115,13 +115,7 @@ export default () => {
               <div className={styles.development_pos}></div>
             </div>
 
-            <div
-              className={styles.resourcesCard}
-              style={{
-                backgroundColor: 'rgba(223,246,255,0.3)',
-                background: 'rgba(223,246,255,0.3)',
-              }}
-            >
+            <div className={styles.resourcesCard}>
               <p className={styles.development_con_title}>
                 <span>{trans('All Components', '组件列表')}</span>
                 <a href={trans('/components/button', '/zh/components/button')}>
@@ -288,6 +282,8 @@ export default () => {
   )
 }
 
+// TODO: add i18n for footer
+
 const footerGroups = [
   {
     title: 'Ant Design Mobile',
@@ -311,6 +307,10 @@ const footerGroups = [
       {
         title: '提问与反馈',
         link: 'https://github.com/ant-design/ant-design-mobile/issues/new/choose',
+      },
+      {
+        title: '博客',
+        link: 'https://www.yuque.com/awmleer/rocket',
       },
     ],
   },

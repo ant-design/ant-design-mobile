@@ -4,15 +4,16 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 0 0 32px;
+  padding: 0 32px;
   height: @s-nav-height;
   white-space: nowrap;
   background: #ffffff;
-  border-bottom: solid 1px @c-border;
+  border-bottom: solid 1px var(--doc-border-color);
 
   [data-prefers-color='dark'] & {
     background: @c-bg-dark;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.65);
+    border-bottom: solid 1px @c-border-dark;
   }
 
   @media @mobile {
@@ -53,13 +54,17 @@
       font-size: 20px;
       color: #080e29;
       font-weight: 500;
+
+      [data-prefers-color='dark'] & {
+        color: @c-text-dark;
+      }
     }
 
     .version {
       color: @c-weak;
       display: block;
       margin-left: 8px;
-      font-size: 14px;
+      font-size: 12px;
       padding-top: 4px;
     }
   }

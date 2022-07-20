@@ -37,6 +37,7 @@ const defaultProps = {
   actions: [] as Action[],
   closeOnAction: false,
   closeOnMaskClick: false,
+  getContainer: null,
 }
 
 export const Dialog: FC<DialogProps> = p => {
@@ -121,6 +122,8 @@ export const Dialog: FC<DialogProps> = p => {
       disableBodyScroll={props.disableBodyScroll}
       destroyOnClose={props.destroyOnClose}
       forceRender={props.forceRender}
+      role='dialog'
+      aria-label={props['aria-label']}
     >
       {element}
     </CenterPopup>

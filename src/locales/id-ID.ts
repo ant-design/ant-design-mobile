@@ -3,7 +3,7 @@ import { base } from './base'
 
 const typeTemplate = '${label} bukan ${type} yang valid'
 
-const zhCN = mergeLocale(base, {
+const idID = mergeLocale(base, {
   locale: 'id-ID',
   common: {
     confirm: 'Yakin',
@@ -11,7 +11,7 @@ const zhCN = mergeLocale(base, {
     loading: 'memuat',
   },
   Calendar: {
-    markItems: ['Senin, Selasa, Rabu, Kamis,Jumat, Sabtu, Minggu'],
+    markItems: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
     renderYearAndMonth: (year: number, month: number) =>
       `${year} Tahun ${month} Bulan`,
   },
@@ -112,4 +112,4 @@ const zhCN = mergeLocale(base, {
   },
 })
 
-export default zhCN
+export default idID

@@ -9,12 +9,13 @@ exports[`ActionSheet basic usage 1`] = `
       class="adm-button adm-button-default adm-button-shape-default"
       type="button"
     >
-      button
+      <span>
+        button
+      </span>
     </button>
   </div>
   <div
     class="adm-popup adm-action-sheet-popup"
-    style=""
   >
     <div
       class="adm-mask"

@@ -31,6 +31,8 @@ export type DatePickerProps = Pick<
   | 'confirmText'
   | 'cancelText'
   | 'getContainer'
+  | 'loading'
+  | 'loadingContent'
   | 'afterShow'
   | 'afterClose'
   | 'onClick'
@@ -38,6 +40,8 @@ export type DatePickerProps = Pick<
   | 'stopPropagation'
   | 'style'
   | 'mouseWheel'
+  | 'forceRender'
+  | 'destroyOnClose'
 > & {
   value?: Date | null
   defaultValue?: Date | null
@@ -86,7 +90,7 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
 
     const onConfirm = useCallback(
       (val: PickerValue[]) => {
-        setValue(convertStringArrayToDate(val, props.precision))
+        setValue(convertStringArrayToDate(val, props.precision), true)
       },
       [setValue, props.precision]
     )
@@ -124,12 +128,16 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
         onConfirm={onConfirm}
         onSelect={onSelect}
         getContainer={props.getContainer}
+        loading={props.loading}
+        loadingContent={props.loadingContent}
         afterShow={props.afterShow}
         afterClose={props.afterClose}
         onClick={props.onClick}
         title={props.title}
         stopPropagation={props.stopPropagation}
         mouseWheel={props.mouseWheel}
+        destroyOnClose={props.destroyOnClose}
+        forceRender={props.forceRender}
       >
         {(_, actions) => props.children?.(value, actions)}
       </Picker>

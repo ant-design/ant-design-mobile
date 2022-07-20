@@ -98,14 +98,14 @@ const validateMessages = {
 | name                                               | 字段名，支持数组                                                                                             | `NamePath`                                                     | -                                                  |
 | noStyle                                            | 不使用样式，只使用字段管理                                                                                   | `boolean`                                                      | `false`                                            |
 | onClick                                            | 点击事件并收集子组件 Ref                                                                                     | `(e:React.MouseEvent, widgetRef: React.MutableRefObject<any>)` | -                                                  |
-| required                                           | 是否必选                                                                                                     | `boolean`                                                      | `false`（如有设置 `rules`，则会根据 `rules` 判断） |
+| required                                           | 是否必选，需要注意的是这个属性仅仅用来控制外观，并不包含校验逻辑                                             | `boolean`                                                      | `false`（如有设置 `rules`，则会根据 `rules` 判断） |
 | rules                                              | 校验规则，设置字段的校验逻辑                                                                                 | `Rule[]`                                                       | -                                                  |
 | shouldUpdate                                       | 自定义字段更新逻辑，说明见下                                                                                 | `boolean \| (prevValue, curValue) => boolean`                  | `false`                                            |
 | trigger                                            | 设置收集字段值变更的时机                                                                                     | `string`                                                       | `onChange`                                         |
 | validateTrigger                                    | 设置字段校验的时机                                                                                           | `string \| string[]`                                           | `onChange`                                         |
 | valuePropName                                      | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | `string`                                                       | `value`                                            |
 
-Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item](./list#listitem) 的以下属性：
+Form.Item 的布局是基于 List.Item 实现的，所以它还支持 [List.Item](/zh/components/list#listitem) 的以下属性：
 
 `extra` `clickable` `arrow` `description`
 

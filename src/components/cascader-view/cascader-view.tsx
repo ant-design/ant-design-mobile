@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useMemo } from 'react'
+import React, { FC, ReactNode, useState, useEffect, useMemo } from 'react'
 import classNames from 'classnames'
 import Tabs from '../tabs'
 import CheckList from '../check-list'
@@ -9,6 +9,7 @@ import { useCascaderValueExtend } from './use-cascader-value-extend'
 import { useConfig } from '../config-provider'
 import { optionSkeleton } from './option-skeleton'
 import Skeleton from '../skeleton'
+import { useUpdateEffect } from 'ahooks'
 
 const classPrefix = `adm-cascader-view`
 
@@ -33,6 +34,7 @@ export type CascaderViewProps = {
   onChange?: (value: CascaderValue[], extend: CascaderValueExtend) => void
   placeholder?: string
   onTabsChange?: (index: number) => void
+  activeIcon?: ReactNode
 } & NativeProps<'--height'>
 
 const defaultProps = {
@@ -55,6 +57,9 @@ export const CascaderView: FC<CascaderViewProps> = p => {
     },
   })
   const [tabActiveIndex, setTabActiveIndex] = useState<number>(0)
+  useUpdateEffect(() => {
+    props.onTabsChange?.(tabActiveIndex)
+  }, [tabActiveIndex])
 
   const generateValueExtend = useCascaderValueExtend(props.options)
 
@@ -112,7 +117,6 @@ export const CascaderView: FC<CascaderViewProps> = p => {
         onChange={key => {
           const activeIndex = parseInt(key)
           setTabActiveIndex(activeIndex)
-          props.onTabsChange?.(activeIndex)
         }}
         stretch={false}
         className={`${classPrefix}-tabs`}
@@ -155,6 +159,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
                     onChange={selectValue =>
                       onItemSelect(selectValue[0], index)
                     }
+                    activeIcon={props.activeIcon}
                   >
                     {level.options.map(option => {
                       const active = value[index] === option.value

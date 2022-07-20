@@ -28,11 +28,11 @@ The bottom layer of `CheckList` is implemented based on `List`, which is a list 
 | readOnly     | Is the check list item readonly            | `boolean`                   | `false`            |
 | value        | The selected items                         | `string[]`                  | `[]`               |
 
-In addition, the `mode` attribute of [List](./list) is also supported
+In addition, the `mode` attribute of [List](/components/list) is also supported
 
 ### CSS Variables
 
-The same as [List](./list/#list-2)
+The same as [List](/components/list/#list-2)
 
 ## CheckList.Item
 
@@ -44,8 +44,8 @@ The same as [List](./list/#list-2)
 | readOnly | Is the check list item readonly | `boolean` | `false` |
 | value    | The option value                | `string`  | -       |
 
-In addition, the following attributes of [List.Item](./list) are also supported: `title` `children` `description` `prefix` `onClick`
+In addition, the following attributes of [List.Item](/components/list) are also supported: `title` `children` `description` `prefix` `onClick`
 
 ### CSS Variables
 
-The same as [List.Item](./list/#listitem-1)
+The same as [List.Item](/components/list/#listitem-1)

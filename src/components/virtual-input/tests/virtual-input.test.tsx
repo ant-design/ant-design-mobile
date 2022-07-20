@@ -77,9 +77,6 @@ describe('VirtualInput', () => {
         keyboard={<NumberKeyboard title='title' />}
       />
     )
-    expect(
-      document.querySelector(`.${KeyBoardClassPrefix}-popup`)
-    ).not.toBeVisible()
     fireEvent.focus(screen.getByTestId('virtualInput'))
 
     await waitFor(() => {

@@ -6,6 +6,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDebounceEffect } from 'ahooks'
 import { PickerProps } from '../picker'
 import { defaultRenderLabel } from '../picker/picker-utils'
+import SpinLoading from '../spin-loading'
 
 const classPrefix = `adm-picker-view`
 
@@ -29,6 +30,8 @@ export type PickerViewProps = {
   value?: PickerValue[]
   defaultValue?: PickerValue[]
   mouseWheel?: boolean
+  loading?: boolean
+  loadingContent?: ReactNode
   onChange?: (value: PickerValue[], extend: PickerValueExtend) => void
 } & Pick<PickerProps, 'renderLabel'> &
   NativeProps<'--height' | '--item-height' | '--item-font-size'>
@@ -37,6 +40,11 @@ const defaultProps = {
   defaultValue: [],
   renderLabel: defaultRenderLabel,
   mouseWheel: false,
+  loadingContent: (
+    <div className={`${classPrefix}-loading-content`}>
+      <SpinLoading />
+    </div>
+  ),
 }
 
 export const PickerView = memo<PickerViewProps>(p => {
@@ -92,22 +100,28 @@ export const PickerView = memo<PickerViewProps>(p => {
   return withNativeProps(
     props,
     <div className={`${classPrefix}`}>
-      {columns.map((column, index) => (
-        <Wheel
-          key={index}
-          index={index}
-          column={column}
-          value={innerValue[index]}
-          onSelect={handleSelect}
-          renderLabel={props.renderLabel}
-          mouseWheel={props.mouseWheel}
-        />
-      ))}
-      <div className={`${classPrefix}-mask`}>
-        <div className={`${classPrefix}-mask-top`} />
-        <div className={`${classPrefix}-mask-middle`} />
-        <div className={`${classPrefix}-mask-bottom`} />
-      </div>
+      {props.loading ? (
+        props.loadingContent
+      ) : (
+        <>
+          {columns.map((column, index) => (
+            <Wheel
+              key={index}
+              index={index}
+              column={column}
+              value={innerValue[index]}
+              onSelect={handleSelect}
+              renderLabel={props.renderLabel}
+              mouseWheel={props.mouseWheel}
+            />
+          ))}
+          <div className={`${classPrefix}-mask`}>
+            <div className={`${classPrefix}-mask-top`} />
+            <div className={`${classPrefix}-mask-middle`} />
+            <div className={`${classPrefix}-mask-bottom`} />
+          </div>
+        </>
+      )}
     </div>
   )
 })

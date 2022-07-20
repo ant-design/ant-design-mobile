@@ -6,7 +6,6 @@ import Image from '../image'
 import Space from '../space'
 import AutoCenter from '../auto-center'
 import { NativeProps } from '../../utils/native-props'
-import { CloseOutline } from 'antd-mobile-icons'
 import CenterPopup, { CenterPopupProps } from '../center-popup'
 
 export type ModalProps = Pick<
@@ -40,20 +39,13 @@ const defaultProps = {
   actions: [] as Action[],
   closeOnAction: false,
   closeOnMaskClick: false,
+  getContainer: null,
 }
 
 export const Modal: FC<ModalProps> = p => {
   const props = mergeProps(defaultProps, p)
   const element = (
     <>
-      {props.showCloseButton && (
-        <a
-          className={classNames(cls('close'), 'adm-plain-anchor')}
-          onClick={props.onClose}
-        >
-          <CloseOutline />
-        </a>
-      )}
       {!!props.image && (
         <div className={cls('image-container')}>
           <Image src={props.image} alt='modal header image' width='100%' />
@@ -107,13 +99,9 @@ export const Modal: FC<ModalProps> = p => {
       style={props.style}
       afterClose={props.afterClose}
       afterShow={props.afterShow}
-      onMaskClick={
-        props.closeOnMaskClick
-          ? () => {
-              props.onClose?.()
-            }
-          : undefined
-      }
+      showCloseButton={props.showCloseButton}
+      closeOnMaskClick={props.closeOnMaskClick}
+      onClose={props.onClose}
       visible={props.visible}
       getContainer={props.getContainer}
       bodyStyle={props.bodyStyle}

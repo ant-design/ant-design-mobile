@@ -56,7 +56,7 @@ to open a floating layer in the middle of the current page to carry the correspo
 | onClick   | Triggered on click                | `() => void \| Promise<void>` | -       |
 | primary   | Whether in primary state or not   | `boolean`                     | `false` |
 | style     | Style of the action button        | `React.CSSProperties`         | -       |
-| text      | The title                         | `string`                      | -       |
+| text      | The title                         | `React.ReactNode`             | -       |
 
 ## Imperative
 
@@ -117,4 +117,4 @@ event to close all modals automatically without using modal reference to close.
 
 ### Are there any pop-up windows with no content, no buttons, and no margins?
 
-Yes, you can directly use the lower-level [CenterPopup](./popup#centerpopup) component.
+Yes, you can directly use the lower-level [CenterPopup](/components/popup#centerpopup) component.
