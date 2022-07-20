@@ -38,7 +38,7 @@
 | onFinishFailed    | 提交表单且数据验证失败后触发                                 | `({ values, errorFields, outOfDate }) => void`     | -            |
 | onValuesChange    | 字段值更新时触发                                             | `(changedValues, allValues) => void`               | -            |
 | preserve          | 当字段被删除时保留字段值                                     | `boolean`                                          | `true`       |
-| requiredMarkStyle | 必填选填的标记样式                                           | `'asterisk' \| 'text-required' \| 'text-optional'` | `'asterisk'` |
+| requiredMarkStyle | 必填选填的标记样式                                           | `'asterisk' \| 'text-required' \| 'text-optional' \|'none'` | `'asterisk'` |
 | validateMessages  | 验证提示模板，说明见下                                       | `ValidateMessages`                                 | -            |
 | validateTrigger   | 统一设置字段触发验证的时机                                   | `string \| string[]`                               | `'onChange'` |
 
