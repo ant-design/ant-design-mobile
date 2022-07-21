@@ -38,7 +38,7 @@ High-performance form controls with built-in data field management. Including da
 | onFinishFailed    | Trigger after submitting the form and verifying data failed                                | `({ values, errorFields, outOfDate }) => void`     | -            |
 | onValuesChange    | Trigger when value updated                                                                 | `(changedValues, allValues) => void`               | -            |
 | preserve          | Keep field value even when field removed                                                   | `boolean`                                          | `true`       |
-| requiredMarkStyle | The style of required or optional mark                                                     | `'asterisk' \| 'text-required' \| 'text-optional'` | `'asterisk'` |
+| requiredMarkStyle | The style of required or optional mark                                                     | `'asterisk' \| 'text-required' \| 'text-optional \| 'none'` | `'asterisk'` |
 | validateMessages  | Validation prompt template, description see below                                          | `ValidateMessages`                                 | -            |
 | validateTrigger   | Config field validate trigger                                                              | `string \| string[]`                               | `'onChange'` |
 

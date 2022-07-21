@@ -6,7 +6,7 @@ export type FormContextType = {
   name?: string
   hasFeedback: boolean
   layout: FormLayout
-  requiredMarkStyle: 'asterisk' | 'text-required' | 'text-optional'
+  requiredMarkStyle: 'asterisk' | 'text-required' | 'text-optional' | 'none'
   disabled: boolean
 }
 
