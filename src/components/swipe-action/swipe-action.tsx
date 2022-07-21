@@ -98,20 +98,18 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
           let position = offsetX + state.velocity[0] * state.direction[0] * 50
           if (offsetX > 0) {
             position = Math.max(0, position)
-            if (position > leftWidth / 2) {
-              p.onActionsReveal?.('left')
-            }
           } else if (offsetX < 0) {
             position = Math.min(0, position)
-            if (Math.abs(position) > rightWidth / 2) {
-              p.onActionsReveal?.('right')
-            }
           } else {
             position = 0
           }
+          const targetX = nearest([-rightWidth, 0, leftWidth], position)
           api.start({
-            x: nearest([-rightWidth, 0, leftWidth], position),
+            x: targetX,
           })
+          if (targetX !== 0) {
+            p.onActionsReveal?.(targetX > 0 ? 'left' : 'right')
+          }
           window.setTimeout(() => {
             draggingRef.current = false
           })
