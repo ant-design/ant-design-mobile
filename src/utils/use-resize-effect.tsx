@@ -11,7 +11,7 @@ export function useResizeEffect<T extends HTMLElement>(
     if (!target) return
     if (window.ResizeObserver) {
       const observer = new ResizeObserver(() => {
-        fn(target)
+        window.requestAnimationFrame(() => fn(target));
       })
       observer.observe(target)
       return () => {
