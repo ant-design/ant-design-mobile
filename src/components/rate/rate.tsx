@@ -31,7 +31,6 @@ const defaultProps = {
 export const Rate: FC<RateProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
-  const initialValue = useRef(value)
   const starList = Array(props.count).fill(null)
 
   function renderStar(v: number, half: boolean) {
@@ -45,7 +44,8 @@ export const Rate: FC<RateProps> = p => {
         role='radio'
         aria-checked={value >= v}
         aria-label={'' + v}
-        onClick={() => {
+        onClick={e => {
+          e.stopPropagation()
           if (props.readOnly) return
           if (props.allowClear && value === v) {
             setValue(0)
@@ -57,20 +57,6 @@ export const Rate: FC<RateProps> = p => {
         {props.character}
       </div>
     )
-  }
-
-  const getNearNum = (val: number) => {
-    if (!val) return 0
-
-    const roundValue = Math.round(val)
-    const floorValue = Math.floor(val)
-    const ceilValue = Math.ceil(val)
-
-    if (props.allowHalf) {
-      return roundValue > val ? roundValue : floorValue + 0.5
-    }
-
-    return ceilValue
   }
 
   return withNativeProps(
@@ -98,21 +84,16 @@ export const Rate: FC<RateProps> = p => {
           className={classNames(`${classPrefix}-range`)}
           value={value}
           max={props.count}
-          step={0.1}
-          onAfterChange={val => {
-            if (props.readOnly) return
-            const afterValue = getNearNum(val as number)
-            if (props.allowClear && afterValue === initialValue.current) {
-              setValue(0)
-              initialValue.current = 0
-              return
-            }
-
-            initialValue.current = afterValue
-          }}
+          step={props.allowHalf ? 0.5 : 1}
+          icon={
+            <div>
+              {props.allowHalf && renderStar(value - 0.5, true)}
+              {renderStar(value, false)}
+            </div>
+          }
           onChange={val => {
             if (props.readOnly) return
-            setValue(getNearNum(val as number))
+            setValue(val as number)
           }}
         ></Slider>
       )}
