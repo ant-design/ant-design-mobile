@@ -64,6 +64,7 @@ export const components = {
     '/components/progress-circle',
     '/components/pull-to-refresh',
     '/components/result',
+    '/components/result-page',
     '/components/skeleton',
     '/components/swipe-action',
     '/components/toast',
