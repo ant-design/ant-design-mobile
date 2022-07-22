@@ -108,4 +108,15 @@ describe('Ellipsis', () => {
 
     expect(getByTestId('ellipsis')).not.toHaveTextContent('...')
   })
+
+  test('Continuous English character exceeded', async () => {
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+      value: lineHeight,
+    })
+    const { getByTestId } = render(
+      <Ellipsis rows={2} content={'test'.repeat(100)} data-testid='ellipsis' />
+    )
+
+    expect(getByTestId('ellipsis')).toHaveTextContent(/.../)
+  })
 })
