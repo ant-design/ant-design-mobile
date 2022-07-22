@@ -48,6 +48,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   })
 
   const elementRef = useRef<HTMLDivElement>(null)
+  const loadRef = useRef<HTMLDivElement>(null)
 
   // Prevent duplicated trigger of `check` function
   const [flag, setFlag] = useState({})
@@ -95,12 +96,17 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
     const element = elementRef.current
     if (!element) return
     if (!scrollParent) return
-    function onScroll() {
-      check()
-    }
-    scrollParent.addEventListener('scroll', onScroll)
+    let intersectionObserver: IntersectionObserver | null =
+      new IntersectionObserver(entries => {
+        if (entries[0].intersectionRatio > 0) {
+          check()
+        }
+      })
+    intersectionObserver.observe(loadRef.current!)
     return () => {
-      scrollParent.removeEventListener('scroll', onScroll)
+      intersectionObserver!.unobserve(loadRef.current!)
+      intersectionObserver!.disconnect()
+      intersectionObserver = null
     }
   }, [scrollParent])
 
@@ -116,6 +122,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
       {typeof props.children === 'function'
         ? props.children(props.hasMore, failed, retry)
         : props.children}
+      <div ref={loadRef}></div>
     </div>
   )
 }
