@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -30,6 +30,13 @@ const defaultProps = {
 export const Rate: FC<RateProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
+  const starRefs = useRef<HTMLDivElement[]>([])
+  const ranges = useRef<
+    {
+      left: number
+      value: number
+    }[]
+  >([])
   const starList = Array(props.count).fill(null)
 
   function renderStar(v: number, half: boolean) {
@@ -40,6 +47,9 @@ export const Rate: FC<RateProps> = p => {
           [`${classPrefix}-star-half`]: half,
           [`${classPrefix}-star-readonly`]: props.readOnly,
         })}
+        ref={el => {
+          if (el) starRefs.current[v] = el
+        }}
         onClick={() => {
           if (props.readOnly) return
           if (props.allowClear && value === v) {
@@ -56,12 +66,49 @@ export const Rate: FC<RateProps> = p => {
       </div>
     )
   }
+
   return withNativeProps(
     props,
     <div
       className={classPrefix}
       role='radiogroup'
       aria-readonly={props.readOnly}
+      onTouchStart={() => {
+        ranges.current = starList
+          .reduce((prev, _, i) => {
+            const rect = starRefs.current[i + 1].getBoundingClientRect()
+
+            if (props.allowHalf) {
+              prev.push({
+                left: rect.left,
+                value: i + 0.5,
+              })
+              prev.push({
+                left: rect.left + rect.width / 2,
+                value: i + 1,
+              })
+            } else {
+              prev.push({
+                left: rect.left,
+                value: i + 1,
+              })
+            }
+
+            return prev
+          }, [] as typeof ranges.current)
+          .reverse()
+      }}
+      onTouchMove={event => {
+        if (props.readOnly) return
+        const { clientX } = event.touches[0]
+
+        const firstStar = ranges.current.find(i => i.left < clientX)
+        if (firstStar) {
+          setValue(firstStar.value)
+        } else {
+          setValue(0)
+        }
+      }}
     >
       {starList.map((_, i) => (
         <div key={i} className={classNames(`${classPrefix}-box`)}>
