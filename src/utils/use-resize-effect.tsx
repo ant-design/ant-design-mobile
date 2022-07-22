@@ -8,16 +8,15 @@ export function useResizeEffect<T extends HTMLElement>(
   const fn = useMemoizedFn(effect)
   useIsomorphicLayoutEffect(() => {
     const target = targetRef.current
+    let animationFrame: number
     if (!target) return
     if (window.ResizeObserver) {
       const observer = new ResizeObserver(() => {
-        const AnimationFramerRes = window.requestAnimationFrame(() =>
-          fn(target)
-        )
-        window.cancelAnimationFrame(AnimationFramerRes)
+        animationFrame = window.requestAnimationFrame(() => fn(target))
       })
       observer.observe(target)
       return () => {
+        window.cancelAnimationFrame(animationFrame)
         observer.disconnect()
       }
     } else {
