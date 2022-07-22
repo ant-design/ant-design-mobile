@@ -22,6 +22,7 @@ Swipe to reveal hidden function menus.
 | onAction            | Triggered when operation button is clicked                                           | `(action: Action, e: React.MouseEvent) => void` | -       |
 | rightActions        | List of operation buttons on the right                                               | `Action[]`                                      | `[]`    |
 | stopPropagation     | Stop the propagation of some events.                                                 | `PropagationEvent[]`                            | `[]`    |
+| onActionsReveal     | Triggered when the operation button appears completely                               | (side: 'left' \| 'right') => void               | -       |
 
 ### Action
 

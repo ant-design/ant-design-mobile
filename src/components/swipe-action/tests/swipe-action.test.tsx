@@ -227,4 +227,59 @@ describe('SwipeAction', () => {
     fireEvent.click(getByText('delete'))
     expect(onAction).not.toBeCalled()
   })
+
+  test('onActionsReveal should be called when the ref.show is called', async () => {
+    const onActionsReveal = jest.fn()
+    const App = () => {
+      const ref = useRef<SwipeActionRef>(null)
+      return (
+        <>
+          <SwipeAction
+            ref={ref}
+            leftActions={leftActions}
+            onActionsReveal={onActionsReveal}
+          >
+            A
+          </SwipeAction>
+          <button onClick={() => ref.current?.show('left')}>left</button>
+        </>
+      )
+    }
+    const { getByText } = render(<App />)
+
+    fireEvent.click(getByText('left'))
+    await waitFor(() => {
+      expect(onActionsReveal).toBeCalledTimes(1)
+      expect(onActionsReveal).toBeCalledWith('left')
+    })
+  })
+
+  test('onActionsReveal should be called when the operation button is revealed', async () => {
+    const onActionsReveal = jest.fn()
+    const App = () => {
+      return (
+        <SwipeAction
+          rightActions={rightActions}
+          leftActions={leftActions}
+          onActionsReveal={onActionsReveal}
+          data-testid='swipe'
+        >
+          A
+        </SwipeAction>
+      )
+    }
+
+    const { getByTestId } = render(<App />)
+
+    swipe(getByTestId('swipe'), [
+      {
+        clientX: 150,
+      },
+    ])
+
+    await waitFor(() => {
+      expect(onActionsReveal).toBeCalledTimes(1)
+      expect(onActionsReveal).toBeCalledWith('left')
+    })
+  })
 })

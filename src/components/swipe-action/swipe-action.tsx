@@ -47,6 +47,7 @@ export type SwipeActionProps = {
   closeOnAction?: boolean
   children: ReactNode
   stopPropagation?: PropagationEvent[]
+  onActionsReveal?: (side: 'left' | 'right') => void
 } & NativeProps<'--background'>
 
 const defaultProps = {
@@ -102,9 +103,13 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
           } else {
             position = 0
           }
+          const targetX = nearest([-rightWidth, 0, leftWidth], position)
           api.start({
-            x: nearest([-rightWidth, 0, leftWidth], position),
+            x: targetX,
           })
+          if (targetX !== 0) {
+            p.onActionsReveal?.(targetX > 0 ? 'left' : 'right')
+          }
           window.setTimeout(() => {
             draggingRef.current = false
           })
@@ -149,6 +154,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
             x: getLeftWidth(),
           })
         }
+        p.onActionsReveal?.(side)
       },
       close,
     }))
