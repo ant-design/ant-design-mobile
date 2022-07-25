@@ -1,9 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { Star } from './star'
+import { useDrag } from '@use-gesture/react'
 
 const classPrefix = `adm-rate`
 
@@ -30,6 +31,8 @@ const defaultProps = {
 export const Rate: FC<RateProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
+
+  const containerRef = useRef<HTMLDivElement>(null)
   const starList = Array(props.count).fill(null)
 
   function renderStar(v: number, half: boolean) {
@@ -56,12 +59,43 @@ export const Rate: FC<RateProps> = p => {
       </div>
     )
   }
+
+  const bind = useDrag(
+    state => {
+      if (props.readOnly) return
+      const {
+        xy: [clientX],
+      } = state
+
+      const container = containerRef.current
+      if (!container) return
+      const rect = container.getBoundingClientRect()
+
+      const rawValue = ((clientX - rect.left) / rect.width) * 5
+
+      const roundedValue = props.allowHalf
+        ? Math.round(rawValue * 2) / 2
+        : Math.round(rawValue)
+
+      setValue(roundedValue)
+    },
+    {
+      axis: 'x',
+      preventScroll: true,
+      pointer: {
+        touch: true,
+      },
+    }
+  )
+
   return withNativeProps(
     props,
     <div
       className={classPrefix}
       role='radiogroup'
       aria-readonly={props.readOnly}
+      ref={containerRef}
+      {...bind()}
     >
       {starList.map((_, i) => (
         <div key={i} className={classNames(`${classPrefix}-box`)}>
