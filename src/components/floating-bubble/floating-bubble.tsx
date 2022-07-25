@@ -93,7 +93,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       // the component won't trigger drag logic if the user just clicked on the component.
       filterTaps: true,
       // set constraints to the user gesture
-      bounds: boundaryRef as any, // Temp fix. Seems to be a bug with use-gesture.
+      bounds: boundaryRef,
       from: () => [x.get(), y.get()],
     }
   )
