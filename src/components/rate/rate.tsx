@@ -5,6 +5,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { Star } from './star'
 import { useDrag } from '@use-gesture/react'
+import { bound } from '../../utils/bound'
 
 const classPrefix = `adm-rate`
 
@@ -76,9 +77,7 @@ export const Rate: FC<RateProps> = p => {
         ? Math.round(rawValue * 2) / 2
         : Math.round(rawValue)
 
-      if (roundedValue <= props.count && roundedValue >= 0) {
-        setValue(roundedValue)
-      }
+      setValue(bound(roundedValue, 0, props.count))
     },
     {
       axis: 'x',
