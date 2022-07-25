@@ -31,7 +31,8 @@ const defaultProps = {
 export const Rate: FC<RateProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
-  const starRefs = useRef<HTMLDivElement[]>([])
+
+  const containerRef = useRef<HTMLDivElement>(null)
   const starList = Array(props.count).fill(null)
 
   function renderStar(v: number, half: boolean) {
@@ -42,9 +43,6 @@ export const Rate: FC<RateProps> = p => {
           [`${classPrefix}-star-half`]: half,
           [`${classPrefix}-star-readonly`]: props.readOnly,
         })}
-        ref={el => {
-          if (el) starRefs.current[v] = el
-        }}
         onClick={() => {
           if (props.readOnly) return
           if (props.allowClear && value === v) {
@@ -62,46 +60,33 @@ export const Rate: FC<RateProps> = p => {
     )
   }
 
-  const bind = useDrag(state => {
-    if (props.readOnly) return
-    const {
-      direction: [horizontal],
-      xy: [clientX],
-    } = state
+  const bind = useDrag(
+    state => {
+      if (props.readOnly) return
+      const {
+        xy: [clientX],
+      } = state
 
-    if (!horizontal) return
+      const container = containerRef.current
+      if (!container) return
+      const rect = container.getBoundingClientRect()
 
-    const firstStar = starList
-      .reduce((prev, _, i) => {
-        const rect = starRefs.current[i + 1].getBoundingClientRect()
+      const rawValue = ((clientX - rect.left) / rect.width) * 5
 
-        if (props.allowHalf) {
-          prev.push({
-            left: rect.left,
-            value: i + 0.5,
-          })
-          prev.push({
-            left: rect.left + rect.width / 2,
-            value: i + 1,
-          })
-        } else {
-          prev.push({
-            left: rect.left,
-            value: i + 1,
-          })
-        }
+      const roundedValue = props.allowHalf
+        ? Math.round(rawValue * 2) / 2
+        : Math.round(rawValue)
 
-        return prev
-      }, [])
-      .reverse()
-      .find((i: { left: number; value: number }) => i.left < clientX)
-
-    if (firstStar) {
-      setValue(firstStar.value)
-    } else {
-      setValue(0)
+      setValue(roundedValue)
+    },
+    {
+      axis: 'x',
+      preventScroll: true,
+      pointer: {
+        touch: true,
+      },
     }
-  })
+  )
 
   return withNativeProps(
     props,
@@ -109,6 +94,7 @@ export const Rate: FC<RateProps> = p => {
       className={classPrefix}
       role='radiogroup'
       aria-readonly={props.readOnly}
+      ref={containerRef}
       {...bind()}
     >
       {starList.map((_, i) => (
