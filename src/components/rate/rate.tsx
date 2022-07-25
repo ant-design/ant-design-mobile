@@ -66,18 +66,19 @@ export const Rate: FC<RateProps> = p => {
       const {
         xy: [clientX],
       } = state
-
       const container = containerRef.current
       if (!container) return
       const rect = container.getBoundingClientRect()
 
-      const rawValue = ((clientX - rect.left) / rect.width) * 5
+      const rawValue = ((clientX - rect.left) / rect.width) * props.count
 
       const roundedValue = props.allowHalf
         ? Math.round(rawValue * 2) / 2
         : Math.round(rawValue)
 
-      setValue(roundedValue)
+      if (roundedValue <= props.count && roundedValue >= 0) {
+        setValue(roundedValue)
+      }
     },
     {
       axis: 'x',
