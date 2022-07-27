@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { render, testA11y, fireEvent, waitFor } from 'testing'
+import { render, testA11y, fireEvent, waitFor, userEvent } from 'testing'
 import SwipeAction, { Action, SwipeActionProps, SwipeActionRef } from '..'
 import { Dialog } from 'antd-mobile'
 
@@ -56,10 +56,6 @@ describe('SwipeAction', () => {
     })
   })
 
-  afterEach(() => {
-    jest.useRealTimers()
-  })
-
   test('a11y', async () => {
     await testA11y(<App />)
   })
@@ -67,7 +63,6 @@ describe('SwipeAction', () => {
   test('swipe from left to right', async () => {
     const { getByTestId, getByText } = render(<App />)
 
-    jest.useFakeTimers()
     swipe(getByTestId('swipe'), [
       {
         clientX: 150,
@@ -79,8 +74,7 @@ describe('SwipeAction', () => {
       expect(track).toHaveStyle(`transform: translate3d(${width}px,0,0)`)
     )
 
-    jest.runAllTimers()
-    fireEvent.click(getByText('pin'))
+    await userEvent.click(getByText('pin'))
     await waitFor(() => expect(track).toHaveStyle(`transform: none`))
   })
 
@@ -128,8 +122,6 @@ describe('SwipeAction', () => {
       )
     }
     const { getByTestId, getByText } = render(<App />)
-
-    jest.useFakeTimers()
     swipe(getByTestId('swipe'), [
       {
         clientX: 50,
@@ -141,7 +133,6 @@ describe('SwipeAction', () => {
       expect(track).toHaveStyle(`transform: translate3d(-${width}px,0,0);`)
     )
 
-    jest.runAllTimers()
     fireEvent.click(getByText('delete'))
     fireEvent.click(getByText('确定'))
     await waitFor(() => expect(track).toHaveStyle(`transform: none`))
@@ -192,12 +183,14 @@ describe('SwipeAction', () => {
       expect(track).toHaveStyle(`transform: translate3d(${width}px,0,0)`)
     )
 
-    fireEvent.click(getByText('A'))
+    await userEvent.click(
+      document.querySelectorAll(`.${classPrefix}-content`)[0]
+    )
     await waitFor(() => expect(track).toHaveStyle(`transform: none`))
   })
 
   test('outside touch should return to the position', async () => {
-    const { getByTestId, getByText } = render(<App />)
+    const { getByTestId } = render(<App />)
 
     swipe(getByTestId('swipe'), [
       {
@@ -210,7 +203,7 @@ describe('SwipeAction', () => {
       expect(track).toHaveStyle(`transform: translate3d(${width}px,0,0)`)
     )
 
-    fireEvent.touchStart(document.body)
+    await userEvent.click(document.body)
     await waitFor(() => expect(track).toHaveStyle(`transform: none`))
   })
 
