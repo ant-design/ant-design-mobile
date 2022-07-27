@@ -121,7 +121,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
         }
       },
       {
-        from: () => [x.get(), 0],
+        from: () => [0, 0],
         bounds: () => {
           const leftWidth = getLeftWidth()
           const rightWidth = getRightWidth()
@@ -167,6 +167,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
         }
         const root = rootRef.current
         if (root && !root.contains(e.target as Node)) {
+          console.log('out side')
           close()
         }
       }
