@@ -39,7 +39,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.30.5
   '@typescript-eslint/parser': ^5.30.5
   '@umijs/types': ^3.5.27
-  '@use-gesture/react': 10.2.16
+  '@use-gesture/react': 10.2.17
   ahooks: ^3.5.2
   antd-mobile-icons: ^0.3.0
   antd-mobile-v5-count: ^1.0.1
@@ -104,7 +104,7 @@ specifiers:
 dependencies:
   '@floating-ui/dom': 0.5.4
   '@react-spring/web': 9.4.5_biqbaboplfbrettd7655fr4n2y
-  '@use-gesture/react': 10.2.16_react@18.2.0
+  '@use-gesture/react': 10.2.17_react@18.2.0
   ahooks: 3.5.2_react@18.2.0
   antd-mobile-icons: 0.3.0
   antd-mobile-v5-count: 1.0.1
@@ -3403,16 +3403,16 @@ packages:
       '@umijs/deps': 3.5.27
     dev: true
 
-  /@use-gesture/core/10.2.16:
-    resolution: {integrity: sha512-2J2GICmrSA6RwcowqzL0TY6S8bJY35KhLnE0YjBIVobQL2RilSDefXTKMxxyontp2mALDeeYAHh9ZLu+vMaq8Q==}
+  /@use-gesture/core/10.2.17:
+    resolution: {integrity: sha512-62hCybe4x6oGZ1/JA9gSYIdghV1FqxCdvYWt9SqCEAAikwT1OmVl2Q/Uu8CP636L57D+DfXtw6PWM+fdhr4oJQ==}
     dev: false
 
-  /@use-gesture/react/10.2.16_react@18.2.0:
-    resolution: {integrity: sha512-kkWi97SHzj/F6XqRXSyrk5pLoSiuRgqvnQl2Bawmf05dWo2q6DL7v5LhnnyPNZRVkCm+WEb3e1nsR+iVza1vmg==}
+  /@use-gesture/react/10.2.17_react@18.2.0:
+    resolution: {integrity: sha512-Vfrp1KgdYn/kOEUAYNXtGBCl2dr38s3G6rru1TOPs+cVUjfNyNxvJK56grUyJ336N3rQLK8F9G7+FfrHuc3g/Q==}
     peerDependencies:
       react: '>= 16.8.0'
     dependencies:
-      '@use-gesture/core': 10.2.16
+      '@use-gesture/core': 10.2.17
       react: 18.2.0
     dev: false
 
