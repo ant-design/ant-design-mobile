@@ -88,8 +88,16 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
 
     const draggingRef = useRef(false)
 
+    const dragCancelRef = useRef<(() => void) | null>(null)
+    function forceCancelDrag() {
+      dragCancelRef.current?.()
+      draggingRef.current = false
+    }
+
     const bind = useDrag(
       state => {
+        dragCancelRef.current = state.cancel
+        if (!state.intentional) return
         draggingRef.current = true
         const [offsetX] = state.offset
         if (state.last) {
@@ -134,6 +142,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
         axis: 'x',
         preventScroll: true,
         pointer: { touch: true },
+        triggerAllEvents: true,
       }
     )
 
@@ -141,6 +150,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       api.start({
         x: 0,
       })
+      forceCancelDrag()
     }
 
     useImperativeHandle(ref, () => ({
@@ -227,9 +237,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
               if (x.goal !== 0) {
                 e.preventDefault()
                 e.stopPropagation()
-                api.start({
-                  x: 0,
-                })
+                close()
               }
             }}
           >
