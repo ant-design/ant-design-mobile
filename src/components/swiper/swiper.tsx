@@ -146,14 +146,15 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         [count]
       )
 
-      const forceDragCancelRef = useRef(() => {})
+      const dragCancelRef = useRef<(() => void) | null>(null)
+      function forceCancelDrag() {
+        dragCancelRef.current?.()
+        draggingRef.current = false
+      }
 
       const bind = useDrag(
         state => {
-          forceDragCancelRef.current = () => {
-            state.cancel()
-            setDragging(false)
-          }
+          dragCancelRef.current = state.cancel
           if (!state.intentional) return
           const slidePixels = getSlidePixels()
           if (!slidePixels) return
@@ -326,7 +327,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               if (draggingRef.current) {
                 e.stopPropagation()
               }
-              forceDragCancelRef.current()
+              forceCancelDrag()
             }}
             {...(props.allowTouchMove ? bind() : {})}
           >
