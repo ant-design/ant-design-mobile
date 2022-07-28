@@ -27,9 +27,9 @@ specifiers:
   '@types/jest-axe': 3.5.4
   '@types/lodash': ^4.14.182
   '@types/node': ^18.6.2
-  '@types/react': ^18.0.15
+  '@types/react': '18'
   '@types/react-beautiful-dnd': ^13.1.2
-  '@types/react-dom': ^18.0.6
+  '@types/react-dom': '18'
   '@types/react-helmet': ^6.1.5
   '@types/react-is': ^17.0.3
   '@types/react-virtualized': ^9.21.21
