@@ -1,5 +1,12 @@
 import React, { useRef } from 'react'
-import { render, testA11y, fireEvent, waitFor, userEvent } from 'testing'
+import {
+  render,
+  testA11y,
+  fireEvent,
+  waitFor,
+  userEvent,
+  mockDrag,
+} from 'testing'
 import SwipeAction, { Action, SwipeActionProps, SwipeActionRef } from '..'
 import { Dialog } from 'antd-mobile'
 
@@ -20,20 +27,13 @@ const rightActions: Action[] = [
   },
 ]
 
-function swipe(element: Element, moveOptions: { clientX: number }[]) {
-  fireEvent.mouseDown(element, {
-    buttons: 1,
-    clientX: 100,
-  })
-
-  moveOptions.forEach(option => {
-    fireEvent.mouseMove(element, {
-      ...option,
-      buttons: 1,
-    })
-  })
-
-  fireEvent.mouseUp(element)
+function swipe(el: Element, moveOptions: { clientX: number }[]) {
+  mockDrag(el, [
+    {
+      clientX: 100,
+    },
+    ...moveOptions,
+  ])
 }
 
 const App = (props: Partial<SwipeActionProps>) => {
@@ -203,7 +203,7 @@ describe('SwipeAction', () => {
       expect(track).toHaveStyle(`transform: translate3d(${width}px,0,0)`)
     )
 
-    await userEvent.click(document.body)
+    fireEvent.touchStart(document.body)
     await waitFor(() => expect(track).toHaveStyle(`transform: none`))
   })
 
