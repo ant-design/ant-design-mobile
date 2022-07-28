@@ -98,7 +98,10 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       state => {
         dragCancelRef.current = state.cancel
         if (!state.intentional) return
-        draggingRef.current = true
+        if (state.down) {
+          draggingRef.current = true
+        }
+        if (!draggingRef.current) return
         const [offsetX] = state.offset
         if (state.last) {
           const leftWidth = getLeftWidth()
