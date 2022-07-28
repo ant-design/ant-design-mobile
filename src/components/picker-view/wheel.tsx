@@ -237,6 +237,8 @@ export const Wheel = memo<Props>(
     if (prev.index !== next.index) return false
     if (prev.value !== next.value) return false
     if (prev.onSelect !== next.onSelect) return false
+    if (prev.renderLabel !== next.renderLabel) return false
+    if (prev.mouseWheel !== next.mouseWheel) return false
     if (!isEqual(prev.column, next.column)) {
       return false
     }
