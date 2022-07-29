@@ -44,14 +44,6 @@ export const Rate: FC<RateProps> = p => {
           [`${classPrefix}-star-half`]: half,
           [`${classPrefix}-star-readonly`]: props.readOnly,
         })}
-        // onMouseUp={() => {
-        //   if (props.readOnly) return
-        //   if (props.allowClear && value === v) {
-        //     setValue(0)
-        //   } else {
-        //     setValue(v)
-        //   }
-        // }}
         role='radio'
         aria-checked={value >= v}
         aria-label={'' + v}
@@ -71,14 +63,13 @@ export const Rate: FC<RateProps> = p => {
       const container = containerRef.current
       if (!container) return
       const rect = container.getBoundingClientRect()
-
       const rawValue = ((clientX - rect.left) / rect.width) * props.count
 
-      const roundedValue = props.allowHalf
+      const ceiledValue = props.allowHalf
         ? Math.ceil(rawValue * 2) / 2
         : Math.ceil(rawValue)
 
-      const boundValue = bound(roundedValue, 0, props.count)
+      const boundValue = bound(ceiledValue, 0, props.count)
 
       if (tap) {
         if (props.allowClear && boundValue === value) {
@@ -87,7 +78,7 @@ export const Rate: FC<RateProps> = p => {
         }
       }
 
-      setValue(bound(roundedValue, 0, props.count))
+      setValue(boundValue)
     },
     {
       axis: 'x',
