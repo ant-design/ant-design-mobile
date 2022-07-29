@@ -256,7 +256,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         return () => {
           window.clearInterval(interval)
         }
-      }, [autoplay, autoplayInterval, dragging])
+      }, [autoplay, autoplayInterval, dragging, count])
 
       function renderTrackInner() {
         if (loop) {
