@@ -44,14 +44,14 @@ export const Rate: FC<RateProps> = p => {
           [`${classPrefix}-star-half`]: half,
           [`${classPrefix}-star-readonly`]: props.readOnly,
         })}
-        onClick={() => {
-          if (props.readOnly) return
-          if (props.allowClear && value === v) {
-            setValue(0)
-          } else {
-            setValue(v)
-          }
-        }}
+        // onMouseUp={() => {
+        //   if (props.readOnly) return
+        //   if (props.allowClear && value === v) {
+        //     setValue(0)
+        //   } else {
+        //     setValue(v)
+        //   }
+        // }}
         role='radio'
         aria-checked={value >= v}
         aria-label={'' + v}
@@ -66,6 +66,7 @@ export const Rate: FC<RateProps> = p => {
       if (props.readOnly) return
       const {
         xy: [clientX],
+        tap,
       } = state
       const container = containerRef.current
       if (!container) return
@@ -74,20 +75,28 @@ export const Rate: FC<RateProps> = p => {
       const rawValue = ((clientX - rect.left) / rect.width) * props.count
 
       const roundedValue = props.allowHalf
-        ? Math.round(rawValue * 2) / 2
-        : Math.round(rawValue)
+        ? Math.ceil(rawValue * 2) / 2
+        : Math.ceil(rawValue)
+
+      const boundValue = bound(roundedValue, 0, props.count)
+
+      if (tap) {
+        if (props.allowClear && boundValue === value) {
+          setValue(0)
+          return
+        }
+      }
 
       setValue(bound(roundedValue, 0, props.count))
     },
     {
       axis: 'x',
-      preventScroll: true,
       pointer: {
         touch: true,
       },
+      filterTaps: true,
     }
   )
-
   return withNativeProps(
     props,
     <div
