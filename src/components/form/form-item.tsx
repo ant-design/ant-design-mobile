@@ -37,6 +37,12 @@ export type FormItemProps = Pick<
   | 'validateTrigger'
   | 'shouldUpdate'
   | 'initialValue'
+  | 'getValueFromEvent'
+  | 'getValueProps'
+  | 'normalize'
+  | 'onReset'
+  | 'preserve'
+  | 'validateFirst'
 > &
   Pick<
     ListItemProps,
