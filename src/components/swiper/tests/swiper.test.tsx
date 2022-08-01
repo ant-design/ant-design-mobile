@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import { render, testA11y, fireEvent, sleep } from 'testing'
+import React, { useRef, useState } from 'react'
+import { render, testA11y, fireEvent, sleep, screen } from 'testing'
 import Swiper, { SwiperRef } from '..'
 import { act } from '@testing-library/react'
 
@@ -121,7 +121,7 @@ describe('Swiper', () => {
 
   test('auto play and loop', () => {
     jest.useFakeTimers()
-    const { debug } = render(
+    render(
       <Swiper autoplay loop>
         {items}
       </Swiper>
@@ -265,5 +265,47 @@ describe('Swiper', () => {
     expect(warnSpy).toHaveBeenCalledWith(
       '[antd-mobile: Swiper] `Swiper` needs at least one child.'
     )
+  })
+
+  test('autoplay should be work when the length of item changes', () => {
+    jest.useFakeTimers()
+    const App = () => {
+      const [items, setItems] = useState(['1', '2'])
+
+      return (
+        <>
+          <Swiper autoplay>
+            {items.map(item => (
+              <Swiper.Item key={item}>{item}</Swiper.Item>
+            ))}
+          </Swiper>
+          <button
+            onClick={() => {
+              setItems(['1', '2', '3'])
+            }}
+          >
+            change
+          </button>
+        </>
+      )
+    }
+
+    render(<App />)
+    fireEvent.click(screen.getByRole('button'))
+
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+    expect($$(`.${classPrefix}-track-inner`)[0]).toHaveStyle(
+      'transform: translate3d(-200%,0,0)'
+    )
+
+    jest.useRealTimers()
   })
 })
