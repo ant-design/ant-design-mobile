@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import { render, testA11y, fireEvent, sleep } from 'testing'
+import React, { useRef, useState } from 'react'
+import { render, testA11y, fireEvent, screen, mockDrag } from 'testing'
 import Swiper, { SwiperRef } from '..'
 import { act } from '@testing-library/react'
 
@@ -7,26 +7,6 @@ const classPrefix = `adm-swiper`
 
 function $$(className: string) {
   return document.querySelectorAll(className)
-}
-
-async function drag(
-  element: Element,
-  moveOptions: { clientX: number; clientY: number }[]
-) {
-  fireEvent.mouseDown(element, {
-    buttons: 1,
-  })
-
-  for (const option of moveOptions) {
-    fireEvent.mouseMove(element, {
-      ...option,
-      buttons: 1,
-    })
-    // trigger onRest
-    await sleep(0)
-  }
-
-  fireEvent.mouseUp(element)
 }
 
 const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
@@ -61,7 +41,8 @@ describe('Swiper', () => {
     const el = $$(`.${classPrefix}-track`)[0]
 
     // swipe to item 2
-    await drag(el, [
+    mockDrag(el, [
+      { clientX: 300, clientY: 0 },
       {
         clientX: 200,
         clientY: 25,
@@ -105,7 +86,8 @@ describe('Swiper', () => {
     expect(container).toMatchSnapshot()
 
     const el = $$(`.${classPrefix}-track`)[0]
-    await drag(el, [
+    mockDrag(el, [
+      { clientX: 300, clientY: 0 },
       {
         clientX: 200,
         clientY: 25,
@@ -121,7 +103,7 @@ describe('Swiper', () => {
 
   test('auto play and loop', () => {
     jest.useFakeTimers()
-    const { debug } = render(
+    render(
       <Swiper autoplay loop>
         {items}
       </Swiper>
@@ -230,7 +212,8 @@ describe('Swiper', () => {
     )
 
     const el = $$(`.${classPrefix}-track`)[0]
-    await drag(el, [
+    mockDrag(el, [
+      { clientX: 50, clientY: 300 },
       {
         clientX: 50,
         clientY: 200,
@@ -265,5 +248,47 @@ describe('Swiper', () => {
     expect(warnSpy).toHaveBeenCalledWith(
       '[antd-mobile: Swiper] `Swiper` needs at least one child.'
     )
+  })
+
+  test('autoplay should be work when the length of item changes', () => {
+    jest.useFakeTimers()
+    const App = () => {
+      const [items, setItems] = useState(['1', '2'])
+
+      return (
+        <>
+          <Swiper autoplay>
+            {items.map(item => (
+              <Swiper.Item key={item}>{item}</Swiper.Item>
+            ))}
+          </Swiper>
+          <button
+            onClick={() => {
+              setItems(['1', '2', '3'])
+            }}
+          >
+            change
+          </button>
+        </>
+      )
+    }
+
+    render(<App />)
+    fireEvent.click(screen.getByRole('button'))
+
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+    expect($$(`.${classPrefix}-track-inner`)[0]).toHaveStyle(
+      'transform: translate3d(-200%,0,0)'
+    )
+
+    jest.useRealTimers()
   })
 })
