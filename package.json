@@ -14,7 +14,7 @@
     "pub:dev": "npm publish ./lib --tag dev"
   },
   "dependencies": {
-    "@floating-ui/dom": "^0.5.2",
+    "@floating-ui/dom": "^1.0.0",
     "@react-spring/web": "^9.4.5",
     "@use-gesture/react": "10.2.17",
     "ahooks": "^3.5.2",
