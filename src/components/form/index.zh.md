@@ -23,24 +23,24 @@
 
 ### 属性
 
-| 属性              | 说明                                                         | 类型                                               | 默认值       |
-| ----------------- | ------------------------------------------------------------ | -------------------------------------------------- | ------------ |
-| disabled          | 是否禁用                                                     | `boolean`                                          | `false`      |
-| footer            | 表单尾部的内容，常常用来放置提交按钮                         | `ReactNode`                                        | -            |
-| form              | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | `FormInstance`                                     | -            |
-| hasFeedback       | 是否展示错误反馈                                             | `boolean`                                          | `true`       |
-| initialValues     | 表单默认值，只有初始化以及重置时生效                         | `object`                                           | -            |
-| layout            | 布局模式                                                     | `'vertical' \| 'horizontal'`                       | `'vertical'` |
-| mode              | 支持默认和卡片两种模式                                       | `'default' \| 'card'`                              | `'default'`  |
-| name              | 表单名称，会作为表单字段 `id` 前缀使用                       | `string`                                           | -            |
-| onFieldsChange    | 字段更新时触发                                               | `(changedFields, allFields) => void`               | -            |
-| onFinish          | 提交表单且数据验证成功后触发                                 | `(values) => void`                                 | -            |
-| onFinishFailed    | 提交表单且数据验证失败后触发                                 | `({ values, errorFields, outOfDate }) => void`     | -            |
-| onValuesChange    | 字段值更新时触发                                             | `(changedValues, allValues) => void`               | -            |
-| preserve          | 当字段被删除时保留字段值                                     | `boolean`                                          | `true`       |
+| 属性              | 说明                                                         | 类型                                                        | 默认值       |
+| ----------------- | ------------------------------------------------------------ | ----------------------------------------------------------- | ------------ |
+| disabled          | 是否禁用                                                     | `boolean`                                                   | `false`      |
+| footer            | 表单尾部的内容，常常用来放置提交按钮                         | `ReactNode`                                                 | -            |
+| form              | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | `FormInstance`                                              | -            |
+| hasFeedback       | 是否展示错误反馈                                             | `boolean`                                                   | `true`       |
+| initialValues     | 表单默认值，只有初始化以及重置时生效                         | `object`                                                    | -            |
+| layout            | 布局模式                                                     | `'vertical' \| 'horizontal'`                                | `'vertical'` |
+| mode              | 支持默认和卡片两种模式                                       | `'default' \| 'card'`                                       | `'default'`  |
+| name              | 表单名称，会作为表单字段 `id` 前缀使用                       | `string`                                                    | -            |
+| onFieldsChange    | 字段更新时触发                                               | `(changedFields, allFields) => void`                        | -            |
+| onFinish          | 提交表单且数据验证成功后触发                                 | `(values) => void`                                          | -            |
+| onFinishFailed    | 提交表单且数据验证失败后触发                                 | `({ values, errorFields, outOfDate }) => void`              | -            |
+| onValuesChange    | 字段值更新时触发                                             | `(changedValues, allValues) => void`                        | -            |
+| preserve          | 当字段被删除时保留字段值                                     | `boolean`                                                   | `true`       |
 | requiredMarkStyle | 必填选填的标记样式                                           | `'asterisk' \| 'text-required' \| 'text-optional' \|'none'` | `'asterisk'` |
-| validateMessages  | 验证提示模板，说明见下                                       | `ValidateMessages`                                 | -            |
-| validateTrigger   | 统一设置字段触发验证的时机                                   | `string \| string[]`                               | `'onChange'` |
+| validateMessages  | 验证提示模板，说明见下                                       | `ValidateMessages`                                          | -            |
+| validateTrigger   | 统一设置字段触发验证的时机                                   | `string \| string[]`                                        | `'onChange'` |
 
 ### FormInstance
 
@@ -88,6 +88,8 @@ const validateMessages = {
 | childElementPosition <Experimental></Experimental> | 表单控件部分的位置                                                                                           | `'normal' \| 'right'`                                          | `'normal'`                                         |
 | dependencies                                       | 设置依赖字段，说明见下                                                                                       | `NamePath[]`                                                   | -                                                  |
 | disabled                                           | 是否禁用                                                                                                     | `boolean`                                                      | 父级 Form 的 `disabled`                            |
+| getValueFromEvent                                  | 设置如何将 event 的值转换成字段值                                                                            | `(..args: any[]) => any`                                       | -                                                  |
+| getValueProps                                      | 为子元素添加额外的属性                                                                                       | `(value) => any`                                               | -                                                  |
 | hasFeedback                                        | 是否展示错误反馈                                                                                             | `boolean`                                                      | `true`                                             |
 | help                                               | 提示文本                                                                                                     | `ReactNode`                                                    | -                                                  |
 | hidden                                             | 是否隐藏整个字段                                                                                             | `boolean`                                                      | `false`                                            |
@@ -96,12 +98,15 @@ const validateMessages = {
 | layout                                             | 布局模式                                                                                                     | `'vertical' \| 'horizontal'`                                   | 父级 Form 的 `layout`                              |
 | messageVariables                                   | 默认验证字段的信息                                                                                           | `Record<string, string>`                                       | -                                                  |
 | name                                               | 字段名，支持数组                                                                                             | `NamePath`                                                     | -                                                  |
+| normalize                                          | 组件获取值后进行转换，再放入 Form 中。不支持异步                                                             | `(value, prevValue, prevValues) => any`                        | -                                                  |
 | noStyle                                            | 不使用样式，只使用字段管理                                                                                   | `boolean`                                                      | `false`                                            |
 | onClick                                            | 点击事件并收集子组件 Ref                                                                                     | `(e:React.MouseEvent, widgetRef: React.MutableRefObject<any>)` | -                                                  |
+| preserve                                           | 当字段被删除时保留字段值                                                                                     | `boolean`                                                      | `true`                                             |
 | required                                           | 是否必选，需要注意的是这个属性仅仅用来控制外观，并不包含校验逻辑                                             | `boolean`                                                      | `false`（如有设置 `rules`，则会根据 `rules` 判断） |
 | rules                                              | 校验规则，设置字段的校验逻辑                                                                                 | `Rule[]`                                                       | -                                                  |
 | shouldUpdate                                       | 自定义字段更新逻辑，说明见下                                                                                 | `boolean \| (prevValue, curValue) => boolean`                  | `false`                                            |
 | trigger                                            | 设置收集字段值变更的时机                                                                                     | `string`                                                       | `onChange`                                         |
+| validateFirst                                      | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 parallel 时会并行校验                                 | `boolean \| 'parallel'`                                        | `false`                                            |
 | validateTrigger                                    | 设置字段校验的时机                                                                                           | `string \| string[]`                                           | `onChange`                                         |
 | valuePropName                                      | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | `string`                                                       | `value`                                            |
 

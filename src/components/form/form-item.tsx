@@ -40,7 +40,6 @@ export type FormItemProps = Pick<
   | 'getValueFromEvent'
   | 'getValueProps'
   | 'normalize'
-  | 'onReset'
   | 'preserve'
   | 'validateFirst'
 > &
