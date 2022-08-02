@@ -6,6 +6,7 @@
   --inactive-color: var(--adm-color-border);
   display: inline-flex;
   touch-action: pan-y;
+  user-select: none;
   &-box {
     position: relative;
   }
@@ -19,6 +20,7 @@
     overflow: hidden;
     cursor: pointer;
     box-sizing: border-box;
+    transition: all 0.3s;
     &-half {
       padding-right: 0;
       width: 50%;
