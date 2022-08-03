@@ -1,6 +1,6 @@
 # ResultPage 结果页面
 
-以页面的形式对前一步操作结果进行反馈
+以页面的形式对前一步操作结果进行反馈。
 
 ## 何时使用
 
@@ -14,12 +14,12 @@
 
 ### 展示详细数据
 
-超过三行会自动折叠
+超过三行会自动折叠。
 <code src="./demos/demo2.tsx"></code>
 
 ### 配合卡片使用
 
-搭配 [Card](/zh/components/card) 组件使用。如果 `children` 传入的内容不是 `Card`，将会在开发环境中收到 `Error` 提示
+搭配 [ResultPage.Card](#resultpagecard) 或 [Card](/zh/components/card) 组件使用。
 <code src="./demos/demo3.tsx"></code>
 
 ### 底部按钮
@@ -38,7 +38,7 @@
 interface ResultPageDetail {
   label: ReactNode;
   value: ReactNode;
-  major: boolean; // `major` 字段为 `true` 时，文字会加粗。
+  bold: boolean; // `bold` 字段为 `true` 时，文字会加粗。
 }
 
 type ResultPageDetails = ResultPageDetail[]
@@ -52,8 +52,8 @@ type ResultPageDetails = ResultPageDetail[]
 | icon                   | 自定义 `icon`                                                                            | `ReactNode`                                                                         | -        |
 | onPrimaryButtonClick   | 点击主要操作按钮后的事件                                                                 | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void \| Promise<void>` | -        |
 | onSecondaryButtonClick | 点击辅助操作按钮后的事件                                                                 | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void \|Promise<void>`  | -        |
-| primaryButtonValue     | 主要操作按钮的文字，为`undefined`、`null`或空字符时不显示按钮                            | `ReactNode`                                                                         | -        |
-| secondaryButtonValue   | 辅助操作按钮的文字，为`undefined`、`null`或空字符时不显示按钮                            | `ReactNode`                                                                         | -        |
+| primaryButtonText      | 主要操作按钮的文字，为`undefined`、`null`或空字符时不显示按钮                            | `ReactNode`                                                                         | -        |
+| secondaryButtonText    | 辅助操作按钮的文字，为`undefined`、`null`或空字符时不显示按钮                            | `ReactNode`                                                                         | -        |
 | status                 | 状态类型                                                                                 | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning' `                         | `'info'` |
 | title                  | 标题                                                                                     | `ReactNode`                                                                         | -        |
 
@@ -62,3 +62,11 @@ type ResultPageDetails = ResultPageDetail[]
 | 属性                    | 说明         | 默认值                     |
 | ----------------------- | ------------ | -------------------------- |
 | --head-background-color | 顶部背景颜色 | `var(--adm-color-primary)` |
+
+## ResultPage.Card
+
+提供一个白色的、没有 `padding` 的卡片，可以自行控制其样式。
+
+| 属性     | 说明     | 类型      | 默认值 |
+| -------- | -------- | --------- | ------ |
+| children | 卡片内容 | ReactNode | -      |

@@ -11,7 +11,6 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { isNodeWithContent } from '../../utils/is-node-with-content'
 import Button from '../button'
-import { devError } from '../../utils/dev-log'
 
 const classPrefix = `adm-result-page`
 
@@ -30,7 +29,7 @@ const iconRecord = {
 interface ResultPageDetail {
   label: ReactNode
   value: ReactNode
-  major?: boolean
+  bold?: boolean
 }
 
 type ResultPageDetails = ResultPageDetail[]
@@ -46,8 +45,8 @@ export type ResultPageProps = {
   icon?: ReactNode
   details?: ResultPageDetails
   children?: ReactNode
-  primaryButtonValue?: ReactNode
-  secondaryButtonValue?: ReactNode
+  primaryButtonText?: ReactNode
+  secondaryButtonText?: ReactNode
   onPrimaryButtonClick?: OnClick
   onSecondaryButtonClick?: OnClick
 } & NativeProps<'--background-color'>
@@ -60,8 +59,8 @@ export const ResultPage: FC<ResultPageProps> = p => {
     description,
     details,
     icon,
-    primaryButtonValue,
-    secondaryButtonValue,
+    primaryButtonText,
+    secondaryButtonText,
     onPrimaryButtonClick,
     onSecondaryButtonClick,
   } = props
@@ -70,10 +69,8 @@ export const ResultPage: FC<ResultPageProps> = p => {
 
   const [collapse, setCollapse] = useState(false)
 
-  const showSecondaryButton = isNodeWithContent(secondaryButtonValue)
-  const showPrimaryButton = isNodeWithContent(primaryButtonValue)
-
-  childrenChecker(props.children)
+  const showSecondaryButton = isNodeWithContent(secondaryButtonText)
+  const showPrimaryButton = isNodeWithContent(primaryButtonText)
 
   return withNativeProps(
     props,
@@ -91,7 +88,7 @@ export const ResultPage: FC<ResultPageProps> = p => {
                 <div
                   className={classNames(
                     `${classPrefix}-detail`,
-                    detail.major && `${classPrefix}-detail-major`
+                    detail.bold && `${classPrefix}-detail-bold`
                   )}
                   key={index}
                 >
@@ -122,7 +119,7 @@ export const ResultPage: FC<ResultPageProps> = p => {
         </div>
       </div>
 
-      <div className={`${classPrefix}-cards`}>{props.children}</div>
+      <div className={`${classPrefix}-content`}>{props.children}</div>
 
       <div className={`${classPrefix}-footer`}>
         {showSecondaryButton && (
@@ -134,7 +131,7 @@ export const ResultPage: FC<ResultPageProps> = p => {
             onClick={onSecondaryButtonClick}
             className={`${classPrefix}-footer-btn`}
           >
-            {secondaryButtonValue}
+            {secondaryButtonText}
           </Button>
         )}
         {showPrimaryButton && showSecondaryButton && (
@@ -149,39 +146,10 @@ export const ResultPage: FC<ResultPageProps> = p => {
             onClick={onPrimaryButtonClick}
             className={`${classPrefix}-footer-btn`}
           >
-            {primaryButtonValue}
+            {primaryButtonText}
           </Button>
         )}
       </div>
     </div>
   )
-}
-
-// 检查传入的 children 是不是 Card，不是的话 devError
-const childrenChecker = (children: any) => {
-  const sendError = () =>
-    devError(
-      'ResultPage',
-      '`children` prop on `ResultPage` should be `Card` Component. Refer https://mobile.ant.design/components/card.'
-    )
-  if (Array.isArray(children)) {
-    // 看看是不是一个 Card 数组
-    for (const c of children) {
-      if (c?.type?.name !== 'Card') {
-        sendError()
-        break
-      }
-    }
-  } else if (typeof children === 'object') {
-    // 看看是不是一个 Card
-    if (children?.type?.name !== 'Card') {
-      sendError()
-    }
-  } else if (children === undefined) {
-    // 没传
-    return
-  } else {
-    // 啥都不是
-    sendError()
-  }
 }

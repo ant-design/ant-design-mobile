@@ -6,7 +6,7 @@ export default () => {
     {
       label: '收款方',
       value: '张三',
-      major: true,
+      bold: true,
     },
     {
       label: '付款方式',

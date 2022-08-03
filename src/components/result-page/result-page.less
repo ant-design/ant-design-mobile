@@ -1,6 +1,6 @@
-@class-prefix-result: ~'adm-result-page';
+@class-prefix-result-page: ~'adm-result-page';
 
-.@{class-prefix-result} {
+.@{class-prefix-result-page} {
   --background-color: var(--adm-color-primary);
   position: relative;
   background-color: var(--adm-color-box);
@@ -59,7 +59,7 @@
     color: var(--adm-color-background);
     font-size: var(--adm-font-size-6);
 
-    &-major {
+    &-bold {
       font-weight: 600;
     }
   }
@@ -101,7 +101,7 @@
     z-index: -1;
   }
 
-  &-cards {
+  &-content {
     position: relative;
     padding: 12px;
     top: -104px;
@@ -130,4 +130,11 @@
       width: 12px;
     }
   }
+}
+
+@class-prefix-result-page-card: ~'adm-result-page-card';
+
+.@{class-prefix-result-page-card} {
+  border-radius: 8px;
+  background-color: var(--adm-color-background);
 }

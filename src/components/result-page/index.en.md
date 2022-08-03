@@ -19,7 +19,7 @@ More than three lines will be automatically collapsed.
 
 ### Use with Card
 
-Using with [Card](/components/card). If the content passed in `children` is not `Card`, you will receive an `Error` prompt in the development environment.
+Using with [ResultPage.Card](#resultpagecard) or [Card](/components/card).
 <code src="./demos/demo3.tsx"></code>
 
 ### Bottom buttons
@@ -38,7 +38,7 @@ Using with [Card](/components/card). If the content passed in `children` is not 
 interface ResultPageDetail {
   label: ReactNode;
   value: ReactNode;
-  major: boolean; // When the `major` field is `true`, the text will be bolded.
+  bold: boolean; // When the `bold` field is `true`, the text will be bolded.
 }
 
 type ResultPageDetails = ResultPageDetail[]
@@ -52,8 +52,8 @@ type ResultPageDetails = ResultPageDetail[]
 | icon                   | Customized `icon`                                                                                                                        | `ReactNode`                                                                         | -        |
 | onPrimaryButtonClick   | Event after the primary button is clicked                                                                                                | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void \| Promise<void>` | -        |
 | onSecondaryButtonClick | Event after the secondary button is clicked                                                                                              | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void \|Promise<void>`  | -        |
-| primaryButtonValue     | The text of the primary button, the button is not displayed when it is `undefined`, `null` or the empty character                        | `ReactNode`                                                                         | -        |
-| secondaryButtonValue   | The text of the secondary button, the button is not displayed when it is `undefined`, `null` or the empty character                      | `ReactNode`                                                                         | -        |
+| primaryButtonText      | The text of the primary button, the button is not displayed when it is `undefined`, `null` or the empty character                        | `ReactNode`                                                                         | -        |
+| secondaryButtonText    | The text of the secondary button, the button is not displayed when it is `undefined`, `null` or the empty character                      | `ReactNode`                                                                         | -        |
 | status                 | Status types                                                                                                                             | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning' `                         | `'info'` |
 | title                  | Title                                                                                                                                    | `ReactNode`                                                                         | -        |
 
@@ -62,3 +62,11 @@ type ResultPageDetails = ResultPageDetail[]
 | Name                    | Description                  | Default                    |
 | ----------------------- | ---------------------------- | -------------------------- |
 | --head-background-color | background color of the head | `var(--adm-color-primary)` |
+
+## ResultPage.Card
+
+Provides a white, no `padding` card, and you can control its style yourself.
+
+| Name     | Description         | Type      | Default |
+| -------- | ------------------- | --------- | ------- |
+| children | content of the Card | ReactNode | -       |
