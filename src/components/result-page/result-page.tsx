@@ -14,10 +14,6 @@ import Button from '../button'
 
 const classPrefix = `adm-result-page`
 
-const defaultProps = {
-  status: 'info',
-}
-
 const iconRecord = {
   success: CheckCircleFill,
   error: CloseCircleFill,
@@ -51,6 +47,11 @@ export type ResultPageProps = {
   onSecondaryButtonClick?: OnClick
 } & NativeProps<'--background-color'>
 
+const defaultProps = {
+  status: 'info',
+  details: [] as ResultPageDetails,
+}
+
 export const ResultPage: FC<ResultPageProps> = p => {
   const props = mergeProps(defaultProps, p)
   const {
@@ -64,10 +65,9 @@ export const ResultPage: FC<ResultPageProps> = p => {
     onPrimaryButtonClick,
     onSecondaryButtonClick,
   } = props
-  if (!status) return null
   const resultIcon = icon || React.createElement(iconRecord[status])
 
-  const [collapse, setCollapse] = useState(false)
+  const [collapse, setCollapse] = useState(true)
 
   const showSecondaryButton = isNodeWithContent(secondaryButtonText)
   const showPrimaryButton = isNodeWithContent(primaryButtonText)
@@ -81,10 +81,10 @@ export const ResultPage: FC<ResultPageProps> = p => {
         {isNodeWithContent(description) ? (
           <div className={`${classPrefix}-description`}>{description}</div>
         ) : null}
-        {details && details.length ? (
+        {details.length ? (
           <div className={`${classPrefix}-details`}>
-            {details.map((detail, index) => {
-              const detailComponent = (
+            {(collapse ? details.slice(0, 3) : details).map((detail, index) => {
+              return (
                 <div
                   className={classNames(
                     `${classPrefix}-detail`,
@@ -96,18 +96,13 @@ export const ResultPage: FC<ResultPageProps> = p => {
                   <span>{detail.value}</span>
                 </div>
               )
-              if (index < 3) {
-                return detailComponent
-              } else if (index >= 3 && collapse) {
-                return detailComponent
-              }
             })}
             {details.length > 3 && (
               <div onClick={() => setCollapse(prev => !prev)}>
                 <div
                   className={classNames(
                     `${classPrefix}-collapse`,
-                    collapse && `${classPrefix}-collapse-active`
+                    !collapse && `${classPrefix}-collapse-active`
                   )}
                 />
               </div>
