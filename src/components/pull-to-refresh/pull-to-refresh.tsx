@@ -67,6 +67,9 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
 
   const pullingRef = useRef(false)
 
+  const pullingWithScrollRef = useRef(false)
+  const firstScrollTopRef = useRef(0)
+
   //防止下拉时抖动
   useEffect(() => {
     elementRef.current?.addEventListener('touchmove', () => {})
@@ -99,6 +102,10 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
     })
   }
 
+  function getScrollTop(element: Window | Element) {
+    return 'scrollTop' in element ? element.scrollTop : element.scrollY
+  }
+
   useDrag(
     state => {
       if (status === 'refreshing' || status === 'complete') return
@@ -107,6 +114,8 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
 
       if (state.last) {
         pullingRef.current = false
+        pullingWithScrollRef.current = false
+        firstScrollTopRef.current = 0
         if (status === 'canRelease') {
           doRefresh()
         } else {
@@ -116,26 +125,34 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       }
 
       const [, y] = state.movement
+      const [, directionY] = state.direction
+
+      const target = state.event.target
+      if (!target || !(target instanceof Element)) return
+      let scrollParent = getScrollParent(target)
+      let scrollTop = 0
+      while (true) {
+        if (!scrollParent) return
+        scrollTop = getScrollTop(scrollParent)
+
+        if (state.first) {
+          firstScrollTopRef.current = scrollTop
+        }
+
+        if (directionY === -1 && scrollTop > 0 && status === 'canRelease') {
+          pullingWithScrollRef.current = true
+        }
+
+        if (scrollTop > 0 && !pullingWithScrollRef.current) {
+          return
+        }
+        if (scrollParent instanceof Window) {
+          break
+        }
+        scrollParent = getScrollParent(scrollParent.parentNode as Element)
+      }
 
       if (y > 0) {
-        const target = state.event.target
-        if (!target || !(target instanceof Element)) return
-        let scrollParent = getScrollParent(target)
-        while (true) {
-          if (!scrollParent) return
-          const scrollTop = getScrollTop(scrollParent)
-          if (scrollTop > 0) {
-            return
-          }
-          if (scrollParent instanceof Window) {
-            break
-          }
-          scrollParent = getScrollParent(scrollParent.parentNode as Element)
-        }
-        function getScrollTop(element: Window | Element) {
-          return 'scrollTop' in element ? element.scrollTop : element.scrollY
-        }
-
         pullingRef.current = true
       }
 
@@ -146,11 +163,17 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       }
       event.stopPropagation()
       const height = Math.max(
-        rubberbandIfOutOfBounds(y, 0, 0, headHeight * 5, 0.5),
+        rubberbandIfOutOfBounds(
+          y - firstScrollTopRef.current,
+          0,
+          0,
+          headHeight * 5,
+          0.5
+        ),
         0
       )
       api.start({ height })
-      setStatus(height > threshold ? 'canRelease' : 'pulling')
+      setStatus(height - scrollTop > threshold ? 'canRelease' : 'pulling')
     },
     {
       pointer: { touch: true },
