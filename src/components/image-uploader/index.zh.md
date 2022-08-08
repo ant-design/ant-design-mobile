@@ -14,7 +14,7 @@
 | ------------- | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------- | --------- |
 | accept        | 文件类型，`image/gif` `image/jpeg` `image/jpg` `image/png`                    | `string`                                                               | `image/*` |
 | beforeUpload  | 文件读取前的回调函数，返回 `null` 可终止文件读取，支持返回 `Promise`          | `(file: File, files: File[]) => Promise<File \| null> \| File \| null` | -         |
-| capture       | 图片选取模式，可选值为 `camera`（直接调起摄像头）                             | `boolean \| string`                                                    | -         |
+| capture       | 图片选取模式，可选值为 `camera`（直接调起摄像头,[部分机型不适用](https://github.com/ant-design/ant-design-mobile/issues/5254)）                             | `boolean \| string`                                                    | -         |
 | children      | 自定义上传按钮                                                                | `ReactNode`                                                            | -         |
 | defaultValue  | 默认已上传的文件列表                                                          | `ImageUploadItem[]`                                                    | -         |
 | deletable     | 是否展示删除按钮                                                              | `boolean`                                                              | `true`    |
