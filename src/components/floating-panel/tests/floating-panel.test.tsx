@@ -94,16 +94,16 @@ describe('FloatingPanel', () => {
     // animating: true
     expect(fn.mock.calls[0][1]).toBeTruthy()
 
-    await waitFor(() =>
-      expect(panelEl.style.transform).toBe(
-        `translateY(calc(100% + (-${anchors[anchors.length - 1]}px)))`
+    await waitFor(() => {
+      // animating: false
+      expect(fn.mock.calls[fn.mock.calls.length - 1][1]).not.toBeTruthy()
+      expect(fn.mock.calls[fn.mock.calls.length - 1][0]).toBe(
+        anchors[anchors.length - 1]
       )
-    )
+    })
 
-    // animating: false
-    expect(fn.mock.calls[fn.mock.calls.length - 1][1]).not.toBeTruthy()
-    expect(fn.mock.calls[fn.mock.calls.length - 1][0]).toBe(
-      anchors[anchors.length - 1]
+    expect(panelEl.style.transform).toBe(
+      `translateY(calc(100% + (-${anchors[anchors.length - 1]}px)))`
     )
     reduceMotion()
   })
