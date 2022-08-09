@@ -62,7 +62,7 @@ export default () => {
           link: 'https://github.com/ant-design/ant-design-mobile/releases',
         },
         {
-          title: trans('Roadmap', '路图线'),
+          title: trans('Roadmap'),
           link: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
         },
         {
