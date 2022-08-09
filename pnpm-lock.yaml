@@ -40,7 +40,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.31.0
   '@umijs/types': ^3.5.30
   '@use-gesture/react': 10.2.17
-  ahooks: ^3.5.2
+  ahooks: ^3.7.0
   antd-mobile-icons: ^0.3.0
   antd-mobile-v5-count: ^1.0.1
   autoprefixer: ^9.8.8
@@ -105,7 +105,7 @@ dependencies:
   '@floating-ui/dom': 1.0.0
   '@react-spring/web': 9.4.5_biqbaboplfbrettd7655fr4n2y
   '@use-gesture/react': 10.2.17_react@18.2.0
-  ahooks: 3.5.2_react@18.2.0
+  ahooks: 3.7.0_react@18.2.0
   antd-mobile-icons: 0.3.0
   antd-mobile-v5-count: 1.0.1
   big.js: 6.2.1
@@ -3786,8 +3786,8 @@ packages:
     resolution: {integrity: sha512-V7uUvAwnimu6eh/PED4mCDjE7tokeZQLKlxg9lCTMPhN+NjsSbtdacByVlR1oluXQzD3MOw55wylDmQo4+S9ZQ==}
     dev: false
 
-  /ahooks/3.5.2_react@18.2.0:
-    resolution: {integrity: sha512-0OrV3/9s339comBg/F+d9Q7lhZERZK3K5f1J8ebK3z076Kc4KkeGc1MLalFRG+95nVA0wUCZ71oJMs66fIU2Uw==}
+  /ahooks/3.7.0_react@18.2.0:
+    resolution: {integrity: sha512-IOZ6IpVeAd7aWtV2O+dBmCQc0aHt+WPG3B5tPHnVVcPnEq9FDJxx8IIA5hLxN4lRa1m1ZMx6pOE2rrYW7bjU6A==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0

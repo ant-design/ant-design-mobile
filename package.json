@@ -17,7 +17,7 @@
     "@floating-ui/dom": "^1.0.0",
     "@react-spring/web": "^9.4.5",
     "@use-gesture/react": "10.2.17",
-    "ahooks": "^3.5.2",
+    "ahooks": "^3.7.0",
     "antd-mobile-icons": "^0.3.0",
     "antd-mobile-v5-count": "^1.0.1",
     "big.js": "^6.2.1",
