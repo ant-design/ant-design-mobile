@@ -20,9 +20,9 @@ Here are the downloads of Ant Design Mobile related design resources and design 
 
 <ResourceCard title="Blog" description="Some technical sharing" link="https://www.yuque.com/awmleer/rocket" image="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*PXoRS74Wr8sAAAAAAAAAAAAAARQnAQ"></ResourceCard>
 
-<ResourceCard title="Codesandbox" description="Write demos online" link="https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json" image="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*BiQGRaqsCusAAAAAAAAAAAAAARQnAQ"></ResourceCard>
+<ResourceCard title="Codesandbox" description="Write demos online" link="https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json" image="https://gw.alipayobjects.com/zos/bmw-prod/6fb7e052-b388-4aa1-904b-a595332914b9.svg"></ResourceCard>
 
-<ResourceCard title="Stackblitz" description="Write demos online" link="https://stackblitz.com/edit/antd-mobile?file=index.tsx" image="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*c6CxQJIY4VMAAAAAAAAAAAAAARQnAQ"></ResourceCard>
+<ResourceCard title="Stackblitz" description="Write demos online" link="https://stackblitz.com/edit/antd-mobile?file=index.tsx" image="https://gw.alipayobjects.com/zos/bmw-prod/612011bc-6bca-417f-9760-6f4048649815.svg"></ResourceCard>
 
 ## Other Links
 

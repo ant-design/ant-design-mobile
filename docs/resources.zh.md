@@ -20,9 +20,9 @@ sidemenu: false
 
 <ResourceCard title="博客" description="一些技术分享" link="https://www.yuque.com/awmleer/rocket" image="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*PXoRS74Wr8sAAAAAAAAAAAAAARQnAQ"></ResourceCard>
 
-<ResourceCard title="Codesandbox" description="在线写 demo" link="https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json" image="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*BiQGRaqsCusAAAAAAAAAAAAAARQnAQ"></ResourceCard>
+<ResourceCard title="Codesandbox" description="在线写 demo" link="https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json" image="https://gw.alipayobjects.com/zos/bmw-prod/6fb7e052-b388-4aa1-904b-a595332914b9.svg"></ResourceCard>
 
-<ResourceCard title="Stackblitz" description="在线写 demo" link="https://stackblitz.com/edit/antd-mobile?file=index.tsx" image="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*c6CxQJIY4VMAAAAAAAAAAAAAARQnAQ"></ResourceCard>
+<ResourceCard title="Stackblitz" description="在线写 demo" link="https://stackblitz.com/edit/antd-mobile?file=index.tsx" image="https://gw.alipayobjects.com/zos/bmw-prod/612011bc-6bca-417f-9760-6f4048649815.svg"></ResourceCard>
 
 ## 其他相关链接
 
