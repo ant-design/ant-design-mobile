@@ -46,3 +46,9 @@
 | Name        | Description                         | Default |
 | ----------- | ----------------------------------- | ------- |
 | --cell-size | The size of image and upload button | `80px`  |
+
+## FAQ
+
+### The `capture` attribute is configured, but some `Android` phones will still have the file option
+
+[more details](https://github.com/ant-design/ant-design-mobile/issues/5254)
