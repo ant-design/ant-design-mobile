@@ -47,8 +47,6 @@ export default () => {
     },
   ]
 
-  // TODO: add i18n for footer
-
   const footerGroups = [
     {
       title: 'Ant Design Mobile',
@@ -62,7 +60,7 @@ export default () => {
           link: 'https://github.com/ant-design/ant-design-mobile/releases',
         },
         {
-          title: trans('Roadmap'),
+          title: 'Roadmap',
           link: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
         },
         {
@@ -101,7 +99,10 @@ export default () => {
       title: trans('More Products', '更多产品'),
       items: [
         {
-          title: trans('ahooks - React Hooks library', 'ahooks - React Hooks 库'),
+          title: trans(
+            'ahooks - React Hooks library',
+            'ahooks - React Hooks 库'
+          ),
           link: 'https://github.com/alibaba/hooks',
         },
         {
