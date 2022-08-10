@@ -46,6 +46,94 @@ export default () => {
       ),
     },
   ]
+
+  const footerGroups = [
+    {
+      title: 'Ant Design Mobile',
+      items: [
+        {
+          title: 'GitHub',
+          link: 'https://github.com/ant-design/ant-design-mobile',
+        },
+        {
+          title: trans('Releases', '发布日志'),
+          link: 'https://github.com/ant-design/ant-design-mobile/releases',
+        },
+        {
+          title: 'Roadmap',
+          link: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
+        },
+        {
+          title: trans('Contribution', '参与贡献'),
+          link: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
+        },
+        {
+          title: trans('Questions And Feedback', '提问与反馈'),
+          link: 'https://github.com/ant-design/ant-design-mobile/issues/new/choose',
+        },
+        {
+          title: trans('Blogger', '博客'),
+          link: 'https://www.yuque.com/awmleer/rocket',
+        },
+      ],
+    },
+    {
+      title: 'Ant Design',
+      items: [
+        {
+          title: trans('Ant Design', 'Ant Design - 桌面端组件库'),
+          link: 'https://ant.design',
+        },
+        {
+          title: trans('Ant Design Pro', 'Ant Design Pro - 中台解决方案'),
+          link: 'https://pro.ant.design',
+        },
+        {
+          title: trans('Ant Motion', 'Ant Motion - 设计动效'),
+          link: 'https://motion.ant.design',
+        },
+        { title: 'Ant Design Charts', link: 'https://charts.ant.design/' },
+      ],
+    },
+    {
+      title: trans('More Products', '更多产品'),
+      items: [
+        {
+          title: trans(
+            'ahooks - React Hooks library',
+            'ahooks - React Hooks 库'
+          ),
+          link: 'https://github.com/alibaba/hooks',
+        },
+        {
+          title: trans(
+            'Dumi - Libraries/Documents Development Tool',
+            'Dumi - 组件/文档研发工具'
+          ),
+          link: 'https://d.umijs.org',
+        },
+        {
+          title: trans('Kitchen - Sketch Toolbox', 'Kitchen - Sketch 工具集'),
+          link: 'https://kitchen.alipay.com',
+        },
+        {
+          title: trans(
+            'AntV - Data Visualization Solution',
+            'AntV - 蚂蚁数据可视化方案'
+          ),
+          link: 'https://antv.vision',
+        },
+        {
+          title: trans(
+            'Egg - Enteprise Node Web Framework',
+            'Egg - 企业级 Node Web 开发框架'
+          ),
+          link: 'https://eggjs.org',
+        },
+      ],
+    },
+  ]
+
   return (
     <div className={styles.homePage}>
       {/* 内容部分 */}
@@ -256,7 +344,7 @@ export default () => {
           ))}
 
           <ul>
-            <li>钉钉交流反馈群</li>
+            <li>{trans('DingTalk Feedback Group', '钉钉交流反馈群')}</li>
             <li>
               <img
                 src='https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ'
@@ -281,62 +369,3 @@ export default () => {
     </div>
   )
 }
-
-// TODO: add i18n for footer
-
-const footerGroups = [
-  {
-    title: 'Ant Design Mobile',
-    items: [
-      {
-        title: 'GitHub',
-        link: 'https://github.com/ant-design/ant-design-mobile',
-      },
-      {
-        title: '发布日志',
-        link: 'https://github.com/ant-design/ant-design-mobile/releases',
-      },
-      {
-        title: 'Roadmap',
-        link: 'https://github.com/ant-design/ant-design-mobile/discussions/3924',
-      },
-      {
-        title: '参与贡献',
-        link: 'https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md',
-      },
-      {
-        title: '提问与反馈',
-        link: 'https://github.com/ant-design/ant-design-mobile/issues/new/choose',
-      },
-      {
-        title: '博客',
-        link: 'https://www.yuque.com/awmleer/rocket',
-      },
-    ],
-  },
-  {
-    title: 'Ant Design',
-    items: [
-      { title: 'Ant Design - 桌面端组件库', link: 'https://ant.design' },
-      {
-        title: 'Ant Design Pro - 中台解决方案',
-        link: 'https://pro.ant.design',
-      },
-      { title: 'Ant Motion - 设计动效', link: 'https://motion.ant.design' },
-      { title: 'Ant Design Charts', link: 'https://charts.ant.design/' },
-    ],
-  },
-  {
-    title: '更多产品',
-    items: [
-      {
-        title: 'ahooks - React Hooks 库',
-        link: 'https://github.com/alibaba/hooks',
-      },
-      { title: 'Dumi - 组件/文档研发工具', link: 'https://d.umijs.org' },
-      { title: 'Kitchen - Sketch 工具集', link: 'https://kitchen.alipay.com' },
-      { title: 'AntV - 蚂蚁数据可视化方案', link: 'https://antv.vision' },
-      { title: 'Egg - 企业级 Node Web 开发框架', link: 'https://eggjs.org' },
-    ],
-  },
-]
