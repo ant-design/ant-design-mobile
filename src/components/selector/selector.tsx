@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Space from '../space'
-import Grid from '../grid'
+import Grid, { GridProps } from '../grid'
 import { convertPx } from '../../utils/convert-px'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckMark } from './check-mark'
@@ -22,7 +22,7 @@ export interface SelectorOption<V> {
 export type SelectorProps<V> = {
   options: SelectorOption<V>[]
   columns?: number
-  gap?: number | string | [number | string, number | string]
+  gap?: Pick<GridProps,'gap'>
   multiple?: boolean
   disabled?: boolean
   defaultValue?: V[]
@@ -41,6 +41,7 @@ export type SelectorProps<V> = {
 >
 
 const defaultProps = {
+  gap:convertPx(8),
   multiple: false,
   defaultValue: [],
   showCheckMark: true,
@@ -109,7 +110,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
     <div className={classPrefix}>
       {!props.columns && <Space wrap>{items}</Space>}
       {props.columns && (
-        <Grid columns={props.columns} gap={props.gap || convertPx(8)}>
+        <Grid columns={props.columns} gap={props.gap}>
           {items}
         </Grid>
       )}
