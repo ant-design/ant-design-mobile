@@ -22,6 +22,7 @@ export interface SelectorOption<V> {
 export type SelectorProps<V> = {
   options: SelectorOption<V>[]
   columns?: number
+  gap?: number | string | [number | string, number | string]
   multiple?: boolean
   disabled?: boolean
   defaultValue?: V[]
@@ -108,7 +109,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
     <div className={classPrefix}>
       {!props.columns && <Space wrap>{items}</Space>}
       {props.columns && (
-        <Grid columns={props.columns} gap={convertPx(8)}>
+        <Grid columns={props.columns} gap={props.gap || convertPx(8)}>
           {items}
         </Grid>
       )}
