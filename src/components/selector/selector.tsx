@@ -21,8 +21,8 @@ export interface SelectorOption<V> {
 
 export type SelectorProps<V> = {
   options: SelectorOption<V>[]
-  columns?: number
-  gap?: Pick<GridProps,'gap'>
+  columns?: GridProps['columns']
+  gap?: GridProps['gap']
   multiple?: boolean
   disabled?: boolean
   defaultValue?: V[]
