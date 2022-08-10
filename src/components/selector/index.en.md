@@ -16,17 +16,17 @@ Provides multiple options for the user to choose from, typically used in filters
 
 ### Props
 
-| Name          | Description                          | Type                                                                    | Default |
-| ------------- | ------------------------------------ | ----------------------------------------------------------------------- | ------- |
-| columns       | Number of the displayed columns      | `number`                                                                | -       |
-| gap           | Spacing between grids,Used with `columns`       | `number \| string \| [number \| string, number \| string]`| `8`     |
-| defaultValue  | Selected value by default            | `SelectorValue[]`                                                       | `[]`    |
-| disabled      | Whether to disable selecting         | `boolean`                                                               | `false` |
-| multiple      | Whether to allow multiple selections | `boolean`                                                               | `false` |
-| onChange      | Triggered when the value is changed  | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
-| options       | Optional selector                    | `SelectorOption[]`                                                      | -       |
-| showCheckMark | Whether to show the check mark       | `boolean`                                                               | `true`  |
-| value         | Selected value                       | `SelectorValue[]`                                                       | -       |
+| Name          | Description                               | Type                                                                    | Default |
+| ------------- | ----------------------------------------- | ----------------------------------------------------------------------- | ------- |
+| columns       | Number of the displayed columns           | `number`                                                                | -       |
+| gap           | Spacing between grids,Used with `columns` | `number \| string \| [number \| string, number \| string]`              | `8`     |
+| defaultValue  | Selected value by default                 | `SelectorValue[]`                                                       | `[]`    |
+| disabled      | Whether to disable selecting              | `boolean`                                                               | `false` |
+| multiple      | Whether to allow multiple selections      | `boolean`                                                               | `false` |
+| onChange      | Triggered when the value is changed       | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
+| options       | Optional selector                         | `SelectorOption[]`                                                      | -       |
+| showCheckMark | Whether to show the check mark            | `boolean`                                                               | `true`  |
+| value         | Selected value                            | `SelectorValue[]`                                                       | -       |
 
 ### CSS Variables
 

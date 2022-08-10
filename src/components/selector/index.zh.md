@@ -17,17 +17,17 @@
 
 ### 属性
 
-| 属性          | 说明             | 类型                                                                    | 默认值  |
-| ------------- | ---------------- | ----------------------------------------------------------------------- | ------- |
-| columns       | 行展示数         | `number`                                                                | -       |
-| gap           | 格子之间的间距，与`columns`配合使用     | `number \| string \| [number \| string, number \| string]`              | `8`    |
-| defaultValue  | 默认项           | `SelectorValue[]`                                                       | `[]`    |
-| disabled      | 是否全局禁止选中 | `boolean`                                                               | `false` |
-| multiple      | 是否允许多选     | `boolean`                                                               | `false` |
-| onChange      | 选项改变时触发   | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
-| options       | 可选项           | `SelectorOption[]`                                                      | -       |
-| showCheckMark | 是否显示对勾角标 | `boolean`                                                               | `true`  |
-| value         | 选中项           | `SelectorValue[]`                                                       | -       |
+| 属性          | 说明                                | 类型                                                                    | 默认值  |
+| ------------- | ----------------------------------- | ----------------------------------------------------------------------- | ------- |
+| columns       | 行展示数                            | `number`                                                                | -       |
+| gap           | 格子之间的间距，与`columns`配合使用 | `number \| string \| [number \| string, number \| string]`              | `8`     |
+| defaultValue  | 默认项                              | `SelectorValue[]`                                                       | `[]`    |
+| disabled      | 是否全局禁止选中                    | `boolean`                                                               | `false` |
+| multiple      | 是否允许多选                        | `boolean`                                                               | `false` |
+| onChange      | 选项改变时触发                      | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
+| options       | 可选项                              | `SelectorOption[]`                                                      | -       |
+| showCheckMark | 是否显示对勾角标                    | `boolean`                                                               | `true`  |
+| value         | 选中项                              | `SelectorValue[]`                                                       | -       |
 
 ### CSS 变量
 

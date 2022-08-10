@@ -41,7 +41,7 @@ export type SelectorProps<V> = {
 >
 
 const defaultProps = {
-  gap:convertPx(8),
+  gap: convertPx(8),
   multiple: false,
   defaultValue: [],
   showCheckMark: true,
