@@ -101,7 +101,7 @@ export default () => {
       title: trans('More Products', '更多产品'),
       items: [
         {
-          title: trans('ahooks', 'ahooks - React Hooks 库'),
+          title: trans('ahooks - React Hooks library', 'ahooks - React Hooks 库'),
           link: 'https://github.com/alibaba/hooks',
         },
         {
