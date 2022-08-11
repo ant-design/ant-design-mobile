@@ -49,6 +49,8 @@
 
 ## FAQ
 
-### 配置了 `capture` 属性，部分安卓机型还是会带上文件选项
+### 配置了 `capture` 属性，为什么部分安卓机型还是会带上文件选项？
 
-[更详细的说明](https://github.com/ant-design/ant-design-mobile/issues/5254)
+ImageUploader 所提供的 `capture` 是来自 HTML 原生的能力，而在部分操作系统/浏览器环境下，可能并不支持该属性，因此这个问题无法避免。
+
+详见此 [issue](https://github.com/ant-design/ant-design-mobile/issues/5254) 中的讨论。

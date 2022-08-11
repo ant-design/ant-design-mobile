@@ -49,6 +49,8 @@
 
 ## FAQ
 
-### The `capture` attribute is configured, but some `Android` phones will still have the file option
+### The `capture` attribute is configured, but why some `Android` phones will still have the file option?
 
-[more details](https://github.com/ant-design/ant-design-mobile/issues/5254)
+The `capture` provided by ImageUploader comes from the native HTML capability, and in some operating systems/browser environments, this attribute may not be supported, so this problem cannot be avoided.
+
+See the discussion in this [issue](https://github.com/ant-design/ant-design-mobile/issues/5254).
