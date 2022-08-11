@@ -19,20 +19,20 @@ export default () => {
     },
     {
       key: 'todo',
-      title: '我的待办',
+      title: '待办',
       icon: <UnorderedListOutline />,
       badge: '5',
     },
     {
       key: 'message',
-      title: '我的消息',
+      title: '消息',
       icon: (active: boolean) =>
         active ? <MessageFill /> : <MessageOutline />,
       badge: '99+',
     },
     {
       key: 'personalCenter',
-      title: '个人中心',
+      title: '我的',
       icon: <UserOutline />,
     },
   ]
