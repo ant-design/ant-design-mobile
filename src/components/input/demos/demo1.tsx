@@ -23,7 +23,7 @@ export default () => {
         <Input placeholder='请输入内容' clearable />
       </DemoBlock>
 
-      <DemoBlock title='输入内容右对其'>
+      <DemoBlock title='输入内容右对齐'>
         <Input
           placeholder='请输入验证码'
           style={{ '--text-align': 'right' }}
