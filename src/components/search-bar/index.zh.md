@@ -47,3 +47,9 @@
 ## Ref
 
 同 [Input](/zh/components/input)
+
+## FAQ
+
+### 键盘按钮没有显示"搜索"，而是"返回"
+
+属性 `enterkeyhinit` 只能在 `Android` 版本 4.4.5 及以上或者 `IOS` 版本 13.4 及以上使用，更多细节见此 [issue](https://github.com/ant-design/ant-design-mobile/issues/5545)
