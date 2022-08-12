@@ -30,16 +30,19 @@
 
 ### CSS 变量
 
-| 属性                 | 说明             | 默认值                     |
-| -------------------- | ---------------- | -------------------------- |
-| --border             | 边框样式         | `none`                     |
-| --border-radius      | 选项的圆角       | `2px`                      |
-| --checked-border     | 选中时的边框样式 | `none`                     |
-| --checked-color      | 选中时的背景色   | `#e7f1ff`                  |
-| --checked-text-color | 选中时的文字颜色 | `var(--adm-color-primary)` |
-| --color              | 背景色           | `#f5f5f5`                  |
-| --padding            | 选项的 padding   | `8px 16px`                 |
-| --text-color         | 文字颜色         | `var(--adm-color-text)`    |
+| 属性                 | 说明                                            | 默认值                     |
+| -------------------- | ----------------------------------------------- | -------------------------- |
+| --border             | 边框样式                                        | `none`                     |
+| --border-radius      | 选项的圆角                                      | `2px`                      |
+| --checked-border     | 选中时的边框样式                                | `none`                     |
+| --checked-color      | 选中时的背景色                                  | `#e7f1ff`                  |
+| --checked-text-color | 选中时的文字颜色                                | `var(--adm-color-primary)` |
+| --color              | 背景色                                          | `#f5f5f5`                  |
+| --padding            | 选项的 padding                                  | `8px 16px`                 |
+| --text-color         | 文字颜色                                        | `var(--adm-color-text)`    |
+| --gap                | 间距大小，仅在 `columns` 存在时生效             | `8px`                      |
+| --gap-horizontal     | 水平方向的间距大小，，仅在 `columns` 存在时生效 | `var(--gap)`               |
+| --gap-vertical       | 垂直方向的间距大小，，仅在 `columns` 存在时生效 | `var(--gap)`               |
 
 ## 类型定义
 

@@ -29,16 +29,19 @@ Provides multiple options for the user to choose from, typically used in filters
 
 ### CSS Variables
 
-| Name                 | Description                   | Default                    |
-| -------------------- | ----------------------------- | -------------------------- |
-| --border             | border style                  | `none`                     |
-| --border-radius      | Border radius of options      | `2px`                      |
-| --checked-border     | Border style when checked     | `none`                     |
-| --checked-color      | Background color when checked | `#e7f1ff`                  |
-| --checked-text-color | Text color when checked       | `var(--adm-color-primary)` |
-| --color              | Background color              | `#f5f5f5`                  |
-| --padding            | Padding of options            | `8px 16px`                 |
-| --text-color         | Text color                    | `var(--adm-color-text)`    |
+| Name                 | Description                                                       | Default                    |
+| -------------------- | ----------------------------------------------------------------- | -------------------------- |
+| --border             | border style                                                      | `none`                     |
+| --border-radius      | Border radius of options                                          | `2px`                      |
+| --checked-border     | Border style when checked                                         | `none`                     |
+| --checked-color      | Background color when checked                                     | `#e7f1ff`                  |
+| --checked-text-color | Text color when checked                                           | `var(--adm-color-primary)` |
+| --color              | Background color                                                  | `#f5f5f5`                  |
+| --padding            | Padding of options                                                | `8px 16px`                 |
+| --text-color         | Text color                                                        | `var(--adm-color-text)`    |
+| --gap                | The gap between items, only take effect with `columns`            | `8px`                      |
+| --gap-horizontal     | The horizontal gap between items, only take effect with `columns` | `var(--gap)`               |
+| --gap-vertical       | The vertical gap between items, only take effect with `columns`   | `var(--gap)`               |
 
 ## Types
 
