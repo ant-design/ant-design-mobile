@@ -4,7 +4,6 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Space from '../space'
 import Grid, { GridProps } from '../grid'
-import { convertPx } from '../../utils/convert-px'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckMark } from './check-mark'
 
@@ -22,7 +21,6 @@ export interface SelectorOption<V> {
 export type SelectorProps<V> = {
   options: SelectorOption<V>[]
   columns?: GridProps['columns']
-  gap?: GridProps['gap']
   multiple?: boolean
   disabled?: boolean
   defaultValue?: V[]
@@ -38,10 +36,12 @@ export type SelectorProps<V> = {
   | '--checked-border'
   | '--border-radius'
   | '--padding'
+  | '--gap'
+  | '--gap-vertical'
+  | '--gap-horizontal'
 >
 
 const defaultProps = {
-  gap: convertPx(8),
   multiple: false,
   defaultValue: [],
   showCheckMark: true,
@@ -109,11 +109,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
     props,
     <div className={classPrefix}>
       {!props.columns && <Space wrap>{items}</Space>}
-      {props.columns && (
-        <Grid columns={props.columns} gap={props.gap}>
-          {items}
-        </Grid>
-      )}
+      {props.columns && <Grid columns={props.columns}>{items}</Grid>}
     </div>
   )
 }

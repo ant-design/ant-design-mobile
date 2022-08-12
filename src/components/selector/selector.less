@@ -9,6 +9,10 @@
   --checked-border: none;
   --border-radius: 2px;
   --padding: 8px 16px;
+  --gap: 8px;
+  ---gap: var(--gap);
+  ---gap-horizontal: var(--gap-horizontal, var(--gap));
+  ---gap-vertical: var(--gap-vertical, var(--gap));
 
   overflow: hidden;
   font-size: var(--adm-font-size-7);
@@ -16,6 +20,12 @@
 
   .adm-space.adm-space {
     --gap: 12px;
+  }
+
+  .adm-grid {
+    --gap: var(---gap);
+    --gap-horizontal: var(---gap-horizontal);
+    --gap-vertical: var(---gap-vertical);
   }
 
   &-item {
