@@ -47,3 +47,9 @@ Narrow down the information pool to get targeted information quickly and easily.
 ## Ref
 
 The same as [Input](/components/input)
+
+## FAQ
+
+### The search button text is not `Search` but `Return`
+
+This property `enterkeyhinit` can only be used in Android version 4.4.5 or later 、IOS version 13.4 or later([More Details](https://github.com/ant-design/ant-design-mobile/issues/5545))
