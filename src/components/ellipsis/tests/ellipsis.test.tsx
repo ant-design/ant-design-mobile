@@ -30,6 +30,10 @@ describe('Ellipsis', () => {
         return lineHeight * 4
       },
     })
+
+    Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
+      value: {},
+    })
   })
 
   afterAll(() => {
