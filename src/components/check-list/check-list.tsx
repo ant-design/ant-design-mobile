@@ -22,7 +22,7 @@ export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
 const defaultProps = {
   multiple: false,
   defaultValue: [],
-  activeIcon: <CheckOutline />,
+  activeIcon: <CheckOutline fontSize={18} />,
 }
 
 export const CheckList: FC<CheckListProps> = p => {
