@@ -107,6 +107,7 @@ exports[`CheckList renders with readonly 1`] = `
               >
                 <svg
                   class="antd-mobile-icon"
+                  font-size="18"
                   height="1em"
                   style="vertical-align: -0.125em;"
                   viewBox="0 0 48 48"

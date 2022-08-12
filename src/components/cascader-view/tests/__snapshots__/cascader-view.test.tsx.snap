@@ -89,6 +89,7 @@ exports[`CascaderView basic usage 1`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -361,6 +362,7 @@ exports[`CascaderView basic usage 2`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -480,6 +482,7 @@ exports[`CascaderView basic usage 2`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -752,6 +755,7 @@ exports[`CascaderView basic usage 3`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -871,6 +875,7 @@ exports[`CascaderView basic usage 3`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -990,6 +995,7 @@ exports[`CascaderView basic usage 3`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -1181,6 +1187,7 @@ exports[`CascaderView controlled mode 1`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -1340,6 +1347,7 @@ exports[`CascaderView controlled mode 1`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -1439,6 +1447,7 @@ exports[`CascaderView controlled mode 1`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -1597,6 +1606,7 @@ exports[`CascaderView same value in options 1`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -1829,6 +1839,7 @@ exports[`CascaderView same value in options 2`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -1928,6 +1939,7 @@ exports[`CascaderView same value in options 2`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -2160,6 +2172,7 @@ exports[`CascaderView same value in options 3`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -2259,6 +2272,7 @@ exports[`CascaderView same value in options 3`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
@@ -2358,6 +2372,7 @@ exports[`CascaderView same value in options 3`] = `
                       >
                         <svg
                           class="antd-mobile-icon"
+                          font-size="18"
                           height="1em"
                           style="vertical-align: -0.125em;"
                           viewBox="0 0 48 48"
