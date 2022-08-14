@@ -44,6 +44,7 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
       disableBodyScroll={false}
       opacity='thick'
       afterClose={props.afterClose}
+      destroyOnClose
     >
       <div className={`${classPrefix}-content`}>
         {props.image && (
@@ -112,6 +113,7 @@ export const MultiImageViewer = forwardRef<
       disableBodyScroll={false}
       opacity='thick'
       afterClose={props.afterClose}
+      destroyOnClose
     >
       <div className={`${classPrefix}-content`}>
         {props.images && (
