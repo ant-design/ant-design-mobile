@@ -118,9 +118,11 @@ function getViteConfigForPackage({ formats, external }) {
 
     logLevel: 'silent',
 
+    define: { 'process.env.NODE_ENV': '"development"' },
+
     build: {
       lib: {
-        name,
+        name: 'antdMobile',
         entry: './lib/es/index.js',
         formats,
         fileName: format => `${name}.${format}.js`,
@@ -129,7 +131,7 @@ function getViteConfigForPackage({ formats, external }) {
         external,
         output: {
           dir: './lib/bundle',
-          exports: 'named',
+          // exports: 'named',
           globals: {
             'react': 'React',
             'react-dom': 'ReactDOM',
