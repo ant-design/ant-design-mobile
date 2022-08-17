@@ -111,21 +111,24 @@ function buildDeclaration() {
     .pipe(gulp.dest('lib/cjs/'))
 }
 
-function getViteConfigForPackage({ formats, external }) {
+function getViteConfigForPackage({ env, formats, external }) {
   const name = packageJson.name
+  const isProd = env === 'production'
   return {
     root: process.cwd(),
 
+    mode: env,
+
     logLevel: 'silent',
 
-    define: { 'process.env.NODE_ENV': '"development"' },
+    define: { 'process.env.NODE_ENV': `"${env}"` },
 
     build: {
       lib: {
         name: 'antdMobile',
         entry: './lib/es/index.js',
         formats,
-        fileName: format => `${name}.${format}.js`,
+        fileName: format => `${name}.${format}${isProd ? '' : `.${env}`}.js`,
       },
       rollupOptions: {
         external,
@@ -138,17 +141,20 @@ function getViteConfigForPackage({ formats, external }) {
           },
         },
       },
+      minify: isProd ? 'esbuild' : false,
     },
   }
 }
 
 async function buildBundles(cb) {
-  const configs = [
+  const envs = ['development', 'production']
+  const configs = envs.map(env =>
     getViteConfigForPackage({
+      env,
       formats: ['es', 'cjs', 'umd'],
       external: ['react', 'react-dom'],
-    }),
-  ]
+    })
+  )
 
   await Promise.all(configs.map(config => vite.build(config)))
   cb && cb()
