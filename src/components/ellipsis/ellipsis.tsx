@@ -45,6 +45,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   function calcEllipsised() {
     const root = rootRef.current
     if (!root) return
+    if (!root.offsetParent) return
     const originStyle = window.getComputedStyle(root)
     const container = document.createElement('div')
     const styleNames: string[] = Array.prototype.slice.apply(originStyle)
@@ -62,6 +63,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     container.style.whiteSpace = 'normal'
     container.style.webkitLineClamp = 'unset'
     container.style.display = 'block'
+
     const lineHeight = pxToNumber(originStyle.lineHeight)
     const maxHeight = Math.floor(
       lineHeight * (props.rows + 0.5) +
