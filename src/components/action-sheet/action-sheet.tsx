@@ -14,6 +14,7 @@ export type Action = {
   disabled?: boolean
   description?: ReactNode
   danger?: boolean
+  bold?: boolean
   onClick?: () => void
 }
 
@@ -85,6 +86,7 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                     {
                       [`${classPrefix}-button-item-danger`]: action.danger,
                       [`${classPrefix}-button-item-disabled`]: action.disabled,
+                      [`${classPrefix}-button-item-bold`]: action.bold,
                     }
                   )}
                   onClick={() => {
