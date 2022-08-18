@@ -2,7 +2,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  modulePathIgnorePatterns: [],
+  modulePathIgnorePatterns: ['<rootDir>/lib/', '<rootDir>/dist/'],
   moduleDirectories: ['node_modules', 'src/tests'],
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest/dist',
