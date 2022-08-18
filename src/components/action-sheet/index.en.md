@@ -43,6 +43,7 @@ Triggered by user operation, it provides a set of two or more options related to
 | key         | The unique mark               | `string \| number` | -       |
 | onClick     | Triggered on click            | `() => void`       | -       |
 | text        | Title                         | `ReactNode`        | -       |
+| bold        | Whether the title is bold     | `boolean`          | `false` |
 
 ### Imperative
 

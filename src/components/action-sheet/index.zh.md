@@ -43,6 +43,7 @@
 | key         | 唯一标记       | `string \| number` | -       |
 | onClick     | 点击时触发     | `() => void`       | -       |
 | text        | 标题           | `ReactNode`        | -       |
+| bold        | 标题是否加粗   | `boolean`          | `false` |
 
 ### 指令式
 
