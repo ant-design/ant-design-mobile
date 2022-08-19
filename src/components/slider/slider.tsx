@@ -7,6 +7,7 @@ import Thumb from './thumb'
 import { mergeProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
 import { usePropsValue } from '../../utils/use-props-value'
+import { devWarning } from '../../utils/dev-log'
 
 const classPrefix = `adm-slider`
 
@@ -56,8 +57,16 @@ export const Slider: FC<SliderProps> = p => {
     props.onAfterChange?.(reverseValue(value))
   }
 
+  let propsValue: SliderValue | undefined = props.value
+  if (props.range && typeof props.value === 'number') {
+    devWarning(
+      'Slider',
+      'When `range` prop is enabled, the `value` prop should be an array, like: [0, 0]'
+    )
+    propsValue = [0, props.value]
+  }
   const [rawValue, setRawValue] = usePropsValue<SliderValue>({
-    value: props.value,
+    value: propsValue,
     defaultValue: props.defaultValue ?? (props.range ? [min, min] : min),
     onChange: props.onChange,
   })
