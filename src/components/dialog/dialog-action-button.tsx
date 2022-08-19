@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import Button from '../button'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 export type Action = {
   key: string | number
-  text: string
+  text: ReactNode
   disabled?: boolean
   danger?: boolean
   bold?: boolean
