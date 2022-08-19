@@ -7,7 +7,7 @@ import Thumb from './thumb'
 import { mergeProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
 import { usePropsValue } from '../../utils/use-props-value'
-import { devWarning } from 'antd-mobile/src/utils/dev-log'
+import { devWarning } from '../../utils/dev-log'
 
 const classPrefix = `adm-slider`
 
