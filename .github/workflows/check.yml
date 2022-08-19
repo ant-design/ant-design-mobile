@@ -52,9 +52,3 @@ jobs:
 
       - name: Build
         run: pnpm build
-
-      - name: Compressed Size
-        uses: preactjs/compressed-size-action@v2
-        with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          pattern: './lib/bundle/*{.umd.js,.css}'
