@@ -55,7 +55,7 @@ to open a floating layer in the middle of the current page to carry the correspo
 | key       | The unique mark                   | `string \| number`            | -       |
 | onClick   | Triggered on click                | `() => void \| Promise<void>` | -       |
 | style     | Style of the action button        | `React.CSSProperties`         | -       |
-| text      | The title                         | `string`                      | -       |
+| text      | The title                         | `React.ReactNode`             | -       |
 
 ## Imperative
 
