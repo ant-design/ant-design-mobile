@@ -43,6 +43,7 @@ export const Slider: FC<SliderProps> = p => {
   const { min, max, disabled, marks, ticks, step, icon } = props
 
   function sortValue(val: [number, number]): [number, number] {
+    if (typeof val === 'number') return val
     return val.sort((a, b) => a - b)
   }
   function convertValue(value: SliderValue): [number, number] {
