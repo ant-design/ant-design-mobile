@@ -5,6 +5,14 @@ antd-mobile 提供了一套预构建的产物，包括两部分：
 js 资源：
 
 ```text
+/bundle/antd-mobile.cjs.development.js
+/bundle/antd-mobile.es.development.js
+/bundle/antd-mobile.umd.development.js
+```
+
+上述带有 `.development` 的产物仅适用于开发环境，不适合用于生产环境。压缩优化后可用于生产环境的产物如下：
+
+```text
 /bundle/antd-mobile.cjs.js
 /bundle/antd-mobile.es.js
 /bundle/antd-mobile.umd.js

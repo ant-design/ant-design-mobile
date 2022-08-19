@@ -1,8 +1,16 @@
 # Pre-Built Bundles
 
-antd-mobile provides a set of pre-built artifacts, consisting of two parts:
+antd-mobile provides a set of pre-built bundles, consisting of two parts:
 
 js resource:
+
+```text
+/bundle/antd-mobile.cjs.development.js
+/bundle/antd-mobile.es.development.js
+/bundle/antd-mobile.umd.development.js
+```
+
+The above bundles with `.development` are only meant for development, and are not suitable for production. Minified and optimized production bundles are available at:
 
 ```text
 /bundle/antd-mobile.cjs.js
