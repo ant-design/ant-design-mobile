@@ -99,35 +99,25 @@
   }
 
   &-disabled {
-    .@{class-prefix-slider}-mark {
+    .adm-slider-mark,
+    .adm-slider-thumb-icon {
       opacity: 0.4;
     }
-    .@{class-prefix-slider}-fill {
+    .adm-slider-tick-active,
+    .adm-slider-fill {
       &::after {
         content: '';
         position: absolute;
-        left: -3px;
-        top: -4px;
-        width: 100%;
-        height: 10px;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
         background-color: rgba(255, 255, 255, 0.6);
       }
     }
     .@{class-prefix-slider}-thumb {
       cursor: not-allowed;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
-      &::after {
-        content: '';
-        position: absolute;
-        left: 1px;
-        top: 1px;
-        width: 28px;
-        height: 28px;
-        background-color: rgba(255, 255, 255, 0.6);
-        box-shadow: none;
-        border-radius: 50%;
-        overflow: hidden;
-      }
     }
     .@{class-prefix-slider}-mark-text,
     .@{class-prefix-slider}-tick {
