@@ -1,5 +1,9 @@
 # Empty 空状态
 
+<Alert type="warning">
+  Empty 组件已弃用，并将在下个大版本（v6）中被移除，建议切换到 ErrorBlock 组件。
+</Alert>
+
 使用场景插画表示内容为空。
 
 ## 何时使用

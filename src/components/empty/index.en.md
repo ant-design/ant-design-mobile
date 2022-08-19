@@ -1,5 +1,9 @@
 # Empty
 
+<Alert type="warning">
+  Empty has been deprecated and will be removed in the next major version. Please use ErrorBlock instead.
+</Alert>
+
 Use the scene illustration to indicate that the content is empty.
 
 ## When to Use
