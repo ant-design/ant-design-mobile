@@ -6,6 +6,7 @@ export const components = {
     '/components/grid',
     '/components/safe-area',
     '/components/space',
+    '/components/footer',
   ],
   navigation: [
     '/components/capsule-tabs',
