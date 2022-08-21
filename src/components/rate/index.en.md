@@ -30,5 +30,14 @@ Useful for showing things ratings and quick scoring.
 | Name             | Description               | Default                  |
 | ---------------- | ------------------------- | ------------------------ |
 | --active-color   | Fill color when active.   | `#ffd21e`                |
-| --inactive-color | Fill color when inactive. | `var(--adm-color-light)` |
 | --star-size      | Star size.                | `24px`                   |
+| --inactive-color | Fill color when inactive. | `var(--adm-color-light)` |
+
+There are some differences in CSS variables in half-selected mode.
+
+| Name                  | Description                      | Default   |
+| --------------------- | -------------------------------- | --------- |
+| --active-color        | Fill color when active.          | `#ffd21e` |
+| --star-size           | Star size.                       | `24px`    |
+| --inactive-color      | Fill color when inactive(left).  | `#e5e5e5` |
+| --inactive-color-half | Fill color when inactive(right). | `#dbdbdb` |

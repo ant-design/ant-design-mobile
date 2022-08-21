@@ -91,7 +91,9 @@ export const Rate: FC<RateProps> = p => {
   return withNativeProps(
     props,
     <div
-      className={classPrefix}
+      className={classNames(classPrefix, {
+        [`${classPrefix}-half`]: props.allowHalf,
+      })}
       role='radiogroup'
       aria-readonly={props.readOnly}
       ref={containerRef}
