@@ -29,7 +29,7 @@
 | closeOnMaskClick  | 是否支持点击遮罩关闭弹窗     | `boolean`                                                  | `false`     |
 | content           | 弹窗内容                     | `React.ReactNode`                                          | -           |
 | destroyOnClose    | 不可见时卸载内容             | `boolean`                                                  | `false`     |
-| disableBodyScroll | 遮罩层是否禁用 `body` 滚动   | `boolean`                                                  | `true`      |
+| disableBodyScroll | 背景蒙层是否禁用 `body` 滚动 | `boolean`                                                  | `true`      |
 | forceRender       | 被隐藏时是否渲染 `DOM` 结构  | `boolean`                                                  | `false`     |
 | getContainer      | 自定义弹窗的父容器           | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
 | header            | 顶部区域                     | `React.ReactNode`                                          | -           |

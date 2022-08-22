@@ -39,7 +39,7 @@ type PickerValueExtend = {
 | ---------------- | ---------------------------- | ------------------------------------------------------------------ | -------------------------------- |
 | cancelText       | 取消按钮的文字               | `ReactNode`                                                        | `'取消'`                         |
 | children         | 所选项的渲染函数             | `(items: PickerColumnItem[], actions: PickerActions) => ReactNode` | -                                |
-| closeOnMaskClick | 点击遮罩层后是否关闭         | `boolean`                                                          | `true`                           |
+| closeOnMaskClick | 点击背景蒙层后是否关闭       | `boolean`                                                          | `true`                           |
 | columns          | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])`     | -                                |
 | confirmText      | 确定按钮的文字               | `ReactNode`                                                        | `'确定'`                         |
 | defaultValue     | 默认选中项                   | `PickerValue[]`                                                    | `[]`                             |

@@ -65,7 +65,7 @@ describe('Dialog', () => {
     )
 
     fireEvent.click(screen.getByRole('button', { name: 'btn' }))
-    const mask = await screen.findByRole('button', { name: '遮罩层' })
+    const mask = await screen.findByRole('button', { name: '背景蒙层' })
     fireEvent.click(mask)
     await waitForElementToBeRemoved(mask)
     expect(onClose).toBeCalled()

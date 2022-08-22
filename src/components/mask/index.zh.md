@@ -1,4 +1,4 @@
-# Mask 遮罩层
+# Mask 背景蒙层
 
 深色背景层。
 
@@ -18,7 +18,7 @@
 | ----------------- | ------------------------------------------------------------ | --------------------------------------------------------------- | ----------- |
 | afterClose        | 完全关闭后触发                                               | `() => void`                                                    | -           |
 | afterShow         | 完全展示后触发                                               | `() => void`                                                    | -           |
-| color             | 遮罩层的颜色                                                 | `'black' \| 'white'`                                            | `'black'`   |
+| color             | 背景蒙层的颜色                                               | `'black' \| 'white'`                                            | `'black'`   |
 | destroyOnClose    | 不可见时卸载内容                                             | `boolean`                                                       | `false`     |
 | disableBodyScroll | 是否禁用 `body` 滚动                                         | `boolean`                                                       | `true`      |
 | forceRender       | 强制渲染内容                                                 | `boolean`                                                       | `false`     |
