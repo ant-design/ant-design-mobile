@@ -99,9 +99,26 @@
   }
 
   &-disabled {
-    opacity: 0.4;
+    .@{class-prefix-slider}-mark,
+    .@{class-prefix-slider}-thumb-icon {
+      opacity: 0.4;
+    }
+    .@{class-prefix-slider}-tick-active,
+    .@{class-prefix-slider}-fill {
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+    }
     .@{class-prefix-slider}-thumb {
       cursor: not-allowed;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
     }
     .@{class-prefix-slider}-mark-text,
     .@{class-prefix-slider}-tick {
