@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
-import { render, testA11y, fireEvent, waitFor, actSleep, screen } from 'testing'
+import {
+  render,
+  testA11y,
+  fireEvent,
+  waitFor,
+  actSleep,
+  screen,
+  act,
+} from 'testing'
 import PickerView from '../'
 import { basicColumns } from '../demos/columns-data'
 
@@ -7,7 +15,9 @@ const classPrefix = `adm-picker-view`
 
 describe('PickerView', () => {
   test('a11y', async () => {
-    await waitFor(() => testA11y(<PickerView columns={basicColumns} />))
+    await act(async () => {
+      await testA11y(<PickerView columns={basicColumns} />)
+    })
   })
 
   test('controlled mode', async () => {
