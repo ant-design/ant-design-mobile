@@ -10,7 +10,14 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='白色' background='rgb(212 212 212)'>
-        <PageIndicator total={4} current={0} color='white' />
+        <PageIndicator
+          total={4}
+          current={0}
+          color='white'
+          style={{
+            '--dot-color': 'rgba(255,255,255,0.5)',
+          }}
+        />
       </DemoBlock>
 
       <DemoBlock title='竖直方向'>
