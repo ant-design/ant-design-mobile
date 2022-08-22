@@ -64,9 +64,10 @@ function LazyLoadColumnsDemo() {
       <Space direction='vertical' block>
         <Button onClick={handleClick}>懒加载数据</Button>
         <DemoDescription>
-          你可以在Picker显示时发起异步请求获取数据，提供了默认的骨架屏loading样式，CascadePicker
-          和 DatePicker
-          也同样支持，你也可以传入loadingContent自定义loading样式。
+          你可以在 Picker
+          显示时发起异步请求获取数据，默认提供了转圈加载中的加载效果，CascadePicker
+          和 DatePicker 同样支持，你也可以传入 loadingContent 自定义 loading
+          样式。
         </DemoDescription>
       </Space>
       <Picker
