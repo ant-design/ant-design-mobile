@@ -6,7 +6,7 @@ on:
   pull_request:
 jobs:
   check:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Check
         uses: actions/checkout@v3
