@@ -35,29 +35,29 @@ type PickerValueExtend = {
 }
 ```
 
-| Name             | Description                                                  | Type                                                               | Default                                                                    |
-| ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------------ | -------------------------------------------------------------------------- |
-| cancelText       | Text of the cancel button                                    | `ReactNode`                                                        | `'取消'`                                                                   |
-| children         | Render function of the selected options                      | `(items: PickerColumnItem[], actions: PickerActions) => ReactNode` | -                                                                          |
-| closeOnMaskClick | Whether to close after clicking the mask layer               | `boolean`                                                          | `true`                                                                     |
-| columns          | Options to configure each column                             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])`     | -                                                                          |
-| confirmText      | Text of the ok button                                        | `ReactNode`                                                        | `'确定'`                                                                   |
-| defaultValue     | Default selected options                                     | `PickerValue[]`                                                    | `[]`                                                                       |
-| destroyOnClose   | Unmount content when not visible                             | `boolean`                                                          | `false`                                                                    |
-| forceRender      | Render content forcely                                       | `boolean`                                                          | `false`                                                                    |
-| mouseWheel       | Whether to allow interact with mouse wheel                   | `boolean`                                                          | `false`                                                                    |
-| onCancel         | Triggered when cancelling                                    | `() => void`                                                       | -                                                                          |
-| onClose          | Triggered when confirming or cancelling                      | `() => void`                                                       | -                                                                          |
-| onConfirm        | Triggered when confirming                                    | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                                                                          |
-| onSelect         | Triggered when the options are changed                       | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                                                                          |
-| popupClassName   | The custom class name of the popup                           | `string`                                                           | -                                                                          |
-| popupStyle       | The custom style of the popup                                | `React.CSSProperties `                                             | -                                                                          |
-| renderLabel      | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode`                            | `(item) => item.label`                                                     |
-| title            | Title                                                        | `ReactNode`                                                        | -                                                                          |
-| value            | Selected options                                             | `PickerValue[]`                                                    | -                                                                          |
-| visible          | Whether to show or hide the Picker                           | `boolean`                                                          | `false`                                                                    |
-| loading          | Should the Picker displays as loading state                  | `boolean`                                                          | `false`                                                                    |
-| loadingContent   | The loading content displayed in loading state               | `ReactNode`                                                        | `provide a default loading content and display the skeleton screen effect` |
+| Name             | Description                                                  | Type                                                               | Default                                 |
+| ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------------ | --------------------------------------- |
+| cancelText       | Text of the cancel button                                    | `ReactNode`                                                        | `'取消'`                                |
+| children         | Render function of the selected options                      | `(items: PickerColumnItem[], actions: PickerActions) => ReactNode` | -                                       |
+| closeOnMaskClick | Whether to close after clicking the mask layer               | `boolean`                                                          | `true`                                  |
+| columns          | Options to configure each column                             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])`     | -                                       |
+| confirmText      | Text of the ok button                                        | `ReactNode`                                                        | `'确定'`                                |
+| defaultValue     | Default selected options                                     | `PickerValue[]`                                                    | `[]`                                    |
+| destroyOnClose   | Unmount content when not visible                             | `boolean`                                                          | `false`                                 |
+| forceRender      | Render content forcely                                       | `boolean`                                                          | `false`                                 |
+| mouseWheel       | Whether to allow interact with mouse wheel                   | `boolean`                                                          | `false`                                 |
+| onCancel         | Triggered when cancelling                                    | `() => void`                                                       | -                                       |
+| onClose          | Triggered when confirming or cancelling                      | `() => void`                                                       | -                                       |
+| onConfirm        | Triggered when confirming                                    | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                                       |
+| onSelect         | Triggered when the options are changed                       | `(value: PickerValue[], extend: PickerValueExtend) => void`        | -                                       |
+| popupClassName   | The custom class name of the popup                           | `string`                                                           | -                                       |
+| popupStyle       | The custom style of the popup                                | `React.CSSProperties `                                             | -                                       |
+| renderLabel      | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode`                            | `(item) => item.label`                  |
+| title            | Title                                                        | `ReactNode`                                                        | -                                       |
+| value            | Selected options                                             | `PickerValue[]`                                                    | -                                       |
+| visible          | Whether to show or hide the Picker                           | `boolean`                                                          | `false`                                 |
+| loading          | Should the Picker displays as loading state                  | `boolean`                                                          | `false`                                 |
+| loadingContent   | The loading content displayed in loading state               | `ReactNode`                                                        | `provide a default SpinLoading content` |
 
 In addition, the following attributes of [Popup](/components/popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`.
 
