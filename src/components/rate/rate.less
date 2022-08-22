@@ -3,7 +3,8 @@
 .@{class-prefix-rate} {
   --star-size: 24px;
   --active-color: #ffd21e;
-  --inactive-color: var(--adm-color-border);
+  --inactive-color: #e5e5e5;
+  --inactive-color-half: #dbdbdb;
 
   display: inline-flex;
   touch-action: pan-y;
@@ -38,9 +39,6 @@
   }
 
   &&-half {
-    --inactive-color: #e5e5e5;
-    --inactive-color-half: #dbdbdb;
-
     .@{class-prefix-rate}-star-half:not(.@{class-prefix-rate}-star-active) {
       color: var(--inactive-color-half);
     }
