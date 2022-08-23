@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, TouchEvent, MouseEvent } from 'react'
+import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -49,7 +49,7 @@ export const Footer: FC<FooterProps> = p => {
   const clickLinkItem = (
     item: LinkItem,
     index: number,
-    e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>
+    e: React.MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
   ): void => {
     if (onLinkClick) {
       e.preventDefault()
