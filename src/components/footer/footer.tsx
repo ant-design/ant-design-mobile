@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  ReactNode,
-  TouchEvent,
-  MouseEvent,
-  MouseEventHandler,
-} from 'react'
+import React, { FC, ReactNode, TouchEvent, MouseEvent } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -78,7 +72,6 @@ export const Footer: FC<FooterProps> = p => {
                 <a
                   href={link?.value}
                   rel='noopener noreferrer'
-                  // @ts-ignore
                   onClick={event => clickLinkItem(link, index, event)}
                 >
                   {link?.label}

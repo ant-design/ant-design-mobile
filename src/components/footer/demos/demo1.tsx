@@ -68,9 +68,11 @@ export default () => {
   ]
 
   const onChipClick = (item: ChipItem, index: number) => {
+    console.log(item, index)
     alert(`${item?.text}被点击了`)
   }
   const onLinkClick = (item: LinkItem, index: number) => {
+    console.log(item, index)
     alert(`跳转到${item?.value}`)
   }
 
