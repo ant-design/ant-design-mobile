@@ -31,6 +31,7 @@ export const components = {
     '/components/swiper',
     '/components/tag',
     '/components/water-mark',
+    '/components/footer',
   ],
   dataEntry: [
     '/components/cascader',

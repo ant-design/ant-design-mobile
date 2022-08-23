@@ -1,0 +1,49 @@
+@class-prefix-footer: ~'adm-footer';
+
+.@{class-prefix-footer} {
+  --background-color: var(--adm-color-background);
+
+  color: var(--adm-color-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: --background-color;
+
+  &-label {
+    width: 100%;
+  }
+  &-links,
+  &-links-item {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    color: var(--adm-color-primary);
+    white-space: nowrap;
+    a {
+      text-decoration: none;
+    }
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    color: var(--adm-color-weak);
+  }
+  &-chips {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    margin: 8px 0;
+    &-item {
+      white-space: nowrap;
+      margin-right: 20px;
+
+      &-link {
+        cursor: pointer;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
