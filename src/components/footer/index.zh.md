@@ -40,4 +40,4 @@
 
 | 属性               | 说明   | 默认值    |
 | ------------------ | ------ | --------- |
-| --background-color | 背景色 | `#ababab` |
+| --background-color | 背景色 | `#FFFFFF` |

@@ -40,4 +40,4 @@ Applicable to information description at the bottom of the page。
 
 | Name               | Description | Default   |
 | ------------------ | ----------- | --------- |
-| --background-color | background  | `#ababab` |
+| --background-color | background  | `#FFFFFF` |
