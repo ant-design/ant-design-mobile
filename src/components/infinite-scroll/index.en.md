@@ -100,7 +100,7 @@ Reason: When you click to switch the `Tab` item of the `Tabs` component, the hig
 Solution:
 
 - 1: Remove the `forceRender` of the Tab where the `InfiniteScroll` component is located (the `InfiniteScroll` component is only rendered when the Tab is activated and displayed. At this time, the component is visible and `loadMore` will be called correctly to load data)
-- 2: Use the `Tabs` component through the controlled component mode (when switching `Tab`, **update the state of the component where the `InfiniteScroll` component is located**, at this time, the `InfiniteScroll` component will be re-rendered, and the Trigger the check mechanism again, and the component is visible, and `loadMore` is called correctly to load the data), for example:
+- 2: Use the `Tabs` component through the controlled component mode (when switching `Tab`, **update the state of the component where the `InfiniteScroll` component is located**, at this time, the `InfiniteScroll` component will be re-rendered, and then trigger the check mechanism again. Since the component is now visible, `loadMore` is called correctly to load the data), for example:
 
 ```jsx
 const [activeKey, setActiveKey] = useState('fruits')
