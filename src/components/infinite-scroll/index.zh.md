@@ -72,3 +72,40 @@ function loadMore() { // 正确
 ### 为什么配合 ahooks 的 `useDebounceFn` 或者 `useThrottleFn` 使用时会出现报错？
 
 InfiniteScroll 本身已经包含了防止并发的重复请求的逻辑，所以请不要配合 `useDebounceFn` 或 `useThrottleFn` 使用，它们之间会出现逻辑冲突。
+
+### 为什么 InfiniteScroll 由隐藏切换为显示时，一直处于 loading？
+
+在使用 `InfiniteScroll` 组件时，其内部会检测组件是否可见。**可见时会调用 `loadMore` 来加载数据**；**不可见时，不会调用 `loadMore`**（这是必要的，可以避免不必要的数据请求）。并且，**该检查机制，在组件初次渲染以及每次重新渲染时都会进行**，以确保正确加载数据。
+
+但有些场景下（比如，配合 `Tabs` 组件使用时），可能会遇到 `InfiniteScroll` 组件一直 loading 且未加载数据的情况，比如以下示例：
+
+```tsx
+<Tabs>
+  <Tabs.Tab title='水果' key='fruits'>菠萝</Tabs.Tab>
+  <Tabs.Tab title='蔬菜' key='vegetables' forceRender>
+    <InfiniteScroll
+      hasMore={true}
+      loadMore={() => {
+        // 切换到该 Tab 时，该函数不执行
+      }}
+    />
+  </Tabs.Tab>
+</Tabs>
+```
+
+问题描述：`Tabs` 组件默认展示第一个 `Tab` 项的内容，所以，第二个 `Tab` 项的内容 `InfiniteScroll` 是不可见的。但第二个 `Tab` 添加了 `forceRender` 属性，所以即使不可见，其内容也会渲染。本次渲染 `InfiniteScroll`组件时，由于该组件不可见，所以，不会调用 `loadMore` 函数，这是正常的，跟我们的预期相同。_但是，当我们切换到第二个 `Tab` 展示 `InfiniteScroll` 组件时，发现 `InfiniteScroll` 组件并没有调用 `loadMore` 函数，这一点跟我们预期不同，我们希望此时 `loadMore` 函数被调用_。
+
+原因说明：点击切换 `Tabs` 组件的 `Tab` 项时，会修改 `Tabs` 组件的高亮状态，此时，`Tabs` 组件会重新渲染。但是，要注意的是**只有在 `Tabs` 组件自身的内容才会被重新渲染，而 `InfiniteScroll` 组件是在 `Tabs` 组件外部的，并非 `Tabs` 组件自身内容**。所以，切换 `Tab` 时，`InfiniteScroll` 组件并不会重新渲染，也就没有再次触发它的检查机制。
+
+解决方式：
+
+- 方式一：去掉 `InfiniteScroll` 组件所在 Tab 的 `forceRender`（只在激活并展示 Tab 时，才渲染 `InfiniteScroll` 组件，此时，该组件可见就会正确调用 `loadMore` 来加载数据）
+- 方式二：通过受控组件模式使用 `Tabs` 组件（切换 `Tab` 时，**更新了 `InfiniteScroll` 组件所在组件的状态**，此时，会重新渲染 `InfiniteScroll` 组件，也就会再次触发检查机制，而该组件可见，就会正确调用 `loadMore` 来加载数据），示例如下：
+
+```jsx
+const [activeKey, setActiveKey] = useState('fruits')
+
+<Tabs activeKey={activeKey} onChange={setActiveKey}>
+  ...
+</Tabs>
+```
