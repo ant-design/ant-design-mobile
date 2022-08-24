@@ -27,8 +27,9 @@ Useful for showing things ratings and quick scoring.
 
 ### CSS Variables
 
-| Name             | Description               | Default                  |
-| ---------------- | ------------------------- | ------------------------ |
-| --active-color   | Fill color when active.   | `#ffd21e`                |
-| --inactive-color | Fill color when inactive. | `var(--adm-color-light)` |
-| --star-size      | Star size.                | `24px`                   |
+| Name                  | Description                                               | Default   |
+| --------------------- | --------------------------------------------------------- | --------- |
+| --active-color        | Fill color when active.                                   | `#ffd21e` |
+| --star-size           | Star size.                                                | `24px`    |
+| --inactive-color      | Fill color when inactive.                                 | `#e5e5e5` |
+| --inactive-color-half | Fill color when inactive(half-selected mode - left half). | `#dbdbdb` |
