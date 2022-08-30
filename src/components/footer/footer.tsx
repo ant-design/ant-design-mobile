@@ -23,8 +23,8 @@ export type FooterProps = {
   links?: LinkItem[]
   content?: string | ReactNode
   chips?: ChipItem[]
-  onChipClick?: (item: ReactNode | any, index: number) => void
-  onLinkClick?: (item: ReactNode | any, index: number) => void
+  onChipClick?: (item: ChipItem, index: number) => void
+  onLinkClick?: (item: LinkItem, index: number) => void
 } & NativeProps<'--background-color'>
 
 const defaultProps: FooterProps = {
@@ -49,7 +49,7 @@ export const Footer: FC<FooterProps> = p => {
   const clickLinkItem = (
     item: LinkItem,
     index: number,
-    e: React.MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ): void => {
     if (onLinkClick) {
       e.preventDefault()
@@ -64,30 +64,28 @@ export const Footer: FC<FooterProps> = p => {
           <Divider>{label}</Divider>
         </div>
       )}
-      {links && links?.length > 0 && (
+      {links && links.length > 0 && (
         <div className={`${classPrefix}-links`}>
-          {links?.map((link: LinkItem, index: number) => {
+          {links.map((link: LinkItem, index: number) => {
             return (
               <div key={index} className={`${classPrefix}-links-item`}>
                 <a
-                  href={link?.value}
+                  href={link.value}
                   rel='noopener noreferrer'
                   onClick={event => clickLinkItem(link, index, event)}
                 >
-                  {link?.label}
+                  {link.label}
                 </a>
-                {index !== links?.length - 1 && (
-                  <Divider direction='vertical' />
-                )}
+                {index !== links.length - 1 && <Divider direction='vertical' />}
               </div>
             )
           })}
         </div>
       )}
       {content && <div className={`${classPrefix}-content`}>{content}</div>}
-      {chips && chips?.length > 0 && (
+      {chips && chips.length > 0 && (
         <div className={`${classPrefix}-chips`}>
-          {chips?.map((chip: ChipItem, index: number) => {
+          {chips.map((chip: ChipItem, index: number) => {
             return (
               <Tag
                 key={index}
@@ -97,7 +95,7 @@ export const Footer: FC<FooterProps> = p => {
                 })}
                 {...chip.tagProps}
               >
-                {chip?.text}
+                {chip.text}
               </Tag>
             )
           })}

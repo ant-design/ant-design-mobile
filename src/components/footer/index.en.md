@@ -1,4 +1,4 @@
-# Footer 页脚
+# Footer
 
 ## When to Use
 
