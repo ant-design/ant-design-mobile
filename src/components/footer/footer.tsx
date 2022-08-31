@@ -13,15 +13,15 @@ export type LinkItem = {
 }
 
 export type ChipItem = {
-  text: string | ReactNode
+  text: ReactNode
   tagProps?: TagProps
   type?: 'plain' | 'link'
 }
 
 export type FooterProps = {
-  label?: string | ReactNode
+  label?: ReactNode
   links?: LinkItem[]
-  content?: string | ReactNode
+  content?: ReactNode
   chips?: ChipItem[]
   onChipClick?: (item: ChipItem, index: number) => void
   onLinkClick?: (item: LinkItem, index: number) => void
@@ -50,7 +50,7 @@ export const Footer: FC<FooterProps> = p => {
     item: LinkItem,
     index: number,
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ): void => {
+  ) => {
     if (onLinkClick) {
       e.preventDefault()
       onLinkClick(item, index)
@@ -66,7 +66,7 @@ export const Footer: FC<FooterProps> = p => {
       )}
       {links && links.length > 0 && (
         <div className={`${classPrefix}-links`}>
-          {links.map((link: LinkItem, index: number) => {
+          {links.map((link, index) => {
             return (
               <div key={index} className={`${classPrefix}-links-item`}>
                 <a
@@ -85,7 +85,7 @@ export const Footer: FC<FooterProps> = p => {
       {content && <div className={`${classPrefix}-content`}>{content}</div>}
       {chips && chips.length > 0 && (
         <div className={`${classPrefix}-chips`}>
-          {chips.map((chip: ChipItem, index: number) => {
+          {chips.map((chip, index) => {
             return (
               <Tag
                 key={index}
