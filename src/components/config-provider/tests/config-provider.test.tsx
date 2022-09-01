@@ -23,6 +23,8 @@ import kkKZ from '../../../locales/kk-KZ'
 const locales = [zhCN, zhTW, zhHK, enUS, faIR, esES, koKR, frFR, kkKZ, idID]
 
 describe('ConfigProvider', () => {
+  URL.revokeObjectURL = jest.fn(() => '')
+
   beforeAll(() => {
     MockDate.set(new Date('2022-03-22'))
   })
