@@ -45,6 +45,7 @@ async function mockInputFile(file: File | File[] = mockImg) {
 describe('ImageUploader', () => {
   // jsdom does not support createObjectURL
   URL.createObjectURL = jest.fn(() => '')
+  URL.revokeObjectURL = jest.fn(() => '')
 
   const App = (props: any) => {
     const [fileList, setFileList] = useState<ImageUploadItem[]>([
