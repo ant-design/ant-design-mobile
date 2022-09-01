@@ -61,6 +61,18 @@ const defaultProps = {
   defaultValue: '',
 }
 
+export const triggerFocus = (
+  element?: HTMLTextAreaElement | HTMLInputElement | null
+) => {
+  if (!element) return
+
+  element.focus()
+
+  const valueLength = element.value.length
+
+  element.setSelectionRange(valueLength, valueLength)
+}
+
 export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
   (p: TextAreaProps, ref) => {
     const props = mergeProps(defaultProps, p)
@@ -82,8 +94,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
         setValue('')
       },
       focus: () => {
-        nativeTextAreaRef.current?.focus()
-        nativeTextAreaRef.current?.setSelectionRange(value.length, value.length)
+        triggerFocus(nativeTextAreaRef.current)
       },
       blur: () => {
         nativeTextAreaRef.current?.blur()
