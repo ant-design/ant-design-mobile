@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react'
+import React, { FC, useMemo, useRef } from 'react'
 import { CloseOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
@@ -6,6 +6,7 @@ import Image from '../image'
 import SpinLoading from '../spin-loading'
 import { useConfig } from '../config-provider'
 import type { ImageProps } from '../image'
+import { useUnmount } from 'ahooks'
 
 type Props = {
   onClick?: () => void
@@ -22,15 +23,22 @@ const classPrefix = `adm-image-uploader`
 const PreviewItem: FC<Props> = props => {
   const { locale } = useConfig()
   const { url, file, deletable, onDelete, imageFit } = props
+  const fileObjectURLRef = useRef('')
   const src = useMemo(() => {
     if (url) {
       return url
     }
     if (file) {
-      return URL.createObjectURL(file)
+      fileObjectURLRef.current = URL.createObjectURL(file)
+      return fileObjectURLRef.current
     }
     return ''
   }, [url, file])
+
+  useUnmount(() => {
+    URL.revokeObjectURL(fileObjectURLRef.current)
+    fileObjectURLRef.current = ''
+  })
 
   function renderLoading() {
     return (
