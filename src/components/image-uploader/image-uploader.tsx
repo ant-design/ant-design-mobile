@@ -10,7 +10,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useConfig } from '../config-provider'
 import type { ImageProps } from '../image'
 
-export type TaskStatus = 'pending' | 'fail' | 'success'
+export type TaskStatus = 'pending' | 'fail'
 
 export interface ImageUploadItem {
   key?: string | number
@@ -30,7 +30,6 @@ export type ImageUploaderProps = {
   defaultValue?: ImageUploadItem[]
   value?: ImageUploadItem[]
   onChange?: (items: ImageUploadItem[]) => void
-  onUploadQueueChange?: (tasks: Task[]) => void
   accept?: string
   multiple?: boolean
   maxCount?: number
@@ -85,7 +84,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   const idCountRef = useRef(0)
 
-  const { maxCount, onPreview, onUploadQueueChange } = props
+  const { maxCount, onPreview } = props
 
   async function processFile(file: File, fileList: File[]) {
     const { beforeUpload } = props
@@ -135,36 +134,30 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         } as Task)
     )
 
-    onUploadQueueChange?.(newTasks)
     setTasks(prev => [...prev, ...newTasks])
 
     await Promise.all(
       newTasks.map(async currentTask => {
         try {
           const result = await props.upload(currentTask.file)
-          let successTasks: Task[] = []
           setTasks(prev => {
-            successTasks = prev.map(task => {
+            return prev.map(task => {
               if (task.id === currentTask.id) {
                 return {
                   ...task,
-                  status: 'success',
                   url: result.url,
                 }
               }
               return task
             })
-            return successTasks
           })
-          onUploadQueueChange?.(successTasks)
           setValue(prev => {
             const newVal = { ...result }
             return [...prev, newVal]
           })
         } catch (e) {
-          let failTasks: Task[] = []
           setTasks(prev => {
-            failTasks = prev.map(task => {
+            return prev.map(task => {
               if (task.id === currentTask.id) {
                 return {
                   ...task,
@@ -173,9 +166,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               }
               return task
             })
-            return failTasks
           })
-          onUploadQueueChange?.(failTasks)
           throw e
         }
       })
