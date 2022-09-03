@@ -83,9 +83,13 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     )
   }, [value])
 
+  useIsomorphicLayoutEffect(() => {
+    props.onUploadQueueChange?.(tasks)
+  }, [tasks])
+
   const idCountRef = useRef(0)
 
-  const { maxCount, onPreview, onUploadQueueChange } = props
+  const { maxCount, onPreview } = props
 
   async function processFile(file: File, fileList: File[]) {
     const { beforeUpload } = props
@@ -135,16 +139,14 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         } as Task)
     )
 
-    onUploadQueueChange?.(newTasks)
     setTasks(prev => [...prev, ...newTasks])
 
     await Promise.all(
       newTasks.map(async currentTask => {
         try {
           const result = await props.upload(currentTask.file)
-          let successTasks: Task[] = []
           setTasks(prev => {
-            successTasks = prev.map(task => {
+            return prev.map(task => {
               if (task.id === currentTask.id) {
                 return {
                   ...task,
@@ -154,17 +156,14 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               }
               return task
             })
-            return successTasks
           })
-          onUploadQueueChange?.(successTasks)
           setValue(prev => {
             const newVal = { ...result }
             return [...prev, newVal]
           })
         } catch (e) {
-          let failTasks: Task[] = []
           setTasks(prev => {
-            failTasks = prev.map(task => {
+            return prev.map(task => {
               if (task.id === currentTask.id) {
                 return {
                   ...task,
@@ -173,9 +172,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               }
               return task
             })
-            return failTasks
           })
-          onUploadQueueChange?.(failTasks)
           throw e
         }
       })
