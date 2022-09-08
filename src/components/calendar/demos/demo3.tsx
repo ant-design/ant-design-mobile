@@ -28,6 +28,12 @@ export default () => {
       <DemoBlock title='限制日期范围'>
         <Calendar min={min} max={max} selectionMode='range' />
       </DemoBlock>
+      <DemoBlock title='限制可切换的page'>
+        <Calendar
+          prevFarthestDate={new Date('2021-08-09')}
+          nextFarthestDate={new Date('2022-10-21')}
+        />
+      </DemoBlock>
     </>
   )
 }
