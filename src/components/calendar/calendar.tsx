@@ -6,7 +6,7 @@ import React, {
   useMemo,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import dayjs from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import { ArrowLeft } from './arrow-left'
@@ -40,6 +40,8 @@ export type CalendarProps = {
   max?: Date
   min?: Date
   shouldDisableDate?: (date: Date) => boolean
+  prevFarthestDate?: Date
+  nextFarthestDate?: Date
 } & (
   | {
       selectionMode?: undefined
@@ -129,12 +131,34 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       setCurrent(dayjs().date(1))
     },
   }))
+
+  const handlePageChange = (
+    action: 'subtract' | 'add',
+    num: number,
+    type: 'month' | 'year'
+  ) => {
+    const nxtCurrent = current[action](num, type)
+    if (action === 'subtract' && props.prevFarthestDate) {
+      const prevFarthestDate = dayjs(props.prevFarthestDate)
+      if (nxtCurrent.isBefore(prevFarthestDate)) {
+        return
+      }
+    }
+    if (action === 'add' && props.nextFarthestDate) {
+      const nextFarthestDate = dayjs(props.nextFarthestDate)
+      if (nextFarthestDate.isAfter(nxtCurrent)) {
+        return
+      }
+    }
+    setCurrent(current[action](num, type))
+  }
+
   const header = (
     <div className={`${classPrefix}-header`}>
       <a
         className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-year`}
         onClick={() => {
-          setCurrent(current.subtract(1, 'year'))
+          handlePageChange('subtract', 1, 'year')
         }}
       >
         {props.prevYearButton}
@@ -142,7 +166,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       <a
         className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
         onClick={() => {
-          setCurrent(current.subtract(1, 'month'))
+          handlePageChange('subtract', 1, 'month')
         }}
       >
         {props.prevMonthButton}
@@ -160,7 +184,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           `${classPrefix}-arrow-button-right-month`
         )}
         onClick={() => {
-          setCurrent(current.add(1, 'month'))
+          handlePageChange('add', 1, 'month')
         }}
       >
         {props.nextMonthButton}
@@ -172,7 +196,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           `${classPrefix}-arrow-button-right-year`
         )}
         onClick={() => {
-          setCurrent(current.add(1, 'year'))
+          handlePageChange('add', 1, 'year')
         }}
       >
         {props.nextYearButton}
