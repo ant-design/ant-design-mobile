@@ -6,7 +6,7 @@ import React, {
   useMemo,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs from 'dayjs'
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import { ArrowLeft } from './arrow-left'
@@ -140,13 +140,13 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     const nxtCurrent = current[action](num, type)
     if (action === 'subtract' && props.prevFarthestDate) {
       const prevFarthestDate = dayjs(props.prevFarthestDate)
-      if (nxtCurrent.isBefore(prevFarthestDate)) {
+      if (nxtCurrent.isBefore(prevFarthestDate, type)) {
         return
       }
     }
     if (action === 'add' && props.nextFarthestDate) {
       const nextFarthestDate = dayjs(props.nextFarthestDate)
-      if (nextFarthestDate.isAfter(nxtCurrent)) {
+      if (nxtCurrent.isAfter(nextFarthestDate, type)) {
         return
       }
     }
