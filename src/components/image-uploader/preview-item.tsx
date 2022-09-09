@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useRef } from 'react'
+import React, { FC, useLayoutEffect, useMemo, useRef } from 'react'
 import { CloseOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
@@ -6,7 +6,6 @@ import Image from '../image'
 import SpinLoading from '../spin-loading'
 import { useConfig } from '../config-provider'
 import type { ImageProps } from '../image'
-import { useUnmount } from 'ahooks'
 
 type Props = {
   onClick?: () => void
@@ -35,10 +34,13 @@ const PreviewItem: FC<Props> = props => {
     return ''
   }, [url, file])
 
-  useUnmount(() => {
-    URL.revokeObjectURL(fileObjectURLRef.current)
-    fileObjectURLRef.current = ''
-  })
+  useLayoutEffect(() => {
+    return () => {
+      if (!fileObjectURLRef.current) return
+      URL.revokeObjectURL(fileObjectURLRef.current)
+      fileObjectURLRef.current = ''
+    }
+  }, [url, file])
 
   function renderLoading() {
     return (
