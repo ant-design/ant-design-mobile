@@ -91,9 +91,9 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
         className={`${classPrefix}-slides-inner`}
         style={{ x: x.to(x => -x) }}
       >
-        {props.images.map(image => (
+        {props.images.map((image, index) => (
           <Slide
-            key={image}
+            key={index}
             image={image}
             onTap={props.onTap}
             maxZoom={props.maxZoom}
