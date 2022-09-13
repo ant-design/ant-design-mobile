@@ -9,12 +9,12 @@ export default () => {
   const content = '@ 2004-2020 Alipay.com All rights reserved'
   const links: LinkItem[] = [
     {
-      label: '阿里云',
-      value: 'https://www.aliyun.com/',
+      text: '阿里云',
+      href: 'https://www.aliyun.com/',
     },
     {
-      label: '支付宝',
-      value: 'https://www.alipay.com/',
+      text: '支付宝',
+      href: 'https://www.alipay.com/',
     },
   ]
   const chips: ChipItem[] = [
@@ -73,7 +73,7 @@ export default () => {
   }
   const onLinkClick = (item: LinkItem, index: number) => {
     console.log(item, index)
-    alert(`跳转到${item?.value}`)
+    alert(`跳转到${item?.href}`)
   }
 
   return (

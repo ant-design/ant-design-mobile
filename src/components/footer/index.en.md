@@ -23,21 +23,20 @@ Applicable to information description at the bottom of the page。
 
 ### ChipItem
 
-| Name     | Description                                            | Type                                                     | Default |
-| -------- | ------------------------------------------------------ | -------------------------------------------------------- | ------- |
-| text     | Tag Text                                               | `string \| ReactNode`                                    | -       |
-| type     | Tag Type， `plain`is pure display, `link` is clickable | `plain` \| `link`                                        | -       |
-| tagProps | Tag Props                                              | [Tag Props](https://mobile.ant.design/zh/components/tag) | -       |
+| Name | Description                                            | Type                  | Default |
+| ---- | ------------------------------------------------------ | --------------------- | ------- |
+| text | Tag Text                                               | `string \| ReactNode` | -       |
+| type | Tag Type， `plain`is pure display, `link` is clickable | `plain` \| `link`     | -       |
 
 ### LinkItem
 
-| Name  | Description   | Type      | Default |
-| ----- | ------------- | --------- | ------- |
-| label | Text of links | `string ` | -       |
-| value | Href of links | `string`  | -       |
+| Name | Description   | Type      | Default |
+| ---- | ------------- | --------- | ------- |
+| text | Text of links | `string ` | -       |
+| href | Href of links | `string`  | -       |
 
 ### CSS Variables
 
-| Name               | Description | Default   |
-| ------------------ | ----------- | --------- |
-| --background-color | background  | `#FFFFFF` |
+| Name               | Description | Default                       |
+| ------------------ | ----------- | ----------------------------- |
+| --background-color | background  | `var(--adm-color-background)` |

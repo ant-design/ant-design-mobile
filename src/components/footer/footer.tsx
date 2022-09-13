@@ -8,8 +8,8 @@ import Tag, { TagProps } from '../tag'
 const classPrefix = `adm-footer`
 
 export type LinkItem = {
-  label: string
-  value: string
+  text: string
+  href: string
 }
 
 export type ChipItem = {
@@ -68,16 +68,16 @@ export const Footer: FC<FooterProps> = p => {
         <div className={`${classPrefix}-links`}>
           {links.map((link, index) => {
             return (
-              <div key={index} className={`${classPrefix}-links-item`}>
+              <React.Fragment key={index}>
                 <a
-                  href={link.value}
+                  href={link.href}
                   rel='noopener noreferrer'
                   onClick={event => clickLinkItem(link, index, event)}
                 >
-                  {link.label}
+                  {link.text}
                 </a>
                 {index !== links.length - 1 && <Divider direction='vertical' />}
-              </div>
+              </React.Fragment>
             )
           })}
         </div>
@@ -87,16 +87,15 @@ export const Footer: FC<FooterProps> = p => {
         <div className={`${classPrefix}-chips`}>
           {chips.map((chip, index) => {
             return (
-              <Tag
+              <div
                 key={index}
                 onClick={() => clickChipItem(chip, index)}
-                className={classNames(`${classPrefix}-chips-item`, {
-                  [`${classPrefix}-chips-item-link`]: chip.type === 'link',
+                className={classNames(`${classPrefix}-chip`, {
+                  [`${classPrefix}-chip-link`]: chip.type === 'link',
                 })}
-                {...chip.tagProps}
               >
                 {chip.text}
-              </Tag>
+              </div>
             )
           })}
         </div>
