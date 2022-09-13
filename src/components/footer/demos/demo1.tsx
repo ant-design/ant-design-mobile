@@ -5,7 +5,6 @@ import { HandPayCircleOutline } from 'antd-mobile-icons'
 import { ChipItem, LinkItem } from '../footer'
 
 export default () => {
-  const label = '没有更多了'
   const content = '@ 2004-2020 Alipay.com All rights reserved'
   const links: LinkItem[] = [
     {
@@ -14,7 +13,7 @@ export default () => {
     },
     {
       text: '支付宝',
-      href: 'https://www.alipay.com/',
+      href: 'https://www.antgroup.com/',
     },
   ]
   const chips: ChipItem[] = [
@@ -78,10 +77,10 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='label是字符串'>
-        <Footer label={label}></Footer>
+      <DemoBlock title='label 是字符串'>
+        <Footer label='没有更多了'></Footer>
       </DemoBlock>
-      <DemoBlock title='label是自定义DOM'>
+      <DemoBlock title='label 是自定义 DOM'>
         <Footer
           label={
             <div>
@@ -96,14 +95,14 @@ export default () => {
       <DemoBlock title='1个链接'>
         <Footer links={[links[0]]}></Footer>
       </DemoBlock>
-      <DemoBlock title='链接：通过href跳转'>
+      <DemoBlock title='链接：通过 href 跳转'>
         <Footer links={links}></Footer>
       </DemoBlock>
       <DemoBlock title='链接：通过点击事件跳转'>
         <Footer links={links} onLinkClick={onLinkClick}></Footer>
       </DemoBlock>
-      <DemoBlock title='label和内容'>
-        <Footer label={label} content={content}></Footer>
+      <DemoBlock title='label 和内容'>
+        <Footer label='没有更多了' content={content}></Footer>
       </DemoBlock>
       <DemoBlock title='标签纯展示'>
         <Footer chips={chips}></Footer>
@@ -120,7 +119,7 @@ export default () => {
       <DemoBlock title='所有'>
         <Footer
           links={links}
-          label={label}
+          label='没有更多了'
           chips={chips}
           content={content}
         ></Footer>

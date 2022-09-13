@@ -23,10 +23,10 @@ Applicable to information description at the bottom of the page。
 
 ### ChipItem
 
-| Name | Description                                            | Type                  | Default |
-| ---- | ------------------------------------------------------ | --------------------- | ------- |
-| text | Tag Text                                               | `string \| ReactNode` | -       |
-| type | Tag Type， `plain`is pure display, `link` is clickable | `plain` \| `link`     | -       |
+| Name | Description                                            | Type                  | Default   |
+| ---- | ------------------------------------------------------ | --------------------- | --------- |
+| text | Tag Text                                               | `string \| ReactNode` | -         |
+| type | Tag Type， `plain`is pure display, `link` is clickable | `'plain' \| 'link'`   | `'plain'` |
 
 ### LinkItem
 
