@@ -5,7 +5,6 @@ import { HandPayCircleOutline } from 'antd-mobile-icons'
 import { ChipItem, LinkItem } from '../footer'
 
 export default () => {
-  const content = '@ 2004-2020 Alipay.com All rights reserved'
   const links: LinkItem[] = [
     {
       text: '阿里云',
@@ -77,10 +76,10 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='label 是字符串'>
+      <DemoBlock title='基础页脚'>
         <Footer label='没有更多了'></Footer>
       </DemoBlock>
-      <DemoBlock title='label 是自定义 DOM'>
+      <DemoBlock title='自定义 label'>
         <Footer
           label={
             <div>
@@ -89,39 +88,34 @@ export default () => {
           }
         ></Footer>
       </DemoBlock>
-      <DemoBlock title='只有内容'>
-        <Footer content={content}></Footer>
+      <DemoBlock title='带内容的页脚'>
+        <Footer content='@ 2004-2020 Alipay.com All rights reserved'></Footer>
       </DemoBlock>
-      <DemoBlock title='1个链接'>
-        <Footer links={[links[0]]}></Footer>
+      <DemoBlock title='带链接的页脚'>
+        <Footer
+          links={[
+            {
+              text: '阿里云',
+              href: 'https://www.aliyun.com/',
+            },
+          ]}
+        ></Footer>
       </DemoBlock>
-      <DemoBlock title='链接：通过 href 跳转'>
-        <Footer links={links}></Footer>
-      </DemoBlock>
-      <DemoBlock title='链接：通过点击事件跳转'>
+      <DemoBlock title='通过点击事件跳转'>
         <Footer links={links} onLinkClick={onLinkClick}></Footer>
       </DemoBlock>
-      <DemoBlock title='label 和内容'>
-        <Footer label='没有更多了' content={content}></Footer>
-      </DemoBlock>
-      <DemoBlock title='标签纯展示'>
+      <DemoBlock title='带标签的页脚'>
         <Footer chips={chips}></Footer>
       </DemoBlock>
-      <DemoBlock title='标签可跳转'>
+      <DemoBlock title='标签可点击'>
         <Footer chips={chipsLinkData} onChipClick={onChipClick}></Footer>
       </DemoBlock>
-      <DemoBlock title='链接和内容'>
-        <Footer links={links} content={content}></Footer>
-      </DemoBlock>
-      <DemoBlock title='标签和内容'>
-        <Footer chips={chips} content={content}></Footer>
-      </DemoBlock>
-      <DemoBlock title='所有'>
+      <DemoBlock title='组合使用'>
         <Footer
-          links={links}
           label='没有更多了'
+          content='@ 2004-2020 Alipay.com All rights reserved'
+          links={links}
           chips={chips}
-          content={content}
         ></Footer>
       </DemoBlock>
     </>
