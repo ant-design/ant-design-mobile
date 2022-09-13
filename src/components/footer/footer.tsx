@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { Divider } from '../divider/divider'
-import Tag, { TagProps } from '../tag'
 
 const classPrefix = `adm-footer`
 
@@ -14,7 +13,6 @@ export type LinkItem = {
 
 export type ChipItem = {
   text: ReactNode
-  tagProps?: TagProps
   type?: 'plain' | 'link'
 }
 
@@ -38,14 +36,12 @@ export const Footer: FC<FooterProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { label, links, content, chips, onChipClick, onLinkClick } = props
 
-  // 点击 标签
   const clickChipItem = (item: ChipItem, index: number) => {
     if (chips?.length && item.type === 'link') {
       onChipClick?.(item, index)
     }
   }
 
-  // 点击 链接
   const clickLinkItem = (
     item: LinkItem,
     index: number,

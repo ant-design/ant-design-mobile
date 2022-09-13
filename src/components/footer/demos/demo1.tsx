@@ -18,50 +18,26 @@ export default () => {
   const chips: ChipItem[] = [
     {
       text: '蚂蚁借呗',
-      tagProps: {
-        color: '#ddd',
-        round: true,
-      },
     },
     {
       text: '备用金',
-      tagProps: {
-        color: '#ddd',
-        round: true,
-      },
     },
     {
       text: '蚂蚁花呗',
-      tagProps: {
-        color: '#ddd',
-        round: true,
-      },
     },
   ]
   const chipsLinkData: ChipItem[] = [
     {
       text: '蚂蚁借呗',
       type: 'link',
-      tagProps: {
-        color: '#108ee9',
-        round: true,
-      },
     },
     {
       text: '备用金',
       type: 'link',
-      tagProps: {
-        color: '#108ee9',
-        round: true,
-      },
     },
     {
       text: '蚂蚁花呗',
       type: 'link',
-      tagProps: {
-        color: '#108ee9',
-        round: true,
-      },
     },
   ]
 
