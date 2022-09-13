@@ -19,7 +19,7 @@
 | content     | 普通的内容部分                                   | `string \| ReactNode`                     | -      |
 | chips       | 底部标签                                         | `ChipItem[]`                              | -      |
 | onChipClick | 点击底部标签触发，仅在标签 `type` 为 `link` 生效 | `(item: ChipItem, index: number) => void` | -      |
-| onLinkClick | 点击链接触发事件,拦截 a 标签的 href 跳转         | `(item: LinkItem, index: number) => void` | -      |
+| onLinkClick | 点击链接触发事件，拦截 a 标签的 href 跳转        | `(item: LinkItem, index: number) => void` | -      |
 
 ### ChipItem
 
@@ -30,10 +30,10 @@
 
 ### LinkItem
 
-| 属性 | 说明        | 类型      | 默认值 |
-| ---- | ----------- | --------- | ------ |
-| text | 链接的文字  | `string ` | -      |
-| href | 链接的 href | `string`  | -      |
+| 属性 | 说明        | 类型     | 默认值 |
+| ---- | ----------- | -------- | ------ |
+| text | 链接的文字  | `string` | -      |
+| href | 链接的 href | `string` | -      |
 
 ### CSS 变量
 
