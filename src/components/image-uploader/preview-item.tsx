@@ -1,4 +1,4 @@
-import React, { FC, useLayoutEffect, useMemo, useRef } from 'react'
+import React, { FC, useLayoutEffect, useMemo } from 'react'
 import { CloseOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
@@ -22,25 +22,21 @@ const classPrefix = `adm-image-uploader`
 const PreviewItem: FC<Props> = props => {
   const { locale } = useConfig()
   const { url, file, deletable, onDelete, imageFit } = props
-  const fileObjectURLRef = useRef('')
   const src = useMemo(() => {
     if (url) {
       return url
     }
     if (file) {
-      fileObjectURLRef.current = URL.createObjectURL(file)
-      return fileObjectURLRef.current
+      return URL.createObjectURL(file)
     }
     return ''
   }, [url, file])
 
   useLayoutEffect(() => {
     return () => {
-      if (!fileObjectURLRef.current) return
-      URL.revokeObjectURL(fileObjectURLRef.current)
-      fileObjectURLRef.current = ''
+      URL.revokeObjectURL(src)
     }
-  }, [url, file])
+  }, [src])
 
   function renderLoading() {
     return (
