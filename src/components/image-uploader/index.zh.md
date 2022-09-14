@@ -31,7 +31,7 @@
 | showUpload          | 是否展示上传按钮                                                              | `boolean`                                                              | `true`    |
 | upload              | 上传方法，入参是需要被上传的文件对象，经过异步处理之后，返回上传结果          | `(file: File) => Promise<ImageUploadItem>`                             | -         |
 | value               | 已上传的文件列表                                                              | `ImageUploadItem[]`                                                    | -         |
-| onUploadQueueChange | 图片上传队列变化时触发                                                        | `(tasks: Task[]) => void`                                              | -         |
+| onUploadQueueChange | 图片上传队列变化时触发                                                        | `(tasks: UploadTask[]) => void`                                        | -         |
 
 ### ImageUploadItem
 
@@ -41,6 +41,13 @@
 | key          | 唯一标识                                 | `string \| number` | 数组下标 |
 | thumbnailUrl | 缩略图的资源地址                         | `string`           | `url`    |
 | url          | 图片的资源地址                           | `string`           | -        |
+
+### UploadTask
+
+| 属性   | 说明         | 类型                               | 默认值 |
+| ------ | ------------ | ---------------------------------- | ------ |
+| id     | 上传图片 id  | `number`                           | -      |
+| status | 图片上传状态 | `'pending' \| 'fail' \| 'success'` | -      |
 
 ### CSS 变量
 

@@ -26,11 +26,13 @@ export type Task = {
   status: TaskStatus
 }
 
+export type UploadTask = Pick<Task, 'id' | 'status'>
+
 export type ImageUploaderProps = {
   defaultValue?: ImageUploadItem[]
   value?: ImageUploadItem[]
   onChange?: (items: ImageUploadItem[]) => void
-  onUploadQueueChange?: (tasks: Task[]) => void
+  onUploadQueueChange?: (tasks: UploadTask[]) => void
   accept?: string
   multiple?: boolean
   maxCount?: number
@@ -84,7 +86,9 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   }, [value])
 
   useIsomorphicLayoutEffect(() => {
-    props.onUploadQueueChange?.(tasks)
+    props.onUploadQueueChange?.(
+      tasks.map(item => ({ id: item.id, status: item.status }))
+    )
   }, [tasks])
 
   const idCountRef = useRef(0)

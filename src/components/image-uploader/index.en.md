@@ -31,7 +31,7 @@
 | showUpload          | Whether to display the upload button                                                                                                                                     | `boolean`                                                              | `true`    |
 | upload              | Upload method, the input parameter is the file object that needs to be uploaded, after asynchronous processing, the upload result is returned                            | `(file: File) => Promise<ImageUploadItem>`                             | -         |
 | value               | List of uploaded files                                                                                                                                                   | `ImageUploadItem[]`                                                    | -         |
-| onUploadQueueChange | Triggered when the image upload queue changes                                                                                                                            | `(tasks: Task[]) => void`                                              |
+| onUploadQueueChange | Triggered when the image upload queue changes                                                                                                                            | `(tasks: UploadTask[]) => void`                                        |
 
 ### ImageUploadItem
 
@@ -41,6 +41,13 @@
 | key          | Unique identifier                             | `string \| number` | The array index |
 | thumbnailUrl | The resource address of the thumbnail picture | `string`           | `url`           |
 | url          | The resource address of the picture           | `string`           | -               |
+
+### UploadTask
+
+| Name   | Description         | Type                               | Default |
+| ------ | ------------------- | ---------------------------------- | ------- |
+| id     | Image upload id     | `number`                           | -       |
+| status | Image upload status | `'pending' \| 'fail' \| 'success'` | -       |
 
 ### CSS Variables
 
