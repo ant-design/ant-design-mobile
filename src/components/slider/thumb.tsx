@@ -16,10 +16,11 @@ type ThumbProps = {
   trackRef: RefObject<HTMLDivElement>
   icon?: React.ReactNode
   popover: boolean | ((value: number) => ReactNode)
+  residentPopover: boolean
 } & NativeProps
 
 const Thumb: FC<ThumbProps> = props => {
-  const { value, min, max, disabled, onDrag, icon } = props
+  const { value, min, max, disabled, icon, residentPopover, onDrag } = props
   const prevValue = useRef(value)
   const { locale } = useConfig()
 
@@ -80,7 +81,7 @@ const Thumb: FC<ThumbProps> = props => {
         <Popover
           content={renderPopoverContent(value)}
           placement='top'
-          visible={dragging}
+          visible={residentPopover || dragging}
           getContainer={null}
           mode='dark'
         >

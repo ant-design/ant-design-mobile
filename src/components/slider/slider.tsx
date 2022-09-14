@@ -25,6 +25,7 @@ export type SliderProps = {
   range?: boolean
   icon?: ReactNode
   popover?: boolean | ((value: number) => ReactNode)
+  residentPopover?: boolean
   onChange?: (value: SliderValue) => void
   onAfterChange?: (value: SliderValue) => void
 } & NativeProps<'--fill-color'>
@@ -37,6 +38,7 @@ const defaultProps = {
   range: false,
   disabled: false,
   popover: false,
+  residentPopover: false,
 }
 
 export const Slider: FC<SliderProps> = p => {
@@ -161,6 +163,7 @@ export const Slider: FC<SliderProps> = p => {
         trackRef={trackRef}
         icon={icon}
         popover={props.popover}
+        residentPopover={props.residentPopover}
         onDrag={(position, first, last) => {
           if (first) {
             dragLockRef.current += 1
