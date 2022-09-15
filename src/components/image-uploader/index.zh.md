@@ -31,7 +31,7 @@
 | showUpload    | 是否展示上传按钮                                                              | `boolean`                                                                                                  | `true`    |
 | upload        | 上传方法，入参是需要被上传的文件对象，经过异步处理之后，返回上传结果          | `(file: File) => Promise<ImageUploadItem>`                                                                 | -         |
 | value         | 已上传的文件列表                                                              | `ImageUploadItem[]`                                                                                        | -         |
-| itemRender    | 自定义上传列表项                                                              | `(originNode: React.ReactElement, file: ImageUploadItem, fileList: ImageUploadItem[] ) => React.ReactNode` | -         |
+| renderItem    | 自定义上传列表项                                                              | `(originNode: React.ReactElement, file: ImageUploadItem, fileList: ImageUploadItem[] ) => React.ReactNode` | -         |
 
 ### ImageUploadItem
 

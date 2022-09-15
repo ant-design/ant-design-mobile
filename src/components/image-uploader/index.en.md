@@ -31,7 +31,7 @@
 | showUpload    | Whether to display the upload button                                                                                                                                     | `boolean`                                                                                                  | `true`    |
 | upload        | Upload method, the input parameter is the file object that needs to be uploaded, after asynchronous processing, the upload result is returned                            | `(file: File) => Promise<ImageUploadItem>`                                                                 | -         |
 | value         | List of uploaded files                                                                                                                                                   | `ImageUploadItem[]`                                                                                        | -         |
-| itemRender    | Custom item of uploadList                                                                                                                                                | `(originNode: React.ReactElement, file: ImageUploadItem, fileList: ImageUploadItem[] ) => React.ReactNode` | -         |
+| renderItem    | Custom item of uploadList                                                                                                                                                | `(originNode: React.ReactElement, file: ImageUploadItem, fileList: ImageUploadItem[] ) => React.ReactNode` | -         |
 
 ### ImageUploadItem
 

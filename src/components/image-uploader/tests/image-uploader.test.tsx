@@ -207,11 +207,11 @@ describe('ImageUploader', () => {
     expect(container).toMatchSnapshot()
   })
 
-  test('`itemRender` prop', async () => {
+  test('`renderItem` prop', async () => {
     const customClassName = 'custom-wrapper'
     render(
       <App
-        itemRender={(originNode: React.ReactElement, file: ImageUploadItem) => {
+        renderItem={(originNode: React.ReactElement, file: ImageUploadItem) => {
           return (
             <div key={file.url} className={customClassName}>
               {originNode}

@@ -49,7 +49,7 @@ export type ImageUploaderProps = {
   showFailed?: boolean
   imageFit?: ImageProps['fit']
   children?: React.ReactNode
-  itemRender?: (
+  renderItem?: (
     originNode: React.ReactElement,
     file: ImageUploadItem,
     fileList: ImageUploadItem[]
@@ -89,7 +89,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   const idCountRef = useRef(0)
 
-  const { maxCount, onPreview, itemRender } = props
+  const { maxCount, onPreview, renderItem } = props
 
   async function processFile(file: File, fileList: File[]) {
     const { beforeUpload } = props
@@ -219,7 +219,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           }}
         />
       )
-      return itemRender ? itemRender(originNode, fileItem, value) : originNode
+      return renderItem ? renderItem(originNode, fileItem, value) : originNode
     })
   }
 
