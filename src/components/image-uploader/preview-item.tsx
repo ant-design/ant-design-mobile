@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react'
+import React, { FC, useLayoutEffect, useMemo } from 'react'
 import { CloseOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
@@ -31,6 +31,12 @@ const PreviewItem: FC<Props> = props => {
     }
     return ''
   }, [url, file])
+
+  useLayoutEffect(() => {
+    return () => {
+      URL.revokeObjectURL(src)
+    }
+  }, [src])
 
   function renderLoading() {
     return (
