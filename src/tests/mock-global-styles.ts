@@ -11,6 +11,10 @@ const mockStyleHtml = `
   .adm-picker-view-column-wheel {
     --item-height: 34px;
   }
+
+  .@{class-prefix-picker-view}-item-height-measure {
+    height: 34px;
+  }
 </style>
 `
 

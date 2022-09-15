@@ -53,7 +53,6 @@ export const Wheel = memo<Props>(
       itemHeight.current = measureCSSLength(
         window.getComputedStyle(itemHeightMeasure).getPropertyValue('height')
       )
-      console.log(itemHeight.current)
     })
 
     useIsomorphicLayoutEffect(() => {
