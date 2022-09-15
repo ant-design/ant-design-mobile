@@ -6,7 +6,7 @@ export function measureCSSLength(raw: string | undefined | null): number {
     if (isDev) {
       devError(
         'Global',
-        'Seems like the you will encounter a style messed problem. Please check the browser environment to make sure it supports CSS variables.'
+        'Something went wrong when calculating CSS length. Please report an issue at https://github.com/ant-design/ant-design-mobile/issues/new/choose'
       )
     }
     return 0
