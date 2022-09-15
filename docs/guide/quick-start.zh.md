@@ -65,3 +65,7 @@ import { Button } from 'antd-mobile'
 或者也可以加入我们的 Discord 讨论组：
 
 https://discord.gg/jmNvw4WFYn
+
+## 参与贡献
+
+antd-mobile 社区欢迎每一位社区朋友，如果你想参与建设，可以阅读[这篇指南](https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md)。
