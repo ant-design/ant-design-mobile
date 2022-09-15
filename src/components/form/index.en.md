@@ -77,6 +77,7 @@ const validateMessages = {
 | --border-bottom | Border style of the form bottom | `solid 1px var(--adm-border-color)` |
 | --border-inner  | Border style between form items | `solid 1px var(--adm-border-color)` |
 | --border-top    | Border style of the form top    | `solid 1px var(--adm-border-color)` |
+| --prefix-width  | Width of the Form.Item prefix   | `6.8em`                             |
 
 ## Form.Item
 
