@@ -207,4 +207,23 @@ describe('ImageUploader', () => {
 
     expect(container).toMatchSnapshot()
   })
+
+  test('`renderItem` prop', async () => {
+    const customClassName = 'custom-wrapper'
+    render(
+      <App
+        renderItem={(originNode: React.ReactElement, file: ImageUploadItem) => {
+          return (
+            <div key={file.url} className={customClassName}>
+              {originNode}
+            </div>
+          )
+        }}
+      />
+    )
+
+    await waitFor(() => {
+      expect($$(`.${customClassName}`)[0]).toBeVisible()
+    })
+  })
 })
