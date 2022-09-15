@@ -10,7 +10,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useConfig } from '../config-provider'
 import type { ImageProps } from '../image'
 
-export type TaskStatus = 'pending' | 'fail'
+export type TaskStatus = 'pending' | 'fail' | 'success'
 
 export interface ImageUploadItem {
   key?: string | number
@@ -26,10 +26,13 @@ type Task = {
   status: TaskStatus
 }
 
+export type UploadTask = Pick<Task, 'id' | 'status'>
+
 export type ImageUploaderProps = {
   defaultValue?: ImageUploadItem[]
   value?: ImageUploadItem[]
   onChange?: (items: ImageUploadItem[]) => void
+  onUploadQueueChange?: (tasks: UploadTask[]) => void
   accept?: string
   multiple?: boolean
   maxCount?: number
@@ -86,6 +89,12 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
       })
     )
   }, [value])
+
+  useIsomorphicLayoutEffect(() => {
+    props.onUploadQueueChange?.(
+      tasks.map(item => ({ id: item.id, status: item.status }))
+    )
+  }, [tasks])
 
   const idCountRef = useRef(0)
 
@@ -150,6 +159,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               if (task.id === currentTask.id) {
                 return {
                   ...task,
+                  status: 'success',
                   url: result.url,
                 }
               }
