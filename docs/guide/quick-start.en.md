@@ -60,3 +60,7 @@ If you don't want to configure your environment locally, you can also try it dir
 
 - [DingDing](https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ)
 - [Discord](https://discord.gg/jmNvw4WFYn)
+
+## Contributing
+
+Everyone are welcomed to join the community of antd-mobile. If you want to contribute, please refer to [this guide](https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md).

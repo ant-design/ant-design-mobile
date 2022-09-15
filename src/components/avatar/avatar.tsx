@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { Image } from '../../index'
+import Image from '../image'
 import { mergeProps } from '../../utils/with-default-props'
 import { Fallback } from './fallback'
 import { ImageProps } from '../image'
