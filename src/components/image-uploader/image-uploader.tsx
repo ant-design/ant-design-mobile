@@ -19,7 +19,7 @@ export interface ImageUploadItem {
   extra?: any
 }
 
-export type Task = {
+type Task = {
   id: number
   url?: string
   file: File
