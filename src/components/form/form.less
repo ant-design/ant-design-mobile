@@ -1,13 +1,15 @@
 @class-prefix-form: ~'adm-form';
 
 .@{class-prefix-form} {
-  --border-inner: solid 1px var(--adm-color-border);
-  --border-top: solid 1px var(--adm-color-border);
-  --border-bottom: solid 1px var(--adm-color-border);
+  --border-inner: solid 1px var(--adm-border-color);
+  --border-top: solid 1px var(--adm-border-color);
+  --border-bottom: solid 1px var(--adm-border-color);
+  --prefix-width: 6.8em;
 
   ---border-inner: var(--border-inner);
   ---border-top: var(--border-top);
   ---border-bottom: var(--border-bottom);
+  ---prefix-width: var(--prefix-width);
   .adm-list.adm-list {
     --padding-left: 16px;
     --padding-right: 12px;
@@ -17,6 +19,11 @@
   }
   .@{class-prefix-form}-footer {
     padding: 20px 12px;
+  }
+  .@{class-prefix-form}-item-horizontal {
+    &.adm-list-item {
+      --prefix-width: var(---prefix-width);
+    }
   }
 }
 
