@@ -21,6 +21,7 @@ import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
 import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
+import { v4 as uuidv4 } from 'uuid'
 
 const classPrefix = `adm-swiper`
 
@@ -60,10 +61,12 @@ const defaultProps = {
   rubberband: true,
 }
 
+let currentUid = ''
+
 export const Swiper = forwardRef<SwiperRef, SwiperProps>(
   staged<SwiperProps, SwiperRef>((p, ref) => {
     const props = mergeProps(defaultProps, p)
-
+    const [uid] = useState(uuidv4())
     const isVertical = props.direction === 'vertical'
 
     const slideRatio = props.slideSize / 100
@@ -154,6 +157,11 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
       const bind = useDrag(
         state => {
+          if (state.first && !currentUid) {
+            currentUid = uid
+          }
+          if (currentUid !== uid) return
+          currentUid = state.last ? '' : uid
           dragCancelRef.current = state.cancel
           if (!state.intentional) return
           const slidePixels = getSlidePixels()
