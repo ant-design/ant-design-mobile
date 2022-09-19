@@ -97,7 +97,6 @@ specifiers:
   tslib: ^2.4.0
   typescript: ~4.6.4
   use-sync-external-store: ^1.1.0
-  uuid: ^9.0.0
   vite: ^3.0.8
   webpack: ^5.74.0
   webpack-bundle-analyzer: ^4.5.0
@@ -120,7 +119,6 @@ dependencies:
   staged-components: 1.1.3_react@18.2.0
   tslib: 2.4.0
   use-sync-external-store: 1.2.0_react@18.2.0
-  uuid: 9.0.0
 
 devDependencies:
   '@babel/cli': 7.18.10_@babel+core@7.18.10
@@ -14217,11 +14215,6 @@ packages:
     dependencies:
       inherits: 2.0.3
     dev: true
-
-  /uuid/9.0.0:
-    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
-    hasBin: true
-    dev: false
 
   /v8-compile-cache-lib/3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
