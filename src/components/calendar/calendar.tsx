@@ -15,13 +15,16 @@ import { useConfig } from '../config-provider'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import { useUpdateEffect } from 'ahooks'
 import { usePropsValue } from '../../utils/use-props-value'
-import { convertValueToRange, DateRange } from './convert'
+import {
+  convertValueToRange,
+  convertPageToDayjs,
+  DateRange,
+  Page,
+} from './convert'
 
 dayjs.extend(isoWeek)
 
 const classPrefix = 'adm-calendar'
-
-type Page = { month: number; year: number }
 
 export type CalendarRef = {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
@@ -40,6 +43,8 @@ export type CalendarProps = {
   max?: Date
   min?: Date
   shouldDisableDate?: (date: Date) => boolean
+  minPage?: Page
+  maxPage?: Page
 } & (
   | {
       selectionMode?: undefined
@@ -118,23 +123,40 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       } else {
         page = pageOrPageGenerator
       }
-      setCurrent(
-        dayjs()
-          .year(page.year)
-          .month(page.month - 1)
-          .date(1)
-      )
+      setCurrent(convertPageToDayjs(page))
     },
     jumpToToday: () => {
       setCurrent(dayjs().date(1))
     },
   }))
+
+  const handlePageChange = (
+    action: 'subtract' | 'add',
+    num: number,
+    type: 'month' | 'year'
+  ) => {
+    const nxtCurrent = current[action](num, type)
+    if (action === 'subtract' && props.minPage) {
+      const minPage = convertPageToDayjs(props.minPage)
+      if (nxtCurrent.isBefore(minPage, type)) {
+        return
+      }
+    }
+    if (action === 'add' && props.maxPage) {
+      const maxPage = convertPageToDayjs(props.maxPage)
+      if (nxtCurrent.isAfter(maxPage, type)) {
+        return
+      }
+    }
+    setCurrent(current[action](num, type))
+  }
+
   const header = (
     <div className={`${classPrefix}-header`}>
       <a
         className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-year`}
         onClick={() => {
-          setCurrent(current.subtract(1, 'year'))
+          handlePageChange('subtract', 1, 'year')
         }}
       >
         {props.prevYearButton}
@@ -142,7 +164,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       <a
         className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
         onClick={() => {
-          setCurrent(current.subtract(1, 'month'))
+          handlePageChange('subtract', 1, 'month')
         }}
       >
         {props.prevMonthButton}
@@ -160,7 +182,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           `${classPrefix}-arrow-button-right-month`
         )}
         onClick={() => {
-          setCurrent(current.add(1, 'month'))
+          handlePageChange('add', 1, 'month')
         }}
       >
         {props.nextMonthButton}
@@ -172,7 +194,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           `${classPrefix}-arrow-button-right-year`
         )}
         onClick={() => {
-          setCurrent(current.add(1, 'year'))
+          handlePageChange('add', 1, 'year')
         }}
       >
         {props.nextYearButton}

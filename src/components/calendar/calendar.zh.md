@@ -22,6 +22,8 @@
 | defaultValue      | 默认选择的日期                                 | 同 `value` 属性                                                                                | -          |
 | max               | 可选择范围的最大值                             | `Date`                                                                                         | -          |
 | min               | 可选择范围的最小值                             | `Date`                                                                                         | -          |
+| maxPage           | 可切换到的最晚日期                             | `Page`                                                                                         | -          |
+| minPage           | 可切换到的最早日期                             | `Page`                                                                                         | -          |
 | nextMonthButton   | 导航窗格上的“下一月”按钮的内容                 | `React.ReactNode`                                                                              | `>`        |
 | nextYearButton    | 导航窗格上的“下一年”按钮的内容                 | `React.ReactNode`                                                                              | `>>`       |
 | onChange          | 选择日期变化时触发                             | 单选模式下为 `(val: Date \| null) => void`，多选模式下为 `(val: [Date, Date] \| null) => void` | -          |
