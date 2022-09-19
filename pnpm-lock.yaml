@@ -36,7 +36,6 @@ specifiers:
   '@types/resize-observer-browser': ^0.1.7
   '@types/testing-library__jest-dom': ^5.14.5
   '@types/use-sync-external-store': ^0.0.3
-  '@types/uuid': ^8.3.4
   '@typescript-eslint/eslint-plugin': ^5.33.1
   '@typescript-eslint/parser': ^5.33.1
   '@umijs/types': ^3.5.32
@@ -105,7 +104,6 @@ specifiers:
 dependencies:
   '@floating-ui/dom': 1.0.0
   '@react-spring/web': 9.4.5_biqbaboplfbrettd7655fr4n2y
-  '@types/uuid': 8.3.4
   '@use-gesture/react': 10.2.17_react@18.2.0
   ahooks: 3.7.0_react@18.2.0
   antd-mobile-icons: 0.3.0
@@ -3018,10 +3016,6 @@ packages:
   /@types/use-sync-external-store/0.0.3:
     resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==}
     dev: true
-
-  /@types/uuid/8.3.4:
-    resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
-    dev: false
 
   /@types/vinyl/2.0.6:
     resolution: {integrity: sha512-ayJ0iOCDNHnKpKTgBG6Q6JOnHTj9zFta+3j2b8Ejza0e4cvRyMn0ZoLEmbPrTHe5YYRlDYPvPWVdV4cTaRyH7g==}
