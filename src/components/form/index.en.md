@@ -72,11 +72,12 @@ const validateMessages = {
 
 ### CSS Variables
 
-| Name            | Description                     | Default                             |
-| --------------- | ------------------------------- | ----------------------------------- |
-| --border-bottom | Border style of the form bottom | `solid 1px var(--adm-border-color)` |
-| --border-inner  | Border style between form items | `solid 1px var(--adm-border-color)` |
-| --border-top    | Border style of the form top    | `solid 1px var(--adm-border-color)` |
+| Name            | Description                                    | Default                             |
+| --------------- | ---------------------------------------------- | ----------------------------------- |
+| --border-bottom | Border style of the form bottom                | `solid 1px var(--adm-border-color)` |
+| --border-inner  | Border style between form items                | `solid 1px var(--adm-border-color)` |
+| --border-top    | Border style of the form top                   | `solid 1px var(--adm-border-color)` |
+| --prefix-width  | Label width of form items in horizontal layout | `6.8em`                             |
 
 ## Form.Item
 

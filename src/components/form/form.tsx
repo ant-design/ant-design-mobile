@@ -46,7 +46,9 @@ export type FormProps = Pick<
   | 'onValuesChange'
   | 'children'
 > &
-  NativeProps<'--border-inner' | '--border-top' | '--border-bottom'> &
+  NativeProps<
+    '--border-inner' | '--border-top' | '--border-bottom' | '--prefix-width'
+  > &
   Partial<FormContextType> & {
     footer?: ReactNode
     mode?: ListProps['mode']

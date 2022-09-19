@@ -73,11 +73,12 @@ const validateMessages = {
 
 ### CSS 变量
 
-| 变量名          | 描述                   | 默认值                              |
-| --------------- | ---------------------- | ----------------------------------- |
-| --border-bottom | 表单容器底部的边框样式 | `solid 1px var(--adm-border-color)` |
-| --border-inner  | 表单项之间的边框样式   | `solid 1px var(--adm-border-color)` |
-| --border-top    | 表单容器顶部的边框样式 | `solid 1px var(--adm-border-color)` |
+| 变量名          | 描述                         | 默认值                              |
+| --------------- | ---------------------------- | ----------------------------------- |
+| --border-bottom | 表单容器底部的边框样式       | `solid 1px var(--adm-border-color)` |
+| --border-inner  | 表单项之间的边框样式         | `solid 1px var(--adm-border-color)` |
+| --border-top    | 表单容器顶部的边框样式       | `solid 1px var(--adm-border-color)` |
+| --prefix-width  | 水平布局时，表单项的标签宽度 | `6.8em`                             |
 
 ## Form.Item
 
