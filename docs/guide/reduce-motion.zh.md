@@ -22,7 +22,7 @@ reduceMotion()
 
 ## 跟随系统设置
 
-一些情况下，你可能会希望动画是否兼容直接跟随系统设置，例如 iOS 下的 "辅助功能 - 兼容动态效果" 设置：
+一些情况下，你可能会希望动画是否减弱直接跟随系统设置，例如 iOS 下的 "辅助功能 - 减弱动态效果" 设置：
 
 <img alt="reduce-motion-zh" src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*LVkBSrQkji4AAAAAAAAAAAAAARQnAQ" width="500px" />
 
