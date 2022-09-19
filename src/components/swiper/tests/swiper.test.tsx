@@ -2,13 +2,6 @@ import React, { useRef, useState } from 'react'
 import { render, testA11y, fireEvent, screen, mockDrag } from 'testing'
 import Swiper, { SwiperRef } from '..'
 import { act } from '@testing-library/react'
-import crypto from 'crypto'
-
-Object.defineProperty(global, 'crypto', {
-  value: {
-    getRandomValues: (arr: any) => crypto.randomBytes(arr.length),
-  },
-})
 
 const classPrefix = `adm-swiper`
 
