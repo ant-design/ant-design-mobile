@@ -176,6 +176,7 @@ export const Stepper: FC<StepperProps> = p => {
           aria-valuenow={Number(inputValue)}
           aria-valuemax={max}
           aria-valuemin={min}
+          inputMode='decimal'
         />
       </div>
       <Button
