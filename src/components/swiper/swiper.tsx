@@ -156,13 +156,13 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
       const bind = useDrag(
         state => {
+          dragCancelRef.current = state.cancel
+          if (!state.intentional) return
           if (state.first && !currentUid) {
             currentUid = uid
           }
           if (currentUid !== uid) return
           currentUid = state.last ? undefined : uid
-          dragCancelRef.current = state.cancel
-          if (!state.intentional) return
           const slidePixels = getSlidePixels()
           if (!slidePixels) return
           const paramIndex = isVertical ? 1 : 0
