@@ -102,7 +102,6 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
           !visible && `${classPrefix}-hidden`
         )}
         ref={floatingRef}
-        onTouchMove={e => e.stopPropagation()}
       >
         <div className={`${classPrefix}-arrow`} ref={arrowRef}>
           <Arrow className={`${classPrefix}-arrow-icon`} />
@@ -202,7 +201,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       if (!props.trigger) return
       setVisible(false)
     },
-    () => targetRef.current?.element,
+    [() => targetRef.current?.element, floatingRef],
     ['click', 'touchmove']
   )
 
