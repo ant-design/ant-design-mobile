@@ -60,39 +60,7 @@ describe('SwipeAction', () => {
     await testA11y(<App />)
   })
 
-  test('swipe from left to right', async () => {
-    const { getByTestId, getByText } = render(<App />)
-
-    swipe(getByTestId('swipe'), [
-      {
-        clientX: 150,
-      },
-    ])
-
-    const track = document.querySelectorAll(`.${classPrefix}-track`)[0]
-    await waitFor(() =>
-      expect(track).toHaveStyle(`transform: translate3d(${width}px,0,0)`)
-    )
-
-    await userEvent.click(getByText('pin'))
-    await waitFor(() => expect(track).toHaveStyle(`transform: none`))
-  })
-
-  test('swipe from right to left', async () => {
-    const { getByTestId } = render(<App />)
-
-    swipe(getByTestId('swipe'), [
-      {
-        clientX: 50,
-      },
-    ])
-
-    const track = document.querySelectorAll(`.${classPrefix}-track`)[0]
-    await waitFor(() =>
-      expect(track).toHaveStyle(`transform: translate3d(-${width}px,0,0);`)
-    )
-  })
-
+  // Seems `react-spring` will block event handler. Just move this test case to the top
   test('manual return to the position', async () => {
     const App = () => {
       const ref = useRef<SwipeActionRef>(null)
@@ -136,6 +104,39 @@ describe('SwipeAction', () => {
     fireEvent.click(getByText('delete'))
     fireEvent.click(getByText('确定'))
     await waitFor(() => expect(track).toHaveStyle(`transform: none`))
+  })
+
+  test('swipe from left to right', async () => {
+    const { getByTestId, getByText } = render(<App />)
+
+    swipe(getByTestId('swipe'), [
+      {
+        clientX: 150,
+      },
+    ])
+
+    const track = document.querySelectorAll(`.${classPrefix}-track`)[0]
+    await waitFor(() =>
+      expect(track).toHaveStyle(`transform: translate3d(${width}px,0,0)`)
+    )
+
+    await userEvent.click(getByText('pin'))
+    await waitFor(() => expect(track).toHaveStyle(`transform: none`))
+  })
+
+  test('swipe from right to left', async () => {
+    const { getByTestId } = render(<App />)
+
+    swipe(getByTestId('swipe'), [
+      {
+        clientX: 50,
+      },
+    ])
+
+    const track = document.querySelectorAll(`.${classPrefix}-track`)[0]
+    await waitFor(() =>
+      expect(track).toHaveStyle(`transform: translate3d(-${width}px,0,0);`)
+    )
   })
 
   test('ref.show', async () => {
