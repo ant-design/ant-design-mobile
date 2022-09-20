@@ -26,6 +26,7 @@
     "lodash": "^4.17.21",
     "rc-field-form": "~1.27.0",
     "react-is": "^17.0.2",
+    "runes": "^0.4.3",
     "staged-components": "^1.1.3",
     "tslib": "^2.4.0",
     "use-sync-external-store": "^1.1.0"

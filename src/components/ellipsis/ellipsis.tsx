@@ -1,4 +1,5 @@
 import React, { FC, useRef, useState } from 'react'
+import runes from 'runes'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
@@ -46,6 +47,8 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     const root = rootRef.current
     if (!root) return
     if (!root.offsetParent) return
+
+    const safeContentArray = runes(props.content)
     const originStyle = window.getComputedStyle(root)
     const container = document.createElement('div')
     const styleNames: string[] = Array.prototype.slice.apply(originStyle)
@@ -85,21 +88,21 @@ export const Ellipsis: FC<EllipsisProps> = p => {
         if (right - left <= 1) {
           if (props.direction === 'end') {
             return {
-              leading: props.content.slice(0, left) + '...',
+              leading: safeContentArray.slice(0, left).join('') + '...',
             }
           } else {
             return {
-              tailing: '...' + props.content.slice(right, end),
+              tailing: '...' + safeContentArray.slice(right, end).join(''),
             }
           }
         }
         const middle = Math.round((left + right) / 2)
         if (props.direction === 'end') {
           container.innerText =
-            props.content.slice(0, middle) + '...' + actionText
+            safeContentArray.slice(0, middle).join('') + '...' + actionText
         } else {
           container.innerText =
-            actionText + '...' + props.content.slice(middle, end)
+            actionText + '...' + safeContentArray.slice(middle, end).join('')
         }
         if (container.offsetHeight <= maxHeight) {
           if (props.direction === 'end') {
@@ -125,18 +128,18 @@ export const Ellipsis: FC<EllipsisProps> = p => {
           rightPart[1] - rightPart[0] <= 1
         ) {
           return {
-            leading: props.content.slice(0, leftPart[0]) + '...',
-            tailing: '...' + props.content.slice(rightPart[1], end),
+            leading: safeContentArray.slice(0, leftPart[0]).join('') + '...',
+            tailing: '...' + safeContentArray.slice(rightPart[1], end).join(''),
           }
         }
         const leftPartMiddle = Math.floor((leftPart[0] + leftPart[1]) / 2)
         const rightPartMiddle = Math.ceil((rightPart[0] + rightPart[1]) / 2)
         container.innerText =
-          props.content.slice(0, leftPartMiddle) +
+          safeContentArray.slice(0, leftPartMiddle).join('') +
           '...' +
           actionText +
           '...' +
-          props.content.slice(rightPartMiddle, end)
+          safeContentArray.slice(rightPartMiddle, end).join('')
         if (container.offsetHeight <= maxHeight) {
           return checkMiddle(
             [leftPartMiddle, leftPart[1]],
