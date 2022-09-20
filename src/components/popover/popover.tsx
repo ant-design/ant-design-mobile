@@ -69,7 +69,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
   const { mode = 'light' } = props
   const placement = normalizePlacement(props.placement)
 
-  const [visible, setVisible] = usePropsValue({
+  const [visible, setVisible] = usePropsValue<boolean>({
     value: props.visible,
     defaultValue: props.defaultVisible,
     onChange: props.onVisibleChange,
@@ -102,6 +102,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
           !visible && `${classPrefix}-hidden`
         )}
         ref={floatingRef}
+        onTouchMove={e => e.stopPropagation()}
       >
         <div className={`${classPrefix}-arrow`} ref={arrowRef}>
           <Arrow className={`${classPrefix}-arrow-icon`} />
@@ -201,7 +202,8 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       if (!props.trigger) return
       setVisible(false)
     },
-    () => targetRef.current?.element
+    () => targetRef.current?.element,
+    ['click', 'touchmove']
   )
 
   const shouldRender = useShouldRender(visible, false, props.destroyOnHide)
