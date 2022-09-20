@@ -60,10 +60,12 @@ const defaultProps = {
   rubberband: true,
 }
 
+let currentUid: undefined | {}
+
 export const Swiper = forwardRef<SwiperRef, SwiperProps>(
   staged<SwiperProps, SwiperRef>((p, ref) => {
     const props = mergeProps(defaultProps, p)
-
+    const [uid] = useState({})
     const isVertical = props.direction === 'vertical'
 
     const slideRatio = props.slideSize / 100
@@ -156,6 +158,11 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         state => {
           dragCancelRef.current = state.cancel
           if (!state.intentional) return
+          if (state.first && !currentUid) {
+            currentUid = uid
+          }
+          if (currentUid !== uid) return
+          currentUid = state.last ? undefined : uid
           const slidePixels = getSlidePixels()
           if (!slidePixels) return
           const paramIndex = isVertical ? 1 : 0
