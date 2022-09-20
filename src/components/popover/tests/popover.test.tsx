@@ -3,10 +3,8 @@ import { render, cleanup, fireEvent } from 'testing'
 import Popover from '..'
 import Button from '../../button'
 
-afterEach(cleanup)
-
 describe('Popover', () => {
-  test('Touch outside to move should close Popover', async () => {
+  test('Touch outside to move should close Popover', () => {
     const { container } = render(
       <Popover content='Bamboo' trigger='click' defaultVisible>
         <Button />
