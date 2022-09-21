@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react'
+import React, { FC, useMemo, useRef, useState } from 'react'
 import runes from 'runes'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -43,12 +43,16 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   const [expanded, setExpanded] = useState(false)
   const [exceeded, setExceeded] = useState(false)
 
+  const chars = useMemo(() => runes(props.content), [props.content])
+  function getSubString(start: number, end: number) {
+    return chars.slice(start, end).join('')
+  }
+
   function calcEllipsised() {
     const root = rootRef.current
     if (!root) return
     if (!root.offsetParent) return
 
-    const safeContentArray = runes(props.content)
     const originStyle = window.getComputedStyle(root)
     const container = document.createElement('div')
     const styleNames: string[] = Array.prototype.slice.apply(originStyle)
@@ -88,21 +92,19 @@ export const Ellipsis: FC<EllipsisProps> = p => {
         if (right - left <= 1) {
           if (props.direction === 'end') {
             return {
-              leading: safeContentArray.slice(0, left).join('') + '...',
+              leading: getSubString(0, left) + '...',
             }
           } else {
             return {
-              tailing: '...' + safeContentArray.slice(right, end).join(''),
+              tailing: '...' + getSubString(right, end),
             }
           }
         }
         const middle = Math.round((left + right) / 2)
         if (props.direction === 'end') {
-          container.innerText =
-            safeContentArray.slice(0, middle).join('') + '...' + actionText
+          container.innerText = getSubString(0, middle) + '...' + actionText
         } else {
-          container.innerText =
-            actionText + '...' + safeContentArray.slice(middle, end).join('')
+          container.innerText = actionText + '...' + getSubString(middle, end)
         }
         if (container.offsetHeight <= maxHeight) {
           if (props.direction === 'end') {
@@ -128,18 +130,18 @@ export const Ellipsis: FC<EllipsisProps> = p => {
           rightPart[1] - rightPart[0] <= 1
         ) {
           return {
-            leading: safeContentArray.slice(0, leftPart[0]).join('') + '...',
-            tailing: '...' + safeContentArray.slice(rightPart[1], end).join(''),
+            leading: getSubString(0, leftPart[0]) + '...',
+            tailing: '...' + getSubString(rightPart[1], end),
           }
         }
         const leftPartMiddle = Math.floor((leftPart[0] + leftPart[1]) / 2)
         const rightPartMiddle = Math.ceil((rightPart[0] + rightPart[1]) / 2)
         container.innerText =
-          safeContentArray.slice(0, leftPartMiddle).join('') +
+          getSubString(0, leftPartMiddle) +
           '...' +
           actionText +
           '...' +
-          safeContentArray.slice(rightPartMiddle, end).join('')
+          getSubString(rightPartMiddle, end)
         if (container.offsetHeight <= maxHeight) {
           return checkMiddle(
             [leftPartMiddle, leftPart[1]],

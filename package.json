@@ -59,6 +59,7 @@
     "@types/react-is": "^17.0.3",
     "@types/react-virtualized": "^9.21.21",
     "@types/resize-observer-browser": "^0.1.7",
+    "@types/runes": "^0.4.1",
     "@types/testing-library__jest-dom": "^5.14.5",
     "@types/use-sync-external-store": "^0.0.3",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
