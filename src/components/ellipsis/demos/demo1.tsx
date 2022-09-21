@@ -40,6 +40,17 @@ export default () => {
           <Ellipsis direction='middle' content={content} expandText='展开' />
         </Space>
       </DemoBlock>
+
+      <DemoBlock title='emoji'>
+        <Ellipsis
+          direction='end'
+          content={
+            '🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉'
+          }
+          expandText='展开'
+          collapseText='收起'
+        />
+      </DemoBlock>
     </>
   )
 }
