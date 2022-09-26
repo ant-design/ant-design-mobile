@@ -32,7 +32,7 @@ export type CascaderViewProps = {
   value?: CascaderValue[]
   defaultValue?: CascaderValue[]
   onChange?: (value: CascaderValue[], extend: CascaderValueExtend) => void
-  placeholder?: string
+  placeholder?: string | ((index: number) => string)
   onTabsChange?: (index: number) => void
   activeIcon?: ReactNode
 } & NativeProps<'--height'>
@@ -128,7 +128,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
               key={index.toString()}
               title={
                 <div className={`${classPrefix}-header-title`}>
-                  {selected ? selected.label : props.placeholder}
+                  {selected ? selected.label : typeof props.placeholder === "function" ? props.placeholder(index) : props.placeholder}
                 </div>
               }
               forceRender
