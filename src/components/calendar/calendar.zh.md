@@ -25,10 +25,12 @@
 | min               | 可选择范围的最小值                             | `Date`                                                                                         | -          |
 | maxPage           | 可切换到的最晚日期                             | `Page`                                                                                         | -          |
 | minPage           | 可切换到的最早日期                             | `Page`                                                                                         | -          |
+| nextWeekButton    | 导航窗格上的“下一周”按钮的内容                 | `React.ReactNode`                                                                              | `>`        |
 | nextMonthButton   | 导航窗格上的“下一月”按钮的内容                 | `React.ReactNode`                                                                              | `>`        |
 | nextYearButton    | 导航窗格上的“下一年”按钮的内容                 | `React.ReactNode`                                                                              | `>>`       |
 | onChange          | 选择日期变化时触发                             | 单选模式下为 `(val: Date \| null) => void`，多选模式下为 `(val: [Date, Date] \| null) => void` | -          |
 | onPageChange      | 切换月或年时触发                               | `(year: number, month: number) => void`                                                        | -          |
+| prevWeekButton    | 导航窗格上的“上一周”按钮的内容                 | `React.ReactNode`                                                                              | `<`        |
 | prevMonthButton   | 导航窗格上的“上一月”按钮的内容                 | `React.ReactNode`                                                                              | `<`        |
 | prevYearButton    | 导航窗格上的“上一年”按钮的内容                 | `React.ReactNode`                                                                              | `<<`       |
 | renderLabel       | 标注信息的渲染函数                             | `(date: Date) => ReactNode \| null \| undefined`                                               | -          |
@@ -36,6 +38,7 @@
 | shouldDisableDate | 判断日期是否可选，使用后会忽略 min 和 max 设置 | `(date: Date) => boolean`                                                                      | -          |
 | value             | 选择的日期                                     | 单选模式下为 `Date \| null`，多选模式下为 `[Date, Date] \| null`                               | -          |
 | weekStartsOn      | 每周以周几作为第一天                           | `'Monday' \| 'Sunday'`                                                                         | `'Sunday'` |
+| weekModel         | 以一周为一整块                                 | `boolean`                                                                                      | `false`    |
 
 ### CSS 变量
 
