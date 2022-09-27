@@ -31,11 +31,21 @@ export type CalendarRef = {
   jumpToToday: () => void
 }
 
+export type WeekButton =
+  | {
+      weekModel?: undefined | false
+      prevMonthButton?: React.ReactNode
+      prevYearButton?: React.ReactNode
+      nextMonthButton?: React.ReactNode
+      nextYearButton?: React.ReactNode
+    }
+  | {
+      weekModel: true
+      prevWeekButton?: React.ReactNode
+      nextWeekButton?: React.ReactNode
+    }
+
 export type CalendarProps = {
-  prevMonthButton?: React.ReactNode
-  prevYearButton?: React.ReactNode
-  nextMonthButton?: React.ReactNode
-  nextYearButton?: React.ReactNode
   onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => React.ReactNode
@@ -45,35 +55,40 @@ export type CalendarProps = {
   shouldDisableDate?: (date: Date) => boolean
   minPage?: Page
   maxPage?: Page
-} & (
-  | {
-      selectionMode?: undefined
-      value?: undefined
-      defaultValue?: undefined
-      onChange?: undefined
-    }
-  | {
-      selectionMode: 'single'
-      value?: Date | null
-      defaultValue?: Date | null
-      onChange?: (val: Date | null) => void
-    }
-  | {
-      selectionMode: 'range'
-      value?: [Date, Date] | null
-      defaultValue?: [Date, Date] | null
-      onChange?: (val: [Date, Date] | null) => void
-    }
-) &
+  weekModel?: boolean
+} & WeekButton &
+  (
+    | {
+        selectionMode?: undefined
+        value?: undefined
+        defaultValue?: undefined
+        onChange?: undefined
+      }
+    | {
+        selectionMode: 'single'
+        value?: Date | null
+        defaultValue?: Date | null
+        onChange?: (val: Date | null) => void
+      }
+    | {
+        selectionMode: 'range'
+        value?: [Date, Date] | null
+        defaultValue?: [Date, Date] | null
+        onChange?: (val: [Date, Date] | null) => void
+      }
+  ) &
   NativeProps
 
 const defaultProps = {
   weekStartsOn: 'Sunday',
   defaultValue: null,
   allowClear: true,
+  weekModel: false,
   prevMonthButton: <ArrowLeft />,
+  prevWeekButton: <ArrowLeft />,
   prevYearButton: <ArrowLeftDouble />,
   nextMonthButton: <ArrowLeft />,
+  nextWeekButton: <ArrowLeft />,
   nextYearButton: <ArrowLeftDouble />,
 }
 
@@ -105,7 +120,9 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   const [intermediate, setIntermediate] = useState(false)
 
   const [current, setCurrent] = useState(() =>
-    dayjs(dateRange ? dateRange[0] : today).date(1)
+    props.weekModel
+      ? dayjs(dateRange ? dateRange[0] : today)
+      : dayjs(dateRange ? dateRange[0] : today).date(1)
   )
 
   useUpdateEffect(() => {
@@ -133,7 +150,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   const handlePageChange = (
     action: 'subtract' | 'add',
     num: number,
-    type: 'month' | 'year'
+    type: 'month' | 'year' | 'week'
   ) => {
     const nxtCurrent = current[action](num, type)
     if (action === 'subtract' && props.minPage) {
@@ -202,16 +219,49 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     </div>
   )
 
+  const headerWeek = (
+    <div className={`${classPrefix}-header`}>
+      <a
+        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
+        onClick={() => {
+          handlePageChange('subtract', 1, 'week')
+        }}
+      >
+        {props.prevWeekButton}
+      </a>
+      <div className={`${classPrefix}-title`}>
+        {locale.Calendar.renderYearAndMonth(
+          current.year(),
+          current.month() + 1
+        )}
+      </div>
+      <a
+        className={classNames(
+          `${classPrefix}-arrow-button`,
+          `${classPrefix}-arrow-button-right`,
+          `${classPrefix}-arrow-button-right-month`
+        )}
+        onClick={() => {
+          handlePageChange('add', 1, 'week')
+        }}
+      >
+        {props.nextWeekButton}
+      </a>
+    </div>
+  )
+
   const maxDay = useMemo(() => props.max && dayjs(props.max), [props.max])
   const minDay = useMemo(() => props.min && dayjs(props.min), [props.min])
 
   function renderCells() {
     const cells: ReactNode[] = []
     let iterator = current.subtract(current.isoWeekday(), 'day')
+    const totalityDays = props.weekModel ? 7 : 6 * 7
+
     if (props.weekStartsOn === 'Monday') {
       iterator = iterator.add(1, 'day')
     }
-    while (cells.length < 6 * 7) {
+    while (cells.length < totalityDays) {
       const d = iterator
       let isSelect = false
       let isBegin = false
@@ -309,7 +359,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      {header}
+      {props.weekModel ? headerWeek : header}
       {mark}
       {body}
     </div>
