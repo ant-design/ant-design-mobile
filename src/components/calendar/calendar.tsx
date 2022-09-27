@@ -113,7 +113,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
 
   const [current, setCurrent] = useState(() =>
     props.weekModel
-      ? dayjs(dateRange ? dateRange[0] : today)
+      ? dayjs(dateRange ? dateRange[1] : today)
       : dayjs(dateRange ? dateRange[0] : today).date(1)
   )
 
@@ -124,7 +124,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   useEffect(() => {
     setCurrent(
       props.weekModel
-        ? dayjs(dateRange ? dateRange[0] : today)
+        ? dayjs(dateRange ? dateRange[1] : today)
         : dayjs(dateRange ? dateRange[0] : today).date(1)
     )
   }, [props.weekModel])
