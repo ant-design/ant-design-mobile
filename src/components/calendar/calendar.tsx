@@ -4,6 +4,7 @@ import React, {
   useState,
   useImperativeHandle,
   useMemo,
+  useEffect,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs from 'dayjs'
@@ -31,21 +32,13 @@ export type CalendarRef = {
   jumpToToday: () => void
 }
 
-export type WeekButton =
-  | {
-      weekModel?: undefined | false
-      prevMonthButton?: React.ReactNode
-      prevYearButton?: React.ReactNode
-      nextMonthButton?: React.ReactNode
-      nextYearButton?: React.ReactNode
-    }
-  | {
-      weekModel: true
-      prevWeekButton?: React.ReactNode
-      nextWeekButton?: React.ReactNode
-    }
-
 export type CalendarProps = {
+  prevWeekButton?: React.ReactNode
+  prevMonthButton?: React.ReactNode
+  prevYearButton?: React.ReactNode
+  nextWeekButton?: React.ReactNode
+  nextMonthButton?: React.ReactNode
+  nextYearButton?: React.ReactNode
   onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => React.ReactNode
@@ -56,27 +49,26 @@ export type CalendarProps = {
   minPage?: Page
   maxPage?: Page
   weekModel?: boolean
-} & WeekButton &
-  (
-    | {
-        selectionMode?: undefined
-        value?: undefined
-        defaultValue?: undefined
-        onChange?: undefined
-      }
-    | {
-        selectionMode: 'single'
-        value?: Date | null
-        defaultValue?: Date | null
-        onChange?: (val: Date | null) => void
-      }
-    | {
-        selectionMode: 'range'
-        value?: [Date, Date] | null
-        defaultValue?: [Date, Date] | null
-        onChange?: (val: [Date, Date] | null) => void
-      }
-  ) &
+} & (
+  | {
+      selectionMode?: undefined
+      value?: undefined
+      defaultValue?: undefined
+      onChange?: undefined
+    }
+  | {
+      selectionMode: 'single'
+      value?: Date | null
+      defaultValue?: Date | null
+      onChange?: (val: Date | null) => void
+    }
+  | {
+      selectionMode: 'range'
+      value?: [Date, Date] | null
+      defaultValue?: [Date, Date] | null
+      onChange?: (val: [Date, Date] | null) => void
+    }
+) &
   NativeProps
 
 const defaultProps = {
@@ -128,6 +120,14 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   useUpdateEffect(() => {
     props.onPageChange?.(current.year(), current.month() + 1)
   }, [current])
+
+  useEffect(() => {
+    setCurrent(
+      props.weekModel
+        ? dayjs(dateRange ? dateRange[0] : today)
+        : dayjs(dateRange ? dateRange[0] : today).date(1)
+    )
+  }, [props.weekModel])
 
   useImperativeHandle(ref, () => ({
     jumpTo: pageOrPageGenerator => {
@@ -186,41 +186,6 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       >
         {props.prevMonthButton}
       </a>
-      <div className={`${classPrefix}-title`}>
-        {locale.Calendar.renderYearAndMonth(
-          current.year(),
-          current.month() + 1
-        )}
-      </div>
-      <a
-        className={classNames(
-          `${classPrefix}-arrow-button`,
-          `${classPrefix}-arrow-button-right`,
-          `${classPrefix}-arrow-button-right-month`
-        )}
-        onClick={() => {
-          handlePageChange('add', 1, 'month')
-        }}
-      >
-        {props.nextMonthButton}
-      </a>
-      <a
-        className={classNames(
-          `${classPrefix}-arrow-button`,
-          `${classPrefix}-arrow-button-right`,
-          `${classPrefix}-arrow-button-right-year`
-        )}
-        onClick={() => {
-          handlePageChange('add', 1, 'year')
-        }}
-      >
-        {props.nextYearButton}
-      </a>
-    </div>
-  )
-
-  const headerWeek = (
-    <div className={`${classPrefix}-header`}>
       <a
         className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
         onClick={() => {
@@ -246,6 +211,30 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         }}
       >
         {props.nextWeekButton}
+      </a>
+      <a
+        className={classNames(
+          `${classPrefix}-arrow-button`,
+          `${classPrefix}-arrow-button-right`,
+          `${classPrefix}-arrow-button-right-month`
+        )}
+        onClick={() => {
+          handlePageChange('add', 1, 'month')
+        }}
+      >
+        {props.nextMonthButton}
+      </a>
+      <a
+        className={classNames(
+          `${classPrefix}-arrow-button`,
+          `${classPrefix}-arrow-button-right`,
+          `${classPrefix}-arrow-button-right-year`
+        )}
+        onClick={() => {
+          handlePageChange('add', 1, 'year')
+        }}
+      >
+        {props.nextYearButton}
       </a>
     </div>
   )
@@ -359,7 +348,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      {props.weekModel ? headerWeek : header}
+      {header}
       {mark}
       {body}
     </div>

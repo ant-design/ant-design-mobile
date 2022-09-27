@@ -19,6 +19,9 @@ export default () => {
           selectionMode='range'
           value={val}
           nextWeekButton={'下一周'}
+          prevWeekButton='上一周'
+          prevYearButton={false}
+          nextYearButton={false}
           onChange={val => {
             setVal(val)
           }}
