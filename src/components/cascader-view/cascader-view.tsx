@@ -43,13 +43,8 @@ const defaultProps = {
 
 export const CascaderView: FC<CascaderViewProps> = p => {
   const { locale } = useConfig()
-  const props = mergeProps(
-    defaultProps,
-    {
-      placeholder: locale.Cascader.placeholder,
-    },
-    p
-  )
+  const props = mergeProps(defaultProps, p)
+  const placeholder = props.placeholder || locale.Cascader.placeholder
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
@@ -128,7 +123,11 @@ export const CascaderView: FC<CascaderViewProps> = p => {
               key={index.toString()}
               title={
                 <div className={`${classPrefix}-header-title`}>
-                  {selected ? selected.label : typeof props.placeholder === "function" ? props.placeholder(index) : props.placeholder}
+                  {selected
+                    ? selected.label
+                    : typeof placeholder === 'function'
+                    ? placeholder(index)
+                    : placeholder}
                 </div>
               }
               forceRender
