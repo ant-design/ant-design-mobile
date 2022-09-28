@@ -86,15 +86,36 @@ describe('Calendar', () => {
 
     const btns = document.querySelectorAll(`.${classPrefix}-arrow-button-right`)
     const titleEl = document.querySelector(`.${classPrefix}-title`)
+
     // month
-    fireEvent.click(btns[0])
+    fireEvent.click(btns[1])
     expect(titleEl?.innerHTML).toContain('4月')
-    expect(fn.mock.calls[0]).toEqual([2022, 4])
+    expect(fn.mock.calls[1]).toEqual([2022, 4])
 
     // year
-    fireEvent.click(btns[1])
+    fireEvent.click(btns[2])
     expect(titleEl?.innerHTML).toContain('2023')
-    expect(fn.mock.calls[1]).toEqual([2023, 4])
+    expect(fn.mock.calls[2]).toEqual([2023, 4])
+  })
+
+  test('page change week last', async () => {
+    const fn = jest.fn()
+    render(
+      <Calendar
+        defaultValue={dayjs('2022-09-29').toDate()}
+        selectionMode='single'
+        weekModel
+        onPageChange={fn}
+      />
+    )
+
+    const btns = document.querySelectorAll(`.${classPrefix}-arrow-button-right`)
+    const titleEl = document.querySelector(`.${classPrefix}-title`)
+
+    // week
+    fireEvent.click(btns[0])
+    expect(titleEl?.innerHTML).toContain('10月')
+    expect(fn.mock.calls[0]).toEqual([2022, 9])
   })
 
   test('jump to a day', async () => {
