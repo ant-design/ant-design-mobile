@@ -28,7 +28,7 @@ type PickerColumnItem = {
 
 type PickerColumn = (string | PickerColumnItem)[]
 
-type PickerValue = string | null
+type PickerValue<T = string | null> = T
 
 type PickerValueExtend = {
   items: (PickerColumnItem | null)[]

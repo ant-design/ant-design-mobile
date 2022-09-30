@@ -10,7 +10,7 @@ import SpinLoading from '../spin-loading'
 
 const classPrefix = `adm-picker-view`
 
-export type PickerValue = string | null
+export type PickerValue<T = string | null> = T
 
 export type PickerValueExtend = {
   columns: PickerColumnItem[][]
