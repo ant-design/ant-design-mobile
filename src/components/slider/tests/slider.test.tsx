@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, testA11y, fireEvent, screen, mockDrag } from 'testing'
+import { render, testA11y, fireEvent, screen } from 'testing'
 import Slider from '..'
 
 const classPrefix = `adm-slider`
