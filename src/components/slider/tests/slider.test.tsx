@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, testA11y, fireEvent, screen } from 'testing'
+import { render, testA11y, fireEvent, screen, mockDrag } from 'testing'
 import Slider from '..'
 
 const classPrefix = `adm-slider`
@@ -176,5 +176,31 @@ describe('Slider', () => {
     const track = $$(`.${classPrefix}-track`)[0]
     fireEvent.click(track, { clientX: 60 })
     expect($$(`.${classPrefix}-fill`)[0]).toHaveStyle('width: 60%')
+  })
+
+  describe('step is a decimal', () => {
+    beforeAll(() => {
+      Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+        value: 90,
+      })
+    })
+
+    test('value should be formatted', () => {
+      const fn = jest.fn()
+      render(<Slider step={0.2} onChange={fn} />)
+      const thumb = screen.getByRole('slider')
+      drag(thumb, 10)
+      expect(fn).toBeCalledWith(11.2)
+    })
+
+    test('value should be formatted when it is a double sliders', () => {
+      const fn = jest.fn()
+      render(<Slider step={0.2} onAfterChange={fn} range />)
+      const thumb1 = screen.getAllByRole('slider')[0]
+      const thumb2 = screen.getAllByRole('slider')[1]
+      drag(thumb2, 80)
+      drag(thumb1, 20)
+      expect(fn).toHaveBeenLastCalledWith([22.2, 88.8])
+    })
   })
 })

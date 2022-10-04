@@ -8,6 +8,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
 import { usePropsValue } from '../../utils/use-props-value'
 import { devWarning } from '../../utils/dev-log'
+import Big from 'big.js'
 
 const classPrefix = `adm-slider`
 
@@ -52,7 +53,14 @@ export const Slider: FC<SliderProps> = p => {
     return (props.range ? value : [props.min, value]) as any
   }
   function reverseValue(value: [number, number]): SliderValue {
-    return props.range ? value : value[1]
+    const decimalStr = `${step}`.split('.')[1] || ''
+    const decimal = decimalStr.length
+    return props.range
+      ? (value.map(v => Big(Big(v).toFixed(decimal)).toNumber()) as [
+          number,
+          number
+        ])
+      : Big(Big(value[1]).toFixed(decimal)).toNumber()
   }
 
   function onAfterChange(value: [number, number]) {
