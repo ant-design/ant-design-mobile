@@ -149,8 +149,8 @@ export const Slide: FC<Props> = props => {
           mergedMaxZoom =
             controlSize && imgSize
               ? Math.max(
-                  controlSize.height / imgSize.height || 1,
-                  controlSize.width / imgSize.width || 1
+                  controlSize.height / imgSize.height,
+                  controlSize.width / imgSize.width
                 )
               : 1
         } else {

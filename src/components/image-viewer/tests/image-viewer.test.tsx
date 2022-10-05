@@ -21,6 +21,71 @@ const demoImages = [
   'https://images.unsplash.com/photo-1624993590528-4ee743c9896e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=1000&q=80',
 ]
 
+const G = global as any
+
+// `@react-spring/web` with `skipAnimation` not work in test env. Strange
+jest.mock('../slide', () => {
+  const { Slide, ...rest } = jest.requireActual('../slide')
+  return {
+    ...rest,
+    Slide: (props: any) => {
+      return (
+        <Slide
+          {...props}
+          onZoomChange={(nextZoom: number) => {
+            G.nextZoom = nextZoom
+          }}
+        />
+      )
+    },
+  }
+})
+
+jest.mock('ahooks', () => {
+  const origin = jest.requireActual('ahooks')
+  const { useState, useEffect } = jest.requireActual('react')
+
+  return {
+    ...origin,
+    useSize: (target: React.RefObject<HTMLElement>) => {
+      const [, forceUpdate] = useState(0)
+      useEffect(() => {
+        forceUpdate((v: number) => v + 1)
+      }, [target.current])
+
+      return target.current instanceof HTMLImageElement
+        ? {
+            width: 10,
+            height: 100,
+          }
+        : {
+            width: 100,
+            height: 100,
+          }
+    },
+  }
+})
+
+function triggerPinch(offset: [number, number]) {
+  G.onPinch({
+    last: true,
+    origin: [0, 0],
+    offset,
+  })
+}
+
+jest.mock('../../../utils/use-drag-and-pinch', () => {
+  const origin = jest.requireActual('../../../utils/use-drag-and-pinch')
+  return {
+    ...origin,
+    useDragAndPinch: (config: any) => {
+      G.onPinch = config.onPinch
+
+      return origin.useDragAndPinch(config)
+    },
+  }
+})
+
 describe('ImageViewer', () => {
   test('a11y', async () => {
     await testA11y(<ImageViewer image={demoImages[0]} visible={true} />)
@@ -44,6 +109,22 @@ describe('ImageViewer', () => {
       ImageViewer.clear()
     })
     await waitFor(() => expect(img).not.toBeVisible())
+  })
+
+  test('maxZoom support auto', async () => {
+    jest.useFakeTimers()
+
+    render(<ImageViewer image={demoImages[0]} visible maxZoom='auto' />)
+
+    // Pinch to zoom bigger
+    act(() => {
+      triggerPinch([9999999, 9999999])
+    })
+
+    expect(G.nextZoom).toEqual(10)
+
+    jest.clearAllTimers()
+    jest.useRealTimers()
   })
 })
 
