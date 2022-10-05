@@ -17,7 +17,7 @@
 | afterClose   | 完全关闭后触发                                                            | `() => void`                               | -               |
 | getContainer | 指定挂载的 HTML 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
 | image        | 图片资源的 `url`                                                          | `string`                                   | -               |
-| maxZoom      | 最大缩放比例                                                              | `number`                                   | `3`             |
+| maxZoom      | 最大缩放比例                                                              | `number \| 'auto'`                         | `3`             |
 | onClose      | 关闭时触发                                                                | `boolean`                                  | -               |
 | renderFooter | 渲染底部额外内容                                                          | `(image: string) => ReactNode`             | -               |
 | visible      | 是否显示                                                                  | `boolean`                                  | `false`         |
