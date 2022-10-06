@@ -67,7 +67,7 @@ jest.mock('ahooks', () => {
 })
 
 function triggerPinch(offset: [number, number]) {
-  G.onPinch({
+  G?.onPinch({
     last: true,
     origin: [0, 0],
     offset,
@@ -75,13 +75,14 @@ function triggerPinch(offset: [number, number]) {
 }
 
 jest.mock('../../../utils/use-drag-and-pinch', () => {
-  const origin = jest.requireActual('../../../utils/use-drag-and-pinch')
+  const { useDragAndPinch } = jest.requireActual(
+    '../../../utils/use-drag-and-pinch'
+  )
   return {
-    ...origin,
-    useDragAndPinch: (config: any) => {
+    useDragAndPinch: (config: any, ...args: any[]) => {
       G.onPinch = config.onPinch
 
-      return origin.useDragAndPinch(config)
+      return useDragAndPinch(config, ...args)
     },
   }
 })
