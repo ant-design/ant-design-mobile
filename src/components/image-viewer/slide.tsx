@@ -19,6 +19,7 @@ type Props = {
 
 export const Slide: FC<Props> = props => {
   const { dragLockRef } = props
+  const initialMartix = useRef<boolean[]>([])
   const controlRef = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
   const [{ matrix }, api] = useSpring(() => ({
@@ -90,13 +91,13 @@ export const Slide: FC<Props> = props => {
     }
   }
 
-  const getOutOfBound = (
+  const getReachBound = (
     position: number,
     min: number,
     max: number,
     buffer = 0
   ) => {
-    return [position < min - buffer, position > max + buffer]
+    return [position <= min - buffer, position >= max + buffer]
   }
 
   const boundMatrix = (
@@ -155,7 +156,13 @@ export const Slide: FC<Props> = props => {
   useDragAndPinch(
     {
       onDrag: state => {
-        if (state.first) return
+        if (state.first) {
+          const {
+            x: { position: x, minX, maxX },
+          } = getMinAndMax(matrix.get())
+          initialMartix.current = getReachBound(x, minX, maxX)
+          return
+        }
         if (state.pinching) return state.cancel()
 
         if (state.tap && state.elapsedTime > 0 && state.elapsedTime < 1000) {
@@ -199,7 +206,8 @@ export const Slide: FC<Props> = props => {
           const zoom = mat.getScaleX(nextMatrix)
           if (
             state.last &&
-            getOutOfBound(x, minX, maxX, 100 * zoom).some(i => i)
+            initialMartix.current.some(i => i) &&
+            getReachBound(x, minX, maxX, 20 * zoom).some(i => i)
           ) {
             if (dragLockRef) {
               dragLockRef.current = false
