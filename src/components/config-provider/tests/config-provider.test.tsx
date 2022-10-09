@@ -17,10 +17,23 @@ import enUS from '../../../locales/en-US'
 import faIR from '../../../locales/fa-IR'
 import esES from '../../../locales/es-ES'
 import koKR from '../../../locales/ko-KR'
+import jaJP from '../../../locales/ja-JP'
 import frFR from '../../../locales/fr-FR'
 import idID from '../../../locales/id-ID'
 import kkKZ from '../../../locales/kk-KZ'
-const locales = [zhCN, zhTW, zhHK, enUS, faIR, esES, koKR, frFR, kkKZ, idID]
+const locales = [
+  zhCN,
+  zhTW,
+  zhHK,
+  enUS,
+  faIR,
+  esES,
+  koKR,
+  jaJP,
+  frFR,
+  kkKZ,
+  idID,
+]
 
 describe('ConfigProvider', () => {
   URL.revokeObjectURL = jest.fn(() => '')
