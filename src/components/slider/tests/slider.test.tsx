@@ -202,5 +202,22 @@ describe('Slider', () => {
       drag(thumb1, 20)
       expect(fn).toHaveBeenLastCalledWith([22.2, 88.8])
     })
+
+    test('float accuracy', () => {
+      const fn = jest.fn()
+      render(<Slider step={1.2} onChange={fn} />)
+      const thumb = screen.getByRole('slider')
+      drag(thumb, 3)
+      // 1.2+2.4 = 3.5999999999999996
+      expect(fn).toBeCalledWith(3.6)
+    })
+
+    test('value is decimal', () => {
+      const fn = jest.fn()
+      render(<Slider min={1.5} max={9.5} onChange={fn} />)
+      const thumb = screen.getByRole('slider')
+      drag(thumb, 30)
+      expect(fn).toBeCalledWith(4.5)
+    })
   })
 })
