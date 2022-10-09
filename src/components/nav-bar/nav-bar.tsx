@@ -7,7 +7,7 @@ import { mergeProps } from '../../utils/with-default-props'
 const classPrefix = `adm-nav-bar`
 
 export type NavBarProps = {
-  back?: string | null
+  back?: ReactNode | null
   backArrow?: boolean | ReactNode
   left?: ReactNode
   right?: ReactNode
