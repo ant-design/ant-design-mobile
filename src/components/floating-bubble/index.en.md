@@ -14,15 +14,19 @@ Suitable for providing extra functionality to the current page.
 
 <code src="./demos/demo3.tsx"></code>
 
+<code src="./demos/demo4.tsx"></code>
+
 ## FloatingBubble
 
 ### Props
 
-| Name     | Description                                                                                                                                                       | Type                           | Default |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------- |
-| axis     | The direction in which the drag can be performed, `'xy'` means free movement, `'lock'` means movement is only allowed in the direction in which the drag started. | `'x' \| 'y' \| 'xy' \| 'lock'` | `'y'`   |
-| children | Content of the bubble.                                                                                                                                            | ReactNode                      | -----   |
-| magnetic | Automatic magnetic attraction to the boundary.                                                                                                                    | `'x' \| 'y'`                   | -       |
+| Name              | Description                                                                                                                                                       | Type                                        | Default          |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ---------------- |
+| axis              | The direction in which the drag can be performed, `'xy'` means free movement, `'lock'` means movement is only allowed in the direction in which the drag started. | `'x' \| 'y' \| 'xy' \| 'lock'`              | `'y'`            |
+| children          | Content of the bubble.                                                                                                                                            | ReactNode                                   | -----            |
+| magnetic          | Automatic magnetic attraction to the boundary.                                                                                                                    | `'x' \| 'y'`                                | -                |
+| defaultDragOffset | default drag offset position                                                                                                                                      | `{ x: number; y: number;}`                  | `{ x: 0, y: 0 }` |
+| onDragEnd         | Callback when drag end                                                                                                                                            | `(offset:{ x: number; y: number;}) => void` | -                |
 
 ### CSS Variables
 

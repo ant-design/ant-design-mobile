@@ -11,6 +11,8 @@ export type FloatingBubbleProps = {
   axis?: 'x' | 'y' | 'xy' | 'lock'
   magnetic?: 'x' | 'y'
   children?: React.ReactNode
+  defaultDragOffset?: { x: number; y: number }
+  onDragEnd?: (offset: { x: number; y: number }) => void
 } & NativeProps<
   | '--initial-position-left'
   | '--initial-position-right'
@@ -25,6 +27,7 @@ export type FloatingBubbleProps = {
 
 const defaultProps = {
   axis: 'y',
+  defaultDragOffset: { x: 0, y: 0 },
 }
 
 export const FloatingBubble: FC<FloatingBubbleProps> = p => {
@@ -39,8 +42,8 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
    * to prevent an unintended restart
    */
   const [{ x, y, opacity }, api] = useSpring(() => ({
-    x: 0,
-    y: 0,
+    x: props.defaultDragOffset.x,
+    y: props.defaultDragOffset.y,
     opacity: 1,
   }))
   const bind = useDrag(
@@ -75,6 +78,12 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
             nextY -= topDistance
           }
         }
+      }
+      if (state.last) {
+        props.onDragEnd?.({
+          x: nextX,
+          y: nextY,
+        })
       }
       api.start({
         x: nextX,
