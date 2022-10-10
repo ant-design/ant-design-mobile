@@ -275,14 +275,7 @@ export const Slide: FC<Props> = props => {
   )
 
   return (
-    <div
-      className={`${classPrefix}-slide`}
-      onPointerMove={e => {
-        if (mat.getScaleX(matrix.get()) !== 1) {
-          e.stopPropagation()
-        }
-      }}
-    >
+    <div className={`${classPrefix}-slide`}>
       <div className={`${classPrefix}-control`} ref={controlRef}>
         <animated.div
           className={`${classPrefix}-image-wrapper`}
