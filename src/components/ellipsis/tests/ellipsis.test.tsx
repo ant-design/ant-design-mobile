@@ -114,14 +114,11 @@ describe('Ellipsis', () => {
   })
 
   // https://github.com/ant-design/ant-design-mobile/issues/5726
-  test('content could be undefined or null', async () => {
+  test('content could be undefined', () => {
     expect(() => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       render(<Ellipsis content={undefined} data-testid='ellipsis' />)
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      render(<Ellipsis content={null} data-testid='ellipsis' />)
     }).not.toThrowError()
   })
 })
