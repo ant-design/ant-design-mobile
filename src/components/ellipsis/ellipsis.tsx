@@ -25,6 +25,7 @@ const defaultProps = {
   direction: 'end',
   rows: 1,
   expandText: '',
+  content: '',
   collapseText: '',
   stopPropagationForActionButtons: [],
   onContentClick: () => {},
