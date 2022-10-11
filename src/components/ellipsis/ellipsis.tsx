@@ -25,6 +25,7 @@ const defaultProps = {
   direction: 'end',
   rows: 1,
   expandText: '',
+  content: '',
   collapseText: '',
   stopPropagationForActionButtons: [],
   onContentClick: () => {},
@@ -43,7 +44,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   const [expanded, setExpanded] = useState(false)
   const [exceeded, setExceeded] = useState(false)
 
-  const chars = useMemo(() => runes(props.content ?? ''), [props.content])
+  const chars = useMemo(() => runes(props.content), [props.content])
   function getSubString(start: number, end: number) {
     return chars.slice(start, end).join('')
   }
@@ -78,14 +79,14 @@ export const Ellipsis: FC<EllipsisProps> = p => {
         pxToNumber(originStyle.paddingBottom)
     )
 
-    container.innerText = props.content ?? ''
+    container.innerText = props.content
     document.body.appendChild(container)
 
     if (container.offsetHeight <= maxHeight) {
       setExceeded(false)
     } else {
       setExceeded(true)
-      const end = (props.content ?? '').length
+      const end = props.content.length
       const actionText = expanded ? props.collapseText : props.expandText
 
       function check(left: number, right: number): EllipsisedValue {
