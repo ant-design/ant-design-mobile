@@ -9,6 +9,7 @@ import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useConfig } from '../config-provider'
 import type { ImageProps } from '../image'
+import Grid, { GridProps } from '../grid'
 
 export type TaskStatus = 'pending' | 'fail' | 'success'
 
@@ -31,6 +32,7 @@ export type UploadTask = Pick<Task, 'id' | 'status'>
 export type ImageUploaderProps = {
   defaultValue?: ImageUploadItem[]
   value?: ImageUploadItem[]
+  columns?: GridProps['columns']
   onChange?: (items: ImageUploadItem[]) => void
   onUploadQueueChange?: (tasks: UploadTask[]) => void
   accept?: string
@@ -57,7 +59,7 @@ export type ImageUploaderProps = {
     file: ImageUploadItem,
     fileList: ImageUploadItem[]
   ) => React.ReactNode
-} & NativeProps<'--cell-size'>
+} & NativeProps<'--cell-size' | '--gap' | '--gap-vertical' | '--gap-horizontal'>
 
 const classPrefix = `adm-image-uploader`
 
@@ -233,10 +235,9 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     })
   }
 
-  return withNativeProps(
-    props,
-    <div className={classPrefix}>
-      <Space className={`${classPrefix}-space`} wrap block>
+  const renderChildren = () => {
+    return (
+      <>
         {renderImages()}
         {tasks.map(task => {
           if (!props.showFailed && task.status === 'fail') {
@@ -283,7 +284,22 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             )}
           </div>
         )}
-      </Space>
+      </>
+    )
+  }
+
+  return withNativeProps(
+    props,
+    <div className={classPrefix}>
+      {props.columns ? (
+        <Grid className={`${classPrefix}-grid`} columns={props.columns}>
+          {renderChildren().props.children}
+        </Grid>
+      ) : (
+        <Space className={`${classPrefix}-space`} wrap block>
+          {renderChildren().props.children}
+        </Space>
+      )}
     </div>
   )
 }

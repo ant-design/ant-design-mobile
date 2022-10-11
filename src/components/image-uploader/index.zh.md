@@ -16,6 +16,7 @@
 | beforeUpload        | 文件读取前的回调函数，返回 `null` 可终止文件读取，支持返回 `Promise`          | `(file: File, files: File[]) => Promise<File \| null> \| File \| null`                                     | -         |
 | capture             | 图片选取模式，可选值为 `camera`（直接调起摄像头）                             | `boolean \| string`                                                                                        | -         |
 | children            | 自定义上传按钮                                                                | `ReactNode`                                                                                                | -         |
+| columns             | 行展示数                                                                      | `number`                                                                                                   | -         |
 | defaultValue        | 默认已上传的文件列表                                                          | `ImageUploadItem[]`                                                                                        | -         |
 | deletable           | 是否展示删除按钮                                                              | `boolean`                                                                                                  | `true`    |
 | disableUpload       | 是否禁用上传按钮                                                              | `boolean`                                                                                                  | `false`   |
@@ -52,9 +53,12 @@
 
 ### CSS 变量
 
-| 属性        | 说明                 | 默认值 |
-| ----------- | -------------------- | ------ |
-| --cell-size | 图片和上传按钮的大小 | `80px` |
+| 属性             | 说明                                            | 默认值       |
+| ---------------- | ----------------------------------------------- | ------------ |
+| --cell-size      | 图片和上传按钮的大小                            | `80px`       |
+| --gap            | 间距大小，仅在 `columns` 存在时生效             | `12px`       |
+| --gap-horizontal | 水平方向的间距大小，，仅在 `columns` 存在时生效 | `var(--gap)` |
+| --gap-vertical   | 垂直方向的间距大小，，仅在 `columns` 存在时生效 | `var(--gap)` |
 
 ## FAQ
 

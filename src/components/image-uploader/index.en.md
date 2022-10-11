@@ -15,7 +15,9 @@
 | accept              | The file types, `image/gif` `image/jpeg` `image/jpg` `image/png`                                                                                                         | `string`                                                                                                   | `image/*` |
 | beforeUpload        | Callback function before file reading, return `null` to terminate file reading, support return `Promise`                                                                 | `(file: File, files: File[]) => Promise<File \| null> \| File \| null`                                     | -         |
 | capture             | Picture selection mode, the optional value is `camera` (directly adjust the camera)                                                                                      | `boolean \| string`                                                                                        | -         |
-| children            | Custom upload button                                                                                                                                                     | `ReactNode`                                                                                                | -         |
+| children            | Custom upload button                                                                                                                                                     |
+| columns             | 行展示数                                                                                                                                                                 | `number`                                                                                                   | -         |
+| `ReactNode`         | -                                                                                                                                                                        |
 | defaultValue        | Default list of uploaded files                                                                                                                                           | `ImageUploadItem[]`                                                                                        | -         |
 | deletable           | Whether to show the delete button                                                                                                                                        | `boolean`                                                                                                  | `true`    |
 | disableUpload       | Whether to disable the upload button                                                                                                                                     | `boolean`                                                                                                  | `false`   |
@@ -52,9 +54,12 @@
 
 ### CSS Variables
 
-| Name        | Description                         | Default |
-| ----------- | ----------------------------------- | ------- |
-| --cell-size | The size of image and upload button | `80px`  |
+| Name             | Description                                                       | Default      |
+| ---------------- | ----------------------------------------------------------------- | ------------ |
+| --cell-size      | The size of image and upload button                               | `80px`       |
+| --gap            | The gap between items, only take effect with `columns`            | `12px`       |
+| --gap-horizontal | The horizontal gap between items, only take effect with `columns` | `var(--gap)` |
+| --gap-vertical   | The vertical gap between items, only take effect with `columns`   | `var(--gap)` |
 
 ## FAQ
 
