@@ -2,7 +2,6 @@ import { useTouch } from './use-touch'
 import { useEffect, RefObject } from 'react'
 import { getScrollParent } from './get-scroll-parent'
 import { supportsPassive } from './supports-passive'
-import { devPrint } from './dev-log'
 
 let totalLockCount = 0
 
