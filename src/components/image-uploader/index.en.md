@@ -15,9 +15,8 @@
 | accept              | The file types, `image/gif` `image/jpeg` `image/jpg` `image/png`                                                                                                         | `string`                                                                                                   | `image/*` |
 | beforeUpload        | Callback function before file reading, return `null` to terminate file reading, support return `Promise`                                                                 | `(file: File, files: File[]) => Promise<File \| null> \| File \| null`                                     | -         |
 | capture             | Picture selection mode, the optional value is `camera` (directly adjust the camera)                                                                                      | `boolean \| string`                                                                                        | -         |
-| children            | Custom upload button                                                                                                                                                     |
-| columns             | 行展示数                                                                                                                                                                 | `number`                                                                                                   | -         |
-| `ReactNode`         | -                                                                                                                                                                        |
+| children            | Custom upload button                                                                                                                                                     | `ReactNode`                                                                                                | -         |
+| columns             | Number of the displayed columns                                                                                                                                          | `number`                                                                                                   | -         |
 | defaultValue        | Default list of uploaded files                                                                                                                                           | `ImageUploadItem[]`                                                                                        | -         |
 | deletable           | Whether to show the delete button                                                                                                                                        | `boolean`                                                                                                  | `true`    |
 | disableUpload       | Whether to disable the upload button                                                                                                                                     | `boolean`                                                                                                  | `false`   |
@@ -54,17 +53,18 @@
 
 ### CSS Variables
 
-| Name             | Description                                                       | Default      |
-| ---------------- | ----------------------------------------------------------------- | ------------ |
-| --cell-size      | The size of image and upload button                               | `80px`       |
-| --gap            | The gap between items, only take effect with `columns`            | `12px`       |
-| --gap-horizontal | The horizontal gap between items, only take effect with `columns` | `var(--gap)` |
-| --gap-vertical   | The vertical gap between items, only take effect with `columns`   | `var(--gap)` |
+| Name        | Description                         | Default |
+| ----------- | ----------------------------------- | ------- |
+| --cell-size | The size of image and upload button | `80px`  |
 
 ## FAQ
 
-### The `capture` attribute is configured, but why some `Android` phones will still have the file option?
+### 1. The `capture` attribute is configured, but why some `Android` phones will still have the file option?
 
 The `capture` provided by ImageUploader comes from the native HTML capability, and in some operating systems/browser environments, this attribute may not be supported, so this problem cannot be avoided.
 
 See the discussion in this [issue](https://github.com/ant-design/ant-design-mobile/issues/5254).
+
+### 2. Compatibility description of the `columns` attribute
+
+The `columns` attribute uses the CSS Grid feature, so the compatibility standard is iOS Safari >= 10.3 and Chrome >= 57.
