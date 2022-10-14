@@ -13,6 +13,7 @@ export type SlidesType = {
   maxZoom: number
   defaultIndex: number
   onIndexChange?: (index: number) => void
+  setAverageColor: (target: HTMLImageElement) => void
 }
 export type SlidesRef = {
   swipeTo: (index: number, immediate?: boolean) => void
@@ -30,6 +31,11 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
   function swipeTo(index: number, immediate = false) {
     const i = bound(index, 0, count - 1)
     props.onIndexChange?.(i)
+    props.setAverageColor?.(
+      document.querySelectorAll<HTMLImageElement>(
+        '.adm-image-viewer-image-wrapper img'
+      )[i]
+    )
     api.start({
       x: i * slideWidth,
       immediate,
@@ -94,6 +100,7 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
         {props.images.map((image, index) => (
           <Slide
             key={index}
+            index={index}
             image={image}
             onTap={props.onTap}
             maxZoom={props.maxZoom}
@@ -106,6 +113,17 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
               }
             }}
             dragLockRef={dragLockRef}
+            onLoad={(evt, index) => {
+              if (index === props.defaultIndex) {
+                props.setAverageColor?.(
+                  document.querySelectorAll<HTMLImageElement>(
+                    '.adm-image-viewer-image-wrapper img'
+                  )[index]
+                )
+              } else {
+                // props?.setAverageColor(evt.target as HTMLImageElement)
+              }
+            }}
           />
         ))}
       </animated.div>

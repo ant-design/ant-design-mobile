@@ -6,7 +6,11 @@ import React, {
   useState,
   useCallback,
 } from 'react'
-
+import {
+  FastAverageColor,
+  FastAverageColorOptions,
+  FastAverageColorResource,
+} from 'fast-average-color'
 import { mergeProps } from '../../utils/with-default-props'
 import {
   GetContainer,
@@ -35,35 +39,62 @@ const defaultProps = {
   visible: false,
 }
 
+const fac = (window.fac = new FastAverageColor())
+const getAverageColor = (
+  resource: FastAverageColorResource,
+  algorithm: FastAverageColorOptions['algorithm'],
+  opacity: string
+) => {
+  const facc = fac.getColor(resource, {
+    algorithm,
+    ignoredColor: [255, 255, 255, 255],
+  })
+  const colors = facc.rgb.split('(')[1].split(')')[0].split(',')
+
+  console.log(facc, colors)
+  colors.push(opacity)
+  return `rgba(${colors.join(',')})`
+}
+
 export const ImageViewer: FC<ImageViewerProps> = p => {
   const props = mergeProps(defaultProps, p)
+  const [maskBg, setMaskBg] = useState('')
+
+  function setAverageColor(target: HTMLImageElement) {
+    const facc = getAverageColor(target, 'sqrt', '0.75')
+    setMaskBg(facc)
+  }
 
   const node = (
-    <Mask
-      visible={props.visible}
-      disableBodyScroll={false}
-      opacity='thick'
-      afterClose={props.afterClose}
-      destroyOnClose
-    >
-      <div className={`${classPrefix}-content`}>
-        {props.image && (
-          <Slide
-            image={props.image}
-            onTap={() => {
-              props.onClose?.()
-            }}
-            maxZoom={props.maxZoom}
-          />
-        )}
-      </div>
-      {props.image && (
-        <div className={`${classPrefix}-footer`}>
-          {props.renderFooter?.(props.image)}
-          <SafeArea position='bottom' />
+    <>
+      <Mask visible={props.visible && !!maskBg} background={maskBg} />
+      <Mask
+        visible={props.visible}
+        disableBodyScroll={false}
+        opacity={maskBg ? 0 : 'thick'}
+        afterClose={props.afterClose}
+        destroyOnClose
+      >
+        <div className={`${classPrefix}-content`}>
+          {props.image && (
+            <Slide
+              image={props.image}
+              onTap={() => {
+                props.onClose?.()
+              }}
+              maxZoom={props.maxZoom}
+              onLoad={evt => setAverageColor(evt.target as HTMLImageElement)}
+            />
+          )}
         </div>
-      )}
-    </Mask>
+        {props.image && (
+          <div className={`${classPrefix}-footer`}>
+            {props.renderFooter?.(props.image)}
+            <SafeArea position='bottom' />
+          </div>
+        )}
+      </Mask>
+    </>
   )
   return renderToContainer(props.getContainer, node)
 }
@@ -90,6 +121,7 @@ export const MultiImageViewer = forwardRef<
 >((p, ref) => {
   const props = mergeProps(multiDefaultProps, p)
   const [index, setIndex] = useState(props.defaultIndex)
+  const [maskBg, setMaskBg] = useState('')
 
   const slidesRef = useRef<SlidesRef>(null)
   useImperativeHandle(ref, () => ({
@@ -107,35 +139,48 @@ export const MultiImageViewer = forwardRef<
     [props.onIndexChange]
   )
 
+  const setAverageColor = (target: HTMLImageElement) => {
+    const facc = getAverageColor(target, 'sqrt', '0.75')
+    setMaskBg(facc)
+  }
+
   const node = (
-    <Mask
-      visible={props.visible}
-      disableBodyScroll={false}
-      opacity='thick'
-      afterClose={props.afterClose}
-      destroyOnClose
-    >
-      <div className={`${classPrefix}-content`}>
-        {props.images && (
-          <Slides
-            ref={slidesRef}
-            defaultIndex={index}
-            onIndexChange={onSlideChange}
-            images={props.images}
-            onTap={() => {
-              props.onClose?.()
-            }}
-            maxZoom={props.maxZoom}
-          />
-        )}
-      </div>
-      {props.images && (
-        <div className={`${classPrefix}-footer`}>
-          {props.renderFooter?.(props.images[index], index)}
-          <SafeArea position='bottom' />
+    <>
+      <Mask
+        visible={props.visible && !!maskBg}
+        background={maskBg}
+        opacity={0.9}
+      />
+      <Mask
+        visible={props.visible}
+        disableBodyScroll={false}
+        opacity={maskBg ? 0 : 'thick'}
+        afterClose={props.afterClose}
+        destroyOnClose
+      >
+        <div className={`${classPrefix}-content`}>
+          {props.images && (
+            <Slides
+              ref={slidesRef}
+              defaultIndex={index}
+              onIndexChange={onSlideChange}
+              images={props.images}
+              onTap={() => {
+                props.onClose?.()
+              }}
+              maxZoom={props.maxZoom}
+              setAverageColor={setAverageColor}
+            />
+          )}
         </div>
-      )}
-    </Mask>
+        {props.images && (
+          <div className={`${classPrefix}-footer`}>
+            {props.renderFooter?.(props.images[index], index)}
+            <SafeArea position='bottom' />
+          </div>
+        )}
+      </Mask>
+    </>
   )
   return renderToContainer(props.getContainer, node)
 })

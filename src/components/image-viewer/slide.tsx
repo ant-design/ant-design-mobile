@@ -1,20 +1,25 @@
-import React, { FC, MutableRefObject, useRef } from 'react'
-import { useSpring, animated } from '@react-spring/web'
+import { animated, useSpring } from '@react-spring/web'
 import { useSize } from 'ahooks'
-import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
-import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
+import React, { FC, MutableRefObject, useRef } from 'react'
 import { bound } from '../../utils/bound'
 import type { Matrix } from '../../utils/matrix'
 import * as mat from '../../utils/matrix'
+import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
+import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
 
 const classPrefix = `adm-image-viewer`
 
 type Props = {
+  index: number
   image: string
   maxZoom: number
   onTap: () => void
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
+  onLoad: (
+    event: React.SyntheticEvent<HTMLImageElement, Event>,
+    index: number
+  ) => void
 }
 
 export const Slide: FC<Props> = props => {
@@ -218,6 +223,8 @@ export const Slide: FC<Props> = props => {
             src={props.image}
             draggable={false}
             alt={props.image}
+            onLoad={evt => props.onLoad(evt, props.index)}
+            crossOrigin='anonymous'
           />
         </animated.div>
       </div>

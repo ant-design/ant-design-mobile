@@ -30,6 +30,7 @@ export type MaskProps = {
   forceRender?: boolean
   disableBodyScroll?: boolean
   color?: 'black' | 'white'
+  background?: string
   opacity?: 'default' | 'thin' | 'thick' | number
   getContainer?: GetContainer
   afterShow?: () => void
@@ -58,10 +59,11 @@ export const Mask: React.FC<MaskProps> = p => {
   useLockScroll(ref, props.visible && props.disableBodyScroll)
 
   const background = useMemo(() => {
+    if (props.background) return props.background
     const opacity = opacityRecord[props.opacity] ?? props.opacity
     const rgb = props.color === 'white' ? '255, 255, 255' : '0, 0, 0'
     return `rgba(${rgb}, ${opacity})`
-  }, [props.color, props.opacity])
+  }, [props.color, props.opacity, props.background])
 
   const [active, setActive] = useState(props.visible)
 

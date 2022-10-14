@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ImageViewer, Button } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { demoImage, demoImages } from './images'
+import { demoImage, demoImages, averageImages } from './images'
 import styles from './demo1.less'
 
 // 单张图片预览
@@ -19,6 +19,30 @@ const Single = () => {
       <ImageViewer
         image={demoImage}
         visible={visible}
+        onClose={() => {
+          setVisible(false)
+        }}
+      />
+    </>
+  )
+}
+
+// fast-average-color 测试
+const AverageColorMulti = () => {
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        显示图片
+      </Button>
+      <ImageViewer.Multi
+        images={averageImages}
+        visible={visible}
+        defaultIndex={1}
         onClose={() => {
           setVisible(false)
         }}
@@ -94,6 +118,10 @@ const ViewWithFooter = () => {
 export default () => {
   return (
     <>
+      <DemoBlock title='fast-average-color'>
+        <AverageColorMulti />
+      </DemoBlock>
+
       <DemoBlock title='单张图片预览'>
         <Single />
       </DemoBlock>
