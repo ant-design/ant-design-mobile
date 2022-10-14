@@ -2,6 +2,7 @@ import { useTouch } from './use-touch'
 import { useEffect, RefObject } from 'react'
 import { getScrollParent } from './get-scroll-parent'
 import { supportsPassive } from './supports-passive'
+import { devPrint } from './dev-log'
 
 let totalLockCount = 0
 
@@ -10,12 +11,20 @@ const BODY_LOCK_CLASS = 'adm-overflow-hidden'
 // 移植自vant：https://github.com/youzan/vant/blob/HEAD/src/composables/use-lock-scroll.ts
 export function useLockScroll(
   rootRef: RefObject<HTMLElement>,
-  shouldLock: boolean
+  shouldLock: boolean | 'strict'
 ) {
   const touch = useTouch()
 
   const onTouchMove = (event: TouchEvent) => {
     touch.move(event)
+
+    // Strict will ignore direction
+    if (shouldLock === 'strict') {
+      if (event.cancelable) {
+        event.preventDefault()
+      }
+      return
+    }
 
     const direction = touch.deltaY.current > 0 ? '10' : '01'
     const el = getScrollParent(
@@ -23,6 +32,7 @@ export function useLockScroll(
       rootRef.current
     ) as HTMLElement
     if (!el) return
+
     const { scrollHeight, offsetHeight, scrollTop } = el
     let status = '11'
 
