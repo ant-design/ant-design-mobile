@@ -39,7 +39,7 @@ const defaultProps = {
   visible: false,
 }
 
-const fac = (window.fac = new FastAverageColor())
+const fac = new FastAverageColor()
 const getAverageColor = (
   resource: FastAverageColorResource,
   algorithm: FastAverageColorOptions['algorithm'],
@@ -47,7 +47,7 @@ const getAverageColor = (
 ) => {
   const facc = fac.getColor(resource, {
     algorithm,
-    ignoredColor: [255, 255, 255, 255],
+    // ignoredColor: [[255, 255, 255], [0, 0, 0]],
   })
   const colors = facc.rgb.split('(')[1].split(')')[0].split(',')
 
@@ -71,7 +71,7 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
       <Mask
         visible={props.visible}
         disableBodyScroll={false}
-        opacity={maskBg ? 0 : 'thick'}
+        opacity={maskBg ? 0.4 : 'thick'}
         afterClose={props.afterClose}
         destroyOnClose
       >
@@ -154,7 +154,7 @@ export const MultiImageViewer = forwardRef<
       <Mask
         visible={props.visible}
         disableBodyScroll={false}
-        opacity={maskBg ? 0 : 'thick'}
+        opacity={maskBg ? 0.4 : 'thick'}
         afterClose={props.afterClose}
         destroyOnClose
       >
