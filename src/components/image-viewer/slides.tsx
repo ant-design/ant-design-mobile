@@ -12,6 +12,7 @@ export type SlidesType = {
   onTap: () => void
   maxZoom: number
   defaultIndex: number
+  activeIndex: number
   onIndexChange?: (index: number) => void
   setAverageColor: (target: HTMLImageElement) => void
 }
@@ -114,14 +115,13 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
             }}
             dragLockRef={dragLockRef}
             onLoad={(evt, index) => {
-              if (index === props.defaultIndex) {
-                props.setAverageColor?.(
-                  document.querySelectorAll<HTMLImageElement>(
-                    '.adm-image-viewer-image-wrapper img'
-                  )[index]
+              if (index === props.activeIndex) {
+                console.log(
+                  'index === props.activeIndex',
+                  index,
+                  props.activeIndex
                 )
-              } else {
-                // props?.setAverageColor(evt.target as HTMLImageElement)
+                props.setAverageColor?.(evt.target as HTMLImageElement)
               }
             }}
           />

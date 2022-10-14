@@ -21,6 +21,7 @@ You need to click on the picture to view the details and use it with the thumbna
 | onClose      | Triggered when it is closed                                                                                                 | `boolean`                                  | -               |
 | renderFooter | Render extra content on footer                                                                                              | `(image: string) => ReactNode`             | -               |
 | visible      | Whether to show or hide                                                                                                     | `boolean`                                  | `false`         |
+| averageColor | mask background follow the current image color                                                                              | `dominant` \| `sqrt` \| `simple`           | -               |
 
 ## ImageViewer.Multi
 

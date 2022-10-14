@@ -21,6 +21,7 @@
 | onClose      | 关闭时触发                                                                | `boolean`                                  | -               |
 | renderFooter | 渲染底部额外内容                                                          | `(image: string) => ReactNode`             | -               |
 | visible      | 是否显示                                                                  | `boolean`                                  | `false`         |
+| averageColor | 遮罩层背景色是否跟随图片颜色变化(目前有三种取色算法)                      | `dominant` \| `sqrt` \| `simple`           | -               |
 
 ## ImageViewer.Multi
 

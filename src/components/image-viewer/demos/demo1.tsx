@@ -42,6 +42,7 @@ const AverageColorMulti = () => {
       <ImageViewer.Multi
         images={facImages}
         visible={visible}
+        averageColor='sqrt'
         defaultIndex={1}
         onClose={() => {
           setVisible(false)

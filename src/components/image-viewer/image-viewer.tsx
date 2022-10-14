@@ -24,6 +24,7 @@ import { Slides, SlidesRef } from './slides'
 const classPrefix = `adm-image-viewer`
 
 export type ImageViewerProps = {
+  averageColor?: 'dominant' | 'sqrt' | 'simple'
   image?: string
   maxZoom?: number
   getContainer?: GetContainer
@@ -47,7 +48,10 @@ const getAverageColor = (
 ) => {
   const facc = fac.getColor(resource, {
     algorithm,
-    // ignoredColor: [[255, 255, 255], [0, 0, 0]],
+    ignoredColor: [
+      [255, 255, 255],
+      [0, 0, 0],
+    ],
   })
   const colors = facc.rgb.split('(')[1].split(')')[0].split(',')
 
@@ -61,7 +65,8 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
   const [maskBg, setMaskBg] = useState('')
 
   function setAverageColor(target: HTMLImageElement) {
-    const facc = getAverageColor(target, 'sqrt', '0.75')
+    if (!props.averageColor) return
+    const facc = getAverageColor(target, props.averageColor, '0.75')
     setMaskBg(facc)
   }
 
@@ -140,7 +145,8 @@ export const MultiImageViewer = forwardRef<
   )
 
   const setAverageColor = (target: HTMLImageElement) => {
-    const facc = getAverageColor(target, 'sqrt', '0.75')
+    if (!props.averageColor) return
+    const facc = getAverageColor(target, props.averageColor, '0.75')
     setMaskBg(facc)
   }
 
@@ -162,7 +168,8 @@ export const MultiImageViewer = forwardRef<
           {props.images && (
             <Slides
               ref={slidesRef}
-              defaultIndex={index}
+              defaultIndex={props.defaultIndex}
+              activeIndex={index}
               onIndexChange={onSlideChange}
               images={props.images}
               onTap={() => {
