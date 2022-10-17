@@ -124,6 +124,7 @@ function getViteConfigForPackage({ env, formats, external }) {
     define: { 'process.env.NODE_ENV': `"${env}"` },
 
     build: {
+      cssTarget: 'chrome61',
       lib: {
         name: 'antdMobile',
         entry: './lib/es/index.js',
