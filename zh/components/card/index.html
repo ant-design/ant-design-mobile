@@ -31,16 +31,19 @@
       window.routerBase = "/";
     </script>
     <script>
-      //! umi version: 3.5.26
+      //! umi version: 3.5.34
     </script>
     <script>
       !(function () {
-        var e = localStorage.getItem("dumi:prefers-color"),
-          t = window.matchMedia("(prefers-color-scheme: dark)").matches,
-          r = ["light", "dark", "auto"];
+        var e =
+            navigator.cookieEnabled && void 0 !== window.localStorage
+              ? localStorage.getItem("dumi:prefers-color")
+              : "auto",
+          o = window.matchMedia("(prefers-color-scheme: dark)").matches,
+          t = ["light", "dark", "auto"];
         document.documentElement.setAttribute(
           "data-prefers-color",
-          e === r[2] ? (t ? r[1] : r[0]) : r.indexOf(e) > -1 ? e : r[0]
+          e === t[2] ? (o ? t[1] : t[0]) : t.indexOf(e) > -1 ? e : t[0]
         );
       })();
     </script>
@@ -87,6 +90,6 @@
       src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-2"
       async="true"
     ></script>
-    <script src="/umi.f3bd7064.js"></script>
+    <script src="/umi.58403b0c.js"></script>
   </body>
 </html>
