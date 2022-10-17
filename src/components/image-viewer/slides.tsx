@@ -14,7 +14,7 @@ export type SlidesType = {
   defaultIndex: number
   activeIndex: number
   onIndexChange?: (index: number) => void
-  setAverageColor: (target: HTMLImageElement) => void
+  onLoad: (target: HTMLImageElement) => void
 }
 export type SlidesRef = {
   swipeTo: (index: number, immediate?: boolean) => void
@@ -32,7 +32,7 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
   function swipeTo(index: number, immediate = false) {
     const i = bound(index, 0, count - 1)
     props.onIndexChange?.(i)
-    props.setAverageColor?.(
+    props.onLoad(
       document.querySelectorAll<HTMLImageElement>(
         '.adm-image-viewer-image-wrapper img'
       )[i]
@@ -121,7 +121,7 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
                   index,
                   props.activeIndex
                 )
-                props.setAverageColor?.(evt.target as HTMLImageElement)
+                props.onLoad(evt.target as HTMLImageElement)
               }
             }}
           />

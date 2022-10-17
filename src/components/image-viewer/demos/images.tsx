@@ -6,12 +6,12 @@ export const demoImages = [
 ]
 
 export const facImages = [
-  'https://upload.wikimedia.org/wikipedia/commons/d/d2/Solid_white.png?20060513000852',
-  // 'https://test-image-load-error',
+  'https://test-image-load-error',
   'https://pbs.twimg.com/media/Fed1PX6aEAAUstQ?format=jpg&name=large',
   'https://pbs.twimg.com/media/Fed1PX-aUAIGERO?format=jpg&name=large',
   'https://pbs.twimg.com/media/Fed1PYAaEAEemTx?format=jpg&name=large',
   'https://pbs.twimg.com/media/Fed1PX_agAILIw2?format=jpg&name=large',
+  'https://upload.wikimedia.org/wikipedia/commons/d/d2/Solid_white.png?20060513000852',
 ]
 
 export const demoImage = demoImages[0]

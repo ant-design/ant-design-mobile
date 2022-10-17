@@ -10,7 +10,7 @@ import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
 const classPrefix = `adm-image-viewer`
 
 type Props = {
-  index?: number
+  index: number
   image: string
   maxZoom: number
   onTap: () => void

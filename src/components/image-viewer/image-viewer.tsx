@@ -20,6 +20,7 @@ import Mask from '../mask'
 import SafeArea from '../safe-area'
 import { Slide } from './slide'
 import { Slides, SlidesRef } from './slides'
+import { noop } from 'lodash'
 
 const classPrefix = `adm-image-viewer`
 
@@ -59,16 +60,24 @@ const getAverageColor = (
   colors.push(opacity)
   return `rgba(${colors.join(',')})`
 }
+const useAverageColor = (
+  averageColor: FastAverageColorOptions['algorithm']
+): [string, (target: FastAverageColorResource) => void] => {
+  if (!averageColor) return ['', noop]
+
+  const [color, setColor] = useState('')
+  return [
+    color,
+    (target: FastAverageColorResource) => {
+      const facc = getAverageColor(target, averageColor, '0.75')
+      setColor(facc)
+    },
+  ]
+}
 
 export const ImageViewer: FC<ImageViewerProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const [maskBg, setMaskBg] = useState('')
-
-  function setAverageColor(target: HTMLImageElement) {
-    if (!props.averageColor) return
-    const facc = getAverageColor(target, props.averageColor, '0.75')
-    setMaskBg(facc)
-  }
+  const [maskBg, setMaskBg] = useAverageColor(props.averageColor)
 
   const node = (
     <>
@@ -83,12 +92,13 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
         <div className={`${classPrefix}-content`}>
           {props.image && (
             <Slide
+              index={0}
               image={props.image}
               onTap={() => {
                 props.onClose?.()
               }}
               maxZoom={props.maxZoom}
-              onLoad={evt => setAverageColor(evt.target as HTMLImageElement)}
+              onLoad={evt => setMaskBg(evt.target as HTMLImageElement)}
             />
           )}
         </div>
@@ -126,7 +136,7 @@ export const MultiImageViewer = forwardRef<
 >((p, ref) => {
   const props = mergeProps(multiDefaultProps, p)
   const [index, setIndex] = useState(props.defaultIndex)
-  const [maskBg, setMaskBg] = useState('')
+  const [maskBg, setMaskBg] = useAverageColor(props.averageColor)
 
   const slidesRef = useRef<SlidesRef>(null)
   useImperativeHandle(ref, () => ({
@@ -143,12 +153,6 @@ export const MultiImageViewer = forwardRef<
     },
     [props.onIndexChange]
   )
-
-  const setAverageColor = (target: HTMLImageElement) => {
-    if (!props.averageColor) return
-    const facc = getAverageColor(target, props.averageColor, '0.75')
-    setMaskBg(facc)
-  }
 
   const node = (
     <>
@@ -176,7 +180,7 @@ export const MultiImageViewer = forwardRef<
                 props.onClose?.()
               }}
               maxZoom={props.maxZoom}
-              setAverageColor={setAverageColor}
+              onLoad={setMaskBg}
             />
           )}
         </div>

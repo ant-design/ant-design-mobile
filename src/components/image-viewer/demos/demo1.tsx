@@ -27,7 +27,30 @@ const Single = () => {
   )
 }
 
-// fast-average-color 测试
+// fast-average-color 单张测试
+const AverageColor = () => {
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        显示图片
+      </Button>
+      <ImageViewer
+        image={facImages[0]}
+        visible={visible}
+        averageColor='sqrt'
+        onClose={() => {
+          setVisible(false)
+        }}
+      />
+    </>
+  )
+}
+// fast-average-color 多张测试
 const AverageColorMulti = () => {
   const [visible, setVisible] = useState(false)
   return (
@@ -119,7 +142,10 @@ const ViewWithFooter = () => {
 export default () => {
   return (
     <>
-      <DemoBlock title='mask背景色跟随图片颜色改变'>
+      <DemoBlock title='mask背景色跟随图片颜色改变 - 单张'>
+        <AverageColor />
+      </DemoBlock>
+      <DemoBlock title='mask背景色跟随图片颜色改变 - 多张'>
         <AverageColorMulti />
       </DemoBlock>
 
