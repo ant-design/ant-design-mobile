@@ -3,8 +3,14 @@ import React from 'react'
 
 export function useTrans() {
   const { locale } = React.useContext(context)
+  const isZh = locale === 'zh'
 
-  return function trans<T>(en: T, zh: T) {
-    return locale === 'zh' ? zh : en
+  function trans<T>(en: T, zh: T) {
+    return isZh ? zh : en
   }
+
+  trans.zh = isZh
+  trans.en = !isZh
+
+  return trans
 }

@@ -9,16 +9,17 @@ import {
   productIntroduceEn,
   getProductResource,
   productDesignValues,
+  productDesignValuesEn,
   getProductDesignValuesBackgroundImage,
   getGuides,
-  recommends,
-  users,
+  getRecommends,
+  getUsers,
 } from './config'
 import styles from './index.local.less'
 import { useTrans } from '../../../hooks/useTrans'
 
 export default () => {
-  const [isWidthScreen, setIsWidthScreen] = useState<Boolean>(true)
+  const [isWidthScreen, setIsWidthScreen] = useState(true)
   const [startAnimation, setStartAnimation] = useState([
     false,
     false,
@@ -26,6 +27,7 @@ export default () => {
     false,
   ])
   const trans = useTrans()
+  window.aaa = trans
 
   useEffect(() => {
     setIsWidthScreen(screen?.width > 450)
@@ -76,9 +78,11 @@ export default () => {
         </div>
         {/* 设计语言与开发资源 */}
         <div className={styles.productResource}>
-          <div className={styles.productResourceTitle}>语言设计与开发资源</div>
+          <div className={styles.productResourceTitle}>
+            {trans('Design and Development', '语言设计与开发资源')}
+          </div>
           <div className={styles.productResourceContent}>
-            {getProductResource(isWidthScreen).map(resource => (
+            {getProductResource(isWidthScreen, trans.en).map(resource => (
               <Card
                 className={styles.productResourceCard}
                 bordered={false}
@@ -120,7 +124,7 @@ export default () => {
               backgroundSize: 'cover',
             }}
           >
-            {productDesignValues.map(value => (
+            {trans(productDesignValuesEn, productDesignValues).map(value => (
               <div key={value.title} className={styles.productDesignValueBody}>
                 <div className={styles.productDesignValuesContent}>
                   <div className={styles.productDesignValuesTitle}>
@@ -172,9 +176,9 @@ export default () => {
         </div>
         {/* 新手指引 */}
         <div className={styles.guides}>
-          <div className={styles.guidesTitle}>新手指引</div>
+          <div className={styles.guidesTitle}>{trans('Guide', '新手指引')}</div>
           <div className={styles.guidesContent}>
-            {getGuides(isWidthScreen).map(guide => (
+            {getGuides(isWidthScreen, trans.en).map(guide => (
               <Card
                 className={styles.guideCard}
                 bordered={false}
@@ -203,9 +207,11 @@ export default () => {
         </div>
         {/* 精品资源 */}
         <div className={styles.recommends}>
-          <div className={styles.recommendsTitle}>精品资源</div>
+          <div className={styles.recommendsTitle}>
+            {trans('Resources', '精品资源')}
+          </div>
           <div className={styles.recommendsContent}>
-            {recommends.map(recommend => (
+            {getRecommends(trans.en).map(recommend => (
               <Card
                 className={styles.recommendCard}
                 bordered={false}
@@ -233,18 +239,20 @@ export default () => {
           </div>
         </div>
         {/* 谁在使用 */}
-        <div className={styles.users}>
-          <div className={styles.usersTitle}>谁在使用</div>
-          <div className={styles.usersContent}>
-            {users.map(user => (
-              <img
-                key={user.name}
-                className={styles.userImage}
-                src={user.image}
-              />
-            ))}
+        {trans.zh && (
+          <div className={styles.users}>
+            <div className={styles.usersTitle}>谁在使用</div>
+            <div className={styles.usersContent}>
+              {getUsers(trans.en).map(user => (
+                <img
+                  key={user.name}
+                  className={styles.userImage}
+                  src={user.image}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

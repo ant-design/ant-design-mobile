@@ -1,7 +1,8 @@
 .mainContainer {
   .mainSection {
     height: 594px;
-    background: url(https://gw.alipayobjects.com/zos/bmw-prod/756d63e6-4f1d-48e9-8c7f-7b4c0cbc1bb0.svg) no-repeat;
+    background: url(https://gw.alipayobjects.com/zos/bmw-prod/756d63e6-4f1d-48e9-8c7f-7b4c0cbc1bb0.svg)
+      no-repeat;
     background-size: cover;
     padding-top: 64px;
   }
@@ -18,7 +19,7 @@
       min-height: 200px;
       border-radius: 12px;
       background-color: #fff;
-      box-shadow: 0 12px 28px 0 rgba(113, 142, 204, 0.10);
+      box-shadow: 0 12px 28px 0 rgba(113, 142, 204, 0.1);
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -121,7 +122,7 @@
 
             .productDesignValuesDescription {
               font-size: 14px;
-              color: #697A8C;
+              color: #697a8c;
               line-height: 26px;
               margin-top: 16px;
             }
@@ -133,6 +134,13 @@
             margin-right: 140px;
             text-align: center;
             flex-wrap: wrap;
+
+            .productDesignValuesIcon {
+              width: 62px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
 
             .productDesignValuesIcon:nth-child(2n) {
               margin-left: 220px;
@@ -175,7 +183,7 @@
           height: 196px;
           background-color: #fff;
           border-radius: 12px;
-          box-shadow: 0 4px 10px 0 rgba(184, 212, 231, 0.20);
+          box-shadow: 0 4px 10px 0 rgba(184, 212, 231, 0.2);
           margin-top: 24px;
           padding: 8px;
 
@@ -222,14 +230,15 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        background: url(https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*4LddRq0XO8sAAAAAAAAAAAAAARQnAQ) no-repeat;
+        background: url(https://gw.alipayobjects.com/mdn/rms_226d75/afts/img/A*4LddRq0XO8sAAAAAAAAAAAAAARQnAQ)
+          no-repeat;
         background-size: cover;
 
         .recommendCard {
           width: 368px;
           height: 146px;
           border-radius: 12px;
-          box-shadow: 0 12px 28px 0 rgba(113, 142, 204, 0.10);
+          box-shadow: 0 12px 28px 0 rgba(113, 142, 204, 0.1);
           margin-top: 32px;
 
           .recommendCardBody {
@@ -259,10 +268,8 @@
         }
 
         .recommendCard:hover {
-          box-shadow:
-            0 1px 2px -2px rgba(0, 0, 0, 0.16),
-            0 3px 6px 0 rgba(0, 0, 0, 0.12),
-            0 5px 12px 4px rgba(0, 0, 0, 0.09);
+          box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
+            0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
           transition: box-shadow 0.3s, border-color 0.3s;
         }
       }

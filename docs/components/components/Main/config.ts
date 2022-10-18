@@ -54,28 +54,32 @@ export const productIntroduceEn = [
   },
 ]
 
-export const getProductResource = isWideScreen => [
+export const getProductResource = (isWideScreen: boolean, en: boolean) => [
   {
     image:
       'https://gw.alipayobjects.com/zos/bmw-prod/8ee0cfed-e5f1-4c2d-9648-9931aa98851e.svg',
-    title: '在线体验',
-    description: '你可以直接在 OpenDocs 上在线体验，无需安装和配置环境',
+    title: en ? 'Preview' : '在线体验',
+    description: en
+      ? 'Preview online without installation'
+      : '你可以直接在 OpenDocs 上在线体验，无需安装和配置环境',
     backgroundImage: isWideScreen
       ? 'https://gw.alipayobjects.com/zos/bmw-prod/239bb8cf-3fcd-4cfe-bb5a-ba2d910342bc.svg'
       : 'https://gw.alipayobjects.com/zos/bmw-prod/613c0844-d32d-4b89-83f2-36bc6840628a.svg',
-    buttonText: '开始体验',
+    buttonText: en ? 'Get Start' : '开始体验',
     buttonLink:
       'https://opendocs.alipay.com/openbox/mini/antd-mini/antd-mini-demo?view=editor&defaultPage=pages%2Findex%2Findex&defaultOpenedFiles=pages%2Findex%2Findex&mode=snippets',
   },
   {
     image:
       'https://gw.alipayobjects.com/zos/bmw-prod/06ae4a67-b93a-413b-9c58-75dbbe79f5b7.svg',
-    title: '组件列表',
-    description: '基于蚂蚁集团的众多业务实践，抽象构建出移动端资产库',
+    title: en ? 'Components' : '组件列表',
+    description: en
+      ? 'Base on Ant business experience'
+      : '基于蚂蚁集团的众多业务实践，抽象构建出移动端资产库',
     backgroundImage: isWideScreen
       ? 'https://gw.alipayobjects.com/zos/bmw-prod/adc38047-867d-4924-be79-dddc481e4650.svg'
       : 'https://gw.alipayobjects.com/zos/bmw-prod/3479a5ca-2abf-4eb3-bb64-01eadcfcfa64.svg',
-    buttonText: '查看全部',
+    buttonText: en ? 'View All' : '查看全部',
     buttonLink: '/components',
   },
 ]
@@ -110,25 +114,58 @@ export const productDesignValues = [
   },
 ]
 
+export const productDesignValuesEn = [
+  {
+    title: 'Design Values',
+    description:
+      'Based on the assumption that "everyone pursues happy work", we add two design values of "meaning" and "growth" on the basis of "determinacy" and "natural", which guide designers to make better judgments and decisions.',
+    icons: [
+      {
+        lottie:
+          'https://gw.alipayobjects.com/os/bmw-prod/aba20fd6-069b-41c3-a3b3-d56c73a1d9bd.json',
+        text: 'Determinacy',
+      },
+      {
+        lottie:
+          'https://gw.alipayobjects.com/os/bmw-prod/624e8763-db76-4820-8013-434455492dd4.json',
+        text: 'Meaning',
+      },
+      {
+        lottie:
+          'https://gw.alipayobjects.com/os/bmw-prod/12ad552c-2920-486b-95a8-b794dfbed80a.json',
+        text: 'Growth',
+      },
+      {
+        lottie:
+          'https://gw.alipayobjects.com/os/bmw-prod/48370db9-a5dd-45f7-9787-2d7c45a4493d.json',
+        text: 'Nature',
+      },
+    ],
+  },
+]
+
 export const getProductDesignValuesBackgroundImage = isWideScreen =>
   isWideScreen
     ? 'https://gw.alipayobjects.com/zos/bmw-prod/8e1607a9-2a82-47b8-901a-3310c84727c8.svg'
     : 'https://gw.alipayobjects.com/zos/bmw-prod/f17ac910-049a-4506-9498-723dec7d0d7a.svg'
 
-export const getGuides = isWideScreen => [
+export const getGuides = (isWideScreen: boolean, en: boolean) => [
   {
-    title: '快速上手',
-    description:
-      '轻松两步，快速实现安装和引入组件，antd-mini 自动为你加载 css 样式文件。',
+    title: en ? 'Quick Start' : '快速上手',
+    description: en
+      ? 'Quickly start with installation and import'
+      : '轻松两步，快速实现安装和引入组件，antd-mobile 自动为你加载 css 样式文件。',
     backgroundImage: isWideScreen
       ? 'https://gw.alipayobjects.com/zos/bmw-prod/f0556074-4581-42c4-9cf7-7b7072ed6a05.svg'
       : 'https://gw.alipayobjects.com/zos/bmw-prod/64172109-6ad4-4628-b3c9-24fd410329da.svg',
-    buttonText: '查看详情',
+    buttonText: en ? 'View Detail' : '查看详情',
     buttonLink: '/guide/quick-start',
   },
   {
-    title: '常见问题',
-    description: '我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。',
+    title: en ? 'FAQ' : '常见问题',
+    description: en
+      ? `We've collected some FAQ which may help you`
+      : '我们为你整理了一些常见的问题，遇到疑问不妨先来查阅一下。',
     backgroundImage: isWideScreen
       ? 'https://gw.alipayobjects.com/zos/bmw-prod/49710c3f-7ac2-4135-bd39-ae36cd456a4b.svg'
       : 'https://gw.alipayobjects.com/zos/bmw-prod/a56a3cf4-d84d-49f3-952c-b9cd1197f7b3.svg',
@@ -137,24 +174,30 @@ export const getGuides = isWideScreen => [
   },
 ]
 
-export const recommends = [
+export const getRecommends = (en: boolean) => [
   {
     title: 'Ant Design',
-    description: '企业级产品设计体系，创造高效愉悦的工作体验',
+    description: en
+      ? 'Enterprise-level products. Create an efficient and enjoyable work experience.'
+      : '企业级产品设计体系，创造高效愉悦的工作体验',
     image:
       'https://gw.alipayobjects.com/zos/bmw-prod/1c33ec37-9291-485f-81c6-a9cbd57c08f9.svg',
     link: 'https://ant.design',
   },
   {
     title: 'Ant Design Pro',
-    description: '开箱即用的中台前端/设计解决方案',
+    description: en
+      ? 'Out-of-the-box front-end/design solutions'
+      : '开箱即用的中台前端/设计解决方案',
     image:
       'https://gw.alipayobjects.com/zos/bmw-prod/1c33ec37-9291-485f-81c6-a9cbd57c08f9.svg',
     link: 'https://pro.ant.design',
   },
   {
     title: 'AntV',
-    description: '蚂蚁集团全新一代数据可视化解决方案',
+    description: en
+      ? 'Ant new generation of data visualization solutions'
+      : '蚂蚁集团全新一代数据可视化解决方案',
     image:
       'https://gw.alipayobjects.com/zos/bmw-prod/42c6e259-a343-4fb7-8fff-2058dd835f43.svg',
     link: 'https://antv.vision',
