@@ -1,24 +1,18 @@
 @class-prefix-image-uploader: ~'adm-image-uploader';
 
 .@{class-prefix-image-uploader} {
-  --cell-size: 80px;
-  --gap: 12px;
-  ---gap: var(--gap);
-  ---gap-horizontal: var(--gap-horizontal, var(--gap));
-  ---gap-vertical: var(--gap-vertical, var(--gap));
-
   &-grid {
-    --gap: var(---gap);
-    --gap-horizontal: var(---gap-horizontal);
-    --gap-vertical: var(---gap-vertical);
+    --gap: 12px;
     --cell-size: calc(
-      (100vw - var(---gap) * (var(--columns) - 1)) / var(--columns)
+      (100vw - var(--gap) * (var(--columns) - 1)) / var(--columns)
     );
   }
 
   &-space {
     --gap: 12px;
+    --cell-size: 80px;
   }
+
   &-cell {
     position: relative;
     width: var(--cell-size);

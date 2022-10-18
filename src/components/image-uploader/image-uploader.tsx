@@ -290,16 +290,14 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
-      {props.columns ? (
-        <Grid className={`${classPrefix}-grid`} columns={props.columns}>
-          {renderChildren().props.children}
-        </Grid>
-      ) : (
-        <Space className={`${classPrefix}-space`} wrap block>
-          {renderChildren().props.children}
-        </Space>
-      )}
-    </div>
+    props.columns ? (
+      <Grid className={`${classPrefix}-grid`} columns={props.columns}>
+        {renderChildren().props.children}
+      </Grid>
+    ) : (
+      <Space className={`${classPrefix}-space`} wrap block>
+        {renderChildren().props.children}
+      </Space>
+    )
   )
 }
