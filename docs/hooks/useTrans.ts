@@ -4,7 +4,7 @@ import React from 'react'
 export function useTrans() {
   const { locale } = React.useContext(context)
 
-  return function trans(en: React.ReactNode, zh: React.ReactNode) {
+  return function trans<T>(en: T, zh: T) {
     return locale === 'zh' ? zh : en
   }
 }
