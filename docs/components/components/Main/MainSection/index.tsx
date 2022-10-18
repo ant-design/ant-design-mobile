@@ -43,11 +43,11 @@ export default () => {
   return (
     <div className={styles.mainSectionContainer}>
       <div>
-        <div className={styles.mainSectionTitle}>Ant Design Mini</div>
+        <div className={styles.mainSectionTitle}>Ant Design Mobile</div>
         <div className={styles.mainSectionDescription}>
           {trans(
             'Research the final experience of mobile',
-            '探索移动端小程序的体验极限'
+            '探索移动端 Web 的体验极限'
           )}
         </div>
         <div className={styles.mainSectionButtonAction}>
