@@ -59,12 +59,12 @@
 
 ## FAQ
 
-### 1. The `capture` attribute is configured, but why some `Android` phones will still have the file option?
+### The `capture` attribute is configured, but why some `Android` phones will still have the file option?
 
 The `capture` provided by ImageUploader comes from the native HTML capability, and in some operating systems/browser environments, this attribute may not be supported, so this problem cannot be avoided.
 
 See the discussion in this [issue](https://github.com/ant-design/ant-design-mobile/issues/5254).
 
-### 2. Compatibility description of the `columns` attribute
+### Compatibility description of the `columns` attribute
 
 The `columns` attribute uses the CSS Grid feature, so the compatibility standard is iOS Safari >= 10.3 and Chrome >= 57.

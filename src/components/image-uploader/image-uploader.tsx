@@ -1,10 +1,16 @@
-import React, { FC, InputHTMLAttributes, useRef, useState } from 'react'
+import React, {
+  FC,
+  InputHTMLAttributes,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useIsomorphicLayoutEffect, useUnmount } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUnmount, useSize } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useConfig } from '../config-provider'
@@ -82,6 +88,22 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   const [value, setValue] = usePropsValue(props)
 
   const [tasks, setTasks] = useState<Task[]>([])
+
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const containerSize = useSize(containerRef)
+
+  const extraStyle = useMemo(() => {
+    if (props.columns && containerSize) {
+      const width = containerSize.width
+      const columns = props.columns
+      const gap =
+        Number(props.style?.['--gap-horizontal']?.replace('px', '')) || 12
+      const gridItemSize = (width - gap * (columns - 1)) / columns
+      return { style: { ...props.style, '--cell-size': `${gridItemSize}px` } }
+    }
+    return {}
+  }, [containerSize])
 
   useIsomorphicLayoutEffect(() => {
     setTasks(prev =>
@@ -289,15 +311,17 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   }
 
   return withNativeProps(
-    props,
-    props.columns ? (
-      <Grid className={`${classPrefix}-grid`} columns={props.columns}>
-        {renderChildren().props.children}
-      </Grid>
-    ) : (
-      <Space className={`${classPrefix}-space`} wrap block>
-        {renderChildren().props.children}
-      </Space>
-    )
+    { ...props, ...extraStyle },
+    <div className={classPrefix} ref={containerRef}>
+      {props.columns ? (
+        <Grid className={`${classPrefix}-grid`} columns={props.columns}>
+          {renderChildren().props.children}
+        </Grid>
+      ) : (
+        <Space className={`${classPrefix}-space`} wrap block>
+          {renderChildren().props.children}
+        </Space>
+      )}
+    </div>
   )
 }
