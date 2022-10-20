@@ -178,6 +178,13 @@ describe('Slider', () => {
     expect($$(`.${classPrefix}-fill`)[0]).toHaveStyle('width: 60%')
   })
 
+  test('slide to max should be work', () => {
+    const onAfterChange = jest.fn()
+    render(<Slider onAfterChange={onAfterChange} />)
+    drag(screen.getByRole('slider'), 100)
+    expect(onAfterChange).toBeCalledWith(100)
+  })
+
   describe('step is a decimal', () => {
     beforeAll(() => {
       Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
