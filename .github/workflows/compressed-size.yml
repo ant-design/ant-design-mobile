@@ -2,8 +2,7 @@ name: Compressed Size
 
 on:
   push:
-    branches:
-      - master
+    branches: [master, feature]
   pull_request:
 
 # Cancel prev CI if new commit come

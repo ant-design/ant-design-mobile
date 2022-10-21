@@ -16,7 +16,7 @@
 
 | 属性      | 说明                                                       | 类型                   | 默认值 |
 | --------- | ---------------------------------------------------------- | ---------------------- | ------ |
-| back      | 返回区域的文字，如果为 `null` 的话，`backArrow` 也不会渲染 | `string \| null`       | `''`   |
+| back      | 返回区域的文字，如果为 `null` 的话，`backArrow` 也不会渲染 | `ReactNode \| null`    | `''`   |
 | backArrow | 是否显示返回区域的箭头，也可以传入 `ReactNode` 进行自定义  | `boolean \| ReactNode` | `true` |
 | children  | 标题                                                       | `ReactNode`            | -      |
 | left      | 左侧内容，渲染在返回区域的右侧                             | `ReactNode`            | -      |

@@ -1,9 +1,5 @@
 name: Check
-on:
-  push:
-    branches:
-      - master
-  pull_request:
+on: [push, pull_request]
 jobs:
   check:
     runs-on: ubuntu-latest

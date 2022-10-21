@@ -46,21 +46,6 @@ function getCSBData(opts: IPreviewerComponentProps) {
     ),
   }
 
-  // append package.json
-  files['package.json'] = {
-    content: JSON.stringify(
-      {
-        name: opts.title,
-        main: entryFileName,
-        dependencies: deps,
-        // add TypeScript dependency if required, must in devDeps to avoid csb compile error
-        devDependencies: isTSX ? { typescript: '^3' } : {},
-      },
-      null,
-      2
-    ),
-  }
-
   // append index.html
   files['index.html'] = {
     content: '<div id="root"></div>',
@@ -78,7 +63,7 @@ function getCSBData(opts: IPreviewerComponentProps) {
 import React from 'react';
 import ReactDOM from 'react-dom';
 ${CSSDeps.map(({ css }) => `import '${css}';`).join('\n')}
-import App from './App';
+import App from './app';
 
 ReactDOM.render(
   <App />,
@@ -87,13 +72,77 @@ ReactDOM.render(
   }
 
   // append other imported local files
-  console.log(opts.sources)
+  let existDemoBlock = false
+
+  // console.log('Source:', opts.sources)
   Object.entries(opts.sources).forEach(([filename, { tsx, jsx, content }]) => {
     // handle primary content
-    files[filename === '_' ? appFileName : filename] = {
+    const file = {
       content: tsx || jsx || content,
     }
+
+    files[filename === '_' ? appFileName : filename] = file
+
+    existDemoBlock = existDemoBlock || file.content.includes("from 'demos'")
+    file.content = file.content.replace("from 'demos'", "from './demos-util'")
   })
+
+  // Inject DemoBlock
+  if (existDemoBlock) {
+    deps['lorem-ipsum'] = '^2.0.8'
+
+    files['demos-util.tsx'] = {
+      content: `/**
+* This is an auto-generated demo by dumi
+* if you think it is not working as expected,
+* please report the issue at
+* https://github.com/umijs/dumi/issues
+**/
+
+import React from 'react'
+import { LoremIpsum } from 'lorem-ipsum'
+
+export const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 8,
+    min: 4,
+  },
+  wordsPerSentence: {
+    max: 16,
+    min: 4,
+  },
+})
+
+export const DemoBlock = ({ title, children }) => (
+  <div style={{ padding: 16 }}>
+    <h3>{title}</h3>
+    {children}
+  </div>
+);
+
+export const DemoDescription = ({ children }) => <div style={{ opacity: 0.5 }}>{children}</div>;
+
+export const sleep = (time: number) => new Promise(resolve => setTimeout(resolve, time))
+`,
+    }
+  }
+
+  // append package.json
+  files['package.json'] = {
+    content: JSON.stringify(
+      {
+        name: opts.title,
+        main: entryFileName,
+        dependencies: deps,
+        // add TypeScript dependency if required, must in devDeps to avoid csb compile error
+        devDependencies: isTSX ? { typescript: '^3' } : {},
+      },
+      null,
+      2
+    ),
+  }
+
+  // console.log('Files:', existDemoBlock, files)
 
   return serialize({ files })
 }
