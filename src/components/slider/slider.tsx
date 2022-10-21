@@ -109,7 +109,7 @@ export const Slider: FC<SliderProps> = p => {
         .sort((a, b) => a - b)
     } else {
       const points: number[] = []
-      for (let i = Big(min); i.lt(max); i = i.plus(step)) {
+      for (let i = Big(min); i.lte(max); i = i.plus(step)) {
         points.push(i.toNumber())
       }
       return points
