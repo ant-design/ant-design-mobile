@@ -4,6 +4,7 @@ import React, {
   useMemo,
   useRef,
   useState,
+  CSSProperties,
 } from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
@@ -13,6 +14,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { useIsomorphicLayoutEffect, useUnmount, useSize } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { measureCSSLength } from '../../utils/measure-css-length'
 import { useConfig } from '../config-provider'
 import type { ImageProps } from '../image'
 import Grid, { GridProps } from '../grid'
@@ -93,14 +95,17 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   const containerSize = useSize(containerRef)
 
-  const extraStyle = useMemo(() => {
+  const extraStyle: CSSProperties & {
+    '--cell-size'?: string
+  } = useMemo(() => {
     if (props.columns && containerSize) {
       const width = containerSize.width
       const columns = props.columns
-      const gap =
-        Number(props.style?.['--gap-horizontal']?.replace('px', '')) || 12
+      const gap = measureCSSLength(
+        props.style?.['--gap-horizontal'] || props.style?.['--gap'] || '12px'
+      )
       const gridItemSize = (width - gap * (columns - 1)) / columns
-      return { style: { ...props.style, '--cell-size': `${gridItemSize}px` } }
+      return { ...props.style, '--cell-size': `${gridItemSize}px` }
     }
     return {}
   }, [containerSize])
@@ -311,8 +316,8 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   }
 
   return withNativeProps(
-    { ...props, ...extraStyle },
-    <div className={classPrefix} ref={containerRef}>
+    props,
+    <div className={classPrefix} ref={containerRef} style={extraStyle}>
       {props.columns ? (
         <Grid className={`${classPrefix}-grid`} columns={props.columns}>
           {renderChildren().props.children}
