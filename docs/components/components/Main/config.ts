@@ -61,13 +61,12 @@ export const getProductResource = (isWideScreen: boolean, en: boolean) => [
     title: en ? 'Preview' : '在线体验',
     description: en
       ? 'Preview online without installation'
-      : '你可以直接在 OpenDocs 上在线体验，无需安装和配置环境',
+      : '你可以直接在线体验，无需安装和配置环境',
     backgroundImage: isWideScreen
       ? 'https://gw.alipayobjects.com/zos/bmw-prod/239bb8cf-3fcd-4cfe-bb5a-ba2d910342bc.svg'
       : 'https://gw.alipayobjects.com/zos/bmw-prod/613c0844-d32d-4b89-83f2-36bc6840628a.svg',
     buttonText: en ? 'Get Start' : '开始体验',
-    buttonLink:
-      'https://opendocs.alipay.com/openbox/mini/antd-mini/antd-mini-demo?view=editor&defaultPage=pages%2Findex%2Findex&defaultOpenedFiles=pages%2Findex%2Findex&mode=snippets',
+    buttonLink: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx',
   },
   {
     image:

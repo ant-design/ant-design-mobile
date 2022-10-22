@@ -54,14 +54,14 @@ export default () => {
           <Button
             shape='round'
             className={styles.buttonLeft}
-            href='/guide/quick-start'
+            href={trans('/guide/quick-start', '/zh/guide/quick-start')}
           >
             {trans('Get Start', '开始使用')}
           </Button>
           <Button
             shape='round'
             className={styles.buttonRight}
-            href='/components'
+            href={trans('/components', '/zh/components')}
           >
             {trans('Preview Online', '在线体验')}
           </Button>
