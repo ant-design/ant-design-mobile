@@ -13,7 +13,7 @@ import {
   getProductDesignValuesBackgroundImage,
   getGuides,
   getRecommends,
-  getUsers,
+  users,
 } from './config'
 import styles from './index.local.less'
 import { useTrans } from '../../../hooks/useTrans'
@@ -243,7 +243,7 @@ export default () => {
           <div className={styles.users}>
             <div className={styles.usersTitle}>谁在使用</div>
             <div className={styles.usersContent}>
-              {getUsers(trans.en).map(user => (
+              {users.map(user => (
                 <img
                   key={user.name}
                   className={styles.userImage}

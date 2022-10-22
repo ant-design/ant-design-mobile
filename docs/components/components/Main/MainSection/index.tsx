@@ -68,13 +68,23 @@ export default () => {
         </div>
       </div>
       <div className={styles.imageContainer}>
-        <div className={styles.calendarImage} id='calendarImage'>
+        <div
+          className={styles.calendarImage}
+          id='calendarImage'
+          style={{
+            backgroundImage: trans.en
+              ? 'url(https://gw.alipayobjects.com/zos/bmw-prod/3e192da3-29b4-43c4-927a-4662bb1d6c78.svg)'
+              : 'url(https://gw.alipayobjects.com/zos/bmw-prod/42b45d98-e52f-43d5-89ed-47b13f7cd35f.svg)',
+          }}
+        >
           <div className={styles.publishDayAnimation}>
             <Lottie
               options={{
                 loop: false,
                 autoplay: false,
-                path: 'https://gw.alipayobjects.com/os/sage/02b4e615-c936-4adf-8cb7-095bd305b330/efbccd67-4060-4f50-8c9a-894ec8b6e319.json',
+                path: trans.en
+                  ? 'https://gw.alipayobjects.com/os/finxbff/lolita/1fde335f-a603-4594-b253-5fd23198a370/lottie.json'
+                  : 'https://gw.alipayobjects.com/os/finxbff/lolita/a31c67dd-ac41-4ca6-a92b-3e459e2035af/lottie.json',
               }}
               eventListeners={[
                 {
