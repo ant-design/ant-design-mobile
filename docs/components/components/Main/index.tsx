@@ -52,7 +52,13 @@ export default () => {
         setIsWidthScreen(false)
       }
     })
-    myObserver.observe(document.querySelector('#mainContainer') as Element)
+
+    const container = document.querySelector('#mainContainer') as Element
+
+    if (container) {
+      myObserver.observe(container)
+    }
+
     return () => {
       myObserver.disconnect()
     }
