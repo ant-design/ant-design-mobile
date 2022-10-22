@@ -29,8 +29,8 @@ const getFooterData = (en: boolean) => [
         url: 'https://procomponents.ant.design',
       },
       {
-        title: 'Ant Design Mobile',
-        url: 'https://mobile.ant.design',
+        title: 'Ant Design Mini',
+        url: 'https://mini.ant.design',
       },
       {
         title: 'Ant Design Landing',
