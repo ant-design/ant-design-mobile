@@ -30,6 +30,9 @@ const CustomeColumns: FC = () => {
     {
       url: demoSrc,
     },
+    {
+      url: demoSrc,
+    },
   ])
 
   return (

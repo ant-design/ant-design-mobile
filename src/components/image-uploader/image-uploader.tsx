@@ -87,6 +87,7 @@ const defaultProps = {
 export const ImageUploader: FC<ImageUploaderProps> = p => {
   const { locale } = useConfig()
   const props = mergeProps(defaultProps, p)
+  const { columns } = props
   const [value, setValue] = usePropsValue(props)
 
   const [tasks, setTasks] = useState<Task[]>([])
@@ -94,21 +95,25 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   const containerSize = useSize(containerRef)
+  const gapMeasureRef = useRef<HTMLDivElement>(null)
+  const [cellSize, setCellSize] = useState<number>(80)
 
-  const extraStyle: CSSProperties & {
-    '--cell-size'?: string
-  } = useMemo(() => {
-    if (props.columns && containerSize) {
+  useIsomorphicLayoutEffect(() => {
+    const gapMeasure = gapMeasureRef.current
+    if (columns && containerSize && gapMeasure) {
       const width = containerSize.width
-      const columns = props.columns
       const gap = measureCSSLength(
-        props.style?.['--gap-horizontal'] || props.style?.['--gap'] || '12px'
+        window.getComputedStyle(gapMeasure).getPropertyValue('height')
       )
-      const gridItemSize = (width - gap * (columns - 1)) / columns
-      return { ...props.style, '--cell-size': `${gridItemSize}px` }
+      setCellSize((width - gap * (columns - 1)) / columns)
     }
-    return {}
-  }, [containerSize])
+  }, [containerSize?.width])
+
+  const style: CSSProperties & {
+    '--cell-size': string
+  } = {
+    '--cell-size': cellSize + 'px',
+  }
 
   useIsomorphicLayoutEffect(() => {
     setTasks(prev =>
@@ -317,9 +322,10 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix} ref={containerRef} style={extraStyle}>
-      {props.columns ? (
-        <Grid className={`${classPrefix}-grid`} columns={props.columns}>
+    <div className={classPrefix} ref={containerRef}>
+      {columns ? (
+        <Grid className={`${classPrefix}-grid`} columns={columns} style={style}>
+          <div className={`${classPrefix}-gap-measure`} ref={gapMeasureRef} />
           {renderChildren().props.children}
         </Grid>
       ) : (

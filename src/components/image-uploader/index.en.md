@@ -65,6 +65,6 @@ The `capture` provided by ImageUploader comes from the native HTML capability, a
 
 See the discussion in this [issue](https://github.com/ant-design/ant-design-mobile/issues/5254).
 
-### Compatibility description of the `columns` attribute
+### Description of the `columns`
 
-The `columns` attribute uses the CSS Grid feature, so the compatibility standard is iOS Safari >= 10.3 and Chrome >= 57.
+The `columns` relies on [Grid](./grid) layout and when present, the custom `--cell-size` is not supported, as the size of image and upload button is calculated automatically.

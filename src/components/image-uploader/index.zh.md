@@ -53,12 +53,12 @@
 
 ### CSS 变量
 
-| 属性             | 说明                                            | 默认值       |
-| ---------------- | ----------------------------------------------- | ------------ |
-| --cell-size      | 图片和上传按钮的大小                            | `80px`       |
-| --gap            | 间距大小，仅在 `columns` 存在时生效             | `12px`       |
-| --gap-horizontal | 水平方向的间距大小，，仅在 `columns` 存在时生效 | `var(--gap)` |
-| --gap-vertical   | 垂直方向的间距大小，，仅在 `columns` 存在时生效 | `var(--gap)` |
+| 属性             | 说明                                          | 默认值       |
+| ---------------- | --------------------------------------------- | ------------ |
+| --cell-size      | 图片和上传按钮的大小                          | `80px`       |
+| --gap            | 间距大小，仅在 `columns` 存在时生效           | `12px`       |
+| --gap-horizontal | 水平方向的间距大小，仅在 `columns` 存在时生效 | `var(--gap)` |
+| --gap-vertical   | 垂直方向的间距大小，仅在 `columns` 存在时生效 | `var(--gap)` |
 
 ## FAQ
 
@@ -68,6 +68,6 @@ ImageUploader 所提供的 `capture` 是来自 HTML 原生的能力，而在部�
 
 详见此 [issue](https://github.com/ant-design/ant-design-mobile/issues/5254) 中的讨论。
 
-### `columns` 属性的兼容性说明
+### `columns` 属性说明
 
-`columns` 属性依赖了 CSS Grid 特性，所以兼容性标准是 iOS Safari >= 10.3 和 Chrome >= 57。
+`columns` 属性依赖 [Grid](./grid) 布局，该属性存在时，不支持自定义 `--cell-size` 属性，因为图片和上传按钮的大小是自动计算的。
