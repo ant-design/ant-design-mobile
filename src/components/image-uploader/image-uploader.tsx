@@ -1,7 +1,6 @@
 import React, {
   FC,
   InputHTMLAttributes,
-  useMemo,
   useRef,
   useState,
   CSSProperties,

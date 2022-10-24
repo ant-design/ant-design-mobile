@@ -53,9 +53,12 @@
 
 ### CSS Variables
 
-| Name        | Description                         | Default |
-| ----------- | ----------------------------------- | ------- |
-| --cell-size | The size of image and upload button | `80px`  |
+| Name             | Description                         | Default      |
+| ---------------- | ----------------------------------- | ------------ |
+| --cell-size      | The size of image and upload button | `80px`       |
+| --gap            | The gap between items.              | `12px`       |
+| --gap-horizontal | The horizontal gap between items.   | `var(--gap)` |
+| --gap-vertical   | The vertical gap between items.     | `var(--gap)` |
 
 ## FAQ
 
@@ -65,6 +68,6 @@ The `capture` provided by ImageUploader comes from the native HTML capability, a
 
 See the discussion in this [issue](https://github.com/ant-design/ant-design-mobile/issues/5254).
 
-### Description of the `columns`
+### Description of the `columns` Prop
 
 The `columns` relies on [Grid](./grid) layout and when present, the custom `--cell-size` is not supported, as the size of image and upload button is calculated automatically.
