@@ -77,7 +77,7 @@ export default () => {
           id='calendarImage'
           style={{
             backgroundImage: trans.en
-              ? 'url(https://gw.alipayobjects.com/zos/bmw-prod/d3df264c-7e0a-4ae8-b8e6-5bdd29c9d51e.svg)'
+              ? 'url(https://gw.alipayobjects.com/zos/bmw-prod/64b14321-1b59-4003-8dcf-d2b22944060f.svg)'
               : 'url(https://gw.alipayobjects.com/zos/bmw-prod/42b45d98-e52f-43d5-89ed-47b13f7cd35f.svg)',
           }}
         >
