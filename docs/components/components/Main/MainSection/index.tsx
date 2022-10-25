@@ -77,8 +77,8 @@ export default () => {
           id='calendarImage'
           style={{
             backgroundImage: trans.en
-              ? 'url(https://gw.alipayobjects.com/zos/bmw-prod/b2e78099-7306-4ded-8afd-eb856f8f280d.svg)'
-              : 'url(https://gw.alipayobjects.com/zos/bmw-prod/42b45d98-e52f-43d5-89ed-47b13f7cd35f.svg)',
+              ? 'url(https://gw.alipayobjects.com/zos/bmw-prod/8a7ff5c3-269f-41ad-bdc0-461aef57ad09.svg)'
+              : 'url(https://gw.alipayobjects.com/zos/bmw-prod/db18b4de-20f5-403e-9075-a413518934e3.svg)',
           }}
         >
           <div className={styles.publishDayAnimation}>
