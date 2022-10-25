@@ -78,7 +78,7 @@ export default () => {
           style={{
             backgroundImage: trans.en
               ? 'url(https://gw.alipayobjects.com/zos/bmw-prod/3e192da3-29b4-43c4-927a-4662bb1d6c78.svg)'
-              : 'url(https://gw.alipayobjects.com/zos/bmw-prod/42b45d98-e52f-43d5-89ed-47b13f7cd35f.svg)',
+              : 'url(https://gw.alipayobjects.com/zos/bmw-prod/d3df264c-7e0a-4ae8-b8e6-5bdd29c9d51e.svg)',
           }}
         >
           <div className={styles.publishDayAnimation}>
