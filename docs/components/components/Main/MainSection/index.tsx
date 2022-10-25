@@ -122,7 +122,8 @@ export default () => {
             ]}
             height={isWidthScreen ? 117 : 70}
             width={isWidthScreen ? 94 : 56}
-            isStopped={!startResultAnimation}
+            // isStopped={!startResultAnimation}
+            isStopped
             style={{ pointerEvents: 'none' }}
           />
         </div>
