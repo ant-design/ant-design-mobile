@@ -24,6 +24,7 @@ export type ImageViewerProps = {
   maxZoom?: number
   getContainer?: GetContainer
   visible?: boolean
+  color?: 'white' | 'black' | (string & {})
   onClose?: () => void
   afterClose?: () => void
   renderFooter?: (image: string) => React.ReactNode
@@ -42,6 +43,7 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
     <Mask
       visible={props.visible}
       disableBodyScroll={false}
+      color={props?.color}
       opacity='thick'
       afterClose={props.afterClose}
       destroyOnClose
@@ -111,6 +113,7 @@ export const MultiImageViewer = forwardRef<
     <Mask
       visible={props.visible}
       disableBodyScroll={false}
+      color={props?.color}
       opacity='thick'
       afterClose={props.afterClose}
       destroyOnClose

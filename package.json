@@ -23,6 +23,7 @@
     "big.js": "^6.2.1",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.4",
+    "fast-average-color": "^9.1.1",
     "lodash": "^4.17.21",
     "rc-field-form": "~1.27.0",
     "react-is": "^17.0.2",

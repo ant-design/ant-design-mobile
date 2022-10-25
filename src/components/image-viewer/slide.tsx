@@ -218,6 +218,7 @@ export const Slide: FC<Props> = props => {
             src={props.image}
             draggable={false}
             alt={props.image}
+            crossOrigin='anonymous'
           />
         </animated.div>
       </div>

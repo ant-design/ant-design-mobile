@@ -10,6 +10,10 @@
 
 <code src="./demos/demo1.tsx"></code>
 
+## 跟随图片颜色改变的背景色示例
+
+<code src="./demos/demo.tsx"></code>
+
 ## ImageViewer
 
 | 属性         | 说明                                                                      | 类型                                       | 默认值          |
