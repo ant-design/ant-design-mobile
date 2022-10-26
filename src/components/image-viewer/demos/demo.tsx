@@ -1,11 +1,42 @@
-import React, { useState } from 'react'
+import React, { SyntheticEvent, useState } from 'react'
 import { ImageViewer, Button } from 'antd-mobile'
 import { DemoBlock, sleep } from 'demos'
-import { facImages } from './images'
+import { demoImage, facImages } from './images'
 import { useAverageColor } from '../../../utils/use-fast-average-color'
 
+// 单张图片预览
+// 单张图片预览
+const Single = () => {
+  const [visible, setVisible] = useState(false)
+  const [color, setColor] = useAverageColor('sqrt')
+  const handleIndexChange = (evt: SyntheticEvent<HTMLImageElement>) => {
+    setColor(evt.currentTarget)
+  }
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        显示图片
+      </Button>
+      <ImageViewer
+        image={demoImage}
+        visible={visible}
+        color={color}
+        onLoad={handleIndexChange}
+        onClose={() => {
+          setVisible(false)
+        }}
+      />
+    </>
+  )
+}
+
 // 多张图片预览
-const FollowContent = () => {
+const Multi = () => {
   const [visible, setVisible] = useState(false)
   const [color, setColor] = useAverageColor('sqrt')
   let currentIndex = 1
@@ -54,8 +85,11 @@ const FollowContent = () => {
 export default () => {
   return (
     <>
-      <DemoBlock title='跟随内容颜色'>
-        <FollowContent />
+      <DemoBlock title='单张'>
+        <Single />
+      </DemoBlock>
+      <DemoBlock title='多张'>
+        <Multi />
       </DemoBlock>
     </>
   )

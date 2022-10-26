@@ -28,7 +28,7 @@ export type ImageViewerProps = {
   onClose?: () => void
   onLoad?: (
     evt: React.SyntheticEvent<HTMLImageElement, Event>,
-    index: number
+    index?: number
   ) => void
   afterClose?: () => void
   renderFooter?: (image: string) => React.ReactNode
@@ -59,6 +59,7 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
             onTap={() => {
               props.onClose?.()
             }}
+            onLoad={props.onLoad}
             maxZoom={props.maxZoom}
           />
         )}

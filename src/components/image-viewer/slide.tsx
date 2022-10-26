@@ -11,7 +11,7 @@ const classPrefix = `adm-image-viewer`
 
 type Props = {
   image: string
-  index: number
+  index?: number
   maxZoom: number
   onTap: () => void
   onLoad?: (

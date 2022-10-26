@@ -7,8 +7,8 @@ import { useState } from 'react'
 
 export const useAverageColor = (
   algorithm: FastAverageColorOptions['algorithm']
-): [string, (target: FastAverageColorResource) => void] => {
-  const [color, setColor] = useState('')
+): [string | undefined, (target: FastAverageColorResource) => void] => {
+  const [color, setColor] = useState<string | undefined>(undefined)
   const fac = new FastAverageColor()
   const getAverageColor = (
     resource: FastAverageColorResource,
