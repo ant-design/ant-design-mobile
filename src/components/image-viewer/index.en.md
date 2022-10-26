@@ -10,6 +10,10 @@ You need to click on the picture to view the details and use it with the thumbna
 
 <code src="./demos/demo1.tsx"></code>
 
+## Background follow the image average color
+
+<code src="./demos/demo.tsx"></code>
+
 ## ImageViewer
 
 | Name         | Description                                                                                                                 | Type                                       | Default         |

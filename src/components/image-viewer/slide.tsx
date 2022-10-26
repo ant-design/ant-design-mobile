@@ -1,4 +1,4 @@
-import React, { FC, MutableRefObject, useRef } from 'react'
+import React, { FC, MutableRefObject, SyntheticEvent, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useSize } from 'ahooks'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
@@ -11,8 +11,13 @@ const classPrefix = `adm-image-viewer`
 
 type Props = {
   image: string
+  index: number
   maxZoom: number
   onTap: () => void
+  onLoad?: (
+    evt: React.SyntheticEvent<HTMLImageElement, Event>,
+    index: number
+  ) => void
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
 }
@@ -218,6 +223,7 @@ export const Slide: FC<Props> = props => {
             src={props.image}
             draggable={false}
             alt={props.image}
+            onLoad={evt => props.onLoad?.(evt, props.index)}
             crossOrigin='anonymous'
           />
         </animated.div>

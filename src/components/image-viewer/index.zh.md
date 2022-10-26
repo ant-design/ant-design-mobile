@@ -10,7 +10,7 @@
 
 <code src="./demos/demo1.tsx"></code>
 
-## 跟随图片颜色改变的背景色示例
+## 背景色跟随图片颜色改变
 
 <code src="./demos/demo.tsx"></code>
 

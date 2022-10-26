@@ -13,6 +13,10 @@ export type SlidesType = {
   maxZoom: number
   defaultIndex: number
   onIndexChange?: (index: number) => void
+  onLoad?: (
+    evt: React.SyntheticEvent<HTMLImageElement, Event>,
+    index: number
+  ) => void
 }
 export type SlidesRef = {
   swipeTo: (index: number, immediate?: boolean) => void
@@ -94,8 +98,10 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
         {props.images.map((image, index) => (
           <Slide
             key={index}
+            index={index}
             image={image}
             onTap={props.onTap}
+            onLoad={props.onLoad}
             maxZoom={props.maxZoom}
             onZoomChange={zoom => {
               if (zoom !== 1) {

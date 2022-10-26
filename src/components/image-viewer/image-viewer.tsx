@@ -26,6 +26,10 @@ export type ImageViewerProps = {
   visible?: boolean
   color?: 'white' | 'black' | (string & {})
   onClose?: () => void
+  onLoad?: (
+    evt: React.SyntheticEvent<HTMLImageElement, Event>,
+    index: number
+  ) => void
   afterClose?: () => void
   renderFooter?: (image: string) => React.ReactNode
 }
@@ -127,6 +131,9 @@ export const MultiImageViewer = forwardRef<
             images={props.images}
             onTap={() => {
               props.onClose?.()
+            }}
+            onLoad={() => {
+              props.onLoad?.()
             }}
             maxZoom={props.maxZoom}
           />

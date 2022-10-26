@@ -6,7 +6,6 @@ export const demoImages = [
 ]
 
 export const facImages = [
-  'https://test-image-load-error',
   'https://pbs.twimg.com/media/Fed1PX6aEAAUstQ?format=jpg&name=large',
   'https://pbs.twimg.com/media/Fed1PX-aUAIGERO?format=jpg&name=large',
   'https://pbs.twimg.com/media/Fed1PYAaEAEemTx?format=jpg&name=large',
