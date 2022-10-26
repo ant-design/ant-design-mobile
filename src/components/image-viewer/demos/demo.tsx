@@ -39,9 +39,10 @@ const FollowContent = () => {
         color={color}
         defaultIndex={currentIndex}
         onIndexChange={handleIndexChange}
-        onLoad={(_, index) =>
+        onLoad={(_, index) => {
+          console.log(index, currentIndex)
           index === currentIndex && handleIndexChange(index)
-        }
+        }}
         onClose={() => {
           setVisible(false)
         }}

@@ -101,7 +101,7 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
             index={index}
             image={image}
             onTap={props.onTap}
-            onLoad={props.onLoad}
+            onLoad={props?.onLoad}
             maxZoom={props.maxZoom}
             onZoomChange={zoom => {
               if (zoom !== 1) {

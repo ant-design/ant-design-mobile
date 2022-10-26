@@ -132,9 +132,7 @@ export const MultiImageViewer = forwardRef<
             onTap={() => {
               props.onClose?.()
             }}
-            onLoad={() => {
-              props.onLoad?.()
-            }}
+            onLoad={props?.onLoad}
             maxZoom={props.maxZoom}
           />
         )}
