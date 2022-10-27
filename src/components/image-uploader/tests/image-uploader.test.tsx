@@ -227,7 +227,7 @@ describe('ImageUploader', () => {
   })
 
   // https://github.com/ant-design/ant-design-mobile/issues/5763
-  test('the count should not be increased after the failed upload when `showFailed` is true', async () => {
+  test('the count should not be increased after the failed upload when `showFailed` is false', async () => {
     render(<App upload={mockUploadFail} maxCount={2} showFailed={false} />)
     await act(async () => {
       await mockInputFile()
