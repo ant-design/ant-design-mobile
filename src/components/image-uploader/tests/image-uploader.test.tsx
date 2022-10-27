@@ -42,10 +42,20 @@ async function mockInputFile(file: File | File[] = mockImg) {
   return inputEl
 }
 
+const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+
 describe('ImageUploader', () => {
   // jsdom does not support createObjectURL
   URL.createObjectURL = jest.fn(() => '')
   URL.revokeObjectURL = jest.fn(() => '')
+
+  afterEach(() => {
+    errSpy.mockReset()
+  })
+
+  afterAll(() => {
+    errSpy.mockRestore()
+  })
 
   const App = (props: any) => {
     const [fileList, setFileList] = useState<ImageUploadItem[]>([
@@ -77,16 +87,6 @@ describe('ImageUploader', () => {
   })
 
   test('upload status', async () => {
-    const originConsoleError = console.error
-    let uploadFailCount = 0
-    console.error = jest.fn((...args: any[]) => {
-      if (args[0]?.toString().includes('Fail to upload')) {
-        uploadFailCount++
-      } else {
-        originConsoleError(...args)
-      }
-    })
-
     const { container } = render(<App upload={mockUploadFail} showUpload />)
 
     await act(async () => {
@@ -103,8 +103,7 @@ describe('ImageUploader', () => {
     })
 
     expect(container).toMatchSnapshot()
-
-    expect(uploadFailCount).toBe(1)
+    expect(errSpy).toBeCalled()
   })
 
   test('limit size', async () => {
@@ -225,5 +224,16 @@ describe('ImageUploader', () => {
     await waitFor(() => {
       expect($$(`.${customClassName}`)[0]).toBeVisible()
     })
+  })
+
+  // https://github.com/ant-design/ant-design-mobile/issues/5763
+  test('the count should not be increased after the failed upload when `showFailed` is true', async () => {
+    render(<App upload={mockUploadFail} maxCount={2} showFailed={false} />)
+    await act(async () => {
+      await mockInputFile()
+    })
+    await waitFor(() =>
+      expect($$(`.${classPrefix}-upload-button`)[0]).toBeInTheDocument()
+    )
   })
 })
