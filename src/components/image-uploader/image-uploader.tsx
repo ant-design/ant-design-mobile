@@ -172,15 +172,19 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           })
         } catch (e) {
           setTasks(prev => {
-            return prev.map(task => {
-              if (task.id === currentTask.id) {
-                return {
-                  ...task,
-                  status: 'fail',
+            if (props.showFailed) {
+              return prev.map(task => {
+                if (task.id === currentTask.id) {
+                  return {
+                    ...task,
+                    status: 'fail',
+                  }
                 }
-              }
-              return task
-            })
+                return task
+              })
+            } else {
+              return prev.filter(task => task.id !== currentTask.id)
+            }
           })
           throw e
         }
