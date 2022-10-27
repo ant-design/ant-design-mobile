@@ -266,58 +266,56 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     })
   }
 
-  const renderChildren = () => {
-    return (
-      <>
-        {renderImages()}
-        {tasks.map(task => {
-          if (!props.showFailed && task.status === 'fail') {
-            return null
-          }
-          return (
-            <PreviewItem
-              key={task.id}
-              file={task.file}
-              deletable={task.status !== 'pending'}
-              status={task.status}
-              imageFit={props.imageFit}
-              onDelete={() => {
-                setTasks(tasks.filter(x => x.id !== task.id))
-              }}
-            />
-          )
-        })}
-        {showUpload && (
-          <div className={`${classPrefix}-upload-button-wrap`}>
-            {props.children ? (
-              props.children
-            ) : (
-              <span
-                className={`${classPrefix}-cell ${classPrefix}-upload-button`}
-                role='button'
-                aria-label={locale.ImageUploader.upload}
-              >
-                <span className={`${classPrefix}-upload-button-icon`}>
-                  <AddOutline />
-                </span>
+  const contentNode = (
+    <>
+      {renderImages()}
+      {tasks.map(task => {
+        if (!props.showFailed && task.status === 'fail') {
+          return null
+        }
+        return (
+          <PreviewItem
+            key={task.id}
+            file={task.file}
+            deletable={task.status !== 'pending'}
+            status={task.status}
+            imageFit={props.imageFit}
+            onDelete={() => {
+              setTasks(tasks.filter(x => x.id !== task.id))
+            }}
+          />
+        )
+      })}
+      {showUpload && (
+        <div className={`${classPrefix}-upload-button-wrap`}>
+          {props.children ? (
+            props.children
+          ) : (
+            <span
+              className={`${classPrefix}-cell ${classPrefix}-upload-button`}
+              role='button'
+              aria-label={locale.ImageUploader.upload}
+            >
+              <span className={`${classPrefix}-upload-button-icon`}>
+                <AddOutline />
               </span>
-            )}
-            {!props.disableUpload && (
-              <input
-                capture={props.capture}
-                accept={props.accept}
-                multiple={props.multiple}
-                type='file'
-                className={`${classPrefix}-input`}
-                onChange={onChange}
-                aria-hidden
-              />
-            )}
-          </div>
-        )}
-      </>
-    )
-  }
+            </span>
+          )}
+          {!props.disableUpload && (
+            <input
+              capture={props.capture}
+              accept={props.accept}
+              multiple={props.multiple}
+              type='file'
+              className={`${classPrefix}-input`}
+              onChange={onChange}
+              aria-hidden
+            />
+          )}
+        </div>
+      )}
+    </>
+  )
 
   return withNativeProps(
     props,
@@ -325,11 +323,11 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
       {columns ? (
         <Grid className={`${classPrefix}-grid`} columns={columns} style={style}>
           <div className={`${classPrefix}-gap-measure`} ref={gapMeasureRef} />
-          {renderChildren().props.children}
+          {contentNode.props.children}
         </Grid>
       ) : (
         <Space className={`${classPrefix}-space`} wrap block>
-          {renderChildren().props.children}
+          {contentNode.props.children}
         </Space>
       )}
     </div>

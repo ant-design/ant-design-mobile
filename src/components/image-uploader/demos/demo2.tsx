@@ -25,6 +25,7 @@ const CustomeSize: FC = () => {
 }
 
 // 自定义列数
+// columns 属性存在时，不支持自定义 --cell-size 属性，详见 FAQ。
 const CustomeColumns: FC = () => {
   const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
