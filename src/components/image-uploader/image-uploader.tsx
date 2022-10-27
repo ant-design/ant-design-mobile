@@ -172,19 +172,15 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           })
         } catch (e) {
           setTasks(prev => {
-            if (props.showFailed) {
-              return prev.map(task => {
-                if (task.id === currentTask.id) {
-                  return {
-                    ...task,
-                    status: 'fail',
-                  }
+            return prev.map(task => {
+              if (task.id === currentTask.id) {
+                return {
+                  ...task,
+                  status: 'fail',
                 }
-                return task
-              })
-            } else {
-              return prev.filter(task => task.id !== currentTask.id)
-            }
+              }
+              return task
+            })
           })
           throw e
         }
@@ -208,9 +204,13 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     imageViewerHandlerRef.current?.close()
   })
 
+  const finalTasks = props.showFailed
+    ? tasks
+    : tasks.filter(task => task.status !== 'fail')
+
   const showUpload =
     props.showUpload &&
-    (maxCount === 0 || value.length + tasks.length < maxCount)
+    (maxCount === 0 || value.length + finalTasks.length < maxCount)
 
   const renderImages = () => {
     return value.map((fileItem, index) => {
@@ -242,10 +242,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     <div className={classPrefix}>
       <Space className={`${classPrefix}-space`} wrap block>
         {renderImages()}
-        {tasks.map(task => {
-          if (!props.showFailed && task.status === 'fail') {
-            return null
-          }
+        {finalTasks.map(task => {
           return (
             <PreviewItem
               key={task.id}
@@ -254,7 +251,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               status={task.status}
               imageFit={props.imageFit}
               onDelete={() => {
-                setTasks(tasks.filter(x => x.id !== task.id))
+                setTasks(prev => prev.filter(x => x.id !== task.id))
               }}
             />
           )
