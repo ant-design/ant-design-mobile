@@ -236,4 +236,25 @@ describe('ImageUploader', () => {
       expect($$(`.${classPrefix}-upload-button`)[0]).toBeInTheDocument()
     )
   })
+
+  test('auto remove failed task before upload when `showFailed` is false', async () => {
+    const fn = jest.fn()
+    render(
+      <App
+        upload={mockUploadFail}
+        showFailed={false}
+        onUploadQueueChange={fn}
+      />
+    )
+    await mockInputFile()
+    expect(fn).toBeCalled()
+
+    await sleep(400)
+    expect(fn.mock.lastCall[0].length).toBe(1)
+
+    await mockInputFile()
+
+    await sleep(400)
+    expect(fn.mock.lastCall[0].length).toBe(1)
+  })
 })

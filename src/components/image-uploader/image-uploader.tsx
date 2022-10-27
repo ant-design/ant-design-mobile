@@ -110,6 +110,12 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     return transformedFile
   }
 
+  function getFinalTasks(tasks: Task[]) {
+    return props.showFailed
+      ? tasks
+      : tasks.filter(task => task.status !== 'fail')
+  }
+
   async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.persist()
     const { files: rawFiles } = e.target
@@ -148,7 +154,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         } as Task)
     )
 
-    setTasks(prev => [...prev, ...newTasks])
+    setTasks(prev => [...getFinalTasks(prev), ...newTasks])
 
     await Promise.all(
       newTasks.map(async currentTask => {
@@ -204,9 +210,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     imageViewerHandlerRef.current?.close()
   })
 
-  const finalTasks = props.showFailed
-    ? tasks
-    : tasks.filter(task => task.status !== 'fail')
+  const finalTasks = getFinalTasks(tasks)
 
   const showUpload =
     props.showUpload &&
