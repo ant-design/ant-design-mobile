@@ -1,4 +1,10 @@
-import React, { FC, useRef } from 'react'
+import React, {
+  FC,
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { mergeProps } from '../../utils/with-default-props'
@@ -11,8 +17,6 @@ export type FloatingBubbleProps = {
   axis?: 'x' | 'y' | 'xy' | 'lock'
   magnetic?: 'x' | 'y'
   children?: React.ReactNode
-  defaultDragOffset?: { x: number; y: number }
-  onDragEnd?: (offset: { x: number; y: number }) => void
 } & NativeProps<
   | '--initial-position-left'
   | '--initial-position-right'
@@ -25,16 +29,37 @@ export type FloatingBubbleProps = {
   | '--background'
 >
 
-const defaultProps = {
-  axis: 'y',
-  defaultDragOffset: { x: 0, y: 0 },
+export type FloatingBubbleRef = {
+  dragTo: (x: number, y: number, immediate?: boolean) => void
+  curOffset: { x: number; y: number }
 }
 
-export const FloatingBubble: FC<FloatingBubbleProps> = p => {
+const defaultProps = {
+  axis: 'y',
+}
+
+export const FloatingBubble = forwardRef<
+  FloatingBubbleRef,
+  FloatingBubbleProps
+>((p, ref) => {
   const props = mergeProps(defaultProps, p)
 
   const boundaryRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
+  const [offSet, setOffSet] = useState({ x: 0, y: 0 })
+
+  useImperativeHandle(ref, () => ({
+    dragTo: (x: number, y: number, immediate?: boolean) => {
+      api.start({
+        x,
+        y,
+        immediate: immediate,
+      })
+    },
+    get curOffset() {
+      return offSet
+    },
+  }))
 
   /**
    * memoize the `to` function
@@ -42,8 +67,8 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
    * to prevent an unintended restart
    */
   const [{ x, y, opacity }, api] = useSpring(() => ({
-    x: props.defaultDragOffset.x,
-    y: props.defaultDragOffset.y,
+    x: offSet.x,
+    y: offSet.y,
     opacity: 1,
   }))
   const bind = useDrag(
@@ -80,7 +105,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
         }
       }
       if (state.last) {
-        props.onDragEnd?.({
+        setOffSet({
           x: nextX,
           y: nextY,
         })
@@ -127,4 +152,4 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       </animated.div>
     </div>
   )
-}
+})

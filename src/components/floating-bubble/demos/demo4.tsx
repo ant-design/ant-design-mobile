@@ -1,11 +1,29 @@
-import React, { useState } from 'react'
-import { FloatingBubble } from 'antd-mobile'
+import React, { useEffect, useRef, useState } from 'react'
+import { FloatingBubble, Button } from 'antd-mobile'
 import { DemoDescription } from 'demos'
 import { MessageFill } from 'antd-mobile-icons'
+import { FloatingBubbleRef } from 'antd-mobile/es/components/floating-bubble/floating-bubble'
 
 export default () => {
   // 偏移位置可做存储，支持记忆功能
   const [curOffset, setCurOffset] = useState({ x: -24, y: -24 })
+  const floatingBubbleRef = useRef<FloatingBubbleRef>(null)
+
+  useEffect(() => {
+    // 设置初始偏移位置
+    if (floatingBubbleRef.current) {
+      floatingBubbleRef.current.dragTo(curOffset.x, curOffset.y, true)
+    }
+  }, [floatingBubbleRef.current])
+
+  const resetOffset = () => {
+    floatingBubbleRef.current?.dragTo(-24, -24, true)
+  }
+
+  const getNewOffset = () => {
+    setCurOffset(floatingBubbleRef.current!.curOffset)
+  }
+
   return (
     <div
       style={{
@@ -15,8 +33,15 @@ export default () => {
     >
       <DemoDescription>
         <div>在 x 轴、y 轴方向上都允许拖动，拖动结束回调获取偏移位置</div>
-        <div>拖动结束偏移位置x:{curOffset.x}</div>
-        <div>拖动结束偏移位置y:{curOffset.y}</div>
+        <div>
+          <Button onClick={resetOffset}>位置重置</Button>
+        </div>
+        <div>
+          <Button onClick={getNewOffset}>获取最新位置</Button>
+        </div>
+        <div>
+          最新偏移位置 x:{curOffset.x},y:{curOffset.y}
+        </div>
       </DemoDescription>
       <FloatingBubble
         axis='xy'
@@ -24,10 +49,7 @@ export default () => {
           '--initial-position-bottom': '0',
           '--initial-position-right': '0',
         }}
-        defaultDragOffset={{ x: -24, y: -24 }}
-        onDragEnd={offset => {
-          setCurOffset(offset)
-        }}
+        ref={floatingBubbleRef}
       >
         <MessageFill fontSize={32} />
       </FloatingBubble>
