@@ -60,3 +60,7 @@ Yes, but Tabs doesn't have a property like `sticky`. You can add the CSS `positi
 ### How does Tabs work with Swiper, PullToRefresh, and InfiniteScroll to implement a complex information flow interface?
 
 You can refer to this [demo](https://codesandbox.io/s/mystifying-glitter-knpc7u?file=/src/components/getPullToRefreshlData.tsx).
+
+### Question about the type of Tabs.Tab key?
+
+Because `React` internally converts the incoming `key` into `string`, the type of `key` here should actually conform to `React.Key` can be used.
