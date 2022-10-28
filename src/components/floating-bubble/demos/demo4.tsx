@@ -9,13 +9,6 @@ export default () => {
   const [curOffset, setCurOffset] = useState({ x: -24, y: -24 })
   const floatingBubbleRef = useRef<FloatingBubbleRef>(null)
 
-  useEffect(() => {
-    // 设置初始偏移位置
-    if (floatingBubbleRef.current) {
-      floatingBubbleRef.current.dragTo(curOffset.x, curOffset.y, true)
-    }
-  }, [floatingBubbleRef.current])
-
   const resetOffset = () => {
     floatingBubbleRef.current?.dragTo(-24, -24, true)
   }
@@ -50,6 +43,7 @@ export default () => {
           '--initial-position-right': '0',
         }}
         ref={floatingBubbleRef}
+        defaultOffset={curOffset}
       >
         <MessageFill fontSize={32} />
       </FloatingBubble>

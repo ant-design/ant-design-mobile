@@ -17,6 +17,7 @@ export type FloatingBubbleProps = {
   axis?: 'x' | 'y' | 'xy' | 'lock'
   magnetic?: 'x' | 'y'
   children?: React.ReactNode
+  defaultOffset?: { x: number; y: number }
 } & NativeProps<
   | '--initial-position-left'
   | '--initial-position-right'
@@ -36,6 +37,7 @@ export type FloatingBubbleRef = {
 
 const defaultProps = {
   axis: 'y',
+  defaultOffset: { x: 0, y: 0 },
 }
 
 export const FloatingBubble = forwardRef<
@@ -46,7 +48,7 @@ export const FloatingBubble = forwardRef<
 
   const boundaryRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
-  const [offSet, setOffSet] = useState({ x: 0, y: 0 })
+  const offSetRef = useRef<{ x: number; y: number }>(props.defaultOffset)
 
   useImperativeHandle(ref, () => ({
     dragTo: (x: number, y: number, immediate?: boolean) => {
@@ -55,9 +57,13 @@ export const FloatingBubble = forwardRef<
         y,
         immediate: immediate,
       })
+      offSetRef.current = {
+        x,
+        y,
+      }
     },
     get curOffset() {
-      return offSet
+      return offSetRef.current
     },
   }))
 
@@ -67,8 +73,8 @@ export const FloatingBubble = forwardRef<
    * to prevent an unintended restart
    */
   const [{ x, y, opacity }, api] = useSpring(() => ({
-    x: offSet.x,
-    y: offSet.y,
+    x: props.defaultOffset.x,
+    y: props.defaultOffset.y,
     opacity: 1,
   }))
   const bind = useDrag(
@@ -105,10 +111,10 @@ export const FloatingBubble = forwardRef<
         }
       }
       if (state.last) {
-        setOffSet({
+        offSetRef.current = {
           x: nextX,
           y: nextY,
-        })
+        }
       }
       api.start({
         x: nextX,
