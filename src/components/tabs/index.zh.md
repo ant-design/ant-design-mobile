@@ -60,6 +60,6 @@
 
 可以参考这个 [demo](https://codesandbox.io/s/mystifying-glitter-knpc7u?file=/src/components/getPullToRefreshlData.tsx)。
 
-### Tabs.Tab 关于 key 的类型问题？
+### Tabs.Tab 关于 key 的类型问题
 
 因为 `React` 内部会把传入的 `key` 转为 `string`，所以这里 `key` 的类型其实只要是符合 `React.Key` 都是可以的。
