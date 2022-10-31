@@ -55,6 +55,7 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
       <div className={`${classPrefix}-content`}>
         {props.image && (
           <Slide
+            index={0}
             image={props.image}
             onTap={() => {
               props.onClose?.()

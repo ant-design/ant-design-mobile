@@ -1,4 +1,4 @@
-import React, { FC, MutableRefObject, SyntheticEvent, useRef } from 'react'
+import React, { FC, MutableRefObject, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useSize } from 'ahooks'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
@@ -11,7 +11,7 @@ const classPrefix = `adm-image-viewer`
 
 type Props = {
   image: string
-  index?: number
+  index: number
   maxZoom: number
   onTap: () => void
   onLoad?: (
