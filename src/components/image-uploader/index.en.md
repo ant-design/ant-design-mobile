@@ -53,12 +53,12 @@
 
 ### CSS Variables
 
-| Name             | Description                         | Default      |
-| ---------------- | ----------------------------------- | ------------ |
-| --cell-size      | The size of image and upload button | `80px`       |
-| --gap            | The gap between items.              | `12px`       |
-| --gap-horizontal | The horizontal gap between items.   | `var(--gap)` |
-| --gap-vertical   | The vertical gap between items.     | `var(--gap)` |
+| Name             | Description                                                         | Default      |
+| ---------------- | ------------------------------------------------------------------- | ------------ |
+| --cell-size      | The size of image and upload button(Valid only in non-columns mode) | `80px`       |
+| --gap            | The gap between items.                                              | `12px`       |
+| --gap-horizontal | The horizontal gap between items.                                   | `var(--gap)` |
+| --gap-vertical   | The vertical gap between items.                                     | `var(--gap)` |
 
 ## FAQ
 
