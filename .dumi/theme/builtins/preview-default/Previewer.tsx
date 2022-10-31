@@ -14,7 +14,7 @@ import {
   AnchorLink,
   usePrefersColor,
 } from 'dumi/theme'
-// import { useCodeSandbox } from './use-code-sandbox'
+import { useCodeSandbox } from './use-code-sandbox'
 import type { ICodeBlockProps } from '../SourceCode'
 import SourceCode from '../SourceCode'
 import './Previewer.less'
@@ -63,9 +63,9 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
   const props = useLocaleProps<IPreviewerProps>(locale, oProps)
   const isActive = history?.location.hash === `#${props.identifier}`
   const isSingleFile = Object.keys(props.sources).length === 1
-  // const openCSB = useCodeSandbox(
-  //   props.hideActions?.includes('CSB') ? null : props
-  // )
+  const openCSB = useCodeSandbox(
+    props.hideActions?.includes('CSB') ? null : props
+  )
   // const openRiddle = useRiddle(
   //   props.hideActions?.includes('RIDDLE') ? null : props
   // )
@@ -111,14 +111,14 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
       </div>
       <div className='__dumi-default-previewer-actions'>
         {props.debug && <span className='debug-badge'>Debug Only</span>}
-        {/*{openCSB && (*/}
-        {/*  <button*/}
-        {/*    title='Open demo on CodeSandbox.io'*/}
-        {/*    className='__dumi-default-icon'*/}
-        {/*    role='codesandbox'*/}
-        {/*    onClick={openCSB}*/}
-        {/*  />*/}
-        {/*)}*/}
+        {openCSB && (
+          <button
+            title='Open demo on CodeSandbox.io'
+            className='__dumi-default-icon'
+            role='codesandbox'
+            onClick={openCSB}
+          />
+        )}
         {/*{openRiddle && (*/}
         {/*  <button*/}
         {/*    title='Open demo on Riddle'*/}

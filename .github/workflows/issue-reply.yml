@@ -1,0 +1,37 @@
+name: Issue Reply
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  issue-reply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pending
+        if: github.event.label.name == 'pending'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hi, ${{ github.event.issue.user.login }}.
+
+            It seems that this issue is a bit vague and lacks some necessary information. It is recommended to read [How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html).
+
+            看起来这条 issue 描述得有些模糊，缺少一些必要的信息，推荐阅读一下[提问指引](https://github.com/ant-design/ant-design-mobile/blob/master/.github/HOW_TO_ASK_QUESTIONS.md)。
+
+      - name: need reproduce
+        if: github.event.label.name == 'need reproduce'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hi, ${{ github.event.issue.user.login }}.
+
+            Please provide a online reproduction so that we can help you troubleshoot the problem. You can create a demo by [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json) or [stackblitz](https://stackblitz.com/edit/antd-mobile?file=index.tsx).
+
+            我们需要你提供一个在线的重现实例，以便于我们帮你排查问题。你可以通过 [codesandbox](https://codesandbox.io/s/antd-mobile-snrxr?file=/package.json) 或 [stackblitz](https://stackblitz.com/edit/antd-mobile?file=index.tsx) 创建一个实例。

@@ -1,7 +1,7 @@
 import React, { FC, useRef, RefObject, useState, ReactNode } from 'react'
 import { useDrag } from '@use-gesture/react'
 import { ThumbIcon } from './thumb-icon'
-import { Popover } from '../popover/popover'
+import Popover from '../popover'
 import { useConfig } from '../config-provider'
 import { NativeProps } from '../../utils/native-props'
 

@@ -43,7 +43,7 @@ export const Popup: FC<PopupProps> = p => {
   }, [props.visible])
 
   const ref = useRef<HTMLDivElement>(null)
-  useLockScroll(ref, props.disableBodyScroll && active)
+  useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
 
   const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({

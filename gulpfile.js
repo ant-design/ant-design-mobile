@@ -124,6 +124,7 @@ function getViteConfigForPackage({ env, formats, external }) {
     define: { 'process.env.NODE_ENV': `"${env}"` },
 
     build: {
+      cssTarget: 'chrome61',
       lib: {
         name: 'antdMobile',
         entry: './lib/es/index.js',
@@ -160,31 +161,6 @@ async function buildBundles(cb) {
   cb && cb()
 }
 
-function buildCompatibleUMD() {
-  return gulp
-    .src('lib/bundle/antd-mobile.umd.js')
-    .pipe(
-      babel({
-        presets: [
-          [
-            '@babel/env',
-            {
-              targets: {
-                'chrome': '49',
-                'ios': '9',
-              },
-            },
-          ],
-        ],
-      })
-    )
-    .pipe(rename('antd-mobile.compatible.umd.js'))
-    .pipe(gulp.dest('lib/bundle/'))
-    .pipe(rename('antd-mobile.js'))
-    .pipe(gulp.dest('lib/umd/'))
-}
-
-// Deprecated
 function umdWebpack() {
   return gulp
     .src('lib/es/index.js')
@@ -223,7 +199,7 @@ function umdWebpack() {
           module: {
             rules: [
               {
-                test: /\.js$/,
+                test: /\.m?js$/,
                 use: {
                   loader: 'babel-loader',
                   options: {
@@ -235,7 +211,7 @@ function umdWebpack() {
                           'modules': false,
                           'targets': {
                             'chrome': '49',
-                            'ios': '10',
+                            'ios': '9',
                           },
                         },
                       ],
@@ -276,6 +252,13 @@ function umdWebpack() {
       )
     )
     .pipe(gulp.dest('lib/umd/'))
+}
+
+function copyUmd() {
+  return gulp
+    .src(['lib/umd/antd-mobile.js'])
+    .pipe(rename('antd-mobile.compatible.umd.js'))
+    .pipe(gulp.dest('lib/bundle/'))
 }
 
 function copyMetaFiles() {
@@ -352,7 +335,7 @@ exports.default = gulp.series(
   copyMetaFiles,
   generatePackageJSON,
   buildBundles,
-  buildCompatibleUMD,
   gulp.series(init2xFolder, build2xCSS),
-  umdWebpack
+  umdWebpack,
+  copyUmd
 )
