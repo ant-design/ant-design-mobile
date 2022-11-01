@@ -25,7 +25,7 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
   } = useContext(context)
 
   const { pathname } = useLocation()
-  const isHomePage = pathname === base
+  const isHomePage = pathname === base || pathname === base + '/'
 
   const navItems = useMemo(() => {
     const isCN = !!locale && /^zh|cn$/i.test(locale)
