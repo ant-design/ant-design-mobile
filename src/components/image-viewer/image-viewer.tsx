@@ -21,7 +21,7 @@ const classPrefix = `adm-image-viewer`
 
 export type ImageViewerProps = {
   image?: string
-  maxZoom?: number
+  maxZoom?: number | 'auto'
   getContainer?: GetContainer
   visible?: boolean
   color?: 'white' | 'black' | (string & {})
