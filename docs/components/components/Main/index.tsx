@@ -110,7 +110,7 @@ export default () => {
                     className={styles.productResourceCardButton}
                     type='primary'
                     shape='round'
-                    target='_blank'
+                    target={resource.target}
                     href={resource.buttonLink}
                   >
                     {resource.buttonText}

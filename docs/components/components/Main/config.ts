@@ -67,6 +67,7 @@ export const getProductResource = (isWideScreen: boolean, en: boolean) => [
       : 'https://gw.alipayobjects.com/zos/bmw-prod/613c0844-d32d-4b89-83f2-36bc6840628a.svg',
     buttonText: en ? 'Get Start' : '开始体验',
     buttonLink: 'https://codesandbox.io/s/antd-mobile-snrxr?file=/src/App.tsx',
+    target: '_blank',
   },
   {
     image:
