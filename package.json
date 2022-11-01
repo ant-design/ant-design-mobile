@@ -108,7 +108,6 @@
     "react-lottie": "^1.2.3",
     "react-test-renderer": "^18.2.0",
     "react-virtualized": "^9.22.3",
-    "resize-observer-polyfill": "^1.5.1",
     "style-loader": "^3.3.1",
     "through2": "^4.0.2",
     "ts-jest": "^28.0.8",

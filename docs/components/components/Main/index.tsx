@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Button, Card } from 'antd'
 import Lottie from 'react-lottie'
-import ResizeObserver from 'resize-observer-polyfill'
+import { useSize } from 'ahooks'
 import { RightOutlined } from '@ant-design/icons'
 import MainSection from './MainSection'
 import {
@@ -27,7 +27,6 @@ export default () => {
     false,
   ])
   const trans = useTrans()
-  window.aaa = trans
 
   useEffect(() => {
     setIsWidthScreen(screen?.width > 450)
@@ -43,31 +42,23 @@ export default () => {
     })
   }, [])
 
+  const containerRef = useRef<HTMLDivElement>(null)
+  const containerSize = useSize(containerRef)
+
   useEffect(() => {
-    const myObserver = new ResizeObserver(entries => {
-      const myContainer = entries?.[0]
-      if (myContainer.contentRect.width > 450) {
-        setIsWidthScreen(true)
-      } else {
-        setIsWidthScreen(false)
-      }
-    })
+    if (!containerSize?.width) return
 
-    const container = document.querySelector('#mainContainer') as Element
-
-    if (container) {
-      myObserver.observe(container)
+    if (containerSize?.width > 450) {
+      setIsWidthScreen(true)
+    } else {
+      setIsWidthScreen(false)
     }
-
-    return () => {
-      myObserver.disconnect()
-    }
-  }, [])
+  }, [containerSize?.width])
 
   return (
-    <div className={styles.mainContainer} id='mainContainer'>
+    <div className={styles.mainContainer} ref={containerRef} id='mainContainer'>
       <div className={styles.mainSection}>
-        <MainSection />
+        <MainSection isWidthScreen={isWidthScreen} />
       </div>
       <div className={styles.contentSection}>
         {/* 高性能、可定制、原子化、流畅感 */}

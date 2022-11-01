@@ -4,15 +4,14 @@ import Lottie from 'react-lottie'
 import styles from './index.local.less'
 import { useTrans } from '../../../../hooks/useTrans'
 
-export default () => {
+export default (props: { isWidthScreen: boolean }) => {
   const [startFireAnimation, setStartFireAnimation] = useState(false)
   const [startResultAnimation, setStartResultAnimation] = useState(false)
-  const [isWidthScreen, setIsWidthScreen] = useState(true)
+  const { isWidthScreen } = props
 
   const trans = useTrans()
 
   useEffect(() => {
-    setIsWidthScreen(screen?.width > 450)
     document
       .querySelector('#calendarImage')
       ?.addEventListener('mouseenter', () => {
@@ -23,25 +22,6 @@ export default () => {
       ?.addEventListener('mouseenter', () => {
         setStartResultAnimation(true)
       })
-  }, [])
-
-  useEffect(() => {
-    const myObserver = new ResizeObserver(entries => {
-      const myContainer = entries?.[0]
-      if (myContainer.contentRect.width > 450) {
-        setIsWidthScreen(true)
-      } else {
-        setIsWidthScreen(false)
-      }
-    })
-
-    const container = document.querySelector('#mainContainer') as Element
-    if (container) {
-      myObserver.observe(container)
-    }
-    return () => {
-      myObserver.disconnect()
-    }
   }, [])
 
   return (
