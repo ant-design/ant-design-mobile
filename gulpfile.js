@@ -330,12 +330,12 @@ exports.default = gulp.series(
   buildES,
   buildCJS,
   gulp.parallel(buildDeclaration, buildStyle),
-  copyPatchStyle,
   copyAssets,
   copyMetaFiles,
   generatePackageJSON,
   buildBundles,
   gulp.series(init2xFolder, build2xCSS),
   umdWebpack,
-  copyUmd
+  copyUmd,
+  copyPatchStyle
 )
