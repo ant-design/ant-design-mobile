@@ -46,16 +46,17 @@ function buildStyle() {
     .pipe(gulp.dest('./lib/cjs'))
 }
 
-function copyPatchStyle() {
-  return gulp
-    .src(['./lib/es/global/css-vars-patch.css'])
-    .pipe(
-      rename({
-        dirname: '',
-        extname: '.css',
-      })
-    )
-    .pipe(gulp.dest('./lib/bundle'))
+function copyPatchStyle(prefix = '') {
+  return () =>
+    gulp
+      .src([`./lib${prefix}/es/global/css-vars-patch.css`])
+      .pipe(
+        rename({
+          dirname: '',
+          extname: '.css',
+        })
+      )
+      .pipe(gulp.dest(`./lib${prefix}/bundle`))
 }
 
 function copyAssets() {
@@ -337,5 +338,6 @@ exports.default = gulp.series(
   gulp.series(init2xFolder, build2xCSS),
   umdWebpack,
   copyUmd,
-  copyPatchStyle
+  copyPatchStyle(),
+  copyPatchStyle('/2x')
 )
