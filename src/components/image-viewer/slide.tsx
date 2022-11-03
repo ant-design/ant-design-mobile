@@ -11,14 +11,14 @@ const classPrefix = `adm-image-viewer`
 
 type Props = {
   image: string
-  maxZoom: number
+  maxZoom: number | 'auto'
   onTap: () => void
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
 }
 
 export const Slide: FC<Props> = props => {
-  const { dragLockRef } = props
+  const { dragLockRef, maxZoom } = props
   const controlRef = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
   const [{ matrix }, api] = useSpring(() => ({
@@ -144,7 +144,20 @@ export const Slide: FC<Props> = props => {
         pinchLockRef.current = !state.last
         const [d] = state.offset
         if (d < 0) return
-        const nextZoom = state.last ? bound(d, 1, props.maxZoom) : d
+        let mergedMaxZoom: number
+        if (maxZoom === 'auto') {
+          mergedMaxZoom =
+            controlSize && imgSize
+              ? Math.max(
+                  controlSize.height / imgSize.height,
+                  controlSize.width / imgSize.width
+                )
+              : 1
+        } else {
+          mergedMaxZoom = maxZoom
+        }
+
+        const nextZoom = state.last ? bound(d, 1, mergedMaxZoom) : d
         props.onZoomChange?.(nextZoom)
         if (state.last && nextZoom <= 1) {
           api.start({
