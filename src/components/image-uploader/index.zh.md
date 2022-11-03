@@ -16,7 +16,7 @@
 | beforeUpload        | 文件读取前的回调函数，返回 `null` 可终止文件读取，支持返回 `Promise`          | `(file: File, files: File[]) => Promise<File \| null> \| File \| null`                                     | -         |
 | capture             | 图片选取模式，可选值为 `camera`（直接调起摄像头）                             | `boolean \| string`                                                                                        | -         |
 | children            | 自定义上传按钮                                                                | `ReactNode`                                                                                                | -         |
-| columns             | 行展示数                                                                      | `number`                                                                                                   | -         |
+| columns             | 列数                                                                      | `number`                                                                                                   | -         |
 | defaultValue        | 默认已上传的文件列表                                                          | `ImageUploadItem[]`                                                                                        | -         |
 | deletable           | 是否展示删除按钮                                                              | `boolean`                                                                                                  | `true`    |
 | disableUpload       | 是否禁用上传按钮                                                              | `boolean`                                                                                                  | `false`   |
