@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "5.25.0",
+  "version": "5.25.1",
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
@@ -9,7 +9,8 @@
     "postinstall": "husky install",
     "test": "jest",
     "test-with-coverage": "jest --coverage",
-    "pub": "npm publish ./lib",
+    "package-diff": "antd-tools run package-diff --path=./lib",
+    "pub": "npm run package-diff && npm publish ./lib",
     "pub:alpha": "npm publish ./lib --tag alpha",
     "pub:dev": "npm publish ./lib --tag dev"
   },
@@ -33,6 +34,7 @@
     "use-sync-external-store": "^1.1.0"
   },
   "devDependencies": {
+    "@ant-design/tools": "^16.0.0-alpha.0",
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.10",
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
