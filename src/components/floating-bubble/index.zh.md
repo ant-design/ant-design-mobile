@@ -29,10 +29,10 @@
 
 ## Ref
 
-| 属性      | 说明             | 类型                                                  |
-| --------- | ---------------- | ----------------------------------------------------- |
-| dragTo    | 拖动到指定位置   | `(x: number, y: number, immediate?: boolean) => void` |
-| curOffset | 当前拖动偏移位置 | `{ x: number; y: number;}`                            |
+| 属性   | 说明             | 类型                                                  |
+| ------ | ---------------- | ----------------------------------------------------- |
+| dragTo | 拖动到指定位置   | `(x: number, y: number, immediate?: boolean) => void` |
+| offset | 当前拖动偏移位置 | `{ x: number; y: number;}`                            |
 
 ### CSS 变量
 

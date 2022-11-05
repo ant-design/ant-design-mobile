@@ -29,10 +29,10 @@ Suitable for providing extra functionality to the current page.
 
 ## Ref
 
-| Name      | Description                  | Type                                                  |
-| --------- | ---------------------------- | ----------------------------------------------------- |
-| dragTo    | Drag to specified position   | `(x: number, y: number, immediate?: boolean) => void` |
-| curOffset | Current drag offset position | `{ x: number; y: number;}`                            |
+| Name   | Description                  | Type                                                  |
+| ------ | ---------------------------- | ----------------------------------------------------- |
+| dragTo | Drag to specified position   | `(x: number, y: number, immediate?: boolean) => void` |
+| offset | Current drag offset position | `{ x: number; y: number;}`                            |
 
 ### CSS Variables
 

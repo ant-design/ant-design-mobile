@@ -14,7 +14,7 @@ export default () => {
   }
 
   const getNewOffset = () => {
-    setCurOffset(floatingBubbleRef.current!.curOffset)
+    setCurOffset(floatingBubbleRef.current!.offset)
   }
 
   return (

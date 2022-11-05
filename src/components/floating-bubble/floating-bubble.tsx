@@ -32,7 +32,7 @@ export type FloatingBubbleProps = {
 
 export type FloatingBubbleRef = {
   dragTo: (x: number, y: number, immediate?: boolean) => void
-  curOffset: { x: number; y: number }
+  offset: { x: number; y: number }
 }
 
 const defaultProps = {
@@ -48,7 +48,7 @@ export const FloatingBubble = forwardRef<
 
   const boundaryRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
-  const offSetRef = useRef<{ x: number; y: number }>(props.defaultOffset)
+  const offsetRef = useRef<{ x: number; y: number }>(props.defaultOffset)
 
   useImperativeHandle(ref, () => ({
     dragTo: (x: number, y: number, immediate?: boolean) => {
@@ -57,13 +57,9 @@ export const FloatingBubble = forwardRef<
         y,
         immediate: immediate,
       })
-      offSetRef.current = {
-        x,
-        y,
-      }
     },
-    get curOffset() {
-      return offSetRef.current
+    get offset() {
+      return offsetRef.current
     },
   }))
 
@@ -76,6 +72,12 @@ export const FloatingBubble = forwardRef<
     x: props.defaultOffset.x,
     y: props.defaultOffset.y,
     opacity: 1,
+    onChange: result => {
+      offsetRef.current = {
+        x: result.value.x,
+        y: result.value.y,
+      }
+    },
   }))
   const bind = useDrag(
     state => {
@@ -108,12 +110,6 @@ export const FloatingBubble = forwardRef<
           } else {
             nextY -= topDistance
           }
-        }
-      }
-      if (state.last) {
-        offSetRef.current = {
-          x: nextX,
-          y: nextY,
         }
       }
       api.start({
