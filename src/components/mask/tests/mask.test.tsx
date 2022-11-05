@@ -73,6 +73,16 @@ describe('Mask', () => {
     )
   })
 
+  test('renders with custom color', async () => {
+    const { getByTestId } = render(
+      <Mask visible color='rgba(125, 125, 125, 0.5)' data-testid='mask' />
+    )
+
+    expect(getByTestId('mask').style.background).toEqual(
+      `rgba(125, 125, 125, 0.5)`
+    )
+  })
+
   test('afterClose should be called when close', async () => {
     const afterClose = jest.fn()
 

@@ -75,6 +75,21 @@ const CustomOpacity: FC = () => {
   )
 }
 
+// 背景蒙层的颜色 - 自定义
+const CustomColor: FC = () => {
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Mask
+        visible={visible}
+        onMaskClick={() => setVisible(false)}
+        color='rgba(219, 10, 10, 0.5)'
+      />
+      <Button onClick={() => setVisible(true)}>显示自定义颜色的背景蒙层</Button>
+    </>
+  )
+}
+
 // 白色的背景蒙层
 const White: FC = () => {
   const [visible, setVisible] = useState(false)
@@ -105,8 +120,9 @@ export default () => {
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='白色的背景蒙层'>
+      <DemoBlock title='其它颜色的背景蒙层'>
         <White />
+        <CustomColor />
       </DemoBlock>
 
       <DemoBlock title='自定义内容'>

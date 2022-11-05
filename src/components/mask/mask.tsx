@@ -22,6 +22,10 @@ const opacityRecord = {
   thin: 0.35,
   thick: 0.75,
 }
+const colorRecord: Record<string, string> = {
+  black: '0, 0, 0',
+  white: '255, 255, 255',
+}
 
 export type MaskProps = {
   visible?: boolean
@@ -29,7 +33,7 @@ export type MaskProps = {
   destroyOnClose?: boolean
   forceRender?: boolean
   disableBodyScroll?: boolean
-  color?: 'black' | 'white'
+  color?: 'white' | 'black' | (string & {})
   opacity?: 'default' | 'thin' | 'thick' | number
   getContainer?: GetContainer
   afterShow?: () => void
@@ -59,8 +63,8 @@ export const Mask: React.FC<MaskProps> = p => {
 
   const background = useMemo(() => {
     const opacity = opacityRecord[props.opacity] ?? props.opacity
-    const rgb = props.color === 'white' ? '255, 255, 255' : '0, 0, 0'
-    return `rgba(${rgb}, ${opacity})`
+    const rgb = colorRecord[props.color]
+    return rgb ? `rgba(${rgb}, ${opacity})` : props.color
   }, [props.color, props.opacity])
 
   const [active, setActive] = useState(props.visible)
