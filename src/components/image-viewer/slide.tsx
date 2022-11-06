@@ -1,6 +1,7 @@
 import React, { FC, MutableRefObject, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useSize } from 'ahooks'
+import Image, { ImageProps } from '../image'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
 import { bound } from '../../utils/bound'
@@ -15,12 +16,20 @@ type Props = {
   onTap: () => void
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
-}
+  index: number
+  onLoad?: (
+    event: React.SyntheticEvent<HTMLImageElement, Event>,
+    index: number
+  ) => void
+} & Pick<
+  ImageProps,
+  'fit' | 'placeholder' | 'fallback' | 'lazy' | 'crossOrigin'
+>
 
 export const Slide: FC<Props> = props => {
   const { dragLockRef, maxZoom } = props
   const controlRef = useRef<HTMLDivElement>(null)
-  const imgRef = useRef<HTMLImageElement>(null)
+  const imgRef = useRef<HTMLDivElement>(null)
   const [{ matrix }, api] = useSpring(() => ({
     matrix: mat.create(),
     config: { tension: 200 },
@@ -226,11 +235,17 @@ export const Slide: FC<Props> = props => {
             matrix,
           }}
         >
-          <img
+          <Image
             ref={imgRef}
             src={props.image}
             draggable={false}
             alt={props.image}
+            fit={props.fit}
+            placeholder={props.placeholder}
+            fallback={props.fallback}
+            lazy={props.lazy}
+            crossOrigin={props.crossOrigin}
+            onLoad={evt => props.onLoad?.(evt, props.index)}
           />
         </animated.div>
       </div>

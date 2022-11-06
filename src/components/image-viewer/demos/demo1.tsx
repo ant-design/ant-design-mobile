@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ImageViewer, Button } from 'antd-mobile'
+import { ImageViewer, Button, DotLoading, ErrorBlock } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { demoImage, demoImages } from './images'
 import styles from './demo1.less'
@@ -19,6 +19,32 @@ const Single = () => {
       <ImageViewer
         image={demoImage}
         visible={visible}
+        onClose={() => {
+          setVisible(false)
+        }}
+      />
+    </>
+  )
+}
+
+// 图片能力展示
+const MultiImage = () => {
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        显示图片
+      </Button>
+      <ImageViewer.Multi
+        images={demoImages}
+        visible={visible}
+        placeholder={<DotLoading color='primary' />}
+        fallback={<ErrorBlock status='default' />}
+        defaultIndex={1}
         onClose={() => {
           setVisible(false)
         }}
@@ -100,6 +126,10 @@ export default () => {
 
       <DemoBlock title='多张图片预览'>
         <Multi />
+      </DemoBlock>
+
+      <DemoBlock title='Image 属性展示'>
+        <MultiImage />
       </DemoBlock>
 
       <DemoBlock title='指令式调用'>

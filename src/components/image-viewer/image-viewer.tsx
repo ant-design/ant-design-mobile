@@ -16,6 +16,7 @@ import Mask from '../mask'
 import SafeArea from '../safe-area'
 import { Slide } from './slide'
 import { Slides, SlidesRef } from './slides'
+import { ImageProps } from '../image'
 
 const classPrefix = `adm-image-viewer`
 
@@ -27,7 +28,14 @@ export type ImageViewerProps = {
   onClose?: () => void
   afterClose?: () => void
   renderFooter?: (image: string) => React.ReactNode
-}
+  onLoad?: (
+    event: React.SyntheticEvent<HTMLImageElement, Event>,
+    index: number
+  ) => void
+} & Pick<
+  ImageProps,
+  'fit' | 'placeholder' | 'fallback' | 'lazy' | 'crossOrigin'
+>
 
 const defaultProps = {
   maxZoom: 3,
@@ -49,7 +57,14 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
       <div className={`${classPrefix}-content`}>
         {props.image && (
           <Slide
+            index={0}
             image={props.image}
+            fit={props.fit}
+            placeholder={props.placeholder}
+            fallback={props.fallback}
+            lazy={props.lazy}
+            crossOrigin={props.crossOrigin}
+            onLoad={props.onLoad}
             onTap={() => {
               props.onClose?.()
             }}
@@ -122,6 +137,12 @@ export const MultiImageViewer = forwardRef<
             defaultIndex={index}
             onIndexChange={onSlideChange}
             images={props.images}
+            fit={props.fit}
+            placeholder={props.placeholder}
+            fallback={props.fallback}
+            lazy={props.lazy}
+            crossOrigin={props.crossOrigin}
+            onLoad={props.onLoad}
             onTap={() => {
               props.onClose?.()
             }}
