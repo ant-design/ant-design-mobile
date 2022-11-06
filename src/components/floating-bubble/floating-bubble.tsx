@@ -18,6 +18,7 @@ export type FloatingBubbleProps = {
   magnetic?: 'x' | 'y'
   children?: React.ReactNode
   defaultOffset?: { x: number; y: number }
+  onDragEnd?: (offset: { x: number; y: number }) => void
 } & NativeProps<
   | '--initial-position-left'
   | '--initial-position-right'
@@ -111,6 +112,12 @@ export const FloatingBubble = forwardRef<
             nextY -= topDistance
           }
         }
+      }
+      if (state.last) {
+        props.onDragEnd?.({
+          x: nextX,
+          y: nextY,
+        })
       }
       api.start({
         x: nextX,
