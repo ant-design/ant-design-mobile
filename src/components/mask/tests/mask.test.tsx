@@ -73,7 +73,7 @@ describe('Mask', () => {
     )
   })
 
-  test('renders with custom color', async () => {
+  test('renders with custom color', () => {
     const { getByTestId } = render(
       <Mask visible color='rgba(125, 125, 125, 0.5)' data-testid='mask' />
     )

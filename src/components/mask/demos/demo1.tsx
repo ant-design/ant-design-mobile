@@ -120,7 +120,7 @@ export default () => {
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='其它颜色的背景蒙层'>
+      <DemoBlock title='背景蒙层的颜色'>
         <White />
         <CustomColor />
       </DemoBlock>
