@@ -211,11 +211,18 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     if (props.weekStartsOn === 'Monday') {
       iterator = iterator.add(1, 'day')
     }
-    while (cells.length < 6 * 7) {
+    for (let i = 0; cells.length < 6 * 7; i++) {
       const d = iterator
       let isSelect = false
       let isBegin = false
       let isEnd = false
+      let isSelectRowBegin = false
+      let isSelectRowEnd = false
+      const inThisMonth = d.month() === current.month()
+      const disabled = props.shouldDisableDate
+        ? props.shouldDisableDate(d.toDate())
+        : (maxDay && d.isAfter(maxDay, 'day')) ||
+          (minDay && d.isBefore(minDay, 'day'))
       if (dateRange) {
         const [begin, end] = dateRange
         isBegin = d.isSame(begin, 'day')
@@ -224,12 +231,17 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           isBegin ||
           isEnd ||
           (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
+        if (isSelect) {
+          isSelectRowBegin =
+            (i % 7 === 0 || d.isSame(d.startOf('month'), 'day')) &&
+            !isBegin &&
+            (!disabled || inThisMonth)
+          isSelectRowEnd =
+            (i % 7 === 6 || d.isSame(d.endOf('month'), 'day')) &&
+            !isEnd &&
+            (!disabled || inThisMonth)
+        }
       }
-      const inThisMonth = d.month() === current.month()
-      const disabled = props.shouldDisableDate
-        ? props.shouldDisableDate(d.toDate())
-        : (maxDay && d.isAfter(maxDay, 'day')) ||
-          (minDay && d.isBefore(minDay, 'day'))
       cells.push(
         <div
           key={d.valueOf()}
@@ -241,6 +253,8 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
               [`${classPrefix}-cell-selected`]: isSelect,
               [`${classPrefix}-cell-selected-begin`]: isBegin,
               [`${classPrefix}-cell-selected-end`]: isEnd,
+              [`${classPrefix}-cell-selected-row-begin`]: isSelectRowBegin,
+              [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
             }
           )}
           onClick={() => {

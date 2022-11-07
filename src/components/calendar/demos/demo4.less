@@ -1,0 +1,83 @@
+.calendar-custom {
+  .adm-calendar-cell {
+    justify-content: center;
+    height: 38px;
+    .adm-calendar-cell-bottom {
+      display: none;
+    }
+
+    &.adm-calendar-cell-selected.adm-calendar-cell.adm-calendar-cell-selected {
+      background: rgba(229, 242, 250, 1);
+
+      .adm-calendar-cell-top {
+        height: 38px;
+        width: 38px;
+        border-radius: 99px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(229, 242, 250, 1);
+        color: var(--adm-color-primary);
+      }
+
+      &.adm-calendar-cell-selected-begin {
+        background: linear-gradient(
+          to right,
+          var(--adm-color-white) 50%,
+          #e5f2fa 51%,
+          #e5f2fa
+        );
+        .adm-calendar-cell-top {
+          height: 38px;
+          width: 38px;
+          border-radius: 99px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: var(--adm-color-primary);
+          color: var(--adm-color-white);
+        }
+
+        &.adm-calendar-cell-selected-row-end {
+          background: transparent;
+        }
+      }
+
+      &.adm-calendar-cell-selected-begin.adm-calendar-cell-selected-end {
+        background: var(--adm-color-white);
+      }
+
+      &.adm-calendar-cell-selected-end {
+        background: linear-gradient(
+          to right,
+          #e5f2fa 50%,
+          var(--adm-color-white) 51%,
+          var(--adm-color-white)
+        );
+        .adm-calendar-cell-top {
+          height: 38px;
+          width: 38px;
+          border-radius: 99px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: var(--adm-color-primary);
+          color: var(--adm-color-white);
+        }
+
+        &.adm-calendar-cell-selected-row-start {
+          background: transparent;
+        }
+      }
+
+      &.adm-calendar-cell-selected-row-begin {
+        border-top-left-radius: 99px;
+        border-bottom-left-radius: 99px;
+      }
+      &.adm-calendar-cell-selected-row-end {
+        border-top-right-radius: 99px;
+        border-bottom-right-radius: 99px;
+      }
+    }
+  }
+}
