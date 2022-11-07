@@ -92,6 +92,23 @@ describe('ImageViewer', () => {
     await testA11y(<ImageViewer image={demoImages[0]} visible={true} />)
   })
 
+  test('maxZoom support auto', async () => {
+    jest.useFakeTimers()
+
+    render(<ImageViewer image={demoImages[0]} visible maxZoom='auto' />)
+
+    // Pinch to zoom bigger
+    act(() => {
+      triggerPinch([9999999, 9999999])
+    })
+
+    expect(G.nextZoom).toEqual(10)
+
+    jest.clearAllTimers()
+    jest.useRealTimers()
+    jest.restoreAllMocks()
+  })
+
   test('`ImageViewer.show/ImageViewer.clear` should be work', async () => {
     render(
       <button
@@ -110,22 +127,6 @@ describe('ImageViewer', () => {
       ImageViewer.clear()
     })
     await waitFor(() => expect(img).not.toBeVisible())
-  })
-
-  test('maxZoom support auto', async () => {
-    jest.useFakeTimers()
-
-    render(<ImageViewer image={demoImages[0]} visible maxZoom='auto' />)
-
-    // Pinch to zoom bigger
-    act(() => {
-      triggerPinch([9999999, 9999999])
-    })
-
-    expect(G.nextZoom).toEqual(10)
-
-    jest.clearAllTimers()
-    jest.useRealTimers()
   })
 })
 
