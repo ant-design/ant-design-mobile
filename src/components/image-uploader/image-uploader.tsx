@@ -1,14 +1,22 @@
-import React, { FC, InputHTMLAttributes, useRef, useState } from 'react'
+import React, {
+  FC,
+  InputHTMLAttributes,
+  useRef,
+  useState,
+  CSSProperties,
+} from 'react'
 import { AddOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
 import PreviewItem from './preview-item'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useIsomorphicLayoutEffect, useUnmount } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUnmount, useSize } from 'ahooks'
 import Space from '../space'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { measureCSSLength } from '../../utils/measure-css-length'
 import { useConfig } from '../config-provider'
 import type { ImageProps } from '../image'
+import Grid, { GridProps } from '../grid'
 
 export type TaskStatus = 'pending' | 'fail' | 'success'
 
@@ -31,6 +39,7 @@ export type UploadTask = Pick<Task, 'id' | 'status'>
 export type ImageUploaderProps = {
   defaultValue?: ImageUploadItem[]
   value?: ImageUploadItem[]
+  columns?: GridProps['columns']
   onChange?: (items: ImageUploadItem[]) => void
   onUploadQueueChange?: (tasks: UploadTask[]) => void
   accept?: string
@@ -57,7 +66,7 @@ export type ImageUploaderProps = {
     file: ImageUploadItem,
     fileList: ImageUploadItem[]
   ) => React.ReactNode
-} & NativeProps<'--cell-size'>
+} & NativeProps<'--cell-size' | '--gap' | '--gap-vertical' | '--gap-horizontal'>
 
 const classPrefix = `adm-image-uploader`
 
@@ -77,9 +86,33 @@ const defaultProps = {
 export const ImageUploader: FC<ImageUploaderProps> = p => {
   const { locale } = useConfig()
   const props = mergeProps(defaultProps, p)
+  const { columns } = props
   const [value, setValue] = usePropsValue(props)
 
   const [tasks, setTasks] = useState<Task[]>([])
+
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const containerSize = useSize(containerRef)
+  const gapMeasureRef = useRef<HTMLDivElement>(null)
+  const [cellSize, setCellSize] = useState<number>(80)
+
+  useIsomorphicLayoutEffect(() => {
+    const gapMeasure = gapMeasureRef.current
+    if (columns && containerSize && gapMeasure) {
+      const width = containerSize.width
+      const gap = measureCSSLength(
+        window.getComputedStyle(gapMeasure).getPropertyValue('height')
+      )
+      setCellSize((width - gap * (columns - 1)) / columns)
+    }
+  }, [containerSize?.width])
+
+  const style: CSSProperties & {
+    '--cell-size': string
+  } = {
+    '--cell-size': cellSize + 'px',
+  }
 
   useIsomorphicLayoutEffect(() => {
     setTasks(prev =>
@@ -241,54 +274,70 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     })
   }
 
+  const contentNode = (
+    <>
+      {renderImages()}
+      {tasks.map(task => {
+        if (!props.showFailed && task.status === 'fail') {
+          return null
+        }
+        return (
+          <PreviewItem
+            key={task.id}
+            file={task.file}
+            deletable={task.status !== 'pending'}
+            status={task.status}
+            imageFit={props.imageFit}
+            onDelete={() => {
+              setTasks(tasks.filter(x => x.id !== task.id))
+            }}
+          />
+        )
+      })}
+      {showUpload && (
+        <div className={`${classPrefix}-upload-button-wrap`}>
+          {props.children ? (
+            props.children
+          ) : (
+            <span
+              className={`${classPrefix}-cell ${classPrefix}-upload-button`}
+              role='button'
+              aria-label={locale.ImageUploader.upload}
+            >
+              <span className={`${classPrefix}-upload-button-icon`}>
+                <AddOutline />
+              </span>
+            </span>
+          )}
+          {!props.disableUpload && (
+            <input
+              capture={props.capture}
+              accept={props.accept}
+              multiple={props.multiple}
+              type='file'
+              className={`${classPrefix}-input`}
+              onChange={onChange}
+              aria-hidden
+            />
+          )}
+        </div>
+      )}
+    </>
+  )
+
   return withNativeProps(
     props,
-    <div className={classPrefix}>
-      <Space className={`${classPrefix}-space`} wrap block>
-        {renderImages()}
-        {finalTasks.map(task => {
-          return (
-            <PreviewItem
-              key={task.id}
-              file={task.file}
-              deletable={task.status !== 'pending'}
-              status={task.status}
-              imageFit={props.imageFit}
-              onDelete={() => {
-                setTasks(prev => prev.filter(x => x.id !== task.id))
-              }}
-            />
-          )
-        })}
-        {showUpload && (
-          <div className={`${classPrefix}-upload-button-wrap`}>
-            {props.children ? (
-              props.children
-            ) : (
-              <span
-                className={`${classPrefix}-cell ${classPrefix}-upload-button`}
-                role='button'
-                aria-label={locale.ImageUploader.upload}
-              >
-                <span className={`${classPrefix}-upload-button-icon`}>
-                  <AddOutline />
-                </span>
-              </span>
-            )}
-            {!props.disableUpload && (
-              <input
-                capture={props.capture}
-                accept={props.accept}
-                multiple={props.multiple}
-                type='file'
-                className={`${classPrefix}-input`}
-                onChange={onChange}
-                aria-hidden
-              />
-            )}
-          </div>
-        )}
-      </Space>
+    <div className={classPrefix} ref={containerRef}>
+      {columns ? (
+        <Grid className={`${classPrefix}-grid`} columns={columns} style={style}>
+          <div className={`${classPrefix}-gap-measure`} ref={gapMeasureRef} />
+          {contentNode.props.children}
+        </Grid>
+      ) : (
+        <Space className={`${classPrefix}-space`} wrap block>
+          {contentNode.props.children}
+        </Space>
+      )}
     </div>
   )
 }

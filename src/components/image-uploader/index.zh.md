@@ -16,6 +16,7 @@
 | beforeUpload        | 文件读取前的回调函数，返回 `null` 可终止文件读取，支持返回 `Promise`          | `(file: File, files: File[]) => Promise<File \| null> \| File \| null`                                     | -         |
 | capture             | 图片选取模式，可选值为 `camera`（直接调起摄像头）                             | `boolean \| string`                                                                                        | -         |
 | children            | 自定义上传按钮                                                                | `ReactNode`                                                                                                | -         |
+| columns             | 列数                                                                      | `number`                                                                                                   | -         |
 | defaultValue        | 默认已上传的文件列表                                                          | `ImageUploadItem[]`                                                                                        | -         |
 | deletable           | 是否展示删除按钮                                                              | `boolean`                                                                                                  | `true`    |
 | disableUpload       | 是否禁用上传按钮                                                              | `boolean`                                                                                                  | `false`   |
@@ -52,9 +53,12 @@
 
 ### CSS 变量
 
-| 属性        | 说明                 | 默认值 |
-| ----------- | -------------------- | ------ |
-| --cell-size | 图片和上传按钮的大小 | `80px` |
+| 属性             | 说明                                              | 默认值       |
+| ---------------- | ------------------------------------------------- | ------------ |
+| --cell-size      | 图片和上传按钮的大小（仅在非 columns 模式下有效） | `80px`       |
+| --gap            | 间距大小                                          | `12px`       |
+| --gap-horizontal | 水平方向的间距大小                                | `var(--gap)` |
+| --gap-vertical   | 垂直方向的间距大小                                | `var(--gap)` |
 
 ## FAQ
 
@@ -63,3 +67,7 @@
 ImageUploader 所提供的 `capture` 是来自 HTML 原生的能力，而在部分操作系统/浏览器环境下，可能并不支持该属性，因此这个问题无法避免。
 
 详见此 [issue](https://github.com/ant-design/ant-design-mobile/issues/5254) 中的讨论。
+
+### `columns` 属性说明
+
+`columns` 属性依赖 [Grid](./grid) 布局，该属性存在时，不支持自定义 `--cell-size` 属性，因为图片和上传按钮的大小是自动计算的。
