@@ -18,7 +18,7 @@ Often used in the background layer of a modal window to make the visual focus st
 | ----------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | ----------- |
 | afterClose        | Triggered when completely closed                                                                       | `() => void`                                                    | -           |
 | afterShow         | Triggered after fully displayed                                                                        | `() => void`                                                    | -           |
-| color             | Color of the mask                                                                                      | `'black' \| 'white'`                                            | `'black'`   |
+| color             | Color of the mask                                                                                      | `'black' \| 'white' \| string`                                  | `'black'`   |
 | destroyOnClose    | Uninstall content when invisible                                                                       | `boolean`                                                       | `false`     |
 | disableBodyScroll | Whether to disable `body` scrolling                                                                    | `boolean`                                                       | `true`      |
 | forceRender       | Render content forcely                                                                                 | `boolean`                                                       | `false`     |
