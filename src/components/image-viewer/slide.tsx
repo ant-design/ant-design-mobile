@@ -7,6 +7,7 @@ import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
 import { bound } from '../../utils/bound'
 import type { Matrix } from '../../utils/matrix'
 import * as mat from '../../utils/matrix'
+import { ImgRef } from '../image/image'
 
 const classPrefix = `adm-image-viewer`
 
@@ -29,15 +30,14 @@ type Props = {
 export const Slide: FC<Props> = props => {
   const { dragLockRef, maxZoom } = props
   const controlRef = useRef<HTMLDivElement>(null)
-  const imgRef = useRef<HTMLDivElement>(null)
+  const imgRef = useRef<ImgRef>(null)
   const [{ matrix }, api] = useSpring(() => ({
     matrix: mat.create(),
     config: { tension: 200 },
   }))
 
   const controlSize = useSize(controlRef)
-  const imgSize = useSize(imgRef)
-
+  const imgSize = useSize(imgRef.current?.nativeElement)
   const pinchLockRef = useRef(false)
 
   const boundMatrix = (

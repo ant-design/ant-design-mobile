@@ -1,7 +1,12 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { ReactNode, useState, forwardRef, Ref } from 'react'
+import React, {
+  ReactNode,
+  useState,
+  forwardRef,
+  useRef,
+  useImperativeHandle,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { staged } from 'staged-components'
 import { toCSSLength } from '../../utils/to-css-length'
 import { LazyDetector } from './lazy-detector'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
@@ -36,6 +41,10 @@ export type ImageProps = {
     | 'useMap'
   >
 
+export type ImgRef = {
+  nativeElement: HTMLImageElement | null
+}
+
 const defaultProps = {
   fit: 'fill',
   placeholder: (
@@ -52,11 +61,12 @@ const defaultProps = {
   draggable: false,
 }
 
-export const Image = forwardRef<HTMLDivElement, ImageProps>((p, ref) => {
+export const Image = forwardRef<ImgRef, ImageProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
 
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
+  const nativeImgRef = useRef<HTMLImageElement>(null)
 
   let src: string | undefined = props.src
   let srcSet: string | undefined = props.srcSet
@@ -65,6 +75,12 @@ export const Image = forwardRef<HTMLDivElement, ImageProps>((p, ref) => {
 
   src = initialized ? props.src : undefined
   srcSet = initialized ? props.srcSet : undefined
+
+  useImperativeHandle(ref, () => ({
+    get nativeElement() {
+      return nativeImgRef.current
+    },
+  }))
 
   useIsomorphicUpdateLayoutEffect(() => {
     setLoaded(false)
@@ -77,6 +93,7 @@ export const Image = forwardRef<HTMLDivElement, ImageProps>((p, ref) => {
     }
     const img = (
       <img
+        ref={nativeImgRef}
         className={`${classPrefix}-img`}
         src={src}
         alt={props.alt}
@@ -122,12 +139,7 @@ export const Image = forwardRef<HTMLDivElement, ImageProps>((p, ref) => {
   }
   return withNativeProps(
     props,
-    <div
-      ref={ref}
-      className={classPrefix}
-      style={style}
-      onClick={props.onContainerClick}
-    >
+    <div className={classPrefix} style={style} onClick={props.onContainerClick}>
       {props.lazy && !initialized && (
         <LazyDetector
           onActive={() => {

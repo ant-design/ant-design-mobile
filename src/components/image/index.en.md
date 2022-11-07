@@ -44,6 +44,12 @@ In addition, the following HTML native attributes are also supported: `crossOrig
 | --height | The height of image. | `auto`  | `--adm-image-height` |
 | --width  | The width of image.  | `auto`  | `--adm-image-width`  |
 
+### Ref
+
+| Name          | Description        | Type                         |
+| ------------- | ------------------ | ---------------------------- |
+| nativeElement | Native img element | `HtmlImageElement` \| `null` |
+
 ## FAQ
 
 ### How to make Image change from block element to inline-block element?

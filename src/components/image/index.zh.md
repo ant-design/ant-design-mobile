@@ -44,6 +44,12 @@
 | --height | 图片高度 | `auto` | `--adm-image-height` |
 | --width  | 图片宽度 | `auto` | `--adm-image-width`  |
 
+### Ref
+
+| 属性          | 说明          | 类型                         |
+| ------------- | ------------- | ---------------------------- |
+| nativeElement | 原始 img 元素 | `HtmlImageElement` \| `null` |
+
 ## FAQ
 
 ### 如何让 Image 从 block 元素变为 inline-block 元素？
