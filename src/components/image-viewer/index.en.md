@@ -12,20 +12,17 @@ You need to click on the picture to view the details and use it with the thumbna
 
 ## ImageViewer
 
-| Name         | Description                                                                                                                 | Type                                                                            | Default             |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------- | --- | --- |
-| afterClose   | Triggered when it is completely closed                                                                                      | `() => void`                                                                    | -                   |
-| getContainer | To get the specified mounted HTML node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null`                                      | `document.body`     |
-| image        | The `url` of the image resource                                                                                             | `string`                                                                        | -                   |
-| maxZoom      | The maximum zoom ratio                                                                                                      | `number \| 'auto'`                                                              | `3`                 |
-| onClose      | Triggered when it is closed                                                                                                 | `boolean`                                                                       | -                   |
-| renderFooter | Render extra content on footer                                                                                              | `(image: string) => ReactNode`                                                  | -                   |
-| visible      | Whether to show or hide                                                                                                     | `boolean`                                                                       | `false`             |
-| fallback     | Placeholder when failed to load                                                                                             | `ReactNode`                                                                     | default placeholder |
-| fit          | The fill mode of the image                                                                                                  | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'`                      | `'fill'`            |     | -   |
-| lazy         | Whether to load image lazily                                                                                                | `boolean`                                                                       | `false`             |
-| onLoad       | Triggered when image loaded                                                                                                 | `(event: React.SyntheticEvent<HTMLImageElement, Event>, index: number) => void` | -                   |
-| placeholder  | Placeholder when loading                                                                                                    | `ReactNode`                                                                     |
+| Name         | Description                                                                                                                 | Type                                       | Default         |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
+| afterClose   | Triggered when it is completely closed                                                                                      | `() => void`                               | -               |
+| getContainer | To get the specified mounted HTML node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
+| image        | The `url` of the image resource                                                                                             | `string`                                   | -               |
+| maxZoom      | The maximum zoom ratio                                                                                                      | `number \| 'auto'`                         | `3`             |
+| onClose      | Triggered when it is closed                                                                                                 | `boolean`                                  | -               |
+| renderFooter | Render extra content on footer                                                                                              | `(image: string) => ReactNode`             | -               |
+| visible      | Whether to show or hide                                                                                                     | `boolean`                                  | `false`         |
+
+In addition, the following props of [Image](/components/image) are also supported: `fit` `placeholder` `fallback` `lazy` `crossOrigin`.
 
 ## ImageViewer.Multi
 

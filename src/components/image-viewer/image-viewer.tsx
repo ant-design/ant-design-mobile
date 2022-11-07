@@ -41,6 +41,7 @@ const defaultProps = {
   maxZoom: 3,
   getContainer: null,
   visible: false,
+  placeholder: null,
 }
 
 export const ImageViewer: FC<ImageViewerProps> = p => {

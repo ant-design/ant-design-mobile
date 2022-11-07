@@ -52,92 +52,90 @@ const defaultProps = {
   draggable: false,
 }
 
-export const Image = forwardRef<HTMLDivElement, ImageProps>(
-  staged((p: ImageProps, ref: Ref<HTMLDivElement>) => {
-    const props = mergeProps(defaultProps, p)
+export const Image = forwardRef<HTMLDivElement, ImageProps>((p, ref) => {
+  const props = mergeProps(defaultProps, p)
 
-    const [loaded, setLoaded] = useState(false)
-    const [failed, setFailed] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+  const [failed, setFailed] = useState(false)
 
-    let src: string | undefined = props.src
-    let srcSet: string | undefined = props.srcSet
+  let src: string | undefined = props.src
+  let srcSet: string | undefined = props.srcSet
 
-    const [initialized, setInitialized] = useState(!props.lazy)
+  const [initialized, setInitialized] = useState(!props.lazy)
 
-    src = initialized ? props.src : undefined
-    srcSet = initialized ? props.srcSet : undefined
+  src = initialized ? props.src : undefined
+  srcSet = initialized ? props.srcSet : undefined
 
-    useIsomorphicUpdateLayoutEffect(() => {
-      setLoaded(false)
-      setFailed(false)
-    }, [src])
+  useIsomorphicUpdateLayoutEffect(() => {
+    setLoaded(false)
+    setFailed(false)
+  }, [src])
 
-    function renderInner() {
-      if (failed) {
-        return <>{props.fallback}</>
-      }
-      const img = (
-        <img
-          className={`${classPrefix}-img`}
-          src={src}
-          alt={props.alt}
-          onClick={props.onClick}
-          onLoad={e => {
-            setLoaded(true)
-            props.onLoad?.(e)
-          }}
-          onError={e => {
-            setFailed(true)
-            props.onError?.(e)
-          }}
-          style={{
-            objectFit: props.fit,
-            display: loaded ? 'block' : 'none',
-          }}
-          crossOrigin={props.crossOrigin}
-          decoding={props.decoding}
-          loading={props.loading}
-          referrerPolicy={props.referrerPolicy}
-          sizes={props.sizes}
-          srcSet={srcSet}
-          useMap={props.useMap}
-          draggable={props.draggable}
-        />
-      )
-      return (
-        <>
-          {!loaded && props.placeholder}
-          {img}
-        </>
-      )
+  function renderInner() {
+    if (failed) {
+      return <>{props.fallback}</>
     }
-
-    const style: ImageProps['style'] = {}
-    if (props.width) {
-      style['--width'] = toCSSLength(props.width)
-      style['width'] = toCSSLength(props.width)
-    }
-    if (props.height) {
-      style['--height'] = toCSSLength(props.height)
-      style['height'] = toCSSLength(props.height)
-    }
-    return withNativeProps(
-      props,
-      <div
-        ref={ref}
-        className={classPrefix}
-        style={style}
-        onClick={props.onContainerClick}
-      >
-        {props.lazy && !initialized && (
-          <LazyDetector
-            onActive={() => {
-              setInitialized(true)
-            }}
-          />
-        )}
-        {renderInner()}
-      </div>
+    const img = (
+      <img
+        className={`${classPrefix}-img`}
+        src={src}
+        alt={props.alt}
+        onClick={props.onClick}
+        onLoad={e => {
+          setLoaded(true)
+          props.onLoad?.(e)
+        }}
+        onError={e => {
+          setFailed(true)
+          props.onError?.(e)
+        }}
+        style={{
+          objectFit: props.fit,
+          display: loaded ? 'block' : 'none',
+        }}
+        crossOrigin={props.crossOrigin}
+        decoding={props.decoding}
+        loading={props.loading}
+        referrerPolicy={props.referrerPolicy}
+        sizes={props.sizes}
+        srcSet={srcSet}
+        useMap={props.useMap}
+        draggable={props.draggable}
+      />
     )
-  })
-)
+    return (
+      <>
+        {!loaded && props.placeholder}
+        {img}
+      </>
+    )
+  }
+
+  const style: ImageProps['style'] = {}
+  if (props.width) {
+    style['--width'] = toCSSLength(props.width)
+    style['width'] = toCSSLength(props.width)
+  }
+  if (props.height) {
+    style['--height'] = toCSSLength(props.height)
+    style['height'] = toCSSLength(props.height)
+  }
+  return withNativeProps(
+    props,
+    <div
+      ref={ref}
+      className={classPrefix}
+      style={style}
+      onClick={props.onContainerClick}
+    >
+      {props.lazy && !initialized && (
+        <LazyDetector
+          onActive={() => {
+            setInitialized(true)
+          }}
+        />
+      )}
+      {renderInner()}
+    </div>
+  )
+})

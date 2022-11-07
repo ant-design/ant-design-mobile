@@ -12,20 +12,17 @@
 
 ## ImageViewer
 
-| 属性         | 说明                                                                      | 类型                                                                            | 默认值          |
-| ------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | --------------- |
-| afterClose   | 完全关闭后触发                                                            | `() => void`                                                                    | -               |
-| getContainer | 指定挂载的 HTML 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null`                                      | `document.body` |
-| image        | 图片资源的 `url`                                                          | `string`                                                                        | -               |
-| maxZoom      | 最大缩放比例                                                              | `number \| 'auto'`                                                              | `3`             |
-| onClose      | 关闭时触发                                                                | `boolean`                                                                       | -               |
-| renderFooter | 渲染底部额外内容                                                          | `(image: string) => ReactNode`                                                  | -               |
-| visible      | 是否显示                                                                  | `boolean`                                                                       | `false`         |
-| fallback     | 加载失败的占位                                                            | `ReactNode`                                                                     | 默认占位        |
-| fit          | 图片填充模式                                                              | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'`                      | `'fill'`        |
-| lazy         | 是否懒加载图片                                                            | `boolean`                                                                       | `false`         |
-| onLoad       | 图片加载完时触发                                                          | `(event: React.SyntheticEvent<HTMLImageElement, Event>, index: number) => void` | -               |
-| placeholder  | 加载时的占位                                                              | `ReactNode`                                                                     | 默认占位        |
+| 属性         | 说明                                                                      | 类型                                       | 默认值          |
+| ------------ | ------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
+| afterClose   | 完全关闭后触发                                                            | `() => void`                               | -               |
+| getContainer | 指定挂载的 HTML 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
+| image        | 图片资源的 `url`                                                          | `string`                                   | -               |
+| maxZoom      | 最大缩放比例                                                              | `number \| 'auto'`                         | `3`             |
+| onClose      | 关闭时触发                                                                | `boolean`                                  | -               |
+| renderFooter | 渲染底部额外内容                                                          | `(image: string) => ReactNode`             | -               |
+| visible      | 是否显示                                                                  | `boolean`                                  | `false`         |
+
+此外，还支持 [Image](/zh/components/image) 组件的 `fit` `placeholder` `fallback` `lazy` `crossOrigin` 属性。
 
 ## ImageViewer.Multi
 
