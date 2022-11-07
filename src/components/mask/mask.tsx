@@ -102,7 +102,7 @@ export const Mask: React.FC<MaskProps> = p => {
           opacity,
           display: active ? undefined : 'none',
         }}
-        onClick={e => {
+        onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
           if (e.target === e.currentTarget) {
             props.onMaskClick?.(e)
           }

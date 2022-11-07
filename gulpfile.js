@@ -99,6 +99,13 @@ function buildES() {
 function buildDeclaration() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
+    paths: {
+      ...tsconfig.compilerOptions.paths,
+      'react': ['node_modules/@types/react'],
+      'rc-field-form': ['node_modules/rc-field-form'],
+      '@react-spring/web': ['node_modules/@react-spring/web'],
+      '@use-gesture/react': ['node_modules/@use-gesture/react'],
+    },
     module: 'ES6',
     declaration: true,
     emitDeclarationOnly: true,
