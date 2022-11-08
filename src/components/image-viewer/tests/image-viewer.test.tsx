@@ -51,9 +51,9 @@ jest.mock('ahooks', () => {
       const [, forceUpdate] = useState(0)
       useEffect(() => {
         forceUpdate((v: number) => v + 1)
-      }, [target.current])
+      }, [target])
 
-      return target.current instanceof HTMLImageElement
+      return target instanceof HTMLImageElement
         ? {
             width: 10,
             height: 100,
