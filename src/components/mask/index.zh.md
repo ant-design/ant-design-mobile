@@ -18,7 +18,7 @@
 | ----------------- | ------------------------------------------------------------ | --------------------------------------------------------------- | ----------- |
 | afterClose        | 完全关闭后触发                                               | `() => void`                                                    | -           |
 | afterShow         | 完全展示后触发                                               | `() => void`                                                    | -           |
-| color             | 背景蒙层的颜色                                               | `'black' \| 'white'`                                            | `'black'`   |
+| color             | 背景蒙层的颜色                                               | `'black' \| 'white' \| string`                                  | `'black'`   |
 | destroyOnClose    | 不可见时卸载内容                                             | `boolean`                                                       | `false`     |
 | disableBodyScroll | 是否禁用 `body` 滚动                                         | `boolean`                                                       | `true`      |
 | forceRender       | 强制渲染内容                                                 | `boolean`                                                       | `false`     |
