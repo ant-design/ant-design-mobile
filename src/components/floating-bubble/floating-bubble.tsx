@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { mergeProps } from '../../utils/with-default-props'
@@ -12,13 +6,15 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-floating-bubble`
 
+type Offset = { x: number; y: number }
+
 export type FloatingBubbleProps = {
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   axis?: 'x' | 'y' | 'xy' | 'lock'
   magnetic?: 'x' | 'y'
   children?: React.ReactNode
-  defaultOffset?: { x: number; y: number }
-  onDragEnd?: (offset: { x: number; y: number }) => void
+  defaultOffset?: Offset
+  onDragEnd?: (offset: Offset) => void
 } & NativeProps<
   | '--initial-position-left'
   | '--initial-position-right'
@@ -33,7 +29,7 @@ export type FloatingBubbleProps = {
 
 export type FloatingBubbleRef = {
   dragTo: (x: number, y: number, immediate?: boolean) => void
-  offset: { x: number; y: number }
+  offset: Offset
 }
 
 const defaultProps = {
@@ -51,6 +47,11 @@ export const FloatingBubble = forwardRef<
   const buttonRef = useRef<HTMLDivElement>(null)
   const offsetRef = useRef<{ x: number; y: number }>(props.defaultOffset)
 
+  const onDragEnd = (offset: Offset) => {
+    offsetRef.current = offset
+    props.onDragEnd?.(offset)
+  }
+
   useImperativeHandle(ref, () => ({
     dragTo: (x: number, y: number, immediate?: boolean) => {
       api.start({
@@ -58,6 +59,7 @@ export const FloatingBubble = forwardRef<
         y,
         immediate: immediate,
       })
+      onDragEnd({ x, y })
     },
     get offset() {
       return offsetRef.current
@@ -73,12 +75,6 @@ export const FloatingBubble = forwardRef<
     x: props.defaultOffset.x,
     y: props.defaultOffset.y,
     opacity: 1,
-    onChange: result => {
-      offsetRef.current = {
-        x: result.value.x,
-        y: result.value.y,
-      }
-    },
   }))
   const bind = useDrag(
     state => {
@@ -114,7 +110,7 @@ export const FloatingBubble = forwardRef<
         }
       }
       if (state.last) {
-        props.onDragEnd?.({
+        onDragEnd({
           x: nextX,
           y: nextY,
         })
