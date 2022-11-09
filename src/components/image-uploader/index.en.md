@@ -16,6 +16,7 @@
 | beforeUpload        | Callback function before file reading, return `null` to terminate file reading, support return `Promise`                                                                 | `(file: File, files: File[]) => Promise<File \| null> \| File \| null`                                     | -         |
 | capture             | Picture selection mode, the optional value is `camera` (directly adjust the camera)                                                                                      | `boolean \| string`                                                                                        | -         |
 | children            | Custom upload button                                                                                                                                                     | `ReactNode`                                                                                                | -         |
+| columns             | Number of the displayed columns                                                                                                                                          | `number`                                                                                                   | -         |
 | defaultValue        | Default list of uploaded files                                                                                                                                           | `ImageUploadItem[]`                                                                                        | -         |
 | deletable           | Whether to show the delete button                                                                                                                                        | `boolean`                                                                                                  | `true`    |
 | disableUpload       | Whether to disable the upload button                                                                                                                                     | `boolean`                                                                                                  | `false`   |
@@ -52,9 +53,12 @@
 
 ### CSS Variables
 
-| Name        | Description                         | Default |
-| ----------- | ----------------------------------- | ------- |
-| --cell-size | The size of image and upload button | `80px`  |
+| Name             | Description                                                         | Default      |
+| ---------------- | ------------------------------------------------------------------- | ------------ |
+| --cell-size      | The size of image and upload button(Valid only in non-columns mode) | `80px`       |
+| --gap            | The gap between items.                                              | `12px`       |
+| --gap-horizontal | The horizontal gap between items.                                   | `var(--gap)` |
+| --gap-vertical   | The vertical gap between items.                                     | `var(--gap)` |
 
 ## FAQ
 
@@ -63,3 +67,7 @@
 The `capture` provided by ImageUploader comes from the native HTML capability, and in some operating systems/browser environments, this attribute may not be supported, so this problem cannot be avoided.
 
 See the discussion in this [issue](https://github.com/ant-design/ant-design-mobile/issues/5254).
+
+### Description of the `columns` Prop
+
+The `columns` relies on [Grid](./grid) layout and when present, the custom `--cell-size` is not supported, as the size of image and upload button is calculated automatically.

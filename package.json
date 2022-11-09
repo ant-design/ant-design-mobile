@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "5.24.0",
+  "version": "5.25.1",
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
@@ -9,7 +9,8 @@
     "postinstall": "husky install",
     "test": "jest",
     "test-with-coverage": "jest --coverage",
-    "pub": "npm publish ./lib",
+    "package-diff": "antd-tools run package-diff --path=./lib",
+    "pub": "npm run package-diff && npm publish ./lib",
     "pub:alpha": "npm publish ./lib --tag alpha",
     "pub:dev": "npm publish ./lib --tag dev"
   },
@@ -32,6 +33,8 @@
     "use-sync-external-store": "^1.1.0"
   },
   "devDependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@ant-design/tools": "^16.0.0-alpha.0",
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.10",
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
@@ -64,12 +67,13 @@
     "@types/use-sync-external-store": "^0.0.3",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
-    "@umijs/types": "^3.5.32",
+    "@umijs/types": "^3.5.34",
+    "antd": "^4.23.5",
     "autoprefixer": "^9.8.8",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "del": "^6.1.1",
-    "dumi": "^1.1.47",
+    "dumi": "^1.1.48",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.30.1",
@@ -89,6 +93,7 @@
     "jest-watch-typeahead": "^1.1.0",
     "less": "^4.1.3",
     "lorem-ipsum": "^2.0.8",
+    "lz-string": "^1.4.4",
     "mockdate": "^3.0.5",
     "postcss": "^7.0.39",
     "postcss-px-multiple": "^0.1.5",
@@ -102,6 +107,7 @@
     "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-lottie": "^1.2.3",
     "react-test-renderer": "^18.2.0",
     "react-virtualized": "^9.22.3",
     "style-loader": "^3.3.1",
