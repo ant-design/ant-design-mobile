@@ -26,14 +26,14 @@ Suitable for providing extra functionality to the current page.
 | children      | Content of the bubble.                                                                                                                                            | ReactNode                                   | -----            |
 | magnetic      | Automatic magnetic attraction to the boundary.                                                                                                                    | `'x' \| 'y'`                                | -                |
 | defaultOffset | default offset position                                                                                                                                           | `{ x: number; y: number;}`                  | `{ x: 0, y: 0 }` |
-| onDragEnd     | Callback when drag end                                                                                                                                            | `(offset:{ x: number; y: number;}) => void` | -                |
+| onDragEnd     | Callback when drag end                                                                                                                                            | `(offset:{ x: number; y: number }) => void` | -                |
 
 ## Ref
 
 | Name   | Description                  | Type                                                  |
 | ------ | ---------------------------- | ----------------------------------------------------- |
 | dragTo | Drag to specified position   | `(x: number, y: number, immediate?: boolean) => void` |
-| offset | Current drag offset position | `{ x: number; y: number;}`                            |
+| offset | Current drag offset position | `{ x: number; y: number }`                            |
 
 ### CSS Variables
 
