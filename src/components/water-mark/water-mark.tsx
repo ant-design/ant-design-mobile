@@ -96,7 +96,7 @@ export const WaterMark: FC<WaterMarkProps> = p => {
         ctx.fillStyle = fontColor
         if (Array.isArray(content)) {
           content.forEach((item: string, index: number) =>
-            ctx.fillText(item, 0, index * markSize * 1.5)
+            ctx.fillText(item, 0, index * markSize)
           )
         } else {
           ctx.fillText(content, 0, 0)
