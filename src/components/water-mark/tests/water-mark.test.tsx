@@ -24,6 +24,13 @@ describe('WaterMark', () => {
     expect(container).toMatchSnapshot()
   })
 
+  test('more rows content watermark', () => {
+    const { container } = render(
+      <WaterMark content={['Ant Design Mobile', 'Ant Design']} />
+    )
+    expect(container).toMatchSnapshot()
+  })
+
   test('image watermark', () => {
     const image =
       'https://gw.alipayobjects.com/zos/bmw-prod/59a18171-ae17-4fc5-93a0-2645f64a3aca.svg'
