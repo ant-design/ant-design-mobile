@@ -113,6 +113,9 @@ const kkKZ = mergeLocale(base, {
   Switch: {
     name: 'Сөндіргіш',
   },
+  Image: {
+    name: 'Сурет',
+  },
 })
 
 export default kkKZ

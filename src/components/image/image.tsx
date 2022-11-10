@@ -12,6 +12,7 @@ import { LazyDetector } from './lazy-detector'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 import { ImageIcon } from './image-icon'
 import { BrokenImageIcon } from './broken-image-icon'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-image`
 
@@ -67,6 +68,7 @@ export const Image = forwardRef<ImgRef, ImageProps>((p, ref) => {
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
   const nativeImgRef = useRef<HTMLImageElement>(null)
+  const { locale } = useConfig()
 
   let src: string | undefined = props.src
   let srcSet: string | undefined = props.srcSet
@@ -139,7 +141,13 @@ export const Image = forwardRef<ImgRef, ImageProps>((p, ref) => {
   }
   return withNativeProps(
     props,
-    <div className={classPrefix} style={style} onClick={props.onContainerClick}>
+    <div
+      className={classPrefix}
+      style={style}
+      onClick={props.onContainerClick}
+      role='img'
+      aria-label={locale.Image.name}
+    >
       {props.lazy && !initialized && (
         <LazyDetector
           onActive={() => {

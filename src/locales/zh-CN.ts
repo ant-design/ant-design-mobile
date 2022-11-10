@@ -128,6 +128,9 @@ const zhCN = mergeLocale(base, {
   Switch: {
     name: '开关',
   },
+  Image: {
+    name: '图片',
+  },
 })
 
 export default zhCN

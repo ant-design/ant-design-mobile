@@ -11,6 +11,7 @@ import {
 } from 'testing'
 import ImageViewer, { MultiImageViewerRef } from '../index'
 import Button from '../../button'
+import { ImgRef } from '../../image/image'
 
 const classPrefix = `adm-image-viewer`
 
@@ -47,13 +48,13 @@ jest.mock('ahooks', () => {
 
   return {
     ...origin,
-    useSize: (target: React.RefObject<HTMLElement>) => {
+    useSize: (target: React.RefObject<ImgRef>) => {
       const [, forceUpdate] = useState(0)
       useEffect(() => {
         forceUpdate((v: number) => v + 1)
-      }, [target])
+      }, [target?.current])
 
-      return target instanceof HTMLImageElement
+      return target?.current instanceof HTMLImageElement
         ? {
             width: 10,
             height: 100,
@@ -102,7 +103,7 @@ describe('ImageViewer', () => {
       triggerPinch([9999999, 9999999])
     })
 
-    expect(G.nextZoom).toEqual(10)
+    expect(G.nextZoom).toEqual(1)
 
     jest.clearAllTimers()
     jest.useRealTimers()
@@ -194,6 +195,9 @@ describe('ImageViewer.Multi', () => {
       </>
     )
     fireEvent.click(screen.getByText('show'))
+    await act(async () => {
+      jest.runAllTimers()
+    })
     const imgs = await screen.findAllByRole('img')
     expect(imgs[0]).toBeVisible()
     await userEvent.click(imgs[0])
