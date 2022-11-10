@@ -238,7 +238,6 @@ export const Slide: FC<Props> = props => {
           <Image
             ref={imgRef}
             src={props.image}
-            draggable={true}
             alt={props.image}
             fit={props.fit}
             placeholder={props.placeholder}
