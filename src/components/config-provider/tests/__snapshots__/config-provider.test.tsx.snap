@@ -1086,7 +1086,9 @@ exports[`ConfigProvider should display the text as en 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="Image"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -2304,7 +2306,9 @@ exports[`ConfigProvider should display the text as es 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="Imagen"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -3522,7 +3526,9 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="تصویر"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -4740,7 +4746,9 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="Image"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -5958,7 +5966,9 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="gambar"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -7176,7 +7186,9 @@ exports[`ConfigProvider should display the text as ja-JP 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="画像"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -8394,7 +8406,9 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="Сурет"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -9612,7 +9626,9 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="영상"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -10830,7 +10846,9 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="图片"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -12048,7 +12066,9 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="圖片"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -13266,7 +13286,9 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="圖片"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"

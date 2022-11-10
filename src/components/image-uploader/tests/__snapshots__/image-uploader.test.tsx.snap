@@ -15,7 +15,9 @@ exports[`ImageUploader \`preview\` & \`onPreview\` prop 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="图片"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -162,7 +164,9 @@ exports[`ImageUploader custom upload button 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="图片"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -265,7 +269,9 @@ exports[`ImageUploader upload status 1`] = `
           class="adm-image-uploader-cell"
         >
           <div
+            aria-label="图片"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"
@@ -338,7 +344,9 @@ exports[`ImageUploader upload status 1`] = `
           class="adm-image-uploader-cell adm-image-uploader-cell-fail"
         >
           <div
+            aria-label="图片"
             class="adm-image adm-image-uploader-cell-image"
+            role="img"
           >
             <div
               class="adm-image-tip"

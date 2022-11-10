@@ -106,6 +106,9 @@ const zhTW = mergeLocale(base, {
     canRelease: '釋放立即刷新',
     complete: '刷新成功',
   },
+  Image: {
+    name: '圖片',
+  },
 })
 
 export default zhTW
