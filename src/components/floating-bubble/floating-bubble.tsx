@@ -44,24 +44,10 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
     props.offset === undefined ? props.defaultOffset : props.offset
   )
 
-  const { run: setValue } = useThrottleFn(
-    (v: Offset) => {
-      setInnerValue(v)
-    },
-    {
-      wait: 50,
-    }
-  )
-
   useEffect(() => {
     if (props.offset === undefined) return
     api.start({ x: props.offset.x, y: props.offset.y })
   }, [props.offset])
-
-  useEffect(() => {
-    if (props.offset === undefined) return
-    props.onChange?.(innerValue)
-  }, [innerValue])
 
   /**
    * memoize the `to` function
@@ -109,16 +95,14 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
         }
       }
 
-      // Uncontrolled mode
+      const nextOffest = { x: nextX, y: nextY }
       if (props.offset === undefined) {
-        api.start({
-          x: nextX,
-          y: nextY,
-        })
-        props.onChange?.({ x: nextX, y: nextY })
+        // Uncontrolled mode
+        api.start(nextOffest)
       } else {
-        setValue({ x: nextX, y: nextY })
+        setInnerValue(nextOffest)
       }
+      props.onChange?.(nextOffest)
 
       // active status
       api.start({
