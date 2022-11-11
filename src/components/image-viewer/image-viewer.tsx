@@ -42,6 +42,7 @@ const defaultProps = {
   getContainer: null,
   visible: false,
   placeholder: null,
+  fit: 'contain',
 }
 
 export const ImageViewer: FC<ImageViewerProps> = p => {
