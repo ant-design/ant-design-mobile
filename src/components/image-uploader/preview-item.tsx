@@ -1,5 +1,4 @@
 import React, { FC, useLayoutEffect, useMemo } from 'react'
-import { CloseOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
 import Image from '../image'
