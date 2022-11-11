@@ -146,38 +146,4 @@ describe('FloatingBubble', () => {
     await sleep(0)
     expect(btn).toHaveStyle('transform: translate(0px, 0px)')
   })
-
-  test('onDragEnd should be work', async () => {
-    const fn = jest.fn()
-    render(<FloatingBubble axis='xy' onDragEnd={fn} />)
-    mockBoundaryRect()
-    const btn = document.querySelectorAll(`.${classPrefix}-button`)[0]
-    mockButtonRect()
-
-    fireEvent.mouseDown(btn, {
-      buttons: 1,
-      clientY: 603,
-    })
-    fireEvent.mouseMove(btn, {
-      buttons: 1,
-      clientY: 548,
-    })
-    mockButtonRect({
-      y: 500,
-      top: 500,
-      bottom: 548,
-    })
-    fireEvent.mouseUp(btn)
-    expect(fn).toBeCalledWith({ x: 0, y: -52 })
-  })
-
-  test('`ref.dragTo` should be work', async () => {
-    const ref = createRef<FloatingBubbleRef>()
-    render(
-      <FloatingBubble axis='xy' ref={ref} defaultOffset={{ x: -24, y: -24 }} />
-    )
-    expect(ref.current?.offset).toEqual({ x: -24, y: -24 })
-    ref.current?.dragTo(100, 100)
-    expect(ref.current?.offset).toEqual({ x: 100, y: 100 })
-  })
 })
