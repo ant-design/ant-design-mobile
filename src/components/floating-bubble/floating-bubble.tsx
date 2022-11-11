@@ -1,8 +1,9 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import React, { FC, useRef, useEffect, useState } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useThrottleFn } from 'ahooks'
 
 const classPrefix = `adm-floating-bubble`
 
@@ -13,8 +14,9 @@ export type FloatingBubbleProps = {
   axis?: 'x' | 'y' | 'xy' | 'lock'
   magnetic?: 'x' | 'y'
   children?: React.ReactNode
+  offset?: Offset
   defaultOffset?: Offset
-  onDragEnd?: (offset: Offset) => void
+  onChange?: (offset: Offset) => void
 } & NativeProps<
   | '--initial-position-left'
   | '--initial-position-right'
@@ -37,34 +39,34 @@ const defaultProps = {
   defaultOffset: { x: 0, y: 0 },
 }
 
-export const FloatingBubble = forwardRef<
-  FloatingBubbleRef,
-  FloatingBubbleProps
->((p, ref) => {
+export const FloatingBubble: FC<FloatingBubbleProps> = p => {
   const props = mergeProps(defaultProps, p)
 
   const boundaryRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
-  const offsetRef = useRef<{ x: number; y: number }>(props.defaultOffset)
 
-  const onDragEnd = (offset: Offset) => {
-    offsetRef.current = offset
-    props.onDragEnd?.(offset)
-  }
+  const [innerValue, setInnerValue] = useState<Offset>(
+    props.offset === undefined ? props.defaultOffset : props.offset
+  )
 
-  useImperativeHandle(ref, () => ({
-    dragTo: (x: number, y: number, immediate?: boolean) => {
-      api.start({
-        x,
-        y,
-        immediate: immediate,
-      })
-      onDragEnd({ x, y })
+  const { run: setValue } = useThrottleFn(
+    (v: Offset) => {
+      setInnerValue(v)
     },
-    get offset() {
-      return offsetRef.current
-    },
-  }))
+    {
+      wait: 50,
+    }
+  )
+
+  useEffect(() => {
+    if (props.offset === undefined) return
+    api.start({ x: props.offset.x, y: props.offset.y })
+  }, [props.offset])
+
+  useEffect(() => {
+    if (props.offset === undefined) return
+    props.onChange?.(innerValue)
+  }, [innerValue])
 
   /**
    * memoize the `to` function
@@ -72,14 +74,16 @@ export const FloatingBubble = forwardRef<
    * to prevent an unintended restart
    */
   const [{ x, y, opacity }, api] = useSpring(() => ({
-    x: props.defaultOffset.x,
-    y: props.defaultOffset.y,
+    x: innerValue.x,
+    y: innerValue.y,
     opacity: 1,
   }))
+
   const bind = useDrag(
     state => {
       let nextX = state.offset[0]
       let nextY = state.offset[1]
+
       if (state.last && props.magnetic) {
         const boundary = boundaryRef.current
         const button = buttonRef.current
@@ -109,16 +113,18 @@ export const FloatingBubble = forwardRef<
           }
         }
       }
-      if (state.last) {
-        onDragEnd({
+
+      // Uncontrolled mode
+      if (props.offset === undefined) {
+        api.start({
           x: nextX,
           y: nextY,
         })
+        props.onChange?.({ x: nextX, y: nextY })
+      } else {
+        setValue({ x: nextX, y: nextY })
       }
-      api.start({
-        x: nextX,
-        y: nextY,
-      })
+
       // active status
       api.start({
         opacity: state.active ? 0.8 : 1,
@@ -157,4 +163,4 @@ export const FloatingBubble = forwardRef<
       </animated.div>
     </div>
   )
-})
+}

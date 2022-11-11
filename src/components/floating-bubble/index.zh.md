@@ -25,15 +25,9 @@
 | axis          | 可以进行拖动的方向，`'xy'` 表示自由移动，`'lock'` 表示只允许在拖拽开始时的方向上移动 | `'x' \| 'y' \| 'xy' \| 'lock'`              | `'y'`            |
 | children      | 气泡的内容                                                                           | ReactNode                                   | -                |
 | magnetic      | 自动磁吸到边界                                                                       | `'x' \| 'y'`                                | -                |
-| defaultOffset | 默认偏移位置                                                                         | `{ x: number; y: number;}`                  | `{ x: 0, y: 0 }` |
-| onDragEnd     | 拖动结束回调                                                                         | `(offset:{ x: number; y: number }) => void` | -                |
-
-## Ref
-
-| 属性   | 说明             | 类型                                                  |
-| ------ | ---------------- | ----------------------------------------------------- |
-| dragTo | 拖动到指定位置   | `(x: number, y: number, immediate?: boolean) => void` |
-| offset | 当前拖动偏移位置 | `{ x: number; y: number }`                            |
+| defaultOffset | 默认偏移位置                                                                         | `{ x: number; y: number }`                  | `{ x: 0, y: 0 }` |
+| offset        | 偏移位置                                                                             | `{ x: number; y: number }`                  |                  |
+| onChange      | 偏移位置变化时的回调函数                                                             | `(offset:{ x: number; y: number }) => void` | -                |
 
 ### CSS 变量
 
