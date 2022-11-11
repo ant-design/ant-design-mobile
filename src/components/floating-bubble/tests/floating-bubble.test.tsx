@@ -1,6 +1,6 @@
-import React, { createRef } from 'react'
+import React from 'react'
 import { render, fireEvent, waitFor, sleep } from 'testing'
-import FloatingBubble, { FloatingBubbleRef } from '..'
+import FloatingBubble from '..'
 
 const classPrefix = `adm-floating-bubble`
 

@@ -29,11 +29,6 @@ export type FloatingBubbleProps = {
   | '--background'
 >
 
-export type FloatingBubbleRef = {
-  dragTo: (x: number, y: number, immediate?: boolean) => void
-  offset: Offset
-}
-
 const defaultProps = {
   axis: 'y',
   defaultOffset: { x: 0, y: 0 },
