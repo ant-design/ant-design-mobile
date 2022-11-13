@@ -62,6 +62,11 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
     const text = textRef.current
     if (!container || !text) return
 
+    if (props.speed === 0) {
+      text.style.whiteSpace = 'pre-wrap'
+      return
+    }
+
     if (container.offsetWidth >= text.offsetWidth) {
       animatingRef.current = false
       text.style.removeProperty('transition-duration')
@@ -86,10 +91,13 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
     text.style.transform = `translateX(-${text.offsetWidth}px)`
   }
 
-  useTimeout(() => {
-    delayLockRef.current = false
-    start()
-  }, props.delay)
+  useTimeout(
+    () => {
+      delayLockRef.current = false
+      start()
+    },
+    props.speed === 0 ? 0 : props.delay
+  )
 
   useResizeEffect(() => {
     start()

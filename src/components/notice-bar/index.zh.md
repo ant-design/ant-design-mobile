@@ -14,16 +14,16 @@
 
 ### 属性
 
-| 属性      | 说明                             | 类型                                        | 默认值             |
-| --------- | -------------------------------- | ------------------------------------------- | ------------------ |
-| closeable | 是否可关闭                       | `boolean`                                   | `false`            |
-| color     | 通告栏的类型                     | `'default' \| 'alert' \| 'error' \| 'info'` | `'default'`        |
-| content   | 公告内容                         | `React.ReactNode`                           | -                  |
-| delay     | 开始滚动的延迟，单位 `ms`        | `number`                                    | `2000`             |
-| extra     | 额外操作区域，显示在关闭按钮左侧 | `React.ReactNode`                           | -                  |
-| icon      | 左侧广播图标                     | `React.ReactNode`                           | `<SoundOutline />` |
-| onClose   | 关闭时的回调                     | `() => void`                                | -                  |
-| speed     | 滚动速度，单位 `px/s`            | `number`                                    | `50`               |
+| 属性      | 说明                                                                  | 类型                                        | 默认值             |
+| --------- | --------------------------------------------------------------------- | ------------------------------------------- | ------------------ |
+| closeable | 是否可关闭                                                            | `boolean`                                   | `false`            |
+| color     | 通告栏的类型                                                          | `'default' \| 'alert' \| 'error' \| 'info'` | `'default'`        |
+| content   | 公告内容                                                              | `React.ReactNode`                           | -                  |
+| delay     | 开始滚动的延迟，单位 `ms`                                             | `number`                                    | `2000`             |
+| extra     | 额外操作区域，显示在关闭按钮左侧                                      | `React.ReactNode`                           | -                  |
+| icon      | 左侧广播图标                                                          | `React.ReactNode`                           | `<SoundOutline />` |
+| onClose   | 关闭时的回调                                                          | `() => void`                                | -                  |
+| speed     | 滚动速度，单位 `px/s`(特别的，当`speed`为 `0` 且文字超长时，自动换行) | `number`                                    | `50`               |
 
 ### CSS 变量
 
