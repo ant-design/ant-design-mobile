@@ -3,7 +3,6 @@ import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useThrottleFn } from 'ahooks'
 
 const classPrefix = `adm-floating-bubble`
 
