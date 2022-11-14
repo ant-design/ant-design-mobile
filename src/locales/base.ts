@@ -125,9 +125,6 @@ export const base = {
   Switch: {
     name: 'Switch',
   },
-  Image: {
-    name: 'Image',
-  },
 }
 
 export type Locale = typeof base

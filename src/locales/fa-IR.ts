@@ -105,9 +105,6 @@ const faIR = mergeLocale(base, {
   Modal: {
     ok: 'باشه',
   },
-  Image: {
-    name: 'تصویر',
-  },
 })
 
 export default faIR

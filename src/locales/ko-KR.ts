@@ -103,9 +103,6 @@ const koKR = mergeLocale(base, {
     canRelease: '새로고침 하려면 놓으십시오',
     complete: '새로고침 완료',
   },
-  Image: {
-    name: '영상',
-  },
 })
 
 export default koKR

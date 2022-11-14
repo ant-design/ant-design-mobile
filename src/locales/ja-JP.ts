@@ -128,9 +128,6 @@ const jaJP = mergeLocale(base, {
   Switch: {
     name: 'スイッチ',
   },
-  Image: {
-    name: '画像',
-  },
 })
 
 export default jaJP

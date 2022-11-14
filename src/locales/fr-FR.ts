@@ -108,9 +108,6 @@ const frFR = mergeLocale(base, {
     canRelease: 'Libérez instantanément rafraîchir',
     complete: 'Rafraîchir avec succès',
   },
-  Image: {
-    name: 'Image',
-  },
 })
 
 export default frFR

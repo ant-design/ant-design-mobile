@@ -103,9 +103,6 @@ const esES = mergeLocale(base, {
     canRelease: 'Suelte para refrescar inmediatamente',
     complete: 'Refrescó exitosamente',
   },
-  Image: {
-    name: 'Imagen',
-  },
 })
 
 export default esES

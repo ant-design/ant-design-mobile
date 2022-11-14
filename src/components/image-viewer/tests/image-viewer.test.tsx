@@ -114,8 +114,11 @@ describe('ImageViewer', () => {
       </button>
     )
     fireEvent.click(screen.getByText('show'))
-    const img = await screen.findByRole('img')
-    expect(img).toBeVisible()
+    let img: Element | null
+    await waitFor(() => {
+      img = document.querySelector('.adm-image')
+      expect(img).toBeVisible()
+    })
 
     act(() => {
       ImageViewer.clear()
@@ -188,7 +191,9 @@ describe('ImageViewer.Multi', () => {
       </>
     )
     fireEvent.click(screen.getByText('show'))
-    const imgs = await screen.findAllByRole('img')
+    await screen.findAllByRole('img', { hidden: true })
+    const imgs = document.querySelectorAll('.adm-image')
+
     expect(imgs[0]).toBeVisible()
     await userEvent.click(imgs[0])
     await waitFor(() => expect(imgs[0]).not.toBeVisible())
@@ -211,7 +216,7 @@ describe('ImageViewer.Multi', () => {
     )
 
     fireEvent.click(screen.getByText('show'))
-    await screen.findAllByRole('img')
+    await screen.findAllByRole('img', { hidden: true })
     const slides = document.querySelectorAll(`.${classPrefix}-slides`)[0]
     expect(screen.getByText('1 / 4')).toBeInTheDocument()
 
