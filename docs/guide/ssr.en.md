@@ -6,26 +6,32 @@ The support for SSR (server-side rendering) is still in the initial stage. If yo
 
 Using antd-mobile in Next.js requires some additional configuration.
 
-First, you need to install `next-transpile-modules`:
+First, you need to install `next-transpile-modules` and `next-compose-plugins`:
 
 ```bash
-$ npm install --save-dev next-transpile-modules
+$ npm install --save-dev next-transpile-modules next-compose-plugins
 # or
-$ yarn add -D next-transpile-modules
+$ yarn add -D next-transpile-modules next-compose-plugins
 # or
-$ pnpm add -D next-transpile-modules
+$ pnpm add -D next-transpile-modules next-compose-plugins
 ```
 
 Then configure it in `next.config.js`:
 
 ```js
+const nextConfig = {
+  // other Next.js configuration in your project
+}
+const withPlugins = require("next-compose-plugins");
+
 const withTM = require('next-transpile-modules')([
   'antd-mobile',
 ]);
 
-module.exports = withTM({
-  // other Next.js configuration in your project
-});
+module.exports = withPlugins(
+  [[withTM]],
+  nextConfig
+);
 ```
 
 ## Remix
