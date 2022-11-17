@@ -6,26 +6,32 @@
 
 在 Next.js 中使用 antd-mobile 需要做一些额外的配置。
 
-首先，需要安装 `next-transpile-modules` 依赖：
+首先，需要安装 `next-transpile-modules` 和 `next-compose-plugins` 依赖：
 
 ```bash
-$ npm install --save-dev next-transpile-modules
+$ npm install --save-dev next-transpile-modules next-compose-plugins
 # or
-$ yarn add -D next-transpile-modules
+$ yarn add -D next-transpile-modules next-compose-plugins
 # or
-$ pnpm add -D next-transpile-modules
+$ pnpm add -D next-transpile-modules next-compose-plugins
 ```
 
 然后在 `next.config.js` 中进行配置：
 
 ```js
+const nextConfig = {
+  // 你项目中其他的 Next.js 配置
+}
+const withPlugins = require("next-compose-plugins");
+
 const withTM = require('next-transpile-modules')([
   'antd-mobile',
 ]);
 
-module.exports = withTM({
-  // 你项目中其他的 Next.js 配置
-});
+module.exports = withPlugins(
+  [[withTM]],
+  nextConfig
+);
 ```
 
 ## Remix
