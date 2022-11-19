@@ -14,16 +14,17 @@ It is applicable to the notification of information in the current page, which i
 
 ### Props
 
-| Name      | Description                                                                                                    | Type                                        | Default            |
-| --------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------ |
-| closeable | Whether it can be closed                                                                                       | `boolean`                                   | `false`            |
-| color     | The type of the NoticeBar                                                                                      | `'default' \| 'alert' \| 'error' \| 'info'` | `'default'`        |
-| content   | The content of the NoticeBar                                                                                   | `React.ReactNode`                           | -                  |
-| delay     | Delay to start scrolling, unit `ms`                                                                            | `number`                                    | `2000`             |
-| extra     | Additional operating area, displayed to the left of the close button                                           | `React.ReactNode`                           | -                  |
-| icon      | Radio icon on the left                                                                                         | `React.ReactNode`                           | `<SoundOutline />` |
-| onClose   | Callback when closed                                                                                           | `() => void`                                | -                  |
-| speed     | Scroll speed, unit `px/s`（In particular, word wrap when `speed` is `0` and the text is extraordinarily long） | `number`                                    | `50`               |
+| Name      | Description                                                          | Type                                        | Default            |
+| --------- | -------------------------------------------------------------------- | ------------------------------------------- | ------------------ |
+| closeable | Whether it can be closed                                             | `boolean`                                   | `false`            |
+| color     | The type of the NoticeBar                                            | `'default' \| 'alert' \| 'error' \| 'info'` | `'default'`        |
+| content   | The content of the NoticeBar                                         | `React.ReactNode`                           | -                  |
+| delay     | Delay to start scrolling, unit `ms`                                  | `number`                                    | `2000`             |
+| extra     | Additional operating area, displayed to the left of the close button | `React.ReactNode`                           | -                  |
+| icon      | Radio icon on the left                                               | `React.ReactNode`                           | `<SoundOutline />` |
+| onClose   | Callback when closed                                                 | `() => void`                                | -                  |
+| speed     | Scroll speed, unit `px/s`                                            | `number`                                    | `50`               |
+| wrap      | Should line break automatically                                      | `boolean`                                   | `false`            |
 
 ### CSS Variables
 

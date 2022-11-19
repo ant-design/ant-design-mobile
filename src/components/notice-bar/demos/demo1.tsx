@@ -25,8 +25,8 @@ export default () => {
         <NoticeBar content={demoLongText} color='alert' />
       </DemoBlock>
 
-      <DemoBlock title='超长换行' padding='0'>
-        <NoticeBar content={demoLongText} speed={0} color='alert' />
+      <DemoBlock title='自动换行' padding='0'>
+        <NoticeBar content={demoLongText} wrap={true} color='alert' />
       </DemoBlock>
 
       <DemoBlock title='自定义' padding='0' background='transparent'>

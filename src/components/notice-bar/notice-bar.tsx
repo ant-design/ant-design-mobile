@@ -26,6 +26,8 @@ export type NoticeBarProps = {
   extra?: React.ReactNode
   /** 左侧广播图标 */
   icon?: React.ReactNode
+  /** 是否自动换行 */
+  wrap?: boolean
 } & NativeProps<
   | '--background-color'
   | '--border-color'
@@ -39,6 +41,7 @@ const defaultProps = {
   color: 'default',
   delay: 2000,
   speed: 50,
+  wrap: false,
   icon: <SoundOutline />,
 }
 
@@ -62,7 +65,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
     const text = textRef.current
     if (!container || !text) return
 
-    if (props.speed === 0) {
+    if (props.wrap) {
       text.style.whiteSpace = 'pre-wrap'
       return
     }
@@ -96,7 +99,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
       delayLockRef.current = false
       start()
     },
-    props.speed === 0 ? 0 : props.delay
+    props.wrap ? 0 : props.delay
   )
 
   useResizeEffect(() => {
