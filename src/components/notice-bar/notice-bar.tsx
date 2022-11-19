@@ -56,7 +56,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
   const animatingRef = useRef(false)
 
   function start() {
-    if (delayLockRef.current) return
+    if (delayLockRef.current || props.speed <= 0) return
 
     const container = containerRef.current
     const text = textRef.current
