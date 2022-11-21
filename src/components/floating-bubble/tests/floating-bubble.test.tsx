@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { render, fireEvent, waitFor, sleep } from 'testing'
 import FloatingBubble from '..'
 
@@ -144,6 +144,39 @@ describe('FloatingBubble', () => {
     fireEvent.mouseUp(btn)
 
     await sleep(0)
+    expect(btn).toHaveStyle('transform: translate(0px, 0px)')
+  })
+
+  test('controlled mode', async () => {
+    const App = () => {
+      const [offset, setOffset] = useState({ x: -24, y: -24 })
+      return (
+        <FloatingBubble
+          onOffsetChange={offset => {
+            setOffset(offset)
+          }}
+          offset={offset}
+          axis='xy'
+        />
+      )
+    }
+    render(<App />)
+    const btn = document.querySelectorAll(`.${classPrefix}-button`)[0]
+    expect(btn).toHaveStyle('transform: translate(-24px, -24px)')
+
+    mockBoundaryRect()
+    fireEvent.mouseDown(btn, {
+      buttons: 1,
+      clientX: -27,
+      clientY: -27,
+    })
+    fireEvent.mouseMove(btn, {
+      buttons: 1,
+      clientX: 0,
+      clientY: 0,
+    })
+    mockButtonRect({ x: 0, y: 0 })
+    fireEvent.mouseUp(btn)
     expect(btn).toHaveStyle('transform: translate(0px, 0px)')
   })
 })
