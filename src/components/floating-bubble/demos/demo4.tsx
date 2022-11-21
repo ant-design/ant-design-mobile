@@ -27,7 +27,7 @@ export default () => {
           '--initial-position-bottom': '0',
           '--initial-position-right': '0',
         }}
-        onChange={offset => {
+        onOffsetChange={offset => {
           setOffset(offset)
         }}
         offset={offset}

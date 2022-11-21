@@ -20,14 +20,14 @@ Suitable for providing extra functionality to the current page.
 
 ### Props
 
-| Name          | Description                                                                                                                                                       | Type                                        | Default          |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ---------------- |
-| axis          | The direction in which the drag can be performed, `'xy'` means free movement, `'lock'` means movement is only allowed in the direction in which the drag started. | `'x' \| 'y' \| 'xy' \| 'lock'`              | `'y'`            |
-| children      | Content of the bubble.                                                                                                                                            | ReactNode                                   | -----            |
-| magnetic      | Automatic magnetic attraction to the boundary.                                                                                                                    | `'x' \| 'y'`                                | -                |
-| defaultOffset | Default offset position                                                                                                                                           | `{ x: number; y: number }`                  | `{ x: 0, y: 0 }` |
-| offset        | Offset position                                                                                                                                                   | `{ x: number; y: number }`                  |                  |
-| onChange      | Callback function when changing                                                                                                                                   | `(offset:{ x: number; y: number }) => void` | -                |
+| Name           | Description                                                                                                                                                       | Type                                        | Default          |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ---------------- |
+| axis           | The direction in which the drag can be performed, `'xy'` means free movement, `'lock'` means movement is only allowed in the direction in which the drag started. | `'x' \| 'y' \| 'xy' \| 'lock'`              | `'y'`            |
+| children       | Content of the bubble.                                                                                                                                            | ReactNode                                   | -----            |
+| magnetic       | Automatic magnetic attraction to the boundary.                                                                                                                    | `'x' \| 'y'`                                | -                |
+| defaultOffset  | Default offset position                                                                                                                                           | `{ x: number; y: number }`                  | `{ x: 0, y: 0 }` |
+| offset         | Offset position                                                                                                                                                   | `{ x: number; y: number }`                  |                  |
+| onOffsetChange | Callback function when changing                                                                                                                                   | `(offset:{ x: number; y: number }) => void` | -                |
 
 ### CSS Variables
 

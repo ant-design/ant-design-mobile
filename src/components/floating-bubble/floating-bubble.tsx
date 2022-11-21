@@ -15,7 +15,7 @@ export type FloatingBubbleProps = {
   children?: React.ReactNode
   offset?: Offset
   defaultOffset?: Offset
-  onChange?: (offset: Offset) => void
+  onOffsetChange?: (offset: Offset) => void
 } & NativeProps<
   | '--initial-position-left'
   | '--initial-position-right'
@@ -101,7 +101,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       } else {
         setInnerValue(nextOffest)
       }
-      props.onChange?.(nextOffest)
+      props.onOffsetChange?.(nextOffest)
 
       // active status
       api.start({
