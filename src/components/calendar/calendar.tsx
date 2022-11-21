@@ -211,7 +211,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     if (props.weekStartsOn === 'Monday') {
       iterator = iterator.add(1, 'day')
     }
-    for (let i = 0; cells.length < 6 * 7; i++) {
+    while (cells.length < 6 * 7) {
       const d = iterator
       let isSelect = false
       let isBegin = false
@@ -233,9 +233,11 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
         if (isSelect) {
           isSelectRowBegin =
-            (i % 7 === 0 || d.isSame(d.startOf('month'), 'day')) && !isBegin
+            (cells.length % 7 === 0 || d.isSame(d.startOf('month'), 'day')) &&
+            !isBegin
           isSelectRowEnd =
-            (i % 7 === 6 || d.isSame(d.endOf('month'), 'day')) && !isEnd
+            (cells.length % 7 === 6 || d.isSame(d.endOf('month'), 'day')) &&
+            !isEnd
         }
       }
       cells.push(
