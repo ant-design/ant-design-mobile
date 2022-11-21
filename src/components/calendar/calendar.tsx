@@ -233,13 +233,9 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
         if (isSelect) {
           isSelectRowBegin =
-            (i % 7 === 0 || d.isSame(d.startOf('month'), 'day')) &&
-            !isBegin &&
-            (!disabled || inThisMonth)
+            (i % 7 === 0 || d.isSame(d.startOf('month'), 'day')) && !isBegin
           isSelectRowEnd =
-            (i % 7 === 6 || d.isSame(d.endOf('month'), 'day')) &&
-            !isEnd &&
-            (!disabled || inThisMonth)
+            (i % 7 === 6 || d.isSame(d.endOf('month'), 'day')) && !isEnd
         }
       }
       cells.push(
