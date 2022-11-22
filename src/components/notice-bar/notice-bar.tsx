@@ -59,16 +59,11 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
   const animatingRef = useRef(false)
 
   function start() {
-    if (delayLockRef.current) return
+    if (delayLockRef.current || props.wrap) return
 
     const container = containerRef.current
     const text = textRef.current
     if (!container || !text) return
-
-    if (props.wrap) {
-      text.style.whiteSpace = 'pre-wrap'
-      return
-    }
 
     if (container.offsetWidth >= text.offsetWidth) {
       animatingRef.current = false
@@ -94,13 +89,10 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
     text.style.transform = `translateX(-${text.offsetWidth}px)`
   }
 
-  useTimeout(
-    () => {
-      delayLockRef.current = false
-      start()
-    },
-    props.wrap ? 0 : props.delay
-  )
+  useTimeout(() => {
+    delayLockRef.current = false
+    start()
+  }, props.delay)
 
   useResizeEffect(() => {
     start()
@@ -133,7 +125,12 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
             start()
           }}
           ref={textRef}
-          className={`${classPrefix}-content-inner`}
+          className={classNames(
+            `${classPrefix}-content-inner`,
+            props.wrap
+              ? `${classPrefix}-content-inner-wrap`
+              : `${classPrefix}-content-inner-no-wrap`
+          )}
         >
           {props.content}
         </span>

@@ -24,7 +24,7 @@ It is applicable to the notification of information in the current page, which i
 | icon      | Radio icon on the left                                               | `React.ReactNode`                           | `<SoundOutline />` |
 | onClose   | Callback when closed                                                 | `() => void`                                | -                  |
 | speed     | Scroll speed, unit `px/s`                                            | `number`                                    | `50`               |
-| wrap      | Should line break automatically                                      | `boolean`                                   | `false`            |
+| wrap      | Whether to display multiple lines                                    | `boolean`                                   | `false`            |
 
 ### CSS Variables
 

@@ -24,7 +24,7 @@
 | icon      | 左侧广播图标                     | `React.ReactNode`                           | `<SoundOutline />` |
 | onClose   | 关闭时的回调                     | `() => void`                                | -                  |
 | speed     | 滚动速度，单位 `px/s`            | `number`                                    | `50`               |
-| wrap      | 是否自动换行                     | `boolean`                                   | `false`            |
+| wrap      | 是否多行展示                     | `boolean`                                   | `false`            |
 
 ### CSS 变量
 
