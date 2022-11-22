@@ -218,11 +218,6 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       let isEnd = false
       let isSelectRowBegin = false
       let isSelectRowEnd = false
-      const inThisMonth = d.month() === current.month()
-      const disabled = props.shouldDisableDate
-        ? props.shouldDisableDate(d.toDate())
-        : (maxDay && d.isAfter(maxDay, 'day')) ||
-          (minDay && d.isBefore(minDay, 'day'))
       if (dateRange) {
         const [begin, end] = dateRange
         isBegin = d.isSame(begin, 'day')
@@ -240,6 +235,11 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
             !isEnd
         }
       }
+      const inThisMonth = d.month() === current.month()
+      const disabled = props.shouldDisableDate
+        ? props.shouldDisableDate(d.toDate())
+        : (maxDay && d.isAfter(maxDay, 'day')) ||
+          (minDay && d.isBefore(minDay, 'day'))
       cells.push(
         <div
           key={d.valueOf()}
