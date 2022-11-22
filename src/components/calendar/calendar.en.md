@@ -14,12 +14,14 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 
 <code src="./demos/demo3.tsx"></code>
 
+<code src="./demos/demo4.tsx"></code>
+
 ## Calendar
 
 ### Props
 
 | Name              | Description                                                                     | Type                                                                                                                                 | Default    |
-| ----------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| ----------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --- | --- |
 | allowClear        | Whether to allow clearing after another click.                                  | `boolean`                                                                                                                            | `true`     |
 | defaultValue      | The default selected date or date range.                                        | Same as `value` prop.                                                                                                                | -          |
 | max               | Maximum value of a selectable range.                                            | `Date`                                                                                                                               | -          |
