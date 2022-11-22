@@ -57,9 +57,7 @@ const PreviewItem: FC<Props> = props => {
     return (
       deletable && (
         <span className={`${classPrefix}-cell-delete`} onClick={onDelete}>
-          <span className={`${classPrefix}-cell-delete-icon`}>
-            {deleteIcon}
-          </span>
+          {deleteIcon}
         </span>
       )
     )

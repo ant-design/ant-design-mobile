@@ -74,7 +74,7 @@ const classPrefix = `adm-image-uploader`
 const defaultProps = {
   disableUpload: false,
   deletable: true,
-  deleteIcon: <CloseOutline />,
+  deleteIcon: <CloseOutline className={`${classPrefix}-cell-delete-icon`} />,
   showUpload: true,
   multiple: false,
   maxCount: 0,
