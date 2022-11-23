@@ -5,7 +5,7 @@ import React, {
   useState,
   CSSProperties,
 } from 'react'
-import { AddOutline } from 'antd-mobile-icons'
+import { AddOutline, CloseOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
 import PreviewItem from './preview-item'
@@ -49,6 +49,7 @@ export type ImageUploaderProps = {
   disableUpload?: boolean
   showUpload?: boolean
   deletable?: boolean
+  deleteIcon?: React.ReactNode
   capture?: InputHTMLAttributes<unknown>['capture']
   onPreview?: (index: number, item: ImageUploadItem) => void
   beforeUpload?: (
@@ -73,6 +74,7 @@ const classPrefix = `adm-image-uploader`
 const defaultProps = {
   disableUpload: false,
   deletable: true,
+  deleteIcon: <CloseOutline className={`${classPrefix}-cell-delete-icon`} />,
   showUpload: true,
   multiple: false,
   maxCount: 0,
@@ -256,6 +258,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           key={fileItem.key ?? index}
           url={fileItem.thumbnailUrl ?? fileItem.url}
           deletable={props.deletable}
+          deleteIcon={props.deleteIcon}
           imageFit={props.imageFit}
           onClick={() => {
             if (props.preview) {
@@ -286,6 +289,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
             key={task.id}
             file={task.file}
             deletable={task.status !== 'pending'}
+            deleteIcon={props.deleteIcon}
             status={task.status}
             imageFit={props.imageFit}
             onDelete={() => {
