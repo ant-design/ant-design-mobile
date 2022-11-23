@@ -35,6 +35,7 @@ export type NoticeBarProps = {
   | '--font-size'
   | '--icon-font-size'
   | '--height'
+  | '--line-height'
 >
 
 const defaultProps = {
@@ -125,12 +126,9 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
             start()
           }}
           ref={textRef}
-          className={classNames(
-            `${classPrefix}-content-inner`,
-            props.wrap
-              ? `${classPrefix}-content-inner-wrap`
-              : `${classPrefix}-content-inner-no-wrap`
-          )}
+          className={classNames(`${classPrefix}-content-inner`, {
+            [`${classPrefix}-content-inner-wrap`]: props.wrap,
+          })}
         >
           {props.content}
         </span>

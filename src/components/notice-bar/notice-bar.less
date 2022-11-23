@@ -6,11 +6,13 @@
   --text-color: var(--adm-color-white);
   --font-size: var(--adm-font-size-7);
   --icon-font-size: var(--adm-font-size-10);
+  --line-height: 38px;
   --height: 38px;
 
+  height: var(--height);
   box-sizing: border-box;
   font-size: var(--font-size);
-  line-height: var(--height);
+  line-height: var(--line-height);
   padding: 0 12px;
   display: flex;
   align-items: center;
@@ -58,12 +60,11 @@
     & .@{class-prefix-notice-bar}-content-inner {
       width: auto;
       transition-timing-function: linear;
-    }
-    & .@{class-prefix-notice-bar}-content-inner-no-wrap {
       white-space: nowrap;
     }
+
     & .@{class-prefix-notice-bar}-content-inner-wrap {
-      white-space: pre-wrap;
+      white-space: normal;
     }
   }
   & .@{class-prefix-notice-bar}-right {

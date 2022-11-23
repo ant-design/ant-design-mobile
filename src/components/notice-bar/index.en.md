@@ -35,4 +35,5 @@ It is applicable to the notification of information in the current page, which i
 | --font-size        | Font size of notice text content. | `15px`    |
 | --height           | Height of the whole element.      | `38px`    |
 | --icon-font-size   | Font size of left icon.           | `18px`    |
+| --line-height      | Height of the line                | `38px`    |
 | --text-color       | text color                        | `#ffffff` |
