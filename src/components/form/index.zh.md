@@ -54,6 +54,7 @@
 | isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过                          | `(nameList?: NamePath[], allTouched?: boolean) => boolean`                                                  |
 | resetFields     | 重置一组字段到 `initialValues`                                                                             | `(fields?: FieldData[]) => void`                                                                            |
 | setFields       | 设置一组字段状态                                                                                           | `(fields: FieldData[]) => void`                                                                             |
+| setFieldValue   | 设置对应字段名的值                                                                                         | `(name: NamePath, value: any) => void`                                                                      |
 | setFieldsValue  | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入）                     | `(values) => void`                                                                                          |
 | submit          | 提交表单，与点击 `submit` 按钮效果相同                                                                     | `() => void`                                                                                                |
 | validateFields  | 触发表单验证                                                                                               | `(nameList?: NamePath[]) => Promise`                                                                        |
