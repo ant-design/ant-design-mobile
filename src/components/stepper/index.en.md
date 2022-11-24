@@ -20,7 +20,7 @@ It is suitable for inputting and adjusting the current value within a certain ra
 | --- | --- | --- | --- | --- |
 | allowEmpty | Whether to allow empty content. | `boolean` | `false` |
 | defaultValue | Default value | `number \| null` | `0` |
-| digits | Format to a fixed number of digits after the decimal point, set to `0` means format to integer | `number` | - |
+| digits | Format to a fixed number of digits after the decimal point, set to `0` means format to integer. Will use `formatter` as display value when configured | `number` | - |
 | disabled | Whether to disabled Stepper | `boolean` | `false` |
 | formatter | Format value in input | (value?: number) => string | - | 5.26.0 |
 | inputReadOnly | Whether input readonly or not | `boolean` | `false` |

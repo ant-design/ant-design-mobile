@@ -20,7 +20,7 @@
 | --- | --- | --- | --- | --- |
 | allowEmpty | 是否允许内容为空 | `boolean` | `false` |
 | defaultValue | 默认值 | `number \| null` | `0` |
-| digits | 格式化到小数点后固定位数，设置为 `0` 表示格式化到整数 | `number` | - |
+| digits | 格式化到小数点后固定位数，设置为 `0` 表示格式化到整数。配置 `formatter` 时展示会以 `formatter` 为准 | `number` | - |
 | disabled | 是否禁用步进器 | `boolean` | `false` |
 | formatter | 格式化展示数值 | (value?: number) => string | - | 5.26.0 |
 | inputReadOnly | 输入框是否只读 | `boolean` | `false` |
