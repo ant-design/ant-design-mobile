@@ -30,7 +30,7 @@ export default () => {
           content={demoLongText}
           wrap
           color='alert'
-          style={{ '--height': '80px' }}
+          // style={{ '--height': '80px' }}
         />
       </DemoBlock>
 

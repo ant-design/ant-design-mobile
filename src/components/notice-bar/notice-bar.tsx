@@ -106,7 +106,11 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
 
   return withNativeProps(
     props,
-    <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)}>
+    <div
+      className={classNames(classPrefix, `${classPrefix}-${props.color}`, {
+        [`${classPrefix}-wrap`]: props.wrap,
+      })}
+    >
       {props.icon && (
         <span className={`${classPrefix}-left`}>{props.icon}</span>
       )}
@@ -117,9 +121,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
             start()
           }}
           ref={textRef}
-          className={classNames(`${classPrefix}-content-inner`, {
-            [`${classPrefix}-content-inner-wrap`]: props.wrap,
-          })}
+          className={`${classPrefix}-content-inner`}
         >
           {props.content}
         </span>

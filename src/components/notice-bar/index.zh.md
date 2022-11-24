@@ -35,5 +35,4 @@
 | --font-size        | 文字字号       | `15px`    |
 | --height           | 整体高度       | `38px`    |
 | --icon-font-size   | 左侧图标的字号 | `18px`    |
-| --line-height      | 行高           | `38px`    |
 | --text-color       | 文字颜色       | `#ffffff` |

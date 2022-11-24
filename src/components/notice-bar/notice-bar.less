@@ -6,13 +6,12 @@
   --text-color: var(--adm-color-white);
   --font-size: var(--adm-font-size-7);
   --icon-font-size: var(--adm-font-size-10);
-  --line-height: 38px;
   --height: 38px;
 
   height: var(--height);
   box-sizing: border-box;
   font-size: var(--font-size);
-  line-height: var(--line-height);
+  line-height: var(--height);
   padding: 0 12px;
   display: flex;
   align-items: center;
@@ -61,12 +60,13 @@
       width: auto;
       transition-timing-function: linear;
       white-space: nowrap;
-    }
 
-    & .@{class-prefix-notice-bar}-content-inner-wrap {
-      white-space: normal;
+      .@{class-prefix-notice-bar}-wrap& {
+        white-space: normal;
+      }
     }
   }
+
   & .@{class-prefix-notice-bar}-right {
     flex-shrink: 0;
     margin-left: 12px;
@@ -83,5 +83,9 @@
 
   &-close-icon {
     font-size: var(--adm-font-size-10);
+  }
+
+  &-wrap {
+    height: auto;
   }
 }
