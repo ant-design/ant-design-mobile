@@ -26,7 +26,6 @@ export type NoticeBarProps = {
   | '--font-size'
   | '--icon-font-size'
   | '--height'
-  | '--line-height'
 >
 
 const defaultProps = {
