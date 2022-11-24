@@ -12,6 +12,20 @@ import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-stepper`
 
+function convertValueToText(value: number | null, digits?: number) {
+  if (value === null) return ''
+  if (digits !== undefined) {
+    return value.toFixed(digits)
+  } else {
+    return value.toString()
+  }
+}
+
+function convertTextToValue(text: string) {
+  if (text === '') return null
+  return parseFloat(text)
+}
+
 type ValueProps = {
   allowEmpty: true
   value?: number | null
@@ -62,10 +76,16 @@ export const Stepper: FC<StepperProps> = p => {
   const { disabled, step, max, min, inputReadOnly } = props
   const { locale } = useConfig()
 
+  // ============================== Focus ===============================
+  const [hasFocus, setHasFocus] = useState(false)
+
+  // ======================== Value & InputValue ========================
   const [value, setValue] = usePropsValue<number | null>(props as any)
   const [inputValue, setInputValue] = useState(() =>
     convertValueToText(value, props.digits)
   )
+
+  // >>>>> Value
   function setValueWithCheck(v: number) {
     if (isNaN(v)) return
     let target = bound(v, props.min, props.max)
@@ -75,20 +95,7 @@ export const Stepper: FC<StepperProps> = p => {
     setValue(target)
   }
 
-  const [hasFocus, setHasFocus] = useState(false)
-
-  useEffect(() => {
-    if (!hasFocus) {
-      setInputValue(convertValueToText(value, props.digits))
-    }
-  }, [hasFocus])
-
-  useEffect(() => {
-    if (!hasFocus) {
-      setInputValue(convertValueToText(value, props.digits))
-    }
-  }, [value, props.digits])
-
+  // >>>>> Input
   const handleInputChange = (v: string) => {
     setInputValue(v)
     const value = convertTextToValue(v)
@@ -103,6 +110,7 @@ export const Stepper: FC<StepperProps> = p => {
     }
   }
 
+  // ============================ Operations ============================
   const handleMinus = () => {
     setValueWithCheck(
       Big(value ?? 0)
@@ -137,6 +145,20 @@ export const Stepper: FC<StepperProps> = p => {
     return false
   }
 
+  // ============================== Effect ==============================
+  useEffect(() => {
+    if (!hasFocus) {
+      setInputValue(convertValueToText(value, props.digits))
+    }
+  }, [hasFocus])
+
+  useEffect(() => {
+    if (!hasFocus) {
+      setInputValue(convertValueToText(value, props.digits))
+    }
+  }, [value, props.digits])
+
+  // ============================== Render ==============================
   return withNativeProps(
     props,
     <div
@@ -192,18 +214,4 @@ export const Stepper: FC<StepperProps> = p => {
       </Button>
     </div>
   )
-}
-
-function convertValueToText(value: number | null, digits?: number) {
-  if (value === null) return ''
-  if (digits !== undefined) {
-    return value.toFixed(digits)
-  } else {
-    return value.toString()
-  }
-}
-
-function convertTextToValue(text: string) {
-  if (text === '') return null
-  return parseFloat(text)
 }
