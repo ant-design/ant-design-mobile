@@ -33,6 +33,6 @@ It is applicable to the notification of information in the current page, which i
 | --background-color | background color                  | `#b2b2b2` |
 | --border-color     | border color                      | `#a0a0a0` |
 | --font-size        | Font size of notice text content. | `15px`    |
-| --height           | Height of the whole element.      | `38px`    |
+| --height           | Height of the whole element.      | `40px`    |
 | --icon-font-size   | Font size of left icon.           | `18px`    |
 | --text-color       | text color                        | `#ffffff` |

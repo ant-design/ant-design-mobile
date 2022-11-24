@@ -33,6 +33,6 @@
 | --background-color | 背景色         | `#ababab` |
 | --border-color     | 边框颜色       | `#999999` |
 | --font-size        | 文字字号       | `15px`    |
-| --height           | 整体高度       | `38px`    |
+| --height           | 整体高度       | `40px`    |
 | --icon-font-size   | 左侧图标的字号 | `18px`    |
 | --text-color       | 文字颜色       | `#ffffff` |
