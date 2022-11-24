@@ -10,14 +10,23 @@ import { useMutationEffect } from '../../utils/use-mutation-effect'
 const classPrefix = `adm-notice-bar`
 
 export type NoticeBarProps = {
+  /** The type of the NoticeBar */
   color?: 'default' | 'alert' | 'error' | 'info'
+  /** TDelay to start scrolling, unit ms */
   delay?: number
+  /** Scroll speed, unit px/s */
   speed?: number
+  /** The content of the NoticeBar */
   content: React.ReactNode
+  /** Whether it can be closed */
   closeable?: boolean
+  /** Callback when closed */
   onClose?: () => void
+  /** Additional operating area, displayed to the left of the close button */
   extra?: React.ReactNode
+  /** Radio icon on the left */
   icon?: React.ReactNode
+  /** Whether to display multiple lines */
   wrap?: boolean
 } & NativeProps<
   | '--background-color'
