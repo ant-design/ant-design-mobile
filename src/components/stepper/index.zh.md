@@ -22,14 +22,14 @@
 | defaultValue | 默认值 | `number \| null` | `0` |
 | digits | 格式化到小数点后固定位数，设置为 `0` 表示格式化到整数。配置 `formatter` 时展示会以 `formatter` 为准 | `number` | - |
 | disabled | 是否禁用步进器 | `boolean` | `false` |
-| formatter | 格式化展示数值 | (value?: number) => string | - | 5.26.0 |
+| formatter | 格式化展示数值 | `(value?: number) => string` | - | 5.26.0 |
 | inputReadOnly | 输入框是否只读 | `boolean` | `false` |
 | max | 最大值 | `number` | - |
 | min | 最小值 | `number` | - |
 | onBlur | 输入框失去焦点时触发 | `(e: React.FocusEvent<HTMLInputElement>) => void` | - |
 | onChange | 变化时的回调 | `(value: number \| null) => void` | - |
 | onFocus | 输入框获得焦点时触发 | `(e: React.FocusEvent<HTMLInputElement>) => void` | - |
-| parser | 将输入解析为对应数字，一般配合 `formatter` 使用 | (text: string) => number | - | 5.26.0 |
+| parser | 将输入解析为对应数字，一般配合 `formatter` 使用 | `(text: string) => number` | - | 5.26.0 |
 | step | 每次改变步数，可以为小数 | `number` | `1` |
 | value | 当前数，受控值 | `number \| null` | - |
 
