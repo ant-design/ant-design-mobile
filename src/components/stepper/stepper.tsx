@@ -36,7 +36,7 @@ export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> &
     inputReadOnly?: boolean
 
     // Format & Parse
-    parser?: (value?: string) => number
+    parser?: (text: string) => number
     formatter?: (value?: number) => string
   } & NativeProps<
     | '--height'
