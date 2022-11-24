@@ -26,12 +26,7 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='多行展示' padding='0'>
-        <NoticeBar
-          content={demoLongText}
-          wrap
-          color='alert'
-          // style={{ '--height': '80px' }}
-        />
+        <NoticeBar content={demoLongText} wrap color='alert' />
       </DemoBlock>
 
       <DemoBlock title='自定义' padding='0' background='transparent'>
