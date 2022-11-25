@@ -53,7 +53,7 @@ describe('NoticeBar', () => {
   })
 
   test('long content', async () => {
-    const { container, debug } = render(
+    const { container } = render(
       <NoticeBar
         delay={100}
         speed={500}
@@ -77,5 +77,22 @@ describe('NoticeBar', () => {
 
     await sleep(200)
     expect(container).toMatchSnapshot()
+  })
+
+  test('`wrap` prop', () => {
+    render(
+      <NoticeBar
+        content={
+          <>
+            <div>1</div>
+            <div>2</div>
+          </>
+        }
+        wrap
+      />
+    )
+    expect(document.querySelector(`.${classPrefix}`)).toHaveClass(
+      `${classPrefix}-wrap`
+    )
   })
 })

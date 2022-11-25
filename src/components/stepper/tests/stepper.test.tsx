@@ -207,4 +207,29 @@ describe('stepper', () => {
       expect(input.value).toBe('1')
     })
   })
+
+  test('formatter & parser', () => {
+    const formatter = jest.fn((val?: number) => `$ ${val}`)
+    const parser = jest.fn((text: string) => parseFloat(text))
+
+    const { container } = render(
+      <Stepper formatter={formatter} parser={parser} />
+    )
+
+    const inputEle = container.querySelector('input') as HTMLInputElement
+    expect(inputEle.value).toEqual('$ 0')
+
+    fireEvent.focus(inputEle)
+    expect(inputEle.value).toEqual('0')
+
+    fireEvent.change(inputEle, {
+      target: {
+        value: 93,
+      },
+    })
+    expect(inputEle.value).toEqual('93')
+
+    fireEvent.blur(inputEle)
+    expect(inputEle.value).toEqual('$ 93')
+  })
 })
