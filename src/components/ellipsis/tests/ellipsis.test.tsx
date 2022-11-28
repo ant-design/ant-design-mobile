@@ -112,4 +112,13 @@ describe('Ellipsis', () => {
 
     expect(getByTestId('ellipsis')).not.toHaveTextContent('...')
   })
+
+  // https://github.com/ant-design/ant-design-mobile/issues/5726
+  test('content could be undefined', () => {
+    expect(() => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      render(<Ellipsis content={undefined} data-testid='ellipsis' />)
+    }).not.toThrowError()
+  })
 })

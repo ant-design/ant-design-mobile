@@ -1,8 +1,11 @@
 import type { FC } from 'react'
 import React, { useContext, useMemo } from 'react'
 import { context, Link, NavLink } from 'dumi/theme'
+import classNames from 'classnames'
+import { useLocation } from 'dumi'
 import LocaleSelect from './LocaleSelect'
 import './Navbar.less'
+import homeStyle from './NavbarHome.less'
 import p from '../../../package.json'
 import SearchBar from './SearchBar'
 import { Popover } from 'antd-mobile'
@@ -21,6 +24,9 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
     locale,
   } = useContext(context)
 
+  const { pathname } = useLocation()
+  const isHomePage = pathname === base || pathname === base + '/'
+
   const navItems = useMemo(() => {
     const isCN = !!locale && /^zh|cn$/i.test(locale)
 
@@ -36,7 +42,12 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
   }, [nav, locale])
 
   return (
-    <div className='__dumi-default-navbar'>
+    <div
+      className={classNames(
+        '__dumi-default-navbar',
+        isHomePage && homeStyle.root
+      )}
+    >
       <button className='__dumi-default-navbar-toggle' />
       <div className='left-part'>
         <Link className='__dumi-default-navbar-logo' to={base}>

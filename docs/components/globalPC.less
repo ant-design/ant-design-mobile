@@ -1,0 +1,77 @@
+:global {
+  // 下面影响所有页面
+  .__dumi-default-navbar nav > span > a svg {
+    display: none;
+  }
+
+  .__dumi-default-search-input {
+    vertical-align: middle !important;
+  }
+
+  .__dumi-default-navbar-logo {
+    background-position-x: center !important;
+  }
+
+  .__dumi-default-navbar {
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  // 下面样式只影响首页
+  .__dumi-default-layout[data-route='/'].__dumi-default-layout[data-gapless='true'] {
+    padding-top: 0 !important;
+
+    .__dumi-default-navbar {
+      position: absolute;
+      max-width: 1152px;
+      margin: 0 auto;
+      background-color: transparent;
+      padding: 0 !important;
+      border: none;
+    }
+
+    .__dumi-default-navbar-logo:not([data-plaintext]) {
+      height: 32px;
+      background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/7c5fec71-34b2-4996-8384-89555714927c.svg) !important;
+    }
+
+    .__dumi-default-navbar nav > span > a {
+      color: #fff;
+    }
+
+    .__dumi-default-navbar nav > span > a:hover {
+      font-family: PingFangSC-Medium;
+      line-height: 22px;
+      color: #fff !important;
+    }
+
+    .__dumi-default-navbar nav > span:hover:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -2px;
+      right: -2px;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 1px;
+    }
+
+    .__dumi-default-search-input {
+      border-radius: 8px !important;
+      color: #fff !important;
+      width: 200px;
+      height: 32px;
+      transition: none;
+      background: url(https://gw.alipayobjects.com/zos/bmw-prod/f4f3a6af-273c-4250-8cf3-f36e58448063.svg)
+        no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .__dumi-default-search-input::placeholder {
+      color: #ffffff80;
+    }
+
+    .__dumi-default-search-input:focus {
+      box-shadow: none;
+    }
+  }
+}

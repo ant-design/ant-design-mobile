@@ -35,17 +35,34 @@ export async function mockUploadFail() {
   throw new Error('Fail to upload')
 }
 
-async function mockInputFile(file: File | File[] = mockImg) {
+const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
+
+function mockInputFile(file: File | File[] = mockImg) {
   const inputEl = $$(`.${classPrefix}-input`)[0] as HTMLInputElement
 
-  await userEvent.upload(inputEl, file)
+  user.upload(inputEl, file)
   return inputEl
 }
+
+const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
 
 describe('ImageUploader', () => {
   // jsdom does not support createObjectURL
   URL.createObjectURL = jest.fn(() => '')
   URL.revokeObjectURL = jest.fn(() => '')
+
+  afterEach(() => {
+    errSpy.mockReset()
+  })
+
+  beforeEach(() => {
+    jest.useFakeTimers()
+  })
+
+  afterAll(() => {
+    errSpy.mockRestore()
+    jest.useRealTimers()
+  })
 
   const App = (props: any) => {
     const [fileList, setFileList] = useState<ImageUploadItem[]>([
@@ -65,46 +82,37 @@ describe('ImageUploader', () => {
   }
 
   test('a11y', async () => {
+    jest.useRealTimers()
     await testA11y(<App />)
   })
 
   test('basic usage', async () => {
     render(<App />)
 
-    const input = await mockInputFile()
+    const input = mockInputFile()
+    await act(async () => {
+      jest.runAllTimers()
+    })
     expect(input.files?.length ?? 0).toBe(0)
     expect($$(`.${classPrefix}-cell-image`).length).toBe(2)
   })
 
   test('upload status', async () => {
-    const originConsoleError = console.error
-    let uploadFailCount = 0
-    console.error = jest.fn((...args: any[]) => {
-      if (args[0]?.toString().includes('Fail to upload')) {
-        uploadFailCount++
-      } else {
-        originConsoleError(...args)
-      }
-    })
-
     const { container } = render(<App upload={mockUploadFail} showUpload />)
 
-    await act(async () => {
-      await mockInputFile()
-    })
-
+    mockInputFile()
     await waitFor(() => {
       screen.getByText('上传中...')
     })
     expect(container).toHaveTextContent('上传中...')
 
-    await waitFor(() => {
-      expect($$(`.${classPrefix}-cell-fail`)[0]).toBeVisible()
+    await act(async () => {
+      jest.runAllTimers()
     })
+    expect($$(`.${classPrefix}-cell-fail`)[0]).toBeVisible()
 
     expect(container).toMatchSnapshot()
-
-    expect(uploadFailCount).toBe(1)
+    expect(errSpy).toBeCalled()
   })
 
   test('limit size', async () => {
@@ -118,7 +126,10 @@ describe('ImageUploader', () => {
     }
     render(<App beforeUpload={beforeUpload} />)
 
-    const input = await mockInputFile()
+    const input = mockInputFile()
+    await act(async () => {
+      jest.runAllTimers()
+    })
 
     expect(fn.mock.calls[0][0]).toContain('The file is too large!')
     expect(input.files?.length ?? 0).toBe(0)
@@ -138,17 +149,21 @@ describe('ImageUploader', () => {
       />
     )
 
-    await mockInputFile([
+    mockInputFile([
       new File(['one'], 'one.png', { type: 'image/png' }),
       new File(['two'], 'two.png', { type: 'image/png' }),
       new File(['three'], 'three.png', { type: 'image/png' }),
     ])
+    await act(async () => {
+      jest.runAllTimers()
+    })
 
     expect(fn.mock.calls[0][0]).toBe(1)
     expect($$(`.${classPrefix}-upload-button`).length).toBe(0)
   })
 
   test('delete image', async () => {
+    jest.useRealTimers()
     render(
       <App
         multiple
@@ -225,5 +240,80 @@ describe('ImageUploader', () => {
     await waitFor(() => {
       expect($$(`.${customClassName}`)[0]).toBeVisible()
     })
+  })
+
+  // https://github.com/ant-design/ant-design-mobile/issues/5763
+  test('the count should not be increased after the failed upload when `showFailed` is false', async () => {
+    render(<App upload={mockUploadFail} maxCount={2} showFailed={false} />)
+    mockInputFile()
+    // status pending
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    // status done
+    await act(async () => {
+      jest.runAllTimers()
+    })
+
+    expect($$(`.${classPrefix}-upload-button`)[0]).toBeInTheDocument()
+  })
+
+  test('auto remove failed task before upload when `showFailed` is false', async () => {
+    const fn = jest.fn()
+    render(
+      <App
+        upload={mockUploadFail}
+        showFailed={false}
+        onUploadQueueChange={fn}
+      />
+    )
+    mockInputFile()
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(fn).toBeCalled()
+    expect(fn.mock.lastCall[0].length).toBe(1)
+
+    mockInputFile()
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(fn.mock.lastCall[0].length).toBe(1)
+  })
+
+  test('revokeObjectURL when task done', async () => {
+    const fn = jest.fn(() => {})
+    URL.revokeObjectURL = fn
+
+    render(<App />)
+
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(0))
+
+    expect(fn).not.toBeCalled()
+
+    mockInputFile()
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    await act(async () => {
+      jest.runAllTimers()
+    })
+
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(1))
+
+    expect(fn).toBeCalledTimes(1)
+    expect(fn).toBeCalledWith('')
+
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(0))
+
+    expect(fn).toBeCalledTimes(1)
   })
 })

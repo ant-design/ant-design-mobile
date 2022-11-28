@@ -5,7 +5,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { bound } from '../../utils/bound'
-import Input, { InputProps } from '../input'
+import Input, { InputProps, InputRef } from '../input'
 import Button from '../button'
 import Big from 'big.js'
 import { useConfig } from '../config-provider'
@@ -34,6 +34,10 @@ export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> &
     digits?: number
     disabled?: boolean
     inputReadOnly?: boolean
+
+    // Format & Parse
+    parser?: (text: string) => number
+    formatter?: (value?: number) => string
   } & NativeProps<
     | '--height'
     | '--input-width'
@@ -59,39 +63,46 @@ const defaultProps = {
 
 export const Stepper: FC<StepperProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const { disabled, step, max, min, inputReadOnly } = props
+  const { disabled, step, max, min, inputReadOnly, digits, formatter, parser } =
+    props
   const { locale } = useConfig()
 
+  // ========================== Parse / Format ==========================
+  const parseValue = (text: string) => {
+    if (text === '') return null
+    return parser ? parser(text) : parseFloat(text)
+  }
+
+  const formatValue = (value: number | null) => {
+    if (value === null) return ''
+
+    if (formatter) {
+      return formatter(value)
+    } else if (digits !== undefined) {
+      return value.toFixed(digits)
+    } else {
+      return value.toString()
+    }
+  }
+
+  // ======================== Value & InputValue ========================
   const [value, setValue] = usePropsValue<number | null>(props as any)
-  const [inputValue, setInputValue] = useState(() =>
-    convertValueToText(value, props.digits)
-  )
+  const [inputValue, setInputValue] = useState(() => formatValue(value))
+
+  // >>>>> Value
   function setValueWithCheck(v: number) {
     if (isNaN(v)) return
     let target = bound(v, props.min, props.max)
-    if (props.digits !== undefined) {
-      target = parseFloat(target.toFixed(props.digits))
+    if (digits !== undefined) {
+      target = parseFloat(target.toFixed(digits))
     }
     setValue(target)
   }
 
-  const [hasFocus, setHasFocus] = useState(false)
-
-  useEffect(() => {
-    if (!hasFocus) {
-      setInputValue(convertValueToText(value, props.digits))
-    }
-  }, [hasFocus])
-
-  useEffect(() => {
-    if (!hasFocus) {
-      setInputValue(convertValueToText(value, props.digits))
-    }
-  }, [value, props.digits])
-
+  // >>>>> Input
   const handleInputChange = (v: string) => {
     setInputValue(v)
-    const value = convertTextToValue(v)
+    const value = parseValue(v)
     if (value === null) {
       if (props.allowEmpty) {
         setValue(null)
@@ -103,6 +114,33 @@ export const Stepper: FC<StepperProps> = p => {
     }
   }
 
+  // ============================== Focus ===============================
+  const [focused, setFocused] = useState(false)
+  const inputRef = React.useRef<InputRef>(null)
+
+  function triggerFocus(nextFocus: boolean) {
+    setFocused(nextFocus)
+
+    // We will convert value to original text when focus
+    if (nextFocus) {
+      setInputValue(typeof value === 'number' ? String(value) : '')
+    }
+  }
+
+  useEffect(() => {
+    if (focused) {
+      inputRef.current?.nativeElement?.select?.()
+    }
+  }, [focused])
+
+  // Focus change to format value
+  useEffect(() => {
+    if (!focused) {
+      setInputValue(formatValue(value))
+    }
+  }, [focused, value, digits])
+
+  // ============================ Operations ============================
   const handleMinus = () => {
     setValueWithCheck(
       Big(value ?? 0)
@@ -137,11 +175,12 @@ export const Stepper: FC<StepperProps> = p => {
     return false
   }
 
+  // ============================== Render ==============================
   return withNativeProps(
     props,
     <div
       className={classNames(classPrefix, {
-        [`${classPrefix}-active`]: hasFocus,
+        [`${classPrefix}-active`]: focused,
       })}
     >
       <Button
@@ -157,9 +196,10 @@ export const Stepper: FC<StepperProps> = p => {
       </Button>
       <div className={`${classPrefix}-middle`}>
         <Input
+          ref={inputRef}
           className={`${classPrefix}-input`}
           onFocus={e => {
-            setHasFocus(true)
+            triggerFocus(true)
             props.onFocus?.(e)
           }}
           value={inputValue}
@@ -168,7 +208,7 @@ export const Stepper: FC<StepperProps> = p => {
           }}
           disabled={disabled}
           onBlur={e => {
-            setHasFocus(false)
+            triggerFocus(false)
             props.onBlur?.(e)
           }}
           readOnly={inputReadOnly}
@@ -192,18 +232,4 @@ export const Stepper: FC<StepperProps> = p => {
       </Button>
     </div>
   )
-}
-
-function convertValueToText(value: number | null, digits?: number) {
-  if (value === null) return ''
-  if (digits !== undefined) {
-    return value.toFixed(digits)
-  } else {
-    return value.toString()
-  }
-}
-
-function convertTextToValue(text: string) {
-  if (text === '') return null
-  return parseFloat(text)
 }

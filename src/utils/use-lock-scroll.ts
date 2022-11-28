@@ -7,10 +7,24 @@ let totalLockCount = 0
 
 const BODY_LOCK_CLASS = 'adm-overflow-hidden'
 
+function getScrollableElement(el: HTMLElement | null) {
+  let current = el?.parentElement
+
+  while (current) {
+    if (current.clientHeight < current.scrollHeight) {
+      return current
+    }
+
+    current = current.parentElement
+  }
+
+  return null
+}
+
 // 移植自vant：https://github.com/youzan/vant/blob/HEAD/src/composables/use-lock-scroll.ts
 export function useLockScroll(
   rootRef: RefObject<HTMLElement>,
-  shouldLock: boolean
+  shouldLock: boolean | 'strict'
 ) {
   const touch = useTouch()
 
@@ -23,6 +37,19 @@ export function useLockScroll(
       rootRef.current
     ) as HTMLElement
     if (!el) return
+
+    // This has perf cost but we have to compatible with iOS 12
+    if (shouldLock === 'strict') {
+      const scrollableParent = getScrollableElement(event.target as HTMLElement)
+      if (
+        scrollableParent === document.body ||
+        scrollableParent === document.documentElement
+      ) {
+        event.preventDefault()
+        return
+      }
+    }
+
     const { scrollHeight, offsetHeight, scrollTop } = el
     let status = '11'
 

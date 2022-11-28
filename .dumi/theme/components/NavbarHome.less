@@ -1,0 +1,89 @@
+@import (reference) '../style/variables.less';
+
+// zombieJ: 简单兜底，由于现在只有首页在用，所以不封装了
+
+.root {
+  background: transparent;
+
+  :global {
+    .__dumi-default-dark {
+      display: none;
+    }
+
+    // ==================== Logo ====================
+    .__dumi-default-navbar-logo {
+      img {
+        filter: brightness(100);
+      }
+    }
+
+    .title,
+    .version {
+      color: #fff;
+    }
+
+    .version {
+      opacity: 0.65;
+    }
+
+    // =================== Search ===================
+    .__dumi-default-search-input {
+      background: rgba(255, 255, 255, 0.2) !important;
+      color: #fff;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.65);
+      }
+    }
+
+    // =================== Navbar ===================
+    .right-part {
+      nav {
+        > span > a {
+          color: #fff;
+          opacity: 0.8;
+          transition: all 0.3s;
+
+          &::after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            left: 0;
+            right: 0;
+            top: 0;
+            background: #fff;
+            opacity: 0;
+            transition: all 0.3s;
+          }
+
+          &:hover {
+            color: #fff;
+            opacity: 1;
+
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .__dumi-default-navbar-tool {
+      .__dumi-default-locale-select {
+        border-radius: 4px;
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.2);
+        opacity: 0.8;
+        transition: all 0.3s;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        > a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

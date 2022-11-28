@@ -7,7 +7,7 @@ module.exports = {
   jsxSingleQuote: true,
   quoteProps: 'preserve',
   arrowParens: 'avoid',
-  proseWrap: 'preserve',
+  proseWrap: 'never',
   overrides: [
     {
       'files': ['*.md'],
