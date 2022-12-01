@@ -22,7 +22,6 @@ specifiers:
   '@statoscope/webpack-plugin': ^5.24.0
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^13.4.0
-  '@testing-library/react-hooks': ^8.0.1
   '@testing-library/user-event': 14.2.1
   '@types/big.js': ^6.1.6
   '@types/jest': ^28.1.8
@@ -77,7 +76,7 @@ specifiers:
   lorem-ipsum: ^2.0.8
   lz-string: ^1.4.4
   mockdate: ^3.0.5
-  postcss: ^7.0.39
+  postcss: ^8.4.19
   postcss-px-multiple: ^0.1.5
   postcss-pxtorem: ^6.0.0
   prettier: ^2.7.1
@@ -142,7 +141,6 @@ devDependencies:
   '@statoscope/webpack-plugin': 5.24.0_webpack@5.75.0
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
-  '@testing-library/react-hooks': 8.0.1_djah6xjkh3i2bchfafvsnwdbb4
   '@testing-library/user-event': 14.2.1
   '@types/big.js': 6.1.6
   '@types/jest': 28.1.8
@@ -175,7 +173,7 @@ devDependencies:
   gulp: 4.0.2
   gulp-babel: 8.0.0_@babel+core@7.20.2
   gulp-less: 5.0.0
-  gulp-postcss: 9.0.1_dzyb5bj3t3zxby5fqoyncllxcu
+  gulp-postcss: 9.0.1_v776zzvn44o7tpgzieipaairwm
   gulp-rename: 2.0.0
   gulp-replace: 1.1.3
   gulp-typescript: 6.0.0-alpha.1_typescript@4.6.4
@@ -189,9 +187,9 @@ devDependencies:
   lorem-ipsum: 2.0.8
   lz-string: 1.4.4
   mockdate: 3.0.5
-  postcss: 7.0.39
+  postcss: 8.4.19
   postcss-px-multiple: 0.1.5
-  postcss-pxtorem: 6.0.0_postcss@7.0.39
+  postcss-pxtorem: 6.0.0_postcss@8.4.19
   prettier: 2.7.1
   pretty-quick: 3.1.3_prettier@2.7.1
   prism-react-renderer: 1.3.5_react@18.2.0
@@ -2701,30 +2699,6 @@ packages:
       dom-accessibility-api: 0.5.14
       lodash: 4.17.21
       redent: 3.0.0
-    dev: true
-
-  /@testing-library/react-hooks/8.0.1_djah6xjkh3i2bchfafvsnwdbb4:
-    resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      '@types/react': ^16.9.0 || ^17.0.0
-      react: ^16.9.0 || ^17.0.0
-      react-dom: ^16.9.0 || ^17.0.0
-      react-test-renderer: ^16.9.0 || ^17.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      react-dom:
-        optional: true
-      react-test-renderer:
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.20.1
-      '@types/react': 18.0.25
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-error-boundary: 3.1.4_react@18.2.0
-      react-test-renderer: 18.2.0_react@18.2.0
     dev: true
 
   /@testing-library/react/13.4.0_biqbaboplfbrettd7655fr4n2y:
@@ -8704,7 +8678,7 @@ packages:
       - supports-color
     dev: true
 
-  /gulp-postcss/9.0.1_dzyb5bj3t3zxby5fqoyncllxcu:
+  /gulp-postcss/9.0.1_v776zzvn44o7tpgzieipaairwm:
     resolution: {integrity: sha512-9QUHam5JyXwGUxaaMvoFQVT44tohpEFpM8xBdPfdwTYGM0AItS1iTQz0MpsF8Jroh7GF5Jt2GVPaYgvy8qD2Fw==}
     engines: {node: ^10 || ^12 || >=14}
     peerDependencies:
@@ -8712,8 +8686,8 @@ packages:
     dependencies:
       fancy-log: 1.3.3
       plugin-error: 1.0.1
-      postcss: 7.0.39
-      postcss-load-config: 3.1.4_dzyb5bj3t3zxby5fqoyncllxcu
+      postcss: 8.4.19
+      postcss-load-config: 3.1.4_v776zzvn44o7tpgzieipaairwm
       vinyl-sourcemaps-apply: 0.2.1
     transitivePeerDependencies:
       - ts-node
@@ -13092,7 +13066,7 @@ packages:
       import-cwd: 2.1.0
     dev: true
 
-  /postcss-load-config/3.1.4_dzyb5bj3t3zxby5fqoyncllxcu:
+  /postcss-load-config/3.1.4_v776zzvn44o7tpgzieipaairwm:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
     engines: {node: '>= 10'}
     peerDependencies:
@@ -13105,7 +13079,7 @@ packages:
         optional: true
     dependencies:
       lilconfig: 2.0.6
-      postcss: 7.0.39
+      postcss: 8.4.19
       ts-node: 10.9.1_qnqcnd2xxo6sbbcr7zcdrux76u
       yaml: 1.10.2
     dev: true
@@ -13429,12 +13403,12 @@ packages:
       postcss: 6.0.23
     dev: true
 
-  /postcss-pxtorem/6.0.0_postcss@7.0.39:
+  /postcss-pxtorem/6.0.0_postcss@8.4.19:
     resolution: {integrity: sha512-ZRXrD7MLLjLk2RNGV6UA4f5Y7gy+a/j1EqjAfp9NdcNYVjUMvg5HTYduTjSkKBkRkfqbg/iKrjMO70V4g1LZeg==}
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 7.0.39
+      postcss: 8.4.19
     dev: true
 
   /postcss-reduce-initial/4.0.3:
