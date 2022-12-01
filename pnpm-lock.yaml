@@ -22,7 +22,6 @@ specifiers:
   '@statoscope/webpack-plugin': ^5.24.0
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^13.4.0
-  '@testing-library/react-hooks': ^8.0.1
   '@testing-library/user-event': 14.2.1
   '@types/big.js': ^6.1.6
   '@types/jest': ^28.1.8
@@ -142,7 +141,6 @@ devDependencies:
   '@statoscope/webpack-plugin': 5.24.0_webpack@5.75.0
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
-  '@testing-library/react-hooks': 8.0.1_djah6xjkh3i2bchfafvsnwdbb4
   '@testing-library/user-event': 14.2.1
   '@types/big.js': 6.1.6
   '@types/jest': 28.1.8
@@ -2701,30 +2699,6 @@ packages:
       dom-accessibility-api: 0.5.14
       lodash: 4.17.21
       redent: 3.0.0
-    dev: true
-
-  /@testing-library/react-hooks/8.0.1_djah6xjkh3i2bchfafvsnwdbb4:
-    resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      '@types/react': ^16.9.0 || ^17.0.0
-      react: ^16.9.0 || ^17.0.0
-      react-dom: ^16.9.0 || ^17.0.0
-      react-test-renderer: ^16.9.0 || ^17.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      react-dom:
-        optional: true
-      react-test-renderer:
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.20.1
-      '@types/react': 18.0.25
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-error-boundary: 3.1.4_react@18.2.0
-      react-test-renderer: 18.2.0_react@18.2.0
     dev: true
 
   /@testing-library/react/13.4.0_biqbaboplfbrettd7655fr4n2y:
