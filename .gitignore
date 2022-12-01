@@ -9,10 +9,6 @@
 /report/
 /report.json
 /report.html
-yarn.lock
-package-lock.json
-pnpm-lock.yaml
-.pnpm-debug.log
 
 # build
 /dist/
