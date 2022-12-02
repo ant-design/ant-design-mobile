@@ -1,46 +1,48 @@
 import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
 import { MinusOutline, AddOutline } from 'antd-mobile-icons'
-import getMiniDecimal from '@rc-component/mini-decimal'
+import useMergedState from 'rc-util/lib/hooks/useMergedState'
+import getMiniDecimal, {
+  toFixed,
+  type DecimalClass,
+} from '@rc-component/mini-decimal'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
-import { bound } from '../../utils/bound'
 import Input, { InputProps, InputRef } from '../input'
 import Button from '../button'
 import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-stepper`
 
-type ValueProps = {
+type ValueProps<ValueType> = {
   allowEmpty: true
-  value?: number | null
-  defaultValue?: number | null
-  onChange?: (value: number | null) => void
+  value?: ValueType | null
+  defaultValue?: ValueType | null
+  onChange?: (value: ValueType | null) => void
 }
 
-type ValuePropsWithNull = {
+type ValuePropsWithNull<ValueType> = {
   allowEmpty?: false
-  value?: number
-  defaultValue?: number
-  onChange?: (value: number) => void
+  value?: ValueType
+  defaultValue?: ValueType
+  onChange?: (value: ValueType) => void
 }
 
-export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> &
-  (ValuePropsWithNull | ValueProps) & {
-    min?: number
-    max?: number
-    step?: number
+export type BaseStepperProps<ValueType> = Pick<
+  InputProps,
+  'onFocus' | 'onBlur'
+> &
+  (ValuePropsWithNull<ValueType> | ValueProps<ValueType>) & {
+    min?: ValueType
+    max?: ValueType
+    step?: ValueType
     digits?: number
     disabled?: boolean
     inputReadOnly?: boolean
 
-    // stringMode
-    stringMode?: boolean
-
     // Format & Parse
-    parser?: (text: string) => number
-    formatter?: (value?: number) => string
+    parser?: (text: string) => ValueType
+    formatter?: (value?: ValueType) => string
   } & NativeProps<
     | '--height'
     | '--input-width'
@@ -57,16 +59,39 @@ export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> &
     | '--button-text-color'
   >
 
+export type NumberStepperProps = BaseStepperProps<number> & {
+  // stringMode
+  stringMode?: false
+}
+export type StringStepperProps = BaseStepperProps<string> & {
+  // stringMode
+  stringMode: true
+}
+
+export type StepperProps = NumberStepperProps | StringStepperProps
+
+type DEFAULT_PROPS = 'step'
+type MergedStepperProps<ValueType> = Omit<
+  BaseStepperProps<ValueType>,
+  DEFAULT_PROPS
+> &
+  Required<Pick<BaseStepperProps<ValueType>, DEFAULT_PROPS>> & {
+    stringMode?: boolean
+  }
+
 const defaultProps = {
-  defaultValue: 0,
   step: 1,
   disabled: false,
   allowEmpty: false,
 }
 
-export function Stepper(p: StepperProps) {
+export function Stepper<ValueType extends number | string>(p: StepperProps) {
   const props = mergeProps(defaultProps, p)
   const {
+    defaultValue = 0 as ValueType,
+    value,
+    onChange,
+
     disabled,
     step,
     max,
@@ -76,53 +101,93 @@ export function Stepper(p: StepperProps) {
     stringMode,
     formatter,
     parser,
-  } = props
+  } = props as MergedStepperProps<ValueType>
+
   const { locale } = useConfig()
 
   // ========================== Parse / Format ==========================
-  const parseValue = (text: string) => {
-    if (text === '') return null
-    return parser ? parser(text) : parseFloat(text)
+  const fixedValue = (value: ValueType) => {
+    const fixedValue =
+      digits !== undefined
+        ? getMiniDecimal(toFixed(value.toString(), '.', digits))
+        : value
+
+    return fixedValue.toString()
   }
 
-  const formatValue = (value: number | null) => {
+  const getValueAsType = (value: DecimalClass) =>
+    (stringMode ? value.toString() : value.toNumber()) as ValueType
+
+  const parseValue = (text: string): string | null => {
+    if (text === '') return null
+    return parser ? String(parser(text)) : getMiniDecimal(text).toString()
+  }
+
+  const formatValue = (value: ValueType | null): string => {
     if (value === null) return ''
 
     if (formatter) {
       return formatter(value)
-    } else if (digits !== undefined) {
-      return value.toFixed(digits)
     } else {
-      return value.toString()
+      return fixedValue(value)
     }
   }
 
   // ======================== Value & InputValue ========================
-  const [value, setValue] = usePropsValue<number | null>(props as any)
-  const [inputValue, setInputValue] = useState(() => formatValue(value))
+  const [mergedValue, setMergedValue] = useMergedState<ValueType | null>(
+    defaultValue,
+    {
+      value,
+      onChange: nextValue => {
+        onChange?.(nextValue as ValueType)
+      },
+    }
+  )
+
+  const [inputValue, setInputValue] = useState(() => formatValue(mergedValue))
 
   // >>>>> Value
-  function setValueWithCheck(v: number) {
-    if (isNaN(v)) return
-    let target = bound(v, props.min, props.max)
-    if (digits !== undefined) {
-      target = parseFloat(target.toFixed(digits))
+  function setValueWithCheck(nextValue: DecimalClass) {
+    if (nextValue.isNaN()) return
+
+    let target = nextValue
+
+    // Put into range
+    if (min !== undefined) {
+      const minDecimal = getMiniDecimal(min)
+      if (target.lessEquals(minDecimal)) {
+        target = minDecimal
+      }
     }
-    setValue(target)
+
+    if (max !== undefined) {
+      const maxDecimal = getMiniDecimal(max)
+      if (maxDecimal.lessEquals(target)) {
+        target = maxDecimal
+      }
+    }
+
+    // Fix digits
+    if (digits !== undefined) {
+      target = getMiniDecimal(fixedValue(getValueAsType(target)))
+    }
+
+    setMergedValue(getValueAsType(target))
   }
 
   // >>>>> Input
   const handleInputChange = (v: string) => {
     setInputValue(v)
-    const value = parseValue(v)
-    if (value === null) {
+    const valueStr = parseValue(v)
+
+    if (valueStr === null) {
       if (props.allowEmpty) {
-        setValue(null)
+        setMergedValue(null)
       } else {
-        setValue(props.defaultValue)
+        setMergedValue(defaultValue)
       }
     } else {
-      setValueWithCheck(value)
+      setValueWithCheck(getMiniDecimal(valueStr))
     }
   }
 
@@ -135,7 +200,7 @@ export function Stepper(p: StepperProps) {
 
     // We will convert value to original text when focus
     if (nextFocus) {
-      setInputValue(typeof value === 'number' ? String(value) : '')
+      setInputValue(typeof mergedValue === 'number' ? String(mergedValue) : '')
     }
   }
 
@@ -148,41 +213,44 @@ export function Stepper(p: StepperProps) {
   // Focus change to format value
   useEffect(() => {
     if (!focused) {
-      setInputValue(formatValue(value))
+      setInputValue(formatValue(mergedValue))
     }
-  }, [focused, value, digits])
+  }, [focused, mergedValue, digits])
 
   // ============================ Operations ============================
-  const handleOffset = (offset: number) => {
+  const handleOffset = (positive: boolean) => {
+    let stepValue = getMiniDecimal(step)
+    if (!positive) {
+      stepValue = stepValue.negate()
+    }
+
     setValueWithCheck(
-      getMiniDecimal(value ?? 0)
-        .add(offset)
-        .toNumber()
+      getMiniDecimal(mergedValue ?? 0).add(stepValue.toString())
     )
   }
 
   const handleMinus = () => {
-    handleOffset(-step)
+    handleOffset(false)
   }
 
   const handlePlus = () => {
-    handleOffset(step)
+    handleOffset(true)
   }
 
   const minusDisabled = () => {
     if (disabled) return true
-    if (value === null) return false
+    if (mergedValue === null) return false
     if (min !== undefined) {
-      return value <= min
+      return mergedValue <= min
     }
     return false
   }
 
   const plusDisabled = () => {
     if (disabled) return true
-    if (value === null) return false
+    if (mergedValue === null) return false
     if (max !== undefined) {
-      return value >= max
+      return mergedValue >= max
     }
     return false
   }
@@ -226,8 +294,8 @@ export function Stepper(p: StepperProps) {
           readOnly={inputReadOnly}
           role='spinbutton'
           aria-valuenow={Number(inputValue)}
-          aria-valuemax={max}
-          aria-valuemin={min}
+          aria-valuemax={Number(max)}
+          aria-valuemin={Number(min)}
           inputMode='decimal'
         />
       </div>

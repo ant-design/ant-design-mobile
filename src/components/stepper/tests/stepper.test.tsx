@@ -47,11 +47,14 @@ describe('stepper', () => {
     const input = screen.getByRole('spinbutton') as HTMLInputElement
     expect(input.value).toBe('100')
 
+    // Change to 200
     fireEvent.change(input, {
       target: {
         value: '200',
       },
     })
+
+    // Clean up
     fireEvent.change(input, {
       target: {
         value: '',
