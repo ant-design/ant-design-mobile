@@ -33,7 +33,7 @@ It is suitable for inputting and adjusting the current value within a certain ra
 | onFocus | Triggered when the input get focus | `(e: React.FocusEvent<HTMLInputElement>) => void` | - |
 | parser | Parse input text into number which should work with `formatter` | `(text: string) => number` | - | 5.26.0 |
 | step | Change the number of steps each time, it can be a decimal | `number` | `1` |
-| stringMode | Set value as string to support high precision decimals. Will return `string` value by `onChange` | `number` | `1` | 5.27.0 |
+| stringMode | Set value as string to support high precision decimals. Will return `string` value by `onChange` | `boolean` | `false` | 5.27.0 |
 | value | Current number, controlled value | `number \| null` | - |
 
 When `allowEmpty` is `true`, the `value` parameter of `onChange` may be `null`, please pay attention when using it.
