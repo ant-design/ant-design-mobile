@@ -106,11 +106,9 @@ export function Stepper<ValueType extends number | string>(p: StepperProps) {
   const { locale } = useConfig()
 
   // ========================== Parse / Format ==========================
-  const fixedValue = (value: ValueType) => {
+  const fixedValue = (value: ValueType): string => {
     const fixedValue =
-      digits !== undefined
-        ? getMiniDecimal(toFixed(value.toString(), '.', digits))
-        : value
+      digits !== undefined ? toFixed(value.toString(), '.', digits) : value
 
     return fixedValue.toString()
   }
