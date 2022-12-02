@@ -146,9 +146,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   }
 
   function getFinalTasks(tasks: Task[]) {
-    return props.showFailed
-      ? tasks
-      : tasks.filter(task => task.status !== 'fail')
+    return props.showFailed ? tasks.filter(task => task.status === 'fail') : []
   }
 
   async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
