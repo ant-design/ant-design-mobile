@@ -204,7 +204,11 @@ export function Stepper<ValueType extends number | string>(p: StepperProps) {
 
     // We will convert value to original text when focus
     if (nextFocus) {
-      setInputValue(typeof mergedValue === 'number' ? String(mergedValue) : '')
+      setInputValue(
+        mergedValue !== null && mergedValue !== undefined
+          ? String(mergedValue)
+          : ''
+      )
     }
   }
 
