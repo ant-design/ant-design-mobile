@@ -1,13 +1,13 @@
 import classNames from 'classnames'
-import React, { FC, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MinusOutline, AddOutline } from 'antd-mobile-icons'
+import getMiniDecimal from '@rc-component/mini-decimal'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { bound } from '../../utils/bound'
 import Input, { InputProps, InputRef } from '../input'
 import Button from '../button'
-import Big from 'big.js'
 import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-stepper`
@@ -35,6 +35,9 @@ export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> &
     disabled?: boolean
     inputReadOnly?: boolean
 
+    // stringMode
+    stringMode?: boolean
+
     // Format & Parse
     parser?: (text: string) => number
     formatter?: (value?: number) => string
@@ -61,10 +64,19 @@ const defaultProps = {
   allowEmpty: false,
 }
 
-export const Stepper: FC<StepperProps> = p => {
+export function Stepper(p: StepperProps) {
   const props = mergeProps(defaultProps, p)
-  const { disabled, step, max, min, inputReadOnly, digits, formatter, parser } =
-    props
+  const {
+    disabled,
+    step,
+    max,
+    min,
+    inputReadOnly,
+    digits,
+    stringMode,
+    formatter,
+    parser,
+  } = props
   const { locale } = useConfig()
 
   // ========================== Parse / Format ==========================
@@ -141,20 +153,20 @@ export const Stepper: FC<StepperProps> = p => {
   }, [focused, value, digits])
 
   // ============================ Operations ============================
-  const handleMinus = () => {
+  const handleOffset = (offset: number) => {
     setValueWithCheck(
-      Big(value ?? 0)
-        .minus(step)
+      getMiniDecimal(value ?? 0)
+        .add(offset)
         .toNumber()
     )
   }
 
+  const handleMinus = () => {
+    handleOffset(-step)
+  }
+
   const handlePlus = () => {
-    setValueWithCheck(
-      Big(value ?? 0)
-        .add(step)
-        .toNumber()
-    )
+    handleOffset(step)
   }
 
   const minusDisabled = () => {

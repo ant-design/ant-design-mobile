@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.0.6",
+    "@rc-component/mini-decimal": "^1.0.1",
     "@react-spring/web": "^9.5.5",
     "@use-gesture/react": "10.2.20",
     "ahooks": "^3.7.2",
