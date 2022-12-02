@@ -286,4 +286,34 @@ describe('ImageUploader', () => {
     })
     expect(fn.mock.lastCall[0].length).toBe(1)
   })
+
+  test('revokeObjectURL when task done', async () => {
+    const fn = jest.fn(() => {})
+    URL.revokeObjectURL = fn
+
+    render(<App />)
+
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(0))
+
+    expect(fn).not.toBeCalled()
+
+    mockInputFile()
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    await act(async () => {
+      jest.runAllTimers()
+    })
+
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(1))
+
+    expect(fn).toBeCalledTimes(1)
+    expect(fn).toBeCalledWith('')
+
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(0))
+
+    expect(fn).toBeCalledTimes(1)
+  })
 })

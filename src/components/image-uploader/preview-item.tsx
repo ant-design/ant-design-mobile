@@ -1,4 +1,4 @@
-import React, { FC, useLayoutEffect, useMemo } from 'react'
+import React, { FC, useEffect, useMemo } from 'react'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
 import Image from '../image'
@@ -32,11 +32,11 @@ const PreviewItem: FC<Props> = props => {
     return ''
   }, [url, file])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     return () => {
-      URL.revokeObjectURL(src)
+      if (file) URL.revokeObjectURL(src)
     }
-  }, [src])
+  }, [src, file])
 
   function renderLoading() {
     return (
