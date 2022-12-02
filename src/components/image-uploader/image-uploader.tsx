@@ -195,18 +195,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
       newTasks.map(async currentTask => {
         try {
           const result = await props.upload(currentTask.file)
-          setTasks(prev => {
-            return prev.map(task => {
-              if (task.id === currentTask.id) {
-                return {
-                  ...task,
-                  status: 'success',
-                  url: result.url,
-                }
-              }
-              return task
-            })
-          })
+          setTasks(prev => prev.filter(task => task.id !== currentTask.id))
           setValue(prev => {
             const newVal = { ...result }
             return [...prev, newVal]
