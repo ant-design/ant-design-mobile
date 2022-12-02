@@ -118,7 +118,13 @@ export function Stepper<ValueType extends number | string>(p: StepperProps) {
 
   const parseValue = (text: string): string | null => {
     if (text === '') return null
-    return parser ? String(parser(text)) : getMiniDecimal(text).toString()
+
+    if (parser) {
+      return String(parser(text))
+    }
+
+    const decimal = getMiniDecimal(text)
+    return decimal.isInvalidate() ? null : decimal.toString()
   }
 
   const formatValue = (value: ValueType | null): string => {
