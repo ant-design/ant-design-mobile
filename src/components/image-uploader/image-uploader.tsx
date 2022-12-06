@@ -116,13 +116,15 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     '--cell-size': cellSize + 'px',
   }
 
+  function filterDuplicateTasks(tasks: Task[]) {
+    return tasks.filter(task => {
+      if (task.url === undefined) return true
+      return !value.some(fileItem => fileItem.url === task.url)
+    })
+  }
+
   useIsomorphicLayoutEffect(() => {
-    setTasks(prev =>
-      prev.filter(task => {
-        if (task.url === undefined) return true
-        return !value.some(fileItem => fileItem.url === task.url)
-      })
-    )
+    setTasks(prev => filterDuplicateTasks(prev))
   }, [value])
 
   useIsomorphicLayoutEffect(() => {
@@ -249,7 +251,8 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   const showUpload =
     props.showUpload &&
-    (maxCount === 0 || value.length + finalTasks.length < maxCount)
+    (maxCount === 0 ||
+      value.length + filterDuplicateTasks(finalTasks).length < maxCount)
 
   const renderImages = () => {
     return value.map((fileItem, index) => {
