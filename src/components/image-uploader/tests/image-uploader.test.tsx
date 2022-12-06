@@ -316,4 +316,20 @@ describe('ImageUploader', () => {
 
     expect(fn).toBeCalledTimes(1)
   })
+
+  test('task change', async () => {
+    const fn = jest.fn()
+    render(<App upload={mockUpload} onUploadQueueChange={fn} />)
+    mockInputFile()
+    expect(fn.mock.lastCall[0]).toMatchObject([])
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(fn.mock.lastCall[0]).toMatchObject([{ id: 0, status: 'pending' }])
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(fn).toBeCalledWith([{ id: 0, status: 'success' }])
+    expect(fn.mock.lastCall[0]).toMatchObject([])
+  })
 })
