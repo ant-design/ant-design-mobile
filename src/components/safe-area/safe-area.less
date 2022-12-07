@@ -5,9 +5,15 @@
   display: block;
   width: 100%;
   &-position-top {
-    padding-top: calc(env(safe-area-inset-top) * var(--multiple));
+    padding-top: var(--fallback-height);
+    padding-top: calc(
+      env(safe-area-inset-top, var(--fallback-height)) * var(--multiple)
+    );
   }
   &-position-bottom {
-    padding-bottom: calc(env(safe-area-inset-bottom) * var(--multiple));
+    padding-bottom: var(--fallback-height);
+    padding-bottom: calc(
+      env(safe-area-inset-bottom, var(--fallback-height)) * var(--multiple)
+    );
   }
 }

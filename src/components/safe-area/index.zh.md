@@ -20,15 +20,16 @@ SafeArea 组件是用来在全面屏下提供自适应的边距调整，它的�
 
 ## 示例
 
-<code src="./demos/demo1.tsx"></code>
+<code src="./demos/demo1.tsx"></code> <code src="./demos/demo2.tsx"></code>
 
 ## SafeArea
 
 ### 属性
 
-| 属性     | 说明         | 类型                | 默认值 |
-| -------- | ------------ | ------------------- | ------ |
-| position | 安全区的位置 | `'top' \| 'bottom'` | -      |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| fallback | 兜底间距，当浏览器不支持 `safe-area-inset-xxx` 时会使用该值 | `number` | - | 5.27.0 |
+| position | 安全区的位置 | `'top' \| 'bottom'` | - |
 
 ### CSS 变量
 

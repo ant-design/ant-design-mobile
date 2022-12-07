@@ -20,15 +20,16 @@ It should be noted that the demo below cannot be seen in the desktop browser:
 
 ## Demos
 
-<code src="./demos/demo1.tsx"></code>
+<code src="./demos/demo1.tsx"></code> <code src="./demos/demo2.tsx"></code>
 
 ## SafeArea
 
 ### Props
 
-| Name     | Description               | Type                | Default |
-| -------- | ------------------------- | ------------------- | ------- |
-| position | Position of the safe area | `'top' \| 'bottom'` | -       |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- | --- |
+| fallback | Fallback height. Using when `safe-area-inset-xxx` not support | `number` | - | 5.27.0 |
+| position | Position of the safe area | `'top' \| 'bottom'` | - |
 
 ### CSS Variables
 
