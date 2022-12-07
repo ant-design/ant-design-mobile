@@ -159,7 +159,9 @@ describe('ImageUploader', () => {
     })
 
     expect(fn.mock.calls[0][0]).toBe(1)
-    expect($$(`.${classPrefix}-upload-button`).length).toBe(0)
+    expect($$(`.${classPrefix}-upload-button-wrap`)[0]).toHaveStyle(
+      'display: none'
+    )
   })
 
   test('delete image', async () => {
