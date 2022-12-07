@@ -116,15 +116,13 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     '--cell-size': cellSize + 'px',
   }
 
-  function filterDuplicateTasks(tasks: Task[]) {
-    return tasks.filter(task => {
-      if (task.url === undefined) return true
-      return !value.some(fileItem => fileItem.url === task.url)
-    })
-  }
-
   useIsomorphicLayoutEffect(() => {
-    setTasks(prev => filterDuplicateTasks(prev))
+    setTasks(prev =>
+      prev.filter(task => {
+        if (task.url === undefined) return true
+        return !value.some(fileItem => fileItem.url === task.url)
+      })
+    )
   }, [value])
 
   useIsomorphicLayoutEffect(() => {
@@ -251,8 +249,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   const showUpload =
     props.showUpload &&
-    (maxCount === 0 ||
-      value.length + filterDuplicateTasks(finalTasks).length < maxCount)
+    (maxCount === 0 || value.length + finalTasks.length < maxCount)
 
   const renderImages = () => {
     return value.map((fileItem, index) => {
@@ -301,34 +298,35 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           />
         )
       })}
-      {showUpload && (
-        <div className={`${classPrefix}-upload-button-wrap`}>
-          {props.children ? (
-            props.children
-          ) : (
-            <span
-              className={`${classPrefix}-cell ${classPrefix}-upload-button`}
-              role='button'
-              aria-label={locale.ImageUploader.upload}
-            >
-              <span className={`${classPrefix}-upload-button-icon`}>
-                <AddOutline />
-              </span>
+      <div
+        className={`${classPrefix}-upload-button-wrap`}
+        style={showUpload ? undefined : { display: 'none' }}
+      >
+        {props.children ? (
+          props.children
+        ) : (
+          <span
+            className={`${classPrefix}-cell ${classPrefix}-upload-button`}
+            role='button'
+            aria-label={locale.ImageUploader.upload}
+          >
+            <span className={`${classPrefix}-upload-button-icon`}>
+              <AddOutline />
             </span>
-          )}
-          {!props.disableUpload && (
-            <input
-              capture={props.capture}
-              accept={props.accept}
-              multiple={props.multiple}
-              type='file'
-              className={`${classPrefix}-input`}
-              onChange={onChange}
-              aria-hidden
-            />
-          )}
-        </div>
-      )}
+          </span>
+        )}
+        {!props.disableUpload && (
+          <input
+            capture={props.capture}
+            accept={props.accept}
+            multiple={props.multiple}
+            type='file'
+            className={`${classPrefix}-input`}
+            onChange={onChange}
+            aria-hidden
+          />
+        )}
+      </div>
     </>
   )
 
