@@ -302,9 +302,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         className={`${classPrefix}-upload-button-wrap`}
         style={showUpload ? undefined : { display: 'none' }}
       >
-        {props.children ? (
-          props.children
-        ) : (
+        {props.children || (
           <span
             className={`${classPrefix}-cell ${classPrefix}-upload-button`}
             role='button'
