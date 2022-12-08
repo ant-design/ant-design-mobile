@@ -18,15 +18,15 @@ The bottom layer of `CheckList` is implemented based on `List`, which is a list 
 
 ### Props
 
-| Name         | Description                                | Type                        | Default            |
-| ------------ | ------------------------------------------ | --------------------------- | ------------------ |
-| activeIcon   | The icon displayed when selected           | `ReactNode`                 | `<CheckOutline />` |
-| defaultValue | The default items                          | `string[]`                  | `[]`               |
-| disabled     | Is the check list disabled                 | `boolean`                   | `false`            |
-| multiple     | Whether to allow multiple selection or not | `boolean`                   | `false`            |
-| onChange     | Triggered when the option changes          | `(value: string[]) => void` | -                  |
-| readOnly     | Is the check list item readonly            | `boolean`                   | `false`            |
-| value        | The selected items                         | `string[]`                  | `[]`               |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| activeIcon | The icon displayed when selected | `ReactNode` | `<CheckOutline />` |
+| defaultValue | The default items | `string[]` | `[]` |
+| disabled | Is the check list disabled | `boolean` | `false` |
+| multiple | Whether to allow multiple selection or not | `boolean` | `false` |
+| onChange | Triggered when the option changes | `(value: string[]) => void` | - |
+| readOnly | Is the check list item readonly | `boolean` | `false` |
+| value | The selected items | `string[]` | `[]` |
 
 In addition, the `mode` attribute of [List](/components/list) is also supported
 
