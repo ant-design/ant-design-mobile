@@ -12,8 +12,8 @@ When the page is partially waiting for asynchronous data or is being rendered, a
 
 ### Props
 
-| Name  | Description          | Type                                          | Default     |
-| ----- | -------------------- | --------------------------------------------- | ----------- |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
 | color | Color of the Loading | `'default' \| 'primary' \| 'white' \| string` | `'default'` |
 
 The size of `DotLoading` would automatically be adjusted according to the current text size.
@@ -24,8 +24,8 @@ The size of `DotLoading` would automatically be adjusted according to the curren
 
 ### Props
 
-| Name  | Description                                                       | Type                                          | Default     |
-| ----- | ----------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
 | color | Color of line. Equals to manually set the `--color` CSS variable. | `'default' \| 'primary' \| 'white' \| string` | `'default'` |
 
 ### CSS Variables

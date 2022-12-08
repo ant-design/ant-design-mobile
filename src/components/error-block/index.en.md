@@ -18,22 +18,22 @@ Feedback prompts for six abnormal scenarios.
 
 ### Props
 
-| Name        | Description                          | Type                                               | Default     |
-| ----------- | ------------------------------------ | -------------------------------------------------- | ----------- |
-| description | Description                          | `ReactNode`                                        | -           |
-| fullPage    | Whether it is a whole page exception | `boolean`                                          | `false`     |
-| image       | Image                                | `string \| ReactElement`                           | -           |
-| status      | The Default error type               | `'default' \| 'disconnected' \| 'empty' \| 'busy'` | `'default'` |
-| title       | Title                                | `ReactNode`                                        | -           |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| description | Description | `ReactNode` | - |
+| fullPage | Whether it is a whole page exception | `boolean` | `false` |
+| image | Image | `string \| ReactElement` | - |
+| status | The Default error type | `'default' \| 'disconnected' \| 'empty' \| 'busy'` | `'default'` |
+| title | Title | `ReactNode` | - |
 
 ### CSS Variables
 
-| Name                     | Description                            | Default | Global                                     |
-| ------------------------ | -------------------------------------- | ------- | ------------------------------------------ |
-| --image-height           | Height of the image                    | `100px` | `--adm-error-block-image-height`           |
+| Name | Description | Default | Global |
+| --- | --- | --- | --- |
+| --image-height | Height of the image | `100px` | `--adm-error-block-image-height` |
 | --image-height-full-page | Height of the image in `fullPage` mode | `200px` | `--adm-error-block-image-height-full-page` |
-| --image-width            | Width of the image                     | `auto`  | `--adm-error-block-image-width`            |
-| --image-width-full-page  | Width of the image in `fullPage` mode  | `auto`  | `--adm-error-block-image-width-full-page`  |
+| --image-width | Width of the image | `auto` | `--adm-error-block-image-width` |
+| --image-width-full-page | Width of the image in `fullPage` mode | `auto` | `--adm-error-block-image-width-full-page` |
 
 ## createErrorBlock
 

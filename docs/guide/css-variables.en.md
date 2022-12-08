@@ -10,10 +10,10 @@ In the "CSS Variables" table of the component document, you can check which CSS 
 
 Taking the Input component as an example, we can find a table similar to the following on its documentation:
 
-| Name            | Description                  | Default | Global                       |
-| --------------- | ---------------------------- | ------- | ---------------------------- |
-| --border-radius | Border radius of the button. | `4px`   | `--adm-button-border-radius` |
-| --border-width  | Border width of the button.  | `1px`   | `--adm-button-border-width`  |
+| Name | Description | Default | Global |
+| --- | --- | --- | --- |
+| --border-radius | Border radius of the button. | `4px` | `--adm-button-border-radius` |
+| --border-width | Border width of the button. | `1px` | `--adm-button-border-width` |
 
 This means that it supports the `--border-radius` and `--border-width` variables.
 

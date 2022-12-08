@@ -16,23 +16,23 @@ Useful for switching between different pages.
 
 ### Props
 
-| Name             | Description                                                                 | Type                    | Default                |
-| ---------------- | --------------------------------------------------------------------------- | ----------------------- | ---------------------- |
-| activeKey        | `key` of currently active `item`                                            | `string \| null`        | -                      |
-| defaultActiveKey | The initialized `key` of the selected `item`, if the `activeKey` is not set | `string \| null`        | `key` of the 1st `Tab` |
-| onChange         | Callback when switching panel                                               | `(key: string) => void` | -                      |
-| safeArea         | Whether to enable safe area padding                                         | `boolean`               | `false`                |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| activeKey | `key` of currently active `item` | `string \| null` | - |
+| defaultActiveKey | The initialized `key` of the selected `item`, if the `activeKey` is not set | `string \| null` | `key` of the 1st `Tab` |
+| onChange | Callback when switching panel | `(key: string) => void` | - |
+| safeArea | Whether to enable safe area padding | `boolean` | `false` |
 
 ## TabBar.Item
 
 ### Props
 
-| Name  | Description                                                  | Type                                            | Default |
-| ----- | ------------------------------------------------------------ | ----------------------------------------------- | ------- |
-| badge | Badge，the same as [Badge](/components/badge) `content` prop | `React.ReactNode \| typeof Badge.dot`           | -       |
-| icon  | Icon                                                         | `ReactNode \| ((active: boolean) => ReactNode)` | -       |
-| key   | Corresponding to `activeKey`                                 | `string`                                        | -       |
-| title | Title                                                        | `ReactNode \| ((active: boolean) => ReactNode)` | -       |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| badge | Badge，the same as [Badge](/components/badge) `content` prop | `React.ReactNode \| typeof Badge.dot` | - |
+| icon | Icon | `ReactNode \| ((active: boolean) => ReactNode)` | - |
+| key | Corresponding to `activeKey` | `string` | - |
+| title | Title | `ReactNode \| ((active: boolean) => ReactNode)` | - |
 
 ## FAQ
 
