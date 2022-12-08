@@ -72,3 +72,36 @@ ImageUploader 所提供的 `capture` 是来自 HTML 原生的能力，而在部�
 ### `columns` 属性说明
 
 `columns` 属性依赖 [Grid](./grid) 布局，该属性存在时，不支持自定义 `--cell-size` 属性，因为图片和上传按钮的大小是自动计算的。
+
+### 如何在 App 中使用客户端提供的上传能力？
+
+可以通过 `disableUpload` 禁用原生上传，然后自定义上传按钮。
+
+```tsx
+const App = () => {
+  const [fileList, setFileList] = useState([])
+
+  const handleUpload = async () => {
+    // 调用app上传
+    const url = await hybrid.upload()
+    setFileList(fileList => [...fileList, { url }])
+  }
+
+  return (
+    <ImageUploader
+      value={fileList}
+      onChange={setFileList}
+      disableUpload
+    >
+      <span
+        className='adm-image-uploader-cell adm-image-uploader-upload-button'
+        onClick={handleUpload}
+      >
+        <span className='adm-image-uploader-upload-button-icon'>
+          <AddOutline />
+        </span>
+      </span>
+    </ImageUploader>
+  )
+}
+```
