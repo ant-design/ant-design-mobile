@@ -27,6 +27,7 @@ export type FormInstance = Pick<
   | 'isFieldsTouched'
   | 'resetFields'
   | 'setFields'
+  | 'setFieldValue'
   | 'setFieldsValue'
   | 'submit'
   | 'validateFields'

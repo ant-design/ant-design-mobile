@@ -375,7 +375,7 @@ exports[`Calendar controlled mode 1`] = `
         />
       </div>
       <div
-        class="adm-calendar-cell adm-calendar-cell-selected"
+        class="adm-calendar-cell adm-calendar-cell-selected adm-calendar-cell-selected-row-end"
       >
         <div
           class="adm-calendar-cell-top"
@@ -387,7 +387,7 @@ exports[`Calendar controlled mode 1`] = `
         />
       </div>
       <div
-        class="adm-calendar-cell adm-calendar-cell-selected"
+        class="adm-calendar-cell adm-calendar-cell-selected adm-calendar-cell-selected-row-begin"
       >
         <div
           class="adm-calendar-cell-top"
@@ -3321,7 +3321,7 @@ exports[`Calendar range mode 1`] = `
         />
       </div>
       <div
-        class="adm-calendar-cell adm-calendar-cell-selected"
+        class="adm-calendar-cell adm-calendar-cell-selected adm-calendar-cell-selected-row-end"
       >
         <div
           class="adm-calendar-cell-top"
@@ -3333,7 +3333,7 @@ exports[`Calendar range mode 1`] = `
         />
       </div>
       <div
-        class="adm-calendar-cell adm-calendar-cell-selected"
+        class="adm-calendar-cell adm-calendar-cell-selected adm-calendar-cell-selected-row-begin"
       >
         <div
           class="adm-calendar-cell-top"
@@ -3405,7 +3405,7 @@ exports[`Calendar range mode 1`] = `
         />
       </div>
       <div
-        class="adm-calendar-cell adm-calendar-cell-selected"
+        class="adm-calendar-cell adm-calendar-cell-selected adm-calendar-cell-selected-row-end"
       >
         <div
           class="adm-calendar-cell-top"
@@ -3417,7 +3417,7 @@ exports[`Calendar range mode 1`] = `
         />
       </div>
       <div
-        class="adm-calendar-cell adm-calendar-cell-selected"
+        class="adm-calendar-cell adm-calendar-cell-selected adm-calendar-cell-selected-row-begin"
       >
         <div
           class="adm-calendar-cell-top"

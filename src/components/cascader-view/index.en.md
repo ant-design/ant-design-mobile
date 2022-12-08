@@ -10,15 +10,15 @@ CascaderView is the content area of [Cascader](/components/cascader).
 
 ### Props
 
-| Name         | Description                                     | Type                                                            | Default                    |
-| ------------ | ----------------------------------------------- | --------------------------------------------------------------- | -------------------------- | ---------- |
-| activeIcon   | The icon displayed when selected                | `ReactNode`                                                     | -                          |
-| defaultValue | Default selected options                        | `CascaderValue[]`                                               | `[]`                       |
-| onChange     | Triggered when the selected options are changed | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | -                          |
-| onTabsChange | Callback when switching panel                   | `(index: number) => void`                                       | -                          |
-| options      | Data of the cascade options                     | `CascaderOption[]`                                              | -                          |
-| placeholder  | Hint text                                       | `string                                                         | (index: number) => string` | `'请选择'` |
-| value        | Selected options                                | `CascaderValue[]`                                               | -                          |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| activeIcon | The icon displayed when selected | `ReactNode` | - |
+| defaultValue | Default selected options | `CascaderValue[]` | `[]` |
+| onChange | Triggered when the selected options are changed | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | - |
+| onTabsChange | Callback when switching panel | `(index: number) => void` | - |
+| options | Data of the cascade options | `CascaderOption[]` | - |
+| placeholder | Hint text | `string` \| `(index: number) => string` | `'请选择'` |
+| value | Selected options | `CascaderValue[]` | - |
 
 For the type definition of `CascaderValue` `CascaderOption` `CascaderValueExtend`, please refer to the document of [Cascader](/components/cascader#api).
 
