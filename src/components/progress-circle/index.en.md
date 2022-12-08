@@ -21,12 +21,12 @@ It is suitable for displaying the current progress of the task.
 
 ### CSS Variables
 
-| Name          | Description                    | Default                    | Global                              |
-| ------------- | ------------------------------ | -------------------------- | ----------------------------------- |
-| --fill-color  | Color of the fill part         | `var(--adm-color-primary)` | `--adm-progress-circle-fill-color`  |
-| --size        | Width and height of the canvas | `50px`                     | `--adm-progress-circle-size`        |
-| --track-color | Color of the track             | `#e5e5e5`                  | `--adm-progress-circle-track-color` |
-| --track-width | Width of the line              | `3px`                      | `--adm-progress-circle-track-width` |
+| Name | Description | Default | Global |
+| --- | --- | --- | --- |
+| --fill-color | Color of the fill part | `var(--adm-color-primary)` | `--adm-progress-circle-fill-color` |
+| --size | Width and height of the canvas | `50px` | `--adm-progress-circle-size` |
+| --track-color | Color of the track | `#e5e5e5` | `--adm-progress-circle-track-color` |
+| --track-width | Width of the line | `3px` | `--adm-progress-circle-track-width` |
 
 ## FAQ
 

@@ -26,9 +26,7 @@
 
 一个好标题范例是"目标-差异式"的描述，许多技术支持组织就是这样做的。在目标部分指出是哪一个或哪一组东西有问题，在差异部分则描述与期望的行为不一致的地方。
 
-> 蠢问题：求救！Swiper 组件 onIndexChange 事件挂掉了
-> 稍好一点的问题：Swiper 组件 onIndexChange 事件一直疯狂触发，我把 autoplay 关掉就正常了
-> 聪明问题：Swiper 组件设置 autoplay 后，onIndexChange 事件间隔 autoplayInterval 持续触发，不会停止
+> 蠢问题：求救！Swiper 组件 onIndexChange 事件挂掉了稍好一点的问题：Swiper 组件 onIndexChange 事件一直疯狂触发，我把 autoplay 关掉就正常了聪明问题：Swiper 组件设置 autoplay 后，onIndexChange 事件间隔 autoplayInterval 持续触发，不会停止
 
 ### 使用清晰、正确、精准且合乎语法的语句
 

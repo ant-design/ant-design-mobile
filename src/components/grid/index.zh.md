@@ -14,10 +14,10 @@
 
 ### 属性
 
-| 属性    | 说明           | 类型                                                       | 默认值 |
-| ------- | -------------- | ---------------------------------------------------------- | ------ |
-| columns | 列数           | `number`                                                   | -      |
-| gap     | 格子之间的间距 | `number \| string \| [number \| string, number \| string]` | `0`    |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| columns | 列数 | `number` | - |
+| gap | 格子之间的间距 | `number \| string \| [number \| string, number \| string]` | `0` |
 
 ### CSS 变量
 
@@ -31,10 +31,10 @@
 
 ### 属性
 
-| 属性    | 说明     | 类型                                                            | 默认值 |
-| ------- | -------- | --------------------------------------------------------------- | ------ |
-| onClick | 点击事件 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | -      |
-| span    | 跨度     | `number`                                                        | `1`    |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| onClick | 点击事件 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
+| span | 跨度 | `number` | `1` |
 
 ## FAQ
 
