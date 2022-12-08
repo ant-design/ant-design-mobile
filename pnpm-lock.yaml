@@ -18,6 +18,7 @@ specifiers:
   '@docsearch/react': ^3.3.0
   '@floating-ui/dom': ^1.0.6
   '@jest/types': ^28.1.3
+  '@react-spring/core': ^9.5.5
   '@react-spring/web': ^9.5.5
   '@statoscope/webpack-plugin': ^5.24.0
   '@testing-library/jest-dom': ^5.16.5
@@ -41,6 +42,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.44.0
   '@typescript-eslint/parser': ^5.44.0
   '@umijs/types': ^3.5.35
+  '@use-gesture/core': 10.2.20
   '@use-gesture/react': 10.2.20
   ahooks: ^3.7.2
   antd: ^4.24.3
@@ -51,6 +53,7 @@ specifiers:
   big.js: ^6.2.1
   classnames: ^2.3.2
   css-loader: ^6.7.2
+  csstype: ^3.1.1
   dayjs: ^1.11.6
   del: ^6.1.1
   dumi: ^1.1.49
@@ -138,6 +141,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.3.0
   '@docsearch/react': 3.3.0_2zx2umvpluuhvlq44va5bta2da
   '@jest/types': 28.1.3
+  '@react-spring/core': 9.5.5_react@18.2.0
   '@statoscope/webpack-plugin': 5.24.0_webpack@5.75.0
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
@@ -160,10 +164,12 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.44.0_tu3ppasffl73sg2len737zqm4q
   '@typescript-eslint/parser': 5.44.0_z7uk45jxq7ry2qnxyf4xkmleuq
   '@umijs/types': 3.5.35_biqbaboplfbrettd7655fr4n2y
+  '@use-gesture/core': 10.2.20
   antd: 4.24.3_biqbaboplfbrettd7655fr4n2y
   autoprefixer: 9.8.8
   babel-loader: 8.3.0_npabyccmuonwo2rku4k53xo3hi
   css-loader: 6.7.2_webpack@5.75.0
+  csstype: 3.1.1
   del: 6.1.1
   dumi: 1.1.49_eb43oqwzvklbwyl4z5o4jhog3m
   eslint: 8.28.0
@@ -2488,7 +2494,6 @@ packages:
       '@react-spring/shared': 9.5.5_react@18.2.0
       '@react-spring/types': 9.5.5
       react: 18.2.0
-    dev: false
 
   /@react-spring/core/9.5.5_react@18.2.0:
     resolution: {integrity: sha512-shaJYb3iX18Au6gkk8ahaF0qx0LpS0Yd+ajb4asBaAQf6WPGuEdJsbsNSgei1/O13JyEATsJl20lkjeslJPMYA==}
@@ -2500,11 +2505,9 @@ packages:
       '@react-spring/shared': 9.5.5_react@18.2.0
       '@react-spring/types': 9.5.5
       react: 18.2.0
-    dev: false
 
   /@react-spring/rafz/9.5.5:
     resolution: {integrity: sha512-F/CLwB0d10jL6My5vgzRQxCNY2RNyDJZedRBK7FsngdCmzoq3V4OqqNc/9voJb9qRC2wd55oGXUeXv2eIaFmsw==}
-    dev: false
 
   /@react-spring/shared/9.5.5_react@18.2.0:
     resolution: {integrity: sha512-YwW70Pa/YXPOwTutExHZmMQSHcNC90kJOnNR4G4mCDNV99hE98jWkIPDOsgqbYx3amIglcFPiYKMaQuGdr8dyQ==}
@@ -2514,11 +2517,9 @@ packages:
       '@react-spring/rafz': 9.5.5
       '@react-spring/types': 9.5.5
       react: 18.2.0
-    dev: false
 
   /@react-spring/types/9.5.5:
     resolution: {integrity: sha512-7I/qY8H7Enwasxr4jU6WmtNK+RZ4Z/XvSlDvjXFVe7ii1x0MoSlkw6pD7xuac8qrHQRm9BTcbZNyeeKApYsvCg==}
-    dev: false
 
   /@react-spring/web/9.5.5_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-+moT8aDX/ho/XAhU+HRY9m0LVV9y9CK6NjSRaI+30Re150pB3iEip6QfnF4qnhSCQ5drpMF0XRXHgOTY/xbtFw==}
@@ -3658,7 +3659,6 @@ packages:
 
   /@use-gesture/core/10.2.20:
     resolution: {integrity: sha512-4lFhHc8so4yIHkBEs641DnEsBxPyhJ5GEjB4PURFDH4p/FcZriH6w99knZgI63zN/MBFfylMyb8+PDuj6RIXKQ==}
-    dev: false
 
   /@use-gesture/react/10.2.20_react@18.2.0:
     resolution: {integrity: sha512-KnJq9ZSqprWA6uNhWTUHZqTCh+rfa0j8ehTzqeBhktUPrmTj7yVOBvEQ/vSFU/7d72cGgWSsJ0f5T6GQCHXnvg==}

@@ -337,7 +337,7 @@ export const Multiple: FC<MultipleProps> = p => {
   }
 
   const renderColumns = () => {
-    const columns = []
+    const columns: JSX.Element[] = []
     for (let i = 0; i < deep; i++) {
       let width = `${100 / deep}%`
 
