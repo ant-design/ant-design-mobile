@@ -19,6 +19,7 @@ import {
 } from './date-picker-utils'
 import type { Precision, DatePickerFilter } from './date-picker-utils'
 import { bound } from '../../utils/bound'
+import { useConfig } from '../config-provider'
 
 export type DatePickerRef = PickerRef
 
@@ -53,6 +54,7 @@ export type DatePickerProps = Pick<
   children?: (value: Date | null, actions: PickerActions) => ReactNode
   renderLabel?: (type: Precision, data: number) => ReactNode
   filter?: DatePickerFilter
+  tillNow?: boolean
 } & NativeProps
 
 const thisYear = new Date().getFullYear()
@@ -79,6 +81,7 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
     })
 
     const now = useMemo(() => new Date(), [])
+    const { locale } = useConfig()
 
     const pickerValue = useMemo(() => {
       let date = value ?? now
@@ -108,9 +111,10 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
           props.max,
           props.precision,
           props.renderLabel,
-          props.filter
+          props.filter,
+          props.tillNow
         ),
-      [props.min, props.max, props.precision, props.renderLabel]
+      [props.min, props.max, props.precision, props.renderLabel, props.tillNow]
     )
 
     return withNativeProps(

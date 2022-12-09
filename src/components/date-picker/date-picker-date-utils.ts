@@ -44,7 +44,8 @@ export function generateDatePickerColumns(
   max: Date,
   precision: DatePrecision,
   renderLabel: (type: DatePrecision, data: number) => ReactNode,
-  filter: DatePickerFilter | undefined
+  filter: DatePickerFilter | undefined,
+  tillNow?: boolean
 ) {
   const ret: PickerColumn[] = []
 
@@ -186,6 +187,22 @@ export function generateDatePickerColumns(
         }
       })
     )
+  }
+
+  // Till Now
+  if (tillNow) {
+    const NOW = 'NOW'
+
+    ret[0].push({
+      label: 'NOW!',
+      value: NOW,
+    })
+
+    if (NOW === selected?.[0]) {
+      for (let i = 1; i < ret.length; i += 1) {
+        ret[i] = []
+      }
+    }
   }
 
   return ret

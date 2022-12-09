@@ -57,7 +57,8 @@ export const generateDatePickerColumns = (
   max: Date,
   precision: Precision,
   renderLabel: (type: Precision, data: number) => ReactNode,
-  filter: DatePickerFilter | undefined
+  filter: DatePickerFilter | undefined,
+  tillNow?: boolean
 ) => {
   if (precision.startsWith('week')) {
     return weekUtils.generateDatePickerColumns(
@@ -75,7 +76,8 @@ export const generateDatePickerColumns = (
       max,
       precision as DatePrecision,
       renderLabel,
-      filter
+      filter,
+      tillNow
     )
   }
 }

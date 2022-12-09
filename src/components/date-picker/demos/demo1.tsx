@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from 'react'
-import { Button, DatePicker, Space, Toast } from 'antd-mobile'
+import { Button, DatePicker, DatePickerProps, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { weekdayToZh } from './weekdayToZh'
 
 const now = new Date()
 
 // 基础用法
-function BasicDemo() {
+function BasicDemo(props: DatePickerProps) {
   const [visible, setVisible] = useState(false)
   return (
     <>
@@ -27,6 +27,7 @@ function BasicDemo() {
         onConfirm={val => {
           Toast.show(val.toDateString())
         }}
+        {...props}
       />
     </>
   )
@@ -201,7 +202,7 @@ function DayOfWeekDemo() {
 export default () => {
   return (
     <>
-      <DemoBlock title='基础用法'>
+      {/* <DemoBlock title='基础用法'>
         <BasicDemo />
       </DemoBlock>
 
@@ -219,6 +220,10 @@ export default () => {
 
       <DemoBlock title='周选择器'>
         <DayOfWeekDemo />
+      </DemoBlock> */}
+
+      <DemoBlock title='至今'>
+        <BasicDemo tillNow visible />
       </DemoBlock>
     </>
   )
