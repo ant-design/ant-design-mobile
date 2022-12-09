@@ -298,34 +298,33 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
           />
         )
       })}
-      {showUpload && (
-        <div className={`${classPrefix}-upload-button-wrap`}>
-          {props.children ? (
-            props.children
-          ) : (
-            <span
-              className={`${classPrefix}-cell ${classPrefix}-upload-button`}
-              role='button'
-              aria-label={locale.ImageUploader.upload}
-            >
-              <span className={`${classPrefix}-upload-button-icon`}>
-                <AddOutline />
-              </span>
+      <div
+        className={`${classPrefix}-upload-button-wrap`}
+        style={showUpload ? undefined : { display: 'none' }}
+      >
+        {props.children || (
+          <span
+            className={`${classPrefix}-cell ${classPrefix}-upload-button`}
+            role='button'
+            aria-label={locale.ImageUploader.upload}
+          >
+            <span className={`${classPrefix}-upload-button-icon`}>
+              <AddOutline />
             </span>
-          )}
-          {!props.disableUpload && (
-            <input
-              capture={props.capture}
-              accept={props.accept}
-              multiple={props.multiple}
-              type='file'
-              className={`${classPrefix}-input`}
-              onChange={onChange}
-              aria-hidden
-            />
-          )}
-        </div>
-      )}
+          </span>
+        )}
+        {!props.disableUpload && (
+          <input
+            capture={props.capture}
+            accept={props.accept}
+            multiple={props.multiple}
+            type='file'
+            className={`${classPrefix}-input`}
+            onChange={onChange}
+            aria-hidden
+          />
+        )}
+      </div>
     </>
   )
 
