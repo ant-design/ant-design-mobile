@@ -72,3 +72,36 @@ See the discussion in this [issue](https://github.com/ant-design/ant-design-mobi
 ### Description of the `columns` Prop
 
 The `columns` relies on [Grid](./grid) layout and when present, the custom `--cell-size` is not supported, as the size of image and upload button is calculated automatically.
+
+### How to use the client upload capability in the App?
+
+Input native upload can be disabled via the `disableUpload` and then customise the upload button.
+
+```tsx
+const App = () => {
+  const [fileList, setFileList] = useState([])
+
+  const handleUpload = async () => {
+    // call app upload
+    const url = await hybrid.upload()
+    setFileList(fileList => [...fileList, { url }])
+  }
+
+  return (
+    <ImageUploader
+      value={fileList}
+      onChange={setFileList}
+      disableUpload
+    >
+      <span
+        className='adm-image-uploader-cell adm-image-uploader-upload-button'
+        onClick={handleUpload}
+      >
+        <span className='adm-image-uploader-upload-button-icon'>
+          <AddOutline />
+        </span>
+      </span>
+    </ImageUploader>
+  )
+}
+```
