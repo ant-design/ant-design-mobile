@@ -6,7 +6,7 @@ import { weekdayToZh } from './weekdayToZh'
 const now = new Date()
 
 // 基础用法
-function BasicDemo(props: DatePickerProps) {
+function BasicDemo() {
   const [visible, setVisible] = useState(false)
   return (
     <>
@@ -27,7 +27,6 @@ function BasicDemo(props: DatePickerProps) {
         onConfirm={val => {
           Toast.show(val.toDateString())
         }}
-        {...props}
       />
     </>
   )
@@ -199,10 +198,41 @@ function DayOfWeekDemo() {
   )
 }
 
+// 基础用法
+function TillNowDemo() {
+  const [value, setValue] = useState(() => new Date())
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        选择
+      </Button>
+      <DatePicker
+        title='时间选择'
+        visible={visible}
+        value={value}
+        onClose={() => {
+          setVisible(false)
+        }}
+        max={now}
+        onConfirm={val => {
+          setValue(val)
+          Toast.show(val.toDateString())
+        }}
+        tillNow
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
-      {/* <DemoBlock title='基础用法'>
+      <DemoBlock title='基础用法'>
         <BasicDemo />
       </DemoBlock>
 
@@ -220,10 +250,10 @@ export default () => {
 
       <DemoBlock title='周选择器'>
         <DayOfWeekDemo />
-      </DemoBlock> */}
+      </DemoBlock>
 
       <DemoBlock title='至今'>
-        <BasicDemo tillNow visible />
+        <TillNowDemo />
       </DemoBlock>
     </>
   )

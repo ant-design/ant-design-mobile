@@ -20,6 +20,7 @@ import type { Precision, DatePickerFilter } from './date-picker-utils'
 import { bound } from '../../utils/bound'
 import useRenderLabel from '../date-picker-view/useRenderLabel'
 import type { RenderLabel } from '../date-picker-view/date-picker-view'
+import { TILL_NOW } from './util'
 import type { PickerDate } from './util'
 
 export type DatePickerRef = PickerRef
@@ -81,12 +82,17 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
       },
     })
 
-    const now = useMemo(() => new Date(), [])
+    const now = useMemo<PickerDate>(() => new Date(), [])
 
     const mergedRenderLabel = useRenderLabel(renderLabel)
 
     const pickerValue = useMemo(() => {
       let date = value ?? now
+
+      if (date.tillNow) {
+        return [TILL_NOW]
+      }
+
       date = new Date(
         bound(date.getTime(), props.min.getTime(), props.max.getTime())
       )
@@ -96,7 +102,6 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
     const onConfirm = useCallback(
       (val: PickerValue[]) => {
         const date = convertStringArrayToDate(val, props.precision)
-        console.log('Date:', date)
         setValue(date, true)
       },
       [setValue, props.precision]
