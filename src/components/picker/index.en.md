@@ -145,7 +145,7 @@ Same as `Picker`.
 ### Props
 
 | Name | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | children | The rendering function of the selected items | `(value: Date, actions: PickerActions) => ReactNode` | - |
 | defaultValue | Default selected value | `Date` | - |
 | destroyOnClose | Unmount content when not visible | `boolean` | `false` |
@@ -158,6 +158,7 @@ Same as `Picker`.
 | onSelect | Triggered when the options are changed | `(value: Date) => void` | - |
 | precision | Precision | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
 | renderLabel | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode` | - |
+| tillNow | Show till now in list | `boolean` | - | 5.27.0 |
 | value | Selected value | `Date` | - |
 
 ```typescript | pure

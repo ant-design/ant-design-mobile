@@ -221,7 +221,7 @@ function TillNowDemo() {
         max={now}
         onConfirm={val => {
           setValue(val)
-          Toast.show(val.toDateString())
+          Toast.show(`Till Now: ${!!val.tillNow}`)
         }}
         tillNow
       />
