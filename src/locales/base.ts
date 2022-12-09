@@ -17,6 +17,9 @@ export const base = {
   Dialog: {
     ok: 'OK',
   },
+  DatePicker: {
+    tillNow: 'Till Now',
+  },
   ErrorBlock: {
     default: {
       title: 'Oops, something went wrong',

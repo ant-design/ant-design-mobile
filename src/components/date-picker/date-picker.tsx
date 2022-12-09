@@ -15,11 +15,12 @@ import {
   convertDateToStringArray,
   convertStringArrayToDate,
   generateDatePickerColumns,
-  defaultRenderLabel,
 } from './date-picker-utils'
 import type { Precision, DatePickerFilter } from './date-picker-utils'
 import { bound } from '../../utils/bound'
-import { useConfig } from '../config-provider'
+import useRenderLabel from '../date-picker-view/useRenderLabel'
+import type { RenderLabel } from '../date-picker-view/date-picker-view'
+import type { PickerDate } from './util'
 
 export type DatePickerRef = PickerRef
 
@@ -44,15 +45,15 @@ export type DatePickerProps = Pick<
   | 'forceRender'
   | 'destroyOnClose'
 > & {
-  value?: Date | null
-  defaultValue?: Date | null
-  onSelect?: (value: Date) => void
-  onConfirm?: (value: Date) => void
-  min?: Date
-  max?: Date
+  value?: PickerDate | null
+  defaultValue?: PickerDate | null
+  onSelect?: (value: PickerDate) => void
+  onConfirm?: (value: PickerDate) => void
+  min?: PickerDate
+  max?: PickerDate
   precision?: Precision
-  children?: (value: Date | null, actions: PickerActions) => ReactNode
-  renderLabel?: (type: Precision, data: number) => ReactNode
+  children?: (value: PickerDate | null, actions: PickerActions) => ReactNode
+  renderLabel?: RenderLabel
   filter?: DatePickerFilter
   tillNow?: boolean
 } & NativeProps
@@ -63,15 +64,15 @@ const defaultProps = {
   min: new Date(new Date().setFullYear(thisYear - 10)),
   max: new Date(new Date().setFullYear(thisYear + 10)),
   precision: 'day',
-  renderLabel: defaultRenderLabel,
-  defaultValue: null as Date | null,
+  defaultValue: null as PickerDate | null,
 }
 
 export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
   (p, ref) => {
     const props = mergeProps(defaultProps, p)
+    const { renderLabel } = props
 
-    const [value, setValue] = usePropsValue<Date | null>({
+    const [value, setValue] = usePropsValue<PickerDate | null>({
       value: props.value,
       defaultValue: props.defaultValue,
       onChange: v => {
@@ -81,7 +82,8 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
     })
 
     const now = useMemo(() => new Date(), [])
-    const { locale } = useConfig()
+
+    const mergedRenderLabel = useRenderLabel(renderLabel)
 
     const pickerValue = useMemo(() => {
       let date = value ?? now
@@ -93,7 +95,9 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
 
     const onConfirm = useCallback(
       (val: PickerValue[]) => {
-        setValue(convertStringArrayToDate(val, props.precision), true)
+        const date = convertStringArrayToDate(val, props.precision)
+        console.log('Date:', date)
+        setValue(date, true)
       },
       [setValue, props.precision]
     )
@@ -110,11 +114,11 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
           props.min,
           props.max,
           props.precision,
-          props.renderLabel,
+          mergedRenderLabel,
           props.filter,
           props.tillNow
         ),
-      [props.min, props.max, props.precision, props.renderLabel, props.tillNow]
+      [props.min, props.max, props.precision, mergedRenderLabel, props.tillNow]
     )
 
     return withNativeProps(

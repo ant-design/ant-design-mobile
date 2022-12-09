@@ -3,6 +3,9 @@ import type { DatePrecision } from './date-picker-date-utils'
 import type { WeekPrecision } from './date-picker-week-utils'
 import * as dateUtils from './date-picker-date-utils'
 import * as weekUtils from './date-picker-week-utils'
+import { RenderLabel } from '../date-picker-view/date-picker-view'
+import { TILL_NOW } from './util'
+import type { PickerDate } from './util'
 
 export type Precision = DatePrecision | WeekPrecision
 
@@ -44,6 +47,13 @@ export const convertStringArrayToDate = (
   value: (string | null | undefined)[],
   precision: Precision
 ) => {
+  // Special case for DATE_NOW
+  if (value?.[0] === TILL_NOW) {
+    const now: PickerDate = new Date()
+    now.tillNow = true
+    return now
+  }
+
   if (precision.includes('week')) {
     return weekUtils.convertStringArrayToDate(value)
   } else {
@@ -56,7 +66,7 @@ export const generateDatePickerColumns = (
   min: Date,
   max: Date,
   precision: Precision,
-  renderLabel: (type: Precision, data: number) => ReactNode,
+  renderLabel: RenderLabel,
   filter: DatePickerFilter | undefined,
   tillNow?: boolean
 ) => {
@@ -79,13 +89,5 @@ export const generateDatePickerColumns = (
       filter,
       tillNow
     )
-  }
-}
-
-export const defaultRenderLabel = (precision: Precision, data: number) => {
-  if (precision.includes('week')) {
-    return weekUtils.defaultRenderLabel(precision as WeekPrecision, data)
-  } else {
-    return dateUtils.defaultRenderLabel(precision as DatePrecision, data)
   }
 }
