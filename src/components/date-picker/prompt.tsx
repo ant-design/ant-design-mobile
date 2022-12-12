@@ -1,11 +1,12 @@
 import React, { FC, useEffect, useState } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
 import { DatePicker, DatePickerProps } from './date-picker'
+import type { PickerDate } from './util'
 
 export function prompt(
   props: Omit<DatePickerProps, 'value' | 'visible' | 'children'>
 ) {
-  return new Promise<Date | null>(resolve => {
+  return new Promise<PickerDate | null>(resolve => {
     const Wrapper: FC = () => {
       const [visible, setVisible] = useState(false)
       useEffect(() => {
