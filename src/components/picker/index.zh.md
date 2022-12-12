@@ -146,22 +146,28 @@ type CascadePickerOption = {
 
 ### 属性
 
+```typescript
+type PickerDate = Date & {
+  tillNow?: boolean
+}
+```
+
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| children | 所选项的渲染函数 | `(value: Date, actions: PickerActions) => ReactNode` | - |
-| defaultValue | 选中值 | `Date` | - |
+| children | 所选项的渲染函数 | `(value: PickerDate, actions: PickerActions) => ReactNode` | - |
+| defaultValue | 选中值 | `PickerDate` | - |
 | destroyOnClose | 不可见时卸载内容 | `boolean` | `false` |
 | filter | 过滤可供选择的时间 | `DatePickerFilter` | - |
 | forceRender | 强制渲染内容 | `boolean` | `false` |
-| max | 最大值 | `Date` | 十年后 |
-| min | 最小值 | `Date` | 十年前 |
+| max | 最大值 | `PickerDate` | 十年后 |
+| min | 最小值 | `PickerDate` | 十年前 |
 | mouseWheel | 是否允许通过鼠标滚轮进行选择 | `boolean` | `false` |
-| onConfirm | 确认时触发 | `(value: Date) => void` | - |
-| onSelect | 选项改变时触发 | `(value: Date) => void` | - |
+| onConfirm | 确认时触发 | `(value: PickerDate) => void` | - |
+| onSelect | 选项改变时触发 | `(value: PickerDate) => void` | - |
 | precision | 精度 | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
-| renderLabel | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode` | - |
+| renderLabel | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值或 `now`，`data` 参数为默认渲染的数字 | `(type: Precision \| 'now', data: number) => ReactNode` | - |
 | tillNow | 是否展示“至今” | `boolean` | - | 5.27.0 |
-| value | 选中值 | `Date` | - |
+| value | 选中值 | `PickerDate` | - |
 
 ```typescript | pure
 type DatePickerFilter = Partial<

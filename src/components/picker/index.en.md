@@ -144,22 +144,28 @@ Same as `Picker`.
 
 ### Props
 
-| Name | Description | Type | Default |
+```typescript
+type PickerDate = Date & {
+  tillNow?: boolean
+}
+```
+
+| Name | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| children | The rendering function of the selected items | `(value: Date, actions: PickerActions) => ReactNode` | - |
-| defaultValue | Default selected value | `Date` | - |
+| children | The rendering function of the selected items | `(value: PickerDate, actions: PickerActions) => ReactNode` | - |
+| defaultValue | Default selected value | `PickerDate` | - |
 | destroyOnClose | Unmount content when not visible | `boolean` | `false` |
 | filter | Filter available time | `DatePickerFilter` | - |
 | forceRender | Render content forcely | `boolean` | `false` |
-| max | Max value | `Date` | ten years later |
-| min | Minimum value | `Date` | ten years ago |
+| max | Max value | `PickerDate` | ten years later |
+| min | Minimum value | `PickerDate` | ten years ago |
 | mouseWheel | Whether to allow interact with mouse wheel | `boolean` | `false` |
-| onConfirm | Triggered when confirming | `(value: Date) => void` | - |
-| onSelect | Triggered when the options are changed | `(value: Date) => void` | - |
+| onConfirm | Triggered when confirming | `(value: PickerDate) => void` | - |
+| onSelect | Triggered when the options are changed | `(value: PickerDate) => void` | - |
 | precision | Precision | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
-| renderLabel | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode` | - |
+| renderLabel | The function to custom rendering the label shown on a column. `type` means any value in `precision` or `now`, `data` means the default number | `(type: Precision \| 'now', data: number) => ReactNode` | - |
 | tillNow | Show till now in list | `boolean` | - | 5.27.0 |
-| value | Selected value | `Date` | - |
+| value | Selected value | `PickerDate` | - |
 
 ```typescript | pure
 type DatePickerFilter = Partial<
