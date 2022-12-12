@@ -12,6 +12,8 @@ It is suitable for inputting and adjusting the current value within a certain ra
 
 <code src="./demos/demo2.tsx"></code>
 
+<code src="./demos/demo3.tsx"></code>
+
 ## Stepper
 
 ### Props
@@ -31,6 +33,7 @@ It is suitable for inputting and adjusting the current value within a certain ra
 | onFocus | Triggered when the input get focus | `(e: React.FocusEvent<HTMLInputElement>) => void` | - |
 | parser | Parse input text into number which should work with `formatter` | `(text: string) => number` | - | 5.26.0 |
 | step | Change the number of steps each time, it can be a decimal | `number` | `1` |
+| stringMode | Set value as string to support high precision decimals. Will set `defaultValue`,`value`, `min`, `max`, `onChange` to `string` type | `boolean` | `false` | 5.27.0 |
 | value | Current number, controlled value | `number \| null` | - |
 
 When `allowEmpty` is `true`, the `value` parameter of `onChange` may be `null`, please pay attention when using it.

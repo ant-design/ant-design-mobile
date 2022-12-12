@@ -18,10 +18,6 @@ const precisionRankRecord: Record<WeekPrecision, number> = {
   'week-day': 2,
 }
 
-export function defaultRenderLabel(type: WeekPrecision, data: number) {
-  return data.toString()
-}
-
 export function generateDatePickerColumns(
   selected: string[],
   min: Date,
