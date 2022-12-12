@@ -20,6 +20,9 @@ const zhCN = mergeLocale(base, {
   Dialog: {
     ok: '我知道了',
   },
+  DatePicker: {
+    tillNow: '至今',
+  },
   ErrorBlock: {
     default: {
       title: '页面遇到一些小问题',
