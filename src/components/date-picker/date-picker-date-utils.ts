@@ -183,7 +183,7 @@ export function generateDatePickerColumns(
   // Till Now
   if (tillNow) {
     ret[0].push({
-      label: renderLabel('now', null),
+      label: renderLabel('now', null!),
       value: TILL_NOW,
     })
 
