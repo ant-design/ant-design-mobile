@@ -18,7 +18,7 @@
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| columns | 列数 | `number` | - |
+| columns | 列数（注意 `grid` 布局在 IOS 9 下不支持） | `number` | - |
 | defaultValue | 默认项 | `SelectorValue[]` | `[]` |
 | disabled | 是否全局禁止选中 | `boolean` | `false` |
 | multiple | 是否允许多选 | `boolean` | `false` |
