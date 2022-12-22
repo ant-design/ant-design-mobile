@@ -1,9 +1,12 @@
 import React, { ReactElement } from 'react'
 
-export type PropagationEvent = 'click'
+export type PropagationEvent = 'click' | 'mousedown' | 'mousemove' | 'mouseup'
 
 const eventToPropRecord: Record<PropagationEvent, string> = {
   'click': 'onClick',
+  'mousedown': 'onMouseDown',
+  'mousemove': 'onMouseMove',
+  'mouseup': 'onMouseUp',
 }
 
 export function withStopPropagation(

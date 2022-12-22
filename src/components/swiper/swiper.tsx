@@ -21,6 +21,10 @@ import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
 import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
+import {
+  PropagationEvent,
+  withStopPropagation,
+} from '../../utils/with-stop-propagation'
 
 const classPrefix = `adm-swiper`
 
@@ -44,6 +48,7 @@ export type SwiperProps = {
   trackOffset?: number
   stuckAtBoundary?: boolean
   rubberband?: boolean
+  stopPropagation?: PropagationEvent[]
   children?: ReactElement | ReactElement[]
 } & NativeProps<'--height' | '--width' | '--border-radius' | '--track-padding'>
 
@@ -58,6 +63,7 @@ const defaultProps = {
   trackOffset: 0,
   stuckAtBoundary: true,
   rubberband: true,
+  stopPropagation: [],
 }
 
 let currentUid: undefined | {}
@@ -325,21 +331,24 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
           )}
           style={style}
         >
-          <div
-            ref={trackRef}
-            className={classNames(`${classPrefix}-track`, {
-              [`${classPrefix}-track-allow-touch-move`]: props.allowTouchMove,
-            })}
-            onClickCapture={e => {
-              if (draggingRef.current) {
-                e.stopPropagation()
-              }
-              forceCancelDrag()
-            }}
-            {...(props.allowTouchMove ? bind() : {})}
-          >
-            {renderTrackInner()}
-          </div>
+          {withStopPropagation(
+            props.stopPropagation,
+            <div
+              ref={trackRef}
+              className={classNames(`${classPrefix}-track`, {
+                [`${classPrefix}-track-allow-touch-move`]: props.allowTouchMove,
+              })}
+              onClickCapture={e => {
+                if (draggingRef.current) {
+                  e.stopPropagation()
+                }
+                forceCancelDrag()
+              }}
+              {...(props.allowTouchMove ? bind() : {})}
+            >
+              {renderTrackInner()}
+            </div>
+          )}
           {props.indicator === undefined ? (
             <div className={`${classPrefix}-indicator`}>
               <PageIndicator
