@@ -78,6 +78,7 @@ import 'antd-mobile/bundle/css-vars-patch.css'
 目前，只有以下组件支持了 CSS 变量降级，其他组件的 CSS 变量降级能力我们还在持续完善中，请关注后续的发布：
 
 - Button
+- Cascader
 - CenterPopup
 - ErrorBlock
 - Image
