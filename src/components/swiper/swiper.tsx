@@ -63,7 +63,7 @@ const defaultProps = {
   trackOffset: 0,
   stuckAtBoundary: true,
   rubberband: true,
-  stopPropagation: [],
+  stopPropagation: ['mousedown', 'mousemove', 'mouseup'],
 }
 
 let currentUid: undefined | {}
