@@ -34,7 +34,7 @@
 | readOnly | 是否只读 | `boolean` | `false` |
 | value | 输入值 | `string` | - |
 
-此外还支持以下原生属性：`maxLength` `minLength` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd` `onClick`
+此外还支持以下原生属性：`maxLength` `minLength` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd` `onClick` `step`
 
 ### CSS 变量
 
