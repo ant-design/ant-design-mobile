@@ -190,6 +190,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
           props.onCompositionEnd?.(e)
         }}
         onClick={props.onClick}
+        step={props.step}
         role={props.role}
         aria-valuenow={props['aria-valuenow']}
         aria-valuemax={props['aria-valuemax']}
