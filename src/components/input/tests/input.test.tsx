@@ -142,28 +142,10 @@ describe('Input', () => {
     })
   })
 
-  test('input value should be limited by min and step attributes', async () => {
-    const ref = React.createRef<InputRef>()
-    render(<Input ref={ref} clearable type='number' step='0.01' min={0} />)
-    const input = ref.current?.nativeElement as HTMLInputElement
-    expect(ref.current).toBeDefined()
-    expect(ref.current?.nativeElement).toBeInTheDocument()
-
-    // Try to set the value to a number below the minimum
-    fireEvent.change(input, { target: { value: '-1' } })
-    expect(input.checkValidity()).toBe(false)
-
-    // Try to set the value to a number above the minimum
-    fireEvent.change(input, { target: { value: '1' } })
-    expect(input.checkValidity()).toBe(true)
-
-    // Try to set the value to a number that is not a multiple of the step
-    fireEvent.change(input, { target: { value: '2.333' } })
-    expect(input.checkValidity()).toBe(false)
-
-    // Try to set the value to a number that is a multiple of the step
-    fireEvent.change(input, { target: { value: '2.33' } })
-    expect(input.checkValidity()).toBe(true)
+  test('should work with `type="number"` and step', async () => {
+    const { container } = render(<Input type='number' step='0.01' min={0} />)
+    const input = container.querySelector('input') as HTMLInputElement
+    expect(input.step).toBe('0.01')
   })
 
   test('should works with `onEnterPress`', async () => {
