@@ -24,6 +24,14 @@ import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
 
 const classPrefix = `adm-swiper`
 
+const eventToPropRecord: Record<string, string> = {
+  'mousedown': 'onMouseDown',
+  'mousemove': 'onMouseMove',
+  'mouseup': 'onMouseUp',
+}
+
+type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
+
 export type SwiperRef = {
   swipeTo: (index: number) => void
   swipeNext: () => void
@@ -44,6 +52,7 @@ export type SwiperProps = {
   trackOffset?: number
   stuckAtBoundary?: boolean
   rubberband?: boolean
+  stopPropagation?: PropagationEvent[]
   children?: ReactElement | ReactElement[]
 } & NativeProps<'--height' | '--width' | '--border-radius' | '--track-padding'>
 
@@ -58,6 +67,7 @@ const defaultProps = {
   trackOffset: 0,
   stuckAtBoundary: true,
   rubberband: true,
+  stopPropagation: ['mouseup', 'mousemove', 'mousedown'],
 }
 
 let currentUid: undefined | {}
@@ -90,6 +100,22 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         count,
       }
     }, [props.children])
+
+    const handlePropagation = React.useCallback((e: MouseEvent) => {
+      e.stopPropagation()
+    }, [])
+
+    const propagationEvents = React.useMemo(() => {
+      return props.stopPropagation?.reduce(
+        (pre: Record<string, (e: MouseEvent) => void>, cur) => {
+          if (eventToPropRecord[cur]) {
+            pre[cur] = handlePropagation
+          }
+          return pre
+        },
+        {}
+      )
+    }, [handlePropagation, props.stopPropagation])
 
     if (count === 0 || !validChildren) {
       devWarning('Swiper', '`Swiper` needs at least one child.')
@@ -336,6 +362,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               }
               forceCancelDrag()
             }}
+            {...propagationEvents}
             {...(props.allowTouchMove ? bind() : {})}
           >
             {renderTrackInner()}
