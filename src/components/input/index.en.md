@@ -34,7 +34,7 @@ The `Input` component is layout-independent. It only includes the most basic inp
 | readOnly | Whether it is readonly or not | `boolean` | `false` |
 | value | The input value | `string` | - |
 
-In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd` `onClick`
+In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd` `onClick` `step`
 
 ### CSS Variables
 

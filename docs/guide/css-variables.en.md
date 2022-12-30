@@ -78,6 +78,7 @@ This patch CSS will automatically determine the current browser environment and 
 Currently, only the following components support CSS variable degradation. We are still improving the CSS variable degradation capabilities of other components. Please pay attention to the subsequent releases:
 
 - Button
+- Cascader
 - CenterPopup
 - ErrorBlock
 - Image
