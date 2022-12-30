@@ -109,7 +109,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       return props.stopPropagation?.reduce(
         (pre: Record<string, (e: MouseEvent) => void>, cur) => {
           if (eventToPropRecord[cur]) {
-            pre[cur] = handlePropagation
+            pre[eventToPropRecord[cur]] = handlePropagation
           }
           return pre
         },
