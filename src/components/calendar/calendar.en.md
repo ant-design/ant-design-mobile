@@ -16,6 +16,8 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 
 <code src="./demos/demo4.tsx"></code>
 
+<code src="./demos/demo5.tsx"></code>
+
 ## Calendar
 
 ### Props
