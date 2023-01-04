@@ -20,12 +20,12 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- | --- | --- |
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
 | allowClear | Whether to allow clearing after another click. | `boolean` | `true` |
 | defaultValue | The default selected date or date range. | Same as `value` prop. | - |
 | max | Maximum value of a selectable range. | `Date` | - |
-| min | Minimum value of a selectable range. | `Date` | - |  | - |
+| min | Minimum value of a selectable range. | `Date` | - | - |
 | maxPage | Maximum visible page of date. | `Page` |
 | minPage | Minimum visible page of date. | `Page` | - |
 | nextMonthButton | Contents of the Next Month button on the navigation pane | `React.ReactNode` | `>` |
@@ -39,6 +39,7 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 | shouldDisableDate | Set whether the date is disable selection. The min and max Settings are ignored | `(date: Date) => boolean` | - |
 | value | The selected date or date range. | `Date \| null` when selection mode is "single". `[Date, Date] \| null` when selection mode is "range" | - |
 | weekStartsOn | Week starts on which day. | `'Monday' \| 'Sunday'` | `'Sunday'` |
+| renderDate | Custom date rendering. | `(date: Date) => ReactNode` | - | 5.28.0 |
 
 ### CSS Variables
 
