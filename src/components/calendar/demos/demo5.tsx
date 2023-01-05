@@ -11,7 +11,7 @@ export default () => {
       <DemoBlock title='自定义日期渲染'>
         <Calendar
           renderDate={date => {
-            const dates = [9, 10, 11, 12, 13]
+            const dates = [16, 17, 18, 19]
             const d = dayjs(date).date()
             return (
               <div
