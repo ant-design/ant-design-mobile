@@ -35,9 +35,6 @@ export default () => {
             onBlur={() => {
               console.log('失去焦点')
             }}
-            onClear={() => {
-              console.log('清空内容')
-            }}
             onCancel={() => {
               console.log('取消搜索')
             }}
