@@ -173,12 +173,14 @@ describe('Input', () => {
     const ref = createRef<InputRef>()
     const onFocus = jest.fn()
     const onBlur = jest.fn()
+    const onClear = jest.fn()
     render(
       <Input
         defaultValue={'testValue'}
         ref={ref}
         onFocus={onFocus}
         onBlur={onBlur}
+        onClear={onClear}
       />
     )
     ref.current?.focus()
@@ -189,5 +191,6 @@ describe('Input', () => {
       ref.current?.clear()
     })
     expect(ref.current?.nativeElement?.value).toBe('')
+    expect(onBlur).toBeCalledTimes(1)
   })
 })

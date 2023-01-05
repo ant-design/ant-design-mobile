@@ -91,6 +91,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   useImperativeHandle(ref, () => ({
     clear: () => {
       setValue('')
+      props.onClear?.()
     },
     focus: () => {
       nativeInputRef.current?.focus()
