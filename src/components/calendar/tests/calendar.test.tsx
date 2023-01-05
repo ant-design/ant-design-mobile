@@ -159,4 +159,15 @@ describe('Calendar', () => {
     )
     expect(container).toMatchSnapshot()
   })
+
+  test('custom date render', () => {
+    render(
+      <Calendar
+        renderDate={date => {
+          return <div className='custom-cell'>{dayjs(date).date()}</div>
+        }}
+      />
+    )
+    expect(document.getElementsByClassName('custom-cell').length).toBe(42)
+  })
 })
