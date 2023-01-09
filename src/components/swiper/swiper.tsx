@@ -24,11 +24,15 @@ import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
 
 const classPrefix = `adm-swiper`
 
-const eventToPropRecord: Record<string, string> = {
-  'mousedown': 'onMouseDown',
-  'mousemove': 'onMouseMove',
-  'mouseup': 'onMouseUp',
-}
+const eventToPropRecord = {
+  'mousedown': 'onMouseDownCapture',
+  'mousemove': 'onMouseMoveCapture',
+  'mouseup': 'onMouseUpCapture',
+} as const
+
+type ValuesToUnion<T, K extends keyof T = keyof T> = K extends keyof T
+  ? T[K]
+  : never
 
 type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
 
@@ -100,22 +104,6 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         count,
       }
     }, [props.children])
-
-    const handlePropagation = React.useCallback((e: MouseEvent) => {
-      e.stopPropagation()
-    }, [])
-
-    const propagationEvents = React.useMemo(() => {
-      return props.stopPropagation?.reduce(
-        (pre: Record<string, (e: MouseEvent) => void>, cur) => {
-          if (eventToPropRecord[cur]) {
-            pre[eventToPropRecord[cur]] = handlePropagation
-          }
-          return pre
-        },
-        {}
-      )
-    }, [handlePropagation, props.stopPropagation])
 
     if (count === 0 || !validChildren) {
       devWarning('Swiper', '`Swiper` needs at least one child.')
@@ -342,6 +330,16 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         '--track-offset': `${props.trackOffset}%`,
       }
 
+      const stopPropagationProps: Partial<
+        Record<ValuesToUnion<typeof eventToPropRecord>, any>
+      > = {}
+      for (const key of props.stopPropagation) {
+        const prop = eventToPropRecord[key]
+        stopPropagationProps[prop] = function (e: Event) {
+          e.stopPropagation()
+        }
+      }
+
       return withNativeProps(
         props,
         <div
@@ -362,7 +360,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               }
               forceCancelDrag()
             }}
-            {...propagationEvents}
+            {...stopPropagationProps}
             {...(props.allowTouchMove ? bind() : {})}
           >
             {renderTrackInner()}
