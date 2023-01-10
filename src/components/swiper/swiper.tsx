@@ -21,13 +21,14 @@ import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
 import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
+import { mergeFuncProps } from '../../utils/with-func-props'
 
 const classPrefix = `adm-swiper`
 
 const eventToPropRecord = {
-  'mousedown': 'onMouseDownCapture',
-  'mousemove': 'onMouseMoveCapture',
-  'mouseup': 'onMouseUpCapture',
+  'mousedown': 'onMouseDown',
+  'mousemove': 'onMouseMove',
+  'mouseup': 'onMouseUp',
 } as const
 
 type ValuesToUnion<T, K extends keyof T = keyof T> = K extends keyof T
@@ -71,7 +72,7 @@ const defaultProps = {
   trackOffset: 0,
   stuckAtBoundary: true,
   rubberband: true,
-  stopPropagation: ['mouseup', 'mousemove', 'mousedown'],
+  stopPropagation: [] as PropagationEvent[],
 }
 
 let currentUid: undefined | {}
@@ -330,6 +331,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         '--track-offset': `${props.trackOffset}%`,
       }
 
+      const dragProps = { ...(props.allowTouchMove ? bind() : {}) }
       const stopPropagationProps: Partial<
         Record<ValuesToUnion<typeof eventToPropRecord>, any>
       > = {}
@@ -339,6 +341,8 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
           e.stopPropagation()
         }
       }
+
+      const mergedProps = mergeFuncProps(dragProps, stopPropagationProps)
 
       return withNativeProps(
         props,
@@ -360,8 +364,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               }
               forceCancelDrag()
             }}
-            {...stopPropagationProps}
-            {...(props.allowTouchMove ? bind() : {})}
+            {...mergedProps}
           >
             {renderTrackInner()}
           </div>
