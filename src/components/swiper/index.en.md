@@ -40,8 +40,8 @@ When you use a vertical Swiper, be sure to set its height through the `--height`
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
 | allowTouchMove | Whether to allow gesture sliding | `boolean` | `true` |
 | autoplay | Whether to switch automatically | `boolean` | `false` |
 | autoplayInterval | Automatic switching interval, the unit is `ms` | `number` | `3000` |
@@ -55,7 +55,7 @@ When you use a vertical Swiper, be sure to set its height through the `--height`
 | slideSize | The slide width in percentage | `number` | `100` |
 | stuckAtBoundary | Whether to stuck at boundary in order to prevent white spaces. Only available when `loop` is `false` and `slideWidth` < 100. | `boolean` | `true` |
 | trackOffset | The track offset in percentage | `number` | `0` |
-| stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `[]` |
+| stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `[]` | 5.28.0 |
 
 ```ts
 type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
