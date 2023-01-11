@@ -38,8 +38,8 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
 | allowTouchMove | 是否允许手势滑动 | `boolean` | `true` |
 | autoplay | 是否自动切换 | `boolean` | `false` |
 | autoplayInterval | 自动切换的间隔，单位为 `ms` | `number` | `3000` |
@@ -53,6 +53,11 @@
 | slideSize | 滑块的宽度百分比 | `number` | `100` |
 | stuckAtBoundary | 是否在边界两边卡住，避免出现空白，仅在非 `loop` 模式且 `slideSize` < 100 时生效 | `boolean` | `true` |
 | trackOffset | 滑块轨道整体的偏移量百分比 | `number` | `0` |
+| stopPropagation | 阻止某些事件的冒泡 | `PropagationEvent[]` | `[]` | 5.28.0 |
+
+```ts
+type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
+```
 
 ### CSS 变量
 
