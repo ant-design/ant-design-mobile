@@ -35,7 +35,7 @@ type ValuesToUnion<T, K extends keyof T = keyof T> = K extends keyof T
   ? T[K]
   : never
 
-type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
+type PropagationEvent = keyof typeof eventToPropRecord
 
 export type SwiperRef = {
   swipeTo: (index: number) => void
