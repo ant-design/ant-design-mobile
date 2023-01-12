@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { Divider } from '../divider/divider'
+import Divider from '../divider'
 
 const classPrefix = `adm-footer`
 

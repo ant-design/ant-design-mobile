@@ -18,7 +18,7 @@ Provides multiple options for the user to choose from, typically used in filters
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| columns | Number of the displayed columns | `number` | - |
+| columns | Number of the displayed columns (Note that `grid` layout not support in IOS 9) | `number` | - |
 | defaultValue | Selected value by default | `SelectorValue[]` | `[]` |
 | disabled | Whether to disable selecting | `boolean` | `false` |
 | multiple | Whether to allow multiple selections | `boolean` | `false` |

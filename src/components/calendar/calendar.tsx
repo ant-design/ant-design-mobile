@@ -39,6 +39,7 @@ export type CalendarProps = {
   onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => React.ReactNode
+  renderDate?: (date: Date) => React.ReactNode
   allowClear?: boolean
   max?: Date
   min?: Date
@@ -296,7 +297,9 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
             }
           }}
         >
-          <div className={`${classPrefix}-cell-top`}>{d.date()}</div>
+          <div className={`${classPrefix}-cell-top`}>
+            {props.renderDate ? props.renderDate(d.toDate()) : d.date()}
+          </div>
           <div className={`${classPrefix}-cell-bottom`}>
             {props.renderLabel?.(d.toDate())}
           </div>
