@@ -291,4 +291,37 @@ describe('Swiper', () => {
 
     jest.useRealTimers()
   })
+
+  test('stop propagation should be work', () => {
+    const onMouseDown = jest.fn()
+    const onMouseMove = jest.fn()
+    const onMouseUp = jest.fn()
+    render(
+      <div
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+      >
+        <Swiper stopPropagation={['mousedown', 'mousemove', 'mouseup']}>
+          {items}
+        </Swiper>
+      </div>
+    )
+
+    const el = $$(`.${classPrefix}-track`)[0]
+    mockDrag(el, [
+      { clientX: 300, clientY: 0 },
+      {
+        clientX: 200,
+        clientY: 25,
+      },
+      {
+        clientX: 100,
+        clientY: 30,
+      },
+    ])
+    expect(onMouseDown).not.toBeCalled()
+    expect(onMouseMove).not.toBeCalled()
+    expect(onMouseUp).not.toBeCalled()
+  })
 })

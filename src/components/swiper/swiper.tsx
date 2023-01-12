@@ -21,8 +21,21 @@ import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
 import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
+import { mergeFuncProps } from '../../utils/with-func-props'
 
 const classPrefix = `adm-swiper`
+
+const eventToPropRecord = {
+  'mousedown': 'onMouseDown',
+  'mousemove': 'onMouseMove',
+  'mouseup': 'onMouseUp',
+} as const
+
+type ValuesToUnion<T, K extends keyof T = keyof T> = K extends keyof T
+  ? T[K]
+  : never
+
+type PropagationEvent = keyof typeof eventToPropRecord
 
 export type SwiperRef = {
   swipeTo: (index: number) => void
@@ -44,6 +57,7 @@ export type SwiperProps = {
   trackOffset?: number
   stuckAtBoundary?: boolean
   rubberband?: boolean
+  stopPropagation?: PropagationEvent[]
   children?: ReactElement | ReactElement[]
 } & NativeProps<'--height' | '--width' | '--border-radius' | '--track-padding'>
 
@@ -58,6 +72,7 @@ const defaultProps = {
   trackOffset: 0,
   stuckAtBoundary: true,
   rubberband: true,
+  stopPropagation: [] as PropagationEvent[],
 }
 
 let currentUid: undefined | {}
@@ -316,6 +331,19 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         '--track-offset': `${props.trackOffset}%`,
       }
 
+      const dragProps = { ...(props.allowTouchMove ? bind() : {}) }
+      const stopPropagationProps: Partial<
+        Record<ValuesToUnion<typeof eventToPropRecord>, any>
+      > = {}
+      for (const key of props.stopPropagation) {
+        const prop = eventToPropRecord[key]
+        stopPropagationProps[prop] = function (e: Event) {
+          e.stopPropagation()
+        }
+      }
+
+      const mergedProps = mergeFuncProps(dragProps, stopPropagationProps)
+
       return withNativeProps(
         props,
         <div
@@ -336,7 +364,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               }
               forceCancelDrag()
             }}
-            {...(props.allowTouchMove ? bind() : {})}
+            {...mergedProps}
           >
             {renderTrackInner()}
           </div>
