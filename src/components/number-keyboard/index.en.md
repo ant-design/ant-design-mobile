@@ -25,7 +25,7 @@ If possible, we recommend using the native keyboard provided by the system or cl
 | afterClose | Callback when the keyboard is completely put away | `() => void` | - |
 | afterShow | Callback when the keyboard is completely bounced | `() => void` | - |
 | closeOnConfirm | Whether to automatically close when the ok button is clicked | `boolean` | `true` |
-| confirmText | The text of the confirm button, if `null` is set, it would be shown | `string \| null` | `null` |
+| confirmText | The text of the confirm button, if `null` is set, it would be shown | `string \| null \| ReactNode`  | `null` |
 | customKey | Customized button | `string \| [string, string]` | - |
 | destroyOnClose | Unmount content when not visible | `boolean` | `false` |
 | forceRender | Render content forcely | `boolean` | `false` |

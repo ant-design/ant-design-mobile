@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { List, NumberKeyboard } from 'antd-mobile'
+import { Button, List, NumberKeyboard } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 export default () => {
@@ -45,7 +45,7 @@ export default () => {
         visible={visible === 'demo3'}
         onClose={onClose}
         customKey={'-'}
-        confirmText='确定'
+        confirmText={<Button color='primary'>确定</Button>}
       />
       <NumberKeyboard
         visible={visible === 'demo4'}

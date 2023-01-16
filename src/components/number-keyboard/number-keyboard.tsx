@@ -1,4 +1,10 @@
-import React, { useRef, useMemo, TouchEvent, MouseEvent } from 'react'
+import React, {
+  useRef,
+  useMemo,
+  TouchEvent,
+  MouseEvent,
+  ReactNode,
+} from 'react'
 import classNames from 'classnames'
 import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
@@ -13,7 +19,7 @@ const classPrefix = 'adm-number-keyboard'
 export type NumberKeyboardProps = {
   visible?: boolean
   title?: string
-  confirmText?: string | null
+  confirmText?: string | null | ReactNode
   customKey?: string | [string, string]
   randomOrder?: boolean
   showCloseButton?: boolean
@@ -227,13 +233,17 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
                 >
                   <TextDeletionOutline />
                 </div>
-                <div
-                  className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-ok`}
-                  onTouchEnd={e => onKeyPress(e, 'OK')}
-                  role='button'
-                >
-                  {confirmText}
-                </div>
+                {typeof confirmText === 'string' ? (
+                  <div
+                    className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-ok`}
+                    onTouchEnd={e => onKeyPress(e, 'OK')}
+                    role='button'
+                  >
+                    {confirmText}
+                  </div>
+                ) : (
+                  <div onTouchEnd={e => onKeyPress(e, 'OK')}>{confirmText}</div>
+                )}
               </div>
             )}
           </div>
