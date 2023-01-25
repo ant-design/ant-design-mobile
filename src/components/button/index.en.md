@@ -36,8 +36,8 @@ In addition, the following properties of the native `button` element are support
 
 | Name | Description | Default | Global |
 | --- | --- | --- | --- |
-| --background-color | Background color of the button. | `var(--adm-color-white)` | `--adm-button-background-color` |
-| --border-color | Border color of the button. | `var(--adm-border-color)` | `--adm-button-border-color` |
+| --background-color | Background color of the button. | `var(--adm-color-background)` | `--adm-button-background-color` |
+| --border-color | Border color of the button. | `var(--adm-color-border)` | `--adm-button-border-color` |
 | --border-radius | Border radius of the button. | `4px` | `--adm-button-border-radius` |
 | --border-style | Border style of the button. | `solid` | `--adm-button-border-style` |
 | --border-width | Border width of the button. | `1px` | `--adm-button-border-width` |
