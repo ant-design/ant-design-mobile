@@ -14,13 +14,11 @@
 
 ### 展示详细数据
 
-超过三行会自动折叠。
-<code src="./demos/demo2.tsx"></code>
+超过三行会自动折叠。 <code src="./demos/demo2.tsx"></code>
 
 ### 配合卡片使用
 
-搭配 [ResultPage.Card](#resultpagecard) 或 [Card](/zh/components/card) 组件使用。
-<code src="./demos/demo3.tsx"></code>
+搭配 [ResultPage.Card](#resultpagecard) 或 [Card](/zh/components/card) 组件使用。 <code src="./demos/demo3.tsx"></code>
 
 ### 底部按钮
 
@@ -44,18 +42,18 @@ interface ResultPageDetail {
 type ResultPageDetails = ResultPageDetail[]
 ```
 
-| 属性                   | 说明                                                                                     | 类型                                                                                | 默认值   |
-| ---------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------- |
-| children               | 页面内容，推荐只传入 [Card](/zh/components/card) 组件。[具体使用参考此处](#配合卡片使用) | [Card](/zh/components/card)                                                         | -        |
-| description            | 描述                                                                                     | `ReactNode`                                                                         | -        |
-| details                | 详细信息，超过三条自动折叠                                                               | `ResultPageDetail[]`                                                                | -        |
-| icon                   | 自定义 `icon`                                                                            | `ReactNode`                                                                         | -        |
-| onPrimaryButtonClick   | 点击主要操作按钮后的事件                                                                 | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void \| Promise<void>` | -        |
-| onSecondaryButtonClick | 点击辅助操作按钮后的事件                                                                 | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void \|Promise<void>`  | -        |
-| primaryButtonText      | 主要操作按钮的文字，为`undefined`、`null`或空字符时不显示按钮                            | `ReactNode`                                                                         | -        |
-| secondaryButtonText    | 辅助操作按钮的文字，为`undefined`、`null`或空字符时不显示按钮                            | `ReactNode`                                                                         | -        |
-| status                 | 状态类型                                                                                 | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning' `                         | `'info'` |
-| title                  | 标题                                                                                     | `ReactNode`                                                                         | -        |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| children | 页面内容，推荐只传入 [Card](/zh/components/card) 组件。[具体使用参考此处](#配合卡片使用) | [Card](/zh/components/card) | - |
+| description | 描述 | `ReactNode` | - |
+| details | 详细信息，超过三条自动折叠 | `ResultPageDetail[]` | - |
+| icon | 自定义 `icon` | `ReactNode` | - |
+| onPrimaryButtonClick | 点击主要操作按钮后的事件 | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void \| Promise<void>` | - |
+| onSecondaryButtonClick | 点击辅助操作按钮后的事件 | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void \|Promise<void>` | - |
+| primaryButtonText | 主要操作按钮的文字，为`undefined`、`null`或空字符时不显示按钮 | `ReactNode` | - |
+| secondaryButtonText | 辅助操作按钮的文字，为`undefined`、`null`或空字符时不显示按钮 | `ReactNode` | - |
+| status | 状态类型 | `'success' \| 'error' \| 'info' \| 'waiting' \| 'warning' ` | `'info'` |
+| title | 标题 | `ReactNode` | - |
 
 ### CSS 变量
 

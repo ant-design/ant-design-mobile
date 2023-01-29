@@ -5,6 +5,8 @@ import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
 import isLeapYear from 'dayjs/plugin/isLeapYear'
 import { PickerColumn } from '../picker'
 import type { DatePickerFilter } from './date-picker-utils'
+import { TILL_NOW } from './util'
+import { RenderLabel } from '../date-picker-view/date-picker-view'
 
 dayjs.extend(isoWeek)
 dayjs.extend(isoWeeksInYear)
@@ -27,24 +29,14 @@ const precisionRankRecord: Record<DatePrecision, number> = {
   second: 5,
 }
 
-export function defaultRenderLabel(type: DatePrecision, data: number) {
-  switch (type) {
-    case 'minute':
-    case 'second':
-    case 'hour':
-      return ('0' + data.toString()).slice(-2)
-    default:
-      return data.toString()
-  }
-}
-
 export function generateDatePickerColumns(
   selected: string[],
   min: Date,
   max: Date,
   precision: DatePrecision,
-  renderLabel: (type: DatePrecision, data: number) => ReactNode,
-  filter: DatePickerFilter | undefined
+  renderLabel: RenderLabel,
+  filter: DatePickerFilter | undefined,
+  tillNow?: boolean
 ) {
   const ret: PickerColumn[] = []
 
@@ -186,6 +178,20 @@ export function generateDatePickerColumns(
         }
       })
     )
+  }
+
+  // Till Now
+  if (tillNow) {
+    ret[0].push({
+      label: renderLabel('now', null!),
+      value: TILL_NOW,
+    })
+
+    if (TILL_NOW === selected?.[0]) {
+      for (let i = 1; i < ret.length; i += 1) {
+        ret[i] = []
+      }
+    }
   }
 
   return ret

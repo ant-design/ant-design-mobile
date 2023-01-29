@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { Button, DatePicker, Space, Toast } from 'antd-mobile'
+import { Button, DatePicker, DatePickerProps, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { weekdayToZh } from './weekdayToZh'
 
@@ -198,6 +198,37 @@ function DayOfWeekDemo() {
   )
 }
 
+// 基础用法
+function TillNowDemo() {
+  const [value, setValue] = useState(() => new Date())
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        选择
+      </Button>
+      <DatePicker
+        title='时间选择'
+        visible={visible}
+        value={value}
+        onClose={() => {
+          setVisible(false)
+        }}
+        max={now}
+        onConfirm={val => {
+          setValue(val)
+          Toast.show(`Till Now: ${!!val.tillNow}`)
+        }}
+        tillNow
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -219,6 +250,10 @@ export default () => {
 
       <DemoBlock title='周选择器'>
         <DayOfWeekDemo />
+      </DemoBlock>
+
+      <DemoBlock title='至今'>
+        <TillNowDemo />
       </DemoBlock>
     </>
   )

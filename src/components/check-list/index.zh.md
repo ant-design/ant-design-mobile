@@ -18,15 +18,15 @@
 
 ### 属性
 
-| 属性         | 说明           | 类型                        | 默认值             |
-| ------------ | -------------- | --------------------------- | ------------------ |
-| activeIcon   | 选中图标       | `ReactNode`                 | `<CheckOutline />` |
-| defaultValue | 默认项         | `string[]`                  | `[]`               |
-| disabled     | 是否禁用       | `boolean`                   | `false`            |
-| multiple     | 是否允许多选   | `boolean`                   | `false`            |
-| onChange     | 选项改变时触发 | `(value: string[]) => void` | -                  |
-| readOnly     | 是否只读       | `boolean`                   | `false`            |
-| value        | 选中项         | `string[]`                  | `[]`               |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| activeIcon | 选中图标 | `ReactNode` | `<CheckOutline />` |
+| defaultValue | 默认项 | `string[]` | `[]` |
+| disabled | 是否禁用 | `boolean` | `false` |
+| multiple | 是否允许多选 | `boolean` | `false` |
+| onChange | 选项改变时触发 | `(value: string[]) => void` | - |
+| readOnly | 是否只读 | `boolean` | `false` |
+| value | 选中项 | `string[]` | `[]` |
 
 此外，还支持 [List](/zh/components/list) 的 `mode` 属性
 

@@ -159,7 +159,9 @@ describe('ImageUploader', () => {
     })
 
     expect(fn.mock.calls[0][0]).toBe(1)
-    expect($$(`.${classPrefix}-upload-button`).length).toBe(0)
+    expect($$(`.${classPrefix}-upload-button-wrap`)[0]).toHaveStyle(
+      'display: none'
+    )
   })
 
   test('delete image', async () => {
@@ -285,5 +287,51 @@ describe('ImageUploader', () => {
       jest.runAllTimers()
     })
     expect(fn.mock.lastCall[0].length).toBe(1)
+  })
+
+  test('revokeObjectURL when task done', async () => {
+    const fn = jest.fn(() => {})
+    URL.revokeObjectURL = fn
+
+    render(<App />)
+
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(0))
+
+    expect(fn).not.toBeCalled()
+
+    mockInputFile()
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    await act(async () => {
+      jest.runAllTimers()
+    })
+
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(1))
+
+    expect(fn).toBeCalledTimes(1)
+    expect(fn).toBeCalledWith('')
+
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(0))
+
+    expect(fn).toBeCalledTimes(1)
+  })
+
+  test('task change', async () => {
+    const fn = jest.fn()
+    render(<App upload={mockUpload} onUploadQueueChange={fn} />)
+    mockInputFile()
+    expect(fn.mock.lastCall[0]).toMatchObject([])
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(fn.mock.lastCall[0]).toMatchObject([{ id: 0, status: 'pending' }])
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(fn).toBeCalledWith([{ id: 0, status: 'success' }])
+    expect(fn.mock.lastCall[0]).toMatchObject([])
   })
 })

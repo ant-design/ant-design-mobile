@@ -29,6 +29,17 @@ export default () => {
       <DemoBlock title='格式化到一位小数'>
         <Stepper digits={1} />
       </DemoBlock>
+
+      <DemoBlock title='自定义格式'>
+        <Stepper
+          defaultValue={93}
+          formatter={value => `$ ${value}`}
+          parser={text => parseFloat(text.replace('$', ''))}
+          onChange={value => {
+            console.log(value, typeof value)
+          }}
+        />
+      </DemoBlock>
     </>
   )
 }
