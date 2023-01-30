@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import React, { useCallback, useEffect } from 'react'
+import React from 'react'
 import { usePrefersColor } from 'dumi/theme'
 import './Dark.less'
 
@@ -8,8 +8,6 @@ interface darkProps {
   isSideMenu: boolean
   onDarkSwitchClick?: (ev) => void
 }
-
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
 
 const Dark: FC<darkProps> = ({ darkSwitch, onDarkSwitchClick, isSideMenu }) => {
   const allState = ['dark', 'light', 'auto']
@@ -63,24 +61,6 @@ const Dark: FC<darkProps> = ({ darkSwitch, onDarkSwitchClick, isSideMenu }) => {
   )
 
   const list = allState.filter(state => state !== prefersColor)
-
-  const handler = useCallback((evt: MediaQueryListEvent): void => {
-    const cache = localStorage.getItem('dumi:prefers-color')
-    if (cache === 'auto') {
-      setColor(evt.matches ? 'dark' : 'light')
-      // setColor 传参与上一次相同时无法刷新页面
-      setTimeout(() => {
-        setColor(cache)
-      })
-    }
-  }, [])
-
-  useEffect(() => {
-    prefersDark.addEventListener('change', handler)
-    return () => {
-      prefersDark.removeEventListener('change', handler)
-    }
-  }, [])
 
   const changeColor = (ev, toColor) => {
     if (!isSideMenu && onDarkSwitchClick) {

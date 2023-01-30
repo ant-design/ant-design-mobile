@@ -1,11 +1,12 @@
 import type { FC } from 'react'
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useCallback } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
 import { context } from 'dumi/theme'
 import { usePrefersColor } from 'dumi/theme'
 import './device.less'
 import { Popover } from 'antd-mobile'
 
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
 interface IDeviceProps {
   className?: string
   url: string
@@ -22,6 +23,20 @@ export const Device: FC<IDeviceProps> = ({ url }) => {
   useEffect(() => {
     setRenderKey(Math.random())
   }, [color])
+
+  const handler = useCallback((): void => {
+    const cache = localStorage.getItem('dumi:prefers-color')
+    if (cache === 'auto') {
+      setRenderKey(Math.random())
+    }
+  }, [])
+
+  useEffect(() => {
+    prefersDark.addEventListener('change', handler)
+    return () => {
+      prefersDark.removeEventListener('change', handler)
+    }
+  }, [])
 
   return (
     <div className={'adm-doc-device'} data-device-type='iOS' data-mode={mode}>
