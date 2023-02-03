@@ -11,6 +11,8 @@ interface IDeviceProps {
   url: string
 }
 
+type PrefersColorValue = 'dark' | 'light' | 'auto'
+
 export const Device: FC<IDeviceProps> = ({ url }) => {
   const [renderKey, setRenderKey] = useState(Math.random())
   const [color] = usePrefersColor()
@@ -22,6 +24,17 @@ export const Device: FC<IDeviceProps> = ({ url }) => {
   useEffect(() => {
     setRenderKey(Math.random())
   }, [color])
+
+  useEffect(() => {
+    const mediaQueryList = (['light', 'dark'] as PrefersColorValue[]).map(
+      color => window.matchMedia(`(prefers-color-scheme: ${color})`)
+    )
+    const handler = () => {
+      setRenderKey(Math.random())
+    }
+
+    mediaQueryList.forEach(mq => mq.addEventListener('change', handler))
+  }, [])
 
   return (
     <div className={'adm-doc-device'} data-device-type='iOS' data-mode={mode}>
