@@ -6,11 +6,12 @@ import { usePrefersColor } from 'dumi/theme'
 import './device.less'
 import { Popover } from 'antd-mobile'
 
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
 interface IDeviceProps {
   className?: string
   url: string
 }
+
+type PrefersColorValue = 'dark' | 'light' | 'auto'
 
 export const Device: FC<IDeviceProps> = ({ url }) => {
   const [renderKey, setRenderKey] = useState(Math.random())
@@ -24,18 +25,15 @@ export const Device: FC<IDeviceProps> = ({ url }) => {
     setRenderKey(Math.random())
   }, [color])
 
-  const handler = useCallback((): void => {
-    const cache = localStorage.getItem('dumi:prefers-color')
-    if (cache === 'auto') {
+  useEffect(() => {
+    const mediaQueryList = (['light', 'dark'] as PrefersColorValue[]).map(
+      color => window.matchMedia(`(prefers-color-scheme: ${color})`)
+    )
+    const handler = () => {
       setRenderKey(Math.random())
     }
-  }, [])
 
-  useEffect(() => {
-    prefersDark.addEventListener('change', handler)
-    return () => {
-      prefersDark.removeEventListener('change', handler)
-    }
+    mediaQueryList.forEach(mq => mq.addEventListener('change', handler))
   }, [])
 
   return (
