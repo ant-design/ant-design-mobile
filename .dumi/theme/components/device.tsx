@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import React, { useState, useContext, useEffect, useCallback } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
 import { context } from 'dumi/theme'
 import { usePrefersColor } from 'dumi/theme'
