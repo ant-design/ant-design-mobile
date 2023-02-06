@@ -272,11 +272,17 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       const { autoplay, autoplayInterval } = props
       useEffect(() => {
         if (!autoplay || dragging) return
-        const interval = window.setInterval(() => {
+
+        let interval: number
+        function tick() {
+          interval = window.setTimeout(tick, autoplayInterval)
           swipeNext()
-        }, autoplayInterval)
+        }
+
+        interval = window.setTimeout(tick, autoplayInterval)
+
         return () => {
-          window.clearInterval(interval)
+          if (interval) window.clearTimeout(interval)
         }
       }, [autoplay, autoplayInterval, dragging, count])
 
