@@ -9,6 +9,7 @@ const zhTW = mergeLocale(base, {
     confirm: '確定',
     cancel: '取消',
     loading: '加載中',
+    close: '關閉',
   },
   Calendar: {
     markItems: ['一', '二', '三', '四', '五', '六', '日'],
