@@ -7,6 +7,7 @@ import Space from '../space'
 import AutoCenter from '../auto-center'
 import { NativeProps } from '../../utils/native-props'
 import CenterPopup, { CenterPopupProps } from '../center-popup'
+import Popup, { PopupProps } from '../popup'
 
 export type ModalProps = Pick<
   CenterPopupProps,
@@ -22,24 +23,42 @@ export type ModalProps = Pick<
   | 'maskStyle'
   | 'stopPropagation'
   | 'visible'
-> & {
-  image?: string
-  header?: ReactNode
-  title?: ReactNode
-  content?: ReactNode
-  actions?: Action[]
-  onAction?: (action: Action, index: number) => void | Promise<void>
-  onClose?: () => void
-  closeOnAction?: boolean
-  closeOnMaskClick?: boolean
-  showCloseButton?: boolean
-} & NativeProps
+> &
+  Pick<
+    PopupProps,
+    | 'afterClose'
+    | 'afterShow'
+    | 'bodyClassName'
+    | 'bodyStyle'
+    | 'destroyOnClose'
+    | 'disableBodyScroll'
+    | 'forceRender'
+    | 'getContainer'
+    | 'maskClassName'
+    | 'maskStyle'
+    | 'stopPropagation'
+    | 'visible'
+    | 'position'
+    | 'getContainer'
+  > & {
+    image?: string
+    header?: ReactNode
+    title?: ReactNode
+    content?: ReactNode
+    actions?: Action[]
+    onAction?: (action: Action, index: number) => void | Promise<void>
+    onClose?: () => void
+    closeOnAction?: boolean
+    closeOnMaskClick?: boolean
+    showCloseButton?: boolean
+  } & NativeProps
 
 const defaultProps = {
   actions: [] as Action[],
   closeOnAction: false,
   closeOnMaskClick: false,
   getContainer: null,
+  popup: false,
 }
 
 export const Modal: FC<ModalProps> = p => {
@@ -92,34 +111,36 @@ export const Modal: FC<ModalProps> = p => {
       </Space>
     </>
   )
+  const popupProps = {
+    className: classNames(cls(), props.className),
+    style: props.style,
+    afterClose: props.afterClose,
+    afterShow: props.afterShow,
+    showCloseButton: props.showCloseButton,
+    closeOnMaskClick: props.closeOnMaskClick,
+    onClose: props.onClose,
+    visible: props.visible,
+    getContainer: props.getContainer,
+    bodyStyle: props.bodyStyle,
+    bodyClassName: classNames(
+      cls('body'),
+      props.image && cls('with-image'),
+      props.bodyClassName
+    ),
+    maskStyle: props.maskStyle,
+    maskClassName: props.maskClassName,
+    stopPropagation: props.stopPropagation,
+    disableBodyScroll: props.disableBodyScroll,
+    destroyOnClose: props.destroyOnClose,
+    forceRender: props.forceRender,
+    role: 'modal',
+    'aria-label': props['aria-label'],
+  }
 
-  return (
-    <CenterPopup
-      className={classNames(cls(), props.className)}
-      style={props.style}
-      afterClose={props.afterClose}
-      afterShow={props.afterShow}
-      showCloseButton={props.showCloseButton}
-      closeOnMaskClick={props.closeOnMaskClick}
-      onClose={props.onClose}
-      visible={props.visible}
-      getContainer={props.getContainer}
-      bodyStyle={props.bodyStyle}
-      bodyClassName={classNames(
-        cls('body'),
-        props.image && cls('with-image'),
-        props.bodyClassName
-      )}
-      maskStyle={props.maskStyle}
-      maskClassName={props.maskClassName}
-      stopPropagation={props.stopPropagation}
-      disableBodyScroll={props.disableBodyScroll}
-      destroyOnClose={props.destroyOnClose}
-      forceRender={props.forceRender}
-    >
-      {element}
-    </CenterPopup>
-  )
+  if (props.popup) {
+    return <Popup {...popupProps}>{element}</Popup>
+  }
+  return <CenterPopup {...popupProps}>{element}</CenterPopup>
 }
 
 function cls(name: string = '') {

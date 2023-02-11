@@ -41,6 +41,7 @@ When users need to process transactions, but do not want to jump to pages to int
 | stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `['click']` |
 | title | The title of the Dialog | `React.ReactNode` | - |
 | visible | To show or hide | `boolean` | `false` |
+| popup | Whether to render with `Popup` when true | `boolean` | `false` |
 
 ### Action
 
