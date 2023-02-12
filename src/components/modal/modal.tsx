@@ -133,6 +133,7 @@ export const Modal: FC<ModalProps> = p => {
     disableBodyScroll: props.disableBodyScroll,
     destroyOnClose: props.destroyOnClose,
     forceRender: props.forceRender,
+    position: props.position,
     role: 'modal',
     'aria-label': props['aria-label'],
   }

@@ -134,6 +134,7 @@ export const Dialog: FC<DialogProps> = p => {
     disableBodyScroll: props.disableBodyScroll,
     destroyOnClose: props.destroyOnClose,
     forceRender: props.forceRender,
+    position: props.position,
     role: 'dialog',
     'aria-label': props['aria-label'],
   }
