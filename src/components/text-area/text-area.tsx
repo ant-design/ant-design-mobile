@@ -76,6 +76,8 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       )
     }
     const nativeTextAreaRef = useRef<HTMLTextAreaElement>(null)
+    // https://github.com/ant-design/ant-design-mobile/issues/5961
+    const heightRef = useRef<string>('auto')
 
     useImperativeHandle(ref, () => ({
       clear: () => {
@@ -96,7 +98,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       if (!autoSize) return
       const textArea = nativeTextAreaRef.current
       if (!textArea) return
-      textArea.style.height = 'auto'
+      textArea.style.height = heightRef.current
       let height = textArea.scrollHeight
       if (typeof autoSize === 'object') {
         const computedStyle = window.getComputedStyle(textArea)
@@ -108,6 +110,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           height = Math.min(height, autoSize.maxRows * lineHeight)
         }
       }
+      heightRef.current = `${height}px`
       textArea.style.height = `${height}px`
     }, [value, autoSize])
 
