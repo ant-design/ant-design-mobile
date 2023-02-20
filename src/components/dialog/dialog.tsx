@@ -49,7 +49,7 @@ export type DialogProps = Pick<
     onClose?: () => void
     closeOnAction?: boolean
     closeOnMaskClick?: boolean
-    popup?: boolean
+    isPopup?: boolean
   } & NativeProps
 
 const defaultProps = {
@@ -57,7 +57,7 @@ const defaultProps = {
   closeOnAction: false,
   closeOnMaskClick: false,
   getContainer: null,
-  popup: false,
+  isPopup: false,
 }
 
 export const Dialog: FC<DialogProps> = p => {
@@ -139,7 +139,7 @@ export const Dialog: FC<DialogProps> = p => {
     'aria-label': props['aria-label'],
   }
 
-  if (props.popup) {
+  if (props.isPopup) {
     return <Popup {...popupProps}>{element}</Popup>
   }
   return <CenterPopup {...popupProps}>{element}</CenterPopup>

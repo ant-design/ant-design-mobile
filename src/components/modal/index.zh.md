@@ -42,7 +42,7 @@
 | stopPropagation | 阻止某些事件的冒泡 | `PropagationEvent[]` | `['click']` |
 | title | 弹窗标题 | `React.ReactNode` | - |
 | visible | 显示隐藏 | `boolean` | `false` |
-| popup | 是否 `Popup` 形式的弹窗 | `boolean` | `false` |
+| isPopup | 是否 `Popup` 形式的弹窗 | `boolean` | `false` |
 
 ### Action
 
