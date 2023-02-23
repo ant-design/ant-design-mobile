@@ -1,33 +1,14 @@
 import React, { useState } from 'react'
 import { InfiniteScroll, List } from 'antd-mobile'
-import { sleep } from '../../../utils/sleep'
+import { mockRequest } from './mock-request'
 
 export default () => {
   const [data, setData] = useState<string[]>([])
   async function loadMore() {
-    await sleep(1000)
+    const append = await mockRequest()
     if (Math.random() > 0.5) {
       throw new Error('mock request failed')
     }
-    const append = [
-      'A',
-      'B',
-      'C',
-      'D',
-      'E',
-      'F',
-      'G',
-      'H',
-      'I',
-      'J',
-      'K',
-      'L',
-      'M',
-      'N',
-      'O',
-      'P',
-      'Q',
-    ]
     setData(val => [...val, ...append])
   }
 
