@@ -37,9 +37,7 @@ Next.js 13 可以通过配置自动处理 `node_modules` 中的依赖，不再�
 ```js
 // next.config.js
 const nextConfig = {
-  experimental: {
-    transpilePackages: ['antd-mobile'],
-  },
+   transpilePackages: ['antd-mobile'],
 };
 
 module.exports = nextConfig;
