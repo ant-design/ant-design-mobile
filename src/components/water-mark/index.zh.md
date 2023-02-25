@@ -20,7 +20,7 @@
 | --- | --- | --- | --- |
 | content | 水印文字内容 | `string \| string[]` | - |
 | fontColor | 水印文字颜色 | `string` | `rgba(0, 0, 0, .15)` |
-| fontSize | 文字大小 | `string \| number` | `16` |
+| fontSize | 文字大小 | `string \| number` | `14` |
 | fullPage | 是否覆盖整个页面 | `boolean` | `true` |
 | gapX | 水印之间的水平间距 | `number` | `24` |
 | gapY | 水印之间的垂直间距 | `number` | `48` |

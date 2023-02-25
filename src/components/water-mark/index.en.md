@@ -20,7 +20,7 @@ Suitable for preventing information theft.
 | --- | --- | --- | --- |
 | content | WaterMark text content | `string \| string[]` | - |
 | fontColor | WaterMark text color | `string` | `rgba(0, 0, 0, .15)` |
-| fontSize | WaterMark text font size | `string \| number` | `16` |
+| fontSize | WaterMark text font size | `string \| number` | `14` |
 | fullPage | Whether to cover the whole page | `boolean` | `true` |
 | gapX | Horizontal spacing between watermarks | `number` | `24` |
 | gapY | Vertical spacing between watermarks | `number` | `48` |
