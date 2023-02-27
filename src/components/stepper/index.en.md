@@ -38,6 +38,14 @@ It is suitable for inputting and adjusting the current value within a certain ra
 
 When `allowEmpty` is `true`, the `value` parameter of `onChange` may be `null`, please pay attention when using it.
 
+### Ref
+
+| Name          | Description                  | Type                         |
+| ------------- | ---------------------------- | ---------------------------- |
+| blur          | Let the input box lose focus | `() => void`                 |
+| focus         | Let the input box get focus  | `() => void`                 |
+| nativeElement | Native input element         | `HtmlInputElement` \| `null` |
+
 ### CSS Variables
 
 | Name | Description | Default |

@@ -38,6 +38,14 @@
 
 当 `allowEmpty` 为 `true` 时，`onChange` 的 `value` 参数可能会为 `null`，在使用时请留意。
 
+### Ref
+
+| 属性          | 说明             | 类型                         |
+| ------------- | ---------------- | ---------------------------- |
+| blur          | 让输入框失去焦点 | `() => void`                 |
+| focus         | 让输入框获得焦点 | `() => void`                 |
+| nativeElement | 原始 input 元素  | `HtmlInputElement` \| `null` |
+
 ### CSS 变量
 
 | 属性 | 说明 | 默认值 |
