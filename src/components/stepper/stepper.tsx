@@ -1,5 +1,10 @@
 import classNames from 'classnames'
-import React, { useEffect, useState } from 'react'
+import React, {
+  useEffect,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from 'react'
 import { MinusOutline, AddOutline } from 'antd-mobile-icons'
 import useMergedState from 'rc-util/lib/hooks/useMergedState'
 import getMiniDecimal, {
@@ -70,6 +75,8 @@ export type StringStepperProps = BaseStepperProps<string> & {
 
 export type StepperProps = NumberStepperProps | StringStepperProps
 
+export type StepperRef = Pick<InputRef, 'blur' | 'focus' | 'nativeElement'>
+
 type DEFAULT_PROPS = 'step'
 type MergedStepperProps<ValueType> = Omit<
   BaseStepperProps<ValueType>,
@@ -85,7 +92,10 @@ const defaultProps = {
   allowEmpty: false,
 }
 
-export function Stepper<ValueType extends number | string>(p: StepperProps) {
+export function InnerStepper<ValueType extends number | string>(
+  p: StepperProps,
+  ref: React.ForwardedRef<StepperRef>
+) {
   const props = mergeProps(defaultProps, p)
   const {
     defaultValue = 0 as ValueType,
@@ -104,6 +114,19 @@ export function Stepper<ValueType extends number | string>(p: StepperProps) {
   } = props as MergedStepperProps<ValueType>
 
   const { locale } = useConfig()
+
+  // ========================== Ref ==========================
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current?.focus()
+    },
+    blur: () => {
+      inputRef.current?.blur()
+    },
+    get nativeElement() {
+      return inputRef.current?.nativeElement ?? null
+    },
+  }))
 
   // ========================== Parse / Format ==========================
   const fixedValue = (value: ValueType): string => {
@@ -321,3 +344,5 @@ export function Stepper<ValueType extends number | string>(p: StepperProps) {
     </div>
   )
 }
+
+export const Stepper = forwardRef(InnerStepper)
