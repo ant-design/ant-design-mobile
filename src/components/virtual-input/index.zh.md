@@ -18,6 +18,7 @@
 | --- | --- | --- | --- |
 | clearable | 是否启用清除图标，点击清除图标后会清空虚拟输入框 | `boolean` | `false` |
 | onBlur | 失去焦点时触发 | `() => void` | - |
+| onClear | 点击清除按钮时触发 | `() => void` | - |
 | onClick | 点击时触发 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | onFocus | 获得焦点时触发 | `() => void` | - |
 | placeholder | 提示文本 | `string` | - |
