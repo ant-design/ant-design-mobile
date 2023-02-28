@@ -18,6 +18,7 @@ When you need to use it with the virtual keyboard.
 | --- | --- | --- | --- |
 | clearable | Whether to enable the clear icon, the virtual input box will be cleared after clicking the clear icon | `boolean` | `false` |
 | onBlur | Triggered when element lose focus | `() => void` | - |
+| onClear | Trigger when clear button clicked | `() => void` | - |
 | onClick | Triggered when element get clicked | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | onFocus | Triggered when element get focus | `() => void` | - |
 | placeholder | The placeholder text | `string` | - |
