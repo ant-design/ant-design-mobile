@@ -9,6 +9,7 @@ const koKR = mergeLocale(base, {
     confirm: '확인',
     cancel: '취소',
     loading: '로딩중',
+    close: '닫기',
   },
   Calendar: {
     markItems: ['월', '화', '수', '목', '금', '토', '일'],
@@ -19,6 +20,9 @@ const koKR = mergeLocale(base, {
   },
   Dialog: {
     ok: '확인',
+  },
+  DatePicker: {
+    tillNow: '지금까지',
   },
   ErrorBlock: {
     default: {
@@ -91,6 +95,15 @@ const koKR = mergeLocale(base, {
   },
   ImageUploader: {
     uploading: '업로드 중...',
+    upload: '업로드',
+  },
+  InfiniteScroll: {
+    noMore: '불러올 데이터 없음',
+    failedToLoad: '불러오기 실패',
+    retry: '재시도',
+  },
+  Input: {
+    clear: '지우기',
   },
   Mask: {
     name: '마스크',
@@ -98,11 +111,28 @@ const koKR = mergeLocale(base, {
   Modal: {
     ok: '확인',
   },
+  PasscodeInput: {
+    name: '비밀번호 입력',
+  },
   PullToRefresh: {
     pulling: '스크롤을 당겨서 새로고침하십시오',
     canRelease: '새로고침 하려면 놓으십시오',
     complete: '새로고침 완료',
   },
+  SearchBar: {
+    name: '검색바',
+  },
+  Slider: {
+    name: '슬라이더',
+  },
+  Stepper: {
+    decrease: '감소',
+    increase: '증가',
+  },
+  Switch: {
+    name: '스위치',
+  },
+
 })
 
 export default koKR
