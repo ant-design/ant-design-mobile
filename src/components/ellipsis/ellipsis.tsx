@@ -19,6 +19,7 @@ export type EllipsisProps = {
   collapseText?: string
   stopPropagationForActionButtons?: PropagationEvent[]
   onContentClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  defaultExpanded?: boolean
 } & NativeProps
 
 const defaultProps = {
@@ -29,6 +30,7 @@ const defaultProps = {
   collapseText: '',
   stopPropagationForActionButtons: [],
   onContentClick: () => {},
+  defaultExpanded: false,
 }
 
 type EllipsisedValue = {
@@ -41,7 +43,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   const rootRef = useRef<HTMLDivElement>(null)
 
   const [ellipsised, setEllipsised] = useState<EllipsisedValue>({})
-  const [expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(props.defaultExpanded)
   const [exceeded, setExceeded] = useState(false)
 
   const chars = useMemo(() => runes(props.content), [props.content])

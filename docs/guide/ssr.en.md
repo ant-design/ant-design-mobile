@@ -37,9 +37,7 @@ Next.js 13 can automatically transpile and bundle dependencies from external dep
 ```js
 // next.config.js
 const nextConfig = {
-  experimental: {
-    transpilePackages: ['antd-mobile'],
-  },
+  transpilePackages: ['antd-mobile'],
 };
 
 module.exports = nextConfig;

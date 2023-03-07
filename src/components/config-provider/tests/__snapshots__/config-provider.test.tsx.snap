@@ -9586,11 +9586,11 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
         </svg>
       </div>
       <div
-        aria-label="Search Bar"
+        aria-label="검색바"
         class="adm-input adm-search-bar-input"
       >
         <input
-          aria-label="Search Bar"
+          aria-label="검색바"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"
@@ -9685,7 +9685,7 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
           class="adm-image-uploader-upload-button-wrap"
         >
           <span
-            aria-label="Upload"
+            aria-label="업로드"
             class="adm-image-uploader-cell adm-image-uploader-upload-button"
             role="button"
           >

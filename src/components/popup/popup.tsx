@@ -12,6 +12,7 @@ import { ShouldRender } from '../../utils/should-render'
 import { CloseOutline } from 'antd-mobile-icons'
 import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
 import { useInnerVisible } from '../../utils/use-inner-visible'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-popup`
 
@@ -28,6 +29,7 @@ const defaultProps = {
 
 export const Popup: FC<PopupProps> = p => {
   const props = mergeProps(defaultProps, p)
+  const { locale } = useConfig()
 
   const bodyCls = classNames(
     `${classPrefix}-body`,
@@ -124,6 +126,8 @@ export const Popup: FC<PopupProps> = p => {
               onClick={() => {
                 props.onClose?.()
               }}
+              role='button'
+              aria-label={locale.common.close}
             >
               <CloseOutline />
             </a>

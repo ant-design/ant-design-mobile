@@ -6,6 +6,7 @@ export const base = {
     confirm: 'Confirm',
     cancel: 'Cancel',
     loading: 'Loading',
+    close: 'Close',
   },
   Calendar: {
     markItems: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
