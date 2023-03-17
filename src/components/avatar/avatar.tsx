@@ -11,6 +11,7 @@ export type AvatarProps = {
   src: string
   fallback?: ReactNode
   fit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
+  onLoad?: ImageProps['onLoad']
 } & Pick<ImageProps, 'alt' | 'lazy' | 'onClick' | 'onError'> &
   NativeProps<'--size' | '--border-radius'>
 
@@ -33,6 +34,7 @@ export const Avatar: FC<AvatarProps> = p => {
       fit={props.fit}
       onClick={props.onClick}
       onError={props.onError}
+      onLoad={props.onLoad}
     />
   )
 }
