@@ -1,5 +1,11 @@
 import classNames from 'classnames'
-import React, { useState, useRef, FC, PropsWithChildren } from 'react'
+import React, {
+  useState,
+  useRef,
+  FC,
+  PropsWithChildren,
+  useEffect,
+} from 'react'
 import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -13,6 +19,7 @@ import { CloseOutline } from 'antd-mobile-icons'
 import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
 import { useInnerVisible } from '../../utils/use-inner-visible'
 import { useConfig } from '../config-provider'
+import { useDrag } from '@use-gesture/react'
 
 const classPrefix = `adm-popup`
 
@@ -48,24 +55,53 @@ export const Popup: FC<PopupProps> = p => {
   useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
 
   const unmountedRef = useUnmountedRef()
-  const { percent } = useSpring({
-    percent: props.visible ? 0 : 100,
-    config: {
-      precision: 0.1,
-      mass: 0.4,
-      tension: 300,
-      friction: 30,
-    },
-    onRest: () => {
-      if (unmountedRef.current) return
-      setActive(props.visible)
-      if (props.visible) {
-        props.afterShow?.()
+  const [{ percent }, api] = useSpring(
+    () => ({
+      percent: 0,
+      config: {
+        precision: 0.1,
+        mass: 0.4,
+        tension: 300,
+        friction: 30,
+      },
+      onRest: () => {
+        if (unmountedRef.current) return
+        setActive(props.visible)
+        if (props.visible) {
+          props.afterShow?.()
+        } else {
+          props.afterClose?.()
+        }
+      },
+    }),
+    [props.visible]
+  )
+
+  const bind = useDrag(
+    ({ last, velocity: [, vy], direction: [, dy], movement: [, my] }) => {
+      if (!ref.current) return
+      const { height } = ref.current.getBoundingClientRect()
+      const dragPercent = Math.floor((my / height) * 100)
+      if (dragPercent < 0) return
+      if (last) {
+        if (dragPercent > 40) {
+          api.start({ percent: 100 })
+        } else {
+          api.start({ percent: 0 })
+        }
       } else {
-        props.afterClose?.()
+        api.start({ percent: dragPercent, immediate: true })
       }
-    },
-  })
+    }
+  )
+
+  useEffect(() => {
+    if (props.visible) {
+      api.start({ percent: 0 })
+    } else {
+      api.start({ percent: 100 })
+    }
+  }, [props.visible])
 
   const maskVisible = useInnerVisible(active && props.visible)
 
@@ -115,6 +151,7 @@ export const Popup: FC<PopupProps> = p => {
               return 'none'
             }),
           }}
+          {...bind()}
           ref={ref}
         >
           {props.showCloseButton && (

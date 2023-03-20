@@ -34,7 +34,7 @@ export default () => {
               {mockContent}
             </Popup>
           </>
-          <>
+          {/* <>
             <Button
               onClick={() => {
                 setVisible2(true)
@@ -90,11 +90,11 @@ export default () => {
             >
               {mockContent}
             </Popup>
-          </>
+          </> */}
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='自定义样式'>
+      {/* <DemoBlock title='自定义样式'>
         <Space direction='vertical'>
           <>
             <Button
@@ -179,7 +179,7 @@ export default () => {
             </Popup>
           </>
         </Space>
-      </DemoBlock>
+      </DemoBlock> */}
     </>
   )
 }
