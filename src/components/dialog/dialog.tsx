@@ -6,6 +6,7 @@ import Image from '../image'
 import AutoCenter from '../auto-center'
 import { NativeProps } from '../../utils/native-props'
 import CenterPopup, { CenterPopupProps } from '../center-popup'
+import Popup, { PopupProps } from '../popup'
 
 export type DialogProps = Pick<
   CenterPopupProps,
@@ -21,23 +22,42 @@ export type DialogProps = Pick<
   | 'maskStyle'
   | 'stopPropagation'
   | 'visible'
-> & {
-  image?: string
-  header?: ReactNode
-  title?: ReactNode
-  content?: ReactNode
-  actions?: (Action | Action[])[]
-  onAction?: (action: Action, index: number) => void | Promise<void>
-  onClose?: () => void
-  closeOnAction?: boolean
-  closeOnMaskClick?: boolean
-} & NativeProps
+> &
+  Pick<
+    PopupProps,
+    | 'afterClose'
+    | 'afterShow'
+    | 'bodyClassName'
+    | 'bodyStyle'
+    | 'destroyOnClose'
+    | 'disableBodyScroll'
+    | 'forceRender'
+    | 'getContainer'
+    | 'maskClassName'
+    | 'maskStyle'
+    | 'stopPropagation'
+    | 'visible'
+    | 'position'
+    | 'getContainer'
+  > & {
+    image?: string
+    header?: ReactNode
+    title?: ReactNode
+    content?: ReactNode
+    actions?: (Action | Action[])[]
+    onAction?: (action: Action, index: number) => void | Promise<void>
+    onClose?: () => void
+    closeOnAction?: boolean
+    closeOnMaskClick?: boolean
+    isPopup?: boolean
+  } & NativeProps
 
 const defaultProps = {
   actions: [] as Action[],
   closeOnAction: false,
   closeOnMaskClick: false,
   getContainer: null,
+  isPopup: false,
 }
 
 export const Dialog: FC<DialogProps> = p => {
@@ -94,40 +114,35 @@ export const Dialog: FC<DialogProps> = p => {
       </div>
     </>
   )
+  const popupProps = {
+    className: classNames(cls(), props.className),
+    style: props.style,
+    afterClose: props.afterClose,
+    afterShow: props.afterShow,
+    onMaskClick: props.closeOnMaskClick ? props.onClose : undefined,
+    visible: props.visible,
+    getContainer: props.getContainer,
+    bodyStyle: props.bodyStyle,
+    bodyClassName: classNames(
+      cls('body'),
+      props.image && cls('with-image'),
+      props.bodyClassName
+    ),
+    maskStyle: props.maskStyle,
+    maskClassName: props.maskClassName,
+    stopPropagation: props.stopPropagation,
+    disableBodyScroll: props.disableBodyScroll,
+    destroyOnClose: props.destroyOnClose,
+    forceRender: props.forceRender,
+    position: props.position,
+    role: 'dialog',
+    'aria-label': props['aria-label'],
+  }
 
-  return (
-    <CenterPopup
-      className={classNames(cls(), props.className)}
-      style={props.style}
-      afterClose={props.afterClose}
-      afterShow={props.afterShow}
-      onMaskClick={
-        props.closeOnMaskClick
-          ? () => {
-              props.onClose?.()
-            }
-          : undefined
-      }
-      visible={props.visible}
-      getContainer={props.getContainer}
-      bodyStyle={props.bodyStyle}
-      bodyClassName={classNames(
-        cls('body'),
-        props.image && cls('with-image'),
-        props.bodyClassName
-      )}
-      maskStyle={props.maskStyle}
-      maskClassName={props.maskClassName}
-      stopPropagation={props.stopPropagation}
-      disableBodyScroll={props.disableBodyScroll}
-      destroyOnClose={props.destroyOnClose}
-      forceRender={props.forceRender}
-      role='dialog'
-      aria-label={props['aria-label']}
-    >
-      {element}
-    </CenterPopup>
-  )
+  if (props.isPopup) {
+    return <Popup {...popupProps}>{element}</Popup>
+  }
+  return <CenterPopup {...popupProps}>{element}</CenterPopup>
 }
 
 function cls(name: string = '') {
