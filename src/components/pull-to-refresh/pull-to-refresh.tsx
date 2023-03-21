@@ -72,6 +72,20 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
     elementRef.current?.addEventListener('touchmove', () => {})
   }, [])
 
+  const reset = () => {
+    return new Promise<void>(resolve => {
+      api.start({
+        to: {
+          height: 0,
+        },
+        onResolve() {
+          setStatus('pulling')
+          resolve()
+        },
+      })
+    })
+  }
+
   async function doRefresh() {
     api.start({ height: headHeight })
     setStatus('refreshing')
@@ -79,24 +93,13 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       await props.onRefresh()
       setStatus('complete')
     } catch (e) {
-      api.start({
-        to: async next => {
-          await next({ height: 0 })
-          setStatus('pulling')
-        },
-      })
-
+      reset()
       throw e
     }
     if (props.completeDelay > 0) {
       await sleep(props.completeDelay)
     }
-    api.start({
-      to: async next => {
-        await next({ height: 0 })
-        setStatus('pulling')
-      },
-    })
+    reset()
   }
 
   useDrag(
