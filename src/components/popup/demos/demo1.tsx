@@ -10,6 +10,7 @@ export default () => {
   const [visible5, setVisible5] = useState(false)
   const [visible6, setVisible6] = useState(false)
   const [visible7, setVisible7] = useState(false)
+  const [visible8, setVisible8] = useState(false)
   const [visibleCloseRight, setVisibleCloseRight] = useState(false)
 
   return (
@@ -34,7 +35,7 @@ export default () => {
               {mockContent}
             </Popup>
           </>
-          {/* <>
+          <>
             <Button
               onClick={() => {
                 setVisible2(true)
@@ -90,11 +91,11 @@ export default () => {
             >
               {mockContent}
             </Popup>
-          </> */}
+          </>
         </Space>
       </DemoBlock>
 
-      {/* <DemoBlock title='自定义样式'>
+      <DemoBlock title='自定义样式'>
         <Space direction='vertical'>
           <>
             <Button
@@ -178,8 +179,30 @@ export default () => {
               </div>
             </Popup>
           </>
+          <>
+            <Button
+              onClick={() => {
+                setVisible8(true)
+              }}
+            >
+              轻滑关闭
+            </Button>
+            <Popup
+              visible={visible8}
+              onClose={() => {
+                setVisible8(false)
+              }}
+              closeWhenSwipe
+            >
+              <div
+                style={{ height: '40vh', overflowY: 'scroll', padding: '20px' }}
+              >
+                {mockLongContent}
+              </div>
+            </Popup>
+          </>
         </Space>
-      </DemoBlock> */}
+      </DemoBlock>
     </>
   )
 }

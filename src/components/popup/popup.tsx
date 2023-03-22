@@ -26,12 +26,14 @@ const classPrefix = `adm-popup`
 export type PopupProps = PopupBaseProps &
   PropsWithChildren<{
     position?: 'bottom' | 'top' | 'left' | 'right'
+    closeWhenSwipe?: boolean
   }> &
   NativeProps<'--z-index'>
 
 const defaultProps = {
   ...defaultPopupBaseProps,
   position: 'bottom',
+  closeWhenSwipe: false,
 }
 
 export const Popup: FC<PopupProps> = p => {
@@ -74,24 +76,26 @@ export const Popup: FC<PopupProps> = p => {
         }
       },
     }),
-    [props.visible]
+    [props.visible, props.afterShow, props.afterClose]
   )
 
   const bind = useDrag(
-    ({ last, velocity: [, vy], direction: [, dy], movement: [, my] }) => {
-      if (!ref.current) return
-      const { height } = ref.current.getBoundingClientRect()
-      const dragPercent = Math.floor((my / height) * 100)
-      if (dragPercent < 0) return
-      if (last) {
-        if (dragPercent > 40) {
-          api.start({ percent: 100 })
-        } else {
-          api.start({ percent: 0 })
-        }
-      } else {
-        api.start({ percent: dragPercent, immediate: true })
+    ({ swipe: [swipeX, swipeY] }) => {
+      if (!props.closeWhenSwipe) return
+      if (
+        (swipeY === 1 && props.position === 'bottom') ||
+        (swipeY === -1 && props.position === 'top') ||
+        (swipeX === -1 && props.position === 'left') ||
+        (swipeX === 1 && props.position === 'right')
+      ) {
+        props.onClose?.()
       }
+    },
+    {
+      axis: ['bottom', 'top'].includes(props.position) ? 'y' : 'x',
+      swipe: {
+        velocity: [0.01, 0.01],
+      },
     }
   )
 
