@@ -10,7 +10,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
 } from 'react'
-import Popup from '../popup'
+import Popup, { PopupProps } from '../popup'
 import Item, { ItemChildrenWrap } from './item'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -26,6 +26,7 @@ export type DropdownProps = {
   onChange?: (key: string | null) => void
   // mask?: boolean;
   arrow?: React.ReactNode
+  getContainer?: PopupProps['getContainer']
 } & NativeProps
 
 const defaultProps = {
@@ -123,6 +124,7 @@ const Dropdown = forwardRef<
       <Popup
         visible={!!value}
         position='top'
+        getContainer={props.getContainer}
         className={`${classPrefix}-popup`}
         maskClassName={`${classPrefix}-popup-mask`}
         bodyClassName={`${classPrefix}-popup-body`}
