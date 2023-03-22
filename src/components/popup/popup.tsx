@@ -57,27 +57,24 @@ export const Popup: FC<PopupProps> = p => {
   useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
 
   const unmountedRef = useUnmountedRef()
-  const [{ percent }, api] = useSpring(
-    () => ({
-      percent: 0,
-      config: {
-        precision: 0.1,
-        mass: 0.4,
-        tension: 300,
-        friction: 30,
-      },
-      onRest: () => {
-        if (unmountedRef.current) return
-        setActive(props.visible)
-        if (props.visible) {
-          props.afterShow?.()
-        } else {
-          props.afterClose?.()
-        }
-      },
-    }),
-    [props.visible, props.afterShow, props.afterClose]
-  )
+  const { percent } = useSpring({
+    percent: props.visible ? 0 : 100,
+    config: {
+      precision: 0.1,
+      mass: 0.4,
+      tension: 300,
+      friction: 30,
+    },
+    onRest: () => {
+      if (unmountedRef.current) return
+      setActive(props.visible)
+      if (props.visible) {
+        props.afterShow?.()
+      } else {
+        props.afterClose?.()
+      }
+    },
+  })
 
   const bind = useDrag(
     ({ swipe: [swipeX, swipeY] }) => {
@@ -98,14 +95,6 @@ export const Popup: FC<PopupProps> = p => {
       },
     }
   )
-
-  useEffect(() => {
-    if (props.visible) {
-      api.start({ percent: 0 })
-    } else {
-      api.start({ percent: 100 })
-    }
-  }, [props.visible])
 
   const maskVisible = useInnerVisible(active && props.visible)
 
@@ -155,8 +144,8 @@ export const Popup: FC<PopupProps> = p => {
               return 'none'
             }),
           }}
-          {...bind()}
           ref={ref}
+          {...bind()}
         >
           {props.showCloseButton && (
             <a
