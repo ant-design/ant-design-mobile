@@ -1,11 +1,5 @@
 import classNames from 'classnames'
-import React, {
-  useState,
-  useRef,
-  FC,
-  PropsWithChildren,
-  useEffect,
-} from 'react'
+import React, { useState, useRef, FC, PropsWithChildren } from 'react'
 import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
