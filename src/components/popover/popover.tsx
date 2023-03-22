@@ -35,7 +35,6 @@ import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
 import { DeprecatedPlacement, Placement } from './index'
 import { normalizePlacement } from './normalize-placement'
 import { convertPx } from '../../utils/convert-px'
-import { measureCSSLength } from '../../utils/measure-css-length'
 const classPrefix = `adm-popover`
 
 export type PopoverProps = {
@@ -156,16 +155,12 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       left: 'right',
     }[side] as string
     const { x: arrowX, y: arrowY } = middlewareData.arrow ?? {}
-    // get arrow size from css variable.
-    const arrowSize = measureCSSLength(
-      window.getComputedStyle(arrowElement).getPropertyValue('--arrow-size')
-    )
     Object.assign(arrowElement.style, {
       left: arrowX != null ? `${arrowX}px` : '',
       top: arrowY != null ? `${arrowY}px` : '',
       right: '',
       bottom: '',
-      [arrowSide]: `-${convertPx(arrowSize || 8)}px`,
+      [arrowSide]: 'calc(var(--arrow-size) * -1)',
     })
     const arrowRotate = {
       top: '0deg',
