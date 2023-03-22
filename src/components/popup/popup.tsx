@@ -100,17 +100,19 @@ export const Popup: FC<PopupProps> = p => {
           style={{
             ...props.bodyStyle,
             transform: percent.to(v => {
-              if (props.position === 'bottom') {
-                return `translate(0, ${v}%)`
-              }
-              if (props.position === 'top') {
-                return `translate(0, -${v}%)`
-              }
-              if (props.position === 'left') {
-                return `translate(-${v}%, 0)`
-              }
-              if (props.position === 'right') {
-                return `translate(${v}%, 0)`
+              if (v) {
+                if (props.position === 'bottom') {
+                  return `translate(0, ${v}%)`
+                }
+                if (props.position === 'top') {
+                  return `translate(0, -${v}%)`
+                }
+                if (props.position === 'left') {
+                  return `translate(-${v}%, 0)`
+                }
+                if (props.position === 'right') {
+                  return `translate(${v}%, 0)`
+                }
               }
               return 'none'
             }),

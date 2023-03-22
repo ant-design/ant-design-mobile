@@ -52,7 +52,7 @@ describe('ActionSheet', () => {
     await waitFor(() =>
       // end of animation
       expect(baseElement.querySelectorAll('.adm-popup-body')[0]).toHaveStyle(
-        'transform: translate(0, 0%);'
+        'transform: none;'
       )
     )
 
