@@ -63,6 +63,14 @@
   &[readonly] {
     pointer-events: none;
   }
+
+  &-hidden {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+  }
 }
 
 .adm-text-area-count {
