@@ -118,12 +118,18 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         className={classNames(classPrefix, {
           [`${classPrefix}-disabled`]: props.disabled,
         })}
-        tabIndex={props.disabled ? undefined : 0}
         onFocus={onFocus}
         onBlur={onBlur}
         onClick={props.onClick}
       >
-        <div className={`${classPrefix}-content`} ref={contentRef}>
+        <div
+          className={`${classPrefix}-content`}
+          ref={contentRef}
+          role='option'
+          tabIndex={props.disabled ? undefined : 0}
+          aria-disabled={props.disabled}
+          aria-label={props.placeholder}
+        >
           {value}
           <div className={`${classPrefix}-caret-container`}>
             {hasFocus && <div className={`${classPrefix}-caret`} />}
@@ -137,6 +143,8 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
               setValue('')
               props.onClear?.()
             }}
+            role='button'
+            aria-label='清空输入'
           >
             <CloseCircleFill />
           </div>
