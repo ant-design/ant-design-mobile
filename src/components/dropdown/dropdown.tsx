@@ -15,6 +15,7 @@ import Item, { ItemChildrenWrap } from './item'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { defaultPopupBaseProps } from '../popup/popup-base-props'
 
 const classPrefix = `adm-dropdown`
 
@@ -33,6 +34,7 @@ const defaultProps = {
   defaultActiveKey: null,
   closeOnMaskClick: true,
   closeOnClickAway: false,
+  getContainer: defaultPopupBaseProps['getContainer'],
 }
 
 export type DropdownRef = {
