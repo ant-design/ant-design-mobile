@@ -88,7 +88,7 @@ describe('PullToRefresh', () => {
     expect(screen.getByText('释放立即刷新')).toBeInTheDocument()
   })
 
-  test('loading and complete status should be correct', async () => {
+  test('loading, complete and reset to pulling status should be correct', async () => {
     render(<App />)
     const content = $$(`.${classPrefix}-content`)[0]
     drag(content, 200)
@@ -98,6 +98,12 @@ describe('PullToRefresh', () => {
       jest.advanceTimersByTime(1000)
     })
     expect(screen.getByText('刷新成功')).toBeInTheDocument()
+
+    await act(async () => {
+      // advance completeDelay (default 500ms)
+      jest.advanceTimersByTime(500)
+    })
+    expect(screen.getByText('下拉刷新')).toBeInTheDocument()
   })
 
   test('custom text should be correct', async () => {

@@ -33,15 +33,18 @@ describe('TextArea', () => {
     const maxRows = 5
     const { getByRole } = render(<TextArea autoSize={{ minRows, maxRows }} />)
     const textarea = getByRole('textbox')
+    const hiddenTextarea = document.querySelector(
+      `.${classPrefix}-element-hidden`
+    )!
     // mock
-    Object.defineProperty(textarea, 'scrollHeight', {
+    Object.defineProperty(hiddenTextarea, 'scrollHeight', {
       value: lineHeight * 2,
       configurable: true,
     })
     fireEvent.change(textarea, { target: { value: '1' } })
     expect(textarea.style.height).toBe(`${lineHeight * minRows}px`)
 
-    Object.defineProperty(textarea, 'scrollHeight', {
+    Object.defineProperty(hiddenTextarea, 'scrollHeight', {
       value: lineHeight * 6,
     })
     fireEvent.change(textarea, { target: { value: '2' } })
