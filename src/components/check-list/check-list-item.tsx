@@ -32,10 +32,11 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
   }
   const active = context.value.includes(props.value)
   const readOnly = props.readOnly || context.readOnly
+  const extraProps = context.extra
 
   const extra = (
     <div className={`${classPrefix}-extra`}>
-      {active ? context.activeIcon : null}
+      {extraProps ? extraProps(active) : active ? context.activeIcon : null}
     </div>
   )
 
