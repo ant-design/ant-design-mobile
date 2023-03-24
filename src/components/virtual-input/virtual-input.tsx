@@ -14,6 +14,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import classNames from 'classnames'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-virtual-input'
 
@@ -51,6 +52,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
     const [hasFocus, setHasFocus] = useState(false)
+    const { locale } = useConfig()
 
     function scrollToEnd() {
       const root = rootRef.current
@@ -144,7 +146,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
               props.onClear?.()
             }}
             role='button'
-            aria-label='清空输入'
+            aria-label={locale.Input.clear}
           >
             <CloseCircleFill />
           </div>
