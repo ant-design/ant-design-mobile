@@ -90,7 +90,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
           }
         }}
         role='option'
-        aria-lable={option.description}
+        aria-label={option.description}
         aria-selected={
           (active && !props.multiple) || (active && props.multiple)
         }
