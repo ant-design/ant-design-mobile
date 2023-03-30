@@ -194,7 +194,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       : null
 
   const collapseActionElement =
-    exceeded && props.expandText
+    exceeded && props.collapseText
       ? withStopPropagation(
           props.stopPropagationForActionButtons,
           <a
