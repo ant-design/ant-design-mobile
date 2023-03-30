@@ -4,7 +4,6 @@ import { DemoBlock } from 'demos'
 import {
   CheckCircleFill,
   CheckCircleOutline,
-  FrownOutline,
   SmileOutline,
 } from 'antd-mobile-icons'
 

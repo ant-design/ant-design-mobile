@@ -14,7 +14,7 @@ export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
   onChange?: (val: string[]) => void
   multiple?: boolean
   activeIcon?: ReactNode
-  extra?: (active: boolean) => ReactNode | null
+  extra?: (active: boolean) => ReactNode
   disabled?: boolean
   readOnly?: boolean
   children?: React.ReactNode

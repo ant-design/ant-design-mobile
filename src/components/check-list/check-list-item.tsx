@@ -32,13 +32,9 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
   }
   const active = context.value.includes(props.value)
   const readOnly = props.readOnly || context.readOnly
-  const extraProps = context.extra
-
-  const extra = (
-    <div className={`${classPrefix}-extra`}>
-      {extraProps ? extraProps(active) : active ? context.activeIcon : null}
-    </div>
-  )
+  const defaultExtra = active ? context.activeIcon : null
+  const renderExtra = context.extra ? context.extra(active) : defaultExtra
+  const extra = <div className={`${classPrefix}-extra`}>{renderExtra}</div>
 
   return withNativeProps(
     props,

@@ -1,6 +1,5 @@
 import React from 'react'
 import { fireEvent, render, testA11y } from 'testing'
-import { CheckCircleFill, CheckCircleOutline } from 'antd-mobile-icons'
 import CheckList from '../'
 
 const classPrefix = `adm-check-list`
@@ -65,7 +64,7 @@ describe('CheckList', () => {
     expect(container).toMatchSnapshot()
   })
 
-  test('`extra` props', async () => {
+  test('`extra` props', () => {
     const { getByText } = render(
       <CheckList extra={active => (active ? 'YES' : 'NO')} defaultValue={['A']}>
         <CheckList.Item value='A'>A</CheckList.Item>
