@@ -159,7 +159,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       ? {
           role: 'grid',
           title: key,
-          tabindex: -1,
+          tabIndex: -1,
         }
       : undefined
 
