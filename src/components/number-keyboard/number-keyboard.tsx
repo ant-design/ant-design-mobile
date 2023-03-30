@@ -127,7 +127,9 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
         })}
       >
         {'title' && (
-          <div className={`${classPrefix}-title`} aria-label={title}></div>
+          <div className={`${classPrefix}-title`} aria-label={title}>
+            {title}
+          </div>
         )}
         {showCloseButton && (
           <span
@@ -159,7 +161,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
       ? {
           role: 'grid',
           title: key,
-          tabindex: -1,
+          tabIndex: -1,
         }
       : undefined
 

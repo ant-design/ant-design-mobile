@@ -249,6 +249,7 @@ export const Tabs: FC<TabsProps> = p => {
           ref={tabListContainerRef}
           scrollLeft={scrollLeft}
           onScroll={updateMask}
+          role='tablist'
         >
           <animated.div
             ref={activeLineRef}
@@ -284,7 +285,6 @@ export const Tabs: FC<TabsProps> = p => {
                     [`${classPrefix}-tab-disabled`]: pane.props.disabled,
                   })}
                   role='tab'
-                  aria-lable={pane.props.title}
                   aria-selected={pane.key === activeKey}
                 >
                   {pane.props.title}
