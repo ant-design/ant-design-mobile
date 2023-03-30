@@ -99,10 +99,7 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                   role='option'
                   aria-disabled={action.disabled}
                 >
-                  <div
-                    className={`${classPrefix}-button-item-name`}
-                    aria-label={action.text}
-                  >
+                  <div className={`${classPrefix}-button-item-name`}>
                     {action.text}
                   </div>
                   {action.description && (
