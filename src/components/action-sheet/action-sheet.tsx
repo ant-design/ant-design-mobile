@@ -103,10 +103,7 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                     {action.text}
                   </div>
                   {action.description && (
-                    <div
-                      className={`${classPrefix}-button-item-description`}
-                      aria-label={action.description}
-                    >
+                    <div className={`${classPrefix}-button-item-description`}>
                       {action.description}
                     </div>
                   )}
