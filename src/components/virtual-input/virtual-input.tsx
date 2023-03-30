@@ -120,6 +120,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         className={classNames(classPrefix, {
           [`${classPrefix}-disabled`]: props.disabled,
         })}
+        tabIndex={props.disabled ? undefined : 0}
         onFocus={onFocus}
         onBlur={onBlur}
         onClick={props.onClick}
