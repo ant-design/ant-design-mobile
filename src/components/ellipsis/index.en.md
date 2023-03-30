@@ -25,6 +25,7 @@ When the display space is not enough, hide some content and replace it with "...
 | onContentClick | Trigger when clicked text content | `(e: React.MouseEvent) => void` | - |
 | rows | The number to display lines | `number` | `1` |
 | stopPropagationForActionButtons | Prevent the event bubbling caused by the expand operation and the collapse operation | `PropagationEvent[]` | `[]` |
+| defaultExpanded | Whether to expand by default | `boolean` | `false` |
 
 ## FAQ
 

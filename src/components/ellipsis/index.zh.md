@@ -25,6 +25,7 @@
 | onContentClick | 点击文本内容时触发 | `(e: React.MouseEvent) => void` | - |
 | rows | 展示几行 | `number` | `1` |
 | stopPropagationForActionButtons | 阻止展开操作，收起操作引发的事件冒泡 | `PropagationEvent[]` | `[]` |
+| defaultExpanded | 是否默认展开 | `boolean` | `false` |
 
 ## FAQ
 
