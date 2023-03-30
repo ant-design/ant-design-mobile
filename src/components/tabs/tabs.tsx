@@ -249,6 +249,7 @@ export const Tabs: FC<TabsProps> = p => {
           ref={tabListContainerRef}
           scrollLeft={scrollLeft}
           onScroll={updateMask}
+          role='tablist'
         >
           <animated.div
             ref={activeLineRef}
