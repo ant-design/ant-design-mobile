@@ -20,7 +20,7 @@ It is necessary to show the characteristics of people or things more intuitively
 | fit | The fill mode of the image | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'` | `'cover'` |
 | src | The address of avatar. | `string` | - |
 
-In addition, the following props of [Image](/components/image) are also supported: `alt` `lazy` `onClick` `onError`.
+In addition, the following props of [Image](/components/image) are also supported: `alt` `lazy` `onClick` `onError` `onLoad`.
 
 ### CSS Variables
 

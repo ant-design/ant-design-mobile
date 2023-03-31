@@ -11,8 +11,7 @@ export type AvatarProps = {
   src: string
   fallback?: ReactNode
   fit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
-  onLoad?: ImageProps['onLoad']
-} & Pick<ImageProps, 'alt' | 'lazy' | 'onClick' | 'onError'> &
+} & Pick<ImageProps, 'alt' | 'lazy' | 'onClick' | 'onError' | 'onLoad'> &
   NativeProps<'--size' | '--border-radius'>
 
 const defaultProps = {

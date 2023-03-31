@@ -20,7 +20,7 @@
 | fit | 图片填充模式 | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'` | `'cover'` |
 | src | 头像的图片地址 | `string` | - |
 
-此外，还支持 [Image](/zh/components/image) 组件的 `alt` `lazy` `onClick` `onError` 属性。
+此外，还支持 [Image](/zh/components/image) 组件的 `alt` `lazy` `onClick` `onError` `onLoad` 属性。
 
 ### CSS 变量
 
