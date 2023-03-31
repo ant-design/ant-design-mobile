@@ -96,12 +96,20 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                       props.onClose?.()
                     }
                   }}
+                  role='option'
+                  aria-disabled={action.disabled}
                 >
-                  <div className={`${classPrefix}-button-item-name`}>
+                  <div
+                    className={`${classPrefix}-button-item-name`}
+                    aria-lable={action.text}
+                  >
                     {action.text}
                   </div>
                   {action.description && (
-                    <div className={`${classPrefix}-button-item-description`}>
+                    <div
+                      className={`${classPrefix}-button-item-description`}
+                      aria-lable={action.description}
+                    >
                       {action.description}
                     </div>
                   )}
@@ -111,7 +119,11 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
           </div>
 
           {props.cancelText && (
-            <div className={`${classPrefix}-cancel`}>
+            <div
+              className={`${classPrefix}-cancel`}
+              role='option'
+              aria-lable={props.cancelText}
+            >
               <div className={`${classPrefix}-button-item-wrapper`}>
                 <a
                   className={classNames(
