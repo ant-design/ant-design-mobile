@@ -30,7 +30,11 @@ export default () => {
               onMaskClick={() => {
                 setVisible1(false)
               }}
+              onClose={() => {
+                setVisible1(false)
+              }}
               bodyStyle={{ height: '40vh' }}
+              closeWhenSwipe
             >
               {mockContent}
             </Popup>
@@ -48,8 +52,12 @@ export default () => {
               onMaskClick={() => {
                 setVisible2(false)
               }}
+              onClose={() => {
+                setVisible2(false)
+              }}
               position='top'
               bodyStyle={{ height: '40vh' }}
+              closeWhenSwipe
             >
               {mockContent}
             </Popup>
@@ -67,8 +75,12 @@ export default () => {
               onMaskClick={() => {
                 setVisible3(false)
               }}
+              onClose={() => {
+                setVisible3(false)
+              }}
               position='left'
               bodyStyle={{ width: '60vw' }}
+              closeWhenSwipe
             >
               {mockContent}
             </Popup>
@@ -86,8 +98,12 @@ export default () => {
               onMaskClick={() => {
                 setVisible4(false)
               }}
+              onClose={() => {
+                setVisible4(false)
+              }}
               position='right'
               bodyStyle={{ width: '60vw' }}
+              closeWhenSwipe
             >
               {mockContent}
             </Popup>

@@ -100,6 +100,7 @@ export const Popup: FC<PopupProps> = p => {
         className={classPrefix}
         onClick={props.onClick}
         style={{ display: active ? undefined : 'none' }}
+        {...bind()}
       >
         {props.mask && (
           <Mask
@@ -139,7 +140,6 @@ export const Popup: FC<PopupProps> = p => {
             }),
           }}
           ref={ref}
-          {...bind()}
         >
           {props.showCloseButton && (
             <a

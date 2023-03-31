@@ -5,13 +5,13 @@
 
   position: fixed;
   z-index: var(--z-index);
+  touch-action: none;
 }
 
 .@{class-prefix-popup}-body {
   position: fixed;
   background-color: var(--adm-color-background);
   z-index: calc(var(--z-index) + 10);
-  touch-action: none;
   .@{class-prefix-popup}-close-icon {
     position: absolute;
     z-index: 100;
