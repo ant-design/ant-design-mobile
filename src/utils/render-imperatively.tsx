@@ -61,8 +61,13 @@ export function renderImperatively(element: TargetElement) {
   const wrapperRef = React.createRef<ImperativeHandler>()
   const unmount = renderToBody(<Wrapper ref={wrapperRef} />)
   return {
-    close: () => {
-      wrapperRef.current?.close()
+    close: async () => {
+      if (!wrapperRef.current) {
+        // it means the wrapper is not mounted yet, call `unmount` directly
+        unmount()
+      } else {
+        wrapperRef.current?.close()
+      }
     },
     replace: element => {
       wrapperRef.current?.replace(element)

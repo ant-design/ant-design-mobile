@@ -78,6 +78,8 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     const nativeTextAreaRef = useRef<HTMLTextAreaElement>(null)
     // https://github.com/ant-design/ant-design-mobile/issues/5961
     const heightRef = useRef<string>('auto')
+    // https://github.com/ant-design/ant-design-mobile/issues/6051
+    const hiddenTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
     useImperativeHandle(ref, () => ({
       clear: () => {
@@ -97,9 +99,11 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     useIsomorphicLayoutEffect(() => {
       if (!autoSize) return
       const textArea = nativeTextAreaRef.current
+      const hiddenTextArea = hiddenTextAreaRef.current
       if (!textArea) return
       textArea.style.height = heightRef.current
-      let height = textArea.scrollHeight
+      if (!hiddenTextArea) return
+      let height = hiddenTextArea.scrollHeight
       if (typeof autoSize === 'object') {
         const computedStyle = window.getComputedStyle(textArea)
         const lineHeight = parseFloat(computedStyle.lineHeight)
@@ -169,6 +173,16 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onClick={props.onClick}
         />
         {count}
+
+        {autoSize && (
+          <textarea
+            ref={hiddenTextAreaRef}
+            className={`${classPrefix}-element ${classPrefix}-element-hidden`}
+            value={value}
+            aria-hidden
+            readOnly
+          />
+        )}
       </div>
     )
   }
