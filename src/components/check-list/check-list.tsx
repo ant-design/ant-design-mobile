@@ -14,6 +14,7 @@ export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
   onChange?: (val: string[]) => void
   multiple?: boolean
   activeIcon?: ReactNode
+  extra?: (active: boolean) => ReactNode
   disabled?: boolean
   readOnly?: boolean
   children?: React.ReactNode
@@ -42,7 +43,7 @@ export const CheckList: FC<CheckListProps> = p => {
     setValue(value.filter(item => item !== val))
   }
 
-  const { activeIcon, disabled, readOnly } = props
+  const { activeIcon, extra, disabled, readOnly } = props
 
   return (
     <CheckListContext.Provider
@@ -51,6 +52,7 @@ export const CheckList: FC<CheckListProps> = p => {
         check,
         uncheck,
         activeIcon,
+        extra,
         disabled,
         readOnly,
       }}
