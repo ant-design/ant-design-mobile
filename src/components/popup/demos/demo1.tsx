@@ -34,7 +34,7 @@ export default () => {
                 setVisible1(false)
               }}
               bodyStyle={{ height: '40vh' }}
-              closeWhenSwipe
+              swipeToClose
             >
               {mockContent}
             </Popup>
@@ -57,7 +57,7 @@ export default () => {
               }}
               position='top'
               bodyStyle={{ height: '40vh' }}
-              closeWhenSwipe
+              swipeToClose
             >
               {mockContent}
             </Popup>
@@ -80,7 +80,7 @@ export default () => {
               }}
               position='left'
               bodyStyle={{ width: '60vw' }}
-              closeWhenSwipe
+              swipeToClose
             >
               {mockContent}
             </Popup>
@@ -103,7 +103,7 @@ export default () => {
               }}
               position='right'
               bodyStyle={{ width: '60vw' }}
-              closeWhenSwipe
+              swipeToClose
             >
               {mockContent}
             </Popup>
@@ -208,7 +208,7 @@ export default () => {
               onClose={() => {
                 setVisible8(false)
               }}
-              closeWhenSwipe
+              swipeToClose
             >
               <div
                 style={{ height: '40vh', overflowY: 'scroll', padding: '20px' }}
