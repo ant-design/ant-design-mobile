@@ -49,7 +49,7 @@ export type PopoverProps = {
   placement?: Placement | DeprecatedPlacement
   stopPropagation?: PropagationEvent[]
   content: React.ReactNode
-} & NativeProps<'--z-index'>
+} & NativeProps<'--z-index' | '--arrow-size'>
 
 export type PopoverRef = {
   show: () => void
