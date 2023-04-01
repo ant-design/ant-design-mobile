@@ -49,6 +49,7 @@ In order to maintain compatibility, we still support the use of the old version 
 | Name | Description | Default | Global |
 | --- | --- | --- | --- |
 | --z-index | `z-index` of the popover element | `1030` | `--adm-popover-z-index` |
+| --arrow-size | the arrow size of the popover element | `8px` | - |
 
 ### Ref
 

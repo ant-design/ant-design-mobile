@@ -49,7 +49,7 @@ export type PopoverProps = {
   placement?: Placement | DeprecatedPlacement
   stopPropagation?: PropagationEvent[]
   content: React.ReactNode
-} & NativeProps<'--z-index'>
+} & NativeProps<'--z-index' | '--arrow-size'>
 
 export type PopoverRef = {
   show: () => void
@@ -160,7 +160,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       top: arrowY != null ? `${arrowY}px` : '',
       right: '',
       bottom: '',
-      [arrowSide]: `-${convertPx(8)}px`,
+      [arrowSide]: 'calc(var(--arrow-size) * -1)',
     })
     const arrowRotate = {
       top: '0deg',
