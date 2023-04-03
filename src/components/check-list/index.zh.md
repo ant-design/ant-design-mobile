@@ -21,6 +21,7 @@
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | activeIcon | 选中图标 | `ReactNode` | `<CheckOutline />` |
+| extra | 列表右侧区域 | `(active: boolean) => ReactNode` | - |
 | defaultValue | 默认项 | `string[]` | `[]` |
 | disabled | 是否禁用 | `boolean` | `false` |
 | multiple | 是否允许多选 | `boolean` | `false` |

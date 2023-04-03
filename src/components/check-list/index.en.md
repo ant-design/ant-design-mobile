@@ -21,6 +21,7 @@ The bottom layer of `CheckList` is implemented based on `List`, which is a list 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | activeIcon | The icon displayed when selected | `ReactNode` | `<CheckOutline />` |
+| extra | The right area of the list item | `(active: boolean) => ReactNode` | - |
 | defaultValue | The default items | `string[]` | `[]` |
 | disabled | Is the check list disabled | `boolean` | `false` |
 | multiple | Whether to allow multiple selection or not | `boolean` | `false` |

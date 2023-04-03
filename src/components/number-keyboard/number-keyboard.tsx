@@ -126,7 +126,11 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
           [`${classPrefix}-header-with-title`]: !!title,
         })}
       >
-        {title && <div className={`${classPrefix}-title`}>{title}</div>}
+        {'title' && (
+          <div className={`${classPrefix}-title`} aria-label={title}>
+            {title}
+          </div>
+        )}
         {showCloseButton && (
           <span
             className={`${classPrefix}-header-close-button`}
@@ -135,6 +139,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
             }}
             role='button'
             title='CLOSE'
+            tabIndex={-1}
           >
             <DownOutline />
           </span>
@@ -154,8 +159,9 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
 
     const ariaProps = key
       ? {
-          role: 'button',
+          role: 'grid',
           title: key,
+          tabIndex: -1,
         }
       : undefined
 
@@ -231,6 +237,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
                   className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-ok`}
                   onTouchEnd={e => onKeyPress(e, 'OK')}
                   role='button'
+                  aria-label={confirmText}
                 >
                   {confirmText}
                 </div>

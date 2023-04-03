@@ -18,6 +18,7 @@ exports[`Tabs \`activeLineMode\` prop 1`] = `
       />
       <div
         class="adm-tabs-tab-list"
+        role="tablist"
       >
         <div
           class="adm-tabs-tab-line"
@@ -27,7 +28,9 @@ exports[`Tabs \`activeLineMode\` prop 1`] = `
           class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
         >
           <div
+            aria-selected="true"
             class="adm-tabs-tab adm-tabs-tab-active"
+            role="tab"
           >
             fruits
           </div>
@@ -36,7 +39,9 @@ exports[`Tabs \`activeLineMode\` prop 1`] = `
           class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
         >
           <div
+            aria-selected="false"
             class="adm-tabs-tab"
+            role="tab"
           >
             vegetables
           </div>
@@ -45,7 +50,9 @@ exports[`Tabs \`activeLineMode\` prop 1`] = `
           class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
         >
           <div
+            aria-selected="false"
             class="adm-tabs-tab"
+            role="tab"
           >
             animals
           </div>
@@ -80,6 +87,7 @@ exports[`Tabs \`activeLineMode\` prop 2`] = `
       />
       <div
         class="adm-tabs-tab-list"
+        role="tablist"
       >
         <div
           class="adm-tabs-tab-line"
@@ -89,7 +97,9 @@ exports[`Tabs \`activeLineMode\` prop 2`] = `
           class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
         >
           <div
+            aria-selected="true"
             class="adm-tabs-tab adm-tabs-tab-active"
+            role="tab"
           >
             fruits
           </div>
@@ -98,7 +108,9 @@ exports[`Tabs \`activeLineMode\` prop 2`] = `
           class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
         >
           <div
+            aria-selected="false"
             class="adm-tabs-tab"
+            role="tab"
           >
             vegetables
           </div>
@@ -107,7 +119,9 @@ exports[`Tabs \`activeLineMode\` prop 2`] = `
           class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
         >
           <div
+            aria-selected="false"
             class="adm-tabs-tab"
+            role="tab"
           >
             animals
           </div>

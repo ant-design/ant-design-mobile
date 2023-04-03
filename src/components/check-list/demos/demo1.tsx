@@ -1,7 +1,11 @@
 import React from 'react'
 import { CheckList } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { SmileOutline } from 'antd-mobile-icons'
+import {
+  CheckCircleFill,
+  CheckCircleOutline,
+  SmileOutline,
+} from 'antd-mobile-icons'
 
 export default () => {
   return (
@@ -29,6 +33,19 @@ export default () => {
 
       <DemoBlock title='自定义选中图标' padding='0'>
         <CheckList activeIcon={<SmileOutline />} defaultValue={['B']}>
+          <CheckList.Item value='A'>A</CheckList.Item>
+          <CheckList.Item value='B'>B</CheckList.Item>
+          <CheckList.Item value='C'>C</CheckList.Item>
+        </CheckList>
+      </DemoBlock>
+
+      <DemoBlock title='自定义列表右侧区域' padding='0'>
+        <CheckList
+          extra={active =>
+            active ? <CheckCircleFill /> : <CheckCircleOutline />
+          }
+          defaultValue={['B']}
+        >
           <CheckList.Item value='A'>A</CheckList.Item>
           <CheckList.Item value='B'>B</CheckList.Item>
           <CheckList.Item value='C'>C</CheckList.Item>
