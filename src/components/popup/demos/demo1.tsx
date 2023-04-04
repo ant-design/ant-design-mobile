@@ -10,7 +10,6 @@ export default () => {
   const [visible5, setVisible5] = useState(false)
   const [visible6, setVisible6] = useState(false)
   const [visible7, setVisible7] = useState(false)
-  const [visible8, setVisible8] = useState(false)
   const [visibleCloseRight, setVisibleCloseRight] = useState(false)
 
   return (
@@ -34,7 +33,6 @@ export default () => {
                 setVisible1(false)
               }}
               bodyStyle={{ height: '40vh' }}
-              swipeToClose
             >
               {mockContent}
             </Popup>
@@ -57,7 +55,6 @@ export default () => {
               }}
               position='top'
               bodyStyle={{ height: '40vh' }}
-              swipeToClose
             >
               {mockContent}
             </Popup>
@@ -80,7 +77,6 @@ export default () => {
               }}
               position='left'
               bodyStyle={{ width: '60vw' }}
-              swipeToClose
             >
               {mockContent}
             </Popup>
@@ -103,7 +99,6 @@ export default () => {
               }}
               position='right'
               bodyStyle={{ width: '60vw' }}
-              swipeToClose
             >
               {mockContent}
             </Popup>
@@ -187,28 +182,6 @@ export default () => {
               onMaskClick={() => {
                 setVisible6(false)
               }}
-            >
-              <div
-                style={{ height: '40vh', overflowY: 'scroll', padding: '20px' }}
-              >
-                {mockLongContent}
-              </div>
-            </Popup>
-          </>
-          <>
-            <Button
-              onClick={() => {
-                setVisible8(true)
-              }}
-            >
-              轻滑关闭
-            </Button>
-            <Popup
-              visible={visible8}
-              onClose={() => {
-                setVisible8(false)
-              }}
-              swipeToClose
             >
               <div
                 style={{ height: '40vh', overflowY: 'scroll', padding: '20px' }}
