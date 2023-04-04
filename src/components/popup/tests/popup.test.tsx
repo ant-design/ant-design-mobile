@@ -42,31 +42,4 @@ describe('Popup', () => {
 
     expect(onClose).toBeCalledTimes(1)
   })
-
-  test('Swipe should’t be closed', () => {
-    const onClose = jest.fn()
-    render(
-      <Popup
-        visible={true}
-        onClose={onClose}
-        swipeToClose={false}
-        position='top'
-      >
-        <div style={{ height: '400px', width: '400px' }}></div>
-      </Popup>
-    )
-
-    const draggableElement = document.querySelector(
-      '.adm-popup-body'
-    ) as Element
-
-    mockDrag(draggableElement, [
-      { clientY: 160 },
-      { clientY: 100 },
-      { clientY: 60 },
-      { clientY: 0 },
-    ])
-
-    expect(onClose).toBeCalledTimes(0)
-  })
 })

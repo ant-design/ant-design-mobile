@@ -27,7 +27,6 @@ export type PopupProps = PopupBaseProps &
 const defaultProps = {
   ...defaultPopupBaseProps,
   position: 'bottom',
-  swipeToClose: true,
 }
 
 export const Popup: FC<PopupProps> = p => {
@@ -72,7 +71,6 @@ export const Popup: FC<PopupProps> = p => {
 
   const bind = useDrag(
     ({ swipe: [, swipeY] }) => {
-      if (!props.swipeToClose) return
       if (
         (swipeY === 1 && props.position === 'bottom') ||
         (swipeY === -1 && props.position === 'top')
@@ -85,6 +83,7 @@ export const Popup: FC<PopupProps> = p => {
       swipe: {
         velocity: [0.01, 0.01],
       },
+      enabled: !!['top', 'bottom'].includes(props.position),
     }
   )
 
