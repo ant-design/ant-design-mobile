@@ -80,9 +80,6 @@ export const Popup: FC<PopupProps> = p => {
     },
     {
       axis: 'y',
-      swipe: {
-        velocity: [0.01, 0.01],
-      },
       enabled: ['top', 'bottom'].includes(props.position),
     }
   )
