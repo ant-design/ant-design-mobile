@@ -20,7 +20,7 @@ export type SearchBarRef = InputRef
 
 export type SearchBarProps = Pick<
   InputProps,
-  'onFocus' | 'onBlur' | 'onClear'
+  'onFocus' | 'onBlur' | 'onClear' | 'onCompositionStart' | 'onCompositionEnd'
 > & {
   value?: string
   defaultValue?: string
@@ -148,11 +148,13 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
             }
           }}
           aria-label={locale.SearchBar.name}
-          onCompositionStart={() => {
+          onCompositionStart={e => {
             composingRef.current = true
+            props.onCompositionStart?.(e)
           }}
-          onCompositionEnd={() => {
+          onCompositionEnd={e => {
             composingRef.current = false
+            props.onCompositionEnd?.(e)
           }}
         />
       </div>
