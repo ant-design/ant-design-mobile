@@ -38,7 +38,7 @@ It is suitable for displaying pop-up windows, information prompts, selection inp
 | stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `['click']` |
 | style | Container style | `React.CSSProperties` | - |
 | visible | Whether visible | `boolean` | `false` |
-| swipeToClose | Whether to close after swipe on the content | `boolean` | `false` |
+| swipeToClose | Whether to close after swipe on the content | `boolean` | `true` |
 
 ### CSS Variables
 
