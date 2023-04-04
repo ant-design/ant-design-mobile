@@ -97,7 +97,12 @@ export const Popup: FC<PopupProps> = p => {
       <div
         className={classPrefix}
         onClick={props.onClick}
-        style={{ display: active ? undefined : 'none' }}
+        style={{
+          display: active ? undefined : 'none',
+          touchAction: ['top', 'bottom'].includes(props.position)
+            ? 'none'
+            : 'auto',
+        }}
         {...bind()}
       >
         {props.mask && (
