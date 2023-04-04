@@ -71,22 +71,19 @@ export const Popup: FC<PopupProps> = p => {
   })
 
   const bind = useDrag(
-    ({ swipe: [swipeX, swipeY] }) => {
+    ({ swipe: [, swipeY] }) => {
       if (!props.swipeToClose) return
       if (
         (swipeY === 1 && props.position === 'bottom') ||
-        (swipeY === -1 && props.position === 'top') ||
-        (swipeX === -1 && props.position === 'left') ||
-        (swipeX === 1 && props.position === 'right')
+        (swipeY === -1 && props.position === 'top')
       ) {
         props.onClose?.()
       }
     },
     {
-      axis: ['bottom', 'top'].includes(props.position) ? 'y' : 'x',
+      axis: 'y',
       swipe: {
         velocity: [0.01, 0.01],
-        distance: [50, 50],
       },
     }
   )

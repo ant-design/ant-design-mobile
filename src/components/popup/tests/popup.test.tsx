@@ -23,37 +23,6 @@ describe('Popup', () => {
     expect(onClose).toBeCalledTimes(1)
   })
 
-  test('left swipe should be closed', () => {
-    const onClose = jest.fn()
-    render(
-      <Popup visible={true} onClose={onClose} position='left'>
-        <div style={{ height: '400px', width: '400px' }}></div>
-      </Popup>
-    )
-
-    mockDrag(
-      document.querySelector('.adm-popup') as Element,
-      new Array(8).fill(0).map((_, i) => {
-        return {
-          clientX: 50 * i,
-        }
-      })
-    )
-
-    expect(onClose).toBeCalledTimes(0)
-
-    mockDrag(
-      document.querySelector('.adm-popup') as Element,
-      new Array(8).fill(0).map((_, i) => {
-        return {
-          clientX: 400 - 50 * i,
-        }
-      })
-    )
-
-    expect(onClose).toBeCalledTimes(1)
-  })
-
   test('bottom swipe should be closed', () => {
     const onClose = jest.fn()
     render(
@@ -67,26 +36,6 @@ describe('Popup', () => {
       new Array(8).fill(0).map((_, i) => {
         return {
           clientY: 50 * i,
-        }
-      })
-    )
-
-    expect(onClose).toBeCalledTimes(1)
-  })
-
-  test('right swipe should be closed', () => {
-    const onClose = jest.fn()
-    render(
-      <Popup visible={true} onClose={onClose} position='right'>
-        <div style={{ height: '400px', width: '400px' }}></div>
-      </Popup>
-    )
-
-    mockDrag(
-      document.querySelector('.adm-popup') as Element,
-      new Array(8).fill(0).map((_, i) => {
-        return {
-          clientX: 50 * i,
         }
       })
     )
