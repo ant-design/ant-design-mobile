@@ -72,9 +72,6 @@ export default () => {
               onMaskClick={() => {
                 setVisible3(false)
               }}
-              onClose={() => {
-                setVisible3(false)
-              }}
               position='left'
               bodyStyle={{ width: '60vw' }}
             >
@@ -92,9 +89,6 @@ export default () => {
             <Popup
               visible={visible4}
               onMaskClick={() => {
-                setVisible4(false)
-              }}
-              onClose={() => {
                 setVisible4(false)
               }}
               position='right'
