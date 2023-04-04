@@ -22,6 +22,7 @@ import frFR from '../../../locales/fr-FR'
 import idID from '../../../locales/id-ID'
 import kkKZ from '../../../locales/kk-KZ'
 import itIT from '../../../locales/it-IT'
+import daDK from '../../../locales/da-DK'
 
 const locales = [
   zhCN,
@@ -36,6 +37,7 @@ const locales = [
   kkKZ,
   idID,
   itIT,
+  daDK,
 ]
 
 describe('ConfigProvider', () => {
