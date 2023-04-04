@@ -1,7 +1,7 @@
 import { mergeLocale } from '../utils/merge-locale'
 import { base } from './base'
 
-const typeTemplate = '${label} non è valido come ${type}'
+const typeTemplate = '${label} er ikke gyldig som ${type}'
 
 const nbNO = mergeLocale(base, {
   locale: 'nb-NO',
@@ -13,7 +13,7 @@ const nbNO = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'],
-    renderYearAndMonth: (year: number, month: number) => `${year}/${month}`,
+    renderYearAndMonth: (year: number, month: number) => `${month}.${year}`,
   },
   Cascader: {
     placeholder: 'Velg',
