@@ -22,6 +22,7 @@ It is suitable for filtering, sorting and changing the display range or order of
 | closeOnMaskClick | Whether to automatically close after clicking on the mask | `boolean` | `true` |
 | defaultActiveKey | The default active `Item` key | `string \| null` | `null` |
 | onChange | Triggered when `activeKey` changes | `(activeKey: string \| null)=> void` | - |
+| getContainer | The parent container of the custom popup | `HTMLElement \| (() => HTMLElement) \| null` | `document.body` |
 
 ### Ref
 
