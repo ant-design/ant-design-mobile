@@ -27,7 +27,7 @@ export type PopupProps = PopupBaseProps &
 const defaultProps = {
   ...defaultPopupBaseProps,
   position: 'bottom',
-  swipeToClose: false,
+  swipeToClose: true,
 }
 
 export const Popup: FC<PopupProps> = p => {
