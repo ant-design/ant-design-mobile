@@ -12272,7 +12272,7 @@ exports[`ConfigProvider should display the text as nb-NO 1`] = `
       <div
         class="adm-calendar-title"
       >
-        2022/3
+        3.2022
       </div>
       <a
         class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
