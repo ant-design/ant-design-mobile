@@ -149,7 +149,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         return
       }
     }
-    setCurrent(current[action](num, type))
+    setCurrent(nxtCurrent)
   }
 
   const header = (
