@@ -20,7 +20,6 @@ const classPrefix = `adm-popup`
 export type PopupProps = PopupBaseProps &
   PropsWithChildren<{
     position?: 'bottom' | 'top' | 'left' | 'right'
-    swipeToClose?: boolean
   }> &
   NativeProps<'--z-index'>
 
