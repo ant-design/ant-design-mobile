@@ -102,22 +102,22 @@ const getFooterData = (en: boolean) => [
       {
         icon: <GithubOutlined />,
         title: 'GitHub',
-        url: 'https://github.com/ant-design/ant-design-mini',
+        url: 'https://github.com/ant-design/ant-design-mobile',
       },
       {
         icon: <BugOutlined />,
         title: en ? 'Report Bug' : '报告 Bug',
-        url: 'https://github.com/ant-design/ant-design-mini/issues',
+        url: 'https://github.com/ant-design/ant-design-mobile/issues',
       },
       {
         icon: <IssuesCloseOutlined />,
         title: en ? 'Issues' : '讨论列表',
-        url: 'https://github.com/ant-design/ant-design-mini/issues',
+        url: 'https://github.com/ant-design/ant-design-mobile/issues',
       },
       {
         icon: <QuestionCircleOutlined />,
         title: en ? 'Discussion' : '讨论',
-        url: 'https://github.com/ant-design/ant-design-mini/discussions',
+        url: 'https://github.com/ant-design/ant-design-mobile/discussions',
       },
     ],
   },
