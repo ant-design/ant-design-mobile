@@ -179,6 +179,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             ref={hiddenTextAreaRef}
             className={`${classPrefix}-element ${classPrefix}-element-hidden`}
             value={value}
+            rows={props.rows}
             aria-hidden
             readOnly
           />

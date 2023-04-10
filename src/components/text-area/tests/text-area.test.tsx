@@ -109,4 +109,14 @@ describe('TextArea', () => {
     )
     expect(getByText('(3,5)')).toBeInTheDocument()
   })
+
+  test('set rows should be work', () => {
+    const { getByRole } = render(<TextArea rows={1} autoSize />)
+    const hiddenTextarea = document.querySelector(
+      `.${classPrefix}-element-hidden`
+    )!
+    const textarea = getByRole('textbox')
+    expect(textarea).toHaveAttribute('rows', '1')
+    expect(hiddenTextarea).toHaveAttribute('rows', '1')
+  })
 })
