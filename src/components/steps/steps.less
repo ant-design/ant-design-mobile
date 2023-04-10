@@ -4,6 +4,9 @@
 .@{class-prefix-step} {
   --line-to-next-color: #e5e5e5;
   --icon-color: #e5e5e5;
+  position: relative;
+  // make other brother component are not covered
+  z-index: 0;
 
   .@{class-prefix-step}-indicator {
     position: relative;
