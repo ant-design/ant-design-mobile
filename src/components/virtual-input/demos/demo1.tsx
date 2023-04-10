@@ -6,7 +6,10 @@ export default () => {
   return (
     <>
       <DemoBlock title='配合 NumberKeyboard 使用'>
-        <VirtualInput placeholder='请输入内容' keyboard={<NumberKeyboard />} />
+        <VirtualInput
+          placeholder='请输入内容'
+          keyboard={<NumberKeyboard confirmText='确定' customKey={'.'} />}
+        />
       </DemoBlock>
 
       <DemoBlock title='带清除按钮'>
