@@ -137,7 +137,7 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
             onClick={() => {
               props.onClose?.()
             }}
-            role='button'
+            role='grid'
             title='CLOSE'
             tabIndex={-1}
           >
@@ -229,14 +229,16 @@ export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
                     onBackspacePressEnd()
                   }}
                   title='BACKSPACE'
-                  role='button'
+                  role='grid'
+                  tabIndex={-1}
                 >
                   <TextDeletionOutline />
                 </div>
                 <div
                   className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-ok`}
                   onTouchEnd={e => onKeyPress(e, 'OK')}
-                  role='button'
+                  role='grid'
+                  tabIndex={-1}
                   aria-label={confirmText}
                 >
                   {confirmText}
