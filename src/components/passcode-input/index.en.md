@@ -49,5 +49,5 @@ When `length` is not a positive number, replace it with the default value.
 | --border-color | Color of border | `#E5E5E5` |
 | --border-radius | Corner radius of border | `8px` |
 | --cell-gap | Gap between cells, only take effect in `seperated` mode | `6px` |
-| --cell-size | Size of cells | `42px` |
+| --cell-size | Size of cells | `40px` |
 | --dot-size | The size of the point when the password is hidden | `10px` |
