@@ -305,27 +305,29 @@ describe('Form', () => {
   })
 
   describe('Form.Subscribe', () => {
-    let renderTimes = 0
+    test('no useless render', () => {
+      let renderTimes = 0
 
-    const { container } = render(
-      <Form initialValues={{ name: 'bamboo' }}>
-        <Form.Subscribe to={['name']}>
-          {({ name }) => {
-            renderTimes += 1
+      const { container } = render(
+        <Form initialValues={{ name: 'bamboo' }}>
+          <Form.Subscribe to={['name']}>
+            {({ name }) => {
+              renderTimes += 1
 
-            expect(name).toEqual('bamboo')
+              expect(name).toEqual('bamboo')
 
-            return (
-              <Form.Item name='name'>
-                <Input />
-              </Form.Item>
-            )
-          }}
-        </Form.Subscribe>
-      </Form>
-    )
+              return (
+                <Form.Item name='name'>
+                  <Input />
+                </Form.Item>
+              )
+            }}
+          </Form.Subscribe>
+        </Form>
+      )
 
-    expect(container.querySelector('input')?.value).toEqual('bamboo')
-    expect(renderTimes).toEqual(1)
+      expect(container.querySelector('input')?.value).toEqual('bamboo')
+      expect(renderTimes).toEqual(1)
+    })
   })
 })
