@@ -19,9 +19,18 @@ export interface FormSubscribeProps {
 export const FormSubscribe: FC<FormSubscribeProps> = props => {
   const update = useUpdate()
   const form = useContext(FieldContext)
+
+  const value = form.getFieldsValue(props.to)
+
+  // Memo to avoid useless render
+  const childNode = React.useMemo(
+    () => props.children(value, form),
+    [JSON.stringify(value)]
+  )
+
   return (
     <>
-      {props.children(form.getFieldsValue(props.to), form)}
+      {childNode}
       {props.to.map(namePath => (
         <Watcher
           key={namePath.toString()}
