@@ -1,8 +1,11 @@
 @class-prefix-pull-to-refresh: ~'adm-pull-to-refresh';
 
 .@{class-prefix-pull-to-refresh} {
-  --head-content-padding: 20px;
-  --head-content-font-size: 15px;
+  --head-content-padding: var(--adm-pull-to-refresh-head-content-padding, 20px);
+  --head-content-font-size: var(
+    --adm-pull-to-refresh-head-content-font-size,
+    15px
+  );
 
   &-head {
     overflow: hidden;

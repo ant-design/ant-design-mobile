@@ -44,6 +44,13 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 | renderText | Customize the pulling content according to the pulling status | `(status: PullStatus) => ReactNode` | - |
 | threshold | How many times of the header height as distance need to be pulled down to trigger a refresh | `number` | `1.5` |
 
+### CSS Variables
+
+| Name | Description | Default | Global |
+| --- | --- | --- | --- |
+| --head-content-padding | padding of the header | `20px` | `--adm-pull-to-refresh-head-content-padding` |
+| --head-content-font-size | font size of the text in header | `15px` | `--adm-pull-to-refresh-head-content-font-size` |
+
 ## FAQ
 
 ### Does it support pull up to load more?

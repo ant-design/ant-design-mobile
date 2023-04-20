@@ -44,6 +44,13 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 | renderText | 根据下拉状态，自定义下拉提示文案 | `(status: PullStatus) => ReactNode` | - |
 | threshold | 触发刷新需要下拉多少倍的头部高度 | `number` | `1.5` |
 
+### CSS 变量
+
+| 属性 | 说明 | 默认值 | 全局变量 |
+| --- | --- | --- | --- |
+| --head-content-padding | 头部内边距 | `20px` | `--adm-pull-to-refresh-head-content-padding` |
+| --head-content-font-size | 头部字体大小 | `15px` | `--adm-pull-to-refresh-head-content-font-size` |
+
 ## 常见问题
 
 ### 是否支持上拉加载更多？
