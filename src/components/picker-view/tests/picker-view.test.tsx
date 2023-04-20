@@ -22,7 +22,10 @@ describe('PickerView', () => {
 
   test('controlled mode', async () => {
     const App = () => {
-      const [value, setValue] = useState<(string | null)[]>(['Mon', 'am'])
+      const [value, setValue] = useState<(string | number | null)[]>([
+        'Mon',
+        'am',
+      ])
       return (
         <>
           <PickerView
