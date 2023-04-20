@@ -15,6 +15,9 @@ export type {
   ValidateMessages,
   FieldData,
   NamePath,
+  Rule,
+  RuleObject,
+  RuleRender,
 } from 'rc-field-form/es/interface'
 export type {
   FormArrayField,
