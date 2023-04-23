@@ -81,7 +81,9 @@ const CollapsePanelContent: FC<{
 
   return (
     <animated.div
-      className={`${classPrefix}-panel-content`}
+      className={classNames(`${classPrefix}-panel-content`, {
+        [`${classPrefix}-panel-content-active`]: visible,
+      })}
       style={{
         height: height.to(v => {
           if (height.idle && visible) {
