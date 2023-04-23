@@ -224,9 +224,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         }
       })
     ).catch(error => console.error(error))
-    setValue(prev => {
-      return prev.concat(newVal)
-    })
+    setValue(prev => prev.concat(newVal))
   }
 
   const imageViewerHandlerRef = useRef<ImageViewerShowHandler | null>(null)
