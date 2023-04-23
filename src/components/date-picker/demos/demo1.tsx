@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { Button, DatePicker, DatePickerProps, Space, Toast } from 'antd-mobile'
+import { Button, DatePicker, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { weekdayToZh } from './weekdayToZh'
 
