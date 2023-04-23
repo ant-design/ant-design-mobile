@@ -52,7 +52,7 @@ module.exports = nextConfig;
 import { Button } from 'antd-mobile'
 ```
 
-- [transpilepackages](https://beta.nextjs.org/docs/api-reference/next.config.js#transpilepackages)
+- [transpilepackages](https://beta.nextjs.org/docs/api-reference/next-config#transpilepackages)
 - [server-and-client-components](https://beta.nextjs.org/docs/rendering/server-and-client-components)
 
 ## Remix
