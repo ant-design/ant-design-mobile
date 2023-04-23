@@ -250,7 +250,7 @@ exports[`ImageUploader custom upload button 1`] = `
 </div>
 `;
 
-exports[`ImageUploader fileList upload 1`] = `
+exports[`ImageUploader upload fileList to correct order 1`] = `
 <div>
   <div
     class="adm-image-uploader"
