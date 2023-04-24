@@ -439,6 +439,10 @@ export const FormItem: FC<FormItemProps> = props => {
           if (!childProps.id) {
             childProps.id = fieldId
           }
+          // Fix FormItem onClick execute twice bug
+          childProps.onClick = (e: Event) => {
+            e.stopPropagation()
+          }
 
           // We should keep user origin event handler
           const triggers = new Set<string>([
