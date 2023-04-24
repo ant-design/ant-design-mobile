@@ -164,6 +164,52 @@ describe('ImageUploader', () => {
     )
   })
 
+  test('upload fileList to correct order', async () => {
+    const customMockUpload = async (file: File) => {
+      let time: number
+      const currentFileName: string = file.name
+      switch (currentFileName) {
+        case 'one.png':
+          time = 2000
+          break
+        case 'two.png':
+          time = 1000
+          break
+        case 'three.png':
+        default:
+          time = 300
+          break
+      }
+      await sleep(time)
+      return {
+        url: currentFileName,
+      }
+    }
+    const { container } = render(
+      <App
+        multiple
+        upload={customMockUpload}
+        renderItem={(originNode: React.ReactElement) => originNode}
+      />
+    )
+    const inputEl = $$(`.${classPrefix}-input`)[0] as HTMLInputElement
+    const files = [
+      new File(['one'], 'one.png', { type: 'image/png' }),
+      new File(['two'], 'two.png', { type: 'image/png' }),
+      new File(['three'], 'three.png', { type: 'image/png' }),
+    ]
+    await user.upload(inputEl, files)
+
+    await act(async () => {
+      jest.runAllTimers()
+    })
+
+    expect($$(`.adm-image-img`).length).toBe(4)
+    expect($$(`.adm-image-img`)[1]).toHaveAttribute('src', 'one.png')
+    expect($$(`.adm-image-img`)[2]).toHaveAttribute('src', 'two.png')
+    expect($$(`.adm-image-img`)[3]).toHaveAttribute('src', 'three.png')
+  })
+
   test('delete image', async () => {
     jest.useRealTimers()
     render(
