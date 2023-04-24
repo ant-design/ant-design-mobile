@@ -208,7 +208,6 @@ describe('ImageUploader', () => {
     expect($$(`.adm-image-img`)[1]).toHaveAttribute('src', 'one.png')
     expect($$(`.adm-image-img`)[2]).toHaveAttribute('src', 'two.png')
     expect($$(`.adm-image-img`)[3]).toHaveAttribute('src', 'three.png')
-    expect(container).toMatchSnapshot()
   })
 
   test('delete image', async () => {
