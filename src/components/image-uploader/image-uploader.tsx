@@ -190,11 +190,12 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     )
 
     setTasks(prev => [...getFinalTasks(prev), ...newTasks])
-
+    const newVal: ImageUploadItem[] = []
     await Promise.all(
-      newTasks.map(async currentTask => {
+      newTasks.map(async (currentTask, index) => {
         try {
           const result = await props.upload(currentTask.file)
+          newVal[index] = result
           setTasks(prev => {
             return prev.map(task => {
               if (task.id === currentTask.id) {
@@ -206,10 +207,6 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
               }
               return task
             })
-          })
-          setValue(prev => {
-            const newVal = { ...result }
-            return [...prev, newVal]
           })
         } catch (e) {
           setTasks(prev => {
@@ -227,6 +224,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         }
       })
     ).catch(error => console.error(error))
+    setValue(prev => prev.concat(newVal))
   }
 
   const imageViewerHandlerRef = useRef<ImageViewerShowHandler | null>(null)

@@ -1,5 +1,5 @@
 import React, { FC, useMemo, useRef, useState } from 'react'
-import runes from 'runes'
+import runes from 'runes2'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
@@ -194,7 +194,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       : null
 
   const collapseActionElement =
-    exceeded && props.expandText
+    exceeded && props.collapseText
       ? withStopPropagation(
           props.stopPropagationForActionButtons,
           <a

@@ -1,6 +1,7 @@
 import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import type { ReactNode } from 'react'
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import runes from 'runes2'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
@@ -121,7 +122,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     const compositingRef = useRef(false)
 
     let count
-    const valueLength = [...value].length
+    const valueLength = runes(value).length
     if (typeof showCount === 'function') {
       count = showCount(valueLength, maxLength)
     } else if (showCount) {
@@ -146,7 +147,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onChange={e => {
             let v = e.target.value
             if (maxLength && !compositingRef.current) {
-              v = [...v].slice(0, maxLength).join('')
+              v = runes(v).slice(0, maxLength).join('')
             }
             setValue(v)
           }}
@@ -159,7 +160,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             compositingRef.current = false
             if (maxLength) {
               const v = (e.target as HTMLTextAreaElement).value
-              setValue([...v].slice(0, maxLength).join(''))
+              setValue(runes(v).slice(0, maxLength).join(''))
             }
             props.onCompositionEnd?.(e)
           }}
@@ -179,6 +180,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             ref={hiddenTextAreaRef}
             className={`${classPrefix}-element ${classPrefix}-element-hidden`}
             value={value}
+            rows={props.rows}
             aria-hidden
             readOnly
           />

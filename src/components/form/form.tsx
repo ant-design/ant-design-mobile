@@ -130,7 +130,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
           hasFeedback,
           layout,
           requiredMarkStyle,
-          disabled: disabled,
+          disabled,
         }}
       >
         {lists}

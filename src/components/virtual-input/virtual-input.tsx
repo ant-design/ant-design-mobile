@@ -121,6 +121,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           [`${classPrefix}-disabled`]: props.disabled,
         })}
         tabIndex={props.disabled ? undefined : 0}
+        role='option'
         onFocus={onFocus}
         onBlur={onBlur}
         onClick={props.onClick}
@@ -128,8 +129,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         <div
           className={`${classPrefix}-content`}
           ref={contentRef}
-          role='option'
-          tabIndex={props.disabled ? undefined : 0}
           aria-disabled={props.disabled}
           aria-label={props.placeholder}
         >

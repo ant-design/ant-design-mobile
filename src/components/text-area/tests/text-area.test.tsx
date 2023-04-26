@@ -69,6 +69,17 @@ describe('TextArea', () => {
     expect(count).toHaveTextContent('5/5')
   })
 
+  test('limit count with emojis', () => {
+    const { getByRole } = render(
+      <TextArea defaultValue='🏴󠁧󠁢󠁥󠁮󠁧󠁿🏴󠁵󠁳󠁷󠁡󠁿🏴' maxLength={3} showCount />
+    )
+    const textarea = getByRole('textbox') as HTMLTextAreaElement
+    const count = document.querySelectorAll(`.${classPrefix}-count`)[0]
+    fireEvent.change(textarea, { target: { value: '🏴󠁧󠁢󠁥󠁮󠁧󠁿🏴󠁵󠁳󠁷󠁡󠁿🏴🏴󠁵󠁳󠁴󠁸󠁿' } })
+    expect(textarea.value).toBe('🏴󠁧󠁢󠁥󠁮󠁧󠁿🏴󠁵󠁳󠁷󠁡󠁿🏴')
+    expect(count).toHaveTextContent('3/3')
+  })
+
   test('should exceed maxLength when use IME', () => {
     const onChange = jest.fn()
     const { getByRole } = render(<TextArea maxLength={1} onChange={onChange} />)
@@ -108,5 +119,15 @@ describe('TextArea', () => {
       />
     )
     expect(getByText('(3,5)')).toBeInTheDocument()
+  })
+
+  test('set rows should be work', () => {
+    const { getByRole } = render(<TextArea rows={1} autoSize />)
+    const hiddenTextarea = document.querySelector(
+      `.${classPrefix}-element-hidden`
+    )!
+    const textarea = getByRole('textbox')
+    expect(textarea).toHaveAttribute('rows', '1')
+    expect(hiddenTextarea).toHaveAttribute('rows', '1')
   })
 })
