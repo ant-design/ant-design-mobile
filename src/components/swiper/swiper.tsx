@@ -20,7 +20,7 @@ import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
-import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
+import { useIsomorphicLayoutEffect } from 'ahooks'
 import { mergeFuncProps } from '../../utils/with-func-props'
 
 const classPrefix = `adm-swiper`
@@ -126,10 +126,6 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       }
 
       const [current, setCurrent] = useState(props.defaultIndex)
-
-      useUpdateEffect(() => {
-        props.onIndexChange?.(current)
-      }, [current])
 
       const [dragging, setDragging, draggingRef] = useRefState(false)
 
@@ -242,6 +238,9 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
           ? modulus(roundedIndex, count)
           : bound(roundedIndex, 0, count - 1)
         setCurrent(targetIndex)
+        if (targetIndex !== current) {
+          props.onIndexChange?.(targetIndex)
+        }
         api.start({
           position: (loop ? roundedIndex : boundIndex(roundedIndex)) * 100,
           immediate,
@@ -293,7 +292,9 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               {React.Children.map(validChildren, (child, index) => {
                 return (
                   <animated.div
-                    className={`${classPrefix}-slide`}
+                    className={classNames(`${classPrefix}-slide`, {
+                      [`${classPrefix}-slide-active`]: current === index,
+                    })}
                     style={{
                       [isVertical ? 'y' : 'x']: position.to(position => {
                         let finalPosition = -position + index * 100
