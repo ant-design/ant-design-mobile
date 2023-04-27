@@ -13,6 +13,7 @@ import { CloseOutline } from 'antd-mobile-icons'
 import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
 import { useInnerVisible } from '../../utils/use-inner-visible'
 import { useConfig } from '../config-provider'
+import { useDrag } from '@use-gesture/react'
 
 const classPrefix = `adm-popup`
 
@@ -67,6 +68,21 @@ export const Popup: FC<PopupProps> = p => {
     },
   })
 
+  const bind = useDrag(
+    ({ swipe: [, swipeY] }) => {
+      if (
+        (swipeY === 1 && props.position === 'bottom') ||
+        (swipeY === -1 && props.position === 'top')
+      ) {
+        props.onClose?.()
+      }
+    },
+    {
+      axis: 'y',
+      enabled: ['top', 'bottom'].includes(props.position),
+    }
+  )
+
   const maskVisible = useInnerVisible(active && props.visible)
 
   const node = withStopPropagation(
@@ -76,7 +92,13 @@ export const Popup: FC<PopupProps> = p => {
       <div
         className={classPrefix}
         onClick={props.onClick}
-        style={{ display: active ? undefined : 'none' }}
+        style={{
+          display: active ? undefined : 'none',
+          touchAction: ['top', 'bottom'].includes(props.position)
+            ? 'none'
+            : 'auto',
+        }}
+        {...bind()}
       >
         {props.mask && (
           <Mask

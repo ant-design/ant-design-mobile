@@ -210,9 +210,9 @@ export function convertDateToStringArray(
   ]
 }
 
-export function convertStringArrayToDate(
-  value: (string | null | undefined)[]
-): Date {
+export function convertStringArrayToDate<
+  T extends string | number | null | undefined
+>(value: T[]): Date {
   const yearString = value[0] ?? '1900'
   const monthString = value[1] ?? '1'
   const dateString = value[2] ?? '1'
@@ -220,11 +220,11 @@ export function convertStringArrayToDate(
   const minuteString = value[4] ?? '0'
   const secondString = value[5] ?? '0'
   return new Date(
-    parseInt(yearString),
-    parseInt(monthString) - 1,
-    parseInt(dateString),
-    parseInt(hourString),
-    parseInt(minuteString),
-    parseInt(secondString)
+    parseInt(yearString as string),
+    parseInt(monthString as string) - 1,
+    parseInt(dateString as string),
+    parseInt(hourString as string),
+    parseInt(minuteString as string),
+    parseInt(secondString as string)
   )
 }

@@ -184,6 +184,31 @@ describe('Swiper', () => {
     expect(onIndexChange).toBeCalledWith(2)
   })
 
+  test('`onIndexChange` should not be called when use `swipeTo` equal value', () => {
+    const onIndexChange = jest.fn()
+    const App = () => {
+      const ref = useRef<SwiperRef>(null)
+      return (
+        <>
+          <Swiper defaultIndex={0} ref={ref} onIndexChange={onIndexChange}>
+            {items}
+          </Swiper>
+          <button
+            onClick={() => {
+              ref.current?.swipeTo(0)
+            }}
+          >
+            to
+          </button>
+        </>
+      )
+    }
+    const { getByText } = render(<App />)
+
+    fireEvent.click(getByText('to'))
+    expect(onIndexChange).not.toBeCalled()
+  })
+
   test(`dont't allow touch move`, () => {
     render(<Swiper allowTouchMove={false}>{items}</Swiper>)
 

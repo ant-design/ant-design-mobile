@@ -55,6 +55,24 @@ describe('Dropdown', () => {
     expect(screen.getByText(1)).toBeInTheDocument()
   })
 
+  test('rendered to the current node', async () => {
+    const { getByText, container } = render(
+      <Dropdown getContainer={null}>
+        <Dropdown.Item key='bizop' title='Item'>
+          <div style={{ padding: 12 }}>内容</div>
+        </Dropdown.Item>
+      </Dropdown>
+    )
+
+    fireEvent.click(getByText('Item'))
+
+    await waitFor(() => {
+      expect(
+        container.querySelectorAll(`.${classPrefix} .${classPrefix}-popup`)[0]
+      ).toBeTruthy()
+    })
+  })
+
   test('forceRender should be work', () => {
     render(
       <Dropdown data-testid='dropdown'>

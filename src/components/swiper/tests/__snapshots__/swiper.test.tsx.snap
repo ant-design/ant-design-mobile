@@ -41,7 +41,7 @@ exports[`Swiper loop 1`] = `
           </div>
         </div>
         <div
-          class="adm-swiper-slide"
+          class="adm-swiper-slide adm-swiper-slide-active"
           style="left: -200%; transform: none;"
         >
           <div
@@ -90,7 +90,7 @@ exports[`Swiper loop 2`] = `
         class="adm-swiper-track-inner"
       >
         <div
-          class="adm-swiper-slide"
+          class="adm-swiper-slide adm-swiper-slide-active"
           style="left: -0%; transform: none;"
         >
           <div

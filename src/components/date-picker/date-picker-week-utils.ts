@@ -128,16 +128,16 @@ export function convertDateToStringArray(
   ]
 }
 
-export function convertStringArrayToDate(
-  value: (string | null | undefined)[]
-): Date {
+export function convertStringArrayToDate<
+  T extends string | number | null | undefined
+>(value: T[]): Date {
   const yearString = value[0] ?? '1900'
   const weekString = value[1] ?? '1'
   const weekdayString = value[2] ?? '1'
   const day = dayjs()
-    .year(parseInt(yearString))
-    .isoWeek(parseInt(weekString))
-    .isoWeekday(parseInt(weekdayString))
+    .year(parseInt(yearString as string))
+    .isoWeek(parseInt(weekString as string))
+    .isoWeekday(parseInt(weekdayString as string))
     .hour(0)
     .minute(0)
     .second(0)
