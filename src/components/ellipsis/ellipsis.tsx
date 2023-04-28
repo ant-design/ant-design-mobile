@@ -15,8 +15,8 @@ export type EllipsisProps = {
   content: string
   direction?: 'start' | 'end' | 'middle'
   rows?: number
-  expandText?: string
-  collapseText?: string
+  expandText?: React.ReactNode
+  collapseText?: React.ReactNode
   stopPropagationForActionButtons?: PropagationEvent[]
   onContentClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   defaultExpanded?: boolean
