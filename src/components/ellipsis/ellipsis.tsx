@@ -41,8 +41,8 @@ type EllipsisedValue = {
 export const Ellipsis: FC<EllipsisProps> = p => {
   const props = mergeProps(defaultProps, p)
   const rootRef = useRef<HTMLDivElement>(null)
-  const expandTextRef = useRef<HTMLAnchorElement>(null)
-  const collapseTextRef = useRef<HTMLAnchorElement>(null)
+  const expandElRef = useRef<HTMLAnchorElement>(null)
+  const collapseElRef = useRef<HTMLAnchorElement>(null)
 
   const [ellipsised, setEllipsised] = useState<EllipsisedValue>({})
   const [expanded, setExpanded] = useState(props.defaultExpanded)
@@ -95,11 +95,11 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       const collapseEl =
         typeof props.collapseText === 'string'
           ? props.collapseText
-          : collapseTextRef.current?.innerHTML
+          : collapseElRef.current?.innerHTML
       const expandEl =
         typeof props.expandText === 'string'
           ? props.expandText
-          : expandTextRef.current?.innerHTML
+          : expandElRef.current?.innerHTML
       const actionText = expanded ? collapseEl : expandEl
 
       function check(left: number, right: number): EllipsisedValue {
@@ -196,6 +196,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       ? withStopPropagation(
           props.stopPropagationForActionButtons,
           <a
+            ref={expandElRef}
             onClick={() => {
               setExpanded(true)
             }}
@@ -210,6 +211,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       ? withStopPropagation(
           props.stopPropagationForActionButtons,
           <a
+            ref={collapseElRef}
             onClick={() => {
               setExpanded(false)
             }}
@@ -241,24 +243,6 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     }
   }
 
-  // hidden action text for getting correct ellipsis position
-  const renderHiddenActionText = () => {
-    return (
-      <>
-        <a className={`${classPrefix}-hidden`} ref={expandTextRef} aria-hidden>
-          {props.expandText}
-        </a>
-        <a
-          className={`${classPrefix}-hidden`}
-          ref={collapseTextRef}
-          aria-hidden
-        >
-          {props.collapseText}
-        </a>
-      </>
-    )
-  }
-
   return withNativeProps(
     props,
     <div
@@ -271,7 +255,6 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       }}
     >
       {renderContent()}
-      {renderHiddenActionText()}
     </div>
   )
 }
