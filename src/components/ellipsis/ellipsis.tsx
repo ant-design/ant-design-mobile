@@ -241,6 +241,24 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     }
   }
 
+  // hidden action text for getting correct ellipsis position
+  const renderHiddenActionText = () => {
+    return (
+      <>
+        <a className={`${classPrefix}-hidden`} ref={expandTextRef} aria-hidden>
+          {props.expandText}
+        </a>
+        <a
+          className={`${classPrefix}-hidden`}
+          ref={collapseTextRef}
+          aria-hidden
+        >
+          {props.collapseText}
+        </a>
+      </>
+    )
+  }
+
   return withNativeProps(
     props,
     <div
@@ -253,12 +271,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       }}
     >
       {renderContent()}
-      <a className={`${classPrefix}-hidden`} ref={expandTextRef} aria-hidden>
-        {props.expandText}
-      </a>
-      <a className={`${classPrefix}-hidden`} ref={collapseTextRef} aria-hidden>
-        {props.collapseText}
-      </a>
+      {renderHiddenActionText()}
     </div>
   )
 }
