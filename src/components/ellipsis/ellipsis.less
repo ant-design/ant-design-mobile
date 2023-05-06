@@ -3,4 +3,12 @@
 .@{class-prefix-ellipsis} {
   overflow: hidden;
   line-height: 1.5;
+
+  &-hidden {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+  }
 }
