@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, testA11y, fireEvent } from 'testing'
+import { render, testA11y, fireEvent, screen } from 'testing'
 import Ellipsis from '..'
 
 const classPrefix = `adm-ellipsis`
@@ -45,36 +45,36 @@ describe('Ellipsis', () => {
     await testA11y(<Ellipsis content={content} />)
   })
 
-  test('direction start', async () => {
+  test('direction start', () => {
     const { getByTestId } = render(
       <Ellipsis content={content} direction='start' data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
-  test('direction middle', async () => {
+  test('direction middle', () => {
     const { getByTestId } = render(
       <Ellipsis content={content} direction='middle' data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
-  test('direction end', async () => {
+  test('direction end', () => {
     const { getByTestId } = render(
       <Ellipsis content={content} direction='end' data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
-  test('multi line', async () => {
+  test('multi line', () => {
     const { getByTestId } = render(
       <Ellipsis content={content} rows={3} data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
-  test('expand and collapse', async () => {
-    const { getByTestId, getByText } = render(
+  test('expand and collapse', () => {
+    const { getByTestId, getAllByText } = render(
       <Ellipsis
         content={content}
         expandText='expand'
@@ -83,13 +83,13 @@ describe('Ellipsis', () => {
       />
     )
 
-    fireEvent.click(getByText('expand'))
+    fireEvent.click(getAllByText('expand')[0])
     expect(getByTestId('ellipsis')).toMatchSnapshot()
-    fireEvent.click(getByText('collapse'))
+    fireEvent.click(getAllByText('collapse')[0])
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
-  test('content click', async () => {
+  test('content click', () => {
     const onClick = jest.fn()
     const { getByTestId } = render(
       <Ellipsis
@@ -103,8 +103,8 @@ describe('Ellipsis', () => {
     expect(onClick).toBeCalled()
   })
 
-  test('default expand should be work', async () => {
-    const { getByText } = render(
+  test('default expand should be work', () => {
+    const { getAllByText } = render(
       <Ellipsis
         content={content}
         defaultExpanded
@@ -116,11 +116,11 @@ describe('Ellipsis', () => {
     const ellipsis = document.querySelector(`.${classPrefix}`)
     expect(ellipsis).not.toHaveTextContent('...')
     expect(ellipsis).toHaveTextContent('collapse')
-    fireEvent.click(getByText('collapse'))
+    fireEvent.click(getAllByText('collapse')[0])
     expect(ellipsis).toHaveTextContent('...')
   })
 
-  test('content not exceeded', async () => {
+  test('content not exceeded', () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       value: lineHeight,
     })
