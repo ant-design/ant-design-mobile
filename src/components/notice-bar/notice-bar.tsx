@@ -22,6 +22,8 @@ export type NoticeBarProps = {
   closeable?: boolean
   /** Callback when closed */
   onClose?: () => void
+  /** Event when click */
+  onClick?: (...args: any) => void
   /** Additional operating area, displayed to the left of the close button */
   extra?: React.ReactNode
   /** Radio icon on the left */
@@ -118,6 +120,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
       className={classNames(classPrefix, `${classPrefix}-${props.color}`, {
         [`${classPrefix}-wrap`]: props.wrap,
       })}
+      onClick={props.onClick}
     >
       {props.icon && (
         <span className={`${classPrefix}-left`}>{props.icon}</span>
