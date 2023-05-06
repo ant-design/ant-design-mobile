@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, testA11y, fireEvent, screen } from 'testing'
+import { render, testA11y, fireEvent } from 'testing'
 import Ellipsis from '..'
 
 const classPrefix = `adm-ellipsis`
@@ -18,22 +18,24 @@ describe('Ellipsis', () => {
       return style
     }
 
+    Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
+      value: {},
+    })
+  })
+
+  beforeEach(() => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       get() {
-        if (this.innerText.includes('...')) {
+        if (this.innerHTML.includes('...')) {
           const row = Math.ceil(
             // the width of '...' is equal to a Chinese char
-            (this.innerText.replace(/\.\.\./g, '中').length / content.length) *
+            (this.innerHTML.replace(/\.\.\./g, '中').length / content.length) *
               4
           )
           return lineHeight * row
         }
         return lineHeight * 4
       },
-    })
-
-    Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
-      value: {},
     })
   })
 
@@ -74,7 +76,7 @@ describe('Ellipsis', () => {
   })
 
   test('expand and collapse', () => {
-    const { getByTestId, getAllByText } = render(
+    const { getByTestId, getByText } = render(
       <Ellipsis
         content={content}
         expandText='expand'
@@ -83,9 +85,9 @@ describe('Ellipsis', () => {
       />
     )
 
-    fireEvent.click(getAllByText('expand')[0])
+    fireEvent.click(getByText('expand'))
     expect(getByTestId('ellipsis')).toMatchSnapshot()
-    fireEvent.click(getAllByText('collapse')[0])
+    fireEvent.click(getByText('collapse'))
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
@@ -104,7 +106,7 @@ describe('Ellipsis', () => {
   })
 
   test('default expand should be work', () => {
-    const { getAllByText } = render(
+    const { getByText } = render(
       <Ellipsis
         content={content}
         defaultExpanded
@@ -116,7 +118,7 @@ describe('Ellipsis', () => {
     const ellipsis = document.querySelector(`.${classPrefix}`)
     expect(ellipsis).not.toHaveTextContent('...')
     expect(ellipsis).toHaveTextContent('collapse')
-    fireEvent.click(getAllByText('collapse')[0])
+    fireEvent.click(getByText('collapse'))
     expect(ellipsis).toHaveTextContent('...')
   })
 
@@ -138,5 +140,19 @@ describe('Ellipsis', () => {
       // @ts-ignore
       render(<Ellipsis content={undefined} data-testid='ellipsis' />)
     }).not.toThrowError()
+  })
+
+  test('expand and collapse support ReactNode', async () => {
+    const { getByText, findByText } = render(
+      <Ellipsis
+        content={content}
+        expandText={<span>expand</span>}
+        collapseText={<span>collapse</span>}
+      />
+    )
+
+    expect(await findByText('expand')).toBeVisible()
+    fireEvent.click(getByText('expand'))
+    expect(getByText('collapse')).toBeInTheDocument()
   })
 })
