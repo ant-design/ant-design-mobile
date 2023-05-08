@@ -18,10 +18,10 @@ When the display space is not enough, hide some content and replace it with "...
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| collapseText | Collapse operation text | `string` | `''` |
+| collapseText | Collapse operation text | `React.ReactNode` | `''` |
 | content | The text content | `string` | - |
 | direction | Position omitted | `'start' \| 'end' \| 'middle'` | `'end'` |
-| expandText | Expand operation text | `string` | `''` |
+| expandText | Expand operation text | `React.ReactNode` | `''` |
 | onContentClick | Trigger when clicked text content | `(e: React.MouseEvent) => void` | - |
 | rows | The number to display lines | `number` | `1` |
 | stopPropagationForActionButtons | Prevent the event bubbling caused by the expand operation and the collapse operation | `PropagationEvent[]` | `[]` |
