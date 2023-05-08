@@ -38,7 +38,7 @@ export default () => {
           loop
           autoplay
           onIndexChange={i => {
-            console.log(i, 'onIndexChange')
+            console.log(i, 'onIndexChange1')
           }}
         >
           {items}
