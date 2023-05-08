@@ -274,8 +274,10 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       const { autoplay, autoplayInterval } = props
 
       const runTimeSwiper = () => {
-        timeoutRef.current = window.setTimeout(runTimeSwiper, autoplayInterval)
-        swipeNext()
+        timeoutRef.current = window.setTimeout(() => {
+          swipeNext()
+          runTimeSwiper()
+        }, autoplayInterval)
       }
       useEffect(() => {
         if (!autoplay || dragging) return
