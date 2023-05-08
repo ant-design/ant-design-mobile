@@ -23,7 +23,7 @@ export type NoticeBarProps = {
   /** Callback when closed */
   onClose?: () => void
   /** Event when click */
-  onClick?: (...args: any) => void
+  onClick?: () => void
   /** Additional operating area, displayed to the left of the close button */
   extra?: React.ReactNode
   /** Radio icon on the left */
