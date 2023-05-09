@@ -1,6 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { FC, useEffect, useRef, useState } from 'react'
-import { useLockFn, useThrottleFn } from 'ahooks'
+import React, { FC, useEffect, useRef } from 'react'
+import { useLockFn, useThrottleFn, useSafeState } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'
 import { useConfig } from '../config-provider'
@@ -37,7 +37,7 @@ const defaultProps: Required<
 export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   const props = mergeProps(defaultProps, p)
 
-  const [failed, setFailed] = useState(false)
+  const [failed, setFailed] = useSafeState(false)
   const doLoadMore = useLockFn(async (isRetry: boolean) => {
     try {
       await props.loadMore(isRetry)
@@ -50,10 +50,10 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   const elementRef = useRef<HTMLDivElement>(null)
 
   // Prevent duplicated trigger of `check` function
-  const [flag, setFlag] = useState({})
+  const [flag, setFlag] = useSafeState({})
   const nextFlagRef = useRef(flag)
 
-  const [scrollParent, setScrollParent] = useState<
+  const [scrollParent, setScrollParent] = useSafeState<
     Window | Element | null | undefined
   >()
 
