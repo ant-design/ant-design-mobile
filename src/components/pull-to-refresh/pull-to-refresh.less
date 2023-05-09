@@ -1,9 +1,16 @@
 @class-prefix-pull-to-refresh: ~'adm-pull-to-refresh';
 
 .@{class-prefix-pull-to-refresh} {
+  --head-content-padding: var(--adm-pull-to-refresh-head-content-padding, 20px);
+  --head-content-font-size: var(
+    --adm-pull-to-refresh-head-content-font-size,
+    16px
+  );
+
   &-head {
     overflow: hidden;
     position: relative;
+
     &-content {
       position: absolute;
       bottom: 0;
@@ -13,6 +20,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      font-size: var(--head-content-font-size);
+      padding: var(--head-content-padding);
     }
   }
 }

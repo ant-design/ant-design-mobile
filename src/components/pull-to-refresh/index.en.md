@@ -34,16 +34,22 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| canReleaseText | Hint text of release | `ReactNode` | `'释放立即刷新'` |
 | completeDelay | The time for the delay to disappear after completion, the unit is ms | `number` | `500` |
-| completeText | Hint text when completed | `ReactNode` | `'刷新成功'` |
 | disabled | Whether the PullToRefresh is disabled | `boolean` | `false` |
-| headHeight | The height of the head prompt content area, the unit is px | `number` | `40` |
 | onRefresh | Handler function when refresh triggered | `() => Promise<any>` | - |
 | pullingText | Hint text of pulling | `ReactNode` | `'下拉刷新'` |
+| canReleaseText | Hint text of release | `ReactNode` | `'释放立即刷新'` |
 | refreshingText | Hint text when refreshing | `ReactNode` | `'加载中……'` |
+| completeText | Hint text when completed | `ReactNode` | `'刷新成功'` |
 | renderText | Customize the pulling content according to the pulling status | `(status: PullStatus) => ReactNode` | - |
-| threshold | How far to pull down to trigger refresh, unit is px | `number` | `60` |
+| threshold | How many times of the header height as distance need to be pulled down to trigger a refresh | `number` | `1.5` |
+
+### CSS Variables
+
+| Name | Description | Default | Global |
+| --- | --- | --- | --- |
+| --head-content-padding | padding of the header | `20px` | `--adm-pull-to-refresh-head-content-padding` |
+| --head-content-font-size | font size of the text in header | `16px` | `--adm-pull-to-refresh-head-content-font-size` |
 
 ## FAQ
 

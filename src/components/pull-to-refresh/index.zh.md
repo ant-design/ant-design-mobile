@@ -34,16 +34,22 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| canReleaseText | 释放的提示文案 | `ReactNode` | `'释放立即刷新'` |
 | completeDelay | 完成后延迟消失的时间，单位为 ms | `number` | `500` |
-| completeText | 完成时的提示文案 | `ReactNode` | `'刷新成功'` |
-| disabled | 是否禁用下拉刷新 | `boolean` | `false` |
-| headHeight | 头部提示内容区的高度，单位为 px | `number` | `40` |
+| disabled | 是否禁用下拉刷新 | `boolean` | `false` | 、 |
 | onRefresh | 触发刷新时的处理函数 | `() => Promise<any>` | - |
 | pullingText | 下拉的提示文案 | `ReactNode` | `'下拉刷新'` |
+| canReleaseText | 释放的提示文案 | `ReactNode` | `'释放立即刷新'` |
 | refreshingText | 刷新时的提示文案 | `ReactNode` | `'加载中……'` |
+| completeText | 完成时的提示文案 | `ReactNode` | `'刷新成功'` |
 | renderText | 根据下拉状态，自定义下拉提示文案 | `(status: PullStatus) => ReactNode` | - |
-| threshold | 触发刷新需要下拉多少距离，单位为 px | `number` | `60` |
+| threshold | 触发刷新需要下拉多少倍的头部高度 | `number` | `1.5` |
+
+### CSS 变量
+
+| 属性 | 说明 | 默认值 | 全局变量 |
+| --- | --- | --- | --- |
+| --head-content-padding | 头部内边距 | `20px` | `--adm-pull-to-refresh-head-content-padding` |
+| --head-content-font-size | 头部字体大小 | `16px` | `--adm-pull-to-refresh-head-content-font-size` |
 
 ## 常见问题
 

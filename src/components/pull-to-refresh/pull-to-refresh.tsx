@@ -4,10 +4,10 @@ import { useDrag } from '@use-gesture/react'
 import { getScrollParent } from '../../utils/get-scroll-parent'
 import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import { supportsPassive } from '../../utils/supports-passive'
-import { convertPx } from '../../utils/convert-px'
-import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
+import { rubberBanding } from '../../utils/rubberband'
 import { useConfig } from '../config-provider'
 import { sleep } from '../../utils/sleep'
+import { NativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-pull-to-refresh`
 
@@ -20,12 +20,11 @@ export type PullToRefreshProps = {
   refreshingText?: ReactNode
   completeText?: ReactNode
   completeDelay?: number
-  headHeight?: number
   threshold?: number
   disabled?: boolean
   renderText?: (status: PullStatus) => ReactNode
   children?: React.ReactNode
-}
+} & NativeProps<'--head-content-padding' | '--head-content-font-size'>
 
 export const defaultProps = {
   pullingText: '下拉刷新',
@@ -33,6 +32,7 @@ export const defaultProps = {
   refreshingText: '加载中...',
   completeText: '刷新成功',
   completeDelay: 500,
+  threshold: 1.5,
   disabled: false,
   onRefresh: () => {},
 }
@@ -49,8 +49,6 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
     },
     p
   )
-  const headHeight = props.headHeight ?? convertPx(40)
-  const threshold = props.threshold ?? convertPx(60)
 
   const [status, setStatus] = useState<PullStatus>('pulling')
 
@@ -63,8 +61,8 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
     },
   }))
 
+  const headRef = useRef<HTMLDivElement>(null)
   const elementRef = useRef<HTMLDivElement>(null)
-
   const pullingRef = useRef(false)
 
   //防止下拉时抖动
@@ -87,7 +85,9 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
   }
 
   async function doRefresh() {
-    api.start({ height: headHeight })
+    if (!headRef.current) return
+
+    api.start({ height: headRef.current.getBoundingClientRect().height })
     setStatus('refreshing')
     try {
       await props.onRefresh()
@@ -104,6 +104,8 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
 
   useDrag(
     state => {
+      if (!elementRef.current || !headRef.current) return
+
       if (status === 'refreshing' || status === 'complete') return
 
       const { event } = state
@@ -146,12 +148,19 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
         event.preventDefault()
       }
       event.stopPropagation()
-      const height = Math.max(
-        rubberbandIfOutOfBounds(y, 0, 0, headHeight * 5, 0.5),
-        0
+
+      const height = rubberBanding(
+        y,
+        elementRef.current.getBoundingClientRect().height
       )
-      api.start({ height })
-      setStatus(height > threshold ? 'canRelease' : 'pulling')
+      api.set({ height })
+
+      setStatus(
+        height >
+          headRef.current.getBoundingClientRect().height * props.threshold
+          ? 'canRelease'
+          : 'pulling'
+      )
     },
     {
       pointer: { touch: true },
@@ -178,10 +187,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
   return (
     <animated.div ref={elementRef} className={classPrefix}>
       <animated.div style={springStyles} className={`${classPrefix}-head`}>
-        <div
-          className={`${classPrefix}-head-content`}
-          style={{ height: headHeight }}
-        >
+        <div className={`${classPrefix}-head-content`} ref={headRef}>
           {renderStatusText()}
         </div>
       </animated.div>

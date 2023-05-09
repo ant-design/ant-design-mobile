@@ -9,12 +9,30 @@ function $$(className: string) {
   return document.querySelectorAll(className)
 }
 
+function mockRect(el: Element, value: any) {
+  jest.spyOn(el, 'getBoundingClientRect').mockReturnValue(value)
+}
+
+function mockHeadContentRect(height: number = 55) {
+  const headContent = $$(`.${classPrefix}-head-content`)[0]
+  mockRect(headContent, {
+    height: height,
+  })
+}
+
+function mockElementRect() {
+  const element = $$(`.${classPrefix}`)[0]
+  mockRect(element, {
+    height: 500,
+  })
+}
+
 async function getNextData() {
   await sleep(1000)
   return ['A', 'B', 'C']
 }
 
-function drag(element: Element, clientY: number) {
+function drag(element: Element, clientY: number, release?: boolean) {
   fireEvent.mouseDown(element, {
     buttons: 1,
   })
@@ -24,28 +42,20 @@ function drag(element: Element, clientY: number) {
     clientY,
   })
 
-  fireEvent.mouseUp(element)
+  release && fireEvent.mouseUp(element)
 }
 
 describe('PullToRefresh', () => {
   const originWindowProto = Object.getPrototypeOf(window)
-  const getBoundingClientRectMock = jest.spyOn(
-    HTMLElement.prototype,
-    'getBoundingClientRect'
-  )
   beforeAll(() => {
     jest.useFakeTimers()
     // window instanceof Window should be true
     Object.setPrototypeOf(window, Window.prototype)
-    getBoundingClientRectMock.mockReturnValue({
-      height: 10,
-    } as DOMRect)
   })
 
   afterAll(() => {
     jest.useRealTimers()
     Object.setPrototypeOf(window, originWindowProto)
-    getBoundingClientRectMock.mockRestore()
   })
 
   const App = (props: Partial<PullToRefreshProps>) => {
@@ -70,6 +80,9 @@ describe('PullToRefresh', () => {
   test('pulling status should be correct', () => {
     render(<App />)
     const content = $$(`.${classPrefix}-content`)[0]
+    mockElementRect()
+    mockHeadContentRect()
+
     drag(content, 40)
     expect(screen.getByText('下拉刷新')).toBeInTheDocument()
   })
@@ -77,21 +90,21 @@ describe('PullToRefresh', () => {
   test('can celease status should be correct', async () => {
     render(<App />)
     const content = $$(`.${classPrefix}-content`)[0]
-    fireEvent.mouseDown(content, {
-      buttons: 1,
-    })
+    mockElementRect()
+    mockHeadContentRect()
 
-    fireEvent.mouseMove(content, {
-      buttons: 1,
-      clientY: 200,
-    })
+    // should be '释放立即刷新' when >180 and should be '下拉刷新' when <=180
+    drag(content, 200)
     expect(screen.getByText('释放立即刷新')).toBeInTheDocument()
   })
 
   test('loading, complete and reset to pulling status should be correct', async () => {
     render(<App />)
     const content = $$(`.${classPrefix}-content`)[0]
-    drag(content, 200)
+    mockElementRect()
+    mockHeadContentRect()
+
+    drag(content, 200, true)
     expect(screen.getByText('加载中...')).toBeInTheDocument()
 
     await act(async () => {
@@ -117,21 +130,13 @@ describe('PullToRefresh', () => {
 
     render(<App renderText={status => statusRecord[status]} />)
     const content = $$(`.${classPrefix}-content`)[0]
+    mockElementRect()
+    mockHeadContentRect()
 
-    fireEvent.mouseDown(content, {
-      buttons: 1,
-    })
-
-    fireEvent.mouseMove(content, {
-      buttons: 1,
-      clientY: 100,
-    })
+    drag(content, 100)
     expect(screen.getByText('用力拉')).toBeInTheDocument()
 
-    fireEvent.mouseMove(content, {
-      buttons: 1,
-      clientY: 200,
-    })
+    drag(content, 200)
     expect(screen.getByText('松开吧')).toBeInTheDocument()
 
     fireEvent.mouseUp(content)
@@ -147,13 +152,16 @@ describe('PullToRefresh', () => {
     const onRefresh = jest.fn()
     render(<App onRefresh={onRefresh} />)
     const content = $$(`.${classPrefix}-content`)[0]
-    drag(content, 200)
+    mockElementRect()
+    mockHeadContentRect()
+
+    drag(content, 200, true)
     await act(async () => {
       Promise.resolve()
     })
     expect(screen.getByText('刷新成功')).toBeInTheDocument()
 
-    drag(content, 200)
+    drag(content, 200, true)
     await act(async () => {
       Promise.resolve()
     })
@@ -166,7 +174,10 @@ describe('PullToRefresh', () => {
     const onRefresh = jest.fn()
     render(<App onRefresh={onRefresh} />)
     const content = $$(`.${classPrefix}-content`)[0]
-    drag(content, 200)
+    mockElementRect()
+    mockHeadContentRect()
+
+    drag(content, 200, true)
     await act(async () => {
       Promise.resolve()
     })
@@ -174,10 +185,22 @@ describe('PullToRefresh', () => {
     window.scrollY = 0
   })
 
-  test('refresh should not work when scroll parent scrollY > 0', async () => {
-    render(<App headHeight={30} threshold={40} />)
+  test('custom height should be correct', async () => {
+    render(<App style={{ '--head-content-padding': '30px' }} />)
     const content = $$(`.${classPrefix}-content`)[0]
-    drag(content, 120)
+    mockElementRect()
+    mockHeadContentRect(55 + 20)
+
+    drag(content, 40)
+    expect(screen.getByText('下拉刷新')).toBeInTheDocument()
+
+    // should be '释放立即刷新' when >224 and should be '下拉刷新' when <=224
+    drag(content, 225)
+    expect(screen.getByText('释放立即刷新')).toBeInTheDocument()
+
+    fireEvent.mouseUp(content)
+    expect(screen.getByText('加载中...')).toBeInTheDocument()
+
     await act(async () => {
       jest.advanceTimersByTime(1000)
     })
