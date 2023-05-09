@@ -16,7 +16,7 @@
   <span> · </span>
     <a href="https://discord.gg/jmNvw4WFYn">Discord</a>
   <span> · </span>
-    <a href="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ">钉钉</a>
+    <a href="https://user-images.githubusercontent.com/22469543/197447477-1f10603d-90e9-43ea-a023-6538c5cf40e2.jpeg">钉钉</a>
   </h4>
 </div>
 
