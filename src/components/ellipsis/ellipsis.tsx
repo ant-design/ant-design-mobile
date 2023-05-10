@@ -224,25 +224,22 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       : null
 
   const renderContent = () => {
-    if (!exceeded) {
-      return props.content
-    }
-    if (expanded) {
+    if (!exceeded) return props.content
+
+    if (expanded)
       return (
         <>
           {props.content}
           {collapseActionElement}
         </>
       )
-    } else {
-      return (
-        <>
-          {ellipsised.leading}
-          {expandActionElement}
-          {ellipsised.tailing}
-        </>
-      )
-    }
+    return (
+      <>
+        {ellipsised.leading}
+        {expandActionElement}
+        {ellipsised.tailing}
+      </>
+    )
   }
 
   return withNativeProps(
