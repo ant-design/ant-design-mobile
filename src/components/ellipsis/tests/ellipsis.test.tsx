@@ -17,10 +17,6 @@ describe('Ellipsis', () => {
       style.lineHeight = `${lineHeight}px`
       return style
     }
-
-    Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
-      value: {},
-    })
   })
 
   beforeEach(() => {
