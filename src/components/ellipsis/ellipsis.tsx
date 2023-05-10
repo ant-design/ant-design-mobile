@@ -56,18 +56,20 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   function calcEllipsised() {
     const root = rootRef.current
     if (!root) return
-    if (!root.offsetParent) return
+
+    const originDisplay = root.style.display
+    root.style.display = 'block'
 
     const originStyle = window.getComputedStyle(root)
     const container = document.createElement('div')
+
     const styleNames: string[] = Array.prototype.slice.apply(originStyle)
     styleNames.forEach(name => {
       container.style.setProperty(name, originStyle.getPropertyValue(name))
     })
-    container.style.position = 'fixed'
-    container.style.left = '999999px'
-    container.style.top = '999999px'
-    container.style.zIndex = '-1000'
+
+    root.style.display = originDisplay
+
     container.style.height = 'auto'
     container.style.minHeight = 'auto'
     container.style.maxHeight = 'auto'
