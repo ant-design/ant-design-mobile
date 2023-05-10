@@ -59,6 +59,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
     config: {
       tension: 300,
       friction: 30,
+      round: true,
       clamp: true,
     },
   }))
@@ -119,7 +120,9 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       }
 
       const [, y] = state.movement
-      if (state.first && y > 0) {
+      const parsedY = Math.ceil(y)
+
+      if (state.first && parsedY > 0) {
         const target = state.event.target
         if (!target || !(target instanceof Element)) return
         let scrollParent = getScrollParent(target)
@@ -147,7 +150,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       }
       event.stopPropagation()
       const height = Math.max(
-        rubberbandIfOutOfBounds(y, 0, 0, headHeight * 5, 0.5),
+        rubberbandIfOutOfBounds(parsedY, 0, 0, headHeight * 5, 0.5),
         0
       )
       api.start({ height })
