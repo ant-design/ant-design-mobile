@@ -328,8 +328,16 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
                 ),
               }}
             >
-              {React.Children.map(validChildren, child => {
-                return <div className={`${classPrefix}-slide`}>{child}</div>
+              {React.Children.map(validChildren, (child, index) => {
+                return (
+                  <div
+                    className={classNames(`${classPrefix}-slide`, {
+                      [`${classPrefix}-slide-active`]: current === index,
+                    })}
+                  >
+                    {child}
+                  </div>
+                )
               })}
             </animated.div>
           )
