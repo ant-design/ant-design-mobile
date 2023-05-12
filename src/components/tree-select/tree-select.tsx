@@ -100,7 +100,7 @@ export const TreeSelect: FC<TreeSelectProps> = p => {
   }
 
   const renderColumns = () => {
-    const columns = []
+    const columns: JSX.Element[] = []
     for (let i = 0; i < deep; i++) {
       let width = `${100 / deep}%`
 

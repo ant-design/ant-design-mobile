@@ -1,8 +1,0 @@
-name: Question
-description: I have some questions about how to use antd-mobile.
-body:
-  - type: markdown
-    attributes:
-      value: |
-        If you don't know how to use antd-mobile, **we recommend open a [discussion thread](https://github.com/ant-design/ant-design-mobile/discussions/new) instead**.
-        如果你遇到了一些 antd-mobile 使用上的问题，我们推荐去**创建一条 [Discussion](https://github.com/ant-design/ant-design-mobile/discussions/new)**。

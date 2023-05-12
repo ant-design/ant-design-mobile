@@ -35,7 +35,7 @@ describe('Mask', () => {
       )
     }
 
-    const { getByText, getByTestId } = await render(<App />)
+    const { getByText, getByTestId } = render(<App />)
 
     fireEvent.click(getByText('show'))
     await waitFor(() => {
@@ -50,7 +50,7 @@ describe('Mask', () => {
   })
 
   test('renders with opacity', async () => {
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <>
         <Mask visible opacity='thick' data-testid='thick' />
         <Mask visible opacity={0.8} data-testid='1' />
@@ -64,12 +64,22 @@ describe('Mask', () => {
   })
 
   test('renders with white color', async () => {
-    const { getByTestId } = await render(
+    const { getByTestId } = render(
       <Mask visible color='white' data-testid='mask' />
     )
 
     expect(getByTestId('mask').style.background).toEqual(
       `rgba(255, 255, 255, ${opacityRecord['default']})`
+    )
+  })
+
+  test('renders with custom color', () => {
+    const { getByTestId } = render(
+      <Mask visible color='rgba(125, 125, 125, 0.5)' data-testid='mask' />
+    )
+
+    expect(getByTestId('mask').style.background).toEqual(
+      `rgba(125, 125, 125, 0.5)`
     )
   })
 
@@ -90,7 +100,7 @@ describe('Mask', () => {
       )
     }
 
-    const { getByTestId } = await render(<App />)
+    const { getByTestId } = render(<App />)
 
     fireEvent.click(
       getByTestId('mask').querySelectorAll(`.${classPrefix}-aria-button`)[0]

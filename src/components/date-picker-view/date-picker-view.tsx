@@ -8,16 +8,18 @@ import {
   generateDatePickerColumns,
   convertDateToStringArray,
   convertStringArrayToDate,
-  defaultRenderLabel,
 } from '../date-picker/date-picker-utils'
 import type {
   Precision,
   DatePickerFilter,
 } from '../date-picker/date-picker-utils'
+import useRenderLabel from './useRenderLabel'
+
+export type RenderLabel = (type: Precision | 'now', data: number) => ReactNode
 
 export type DatePickerViewProps = Pick<
   PickerViewProps,
-  'style' | 'mouseWheel'
+  'style' | 'mouseWheel' | 'loading' | 'loadingContent'
 > & {
   value?: Date
   defaultValue?: Date
@@ -25,7 +27,7 @@ export type DatePickerViewProps = Pick<
   min?: Date
   max?: Date
   precision?: Precision
-  renderLabel?: (type: Precision, data: number) => ReactNode
+  renderLabel?: RenderLabel
   filter?: DatePickerFilter
 } & NativeProps
 
@@ -35,16 +37,18 @@ const defaultProps = {
   min: new Date(new Date().setFullYear(thisYear - 10)),
   max: new Date(new Date().setFullYear(thisYear + 10)),
   precision: 'day',
-  renderLabel: defaultRenderLabel,
 }
 
 export const DatePickerView: FC<DatePickerViewProps> = p => {
   const props = mergeProps(defaultProps, p)
+  const { renderLabel } = props
 
   const [value, setValue] = usePropsValue<Date | null>({
     value: props.value,
     defaultValue: props.defaultValue ?? null,
   })
+
+  const mergedRenderLabel = useRenderLabel(renderLabel)
 
   const pickerValue = useMemo(
     () => convertDateToStringArray(value, props.precision),
@@ -71,10 +75,12 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
           props.min,
           props.max,
           props.precision,
-          props.renderLabel,
+          mergedRenderLabel,
           props.filter
         )
       }
+      loading={props.loading}
+      loadingContent={props.loadingContent}
       value={pickerValue}
       mouseWheel={props.mouseWheel}
       onChange={onChange}

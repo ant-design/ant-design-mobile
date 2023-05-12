@@ -3,14 +3,18 @@
 .@{class-prefix-rate} {
   --star-size: 24px;
   --active-color: #ffd21e;
-  --inactive-color: var(--adm-color-light);
+  --inactive-color: #e5e5e5;
+  --inactive-color-half: #dbdbdb;
+
   display: inline-flex;
+  touch-action: pan-y;
+  user-select: none;
   &-box {
     position: relative;
   }
 
   &-star {
-    padding: calc(var(--star-size) / 8);
+    padding: 0.125em;
     line-height: var(--star-size);
     font-size: var(--star-size);
     color: var(--inactive-color);
@@ -18,6 +22,7 @@
     overflow: hidden;
     cursor: pointer;
     box-sizing: border-box;
+    transition: all 0.3s;
     &-half {
       padding-right: 0;
       width: 50%;
@@ -30,6 +35,12 @@
     }
     &-readonly {
       cursor: unset;
+    }
+  }
+
+  &&-half {
+    .@{class-prefix-rate}-star-half:not(.@{class-prefix-rate}-star-active) {
+      color: var(--inactive-color-half);
     }
   }
 }

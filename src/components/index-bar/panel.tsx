@@ -5,6 +5,7 @@ export type IndexBarPanelProps = {
   index: string
   title?: ReactNode
   brief?: ReactNode
+  children?: ReactNode
 } & NativeProps
 
 export const Panel: FC<IndexBarPanelProps> = () => null

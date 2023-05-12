@@ -4,6 +4,7 @@ import zhCN from '../../locales/zh-CN'
 
 type Config = {
   locale: Locale
+  children?: React.ReactNode
 }
 
 export const defaultConfigRef: {

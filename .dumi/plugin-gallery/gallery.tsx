@@ -1,21 +1,24 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
-import { List, NavBar, Popover, SafeArea } from 'antd-mobile'
+import { List, NavBar, Popover, SafeArea, SearchBar } from 'antd-mobile'
 // @ts-ignore
 import ComponentConfig from '@@/dumi/config'
 // @ts-ignore
 import DemosConfig from '@@/dumi/demos'
 import styles from './gallery.less'
 import classNames from 'classnames'
+import { useDebounceEffect } from 'ahooks'
+import { cloneDeep } from 'lodash'
 
-const components = ComponentConfig['menus']['zh']['/zh/components'] as [
-  {
+type ComponentGroup = {
+  title: string
+  children: {
     title: string
-    children: {
-      title: string
-      path: string
-    }[]
-  }
-]
+    path: string
+  }[]
+}
+
+const components: ComponentGroup[] =
+  ComponentConfig['menus']['zh']['/zh/components']
 
 const demos = Object.keys(DemosConfig)
 
@@ -37,6 +40,8 @@ export default props => {
   const [currentDemoIndex, setCurrentDemoIndex] = useState<number | null>(null)
   const [currentComponent, setCurrentComponent] = useState('')
   const [title, setTitle] = useState('Ant Design Mobile')
+  const [searchValue, setSearchValue] = useState<string>('')
+  const [componentGroups, setComponentGroups] = useState(components)
   const { history, match } = props
 
   useEffect(() => {
@@ -59,6 +64,24 @@ export default props => {
       setCurrentDemoIndex(0)
     }
   }, [currentComponent])
+
+  useDebounceEffect(
+    () => {
+      let filterGroups = cloneDeep(components)
+      filterGroups.forEach(group => {
+        group.children = group.children.filter(item =>
+          item.title.toLowerCase().includes(searchValue.toLowerCase())
+        )
+      })
+      setComponentGroups(filterGroups.filter(group => group.children.length))
+    },
+    [searchValue],
+    {
+      wait: 200,
+      leading: false,
+      trailing: true,
+    }
+  )
 
   const demoSwitcher = currentComponent && currentDemoIndex !== null && (
     <Popover.Menu
@@ -120,7 +143,15 @@ export default props => {
             </a>
           </p>
         </div>
-        {components.map(group => {
+        <div className={styles.search}>
+          <SearchBar
+            placeholder='搜索组件'
+            value={searchValue}
+            onChange={val => setSearchValue(val)}
+          />
+        </div>
+
+        {componentGroups.map(group => {
           return (
             <List key={group.title} header={group.title}>
               {group.children.map(item => {

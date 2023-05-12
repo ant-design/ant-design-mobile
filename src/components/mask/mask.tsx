@@ -9,7 +9,7 @@ import {
 } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
-import { useShouldRender } from '../../utils/should-render'
+import { ShouldRender } from '../../utils/should-render'
 import {
   PropagationEvent,
   withStopPropagation,
@@ -22,6 +22,10 @@ const opacityRecord = {
   thin: 0.35,
   thick: 0.75,
 }
+const colorRecord: Record<string, string> = {
+  black: '0, 0, 0',
+  white: '255, 255, 255',
+}
 
 export type MaskProps = {
   visible?: boolean
@@ -29,12 +33,13 @@ export type MaskProps = {
   destroyOnClose?: boolean
   forceRender?: boolean
   disableBodyScroll?: boolean
-  color?: 'black' | 'white'
+  color?: 'white' | 'black' | (string & {})
   opacity?: 'default' | 'thin' | 'thick' | number
   getContainer?: GetContainer
   afterShow?: () => void
   afterClose?: () => void
   stopPropagation?: PropagationEvent[]
+  children?: React.ReactNode
 } & NativeProps<'--z-index'>
 
 const defaultProps = {
@@ -58,8 +63,8 @@ export const Mask: React.FC<MaskProps> = p => {
 
   const background = useMemo(() => {
     const opacity = opacityRecord[props.opacity] ?? props.opacity
-    const rgb = props.color === 'white' ? '255, 255, 255' : '0, 0, 0'
-    return `rgba(${rgb}, ${opacity})`
+    const rgb = colorRecord[props.color]
+    return rgb ? `rgba(${rgb}, ${opacity})` : props.color
   }, [props.color, props.opacity])
 
   const [active, setActive] = useState(props.visible)
@@ -70,7 +75,7 @@ export const Mask: React.FC<MaskProps> = p => {
     config: {
       precision: 0.01,
       mass: 1,
-      tension: 200,
+      tension: 250,
       friction: 30,
       clamp: true,
     },
@@ -88,12 +93,6 @@ export const Mask: React.FC<MaskProps> = p => {
     },
   })
 
-  const shouldRender = useShouldRender(
-    active,
-    props.forceRender,
-    props.destroyOnClose
-  )
-
   const node = withStopPropagation(
     props.stopPropagation,
     withNativeProps(
@@ -102,12 +101,12 @@ export const Mask: React.FC<MaskProps> = p => {
         className={classPrefix}
         ref={ref}
         style={{
+          ...props.style,
           background,
           opacity,
-          ...props.style,
-          display: active ? 'unset' : 'none',
+          display: active ? undefined : 'none',
         }}
-        onClick={e => {
+        onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
           if (e.target === e.currentTarget) {
             props.onMaskClick?.(e)
           }
@@ -121,12 +120,18 @@ export const Mask: React.FC<MaskProps> = p => {
             onClick={props.onMaskClick}
           />
         )}
-        <div className={`${classPrefix}-content`}>
-          {shouldRender && props.children}
-        </div>
+        <div className={`${classPrefix}-content`}>{props.children}</div>
       </animated.div>
     )
   )
 
-  return renderToContainer(props.getContainer, node)
+  return (
+    <ShouldRender
+      active={active}
+      forceRender={props.forceRender}
+      destroyOnClose={props.destroyOnClose}
+    >
+      {renderToContainer(props.getContainer, node)}
+    </ShouldRender>
+  )
 }

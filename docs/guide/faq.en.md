@@ -20,7 +20,11 @@ V2 has been released a long time ago. In the last two years, we have developed t
 
 For new projects, we recommend using the v5 version directly.
 
-For old projects, we recommend a gradual [migration plan](./migration).
+For old projects, we recommend a gradual [migration plan](/guide/migration).
+
+### How to check the exact version of antd-mobile installed in the project?
+
+Open `node_modules/antd-mobile/package.json`, the value of the `version` field is the exact version of antd-mobile installed in the current project.
 
 ### How to solve the error after installing antd-mobile v5 in the umi project?
 
@@ -42,7 +46,7 @@ The solution is to upgrade the plug-in:
 
 ### How do I migrate from v2 to v5?
 
-Please refer to the [migration guide](./migration).
+Please refer to the [migration guide](/guide/migration).
 
 ### How to avoid the 300ms delay of click?
 
@@ -84,3 +88,13 @@ Codesandbox is a browser-side sandbox runtime environment that supports a variet
 2. To ensure accurate reproduction, make sure that the version of your bug is the same as the antd-mobile version in the CodesandBox dependency.
 
 3. When you're done reliving the code, don't forget to `save` to create a new instance, and then click the Share button appearing in the upper right corner to copy the URL to Issues.
+
+### What is the `import xxx from 'demos'` that appears in the documentation demo?
+
+`demos` is not an npm package, but an alias created in the antd-mobile project. Its implementation is [here](https://github.com/ant-design/ant-design-mobile/blob/master/src/demos/index.ts).
+
+Please don't try `npm install demos`. You can just ignore them.
+
+### Does antd-mobile have umd package on CDN?
+
+Yes, please refer to [this document](/guide/pre-built-bundles) for specific usage.

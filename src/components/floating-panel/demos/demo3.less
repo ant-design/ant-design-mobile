@@ -1,0 +1,36 @@
+.search {
+  padding: 0 12px 12px;
+  background-color: var(--adm-color-background);
+
+  :global {
+    .adm-space-item:first-child {
+      flex: 1;
+    }
+
+    .adm-search-bar-cancel-button.adm-button {
+      padding: 3px 2px;
+      color: var(--adm-color-primary);
+      font-size: 16px;
+    }
+  }
+}
+
+.avatar {
+  --size: 32px;
+  --border-radius: 50%;
+}
+
+.item {
+  text-align: center;
+  font-size: 14px;
+}
+
+.map {
+  border: 0;
+  width: calc(100vw + 800px);
+  height: calc(100vh + 800px);
+  position: fixed;
+  z-index: 0;
+  left: -400px;
+  top: -400px;
+}

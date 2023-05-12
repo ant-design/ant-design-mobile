@@ -22,6 +22,7 @@ export type RadioProps = {
   block?: boolean
   id?: string
   icon?: (checked: boolean) => React.ReactNode
+  children?: React.ReactNode
 } & NativeProps<'--icon-size' | '--font-size' | '--gap'>
 
 const defaultProps = {
@@ -57,13 +58,13 @@ export const Radio: FC<RadioProps> = p => {
     }
 
     checked = groupContext.value.includes(value)
-    setChecked = (checked: boolean) => {
-      if (checked) {
+    setChecked = (innerChecked: boolean) => {
+      if (innerChecked) {
         groupContext.check(value)
       } else {
         groupContext.uncheck(value)
       }
-      props.onChange?.(checked)
+      props.onChange?.(innerChecked)
     }
     disabled = disabled || groupContext.disabled
   }

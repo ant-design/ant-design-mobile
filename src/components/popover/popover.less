@@ -10,12 +10,13 @@
   &&-dark {
     --background: rgba(0, 0, 0, 0.75);
     --adm-color-text: #ffffff;
-    color: white;
+    color: #ffffff;
     .adm-popover-inner {
       box-shadow: none;
     }
   }
 
+  color: var(--adm-color-text);
   position: absolute;
   top: 0;
   left: 0;
@@ -40,7 +41,8 @@
     background-clip: padding-box;
     border-radius: 8px;
     box-shadow: 0 0 30px 0 rgba(51, 51, 51, 0.2);
-    font-size: 15px;
+    font-size: var(--adm-font-size-7);
+    width: max-content;
     min-width: 32px;
     max-width: calc(100vw - 24px);
     overflow-y: hidden;
@@ -61,7 +63,7 @@
   &-arrow-icon {
     display: block;
     height: var(--arrow-size);
-    width: 15px;
+    width: calc(var(--arrow-size) / 8 * 15);
     position: absolute;
     top: 50%;
     left: 50%;

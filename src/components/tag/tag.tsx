@@ -24,6 +24,7 @@ export type TagProps = {
   fill?: 'solid' | 'outline'
   round?: boolean
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
+  children?: React.ReactNode
 } & NativeProps<
   '--border-color' | '--background-color' | '--text-color' | '--border-radius'
 >

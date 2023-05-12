@@ -15,7 +15,7 @@ export type WaterMarkProps = {
   image?: string
   imageWidth?: number
   imageHeight?: number
-  content?: string
+  content?: string | string[]
   fontColor?: string
   fontStyle?: 'none' | 'normal' | 'italic' | 'oblique'
   fontFamily?: string
@@ -53,7 +53,6 @@ export const WaterMark: FC<WaterMarkProps> = p => {
   useEffect(() => {
     const canvas = document.createElement('canvas')
     const ratio = window.devicePixelRatio
-
     const ctx = canvas.getContext('2d')
 
     const canvasWidth = `${(gapX + width) * ratio}px`
@@ -73,7 +72,6 @@ export const WaterMark: FC<WaterMarkProps> = p => {
         const img = new Image()
         img.crossOrigin = 'anonymous'
         img.referrerPolicy = 'no-referrer'
-        img.src = image
         img.onload = () => {
           ctx.drawImage(
             img,
@@ -85,6 +83,7 @@ export const WaterMark: FC<WaterMarkProps> = p => {
           ctx.restore()
           setBase64Url(canvas.toDataURL())
         }
+        img.src = image
       } else if (content) {
         ctx.textBaseline = 'middle'
         ctx.textAlign = 'center'
@@ -95,13 +94,18 @@ export const WaterMark: FC<WaterMarkProps> = p => {
         const markSize = Number(fontSize) * ratio
         ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`
         ctx.fillStyle = fontColor
-
-        ctx.fillText(content, 0, 0)
+        if (Array.isArray(content)) {
+          content.forEach((item: string, index: number) =>
+            ctx.fillText(item, 0, index * markSize)
+          )
+        } else {
+          ctx.fillText(content, 0, 0)
+        }
         ctx.restore()
         setBase64Url(canvas.toDataURL())
       }
     } else {
-      throw new Error('当前环境不支持Canvas')
+      throw new Error('Canvas is not supported in the current environment')
     }
   }, [
     gapX,

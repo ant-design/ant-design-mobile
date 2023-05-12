@@ -5,7 +5,7 @@ import { DemoBlock } from 'demos'
 export default () => {
   return (
     <>
-      <DemoBlock title='基本用法' padding='0'>
+      <DemoBlock title='基础用法' padding='0'>
         <JumboTabs>
           <JumboTabs.Tab title='水果' description='描述文案' key='fruits'>
             菠萝
@@ -19,7 +19,7 @@ export default () => {
         </JumboTabs>
       </DemoBlock>
 
-      <DemoBlock title='超长自动滚动' padding='0'>
+      <DemoBlock title='超长自动滑动' padding='0'>
         <JumboTabs defaultActiveKey='1'>
           <JumboTabs.Tab title='Espresso' description='描述文案' key='1'>
             1
@@ -60,7 +60,7 @@ export default () => {
         </JumboTabs>
       </DemoBlock>
 
-      <DemoBlock title='禁用' padding='0'>
+      <DemoBlock title='禁用状态' padding='0'>
         <JumboTabs>
           <JumboTabs.Tab title='水果' description='描述文案' key='fruits' />
           <JumboTabs.Tab title='蔬菜' description='描述文案' key='vegetables' />

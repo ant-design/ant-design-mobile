@@ -6,7 +6,7 @@ import { tabs } from './tabs'
 export default () => {
   return (
     <>
-      <DemoBlock title='基本用法' padding='0'>
+      <DemoBlock title='基础用法' padding='0'>
         <SideBar>
           {tabs.map(item => (
             <SideBar.Item key={item.key} title={item.title} />
@@ -14,7 +14,7 @@ export default () => {
         </SideBar>
       </DemoBlock>
 
-      <DemoBlock title='配合 Badge 使用' padding='0'>
+      <DemoBlock title='搭配 Badge 使用' padding='0'>
         <SideBar>
           {tabs.map(item => (
             <SideBar.Item
@@ -26,7 +26,7 @@ export default () => {
         </SideBar>
       </DemoBlock>
 
-      <DemoBlock title='禁用某个选项' padding='0'>
+      <DemoBlock title='禁用状态' padding='0'>
         <SideBar>
           {tabs.map(item => (
             <SideBar.Item

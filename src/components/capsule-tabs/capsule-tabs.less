@@ -1,12 +1,14 @@
-@class-prefix-tabs: ~'adm-capsule-tabs';
+@class-prefix-capsule-tabs: ~'adm-capsule-tabs';
 
-.@{class-prefix-tabs} {
+.@{class-prefix-capsule-tabs} {
   position: relative;
+  // Hack for auto scroll fail when the parent element is a flex layout
+  min-width: 0;
 
   &-header {
     position: relative;
     padding: 12px 6px;
-    border-bottom: solid 1px var(--adm-border-color);
+    border-bottom: solid 1px var(--adm-color-border);
   }
 
   &-tab-list {
@@ -31,13 +33,13 @@
     margin: 0 auto;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: var(--adm-font-size-7);
     text-align: center;
     white-space: nowrap;
-    background-color: #f5f5f5;
+    background-color: var(--adm-color-fill-content);
   }
   &-tab-active {
-    color: #fff;
+    color: var(--adm-color-text-light-solid);
     background-color: var(--adm-color-primary);
   }
   &-tab-disabled {
@@ -46,22 +48,5 @@
   }
   &-content {
     padding: 12px;
-  }
-  &-header-mask {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-    width: 30px;
-    height: 100%;
-    pointer-events: none;
-  }
-  &-header-mask-left {
-    left: 0;
-    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
-  }
-  &-header-mask-right {
-    right: 0;
-    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
   }
 }

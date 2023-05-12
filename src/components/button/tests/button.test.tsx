@@ -1,5 +1,13 @@
 import React, { createRef } from 'react'
-import { render, testA11y, screen, fireEvent } from 'testing'
+import {
+  render,
+  testA11y,
+  screen,
+  fireEvent,
+  sleep,
+  waitFor,
+  act,
+} from 'testing'
 import Button from '../'
 import type { ButtonRef } from '..'
 
@@ -19,10 +27,18 @@ describe('Button', () => {
         <Button color='warning'>Warning</Button>
       </>
     )
-    expect(getByText('Primary')).toHaveClass(`${classPrefix}-primary`)
-    expect(getByText('Success')).toHaveClass(`${classPrefix}-success`)
-    expect(getByText('Danger')).toHaveClass(`${classPrefix}-danger`)
-    expect(getByText('Warning')).toHaveClass(`${classPrefix}-warning`)
+    expect(getByText('Primary').closest('button')).toHaveClass(
+      `${classPrefix}-primary`
+    )
+    expect(getByText('Success').closest('button')).toHaveClass(
+      `${classPrefix}-success`
+    )
+    expect(getByText('Danger').closest('button')).toHaveClass(
+      `${classPrefix}-danger`
+    )
+    expect(getByText('Warning').closest('button')).toHaveClass(
+      `${classPrefix}-warning`
+    )
   })
 
   test('renders with fill', () => {
@@ -33,9 +49,15 @@ describe('Button', () => {
         <Button fill='none'>none</Button>
       </>
     )
-    expect(getByText('outline')).toHaveClass(`${classPrefix}-fill-outline`)
-    expect(getByText('none')).toHaveClass(`${classPrefix}-fill-none`)
-    expect(getByText('solid')).not.toHaveClass(`${classPrefix}-fill-solid`)
+    expect(getByText('outline').closest('button')).toHaveClass(
+      `${classPrefix}-fill-outline`
+    )
+    expect(getByText('none').closest('button')).toHaveClass(
+      `${classPrefix}-fill-none`
+    )
+    expect(getByText('solid').closest('button')).not.toHaveClass(
+      `${classPrefix}-fill-solid`
+    )
   })
 
   test('renders with size', () => {
@@ -55,10 +77,16 @@ describe('Button', () => {
         </Button>
       </>
     )
-    expect(getByText('Mini')).toHaveClass(`${classPrefix}-mini`)
-    expect(getByText('Small')).toHaveClass(`${classPrefix}-small`)
-    expect(getByText('Middle')).toHaveClass(`${classPrefix}`)
-    expect(getByText('Large')).toHaveClass(`${classPrefix}-large`)
+    expect(getByText('Mini').closest('button')).toHaveClass(
+      `${classPrefix}-mini`
+    )
+    expect(getByText('Small').closest('button')).toHaveClass(
+      `${classPrefix}-small`
+    )
+    expect(getByText('Middle').closest('button')).toHaveClass(`${classPrefix}`)
+    expect(getByText('Large').closest('button')).toHaveClass(
+      `${classPrefix}-large`
+    )
   })
 
   test('renders with block', () => {
@@ -67,7 +95,9 @@ describe('Button', () => {
         Block
       </Button>
     )
-    expect(getByText('Block')).toHaveClass(`${classPrefix}-block`)
+    expect(getByText('Block').closest('button')).toHaveClass(
+      `${classPrefix}-block`
+    )
   })
 
   test('renders with disabled', () => {
@@ -76,9 +106,14 @@ describe('Button', () => {
     expect(button).toBeDisabled()
   })
 
-  test('renders with loading and loadingText', () => {
+  test('loading with custom loadingText and loadingIcon', () => {
     const { getByTestId } = render(
-      <Button loading data-testid='btn' loadingText='加载中'>
+      <Button
+        loading
+        data-testid='btn'
+        loadingText='加载中'
+        loadingIcon={<div>loadingIcon</div>}
+      >
         Loading
       </Button>
     )
@@ -90,6 +125,7 @@ describe('Button', () => {
     }).toThrow(/Unable to find an element with the text: Loading./)
 
     screen.getByText('加载中')
+    screen.getByText('loadingIcon')
   })
 
   test('renders with type', () => {
@@ -127,10 +163,59 @@ describe('Button', () => {
     screen.getByText('加载中')
   })
 
+  test('renders with async onClick and auto loading', async () => {
+    jest.useFakeTimers()
+    const { getByText } = render(
+      <Button
+        loading='auto'
+        loadingText='加载中'
+        onClick={async () => {
+          await sleep(300)
+        }}
+      >
+        Button
+      </Button>
+    )
+
+    fireEvent.click(getByText('Button'))
+    await waitFor(async () => {
+      expect(screen.getByText('加载中')).toBeInTheDocument()
+    })
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+    await waitFor(async () => {
+      expect(screen.getByText('Button')).toBeInTheDocument()
+    })
+    jest.useRealTimers()
+  })
+
   test('ref should work', async () => {
     const ref = createRef<ButtonRef>()
     render(<Button ref={ref}>Button</Button>)
     expect(ref.current).toBeDefined()
     expect(ref.current?.nativeElement).toBeDefined()
+  })
+
+  test('renders with async onClick and auto loading when Promise reject', async () => {
+    const error = new Error('mock request fail')
+    const mockFail = jest.fn().mockRejectedValue(error)
+    const { getByText } = render(
+      <Button
+        loading='auto'
+        loadingText='加载中'
+        onClick={async () => {
+          await expect(mockFail).rejects.toBe(error)
+        }}
+      >
+        Button
+      </Button>
+    )
+    await waitFor(async () => {
+      fireEvent.click(getByText('Button'))
+      screen.getByText('加载中')
+      await sleep(100)
+      screen.getByText('Button')
+    })
   })
 })

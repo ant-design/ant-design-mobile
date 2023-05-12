@@ -1,0 +1,96 @@
+@class-prefix-button: ~'adm-button';
+
+.adm-button {
+  color: #333333;
+  background-color: #ffffff;
+  font-size: 17px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #eeeeee;
+  border-radius: 4px;
+
+  &::before {
+    transform: translate(-1px, -1px);
+    border: 1px solid #000;
+    border-radius: 4px;
+  }
+
+  &-default {
+    &.@{class-prefix-button}-fill-outline {
+      background-color: transparent;
+      border-color: #333333;
+    }
+    &.@{class-prefix-button}-fill-none {
+      background-color: transparent;
+      border-width: 0;
+    }
+  }
+
+  &:not(&-default) {
+    color: #ffffff;
+    &.@{class-prefix-button}-fill-outline {
+      background-color: transparent;
+    }
+    &.@{class-prefix-button}-fill-none {
+      background-color: transparent;
+      border-width: 0;
+    }
+  }
+
+  &-primary {
+    background-color: #1677ff;
+    border-color: #1677ff;
+    &.@{class-prefix-button}-fill-outline,
+    &.@{class-prefix-button}-fill-none {
+      color: #1677ff;
+    }
+  }
+  &-success {
+    background-color: #00b578;
+    border-color: #00b578;
+    &.@{class-prefix-button}-fill-outline,
+    &.@{class-prefix-button}-fill-none {
+      color: #00b578;
+    }
+  }
+  &-danger {
+    background-color: #00b578;
+    border-color: #00b578;
+    &.@{class-prefix-button}-fill-outline,
+    &.@{class-prefix-button}-fill-none {
+      color: #00b578;
+    }
+  }
+  &-warning {
+    background-color: #ff8f1f;
+    border-color: #ff8f1f;
+    &.@{class-prefix-button}-fill-outline,
+    &.@{class-prefix-button}-fill-none {
+      color: #ff8f1f;
+    }
+  }
+
+  &&-mini {
+    font-size: 13px;
+  }
+
+  &&-small {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 15px;
+  }
+  &&-large {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    font-size: 18px;
+  }
+  &&-shape-rounded {
+    border-radius: 1000px;
+    &::before {
+      border-radius: 1000px;
+    }
+  }
+  &&-shape-rectangular {
+    border-radius: 0;
+  }
+}

@@ -19,7 +19,7 @@ export const SlugList: FC<Props> = props => {
     <div className='adm-doc-toc'>
       <ul role='slug-list'>
         {slugs
-          .filter(({ depth }, index) => (depth > 1 && depth < 4) || index === 0)
+          .filter(({ depth }, index) => depth > 1 && depth < 4)
           .map(slug => (
             <li key={slug.heading} title={slug.value} data-depth={slug.depth}>
               <AnchorLink to={`#${slug.heading}`}>

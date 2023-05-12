@@ -1,8 +1,9 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
+  maxConcurrency: 1,
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  modulePathIgnorePatterns: [],
+  modulePathIgnorePatterns: ['<rootDir>/lib/', '<rootDir>/dist/'],
   moduleDirectories: ['node_modules', 'src/tests'],
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest/dist',
@@ -10,7 +11,11 @@ module.exports = {
       '<rootDir>/fileTransformer.js',
   },
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  setupFiles: ['jest-canvas-mock'],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    '<rootDir>/src/tests/setup.ts',
+  ],
   globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.json',

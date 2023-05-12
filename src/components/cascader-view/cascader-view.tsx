@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useMemo } from 'react'
+import React, { FC, ReactNode, useState, useEffect, useMemo } from 'react'
 import classNames from 'classnames'
 import Tabs from '../tabs'
 import CheckList from '../check-list'
@@ -9,6 +9,7 @@ import { useCascaderValueExtend } from './use-cascader-value-extend'
 import { useConfig } from '../config-provider'
 import { optionSkeleton } from './option-skeleton'
 import Skeleton from '../skeleton'
+import { useUpdateEffect } from 'ahooks'
 
 const classPrefix = `adm-cascader-view`
 
@@ -31,7 +32,9 @@ export type CascaderViewProps = {
   value?: CascaderValue[]
   defaultValue?: CascaderValue[]
   onChange?: (value: CascaderValue[], extend: CascaderValueExtend) => void
-  placeholder?: string
+  placeholder?: string | ((index: number) => string)
+  onTabsChange?: (index: number) => void
+  activeIcon?: ReactNode
 } & NativeProps<'--height'>
 
 const defaultProps = {
@@ -40,20 +43,18 @@ const defaultProps = {
 
 export const CascaderView: FC<CascaderViewProps> = p => {
   const { locale } = useConfig()
-  const props = mergeProps(
-    defaultProps,
-    {
-      placeholder: locale.Cascader.placeholder,
-    },
-    p
-  )
+  const props = mergeProps(defaultProps, p)
+  const placeholder = props.placeholder || locale.Cascader.placeholder
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
       props.onChange?.(val, generateValueExtend(val))
     },
   })
-  const [tabActiveKey, setTabActiveKey] = useState<number>(0)
+  const [tabActiveIndex, setTabActiveIndex] = useState<number>(0)
+  useUpdateEffect(() => {
+    props.onTabsChange?.(tabActiveIndex)
+  }, [tabActiveIndex])
 
   const generateValueExtend = useCascaderValueExtend(props.options)
 
@@ -86,14 +87,14 @@ export const CascaderView: FC<CascaderViewProps> = p => {
   }, [value, props.options])
 
   useEffect(() => {
-    setTabActiveKey(levels.length - 1)
+    setTabActiveIndex(levels.length - 1)
   }, [value])
   useEffect(() => {
     const max = levels.length - 1
-    if (tabActiveKey > max) {
-      setTabActiveKey(max)
+    if (tabActiveIndex > max) {
+      setTabActiveIndex(max)
     }
-  }, [tabActiveKey, levels])
+  }, [tabActiveIndex, levels])
 
   const onItemSelect = (selectValue: CascaderValue, depth: number) => {
     const next = value.slice(0, depth)
@@ -107,8 +108,11 @@ export const CascaderView: FC<CascaderViewProps> = p => {
     props,
     <div className={classPrefix}>
       <Tabs
-        activeKey={tabActiveKey.toString()}
-        onChange={key => setTabActiveKey(parseInt(key))}
+        activeKey={tabActiveIndex.toString()}
+        onChange={key => {
+          const activeIndex = parseInt(key)
+          setTabActiveIndex(activeIndex)
+        }}
         stretch={false}
         className={`${classPrefix}-tabs`}
       >
@@ -116,10 +120,14 @@ export const CascaderView: FC<CascaderViewProps> = p => {
           const selected = level.selected
           return (
             <Tabs.Tab
-              key={index}
+              key={index.toString()}
               title={
                 <div className={`${classPrefix}-header-title`}>
-                  {selected ? selected.label : props.placeholder}
+                  {selected
+                    ? selected.label
+                    : typeof placeholder === 'function'
+                    ? placeholder(index)
+                    : placeholder}
                 </div>
               }
               forceRender
@@ -150,6 +158,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
                     onChange={selectValue =>
                       onItemSelect(selectValue[0], index)
                     }
+                    activeIcon={props.activeIcon}
                   >
                     {level.options.map(option => {
                       const active = value[index] === option.value

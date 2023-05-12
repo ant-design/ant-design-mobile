@@ -3,6 +3,7 @@ import type { IRouteComponentProps } from '@umijs/types'
 import { context, Link } from 'dumi/theme'
 import Navbar from '../components/Navbar'
 import SideMenu from '../components/SideMenu'
+import Dark from '../components/Dark'
 import { SlugList } from '../components/slug-list'
 import '../style/layout-default.less'
 import '../style/global.less'
@@ -45,11 +46,13 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
   const updatedTime: any = `${updatedTimeIns.toLocaleDateString([], {
     hour12: false,
   })} ${updatedTimeIns.toLocaleTimeString([], { hour12: false })}`
+  const [darkSwitch, setDarkSwitch] = useState<boolean>(false)
 
   useLayoutEffect(() => {
     if (window !== window.parent) {
       return
     }
+
     if (
       window.innerWidth <= 600 &&
       !window.location.pathname.startsWith('/gallery')
@@ -65,8 +68,23 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
       data-show-sidemenu={String(showSideMenu)}
       data-show-slugs={String(showSlugs)}
       data-gapless={String(!!meta.gapless)}
+      onClick={() => {
+        setDarkSwitch(false)
+      }}
     >
-      <Navbar location={location} />
+      <Navbar
+        location={location}
+        darkPrefix={
+          <Dark
+            darkSwitch={darkSwitch}
+            onDarkSwitchClick={ev => {
+              setDarkSwitch(val => !val)
+              ev.stopPropagation()
+            }}
+            isSideMenu={false}
+          />
+        }
+      />
       {meta.full ? (
         <>{children}</>
       ) : (

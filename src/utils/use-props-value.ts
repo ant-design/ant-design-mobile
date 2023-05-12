@@ -17,14 +17,18 @@ export function usePropsValue<T>(options: Options<T>) {
     stateRef.current = value
   }
 
-  const setState = useMemoizedFn((v: SetStateAction<T>) => {
-    const nextValue =
-      typeof v === 'function' ? (v as (prevState: T) => T)(stateRef.current) : v
-    if (value === undefined) {
+  const setState = useMemoizedFn(
+    (v: SetStateAction<T>, forceTrigger: boolean = false) => {
+      // `forceTrigger` means trigger `onChange` even if `v` is the same as `stateRef.current`
+      const nextValue =
+        typeof v === 'function'
+          ? (v as (prevState: T) => T)(stateRef.current)
+          : v
+      if (!forceTrigger && nextValue === stateRef.current) return
       stateRef.current = nextValue
       update()
+      return onChange?.(nextValue)
     }
-    onChange?.(nextValue)
-  })
+  )
   return [stateRef.current, setState] as const
 }

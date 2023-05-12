@@ -12,7 +12,7 @@ const { Step } = Steps
 export default () => {
   return (
     <>
-      <DemoBlock title='自定义图标和大小'>
+      <DemoBlock title='自定义图标及大小'>
         <Steps
           direction='vertical'
           current={1}

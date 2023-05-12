@@ -6,6 +6,7 @@ export const base = {
     confirm: 'Confirm',
     cancel: 'Cancel',
     loading: 'Loading',
+    close: 'Close',
   },
   Calendar: {
     markItems: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -16,6 +17,9 @@ export const base = {
   },
   Dialog: {
     ok: 'OK',
+  },
+  DatePicker: {
+    tillNow: 'Till Now',
   },
   ErrorBlock: {
     default: {
@@ -88,9 +92,15 @@ export const base = {
   },
   ImageUploader: {
     uploading: 'Uploading...',
+    upload: 'Upload',
   },
   InfiniteScroll: {
     noMore: 'No more',
+    failedToLoad: 'Failed to load',
+    retry: 'Retry',
+  },
+  Input: {
+    clear: 'clear',
   },
   Mask: {
     name: 'Mask',
@@ -98,10 +108,29 @@ export const base = {
   Modal: {
     ok: 'OK',
   },
+  PasscodeInput: {
+    name: 'Passcode Input',
+  },
   PullToRefresh: {
     pulling: 'Scroll down to refresh',
     canRelease: 'Release to refresh immediately',
     complete: 'Refresh successful',
+  },
+  SearchBar: {
+    name: 'Search Bar',
+  },
+  Slider: {
+    name: 'Slider',
+  },
+  Stepper: {
+    decrease: 'decrease',
+    increase: 'increase',
+  },
+  Switch: {
+    name: 'Switch',
+  },
+  Selector: {
+    name: 'Selector',
   },
 }
 

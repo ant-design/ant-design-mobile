@@ -7,6 +7,7 @@ import React, {
   useMemo,
   useRef,
   useState,
+  CSSProperties,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -19,7 +20,22 @@ import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
-import { useIsomorphicLayoutEffect, useUpdateEffect } from 'ahooks'
+import { useIsomorphicLayoutEffect, useGetState } from 'ahooks'
+import { mergeFuncProps } from '../../utils/with-func-props'
+
+const classPrefix = `adm-swiper`
+
+const eventToPropRecord = {
+  'mousedown': 'onMouseDown',
+  'mousemove': 'onMouseMove',
+  'mouseup': 'onMouseUp',
+} as const
+
+type ValuesToUnion<T, K extends keyof T = keyof T> = K extends keyof T
+  ? T[K]
+  : never
+
+type PropagationEvent = keyof typeof eventToPropRecord
 
 export type SwiperRef = {
   swipeTo: (index: number) => void
@@ -41,6 +57,7 @@ export type SwiperProps = {
   trackOffset?: number
   stuckAtBoundary?: boolean
   rubberband?: boolean
+  stopPropagation?: PropagationEvent[]
   children?: ReactElement | ReactElement[]
 } & NativeProps<'--height' | '--width' | '--border-radius' | '--track-padding'>
 
@@ -55,12 +72,16 @@ const defaultProps = {
   trackOffset: 0,
   stuckAtBoundary: true,
   rubberband: true,
+  stopPropagation: [] as PropagationEvent[],
 }
 
-export const Swiper = forwardRef(
+let currentUid: undefined | {}
+
+export const Swiper = forwardRef<SwiperRef, SwiperProps>(
   staged<SwiperProps, SwiperRef>((p, ref) => {
     const props = mergeProps(defaultProps, p)
-
+    const [uid] = useState({})
+    const timeoutRef = useRef<number | null>(null)
     const isVertical = props.direction === 'vertical'
 
     const slideRatio = props.slideSize / 100
@@ -105,11 +126,7 @@ export const Swiper = forwardRef(
         return (trackPixels * props.slideSize) / 100
       }
 
-      const [current, setCurrent] = useState(props.defaultIndex)
-
-      useUpdateEffect(() => {
-        props.onIndexChange?.(current)
-      }, [current])
+      const [current, setCurrent, getCurrent] = useGetState(props.defaultIndex)
 
       const [dragging, setDragging, draggingRef] = useRefState(false)
 
@@ -143,8 +160,21 @@ export const Swiper = forwardRef(
         [count]
       )
 
+      const dragCancelRef = useRef<(() => void) | null>(null)
+      function forceCancelDrag() {
+        dragCancelRef.current?.()
+        draggingRef.current = false
+      }
+
       const bind = useDrag(
         state => {
+          dragCancelRef.current = state.cancel
+          if (!state.intentional) return
+          if (state.first && !currentUid) {
+            currentUid = uid
+          }
+          if (currentUid !== uid) return
+          currentUid = state.last ? undefined : uid
           const slidePixels = getSlidePixels()
           if (!slidePixels) return
           const paramIndex = isVertical ? 1 : 0
@@ -178,6 +208,7 @@ export const Swiper = forwardRef(
               (position.get() / 100) * slidePixels,
             ]
           },
+          triggerAllEvents: true,
           bounds: () => {
             if (loop) return {}
             const slidePixels = getSlidePixels()
@@ -208,6 +239,11 @@ export const Swiper = forwardRef(
           ? modulus(roundedIndex, count)
           : bound(roundedIndex, 0, count - 1)
         setCurrent(targetIndex)
+
+        if (targetIndex !== getCurrent()) {
+          props.onIndexChange?.(targetIndex)
+        }
+
         api.start({
           position: (loop ? roundedIndex : boundIndex(roundedIndex)) * 100,
           immediate,
@@ -236,24 +272,33 @@ export const Swiper = forwardRef(
       })
 
       const { autoplay, autoplayInterval } = props
+
+      const runTimeSwiper = () => {
+        timeoutRef.current = window.setTimeout(() => {
+          swipeNext()
+          runTimeSwiper()
+        }, autoplayInterval)
+      }
       useEffect(() => {
         if (!autoplay || dragging) return
-        const interval = window.setInterval(() => {
-          swipeNext()
-        }, autoplayInterval)
+
+        runTimeSwiper()
+
         return () => {
-          window.clearInterval(interval)
+          if (timeoutRef.current) window.clearTimeout(timeoutRef.current)
         }
-      }, [autoplay, autoplayInterval, dragging])
+      }, [autoplay, autoplayInterval, dragging, count])
 
       function renderTrackInner() {
         if (loop) {
           return (
-            <div className='adm-swiper-track-inner'>
+            <div className={`${classPrefix}-track-inner`}>
               {React.Children.map(validChildren, (child, index) => {
                 return (
                   <animated.div
-                    className='adm-swiper-slide'
+                    className={classNames(`${classPrefix}-slide`, {
+                      [`${classPrefix}-slide-active`]: current === index,
+                    })}
                     style={{
                       [isVertical ? 'y' : 'x']: position.to(position => {
                         let finalPosition = -position + index * 100
@@ -276,48 +321,74 @@ export const Swiper = forwardRef(
         } else {
           return (
             <animated.div
-              className='adm-swiper-track-inner'
+              className={`${classPrefix}-track-inner`}
               style={{
                 [isVertical ? 'y' : 'x']: position.to(
                   position => `${-position}%`
                 ),
               }}
             >
-              {React.Children.map(validChildren, child => {
-                return <div className='adm-swiper-slide'>{child}</div>
+              {React.Children.map(validChildren, (child, index) => {
+                return (
+                  <div
+                    className={classNames(`${classPrefix}-slide`, {
+                      [`${classPrefix}-slide-active`]: current === index,
+                    })}
+                  >
+                    {child}
+                  </div>
+                )
               })}
             </animated.div>
           )
         }
       }
 
-      const style: any = {
+      const style: CSSProperties &
+        Record<'--slide-size' | '--track-offset', string> = {
         '--slide-size': `${props.slideSize}%`,
         '--track-offset': `${props.trackOffset}%`,
       }
 
+      const dragProps = { ...(props.allowTouchMove ? bind() : {}) }
+      const stopPropagationProps: Partial<
+        Record<ValuesToUnion<typeof eventToPropRecord>, any>
+      > = {}
+      for (const key of props.stopPropagation) {
+        const prop = eventToPropRecord[key]
+        stopPropagationProps[prop] = function (e: Event) {
+          e.stopPropagation()
+        }
+      }
+
+      const mergedProps = mergeFuncProps(dragProps, stopPropagationProps)
+
       return withNativeProps(
         props,
         <div
-          className={classNames('adm-swiper', `adm-swiper-${props.direction}`)}
+          className={classNames(
+            classPrefix,
+            `${classPrefix}-${props.direction}`
+          )}
           style={style}
         >
           <div
             ref={trackRef}
-            className={classNames('adm-swiper-track', {
-              'adm-swiper-track-allow-touch-move': props.allowTouchMove,
+            className={classNames(`${classPrefix}-track`, {
+              [`${classPrefix}-track-allow-touch-move`]: props.allowTouchMove,
             })}
             onClickCapture={e => {
               if (draggingRef.current) {
                 e.stopPropagation()
               }
+              forceCancelDrag()
             }}
-            {...(props.allowTouchMove ? bind() : {})}
+            {...mergedProps}
           >
             {renderTrackInner()}
           </div>
           {props.indicator === undefined ? (
-            <div className='adm-swiper-indicator'>
+            <div className={`${classPrefix}-indicator`}>
               <PageIndicator
                 {...props.indicatorProps}
                 total={count}

@@ -2,7 +2,7 @@
 
 .@{class-prefix-radio} {
   --icon-size: 22px;
-  --font-size: 17px;
+  --font-size: var(--adm-font-size-9);
   --gap: 8px;
   display: inline-flex;
   vertical-align: text-bottom;
@@ -19,7 +19,7 @@
     box-sizing: border-box;
     width: var(--icon-size);
     height: var(--icon-size);
-    color: var(--adm-color-white);
+    color: var(--adm-color-text-light-solid);
     > svg {
       display: block;
       width: 100%;
@@ -43,7 +43,7 @@
     .@{class-prefix-radio}-icon {
       color: #b7b7b7;
       border-color: var(--adm-color-light);
-      background-color: #f5f5f5;
+      background-color: var(--adm-color-fill-content);
     }
   }
   .@{class-prefix-radio}-custom-icon {

@@ -5,28 +5,6 @@ import { DemoBlock } from 'demos'
 export default () => {
   return (
     <>
-      <DemoBlock title='不同颜色的按钮'>
-        <Space wrap>
-          <Button
-            onClick={() => {
-              alert('hello.')
-            }}
-          >
-            Default
-          </Button>
-          <Button color='primary'>Primary</Button>
-          <Button color='success'>Success</Button>
-          <Button color='danger'>Danger</Button>
-          <Button color='warning'>Warning</Button>
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title='块级按钮'>
-        <Button block color='primary' size='large'>
-          Block Button
-        </Button>
-      </DemoBlock>
-
       <DemoBlock title='填充模式'>
         <Space wrap>
           <Button color='primary' fill='solid'>
@@ -41,7 +19,13 @@ export default () => {
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='不同大小的按钮'>
+      <DemoBlock title='块级按钮'>
+        <Button block color='primary' size='large'>
+          Block Button
+        </Button>
+      </DemoBlock>
+
+      <DemoBlock title='按钮尺寸'>
         <Space wrap align='center'>
           <Button size='mini' color='primary'>
             Mini
@@ -55,6 +39,22 @@ export default () => {
           <Button size='large' color='primary'>
             Large
           </Button>
+        </Space>
+      </DemoBlock>
+
+      <DemoBlock title='语义按钮'>
+        <Space wrap>
+          <Button
+            onClick={() => {
+              alert('hello.')
+            }}
+          >
+            Default
+          </Button>
+          <Button color='primary'>Primary</Button>
+          <Button color='success'>Success</Button>
+          <Button color='danger'>Danger</Button>
+          <Button color='warning'>Warning</Button>
         </Space>
       </DemoBlock>
     </>

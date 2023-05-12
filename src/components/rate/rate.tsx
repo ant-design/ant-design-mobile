@@ -1,9 +1,11 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { StarFill } from 'antd-mobile-icons'
 import { usePropsValue } from '../../utils/use-props-value'
+import { Star } from './star'
+import { useDrag } from '@use-gesture/react'
+import { bound } from '../../utils/bound'
 
 const classPrefix = `adm-rate`
 
@@ -21,7 +23,7 @@ export type RateProps = {
 const defaultProps = {
   count: 5,
   allowHalf: false,
-  character: <StarFill />,
+  character: <Star />,
   defaultValue: 0,
   readOnly: false,
   allowClear: true,
@@ -30,6 +32,8 @@ const defaultProps = {
 export const Rate: FC<RateProps> = p => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
+
+  const containerRef = useRef<HTMLDivElement>(null)
   const starList = Array(props.count).fill(null)
 
   function renderStar(v: number, half: boolean) {
@@ -40,22 +44,61 @@ export const Rate: FC<RateProps> = p => {
           [`${classPrefix}-star-half`]: half,
           [`${classPrefix}-star-readonly`]: props.readOnly,
         })}
-        onClick={() => {
-          if (props.readOnly) return
-          if (props.allowClear && value === v) {
-            setValue(0)
-          } else {
-            setValue(v)
-          }
-        }}
+        role='radio'
+        aria-checked={value >= v}
+        aria-label={'' + v}
       >
         {props.character}
       </div>
     )
   }
+
+  const bind = useDrag(
+    state => {
+      if (props.readOnly) return
+      const {
+        xy: [clientX],
+        tap,
+      } = state
+      const container = containerRef.current
+      if (!container) return
+      const rect = container.getBoundingClientRect()
+      const rawValue = ((clientX - rect.left) / rect.width) * props.count
+
+      const ceiledValue = props.allowHalf
+        ? Math.ceil(rawValue * 2) / 2
+        : Math.ceil(rawValue)
+
+      const boundValue = bound(ceiledValue, 0, props.count)
+
+      if (tap) {
+        if (props.allowClear && boundValue === value) {
+          setValue(0)
+          return
+        }
+      }
+
+      setValue(boundValue)
+    },
+    {
+      axis: 'x',
+      pointer: {
+        touch: true,
+      },
+      filterTaps: true,
+    }
+  )
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div
+      className={classNames(classPrefix, {
+        [`${classPrefix}-half`]: props.allowHalf,
+      })}
+      role='radiogroup'
+      aria-readonly={props.readOnly}
+      ref={containerRef}
+      {...bind()}
+    >
       {starList.map((_, i) => (
         <div key={i} className={classNames(`${classPrefix}-box`)}>
           {props.allowHalf && renderStar(i + 0.5, true)}

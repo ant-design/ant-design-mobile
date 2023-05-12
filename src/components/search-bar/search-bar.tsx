@@ -20,13 +20,14 @@ export type SearchBarRef = InputRef
 
 export type SearchBarProps = Pick<
   InputProps,
-  'onFocus' | 'onBlur' | 'onClear'
+  'onFocus' | 'onBlur' | 'onClear' | 'onCompositionStart' | 'onCompositionEnd'
 > & {
   value?: string
   defaultValue?: string
   maxLength?: number
   placeholder?: string
   clearable?: boolean
+  onlyShowClearWhenFocus?: boolean
   showCancelButton?: boolean | ((focus: boolean, value: string) => boolean)
   cancelText?: string
   icon?: ReactNode
@@ -44,6 +45,7 @@ export type SearchBarProps = Pick<
 
 const defaultProps = {
   clearable: true,
+  onlyShowClearWhenFocus: false,
   showCancelButton: false as NonNullable<SearchBarProps['showCancelButton']>,
   defaultValue: '',
   clearOnCancel: true,
@@ -62,6 +64,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
   const [value, setValue] = usePropsValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const inputRef = useRef<InputRef>(null)
+  const composingRef = useRef(false)
 
   useImperativeHandle(ref, () => ({
     clear: () => inputRef.current?.clear(),
@@ -73,7 +76,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
   }))
 
   const renderCancelButton = () => {
-    let isShowCancel = false
+    let isShowCancel: boolean
 
     if (typeof props.showCancelButton === 'function') {
       isShowCancel = props.showCancelButton(hasFocus, value)
@@ -83,15 +86,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
 
     return (
       isShowCancel && (
-        <div
-          className={`${classPrefix}-suffix`}
-          onMouseDown={e => {
-            e.preventDefault()
-          }}
-          onTouchStart={e => {
-            e.preventDefault()
-          }}
-        >
+        <div className={`${classPrefix}-suffix`}>
           <Button
             fill='none'
             className={`${classPrefix}-cancel-button`}
@@ -101,6 +96,9 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
               }
               inputRef.current?.blur()
               props.onCancel?.()
+            }}
+            onMouseDown={e => {
+              e.preventDefault()
             }}
           >
             {props.cancelText}
@@ -131,6 +129,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
           maxLength={props.maxLength}
           placeholder={props.placeholder}
           clearable={props.clearable}
+          onlyShowClearWhenFocus={props.onlyShowClearWhenFocus}
           onFocus={e => {
             setHasFocus(true)
             props.onFocus?.(e)
@@ -143,8 +142,19 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
           type='search'
           enterKeyHint='search'
           onEnterPress={() => {
-            inputRef.current?.blur()
-            props.onSearch?.(value)
+            if (!composingRef.current) {
+              inputRef.current?.blur()
+              props.onSearch?.(value)
+            }
+          }}
+          aria-label={locale.SearchBar.name}
+          onCompositionStart={e => {
+            composingRef.current = true
+            props.onCompositionStart?.(e)
+          }}
+          onCompositionEnd={e => {
+            composingRef.current = false
+            props.onCompositionEnd?.(e)
           }}
         />
       </div>

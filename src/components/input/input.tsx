@@ -6,6 +6,8 @@ import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { bound } from '../../utils/bound'
+import { isIOS } from '../../utils/validate'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-input`
 
@@ -13,6 +15,11 @@ type NativeInputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 >
+
+type AriaProps = {
+  // These props currently are only used internally. They are not exported to users:
+  role?: string
+}
 
 export type InputProps = Pick<
   NativeInputProps,
@@ -23,6 +30,7 @@ export type InputProps = Pick<
   | 'pattern'
   | 'inputMode'
   | 'type'
+  | 'name'
   | 'onFocus'
   | 'onBlur'
   | 'autoCapitalize'
@@ -31,6 +39,8 @@ export type InputProps = Pick<
   | 'onKeyUp'
   | 'onCompositionStart'
   | 'onCompositionEnd'
+  | 'onClick'
+  | 'step'
 > & {
   value?: string
   defaultValue?: string
@@ -39,6 +49,7 @@ export type InputProps = Pick<
   disabled?: boolean
   readOnly?: boolean
   clearable?: boolean
+  onlyShowClearWhenFocus?: boolean
   onClear?: () => void
   id?: string
   onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
@@ -54,10 +65,12 @@ export type InputProps = Pick<
   max?: number
 } & NativeProps<
     '--font-size' | '--color' | '--placeholder-color' | '--text-align'
-  >
+  > &
+  AriaProps
 
 const defaultProps = {
   defaultValue: '',
+  onlyShowClearWhenFocus: true,
 }
 
 export type InputRef = {
@@ -71,7 +84,9 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const [value, setValue] = usePropsValue(props)
   const [hasFocus, setHasFocus] = useState(false)
+  const compositionStartRef = useRef(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
+  const { locale } = useConfig()
 
   useImperativeHandle(ref, () => ({
     clear: () => {
@@ -115,6 +130,15 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
     }
   }
 
+  const shouldShowClear = (() => {
+    if (!props.clearable || !value || props.readOnly) return false
+    if (props.onlyShowClearWhenFocus) {
+      return hasFocus
+    } else {
+      return true
+    }
+  })()
+
   return withNativeProps(
     props,
     <div
@@ -152,14 +176,28 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
         pattern={props.pattern}
         inputMode={props.inputMode}
         type={props.type}
+        name={props.name}
         autoCapitalize={props.autoCapitalize}
         autoCorrect={props.autoCorrect}
         onKeyDown={handleKeydown}
         onKeyUp={props.onKeyUp}
-        onCompositionStart={props.onCompositionStart}
-        onCompositionEnd={props.onCompositionEnd}
+        onCompositionStart={e => {
+          compositionStartRef.current = true
+          props.onCompositionStart?.(e)
+        }}
+        onCompositionEnd={e => {
+          compositionStartRef.current = false
+          props.onCompositionEnd?.(e)
+        }}
+        onClick={props.onClick}
+        step={props.step}
+        role={props.role}
+        aria-valuenow={props['aria-valuenow']}
+        aria-valuemax={props['aria-valuemax']}
+        aria-valuemin={props['aria-valuemin']}
+        aria-label={props['aria-label']}
       />
-      {props.clearable && !!value && !props.readOnly && hasFocus && (
+      {shouldShowClear && (
         <div
           className={`${classPrefix}-clear`}
           onMouseDown={e => {
@@ -168,7 +206,14 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
           onClick={() => {
             setValue('')
             props.onClear?.()
+
+            // https://github.com/ant-design/ant-design-mobile/issues/5212
+            if (isIOS() && compositionStartRef.current) {
+              compositionStartRef.current = false
+              nativeInputRef.current?.blur()
+            }
           }}
+          aria-label={locale.Input.clear}
         >
           <CloseCircleFill />
         </div>

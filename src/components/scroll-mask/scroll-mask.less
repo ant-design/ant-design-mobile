@@ -1,6 +1,6 @@
-@class-prefix-tabs: ~'adm-scroll-mask';
+@class-prefix-scroll-mask: ~'adm-scroll-mask';
 
-.@{class-prefix-tabs} {
+.@{class-prefix-scroll-mask} {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -11,10 +11,18 @@
 
   &-left {
     left: 0;
-    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+    background: linear-gradient(
+      to right,
+      var(--adm-color-background),
+      rgba(255, 255, 255, 0)
+    );
   }
   &-right {
     right: 0;
-    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+    background: linear-gradient(
+      to left,
+      var(--adm-color-background),
+      rgba(255, 255, 255, 0)
+    );
   }
 }

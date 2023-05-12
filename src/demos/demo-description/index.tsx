@@ -3,6 +3,7 @@ import styles from './index.less'
 
 export const DemoDescription: FC<{
   content?: ReactNode
+  children?: ReactNode
 }> = props => {
   return (
     <div className={styles.demoDescription}>

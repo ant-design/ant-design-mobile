@@ -9,6 +9,7 @@ const zhCN = mergeLocale(base, {
     confirm: '确定',
     cancel: '取消',
     loading: '加载中',
+    close: '关闭',
   },
   Calendar: {
     markItems: ['一', '二', '三', '四', '五', '六', '日'],
@@ -19,6 +20,9 @@ const zhCN = mergeLocale(base, {
   },
   Dialog: {
     ok: '我知道了',
+  },
+  DatePicker: {
+    tillNow: '至今',
   },
   ErrorBlock: {
     default: {
@@ -91,20 +95,45 @@ const zhCN = mergeLocale(base, {
   },
   ImageUploader: {
     uploading: '上传中...',
+    upload: '上传',
   },
   InfiniteScroll: {
     noMore: '没有更多了',
+    failedToLoad: '加载失败',
+    retry: '重新加载',
+  },
+  Input: {
+    clear: '清除',
   },
   Mask: {
-    name: '遮罩层',
+    name: '背景蒙层',
   },
   Modal: {
     ok: '我知道了',
+  },
+  PasscodeInput: {
+    name: '密码输入框',
   },
   PullToRefresh: {
     pulling: '下拉刷新',
     canRelease: '释放立即刷新',
     complete: '刷新成功',
+  },
+  SearchBar: {
+    name: '搜索框',
+  },
+  Slider: {
+    name: '滑动输入条',
+  },
+  Stepper: {
+    decrease: '减少',
+    increase: '增加',
+  },
+  Switch: {
+    name: '开关',
+  },
+  Selector: {
+    name: '选择组',
   },
 })
 

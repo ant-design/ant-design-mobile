@@ -33,17 +33,17 @@ const Bottom: FC = () => {
     },
     {
       key: '/todo',
-      title: '我的待办',
+      title: '待办',
       icon: <UnorderedListOutline />,
     },
     {
       key: '/message',
-      title: '我的消息',
+      title: '消息',
       icon: <MessageOutline />,
     },
     {
       key: '/me',
-      title: '个人中心',
+      title: '我的',
       icon: <UserOutline />,
     },
   ]
@@ -93,13 +93,13 @@ function Home() {
 }
 
 function Todo() {
-  return <div>我的待办</div>
+  return <div>待办</div>
 }
 
 function Message() {
-  return <div>我的消息</div>
+  return <div>消息</div>
 }
 
 function PersonalCenter() {
-  return <div>个人中心</div>
+  return <div>我的</div>
 }

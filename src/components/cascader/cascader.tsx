@@ -1,4 +1,10 @@
-import React, { useState, useEffect, ReactNode, FC } from 'react'
+import React, {
+  useState,
+  useEffect,
+  ReactNode,
+  forwardRef,
+  useImperativeHandle,
+} from 'react'
 import Popup, { PopupProps } from '../popup'
 import {
   CascaderValue,
@@ -14,6 +20,13 @@ import { useCascaderValueExtend } from '../cascader-view/use-cascader-value-exte
 
 const classPrefix = `adm-cascader`
 
+export type CascaderActions = {
+  open: () => void
+  close: () => void
+  toggle: () => void
+}
+export type CascaderRef = CascaderActions
+
 export type CascaderProps = {
   options: CascaderOption[]
   value?: CascaderValue[]
@@ -27,18 +40,31 @@ export type CascaderProps = {
   title?: ReactNode
   confirmText?: ReactNode
   cancelText?: ReactNode
-  children?: (items: (CascaderOption | null)[]) => ReactNode
+  children?: (
+    items: (CascaderOption | null)[],
+    actions: CascaderActions
+  ) => ReactNode
+  onTabsChange?: (index: number) => void
+  activeIcon?: ReactNode
 } & Pick<
   PopupProps,
-  'getContainer' | 'afterShow' | 'afterClose' | 'onClick' | 'stopPropagation'
+  | 'getContainer'
+  | 'afterShow'
+  | 'afterClose'
+  | 'onClick'
+  | 'stopPropagation'
+  | 'destroyOnClose'
+  | 'forceRender'
 > &
   NativeProps
 
 const defaultProps = {
   defaultValue: [],
+  destroyOnClose: true,
+  forceRender: false,
 }
 
-export const Cascader: FC<CascaderProps> = p => {
+export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
   const { locale } = useConfig()
   const props = mergeProps(
     defaultProps,
@@ -49,6 +75,30 @@ export const Cascader: FC<CascaderProps> = p => {
     },
     p
   )
+
+  const [visible, setVisible] = usePropsValue({
+    value: props.visible,
+    defaultValue: false,
+    onChange: v => {
+      if (v === false) {
+        props.onClose?.()
+      }
+    },
+  })
+
+  const actions: CascaderActions = {
+    toggle: () => {
+      setVisible(v => !v)
+    },
+    open: () => {
+      setVisible(true)
+    },
+    close: () => {
+      setVisible(false)
+    },
+  }
+
+  useImperativeHandle(ref, () => actions)
 
   const [value, setValue] = usePropsValue({
     ...props,
@@ -61,12 +111,12 @@ export const Cascader: FC<CascaderProps> = p => {
 
   const [innerValue, setInnerValue] = useState<CascaderValue[]>(value)
   useEffect(() => {
-    if (!props.visible) {
+    if (!visible) {
       setInnerValue(value)
     }
-  }, [props.visible])
+  }, [visible])
   useEffect(() => {
-    if (!props.visible) {
+    if (!visible) {
       setInnerValue(value)
     }
   }, [value])
@@ -79,7 +129,7 @@ export const Cascader: FC<CascaderProps> = p => {
           className={`${classPrefix}-header-button`}
           onClick={() => {
             props.onCancel?.()
-            props.onClose?.()
+            setVisible(false)
           }}
         >
           {props.cancelText}
@@ -88,8 +138,8 @@ export const Cascader: FC<CascaderProps> = p => {
         <a
           className={`${classPrefix}-header-button`}
           onClick={() => {
-            setValue(innerValue)
-            props.onClose?.()
+            setValue(innerValue, true)
+            setVisible(false)
           }}
         >
           {props.confirmText}
@@ -101,7 +151,7 @@ export const Cascader: FC<CascaderProps> = p => {
           value={innerValue}
           onChange={(val, ext) => {
             setInnerValue(val)
-            if (props.visible) {
+            if (visible) {
               props.onSelect?.(val, ext)
             }
           }}
@@ -112,14 +162,15 @@ export const Cascader: FC<CascaderProps> = p => {
 
   const popupElement = (
     <Popup
-      visible={props.visible}
+      visible={visible}
       position='bottom'
       onMaskClick={() => {
         props.onCancel?.()
-        props.onClose?.()
+        setVisible(false)
       }}
       getContainer={props.getContainer}
-      destroyOnClose
+      destroyOnClose={props.destroyOnClose}
+      forceRender={props.forceRender}
       afterShow={props.afterShow}
       afterClose={props.afterClose}
       onClick={props.onClick}
@@ -132,7 +183,7 @@ export const Cascader: FC<CascaderProps> = p => {
   return (
     <>
       {popupElement}
-      {props.children?.(generateValueExtend(value).items)}
+      {props.children?.(generateValueExtend(value).items, actions)}
     </>
   )
-}
+})

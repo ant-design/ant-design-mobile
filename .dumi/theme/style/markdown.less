@@ -109,7 +109,7 @@
     padding: 2px 5px;
     color: @c-text;
     background: @c-light-bg;
-    border-radius: 2px;
+    border-radius: 4px;
 
     [data-prefers-color='dark'] & {
       color: #ff7875;
@@ -137,7 +137,7 @@
   hr {
     margin: 16px 0;
     border: 0;
-    border-top: 1px solid @c-border;
+    border-top: 1px solid var(--doc-border-color);
   }
 
   // blockquote
@@ -145,12 +145,11 @@
     margin: 16px 0;
     padding: 0 24px;
     color: fadeout(@c-text, 30%);
-    border-left: 4px solid @c-border;
+    border-left: 4px solid var(--doc-border-color);
     overflow: hidden;
 
     [data-prefers-color='dark'] & {
       color: fadeout(@c-text-dark, 30%);
-      border-color: @c-border-dark;
     }
   }
 
@@ -168,7 +167,7 @@
   .__dumi-default-table-content {
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid @c-border;
+    border: 1px solid var(--doc-border-color);
   }
 
   // table

@@ -8,12 +8,7 @@ const demoLongText = lorem.generateWords(20)
 export default () => {
   return (
     <>
-      <DemoBlock
-        title='四种配色'
-        padding='0'
-        border='none'
-        background='transparent'
-      >
+      <DemoBlock title='通告栏语义' padding='0' background='transparent'>
         <Space block direction='vertical'>
           <NoticeBar content='默认' color='default' />
           <NoticeBar content='警告' color='alert' />
@@ -22,20 +17,23 @@ export default () => {
         </Space>
       </DemoBlock>
 
-      <DemoBlock title='超长滚动' padding='0' border='none'>
-        <NoticeBar content={demoLongText} color='alert' />
-      </DemoBlock>
-
-      <DemoBlock title='可关闭' padding='0' border='none'>
+      <DemoBlock title='可关闭' padding='0'>
         <NoticeBar content='这条通知可以关闭' color='alert' closeable />
       </DemoBlock>
 
-      <DemoBlock
-        title='自定义'
-        padding='0'
-        border='none'
-        background='transparent'
-      >
+      <DemoBlock title='超长滚动' padding='0'>
+        <NoticeBar content={demoLongText} color='alert' />
+      </DemoBlock>
+
+      <DemoBlock title='多行展示' padding='0'>
+        <NoticeBar
+          content='适用于当前页面内信息的通知，是一种较醒目的页面内通知方式'
+          wrap
+          color='alert'
+        />
+      </DemoBlock>
+
+      <DemoBlock title='自定义' padding='0' background='transparent'>
         <Space block direction='vertical'>
           <NoticeBar
             extra={<CloseCircleOutline style={{ fontSize: 18 }} />}

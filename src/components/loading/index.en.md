@@ -1,13 +1,19 @@
 # Loading
 
+Loading state for pages and blocks.
+
+## When to Use
+
+When the page is partially waiting for asynchronous data or is being rendered, appropriate loading animations can effectively relieve the user's anxiety.
+
 ## DotLoading
 
 <code src="../dot-loading/demos/demo1.tsx"></code>
 
 ### Props
 
-| Name  | Description          | Type                                          | Default     |
-| ----- | -------------------- | --------------------------------------------- | ----------- |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
 | color | Color of the Loading | `'default' \| 'primary' \| 'white' \| string` | `'default'` |
 
 The size of `DotLoading` would automatically be adjusted according to the current text size.
@@ -18,8 +24,8 @@ The size of `DotLoading` would automatically be adjusted according to the curren
 
 ### Props
 
-| Name  | Description                                                       | Type                                          | Default     |
-| ----- | ----------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
 | color | Color of line. Equals to manually set the `--color` CSS variable. | `'default' \| 'primary' \| 'white' \| string` | `'default'` |
 
 ### CSS Variables

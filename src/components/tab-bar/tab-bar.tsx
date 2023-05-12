@@ -14,6 +14,7 @@ export type TabBarItemProps = {
   badge?: BadgeProps['content']
 } & NativeProps
 
+/* istanbul ignore next */
 export const TabBarItem: FC<TabBarItemProps> = () => {
   return null
 }
@@ -23,6 +24,7 @@ export type TabBarProps = {
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
   safeArea?: boolean
+  children?: React.ReactNode
 } & NativeProps
 
 const classPrefix = `adm-tab-bar`
@@ -63,6 +65,7 @@ export const TabBar: FC<TabBarProps> = p => {
       <div className={`${classPrefix}-wrap`}>
         {items.map(item => {
           const active = item.key === activeKey
+
           function renderContent() {
             const iconElement = item.props.icon && (
               <div className={`${classPrefix}-item-icon`}>
@@ -72,7 +75,12 @@ export const TabBar: FC<TabBarProps> = p => {
               </div>
             )
             const titleElement = item.props.title && (
-              <div className={`${classPrefix}-item-title`}>
+              <div
+                className={classNames(
+                  `${classPrefix}-item-title`,
+                  Boolean(iconElement) && `${classPrefix}-item-title-with-icon`
+                )}
+              >
                 {typeof item.props.title === 'function'
                   ? item.props.title(active)
                   : item.props.title}
@@ -102,6 +110,7 @@ export const TabBar: FC<TabBarProps> = p => {
             }
             return null
           }
+
           return withNativeProps(
             item.props,
             <div

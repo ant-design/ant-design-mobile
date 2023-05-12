@@ -6,7 +6,7 @@ import { options } from './options'
 export default () => {
   return (
     <>
-      <DemoBlock title='避免取消选择'>
+      <DemoBlock title='必须选择一项'>
         <RadioMode />
       </DemoBlock>
 

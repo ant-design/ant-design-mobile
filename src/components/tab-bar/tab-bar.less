@@ -7,12 +7,12 @@
     justify-content: flex-start;
     align-items: stretch;
     overflow: hidden;
-    min-height: 50px;
+    min-height: 48px;
   }
 
   &-item {
     flex: 1;
-    color: var(--adm-color-weak);
+    color: var(--adm-color-text-secondary);
     white-space: nowrap;
     padding: 4px 8px;
     width: min-content;
@@ -25,15 +25,17 @@
   }
 
   &-item-icon {
-    font-size: 20px;
-    height: 22px;
+    font-size: 24px;
+    height: 24px;
     line-height: 1;
-    margin: 4px 0 1px;
   }
 
   &-item-title {
-    font-size: 11px;
+    font-size: var(--adm-font-size-2);
     line-height: 15px;
+    &-with-icon {
+      margin-top: 2px;
+    }
   }
 
   &-item-active {

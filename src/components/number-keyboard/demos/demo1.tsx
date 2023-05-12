@@ -33,7 +33,7 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='基础用法' padding='0' border='none'>
+      <DemoBlock title='基础用法' padding='0'>
         <List>
           <List.Item onClick={() => openKeyboard('demo1')}>默认键盘</List.Item>
           <List.Item onClick={() => openKeyboard('demo2')}>
@@ -42,10 +42,7 @@ export default () => {
           <List.Item onClick={() => openKeyboard('demo3')}>
             带确认键盘
           </List.Item>
-          <List.Item onClick={() => openKeyboard('demo4')}>
-            带自定义键盘
-          </List.Item>
-          <List.Item onClick={() => openKeyboard('demo5')}>乱序键盘</List.Item>
+          <List.Item onClick={() => openKeyboard('demo4')}>乱序键盘</List.Item>
           <List.Item
             onClick={e => {
               Dialog.alert({
@@ -53,7 +50,7 @@ export default () => {
                   <Button
                     color='primary'
                     fill='outline'
-                    onClick={() => openKeyboard('demo6')}
+                    onClick={() => openKeyboard('demo5')}
                   >
                     打开键盘
                   </Button>
@@ -65,7 +62,7 @@ export default () => {
           >
             弹窗内展示键盘
           </List.Item>
-          <List.Item onClick={() => openKeyboard('demo7')} arrow={false}>
+          <List.Item onClick={() => openKeyboard('demo6')} arrow={false}>
             {/* 添加 readOnly 阻止原生键盘弹出 */}
             <Input placeholder='请输入内容' value={value} readOnly />
           </List.Item>
@@ -98,8 +95,8 @@ export default () => {
         onClose={actions.onClose}
         onInput={actions.onInput}
         onDelete={actions.onDelete}
-        customKey='.'
-        showCloseButton={false}
+        randomOrder
+        customKey='X'
         confirmText='确定'
       />
       <NumberKeyboard
@@ -107,18 +104,9 @@ export default () => {
         onClose={actions.onClose}
         onInput={actions.onInput}
         onDelete={actions.onDelete}
-        randomOrder
-        customKey='X'
-        confirmText='确定'
       />
       <NumberKeyboard
         visible={visible === 'demo6'}
-        onClose={actions.onClose}
-        onInput={actions.onInput}
-        onDelete={actions.onDelete}
-      />
-      <NumberKeyboard
-        visible={visible === 'demo7'}
         onClose={actions.onClose}
         onInput={onInput}
         onDelete={onDelete}

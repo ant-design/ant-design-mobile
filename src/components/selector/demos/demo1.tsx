@@ -23,7 +23,25 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='禁用'>
+      <DemoBlock title='两列布局'>
+        <Selector
+          columns={2}
+          options={options}
+          defaultValue={['2', '3']}
+          multiple={true}
+        />
+      </DemoBlock>
+
+      <DemoBlock title='三列布局'>
+        <Selector
+          columns={3}
+          options={options}
+          defaultValue={['2', '3']}
+          multiple={true}
+        />
+      </DemoBlock>
+
+      <DemoBlock title='禁用状态'>
         <Space block direction='vertical'>
           <Selector options={options} defaultValue={['1']} disabled={true} />
           <Selector
@@ -45,24 +63,6 @@ export default () => {
             defaultValue={['3']}
           />
         </Space>
-      </DemoBlock>
-
-      <DemoBlock title='固定两列'>
-        <Selector
-          columns={2}
-          options={options}
-          defaultValue={['2', '3']}
-          multiple={true}
-        />
-      </DemoBlock>
-
-      <DemoBlock title='固定三列'>
-        <Selector
-          columns={3}
-          options={options}
-          defaultValue={['2', '3']}
-          multiple={true}
-        />
       </DemoBlock>
     </>
   )

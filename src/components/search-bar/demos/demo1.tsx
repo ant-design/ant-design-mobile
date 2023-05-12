@@ -1,12 +1,10 @@
-import React, { ReactNode, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { Button, SearchBar, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { SearchBarRef } from 'antd-mobile/es/components/search-bar'
-import { SearchOutline, SetOutline } from 'antd-mobile-icons'
 
 export default () => {
   const searchRef = useRef<SearchBarRef>(null)
-  const [icon, setIcon] = useState<ReactNode | null>(<SetOutline />)
 
   return (
     <>
@@ -14,14 +12,7 @@ export default () => {
         <SearchBar placeholder='请输入内容' />
       </DemoBlock>
 
-      <DemoBlock title='白色的搜索框' background='#f5f5f5'>
-        <SearchBar
-          placeholder='请输入内容'
-          style={{ '--background': '#ffffff' }}
-        />
-      </DemoBlock>
-
-      <DemoBlock title='带取消按钮的搜索框'>
+      <DemoBlock title='获取焦点后显示取消按钮'>
         <SearchBar placeholder='请输入内容' showCancelButton />
       </DemoBlock>
 
@@ -39,16 +30,13 @@ export default () => {
               Toast.show(`你搜索了：${val}`)
             }}
             onFocus={() => {
-              Toast.show('获得焦点')
+              console.log('获得焦点')
             }}
             onBlur={() => {
-              Toast.show('失去焦点')
-            }}
-            onClear={() => {
-              Toast.show('清空内容')
+              console.log('失去焦点')
             }}
             onCancel={() => {
-              Toast.show('取消搜索')
+              console.log('取消搜索')
             }}
           />
           <Space>
@@ -66,32 +54,6 @@ export default () => {
             >
               激活
             </Button>
-          </Space>
-        </Space>
-      </DemoBlock>
-
-      <DemoBlock title='自定义样式'>
-        <SearchBar
-          placeholder='请输入内容'
-          showCancelButton
-          style={{
-            '--border-radius': '100px',
-            '--background': '#ffffff',
-            '--height': '32px',
-            '--padding-left': '12px',
-          }}
-        />
-      </DemoBlock>
-
-      <DemoBlock title='自定义 icon'>
-        <Space block direction='vertical'>
-          <SearchBar icon={icon} placeholder='请输入内容' />
-          <Space>
-            <Button onClick={() => setIcon(null)}>不显示 icon</Button>
-            <Button onClick={() => setIcon(<SearchOutline />)}>
-              默认 icon
-            </Button>
-            <Button onClick={() => setIcon(<SetOutline />)}>自定义 icon</Button>
           </Space>
         </Space>
       </DemoBlock>

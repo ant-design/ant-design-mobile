@@ -1,6 +1,9 @@
-import React, { FC, useRef, RefObject } from 'react'
+import React, { FC, useRef, RefObject, useState, ReactNode } from 'react'
 import { useDrag } from '@use-gesture/react'
 import { ThumbIcon } from './thumb-icon'
+import Popover from '../popover'
+import { useConfig } from '../config-provider'
+import { NativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-slider`
 
@@ -12,11 +15,14 @@ type ThumbProps = {
   onDrag: (value: number, first: boolean, last: boolean) => void
   trackRef: RefObject<HTMLDivElement>
   icon?: React.ReactNode
-}
+  popover: boolean | ((value: number) => ReactNode)
+  residentPopover: boolean
+} & NativeProps
 
 const Thumb: FC<ThumbProps> = props => {
-  const { value, min, max, disabled, onDrag, icon } = props
+  const { value, min, max, disabled, icon, residentPopover, onDrag } = props
   const prevValue = useRef(value)
+  const { locale } = useConfig()
 
   const currentPosition = () => {
     return {
@@ -24,6 +30,8 @@ const Thumb: FC<ThumbProps> = props => {
       right: 'auto',
     }
   }
+
+  const [dragging, setDragging] = useState(false)
 
   const bind = useDrag(
     state => {
@@ -36,6 +44,7 @@ const Thumb: FC<ThumbProps> = props => {
       if (!sliderOffsetWith) return
       const diff = (x / Math.ceil(sliderOffsetWith)) * (max - min)
       onDrag(prevValue.current + diff, state.first, state.last)
+      setDragging(!state.last)
     },
     {
       axis: 'x',
@@ -43,15 +52,44 @@ const Thumb: FC<ThumbProps> = props => {
     }
   )
 
+  const renderPopoverContent =
+    typeof props.popover === 'function'
+      ? props.popover
+      : props.popover
+      ? (value: number) => value.toString()
+      : null
+
+  const thumbElement = (
+    <div className={`${classPrefix}-thumb`}>
+      {icon ? icon : <ThumbIcon className={`${classPrefix}-thumb-icon`} />}
+    </div>
+  )
+
   return (
     <div
       className={`${classPrefix}-thumb-container`}
       style={currentPosition()}
       {...bind()}
+      role='slider'
+      aria-label={props['aria-label'] || locale.Slider.name}
+      aria-valuemax={max}
+      aria-valuemin={min}
+      aria-valuenow={value}
+      aria-disabled={disabled}
     >
-      <div className={`${classPrefix}-thumb`}>
-        {icon ? icon : <ThumbIcon className={`${classPrefix}-thumb-icon`} />}
-      </div>
+      {renderPopoverContent ? (
+        <Popover
+          content={renderPopoverContent(value)}
+          placement='top'
+          visible={residentPopover || dragging}
+          getContainer={null}
+          mode='dark'
+        >
+          {thumbElement}
+        </Popover>
+      ) : (
+        thumbElement
+      )}
     </div>
   )
 }

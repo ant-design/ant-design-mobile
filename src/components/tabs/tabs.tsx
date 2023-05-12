@@ -25,6 +25,7 @@ export type TabProps = {
   disabled?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
+  children?: ReactNode
 } & NativeProps
 
 export const Tab: FC<TabProps> = () => {
@@ -37,12 +38,15 @@ export type TabsProps = {
   activeLineMode?: 'auto' | 'full' | 'fixed'
   stretch?: boolean
   onChange?: (key: string) => void
+  children?: React.ReactNode
 } & NativeProps<
   | '--fixed-active-line-width'
   | '--active-line-height'
   | '--active-line-border-radius'
   | '--title-font-size'
   | '--content-padding'
+  | '--active-title-color'
+  | '--active-line-color'
 >
 
 const defaultProps = {
@@ -245,6 +249,7 @@ export const Tabs: FC<TabsProps> = p => {
           ref={tabListContainerRef}
           scrollLeft={scrollLeft}
           onScroll={updateMask}
+          role='tablist'
         >
           <animated.div
             ref={activeLineRef}
@@ -279,6 +284,8 @@ export const Tabs: FC<TabsProps> = p => {
                     [`${classPrefix}-tab-active`]: pane.key === activeKey,
                     [`${classPrefix}-tab-disabled`]: pane.props.disabled,
                   })}
+                  role='tab'
+                  aria-selected={pane.key === activeKey}
                 >
                   {pane.props.title}
                 </div>

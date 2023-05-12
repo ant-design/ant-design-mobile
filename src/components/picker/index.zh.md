@@ -1,8 +1,17 @@
 # Picker 选择器
 
+显示一个或多个选项集合的的可滚动列表。
+
+## 何时使用
+
+- 提供一组或多组关联选项供用户选择。
+- 当少于 5 个选项时，建议直接将选项平铺，使用 Radio 是更好的选择。
+
 Picker 系列一共包括了三个组件：[Picker](#picker)、[CascadePicker](#cascadepicker)、[DatePicker](#datepicker)。
 
 ## Picker
+
+### 示例
 
 <code src="./demos/demo1.tsx"></code>
 
@@ -26,25 +35,31 @@ type PickerValueExtend = {
 }
 ```
 
-| 属性             | 说明                         | 类型                                                           | 默认值                 |
-| ---------------- | ---------------------------- | -------------------------------------------------------------- | ---------------------- |
-| columns          | 配置每一列的选项             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -                      |
-| value            | 选中项                       | `PickerValue[]`                                                | -                      |
-| defaultValue     | 默认选中项                   | `PickerValue[]`                                                | `[]`                   |
-| onSelect         | 选项改变时触发               | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
-| onConfirm        | 确认时触发                   | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
-| onCancel         | 取消时触发                   | `() => void`                                                   | -                      |
-| onClose          | 确认和取消时都会触发关闭事件 | `() => void`                                                   | -                      |
-| closeOnMaskClick | 点击遮罩层后是否关闭         | `boolean`                                                      | `true`                 |
-| visible          | 是否显示选择器               | `boolean`                                                      | `false`                |
-| title            | 标题                         | `ReactNode`                                                    | -                      |
-| confirmText      | 确定按钮的文字               | `ReactNode`                                                    | `'确定'`               |
-| cancelText       | 取消按钮的文字               | `ReactNode`                                                    | `'取消'`               |
-| children         | 所选项的渲染函数             | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
-| renderLabel      | 自定义渲染每列展示的内容     | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
-| mouseWheel       | 是否允许通过鼠标滚轮进行选择 | `boolean`                                                      | `false`                |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| cancelText | 取消按钮的文字 | `ReactNode` | `'取消'` |
+| children | 所选项的渲染函数 | `(items: PickerColumnItem[], actions: PickerActions) => ReactNode` | - |
+| closeOnMaskClick | 点击背景蒙层后是否关闭 | `boolean` | `true` |
+| columns | 配置每一列的选项 | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | - |
+| confirmText | 确定按钮的文字 | `ReactNode` | `'确定'` |
+| defaultValue | 默认选中项 | `PickerValue[]` | `[]` |
+| destroyOnClose | 不可见时卸载内容 | `boolean` | `false` |
+| forceRender | 强制渲染内容 | `boolean` | `false` |
+| mouseWheel | 是否允许通过鼠标滚轮进行选择 | `boolean` | `false` |
+| onCancel | 取消时触发 | `() => void` | - |
+| onClose | 确认和取消时都会触发关闭事件 | `() => void` | - |
+| onConfirm | 确认时触发 | `(value: PickerValue[], extend: PickerValueExtend) => void` | - |
+| onSelect | 选项改变时触发 | `(value: PickerValue[], extend: PickerValueExtend) => void` | - |
+| popupClassName | Popup 弹层容器的自定义类名 | `string` | - |
+| popupStyle | Popup 弹层容器的自定义样式 | `React.CSSProperties ` | - |
+| renderLabel | 自定义渲染每列展示的内容 | `(item: PickerColumnItem) => ReactNode` | `(item) => item.label` |
+| title | 标题 | `ReactNode` | - |
+| value | 选中项 | `PickerValue[]` | - |
+| visible | 是否显示选择器 | `boolean` | `false` |
+| loading | 是否处于加载状态 | `boolean` | `false` |
+| loadingContent | 加载状态下展示的内容 | `ReactNode` | `默认提供了转圈加载中的加载效果` |
 
-此外还支持 [Popup](./popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
+此外还支持 [Popup](/zh/components/popup) 的以下属性：`getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
 
 **请留意，`columns` 属性的类型是二级数组**，第一级对应的是每一列，而第二级对应的是某一列中的每一个选项。因此，下面的这种写法是错误的：
 
@@ -70,16 +85,30 @@ type PickerValueExtend = {
 />
 ```
 
+### PickerActions
+
+| 属性   | 说明                         | 类型         |
+| ------ | ---------------------------- | ------------ |
+| close  | 关闭 Picker                  | `() => void` |
+| open   | 显示 Picker                  | `() => void` |
+| toggle | 切换 Picker 的显示和隐藏状态 | `() => void` |
+
+### Ref
+
+同 PickerActions。
+
 ### CSS 变量
 
-| 属性                      | 说明                                 | 默认值 | 全局变量 |
-| ------------------------- | ------------------------------------ | ------ | -------- |
-| --header-button-font-size | 确定和取消按钮的字号                 | `15px` | -        |
-| --title-font-size         | 标题的字号                           | `15px` | -        |
-| --item-font-size          | 选择项的字号                         | `16px` | -        |
-| --item-height             | 选项的高度，仅支持 px rem 和 vw 单位 | `34px` | -        |
+| 属性 | 说明 | 默认值 | 全局变量 |
+| --- | --- | --- | --- |
+| --header-button-font-size | 确定和取消按钮的字号 | `15px` | - |
+| --item-font-size | 选择项的字号 | `16px` | - |
+| --item-height | 选项的高度，仅支持 px rem 和 vw 单位 | `34px` | - |
+| --title-font-size | 标题的字号 | `15px` | - |
 
 ## CascadePicker
+
+### 示例
 
 <code src="../cascade-picker/demos/demo1.tsx"></code>
 
@@ -99,11 +128,17 @@ type CascadePickerOption = {
 
 其他属性同 `Picker`，但不支持 `columns`。
 
+### Ref
+
+同 Picker。
+
 ### CSS 变量
 
 同 `Picker`。
 
 ## DatePicker
+
+### 示例
 
 <code src="../date-picker/demos/demo1.tsx"></code>
 
@@ -111,19 +146,28 @@ type CascadePickerOption = {
 
 ### 属性
 
-| 属性         | 说明                                                                                             | 类型                                                                                   | 默认值  |
-| ------------ | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------- |
-| value        | 选中值                                                                                           | `Date`                                                                                 | -       |
-| defaultValue | 选中值                                                                                           | `Date`                                                                                 | -       |
-| onSelect     | 选项改变时触发                                                                                   | `(value: Date) => void`                                                                | -       |
-| onConfirm    | 确认时触发                                                                                       | `(value: Date) => void`                                                                | -       |
-| min          | 最小值                                                                                           | `Date`                                                                                 | 十年前  |
-| max          | 最大值                                                                                           | `Date`                                                                                 | 十年后  |
-| precision    | 精度                                                                                             | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
-| children     | 所选项的渲染函数                                                                                 | `(value: Date) => ReactNode`                                                           | -       |
-| renderLabel  | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode`                                            | -       |
-| filter       | 过滤可供选择的时间                                                                               | `DatePickerFilter`                                                                     | -       |
-| mouseWheel   | 是否允许通过鼠标滚轮进行选择                                                                     | `boolean`                                                                              | `false` |
+```typescript
+type PickerDate = Date & {
+  tillNow?: boolean
+}
+```
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| children | 所选项的渲染函数 | `(value: PickerDate, actions: PickerActions) => ReactNode` | - |
+| defaultValue | 选中值 | `PickerDate` | - |
+| destroyOnClose | 不可见时卸载内容 | `boolean` | `false` |
+| filter | 过滤可供选择的时间 | `DatePickerFilter` | - |
+| forceRender | 强制渲染内容 | `boolean` | `false` |
+| max | 最大值 | `PickerDate` | 十年后 |
+| min | 最小值 | `PickerDate` | 十年前 |
+| mouseWheel | 是否允许通过鼠标滚轮进行选择 | `boolean` | `false` |
+| onConfirm | 确认时触发 | `(value: PickerDate) => void` | - |
+| onSelect | 选项改变时触发 | `(value: PickerDate) => void` | - |
+| precision | 精度 | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
+| renderLabel | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值或 `now`，`data` 参数为默认渲染的数字 | `(type: Precision \| 'now', data: number) => ReactNode` | - |
+| tillNow | 是否展示“至今” | `boolean` | - | 5.27.0 |
+| value | 选中值 | `PickerDate` | - |
 
 ```typescript | pure
 type DatePickerFilter = Partial<
@@ -139,7 +183,11 @@ type DatePickerFilter = Partial<
 >
 ```
 
-此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`。
+此外还支持 `Picker` 的以下属性：`onCancel` `onClose` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation` `loading` `loadingContent`。
+
+### Ref
+
+同 Picker。
 
 ### CSS 变量
 

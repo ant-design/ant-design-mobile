@@ -9,6 +9,7 @@ export interface RadioGroupProps {
   onChange?: (val: RadioValue) => void
   defaultValue?: RadioValue | null
   disabled?: boolean
+  children?: React.ReactNode
 }
 
 const defaultProps = {

@@ -1,24 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Space, Switch } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { CloseOutline, CheckOutline } from 'antd-mobile-icons'
 
 export default () => {
-  const [checked, setChecked] = useState(false)
-
   return (
     <>
       <DemoBlock title='基础用法'>
         <Switch />
-      </DemoBlock>
-
-      <DemoBlock title='受控组件'>
-        <Switch
-          checked={checked}
-          onChange={checked => {
-            setChecked(checked)
-          }}
-        />
       </DemoBlock>
 
       <DemoBlock title='有默认值'>

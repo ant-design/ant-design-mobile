@@ -1,5 +1,7 @@
 # 参与 Ant Design Mobile 建设
 
+[//]: # 'TODO: 翻译成英文版'
+
 感谢参与 Ant Design Mobile（下文中使用 antd-mobile 指代）的开源建设，目前我们正在进行 v5 版本的开发，这里是一些相关信息的指引。
 
 ## 在开始之前的准备
@@ -42,13 +44,13 @@
 
 如果你希望贡献一些新功能（例如增加一个新组件），那么**请先提交一条 RFC issue**，这样可以让我们的整个沟通过程更加的高效。或许这看起来增加了额外的工作量和时间成本，但是我们相信通过 RFC 中的讨论和确认，可以规避掉很多方向错误导致的问题和浪费。
 
-## 一些开发过程中的注意事项
+## 开发指南
 
-- 请务必使用 yarn 作为包管理器
+- 请务必使用 pnpm 作为包管理器
 - 推荐使用英文写 commit message
 - 代码中的注释并不是什么要紧的东西，我们更推荐写出自释性更强的代码
 
-## 常见问题
+## 其他问题
 
 ### 我想参与 v2 版本的建设，该如何做？
 
@@ -57,3 +59,4 @@ v2 版本现在已经不再进行官方维护了，如果你想对 v2 进行修�
 ## 附录
 
 - [Using ARIA](https://w3c.github.io/using-aria/)
+- [ISO Language Codes](https://www.w3schools.com/tags/ref_language_codes.asp) and [ISO Country Codes](https://www.w3schools.com/tags/ref_country_codes.asp) for locale files naming

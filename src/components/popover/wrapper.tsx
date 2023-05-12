@@ -1,7 +1,12 @@
 import React from 'react'
 import { findDOMNode } from 'react-dom'
 
-export class Wrapper extends React.Component<{}, {}> {
+export class Wrapper extends React.Component<
+  {
+    children?: React.ReactNode
+  },
+  {}
+> {
   element: Element | null = null
   componentDidMount() {
     this.componentDidUpdate()

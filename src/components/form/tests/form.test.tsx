@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, testA11y, waitFor } from 'testing'
+import { fireEvent, render, waitFor } from 'testing'
 import Form from '..'
 import Input from '../../input'
 import Button from '../../button'
@@ -22,7 +22,7 @@ describe('Form', () => {
     warnSpy.mockRestore()
   })
 
-  test('baisc usage', async () => {
+  test('basic usage', async () => {
     const fn = jest.fn()
 
     const { getByText, getByLabelText } = render(
@@ -46,11 +46,13 @@ describe('Form', () => {
 
     console.error = jest.fn()
 
+    fireEvent.click(getByText('submit'))
     await waitFor(() => {
-      fireEvent.click(getByText('submit'))
+      expect($$(`.${classPrefix}-item-feedback-error`).length).toBeTruthy()
     })
 
     expect($$(`.${classPrefix}-item-feedback-error`).length).toBeTruthy()
+    expect($$(`.${classPrefix}-item-has-error`).length).toBeTruthy()
     expect(console.error).toBeCalledTimes(0)
 
     fireEvent.change(getByLabelText(/name/i), { target: { value: 'name' } })
@@ -58,11 +60,11 @@ describe('Form', () => {
       target: { value: 'address' },
     })
 
-    await waitFor(() => {
-      fireEvent.click(getByText('submit'))
-    })
+    fireEvent.click(getByText('submit'))
     expect(console.error).toBeCalledTimes(0)
-    expect(fn.mock.calls[0][0]).toEqual({ name: 'name', address: 'address' })
+    await waitFor(() => {
+      expect(fn.mock.calls[0][0]).toEqual({ name: 'name', address: 'address' })
+    })
   })
 
   test('renders with horizontal layout', async () => {
@@ -151,14 +153,14 @@ describe('Form', () => {
       </Form>
     )
 
-    await waitFor(() => {
-      fireEvent.submit(getByTestId('form'))
-    })
+    fireEvent.submit(getByTestId('form'))
 
-    expect(getByTestId('form')).toHaveTextContent(`'test' is required`)
+    await waitFor(() => {
+      expect(getByTestId('form')).toHaveTextContent(`'test' is required`)
+    })
   })
 
-  test("`shouldUpdate` shouldn't work with render porps", async () => {
+  test("`shouldUpdate` shouldn't work with render props", async () => {
     render(
       <Form>
         <Form.Item>{() => null}</Form.Item>
@@ -299,6 +301,33 @@ describe('Form', () => {
 
       fireEvent.change($$('input')[0], { target: { value: 'test' } })
       expect(onChange).toHaveBeenCalled()
+    })
+  })
+
+  describe('Form.Subscribe', () => {
+    test('no useless render', () => {
+      let renderTimes = 0
+
+      const { container } = render(
+        <Form initialValues={{ name: 'bamboo' }}>
+          <Form.Subscribe to={['name']}>
+            {({ name }) => {
+              renderTimes += 1
+
+              expect(name).toEqual('bamboo')
+
+              return (
+                <Form.Item name='name'>
+                  <Input />
+                </Form.Item>
+              )
+            }}
+          </Form.Subscribe>
+        </Form>
+      )
+
+      expect(container.querySelector('input')?.value).toEqual('bamboo')
+      expect(renderTimes).toEqual(1)
     })
   })
 })

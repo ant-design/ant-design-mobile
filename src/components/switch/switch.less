@@ -28,7 +28,7 @@
     height: var(--height);
     box-sizing: border-box;
     border-radius: 31px;
-    background: #e5e5e5;
+    background: var(--adm-color-border);
     z-index: 0;
     overflow: hidden;
     line-height: var(--height);
@@ -42,7 +42,7 @@
       height: calc(var(--height) - 2 * var(--border-width));
       border-radius: calc(var(--height) - 2 * var(--border-width));
       box-sizing: border-box;
-      background: #fff;
+      background: var(--adm-color-background);
       z-index: 1;
       transition: all 200ms;
       transform: scale(1);
@@ -56,7 +56,7 @@
     width: calc(var(--height) - 2 * var(--border-width));
     height: calc(var(--height) - 2 * var(--border-width));
     border-radius: calc(var(--height) - 2 * var(--border-width));
-    background: #fff;
+    background: var(--adm-color-text-light-solid);
     position: absolute;
     z-index: 2;
     top: var(--border-width);
@@ -76,7 +76,7 @@
     height: 100%;
     color: var(--adm-color-weak);
     transition: margin 200ms;
-    font-size: 15px;
+    font-size: var(--adm-font-size-7);
   }
 
   /* 选中状态 */
@@ -93,7 +93,7 @@
 
     .@{class-prefix-switch}-inner {
       margin: 0 calc(var(--height) - var(--border-width) + 5px) 0 10px;
-      color: var(--adm-color-white);
+      color: var(--adm-color-text-light-solid);
     }
   }
 

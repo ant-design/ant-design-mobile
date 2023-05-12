@@ -4,12 +4,12 @@
   --height: 100%;
   --width: 105px;
   --item-border-radius: 8px;
-  --background-color: #f5f5f5;
+  --background-color: var(--adm-color-fill-content);
 
   width: var(--width);
   height: var(--height);
   box-sizing: border-box;
-  font-size: 13px;
+  font-size: var(--adm-font-size-main);
   overflow-y: auto;
   // https://github.com/PolymerElements/iron-list/issues/18
   transform: translateZ(0);
@@ -51,7 +51,7 @@
 
     &-active {
       color: var(--adm-color-primary);
-      background-color: var(--adm-color-white);
+      background-color: var(--adm-color-background);
       position: relative;
     }
 

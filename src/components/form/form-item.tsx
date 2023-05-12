@@ -1,14 +1,13 @@
-import React, { FC, useContext, useCallback, useState } from 'react'
+import React, { FC, useContext, useCallback, useState, useRef } from 'react'
 import classNames from 'classnames'
-import { NativeProps } from '../../utils/native-props'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
 import type { FieldProps } from 'rc-field-form/lib/Field'
 import FieldContext from 'rc-field-form/lib/FieldContext'
 import type { Meta, InternalNamePath } from 'rc-field-form/lib/interface'
 import { devWarning } from '../../utils/dev-log'
-
 import { FormContext, NoStyleItemContext } from './context'
-import { toArray } from './utils'
+import { toArray, isSafeSetRefComponent } from './utils'
 import List, { ListItemProps } from '../list'
 import type { FormLayout } from './index'
 import Popover from '../popover'
@@ -38,10 +37,15 @@ export type FormItemProps = Pick<
   | 'validateTrigger'
   | 'shouldUpdate'
   | 'initialValue'
+  | 'getValueFromEvent'
+  | 'getValueProps'
+  | 'normalize'
+  | 'preserve'
+  | 'validateFirst'
 > &
   Pick<
     ListItemProps,
-    'style' | 'onClick' | 'extra' | 'clickable' | 'arrow' | 'description'
+    'style' | 'extra' | 'clickable' | 'arrow' | 'description'
   > & {
     label?: React.ReactNode
     help?: React.ReactNode
@@ -53,6 +57,10 @@ export type FormItemProps = Pick<
     layout?: FormLayout
     childElementPosition?: 'normal' | 'right'
     children?: ChildrenType
+    onClick?: (
+      e: React.MouseEvent,
+      widgetRef: React.MutableRefObject<any>
+    ) => void
   } & NativeProps
 
 interface MemoInputProps {
@@ -75,7 +83,6 @@ type FormItemLayoutProps = Pick<
   | 'disabled'
   | 'label'
   | 'help'
-  | 'onClick'
   | 'hidden'
   | 'layout'
   | 'extra'
@@ -84,10 +91,12 @@ type FormItemLayoutProps = Pick<
   | 'description'
   | 'childElementPosition'
 > & {
+  onClick?: (e: React.MouseEvent) => void
   htmlFor?: string
   errors: string[]
   warnings: string[]
-}
+  children: React.ReactNode
+} & NativeProps
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const {
@@ -97,7 +106,6 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     label,
     help,
     required,
-    disabled,
     children,
     htmlFor,
     hidden,
@@ -112,6 +120,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const hasFeedback =
     props.hasFeedback !== undefined ? props.hasFeedback : context.hasFeedback
   const layout = props.layout || context.layout
+  const disabled = props.disabled ?? context.disabled
 
   const requiredMark = (() => {
     const { requiredMarkStyle } = context
@@ -138,6 +147,8 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
             </span>
           )
         )
+      case 'none':
+        return null
       default:
         return null
     }
@@ -162,33 +173,35 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
     </label>
   ) : null
 
-  const description = (
-    <>
-      {props.description}
-      {hasFeedback && (
-        <>
-          {props.errors.map((error, index) => (
-            <div
-              key={`error-${index}`}
-              className={`${classPrefix}-feedback-error`}
-            >
-              {error}
-            </div>
-          ))}
-          {props.warnings.map((warning, index) => (
-            <div
-              key={`warning-${index}`}
-              className={`${classPrefix}-feedback-warning`}
-            >
-              {warning}
-            </div>
-          ))}
-        </>
-      )}
-    </>
-  )
+  const description =
+    props.description || hasFeedback ? (
+      <>
+        {props.description}
+        {hasFeedback && (
+          <>
+            {props.errors.map((error, index) => (
+              <div
+                key={`error-${index}`}
+                className={`${classPrefix}-feedback-error`}
+              >
+                {error}
+              </div>
+            ))}
+            {props.warnings.map((warning, index) => (
+              <div
+                key={`warning-${index}`}
+                className={`${classPrefix}-feedback-warning`}
+              >
+                {warning}
+              </div>
+            ))}
+          </>
+        )}
+      </>
+    ) : null
 
-  return (
+  return withNativeProps(
+    props,
     <List.Item
       style={style}
       title={layout === 'vertical' && labelElement}
@@ -201,6 +214,7 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
         `${classPrefix}-${layout}`,
         {
           [`${classPrefix}-hidden`]: hidden,
+          [`${classPrefix}-has-error`]: props.errors.length,
         }
       )}
       disabled={disabled}
@@ -263,7 +277,9 @@ export const FormItem: FC<FormItemProps> = props => {
     trigger
   )
 
-  const updateRef = React.useRef(0)
+  const widgetRef = useRef<any>(null)
+
+  const updateRef = useRef(0)
   updateRef.current += 1
 
   const [subMetas, setSubMetas] = useState<Record<string, Meta>>({})
@@ -316,7 +332,8 @@ export const FormItem: FC<FormItemProps> = props => {
       curWarnings
     )
 
-    return (
+    return withNativeProps(
+      props,
       <FormItemLayout
         className={className}
         style={style}
@@ -330,7 +347,7 @@ export const FormItem: FC<FormItemProps> = props => {
         htmlFor={fieldId}
         errors={errors}
         warnings={warnings}
-        onClick={onClick}
+        onClick={onClick && (e => onClick(e, widgetRef))}
         hidden={hidden}
         layout={layout}
         childElementPosition={childElementPosition}
@@ -351,9 +368,7 @@ export const FormItem: FC<FormItemProps> = props => {
   }
 
   let Variables: Record<string, string> = {}
-  if (typeof label === 'string') {
-    Variables.label = label
-  }
+  Variables.label = typeof label === 'string' ? label : ''
   if (messageVariables) {
     Variables = { ...Variables, ...messageVariables }
   }
@@ -433,6 +448,21 @@ export const FormItem: FC<FormItemProps> = props => {
             )
           }
           const childProps = { ...children.props, ...control }
+
+          if (isSafeSetRefComponent(children)) {
+            childProps.ref = (instance: any) => {
+              const originRef = (children as any).ref
+              if (originRef) {
+                if (typeof originRef === 'function') {
+                  originRef(instance)
+                }
+                if ('current' in originRef) {
+                  originRef.current = instance
+                }
+              }
+              widgetRef.current = instance
+            }
+          }
 
           if (!childProps.id) {
             childProps.id = fieldId

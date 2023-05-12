@@ -1,33 +1,31 @@
 import React, { useState } from 'react'
-import { render, testA11y, fireEvent, waitFor, createEvent } from 'testing'
+import {
+  render,
+  testA11y,
+  fireEvent,
+  waitFor,
+  actSleep,
+  screen,
+  act,
+} from 'testing'
 import PickerView from '../'
 import { basicColumns } from '../demos/columns-data'
-import { patchCreateEvent } from '../../../tests/gesture/utils'
 
 const classPrefix = `adm-picker-view`
 
-const mockStyleHtml = `
-<style>
-  .adm-picker-view-column {
-    --item-height: 34px;
-  }
-</style>
-`
-
-patchCreateEvent(createEvent)
-
 describe('PickerView', () => {
-  beforeAll(() => {
-    document.head.innerHTML += mockStyleHtml
-  })
-
   test('a11y', async () => {
-    await waitFor(() => testA11y(<PickerView columns={basicColumns} />))
+    await act(async () => {
+      await testA11y(<PickerView columns={basicColumns} />)
+    })
   })
 
   test('controlled mode', async () => {
     const App = () => {
-      const [value, setValue] = useState<(string | null)[]>(['Mon', 'am'])
+      const [value, setValue] = useState<(string | number | null)[]>([
+        'Mon',
+        'am',
+      ])
       return (
         <>
           <PickerView
@@ -42,28 +40,66 @@ describe('PickerView', () => {
       )
     }
 
-    const { getByTestId } = await render(<App />)
-
-    const wheelEl = document.body.querySelectorAll(`.${classPrefix}-column`)[0]
-
-    fireEvent.pointerDown(wheelEl, {
-      pointerId: 1,
-      clientX: 0,
-      clientY: 0,
+    const { getByTestId } = render(<App />)
+    const wheelEl = document.body.querySelectorAll(
+      `.${classPrefix}-column-wheel`
+    )[0]
+    fireEvent.mouseDown(wheelEl, {
       buttons: 1,
     })
-    fireEvent.pointerMove(wheelEl, {
-      pointerId: 1,
-      clientX: 10,
+    fireEvent.mouseMove(wheelEl, {
       clientY: -100,
       buttons: 1,
     })
-    fireEvent.pointerUp(wheelEl, { pointerId: 1 })
+    fireEvent.mouseUp(wheelEl)
+    await actSleep(100)
+    expect(getByTestId('res')).toHaveTextContent(JSON.stringify(['Thur', 'am']))
+  })
 
-    await waitFor(() => {
-      expect(getByTestId('res')).toHaveTextContent(
-        JSON.stringify(['Thur', 'am'])
+  // https://github.com/ant-design/ant-design-mobile/issues/5426
+  test('wheel should scroll to the correct position', async () => {
+    const App = () => {
+      const [bool, setBool] = useState(true)
+      return (
+        <>
+          <button onClick={() => setBool(!bool)}>change</button>
+          <PickerView
+            columns={
+              bool
+                ? [
+                    [
+                      { label: '1', value: '' },
+                      { label: '2', value: '2' },
+                      { label: '3', value: '3' },
+                    ],
+                  ]
+                : [
+                    [
+                      { label: '1', value: '' },
+                      { label: '2', value: '2' },
+                    ],
+                  ]
+            }
+          />
+        </>
       )
+    }
+
+    render(<App />)
+    const wheelEl = document.body.querySelectorAll(
+      `.${classPrefix}-column-wheel`
+    )[0]
+    fireEvent.mouseDown(wheelEl, {
+      clientY: 0,
+      buttons: 1,
     })
+    fireEvent.mouseMove(wheelEl, {
+      clientY: -200,
+      buttons: 1,
+    })
+    fireEvent.mouseUp(wheelEl)
+    expect(wheelEl).toHaveStyle('transform: translateY(-68px)')
+    fireEvent.click(screen.getByText('change'))
+    await waitFor(() => expect(wheelEl).toHaveStyle('transform: none'))
   })
 })

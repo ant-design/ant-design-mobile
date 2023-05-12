@@ -32,10 +32,19 @@ jobs:
         run: |
           export DEPLOY_DOMAIN=https://antd-mobile-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
           npx surge --project ./dist --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
-      - name: create comment
-        uses: peter-evans/create-or-update-comment@v1
+      - name: find comment
+        uses: peter-evans/find-comment@v2
+        id: fc
         with:
           issue-number: ${{ steps.pr.outputs.id }}
+          comment-author: 'github-actions[bot]'
+          body-includes: PR preview
+      - name: create comment
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ steps.pr.outputs.id }}
+          edit-mode: replace
           body: |
             PR preview has been successfully built and deployed to https://antd-mobile-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
       - run: |

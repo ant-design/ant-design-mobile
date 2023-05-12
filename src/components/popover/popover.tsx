@@ -49,7 +49,7 @@ export type PopoverProps = {
   placement?: Placement | DeprecatedPlacement
   stopPropagation?: PropagationEvent[]
   content: React.ReactNode
-} & NativeProps<'--z-index'>
+} & NativeProps<'--z-index' | '--arrow-size'>
 
 export type PopoverRef = {
   show: () => void
@@ -69,7 +69,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
   const { mode = 'light' } = props
   const placement = normalizePlacement(props.placement)
 
-  const [visible, setVisible] = usePropsValue({
+  const [visible, setVisible] = usePropsValue<boolean>({
     value: props.visible,
     defaultValue: props.defaultVisible,
     onChange: props.onVisibleChange,
@@ -160,7 +160,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       top: arrowY != null ? `${arrowY}px` : '',
       right: '',
       bottom: '',
-      [arrowSide]: `-${convertPx(8)}px`,
+      [arrowSide]: 'calc(var(--arrow-size) * -1)',
     })
     const arrowRotate = {
       top: '0deg',
@@ -191,7 +191,9 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
   useEffect(() => {
     const floatingElement = floatingRef.current
     if (!targetElement || !floatingElement) return
-    return autoUpdate(targetElement, floatingElement, update)
+    return autoUpdate(targetElement, floatingElement, update, {
+      elementResize: typeof ResizeObserver !== 'undefined',
+    })
   }, [targetElement])
 
   useClickAway(
@@ -199,7 +201,8 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       if (!props.trigger) return
       setVisible(false)
     },
-    () => targetRef.current?.element
+    [() => targetRef.current?.element, floatingRef],
+    ['click', 'touchmove']
   )
 
   const shouldRender = useShouldRender(visible, false, props.destroyOnHide)

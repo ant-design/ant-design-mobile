@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
-import { fireEvent, render, testA11y, waitFor } from 'testing'
+import {
+  fireEvent,
+  render,
+  testA11y,
+  waitFor,
+  screen,
+  sleep,
+  act,
+} from 'testing'
 import Switch from '..'
 
 const classPrefix = `adm-switch`
@@ -9,12 +17,9 @@ describe('Switch', () => {
     await testA11y(<Switch />)
   })
 
-  test('renders with disabled', async () => {
-    const { getByTestId } = await render(
-      <Switch data-testid='switch' disabled />
-    )
-
-    expect(getByTestId('switch')).toHaveClass(`${classPrefix}-disabled`)
+  test('renders with disabled', () => {
+    render(<Switch disabled />)
+    expect(screen.getByRole('switch')).toHaveClass(`${classPrefix}-disabled`)
   })
 
   test('controlled mode', async () => {
@@ -26,51 +31,76 @@ describe('Switch', () => {
           onChange={checked => {
             setChecked(checked)
           }}
-          data-testid='switch'
         />
       )
     }
 
-    const { getByTestId } = await render(<App />)
-    fireEvent.click(getByTestId('switch'))
-    expect(getByTestId('switch')).toHaveClass(`${classPrefix}-checked`)
-    fireEvent.click(getByTestId('switch'))
-    expect(getByTestId('switch')).not.toHaveClass(`${classPrefix}-checked`)
+    render(<App />)
+    const switchEl = screen.getByRole('switch')
+    fireEvent.click(switchEl)
+    expect(switchEl).toHaveClass(`${classPrefix}-checked`)
+    fireEvent.click(switchEl)
+    expect(switchEl).not.toHaveClass(`${classPrefix}-checked`)
   })
 
   test('`beforeChange` should not work with loading', async () => {
     const beforeChange = jest.fn()
-    const { getByTestId } = await render(
-      <Switch data-testid='switch' loading beforeChange={beforeChange} />
-    )
-
-    fireEvent.click(getByTestId('switch'))
-
+    render(<Switch loading beforeChange={beforeChange} />)
+    const switchEl = screen.getByRole('switch')
+    fireEvent.click(switchEl)
     expect(
-      getByTestId('switch').querySelectorAll(`.${classPrefix}-spin-icon`).length
+      switchEl.querySelectorAll(`.${classPrefix}-spin-icon`).length
     ).toBeTruthy()
-
     expect(beforeChange).not.toBeCalled()
   })
 
   test('`beforeChange` in async mode', async () => {
+    jest.useFakeTimers()
     const App = () => {
       const beforeChange = (): Promise<void> => {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve()
-          }, 1000)
+          }, 500)
         })
       }
-      return <Switch beforeChange={() => beforeChange()} data-testid='switch' />
+      return <Switch beforeChange={beforeChange} />
     }
 
-    const { getByTestId } = await render(<App />)
-    fireEvent.click(getByTestId('switch'))
-    expect(getByTestId('switch')).toHaveClass(`${classPrefix}-disabled`)
-
+    render(<App />)
+    const switchEl = screen.getByRole('switch')
+    fireEvent.click(switchEl)
+    expect(switchEl).toHaveClass(`${classPrefix}-disabled`)
+    jest.runAllTimers()
     await waitFor(() => {
-      expect(getByTestId('switch')).toHaveClass(`${classPrefix}-checked`)
+      expect(switchEl).toHaveClass(`${classPrefix}-checked`)
     })
+    jest.useRealTimers()
+  })
+
+  test('`onChange` returns a Promise', async () => {
+    jest.useFakeTimers()
+    const App = () => {
+      const [checked, setChecked] = useState(false)
+      return (
+        <Switch
+          checked={checked}
+          onChange={async val => {
+            await sleep(1000)
+            setChecked(val)
+          }}
+        />
+      )
+    }
+
+    render(<App />)
+    const switchEl = screen.getByRole('switch')
+    fireEvent.click(switchEl)
+    expect(switchEl).toHaveClass(`${classPrefix}-disabled`)
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(switchEl).toHaveClass(`${classPrefix}-checked`)
+    jest.useRealTimers()
   })
 })

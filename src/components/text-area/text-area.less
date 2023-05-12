@@ -1,5 +1,5 @@
 .adm-text-area {
-  --font-size: 17px;
+  --font-size: var(--adm-font-size-9);
   --color: var(--adm-color-text);
   --placeholder-color: var(--adm-color-light);
   --disabled-color: var(--adm-color-weak);
@@ -63,11 +63,19 @@
   &[readonly] {
     pointer-events: none;
   }
+
+  &-hidden {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+  }
 }
 
 .adm-text-area-count {
   text-align: var(--count-text-align);
   color: var(--adm-color-weak);
-  font-size: 17px;
+  font-size: var(--adm-font-size-9);
   padding-top: 8px;
 }

@@ -20,7 +20,11 @@ v2 已经是很久之前发布的版本了，最近两年在公司内部，我�
 
 对于新项目，我们推荐直接使用 v5 版本。
 
-对于旧项目，我们建议采用渐进式的[迁移方案](./migration)。
+对于旧项目，我们建议采用渐进式的[迁移方案](/zh/guide/migration)。
+
+### 如何查看项目中安装的 antd-mobile 的准确版本？
+
+打开 `node_modules/antd-mobile/package.json`，里面 `version` 字段的值就是当前项目中安装的 antd-mobile 的准确版本。
 
 ### umi 项目安装 antd-mobile v5 后报错如何解决？
 
@@ -42,7 +46,7 @@ These dependencies were not found:
 
 ### 从 v2 如何迁移到 v5？
 
-请参考[迁移指南](./migration)。
+请参考[迁移指南](/zh/guide/migration)。
 
 ### 如何避免 300ms 的点击延迟？
 
@@ -83,4 +87,14 @@ codesandbox 是一个浏览器端的沙盒运行环境，支持多种流行的�
 
 2. 为了保证准确复现，请保证你出现 bug 的版本与 codesandbox 依赖中的 antd-mobile 版本一致。
 
-3. 完成代码复现后，别忘了`保存`以创建一个新的实例，然后点击右上角出现的 share 按钮，复制 url 到 issues 中。
+3. 完成代码复现后，别忘了`保存`以创建一个新的实例，然后点击右上角出现的 share 按钮，复制 url。
+
+### 文档 demo 中出现的 `import xxx from 'demos'` 是什么？
+
+`demos` 并不是一个 npm 包，而是 antd-mobile 项目中创建的一个别名。它的实现在[这里](https://github.com/ant-design/ant-design-mobile/blob/master/src/demos/index.ts)。
+
+请不要尝试 `npm install demos`。你可以直接忽略它们。
+
+### antd-mobile 有 CDN 上的 umd 包吗？
+
+有的，具体用法请参考[这篇文档](/zh/guide/pre-built-bundles)。

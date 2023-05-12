@@ -8,6 +8,7 @@ const classPrefix = `adm-divider`
 export type DividerProps = {
   contentPosition?: 'left' | 'right' | 'center'
   direction?: 'horizontal' | 'vertical'
+  children?: React.ReactNode
 } & NativeProps
 
 const defaultProps = {

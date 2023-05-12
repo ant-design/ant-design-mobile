@@ -24,7 +24,11 @@
   &-action {
     height: 40px;
     background: #ffffff;
-    border-top: 1px solid @c-border;
+    border-top: 1px solid var(--doc-border-color);
+
+    [data-prefers-color='dark'] & {
+      background: #262626;
+    }
 
     > a {
       padding: 0;
@@ -34,6 +38,7 @@
       transition: opacity 0.2s, background 0.2s;
       outline: none;
       cursor: pointer;
+      color: #333;
 
       &:hover {
         opacity: 0.8;
@@ -72,6 +77,10 @@
           transform: translateX(-50%) scale(1);
         }
       }
+
+      [data-prefers-color='dark'] & {
+        color: @c-text-dark;
+      }
     }
   }
 
@@ -79,7 +88,6 @@
     flex: 1;
     border: 0;
     border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
     overflow: hidden;
   }
 }

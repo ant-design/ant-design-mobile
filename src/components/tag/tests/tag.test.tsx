@@ -8,7 +8,7 @@ describe('Tag', () => {
   })
 
   test('renders with color', async () => {
-    const { container } = await render(
+    const { container } = render(
       <>
         <Tag color='#primary'>primary</Tag>
         <Tag color='#2db7f5'>#2db7f5</Tag>
@@ -19,7 +19,7 @@ describe('Tag', () => {
   })
 
   test('renders with fill', async () => {
-    const { container } = await render(
+    const { container } = render(
       <>
         <Tag fill='outline'>outline</Tag>
         <Tag fill='solid'>solid</Tag>

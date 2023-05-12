@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { ReactElement } from 'react'
+import { ReactElement, ReactPortal } from 'react'
 import { resolveContainer } from './get-container'
 import { canUseDom } from './can-use-dom'
 
@@ -11,7 +11,7 @@ export function renderToContainer(
 ) {
   if (canUseDom && getContainer) {
     const container = resolveContainer(getContainer)
-    return createPortal(node, container)
+    return createPortal(node, container) as ReactPortal
   }
   return node
 }

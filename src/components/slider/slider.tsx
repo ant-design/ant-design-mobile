@@ -1,12 +1,14 @@
-import React, { FC, useMemo, useRef } from 'react'
+import React, { FC, ReactNode, useMemo, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
 import Marks, { SliderMarks } from './marks'
+import getMiniDecimal, { toFixed } from '@rc-component/mini-decimal'
 import Thumb from './thumb'
 import { mergeProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
 import { usePropsValue } from '../../utils/use-props-value'
+import { devWarning } from '../../utils/dev-log'
 
 const classPrefix = `adm-slider`
 
@@ -22,7 +24,9 @@ export type SliderProps = {
   ticks?: boolean
   disabled?: boolean
   range?: boolean
-  icon?: React.ReactNode
+  icon?: ReactNode
+  popover?: boolean | ((value: number) => ReactNode)
+  residentPopover?: boolean
   onChange?: (value: SliderValue) => void
   onAfterChange?: (value: SliderValue) => void
 } & NativeProps<'--fill-color'>
@@ -34,6 +38,8 @@ const defaultProps = {
   ticks: false,
   range: false,
   disabled: false,
+  popover: false,
+  residentPopover: false,
 }
 
 export const Slider: FC<SliderProps> = p => {
@@ -46,16 +52,42 @@ export const Slider: FC<SliderProps> = p => {
   function convertValue(value: SliderValue): [number, number] {
     return (props.range ? value : [props.min, value]) as any
   }
+  function alignValue(value: number, decimalLen: number) {
+    const decimal = getMiniDecimal(value)
+    const fixedStr = toFixed(decimal.toString(), '.', decimalLen)
+
+    return getMiniDecimal(fixedStr).toNumber()
+  }
+
   function reverseValue(value: [number, number]): SliderValue {
-    return props.range ? value : value[1]
+    const mergedDecimalLen = Math.max(
+      getDecimalLen(step),
+      getDecimalLen(value[0]),
+      getDecimalLen(value[1])
+    )
+    return props.range
+      ? (value.map(v => alignValue(v, mergedDecimalLen)) as [number, number])
+      : alignValue(value[1], mergedDecimalLen)
+  }
+
+  function getDecimalLen(n: number) {
+    return (`${n}`.split('.')[1] || '').length
   }
 
   function onAfterChange(value: [number, number]) {
     props.onAfterChange?.(reverseValue(value))
   }
 
+  let propsValue: SliderValue | undefined = props.value
+  if (props.range && typeof props.value === 'number') {
+    devWarning(
+      'Slider',
+      'When `range` prop is enabled, the `value` prop should be an array, like: [0, 0]'
+    )
+    propsValue = [0, props.value]
+  }
   const [rawValue, setRawValue] = usePropsValue<SliderValue>({
-    value: props.value,
+    value: propsValue,
     defaultValue: props.defaultValue ?? (props.range ? [min, min] : min),
     onChange: props.onChange,
   })
@@ -81,8 +113,12 @@ export const Slider: FC<SliderProps> = p => {
         .sort((a, b) => a - b)
     } else {
       const points: number[] = []
-      for (let i = min; i <= max; i += step) {
-        points.push(i)
+      for (
+        let i = getMiniDecimal(min);
+        i.lessEquals(getMiniDecimal(max));
+        i = i.add(step)
+      ) {
+        points.push(i.toNumber())
       }
       return points
     }
@@ -142,13 +178,15 @@ export const Slider: FC<SliderProps> = p => {
   const renderThumb = (index: number) => {
     return (
       <Thumb
-        icon={icon}
         key={index}
         value={sliderValue[index]}
         min={min}
         max={max}
         disabled={disabled}
         trackRef={trackRef}
+        icon={icon}
+        popover={props.popover}
+        residentPopover={props.residentPopover}
         onDrag={(position, first, last) => {
           if (first) {
             dragLockRef.current += 1
@@ -167,6 +205,7 @@ export const Slider: FC<SliderProps> = p => {
             }, 100)
           }
         }}
+        aria-label={props['aria-label']}
       />
     )
   }

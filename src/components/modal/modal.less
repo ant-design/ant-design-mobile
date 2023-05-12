@@ -3,31 +3,16 @@
 .@{class-prefix-modal} {
   --z-index: var(--adm-modal-z-index, 1000);
 
-  position: fixed;
-  z-index: var(--z-index);
-
-  .@{class-prefix-modal}-mask {
-    z-index: 0;
+  ---z-index: var(--z-index);
+  .adm-center-popup {
+    --z-index: var(---z-index);
   }
 }
 
-.@{class-prefix-modal}-wrap {
-  position: fixed;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  min-width: 280px;
-  max-width: 75vw;
-  transform: translate(-50%, -50%);
-}
 .@{class-prefix-modal}-body {
   width: 100%;
   max-height: 70vh;
-  box-sizing: border-box;
-  font-size: 14px;
-  background-color: white;
-  border-radius: 8px;
+  font-size: var(--adm-font-size-6);
   overflow: hidden;
 
   display: flex;
@@ -42,41 +27,33 @@
   &:not(.adm-modal-with-image) {
     padding-top: 20px;
   }
+}
 
-  .adm-modal-image-container {
-    margin-bottom: 12px;
-    max-height: 40vh;
-    overflow-y: scroll;
-  }
-  .adm-modal-header {
-    margin-bottom: 8px;
-    padding: 0 12px;
-  }
-  .adm-modal-title {
-    margin-bottom: 8px;
-    padding: 0 12px;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-    text-align: center;
-  }
-  .adm-modal-content {
-    padding: 0 12px 12px;
-    max-height: 70vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    font-size: 15px;
-    line-height: 1.4;
-    color: #333;
-  }
-  .adm-modal-close {
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    color: var(--adm-color-weak);
-    padding: 4px;
-    font-size: 18px;
-  }
+.adm-modal-image-container {
+  margin-bottom: 12px;
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+.adm-modal-header {
+  margin-bottom: 8px;
+  padding: 0 12px;
+}
+.adm-modal-title {
+  margin-bottom: 8px;
+  padding: 0 12px;
+  font-weight: bold;
+  font-size: var(--adm-font-size-10);
+  line-height: 25px;
+  text-align: center;
+}
+.adm-modal-content {
+  padding: 0 12px 12px;
+  max-height: 70vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: var(--adm-font-size-7);
+  line-height: 1.4;
+  color: var(--adm-color-text);
 }
 
 .adm-modal-footer {
@@ -90,7 +67,7 @@
     --gap-vertical: 20px;
   }
   .adm-modal-button {
-    font-size: 18px;
+    font-size: var(--adm-font-size-10);
     line-height: 25px;
     &:not(.adm-modal-button-primary) {
       padding-top: 0;

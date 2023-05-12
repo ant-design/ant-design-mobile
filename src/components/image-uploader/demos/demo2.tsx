@@ -24,6 +24,28 @@ const CustomeSize: FC = () => {
   )
 }
 
+// 自定义列数
+// columns 属性存在时，不支持自定义 --cell-size 属性，详见 FAQ。
+const CustomeColumns: FC = () => {
+  const [fileList, setFileList] = useState<ImageUploadItem[]>([
+    {
+      url: demoSrc,
+    },
+    {
+      url: demoSrc,
+    },
+  ])
+
+  return (
+    <ImageUploader
+      columns={5}
+      value={fileList}
+      onChange={setFileList}
+      upload={mockUpload}
+    />
+  )
+}
+
 // 自定义上传按钮
 const CustomUploadButton: FC = () => {
   const [fileList, setFileList] = useState<ImageUploadItem[]>([
@@ -57,6 +79,10 @@ export default () => {
     <>
       <DemoBlock title='自定义大小'>
         <CustomeSize />
+      </DemoBlock>
+
+      <DemoBlock title='自定义列数'>
+        <CustomeColumns />
       </DemoBlock>
 
       <DemoBlock title='自定义上传按钮'>

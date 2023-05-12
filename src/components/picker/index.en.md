@@ -1,8 +1,17 @@
 # Picker
 
+Displays a scrollable list of one or more option sets.
+
+## When to Use
+
+- Provides one or more sets of association options for the user to choose from.
+- When there are less than 5 options, it is recommended to tile the options directly, using Radio is a better choice.
+
 The Picker series includes three components: [Picker](#picker), [CascadePicker](#cascadepicker) and [DatePicker](#datepicker).
 
 ## Picker
+
+### Demos
 
 <code src="./demos/demo1.tsx"></code>
 
@@ -26,36 +35,80 @@ type PickerValueExtend = {
 }
 ```
 
-| Name             | Description                                                  | Type                                                           | Default                |
-| ---------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | ---------------------- |
-| columns          | Options to configure each column                             | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | -                      |
-| value            | Selected options                                             | `PickerValue[]`                                                | -                      |
-| defaultValue     | Default selected options                                     | `PickerValue[]`                                                | `[]`                   |
-| onSelect         | Triggered when the options are changed                       | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
-| onConfirm        | Triggered when confirming                                    | `(value: PickerValue[], extend: PickerValueExtend) => void`    | -                      |
-| onCancel         | Triggered when cancelling                                    | `() => void`                                                   | -                      |
-| onClose          | Triggered when confirming or cancelling                      | `() => void`                                                   | -                      |
-| closeOnMaskClick | Whether to close after clicking the mask layer               | `boolean`                                                      | `true`                 |
-| visible          | Whether to show or hide the Picker                           | `boolean`                                                      | `false`                |
-| title            | Title                                                        | `ReactNode`                                                    | -                      |
-| confirmText      | Text of the ok button                                        | `ReactNode`                                                    | `'确定'`               |
-| cancelText       | Text of the cancel button                                    | `ReactNode`                                                    | `'取消'`               |
-| children         | Render function of the selected options                      | `(items: PickerColumnItem[]) => ReactNode`                     | -                      |
-| renderLabel      | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode`                        | `(item) => item.label` |
-| mouseWheel       | Whether to allow interact with mouse wheel                   | `boolean`                                                      | `false`                |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| cancelText | Text of the cancel button | `ReactNode` | `'取消'` |
+| children | Render function of the selected options | `(items: PickerColumnItem[], actions: PickerActions) => ReactNode` | - |
+| closeOnMaskClick | Whether to close after clicking the mask layer | `boolean` | `true` |
+| columns | Options to configure each column | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | - |
+| confirmText | Text of the ok button | `ReactNode` | `'确定'` |
+| defaultValue | Default selected options | `PickerValue[]` | `[]` |
+| destroyOnClose | Unmount content when not visible | `boolean` | `false` |
+| forceRender | Render content forcely | `boolean` | `false` |
+| mouseWheel | Whether to allow interact with mouse wheel | `boolean` | `false` |
+| onCancel | Triggered when cancelling | `() => void` | - |
+| onClose | Triggered when confirming or cancelling | `() => void` | - |
+| onConfirm | Triggered when confirming | `(value: PickerValue[], extend: PickerValueExtend) => void` | - |
+| onSelect | Triggered when the options are changed | `(value: PickerValue[], extend: PickerValueExtend) => void` | - |
+| popupClassName | The custom class name of the popup | `string` | - |
+| popupStyle | The custom style of the popup | `React.CSSProperties ` | - |
+| renderLabel | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode` | `(item) => item.label` |
+| title | Title | `ReactNode` | - |
+| value | Selected options | `PickerValue[]` | - |
+| visible | Whether to show or hide the Picker | `boolean` | `false` |
+| loading | Should the Picker displays as loading state | `boolean` | `false` |
+| loadingContent | The loading content displayed in loading state | `ReactNode` | `provide a default SpinLoading content` |
 
-In addition, the following attributes of [Popup](./popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`
+In addition, the following attributes of [Popup](/components/popup) are supported: `getContainer` `afterShow` `afterClose` `onClick` `stopPropagation`.
+
+**Please note that the type of the `columns` property is a two-level array**, the first level corresponds to each column, and the second level corresponds to each option in a column. Therefore, the following writing is wrong:
+
+```jsx
+<Picker
+   columns={[
+     { label: 'Foo', value: 'foo' },
+     { label: 'Bar', value: 'bar' },
+   ]}
+/>
+```
+
+need to be written as:
+
+```jsx
+<Picker
+   columns={[
+     [
+       { label: 'Foo', value: 'foo' },
+       { label: 'Bar', value: 'bar' },
+     ]
+   ]}
+/>
+```
+
+### PickerActions
+
+| Name   | Description                         | Type         |
+| ------ | ----------------------------------- | ------------ |
+| close  | Close Picker.                       | `() => void` |
+| open   | Open Picker.                        | `() => void` |
+| toggle | Toggle the visible state of Picker. | `() => void` |
+
+### Ref
+
+Same as PickerActions.
 
 ### CSS Variables
 
-| Name                      | Description                                               | Default | Global |
-| ------------------------- | --------------------------------------------------------- | ------- | ------ |
-| --header-button-font-size | Font size of confirm and cancel button.                   | `15px`  | -      |
-| --title-font-size         | Font size of title.                                       | `15px`  | -      |
-| --item-font-size          | Font size of option items.                                | `16px`  | -      |
-| --item-height             | Height of option item. Only supports px rem and vw units. | `34px`  | -      |
+| Name | Description | Default | Global |
+| --- | --- | --- | --- |
+| --header-button-font-size | Font size of confirm and cancel button. | `15px` | - |
+| --item-font-size | Font size of option items. | `16px` | - |
+| --item-height | Height of option item. Only supports px rem and vw units. | `34px` | - |
+| --title-font-size | Font size of title. | `15px` | - |
 
 ## CascadePicker
+
+### Demos
 
 <code src="../cascade-picker/demos/demo1.tsx"></code>
 
@@ -75,29 +128,44 @@ type CascadePickerOption = {
 
 Other props are the same as `Picker`, but `columns` are not supported.
 
+### Ref
+
+Same as Picker.
+
 ### CSS Variables
 
 Same as `Picker`.
 
 ## DatePicker
 
+### Demos
+
 <code src="../date-picker/demos/demo1.tsx"></code>
 
 ### Props
 
-| Name         | Description                                                                                                                          | Type                                                                                   | Default         |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- | --------------- |
-| value        | Selected value                                                                                                                       | `Date`                                                                                 | -               |
-| defaultValue | Default selected value                                                                                                               | `Date`                                                                                 | -               |
-| onSelect     | Triggered when the options are changed                                                                                               | `(value: Date) => void`                                                                | -               |
-| onConfirm    | Triggered when confirming                                                                                                            | `(value: Date) => void`                                                                | -               |
-| min          | Minimum value                                                                                                                        | `Date`                                                                                 | ten years ago   |
-| max          | Max value                                                                                                                            | `Date`                                                                                 | ten years later |
-| precision    | Precision                                                                                                                            | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'`         |
-| children     | The rendering function of the selected items                                                                                         | `(value: Date) => ReactNode`                                                           | -               |
-| renderLabel  | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode`                                            | -               |
-| filter       | Filter available time                                                                                                                | `DatePickerFilter`                                                                     | -               |
-| mouseWheel   | Whether to allow interact with mouse wheel                                                                                           | `boolean`                                                                              | `false`         |
+```typescript
+type PickerDate = Date & {
+  tillNow?: boolean
+}
+```
+
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| children | The rendering function of the selected items | `(value: PickerDate, actions: PickerActions) => ReactNode` | - |
+| defaultValue | Default selected value | `PickerDate` | - |
+| destroyOnClose | Unmount content when not visible | `boolean` | `false` |
+| filter | Filter available time | `DatePickerFilter` | - |
+| forceRender | Render content forcely | `boolean` | `false` |
+| max | Max value | `PickerDate` | ten years later |
+| min | Minimum value | `PickerDate` | ten years ago |
+| mouseWheel | Whether to allow interact with mouse wheel | `boolean` | `false` |
+| onConfirm | Triggered when confirming | `(value: PickerDate) => void` | - |
+| onSelect | Triggered when the options are changed | `(value: PickerDate) => void` | - |
+| precision | Precision | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
+| renderLabel | The function to custom rendering the label shown on a column. `type` means any value in `precision` or `now`, `data` means the default number | `(type: Precision \| 'now', data: number) => ReactNode` | - |
+| tillNow | Show till now in list | `boolean` | - | 5.27.0 |
+| value | Selected value | `PickerDate` | - |
 
 ```typescript | pure
 type DatePickerFilter = Partial<
@@ -113,31 +181,11 @@ type DatePickerFilter = Partial<
 >
 ```
 
-In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation`
+In addition, the following attributes of `Picker` are supported: `onCancel` `onClose` `closeOnMaskClick` `visible` `confirmText` `cancelText` `getContainer` `afterShow` `afterClose` `onClick` `title` `stopPropagation` `loading` `loadingContent`
 
-**Please note that the type of the `columns` property is a two-level array**, the first level corresponds to each column, and the second level corresponds to each option in a column. Therefore, the following writing is wrong:
+### Ref
 
-```jsx
-<Picker
-  columns={[
-    { label: 'Foo', value: 'foo' },
-    { label: 'Bar', value: 'bar' },
-  ]}
-/>
-```
-
-Need to be written as:
-
-```jsx
-<Picker
-  columns={[
-    [
-      { label: 'Foo', value: 'foo' },
-      { label: 'Bar', value: 'bar' },
-    ]
-  ]}
-/>
-```
+Same as Picker.
 
 ### CSS Variables
 

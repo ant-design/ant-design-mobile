@@ -1,9 +1,10 @@
-import { fireEvent, render, waitFor } from '@testing-library/react'
+import { render, waitFor, screen } from '@testing-library/react'
 import React, { useEffect, useState } from 'react'
+import { fireEvent } from 'testing'
 import { Stepper } from '../stepper'
 
 describe('stepper', () => {
-  test('control works', () => {
+  test('control works', async () => {
     const onChange = jest.fn()
 
     const Element = () => {
@@ -21,76 +22,72 @@ describe('stepper', () => {
         />
       )
     }
-    const { container } = render(<Element></Element>)
+    render(<Element></Element>)
+    const plusButton = screen.getByRole('button', { name: '增加' })
 
     // plus
-    container.getElementsByTagName('button')[1].click()
+    fireEvent.click(plusButton)
     expect(onChange).toHaveBeenLastCalledWith(2)
 
     // plus
-    container.getElementsByTagName('button')[1].click()
-    expect(container.getElementsByTagName('input')[0].value).toBe('2')
+    fireEvent.click(plusButton)
+    expect(onChange).toBeCalledTimes(1)
 
-    const input = container.getElementsByTagName('input')[0]
-
-    fireEvent.focus(input)
-
-    // input change
-    fireEvent.change(container.getElementsByTagName('input')[0], {
+    const input = screen.getByRole('spinbutton') as HTMLInputElement
+    fireEvent.change(input, {
       target: { value: 1000 },
     })
-
-    fireEvent.blur(input)
-
-    expect(container.getElementsByTagName('input')[0].value).toBe('1000')
+    expect(input.value).toBe('1000')
   })
 
   test('defaultValue works', async () => {
     const onChange = jest.fn()
-    const { container } = render(
-      <Stepper defaultValue={100} onChange={onChange} />
-    )
+    render(<Stepper defaultValue={100} onChange={onChange} />)
 
-    const input = container.getElementsByTagName('input')[0]
-
+    const input = screen.getByRole('spinbutton') as HTMLInputElement
     expect(input.value).toBe('100')
 
+    // Change to 200
+    fireEvent.change(input, {
+      target: {
+        value: '200',
+      },
+    })
+
+    // Clean up
     fireEvent.change(input, {
       target: {
         value: '',
       },
     })
-
-    fireEvent.blur(input)
-
-    await waitFor(() => {
-      expect(onChange).toHaveBeenLastCalledWith(100)
-    })
+    expect(onChange).toHaveBeenLastCalledWith(100)
   })
 
-  test('step works', () => {
+  test('step works', async () => {
     const onChange = jest.fn()
-    const { container } = render(
-      <Stepper defaultValue={0} step={100} onChange={onChange} />
-    )
+    render(<Stepper defaultValue={0} step={100} onChange={onChange} />)
+
+    const minusButton = screen.getByRole('button', { name: '减少' })
+    const plusButton = screen.getByRole('button', { name: '增加' })
+
     // minus
-    container.getElementsByTagName('button')[0].click()
-    expect(onChange).toHaveBeenLastCalledWith(-100)
+    fireEvent.click(minusButton)
+    expect(onChange.mock.calls[0][0]).toBe(-100)
 
     // plus
-    container.getElementsByTagName('button')[1].click()
-    expect(onChange).toHaveBeenLastCalledWith(0)
+    fireEvent.click(plusButton)
+    expect(onChange.mock.calls[1][0]).toBe(0)
   })
 
   test('digits works', () => {
-    const { container } = render(<Stepper value={0.1} digits={2} />)
-
-    expect(container.getElementsByTagName('input')[0].value).toBe('0.10')
+    render(<Stepper value={0.1} digits={2} />)
+    const input = screen.getByRole('spinbutton') as HTMLInputElement
+    expect(input.value).toBe('0.10')
   })
 
   test('min and max works', async () => {
     const onChange = jest.fn()
-    const { container } = render(
+    render(
       <Stepper
         max={0.2}
         onChange={onChange}
@@ -101,40 +98,33 @@ describe('stepper', () => {
       />
     )
 
+    const minusButton = screen.getByRole('button', { name: '减少' })
+    const plusButton = screen.getByRole('button', { name: '增加' })
+
     // max
     for (let i = 1; i <= 11; i++) {
-      container.getElementsByTagName('button')[1].click()
-
-      expect((onChange.mock as any).lastCall[0]).toBeLessThanOrEqual(0.2)
+      fireEvent.click(plusButton)
+      expect(onChange.mock.lastCall[0]).toBeLessThanOrEqual(0.2)
     }
 
     // min
     for (let i = 20; i >= -1; i--) {
-      container.getElementsByTagName('button')[0].click()
-      expect((onChange.mock as any).lastCall[0]).toBeGreaterThanOrEqual(0)
+      fireEvent.click(minusButton)
+      expect(onChange.mock.lastCall[0]).toBeGreaterThanOrEqual(0)
     }
 
-    const input = container.getElementsByTagName('input')[0]
-    // input change
+    const input = screen.getByRole('spinbutton')
     fireEvent.change(input, {
       target: { value: 1000 },
     })
-
-    fireEvent.blur(input)
-
-    await waitFor(() => {
-      expect(onChange).toHaveBeenLastCalledWith(0.2)
-    })
+    expect(onChange).toHaveBeenLastCalledWith(0.2)
   })
 
   test('allowEmpty works', () => {
     const onChange = jest.fn()
-    const { container } = render(
-      <Stepper defaultValue={100} allowEmpty onChange={onChange} />
-    )
+    render(<Stepper defaultValue={100} allowEmpty onChange={onChange} />)
 
-    const input = container.getElementsByTagName('input')[0]
-
+    const input = screen.getByRole('spinbutton')
     fireEvent.change(input, {
       target: {
         value: '',
@@ -146,16 +136,19 @@ describe('stepper', () => {
 
   test('disabled works', () => {
     const onChange = jest.fn()
-    const { container } = render(<Stepper disabled onChange={onChange} />)
+    render(<Stepper disabled onChange={onChange} />)
 
-    container.getElementsByTagName('button')[0].click()
-    container.getElementsByTagName('button')[1].click()
-    fireEvent.change(container.getElementsByTagName('input')[0], {
+    const minusButton = screen.getByRole('button', { name: '减少' })
+    const plusButton = screen.getByRole('button', { name: '增加' })
+
+    fireEvent.click(minusButton)
+    fireEvent.click(plusButton)
+    const input = screen.getByRole('spinbutton')
+    fireEvent.change(input, {
       target: {
         value: 1000,
       },
     })
-
     expect(onChange).toHaveBeenCalledTimes(0)
   })
 
@@ -168,9 +161,10 @@ describe('stepper', () => {
   test('onFocus and onBlur works', () => {
     const onBlur = jest.fn()
     const onFocus = jest.fn()
-    const { container } = render(<Stepper onBlur={onBlur} onFocus={onFocus} />)
+    render(<Stepper onBlur={onBlur} onFocus={onFocus} />)
 
-    const input = container.getElementsByTagName('input')[0]
+    const input = screen.getByRole('spinbutton')
+
     fireEvent.focus(input)
     fireEvent.blur(input)
 
@@ -179,14 +173,12 @@ describe('stepper', () => {
   })
 
   test('value as NaN works', async () => {
-    const { container } = render(<Stepper defaultValue={1000} />, {})
+    render(<Stepper defaultValue={1000} />, {})
 
-    const input = container.getElementsByTagName('input')[0]
+    const input = screen.getByRole('spinbutton') as HTMLInputElement
 
     fireEvent.focus(input)
-
     fireEvent.compositionStart(input)
-
     fireEvent.change(input, {
       target: {
         value: '中文',
@@ -194,11 +186,8 @@ describe('stepper', () => {
     })
 
     fireEvent.compositionEnd(input)
-
     fireEvent.blur(input)
-    await waitFor(() => {
-      expect(input.value).toBe('1000')
-    })
+    expect(input.value).toBe('1000')
   })
 
   test('dynamic digits works', async () => {
@@ -213,14 +202,56 @@ describe('stepper', () => {
 
       return <Stepper digits={digits} defaultValue={1.23}></Stepper>
     }
-    const { container } = render(<Demo />)
-
-    const input = container.getElementsByTagName('input')[0]
-
+    render(<Demo />)
+    const input = screen.getByRole('spinbutton') as HTMLInputElement
     expect(input.value).toBe('1.23')
 
     await waitFor(() => {
       expect(input.value).toBe('1')
     })
+  })
+
+  test('formatter & parser', () => {
+    const formatter = jest.fn((val?: number) => `$ ${val}`)
+    const parser = jest.fn((text: string) => parseFloat(text))
+
+    const { container } = render(
+      <Stepper formatter={formatter} parser={parser} />
+    )
+
+    const inputEle = container.querySelector('input') as HTMLInputElement
+    expect(inputEle.value).toEqual('$ 0')
+
+    fireEvent.focus(inputEle)
+    expect(inputEle.value).toEqual('0')
+
+    fireEvent.change(inputEle, {
+      target: {
+        value: 93,
+      },
+    })
+    expect(inputEle.value).toEqual('93')
+
+    fireEvent.blur(inputEle)
+    expect(inputEle.value).toEqual('$ 93')
+  })
+
+  test('stringMode', () => {
+    const onChange = jest.fn()
+    const { container } = render(
+      <Stepper
+        stringMode
+        defaultValue='0.000000000000002'
+        step='0.000000000000001'
+        onChange={onChange}
+      />
+    )
+
+    // plus
+    const plusButton = screen.getByRole('button', { name: '增加' })
+    fireEvent.click(plusButton)
+
+    expect(onChange).toHaveBeenCalledWith('0.000000000000003')
+    expect(container.querySelector('input')!.value).toEqual('0.000000000000003')
   })
 })

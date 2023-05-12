@@ -4,8 +4,8 @@ import styles from './index.less'
 interface Props {
   title: string
   padding?: string
-  border?: string
   background?: string
+  children?: React.ReactNode
 }
 
 export const DemoBlock: FC<Props> = props => {
@@ -17,7 +17,6 @@ export const DemoBlock: FC<Props> = props => {
         style={{
           padding: props.padding,
           background: props.background,
-          border: props.border,
         }}
       >
         {props.children}
@@ -28,5 +27,5 @@ export const DemoBlock: FC<Props> = props => {
 
 DemoBlock.defaultProps = {
   padding: '12px 12px',
-  background: '#ffffff',
+  background: 'var(--adm-color-background)',
 }

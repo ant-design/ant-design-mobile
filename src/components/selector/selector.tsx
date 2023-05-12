@@ -3,10 +3,10 @@ import React, { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Space from '../space'
-import Grid from '../grid'
-import { convertPx } from '../../utils/convert-px'
+import Grid, { GridProps } from '../grid'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckMark } from './check-mark'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-selector`
 
@@ -21,7 +21,7 @@ export interface SelectorOption<V> {
 
 export type SelectorProps<V> = {
   options: SelectorOption<V>[]
-  columns?: number
+  columns?: GridProps['columns']
   multiple?: boolean
   disabled?: boolean
   defaultValue?: V[]
@@ -37,6 +37,9 @@ export type SelectorProps<V> = {
   | '--checked-border'
   | '--border-radius'
   | '--padding'
+  | '--gap'
+  | '--gap-vertical'
+  | '--gap-horizontal'
 >
 
 const defaultProps = {
@@ -59,6 +62,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
       props.onChange?.(val, extend)
     },
   })
+  const { locale } = useConfig()
 
   const items = props.options.map(option => {
     const active = (value || []).includes(option.value)
@@ -87,6 +91,10 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
             setValue(val)
           }
         }}
+        role='option'
+        aria-selected={
+          (active && !props.multiple) || (active && props.multiple)
+        }
       >
         {option.label}
         {option.description && (
@@ -105,13 +113,13 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div
+      className={classPrefix}
+      role='listbox'
+      aria-label={locale.Selector.name}
+    >
       {!props.columns && <Space wrap>{items}</Space>}
-      {props.columns && (
-        <Grid columns={props.columns} gap={convertPx(8)}>
-          {items}
-        </Grid>
-      )}
+      {props.columns && <Grid columns={props.columns}>{items}</Grid>}
     </div>
   )
 }

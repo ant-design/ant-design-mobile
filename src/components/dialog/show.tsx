@@ -2,7 +2,10 @@ import React from 'react'
 import { Dialog, DialogProps } from './dialog'
 import { renderImperatively } from '../../utils/render-imperatively'
 
-export type DialogShowProps = Omit<DialogProps, 'visible'>
+export type DialogShowProps = Omit<
+  DialogProps,
+  'visible' | 'destroyOnClose' | 'forceRender'
+>
 
 export type DialogShowHandler = {
   close: () => void

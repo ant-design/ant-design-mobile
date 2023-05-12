@@ -1,30 +1,31 @@
-<img src="https://gw.alipayobjects.com/mdn/rms_ee68a8/afts/img/A*hjjDS5Yy-ooAAAAAAAAAAAAAARQnAQ" alt="logo" width="100%" />
+<div align="center">
 
-<p align="center">
-  <a href="https://mobile.ant.design">English Doc</a>
-  |
-  <a href="https://mobile.ant.design/zh">中文文档</a>
-  |
-  <a href="https://discord.gg/jmNvw4WFYn">Discord</a>
-  |
-  <a href="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ">钉钉</a>
-</p>
+  <img src="https://gw.alipayobjects.com/zos/bmw-prod/b2c7ff8b-eba0-4af9-9dd5-0b5b17f42c57.svg" alt="logo" width="200" height="auto" />
+  <h1>Ant Design Mobile</h1>
 
-![npm (tag)](https://img.shields.io/npm/v/antd-mobile)
-![GitHub Release Date](https://img.shields.io/github/release-date/ant-design/ant-design-mobile)
-![npm](https://img.shields.io/npm/dw/antd-mobile)
-![npm](https://img.shields.io/npm/dw/antd-mobile-v5-count?label=downloads%285.x%29)
-![gzip size](https://img.badgesize.io/https:/unpkg.com/antd-mobile/umd/antd-mobile.js?label=gzip%20size&compression=gzip)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/ant-design/ant-design-mobile.svg)](http://isitmaintained.com/project/ant-design/ant-design-mobile 'Average time to resolve an issue')
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/ant-design/ant-design-mobile.svg)](http://isitmaintained.com/project/ant-design/ant-design-mobile 'Percentage of issues still open')
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/ant-design/ant-design-mobile/Check/v5)
-[![codecov](https://codecov.io/gh/ant-design/ant-design-mobile/branch/master/graph/badge.svg?token=2kJyJBg1nK)](https://codecov.io/gh/ant-design/ant-design-mobile)
-![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mobile)
+  <p>
+    Essential UI blocks for building mobile web apps. 
+  </p>
+
+[![npm (tag)](https://img.shields.io/npm/v/antd-mobile)](https://www.npmjs.com/package/antd-mobile) [![GitHub Release Date](https://img.shields.io/github/release-date/ant-design/ant-design-mobile)](https://github.com/ant-design/ant-design-mobile/releases) [![npm](https://img.shields.io/npm/dw/antd-mobile)](https://www.npmjs.com/package/antd-mobile) [![npm](https://img.shields.io/npm/dw/antd-mobile-v5-count?label=downloads%285.x%29)](https://www.npmjs.com/package/antd-mobile) [![jsdelivr](https://img.shields.io/jsdelivr/npm/hm/antd-mobile)](https://www.jsdelivr.com/package/npm/antd-mobile) [![gzip size](https://img.badgesize.io/https:/unpkg.com/antd-mobile/umd/antd-mobile.js?label=gzip%20size&compression=gzip)](https://unpkg.com/browse/antd-mobile@5/umd/antd-mobile.js) [![Commit Activity](https://img.shields.io/github/commit-activity/m/ant-design/ant-design-mobile/master)](https://github.com/ant-design/ant-design-mobile/graphs/contributors) [![Issues help wanted](https://img.shields.io/github/issues-raw/ant-design/ant-design-mobile/help%20wanted?label=help%20wanted)](https://github.com/ant-design/ant-design-mobile/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/ant-design/ant-design-mobile/check.yml?branch=master) [![codecov](https://img.shields.io/codecov/c/gh/ant-design/ant-design-mobile?token=2kJyJBg1nK)](https://codecov.io/gh/ant-design/ant-design-mobile) [![GitHub](https://img.shields.io/github/license/ant-design/ant-design-mobile)](https://github.com/ant-design/ant-design-mobile)
+
+  <h4>
+    <a href="https://mobile.ant.design">English Doc</a>
+  <span> · </span>
+    <a href="https://mobile.ant.design/zh">中文文档</a>
+  <span> · </span>
+    <a href="https://discord.gg/jmNvw4WFYn">Discord</a>
+  <span> · </span>
+    <a href="https://user-images.githubusercontent.com/22469543/197447477-1f10603d-90e9-43ea-a023-6538c5cf40e2.jpeg">钉钉</a>
+  </h4>
+</div>
 
 ```bash
 $ npm install --save antd-mobile
 # or
 $ yarn add antd-mobile
+# or
+$ pnpm add antd-mobile
 ```
 
 - **Fast**: It is carefully optimized for harsh scenes, without configuration, you can have the best package size and ultimate performance.

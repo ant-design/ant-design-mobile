@@ -6,7 +6,7 @@ export default () => {
     // ...
   }
   return (
-    <List mode='card' header='卡片模式'>
+    <List mode='card' header='卡片列表'>
       <List.Item extra='按照支付设置的顺序扣款' onClick={handleClick}>
         扣款方式
       </List.Item>

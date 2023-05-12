@@ -21,6 +21,7 @@ exports[`CascaderView basic usage 1`] = `
         />
         <div
           class="adm-tabs-tab-list"
+          role="tablist"
         >
           <div
             class="adm-tabs-tab-line"
@@ -30,7 +31,9 @@ exports[`CascaderView basic usage 1`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -43,7 +46,9 @@ exports[`CascaderView basic usage 1`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -96,9 +101,6 @@ exports[`CascaderView basic usage 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -283,6 +285,7 @@ exports[`CascaderView basic usage 2`] = `
         />
         <div
           class="adm-tabs-tab-list"
+          role="tablist"
         >
           <div
             class="adm-tabs-tab-line"
@@ -292,7 +295,9 @@ exports[`CascaderView basic usage 2`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -305,7 +310,9 @@ exports[`CascaderView basic usage 2`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -318,7 +325,9 @@ exports[`CascaderView basic usage 2`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -371,9 +380,6 @@ exports[`CascaderView basic usage 2`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -493,9 +499,6 @@ exports[`CascaderView basic usage 2`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -680,6 +683,7 @@ exports[`CascaderView basic usage 3`] = `
         />
         <div
           class="adm-tabs-tab-list"
+          role="tablist"
         >
           <div
             class="adm-tabs-tab-line"
@@ -689,7 +693,9 @@ exports[`CascaderView basic usage 3`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -702,7 +708,9 @@ exports[`CascaderView basic usage 3`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -715,7 +723,9 @@ exports[`CascaderView basic usage 3`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -768,9 +778,6 @@ exports[`CascaderView basic usage 3`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -890,9 +897,6 @@ exports[`CascaderView basic usage 3`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -1012,9 +1016,6 @@ exports[`CascaderView basic usage 3`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -1118,6 +1119,7 @@ exports[`CascaderView controlled mode 1`] = `
         />
         <div
           class="adm-tabs-tab-list"
+          role="tablist"
         >
           <div
             class="adm-tabs-tab-line"
@@ -1127,7 +1129,9 @@ exports[`CascaderView controlled mode 1`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1140,7 +1144,9 @@ exports[`CascaderView controlled mode 1`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1153,7 +1159,9 @@ exports[`CascaderView controlled mode 1`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1206,9 +1214,6 @@ exports[`CascaderView controlled mode 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -1368,9 +1373,6 @@ exports[`CascaderView controlled mode 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -1470,9 +1472,6 @@ exports[`CascaderView controlled mode 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -1556,6 +1555,7 @@ exports[`CascaderView same value in options 1`] = `
         />
         <div
           class="adm-tabs-tab-list"
+          role="tablist"
         >
           <div
             class="adm-tabs-tab-line"
@@ -1565,7 +1565,9 @@ exports[`CascaderView same value in options 1`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1578,7 +1580,9 @@ exports[`CascaderView same value in options 1`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1631,9 +1635,6 @@ exports[`CascaderView same value in options 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -1778,6 +1779,7 @@ exports[`CascaderView same value in options 2`] = `
         />
         <div
           class="adm-tabs-tab-list"
+          role="tablist"
         >
           <div
             class="adm-tabs-tab-line"
@@ -1787,7 +1789,9 @@ exports[`CascaderView same value in options 2`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1800,7 +1804,9 @@ exports[`CascaderView same value in options 2`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1813,7 +1819,9 @@ exports[`CascaderView same value in options 2`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1866,9 +1874,6 @@ exports[`CascaderView same value in options 2`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -1968,9 +1973,6 @@ exports[`CascaderView same value in options 2`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -2115,6 +2117,7 @@ exports[`CascaderView same value in options 3`] = `
         />
         <div
           class="adm-tabs-tab-list"
+          role="tablist"
         >
           <div
             class="adm-tabs-tab-line"
@@ -2124,7 +2127,9 @@ exports[`CascaderView same value in options 3`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2137,7 +2142,9 @@ exports[`CascaderView same value in options 3`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="false"
               class="adm-tabs-tab"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2150,7 +2157,9 @@ exports[`CascaderView same value in options 3`] = `
             class="adm-tabs-tab-wrapper"
           >
             <div
+              aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
+              role="tab"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2203,9 +2212,6 @@ exports[`CascaderView same value in options 3`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -2305,9 +2311,6 @@ exports[`CascaderView same value in options 3`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"
@@ -2407,9 +2410,6 @@ exports[`CascaderView same value in options 3`] = `
                           xmlns="http://www.w3.org/2000/svg"
                           xmlns:xlink="http://www.w3.org/1999/xlink"
                         >
-                          <title>
-                            8DE9ADC3-8191-4F11-910A-FEDD01D8E953@2x
-                          </title>
                           <g
                             fill="none"
                             fill-rule="evenodd"

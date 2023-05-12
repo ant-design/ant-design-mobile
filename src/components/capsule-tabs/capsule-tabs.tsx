@@ -22,6 +22,7 @@ export type CapsuleTabProps = {
   disabled?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
+  children?: ReactNode
 } & NativeProps
 
 export const CapsuleTab: FC<CapsuleTabProps> = () => {
@@ -32,6 +33,7 @@ export type CapsuleTabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
+  children?: React.ReactNode
 } & NativeProps
 
 export const CapsuleTabs: FC<CapsuleTabsProps> = props => {

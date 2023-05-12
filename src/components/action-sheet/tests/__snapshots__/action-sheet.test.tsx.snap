@@ -9,19 +9,20 @@ exports[`ActionSheet basic usage 1`] = `
       class="adm-button adm-button-default adm-button-shape-default"
       type="button"
     >
-      button
+      <span>
+        button
+      </span>
     </button>
   </div>
   <div
     class="adm-popup adm-action-sheet-popup"
-    style="display: unset;"
   >
     <div
       class="adm-mask"
-      style="background: rgba(0, 0, 0, 0.55); opacity: 0.02608179366075892; display: unset;"
+      style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
     >
       <div
-        aria-label="遮罩层"
+        aria-label="背景蒙层"
         class="adm-mask-aria-button"
         role="button"
       />
@@ -31,7 +32,7 @@ exports[`ActionSheet basic usage 1`] = `
     </div>
     <div
       class="adm-popup-body adm-popup-body-position-bottom"
-      style="transform: translate(0, 92.19667326069148%);"
+      style="transform: translate(0, 0%);"
     >
       <div
         class="adm-action-sheet"
@@ -47,62 +48,63 @@ exports[`ActionSheet basic usage 1`] = `
           <div
             class="adm-action-sheet-button-item-wrapper"
           >
-            <button
-              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
-              type="button"
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
+              role="option"
             >
               <div
                 class="adm-action-sheet-button-item-name"
               >
                 复制
               </div>
-            </button>
+            </a>
           </div>
           <div
             class="adm-action-sheet-button-item-wrapper"
           >
-            <button
-              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
-              type="button"
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
+              role="option"
             >
               <div
                 class="adm-action-sheet-button-item-name"
               >
                 修改
               </div>
-            </button>
+            </a>
           </div>
           <div
             class="adm-action-sheet-button-item-wrapper"
           >
-            <button
-              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
-              type="button"
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
+              role="option"
             >
               <div
                 class="adm-action-sheet-button-item-name"
               >
                 删除
               </div>
-            </button>
+            </a>
           </div>
         </div>
         <div
+          aria-label="取消"
           class="adm-action-sheet-cancel"
+          role="option"
         >
           <div
             class="adm-action-sheet-button-item-wrapper"
           >
-            <button
-              class="adm-button adm-button-default adm-button-block adm-button-fill-none adm-button-shape-rectangular adm-action-sheet-button-item"
-              type="button"
+            <a
+              class="adm-plain-anchor adm-action-sheet-button-item"
             >
               <div
                 class="adm-action-sheet-button-item-name"
               >
                 取消
               </div>
-            </button>
+            </a>
           </div>
         </div>
         <div

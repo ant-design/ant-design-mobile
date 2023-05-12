@@ -1,11 +1,15 @@
-import type { FC, MouseEvent } from 'react'
-import React, { useContext } from 'react'
+import type { FC } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { context, Link, NavLink } from 'dumi/theme'
+import classNames from 'classnames'
+import { useLocation } from 'dumi'
 import LocaleSelect from './LocaleSelect'
 import './Navbar.less'
+import homeStyle from './NavbarHome.less'
 import p from '../../../package.json'
 import SearchBar from './SearchBar'
 import { Popover } from 'antd-mobile'
+import { Action } from 'antd-mobile/es/components/popover'
 
 interface INavbarProps {
   location: any
@@ -16,11 +20,34 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
   const {
     base,
     config: { title, logo },
-    nav: navItems,
+    nav,
+    locale,
   } = useContext(context)
 
+  const { pathname } = useLocation()
+  const isHomePage = pathname === base || pathname === base + '/'
+
+  const navItems = useMemo(() => {
+    const isCN = !!locale && /^zh|cn$/i.test(locale)
+
+    if (
+      isCN &&
+      typeof window !== undefined &&
+      window.location.host === 'ant-design-mobile.antgroup.com'
+    ) {
+      return nav.filter(item => item.title !== '国内镜像')
+    }
+
+    return nav
+  }, [nav, locale])
+
   return (
-    <div className='__dumi-default-navbar'>
+    <div
+      className={classNames(
+        '__dumi-default-navbar',
+        isHomePage && homeStyle.root
+      )}
+    >
       <button className='__dumi-default-navbar-toggle' />
       <div className='left-part'>
         <Link className='__dumi-default-navbar-logo' to={base}>
@@ -35,20 +62,17 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
       <div className='right-part'>
         <nav>
           {navItems.map(nav => {
-            const popoverContent = Boolean(nav.children?.length) && (
-              <ul className='nav-popover-ul'>
-                {nav.children.map(
-                  item =>
-                    !!item.path && (
-                      <li key={item.path}>
-                        <NavLink to={item.path}>{item.title}</NavLink>
-                      </li>
-                    )
-                )}
-              </ul>
-            )
+            const key = nav.title || nav.path
+            const actions: Action[] =
+              Boolean(nav.children?.length) &&
+              nav.children.map(item => ({
+                text: item.title,
+                onClick: () => {
+                  window.open(item.path, '_blank')
+                },
+              }))
             const span = (
-              <span key={nav.title || nav.path}>
+              <span key={key}>
                 {nav.path ? (
                   <NavLink to={nav.path}>{nav.title}</NavLink>
                 ) : (
@@ -56,10 +80,10 @@ const Navbar: FC<INavbarProps> = ({ location, darkPrefix }) => {
                 )}
               </span>
             )
-            return popoverContent ? (
-              <Popover content={popoverContent} trigger='click'>
+            return actions ? (
+              <Popover.Menu trigger='click' actions={actions} key={key}>
                 {span}
-              </Popover>
+              </Popover.Menu>
             ) : (
               span
             )

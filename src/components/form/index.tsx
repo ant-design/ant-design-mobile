@@ -3,7 +3,7 @@ import { Form } from './form'
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import { FormItem } from './form-item'
 import { Header } from './header'
-import { useForm } from 'rc-field-form'
+import { useWatch, useForm } from 'rc-field-form'
 import { FormSubscribe } from './form-subscribe'
 import { FormArray } from './form-array'
 
@@ -15,6 +15,9 @@ export type {
   ValidateMessages,
   FieldData,
   NamePath,
+  Rule,
+  RuleObject,
+  RuleRender,
 } from 'rc-field-form/es/interface'
 export type {
   FormArrayField,
@@ -28,4 +31,5 @@ export default attachPropertiesToComponent(Form, {
   Header,
   Array: FormArray,
   useForm,
+  useWatch,
 })

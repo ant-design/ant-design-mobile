@@ -23,6 +23,7 @@ export type JumboTabProps = {
   disabled?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
+  children?: React.ReactNode
 } & NativeProps
 
 export const JumboTab: FC<JumboTabProps> = () => {
@@ -33,6 +34,7 @@ export type JumboTabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
+  children?: React.ReactNode
 } & NativeProps
 
 export const JumboTabs: FC<JumboTabsProps> = props => {

@@ -3,7 +3,7 @@ import { attachPropertiesToComponent } from '../../utils/attach-properties-to-co
 import { Group } from './group'
 import { Checkbox } from './checkbox'
 
-export type { CheckboxValue, CheckboxProps } from './checkbox'
+export type { CheckboxValue, CheckboxProps, CheckboxRef } from './checkbox'
 export type { CheckboxGroupProps } from './group'
 
 export default attachPropertiesToComponent(Checkbox, {

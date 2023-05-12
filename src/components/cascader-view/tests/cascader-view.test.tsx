@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, testA11y, waitFor } from 'testing'
+import { fireEvent, render, testA11y } from 'testing'
 import CascaderView from '../'
 import { options, sameValueOptions } from '../../cascader/demos/data'
 
@@ -20,10 +20,16 @@ describe('CascaderView', () => {
 
   test('basic usage', async () => {
     const onChange = jest.fn()
-    const { getByText, container } = await render(
-      <CascaderView options={options} onChange={onChange} />
+    const onTabsChange = jest.fn()
+    const { getByText, container } = render(
+      <CascaderView
+        options={options}
+        onChange={onChange}
+        onTabsChange={onTabsChange}
+      />
     )
-
+    fireEvent.click(getByText('请选择'))
+    expect(onTabsChange).toBeCalledTimes(0)
     fireEvent.click(getByText('浙江'))
     expect(container).toMatchSnapshot()
 
@@ -34,20 +40,19 @@ describe('CascaderView', () => {
     expect(container).toMatchSnapshot()
 
     expect(onChange).toBeCalledTimes(3)
+    expect(onTabsChange).toBeCalledTimes(2)
     expect(onChange.mock.calls[2][0]).toEqual(['浙江', '杭州', '西湖区'])
   })
 
   test('controlled mode', async () => {
-    const { container } = await render(
+    const { container } = render(
       <CascaderView options={options} value={['浙江', '宁波', '江北区']} />
     )
     expect(container).toMatchSnapshot()
   })
 
   test('same value in options', async () => {
-    const { container } = await render(
-      <CascaderView options={sameValueOptions} />
-    )
+    const { container } = render(<CascaderView options={sameValueOptions} />)
 
     click(0, 0)
     expect(container).toMatchSnapshot()
@@ -57,5 +62,27 @@ describe('CascaderView', () => {
 
     click(2, 0)
     expect(container).toMatchSnapshot()
+  })
+
+  test('customize placeholder', async () => {
+    render(
+      <CascaderView
+        options={options}
+        placeholder={i => {
+          if (i === 2) return '区/县'
+          return '请选择'
+        }}
+      />
+    )
+
+    click(0, 0)
+    click(1, 0)
+    expect(document.querySelector('.adm-tabs-tab-active')).toHaveTextContent(
+      '区/县'
+    )
+    click(2, 0)
+    expect(document.querySelector('.adm-tabs-tab-active')).toHaveTextContent(
+      '西湖区'
+    )
   })
 })

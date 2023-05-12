@@ -4,12 +4,15 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-badge`
 
-export const dot = Symbol()
+export const dot = <React.Fragment />
 
 export type BadgeProps = {
   content?: React.ReactNode | typeof dot
   color?: string
   bordered?: boolean
+  children?: React.ReactNode
+  wrapperClassName?: string
+  wrapperStyle?: React.CSSProperties
 } & NativeProps<'--right' | '--top' | '--color'>
 
 export const Badge: FC<BadgeProps> = props => {
@@ -33,7 +36,7 @@ export const Badge: FC<BadgeProps> = props => {
             style={
               {
                 '--color': color,
-              } as any
+              } as BadgeProps['style']
             }
           >
             {!isDot && (
@@ -44,7 +47,10 @@ export const Badge: FC<BadgeProps> = props => {
       : null
 
   return children ? (
-    <div className={`${classPrefix}-wrap`}>
+    <div
+      className={classNames(`${classPrefix}-wrapper`, props.wrapperClassName)}
+      style={props.wrapperStyle}
+    >
       {children}
       {element}
     </div>

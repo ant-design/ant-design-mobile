@@ -1,11 +1,11 @@
-import { PickerColumnItem } from '../picker-view'
-import { ReactNode } from 'react'
 import dayjs from 'dayjs'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
 import isLeapYear from 'dayjs/plugin/isLeapYear'
 import { PickerColumn } from '../picker'
 import type { DatePickerFilter } from './date-picker-utils'
+import { TILL_NOW } from './util'
+import { RenderLabel } from '../date-picker-view/date-picker-view'
 
 dayjs.extend(isoWeek)
 dayjs.extend(isoWeeksInYear)
@@ -28,24 +28,14 @@ const precisionRankRecord: Record<DatePrecision, number> = {
   second: 5,
 }
 
-export function defaultRenderLabel(type: DatePrecision, data: number) {
-  switch (type) {
-    case 'minute':
-    case 'second':
-    case 'hour':
-      return ('0' + data.toString()).slice(-2)
-    default:
-      return data.toString()
-  }
-}
-
 export function generateDatePickerColumns(
   selected: string[],
   min: Date,
   max: Date,
   precision: DatePrecision,
-  renderLabel: (type: DatePrecision, data: number) => ReactNode,
-  filter: DatePickerFilter | undefined
+  renderLabel: RenderLabel,
+  filter: DatePickerFilter | undefined,
+  tillNow?: boolean
 ) {
   const ret: PickerColumn[] = []
 
@@ -64,18 +54,6 @@ export function generateDatePickerColumns(
   const maxSecond = max.getSeconds()
 
   const rank = precisionRankRecord[precision]
-
-  if (rank >= precisionRankRecord.year) {
-    const years: PickerColumnItem[] = []
-    for (let i = minYear; i <= maxYear; i++) {
-      const value = i.toString()
-      years.push({
-        label: renderLabel ? renderLabel('year', i) : value,
-        value,
-      })
-    }
-    ret.push(years)
-  }
 
   const selectedYear = parseInt(selected[0])
   const firstDayInSelectedMonth = dayjs(
@@ -119,6 +97,20 @@ export function generateDatePickerColumns(
       )
     }
     return column
+  }
+
+  if (rank >= precisionRankRecord.year) {
+    const lower = minYear
+    const upper = maxYear
+    const years = generateColumn(lower, upper, 'year')
+    ret.push(
+      years.map(v => {
+        return {
+          label: renderLabel('year', v),
+          value: v.toString(),
+        }
+      })
+    )
   }
 
   if (rank >= precisionRankRecord.month) {
@@ -187,6 +179,20 @@ export function generateDatePickerColumns(
     )
   }
 
+  // Till Now
+  if (tillNow) {
+    ret[0].push({
+      label: renderLabel('now', null!),
+      value: TILL_NOW,
+    })
+
+    if (TILL_NOW === selected?.[0]) {
+      for (let i = 1; i < ret.length; i += 1) {
+        ret[i] = []
+      }
+    }
+  }
+
   return ret
 }
 
@@ -204,9 +210,9 @@ export function convertDateToStringArray(
   ]
 }
 
-export function convertStringArrayToDate(
-  value: (string | null | undefined)[]
-): Date {
+export function convertStringArrayToDate<
+  T extends string | number | null | undefined
+>(value: T[]): Date {
   const yearString = value[0] ?? '1900'
   const monthString = value[1] ?? '1'
   const dateString = value[2] ?? '1'
@@ -214,11 +220,11 @@ export function convertStringArrayToDate(
   const minuteString = value[4] ?? '0'
   const secondString = value[5] ?? '0'
   return new Date(
-    parseInt(yearString),
-    parseInt(monthString) - 1,
-    parseInt(dateString),
-    parseInt(hourString),
-    parseInt(minuteString),
-    parseInt(secondString)
+    parseInt(yearString as string),
+    parseInt(monthString as string) - 1,
+    parseInt(dateString as string),
+    parseInt(hourString as string),
+    parseInt(minuteString as string),
+    parseInt(secondString as string)
   )
 }

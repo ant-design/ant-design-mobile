@@ -31,16 +31,13 @@ export function useCascaderValueExtend(options: CascaderOption[]) {
   const generateIsLeaf = useMemo(() => {
     return memoize(
       (val: CascaderValue[]) => {
-        let isLeaf: boolean = false
-        for (const v of val) {
-          const target = options.find(option => option.value === v)
-          if (!target) {
-            break
-          }
-          isLeaf = target.children?.length === val.length
-        }
+        const children = val.reduce((currentOptions, v) => {
+          return (
+            currentOptions.find(option => option.value === v)?.children || []
+          )
+        }, options)
 
-        return isLeaf
+        return children.length === 0
       },
       val => JSON.stringify(val)
     )

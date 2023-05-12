@@ -9,7 +9,7 @@ import type {
 const actions: Action[] = [
   { text: '复制', key: 'copy' },
   { text: '修改', key: 'edit' },
-  { text: '删除', key: 'delete' },
+  { text: '保存', key: 'save' },
 ]
 
 // 基础用法
@@ -53,6 +53,7 @@ function ConfigActions() {
       key: 'delete',
       description: '删除后数据不可恢复',
       danger: true,
+      bold: true,
     },
   ]
 
@@ -75,12 +76,12 @@ function Events() {
     { text: '复制', key: 'copy' },
     { text: '修改', key: 'edit' },
     {
-      text: '删除',
-      key: 'delete',
+      text: '保存',
+      key: 'save',
       onClick: async () => {
-        const result = await Dialog.confirm({ content: '确定要删除吗？' })
+        const result = await Dialog.confirm({ content: '确定要保存吗？' })
         if (result) {
-          Toast.show('执行了删除操作')
+          Toast.show('执行了保存操作')
         }
       },
     },

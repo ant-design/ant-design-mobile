@@ -2,9 +2,18 @@
 
 .@{class-prefix-image-uploader} {
   --cell-size: 80px;
+  --gap: 12px;
+  ---gap: var(--gap);
+  ---gap-horizontal: var(--gap-horizontal, var(--gap));
+  ---gap-vertical: var(--gap-vertical, var(--gap));
+
+  &-grid,
   &-space {
-    --gap: 12px;
+    --gap: var(---gap);
+    --gap-horizontal: var(---gap-horizontal);
+    --gap-vertical: var(---gap-vertical);
   }
+
   &-cell {
     position: relative;
     width: var(--cell-size);
@@ -26,7 +35,7 @@
       background-color: rgba(0, 0, 0, 0.7);
       border-radius: 0 0 0 12px;
       font-size: 8px;
-      color: #fff;
+      color: var(--adm-color-white);
       cursor: pointer;
       &-icon {
         position: absolute;
@@ -41,7 +50,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-      color: #fff;
+      color: var(--adm-color-white);
       background-color: rgba(50, 50, 51, 0.88);
     }
 
@@ -58,7 +67,7 @@
     &-mask-message {
       display: inline-block;
       padding: 6px 4px;
-      font-size: 12px;
+      font-size: var(--adm-font-size-4);
     }
 
     &-image {
@@ -71,7 +80,7 @@
     position: relative;
 
     .@{class-prefix-image-uploader}-upload-button {
-      background-color: #f5f5f5;
+      background-color: var(--adm-color-box);
       text-align: center;
       line-height: var(--cell-size);
       display: block;
@@ -91,5 +100,13 @@
       height: 100%;
       border-radius: 4px;
     }
+  }
+
+  .@{class-prefix-image-uploader}-gap-measure {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: var(--gap-horizontal);
+    width: 0;
   }
 }

@@ -1,4 +1,3 @@
-import { PickerColumnItem } from '../picker-view'
 import { ReactNode } from 'react'
 import dayjs from 'dayjs'
 import isoWeek from 'dayjs/plugin/isoWeek'
@@ -19,10 +18,6 @@ const precisionRankRecord: Record<WeekPrecision, number> = {
   'week-day': 2,
 }
 
-export function defaultRenderLabel(type: WeekPrecision, data: number) {
-  return data.toString()
-}
-
 export function generateDatePickerColumns(
   selected: string[],
   min: Date,
@@ -37,18 +32,6 @@ export function generateDatePickerColumns(
   const maxYear = max.getFullYear()
 
   const rank = precisionRankRecord[precision]
-
-  if (rank >= precisionRankRecord.year) {
-    const years: PickerColumnItem[] = []
-    for (let i = minYear; i <= maxYear; i++) {
-      const value = i.toString()
-      years.push({
-        label: renderLabel ? renderLabel('year', i) : value,
-        value,
-      })
-    }
-    ret.push(years)
-  }
 
   const selectedYear = parseInt(selected[0])
   const isInMinYear = selectedYear === minYear
@@ -87,6 +70,20 @@ export function generateDatePickerColumns(
       )
     }
     return column
+  }
+
+  if (rank >= precisionRankRecord.year) {
+    const lower = minYear
+    const upper = maxYear
+    const years = generateColumn(lower, upper, 'year')
+    ret.push(
+      years.map(v => {
+        return {
+          label: renderLabel('year', v),
+          value: v.toString(),
+        }
+      })
+    )
   }
 
   if (rank >= precisionRankRecord.week) {
@@ -131,16 +128,16 @@ export function convertDateToStringArray(
   ]
 }
 
-export function convertStringArrayToDate(
-  value: (string | null | undefined)[]
-): Date {
+export function convertStringArrayToDate<
+  T extends string | number | null | undefined
+>(value: T[]): Date {
   const yearString = value[0] ?? '1900'
   const weekString = value[1] ?? '1'
   const weekdayString = value[2] ?? '1'
   const day = dayjs()
-    .year(parseInt(yearString))
-    .isoWeek(parseInt(weekString))
-    .isoWeekday(parseInt(weekdayString))
+    .year(parseInt(yearString as string))
+    .isoWeek(parseInt(weekString as string))
+    .isoWeekday(parseInt(weekdayString as string))
     .hour(0)
     .minute(0)
     .second(0)

@@ -19,7 +19,7 @@ export default () => {
   }
   return (
     <>
-      <DemoBlock title='基本用法' background='gray'>
+      <DemoBlock title='基础用法' background='gray'>
         <Card title='卡片标题' onClick={onClick}>
           卡片内容
         </Card>
@@ -50,7 +50,9 @@ export default () => {
           <div className={styles.footer} onClick={e => e.stopPropagation()}>
             <Button
               color='primary'
-              onClick={() => Toast.show('点击了底部按钮')}
+              onClick={() => {
+                Toast.show('点击了底部按钮')
+              }}
             >
               底部按钮
             </Button>

@@ -1,6 +1,11 @@
 import React, { memo, ReactNode, useRef } from 'react'
 import { useSpring, animated } from '@react-spring/web'
-import { useDrag, useWheel } from '@use-gesture/react'
+import {
+  EventTypes,
+  FullGestureState,
+  useDrag,
+  useWheel,
+} from '@use-gesture/react'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
@@ -8,7 +13,6 @@ import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { measureCSSLength } from '../../utils/measure-css-length'
 import { supportsPassive } from '../../utils/supports-passive'
-import { FullGestureState } from '@use-gesture/core/src/types/state'
 
 const classPrefix = `adm-picker-view`
 
@@ -39,19 +43,21 @@ export const Wheel = memo<Props>(
     const draggingRef = useRef(false)
 
     const rootRef = useRef<HTMLDivElement>(null)
+
+    const itemHeightMeasureRef = useRef<HTMLDivElement>(null)
     const itemHeight = useRef<number>(34)
 
     useIsomorphicLayoutEffect(() => {
-      const root = rootRef.current
-      if (!root) return
+      const itemHeightMeasure = itemHeightMeasureRef.current
+      if (!itemHeightMeasure) return
       itemHeight.current = measureCSSLength(
-        window.getComputedStyle(root).getPropertyValue('--item-height')
+        window.getComputedStyle(itemHeightMeasure).getPropertyValue('height')
       )
     })
 
     useIsomorphicLayoutEffect(() => {
       if (draggingRef.current) return
-      if (!value) return
+      if (value === null) return
       const targetIndex = column.findIndex(item => item.value === value)
       if (targetIndex < 0) return
       const finalPosition = targetIndex * -itemHeight.current
@@ -80,10 +86,13 @@ export const Wheel = memo<Props>(
     }
 
     const handleDrag = (
-      state: Pick<
-        FullGestureState<'drag'>,
-        'last' | 'offset' | 'velocity' | 'direction'
-      >
+      state:
+        | (Omit<FullGestureState<'wheel'>, 'event'> & {
+            event: EventTypes['wheel']
+          })
+        | (Omit<FullGestureState<'drag'>, 'event'> & {
+            event: EventTypes['drag']
+          })
     ) => {
       draggingRef.current = true
       const min = -((column.length - 1) * itemHeight.current)
@@ -135,7 +144,9 @@ export const Wheel = memo<Props>(
         from: () => [0, y.get()],
         preventDefault: true,
         target: props.mouseWheel ? rootRef : undefined,
-        eventOptions: supportsPassive ? { passive: false } : false,
+        eventOptions: supportsPassive
+          ? { passive: false }
+          : (false as unknown as AddEventListenerOptions),
       }
     )
 
@@ -161,41 +172,42 @@ export const Wheel = memo<Props>(
           >
             -
           </div>
-          <div>
-            {previous && (
-              <div
-                className='adm-picker-view-column-accessible-button'
-                onClick={() => {
-                  scrollSelect(previousIndex)
-                }}
-                role='button'
-                aria-label={`选择上一项：${previous.label}`}
-              >
-                -
-              </div>
-            )}
+          <div
+            className='adm-picker-view-column-accessible-button'
+            onClick={() => {
+              if (!previous) return
+              scrollSelect(previousIndex)
+            }}
+            role={previous ? 'button' : 'text'}
+            aria-label={
+              !previous ? '没有上一项' : `选择上一项：${previous.label}`
+            }
+          >
+            -
           </div>
-          <div>
-            {next && (
-              <div
-                className='adm-picker-view-column-accessible-button'
-                onClick={() => {
-                  scrollSelect(nextIndex)
-                }}
-                role='button'
-                aria-label={`选择下一项：${next.label}`}
-              >
-                -
-              </div>
-            )}
+          <div
+            className='adm-picker-view-column-accessible-button'
+            onClick={() => {
+              if (!next) return
+              scrollSelect(nextIndex)
+            }}
+            role={next ? 'button' : 'text'}
+            aria-label={!next ? '没有下一项' : `选择下一项：${next.label}`}
+          >
+            -
           </div>
         </div>
       )
     }
 
     return (
-      <div ref={rootRef} className={`${classPrefix}-column`}>
+      <div className={`${classPrefix}-column`}>
+        <div
+          className={`${classPrefix}-item-height-measure`}
+          ref={itemHeightMeasureRef}
+        />
         <animated.div
+          ref={rootRef}
           style={{ translateY: y }}
           className={`${classPrefix}-column-wheel`}
           aria-hidden
@@ -231,6 +243,8 @@ export const Wheel = memo<Props>(
     if (prev.index !== next.index) return false
     if (prev.value !== next.value) return false
     if (prev.onSelect !== next.onSelect) return false
+    if (prev.renderLabel !== next.renderLabel) return false
+    if (prev.mouseWheel !== next.mouseWheel) return false
     if (!isEqual(prev.column, next.column)) {
       return false
     }

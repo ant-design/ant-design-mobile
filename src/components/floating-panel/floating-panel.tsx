@@ -59,7 +59,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       y: bounds.bottom,
       config: { tension: 300 },
       onChange: result => {
-        onHeightChange(result.value.y, y.isAnimating)
+        onHeightChange(-result.value.y, y.isAnimating)
       },
     }))
 
@@ -109,7 +109,9 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         from: () => [0, y.get()],
         pointer: { touch: true },
         target: elementRef,
-        eventOptions: supportsPassive ? { passive: false } : false,
+        eventOptions: supportsPassive
+          ? { passive: false }
+          : (false as unknown as AddEventListenerOptions),
       }
     )
 
@@ -139,8 +141,8 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         ref={elementRef}
         className='adm-floating-panel'
         style={{
-          height: maxHeight,
-          translateY: y.to(y => `calc(100% + (${y}px))`),
+          height: Math.round(maxHeight),
+          translateY: y.to(y => `calc(100% + (${Math.round(y)}px))`),
         }}
       >
         <div

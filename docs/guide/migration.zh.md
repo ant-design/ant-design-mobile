@@ -14,6 +14,8 @@ v5 是完全重写的一个版本，所以 v2 和 v5 的差异非常之大，其
 $ npm install --save antd-mobile-v2
 # or
 $ yarn add antd-mobile-v2
+# or
+$ pnpm add antd-mobile-v2
 ```
 
 然后把项目中所有对 `antd-mobile` 的引入都替换为 `antd-mobile-v2`，例如：
@@ -38,6 +40,8 @@ import 'antd-mobile-v2/dist/antd-mobile.less';  // or 'antd-mobile-v2/dist/antd-
 $ npm install --save antd-mobile
 # or
 $ yarn add antd-mobile
+# or
+$ pnpm add antd-mobile
 ```
 
 现在，你项目中的 `antd-mobile` 是 v5 版本，`antd-mobile-v2` 是 v2 版本。
@@ -58,6 +62,8 @@ $ yarn add antd-mobile
 $ npm install --save antd-mobile-v5@npm:antd-mobile@5
 # or
 $ yarn add antd-mobile-v5@npm:antd-mobile@5
+# or
+$ pnpm add antd-mobile-v5@npm:antd-mobile@5
 ```
 
 对应的 package.json 为：

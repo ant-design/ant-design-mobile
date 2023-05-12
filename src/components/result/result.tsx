@@ -8,6 +8,7 @@ import {
   ExclamationCircleFill,
 } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-result`
 
@@ -19,14 +20,19 @@ const iconRecord = {
   warning: ExclamationCircleFill,
 }
 
+const defaultProps = {
+  status: 'info',
+}
+
 export type ResultProps = {
-  status: 'success' | 'error' | 'info' | 'waiting' | 'warning'
+  status?: 'success' | 'error' | 'info' | 'waiting' | 'warning'
   title: ReactNode
   description?: ReactNode
   icon?: ReactNode
 } & NativeProps
 
-export const Result: FC<ResultProps> = props => {
+export const Result: FC<ResultProps> = p => {
+  const props = mergeProps(defaultProps, p)
   const { status, title, description, icon } = props
   if (!status) return null
   const resultIcon = icon || React.createElement(iconRecord[status])

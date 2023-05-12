@@ -2,11 +2,11 @@ import { isDev } from './is-dev'
 import { devError } from './dev-log'
 
 export function measureCSSLength(raw: string | undefined | null): number {
-  if (raw === null || raw === undefined) {
+  if (raw === null || raw === undefined || raw === '') {
     if (isDev) {
       devError(
         'Global',
-        'Seems like the you will encounter a style messed problem. Please check the browser environment to make sure it supports CSS variables.'
+        'Something went wrong when calculating CSS length. Please report an issue at https://github.com/ant-design/ant-design-mobile/issues/new/choose'
       )
     }
     return 0
@@ -25,7 +25,7 @@ export function measureCSSLength(raw: string | undefined | null): number {
     if (isDev) {
       devError(
         'Global',
-        'You are using a not supported CSS unit. Only `px` `rem` and `vw` are supported.'
+        `You are using a not supported CSS unit in \`${raw}\`. Only \`px\` \`rem\` and \`vw\` are supported.`
       )
     }
     return 0

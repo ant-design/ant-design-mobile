@@ -4,6 +4,9 @@
 .@{class-prefix-step} {
   --line-to-next-color: #e5e5e5;
   --icon-color: #e5e5e5;
+  position: relative;
+  // make other brother component are not covered
+  z-index: 0;
 
   .@{class-prefix-step}-indicator {
     position: relative;
@@ -16,7 +19,6 @@
     .@{class-prefix-step}-icon-container {
       position: absolute;
       z-index: 1;
-      background: var(--adm-color-white);
       color: var(--icon-color);
       > .antd-mobile-icon {
         display: block;
@@ -57,8 +59,8 @@
 }
 
 .@{class-prefix-steps} {
-  --title-font-size: 13px;
-  --description-font-size: 12px;
+  --title-font-size: var(--adm-font-size-main);
+  --description-font-size: var(--adm-font-size-4);
   --indicator-margin-right: 0;
   --icon-size: 18px;
 

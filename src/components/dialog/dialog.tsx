@@ -1,93 +1,50 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import { useUnmountedRef } from 'ahooks'
-import Mask from '../mask'
 import { Action, DialogActionButton } from './dialog-action-button'
 import Image from '../image'
-import {
-  GetContainer,
-  renderToContainer,
-} from '../../utils/render-to-container'
-import {
-  PropagationEvent,
-  withStopPropagation,
-} from '../../utils/with-stop-propagation'
 import AutoCenter from '../auto-center'
-import { useSpring, animated } from '@react-spring/web'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { NativeProps } from '../../utils/native-props'
+import CenterPopup, { CenterPopupProps } from '../center-popup'
 
-export type DialogProps = {
-  afterClose?: () => void
-  afterShow?: () => void
+export type DialogProps = Pick<
+  CenterPopupProps,
+  | 'afterClose'
+  | 'afterShow'
+  | 'bodyClassName'
+  | 'bodyStyle'
+  | 'destroyOnClose'
+  | 'disableBodyScroll'
+  | 'forceRender'
+  | 'getContainer'
+  | 'maskClassName'
+  | 'maskStyle'
+  | 'stopPropagation'
+  | 'visible'
+> & {
   image?: string
   header?: ReactNode
-  // waitImageLoad?: boolean
   title?: ReactNode
   content?: ReactNode
   actions?: (Action | Action[])[]
   onAction?: (action: Action, index: number) => void | Promise<void>
-  closeOnAction?: boolean
   onClose?: () => void
+  closeOnAction?: boolean
   closeOnMaskClick?: boolean
-  visible?: boolean
-  getContainer?: GetContainer
-  bodyStyle?: React.CSSProperties
-  bodyClassName?: string
-  maskStyle?: React.CSSProperties
-  maskClassName?: string
-  stopPropagation?: PropagationEvent[]
-  disableBodyScroll?: boolean
 } & NativeProps
 
 const defaultProps = {
-  visible: false,
   actions: [] as Action[],
   closeOnAction: false,
   closeOnMaskClick: false,
-  stopPropagation: ['click'],
   getContainer: null,
-  disableBodyScroll: true,
 }
 
 export const Dialog: FC<DialogProps> = p => {
   const props = mergeProps(defaultProps, p)
 
-  const unmountedRef = useUnmountedRef()
-  const style = useSpring({
-    scale: props.visible ? 1 : 0.8,
-    opacity: props.visible ? 1 : 0,
-    config: {
-      mass: 1.2,
-      tension: 200,
-      friction: 25,
-      clamp: true,
-    },
-    onStart: () => {
-      setActive(true)
-    },
-    onRest: () => {
-      if (unmountedRef.current) return
-      setActive(props.visible)
-      if (props.visible) {
-        props.afterShow?.()
-      } else {
-        props.afterClose?.()
-      }
-    },
-  })
-
-  const [active, setActive] = useState(props.visible)
-
-  const body = (
-    <div
-      className={classNames(
-        cls('body'),
-        props.image && cls('with-image'),
-        props.bodyClassName
-      )}
-      style={props.bodyStyle}
-    >
+  const element = (
+    <>
       {!!props.image && (
         <div className={cls('image-container')}>
           <Image src={props.image} alt='dialog header image' width='100%' />
@@ -135,38 +92,41 @@ export const Dialog: FC<DialogProps> = p => {
           )
         })}
       </div>
-    </div>
+    </>
   )
 
-  const node = withNativeProps(
-    props,
-    <div
-      className={cls()}
-      style={{
-        display: active ? 'unset' : 'none',
-      }}
+  return (
+    <CenterPopup
+      className={classNames(cls(), props.className)}
+      style={props.style}
+      afterClose={props.afterClose}
+      afterShow={props.afterShow}
+      onMaskClick={
+        props.closeOnMaskClick
+          ? () => {
+              props.onClose?.()
+            }
+          : undefined
+      }
+      visible={props.visible}
+      getContainer={props.getContainer}
+      bodyStyle={props.bodyStyle}
+      bodyClassName={classNames(
+        cls('body'),
+        props.image && cls('with-image'),
+        props.bodyClassName
+      )}
+      maskStyle={props.maskStyle}
+      maskClassName={props.maskClassName}
+      stopPropagation={props.stopPropagation}
+      disableBodyScroll={props.disableBodyScroll}
+      destroyOnClose={props.destroyOnClose}
+      forceRender={props.forceRender}
+      role='dialog'
+      aria-label={props['aria-label']}
     >
-      <Mask
-        visible={props.visible}
-        onMaskClick={props.closeOnMaskClick ? props.onClose : undefined}
-        style={props.maskStyle}
-        className={classNames(cls('mask'), props.maskClassName)}
-        disableBodyScroll={props.disableBodyScroll}
-      />
-      <div
-        className={cls('wrap')}
-        style={{
-          pointerEvents: props.visible ? 'unset' : 'none',
-        }}
-      >
-        <animated.div style={style}>{body}</animated.div>
-      </div>
-    </div>
-  )
-
-  return renderToContainer(
-    props.getContainer,
-    withStopPropagation(props.stopPropagation, node)
+      {element}
+    </CenterPopup>
   )
 }
 

@@ -1,0 +1,140 @@
+@class-prefix-result-page: ~'adm-result-page';
+
+.@{class-prefix-result-page} {
+  --background-color: var(--adm-color-primary);
+  position: relative;
+  background-color: var(--adm-color-box);
+  min-height: 100vh;
+  width: 100%;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    position: relative;
+    padding: 20px;
+    padding-bottom: 100px;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  &-icon {
+    color: var(--adm-color-background);
+    box-sizing: border-box;
+    padding: 2px;
+    margin-bottom: 8px;
+
+    .antd-mobile-icon {
+      font-size: 32px;
+    }
+  }
+
+  &-title {
+    font-size: var(--adm-font-size-10);
+    color: var(--adm-color-background);
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &-description {
+    margin-top: 8px;
+    margin-bottom: 24px;
+    font-size: var(--adm-font-size-6);
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &-details {
+    width: 100%;
+  }
+
+  &-detail {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    color: var(--adm-color-background);
+    font-size: var(--adm-font-size-6);
+
+    &-bold {
+      font-weight: 600;
+    }
+  }
+
+  &-collapse {
+    opacity: 0.6;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    margin-bottom: 5px;
+    border-top: 2px solid var(--adm-color-background);
+    border-right: 2px solid var(--adm-color-background);
+    transform: rotate(135deg);
+
+    &-active {
+      transform: rotate(-45deg);
+    }
+  }
+  // 为了能让背景随着顶部页面流挤下去
+  &-bgWrapper {
+    position: relative;
+    align-self: flex-start;
+    top: 54px;
+  }
+
+  &-bg {
+    // 俺能想到的，画背景最好的方法，可以通过改变 --width 来控制弧度，在平板上的表现凑活能用
+    // 要是有其他更好的方案欢迎一起讨论！
+    --width: 440vw;
+    position: absolute;
+    height: var(--width);
+    width: var(--width);
+    left: calc(
+      (var(--width) - 100vw) * -1 / 2 - 20px
+    ); // 这里的 20px 对应 header 的 padding
+    top: calc(var(--width) * -1 + 1vw);
+    border-radius: 50%;
+    background-color: var(--background-color);
+    z-index: -1;
+  }
+
+  &-content {
+    position: relative;
+    padding: 12px;
+    top: -104px;
+    z-index: 2;
+  }
+
+  &-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    padding-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--adm-color-box);
+    z-index: 3;
+
+    &-btn {
+      flex: 1;
+      max-width: calc(
+        (100vw - 36px) / 2
+      ); // 36px 是左右两边的 padding 12px 加中间的间隔 12px，做这个约束是为了在按钮只有一个的时候宽度不变
+    }
+
+    &-space {
+      width: 12px;
+    }
+  }
+}
+
+@class-prefix-result-page-card: ~'adm-result-page-card';
+
+.@{class-prefix-result-page-card} {
+  border-radius: 8px;
+  background-color: var(--adm-color-background);
+}

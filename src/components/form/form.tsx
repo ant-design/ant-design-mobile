@@ -9,7 +9,6 @@ import type {
 } from 'rc-field-form'
 import { defaultFormContext, FormContext, FormContextType } from './context'
 import { mergeProps } from '../../utils/with-default-props'
-import type { FormLayout } from '.'
 import { Header } from './header'
 import { useConfig } from '../config-provider'
 import merge from 'lodash/merge'
@@ -28,6 +27,7 @@ export type FormInstance = Pick<
   | 'isFieldsTouched'
   | 'resetFields'
   | 'setFields'
+  | 'setFieldValue'
   | 'setFieldsValue'
   | 'submit'
   | 'validateFields'
@@ -47,10 +47,11 @@ export type FormProps = Pick<
   | 'onValuesChange'
   | 'children'
 > &
-  NativeProps<'--border-inner' | '--border-top' | '--border-bottom'> &
+  NativeProps<
+    '--border-inner' | '--border-top' | '--border-bottom' | '--prefix-width'
+  > &
   Partial<FormContextType> & {
     footer?: ReactNode
-    layout?: FormLayout
     mode?: ListProps['mode']
   }
 
@@ -66,6 +67,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     layout,
     footer,
     mode,
+    disabled,
     requiredMarkStyle,
     ...formProps
   } = props
@@ -97,7 +99,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     )
     items = []
   }
-  traverseReactNode(props.children, child => {
+  traverseReactNode(props.children as ReactNode, child => {
     if (React.isValidElement(child)) {
       if (child.type === Header) {
         collect()
@@ -128,6 +130,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
           hasFeedback,
           layout,
           requiredMarkStyle,
+          disabled,
         }}
       >
         {lists}

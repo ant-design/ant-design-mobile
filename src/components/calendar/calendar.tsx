@@ -3,6 +3,7 @@ import React, {
   ReactNode,
   useState,
   useImperativeHandle,
+  useMemo,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs from 'dayjs'
@@ -14,24 +15,37 @@ import { useConfig } from '../config-provider'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import { useUpdateEffect } from 'ahooks'
 import { usePropsValue } from '../../utils/use-props-value'
-import { convertValueToRange, DateRange } from './convert'
+import {
+  convertValueToRange,
+  convertPageToDayjs,
+  DateRange,
+  Page,
+} from './convert'
 
 dayjs.extend(isoWeek)
 
 const classPrefix = 'adm-calendar'
 
-type Page = { month: number; year: number }
-
-export type CalenderRef = {
+export type CalendarRef = {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
   jumpToToday: () => void
 }
 
 export type CalendarProps = {
+  prevMonthButton?: React.ReactNode
+  prevYearButton?: React.ReactNode
+  nextMonthButton?: React.ReactNode
+  nextYearButton?: React.ReactNode
   onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
-  renderLabel?: (date: Date) => string | null | undefined
+  renderLabel?: (date: Date) => React.ReactNode
+  renderDate?: (date: Date) => React.ReactNode
   allowClear?: boolean
+  max?: Date
+  min?: Date
+  shouldDisableDate?: (date: Date) => boolean
+  minPage?: Page
+  maxPage?: Page
 } & (
   | {
       selectionMode?: undefined
@@ -58,9 +72,13 @@ const defaultProps = {
   weekStartsOn: 'Sunday',
   defaultValue: null,
   allowClear: true,
+  prevMonthButton: <ArrowLeft />,
+  prevYearButton: <ArrowLeftDouble />,
+  nextMonthButton: <ArrowLeft />,
+  nextYearButton: <ArrowLeftDouble />,
 }
 
-export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
+export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   const today = dayjs()
   const props = mergeProps(defaultProps, p)
   const { locale } = useConfig()
@@ -106,34 +124,51 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
       } else {
         page = pageOrPageGenerator
       }
-      setCurrent(
-        dayjs()
-          .year(page.year)
-          .month(page.month - 1)
-          .date(1)
-      )
+      setCurrent(convertPageToDayjs(page))
     },
     jumpToToday: () => {
       setCurrent(dayjs().date(1))
     },
   }))
+
+  const handlePageChange = (
+    action: 'subtract' | 'add',
+    num: number,
+    type: 'month' | 'year'
+  ) => {
+    const nxtCurrent = current[action](num, type)
+    if (action === 'subtract' && props.minPage) {
+      const minPage = convertPageToDayjs(props.minPage)
+      if (nxtCurrent.isBefore(minPage, type)) {
+        return
+      }
+    }
+    if (action === 'add' && props.maxPage) {
+      const maxPage = convertPageToDayjs(props.maxPage)
+      if (nxtCurrent.isAfter(maxPage, type)) {
+        return
+      }
+    }
+    setCurrent(nxtCurrent)
+  }
+
   const header = (
     <div className={`${classPrefix}-header`}>
       <a
-        className={`${classPrefix}-arrow-button`}
+        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-year`}
         onClick={() => {
-          setCurrent(current.subtract(1, 'year'))
+          handlePageChange('subtract', 1, 'year')
         }}
       >
-        <ArrowLeftDouble />
+        {props.prevYearButton}
       </a>
       <a
-        className={`${classPrefix}-arrow-button`}
+        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
         onClick={() => {
-          setCurrent(current.subtract(1, 'month'))
+          handlePageChange('subtract', 1, 'month')
         }}
       >
-        <ArrowLeft />
+        {props.prevMonthButton}
       </a>
       <div className={`${classPrefix}-title`}>
         {locale.Calendar.renderYearAndMonth(
@@ -142,23 +177,34 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
         )}
       </div>
       <a
-        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-right`}
+        className={classNames(
+          `${classPrefix}-arrow-button`,
+          `${classPrefix}-arrow-button-right`,
+          `${classPrefix}-arrow-button-right-month`
+        )}
         onClick={() => {
-          setCurrent(current.add(1, 'month'))
+          handlePageChange('add', 1, 'month')
         }}
       >
-        <ArrowLeft />
+        {props.nextMonthButton}
       </a>
       <a
-        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-right`}
+        className={classNames(
+          `${classPrefix}-arrow-button`,
+          `${classPrefix}-arrow-button-right`,
+          `${classPrefix}-arrow-button-right-year`
+        )}
         onClick={() => {
-          setCurrent(current.add(1, 'year'))
+          handlePageChange('add', 1, 'year')
         }}
       >
-        <ArrowLeftDouble />
+        {props.nextYearButton}
       </a>
     </div>
   )
+
+  const maxDay = useMemo(() => props.max && dayjs(props.max), [props.max])
+  const minDay = useMemo(() => props.min && dayjs(props.min), [props.min])
 
   function renderCells() {
     const cells: ReactNode[] = []
@@ -171,6 +217,8 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
       let isSelect = false
       let isBegin = false
       let isEnd = false
+      let isSelectRowBegin = false
+      let isSelectRowEnd = false
       if (dateRange) {
         const [begin, end] = dateRange
         isBegin = d.isSame(begin, 'day')
@@ -179,23 +227,38 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
           isBegin ||
           isEnd ||
           (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
+        if (isSelect) {
+          isSelectRowBegin =
+            (cells.length % 7 === 0 || d.isSame(d.startOf('month'), 'day')) &&
+            !isBegin
+          isSelectRowEnd =
+            (cells.length % 7 === 6 || d.isSame(d.endOf('month'), 'day')) &&
+            !isEnd
+        }
       }
       const inThisMonth = d.month() === current.month()
+      const disabled = props.shouldDisableDate
+        ? props.shouldDisableDate(d.toDate())
+        : (maxDay && d.isAfter(maxDay, 'day')) ||
+          (minDay && d.isBefore(minDay, 'day'))
       cells.push(
         <div
           key={d.valueOf()}
           className={classNames(
             `${classPrefix}-cell`,
-            inThisMonth ? `${classPrefix}-cell-in` : `${classPrefix}-cell-out`,
+            (disabled || !inThisMonth) && `${classPrefix}-cell-disabled`,
             inThisMonth && {
               [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
               [`${classPrefix}-cell-selected`]: isSelect,
               [`${classPrefix}-cell-selected-begin`]: isBegin,
               [`${classPrefix}-cell-selected-end`]: isEnd,
+              [`${classPrefix}-cell-selected-row-begin`]: isSelectRowBegin,
+              [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
             }
           )}
           onClick={() => {
             if (!props.selectionMode) return
+            if (disabled) return
             const date = d.toDate()
             if (!inThisMonth) {
               setCurrent(d.clone().date(1))
@@ -234,7 +297,9 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
             }
           }}
         >
-          <div className={`${classPrefix}-cell-top`}>{d.date()}</div>
+          <div className={`${classPrefix}-cell-top`}>
+            {props.renderDate ? props.renderDate(d.toDate()) : d.date()}
+          </div>
           <div className={`${classPrefix}-cell-bottom`}>
             {props.renderLabel?.(d.toDate())}
           </div>
@@ -248,8 +313,8 @@ export const Calendar = forwardRef<CalenderRef, CalendarProps>((p, ref) => {
 
   const mark = (
     <div className={`${classPrefix}-mark`}>
-      {markItems.map(item => (
-        <div key={item} className={`${classPrefix}-mark-cell`}>
+      {markItems.map((item, index) => (
+        <div key={index} className={`${classPrefix}-mark-cell`}>
           {item}
         </div>
       ))}

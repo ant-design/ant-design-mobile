@@ -1,34 +1,44 @@
 # ImageViewer
 
+See the full picture by zooming in.
+
+## When to Use
+
+You need to click on the picture to view the details and use it with the thumbnail.
+
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
 
 ## ImageViewer
 
-| Name         | Description                                                                                                                 | Type                                       | Default         |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
-| image        | The `url` of the image resource                                                                                             | `string`                                   | -               |
-| maxZoom      | The maximum zoom ratio                                                                                                      | `number`                                   | `3`             |
-| getContainer | To get the specified mounted HTML node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
-| visible      | Whether to show or hide                                                                                                     | `boolean`                                  | `false`         |
-| onClose      | Triggered when it is closed                                                                                                 | `boolean`                                  | -               |
-| afterClose   | Triggered when it is completely closed                                                                                      | `() => void`                               | -               |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| afterClose | Triggered when it is completely closed | `() => void` | - |
+| getContainer | To get the specified mounted HTML node, the default is `null` rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `null` |
+| image | The `url` of the image resource | `string` | - |
+| maxZoom | The maximum zoom ratio | `number \| 'auto'` | `3` |
+| onClose | Triggered when it is closed | `() => void` | - |
+| renderFooter | Render extra content on footer | `(image: string) => ReactNode` | - |
+| visible | Whether to show or hide | `boolean` | `false` |
 
 ## ImageViewer.Multi
 
 On the basis of `ImageViewer`, the following props have been added:
 
-| Name          | Description                                 | Type                      | Default |
-| ------------- | ------------------------------------------- | ------------------------- | ------- |
-| images        | Url list of image resources                 | `string[]`                | `[]`    |
-| defaultIndex  | Which picture would be displayed by default | `number`                  | `0`     |
-| onIndexChange | Triggered when the picture is switched      | `(index: number) => void` | -       |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| defaultIndex | Which picture would be displayed by default | `number` | `0` |
+| images | Url list of image resources | `string[]` | - |
+| onIndexChange | Triggered when the picture is switched | `(index: number) => void` | - |
+| renderFooter | Render extra content on footer | `(image: string, index: number) => ReactNode` | - |
 
 At the same time, the `image` prop is removed.
 
 ### Ref
 
-| Name    | Description                   | Type                                          |
-| ------- | ----------------------------- | --------------------------------------------- |
+| Name | Description | Type |
+| --- | --- | --- |
 | swipeTo | Switch to the specified index | `(index: number, immediate: boolean) => void` |
 
 ## Imperative

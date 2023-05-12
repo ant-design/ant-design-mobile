@@ -1,15 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Space, Switch } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 export default () => {
-  const beforeChange = (): Promise<void> => {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve()
-      }, 1000)
-    })
-  }
+  const [checked, setChecked] = useState(false)
 
   return (
     <>
@@ -26,9 +20,23 @@ export default () => {
 
       <DemoBlock title='异步'>
         <Space wrap>
-          <Switch defaultChecked beforeChange={() => beforeChange()} />
+          <Switch
+            checked={checked}
+            onChange={async val => {
+              await mockRequest()
+              setChecked(val)
+            }}
+          />
         </Space>
       </DemoBlock>
     </>
   )
+}
+
+const mockRequest = (): Promise<void> => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, 1000)
+  })
 }

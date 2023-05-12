@@ -1,0 +1,21 @@
+html[data-is-demo='true'] {
+  &[data-prefers-color-scheme='dark'] {
+    body {
+      background: #262629;
+    }
+  }
+  body {
+    background: #fafbfc;
+    transition: none;
+  }
+
+  html {
+    touch-action: manipulation;
+  }
+  #root .__dumi-default-mobile-demo-layout {
+    padding: 0;
+  }
+  html {
+    min-height: 100vh;
+  }
+}

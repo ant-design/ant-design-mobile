@@ -6,7 +6,7 @@
 
   height: 100%;
   position: relative;
-  background-color: var(--adm-color-white);
+  background-color: var(--adm-color-background);
   --sticky-offset-top: 0;
 
   &-body {
@@ -26,8 +26,8 @@
       height: 35px;
       padding: 0 12px;
       color: var(--adm-color-weak);
-      font-size: 13px;
-      background-color: #f5f5f5;
+      font-size: var(--adm-font-size-main);
+      background-color: var(--adm-color-fill-content);
     }
   }
 
@@ -39,17 +39,17 @@
     z-index: 910;
     overflow: visible;
     color: var(--adm-color-weak);
-    font-size: 12px;
+    font-size: var(--adm-font-size-4);
     user-select: none;
     touch-action: none;
 
     &-bubble {
       position: absolute;
       top: 50%;
-      right: 42px;
+      right: 60px;
       width: 47px;
       height: 47px;
-      color: var(--adm-color-white);
+      color: var(--adm-color-text-light-solid);
       font-size: 25px;
       line-height: 47px;
       text-align: center;
@@ -79,7 +79,7 @@
     }
 
     &-item-active {
-      color: #fff;
+      color: var(--adm-color-text-light-solid);
       background-color: var(--adm-color-primary);
       border-radius: 50%;
     }

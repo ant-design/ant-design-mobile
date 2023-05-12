@@ -1,22 +1,32 @@
 # ProgressCircle
 
+Percentage progress is represented by a ring graph.
+
+## When to Use
+
+It is suitable for displaying the current progress of the task.
+
+## Demos
+
 <code src="./demos/demo1.tsx"></code>
+
+## ProgressCircle
 
 ### Props
 
 | Name     | Description                    | Type              | Default |
 | -------- | ------------------------------ | ----------------- | ------- |
-| percent  | Percent of the progress circle | `number`          | `0`     |
 | children | Customized information         | `React.ReactNode` | -       |
+| percent  | Percent of the progress circle | `number`          | `0`     |
 
 ### CSS Variables
 
-| Name          | Description                    | Default                    | Global                              |
-| ------------- | ------------------------------ | -------------------------- | ----------------------------------- |
-| --size        | Width and height of the canvas | `50px`                     | `--adm-progress-circle-size`        |
-| --track-width | Width of the line              | `3px`                      | `--adm-progress-circle-track-width` |
-| --track-color | Color of the track             | `#e5e5e5`                  | `--adm-progress-circle-track-color` |
-| --fill-color  | Color of the fill part         | `var(--adm-color-primary)` | `--adm-progress-circle-fill-color`  |
+| Name | Description | Default | Global |
+| --- | --- | --- | --- |
+| --fill-color | Color of the fill part | `var(--adm-color-primary)` | `--adm-progress-circle-fill-color` |
+| --size | Width and height of the canvas | `50px` | `--adm-progress-circle-size` |
+| --track-color | Color of the track | `#e5e5e5` | `--adm-progress-circle-track-color` |
+| --track-width | Width of the line | `3px` | `--adm-progress-circle-track-width` |
 
 ## FAQ
 

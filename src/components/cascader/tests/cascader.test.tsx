@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { fireEvent, render, testA11y, waitFor } from 'testing'
 import Cascader from '../'
-import { options } from '../../cascader/demos/data'
+import { options } from '../demos/data'
 
 describe('Cascader', () => {
   test('a11y', async () => {
@@ -10,6 +10,7 @@ describe('Cascader', () => {
 
   test('basic usage', async () => {
     const onConfirm = jest.fn()
+    const onTabsChange = jest.fn()
     const App = () => {
       const [visible, setVisible] = useState(false)
 
@@ -24,6 +25,7 @@ describe('Cascader', () => {
           </button>
 
           <Cascader
+            onTabsChange={onTabsChange}
             options={options}
             visible={visible}
             onClose={() => {
@@ -35,14 +37,15 @@ describe('Cascader', () => {
       )
     }
 
-    const { getByText } = await render(<App />)
+    const { getByText } = render(<App />)
 
     fireEvent.click(getByText('Choose'))
-
     await waitFor(() => {
       fireEvent.click(getByText('浙江'))
       fireEvent.click(getByText('杭州'))
     })
+    fireEvent.click(getByText('请选择'))
+    expect(onTabsChange).toBeCalledTimes(2)
 
     fireEvent.click(getByText('确定'))
 
@@ -59,7 +62,7 @@ describe('Cascader', () => {
       fn(value)
     }
 
-    const { getByText } = await render(<button onClick={onClick}>Popup</button>)
+    const { getByText } = render(<button onClick={onClick}>Popup</button>)
 
     fireEvent.click(getByText('Popup'))
 

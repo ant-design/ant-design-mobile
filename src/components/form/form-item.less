@@ -11,7 +11,7 @@
     line-height: 1.5;
     box-sizing: border-box;
     position: relative;
-    color: #666666;
+    color: var(--adm-color-text-secondary);
 
     .adm-form-item-required-asterisk {
       position: absolute;
@@ -41,7 +41,7 @@
       }
     }
     &-position-right {
-      justify-content: right;
+      justify-content: flex-end;
       > * {
         flex: none;
       }
@@ -64,7 +64,6 @@
   &&-horizontal {
     &.adm-list-item {
       --align-items: stretch;
-      --prefix-width: 6em;
     }
     .adm-list-item-content-prefix {
       padding-top: 12px;
@@ -77,7 +76,7 @@
 
   &&-vertical {
     .adm-form-item-label {
-      font-size: 15px;
+      font-size: var(--adm-font-size-7);
       margin-bottom: 4px;
     }
   }

@@ -19,20 +19,20 @@ export default () => {
     },
     {
       key: 'todo',
-      title: '我的待办',
+      title: '待办',
       icon: <UnorderedListOutline />,
       badge: '5',
     },
     {
       key: 'message',
-      title: '我的消息',
+      title: '消息',
       icon: (active: boolean) =>
         active ? <MessageFill /> : <MessageOutline />,
       badge: '99+',
     },
     {
       key: 'personalCenter',
-      title: '个人中心',
+      title: '我的',
       icon: <UserOutline />,
     },
   ]
@@ -41,7 +41,7 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='基本用法' padding='0'>
+      <DemoBlock title='基础用法' padding='0'>
         <TabBar>
           {tabs.map(item => (
             <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
