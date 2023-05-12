@@ -142,8 +142,6 @@ export const sleep = (time: number) => new Promise(resolve => setTimeout(resolve
     ),
   }
 
-  // console.log('Files:', existDemoBlock, files)
-
   return serialize({ files })
 }
 

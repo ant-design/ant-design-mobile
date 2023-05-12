@@ -31,7 +31,7 @@ const Features = (features: any) => (
 
 const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
   const {
-    config: { mode, repository },
+    config: { repository },
     meta,
     locale,
   } = useContext(context)
