@@ -1,5 +1,4 @@
-import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
-import React from 'react'
+import React, { FC, ReactNode, ReactElement, isValidElement } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -38,10 +37,10 @@ export const TabBar: FC<TabBarProps> = p => {
 
   let firstActiveKey: string | null = null
 
-  const items: ReactElement<ComponentProps<typeof TabBarItem>>[] = []
+  const items: ReactElement<TabBarItemProps>[] = []
 
   traverseReactNode(props.children, (child, index) => {
-    if (!React.isValidElement(child)) return
+    if (!isValidElement<TabBarItemProps>(child)) return
     const key = child.key
     if (typeof key !== 'string') return
     if (index === 0) {

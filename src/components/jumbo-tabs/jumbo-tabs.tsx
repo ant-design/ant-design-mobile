@@ -2,7 +2,7 @@ import React, {
   FC,
   ReactNode,
   ReactElement,
-  ComponentProps,
+  isValidElement,
   useRef,
 } from 'react'
 import classNames from 'classnames'
@@ -43,12 +43,13 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
-  const panes: ReactElement<ComponentProps<typeof JumboTab>>[] = []
+  const panes: ReactElement<JumboTabProps>[] = []
 
   traverseReactNode(props.children, (child, index) => {
-    if (!React.isValidElement(child)) return
+    if (!isValidElement<JumboTabProps>(child)) return
     const key = child.key
     if (typeof key !== 'string') return
+
     if (index === 0) {
       firstActiveKey = key
     }
