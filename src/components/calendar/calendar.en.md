@@ -28,15 +28,10 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 | defaultValue | The default selected date or date range. | Same as `value` prop. | - |
 | max | Maximum value of a selectable range. | `Date` | - |
 | min | Minimum value of a selectable range. | `Date` | - | - |
-| maxPage | Maximum visible page of date. | `Page` |
-| minPage | Minimum visible page of date. | `Page` | - |
-| nextMonthButton | Contents of the Next Month button on the navigation pane | `React.ReactNode` | `>` |
-| nextYearButton | Contents of the next Year button on the navigation pane | `React.ReactNode` | `>>` |
 | onChange | Trigger when selected date changes. | `(val: Date \| null) => void` when selection mode is "single". `(val: [Date, Date] \| null) => void` when selection mode is "range". | - |
 | onPageChange | Trigger when changed year or month. | `(year: number, month: number) => void` | - |
-| prevMonthButton | Contents of the Last Month button on the navigation pane | `React.ReactNode` | `<` |
-| prevYearButton | Contents of the Last year button on the navigation pane | `React.ReactNode` | `<<` |
-| renderLabel | The label render function. | `(date: Date) => ReactNode \| null \| undefined` | - |
+| renderTop | The top information of date render function. | `(date: Date) => ReactNode \| null \| undefined` | - |
+| renderBottom | The bottom information of date render function. | `(date: Date) => ReactNode \| null \| undefined` | - |
 | selectionMode | The selection mode. Disable selection when this prop is not set. | `'single' \| 'range'` | - |
 | shouldDisableDate | Set whether the date is disable selection. The min and max Settings are ignored | `(date: Date) => boolean` | - |
 | value | The selected date or date range. | `Date \| null` when selection mode is "single". `[Date, Date] \| null` when selection mode is "range" | - |

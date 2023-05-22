@@ -25,20 +25,17 @@
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowClear | 是否允许再次点击后清除 | `boolean` | `true` |
+| confirmText | 确认按钮文案 | `string` | `确认` |
 | defaultValue | 默认选择的日期 | 同 `value` 属性 | - |
 | max | 可选择范围的最大值 | `Date` | - |
 | min | 可选择范围的最小值 | `Date` | - |
-| maxPage | 可切换到的最晚日期 | `Page` | - |
-| minPage | 可切换到的最早日期 | `Page` | - |
-| nextMonthButton | 导航窗格上的“下一月”按钮的内容 | `React.ReactNode` | `>` |
-| nextYearButton | 导航窗格上的“下一年”按钮的内容 | `React.ReactNode` | `>>` |
 | onChange | 选择日期变化时触发 | 单选模式下为 `(val: Date \| null) => void`，多选模式下为 `(val: [Date, Date] \| null) => void` | - |
-| onPageChange | 切换月或年时触发 | `(year: number, month: number) => void` | - |
-| prevMonthButton | 导航窗格上的“上一月”按钮的内容 | `React.ReactNode` | `<` |
-| prevYearButton | 导航窗格上的“上一年”按钮的内容 | `React.ReactNode` | `<<` |
-| renderLabel | 标注信息的渲染函数 | `(date: Date) => ReactNode \| null \| undefined` | - |
+| onConfirm | 点击确认按钮时触发 | 单选模式下为 `(val: Date \| null) => void`，多选模式下为 `(val: [Date, Date] \| null) => void` | - |
+| renderTop | 日期顶部信息的渲染函数 | `(date: Date) => ReactNode \| null \| undefined` | - |
+| renderBottom | 日期底部信息的渲染函数 | `(date: Date) => ReactNode \| null \| undefined` | - |
 | selectionMode | 选择模式，不设置的话表示不支持选择 | `'single' \| 'range'` | - |
 | shouldDisableDate | 判断日期是否可选，使用后会忽略 min 和 max 设置 | `(date: Date) => boolean` | - |
+| title | 日期选择器的标题 | `React.ReactNode` | `日期选择` |
 | value | 选择的日期 | 单选模式下为 `Date \| null`，多选模式下为 `[Date, Date] \| null` | - |
 | weekStartsOn | 每周以周几作为第一天 | `'Monday' \| 'Sunday'` | `'Sunday'` |
 | renderDate | 自定义日期渲染 | `(date: Date) => ReactNode` | - | 5.28.0 |
@@ -51,7 +48,7 @@
 
 | 属性 | 说明 | 类型 |
 | --- | --- | --- |
-| jumpTo | 跳转至指定日期的页面 | `(page: Page \| ((page: Page) => Page)) => void` |
+| jumpTo | 跳转至指定日期的区间 | `(page: Page \| ((page: Page) => Page)) => void` |
 | jumpToToday | 跳转至今日 | `() => void` |
 
 ```ts

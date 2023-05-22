@@ -1,32 +1,35 @@
-.adm-calendar {
+.adm-calendar,
+.adm-calendar-popup {
+  & &-title {
+    flex: auto;
+    font-size: var(--adm-font-size-10);
+  }
   & &-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 4px;
-    a.adm-calendar-arrow-button {
-      padding: 4px 8px;
-      display: block;
-      flex: none;
-      svg {
-        height: 22px;
-      }
-      &.adm-calendar-arrow-button-right {
-        svg {
-          transform: rotate(180deg);
-        }
-      }
-    }
+    padding: 8px;
+    border-bottom: 1px solid var(--adm-color-border);
     .adm-calendar-title {
-      font-size: var(--adm-font-size-10);
-      flex: auto;
       text-align: center;
     }
   }
   & &-body {
-    display: flex;
-    flex-wrap: wrap;
+    height: 64vh;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .adm-calendar-title {
+      position: sticky;
+      top: 0;
+      padding: 12px 18px;
+      background-color: var(--adm-color-box);
+    }
+  }
+  & &-footer {
+    padding: 12px 18px;
+    .adm-button {
+      width: 100%;
+    }
   }
   &-cells {
     display: flex;
@@ -40,7 +43,7 @@
     flex: none;
     box-sizing: border-box;
     width: calc(100% / 7);
-    height: 48px;
+    min-height: 56px;
     margin-bottom: 4px;
     padding: 2px;
     color: var(--adm-color-text);
@@ -50,6 +53,7 @@
     }
     &&-disabled {
       color: var(--adm-color-light);
+      .adm-calendar-cell-top,
       .adm-calendar-cell-bottom {
         color: var(--adm-color-light);
       }
@@ -59,6 +63,7 @@
         background: var(--adm-color-primary);
         color: var(--adm-color-white);
       }
+      & .adm-calendar-cell-top,
       & .adm-calendar-cell-bottom {
         color: var(--adm-color-white);
       }
@@ -79,16 +84,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    & &-top {
+    justify-content: center;
+    & &-date {
       flex: none;
-      font-size: var(--adm-font-size-10);
+      line-height: 22px;
+      font-size: var(--adm-font-size-9);
     }
+    & &-top,
     & &-bottom {
       flex: none;
-      font-size: var(--adm-font-size-4);
-      height: 12px;
-      line-height: 12px;
+      font-size: var(--adm-font-size-2);
+      height: 14px;
+      line-height: 14px;
       color: var(--adm-color-weak);
     }
   }

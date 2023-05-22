@@ -8,12 +8,13 @@ import React, {
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs from 'dayjs'
 import classNames from 'classnames'
+import Button from '../button'
+import Popup from '../popup'
+import type { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
-import { ArrowLeft } from './arrow-left'
-import { ArrowLeftDouble } from './arrow-left-double'
 import { useConfig } from '../config-provider'
 import isoWeek from 'dayjs/plugin/isoWeek'
-import { useUpdateEffect } from 'ahooks'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import { usePropsValue } from '../../utils/use-props-value'
 import {
   convertValueToRange,
@@ -23,6 +24,7 @@ import {
 } from './convert'
 
 dayjs.extend(isoWeek)
+dayjs.extend(isSameOrBefore)
 
 const classPrefix = 'adm-calendar'
 
@@ -32,38 +34,39 @@ export type CalendarRef = {
 }
 
 export type CalendarProps = {
-  prevMonthButton?: React.ReactNode
-  prevYearButton?: React.ReactNode
-  nextMonthButton?: React.ReactNode
-  nextYearButton?: React.ReactNode
-  onPageChange?: (year: number, month: number) => void
+  title?: React.ReactNode
+  confirmText?: string
   weekStartsOn?: 'Monday' | 'Sunday'
-  renderLabel?: (date: Date) => React.ReactNode
+  renderTop?: (date: Date) => React.ReactNode
   renderDate?: (date: Date) => React.ReactNode
+  renderBottom?: (date: Date) => React.ReactNode
   allowClear?: boolean
   max?: Date
   min?: Date
   shouldDisableDate?: (date: Date) => boolean
-  minPage?: Page
-  maxPage?: Page
+  usePopup?: boolean
+  popupProps?: PopupProps
 } & (
   | {
       selectionMode?: undefined
       value?: undefined
       defaultValue?: undefined
       onChange?: undefined
+      onConfirm?: undefined
     }
   | {
       selectionMode: 'single'
       value?: Date | null
       defaultValue?: Date | null
       onChange?: (val: Date | null) => void
+      onConfirm?: (val: Date | null) => void
     }
   | {
       selectionMode: 'range'
       value?: [Date, Date] | null
       defaultValue?: [Date, Date] | null
       onChange?: (val: [Date, Date] | null) => void
+      onConfirm?: (val: [Date, Date] | null) => void
     }
 ) &
   NativeProps
@@ -72,10 +75,8 @@ const defaultProps = {
   weekStartsOn: 'Sunday',
   defaultValue: null,
   allowClear: true,
-  prevMonthButton: <ArrowLeft />,
-  prevYearButton: <ArrowLeftDouble />,
-  nextMonthButton: <ArrowLeft />,
-  nextYearButton: <ArrowLeftDouble />,
+  usePopup: true,
+  selectionMode: 'single',
 }
 
 export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
@@ -109,10 +110,6 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     dayjs(dateRange ? dateRange[0] : today).date(1)
   )
 
-  useUpdateEffect(() => {
-    props.onPageChange?.(current.year(), current.month() + 1)
-  }, [current])
-
   useImperativeHandle(ref, () => ({
     jumpTo: pageOrPageGenerator => {
       let page: Page
@@ -131,185 +128,183 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     },
   }))
 
-  const handlePageChange = (
-    action: 'subtract' | 'add',
-    num: number,
-    type: 'month' | 'year'
-  ) => {
-    const nxtCurrent = current[action](num, type)
-    if (action === 'subtract' && props.minPage) {
-      const minPage = convertPageToDayjs(props.minPage)
-      if (nxtCurrent.isBefore(minPage, type)) {
-        return
-      }
-    }
-    if (action === 'add' && props.maxPage) {
-      const maxPage = convertPageToDayjs(props.maxPage)
-      if (nxtCurrent.isAfter(maxPage, type)) {
-        return
-      }
-    }
-    setCurrent(nxtCurrent)
-  }
-
   const header = (
     <div className={`${classPrefix}-header`}>
-      <a
-        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-year`}
-        onClick={() => {
-          handlePageChange('subtract', 1, 'year')
-        }}
-      >
-        {props.prevYearButton}
-      </a>
-      <a
-        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
-        onClick={() => {
-          handlePageChange('subtract', 1, 'month')
-        }}
-      >
-        {props.prevMonthButton}
-      </a>
       <div className={`${classPrefix}-title`}>
-        {locale.Calendar.renderYearAndMonth(
-          current.year(),
-          current.month() + 1
-        )}
+        {props.title ?? locale.Calendar.title}
       </div>
-      <a
-        className={classNames(
-          `${classPrefix}-arrow-button`,
-          `${classPrefix}-arrow-button-right`,
-          `${classPrefix}-arrow-button-right-month`
-        )}
-        onClick={() => {
-          handlePageChange('add', 1, 'month')
-        }}
-      >
-        {props.nextMonthButton}
-      </a>
-      <a
-        className={classNames(
-          `${classPrefix}-arrow-button`,
-          `${classPrefix}-arrow-button-right`,
-          `${classPrefix}-arrow-button-right-year`
-        )}
-        onClick={() => {
-          handlePageChange('add', 1, 'year')
-        }}
-      >
-        {props.nextYearButton}
-      </a>
     </div>
   )
 
-  const maxDay = useMemo(() => props.max && dayjs(props.max), [props.max])
-  const minDay = useMemo(() => props.min && dayjs(props.min), [props.min])
+  const maxDay = useMemo(
+    () => (props.max ? dayjs(props.max) : current.add(6, 'month')),
+    [props.max, current]
+  )
+  const minDay = useMemo(
+    () => (props.min ? dayjs(props.min) : current),
+    [props.min, current]
+  )
 
-  function renderCells() {
+  function renderBody() {
     const cells: ReactNode[] = []
-    let iterator = current.subtract(current.isoWeekday(), 'day')
-    if (props.weekStartsOn === 'Monday') {
-      iterator = iterator.add(1, 'day')
-    }
-    while (cells.length < 6 * 7) {
-      const d = iterator
-      let isSelect = false
-      let isBegin = false
-      let isEnd = false
-      let isSelectRowBegin = false
-      let isSelectRowEnd = false
-      if (dateRange) {
-        const [begin, end] = dateRange
-        isBegin = d.isSame(begin, 'day')
-        isEnd = d.isSame(end, 'day')
-        isSelect =
-          isBegin ||
-          isEnd ||
-          (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
-        if (isSelect) {
-          isSelectRowBegin =
-            (cells.length % 7 === 0 || d.isSame(d.startOf('month'), 'day')) &&
-            !isBegin
-          isSelectRowEnd =
-            (cells.length % 7 === 6 || d.isSame(d.endOf('month'), 'day')) &&
-            !isEnd
-        }
-      }
-      const inThisMonth = d.month() === current.month()
-      const disabled = props.shouldDisableDate
-        ? props.shouldDisableDate(d.toDate())
-        : (maxDay && d.isAfter(maxDay, 'day')) ||
-          (minDay && d.isBefore(minDay, 'day'))
+    let monthIterator = minDay
+    // 遍历月份
+    while (monthIterator.isSameOrBefore(maxDay, 'month')) {
+      const year = monthIterator.year()
+      const month = monthIterator.month()
+
       cells.push(
-        <div
-          key={d.valueOf()}
-          className={classNames(
-            `${classPrefix}-cell`,
-            (disabled || !inThisMonth) && `${classPrefix}-cell-disabled`,
-            inThisMonth && {
-              [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
-              [`${classPrefix}-cell-selected`]: isSelect,
-              [`${classPrefix}-cell-selected-begin`]: isBegin,
-              [`${classPrefix}-cell-selected-end`]: isEnd,
-              [`${classPrefix}-cell-selected-row-begin`]: isSelectRowBegin,
-              [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
-            }
-          )}
-          onClick={() => {
-            if (!props.selectionMode) return
-            if (disabled) return
-            const date = d.toDate()
-            if (!inThisMonth) {
-              setCurrent(d.clone().date(1))
-            }
-            function shouldClear() {
-              if (!props.allowClear) return false
-              if (!dateRange) return false
-              const [begin, end] = dateRange
-              return d.isSame(begin, 'date') && d.isSame(end, 'day')
-            }
-            if (props.selectionMode === 'single') {
-              if (props.allowClear && shouldClear()) {
-                setDateRange(null)
-                return
-              }
-              setDateRange([date, date])
-            } else if (props.selectionMode === 'range') {
-              if (!dateRange) {
-                setDateRange([date, date])
-                setIntermediate(true)
-                return
-              }
-              if (shouldClear()) {
-                setDateRange(null)
-                setIntermediate(false)
-                return
-              }
-              if (intermediate) {
-                const another = dateRange[0]
-                setDateRange(another > date ? [date, another] : [another, date])
-                setIntermediate(false)
-              } else {
-                setDateRange([date, date])
-                setIntermediate(true)
-              }
-            }
-          }}
-        >
-          <div className={`${classPrefix}-cell-top`}>
-            {props.renderDate ? props.renderDate(d.toDate()) : d.date()}
+        <div key={`${year}-${month}`}>
+          <div className={`${classPrefix}-title`}>
+            {locale.Calendar.renderYearAndMonth(year, month + 1)}
           </div>
-          <div className={`${classPrefix}-cell-bottom`}>
-            {props.renderLabel?.(d.toDate())}
+          <div className={`${classPrefix}-cells`}>
+            {/* 空格填充 */}
+            {Array(
+              props.weekStartsOn === 'Monday'
+                ? monthIterator.date(1).isoWeekday() - 1
+                : monthIterator.date(1).isoWeekday()
+            )
+              .fill(null)
+              .map((_, index) => (
+                <div key={index} className={`${classPrefix}-cell`}></div>
+              ))}
+            {/* 遍历每月 */}
+            {Array(monthIterator.daysInMonth())
+              .fill(null)
+              .map((_, index) => {
+                const d = monthIterator.date(index + 1)
+                let isSelect = false
+                let isBegin = false
+                let isEnd = false
+                let isSelectRowBegin = false
+                let isSelectRowEnd = false
+                if (dateRange) {
+                  const [begin, end] = dateRange
+                  isBegin = d.isSame(begin, 'day')
+                  isEnd = d.isSame(end, 'day')
+                  isSelect =
+                    isBegin ||
+                    isEnd ||
+                    (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
+                  if (isSelect) {
+                    isSelectRowBegin =
+                      (cells.length % 7 === 0 ||
+                        d.isSame(d.startOf('month'), 'day')) &&
+                      !isBegin
+                    isSelectRowEnd =
+                      (cells.length % 7 === 6 ||
+                        d.isSame(d.endOf('month'), 'day')) &&
+                      !isEnd
+                  }
+                }
+                const disabled = props.shouldDisableDate
+                  ? props.shouldDisableDate(d.toDate())
+                  : (maxDay && d.isAfter(maxDay, 'day')) ||
+                    (minDay && d.isBefore(minDay, 'day'))
+
+                const renderTop = () => {
+                  const top = props.renderTop?.(d.toDate())
+
+                  if (top) {
+                    return top
+                  }
+
+                  if (props.selectionMode === 'range') {
+                    if (isBegin) {
+                      return locale.Calendar.start
+                    }
+
+                    if (isEnd) {
+                      return locale.Calendar.end
+                    }
+                  }
+
+                  if (d.isSame(today, 'day') && !isSelect) {
+                    return locale.Calendar.today
+                  }
+                }
+                return (
+                  <div
+                    key={d.valueOf()}
+                    className={classNames(
+                      `${classPrefix}-cell`,
+                      disabled && `${classPrefix}-cell-disabled`,
+                      {
+                        [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
+                        [`${classPrefix}-cell-selected`]: isSelect,
+                        [`${classPrefix}-cell-selected-begin`]: isBegin,
+                        [`${classPrefix}-cell-selected-end`]: isEnd,
+                        [`${classPrefix}-cell-selected-row-begin`]:
+                          isSelectRowBegin,
+                        [`${classPrefix}-cell-selected-row-end`]:
+                          isSelectRowEnd,
+                      }
+                    )}
+                    onClick={() => {
+                      if (!props.selectionMode) return
+                      if (disabled) return
+                      const date = d.toDate()
+                      function shouldClear() {
+                        if (!props.allowClear) return false
+                        if (!dateRange) return false
+                        const [begin, end] = dateRange
+                        return d.isSame(begin, 'date') && d.isSame(end, 'day')
+                      }
+                      if (props.selectionMode === 'single') {
+                        if (props.allowClear && shouldClear()) {
+                          setDateRange(null)
+                          return
+                        }
+                        setDateRange([date, date])
+                      } else if (props.selectionMode === 'range') {
+                        if (!dateRange) {
+                          setDateRange([date, date])
+                          setIntermediate(true)
+                          return
+                        }
+                        if (shouldClear()) {
+                          setDateRange(null)
+                          setIntermediate(false)
+                          return
+                        }
+                        if (intermediate) {
+                          const another = dateRange[0]
+                          setDateRange(
+                            another > date ? [date, another] : [another, date]
+                          )
+                          setIntermediate(false)
+                        } else {
+                          setDateRange([date, date])
+                          setIntermediate(true)
+                        }
+                      }
+                    }}
+                  >
+                    <div className={`${classPrefix}-cell-top`}>
+                      {renderTop()}
+                    </div>
+                    <div className={`${classPrefix}-cell-date`}>
+                      {props.renderDate
+                        ? props.renderDate(d.toDate())
+                        : d.date()}
+                    </div>
+                    <div className={`${classPrefix}-cell-bottom`}>
+                      {props.renderBottom?.(d.toDate())}
+                    </div>
+                  </div>
+                )
+              })}
           </div>
         </div>
       )
-      iterator = iterator.add(1, 'day')
+
+      monthIterator = monthIterator.add(1, 'month')
     }
+
     return cells
   }
-  const body = <div className={`${classPrefix}-cells`}>{renderCells()}</div>
+  const body = <div className={`${classPrefix}-body`}>{renderBody()}</div>
 
   const mark = (
     <div className={`${classPrefix}-mark`}>
@@ -321,12 +316,58 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     </div>
   )
 
+  const footer = (
+    <div className={`${classPrefix}-footer`}>
+      <Button
+        color='primary'
+        onClick={() => {
+          if (props.selectionMode === 'single') {
+            props.onConfirm?.(dateRange ? dateRange[0] : null)
+          } else if (props.selectionMode === 'range') {
+            props.onConfirm?.(dateRange)
+          }
+          props.popupProps?.onClose?.()
+        }}
+      >
+        {props.confirmText ?? locale.Calendar.confirm}
+      </Button>
+    </div>
+  )
+
+  const {
+    className: popupClassName,
+    bodyStyle: popupBodyStyle,
+    ...restPopupProps
+  } = props.popupProps ?? {}
+
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      {header}
-      {mark}
-      {body}
+      {props.usePopup ? (
+        <Popup
+          className={classNames(`${classPrefix}-popup`, popupClassName)}
+          bodyStyle={{
+            borderTopLeftRadius: '8px',
+            borderTopRightRadius: '8px',
+            minHeight: '80vh',
+            overflow: 'auto',
+            ...popupBodyStyle,
+          }}
+          showCloseButton
+          {...restPopupProps}
+        >
+          {header}
+          {mark}
+          {body}
+          {footer}
+        </Popup>
+      ) : (
+        <>
+          {header}
+          {mark}
+          {body}
+        </>
+      )}
     </div>
   )
 })

@@ -1,50 +1,91 @@
-import React from 'react'
-import { Calendar } from 'antd-mobile'
-import { DemoBlock, DemoDescription } from 'demos'
+import dayjs from 'dayjs'
+import React, { useState } from 'react'
+import { Calendar, List } from 'antd-mobile'
 
-const defaultSingle = new Date('2022-03-09')
 const defaultRange: [Date, Date] = [
-  new Date('2022-03-09'),
-  new Date('2022-03-21'),
+  dayjs().toDate(),
+  dayjs().add(2, 'day').toDate(),
 ]
 
 export default () => {
+  const [val, setVal] = useState<[Date, Date] | null>(() => [
+    dayjs().subtract(2, 'day').toDate(),
+    dayjs().add(2, 'day').toDate(),
+  ])
+  const [visible1, setVisible1] = useState(false)
+  const [visible2, setVisible2] = useState(false)
+  const [visible3, setVisible3] = useState(false)
+
+  const singleDate: Date = new Date('2023-06-03')
+
   return (
-    <>
-      <DemoBlock title='仅展示'>
-        <Calendar />
-        <DemoDescription>
-          如果你不设置 selectionMode 属性，那么日历默认是不支持进行选择操作的
-        </DemoDescription>
-      </DemoBlock>
-
-      <DemoBlock title='自定义导航'>
+    <List header='日期选择'>
+      <List.Item
+        onClick={() => {
+          setVisible1(true)
+        }}
+      >
+        选择单个日期
         <Calendar
-          prevMonthButton={<span>上一月</span>}
-          nextMonthButton={<span>下一月</span>}
-          prevYearButton={<span>上一年</span>}
-          nextYearButton={<span>下一年</span>}
-        />
-      </DemoBlock>
-
-      <DemoBlock title='选择某一天'>
-        <Calendar
-          selectionMode='single'
-          defaultValue={defaultSingle}
-          onChange={val => {
-            console.log(val)
+          popupProps={{
+            visible: visible1,
+            onMaskClick: () => {
+              setVisible1(false)
+            },
+            onClose: () => {
+              setVisible1(false)
+            },
           }}
+          selectionMode='single'
+          defaultValue={singleDate}
         />
-      </DemoBlock>
-      <DemoBlock title='选择日期范围'>
+      </List.Item>
+      <List.Item
+        onClick={() => {
+          setVisible2(true)
+        }}
+      >
+        选择日期范围
         <Calendar
           defaultValue={defaultRange}
           selectionMode='range'
+          popupProps={{
+            visible: visible2,
+            onMaskClick: () => {
+              setVisible2(false)
+            },
+            onClose: () => {
+              setVisible2(false)
+            },
+          }}
           onChange={val => {
             console.log(val)
           }}
         />
-      </DemoBlock>
-    </>
+      </List.Item>
+      <List.Item
+        onClick={() => {
+          setVisible3(true)
+        }}
+      >
+        受控日期选择
+        <Calendar
+          selectionMode='range'
+          value={val}
+          popupProps={{
+            visible: visible3,
+            onMaskClick: () => {
+              setVisible3(false)
+            },
+            onClose: () => {
+              setVisible3(false)
+            },
+          }}
+          onChange={val => {
+            setVal(val)
+          }}
+        />
+      </List.Item>
+    </List>
   )
 }

@@ -1,6 +1,7 @@
 @prefix: ~'adm-calendar';
 
-.calendar-custom {
+.calendar-custom,
+.calendar-popup-custom {
   .@{prefix}-cell {
     justify-content: center;
     height: 38px;
@@ -82,5 +83,19 @@
         border-bottom-right-radius: 99px;
       }
     }
+  }
+}
+
+.custom-cell {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-selected {
+    background: var(--adm-color-primary);
+    color: #fff;
   }
 }

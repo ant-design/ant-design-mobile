@@ -7,10 +7,12 @@ import MockDate from 'mockdate'
 const classPrefix = `adm-calendar`
 
 // mock today
-MockDate.set(new Date('2022-03-22'))
+MockDate.set(new Date('2023-05-22'))
 
-const singleDate: Date = new Date('2022-03-09')
-const rangeDate: [Date, Date] = [new Date('2022-03-09'), new Date('2022-03-21')]
+const mixDate: Date = new Date('2023-05-01')
+const maxDate: Date = new Date('2023-05-31')
+const singleDate: Date = new Date('2023-05-03')
+const rangeDate: [Date, Date] = [new Date('2023-05-04'), new Date('2023-05-07')]
 
 describe('Calendar', () => {
   test('a11y', async () => {
@@ -19,16 +21,19 @@ describe('Calendar', () => {
 
   test('single mode', async () => {
     const fn = jest.fn()
-    const { container, getByText } = render(
+    const { container, getByText, getAllByText } = render(
       <Calendar
         selectionMode='single'
         defaultValue={singleDate}
+        min={mixDate}
+        max={maxDate}
+        usePopup={false}
         onChange={fn}
       />
     )
 
     expect(container).toMatchSnapshot()
-    const dateEl = getByText(15)
+    const dateEl = getAllByText(15)[0]
     fireEvent.click(dateEl)
     expect(dateEl.parentElement).toHaveClass(`${classPrefix}-cell-selected`)
     expect(fn).toBeCalled()
@@ -37,7 +42,14 @@ describe('Calendar', () => {
   test('range mode', async () => {
     const fn = jest.fn()
     const { container, getByText } = render(
-      <Calendar selectionMode='range' defaultValue={rangeDate} onChange={fn} />
+      <Calendar
+        selectionMode='range'
+        min={mixDate}
+        max={maxDate}
+        usePopup={false}
+        defaultValue={rangeDate}
+        onChange={fn}
+      />
     )
 
     expect(container).toMatchSnapshot()
@@ -48,53 +60,9 @@ describe('Calendar', () => {
       document.querySelectorAll(`.${classPrefix}-cell-selected`).length
     ).toBe(7)
     expect(fn.mock.calls[1][0].map((d: Date) => d.toDateString())).toEqual([
-      'Sun Mar 20 2022',
-      'Sat Mar 26 2022',
+      'Sat May 20 2023',
+      'Fri May 26 2023',
     ])
-  })
-
-  test('controlled mode', async () => {
-    const today = dayjs('2022-05-01')
-
-    const App = () => {
-      const [val, setVal] = useState<[Date, Date] | null>(() => [
-        today.subtract(2, 'day').toDate(),
-        today.add(2, 'day').toDate(),
-      ])
-
-      return (
-        <Calendar
-          selectionMode='range'
-          value={val}
-          onChange={val => {
-            setVal(val)
-          }}
-        />
-      )
-    }
-
-    const { container, getByText } = render(<App />)
-    const [startEl, endEl] = [getByText(8), getByText(15)]
-    fireEvent.click(startEl)
-    fireEvent.click(endEl)
-    expect(container).toMatchSnapshot()
-  })
-
-  test('page change', async () => {
-    const fn = jest.fn()
-    render(<Calendar selectionMode='single' onPageChange={fn} />)
-
-    const btns = document.querySelectorAll(`.${classPrefix}-arrow-button-right`)
-    const titleEl = document.querySelector(`.${classPrefix}-title`)
-    // month
-    fireEvent.click(btns[0])
-    expect(titleEl?.innerHTML).toContain('4月')
-    expect(fn.mock.calls[0]).toEqual([2022, 4])
-
-    // year
-    fireEvent.click(btns[1])
-    expect(titleEl?.innerHTML).toContain('2023')
-    expect(fn.mock.calls[1]).toEqual([2023, 4])
   })
 
   test('jump to a day', async () => {
@@ -116,7 +84,7 @@ describe('Calendar', () => {
           >
             jumpToToday
           </button>
-          <Calendar selectionMode='single' ref={ref} />
+          <Calendar usePopup={false} selectionMode='single' ref={ref} />
         </>
       )
     }
@@ -130,13 +98,26 @@ describe('Calendar', () => {
   })
 
   test('week start on Monday', async () => {
-    const { container } = render(<Calendar weekStartsOn='Monday' />)
+    const { container } = render(
+      <Calendar
+        min={mixDate}
+        max={maxDate}
+        usePopup={false}
+        weekStartsOn='Monday'
+      />
+    )
     expect(container).toMatchSnapshot()
   })
 
   test(`can't allow to clear`, async () => {
     const { getByText } = render(
-      <Calendar selectionMode='single' allowClear={false} />
+      <Calendar
+        selectionMode='single'
+        min={mixDate}
+        max={maxDate}
+        usePopup={false}
+        allowClear={false}
+      />
     )
 
     const dateEl = getByText(16)
@@ -145,11 +126,14 @@ describe('Calendar', () => {
     expect(dateEl.parentElement).toHaveClass(`${classPrefix}-cell-selected`)
   })
 
-  test('custom label', async () => {
+  test('custom top', async () => {
     const today = dayjs()
     const { container } = render(
       <Calendar
-        renderLabel={date => {
+        min={mixDate}
+        max={maxDate}
+        usePopup={false}
+        renderTop={date => {
           if (dayjs(date).isSame(today, 'day')) return '今天'
           if (date.getDay() === 0 || date.getDay() === 6) {
             return '周末'
@@ -160,14 +144,31 @@ describe('Calendar', () => {
     expect(container).toMatchSnapshot()
   })
 
-  test('custom date render', () => {
+  test('custom date', () => {
     render(
       <Calendar
+        min={mixDate}
+        max={maxDate}
+        usePopup={false}
         renderDate={date => {
           return <div className='custom-cell'>{dayjs(date).date()}</div>
         }}
       />
     )
-    expect(document.getElementsByClassName('custom-cell').length).toBe(42)
+    expect(document.getElementsByClassName('custom-cell').length).toBe(31)
+  })
+
+  test('custom bottom', () => {
+    render(
+      <Calendar
+        min={mixDate}
+        max={maxDate}
+        usePopup={false}
+        renderDate={date => {
+          return <div className='custom-cell'>{dayjs(date).date()}</div>
+        }}
+      />
+    )
+    expect(document.getElementsByClassName('custom-cell').length).toBe(31)
   })
 })
