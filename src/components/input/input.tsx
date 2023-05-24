@@ -41,6 +41,7 @@ export type InputProps = Pick<
   | 'onCompositionEnd'
   | 'onClick'
   | 'step'
+  | 'id'
 > & {
   value?: string
   defaultValue?: string
@@ -51,7 +52,6 @@ export type InputProps = Pick<
   clearable?: boolean
   onlyShowClearWhenFocus?: boolean
   onClear?: () => void
-  id?: string
   onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
   enterKeyHint?:
     | 'enter'
