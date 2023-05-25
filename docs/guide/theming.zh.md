@@ -3,7 +3,7 @@
 得益于 CSS 变量强大而灵活的能力，自定义一套 antd-mobile 的主题是非常简单的，你不需要配置任何编译工具，也不需要安装额外的插件，直接修在 `:root` 覆盖 CSS 变量就可以了：
 
 ```css
-:root:root {
+:root {
   --adm-color-primary: #a062d4;
 }
 ```
