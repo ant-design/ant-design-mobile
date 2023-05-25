@@ -3,7 +3,7 @@
 Thanks to the powerful and flexible capabilities of CSS variables, it is very simple to customize a set of antd-mobile themes. You don’t need to configure any compilation tools or install additional plug-ins. You can fix it directly in `:root` to overwrite CSS Variables are fine:
 
 ```css
-:root:root {
+:root {
   --adm-color-primary: #a062d4;
 }
 ```
