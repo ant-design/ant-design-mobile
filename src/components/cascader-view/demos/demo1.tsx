@@ -36,6 +36,9 @@ export default () => {
           }}
         />
       </DemoBlock>
+      <DemoBlock title='骨架屏,传入CascaderView.optionSkeleton开启' padding='0'>
+        <CascaderView options={CascaderView.optionSkeleton} />
+      </DemoBlock>
     </>
   )
 }
