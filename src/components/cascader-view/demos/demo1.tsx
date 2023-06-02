@@ -36,6 +36,9 @@ export default () => {
           }}
         />
       </DemoBlock>
+      <DemoBlock title='开启loding并且options为空时会开启骨架屏' padding='0'>
+        <CascaderView options={[]} loading />
+      </DemoBlock>
     </>
   )
 }

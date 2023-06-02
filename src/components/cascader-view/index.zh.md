@@ -19,12 +19,15 @@ CascaderView 是 [Cascader](/zh/components/cascader) 的内容区域。
 | options | 配置每一列的选项 | `CascaderOption[]` | - |
 | placeholder | 未选中时的提示文案 | `string` \| `(index: number) => string` | `'请选择'` |
 | value | 选中项 | `CascaderValue[]` | - |
+| loading | 骨架屏并且 options 为空数据时生效 | `boolean` | `false` |
 
 关于 `CascaderValue` `CascaderOption[]` `CascaderValueExtend` 的类型定义，请参考 [Cascader](/zh/components/cascader#api) 的文档。
 
 ### 加载中 <Experimental></Experimental>
 
 你可以把 `CascaderView.optionSkeleton` 作为 `CascaderOption[]` 传入到 CascaderView 的 `options` 属性或者是 `CascaderOption` 的 `children` 中。CascaderView 会将其识别并显示出骨架屏效果。
+
+新的写法只需要开启 loading 并且数据为空时就会生效，`CascaderView.optionSkeleton` 也保留了
 
 ### CSS 变量
 
