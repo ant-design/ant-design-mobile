@@ -145,6 +145,39 @@ describe('Slider', () => {
     expect(popover).toHaveTextContent('60')
   })
 
+  test('double sliders all show popover when swiping', () => {
+    render(<Slider step={20} range popover />)
+
+    const thumb1 = screen.getAllByRole('slider')[0]
+
+    drag(thumb1, 20)
+
+    const popover1 = $$('.adm-popover')[0]
+    const popover2 = $$('.adm-popover')[1]
+    expect(popover1).toBeInTheDocument()
+    expect(popover2).toBeInTheDocument()
+    expect(popover1).toHaveTextContent('0')
+    expect(popover2).toHaveTextContent('20')
+  })
+
+  test('double slider custom popover', () => {
+    const { getByText } = render(
+      <Slider range popover={value => <div>popover {value}</div>} />
+    )
+
+    const thumb = screen.getAllByRole('slider')[0]
+    fireEvent.mouseDown(thumb, {
+      buttons: 1,
+    })
+    fireEvent.mouseMove(thumb, {
+      buttons: 1,
+      clientX: 60,
+    })
+
+    expect(getByText('popover 60')).toBeInTheDocument()
+    expect(getByText('popover 0')).toBeInTheDocument()
+  })
+
   test('custom popover', () => {
     const { getByText } = render(
       <Slider popover={value => <div>popover {value}</div>} />

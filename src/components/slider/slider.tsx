@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useMemo, useRef } from 'react'
+import React, { FC, ReactNode, useMemo, useRef, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
@@ -45,7 +45,7 @@ const defaultProps = {
 export const Slider: FC<SliderProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { min, max, disabled, marks, ticks, step, icon } = props
-
+  const [anotherPopover, setAnotherPopover] = useState<boolean>(false)
   function sortValue(val: [number, number]): [number, number] {
     return val.sort((a, b) => a - b)
   }
@@ -185,6 +185,7 @@ export const Slider: FC<SliderProps> = p => {
         disabled={disabled}
         trackRef={trackRef}
         icon={icon}
+        showPopover={anotherPopover}
         popover={props.popover}
         residentPopover={props.residentPopover}
         onDrag={(position, first, last) => {
@@ -197,11 +198,15 @@ export const Slider: FC<SliderProps> = p => {
           if (!valueBeforeDrag) return
           const next = [...valueBeforeDrag] as [number, number]
           next[index] = val
+          if (props.range) {
+            setAnotherPopover(true)
+          }
           setSliderValue(next)
           if (last) {
             onAfterChange(next)
             window.setTimeout(() => {
               dragLockRef.current -= 1
+              setAnotherPopover(false)
             }, 100)
           }
         }}

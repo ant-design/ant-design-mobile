@@ -39,6 +39,7 @@ export default () => {
           marks={marks}
           ticks
           range
+          popover
           onAfterChange={toastValue}
           onChange={value => {
             console.log(value)
