@@ -58,7 +58,7 @@ export const PickerView = memo<PickerViewProps>(p => {
   useEffect(() => {
     if (props.value === undefined) return // Uncontrolled mode
     if (props.value === innerValue) return
-    setInnerValue(props.value)
+    props.value === null ? setInnerValue([]) : setInnerValue(props.value)
   }, [props.value])
 
   useEffect(() => {
