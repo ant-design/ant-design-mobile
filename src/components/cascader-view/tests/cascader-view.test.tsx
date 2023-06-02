@@ -88,6 +88,6 @@ describe('CascaderView', () => {
   test('loading', async () => {
     const { baseElement } = render(<CascaderView options={[]} loading />)
 
-    expect(baseElement.querySelector('.adm-cascader-view')).toBeInTheDocument()
+    expect(baseElement.querySelector('.adm-skeleton')).toBeInTheDocument()
   })
 })
