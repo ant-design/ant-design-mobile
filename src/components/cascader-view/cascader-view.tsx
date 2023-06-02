@@ -105,7 +105,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
     setValue(next)
   }
   const whetherLoading = <T extends unknown[]>(options: T) => {
-    if ((options.length === 0 && props.loading) || options === optionSkeleton) {
+    if (props.loading || options === optionSkeleton) {
       return true
     } else {
       return false

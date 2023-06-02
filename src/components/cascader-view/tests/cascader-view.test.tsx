@@ -85,4 +85,9 @@ describe('CascaderView', () => {
       '西湖区'
     )
   })
+  test('loading', async () => {
+    const { baseElement } = render(<CascaderView options={[]} loading />)
+
+    expect(baseElement.querySelector('.adm-cascader-view')).toBeInTheDocument()
+  })
 })

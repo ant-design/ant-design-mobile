@@ -1,11 +1,30 @@
 import React, { useState } from 'react'
-import { CascaderView } from 'antd-mobile'
+import { CascaderView, Button } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 import { options, sameValueOptions } from '../../cascader/demos/data'
 
+const list1 = [
+  {
+    label: '西湖区',
+    value: '西湖区',
+  },
+  {
+    label: '上城区',
+    value: '上城区',
+  },
+  {
+    label: '余杭区',
+    value: '余杭区',
+    disabled: true,
+  },
+]
+
 export default () => {
   const [value, setValue] = useState<string[]>([])
+  const [list, setList] = useState<any[]>([])
+
+  console.log(list, 'list')
 
   return (
     <>
@@ -37,7 +56,8 @@ export default () => {
         />
       </DemoBlock>
       <DemoBlock title='开启loding并且options为空时会开启骨架屏' padding='0'>
-        <CascaderView options={[]} loading />
+        <CascaderView options={list} loading />
+        <Button onClick={() => setList(list1)}>push数据</Button>
       </DemoBlock>
     </>
   )
