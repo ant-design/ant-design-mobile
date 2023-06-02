@@ -104,13 +104,9 @@ export const CascaderView: FC<CascaderViewProps> = p => {
     }
     setValue(next)
   }
-  const whetherLoading = <T extends unknown[]>(options: T) => {
-    if (props.loading || options === optionSkeleton) {
-      return true
-    } else {
-      return false
-    }
-  }
+  const whetherLoading = <T extends unknown[]>(options: T) =>
+    props.loading || options === optionSkeleton
+
   return withNativeProps(
     props,
     <div className={classPrefix}>
