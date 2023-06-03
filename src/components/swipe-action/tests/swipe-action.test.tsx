@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import {
   render,
   testA11y,
@@ -274,6 +274,60 @@ describe('SwipeAction', () => {
     await waitFor(() => {
       expect(onActionsReveal).toBeCalledTimes(1)
       expect(onActionsReveal).toBeCalledWith('left')
+    })
+  })
+
+  test('content should be clickable after action call setState hook', async () => {
+    const App = () => {
+      const [testState, setTestState] = useState<boolean>(false)
+      const actions: Action[] = [
+        {
+          key: 'edit',
+          text: 'edit',
+          color: 'primary',
+          onClick: () => setTestState(true),
+        },
+        {
+          key: 'delete',
+          text: 'delete',
+          color: 'danger',
+        },
+      ]
+
+      return (
+        <SwipeAction rightActions={actions} data-testid='swipe'>
+          A
+        </SwipeAction>
+      )
+    }
+
+    const { getByTestId, getByText } = render(<App />)
+
+    swipe(getByTestId('swipe'), [
+      {
+        clientX: 150,
+      },
+    ])
+
+    const track = document.querySelectorAll(`.${classPrefix}-track`)[0]
+    const content = document.querySelectorAll(`.${classPrefix}-content`)[0]
+
+    fireEvent.click(getByText('delete'))
+    await waitFor(() => {
+      expect(content.childNodes[0]).toHaveStyle(`pointer-events: auto`)
+    })
+
+    swipe(getByTestId('swipe'), [
+      {
+        clientX: 150,
+      },
+    ])
+    await waitFor(() =>
+      expect(track).toHaveStyle(`transform: translate3d(${width}px,0,0);`)
+    )
+    fireEvent.click(getByText('edit'))
+    await waitFor(() => {
+      expect(content.childNodes[0]).toHaveStyle(`pointer-events: auto`)
     })
   })
 })

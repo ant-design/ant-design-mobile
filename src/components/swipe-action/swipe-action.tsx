@@ -150,8 +150,10 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
     )
 
     function close() {
-      api.start({
-        x: 0,
+      window.setTimeout(() => {
+        api.start({
+          x: 0,
+        })
       })
       forceCancelDrag()
     }
