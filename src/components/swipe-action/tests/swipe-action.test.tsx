@@ -1,5 +1,12 @@
 import React, { useRef } from 'react'
-import { render, testA11y, fireEvent, waitFor } from 'testing'
+import {
+  render,
+  testA11y,
+  fireEvent,
+  waitFor,
+  userEvent,
+  mockDrag,
+} from 'testing'
 import SwipeAction, { Action, SwipeActionProps, SwipeActionRef } from '..'
 import { Dialog } from 'antd-mobile'
 
@@ -20,20 +27,13 @@ const rightActions: Action[] = [
   },
 ]
 
-function swipe(element: Element, moveOptions: { clientX: number }[]) {
-  fireEvent.mouseDown(element, {
-    buttons: 1,
-    clientX: 100,
-  })
-
-  moveOptions.forEach(option => {
-    fireEvent.mouseMove(element, {
-      ...option,
-      buttons: 1,
-    })
-  })
-
-  fireEvent.mouseUp(element)
+function swipe(el: Element, moveOptions: { clientX: number }[]) {
+  mockDrag(el, [
+    {
+      clientX: 100,
+    },
+    ...moveOptions,
+  ])
 }
 
 const App = (props: Partial<SwipeActionProps>) => {
@@ -56,49 +56,11 @@ describe('SwipeAction', () => {
     })
   })
 
-  afterEach(() => {
-    jest.useRealTimers()
-  })
-
   test('a11y', async () => {
     await testA11y(<App />)
   })
 
-  test('swipe from left to right', async () => {
-    const { getByTestId, getByText } = render(<App />)
-
-    jest.useFakeTimers()
-    swipe(getByTestId('swipe'), [
-      {
-        clientX: 150,
-      },
-    ])
-
-    const track = document.querySelectorAll(`.${classPrefix}-track`)[0]
-    await waitFor(() =>
-      expect(track).toHaveStyle(`transform: translate3d(${width}px,0,0)`)
-    )
-
-    jest.runAllTimers()
-    fireEvent.click(getByText('pin'))
-    await waitFor(() => expect(track).toHaveStyle(`transform: none`))
-  })
-
-  test('swipe from right to left', async () => {
-    const { getByTestId } = render(<App />)
-
-    swipe(getByTestId('swipe'), [
-      {
-        clientX: 50,
-      },
-    ])
-
-    const track = document.querySelectorAll(`.${classPrefix}-track`)[0]
-    await waitFor(() =>
-      expect(track).toHaveStyle(`transform: translate3d(-${width}px,0,0);`)
-    )
-  })
-
+  // Seems `react-spring` will block event handler. Just move this test case to the top
   test('manual return to the position', async () => {
     const App = () => {
       const ref = useRef<SwipeActionRef>(null)
@@ -128,8 +90,6 @@ describe('SwipeAction', () => {
       )
     }
     const { getByTestId, getByText } = render(<App />)
-
-    jest.useFakeTimers()
     swipe(getByTestId('swipe'), [
       {
         clientX: 50,
@@ -141,10 +101,42 @@ describe('SwipeAction', () => {
       expect(track).toHaveStyle(`transform: translate3d(-${width}px,0,0);`)
     )
 
-    jest.runAllTimers()
     fireEvent.click(getByText('delete'))
     fireEvent.click(getByText('确定'))
     await waitFor(() => expect(track).toHaveStyle(`transform: none`))
+  })
+
+  test('swipe from left to right', async () => {
+    const { getByTestId, getByText } = render(<App />)
+
+    swipe(getByTestId('swipe'), [
+      {
+        clientX: 150,
+      },
+    ])
+
+    const track = document.querySelectorAll(`.${classPrefix}-track`)[0]
+    await waitFor(() =>
+      expect(track).toHaveStyle(`transform: translate3d(${width}px,0,0)`)
+    )
+
+    await userEvent.click(getByText('pin'))
+    await waitFor(() => expect(track).toHaveStyle(`transform: none`))
+  })
+
+  test('swipe from right to left', async () => {
+    const { getByTestId } = render(<App />)
+
+    swipe(getByTestId('swipe'), [
+      {
+        clientX: 50,
+      },
+    ])
+
+    const track = document.querySelectorAll(`.${classPrefix}-track`)[0]
+    await waitFor(() =>
+      expect(track).toHaveStyle(`transform: translate3d(-${width}px,0,0);`)
+    )
   })
 
   test('ref.show', async () => {
@@ -192,12 +184,14 @@ describe('SwipeAction', () => {
       expect(track).toHaveStyle(`transform: translate3d(${width}px,0,0)`)
     )
 
-    fireEvent.click(getByText('A'))
+    await userEvent.click(
+      document.querySelectorAll(`.${classPrefix}-content`)[0]
+    )
     await waitFor(() => expect(track).toHaveStyle(`transform: none`))
   })
 
   test('outside touch should return to the position', async () => {
-    const { getByTestId, getByText } = render(<App />)
+    const { getByTestId } = render(<App />)
 
     swipe(getByTestId('swipe'), [
       {
@@ -226,5 +220,60 @@ describe('SwipeAction', () => {
 
     fireEvent.click(getByText('delete'))
     expect(onAction).not.toBeCalled()
+  })
+
+  test('onActionsReveal should be called when the ref.show is called', async () => {
+    const onActionsReveal = jest.fn()
+    const App = () => {
+      const ref = useRef<SwipeActionRef>(null)
+      return (
+        <>
+          <SwipeAction
+            ref={ref}
+            leftActions={leftActions}
+            onActionsReveal={onActionsReveal}
+          >
+            A
+          </SwipeAction>
+          <button onClick={() => ref.current?.show('left')}>left</button>
+        </>
+      )
+    }
+    const { getByText } = render(<App />)
+
+    fireEvent.click(getByText('left'))
+    await waitFor(() => {
+      expect(onActionsReveal).toBeCalledTimes(1)
+      expect(onActionsReveal).toBeCalledWith('left')
+    })
+  })
+
+  test('onActionsReveal should be called when the operation button is revealed', async () => {
+    const onActionsReveal = jest.fn()
+    const App = () => {
+      return (
+        <SwipeAction
+          rightActions={rightActions}
+          leftActions={leftActions}
+          onActionsReveal={onActionsReveal}
+          data-testid='swipe'
+        >
+          A
+        </SwipeAction>
+      )
+    }
+
+    const { getByTestId } = render(<App />)
+
+    swipe(getByTestId('swipe'), [
+      {
+        clientX: 150,
+      },
+    ])
+
+    await waitFor(() => {
+      expect(onActionsReveal).toBeCalledTimes(1)
+      expect(onActionsReveal).toBeCalledWith('left')
+    })
   })
 })

@@ -15,9 +15,7 @@ const marks = {
 }
 
 export default () => {
-  const [onAfterChangeValue, setAfterValue] = useState<
-    number | [number, number]
-  >(10)
+  const [afterValue, setAfterValue] = useState<number | [number, number]>(10)
 
   const toastValue = (value: number | number[]) => {
     let text = ''
@@ -32,7 +30,7 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title={`拖拽结束监听 (最终拖拽值${onAfterChangeValue})`}>
+      <DemoBlock title={`拖拽结束监听 (最终拖拽值${afterValue})`}>
         <Slider step={20} onAfterChange={value => setAfterValue(value)} />
       </DemoBlock>
 

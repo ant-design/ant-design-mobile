@@ -1,0 +1,29 @@
+name: Compressed Size
+
+on:
+  push:
+    branches: [master, feature]
+  pull_request:
+
+# Cancel prev CI if new commit come
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compressed-size:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install pnpm
+        id: pnpm-install
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: false
+
+      - uses: actions/checkout@v3
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          pattern: './lib/bundle/*{.umd.js,.css}'

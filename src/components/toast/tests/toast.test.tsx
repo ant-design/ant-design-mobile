@@ -234,4 +234,27 @@ describe('Toast', () => {
     expect(mask).toHaveStyle('pointer-events: auto')
     await waitForElementToBeRemoved(mask)
   })
+
+  test('close should be work when the toast is not mounted', async () => {
+    const { getByText } = render(
+      <button
+        onClick={() => {
+          Toast.show({
+            content: 'content',
+            duration: 0,
+          })
+          Toast.clear()
+          Toast.show({
+            content: 'content2',
+            duration: 0,
+          })
+        }}
+      >
+        btn
+      </button>
+    )
+    fireEvent.click(getByText('btn'))
+    await waitForContentShow('content2')
+    expect(document.querySelectorAll(`.${classPrefix}-main`).length)
+  })
 })

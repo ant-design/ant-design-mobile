@@ -47,6 +47,7 @@ export type SwipeActionProps = {
   closeOnAction?: boolean
   children: ReactNode
   stopPropagation?: PropagationEvent[]
+  onActionsReveal?: (side: 'left' | 'right') => void
 } & NativeProps<'--background'>
 
 const defaultProps = {
@@ -87,9 +88,20 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
 
     const draggingRef = useRef(false)
 
+    const dragCancelRef = useRef<(() => void) | null>(null)
+    function forceCancelDrag() {
+      dragCancelRef.current?.()
+      draggingRef.current = false
+    }
+
     const bind = useDrag(
       state => {
-        draggingRef.current = true
+        dragCancelRef.current = state.cancel
+        if (!state.intentional) return
+        if (state.down) {
+          draggingRef.current = true
+        }
+        if (!draggingRef.current) return
         const [offsetX] = state.offset
         if (state.last) {
           const leftWidth = getLeftWidth()
@@ -102,9 +114,13 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
           } else {
             position = 0
           }
+          const targetX = nearest([-rightWidth, 0, leftWidth], position)
           api.start({
-            x: nearest([-rightWidth, 0, leftWidth], position),
+            x: targetX,
           })
+          if (targetX !== 0) {
+            p.onActionsReveal?.(targetX > 0 ? 'left' : 'right')
+          }
           window.setTimeout(() => {
             draggingRef.current = false
           })
@@ -129,6 +145,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
         axis: 'x',
         preventScroll: true,
         pointer: { touch: true },
+        triggerAllEvents: true,
       }
     )
 
@@ -136,6 +153,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       api.start({
         x: 0,
       })
+      forceCancelDrag()
     }
 
     useImperativeHandle(ref, () => ({
@@ -149,6 +167,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
             x: getLeftWidth(),
           })
         }
+        p.onActionsReveal?.(side)
       },
       close,
     }))
@@ -221,9 +240,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
               if (x.goal !== 0) {
                 e.preventDefault()
                 e.stopPropagation()
-                api.start({
-                  x: 0,
-                })
+                close()
               }
             }}
           >

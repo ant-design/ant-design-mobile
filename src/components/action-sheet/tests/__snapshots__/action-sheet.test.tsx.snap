@@ -22,7 +22,7 @@ exports[`ActionSheet basic usage 1`] = `
       style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
     >
       <div
-        aria-label="遮罩层"
+        aria-label="背景蒙层"
         class="adm-mask-aria-button"
         role="button"
       />
@@ -50,6 +50,7 @@ exports[`ActionSheet basic usage 1`] = `
           >
             <a
               class="adm-plain-anchor adm-action-sheet-button-item"
+              role="option"
             >
               <div
                 class="adm-action-sheet-button-item-name"
@@ -63,6 +64,7 @@ exports[`ActionSheet basic usage 1`] = `
           >
             <a
               class="adm-plain-anchor adm-action-sheet-button-item"
+              role="option"
             >
               <div
                 class="adm-action-sheet-button-item-name"
@@ -76,6 +78,7 @@ exports[`ActionSheet basic usage 1`] = `
           >
             <a
               class="adm-plain-anchor adm-action-sheet-button-item"
+              role="option"
             >
               <div
                 class="adm-action-sheet-button-item-name"
@@ -86,7 +89,9 @@ exports[`ActionSheet basic usage 1`] = `
           </div>
         </div>
         <div
+          aria-label="取消"
           class="adm-action-sheet-cancel"
+          role="option"
         >
           <div
             class="adm-action-sheet-button-item-wrapper"

@@ -34,6 +34,15 @@ export default () => {
           <Input placeholder='请输入地址' />
         </Form.Item>
       </Form>
+      <Form requiredMarkStyle='none'>
+        <Form.Header>不展示必填标识</Form.Header>
+        <Form.Item name='name' label='姓名' rules={[{ required: true }]}>
+          <Input placeholder='请输入姓名' />
+        </Form.Item>
+        <Form.Item name='address' label='地址' help='详情地址'>
+          <Input placeholder='请输入地址' />
+        </Form.Item>
+      </Form>
     </>
   )
 }

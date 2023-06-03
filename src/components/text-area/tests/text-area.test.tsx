@@ -33,15 +33,18 @@ describe('TextArea', () => {
     const maxRows = 5
     const { getByRole } = render(<TextArea autoSize={{ minRows, maxRows }} />)
     const textarea = getByRole('textbox')
+    const hiddenTextarea = document.querySelector(
+      `.${classPrefix}-element-hidden`
+    )!
     // mock
-    Object.defineProperty(textarea, 'scrollHeight', {
+    Object.defineProperty(hiddenTextarea, 'scrollHeight', {
       value: lineHeight * 2,
       configurable: true,
     })
     fireEvent.change(textarea, { target: { value: '1' } })
     expect(textarea.style.height).toBe(`${lineHeight * minRows}px`)
 
-    Object.defineProperty(textarea, 'scrollHeight', {
+    Object.defineProperty(hiddenTextarea, 'scrollHeight', {
       value: lineHeight * 6,
     })
     fireEvent.change(textarea, { target: { value: '2' } })
@@ -64,6 +67,17 @@ describe('TextArea', () => {
     fireEvent.change(textarea, { target: { value: 'abcdef' } })
     expect(textarea.value).toBe('abcde')
     expect(count).toHaveTextContent('5/5')
+  })
+
+  test('limit count with emojis', () => {
+    const { getByRole } = render(
+      <TextArea defaultValue='🏴󠁧󠁢󠁥󠁮󠁧󠁿🏴󠁵󠁳󠁷󠁡󠁿🏴' maxLength={3} showCount />
+    )
+    const textarea = getByRole('textbox') as HTMLTextAreaElement
+    const count = document.querySelectorAll(`.${classPrefix}-count`)[0]
+    fireEvent.change(textarea, { target: { value: '🏴󠁧󠁢󠁥󠁮󠁧󠁿🏴󠁵󠁳󠁷󠁡󠁿🏴🏴󠁵󠁳󠁴󠁸󠁿' } })
+    expect(textarea.value).toBe('🏴󠁧󠁢󠁥󠁮󠁧󠁿🏴󠁵󠁳󠁷󠁡󠁿🏴')
+    expect(count).toHaveTextContent('3/3')
   })
 
   test('should exceed maxLength when use IME', () => {
@@ -105,5 +119,15 @@ describe('TextArea', () => {
       />
     )
     expect(getByText('(3,5)')).toBeInTheDocument()
+  })
+
+  test('set rows should be work', () => {
+    const { getByRole } = render(<TextArea rows={1} autoSize />)
+    const hiddenTextarea = document.querySelector(
+      `.${classPrefix}-element-hidden`
+    )!
+    const textarea = getByRole('textbox')
+    expect(textarea).toHaveAttribute('rows', '1')
+    expect(hiddenTextarea).toHaveAttribute('rows', '1')
   })
 })

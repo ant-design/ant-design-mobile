@@ -17,12 +17,36 @@ import enUS from '../../../locales/en-US'
 import faIR from '../../../locales/fa-IR'
 import esES from '../../../locales/es-ES'
 import koKR from '../../../locales/ko-KR'
+import jaJP from '../../../locales/ja-JP'
 import frFR from '../../../locales/fr-FR'
 import idID from '../../../locales/id-ID'
 import kkKZ from '../../../locales/kk-KZ'
-const locales = [zhCN, zhTW, zhHK, enUS, faIR, esES, koKR, frFR, kkKZ, idID]
+import itIT from '../../../locales/it-IT'
+import daDK from '../../../locales/da-DK'
+import nbNO from '../../../locales/nb-NO'
+import nlNL from '../../../locales/nl-NL'
+
+const locales = [
+  zhCN,
+  zhTW,
+  zhHK,
+  enUS,
+  faIR,
+  esES,
+  koKR,
+  jaJP,
+  frFR,
+  kkKZ,
+  idID,
+  itIT,
+  daDK,
+  nbNO,
+  nlNL,
+]
 
 describe('ConfigProvider', () => {
+  URL.revokeObjectURL = jest.fn(() => '')
+
   beforeAll(() => {
     MockDate.set(new Date('2022-03-22'))
   })

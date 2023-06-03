@@ -18,23 +18,23 @@ The `Input` component is layout-independent. It only includes the most basic inp
 
 ### Props
 
-| Name                   | Description                                                                                                                                                             | Type                                                 | Default |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------- |
-| clearable              | Whether to enable the clear icon, the input box will be cleared after clicking the clear icon                                                                           | `boolean`                                            | `false` |
-| defaultValue           | The default value                                                                                                                                                       | `string`                                             | -       |
-| disabled               | Whether it is disabled or not                                                                                                                                           | `boolean`                                            | `false` |
-| id                     | The `id` of the `input` element, usually used with `label`                                                                                                              | `string`                                             | -       |
-| max                    | Maximum value, only valid when `type` is `number`                                                                                                                       | `number`                                             | -       |
-| min                    | Minimum value, only valid when `type` is `number`                                                                                                                       | `number`                                             | -       |
-| onChange               | Triggered when the input content is changed                                                                                                                             | `(value: string) => void`                            | -       |
-| onClear                | Triggered after clicking the clear button                                                                                                                               | `() => void`                                         | -       |
-| onEnterPress           | The callback when Enter key is pressed                                                                                                                                  | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | -       |
-| onlyShowClearWhenFocus | If `true`, the clear button will only be displayed when the input box is focused. If `false`, the clear button will still be displayed after the input box loses focus. | `boolean`                                            | `true`  |
-| placeholder            | The prompt text                                                                                                                                                         | `string`                                             | -       |
-| readOnly               | Whether it is readonly or not                                                                                                                                           | `boolean`                                            | `false` |
-| value                  | The input value                                                                                                                                                         | `string`                                             | -       |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| clearable | Whether to enable the clear icon, the input box will be cleared after clicking the clear icon | `boolean` | `false` |
+| defaultValue | The default value | `string` | - |
+| disabled | Whether it is disabled or not | `boolean` | `false` |
+| id | The `id` of the `input` element, usually used with `label` | `string` | - |
+| max | Maximum value, only valid when `type` is `number` | `number` | - |
+| min | Minimum value, only valid when `type` is `number` | `number` | - |
+| onChange | Triggered when the input content is changed | `(value: string) => void` | - |
+| onClear | Triggered after clicking the clear button | `() => void` | - |
+| onEnterPress | The callback when Enter key is pressed | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | - |
+| onlyShowClearWhenFocus | If `true`, the clear button will only be displayed when the input box is focused. If `false`, the clear button will still be displayed after the input box loses focus. | `boolean` | `true` |
+| placeholder | The prompt text | `string` | - |
+| readOnly | Whether it is readonly or not | `boolean` | `false` |
+| value | The input value | `string` | - |
 
-In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd` `onClick`
+In addition, the following native attributes are supported: `maxLength` `minLength` `max` `min` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd` `onClick` `step`
 
 ### CSS Variables
 

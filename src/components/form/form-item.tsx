@@ -37,6 +37,11 @@ export type FormItemProps = Pick<
   | 'validateTrigger'
   | 'shouldUpdate'
   | 'initialValue'
+  | 'getValueFromEvent'
+  | 'getValueProps'
+  | 'normalize'
+  | 'preserve'
+  | 'validateFirst'
 > &
   Pick<
     ListItemProps,
@@ -142,6 +147,8 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
             </span>
           )
         )
+      case 'none':
+        return null
       default:
         return null
     }

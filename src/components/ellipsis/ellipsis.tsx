@@ -1,4 +1,5 @@
-import React, { FC, useRef, useState } from 'react'
+import React, { FC, useMemo, useRef, useState } from 'react'
+import runes from 'runes2'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
@@ -18,15 +19,18 @@ export type EllipsisProps = {
   collapseText?: string
   stopPropagationForActionButtons?: PropagationEvent[]
   onContentClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  defaultExpanded?: boolean
 } & NativeProps
 
 const defaultProps = {
   direction: 'end',
   rows: 1,
   expandText: '',
+  content: '',
   collapseText: '',
   stopPropagationForActionButtons: [],
   onContentClick: () => {},
+  defaultExpanded: false,
 }
 
 type EllipsisedValue = {
@@ -39,12 +43,19 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   const rootRef = useRef<HTMLDivElement>(null)
 
   const [ellipsised, setEllipsised] = useState<EllipsisedValue>({})
-  const [expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(props.defaultExpanded)
   const [exceeded, setExceeded] = useState(false)
+
+  const chars = useMemo(() => runes(props.content), [props.content])
+  function getSubString(start: number, end: number) {
+    return chars.slice(start, end).join('')
+  }
 
   function calcEllipsised() {
     const root = rootRef.current
     if (!root) return
+    if (!root.offsetParent) return
+
     const originStyle = window.getComputedStyle(root)
     const container = document.createElement('div')
     const styleNames: string[] = Array.prototype.slice.apply(originStyle)
@@ -62,6 +73,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     container.style.whiteSpace = 'normal'
     container.style.webkitLineClamp = 'unset'
     container.style.display = 'block'
+
     const lineHeight = pxToNumber(originStyle.lineHeight)
     const maxHeight = Math.floor(
       lineHeight * (props.rows + 0.5) +
@@ -83,21 +95,19 @@ export const Ellipsis: FC<EllipsisProps> = p => {
         if (right - left <= 1) {
           if (props.direction === 'end') {
             return {
-              leading: props.content.slice(0, left) + '...',
+              leading: getSubString(0, left) + '...',
             }
           } else {
             return {
-              tailing: '...' + props.content.slice(right, end),
+              tailing: '...' + getSubString(right, end),
             }
           }
         }
         const middle = Math.round((left + right) / 2)
         if (props.direction === 'end') {
-          container.innerText =
-            props.content.slice(0, middle) + '...' + actionText
+          container.innerText = getSubString(0, middle) + '...' + actionText
         } else {
-          container.innerText =
-            actionText + '...' + props.content.slice(middle, end)
+          container.innerText = actionText + '...' + getSubString(middle, end)
         }
         if (container.offsetHeight <= maxHeight) {
           if (props.direction === 'end') {
@@ -123,18 +133,18 @@ export const Ellipsis: FC<EllipsisProps> = p => {
           rightPart[1] - rightPart[0] <= 1
         ) {
           return {
-            leading: props.content.slice(0, leftPart[0]) + '...',
-            tailing: '...' + props.content.slice(rightPart[1], end),
+            leading: getSubString(0, leftPart[0]) + '...',
+            tailing: '...' + getSubString(rightPart[1], end),
           }
         }
         const leftPartMiddle = Math.floor((leftPart[0] + leftPart[1]) / 2)
         const rightPartMiddle = Math.ceil((rightPart[0] + rightPart[1]) / 2)
         container.innerText =
-          props.content.slice(0, leftPartMiddle) +
+          getSubString(0, leftPartMiddle) +
           '...' +
           actionText +
           '...' +
-          props.content.slice(rightPartMiddle, end)
+          getSubString(rightPartMiddle, end)
         if (container.offsetHeight <= maxHeight) {
           return checkMiddle(
             [leftPartMiddle, leftPart[1]],
@@ -184,7 +194,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       : null
 
   const collapseActionElement =
-    exceeded && props.expandText
+    exceeded && props.collapseText
       ? withStopPropagation(
           props.stopPropagationForActionButtons,
           <a

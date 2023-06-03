@@ -1,39 +1,53 @@
 import classNames from 'classnames'
-import React, { FC, useEffect, useState } from 'react'
+import React, {
+  useEffect,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from 'react'
 import { MinusOutline, AddOutline } from 'antd-mobile-icons'
+import useMergedState from 'rc-util/lib/hooks/useMergedState'
+import getMiniDecimal, {
+  toFixed,
+  type DecimalClass,
+} from '@rc-component/mini-decimal'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
-import { bound } from '../../utils/bound'
-import Input, { InputProps } from '../input'
+import Input, { InputProps, InputRef } from '../input'
 import Button from '../button'
-import Big from 'big.js'
 import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-stepper`
 
-type ValueProps = {
+type ValueProps<ValueType> = {
   allowEmpty: true
-  value?: number | null
-  defaultValue?: number | null
-  onChange?: (value: number | null) => void
+  value?: ValueType | null
+  defaultValue?: ValueType | null
+  onChange?: (value: ValueType | null) => void
 }
 
-type ValuePropsWithNull = {
+type ValuePropsWithNull<ValueType> = {
   allowEmpty?: false
-  value?: number
-  defaultValue?: number
-  onChange?: (value: number) => void
+  value?: ValueType
+  defaultValue?: ValueType
+  onChange?: (value: ValueType) => void
 }
 
-export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> &
-  (ValuePropsWithNull | ValueProps) & {
-    min?: number
-    max?: number
-    step?: number
+export type BaseStepperProps<ValueType> = Pick<
+  InputProps,
+  'onFocus' | 'onBlur'
+> &
+  (ValuePropsWithNull<ValueType> | ValueProps<ValueType>) & {
+    min?: ValueType
+    max?: ValueType
+    step?: ValueType
     digits?: number
     disabled?: boolean
     inputReadOnly?: boolean
+
+    // Format & Parse
+    parser?: (text: string) => ValueType
+    formatter?: (value?: ValueType) => string
   } & NativeProps<
     | '--height'
     | '--input-width'
@@ -50,98 +64,234 @@ export type StepperProps = Pick<InputProps, 'onFocus' | 'onBlur'> &
     | '--button-text-color'
   >
 
+export type NumberStepperProps = BaseStepperProps<number> & {
+  // stringMode
+  stringMode?: false
+}
+export type StringStepperProps = BaseStepperProps<string> & {
+  // stringMode
+  stringMode: true
+}
+
+export type StepperProps = NumberStepperProps | StringStepperProps
+
+export type StepperRef = Pick<InputRef, 'blur' | 'focus' | 'nativeElement'>
+
+type DEFAULT_PROPS = 'step'
+type MergedStepperProps<ValueType> = Omit<
+  BaseStepperProps<ValueType>,
+  DEFAULT_PROPS
+> &
+  Required<Pick<BaseStepperProps<ValueType>, DEFAULT_PROPS>> & {
+    stringMode?: boolean
+  }
+
 const defaultProps = {
-  defaultValue: 0,
   step: 1,
   disabled: false,
   allowEmpty: false,
 }
 
-export const Stepper: FC<StepperProps> = p => {
+export function InnerStepper<ValueType extends number | string>(
+  p: StepperProps,
+  ref: React.ForwardedRef<StepperRef>
+) {
   const props = mergeProps(defaultProps, p)
-  const { disabled, step, max, min, inputReadOnly } = props
+  const {
+    defaultValue = 0 as ValueType,
+    value,
+    onChange,
+
+    disabled,
+    step,
+    max,
+    min,
+    inputReadOnly,
+    digits,
+    stringMode,
+    formatter,
+    parser,
+  } = props as MergedStepperProps<ValueType>
+
   const { locale } = useConfig()
 
-  const [value, setValue] = usePropsValue<number | null>(props as any)
-  const [inputValue, setInputValue] = useState(() =>
-    convertValueToText(value, props.digits)
-  )
-  function setValueWithCheck(v: number) {
-    if (isNaN(v)) return
-    let target = bound(v, props.min, props.max)
-    if (props.digits !== undefined) {
-      target = parseFloat(target.toFixed(props.digits))
-    }
-    setValue(target)
+  // ========================== Ref ==========================
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current?.focus()
+    },
+    blur: () => {
+      inputRef.current?.blur()
+    },
+    get nativeElement() {
+      return inputRef.current?.nativeElement ?? null
+    },
+  }))
+
+  // ========================== Parse / Format ==========================
+  const fixedValue = (value: ValueType): string => {
+    const fixedValue =
+      digits !== undefined ? toFixed(value.toString(), '.', digits) : value
+
+    return fixedValue.toString()
   }
 
-  const [hasFocus, setHasFocus] = useState(false)
+  const getValueAsType = (value: DecimalClass) =>
+    (stringMode ? value.toString() : value.toNumber()) as ValueType
 
-  useEffect(() => {
-    if (!hasFocus) {
-      setInputValue(convertValueToText(value, props.digits))
+  const parseValue = (text: string): string | null => {
+    if (text === '') return null
+
+    if (parser) {
+      return String(parser(text))
     }
-  }, [hasFocus])
 
-  useEffect(() => {
-    if (!hasFocus) {
-      setInputValue(convertValueToText(value, props.digits))
+    const decimal = getMiniDecimal(text)
+    return decimal.isInvalidate() ? null : decimal.toString()
+  }
+
+  const formatValue = (value: ValueType | null): string => {
+    if (value === null) return ''
+
+    if (formatter) {
+      return formatter(value)
+    } else {
+      return fixedValue(value)
     }
-  }, [value, props.digits])
+  }
 
+  // ======================== Value & InputValue ========================
+  const [mergedValue, setMergedValue] = useMergedState<ValueType | null>(
+    defaultValue,
+    {
+      value,
+      onChange: nextValue => {
+        onChange?.(nextValue as ValueType)
+      },
+    }
+  )
+
+  const [inputValue, setInputValue] = useState(() => formatValue(mergedValue))
+
+  // >>>>> Value
+  function setValueWithCheck(nextValue: DecimalClass) {
+    if (nextValue.isNaN()) return
+
+    let target = nextValue
+
+    // Put into range
+    if (min !== undefined) {
+      const minDecimal = getMiniDecimal(min)
+      if (target.lessEquals(minDecimal)) {
+        target = minDecimal
+      }
+    }
+
+    if (max !== undefined) {
+      const maxDecimal = getMiniDecimal(max)
+      if (maxDecimal.lessEquals(target)) {
+        target = maxDecimal
+      }
+    }
+
+    // Fix digits
+    if (digits !== undefined) {
+      target = getMiniDecimal(fixedValue(getValueAsType(target)))
+    }
+
+    setMergedValue(getValueAsType(target))
+  }
+
+  // >>>>> Input
   const handleInputChange = (v: string) => {
     setInputValue(v)
-    const value = convertTextToValue(v)
-    if (value === null) {
+    const valueStr = parseValue(v)
+
+    if (valueStr === null) {
       if (props.allowEmpty) {
-        setValue(null)
+        setMergedValue(null)
       } else {
-        setValue(props.defaultValue)
+        setMergedValue(defaultValue)
       }
     } else {
-      setValueWithCheck(value)
+      setValueWithCheck(getMiniDecimal(valueStr))
     }
+  }
+
+  // ============================== Focus ===============================
+  const [focused, setFocused] = useState(false)
+  const inputRef = React.useRef<InputRef>(null)
+
+  function triggerFocus(nextFocus: boolean) {
+    setFocused(nextFocus)
+
+    // We will convert value to original text when focus
+    if (nextFocus) {
+      setInputValue(
+        mergedValue !== null && mergedValue !== undefined
+          ? String(mergedValue)
+          : ''
+      )
+    }
+  }
+
+  useEffect(() => {
+    if (focused) {
+      inputRef.current?.nativeElement?.select?.()
+    }
+  }, [focused])
+
+  // Focus change to format value
+  useEffect(() => {
+    if (!focused) {
+      setInputValue(formatValue(mergedValue))
+    }
+  }, [focused, mergedValue, digits])
+
+  // ============================ Operations ============================
+  const handleOffset = (positive: boolean) => {
+    let stepValue = getMiniDecimal(step)
+    if (!positive) {
+      stepValue = stepValue.negate()
+    }
+
+    setValueWithCheck(
+      getMiniDecimal(mergedValue ?? 0).add(stepValue.toString())
+    )
   }
 
   const handleMinus = () => {
-    setValueWithCheck(
-      Big(value ?? 0)
-        .minus(step)
-        .toNumber()
-    )
+    handleOffset(false)
   }
 
   const handlePlus = () => {
-    setValueWithCheck(
-      Big(value ?? 0)
-        .add(step)
-        .toNumber()
-    )
+    handleOffset(true)
   }
 
   const minusDisabled = () => {
     if (disabled) return true
-    if (value === null) return false
+    if (mergedValue === null) return false
     if (min !== undefined) {
-      return value <= min
+      return mergedValue <= min
     }
     return false
   }
 
   const plusDisabled = () => {
     if (disabled) return true
-    if (value === null) return false
+    if (mergedValue === null) return false
     if (max !== undefined) {
-      return value >= max
+      return mergedValue >= max
     }
     return false
   }
 
+  // ============================== Render ==============================
   return withNativeProps(
     props,
     <div
       className={classNames(classPrefix, {
-        [`${classPrefix}-active`]: hasFocus,
+        [`${classPrefix}-active`]: focused,
       })}
     >
       <Button
@@ -157,9 +307,10 @@ export const Stepper: FC<StepperProps> = p => {
       </Button>
       <div className={`${classPrefix}-middle`}>
         <Input
+          ref={inputRef}
           className={`${classPrefix}-input`}
           onFocus={e => {
-            setHasFocus(true)
+            triggerFocus(true)
             props.onFocus?.(e)
           }}
           value={inputValue}
@@ -168,14 +319,15 @@ export const Stepper: FC<StepperProps> = p => {
           }}
           disabled={disabled}
           onBlur={e => {
-            setHasFocus(false)
+            triggerFocus(false)
             props.onBlur?.(e)
           }}
           readOnly={inputReadOnly}
           role='spinbutton'
           aria-valuenow={Number(inputValue)}
-          aria-valuemax={max}
-          aria-valuemin={min}
+          aria-valuemax={Number(max)}
+          aria-valuemin={Number(min)}
+          inputMode='decimal'
         />
       </div>
       <Button
@@ -193,16 +345,4 @@ export const Stepper: FC<StepperProps> = p => {
   )
 }
 
-function convertValueToText(value: number | null, digits?: number) {
-  if (value === null) return ''
-  if (digits !== undefined) {
-    return value.toFixed(digits)
-  } else {
-    return value.toString()
-  }
-}
-
-function convertTextToValue(text: string) {
-  if (text === '') return null
-  return parseFloat(text)
-}
+export const Stepper = forwardRef(InnerStepper)

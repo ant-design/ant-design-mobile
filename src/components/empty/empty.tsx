@@ -11,6 +11,7 @@ export type EmptyProps = {
   description?: ReactNode
 } & NativeProps
 
+/** @deprecated Empty has been deprecated and will be removed in the next major version. */
 export const Empty: React.FC<EmptyProps> = props => {
   function renderImageNode() {
     const { image } = props

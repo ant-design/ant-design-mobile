@@ -20,7 +20,7 @@ export type SearchBarRef = InputRef
 
 export type SearchBarProps = Pick<
   InputProps,
-  'onFocus' | 'onBlur' | 'onClear'
+  'onFocus' | 'onBlur' | 'onClear' | 'onCompositionStart' | 'onCompositionEnd'
 > & {
   value?: string
   defaultValue?: string
@@ -64,6 +64,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
   const [value, setValue] = usePropsValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const inputRef = useRef<InputRef>(null)
+  const composingRef = useRef(false)
 
   useImperativeHandle(ref, () => ({
     clear: () => inputRef.current?.clear(),
@@ -141,8 +142,19 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
           type='search'
           enterKeyHint='search'
           onEnterPress={() => {
-            inputRef.current?.blur()
-            props.onSearch?.(value)
+            if (!composingRef.current) {
+              inputRef.current?.blur()
+              props.onSearch?.(value)
+            }
+          }}
+          aria-label={locale.SearchBar.name}
+          onCompositionStart={e => {
+            composingRef.current = true
+            props.onCompositionStart?.(e)
+          }}
+          onCompositionEnd={e => {
+            composingRef.current = false
+            props.onCompositionEnd?.(e)
           }}
         />
       </div>

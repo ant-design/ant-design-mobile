@@ -60,8 +60,12 @@ import { Button } from 'antd-mobile'
 
 欢迎加入我们的钉钉交流群：
 
-<img src="https://gw.alipayobjects.com/mdn/rms_25513e/afts/img/A*hBjlR4nUWjkAAAAAAAAAAAAAARQnAQ" alt="ding-group" width="300" />
+<img src="https://user-images.githubusercontent.com/22469543/197447477-1f10603d-90e9-43ea-a023-6538c5cf40e2.jpeg" alt="ding-group" width="300" />
 
 或者也可以加入我们的 Discord 讨论组：
 
 https://discord.gg/jmNvw4WFYn
+
+## 参与贡献
+
+antd-mobile 社区欢迎每一位社区朋友，如果你想参与建设，可以阅读[这篇指南](https://github.com/ant-design/ant-design-mobile/blob/master/.github/CONTRIBUTING.md)。

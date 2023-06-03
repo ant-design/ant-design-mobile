@@ -72,12 +72,6 @@ export const customRender = (
 
 // re-export everything
 export * from '@testing-library/react'
-export {
-  act as invoke,
-  renderHook,
-  RenderHookOptions,
-  RenderHookResult,
-} from '@testing-library/react-hooks'
 
 export { default as userEvent } from '@testing-library/user-event'
 
@@ -120,4 +114,19 @@ export const sleep = (time: number) =>
 
 export const actSleep = (time: number) => {
   return act(() => sleep(time))
+}
+
+export const mockDrag = (el: Element, options: any[]) => {
+  const [downOptions, ...moveOptions] = options
+  fireEvent.mouseDown(el, {
+    buttons: 1,
+    ...downOptions,
+  })
+  for (const item of moveOptions) {
+    fireEvent.mouseMove(el, {
+      buttons: 1,
+      ...item,
+    })
+  }
+  fireEvent.mouseUp(el)
 }

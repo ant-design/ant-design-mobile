@@ -65,6 +65,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  top: calc(var(--item-height) * -1);
   z-index: 0;
   padding-bottom: 1px;
   > * {
@@ -129,4 +130,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.@{class-prefix-picker-view}-item-height-measure {
+  position: relative;
+  left: 0;
+  top: 0;
+  height: var(--item-height);
+  width: 0;
+  pointer-events: none;
 }

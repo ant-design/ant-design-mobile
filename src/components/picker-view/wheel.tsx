@@ -43,13 +43,15 @@ export const Wheel = memo<Props>(
     const draggingRef = useRef(false)
 
     const rootRef = useRef<HTMLDivElement>(null)
+
+    const itemHeightMeasureRef = useRef<HTMLDivElement>(null)
     const itemHeight = useRef<number>(34)
 
     useIsomorphicLayoutEffect(() => {
-      const root = rootRef.current
-      if (!root) return
+      const itemHeightMeasure = itemHeightMeasureRef.current
+      if (!itemHeightMeasure) return
       itemHeight.current = measureCSSLength(
-        window.getComputedStyle(root).getPropertyValue('--item-height')
+        window.getComputedStyle(itemHeightMeasure).getPropertyValue('height')
       )
     })
 
@@ -200,6 +202,10 @@ export const Wheel = memo<Props>(
 
     return (
       <div className={`${classPrefix}-column`}>
+        <div
+          className={`${classPrefix}-item-height-measure`}
+          ref={itemHeightMeasureRef}
+        />
         <animated.div
           ref={rootRef}
           style={{ translateY: y }}
@@ -237,6 +243,8 @@ export const Wheel = memo<Props>(
     if (prev.index !== next.index) return false
     if (prev.value !== next.value) return false
     if (prev.onSelect !== next.onSelect) return false
+    if (prev.renderLabel !== next.renderLabel) return false
+    if (prev.mouseWheel !== next.mouseWheel) return false
     if (!isEqual(prev.column, next.column)) {
       return false
     }

@@ -31,11 +31,13 @@ export function isMotionReduced() {
   return reduced
 }
 
+function subscribe(onStoreChange: () => void) {
+  subscribers.add(onStoreChange)
+  return () => {
+    subscribers.delete(onStoreChange)
+  }
+}
+
 export function useMotionReduced() {
-  return useSyncExternalStore(onStoreChange => {
-    subscribers.add(onStoreChange)
-    return () => {
-      subscribers.delete(onStoreChange)
-    }
-  }, isMotionReduced)
+  return useSyncExternalStore(subscribe, isMotionReduced, isMotionReduced)
 }

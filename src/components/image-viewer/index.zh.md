@@ -12,24 +12,24 @@
 
 ## ImageViewer
 
-| 属性         | 说明                                                                      | 类型                                       | 默认值          |
-| ------------ | ------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
-| afterClose   | 完全关闭后触发                                                            | `() => void`                               | -               |
-| getContainer | 指定挂载的 HTML 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
-| image        | 图片资源的 `url`                                                          | `string`                                   | -               |
-| maxZoom      | 最大缩放比例                                                              | `number`                                   | `3`             |
-| onClose      | 关闭时触发                                                                | `boolean`                                  | -               |
-| renderFooter | 渲染底部额外内容                                                          | `(image: string) => ReactNode`             | -               |
-| visible      | 是否显示                                                                  | `boolean`                                  | `false`         |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| afterClose | 完全关闭后触发 | `() => void` | - |
+| getContainer | 指定挂载的 HTML 节点，默认为 `null` 渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `null` |
+| image | 图片资源的 `url` | `string` | - |
+| maxZoom | 最大缩放比例 | `number \| 'auto'` | `3` |
+| onClose | 关闭时触发 | `() => void` | - |
+| renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |
+| visible | 是否显示 | `boolean` | `false` |
 
 ## ImageViewer.Multi
 
-| 属性          | 说明                | 类型                                          | 默认值 |
-| ------------- | ------------------- | --------------------------------------------- | ------ |
-| defaultIndex  | 默认显示第几张图片  | `number`                                      | `0`    |
-| images        | 图片资源的 url 列表 | `string[]`                                    | `[]`   |
-| onIndexChange | 切换图片时触发      | `(index: number) => void`                     | -      |
-| renderFooter  | 渲染底部额外内容    | `(image: string, index: number) => ReactNode` | -      |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| defaultIndex | 默认显示第几张图片 | `number` | `0` |
+| images | 图片资源的 url 列表 | `string[]` | - |
+| onIndexChange | 切换图片时触发 | `(index: number) => void` | - |
+| renderFooter | 渲染底部额外内容 | `(image: string, index: number) => ReactNode` | - |
 
 其他属性同 `ImageViewer`，但是去掉了 `image` 属性。
 

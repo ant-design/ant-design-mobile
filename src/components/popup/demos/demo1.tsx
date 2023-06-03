@@ -10,6 +10,7 @@ export default () => {
   const [visible5, setVisible5] = useState(false)
   const [visible6, setVisible6] = useState(false)
   const [visible7, setVisible7] = useState(false)
+  const [visibleCloseRight, setVisibleCloseRight] = useState(false)
 
   return (
     <>
@@ -28,6 +29,9 @@ export default () => {
               onMaskClick={() => {
                 setVisible1(false)
               }}
+              onClose={() => {
+                setVisible1(false)
+              }}
               bodyStyle={{ height: '40vh' }}
             >
               {mockContent}
@@ -44,6 +48,9 @@ export default () => {
             <Popup
               visible={visible2}
               onMaskClick={() => {
+                setVisible2(false)
+              }}
+              onClose={() => {
                 setVisible2(false)
               }}
               position='top'
@@ -125,6 +132,7 @@ export default () => {
             >
               显示关闭按钮
             </Button>
+
             <Popup
               visible={visible7}
               showCloseButton
@@ -132,7 +140,27 @@ export default () => {
                 setVisible7(false)
               }}
             >
-              {mockContent}
+              {mockContentWithCloseIcon}
+            </Popup>
+          </>
+          <>
+            <Button
+              onClick={() => {
+                setVisibleCloseRight(true)
+              }}
+            >
+              显示右侧弹出关闭按钮
+            </Button>
+
+            <Popup
+              position='right'
+              visible={visibleCloseRight}
+              showCloseButton
+              onClose={() => {
+                setVisibleCloseRight(false)
+              }}
+            >
+              {mockContentWithCloseIcon}
             </Popup>
           </>
           <>
@@ -165,5 +193,9 @@ export default () => {
 const mockLongContent = lorem.generateParagraphs(10)
 
 const mockContent = (
-  <div style={{ padding: '20px' }}>{lorem.generateParagraphs(1)}</div>
+  <div style={{ padding: 20 }}>{lorem.generateParagraphs(1)}</div>
+)
+
+const mockContentWithCloseIcon = (
+  <div style={{ padding: '40px 20px 20px' }}>{lorem.generateParagraphs(1)}</div>
 )

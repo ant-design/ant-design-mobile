@@ -31,7 +31,7 @@ const Features = (features: any) => (
 
 const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
   const {
-    config: { mode, repository },
+    config: { repository },
     meta,
     locale,
   } = useContext(context)
@@ -52,6 +52,7 @@ const Layout: React.FC<IRouteComponentProps> = ({ children, location }) => {
     if (window !== window.parent) {
       return
     }
+
     if (
       window.innerWidth <= 600 &&
       !window.location.pathname.startsWith('/gallery')

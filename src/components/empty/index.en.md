@@ -1,5 +1,9 @@
 # Empty
 
+<Alert type="warning">
+  Empty has been deprecated and will be removed in the next major version. Please use ErrorBlock instead.
+</Alert>
+
 Use the scene illustration to indicate that the content is empty.
 
 ## When to Use
@@ -14,8 +18,8 @@ A placeholder prompt for when the information is empty.
 
 ### Props
 
-| Name        | Description                                             | Type            | Default |
-| ----------- | ------------------------------------------------------- | --------------- | ------- |
-| description | The descriptive text below the image                    | `ReactNode`     | -       |
-| image       | Custom image, when it is `string`, it means image `URL` | `ReactNode`     | -       |
-| imageStyle  | The style of the image                                  | `CSSProperties` | -       |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| description | The descriptive text below the image | `ReactNode` | - |
+| image | Custom image, when it is `string`, it means image `URL` | `ReactNode` | - |
+| imageStyle | The style of the image | `CSSProperties` | - |

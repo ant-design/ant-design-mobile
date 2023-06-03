@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react'
+import React, { FC, useRef, useEffect, useState } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { mergeProps } from '../../utils/with-default-props'
@@ -6,11 +6,16 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-floating-bubble`
 
+type Offset = { x: number; y: number }
+
 export type FloatingBubbleProps = {
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   axis?: 'x' | 'y' | 'xy' | 'lock'
   magnetic?: 'x' | 'y'
   children?: React.ReactNode
+  offset?: Offset
+  defaultOffset?: Offset
+  onOffsetChange?: (offset: Offset) => void
 } & NativeProps<
   | '--initial-position-left'
   | '--initial-position-right'
@@ -25,6 +30,7 @@ export type FloatingBubbleProps = {
 
 const defaultProps = {
   axis: 'y',
+  defaultOffset: { x: 0, y: 0 },
 }
 
 export const FloatingBubble: FC<FloatingBubbleProps> = p => {
@@ -33,20 +39,31 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
   const boundaryRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
 
+  const [innerValue, setInnerValue] = useState<Offset>(
+    props.offset === undefined ? props.defaultOffset : props.offset
+  )
+
+  useEffect(() => {
+    if (props.offset === undefined) return
+    api.start({ x: props.offset.x, y: props.offset.y })
+  }, [props.offset])
+
   /**
    * memoize the `to` function
    * inside a component that renders frequently
    * to prevent an unintended restart
    */
   const [{ x, y, opacity }, api] = useSpring(() => ({
-    x: 0,
-    y: 0,
+    x: innerValue.x,
+    y: innerValue.y,
     opacity: 1,
   }))
+
   const bind = useDrag(
     state => {
       let nextX = state.offset[0]
       let nextY = state.offset[1]
+
       if (state.last && props.magnetic) {
         const boundary = boundaryRef.current
         const button = buttonRef.current
@@ -76,10 +93,16 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
           }
         }
       }
-      api.start({
-        x: nextX,
-        y: nextY,
-      })
+
+      const nextOffest = { x: nextX, y: nextY }
+      if (props.offset === undefined) {
+        // Uncontrolled mode
+        api.start(nextOffest)
+      } else {
+        setInnerValue(nextOffest)
+      }
+      props.onOffsetChange?.(nextOffest)
+
       // active status
       api.start({
         opacity: state.active ? 0.8 : 1,
@@ -93,7 +116,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       // the component won't trigger drag logic if the user just clicked on the component.
       filterTaps: true,
       // set constraints to the user gesture
-      bounds: boundaryRef as any, // Temp fix. Seems to be a bug with use-gesture.
+      bounds: boundaryRef,
       from: () => [x.get(), y.get()],
     }
   )

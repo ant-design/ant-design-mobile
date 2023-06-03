@@ -20,20 +20,20 @@ Users are required to quickly navigate to a collection of content and switch bac
 
 ### Props
 
-| Name             | Description                                                                 | Type                    | Default                 |
-| ---------------- | --------------------------------------------------------------------------- | ----------------------- | ----------------------- |
-| activeKey        | `key` of currently active `item`                                            | `string \| null`        | -                       |
-| defaultActiveKey | The initialized `key` of the selected `item`, if the `activeKey` is not set | `string \| null`        | `key` of the 1st `item` |
-| onChange         | Callback when switching panel                                               | `(key: string) => void` | -                       |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| activeKey | `key` of currently active `item` | `string \| null` | - |
+| defaultActiveKey | The initialized `key` of the selected `item`, if the `activeKey` is not set | `string \| null` | `key` of the 1st `item` |
+| onChange | Callback when switching panel | `(key: string) => void` | - |
 
 ### CSS Variables
 
-| Name                 | Description                                      | Default   |
-| -------------------- | ------------------------------------------------ | --------- |
-| --background-color   | Color of background                              | `#f5f5f5` |
-| --height             | the height of the SideBar                        | `100%`    |
-| --item-border-radius | the border-radius of the currently active `item` | `8px`     |
-| --width              | the width of the SideBar                         | `96px`    |
+| Name | Description | Default |
+| --- | --- | --- |
+| --background-color | Color of background | `#f5f5f5` |
+| --height | the height of the SideBar | `100%` |
+| --item-border-radius | the border-radius of the currently active `item` | `8px` |
+| --width | the width of the SideBar | `105px` |
 
 ### SideBar.Item
 

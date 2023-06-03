@@ -1,5 +1,5 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { ReactNode, useState, useRef } from 'react'
+import React, { ReactNode, useState, useRef, useEffect } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { staged } from 'staged-components'
 import { toCSSLength } from '../../utils/to-css-length'
@@ -59,6 +59,7 @@ export const Image = staged<ImageProps>(p => {
   const [failed, setFailed] = useState(false)
 
   const ref = useRef<HTMLDivElement>(null)
+  const imgRef = useRef<HTMLImageElement>(null)
 
   let src: string | undefined = props.src
   let srcSet: string | undefined = props.srcSet
@@ -73,12 +74,20 @@ export const Image = staged<ImageProps>(p => {
     setFailed(false)
   }, [src])
 
+  useEffect(() => {
+    // for nextjs ssr
+    if (imgRef.current?.complete) {
+      setLoaded(true)
+    }
+  }, [])
+
   function renderInner() {
     if (failed) {
       return <>{props.fallback}</>
     }
     const img = (
       <img
+        ref={imgRef}
         className={`${classPrefix}-img`}
         src={src}
         alt={props.alt}

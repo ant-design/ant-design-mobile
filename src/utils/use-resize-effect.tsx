@@ -10,11 +10,13 @@ export function useResizeEffect<T extends HTMLElement>(
     const target = targetRef.current
     if (!target) return
     if (window.ResizeObserver) {
+      let animationFrame: number
       const observer = new ResizeObserver(() => {
-        fn(target)
+        animationFrame = window.requestAnimationFrame(() => fn(target))
       })
       observer.observe(target)
       return () => {
+        window.cancelAnimationFrame(animationFrame)
         observer.disconnect()
       }
     } else {

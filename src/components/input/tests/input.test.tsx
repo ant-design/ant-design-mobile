@@ -142,6 +142,12 @@ describe('Input', () => {
     })
   })
 
+  test('should work with `type="number"` and step', async () => {
+    const { container } = render(<Input type='number' step='0.01' min={0} />)
+    const input = container.querySelector('input') as HTMLInputElement
+    expect(input.step).toBe('0.01')
+  })
+
   test('should works with `onEnterPress`', async () => {
     const onEnterPress = jest.fn()
     render(<Input defaultValue={'testValue'} onEnterPress={onEnterPress} />)

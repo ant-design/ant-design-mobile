@@ -1,12 +1,8 @@
 name: Check
-on:
-  push:
-    branches:
-      - master
-  pull_request:
+on: [push, pull_request]
 jobs:
   check:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Check
         uses: actions/checkout@v3
@@ -18,7 +14,7 @@ jobs:
 
       - name: Install pnpm
         id: pnpm-install
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v2.2.4
         with:
           version: 7
           run_install: false

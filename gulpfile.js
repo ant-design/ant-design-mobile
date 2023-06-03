@@ -17,7 +17,6 @@ const BundleAnalyzerPlugin =
 const tsconfig = require('./tsconfig.json')
 const packageJson = require('./package.json')
 const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default
-
 const pxMultiplePlugin = require('postcss-px-multiple')({ times: 2 })
 
 function clean() {
@@ -47,16 +46,17 @@ function buildStyle() {
     .pipe(gulp.dest('./lib/cjs'))
 }
 
-function copyPatchStyle() {
-  return gulp
-    .src(['./lib/es/global/css-vars-patch.css'])
-    .pipe(
-      rename({
-        dirname: '',
-        extname: '.css',
-      })
-    )
-    .pipe(gulp.dest('./lib/bundle'))
+function copyPatchStyle(prefix = '') {
+  return () =>
+    gulp
+      .src([`./lib${prefix}/es/global/css-vars-patch.css`])
+      .pipe(
+        rename({
+          dirname: '',
+          extname: '.css',
+        })
+      )
+      .pipe(gulp.dest(`./lib${prefix}/bundle`))
 }
 
 function copyAssets() {
@@ -99,6 +99,13 @@ function buildES() {
 function buildDeclaration() {
   const tsProject = ts({
     ...tsconfig.compilerOptions,
+    paths: {
+      ...tsconfig.compilerOptions.paths,
+      'react': ['node_modules/@types/react'],
+      'rc-field-form': ['node_modules/rc-field-form'],
+      '@react-spring/web': ['node_modules/@react-spring/web'],
+      '@use-gesture/react': ['node_modules/@use-gesture/react'],
+    },
     module: 'ES6',
     declaration: true,
     emitDeclarationOnly: true,
@@ -112,50 +119,51 @@ function buildDeclaration() {
     .pipe(gulp.dest('lib/cjs/'))
 }
 
-function getViteConfigForPackage({ minify, formats, external }) {
+function getViteConfigForPackage({ env, formats, external }) {
   const name = packageJson.name
+  const isProd = env === 'production'
   return {
     root: process.cwd(),
 
+    mode: env,
+
     logLevel: 'silent',
 
+    define: { 'process.env.NODE_ENV': `"${env}"` },
+
     build: {
+      cssTarget: 'chrome61',
       lib: {
-        name,
+        name: 'antdMobile',
         entry: './lib/es/index.js',
         formats,
-        fileName: format => {
-          const suffix = format === 'umd' ? '' : `.${format}`
-          return minify ? `${name}${suffix}.min.js` : `${name}${suffix}.js`
-        },
+        fileName: format => `${name}.${format}${isProd ? '' : `.${env}`}.js`,
       },
-      minify: minify ? 'terser' : false,
       rollupOptions: {
         external,
         output: {
           dir: './lib/bundle',
-          exports: 'named',
+          // exports: 'named',
           globals: {
-            react: 'React',
+            'react': 'React',
+            'react-dom': 'ReactDOM',
           },
         },
       },
+      minify: isProd ? 'esbuild' : false,
     },
   }
 }
 
 async function buildBundles(cb) {
-  const dependencies = packageJson.dependencies || {}
-  const externals = Object.keys(dependencies)
-
-  const configs = [
-    // esm/cjs bundle
+  const envs = ['development', 'production']
+  const configs = envs.map(env =>
     getViteConfigForPackage({
-      minify: false,
-      formats: ['es', 'cjs'],
-      external: ['react', ...externals],
-    }),
-  ]
+      env,
+      formats: ['es', 'cjs', 'umd'],
+      external: ['react', 'react-dom'],
+    })
+  )
 
   await Promise.all(configs.map(config => vite.build(config)))
   cb && cb()
@@ -199,7 +207,7 @@ function umdWebpack() {
           module: {
             rules: [
               {
-                test: /\.js$/,
+                test: /\.m?js$/,
                 use: {
                   loader: 'babel-loader',
                   options: {
@@ -211,7 +219,7 @@ function umdWebpack() {
                           'modules': false,
                           'targets': {
                             'chrome': '49',
-                            'ios': '10',
+                            'ios': '9',
                           },
                         },
                       ],
@@ -254,6 +262,13 @@ function umdWebpack() {
     .pipe(gulp.dest('lib/umd/'))
 }
 
+function copyUmd() {
+  return gulp
+    .src(['lib/umd/antd-mobile.js'])
+    .pipe(rename('antd-mobile.compatible.umd.js'))
+    .pipe(gulp.dest('lib/bundle/'))
+}
+
 function copyMetaFiles() {
   return gulp.src(['./README.md', './LICENSE.txt']).pipe(gulp.dest('./lib/'))
 }
@@ -283,7 +298,6 @@ function init2xFolder() {
   return gulp
     .src('./lib/**', {
       base: './lib/',
-      ignore: ['./lib/2x/demos/**/*'],
     })
     .pipe(gulp.dest('./lib/2x/'))
 }
@@ -324,10 +338,13 @@ exports.default = gulp.series(
   buildES,
   buildCJS,
   gulp.parallel(buildDeclaration, buildStyle),
-  copyPatchStyle,
   copyAssets,
   copyMetaFiles,
   generatePackageJSON,
-  gulp.parallel(umdWebpack, buildBundles),
-  gulp.series(init2xFolder, build2xCSS)
+  buildBundles,
+  gulp.series(init2xFolder, build2xCSS),
+  umdWebpack,
+  copyUmd,
+  copyPatchStyle(),
+  copyPatchStyle('/2x')
 )

@@ -14,6 +14,7 @@ export type Action = {
   disabled?: boolean
   description?: ReactNode
   danger?: boolean
+  bold?: boolean
   onClick?: () => void
 }
 
@@ -85,6 +86,7 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                     {
                       [`${classPrefix}-button-item-danger`]: action.danger,
                       [`${classPrefix}-button-item-disabled`]: action.disabled,
+                      [`${classPrefix}-button-item-bold`]: action.bold,
                     }
                   )}
                   onClick={() => {
@@ -94,6 +96,8 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                       props.onClose?.()
                     }
                   }}
+                  role='option'
+                  aria-disabled={action.disabled}
                 >
                   <div className={`${classPrefix}-button-item-name`}>
                     {action.text}
@@ -109,7 +113,11 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
           </div>
 
           {props.cancelText && (
-            <div className={`${classPrefix}-cancel`}>
+            <div
+              className={`${classPrefix}-cancel`}
+              role='option'
+              aria-label={props.cancelText}
+            >
               <div className={`${classPrefix}-button-item-wrapper`}>
                 <a
                   className={classNames(
@@ -139,7 +147,9 @@ export type ActionSheetShowHandler = {
   close: () => void
 }
 
-export function showActionSheet(props: Omit<ActionSheetProps, 'visible'>) {
+export function showActionSheet(
+  props: Omit<ActionSheetProps, 'visible' | 'destroyOnClose' | 'forceRender'>
+) {
   return renderImperatively(
     <ActionSheet {...props} />
   ) as ActionSheetShowHandler

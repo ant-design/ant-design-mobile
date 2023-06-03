@@ -25,6 +25,14 @@ export default () => {
         <NoticeBar content={demoLongText} color='alert' />
       </DemoBlock>
 
+      <DemoBlock title='多行展示' padding='0'>
+        <NoticeBar
+          content='适用于当前页面内信息的通知，是一种较醒目的页面内通知方式'
+          wrap
+          color='alert'
+        />
+      </DemoBlock>
+
       <DemoBlock title='自定义' padding='0' background='transparent'>
         <Space block direction='vertical'>
           <NoticeBar

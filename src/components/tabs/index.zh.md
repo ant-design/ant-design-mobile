@@ -20,25 +20,25 @@
 
 ### 属性
 
-| 属性             | 说明                                             | 类型                          | 默认值             |
-| ---------------- | ------------------------------------------------ | ----------------------------- | ------------------ |
-| activeKey        | 当前激活 `tab` 面板的 `key`                      | `string \| null`              | -                  |
-| activeLineMode   | 激活 `tab` 下划线的模式                          | `'auto' \| 'full' \| 'fixed'` | `'auto'`           |
-| defaultActiveKey | 初始化选中面板的 `key`，如果没有设置 `activeKey` | `string \| null`              | 第一个面板的 `key` |
-| onChange         | 切换面板的回调                                   | `(key: string) => void`       | -                  |
-| stretch          | 选项卡头部是否拉伸                               | `boolean`                     | `true`             |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| activeKey | 当前激活 `tab` 面板的 `key` | `string \| null` | - |
+| activeLineMode | 激活 `tab` 下划线的模式 | `'auto' \| 'full' \| 'fixed'` | `'auto'` |
+| defaultActiveKey | 初始化选中面板的 `key`，如果没有设置 `activeKey` | `string \| null` | 第一个面板的 `key` |
+| onChange | 切换面板的回调 | `(key: string) => void` | - |
+| stretch | 选项卡头部是否拉伸 | `boolean` | `true` |
 
 ### CSS 变量
 
-| 属性                        | 说明                                                                   | 默认值                      |
-| --------------------------- | ---------------------------------------------------------------------- | --------------------------- |
-| --active-line-border-radius | 当前激活 `tab` 下划线的圆角                                            | `var(--active-line-height)` |
-| --active-line-color         | 当前激活 `tab` 下划线的颜色                                            | `var(--adm-color-primary)`  |
-| --active-line-height        | 当前激活 `tab` 下划线的高度                                            | `2px`                       |
-| --active-title-color        | 当前激活 `tab` 选项文字颜色                                            | `var(--adm-color-primary)`  |
-| --content-padding           | `tab` 内容区的 `padding`                                               | `12px`                      |
-| --fixed-active-line-width   | 当前激活 `tab` 下划线的宽度，仅在 `activeLineMode` 为 `'fixed'` 时有效 | `30px`                      |
-| --title-font-size           | 选项卡头文字的大小                                                     | `17px`                      |
+| 属性 | 说明 | 默认值 |
+| --- | --- | --- |
+| --active-line-border-radius | 当前激活 `tab` 下划线的圆角 | `var(--active-line-height)` |
+| --active-line-color | 当前激活 `tab` 下划线的颜色 | `var(--adm-color-primary)` |
+| --active-line-height | 当前激活 `tab` 下划线的高度 | `2px` |
+| --active-title-color | 当前激活 `tab` 选项文字颜色 | `var(--adm-color-primary)` |
+| --content-padding | `tab` 内容区的 `padding` | `12px` |
+| --fixed-active-line-width | 当前激活 `tab` 下划线的宽度，仅在 `activeLineMode` 为 `'fixed'` 时有效 | `30px` |
+| --title-font-size | 选项卡头文字的大小 | `17px` |
 
 ## Tabs.Tab
 
@@ -59,3 +59,7 @@
 ### Tabs 怎么配合 Swiper、PullToRefresh、InfiniteScroll 实现一个复杂的信息流界面？
 
 可以参考这个 [demo](https://codesandbox.io/s/mystifying-glitter-knpc7u?file=/src/components/getPullToRefreshlData.tsx)。
+
+### Tabs.Tab 关于 key 的类型问题
+
+因为 `React` 内部会把传入的 `key` 转为 `string`，所以这里 `key` 的类型其实只要是符合 `React.Key` 都是可以的。

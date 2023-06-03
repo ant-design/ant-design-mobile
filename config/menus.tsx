@@ -55,6 +55,10 @@ export const menus = {
       path: '/guide/hd',
     },
     {
+      title: 'Pre Built Bundles',
+      path: '/guide/pre-built-bundles',
+    },
+    {
       title: 'SSR (Experimental)',
       path: '/guide/ssr',
     },
@@ -103,6 +107,10 @@ export const menus = {
     {
       title: '高清适配',
       path: '/zh/guide/hd',
+    },
+    {
+      title: '预构建产物',
+      path: '/zh/guide/pre-built-bundles',
     },
     {
       title: '服务端渲染 / SSR（试验性）',

@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useMemo } from 'react'
+import React, { FC, ReactNode, useState, useEffect, useMemo } from 'react'
 import classNames from 'classnames'
 import Tabs from '../tabs'
 import CheckList from '../check-list'
@@ -32,8 +32,9 @@ export type CascaderViewProps = {
   value?: CascaderValue[]
   defaultValue?: CascaderValue[]
   onChange?: (value: CascaderValue[], extend: CascaderValueExtend) => void
-  placeholder?: string
+  placeholder?: string | ((index: number) => string)
   onTabsChange?: (index: number) => void
+  activeIcon?: ReactNode
 } & NativeProps<'--height'>
 
 const defaultProps = {
@@ -42,13 +43,8 @@ const defaultProps = {
 
 export const CascaderView: FC<CascaderViewProps> = p => {
   const { locale } = useConfig()
-  const props = mergeProps(
-    defaultProps,
-    {
-      placeholder: locale.Cascader.placeholder,
-    },
-    p
-  )
+  const props = mergeProps(defaultProps, p)
+  const placeholder = props.placeholder || locale.Cascader.placeholder
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
@@ -127,7 +123,11 @@ export const CascaderView: FC<CascaderViewProps> = p => {
               key={index.toString()}
               title={
                 <div className={`${classPrefix}-header-title`}>
-                  {selected ? selected.label : props.placeholder}
+                  {selected
+                    ? selected.label
+                    : typeof placeholder === 'function'
+                    ? placeholder(index)
+                    : placeholder}
                 </div>
               }
               forceRender
@@ -158,6 +158,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
                     onChange={selectValue =>
                       onItemSelect(selectValue[0], index)
                     }
+                    activeIcon={props.activeIcon}
                   >
                     {level.options.map(option => {
                       const active = value[index] === option.value

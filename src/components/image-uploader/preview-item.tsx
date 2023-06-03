@@ -1,5 +1,4 @@
-import React, { FC, useMemo } from 'react'
-import { CloseOutline } from 'antd-mobile-icons'
+import React, { FC, useEffect, useMemo } from 'react'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
 import Image from '../image'
@@ -11,6 +10,7 @@ type Props = {
   onClick?: () => void
   onDelete?: () => void
   deletable: boolean
+  deleteIcon: React.ReactNode
   url?: string
   file?: File
   status?: TaskStatus
@@ -21,7 +21,7 @@ const classPrefix = `adm-image-uploader`
 
 const PreviewItem: FC<Props> = props => {
   const { locale } = useConfig()
-  const { url, file, deletable, onDelete, imageFit } = props
+  const { url, file, deletable, deleteIcon, onDelete, imageFit } = props
   const src = useMemo(() => {
     if (url) {
       return url
@@ -31,6 +31,12 @@ const PreviewItem: FC<Props> = props => {
     }
     return ''
   }, [url, file])
+
+  useEffect(() => {
+    return () => {
+      if (file) URL.revokeObjectURL(src)
+    }
+  }, [src, file])
 
   function renderLoading() {
     return (
@@ -51,7 +57,7 @@ const PreviewItem: FC<Props> = props => {
     return (
       deletable && (
         <span className={`${classPrefix}-cell-delete`} onClick={onDelete}>
-          <CloseOutline className={`${classPrefix}-cell-delete-icon`} />
+          {deleteIcon}
         </span>
       )
     )
