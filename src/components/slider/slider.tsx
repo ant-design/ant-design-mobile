@@ -9,7 +9,6 @@ import { mergeProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
 import { usePropsValue } from '../../utils/use-props-value'
 import { devWarning } from '../../utils/dev-log'
-import { roundValueToStep } from '../../utils/round-value-to-step'
 
 const classPrefix = `adm-slider`
 
@@ -136,7 +135,10 @@ export const Slider: FC<SliderProps> = p => {
     if (pointList.length) {
       value = nearest(pointList, newPosition)
     } else {
-      value = parseFloat(roundValueToStep(newPosition, min, step))
+      // 使用 MiniDecimal 避免精度问题
+      const cell = Math.round((newPosition - min) / step)
+      const nextVal = getMiniDecimal(cell).multi(step)
+      value = getMiniDecimal(min).add(nextVal.toString()).toNumber()
     }
     return value
   }
