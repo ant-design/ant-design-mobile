@@ -9,6 +9,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
 import { usePropsValue } from '../../utils/use-props-value'
 import { devWarning } from '../../utils/dev-log'
+import { roundValueToStep } from '../../utils/round-value-to-step'
 
 const classPrefix = `adm-slider`
 
@@ -111,7 +112,7 @@ export const Slider: FC<SliderProps> = p => {
       return Object.keys(marks)
         .map(parseFloat)
         .sort((a, b) => a - b)
-    } else {
+    } else if (ticks) {
       const points: number[] = []
       for (
         let i = getMiniDecimal(min);
@@ -122,6 +123,8 @@ export const Slider: FC<SliderProps> = p => {
       }
       return points
     }
+
+    return []
   }, [marks, ticks, step, min, max])
 
   function getValueByPosition(position: number) {
@@ -133,9 +136,7 @@ export const Slider: FC<SliderProps> = p => {
     if (pointList.length) {
       value = nearest(pointList, newPosition)
     } else {
-      const lengthPerStep = 100 / ((max - min) / step)
-      const steps = Math.round(newPosition / lengthPerStep)
-      value = steps * lengthPerStep * (max - min) * 0.01 + min
+      value = parseFloat(roundValueToStep(newPosition, min, step))
     }
     return value
   }
