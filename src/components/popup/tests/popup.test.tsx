@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { render, cleanup, fireEvent, mockDrag } from 'testing'
+import { render, mockDrag } from 'testing'
 import Popup from '..'
 
 describe('Popup', () => {
   test('top swipe should be closed', () => {
     const onClose = jest.fn()
     render(
-      <Popup visible={true} onClose={onClose} position='top'>
+      <Popup visible onClose={onClose} position='top' closeOnSwipe>
         <div style={{ height: '400px', width: '400px' }}></div>
       </Popup>
     )
@@ -26,7 +26,7 @@ describe('Popup', () => {
   test('bottom swipe should be closed', () => {
     const onClose = jest.fn()
     render(
-      <Popup visible={true} onClose={onClose} position='bottom'>
+      <Popup visible onClose={onClose} position='bottom' closeOnSwipe>
         <div style={{ height: '400px', width: '400px' }}></div>
       </Popup>
     )
