@@ -20,11 +20,13 @@ const classPrefix = `adm-popup`
 export type PopupProps = PopupBaseProps &
   PropsWithChildren<{
     position?: 'bottom' | 'top' | 'left' | 'right'
+    enableSwipeToClose?: boolean
   }> &
   NativeProps<'--z-index'>
 
 const defaultProps = {
   ...defaultPopupBaseProps,
+  enableSwipeToClose: false,
   position: 'bottom',
 }
 
@@ -70,6 +72,7 @@ export const Popup: FC<PopupProps> = p => {
 
   const bind = useDrag(
     ({ swipe: [, swipeY] }) => {
+      if (!props.enableSwipeToClose) return
       if (
         (swipeY === 1 && props.position === 'bottom') ||
         (swipeY === -1 && props.position === 'top')
