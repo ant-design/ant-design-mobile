@@ -6,7 +6,7 @@ describe('Popup', () => {
   test('top swipe should be closed', () => {
     const onClose = jest.fn()
     render(
-      <Popup visible onClose={onClose} position='top' enableSwipeToClose>
+      <Popup visible onClose={onClose} position='top' closeOnSwipe>
         <div style={{ height: '400px', width: '400px' }}></div>
       </Popup>
     )
@@ -26,7 +26,7 @@ describe('Popup', () => {
   test('bottom swipe should be closed', () => {
     const onClose = jest.fn()
     render(
-      <Popup visible onClose={onClose} position='bottom' enableSwipeToClose>
+      <Popup visible onClose={onClose} position='bottom' closeOnSwipe>
         <div style={{ height: '400px', width: '400px' }}></div>
       </Popup>
     )
