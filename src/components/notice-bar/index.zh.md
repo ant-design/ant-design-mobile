@@ -23,6 +23,7 @@
 | extra | 额外操作区域，显示在关闭按钮左侧 | `React.ReactNode` | - |
 | icon | 左侧广播图标 | `React.ReactNode` | `<SoundOutline />` |
 | onClose | 关闭时的回调 | `() => void` | - |
+| onClick | 点击事件 | `() => void` | - |
 | speed | 滚动速度，单位 `px/s` | `number` | `50` |
 | wrap | 是否多行展示 | `boolean` | `false` |
 

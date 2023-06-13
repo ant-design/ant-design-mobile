@@ -34,6 +34,7 @@ export type ImageProps = {
     | 'sizes'
     | 'srcSet'
     | 'useMap'
+    | 'id'
   >
 
 const defaultProps = {
@@ -88,6 +89,7 @@ export const Image = staged<ImageProps>(p => {
     const img = (
       <img
         ref={imgRef}
+        id={props.id}
         className={`${classPrefix}-img`}
         src={src}
         alt={props.alt}

@@ -35,6 +35,7 @@ export type CascaderViewProps = {
   placeholder?: string | ((index: number) => string)
   onTabsChange?: (index: number) => void
   activeIcon?: ReactNode
+  loading?: boolean
 } & NativeProps<'--height'>
 
 const defaultProps = {
@@ -103,6 +104,8 @@ export const CascaderView: FC<CascaderViewProps> = p => {
     }
     setValue(next)
   }
+  const whetherLoading = <T extends unknown[]>(options: T) =>
+    props.loading || options === optionSkeleton
 
   return withNativeProps(
     props,
@@ -133,7 +136,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
               forceRender
             >
               <div className={`${classPrefix}-content`}>
-                {level.options === optionSkeleton ? (
+                {whetherLoading(level.options) ? (
                   <div className={`${classPrefix}-skeleton`}>
                     <Skeleton
                       className={`${classPrefix}-skeleton-line-1`}
