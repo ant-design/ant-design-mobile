@@ -9,6 +9,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs from 'dayjs'
 import classNames from 'classnames'
 import Button from '../button'
+import Divider from '../divider'
 import Popup from '../popup'
 import type { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
@@ -318,19 +319,22 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
 
   const footer = (
     <div className={`${classPrefix}-footer`}>
-      <Button
-        color='primary'
-        onClick={() => {
-          if (props.selectionMode === 'single') {
-            props.onConfirm?.(dateRange ? dateRange[0] : null)
-          } else if (props.selectionMode === 'range') {
-            props.onConfirm?.(dateRange)
-          }
-          props.popupProps?.onClose?.()
-        }}
-      >
-        {props.confirmText ?? locale.Calendar.confirm}
-      </Button>
+      <Divider />
+      <div className={`${classPrefix}-footer-bottom`}>
+        <Button
+          color='primary'
+          onClick={() => {
+            if (props.selectionMode === 'single') {
+              props.onConfirm?.(dateRange ? dateRange[0] : null)
+            } else if (props.selectionMode === 'range') {
+              props.onConfirm?.(dateRange)
+            }
+            props.popupProps?.onClose?.()
+          }}
+        >
+          {props.confirmText ?? locale.Calendar.confirm}
+        </Button>
+      </div>
     </div>
   )
 

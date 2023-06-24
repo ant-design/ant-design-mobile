@@ -4,13 +4,16 @@
     flex: auto;
     font-size: var(--adm-font-size-10);
   }
+
   & &-header {
-    padding: 8px;
+    padding: 12px;
     border-bottom: 1px solid var(--adm-color-border);
+
     .adm-calendar-title {
       text-align: center;
     }
   }
+
   & &-body {
     height: 64vh;
     overflow: auto;
@@ -18,60 +21,82 @@
     &::-webkit-scrollbar {
       display: none;
     }
+
     .adm-calendar-title {
       position: sticky;
       top: 0;
-      padding: 12px 18px;
+      padding: 8px 20px;
       background-color: var(--adm-color-box);
     }
   }
+
   & &-footer {
-    padding: 12px 18px;
+    &-bottom {
+      padding: 0 20px 16px;
+    }
+
+    .adm-divider {
+      margin-top: 0;
+    }
+
     .adm-button {
       width: 100%;
     }
   }
+
   &-cells {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: stretch;
-    padding: 8px 8px 4px;
+    padding: 4px 8px;
   }
+
   &-cell {
     flex: none;
     box-sizing: border-box;
     width: calc(100% / 7);
-    min-height: 56px;
+    min-height: 55px;
     margin-bottom: 4px;
     padding: 2px;
     color: var(--adm-color-text);
     cursor: pointer;
+
     &&-today {
       color: var(--adm-color-primary);
     }
+
     &&-disabled {
       color: var(--adm-color-light);
+
       .adm-calendar-cell-top,
       .adm-calendar-cell-bottom {
         color: var(--adm-color-light);
       }
     }
+
     &&-selected {
       && {
-        background: var(--adm-color-primary);
-        color: var(--adm-color-white);
+        background: rgba(22, 119, 255, 10%);
+        color: var(--adm-color-text);
       }
+
       & .adm-calendar-cell-top,
       & .adm-calendar-cell-bottom {
         color: var(--adm-color-white);
       }
+
       &&-begin {
+        background: var(--adm-color-primary);
+        color: var(--adm-color-white);
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
       }
+
       &&-end {
+        background: var(--adm-color-primary);
+        color: var(--adm-color-white);
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
       }
@@ -85,15 +110,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     & &-date {
       flex: none;
       line-height: 22px;
-      font-size: var(--adm-font-size-9);
+      font-size: var(--adm-font-size-8);
     }
+
     & &-top,
     & &-bottom {
       flex: none;
-      font-size: var(--adm-font-size-2);
+      font-size: var(--adm-font-size-1);
       height: 14px;
       line-height: 14px;
       color: var(--adm-color-weak);
@@ -108,8 +135,9 @@
     border-bottom: solid 1px var(--adm-color-border);
     height: 45px;
     box-sizing: border-box;
-    font-size: var(--adm-font-size-7);
+    font-size: var(--adm-font-size-6);
     padding: 0 8px;
+
     & &-cell {
       flex: 1;
       text-align: center;
