@@ -39,6 +39,8 @@
 | value | 选择的日期 | 单选模式下为 `Date \| null`，多选模式下为 `[Date, Date] \| null` | - |
 | weekStartsOn | 每周以周几作为第一天 | `'Monday' \| 'Sunday'` | `'Sunday'` |
 | renderDate | 自定义日期渲染 | `(date: Date) => ReactNode` | - | 5.28.0 |
+| usePopup | 是否使用 popup | `boolean` | `true` |
+| popupProps | popup 属性 | `参考 Popup 弹出层组件` | - |  |
 
 ### CSS 变量
 

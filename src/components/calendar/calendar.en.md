@@ -37,6 +37,8 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 | value | The selected date or date range. | `Date \| null` when selection mode is "single". `[Date, Date] \| null` when selection mode is "range" | - |
 | weekStartsOn | Week starts on which day. | `'Monday' \| 'Sunday'` | `'Sunday'` |
 | renderDate | Custom date rendering. | `(date: Date) => ReactNode` | - | 5.28.0 |
+| usePopup | Whether to use popup | `boolean` | `true` |
+| popupProps | popup props | `Reference Popup Component` | - |  |
 
 ### CSS Variables
 
