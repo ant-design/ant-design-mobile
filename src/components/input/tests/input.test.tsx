@@ -190,4 +190,22 @@ describe('Input', () => {
     })
     expect(ref.current?.nativeElement?.value).toBe('')
   })
+
+  test('numbers that start with 0 should be work', () => {
+    const ref = createRef<InputRef>()
+    render(<Input type='number' ref={ref} />)
+    const input = document.querySelector('input')!
+    fireEvent.change(input, {
+      target: { value: '012' },
+    })
+    // input.blur()
+    act(() => {
+      input.focus()
+    })
+    act(() => {
+      input.blur()
+    })
+
+    expect(input.value).toBe('012')
+  })
 })
