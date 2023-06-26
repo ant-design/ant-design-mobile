@@ -13,6 +13,7 @@ import isEqual from 'lodash/isEqual'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { measureCSSLength } from '../../utils/measure-css-length'
 import { supportsPassive } from '../../utils/supports-passive'
+import { wheelBound } from './utils'
 
 const classPrefix = `adm-picker-view`
 
@@ -86,13 +87,9 @@ export const Wheel = memo<Props>(
     }
 
     const handleDrag = (
-      state:
-        | (Omit<FullGestureState<'wheel'>, 'event'> & {
-            event: EventTypes['wheel']
-          })
-        | (Omit<FullGestureState<'drag'>, 'event'> & {
-            event: EventTypes['drag']
-          })
+      state: Omit<FullGestureState<'drag'>, 'event'> & {
+        event: EventTypes['drag']
+      }
     ) => {
       draggingRef.current = true
       const min = -((column.length - 1) * itemHeight.current)
@@ -101,10 +98,10 @@ export const Wheel = memo<Props>(
         draggingRef.current = false
         const position =
           state.offset[1] + state.velocity[1] * state.direction[1] * 50
-        const targetIndex =
-          min < max
-            ? -Math.round(bound(position, min, max) / itemHeight.current)
-            : 0
+        const targetIndex = -Math.round(
+          bound(position, min, max) / itemHeight.current
+        )
+
         scrollSelect(targetIndex)
       } else {
         const position = state.offset[1]
@@ -117,6 +114,26 @@ export const Wheel = memo<Props>(
             0.2
           ),
         })
+      }
+    }
+
+    const handleWheel = (
+      state: Omit<FullGestureState<'wheel'>, 'event'> & {
+        event: EventTypes['wheel']
+      }
+    ) => {
+      draggingRef.current = true
+      const min = -((column.length - 1) * itemHeight.current)
+      const max = 0
+
+      if (state.last) {
+        draggingRef.current = false
+        const position =
+          state.offset[1] + state.velocity[1] * state.direction[1] * 50
+        const wheelNum = wheelBound(-position, min, max)
+        const targetIndex = -Math.round(wheelNum / itemHeight.current)
+
+        scrollSelect(targetIndex)
       }
     }
 
@@ -137,7 +154,7 @@ export const Wheel = memo<Props>(
     useWheel(
       state => {
         state.event.stopPropagation()
-        handleDrag(state)
+        handleWheel(state)
       },
       {
         axis: 'y',
