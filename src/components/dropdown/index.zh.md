@@ -37,7 +37,7 @@
 | 属性           | 说明                        | 类型              | 默认值  |
 | -------------- | --------------------------- | ----------------- | ------- |
 | arrow          | 自定义 arrow                | `React.ReactNode` | -       |
-| destroyOnClose | 不可见时卸载内容            | `boolean`         | `false` |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean`         | `false` |
 | forceRender    | 被隐藏时是否渲染 `DOM` 结构 | `boolean`         | `false` |
 | highlight      | 高亮                        | `boolean`         | `false` |
 | key            | 唯一值                      | `string`          | -       |

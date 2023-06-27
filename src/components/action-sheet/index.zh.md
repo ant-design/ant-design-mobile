@@ -21,7 +21,7 @@
 | cancelText | 取消按钮文字，如果设置为空则不显示取消按钮 | `ReactNode` | - |
 | closeOnAction | 点击选项后是否关闭 | `boolean` | `false` |
 | closeOnMaskClick | 点击背景蒙层后是否关闭 | `boolean` | `true` |
-| destroyOnClose | 不可见时卸载内容 | `boolean` | `false` |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | forceRender | 强制渲染内容 | `boolean` | `false` |
 | extra | 顶部的额外区域 | `ReactNode` | - |
 | getContainer | 指定挂载的 `HTML` 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `document.body` |

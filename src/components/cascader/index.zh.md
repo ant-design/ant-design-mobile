@@ -39,7 +39,7 @@ type CascaderValueExtend = {
 | children | 所选项的渲染函数 | `(items: CascaderOption[], actions: CascaderActions) => ReactNode` | - |
 | confirmText | 确定按钮的文字 | `ReactNode` | `'确定'` |
 | defaultValue | 默认选中项 | `CascaderValue[]` | `[]` |
-| destroyOnClose | 不可见时卸载内容 | `boolean` | `true` |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `true` |
 | forceRender | 强制渲染内容 | `boolean` | `false` |
 | onCancel | 取消时触发 | `() => void` | - |
 | onClose | 确认和取消时都会触发关闭事件 | `() => void` | - |
