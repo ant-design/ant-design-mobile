@@ -9,6 +9,7 @@ import React, {
   useState,
   forwardRef,
   useImperativeHandle,
+  isValidElement,
 } from 'react'
 import Popup, { PopupProps } from '../popup'
 import Item, { ItemChildrenWrap } from './item'
@@ -84,7 +85,7 @@ const Dropdown = forwardRef<
   let popupForceRender = false
   const items: ReactElement<ComponentProps<typeof Item>>[] = []
   const navs = React.Children.map(props.children, child => {
-    if (React.isValidElement(child)) {
+    if (isValidElement<ComponentProps<typeof Item>>(child)) {
       const childProps = {
         ...child.props,
         onClick: () => {
