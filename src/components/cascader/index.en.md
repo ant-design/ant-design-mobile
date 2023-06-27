@@ -39,7 +39,7 @@ type CascaderValueExtend = {
 | children | Render function of the selected options | `(items: CascaderOption[], actions: CascaderActions) => ReactNode` | - |
 | confirmText | Text of the ok button | `ReactNode` | `'确定'` |
 | defaultValue | Default selected options | `CascaderValue[]` | `[]` |
-| destroyOnClose | Unmount content when not visible | `boolean` | `true` |
+| destroyOnClose | Destroy `dom` when not visible | `boolean` | `true` |
 | forceRender | Render content forcely | `boolean` | `false` |
 | onCancel | Triggered when cancelling | `() => void` | - |
 | onClose | Triggered when confirming or cancelling | `() => void` | - |
