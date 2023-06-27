@@ -121,9 +121,13 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   function checkValue() {
     let nextValue = value
     if (props.type === 'number') {
-      nextValue =
+      const boundValue =
         nextValue &&
         bound(parseFloat(nextValue), props.min, props.max).toString()
+      // fix the display issue of numbers starting with 0
+      if (Number(nextValue) !== Number(boundValue)) {
+        nextValue = boundValue
+      }
     }
     if (nextValue !== value) {
       setValue(nextValue)

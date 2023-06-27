@@ -237,17 +237,21 @@ describe('Swiper', () => {
     )
 
     const el = $$(`.${classPrefix}-track`)[0]
-    mockDrag(el, [
-      { clientX: 50, clientY: 300 },
-      {
-        clientX: 50,
-        clientY: 200,
-      },
-      {
-        clientX: 60,
-        clientY: 50,
-      },
-    ])
+    await mockDrag(
+      el,
+      [
+        { clientX: 50, clientY: 300 },
+        {
+          clientX: 50,
+          clientY: 200,
+        },
+        {
+          clientX: 60,
+          clientY: 50,
+        },
+      ],
+      5
+    )
 
     expect($$(`.${classPrefix}-track-inner`)[0]).toHaveStyle(
       'transform: translate3d(0,-100%,0)'
