@@ -45,7 +45,7 @@ function loadMore() { // 正确
 
 ### 自定义 Content
 
-如果需要的话，`<InfiniteScroll>` 允许自定义展示内容，这个内容可以包含任何元素，包括 svg 和带有 css 动画的元素。
+如果需要的话，`InfiniteScroll` 允许自定义展示内容，这个内容可以包含任何元素，包括 svg 和带有 css 动画的元素。
 
 <code src="./demos/content.tsx"></code>
 
@@ -93,7 +93,9 @@ InfiniteScroll 本身已经包含了防止并发的重复请求的逻辑，所�
 </Tabs>
 ```
 
-问题描述：`Tabs` 组件默认展示第一个 `Tab` 项的内容，所以，第二个 `Tab` 项的内容 `InfiniteScroll` 是不可见的。但第二个 `Tab` 添加了 `forceRender` 属性，所以即使不可见，其内容也会渲染。本次渲染 `InfiniteScroll`组件时，由于该组件不可见，所以，不会调用 `loadMore` 函数，这是正常的，跟我们的预期相同。_但是，当我们切换到第二个 `Tab` 展示 `InfiniteScroll` 组件时，发现 `InfiniteScroll` 组件并没有调用 `loadMore` 函数，这一点跟我们预期不同，我们希望此时 `loadMore` 函数被调用_。
+问题描述：`Tabs` 组件默认展示第一个 `Tab` 项的内容，所以，第二个 `Tab` 项的内容 `InfiniteScroll` 是不可见的。但第二个 `Tab` 添加了 `forceRender` 属性，所以即使不可见，其内容也会渲染。本次渲染 `InfiniteScroll`组件时，由于该组件不可见，所以，不会调用 `loadMore` 函数，这是正常的，跟我们的预期相同。
+
+_但是，当我们切换到第二个 `Tab` 展示 `InfiniteScroll` 组件时，发现 `InfiniteScroll` 组件并没有调用 `loadMore` 函数，这一点跟我们预期不同，我们希望此时 `loadMore` 函数被调用_。
 
 原因说明：点击切换 `Tabs` 组件的 `Tab` 项时，会修改 `Tabs` 组件的高亮状态，此时，`Tabs` 组件会重新渲染。但是，要注意的是**只有在 `Tabs` 组件自身的内容才会被重新渲染，而 `InfiniteScroll` 组件是在 `Tabs` 组件外部的，并非 `Tabs` 组件自身内容**。所以，切换 `Tab` 时，`InfiniteScroll` 组件并不会重新渲染，也就没有再次触发它的检查机制。
 

@@ -24,8 +24,6 @@ export default () => {
   const [value, setValue] = useState<string[]>([])
   const [list, setList] = useState<any[]>([])
 
-  console.log(list, 'list')
-
   return (
     <>
       <DemoBlock title='基础用法' padding='0'>
@@ -56,7 +54,7 @@ export default () => {
         />
       </DemoBlock>
       <DemoBlock title='开启loding并且options为空时会开启骨架屏' padding='0'>
-        <CascaderView options={list} loading />
+        <CascaderView options={list} loading={!list.length} />
         <Button onClick={() => setList(list1)}>push数据</Button>
       </DemoBlock>
     </>
