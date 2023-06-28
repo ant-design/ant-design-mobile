@@ -5,7 +5,6 @@ import { history } from 'dumi'
 import type { IPreviewerComponentProps } from 'dumi/theme'
 import {
   context,
-  // useRiddle,
   useMotions,
   useCopy,
   useLocaleProps,
@@ -66,9 +65,7 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
   const openCSB = useCodeSandbox(
     props.hideActions?.includes('CSB') ? null : props
   )
-  // const openRiddle = useRiddle(
-  //   props.hideActions?.includes('RIDDLE') ? null : props
-  // )
+
   const [execMotions, isMotionRunning] = useMotions(
     props.motions || [],
     demoRef.current
@@ -119,14 +116,6 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
             onClick={openCSB}
           />
         )}
-        {/*{openRiddle && (*/}
-        {/*  <button*/}
-        {/*    title='Open demo on Riddle'*/}
-        {/*    className='__dumi-default-icon'*/}
-        {/*    role='riddle'*/}
-        {/*    onClick={openRiddle}*/}
-        {/*  />*/}
-        {/*)}*/}
         {props.motions && (
           <button
             title='Execute motions'
@@ -159,8 +148,6 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
         {!isSingleFile && (
           <Tabs
             className='__dumi-default-previewer-source-tab'
-            // prefixCls='__dumi-default-tabs'
-            // moreIcon='···'
             stretch={false}
             defaultActiveKey={currentFile}
             onChange={handleFileChange}

@@ -38,6 +38,7 @@
 | stopPropagation | 阻止某些事件的冒泡 | `PropagationEvent[]` | `['click']` |
 | style | 容器样式 | `React.CSSProperties` | - |
 | visible | 是否可见 | `boolean` | `false` |
+| closeOnSwipe | 是否支持向上/下滑动关闭 | `boolean` | `false` |
 
 ### CSS 变量
 
