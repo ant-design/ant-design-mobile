@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { render, testA11y, fireEvent, waitFor, actSleep } from 'testing'
+import { render, testA11y, fireEvent, actSleep, act } from 'testing'
 import CascadePickerView from '..'
 import { options } from '../demos/options-data'
 
@@ -7,7 +7,9 @@ const classPrefix = `adm-picker-view`
 
 describe('CascadePickerView', () => {
   test('a11y', async () => {
-    await waitFor(() => testA11y(<CascadePickerView options={options} />))
+    await act(async () => {
+      await testA11y(<CascadePickerView options={options} />)
+    })
   })
 
   test('controlled mode', async () => {
