@@ -51,6 +51,7 @@ type CascaderValueExtend = {
 | title | Title | `ReactNode` | - |
 | value | Selected options | `CascaderValue[]` | - |
 | visible | Whether to show or hide the Picker | `boolean` | `false` |
+| loading | Open the skeleton screen | `boolean` | `false` |
 
 Please pay attention to the `children` property of `CascaderOption`. If the `children` of an `option` is `[]`, then when the user selects this `option`, the Cascader component will automatically jump to the next level, even if There are currently no options at this level (because Cascader has no way to determine whether this empty array will become an array with content in subsequent updates). Therefore, please make sure that the `children` property of the last level option (aka "leaf node") does not exist or has the value `undefined`, so that the Cascader component can correctly recognize it.
 
