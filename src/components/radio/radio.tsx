@@ -86,6 +86,9 @@ export const Radio: FC<RadioProps> = p => {
   return withNativeProps(
     props,
     <label
+      onClick={e => {
+        e.stopPropagation()
+      }}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled,
