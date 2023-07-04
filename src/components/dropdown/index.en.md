@@ -37,7 +37,7 @@ It is suitable for filtering, sorting and changing the display range or order of
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | arrow | Custom arrow | `React.ReactNode` | - |
-| destroyOnClose | Unmount content when not visible | `boolean` | `false` |
+| destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | forceRender | Whether to render the content even if it is not active | `boolean` | `false` |
 | highlight | Highlight | `boolean` | `false` |
 | key | The unique value | `string` | - |

@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, testA11y, userEvent, screen } from 'testing'
+import { fireEvent, render, testA11y, userEvent, screen, act } from 'testing'
 import Radio from '../'
 import { RadioGroupProps } from '../group'
 
@@ -30,7 +30,10 @@ describe('Radio', () => {
         1
       </Radio>
     )
-    await userEvent.tripleClick(screen.getByRole('radio'))
+
+    await act(async () => {
+      await userEvent.tripleClick(screen.getByRole('radio'))
+    })
     expect(onChange).toBeCalledTimes(1)
   })
 })
@@ -125,7 +128,9 @@ describe('Radio.Group', () => {
         <Radio value='2'>2</Radio>
       </Radio.Group>
     )
-    await userEvent.tripleClick(screen.getByRole('radio', { name: '1' }))
+    await act(async () => {
+      await userEvent.tripleClick(screen.getByRole('radio', { name: '1' }))
+    })
     expect(onChange).toBeCalledTimes(1)
   })
 })

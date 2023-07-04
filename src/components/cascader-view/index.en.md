@@ -19,6 +19,7 @@ CascaderView is the content area of [Cascader](/components/cascader).
 | options | Data of the cascade options | `CascaderOption[]` | - |
 | placeholder | Hint text | `string` \| `(index: number) => string` | `'请选择'` |
 | value | Selected options | `CascaderValue[]` | - |
+| loading | Open the skeleton screen | `boolean` | `false` |
 
 For the type definition of `CascaderValue` `CascaderOption` `CascaderValueExtend`, please refer to the document of [Cascader](/components/cascader#api).
 

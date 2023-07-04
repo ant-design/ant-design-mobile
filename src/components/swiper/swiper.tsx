@@ -238,11 +238,12 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         const targetIndex = loop
           ? modulus(roundedIndex, count)
           : bound(roundedIndex, 0, count - 1)
-        setCurrent(targetIndex)
 
         if (targetIndex !== getCurrent()) {
           props.onIndexChange?.(targetIndex)
         }
+
+        setCurrent(targetIndex)
 
         api.start({
           position: (loop ? roundedIndex : boundIndex(roundedIndex)) * 100,

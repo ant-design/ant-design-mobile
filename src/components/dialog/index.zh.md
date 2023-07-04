@@ -28,7 +28,7 @@
 | closeOnAction | 点击操作按钮后后是否关闭 | `boolean` | `false` |
 | closeOnMaskClick | 是否支持点击遮罩关闭对话框 | `boolean` | `false` |
 | content | 对话框内容 | `React.ReactNode` | - |
-| destroyOnClose | 不可见时卸载内容 | `boolean` | `false` |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | disableBodyScroll | 是否禁用 `body` 滚动 | `boolean` | `true` |
 | forceRender | 被隐藏时是否渲染 `DOM` 结构 | `boolean` | `false` |
 | getContainer | 自定义对话框的父容器 | `HTMLElement \| (() => HTMLElement) \| null` | `null` |

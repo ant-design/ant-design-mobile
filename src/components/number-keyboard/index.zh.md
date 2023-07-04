@@ -27,7 +27,7 @@
 | closeOnConfirm | 是否在点击确定按钮时自动关闭 | `boolean` | `true` |
 | confirmText | 完成按钮文案，`null` 不展示 | `string \| null` | `null` |
 | customKey | 自定义按钮 | `string \| [string, string]` | - |
-| destroyOnClose | 不可见时卸载内容 | `boolean` | `false` |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | forceRender | 强制渲染内容 | `boolean` | `false` |
 | getContainer | 指定挂载的 HTML 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `() => document.body` |
 | onClose | 点击关闭时触发 | `() => void` | - |
