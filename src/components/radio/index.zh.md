@@ -31,6 +31,7 @@ type RadioValue = string | number
 | icon | 自定义 `icon` 图标 | `(checked: boolean) => React.ReactNode` | - |
 | id | `input` 元素的 `id`，常用来配合 `label` 使用 | `string` | - |
 | onChange | 变化时回调函数 | `(val: boolean) => void` | - |
+| onClick | Radio 的点击事件 | `(event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void` | - |
 | value | 携带的标识值，用于 `Group` 模式 | `RadioValue` | - |
 
 ### Radio.Group
