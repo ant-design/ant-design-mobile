@@ -28,7 +28,7 @@ When users need to process transactions, but do not want to jump to pages to int
 | closeOnAction | Whether to close after clicking the operation button | `boolean` | `false` |
 | closeOnMaskClick | Whether to support clicking the mask to close the modal box | `boolean` | `false` |
 | content | The content of the Modal | `React.ReactNode` | - |
-| destroyOnClose | Unmount content when not visible | `boolean` | `false` |
+| destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | disableBodyScroll | Mask Whether to disable `body` scrolling | `boolean` | `true` |
 | forceRender | Whether to render the `DOM` structure when hidden | `boolean` | `false` |
 | getContainer | The parent container of the custom modal | `HTMLElement \| (() => HTMLElement) \| null` | `null` |

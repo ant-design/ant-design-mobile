@@ -32,7 +32,7 @@ A content area that can be collapsed/expanded.
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | arrow | Custom arrow | `React.ReactNode \| ((active: boolean) => React.ReactNode)` | - |
-| destroyOnClose | Unmount content when not visible | `boolean` | `false` |
+| destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | disabled | Whether disabled or not | `boolean` | `false` |
 | forceRender | Whether to render the `DOM` structure when hidden | `boolean` | `false` |
 | key | The unique identifier | `string` | - |

@@ -43,7 +43,7 @@ type PickerValueExtend = {
 | columns | Options to configure each column | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | - |
 | confirmText | Text of the ok button | `ReactNode` | `'确定'` |
 | defaultValue | Default selected options | `PickerValue[]` | `[]` |
-| destroyOnClose | Unmount content when not visible | `boolean` | `false` |
+| destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | forceRender | Render content forcely | `boolean` | `false` |
 | mouseWheel | Whether to allow interact with mouse wheel | `boolean` | `false` |
 | onCancel | Triggered when cancelling | `() => void` | - |
@@ -154,7 +154,7 @@ type PickerDate = Date & {
 | --- | --- | --- | --- | --- |
 | children | The rendering function of the selected items | `(value: PickerDate, actions: PickerActions) => ReactNode` | - |
 | defaultValue | Default selected value | `PickerDate` | - |
-| destroyOnClose | Unmount content when not visible | `boolean` | `false` |
+| destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | filter | Filter available time | `DatePickerFilter` | - |
 | forceRender | Render content forcely | `boolean` | `false` |
 | max | Max value | `PickerDate` | ten years later |

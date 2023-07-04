@@ -26,7 +26,7 @@ Another style for tabs, used in lists or modules in presentational interfaces.
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| destroyOnClose | Unmount content when not visible | `boolean` | `false` |
+| destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | disabled | Whether to disable the tab | `boolean` | `false` |
 | forceRender | Whether to render the `DOM` structure when hidden | `boolean` | `false` |
 | key | Corresponding to `activeKey` | `string` | - |

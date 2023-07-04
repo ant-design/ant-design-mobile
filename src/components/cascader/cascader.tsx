@@ -40,6 +40,7 @@ export type CascaderProps = {
   title?: ReactNode
   confirmText?: ReactNode
   cancelText?: ReactNode
+  loading?: boolean
   children?: (
     items: (CascaderOption | null)[],
     actions: CascaderActions

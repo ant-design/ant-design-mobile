@@ -71,13 +71,9 @@ const config: IConfig = {
     ['en', 'English'],
     ['zh', '中文'],
   ],
-  extraPostCSSPlugins: [
-    // pxToRem({
-    //   rootValue: 50,
-    //   propList: ['*'],
-    // }),
-    shouldDisableCSSVar && postcssDisableCSSVars(),
-  ].filter(i => i),
+  extraPostCSSPlugins: [shouldDisableCSSVar && postcssDisableCSSVars()].filter(
+    i => i
+  ),
   themeConfig: {
     hd: {
       rules: [

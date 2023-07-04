@@ -25,7 +25,7 @@ export const FormSubscribe: FC<FormSubscribeProps> = props => {
   // Memo to avoid useless render
   const childNode = React.useMemo(
     () => props.children(value, form),
-    [JSON.stringify(value)]
+    [JSON.stringify(value), props.children]
   )
 
   return (

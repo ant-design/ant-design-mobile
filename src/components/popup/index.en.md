@@ -24,7 +24,7 @@ It is suitable for displaying pop-up windows, information prompts, selection inp
 | bodyStyle | Content section style | `React.CSSProperties` | - |
 | className | Container class name | `string` | - |
 | closeOnMaskClick | Whether to close after clicking the mask layer | `boolean` | `false` |
-| destroyOnClose | Unmount content when not visible | `boolean` | `false` |
+| destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | forceRender | Render content forcely | `boolean` | `false` |
 | getContainer | To get the specified mounted `HTML` node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `() => document.body` |
 | mask | Whether to display Mask | `boolean` | `true` |
@@ -38,6 +38,7 @@ It is suitable for displaying pop-up windows, information prompts, selection inp
 | stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `['click']` |
 | style | Container style | `React.CSSProperties` | - |
 | visible | Whether visible | `boolean` | `false` |
+| closeOnSwipe | Whether to support closing by swiping up/down | `boolean` | `false` |
 
 ### CSS Variables
 
