@@ -23,6 +23,7 @@ export type RadioProps = {
   id?: string
   icon?: (checked: boolean) => React.ReactNode
   children?: React.ReactNode
+  onClick?: (event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void
 } & NativeProps<'--icon-size' | '--font-size' | '--gap'>
 
 const defaultProps = {
@@ -86,9 +87,7 @@ export const Radio: FC<RadioProps> = p => {
   return withNativeProps(
     props,
     <label
-      onClick={e => {
-        e.stopPropagation()
-      }}
+      onClick={props.onClick}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled,
