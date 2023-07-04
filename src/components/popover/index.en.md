@@ -22,7 +22,7 @@ Navigation applicable to functions can only be evoked by the icons on the naviga
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| children | The element that triggered the popover | `React.ReactElement` | - |
+| children | The element that triggered the Popover | `React.ReactElement` | - |
 | content | The content of the Popover | `React.ReactNode` | - |
 | defaultVisible | Whether to show or hide by default | `boolean` | `false` |
 | destroyOnHide | When hiding, whether to destroy the content of `tooltip` | `boolean` | `false` |
