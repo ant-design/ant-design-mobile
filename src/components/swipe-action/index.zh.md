@@ -19,10 +19,10 @@
 | closeOnAction | 是否在点击操作按钮时自动归位 | `boolean` | `true` |
 | closeOnTouchOutside | 是否在点击其他区域时自动归位 | `boolean` | `true` |
 | leftActions | 左侧的操作按钮列表 | `Action[]` | `[]` |
-| onAction | 点击操作按钮时触发 | `(action: Action, e: React.MouseEvent) => void` | - |
 | rightActions | 右侧的操作按钮列表 | `Action[]` | `[]` |
+| onAction | 点击操作按钮时触发 | `(action: Action, e: React.MouseEvent) => void` | - |
 | stopPropagation | 阻止某些事件的冒泡 | `PropagationEven[]` | `[]` |
-| onActionsReveal | 按钮完全出现时触发 | (side: 'left' \| 'right') => void | - |
+| onActionsReveal | 按钮完全出现时触发 | `(side: 'left' \| 'right') => void` | - |
 
 ### Action
 
