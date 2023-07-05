@@ -14,6 +14,8 @@ import type {
   DatePickerFilter,
 } from '../date-picker/date-picker-utils'
 import useRenderLabel from './useRenderLabel'
+import { TILL_NOW } from '../date-picker/util'
+import type { PickerDate } from '../date-picker/util'
 
 export type RenderLabel = (type: Precision | 'now', data: number) => ReactNode
 
@@ -21,14 +23,15 @@ export type DatePickerViewProps = Pick<
   PickerViewProps,
   'style' | 'mouseWheel' | 'loading' | 'loadingContent'
 > & {
-  value?: Date
-  defaultValue?: Date
-  onChange?: (value: Date) => void
-  min?: Date
-  max?: Date
+  value?: PickerDate
+  defaultValue?: PickerDate
+  onChange?: (value: PickerDate) => void
+  min?: PickerDate
+  max?: PickerDate
   precision?: Precision
   renderLabel?: RenderLabel
   filter?: DatePickerFilter
+  tillNow?: boolean
 } & NativeProps
 
 const thisYear = new Date().getFullYear()
@@ -43,17 +46,20 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { renderLabel } = props
 
-  const [value, setValue] = usePropsValue<Date | null>({
+  const [value, setValue] = usePropsValue<PickerDate | null>({
     value: props.value,
     defaultValue: props.defaultValue ?? null,
   })
 
   const mergedRenderLabel = useRenderLabel(renderLabel)
 
-  const pickerValue = useMemo(
-    () => convertDateToStringArray(value, props.precision),
-    [value, props.precision]
-  )
+  const pickerValue = useMemo(() => {
+    if (value?.tillNow) {
+      return [TILL_NOW, null, null]
+    }
+
+    return convertDateToStringArray(value, props.precision)
+  }, [value, props.precision])
 
   const onChange = useCallback(
     (val: PickerValue[]) => {
@@ -76,7 +82,8 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
           props.max,
           props.precision,
           mergedRenderLabel,
-          props.filter
+          props.filter,
+          props.tillNow
         )
       }
       loading={props.loading}
