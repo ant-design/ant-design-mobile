@@ -18,9 +18,9 @@ When the display space is not enough, hide some content and replace it with "...
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| collapseText | Collapse operation text | `React.ReactNode` | `''` |
 | content | The text content | `string` | - |
 | direction | Position omitted | `'start' \| 'end' \| 'middle'` | `'end'` |
+| collapseText | Collapse operation text | `React.ReactNode` | `''` |
 | expandText | Expand operation text | `React.ReactNode` | `''` |
 | onContentClick | Trigger when clicked text content | `(e: React.MouseEvent) => void` | - |
 | rows | The number to display lines | `number` | `1` |

@@ -32,7 +32,7 @@ It is suitable for inputting and adjusting the current value within a certain ra
 | onChange | Callback when value is changed | `(value: number \| null) => void` | - |
 | onFocus | Triggered when the input get focus | `(e: React.FocusEvent<HTMLInputElement>) => void` | - |
 | parser | Parse input text into number which should work with `formatter` | `(text: string) => number` | - | 5.26.0 |
-| step | Change the number of steps each time, it can be a decimal | `number` | `1` |
+| step | The value to increase or decrease each time, can be a decimal | `number` | `1` |
 | stringMode | Set value as string to support high precision decimals. Will set `defaultValue`,`value`, `min`, `max`, `onChange` to `string` type | `boolean` | `false` | 5.27.0 |
 | value | Current number, controlled value | `number \| null` | - |
 
