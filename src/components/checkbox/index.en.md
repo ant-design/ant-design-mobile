@@ -28,7 +28,7 @@ type CheckboxValue = string | number
 | block | Whether to render as a block-level element | `boolean` | `false` |
 | checked | To specify whether selected or not currently | `boolean` | `false` |
 | defaultChecked | Selected or not initially | `boolean` | `false` |
-| disabled | Failure state | `boolean` | `false` |
+| disabled | Disabled state | `boolean` | `false` |
 | icon | The customized `icon` | `(checked: boolean, indeterminate: boolean) => React.ReactNode` | - |
 | id | The id of the input element, often used in conjunction with the label | `string` | - |
 | indeterminate | To set the `indeterminate` state, only responsible for style control | `boolean` | `false` |
