@@ -28,7 +28,16 @@ describe('Checkbox', () => {
     expect(input).not.toBeChecked()
     expect(checkbox).not.toHaveClass(`${classPrefix}-checked`)
   })
+  test('Checkbox click', () => {
+    const handleClick = jest.fn()
+    const { container } = render(
+      <Checkbox onClick={handleClick}>click</Checkbox>
+    )
+    const checkbox = container.getElementsByTagName('label')[0]
 
+    fireEvent.click(checkbox)
+    expect(handleClick).toHaveBeenCalledTimes(1)
+  })
   test('renders with disabled', async () => {
     const { container } = render(<Checkbox disabled>Checkbox</Checkbox>)
     const input = container.querySelectorAll('input')[0]

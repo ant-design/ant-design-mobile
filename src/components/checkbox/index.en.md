@@ -33,6 +33,7 @@ type CheckboxValue = string | number
 | id | The id of the input element, often used in conjunction with the label | `string` | - |
 | indeterminate | To set the `indeterminate` state, only responsible for style control | `boolean` | `false` |
 | onChange | Callback function when changing | `(val: boolean) => void` | - |
+| onClick | Checkbox's click event | `(event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void` | - |
 | value | The value carrying identification, used in `Group` mode | `CheckboxValue` | - |
 
 ### Ref
