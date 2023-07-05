@@ -47,7 +47,8 @@ export type FormItemProps = Pick<
     ListItemProps,
     'style' | 'extra' | 'clickable' | 'arrow' | 'description'
   > & {
-    label?: React.ReactNode
+  extra?: React.ReactNode | ((val: any) => React.ReactNode) ,
+  label?: React.ReactNode
     help?: React.ReactNode
     hasFeedback?: boolean
     required?: boolean
@@ -301,6 +302,7 @@ export const FormItem: FC<FormItemProps> = props => {
 
   function renderLayout(
     baseChildren: React.ReactNode,
+    value?: any,
     fieldId?: string,
     meta?: Meta,
     isRequired?: boolean
@@ -332,13 +334,20 @@ export const FormItem: FC<FormItemProps> = props => {
       curWarnings
     )
 
+    const renderExtra = ()=> {
+      if(typeof extra === 'function'){
+        return extra(value)
+      }
+      return extra
+    }
+
     return withNativeProps(
       props,
       <FormItemLayout
         className={className}
         style={style}
         label={label}
-        extra={extra}
+        extra={renderExtra()}
         help={help}
         description={description}
         required={isRequired}
@@ -499,7 +508,7 @@ export const FormItem: FC<FormItemProps> = props => {
           childNode = children
         }
 
-        return renderLayout(childNode, fieldId, meta, isRequired)
+        return renderLayout(childNode,control.value, fieldId, meta, isRequired)
       }}
     </Field>
   )
