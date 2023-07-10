@@ -95,17 +95,17 @@ export const Wheel = memo<Props>(
           })
     ) => {
       const {
-        direction: [direction1, direction2], // 方向
-        distance: [distance1, distance2], // 距离
-        velocity: [velocity1, velocity2], // 速度
-        offset: [offset1, offset2], // 与原点得距离
+        direction: [, direction], // 方向
+        distance: [, distance], // 距离
+        velocity: [, velocity], // 速度
+        offset: [, offset], // 与原点得距离
         last,
       } = state
       return {
-        direction: direction2,
-        distance: distance2,
-        velocity: velocity2,
-        offset: offset2,
+        direction,
+        distance,
+        velocity,
+        offset,
         last,
       }
     }
