@@ -17,9 +17,15 @@ const classPrefix = `adm-cascader-view`
 
 export type CascaderValue = string
 
-export type CascaderOption = {
+type BaseOptionType = {
   [key: string]: any
 }
+export type CascaderOption = {
+  label: string
+  value: string
+  disabled?: boolean
+  children?: CascaderOption[]
+} & BaseOptionType
 
 export type CascaderValueExtend = {
   items: (CascaderOption | null)[]
