@@ -159,9 +159,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
     e.target.value = '' // HACK: fix the same file doesn't trigger onChange
 
     if (props.beforeUpload) {
-      const postFiles = files.map(file => {
-        return processFile(file, files)
-      })
+      const postFiles = files.map(file => processFile(file, files))
 
       await Promise.all(postFiles).then(filesList => {
         files = filesList.filter(Boolean) as File[]

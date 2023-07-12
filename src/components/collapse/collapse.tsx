@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, ComponentProps, useRef } from 'react'
+import React, { FC, ReactElement, isValidElement, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
 import { DownOutline } from 'antd-mobile-icons'
@@ -120,11 +120,12 @@ export type CollapseProps = (
 } & NativeProps
 
 export const Collapse: FC<CollapseProps> = props => {
-  const panels: ReactElement<ComponentProps<typeof CollapsePanel>>[] = []
+  const panels: ReactElement<CollapsePanelProps>[] = []
   traverseReactNode(props.children, child => {
-    if (!React.isValidElement(child)) return
+    if (!isValidElement<CollapsePanelProps>(child)) return
     const key = child.key
     if (typeof key !== 'string') return
+
     panels.push(child)
   })
 

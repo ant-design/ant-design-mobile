@@ -320,18 +320,14 @@ export const Multiple: FC<MultipleProps> = p => {
       return (
         <>
           {renderSelectAllLeafItem(columnOptions, index)}
-          {columnOptions.map(option => {
-            return renderLeafItem(option)
-          })}
+          {columnOptions.map(option => renderLeafItem(option))}
         </>
       )
     }
     return (
       <>
         {renderSelectAllItem(columnOptions, index)}
-        {columnOptions.map(option => {
-          return renderItem(option)
-        })}
+        {columnOptions.map(option => renderItem(option))}
       </>
     )
   }
