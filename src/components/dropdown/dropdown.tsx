@@ -26,7 +26,6 @@ export type DropdownProps = {
   closeOnMaskClick?: boolean
   closeOnClickAway?: boolean
   onChange?: (key: string | null) => void
-  // mask?: boolean;
   arrow?: React.ReactNode
   getContainer?: PopupProps['getContainer']
 } & NativeProps
