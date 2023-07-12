@@ -25,9 +25,7 @@ export type CapsuleTabProps = {
   children?: ReactNode
 } & NativeProps
 
-export const CapsuleTab: FC<CapsuleTabProps> = () => {
-  return null
-}
+export const CapsuleTab: FC<CapsuleTabProps> = () => null
 
 export type CapsuleTabsProps = {
   activeKey?: string | null

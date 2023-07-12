@@ -72,23 +72,21 @@ export const Modal: FC<ModalProps> = p => {
           props.actions.length === 0 && cls('footer-empty')
         )}
       >
-        {props.actions.map((action, index) => {
-          return (
-            <ModalActionButton
-              key={action.key}
-              action={action}
-              onAction={async () => {
-                await Promise.all([
-                  action.onClick?.(),
-                  props.onAction?.(action, index),
-                ])
-                if (props.closeOnAction) {
-                  props.onClose?.()
-                }
-              }}
-            />
-          )
-        })}
+        {props.actions.map((action, index) => (
+          <ModalActionButton
+            key={action.key}
+            action={action}
+            onAction={async () => {
+              await Promise.all([
+                action.onClick?.(),
+                props.onAction?.(action, index),
+              ])
+              if (props.closeOnAction) {
+                props.onClose?.()
+              }
+            }}
+          />
+        ))}
       </Space>
     </>
   )

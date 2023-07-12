@@ -16,7 +16,6 @@ export interface FormArrayOperation {
 
 export interface FormArrayProps {
   name: string | number | (string | number)[]
-  // rules?: ValidatorRule[]
   initialValue?: any[]
   renderHeader?: (
     field: FormArrayField,

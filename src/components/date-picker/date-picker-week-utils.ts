@@ -77,12 +77,10 @@ export function generateDatePickerColumns(
     const upper = maxYear
     const years = generateColumn(lower, upper, 'year')
     ret.push(
-      years.map(v => {
-        return {
-          label: renderLabel('year', v),
-          value: v.toString(),
-        }
-      })
+      years.map(v => ({
+        label: renderLabel('year', v),
+        value: v.toString(),
+      }))
     )
   }
 
@@ -91,12 +89,10 @@ export function generateDatePickerColumns(
     const upper = isInMaxYear ? maxWeek : selectedYearWeeks
     const weeks = generateColumn(lower, upper, 'week')
     ret.push(
-      weeks.map(v => {
-        return {
-          label: renderLabel('week', v),
-          value: v.toString(),
-        }
-      })
+      weeks.map(v => ({
+        label: renderLabel('week', v),
+        value: v.toString(),
+      }))
     )
   }
   if (rank >= precisionRankRecord['week-day']) {
@@ -104,12 +100,10 @@ export function generateDatePickerColumns(
     const upper = isInMaxWeek ? maxWeekday : 7
     const weeks = generateColumn(lower, upper, 'week-day')
     ret.push(
-      weeks.map(v => {
-        return {
-          label: renderLabel('week-day', v),
-          value: v.toString(),
-        }
-      })
+      weeks.map(v => ({
+        label: renderLabel('week-day', v),
+        value: v.toString(),
+      }))
     )
   }
 
