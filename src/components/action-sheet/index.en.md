@@ -14,8 +14,8 @@ Triggered by user operation, it provides a set of two or more options related to
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
 | actions | The option list of the the action sheet | `Action[]` | `[]` |
 | afterClose | Triggered when completely closed | `() => void` | - |
 | cancelText | The text of the cancel button , if it is null, the cancel button would not be displayed | `ReactNode` | - |
@@ -29,9 +29,10 @@ Triggered by user operation, it provides a set of two or more options related to
 | onClose | Triggered when closed | `() => void` | - |
 | onMaskClick | Triggered when the mask layer is clicked | `() => void` | - |
 | popupClassName | `ActionSheet` popup class name | `string` | - |
-| popupStyle | `ActionSheet` popup style | `React.CSSProperties` | - |
+| popupStyle | `ActionSheet` popup style | `React.CSSProperties` | - | Will be removed in the next version, use `styles` instead |
 | safeArea | Whether to enable safe area padding | `boolean` | `true` |
 | visible | To show or hide the action sheet | `boolean` | `false` |
+| styles | Semantic structure style | `Partial<Record<'popup' \| 'popupBody' \| 'popupMask', CSSProperties>>` | - | 5.33.0 |
 
 ### Action
 

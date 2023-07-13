@@ -31,7 +31,9 @@ export type ActionSheetProps = {
   closeOnMaskClick?: boolean
   safeArea?: boolean
   popupClassName?: string
+  /** @deprecated use `styles` instead */
   popupStyle?: CSSProperties
+  styles?: Partial<Record<'popup' | 'popupBody' | 'popupMask', CSSProperties>>
 } & Pick<
   PopupProps,
   'afterClose' | 'getContainer' | 'destroyOnClose' | 'forceRender'
@@ -51,6 +53,7 @@ const defaultProps = {
 
 export const ActionSheet: FC<ActionSheetProps> = p => {
   const props = mergeProps(defaultProps, p)
+  const { styles } = props
 
   return (
     <Popup
@@ -63,10 +66,12 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
       }}
       afterClose={props.afterClose}
       className={classNames(`${classPrefix}-popup`, props.popupClassName)}
-      style={props.popupStyle}
+      style={styles?.popup || props.popupStyle}
       getContainer={props.getContainer}
       destroyOnClose={props.destroyOnClose}
       forceRender={props.forceRender}
+      bodyStyle={styles?.popupBody}
+      maskStyle={styles?.popupMask}
     >
       {withNativeProps(
         props,

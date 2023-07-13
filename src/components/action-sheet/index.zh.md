@@ -14,8 +14,8 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
 | actions | 面板选项列表 | `Action[]` | `[]` |
 | afterClose | 完全关闭后触发 | `() => void` | - |
 | cancelText | 取消按钮文字，如果设置为空则不显示取消按钮 | `ReactNode` | - |
@@ -29,9 +29,10 @@
 | onClose | 关闭时触发 | `() => void` | - |
 | onMaskClick | 点击背景蒙层时触发 | `() => void` | - |
 | popupClassName | `ActionSheet` 弹出层类名 | `string` | - |
-| popupStyle | `ActionSheet` 弹出层样式 | `React.CSSProperties` | - |
+| popupStyle | `ActionSheet` 弹出层样式 | `React.CSSProperties` | - | 下个版本移除，推荐 `styles` |
 | safeArea | 是否开启安全区适配 | `boolean` | `true` |
 | visible | 显示隐藏 | `boolean` | `false` |
+| styles | 语义化结构 style | `Partial<Record<'popup' \| 'popupBody' \| 'popupMask', CSSProperties>>` | - | 5.33.0 |
 
 ### Action
 
