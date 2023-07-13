@@ -1,4 +1,5 @@
-import React, { FC, useRef, RefObject, useState, ReactNode } from 'react'
+import React, { useRef, useState, ReactNode } from 'react'
+import type { FC, RefObject } from 'react'
 import { useDrag } from '@use-gesture/react'
 import { ThumbIcon } from './thumb-icon'
 import Popover from '../popover'

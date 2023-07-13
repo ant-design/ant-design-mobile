@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import type { FC } from 'react'
 import { renderToBody } from '../../utils/render-to-body'
 import { DatePicker, DatePickerProps } from './date-picker'
 import type { PickerDate } from './util'

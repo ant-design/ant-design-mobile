@@ -1,4 +1,5 @@
-import React, { FC, ReactNode, ReactElement, isValidElement } from 'react'
+import React, { ReactElement, isValidElement } from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import Badge, { BadgeProps } from '../badge'
 import { NativeProps, withNativeProps } from '../../utils/native-props'

@@ -1,4 +1,5 @@
-import React, { FC, useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
+import type { FC } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { mergeProps } from '../../utils/with-default-props'

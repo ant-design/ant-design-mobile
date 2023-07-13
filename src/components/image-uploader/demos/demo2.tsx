@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
+import type { FC } from 'react'
 import { DemoBlock } from 'demos'
 import { ImageUploadItem } from 'antd-mobile/es/components/image-uploader'
 import { ImageUploader } from 'antd-mobile'

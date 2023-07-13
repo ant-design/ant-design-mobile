@@ -1,5 +1,6 @@
 import classNames from 'classnames'
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/should-render'
 import { DownFill } from 'antd-mobile-icons'

@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { RadioValue } from '.'
 import { RadioGroupContext } from './group-context'

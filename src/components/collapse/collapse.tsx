@@ -1,4 +1,5 @@
-import React, { FC, ReactElement, isValidElement, useRef } from 'react'
+import React, { ReactElement, isValidElement, useRef } from 'react'
+import type { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
 import { DownOutline } from 'antd-mobile-icons'

@@ -1,4 +1,5 @@
-import React, { FC, useContext, useCallback, useState, useRef } from 'react'
+import React, { useContext, useCallback, useState, useRef } from 'react'
+import type { FC } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
@@ -98,7 +99,7 @@ type FormItemLayoutProps = Pick<
   children: React.ReactNode
 } & NativeProps
 
-const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
+const FormItemLayout: FC<FormItemLayoutProps> = props => {
   const {
     className,
     style,

@@ -1,10 +1,5 @@
-import React, {
-  FC,
-  InputHTMLAttributes,
-  useRef,
-  useState,
-  CSSProperties,
-} from 'react'
+import React, { useRef, useState } from 'react'
+import type { FC, InputHTMLAttributes, CSSProperties } from 'react'
 import { AddOutline, CloseOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'

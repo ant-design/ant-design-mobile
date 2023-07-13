@@ -1,4 +1,5 @@
-import React, { FC, useMemo, useRef, useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
+import type { FC } from 'react'
 import runes from 'runes2'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'

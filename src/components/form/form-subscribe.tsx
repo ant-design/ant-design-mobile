@@ -1,4 +1,5 @@
-import React, { FC, memo, useContext } from 'react'
+import React, { memo, useContext } from 'react'
+import type { FC } from 'react'
 import { FieldContext, useWatch } from 'rc-field-form'
 import { useUpdate } from 'ahooks'
 import type { FormInstance } from 'rc-field-form'

@@ -1,5 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { FC, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import type { FC } from 'react'
 import { useLockFn, useThrottleFn } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getScrollParent } from '../../utils/get-scroll-parent'

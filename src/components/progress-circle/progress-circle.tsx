@@ -1,4 +1,5 @@
-import React, { CSSProperties, FC } from 'react'
+import React from 'react'
+import type { FC, CSSProperties } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 

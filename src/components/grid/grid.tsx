@@ -1,5 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { toCSSLength } from '../../utils/to-css-length'
 

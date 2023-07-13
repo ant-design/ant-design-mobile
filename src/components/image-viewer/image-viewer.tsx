@@ -1,12 +1,11 @@
 import React, {
-  FC,
   forwardRef,
   useImperativeHandle,
   useRef,
   useState,
   useCallback,
 } from 'react'
-
+import type { FC } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import {
   GetContainer,

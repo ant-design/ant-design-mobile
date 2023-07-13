@@ -1,10 +1,5 @@
-import React, {
-  FC,
-  ReactNode,
-  ReactElement,
-  isValidElement,
-  useRef,
-} from 'react'
+import React, { ReactElement, isValidElement, useRef } from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'

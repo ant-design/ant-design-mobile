@@ -141,7 +141,6 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
             right: leftWidth,
           }
         },
-        // rubberband: true,
         axis: 'x',
         preventScroll: true,
         pointer: { touch: true },

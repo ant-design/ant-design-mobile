@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
+import type { FC } from 'react'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
 import Image from '../image'

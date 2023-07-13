@@ -1,4 +1,5 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React, { ReactElement } from 'react'
+import type { FC, ReactNode } from 'react'
 import type { StoreValue } from 'rc-field-form/es/interface'
 import { List as RCList } from 'rc-field-form'
 import List from '../list'
@@ -29,7 +30,7 @@ export interface FormArrayProps {
   ) => ReactElement[]
 }
 
-export const FormArray: React.FC<FormArrayProps> = props => {
+export const FormArray: FC<FormArrayProps> = props => {
   return (
     <RCList name={props.name} initialValue={props.initialValue}>
       {(rcFields, operation) => {

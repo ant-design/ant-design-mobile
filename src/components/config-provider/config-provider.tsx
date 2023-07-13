@@ -1,4 +1,5 @@
-import React, { FC, useContext } from 'react'
+import React, { useContext } from 'react'
+import type { FC } from 'react'
 import { Locale } from '../../locales/base'
 import zhCN from '../../locales/zh-CN'
 
