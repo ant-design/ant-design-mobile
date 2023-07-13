@@ -1,5 +1,5 @@
-import React, { ReactElement, isValidElement } from 'react'
-import type { FC, ReactNode } from 'react'
+import React, { isValidElement } from 'react'
+import type { FC, ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'

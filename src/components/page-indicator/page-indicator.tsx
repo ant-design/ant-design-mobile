@@ -1,4 +1,5 @@
-import React, { memo, ReactElement } from 'react'
+import React, { memo } from 'react'
+import type { ReactElement } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'

@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react'
-import type { FC, ReactNode } from 'react'
+import React from 'react'
+import type { FC, ReactNode, ReactElement } from 'react'
 import type { StoreValue } from 'rc-field-form/es/interface'
 import { List as RCList } from 'rc-field-form'
 import List from '../list'

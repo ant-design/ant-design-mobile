@@ -6,6 +6,7 @@ import React, {
   useImperativeHandle,
   ReactElement,
 } from 'react'
+import type { ReactElement } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import type { NumberKeyboardProps } from '../number-keyboard'

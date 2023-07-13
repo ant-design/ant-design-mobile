@@ -1,12 +1,11 @@
 import React, {
   forwardRef,
   useImperativeHandle,
-  ReactElement,
   useRef,
   useState,
   useEffect,
 } from 'react'
-import type { ReactNode } from 'react'
+import type { ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'

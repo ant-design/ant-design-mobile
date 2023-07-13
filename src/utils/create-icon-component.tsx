@@ -1,5 +1,4 @@
-import { ReactElement } from 'react'
-import type { FC } from 'react'
+import type { FC, ReactElement } from 'react'
 
 export function createIconComponent(svg: ReactElement) {
   const Icon: FC = () => {
