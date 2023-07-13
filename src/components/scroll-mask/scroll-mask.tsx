@@ -1,4 +1,5 @@
-import React, { FC, useRef, RefObject, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
+import type { FC, RefObject } from 'react'
 import classNames from 'classnames'
 import { animated, useSpring } from '@react-spring/web'
 import { useThrottleFn } from 'ahooks'

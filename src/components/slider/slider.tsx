@@ -1,4 +1,5 @@
-import React, { FC, ReactNode, useMemo, useRef } from 'react'
+import React, { useMemo, useRef } from 'react'
+import type { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'

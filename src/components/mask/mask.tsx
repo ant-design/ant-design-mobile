@@ -1,5 +1,6 @@
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import React, { useMemo, useRef, useState } from 'react'
+import type { FC, ReactNode } from 'react'
 import { useUnmountedRef } from 'ahooks'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useSpring, animated } from '@react-spring/web'
@@ -39,7 +40,7 @@ export type MaskProps = {
   afterShow?: () => void
   afterClose?: () => void
   stopPropagation?: PropagationEvent[]
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<'--z-index'>
 
 const defaultProps = {
@@ -53,7 +54,7 @@ const defaultProps = {
   stopPropagation: ['click'],
 }
 
-export const Mask: React.FC<MaskProps> = p => {
+export const Mask: FC<MaskProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { locale } = useConfig()
 

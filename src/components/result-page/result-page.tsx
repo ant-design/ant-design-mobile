@@ -1,4 +1,6 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { useState } from 'react'
+import type { FC, ReactNode } from 'react'
+
 import {
   CheckCircleFill,
   CloseCircleFill,

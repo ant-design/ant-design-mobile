@@ -1,4 +1,5 @@
-import React, { useRef, useMemo, TouchEvent, MouseEvent } from 'react'
+import React, { useRef, useMemo } from 'react'
+import type { FC, TouchEvent, MouseEvent } from 'react'
 import classNames from 'classnames'
 import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
@@ -45,7 +46,7 @@ const defaultProps = {
   forceRender: false,
 }
 
-export const NumberKeyboard: React.FC<NumberKeyboardProps> = p => {
+export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
   const props = mergeProps(defaultProps, p)
   const {
     visible,

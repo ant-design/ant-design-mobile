@@ -1,8 +1,9 @@
+import React, { useEffect, useRef, useState } from 'react'
+import type { FC, ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { getScrollParent } from '../../utils/get-scroll-parent'
-import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import { supportsPassive } from '../../utils/supports-passive'
 import { convertPx } from '../../utils/convert-px'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
@@ -24,7 +25,7 @@ export type PullToRefreshProps = {
   threshold?: number
   disabled?: boolean
   renderText?: (status: PullStatus) => ReactNode
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 export const defaultProps = {

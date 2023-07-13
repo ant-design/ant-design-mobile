@@ -1,13 +1,14 @@
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-step`
 
 export type StepProps = {
-  title?: React.ReactNode
-  description?: React.ReactNode
-  icon?: React.ReactNode
+  title?: ReactNode
+  description?: ReactNode
+  icon?: ReactNode
   status?: 'wait' | 'process' | 'finish' | 'error'
 } & NativeProps
 

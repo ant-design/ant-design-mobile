@@ -1,4 +1,5 @@
-import React, { FC, ReactNode, useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import Tabs from '../tabs'
 import CheckList from '../check-list'

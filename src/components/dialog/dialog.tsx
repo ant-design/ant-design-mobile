@@ -1,4 +1,5 @@
-import React, { FC, ReactNode } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
 import { Action, DialogActionButton } from './dialog-action-button'

@@ -1,5 +1,6 @@
 import classNames from 'classnames'
-import React, { FC, useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
+import type { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
 import { mergeProps } from '../../utils/with-default-props'

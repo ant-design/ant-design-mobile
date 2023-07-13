@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 export const ThumbIcon: FC<NativeProps> = props => {

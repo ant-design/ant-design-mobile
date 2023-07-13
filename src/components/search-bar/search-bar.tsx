@@ -1,10 +1,5 @@
-import React, {
-  useState,
-  useRef,
-  forwardRef,
-  useImperativeHandle,
-  ReactNode,
-} from 'react'
+import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
+import type { ReactNode } from 'react'
 import classNames from 'classnames'
 import Input, { InputRef, InputProps } from '../input'
 import Button from '../button'

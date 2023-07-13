@@ -1,10 +1,5 @@
-import React, {
-  FC,
-  ReactNode,
-  ReactElement,
-  isValidElement,
-  useRef,
-} from 'react'
+import React, { isValidElement, useRef } from 'react'
+import type { FC, ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import { animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -31,7 +26,7 @@ export type CapsuleTabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 export const CapsuleTabs: FC<CapsuleTabsProps> = props => {

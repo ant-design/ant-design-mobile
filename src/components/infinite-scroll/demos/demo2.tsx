@@ -1,4 +1,5 @@
-import React, { CSSProperties, useState } from 'react'
+import React, { useState } from 'react'
+import type { CSSProperties } from 'react'
 import { List, Image, InfiniteScroll } from 'antd-mobile'
 import {
   List as VirtualizedList,

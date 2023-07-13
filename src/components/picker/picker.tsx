@@ -1,11 +1,11 @@
 import React, {
   useState,
   useEffect,
-  ReactNode,
   forwardRef,
   useImperativeHandle,
   memo,
 } from 'react'
+import type { ReactNode, CSSProperties } from 'react'
 import classNames from 'classnames'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
@@ -58,7 +58,7 @@ export type PickerProps = {
   renderLabel?: (item: PickerColumnItem) => ReactNode
   mouseWheel?: boolean
   popupClassName?: string
-  popupStyle?: React.CSSProperties
+  popupStyle?: CSSProperties
 } & Pick<
   PopupProps,
   | 'getContainer'

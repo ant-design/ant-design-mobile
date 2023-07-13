@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC } from 'react'
 import PickerView from '../picker-view'
 import type { PickerViewProps } from '../picker-view'
 import type { CascadePickerOption } from '../cascade-picker'

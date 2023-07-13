@@ -1,4 +1,5 @@
-import React, { FC, ReactNode } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List, { ListProps } from '../list'
 import { mergeProps } from '../../utils/with-default-props'
@@ -17,7 +18,7 @@ export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
   extra?: (active: boolean) => ReactNode
   disabled?: boolean
   readOnly?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 const defaultProps = {

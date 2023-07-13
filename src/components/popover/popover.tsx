@@ -1,11 +1,11 @@
 import React, {
   forwardRef,
   useImperativeHandle,
-  ReactElement,
   useRef,
   useState,
   useEffect,
 } from 'react'
+import type { ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
@@ -48,7 +48,7 @@ export type PopoverProps = {
   trigger?: 'click'
   placement?: Placement | DeprecatedPlacement
   stopPropagation?: PropagationEvent[]
-  content: React.ReactNode
+  content: ReactNode
 } & NativeProps<'--z-index' | '--arrow-size'>
 
 export type PopoverRef = {

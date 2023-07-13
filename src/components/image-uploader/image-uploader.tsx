@@ -1,9 +1,10 @@
-import React, {
+import React, { useRef, useState } from 'react'
+import type {
   FC,
+  ReactNode,
   InputHTMLAttributes,
-  useRef,
-  useState,
   CSSProperties,
+  ReactElement,
 } from 'react'
 import { AddOutline, CloseOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
@@ -49,7 +50,7 @@ export type ImageUploaderProps = {
   disableUpload?: boolean
   showUpload?: boolean
   deletable?: boolean
-  deleteIcon?: React.ReactNode
+  deleteIcon?: ReactNode
   capture?: InputHTMLAttributes<unknown>['capture']
   onPreview?: (index: number, item: ImageUploadItem) => void
   beforeUpload?: (
@@ -61,12 +62,12 @@ export type ImageUploaderProps = {
   preview?: boolean
   showFailed?: boolean
   imageFit?: ImageProps['fit']
-  children?: React.ReactNode
+  children?: ReactNode
   renderItem?: (
-    originNode: React.ReactElement,
+    originNode: ReactElement,
     file: ImageUploadItem,
     fileList: ImageUploadItem[]
-  ) => React.ReactNode
+  ) => ReactNode
 } & NativeProps<'--cell-size' | '--gap' | '--gap-vertical' | '--gap-horizontal'>
 
 const classPrefix = `adm-image-uploader`
