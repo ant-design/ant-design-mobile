@@ -1,4 +1,5 @@
-import React, { ReactNode, ReactElement, isValidElement, useRef } from 'react'
+import React, { ReactElement, isValidElement, useRef } from 'react'
+import type { ReactNode } from 'react'
 import type { FC } from 'react'
 import classNames from 'classnames'
 import { animated } from '@react-spring/web'
@@ -18,7 +19,7 @@ export type JumboTabProps = {
   disabled?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 export const JumboTab: FC<JumboTabProps> = () => {
@@ -29,7 +30,7 @@ export type JumboTabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 export const JumboTabs: FC<JumboTabsProps> = props => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import type { FC } from 'react'
+import type { FC, ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { CheckboxValue } from '.'
 import { CheckboxGroupContext } from './group-context'
@@ -10,7 +10,7 @@ export interface CheckboxGroupProps {
   onChange?: (val: CheckboxValue[]) => void
   defaultValue?: CheckboxValue[]
   disabled?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 const defaultProps = {

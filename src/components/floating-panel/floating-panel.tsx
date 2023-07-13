@@ -1,10 +1,5 @@
-import React, {
-  forwardRef,
-  ReactNode,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDrag } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'

@@ -18,7 +18,7 @@ export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
   extra?: (active: boolean) => ReactNode
   disabled?: boolean
   readOnly?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 const defaultProps = {

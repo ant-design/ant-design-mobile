@@ -1,5 +1,5 @@
-import React, { useRef, useState, ReactNode } from 'react'
-import type { FC, RefObject } from 'react'
+import React, { useRef, useState } from 'react'
+import type { FC, RefObject, ReactNode } from 'react'
 import { useDrag } from '@use-gesture/react'
 import { ThumbIcon } from './thumb-icon'
 import Popover from '../popover'
@@ -15,7 +15,7 @@ type ThumbProps = {
   disabled: boolean
   onDrag: (value: number, first: boolean, last: boolean) => void
   trackRef: RefObject<HTMLDivElement>
-  icon?: React.ReactNode
+  icon?: ReactNode
   popover: boolean | ((value: number) => ReactNode)
   residentPopover: boolean
 } & NativeProps

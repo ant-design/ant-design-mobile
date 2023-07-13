@@ -1,5 +1,5 @@
 import React from 'react'
-import type { FC, CSSProperties } from 'react'
+import type { FC, CSSProperties, ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
@@ -25,7 +25,7 @@ export type TagProps = {
   fill?: 'solid' | 'outline'
   round?: boolean
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<
   '--border-color' | '--background-color' | '--text-color' | '--border-radius'
 >

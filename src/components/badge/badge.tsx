@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
-import type { FC } from 'react'
+import type { FC, ReactNode, CSSProperties } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-badge`
@@ -8,12 +8,12 @@ const classPrefix = `adm-badge`
 export const dot = <React.Fragment />
 
 export type BadgeProps = {
-  content?: React.ReactNode | typeof dot
+  content?: ReactNode | typeof dot
   color?: string
   bordered?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
   wrapperClassName?: string
-  wrapperStyle?: React.CSSProperties
+  wrapperStyle?: CSSProperties
 } & NativeProps<'--right' | '--top' | '--color'>
 
 export const Badge: FC<BadgeProps> = props => {

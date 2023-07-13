@@ -1,5 +1,5 @@
 import React from 'react'
-import type { FC, ReactNode } from 'react'
+import type { FC, ReactNode, CSSProperties } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
@@ -8,14 +8,14 @@ const classPrefix = `adm-card`
 export type CardProps = {
   title?: ReactNode
   extra?: ReactNode
-  headerStyle?: React.CSSProperties
+  headerStyle?: CSSProperties
   headerClassName?: string
-  bodyStyle?: React.CSSProperties
+  bodyStyle?: CSSProperties
   bodyClassName?: string
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   onBodyClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   onHeaderClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 export const Card: FC<CardProps> = props => {

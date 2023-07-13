@@ -1,11 +1,11 @@
 import React, {
   useState,
   useEffect,
-  ReactNode,
   forwardRef,
   useImperativeHandle,
   memo,
 } from 'react'
+import type { ReactNode } from 'react'
 import classNames from 'classnames'
 import Popup, { PopupProps } from '../popup'
 import { mergeProps } from '../../utils/with-default-props'

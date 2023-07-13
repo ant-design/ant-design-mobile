@@ -1,5 +1,5 @@
-import React, { ReactNode, ReactElement, isValidElement, useRef } from 'react'
-import type { FC } from 'react'
+import React, { ReactElement, isValidElement, useRef } from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { useSpring, animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -33,7 +33,7 @@ export type TabsProps = {
   activeLineMode?: 'auto' | 'full' | 'fixed'
   stretch?: boolean
   onChange?: (key: string) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<
   | '--fixed-active-line-width'
   | '--active-line-height'

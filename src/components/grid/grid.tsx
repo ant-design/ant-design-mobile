@@ -1,6 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React from 'react'
-import type { FC } from 'react'
+import type { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { toCSSLength } from '../../utils/to-css-length'
 
@@ -9,7 +9,7 @@ const classPrefix = `adm-grid`
 export type GridProps = {
   columns: number
   gap?: number | string | [number | string, number | string]
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<'--gap' | '--gap-vertical' | '--gap-horizontal'>
 
 export const Grid: FC<GridProps> = props => {
@@ -37,7 +37,7 @@ export const Grid: FC<GridProps> = props => {
 export type GridItemProps = {
   span?: number
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 type GridItemStyle = React.CSSProperties &

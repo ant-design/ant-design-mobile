@@ -1,9 +1,5 @@
-import React, {
-  forwardRef,
-  ReactNode,
-  useImperativeHandle,
-  useRef,
-} from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
+import type { ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'

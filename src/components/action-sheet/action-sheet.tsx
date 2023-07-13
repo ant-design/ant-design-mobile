@@ -1,5 +1,5 @@
 import React from 'react'
-import type { FC, ReactNode } from 'react'
+import type { FC, ReactNode, CSSProperties } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
@@ -22,8 +22,8 @@ export type Action = {
 export type ActionSheetProps = {
   visible?: boolean
   actions: Action[]
-  extra?: React.ReactNode
-  cancelText?: React.ReactNode
+  extra?: ReactNode
+  cancelText?: ReactNode
   onAction?: (action: Action, index: number) => void
   onClose?: () => void
   onMaskClick?: () => void
@@ -31,7 +31,7 @@ export type ActionSheetProps = {
   closeOnMaskClick?: boolean
   safeArea?: boolean
   popupClassName?: string
-  popupStyle?: React.CSSProperties
+  popupStyle?: CSSProperties
 } & Pick<
   PopupProps,
   'afterClose' | 'getContainer' | 'destroyOnClose' | 'forceRender'

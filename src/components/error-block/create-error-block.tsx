@@ -14,7 +14,7 @@ export type ErrorBlockProps = {
   image?: string | ReactElement
   description?: ReactNode
   fullPage?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<
   | '--image-height'
   | '--image-height-full-page'

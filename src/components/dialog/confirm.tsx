@@ -1,6 +1,6 @@
 import { show } from './show'
 import { DialogProps } from './index'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { getDefaultConfig } from '../config-provider'
 

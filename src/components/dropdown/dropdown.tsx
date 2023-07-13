@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import React, {
   cloneElement,
   ReactElement,
-  ComponentProps,
   useEffect,
   useRef,
   useState,
@@ -11,6 +10,7 @@ import React, {
   useImperativeHandle,
   isValidElement,
 } from 'react'
+import type { ReactNode, ComponentProps } from 'react'
 import Popup, { PopupProps } from '../popup'
 import Item, { ItemChildrenWrap } from './item'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -26,7 +26,7 @@ export type DropdownProps = {
   closeOnMaskClick?: boolean
   closeOnClickAway?: boolean
   onChange?: (key: string | null) => void
-  arrow?: React.ReactNode
+  arrow?: ReactNode
   getContainer?: PopupProps['getContainer']
 } & NativeProps
 

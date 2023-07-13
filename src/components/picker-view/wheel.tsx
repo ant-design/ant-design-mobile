@@ -1,4 +1,5 @@
-import React, { memo, ReactNode, useRef } from 'react'
+import React, { memo, useRef } from 'react'
+import type { ReactNode } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import {
   EventTypes,

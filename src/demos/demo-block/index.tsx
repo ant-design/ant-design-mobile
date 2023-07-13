@@ -1,12 +1,12 @@
 import React from 'react'
-import type { FC } from 'react'
+import type { FC, ReactNode } from 'react'
 import styles from './index.less'
 
 interface Props {
   title: string
   padding?: string
   background?: string
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 export const DemoBlock: FC<Props> = props => {

@@ -26,7 +26,7 @@ export type CapsuleTabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 export const CapsuleTabs: FC<CapsuleTabsProps> = props => {

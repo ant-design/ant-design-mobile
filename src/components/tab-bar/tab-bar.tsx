@@ -1,5 +1,5 @@
-import React, { ReactNode, ReactElement, isValidElement } from 'react'
-import type { FC } from 'react'
+import React, { ReactElement, isValidElement } from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -24,7 +24,7 @@ export type TabBarProps = {
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
   safeArea?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 const classPrefix = `adm-tab-bar`

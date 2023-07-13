@@ -1,11 +1,11 @@
 import React from 'react'
-import type { FC } from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 
 const classPrefix = `adm-slider-mark`
 
 export type SliderMarks = {
-  [key: number]: React.ReactNode
+  [key: number]: ReactNode
 }
 
 type MarksProps = {

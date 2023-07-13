@@ -1,4 +1,5 @@
-import React, { forwardRef, ReactNode, useCallback, useMemo } from 'react'
+import React, { forwardRef, useCallback, useMemo } from 'react'
+import type { ReactNode } from 'react'
 import { useMemoizedFn } from 'ahooks'
 import Picker from '../picker'
 import type {

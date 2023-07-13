@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react'
-import type { FC } from 'react'
+import type { FC, ReactNode } from 'react'
 import runes from 'runes2'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -16,8 +16,8 @@ export type EllipsisProps = {
   content: string
   direction?: 'start' | 'end' | 'middle'
   rows?: number
-  expandText?: React.ReactNode
-  collapseText?: React.ReactNode
+  expandText?: ReactNode
+  collapseText?: ReactNode
   stopPropagationForActionButtons?: PropagationEvent[]
   onContentClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   defaultExpanded?: boolean
