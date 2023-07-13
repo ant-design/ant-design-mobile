@@ -4,7 +4,6 @@ import React, {
   useRef,
   forwardRef,
   useImperativeHandle,
-  ReactElement,
 } from 'react'
 import type { ReactElement } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
