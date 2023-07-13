@@ -1,6 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
 import React from 'react'
-import type { FC, ReactNode } from 'react'
+import type { FC, ReactNode, CSSProperties } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { toCSSLength } from '../../utils/to-css-length'
 
@@ -40,7 +40,7 @@ export type GridItemProps = {
   children?: ReactNode
 } & NativeProps
 
-type GridItemStyle = React.CSSProperties &
+type GridItemStyle = CSSProperties &
   Record<'--item-span', GridItemProps['span']>
 
 export const GridItem: FC<GridItemProps> = p => {
