@@ -85,7 +85,7 @@ export const Wheel = memo<Props>(
       onSelect(item.value)
     }
 
-    const handleDrag = (
+    const handleGestureState = (
       state:
         | (Omit<FullGestureState<'wheel'>, 'event'> & {
             event: EventTypes['wheel']
@@ -94,20 +94,43 @@ export const Wheel = memo<Props>(
             event: EventTypes['drag']
           })
     ) => {
+      const {
+        direction: [, direction],
+        distance: [, distance],
+        velocity: [, velocity],
+        offset: [, offset],
+        last,
+      } = state
+      return {
+        direction,
+        distance,
+        velocity,
+        offset,
+        last,
+      }
+    }
+
+    const handleDrag = (
+      state: Omit<FullGestureState<'drag'>, 'event'> & {
+        event: EventTypes['drag']
+      }
+    ) => {
       draggingRef.current = true
       const min = -((column.length - 1) * itemHeight.current)
       const max = 0
-      if (state.last) {
+      const { direction, last, velocity, offset } = handleGestureState(state)
+
+      if (last) {
         draggingRef.current = false
-        const position =
-          state.offset[1] + state.velocity[1] * state.direction[1] * 50
-        const targetIndex =
-          min < max
-            ? -Math.round(bound(position, min, max) / itemHeight.current)
-            : 0
+
+        const position = offset + velocity * direction * 50
+        const boundNum = bound(position, min, max)
+        const targetIndex = -Math.round(boundNum / itemHeight.current)
+
         scrollSelect(targetIndex)
       } else {
-        const position = state.offset[1]
+        const position = offset
+
         api.start({
           y: rubberbandIfOutOfBounds(
             position,
@@ -119,7 +142,41 @@ export const Wheel = memo<Props>(
         })
       }
     }
+    const handleWheel = (
+      state: Omit<FullGestureState<'wheel'>, 'event'> & {
+        event: EventTypes['wheel']
+      }
+    ) => {
+      draggingRef.current = true
+      const min = -((column.length - 1) * itemHeight.current)
+      const max = 0
+      const { direction, last, velocity, distance } = handleGestureState(state)
+      const whellDir = -direction // 取反
+      const scrollY = y.get()
 
+      if (last) {
+        draggingRef.current = false
+
+        const speed = velocity * whellDir * 50
+        const position = scrollY + distance * whellDir + speed
+        const boundNum = bound(position, min, max)
+        const targetIndex = -Math.round(boundNum / itemHeight.current)
+
+        scrollSelect(targetIndex)
+      } else {
+        const position = scrollY + distance * whellDir
+
+        api.start({
+          y: rubberbandIfOutOfBounds(
+            position,
+            min,
+            max,
+            itemHeight.current * 50,
+            0.2
+          ),
+        })
+      }
+    }
     useDrag(
       state => {
         state.event.stopPropagation()
@@ -137,16 +194,17 @@ export const Wheel = memo<Props>(
     useWheel(
       state => {
         state.event.stopPropagation()
-        handleDrag(state)
+        handleWheel(state)
       },
       {
+        target: props.mouseWheel ? rootRef : undefined,
         axis: 'y',
         from: () => [0, y.get()],
         preventDefault: true,
-        target: props.mouseWheel ? rootRef : undefined,
-        eventOptions: supportsPassive
-          ? { passive: false }
-          : (false as unknown as AddEventListenerOptions),
+        eventOptions:
+          (supportsPassive as unknown as AddEventListenerOptions) && {
+            passive: false,
+          },
       }
     )
 
@@ -245,9 +303,8 @@ export const Wheel = memo<Props>(
     if (prev.onSelect !== next.onSelect) return false
     if (prev.renderLabel !== next.renderLabel) return false
     if (prev.mouseWheel !== next.mouseWheel) return false
-    if (!isEqual(prev.column, next.column)) {
-      return false
-    }
+    if (!isEqual(prev.column, next.column)) return false
+
     return true
   }
 )
