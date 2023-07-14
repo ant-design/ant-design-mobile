@@ -54,7 +54,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
 
   const { locale } = useConfig()
   const generateValueExtend = useCascaderValueExtend(props.options)
-  const [labelName, valueName, disabledName, childrenName] = useFieldNames(
+  const [labelName, valueName, childrenName, disabledName] = useFieldNames(
     props.fieldNames
   )
 
