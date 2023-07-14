@@ -29,7 +29,6 @@ Triggered by user operation, it provides a set of two or more options related to
 | onClose | Triggered when closed | `() => void` | - |
 | onMaskClick | Triggered when the mask layer is clicked | `() => void` | - |
 | popupClassName | `ActionSheet` popup class name | `string` | - |
-| popupStyle | `ActionSheet` popup style | `React.CSSProperties` | - | Will be removed in the next version, use `styles` instead |
 | safeArea | Whether to enable safe area padding | `boolean` | `true` |
 | visible | To show or hide the action sheet | `boolean` | `false` |
 | styles | Semantic structure style | `Partial<Record<'popup' \| 'popupBody' \| 'popupMask', CSSProperties>>` | - | 5.33.0 |

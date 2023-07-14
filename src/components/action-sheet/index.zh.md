@@ -29,7 +29,6 @@
 | onClose | 关闭时触发 | `() => void` | - |
 | onMaskClick | 点击背景蒙层时触发 | `() => void` | - |
 | popupClassName | `ActionSheet` 弹出层类名 | `string` | - |
-| popupStyle | `ActionSheet` 弹出层样式 | `React.CSSProperties` | - | 下个版本移除，推荐 `styles` |
 | safeArea | 是否开启安全区适配 | `boolean` | `true` |
 | visible | 显示隐藏 | `boolean` | `false` |
 | styles | 语义化结构 style | `Partial<Record<'popup' \| 'popupBody' \| 'popupMask', CSSProperties>>` | - | 5.33.0 |
