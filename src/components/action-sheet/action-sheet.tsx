@@ -33,7 +33,7 @@ export type ActionSheetProps = {
   popupClassName?: string
   /** @deprecated use `styles` instead */
   popupStyle?: CSSProperties
-  styles?: Partial<Record<'popup' | 'popupBody' | 'popupMask', CSSProperties>>
+  styles?: Partial<Record<'body' | 'mask', CSSProperties>>
 } & Pick<
   PopupProps,
   'afterClose' | 'getContainer' | 'destroyOnClose' | 'forceRender'
@@ -66,12 +66,12 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
       }}
       afterClose={props.afterClose}
       className={classNames(`${classPrefix}-popup`, props.popupClassName)}
-      style={styles?.popup || props.popupStyle}
+      style={props.popupStyle}
       getContainer={props.getContainer}
       destroyOnClose={props.destroyOnClose}
       forceRender={props.forceRender}
-      bodyStyle={styles?.popupBody}
-      maskStyle={styles?.popupMask}
+      bodyStyle={styles?.body}
+      maskStyle={styles?.mask}
     >
       {withNativeProps(
         props,

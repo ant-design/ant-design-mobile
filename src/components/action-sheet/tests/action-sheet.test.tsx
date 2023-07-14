@@ -239,13 +239,11 @@ describe('ActionSheet', () => {
         visible
         actions={actions}
         styles={{
-          popup: { fontSize: 16 },
-          popupBody: { fontSize: 17 },
-          popupMask: { fontSize: 18 },
+          body: { fontSize: 17 },
+          mask: { fontSize: 18 },
         }}
       />
     )
-    expect(document.querySelector('.adm-popup')).toHaveStyle('fontSize: 16')
     expect(document.querySelector('.adm-mask')).toHaveStyle('fontSize: 17')
     expect(document.querySelector('.adm-popup-body')).toHaveStyle(
       'fontSize: 18'

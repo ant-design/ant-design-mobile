@@ -31,7 +31,7 @@
 | popupClassName | `ActionSheet` 弹出层类名 | `string` | - |
 | safeArea | 是否开启安全区适配 | `boolean` | `true` |
 | visible | 显示隐藏 | `boolean` | `false` |
-| styles | 语义化结构 style | `Partial<Record<'popup' \| 'popupBody' \| 'popupMask', CSSProperties>>` | - | 5.33.0 |
+| styles | 语义化结构 style | `Partial<Record<''body' \| 'mask', CSSProperties>>` | - | 5.33.0 |
 
 ### Action
 

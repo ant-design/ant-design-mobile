@@ -31,7 +31,7 @@ Triggered by user operation, it provides a set of two or more options related to
 | popupClassName | `ActionSheet` popup class name | `string` | - |
 | safeArea | Whether to enable safe area padding | `boolean` | `true` |
 | visible | To show or hide the action sheet | `boolean` | `false` |
-| styles | Semantic structure style | `Partial<Record<'popup' \| 'popupBody' \| 'popupMask', CSSProperties>>` | - | 5.33.0 |
+| styles | Semantic structure style | `Partial<Record<'body' \| 'mask', CSSProperties>>` | - | 5.33.0 |
 
 ### Action
 
