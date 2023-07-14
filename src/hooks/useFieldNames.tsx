@@ -15,7 +15,7 @@ export const useFieldNames = (fieldNames: FieldNamesType = {}) => {
       children = 'children',
     } = fieldNames
 
-    return [label, value, disabled, children] as string[]
+    return [label, value, children, disabled] as string[]
   }, [JSON.stringify(fieldNames)])
 
   return fields

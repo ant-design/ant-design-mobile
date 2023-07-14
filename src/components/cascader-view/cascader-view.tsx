@@ -22,8 +22,8 @@ type BaseOptionType = {
   [key: string]: any
 }
 export type CascaderOption = {
-  label: string
-  value: string
+  label?: string
+  value?: string
   disabled?: boolean
   children?: CascaderOption[]
 } & BaseOptionType
@@ -54,7 +54,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
 
   const { locale } = useConfig()
   const generateValueExtend = useCascaderValueExtend(props.options)
-  const [labelName, valueName, disabledName, childrenName] = useFieldNames(
+  const [labelName, valueName, childrenName, disabledName] = useFieldNames(
     props.fieldNames
   )
 
