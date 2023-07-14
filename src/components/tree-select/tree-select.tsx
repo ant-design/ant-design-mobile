@@ -11,8 +11,8 @@ import type { FieldNamesType } from '../../hooks'
 const classPrefix = `adm-tree-select`
 
 export type TreeSelectOption = {
-  label: string
-  value: string
+  label?: string
+  value?: string
   children?: TreeSelectOption[]
 } & {
   [key: string]: any
