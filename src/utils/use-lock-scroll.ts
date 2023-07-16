@@ -50,12 +50,12 @@ export function useLockScroll(
       }
     }
 
-    const { scrollHeight, offsetHeight, scrollTop } = el
+    const { scrollHeight, clientHeight, offsetHeight, scrollTop } = el
     let status = '11'
 
     if (scrollTop === 0) {
       status = offsetHeight >= scrollHeight ? '00' : '01'
-    } else if (scrollTop + offsetHeight >= scrollHeight) {
+    } else if (Math.abs(scrollHeight - clientHeight - scrollTop) < 1) {
       status = '10'
     }
 
