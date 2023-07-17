@@ -135,13 +135,23 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       )
     }
 
+    let rows = props.rows
+    if (typeof autoSize === 'object') {
+      if (autoSize.minRows) {
+        rows = Math.min(autoSize.minRows, rows)
+      }
+      if (autoSize.maxRows) {
+        rows = Math.min(autoSize.maxRows, rows)
+      }
+    }
+
     return withNativeProps(
       props,
       <div className={classPrefix}>
         <textarea
           ref={nativeTextAreaRef}
           className={`${classPrefix}-element`}
-          rows={props.rows}
+          rows={rows}
           value={value}
           placeholder={props.placeholder}
           onChange={e => {
@@ -180,7 +190,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             ref={hiddenTextAreaRef}
             className={`${classPrefix}-element ${classPrefix}-element-hidden`}
             value={value}
-            rows={props.rows}
+            rows={rows}
             aria-hidden
             readOnly
           />

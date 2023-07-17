@@ -130,4 +130,16 @@ describe('TextArea', () => {
     expect(textarea).toHaveAttribute('rows', '1')
     expect(hiddenTextarea).toHaveAttribute('rows', '1')
   })
+
+  test('rows should be the smallest of minRows and default', () => {
+    const { getByRole } = render(<TextArea autoSize={{ minRows: 1 }} />)
+    const textarea = getByRole('textbox')
+    expect(textarea).toHaveAttribute('rows', '1')
+  })
+
+  test('rows should be the smallest of maxRows and default', () => {
+    const { getByRole } = render(<TextArea autoSize={{ maxRows: 1 }} />)
+    const textarea = getByRole('textbox')
+    expect(textarea).toHaveAttribute('rows', '1')
+  })
 })
