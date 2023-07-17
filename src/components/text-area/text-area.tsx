@@ -33,20 +33,20 @@ export type TextAreaProps = Pick<
   maxLength?: number
   showCount?: boolean | ((length: number, maxLength?: number) => ReactNode)
   autoSize?:
-    | boolean
-    | {
-        minRows?: number
-        maxRows?: number
-      }
+  | boolean
+  | {
+    minRows?: number
+    maxRows?: number
+  }
   id?: string
 } & NativeProps<
-    | '--font-size'
-    | '--color'
-    | '--placeholder-color'
-    | '--disabled-color'
-    | '--text-align'
-    | '--count-text-align'
-  >
+  | '--font-size'
+  | '--color'
+  | '--placeholder-color'
+  | '--disabled-color'
+  | '--text-align'
+  | '--count-text-align'
+>
 
 export type TextAreaRef = {
   clear: () => void
@@ -56,7 +56,7 @@ export type TextAreaRef = {
 }
 
 const defaultProps = {
-  rows: 2,
+  rows: 1,
   showCount: false as NonNullable<TextAreaProps['showCount']>,
   autoSize: false as NonNullable<TextAreaProps['autoSize']>,
   defaultValue: '',
@@ -105,6 +105,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       textArea.style.height = heightRef.current
       if (!hiddenTextArea) return
       let height = hiddenTextArea.scrollHeight
+      let rows = props.rows
       if (typeof autoSize === 'object') {
         const computedStyle = window.getComputedStyle(textArea)
         const lineHeight = parseFloat(computedStyle.lineHeight)
@@ -114,9 +115,11 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
         if (autoSize.maxRows) {
           height = Math.min(height, autoSize.maxRows * lineHeight)
         }
+        rows = Math.floor(height / lineHeight)
       }
       heightRef.current = `${height}px`
       textArea.style.height = `${height}px`
+      textArea.rows = rows
     }, [value, autoSize])
 
     const compositingRef = useRef(false)
