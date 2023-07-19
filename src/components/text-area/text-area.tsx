@@ -137,11 +137,11 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
 
     let rows = props.rows
     if (typeof autoSize === 'object') {
-      if (autoSize.minRows) {
-        rows = Math.min(autoSize.minRows, rows)
+      if (autoSize.maxRows && rows > autoSize.maxRows) {
+        rows = autoSize.maxRows
       }
-      if (autoSize.maxRows) {
-        rows = Math.min(autoSize.maxRows, rows)
+      if (autoSize.minRows && rows < autoSize.minRows) {
+        rows = autoSize.minRows
       }
     }
 
