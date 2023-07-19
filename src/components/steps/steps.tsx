@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
-import { StepProps } from './step'
+import type { StepProps } from './step'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
@@ -53,7 +53,7 @@ export const Steps: FC<StepsProps> = p => {
         return React.cloneElement(child, {
           status,
           icon,
-        })
+        } as StepProps)
       })}
     </div>
   )
