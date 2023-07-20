@@ -132,17 +132,16 @@ export const Collapse: FC<CollapseProps> = props => {
   const [activeKey, setActiveKey] = usePropsValue<string[]>(
     props.accordion
       ? {
-          value:
-            props.activeKey === undefined
-              ? undefined
-              : props.activeKey === null
-              ? []
-              : [props.activeKey],
-          defaultValue:
-            props.defaultActiveKey === undefined ||
-            props.defaultActiveKey === null
-              ? []
-              : [props.defaultActiveKey],
+          value: {
+            [props.activeKey as string]: [props.activeKey as string],
+            null: [],
+            undefined: undefined,
+          }[props.activeKey as string],
+          defaultValue: [null, undefined].includes(
+            props.defaultActiveKey as null | undefined
+          )
+            ? []
+            : [props.defaultActiveKey as string],
           onChange: v => {
             props.onChange?.(v[0] ?? null)
           },
@@ -153,6 +152,7 @@ export const Collapse: FC<CollapseProps> = props => {
           onChange: props.onChange,
         }
   )
+
   const activeKeyList =
     activeKey === null ? [] : Array.isArray(activeKey) ? activeKey : [activeKey]
 
