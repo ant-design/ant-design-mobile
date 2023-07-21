@@ -129,29 +129,41 @@ export const Collapse: FC<CollapseProps> = props => {
     panels.push(child)
   })
 
-  const [activeKey, setActiveKey] = usePropsValue<string[]>(
-    props.accordion
-      ? {
-          value: {
-            [props.activeKey as string]: [props.activeKey as string],
-            null: [],
-            undefined: undefined,
-          }[props.activeKey as string],
-          defaultValue: [null, undefined].includes(
-            props.defaultActiveKey as null | undefined
-          )
-            ? []
-            : [props.defaultActiveKey as string],
-          onChange: v => {
-            props.onChange?.(v[0] ?? null)
-          },
-        }
-      : {
-          value: props.activeKey,
-          defaultValue: props.defaultActiveKey ?? [],
-          onChange: props.onChange,
-        }
-  )
+  const handlePropsValue = () => {
+    if (!props.accordion) {
+      return {
+        value: props.activeKey,
+        defaultValue: props.defaultActiveKey ?? [],
+        onChange: props.onChange,
+      }
+    }
+
+    const initValue: {
+      value?: string[]
+      defaultValue: string[]
+      onChange: (v: string[]) => void
+    } = {
+      value: [],
+      defaultValue: [],
+      onChange: v => {
+        props.onChange?.(v[0] ?? null)
+      },
+    }
+
+    if (props.activeKey) {
+      initValue.value = [props.activeKey]
+    } else if (props.activeKey === undefined) {
+      initValue.value = undefined
+    }
+
+    if (props.defaultActiveKey) {
+      initValue.defaultValue = [props.defaultActiveKey]
+    }
+
+    return initValue
+  }
+
+  const [activeKey, setActiveKey] = usePropsValue<string[]>(handlePropsValue())
 
   const activeKeyList =
     activeKey === null ? [] : Array.isArray(activeKey) ? activeKey : [activeKey]
