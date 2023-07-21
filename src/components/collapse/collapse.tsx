@@ -150,10 +150,10 @@ export const Collapse: FC<CollapseProps> = props => {
       },
     }
 
-    if (props.activeKey) {
-      initValue.value = [props.activeKey]
-    } else if (props.activeKey === undefined) {
+    if (props.activeKey === undefined) {
       initValue.value = undefined
+    } else if (props.activeKey !== null) {
+      initValue.value = [props.activeKey]
     }
 
     if (props.defaultActiveKey) {
