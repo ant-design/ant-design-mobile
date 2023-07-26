@@ -1,14 +1,12 @@
 import React, {
   forwardRef,
-  ReactElement,
-  ReactNode,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
   useState,
-  CSSProperties,
 } from 'react'
+import type { ReactNode, CSSProperties, ReactElement } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
@@ -20,7 +18,7 @@ import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
 import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
-import { useIsomorphicLayoutEffect } from 'ahooks'
+import { useIsomorphicLayoutEffect, useGetState } from 'ahooks'
 import { mergeFuncProps } from '../../utils/with-func-props'
 
 const classPrefix = `adm-swiper`
@@ -81,6 +79,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
   staged<SwiperProps, SwiperRef>((p, ref) => {
     const props = mergeProps(defaultProps, p)
     const [uid] = useState({})
+    const timeoutRef = useRef<number | null>(null)
     const isVertical = props.direction === 'vertical'
 
     const slideRatio = props.slideSize / 100
@@ -125,7 +124,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         return (trackPixels * props.slideSize) / 100
       }
 
-      const [current, setCurrent] = useState(props.defaultIndex)
+      const [current, setCurrent, getCurrent] = useGetState(props.defaultIndex)
 
       const [dragging, setDragging, draggingRef] = useRefState(false)
 
@@ -237,10 +236,13 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         const targetIndex = loop
           ? modulus(roundedIndex, count)
           : bound(roundedIndex, 0, count - 1)
-        setCurrent(targetIndex)
-        if (targetIndex !== current) {
+
+        if (targetIndex !== getCurrent()) {
           props.onIndexChange?.(targetIndex)
         }
+
+        setCurrent(targetIndex)
+
         api.start({
           position: (loop ? roundedIndex : boundIndex(roundedIndex)) * 100,
           immediate,
@@ -269,19 +271,20 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       })
 
       const { autoplay, autoplayInterval } = props
+
+      const runTimeSwiper = () => {
+        timeoutRef.current = window.setTimeout(() => {
+          swipeNext()
+          runTimeSwiper()
+        }, autoplayInterval)
+      }
       useEffect(() => {
         if (!autoplay || dragging) return
 
-        let interval: number
-        function tick() {
-          interval = window.setTimeout(tick, autoplayInterval)
-          swipeNext()
-        }
-
-        interval = window.setTimeout(tick, autoplayInterval)
+        runTimeSwiper()
 
         return () => {
-          if (interval) window.clearTimeout(interval)
+          if (timeoutRef.current) window.clearTimeout(timeoutRef.current)
         }
       }, [autoplay, autoplayInterval, dragging, count])
 
@@ -324,8 +327,16 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
                 ),
               }}
             >
-              {React.Children.map(validChildren, child => {
-                return <div className={`${classPrefix}-slide`}>{child}</div>
+              {React.Children.map(validChildren, (child, index) => {
+                return (
+                  <div
+                    className={classNames(`${classPrefix}-slide`, {
+                      [`${classPrefix}-slide-active`]: current === index,
+                    })}
+                  >
+                    {child}
+                  </div>
+                )
               })}
             </animated.div>
           )

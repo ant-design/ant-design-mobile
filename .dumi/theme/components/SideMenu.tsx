@@ -2,8 +2,6 @@ import type { FC } from 'react'
 import React, { useContext } from 'react'
 import { context, NavLink } from 'dumi/theme'
 import './SideMenu.less'
-// import { DocSearch } from '@docsearch/react'
-// import '@docsearch/css'
 
 interface INavbarProps {
   location: any
@@ -28,11 +26,6 @@ const SideMenu: FC<INavbarProps> = ({ location }) => {
       <div className='__dumi-default-menu-inner'>
         {/* menu list */}
         <ul className='__dumi-default-menu-list'>
-          {/*<DocSearch*/}
-          {/*  appId='BH4D9OD16A'*/}
-          {/*  indexName='ant_design_mobile'*/}
-          {/*  apiKey='3f05ea4cbd28d07129a5e32e87a856b5'*/}
-          {/*/>*/}
           {menu.map(item => {
             // always use meta from routes to reduce menu data size
             const hasChildren = item.children && Boolean(item.children.length)

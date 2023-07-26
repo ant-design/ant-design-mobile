@@ -13,6 +13,14 @@ async function click(contentIndex: number, itemIndex: number) {
   fireEvent.click(item)
 }
 
+const changeOptionKey = (arr: any[] = []): any[] =>
+  arr.map(item => ({
+    labelT: item.label,
+    valueT: item.value,
+    disabledT: item.disabled,
+    childrenT: item.children && changeOptionKey(item.children),
+  }))
+
 describe('CascaderView', () => {
   test('a11y', async () => {
     await testA11y(<CascaderView options={options} />)
@@ -43,7 +51,40 @@ describe('CascaderView', () => {
     expect(onTabsChange).toBeCalledTimes(2)
     expect(onChange.mock.calls[2][0]).toEqual(['浙江', '杭州', '西湖区'])
   })
+  test('test fieldNames', async () => {
+    const onChange = jest.fn()
+    const onTabsChange = jest.fn()
+    const options2 = changeOptionKey(options)
 
+    const { getByText, container } = render(
+      <CascaderView
+        options={options2}
+        fieldNames={{
+          label: 'labelT',
+          value: 'valueT',
+          children: 'childrenT',
+          disabled: 'disabledT',
+        }}
+        onChange={onChange}
+        onTabsChange={onTabsChange}
+      />
+    )
+
+    fireEvent.click(getByText('请选择'))
+    expect(onTabsChange).toBeCalledTimes(0)
+    fireEvent.click(getByText('浙江'))
+    expect(container).toMatchSnapshot()
+
+    fireEvent.click(getByText('杭州'))
+    expect(container).toMatchSnapshot()
+
+    fireEvent.click(getByText('西湖区'))
+    expect(container).toMatchSnapshot()
+
+    expect(onChange).toBeCalledTimes(3)
+    expect(onTabsChange).toBeCalledTimes(2)
+    expect(onChange.mock.calls[2][0]).toEqual(['浙江', '杭州', '西湖区'])
+  })
   test('controlled mode', async () => {
     const { container } = render(
       <CascaderView options={options} value={['浙江', '宁波', '江北区']} />
@@ -84,5 +125,10 @@ describe('CascaderView', () => {
     expect(document.querySelector('.adm-tabs-tab-active')).toHaveTextContent(
       '西湖区'
     )
+  })
+  test('loading', async () => {
+    const { baseElement } = render(<CascaderView options={[]} loading />)
+
+    expect(baseElement.querySelector('.adm-skeleton')).toBeInTheDocument()
   })
 })

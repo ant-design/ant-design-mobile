@@ -1,10 +1,5 @@
-import React, {
-  FC,
-  ReactNode,
-  ReactElement,
-  ComponentProps,
-  useRef,
-} from 'react'
+import React, { isValidElement, useRef } from 'react'
+import type { FC, ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import { animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -25,15 +20,13 @@ export type CapsuleTabProps = {
   children?: ReactNode
 } & NativeProps
 
-export const CapsuleTab: FC<CapsuleTabProps> = () => {
-  return null
-}
+export const CapsuleTab: FC<CapsuleTabProps> = () => null
 
 export type CapsuleTabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
@@ -42,10 +35,10 @@ export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
-  const panes: ReactElement<ComponentProps<typeof CapsuleTab>>[] = []
+  const panes: ReactElement<CapsuleTabProps>[] = []
 
   traverseReactNode(props.children, (child, index) => {
-    if (!React.isValidElement(child)) return
+    if (!isValidElement<CapsuleTabProps>(child)) return
     const key = child.key
     if (typeof key !== 'string') return
     if (index === 0) {

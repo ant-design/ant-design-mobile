@@ -25,15 +25,17 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 | Name | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Whether to allow clearing after another click. | `boolean` | `true` |
+| confirmText | The text of confirm button | `string` | `Confirm` |
 | defaultValue | The default selected date or date range. | Same as `value` prop. | - |
 | max | Maximum value of a selectable range. | `Date` | - |
 | min | Minimum value of a selectable range. | `Date` | - | - |
 | onChange | Trigger when selected date changes. | `(val: Date \| null) => void` when selection mode is "single". `(val: [Date, Date] \| null) => void` when selection mode is "range". | - |
-| onPageChange | Trigger when changed year or month. | `(year: number, month: number) => void` | - |
+| onConfirm | Trigger when confirm button is clicked. | `(val: Date \| null) => void` when selection mode is "single"，`(val: [Date, Date] \| null) => void` when selection mode is "range" | - |
 | renderTop | The top information of date render function. | `(date: Date) => ReactNode \| null \| undefined` | - |
 | renderBottom | The bottom information of date render function. | `(date: Date) => ReactNode \| null \| undefined` | - |
 | selectionMode | The selection mode. Disable selection when this prop is not set. | `'single' \| 'range'` | - |
 | shouldDisableDate | Set whether the date is disable selection. The min and max Settings are ignored | `(date: Date) => boolean` | - |
+| title | The title of calendar | `React.ReactNode` | `Date selection` |
 | value | The selected date or date range. | `Date \| null` when selection mode is "single". `[Date, Date] \| null` when selection mode is "range" | - |
 | weekStartsOn | Week starts on which day. | `'Monday' \| 'Sunday'` | `'Sunday'` |
 | renderDate | Custom date rendering. | `(date: Date) => ReactNode` | - | 5.28.0 |

@@ -21,7 +21,7 @@ Next, we need to set the value of the CSS variable. There are two ways:
 
 ### Method 1: Set in the CSS file
 
-Add a custom `className` to the Input component:
+Add a custom `className` to the Button component:
 
 ```jsx
 <Button className='my-button'/>

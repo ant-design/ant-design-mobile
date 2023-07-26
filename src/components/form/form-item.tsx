@@ -1,4 +1,5 @@
-import React, { FC, useContext, useCallback, useState, useRef } from 'react'
+import React, { useContext, useCallback, useState, useRef } from 'react'
+import type { FC, ReactNode, MutableRefObject } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
@@ -17,10 +18,8 @@ import { undefinedFallback } from '../../utils/undefined-fallback'
 
 const NAME_SPLIT = '__SPLIT__'
 
-type RenderChildren<Values = any> = (
-  form: FormInstance<Values>
-) => React.ReactNode
-type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode
+type RenderChildren<Values = any> = (form: FormInstance<Values>) => ReactNode
+type ChildrenType<Values = any> = RenderChildren<Values> | ReactNode
 
 type RcFieldProps = Omit<FieldProps, 'children'>
 
@@ -47,8 +46,8 @@ export type FormItemProps = Pick<
     ListItemProps,
     'style' | 'extra' | 'clickable' | 'arrow' | 'description'
   > & {
-    label?: React.ReactNode
-    help?: React.ReactNode
+    label?: ReactNode
+    help?: ReactNode
     hasFeedback?: boolean
     required?: boolean
     noStyle?: boolean
@@ -57,16 +56,13 @@ export type FormItemProps = Pick<
     layout?: FormLayout
     childElementPosition?: 'normal' | 'right'
     children?: ChildrenType
-    onClick?: (
-      e: React.MouseEvent,
-      widgetRef: React.MutableRefObject<any>
-    ) => void
+    onClick?: (e: React.MouseEvent, widgetRef: MutableRefObject<any>) => void
   } & NativeProps
 
 interface MemoInputProps {
   value: any
   update: number
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const MemoInput = React.memo(
@@ -95,10 +91,10 @@ type FormItemLayoutProps = Pick<
   htmlFor?: string
   errors: string[]
   warnings: string[]
-  children: React.ReactNode
+  children: ReactNode
 } & NativeProps
 
-const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
+const FormItemLayout: FC<FormItemLayoutProps> = props => {
   const {
     className,
     style,
@@ -300,7 +296,7 @@ export const FormItem: FC<FormItemProps> = props => {
   )
 
   function renderLayout(
-    baseChildren: React.ReactNode,
+    baseChildren: ReactNode,
     fieldId?: string,
     meta?: Meta,
     isRequired?: boolean
@@ -394,7 +390,7 @@ export const FormItem: FC<FormItemProps> = props => {
       messageVariables={Variables}
     >
       {(control, meta, context) => {
-        let childNode: React.ReactNode = null
+        let childNode: ReactNode = null
 
         const isRequired =
           required !== undefined

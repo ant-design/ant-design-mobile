@@ -1,4 +1,5 @@
-import React, { FC, ReactNode, useMemo, useRef } from 'react'
+import React, { useMemo, useRef } from 'react'
+import type { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
@@ -111,7 +112,7 @@ export const Slider: FC<SliderProps> = p => {
       return Object.keys(marks)
         .map(parseFloat)
         .sort((a, b) => a - b)
-    } else {
+    } else if (ticks) {
       const points: number[] = []
       for (
         let i = getMiniDecimal(min);
@@ -122,6 +123,8 @@ export const Slider: FC<SliderProps> = p => {
       }
       return points
     }
+
+    return []
   }, [marks, ticks, step, min, max])
 
   function getValueByPosition(position: number) {
@@ -133,9 +136,10 @@ export const Slider: FC<SliderProps> = p => {
     if (pointList.length) {
       value = nearest(pointList, newPosition)
     } else {
-      const lengthPerStep = 100 / ((max - min) / step)
-      const steps = Math.round(newPosition / lengthPerStep)
-      value = steps * lengthPerStep * (max - min) * 0.01 + min
+      // 使用 MiniDecimal 避免精度问题
+      const cell = Math.round((newPosition - min) / step)
+      const nextVal = getMiniDecimal(cell).multi(step)
+      value = getMiniDecimal(min).add(nextVal.toString()).toNumber()
     }
     return value
   }

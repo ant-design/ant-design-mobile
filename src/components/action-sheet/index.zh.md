@@ -14,14 +14,14 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
 | actions | 面板选项列表 | `Action[]` | `[]` |
 | afterClose | 完全关闭后触发 | `() => void` | - |
 | cancelText | 取消按钮文字，如果设置为空则不显示取消按钮 | `ReactNode` | - |
 | closeOnAction | 点击选项后是否关闭 | `boolean` | `false` |
 | closeOnMaskClick | 点击背景蒙层后是否关闭 | `boolean` | `true` |
-| destroyOnClose | 不可见时卸载内容 | `boolean` | `false` |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | forceRender | 强制渲染内容 | `boolean` | `false` |
 | extra | 顶部的额外区域 | `ReactNode` | - |
 | getContainer | 指定挂载的 `HTML` 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
@@ -29,9 +29,9 @@
 | onClose | 关闭时触发 | `() => void` | - |
 | onMaskClick | 点击背景蒙层时触发 | `() => void` | - |
 | popupClassName | `ActionSheet` 弹出层类名 | `string` | - |
-| popupStyle | `ActionSheet` 弹出层样式 | `React.CSSProperties` | - |
 | safeArea | 是否开启安全区适配 | `boolean` | `true` |
 | visible | 显示隐藏 | `boolean` | `false` |
+| styles | 语义化结构 style | `Partial<Record<''body' \| 'mask', CSSProperties>>` | - | 5.33.0 |
 
 ### Action
 

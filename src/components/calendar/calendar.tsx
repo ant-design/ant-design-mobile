@@ -1,10 +1,10 @@
 import React, {
   forwardRef,
-  ReactNode,
   useState,
   useImperativeHandle,
   useMemo,
 } from 'react'
+import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs from 'dayjs'
 import classNames from 'classnames'

@@ -1,5 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { ReactNode, useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { staged } from 'staged-components'
 import { toCSSLength } from '../../utils/to-css-length'
@@ -34,6 +35,7 @@ export type ImageProps = {
     | 'sizes'
     | 'srcSet'
     | 'useMap'
+    | 'id'
   >
 
 const defaultProps = {
@@ -88,6 +90,7 @@ export const Image = staged<ImageProps>(p => {
     const img = (
       <img
         ref={imgRef}
+        id={props.id}
         className={`${classPrefix}-img`}
         src={src}
         alt={props.alt}

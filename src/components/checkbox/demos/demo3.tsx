@@ -1,4 +1,5 @@
-import React, { FC, PropsWithChildren, useRef } from 'react'
+import React, { useRef } from 'react'
+import type { FC, PropsWithChildren } from 'react'
 import { Checkbox, List } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { CheckboxRef } from '../checkbox'

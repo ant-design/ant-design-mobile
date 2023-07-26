@@ -43,7 +43,7 @@ type PickerValueExtend = {
 | columns | 配置每一列的选项 | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | - |
 | confirmText | 确定按钮的文字 | `ReactNode` | `'确定'` |
 | defaultValue | 默认选中项 | `PickerValue[]` | `[]` |
-| destroyOnClose | 不可见时卸载内容 | `boolean` | `false` |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | forceRender | 强制渲染内容 | `boolean` | `false` |
 | mouseWheel | 是否允许通过鼠标滚轮进行选择 | `boolean` | `false` |
 | onCancel | 取消时触发 | `() => void` | - |
@@ -156,7 +156,7 @@ type PickerDate = Date & {
 | --- | --- | --- | --- | --- |
 | children | 所选项的渲染函数 | `(value: PickerDate, actions: PickerActions) => ReactNode` | - |
 | defaultValue | 选中值 | `PickerDate` | - |
-| destroyOnClose | 不可见时卸载内容 | `boolean` | `false` |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | filter | 过滤可供选择的时间 | `DatePickerFilter` | - |
 | forceRender | 强制渲染内容 | `boolean` | `false` |
 | max | 最大值 | `PickerDate` | 十年后 |

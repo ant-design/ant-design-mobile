@@ -95,4 +95,16 @@ describe('NoticeBar', () => {
       `${classPrefix}-wrap`
     )
   })
+
+  test('can be click', () => {
+    const handleClick = jest.fn()
+    const { getByText } = render(
+      <NoticeBar content='notice!' onClick={handleClick} />
+    )
+
+    const noticeBar = getByText('notice!')
+    fireEvent.click(noticeBar)
+
+    expect(handleClick).toHaveBeenCalled()
+  })
 })

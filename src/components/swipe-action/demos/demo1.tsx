@@ -1,4 +1,5 @@
-import React, { FC, useRef } from 'react'
+import React, { useRef } from 'react'
+import type { FC } from 'react'
 import { Dialog, List, SwipeAction, Toast, Image } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { Action, SwipeActionRef } from 'antd-mobile/es/components/swipe-action'

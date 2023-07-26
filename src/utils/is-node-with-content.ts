@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 type Regulated<T> = T extends null | undefined | false ? never : T
 

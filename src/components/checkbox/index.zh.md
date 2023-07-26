@@ -33,6 +33,7 @@ type CheckboxValue = string | number
 | id | `input` 元素的 `id`，常用来配合 `label` 使用 | `string` | - |
 | indeterminate | 设置 `indeterminate` 状态，只负责样式控制 | `boolean` | `false` |
 | onChange | 变化时回调函数 | `(val: boolean) => void` | - |
+| onClick | Checkbox 的点击事件 | `(event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void` | - |
 | value | 携带的标识值，用于 `Group` 模式 | `CheckboxValue` | - |
 
 ### Ref

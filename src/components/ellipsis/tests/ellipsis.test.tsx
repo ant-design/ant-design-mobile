@@ -17,23 +17,21 @@ describe('Ellipsis', () => {
       style.lineHeight = `${lineHeight}px`
       return style
     }
+  })
 
+  beforeEach(() => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       get() {
-        if (this.innerText.includes('...')) {
+        if (this.innerHTML.includes('...')) {
           const row = Math.ceil(
             // the width of '...' is equal to a Chinese char
-            (this.innerText.replace(/\.\.\./g, '中').length / content.length) *
+            (this.innerHTML.replace(/\.\.\./g, '中').length / content.length) *
               4
           )
           return lineHeight * row
         }
         return lineHeight * 4
       },
-    })
-
-    Object.defineProperty(HTMLElement.prototype, 'offsetParent', {
-      value: {},
     })
   })
 
@@ -45,35 +43,35 @@ describe('Ellipsis', () => {
     await testA11y(<Ellipsis content={content} />)
   })
 
-  test('direction start', async () => {
+  test('direction start', () => {
     const { getByTestId } = render(
       <Ellipsis content={content} direction='start' data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
-  test('direction middle', async () => {
+  test('direction middle', () => {
     const { getByTestId } = render(
       <Ellipsis content={content} direction='middle' data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
-  test('direction end', async () => {
+  test('direction end', () => {
     const { getByTestId } = render(
       <Ellipsis content={content} direction='end' data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
-  test('multi line', async () => {
+  test('multi line', () => {
     const { getByTestId } = render(
       <Ellipsis content={content} rows={3} data-testid='ellipsis' />
     )
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
-  test('expand and collapse', async () => {
+  test('expand and collapse', () => {
     const { getByTestId, getByText } = render(
       <Ellipsis
         content={content}
@@ -89,7 +87,7 @@ describe('Ellipsis', () => {
     expect(getByTestId('ellipsis')).toMatchSnapshot()
   })
 
-  test('content click', async () => {
+  test('content click', () => {
     const onClick = jest.fn()
     const { getByTestId } = render(
       <Ellipsis
@@ -103,7 +101,7 @@ describe('Ellipsis', () => {
     expect(onClick).toBeCalled()
   })
 
-  test('default expand should be work', async () => {
+  test('default expand should be work', () => {
     const { getByText } = render(
       <Ellipsis
         content={content}
@@ -120,7 +118,7 @@ describe('Ellipsis', () => {
     expect(ellipsis).toHaveTextContent('...')
   })
 
-  test('content not exceeded', async () => {
+  test('content not exceeded', () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       value: lineHeight,
     })
@@ -138,5 +136,19 @@ describe('Ellipsis', () => {
       // @ts-ignore
       render(<Ellipsis content={undefined} data-testid='ellipsis' />)
     }).not.toThrowError()
+  })
+
+  test('expand and collapse support ReactNode', async () => {
+    const { getByText, findByText } = render(
+      <Ellipsis
+        content={content}
+        expandText={<span>expand</span>}
+        collapseText={<span>collapse</span>}
+      />
+    )
+
+    expect(await findByText('expand')).toBeVisible()
+    fireEvent.click(getByText('expand'))
+    expect(getByText('collapse')).toBeInTheDocument()
   })
 })

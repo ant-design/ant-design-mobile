@@ -21,7 +21,7 @@
 
 ### 方法一：在 CSS 文件中设置
 
-给 Input 组件加一个自定义的 `className`：
+给 Button 组件加一个自定义的 `className`：
 
 ```jsx
 <Button className='my-button'/>

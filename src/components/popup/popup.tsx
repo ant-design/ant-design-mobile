@@ -1,5 +1,6 @@
 import classNames from 'classnames'
-import React, { useState, useRef, FC, PropsWithChildren } from 'react'
+import React, { useState, useRef } from 'react'
+import type { FC, PropsWithChildren } from 'react'
 import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -20,17 +21,18 @@ const classPrefix = `adm-popup`
 export type PopupProps = PopupBaseProps &
   PropsWithChildren<{
     position?: 'bottom' | 'top' | 'left' | 'right'
+    closeOnSwipe?: boolean
   }> &
   NativeProps<'--z-index'>
 
 const defaultProps = {
   ...defaultPopupBaseProps,
+  closeOnSwipe: false,
   position: 'bottom',
 }
 
 export const Popup: FC<PopupProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const { locale } = useConfig()
 
   const bodyCls = classNames(
     `${classPrefix}-body`,
@@ -38,15 +40,16 @@ export const Popup: FC<PopupProps> = p => {
     `${classPrefix}-body-position-${props.position}`
   )
 
+  const { locale } = useConfig()
   const [active, setActive] = useState(props.visible)
+  const ref = useRef<HTMLDivElement>(null)
+  useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
+
   useIsomorphicLayoutEffect(() => {
     if (props.visible) {
       setActive(true)
     }
   }, [props.visible])
-
-  const ref = useRef<HTMLDivElement>(null)
-  useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
 
   const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({
@@ -70,6 +73,7 @@ export const Popup: FC<PopupProps> = p => {
 
   const bind = useDrag(
     ({ swipe: [, swipeY] }) => {
+      if (!props.closeOnSwipe) return
       if (
         (swipeY === 1 && props.position === 'bottom') ||
         (swipeY === -1 && props.position === 'top')

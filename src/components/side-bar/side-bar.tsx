@@ -1,5 +1,5 @@
-import { FC, ReactNode, ReactElement, ComponentProps } from 'react'
-import React from 'react'
+import React, { isValidElement } from 'react'
+import type { FC, ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import Badge, { BadgeProps } from '../badge'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -24,7 +24,7 @@ export type SideBarProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<
   '--width' | '--height' | '--item-border-radius' | '--background-color'
 >
@@ -32,12 +32,13 @@ export type SideBarProps = {
 export const SideBar: FC<SideBarProps> = props => {
   let firstActiveKey: string | null = null
 
-  const items: ReactElement<ComponentProps<typeof SideBarItem>>[] = []
+  const items: ReactElement<SideBarItemProps>[] = []
 
   traverseReactNode(props.children, (child, index) => {
-    if (!React.isValidElement(child)) return
+    if (!isValidElement<SideBarItemProps>(child)) return
     const key = child.key
     if (typeof key !== 'string') return
+
     if (index === 0) {
       firstActiveKey = key
     }

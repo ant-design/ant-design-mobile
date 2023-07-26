@@ -41,6 +41,7 @@ export type InputProps = Pick<
   | 'onCompositionEnd'
   | 'onClick'
   | 'step'
+  | 'id'
 > & {
   value?: string
   defaultValue?: string
@@ -51,7 +52,6 @@ export type InputProps = Pick<
   clearable?: boolean
   onlyShowClearWhenFocus?: boolean
   onClear?: () => void
-  id?: string
   onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
   enterKeyHint?:
     | 'enter'
@@ -121,9 +121,13 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   function checkValue() {
     let nextValue = value
     if (props.type === 'number') {
-      nextValue =
+      const boundValue =
         nextValue &&
         bound(parseFloat(nextValue), props.min, props.max).toString()
+      // fix the display issue of numbers starting with 0
+      if (Number(nextValue) !== Number(boundValue)) {
+        nextValue = boundValue
+      }
     }
     if (nextValue !== value) {
       setValue(nextValue)

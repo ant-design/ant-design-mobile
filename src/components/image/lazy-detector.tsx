@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
+import type { FC } from 'react'
 import { useInViewport } from 'ahooks'
 
 type Props = {

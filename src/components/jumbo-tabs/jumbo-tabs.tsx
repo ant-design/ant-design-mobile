@@ -1,10 +1,5 @@
-import React, {
-  FC,
-  ReactNode,
-  ReactElement,
-  ComponentProps,
-  useRef,
-} from 'react'
+import React, { isValidElement, useRef } from 'react'
+import type { ReactNode, FC, ReactElement } from 'react'
 import classNames from 'classnames'
 import { animated } from '@react-spring/web'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -23,7 +18,7 @@ export type JumboTabProps = {
   disabled?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 export const JumboTab: FC<JumboTabProps> = () => {
@@ -34,7 +29,7 @@ export type JumboTabsProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 export const JumboTabs: FC<JumboTabsProps> = props => {
@@ -43,12 +38,13 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
-  const panes: ReactElement<ComponentProps<typeof JumboTab>>[] = []
+  const panes: ReactElement<JumboTabProps>[] = []
 
   traverseReactNode(props.children, (child, index) => {
-    if (!React.isValidElement(child)) return
+    if (!isValidElement<JumboTabProps>(child)) return
     const key = child.key
     if (typeof key !== 'string') return
+
     if (index === 0) {
       firstActiveKey = key
     }

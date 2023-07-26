@@ -39,5 +39,5 @@ function subscribe(onStoreChange: () => void) {
 }
 
 export function useMotionReduced() {
-  return useSyncExternalStore(subscribe, isMotionReduced)
+  return useSyncExternalStore(subscribe, isMotionReduced, isMotionReduced)
 }

@@ -1,4 +1,5 @@
 import React, { forwardRef, useContext, useImperativeHandle } from 'react'
+import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { CheckboxGroupContext } from './group-context'
@@ -23,8 +24,9 @@ export type CheckboxProps = {
   indeterminate?: boolean
   block?: boolean
   id?: string
-  icon?: (checked: boolean, indeterminate: boolean) => React.ReactNode
-  children?: React.ReactNode
+  icon?: (checked: boolean, indeterminate: boolean) => ReactNode
+  children?: ReactNode
+  onClick?: (event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void
 } & NativeProps<'--icon-size' | '--font-size' | '--gap'>
 
 const defaultProps = {
@@ -110,6 +112,7 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
   return withNativeProps(
     props,
     <label
+      onClick={props.onClick}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked && !props.indeterminate,
         [`${classPrefix}-indeterminate`]: props.indeterminate,

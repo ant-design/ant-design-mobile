@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { ReactElement, ReactPortal } from 'react'
+import type { ReactElement, ReactPortal } from 'react'
 import { resolveContainer } from './get-container'
 import { canUseDom } from './can-use-dom'
 

@@ -1,4 +1,5 @@
-import React, { FC, ReactElement, ComponentProps, useRef } from 'react'
+import React, { isValidElement, useRef } from 'react'
+import type { FC, ReactNode, ReactElement } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List from '../list'
 import { DownOutline } from 'antd-mobile-icons'
@@ -14,13 +15,13 @@ const classPrefix = `adm-collapse`
 
 export type CollapsePanelProps = {
   key: string
-  title: React.ReactNode
+  title: ReactNode
   disabled?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
-  arrow?: React.ReactNode | ((active: boolean) => React.ReactNode)
-  children?: React.ReactNode
+  arrow?: ReactNode | ((active: boolean) => ReactNode)
+  children?: ReactNode
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -31,7 +32,7 @@ const CollapsePanelContent: FC<{
   visible: boolean
   forceRender: boolean
   destroyOnClose: boolean
-  children?: React.ReactNode
+  children?: ReactNode
 }> = props => {
   const { visible } = props
   const innerRef = useRef<HTMLDivElement>(null)
@@ -105,7 +106,7 @@ type ValueProps<T> = {
   activeKey?: T
   defaultActiveKey?: T
   onChange?: (activeKey: T) => void
-  arrow?: React.ReactNode | ((active: boolean) => React.ReactNode)
+  arrow?: ReactNode | ((active: boolean) => ReactNode)
 }
 
 export type CollapseProps = (
@@ -116,15 +117,16 @@ export type CollapseProps = (
       accordion: true
     } & ValueProps<string | null>)
 ) & {
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps
 
 export const Collapse: FC<CollapseProps> = props => {
-  const panels: ReactElement<ComponentProps<typeof CollapsePanel>>[] = []
+  const panels: ReactElement<CollapsePanelProps>[] = []
   traverseReactNode(props.children, child => {
-    if (!React.isValidElement(child)) return
+    if (!isValidElement<CollapsePanelProps>(child)) return
     const key = child.key
     if (typeof key !== 'string') return
+
     panels.push(child)
   })
 

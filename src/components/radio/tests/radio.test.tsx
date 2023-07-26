@@ -1,7 +1,6 @@
 import React from 'react'
-import { fireEvent, render, testA11y, userEvent, screen } from 'testing'
+import { fireEvent, render, testA11y, userEvent, screen, act } from 'testing'
 import Radio from '../'
-import { RadioGroupProps } from '../group'
 
 const classPrefix = `adm-radio`
 
@@ -22,7 +21,16 @@ describe('Radio', () => {
     expect(radio).toBeChecked()
     expect(label).toHaveClass(`${classPrefix}-checked`)
   })
+  test('Radio click ', async () => {
+    const handleClick = jest.fn()
+    render(<Radio onClick={handleClick}>Radio</Radio>)
 
+    const label = document.getElementsByTagName('label')[0]
+    expect(label).toHaveClass(`${classPrefix}`)
+
+    fireEvent.click(label)
+    expect(handleClick).toBeCalledTimes(1)
+  })
   test('onChange should be call once when the selected item is clicked multiple times', async () => {
     const onChange = jest.fn()
     render(
@@ -30,7 +38,10 @@ describe('Radio', () => {
         1
       </Radio>
     )
-    await userEvent.tripleClick(screen.getByRole('radio'))
+
+    await act(async () => {
+      await userEvent.tripleClick(screen.getByRole('radio'))
+    })
     expect(onChange).toBeCalledTimes(1)
   })
 })
@@ -125,7 +136,9 @@ describe('Radio.Group', () => {
         <Radio value='2'>2</Radio>
       </Radio.Group>
     )
-    await userEvent.tripleClick(screen.getByRole('radio', { name: '1' }))
+    await act(async () => {
+      await userEvent.tripleClick(screen.getByRole('radio', { name: '1' }))
+    })
     expect(onChange).toBeCalledTimes(1)
   })
 })

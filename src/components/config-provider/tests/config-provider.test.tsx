@@ -25,6 +25,7 @@ import itIT from '../../../locales/it-IT'
 import daDK from '../../../locales/da-DK'
 import nbNO from '../../../locales/nb-NO'
 import nlNL from '../../../locales/nl-NL'
+import ruRU from '../../../locales/ru-RU'
 
 const locales = [
   zhCN,
@@ -42,6 +43,7 @@ const locales = [
   daDK,
   nbNO,
   nlNL,
+  ruRU,
 ]
 
 describe('ConfigProvider', () => {

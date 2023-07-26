@@ -1,4 +1,5 @@
-import React, { FC, ReactNode } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -60,40 +61,36 @@ export const Footer: FC<FooterProps> = p => {
           <Divider>{label}</Divider>
         </div>
       )}
-      {links && links.length > 0 && (
+      {!!links?.length && (
         <div className={`${classPrefix}-links`}>
-          {links.map((link, index) => {
-            return (
-              <React.Fragment key={index}>
-                <a
-                  href={link.href}
-                  rel='noopener noreferrer'
-                  onClick={event => clickLinkItem(link, index, event)}
-                >
-                  {link.text}
-                </a>
-                {index !== links.length - 1 && <Divider direction='vertical' />}
-              </React.Fragment>
-            )
-          })}
+          {links.map((link, index) => (
+            <React.Fragment key={index}>
+              <a
+                href={link.href}
+                rel='noopener noreferrer'
+                onClick={event => clickLinkItem(link, index, event)}
+              >
+                {link.text}
+              </a>
+              {index !== links.length - 1 && <Divider direction='vertical' />}
+            </React.Fragment>
+          ))}
         </div>
       )}
       {content && <div className={`${classPrefix}-content`}>{content}</div>}
       {chips && chips.length > 0 && (
         <div className={`${classPrefix}-chips`}>
-          {chips.map((chip, index) => {
-            return (
-              <div
-                key={index}
-                onClick={() => clickChipItem(chip, index)}
-                className={classNames(`${classPrefix}-chip`, {
-                  [`${classPrefix}-chip-link`]: chip.type === 'link',
-                })}
-              >
-                {chip.text}
-              </div>
-            )
-          })}
+          {chips.map((chip, index) => (
+            <div
+              key={index}
+              onClick={() => clickChipItem(chip, index)}
+              className={classNames(`${classPrefix}-chip`, {
+                [`${classPrefix}-chip-link`]: chip.type === 'link',
+              })}
+            >
+              {chip.text}
+            </div>
+          ))}
         </div>
       )}
     </div>

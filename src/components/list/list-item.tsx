@@ -1,4 +1,5 @@
-import React, { FC, ReactNode } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
@@ -15,7 +16,7 @@ export type ListItemProps = {
   clickable?: boolean
   arrow?: boolean | ReactNode
   disabled?: boolean
-  onClick?: (e: React.MouseEvent) => void
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void
 } & NativeProps<
   '--prefix-width' | '--align-items' | '--active-background-color'
 >

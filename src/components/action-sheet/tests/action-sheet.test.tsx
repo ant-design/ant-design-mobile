@@ -232,4 +232,21 @@ describe('ActionSheet', () => {
     })
     expect(onClose).toBeCalled()
   })
+
+  test('should support styles', () => {
+    render(
+      <ActionSheet
+        visible
+        actions={actions}
+        styles={{
+          body: { fontSize: 17 },
+          mask: { fontSize: 18 },
+        }}
+      />
+    )
+    expect(document.querySelector('.adm-mask')).toHaveStyle('fontSize: 17')
+    expect(document.querySelector('.adm-popup-body')).toHaveStyle(
+      'fontSize: 18'
+    )
+  })
 })

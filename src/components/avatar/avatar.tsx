@@ -1,9 +1,9 @@
-import React, { FC, ReactNode } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import Image from '../image'
 import { mergeProps } from '../../utils/with-default-props'
 import { Fallback } from './fallback'
-import { ImageProps } from '../image'
+import Image, { ImageProps } from '../image'
 
 const classPrefix = 'adm-avatar'
 

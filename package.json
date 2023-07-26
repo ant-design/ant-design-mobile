@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile",
-  "version": "5.29.1",
+  "version": "5.31.1",
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
@@ -15,8 +15,8 @@
     "pub:dev": "npm publish ./lib --tag dev"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.2.6",
-    "@rc-component/mini-decimal": "^1.0.1",
+    "@floating-ui/dom": "^1.4.2",
+    "@rc-component/mini-decimal": "^1.1.0",
     "@react-spring/web": "~9.6.1",
     "@use-gesture/react": "10.2.20",
     "ahooks": "^3.7.6",

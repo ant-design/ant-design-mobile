@@ -1,4 +1,5 @@
-import React, { FC, useContext } from 'react'
+import React, { useContext } from 'react'
+import type { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import { RadioGroupContext } from './group-context'
@@ -21,8 +22,9 @@ export type RadioProps = {
   value?: RadioValue
   block?: boolean
   id?: string
-  icon?: (checked: boolean) => React.ReactNode
-  children?: React.ReactNode
+  icon?: (checked: boolean) => ReactNode
+  children?: ReactNode
+  onClick?: (event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void
 } & NativeProps<'--icon-size' | '--font-size' | '--gap'>
 
 const defaultProps = {
@@ -86,6 +88,7 @@ export const Radio: FC<RadioProps> = p => {
   return withNativeProps(
     props,
     <label
+      onClick={props.onClick}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled,

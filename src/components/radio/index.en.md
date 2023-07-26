@@ -31,6 +31,7 @@ type RadioValue = string | number
 | icon | Customized `icon` icon | `(checked: boolean) => React.ReactNode` | - |
 | id | The id of the input element, often used in conjunction with the label | `string` | - |
 | onChange | Callback function when checked is changed | `(val: boolean) => void` | - |
+| onClick | Radio's click event | `(event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void` | - |
 | value | Value is carrying identification, used in `Group` mode | `RadioValue` | - |
 
 ### Radio.Group

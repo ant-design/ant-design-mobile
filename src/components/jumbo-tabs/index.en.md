@@ -25,7 +25,7 @@ Used in lists or modules in presentational interfaces when options require furth
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | description | The description text | `ReactNode` | - |
-| destroyOnClose | Unmount content when not visible | `boolean` | `false` |
+| destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | disabled | Whether to disable the tab | `boolean` | `false` |
 | forceRender | Whether to render the `DOM` structure when hidden | `boolean` | `false` |
 | key | Corresponding to `activeKey` | `string` | - |
