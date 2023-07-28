@@ -55,7 +55,11 @@ const Multi = () => {
 const ColorfulMulti = () => {
   const [visible, setVisible] = useState(false)
   const [index, setIndex] = useState(1)
-  const colors = ['#7DEBC7', '#EEB43F', '#BA72E8']
+  const colors = [
+    'rgba(164,255,164,.7)',
+    'rgba(255,204,0,.7)',
+    'rgba(186,114,232,.7)',
+  ]
   return (
     <>
       <Button
