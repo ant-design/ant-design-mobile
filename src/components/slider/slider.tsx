@@ -3,12 +3,12 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
 import Marks, { SliderMarks } from './marks'
+import getMiniDecimal, { toFixed } from '@rc-component/mini-decimal'
 import Thumb from './thumb'
 import { mergeProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
 import { usePropsValue } from '../../utils/use-props-value'
 import { devWarning } from '../../utils/dev-log'
-import Big from 'big.js'
 
 const classPrefix = `adm-slider`
 
@@ -52,6 +52,13 @@ export const Slider: FC<SliderProps> = p => {
   function convertValue(value: SliderValue): [number, number] {
     return (props.range ? value : [props.min, value]) as any
   }
+  function alignValue(value: number, decimalLen: number) {
+    const decimal = getMiniDecimal(value)
+    const fixedStr = toFixed(decimal.toString(), '.', decimalLen)
+
+    return getMiniDecimal(fixedStr).toNumber()
+  }
+
   function reverseValue(value: [number, number]): SliderValue {
     const mergedDecimalLen = Math.max(
       getDecimalLen(step),
@@ -59,11 +66,8 @@ export const Slider: FC<SliderProps> = p => {
       getDecimalLen(value[1])
     )
     return props.range
-      ? (value.map(v => Big(Big(v).toFixed(mergedDecimalLen)).toNumber()) as [
-          number,
-          number
-        ])
-      : Big(Big(value[1]).toFixed(mergedDecimalLen)).toNumber()
+      ? (value.map(v => alignValue(v, mergedDecimalLen)) as [number, number])
+      : alignValue(value[1], mergedDecimalLen)
   }
 
   function getDecimalLen(n: number) {
@@ -107,13 +111,19 @@ export const Slider: FC<SliderProps> = p => {
       return Object.keys(marks)
         .map(parseFloat)
         .sort((a, b) => a - b)
-    } else {
+    } else if (ticks) {
       const points: number[] = []
-      for (let i = Big(min); i.lte(max); i = i.plus(step)) {
+      for (
+        let i = getMiniDecimal(min);
+        i.lessEquals(getMiniDecimal(max));
+        i = i.add(step)
+      ) {
         points.push(i.toNumber())
       }
       return points
     }
+
+    return []
   }, [marks, ticks, step, min, max])
 
   function getValueByPosition(position: number) {
@@ -125,9 +135,10 @@ export const Slider: FC<SliderProps> = p => {
     if (pointList.length) {
       value = nearest(pointList, newPosition)
     } else {
-      const lengthPerStep = 100 / ((max - min) / step)
-      const steps = Math.round(newPosition / lengthPerStep)
-      value = steps * lengthPerStep * (max - min) * 0.01 + min
+      // 使用 MiniDecimal 避免精度问题
+      const cell = Math.round((newPosition - min) / step)
+      const nextVal = getMiniDecimal(cell).multi(step)
+      value = getMiniDecimal(min).add(nextVal.toString()).toNumber()
     }
     return value
   }

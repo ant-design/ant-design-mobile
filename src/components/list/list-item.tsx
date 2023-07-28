@@ -15,7 +15,7 @@ export type ListItemProps = {
   clickable?: boolean
   arrow?: boolean | ReactNode
   disabled?: boolean
-  onClick?: (e: React.MouseEvent) => void
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void
 } & NativeProps<
   '--prefix-width' | '--align-items' | '--active-background-color'
 >

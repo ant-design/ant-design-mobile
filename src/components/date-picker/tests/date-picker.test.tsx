@@ -163,4 +163,23 @@ describe('DatePicker', () => {
     expect(fn.mock.calls[1][0]).toEqual(today.toDateString())
     expect(onConfirm).toBeCalled()
   })
+
+  test('till now should be work', async () => {
+    const fn = jest.fn()
+    render(<DatePicker visible tillNow onConfirm={fn} />)
+
+    const nowEl = await screen.findByText('至今')
+    fireEvent.click(nowEl)
+    await act(async () => {
+      await Promise.resolve()
+    })
+    await act(async () => {
+      await Promise.resolve()
+    })
+
+    fireEvent.click(screen.getByText('确定'))
+    const res = fn.mock.calls[0][0]
+    expect(res.toDateString()).toEqual(now.toDateString())
+    expect(res.tillNow).toBeTruthy()
+  })
 })

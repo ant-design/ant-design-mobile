@@ -2,7 +2,7 @@ import React, {
   FC,
   ReactNode,
   ReactElement,
-  ComponentProps,
+  isValidElement,
   useRef,
 } from 'react'
 import classNames from 'classnames'
@@ -61,10 +61,11 @@ export const Tabs: FC<TabsProps> = p => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
-  const panes: ReactElement<ComponentProps<typeof Tab>>[] = []
+  const panes: ReactElement<TabProps>[] = []
 
   traverseReactNode(props.children, (child, index) => {
-    if (!React.isValidElement(child)) return
+    if (!isValidElement<TabProps>(child)) return
+
     const key = child.key
     if (typeof key !== 'string') return
     if (index === 0) {
@@ -249,6 +250,7 @@ export const Tabs: FC<TabsProps> = p => {
           ref={tabListContainerRef}
           scrollLeft={scrollLeft}
           onScroll={updateMask}
+          role='tablist'
         >
           <animated.div
             ref={activeLineRef}
@@ -283,6 +285,8 @@ export const Tabs: FC<TabsProps> = p => {
                     [`${classPrefix}-tab-active`]: pane.key === activeKey,
                     [`${classPrefix}-tab-disabled`]: pane.props.disabled,
                   })}
+                  role='tab'
+                  aria-selected={pane.key === activeKey}
                 >
                   {pane.props.title}
                 </div>

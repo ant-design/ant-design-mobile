@@ -29,7 +29,7 @@ export type ButtonProps = {
   children?: React.ReactNode
 } & Pick<
   NativeButtonProps,
-  'onMouseDown' | 'onMouseUp' | 'onTouchStart' | 'onTouchEnd'
+  'onMouseDown' | 'onMouseUp' | 'onTouchStart' | 'onTouchEnd' | 'id'
 > &
   NativeProps<
     | '--text-color'

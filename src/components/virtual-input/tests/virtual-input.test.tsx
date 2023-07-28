@@ -108,4 +108,9 @@ describe('VirtualInput', () => {
       ).not.toBeVisible()
     })
   })
+
+  test('placeholder should not be shown when value is `0`', () => {
+    render(<VirtualInput value={0 as any} placeholder='placeholder' />)
+    expect(screen.queryByText('placeholder')).toBeNull()
+  })
 })

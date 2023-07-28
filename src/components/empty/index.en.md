@@ -18,8 +18,8 @@ A placeholder prompt for when the information is empty.
 
 ### Props
 
-| Name        | Description                                             | Type            | Default |
-| ----------- | ------------------------------------------------------- | --------------- | ------- |
-| description | The descriptive text below the image                    | `ReactNode`     | -       |
-| image       | Custom image, when it is `string`, it means image `URL` | `ReactNode`     | -       |
-| imageStyle  | The style of the image                                  | `CSSProperties` | -       |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| description | The descriptive text below the image | `ReactNode` | - |
+| image | Custom image, when it is `string`, it means image `URL` | `ReactNode` | - |
+| imageStyle | The style of the image | `CSSProperties` | - |

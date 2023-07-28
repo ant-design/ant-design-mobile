@@ -53,7 +53,9 @@ describe('adm-search-bar', () => {
     render(<SearchBar showCancelButton />)
     const input = screen.getByRole('searchbox')
     fireEvent.focus(input)
-    await userEvent.type(input, '12')
+    await act(async () => {
+      await userEvent.type(input, '12')
+    })
     fireEvent.click(screen.getByText('取消'))
     expect(input).toHaveValue('')
   })
@@ -62,7 +64,9 @@ describe('adm-search-bar', () => {
     const onSearch = jest.fn()
     render(<SearchBar onSearch={onSearch} />)
     const input = screen.getByRole('searchbox')
-    await userEvent.type(input, '12{enter}')
+    await act(async () => {
+      await userEvent.type(input, '12{enter}')
+    })
     expect(onSearch).toBeCalledWith('12')
   })
 
@@ -80,7 +84,10 @@ describe('adm-search-bar', () => {
     expect(input).toHaveFocus()
     expect(onFocus).toBeCalled()
 
-    await userEvent.type(input, '12')
+    await act(async () => {
+      await userEvent.type(input, '12')
+    })
+
     act(() => {
       ref.current?.clear()
     })

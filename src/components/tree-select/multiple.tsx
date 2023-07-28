@@ -320,24 +320,20 @@ export const Multiple: FC<MultipleProps> = p => {
       return (
         <>
           {renderSelectAllLeafItem(columnOptions, index)}
-          {columnOptions.map(option => {
-            return renderLeafItem(option)
-          })}
+          {columnOptions.map(option => renderLeafItem(option))}
         </>
       )
     }
     return (
       <>
         {renderSelectAllItem(columnOptions, index)}
-        {columnOptions.map(option => {
-          return renderItem(option)
-        })}
+        {columnOptions.map(option => renderItem(option))}
       </>
     )
   }
 
   const renderColumns = () => {
-    const columns = []
+    const columns: JSX.Element[] = []
     for (let i = 0; i < deep; i++) {
       let width = `${100 / deep}%`
 

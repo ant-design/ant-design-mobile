@@ -14,31 +14,31 @@
 
 ### 属性
 
-| 属性                | 说明                         | 类型                                            | 默认值 |
-| ------------------- | ---------------------------- | ----------------------------------------------- | ------ |
-| closeOnAction       | 是否在点击操作按钮时自动归位 | `boolean`                                       | `true` |
-| closeOnTouchOutside | 是否在点击其他区域时自动归位 | `boolean`                                       | `true` |
-| leftActions         | 左侧的操作按钮列表           | `Action[]`                                      | `[]`   |
-| onAction            | 点击操作按钮时触发           | `(action: Action, e: React.MouseEvent) => void` | -      |
-| rightActions        | 右侧的操作按钮列表           | `Action[]`                                      | `[]`   |
-| stopPropagation     | 阻止某些事件的冒泡           | `PropagationEven[]`                             | `[]`   |
-| onActionsReveal     | 按钮完全出现时触发           | (side: 'left' \| 'right') => void               | -      |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| closeOnAction | 是否在点击操作按钮时自动归位 | `boolean` | `true` |
+| closeOnTouchOutside | 是否在点击其他区域时自动归位 | `boolean` | `true` |
+| leftActions | 左侧的操作按钮列表 | `Action[]` | `[]` |
+| rightActions | 右侧的操作按钮列表 | `Action[]` | `[]` |
+| onAction | 点击操作按钮时触发 | `(action: Action, e: React.MouseEvent) => void` | - |
+| stopPropagation | 阻止某些事件的冒泡 | `PropagationEven[]` | `[]` |
+| onActionsReveal | 按钮完全出现时触发 | `(side: 'left' \| 'right') => void` | - |
 
 ### Action
 
-| 属性    | 说明       | 类型                                                                             | 默认值    |
-| ------- | ---------- | -------------------------------------------------------------------------------- | --------- |
-| color   | 颜色       | `'light' \| 'weak' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| string` | `'light'` |
-| key     | 唯一标识   | `string \| number`                                                               | -         |
-| onClick | 点击时触发 | `(e: React.MouseEvent) => void`                                                  | -         |
-| text    | 文字       | `ReactNode`                                                                      | -         |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| color | 颜色 | `'light' \| 'weak' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| string` | `'light'` |
+| key | 唯一标识 | `string \| number` | - |
+| onClick | 点击时触发 | `(e: React.MouseEvent) => void` | - |
+| text | 文字 | `ReactNode` | - |
 
 ## Ref
 
-| 属性  | 说明                                      | 类型                                 |
-| ----- | ----------------------------------------- | ------------------------------------ |
-| close | 让滑动条归位                              | `() => void`                         |
-| show  | 滑动出操作按钮，`side` 参数默认为 `right` | `(side?: 'left' \| 'right') => void` |
+| 属性 | 说明 | 类型 |
+| --- | --- | --- |
+| close | 让滑动条归位 | `() => void` |
+| show | 滑动出操作按钮，`side` 参数默认为 `right` | `(side?: 'left' \| 'right') => void` |
 
 ### CSS 变量
 

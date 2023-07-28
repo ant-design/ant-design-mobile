@@ -16,12 +16,12 @@ When the `hasMore` prop is `true`, the infinite scroll component will call the d
 
 ### Props
 
-| Name      | Description                                                                               | Type                                                                                             | Default               |
-| --------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | --------------------- |
-| children  | Rendering custom guide content                                                            | `React.ReactNode \| ((hasMore: boolean, failed: boolean, retry: () => void) => React.ReactNode)` | Default guidance tips |
-| hasMore   | Whether there is more content or not                                                      | `boolean`                                                                                        | -                     |
-| loadMore  | Callback to load more                                                                     | `(isRetry: boolean) => Promise<void>`                                                            | -                     |
-| threshold | The threshold of the scroll bottoming distance that triggers the loading event, in pixels | `number`                                                                                         | `250`                 |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| children | Rendering custom guide content | `React.ReactNode \| ((hasMore: boolean, failed: boolean, retry: () => void) => React.ReactNode)` | Default guidance tips |
+| hasMore | Whether there is more content or not | `boolean` | - |
+| loadMore | Callback to load more | `(isRetry: boolean) => Promise<void>` | - |
+| threshold | The threshold of the scroll bottoming distance that triggers the loading event, in pixels | `number` | `250` |
 
 InfiniteScroll will automatically lock the `loadMore` function to avoid repeated requests, but the premise is that the `loadMore` function needs to return a correct Promise. The following are examples of correct and incorrect usage:
 
@@ -45,7 +45,7 @@ function loadMore() { // ok
 
 ### Customized Content
 
-If necessary, `<InfiniteScroll>` allows custom display content, this content can contain any element, including svg and elements with css animation.
+If necessary, `InfiniteScroll` allows custom display content, this content can contain any element, including svg and elements with css animation.
 
 <code src="./demos/content.tsx"></code>
 
@@ -93,7 +93,9 @@ But in some scenarios (for example, when used with the `Tabs` component), you ma
 </Tabs>
 ```
 
-Problem description: The `Tabs` component displays the content of the first `Tab` item by default, so the content of the second `Tab` item `InfiniteScroll` is not visible. But the second `Tab` has a `forceRender` property added, so its content is rendered even if it is not visible. When the `InfiniteScroll` component is rendered this time, since the component is not visible, the `loadMore` function will not be called, which is normal and as expected. _However, when we switch to the second `Tab` to display the `InfiniteScroll` component, we find that the `InfiniteScroll` component does not call the `loadMore` function, which is different from what we expected. We hope that the `loadMore` function will be called at this time_.
+Problem description: The `Tabs` component displays the content of the first `Tab` item by default, so the content of the second `Tab` item `InfiniteScroll` is not visible. But the second `Tab` has a `forceRender` property added, so its content is rendered even if it is not visible. When the `InfiniteScroll` component is rendered this time, since the component is not visible, the `loadMore` function will not be called, which is normal and as expected.
+
+_However, when we switch to the second `Tab` to display the `InfiniteScroll` component, we find that the `InfiniteScroll` component does not call the `loadMore` function, which is different from what we expected. We hope that the `loadMore` function will be called at this time_.
 
 Reason: When you click to switch the `Tab` item of the `Tabs` component, the highlight state of the `Tabs` component will be modified. At this time, the `Tabs` component will be re-rendered. However, it should be noted that **only the content of the `Tabs` component itself will be re-rendered, and the `InfiniteScroll` component is outside the `Tabs` component, not the `Tabs` component's own content**. So, when switching `Tab`, the `InfiniteScroll` component does not re-render, and it does not trigger its checking mechanism again.
 

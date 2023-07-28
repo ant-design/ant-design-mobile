@@ -6,6 +6,7 @@ import Space from '../space'
 import Grid, { GridProps } from '../grid'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckMark } from './check-mark'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-selector`
 
@@ -61,6 +62,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
       props.onChange?.(val, extend)
     },
   })
+  const { locale } = useConfig()
 
   const items = props.options.map(option => {
     const active = (value || []).includes(option.value)
@@ -89,6 +91,10 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
             setValue(val)
           }
         }}
+        role='option'
+        aria-selected={
+          (active && !props.multiple) || (active && props.multiple)
+        }
       >
         {option.label}
         {option.description && (
@@ -107,7 +113,11 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div
+      className={classPrefix}
+      role='listbox'
+      aria-label={locale.Selector.name}
+    >
       {!props.columns && <Space wrap>{items}</Space>}
       {props.columns && <Grid columns={props.columns}>{items}</Grid>}
     </div>

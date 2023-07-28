@@ -142,6 +142,12 @@ describe('Input', () => {
     })
   })
 
+  test('should work with `type="number"` and step', async () => {
+    const { container } = render(<Input type='number' step='0.01' min={0} />)
+    const input = container.querySelector('input') as HTMLInputElement
+    expect(input.step).toBe('0.01')
+  })
+
   test('should works with `onEnterPress`', async () => {
     const onEnterPress = jest.fn()
     render(<Input defaultValue={'testValue'} onEnterPress={onEnterPress} />)
@@ -183,5 +189,23 @@ describe('Input', () => {
       ref.current?.clear()
     })
     expect(ref.current?.nativeElement?.value).toBe('')
+  })
+
+  test('numbers that start with 0 should be work', () => {
+    const ref = createRef<InputRef>()
+    render(<Input type='number' ref={ref} />)
+    const input = document.querySelector('input')!
+    fireEvent.change(input, {
+      target: { value: '012' },
+    })
+    // input.blur()
+    act(() => {
+      input.focus()
+    })
+    act(() => {
+      input.blur()
+    })
+
+    expect(input.value).toBe('012')
   })
 })

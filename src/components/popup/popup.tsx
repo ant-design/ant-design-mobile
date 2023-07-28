@@ -12,17 +12,21 @@ import { ShouldRender } from '../../utils/should-render'
 import { CloseOutline } from 'antd-mobile-icons'
 import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
 import { useInnerVisible } from '../../utils/use-inner-visible'
+import { useConfig } from '../config-provider'
+import { useDrag } from '@use-gesture/react'
 
 const classPrefix = `adm-popup`
 
 export type PopupProps = PopupBaseProps &
   PropsWithChildren<{
     position?: 'bottom' | 'top' | 'left' | 'right'
+    closeOnSwipe?: boolean
   }> &
   NativeProps<'--z-index'>
 
 const defaultProps = {
   ...defaultPopupBaseProps,
+  closeOnSwipe: false,
   position: 'bottom',
 }
 
@@ -35,15 +39,16 @@ export const Popup: FC<PopupProps> = p => {
     `${classPrefix}-body-position-${props.position}`
   )
 
+  const { locale } = useConfig()
   const [active, setActive] = useState(props.visible)
+  const ref = useRef<HTMLDivElement>(null)
+  useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
+
   useIsomorphicLayoutEffect(() => {
     if (props.visible) {
       setActive(true)
     }
   }, [props.visible])
-
-  const ref = useRef<HTMLDivElement>(null)
-  useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
 
   const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({
@@ -65,6 +70,22 @@ export const Popup: FC<PopupProps> = p => {
     },
   })
 
+  const bind = useDrag(
+    ({ swipe: [, swipeY] }) => {
+      if (!props.closeOnSwipe) return
+      if (
+        (swipeY === 1 && props.position === 'bottom') ||
+        (swipeY === -1 && props.position === 'top')
+      ) {
+        props.onClose?.()
+      }
+    },
+    {
+      axis: 'y',
+      enabled: ['top', 'bottom'].includes(props.position),
+    }
+  )
+
   const maskVisible = useInnerVisible(active && props.visible)
 
   const node = withStopPropagation(
@@ -74,7 +95,13 @@ export const Popup: FC<PopupProps> = p => {
       <div
         className={classPrefix}
         onClick={props.onClick}
-        style={{ display: active ? undefined : 'none' }}
+        style={{
+          display: active ? undefined : 'none',
+          touchAction: ['top', 'bottom'].includes(props.position)
+            ? 'none'
+            : 'auto',
+        }}
+        {...bind()}
       >
         {props.mask && (
           <Mask
@@ -124,6 +151,8 @@ export const Popup: FC<PopupProps> = p => {
               onClick={() => {
                 props.onClose?.()
               }}
+              role='button'
+              aria-label={locale.common.close}
             >
               <CloseOutline />
             </a>

@@ -1,9 +1,8 @@
 import React, { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import Image from '../image'
 import { mergeProps } from '../../utils/with-default-props'
 import { Fallback } from './fallback'
-import { ImageProps } from '../image'
+import Image, { ImageProps } from '../image'
 
 const classPrefix = 'adm-avatar'
 
@@ -11,7 +10,7 @@ export type AvatarProps = {
   src: string
   fallback?: ReactNode
   fit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
-} & Pick<ImageProps, 'alt' | 'lazy' | 'onClick' | 'onError'> &
+} & Pick<ImageProps, 'alt' | 'lazy' | 'onClick' | 'onError' | 'onLoad'> &
   NativeProps<'--size' | '--border-radius'>
 
 const defaultProps = {
@@ -33,6 +32,7 @@ export const Avatar: FC<AvatarProps> = p => {
       fit={props.fit}
       onClick={props.onClick}
       onError={props.onError}
+      onLoad={props.onLoad}
     />
   )
 }

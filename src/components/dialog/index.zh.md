@@ -4,7 +4,7 @@
 
 ## 何时使用
 
-需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 Modal 在当前页面正中打开一个浮层，承载相应的操作。
+需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 Dialog 在当前页面正中打开一个浮层，承载相应的操作。
 
 ## 示例
 
@@ -18,29 +18,29 @@
 
 ### 属性
 
-| 属性              | 说明                                                     | 类型                                                       | 默认值      |
-| ----------------- | -------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
-| actions           | 操作按钮列表，可以传入二级数组来实现同一行内并排多个按钮 | `(Action \| Action[])[]`                                   | `[]`        |
-| afterClose        | `Dialog` 完全关闭后的回调                                | `() => void`                                               | -           |
-| afterShow         | 完全展示后触发                                           | `() => void`                                               | -           |
-| bodyClassName     | `Dialog` 内容类名                                        | `string`                                                   | -           |
-| bodyStyle         | `Dialog` 内容样式                                        | `React.CSSProperties`                                      | -           |
-| closeOnAction     | 点击操作按钮后后是否关闭                                 | `boolean`                                                  | `false`     |
-| closeOnMaskClick  | 是否支持点击遮罩关闭对话框                               | `boolean`                                                  | `false`     |
-| content           | 对话框内容                                               | `React.ReactNode`                                          | -           |
-| destroyOnClose    | 不可见时卸载内容                                         | `boolean`                                                  | `false`     |
-| disableBodyScroll | 是否禁用 `body` 滚动                                     | `boolean`                                                  | `true`      |
-| forceRender       | 被隐藏时是否渲染 `DOM` 结构                              | `boolean`                                                  | `false`     |
-| getContainer      | 自定义对话框的父容器                                     | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
-| header            | 顶部区域                                                 | `React.ReactNode`                                          | -           |
-| image             | 图片 `url`                                               | `string`                                                   | -           |
-| maskClassName     | `Dialog` 遮罩类名                                        | `string`                                                   | -           |
-| maskStyle         | `Dialog` 遮罩样式                                        | `React.CSSProperties`                                      | -           |
-| onAction          | 点击操作按钮时触发                                       | `(action: Action, index: number) => void \| Promise<void>` | -           |
-| onClose           | 关闭时触发                                               | `() => void`                                               | -           |
-| stopPropagation   | 阻止某些事件的冒泡                                       | `PropagationEvent[]`                                       | `['click']` |
-| title             | 对话框标题                                               | `React.ReactNode`                                          | -           |
-| visible           | 显示隐藏                                                 | `boolean`                                                  | `false`     |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| actions | 操作按钮列表，可以传入二级数组来实现同一行内并排多个按钮 | `(Action \| Action[])[]` | `[]` |
+| afterClose | `Dialog` 完全关闭后的回调 | `() => void` | - |
+| afterShow | 完全展示后触发 | `() => void` | - |
+| bodyClassName | `Dialog` 内容类名 | `string` | - |
+| bodyStyle | `Dialog` 内容样式 | `React.CSSProperties` | - |
+| closeOnAction | 点击操作按钮后后是否关闭 | `boolean` | `false` |
+| closeOnMaskClick | 是否支持点击遮罩关闭对话框 | `boolean` | `false` |
+| content | 对话框内容 | `React.ReactNode` | - |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
+| disableBodyScroll | 是否禁用 `body` 滚动 | `boolean` | `true` |
+| forceRender | 被隐藏时是否渲染 `DOM` 结构 | `boolean` | `false` |
+| getContainer | 自定义对话框的父容器 | `HTMLElement \| (() => HTMLElement) \| null` | `null` |
+| header | 顶部区域 | `React.ReactNode` | - |
+| image | 图片 `url` | `string` | - |
+| maskClassName | `Dialog` 遮罩类名 | `string` | - |
+| maskStyle | `Dialog` 遮罩样式 | `React.CSSProperties` | - |
+| onAction | 点击操作按钮时触发 | `(action: Action, index: number) => void \| Promise<void>` | - |
+| onClose | 关闭时触发 | `() => void` | - |
+| stopPropagation | 阻止某些事件的冒泡 | `PropagationEvent[]` | `['click']` |
+| title | 对话框标题 | `React.ReactNode` | - |
+| visible | 显示隐藏 | `boolean` | `false` |
 
 ### Action
 
@@ -83,10 +83,10 @@ const handler = Dialog.show(props)
 
 此外，它还额外支持以下属性：
 
-| 属性        | 说明               | 类型                          | 默认值       |
-| ----------- | ------------------ | ----------------------------- | ------------ |
-| confirmText | 确认按钮的内容     | `ReactNode`                   | `'我知道了'` |
-| onConfirm   | 点击确认按钮时触发 | `() => void \| Promise<void>` | -            |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| confirmText | 确认按钮的内容 | `ReactNode` | `'我知道了'` |
+| onConfirm | 点击确认按钮时触发 | `() => void \| Promise<void>` | - |
 
 ### Dialog.confirm
 
@@ -130,9 +130,7 @@ export default function App() {
 }
 ```
 
-如果你需要在 Dialog
-中包含很多复杂的状态和逻辑，那么可以使用声明式的语法，或者考虑自己将内部状态和逻辑单独封装一个组件出来，详见 [#4762](https://github.com/ant-design/ant-design-mobile/issues/4762)
-。
+如果你需要在 Dialog 中包含很多复杂的状态和逻辑，那么可以使用声明式的语法，或者考虑自己将内部状态和逻辑单独封装一个组件出来，详见 [#4762](https://github.com/ant-design/ant-design-mobile/issues/4762) 。
 
 ### Dialog.clear
 

@@ -159,7 +159,55 @@ describe('ImageUploader', () => {
     })
 
     expect(fn.mock.calls[0][0]).toBe(1)
-    expect($$(`.${classPrefix}-upload-button`).length).toBe(0)
+    expect($$(`.${classPrefix}-upload-button-wrap`)[0]).toHaveStyle(
+      'display: none'
+    )
+  })
+
+  test('upload fileList to correct order', async () => {
+    const customMockUpload = async (file: File) => {
+      let time: number
+      const currentFileName: string = file.name
+      switch (currentFileName) {
+        case 'one.png':
+          time = 2000
+          break
+        case 'two.png':
+          time = 1000
+          break
+        case 'three.png':
+        default:
+          time = 300
+          break
+      }
+      await sleep(time)
+      return {
+        url: currentFileName,
+      }
+    }
+    const { container } = render(
+      <App
+        multiple
+        upload={customMockUpload}
+        renderItem={(originNode: React.ReactElement) => originNode}
+      />
+    )
+    const inputEl = $$(`.${classPrefix}-input`)[0] as HTMLInputElement
+    const files = [
+      new File(['one'], 'one.png', { type: 'image/png' }),
+      new File(['two'], 'two.png', { type: 'image/png' }),
+      new File(['three'], 'three.png', { type: 'image/png' }),
+    ]
+    await user.upload(inputEl, files)
+
+    await act(async () => {
+      jest.runAllTimers()
+    })
+
+    expect($$(`.adm-image-img`).length).toBe(4)
+    expect($$(`.adm-image-img`)[1]).toHaveAttribute('src', 'one.png')
+    expect($$(`.adm-image-img`)[2]).toHaveAttribute('src', 'two.png')
+    expect($$(`.adm-image-img`)[3]).toHaveAttribute('src', 'three.png')
   })
 
   test('delete image', async () => {
@@ -285,5 +333,51 @@ describe('ImageUploader', () => {
       jest.runAllTimers()
     })
     expect(fn.mock.lastCall[0].length).toBe(1)
+  })
+
+  test('revokeObjectURL when task done', async () => {
+    const fn = jest.fn(() => {})
+    URL.revokeObjectURL = fn
+
+    render(<App />)
+
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(0))
+
+    expect(fn).not.toBeCalled()
+
+    mockInputFile()
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    await act(async () => {
+      jest.runAllTimers()
+    })
+
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(1))
+
+    expect(fn).toBeCalledTimes(1)
+    expect(fn).toBeCalledWith('')
+
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(0))
+
+    expect(fn).toBeCalledTimes(1)
+  })
+
+  test('task change', async () => {
+    const fn = jest.fn()
+    render(<App upload={mockUpload} onUploadQueueChange={fn} />)
+    mockInputFile()
+    expect(fn.mock.lastCall[0]).toMatchObject([])
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(fn.mock.lastCall[0]).toMatchObject([{ id: 0, status: 'pending' }])
+    await act(async () => {
+      jest.runAllTimers()
+    })
+    expect(fn).toBeCalledWith([{ id: 0, status: 'success' }])
+    expect(fn.mock.lastCall[0]).toMatchObject([])
   })
 })

@@ -39,6 +39,7 @@ export type CalendarProps = {
   onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => React.ReactNode
+  renderDate?: (date: Date) => React.ReactNode
   allowClear?: boolean
   max?: Date
   min?: Date
@@ -148,7 +149,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         return
       }
     }
-    setCurrent(current[action](num, type))
+    setCurrent(nxtCurrent)
   }
 
   const header = (
@@ -216,6 +217,8 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       let isSelect = false
       let isBegin = false
       let isEnd = false
+      let isSelectRowBegin = false
+      let isSelectRowEnd = false
       if (dateRange) {
         const [begin, end] = dateRange
         isBegin = d.isSame(begin, 'day')
@@ -224,6 +227,14 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           isBegin ||
           isEnd ||
           (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
+        if (isSelect) {
+          isSelectRowBegin =
+            (cells.length % 7 === 0 || d.isSame(d.startOf('month'), 'day')) &&
+            !isBegin
+          isSelectRowEnd =
+            (cells.length % 7 === 6 || d.isSame(d.endOf('month'), 'day')) &&
+            !isEnd
+        }
       }
       const inThisMonth = d.month() === current.month()
       const disabled = props.shouldDisableDate
@@ -241,6 +252,8 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
               [`${classPrefix}-cell-selected`]: isSelect,
               [`${classPrefix}-cell-selected-begin`]: isBegin,
               [`${classPrefix}-cell-selected-end`]: isEnd,
+              [`${classPrefix}-cell-selected-row-begin`]: isSelectRowBegin,
+              [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
             }
           )}
           onClick={() => {
@@ -284,7 +297,9 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
             }
           }}
         >
-          <div className={`${classPrefix}-cell-top`}>{d.date()}</div>
+          <div className={`${classPrefix}-cell-top`}>
+            {props.renderDate ? props.renderDate(d.toDate()) : d.date()}
+          </div>
           <div className={`${classPrefix}-cell-bottom`}>
             {props.renderLabel?.(d.toDate())}
           </div>

@@ -5,6 +5,7 @@ export const CheckListContext = createContext<{
   check: (val: string) => void
   uncheck: (val: string) => void
   activeIcon?: ReactNode
+  extra?: (active: boolean) => ReactNode
   disabled?: boolean
   readOnly?: boolean
 } | null>(null)

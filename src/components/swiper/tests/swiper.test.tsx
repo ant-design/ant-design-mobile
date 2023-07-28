@@ -184,6 +184,31 @@ describe('Swiper', () => {
     expect(onIndexChange).toBeCalledWith(2)
   })
 
+  test('`onIndexChange` should not be called when use `swipeTo` equal value', () => {
+    const onIndexChange = jest.fn()
+    const App = () => {
+      const ref = useRef<SwiperRef>(null)
+      return (
+        <>
+          <Swiper defaultIndex={0} ref={ref} onIndexChange={onIndexChange}>
+            {items}
+          </Swiper>
+          <button
+            onClick={() => {
+              ref.current?.swipeTo(0)
+            }}
+          >
+            to
+          </button>
+        </>
+      )
+    }
+    const { getByText } = render(<App />)
+
+    fireEvent.click(getByText('to'))
+    expect(onIndexChange).not.toBeCalled()
+  })
+
   test(`dont't allow touch move`, () => {
     render(<Swiper allowTouchMove={false}>{items}</Swiper>)
 
@@ -212,17 +237,21 @@ describe('Swiper', () => {
     )
 
     const el = $$(`.${classPrefix}-track`)[0]
-    mockDrag(el, [
-      { clientX: 50, clientY: 300 },
-      {
-        clientX: 50,
-        clientY: 200,
-      },
-      {
-        clientX: 60,
-        clientY: 50,
-      },
-    ])
+    await mockDrag(
+      el,
+      [
+        { clientX: 50, clientY: 300 },
+        {
+          clientX: 50,
+          clientY: 200,
+        },
+        {
+          clientX: 60,
+          clientY: 50,
+        },
+      ],
+      5
+    )
 
     expect($$(`.${classPrefix}-track-inner`)[0]).toHaveStyle(
       'transform: translate3d(0,-100%,0)'
@@ -290,5 +319,38 @@ describe('Swiper', () => {
     )
 
     jest.useRealTimers()
+  })
+
+  test('stop propagation should be work', () => {
+    const onMouseDown = jest.fn()
+    const onMouseMove = jest.fn()
+    const onMouseUp = jest.fn()
+    render(
+      <div
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+      >
+        <Swiper stopPropagation={['mousedown', 'mousemove', 'mouseup']}>
+          {items}
+        </Swiper>
+      </div>
+    )
+
+    const el = $$(`.${classPrefix}-track`)[0]
+    mockDrag(el, [
+      { clientX: 300, clientY: 0 },
+      {
+        clientX: 200,
+        clientY: 25,
+      },
+      {
+        clientX: 100,
+        clientY: 30,
+      },
+    ])
+    expect(onMouseDown).not.toBeCalled()
+    expect(onMouseMove).not.toBeCalled()
+    expect(onMouseUp).not.toBeCalled()
   })
 })

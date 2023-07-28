@@ -40,6 +40,7 @@ export type CascaderProps = {
   title?: ReactNode
   confirmText?: ReactNode
   cancelText?: ReactNode
+  loading?: boolean
   children?: (
     items: (CascaderOption | null)[],
     actions: CascaderActions
@@ -110,16 +111,12 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
   const generateValueExtend = useCascaderValueExtend(props.options)
 
   const [innerValue, setInnerValue] = useState<CascaderValue[]>(value)
+
   useEffect(() => {
     if (!visible) {
       setInnerValue(value)
     }
-  }, [visible])
-  useEffect(() => {
-    if (!visible) {
-      setInnerValue(value)
-    }
-  }, [value])
+  }, [visible, value])
 
   const cascaderElement = withNativeProps(
     props,

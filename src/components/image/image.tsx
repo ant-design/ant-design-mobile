@@ -5,6 +5,7 @@ import React, {
   forwardRef,
   useRef,
   useImperativeHandle,
+  useEffect,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { toCSSLength } from '../../utils/to-css-length'
@@ -39,6 +40,7 @@ export type ImageProps = {
     | 'sizes'
     | 'srcSet'
     | 'useMap'
+    | 'id'
   >
 
 export type ImgRef = {
@@ -66,7 +68,8 @@ export const Image = forwardRef<ImgRef, ImageProps>((p, ref) => {
 
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
-  const nativeImgRef = useRef<HTMLImageElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
+  const imgRef = useRef<HTMLImageElement>(null)
 
   let src: string | undefined = props.src
   let srcSet: string | undefined = props.srcSet
@@ -78,7 +81,7 @@ export const Image = forwardRef<ImgRef, ImageProps>((p, ref) => {
 
   useImperativeHandle(ref, () => ({
     get nativeElement() {
-      return nativeImgRef.current
+      return imgRef.current
     },
   }))
 
@@ -87,13 +90,21 @@ export const Image = forwardRef<ImgRef, ImageProps>((p, ref) => {
     setFailed(false)
   }, [src])
 
+  useEffect(() => {
+    // for nextjs ssr
+    if (imgRef.current?.complete) {
+      setLoaded(true)
+    }
+  }, [])
+
   function renderInner() {
     if (failed) {
       return <>{props.fallback}</>
     }
     const img = (
       <img
-        ref={nativeImgRef}
+        ref={imgRef}
+        id={props.id}
         className={`${classPrefix}-img`}
         src={src}
         alt={props.alt}

@@ -6,6 +6,8 @@
 
 在 Next.js 中使用 antd-mobile 需要做一些额外的配置。
 
+### Next.js 12
+
 首先，需要安装 `next-transpile-modules` 依赖：
 
 ```bash
@@ -27,6 +29,31 @@ module.exports = withTM({
   // 你项目中其他的 Next.js 配置
 });
 ```
+
+### Next.js 13
+
+Next.js 13 可以通过配置自动处理 `node_modules` 中的依赖，不再需要 `next-transpile-modules`。
+
+```js
+// next.config.js
+const nextConfig = {
+  transpilePackages: ['antd-mobile'],
+};
+
+module.exports = nextConfig;
+```
+
+如果在 `app` 目录下使用 antd-mobile，需要在文件顶部添加 `'use client'` 指令。
+
+```jsx
+// app/page.jsx
+'use client'
+
+import { Button } from 'antd-mobile'
+```
+
+- [transpilepackages](https://beta.nextjs.org/docs/api-reference/next-config#transpilepackages)
+- [server-and-client-components](https://beta.nextjs.org/docs/rendering/server-and-client-components)
 
 ## Remix
 

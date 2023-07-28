@@ -47,11 +47,14 @@ describe('stepper', () => {
     const input = screen.getByRole('spinbutton') as HTMLInputElement
     expect(input.value).toBe('100')
 
+    // Change to 200
     fireEvent.change(input, {
       target: {
         value: '200',
       },
     })
+
+    // Clean up
     fireEvent.change(input, {
       target: {
         value: '',
@@ -206,5 +209,49 @@ describe('stepper', () => {
     await waitFor(() => {
       expect(input.value).toBe('1')
     })
+  })
+
+  test('formatter & parser', () => {
+    const formatter = jest.fn((val?: number) => `$ ${val}`)
+    const parser = jest.fn((text: string) => parseFloat(text))
+
+    const { container } = render(
+      <Stepper formatter={formatter} parser={parser} />
+    )
+
+    const inputEle = container.querySelector('input') as HTMLInputElement
+    expect(inputEle.value).toEqual('$ 0')
+
+    fireEvent.focus(inputEle)
+    expect(inputEle.value).toEqual('0')
+
+    fireEvent.change(inputEle, {
+      target: {
+        value: 93,
+      },
+    })
+    expect(inputEle.value).toEqual('93')
+
+    fireEvent.blur(inputEle)
+    expect(inputEle.value).toEqual('$ 93')
+  })
+
+  test('stringMode', () => {
+    const onChange = jest.fn()
+    const { container } = render(
+      <Stepper
+        stringMode
+        defaultValue='0.000000000000002'
+        step='0.000000000000001'
+        onChange={onChange}
+      />
+    )
+
+    // plus
+    const plusButton = screen.getByRole('button', { name: '增加' })
+    fireEvent.click(plusButton)
+
+    expect(onChange).toHaveBeenCalledWith('0.000000000000003')
+    expect(container.querySelector('input')!.value).toEqual('0.000000000000003')
   })
 })

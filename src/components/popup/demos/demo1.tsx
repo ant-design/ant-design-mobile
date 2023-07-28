@@ -29,6 +29,9 @@ export default () => {
               onMaskClick={() => {
                 setVisible1(false)
               }}
+              onClose={() => {
+                setVisible1(false)
+              }}
               bodyStyle={{ height: '40vh' }}
             >
               {mockContent}
@@ -45,6 +48,9 @@ export default () => {
             <Popup
               visible={visible2}
               onMaskClick={() => {
+                setVisible2(false)
+              }}
+              onClose={() => {
                 setVisible2(false)
               }}
               position='top'

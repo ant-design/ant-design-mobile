@@ -10,22 +10,26 @@ import { useMutationEffect } from '../../utils/use-mutation-effect'
 const classPrefix = `adm-notice-bar`
 
 export type NoticeBarProps = {
-  /** 通告栏的类型 */
+  /** The type of the NoticeBar */
   color?: 'default' | 'alert' | 'error' | 'info'
-  /** 开始滚动的延迟，单位 ms */
+  /** TDelay to start scrolling, unit ms */
   delay?: number
-  /** 滚动速度，单位 px/s */
+  /** Scroll speed, unit px/s */
   speed?: number
-  /** 公告内容 */
+  /** The content of the NoticeBar */
   content: React.ReactNode
-  /** 是否可关闭 */
+  /** Whether it can be closed */
   closeable?: boolean
-  /** 关闭时的回调 */
+  /** Callback when closed */
   onClose?: () => void
-  /** 额外操作区域，显示在关闭按钮左侧 */
+  /** Event when click */
+  onClick?: () => void
+  /** Additional operating area, displayed to the left of the close button */
   extra?: React.ReactNode
-  /** 左侧广播图标 */
+  /** Radio icon on the left */
   icon?: React.ReactNode
+  /** Whether to display multiple lines */
+  wrap?: boolean
 } & NativeProps<
   | '--background-color'
   | '--border-color'
@@ -39,6 +43,7 @@ const defaultProps = {
   color: 'default',
   delay: 2000,
   speed: 50,
+  wrap: false,
   icon: <SoundOutline />,
 }
 
@@ -56,7 +61,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
   const animatingRef = useRef(false)
 
   function start() {
-    if (delayLockRef.current) return
+    if (delayLockRef.current || props.wrap) return
 
     const container = containerRef.current
     const text = textRef.current
@@ -111,7 +116,12 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
 
   return withNativeProps(
     props,
-    <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)}>
+    <div
+      className={classNames(classPrefix, `${classPrefix}-${props.color}`, {
+        [`${classPrefix}-wrap`]: props.wrap,
+      })}
+      onClick={props.onClick}
+    >
       {props.icon && (
         <span className={`${classPrefix}-left`}>{props.icon}</span>
       )}

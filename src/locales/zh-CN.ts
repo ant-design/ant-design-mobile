@@ -9,6 +9,7 @@ const zhCN = mergeLocale(base, {
     confirm: '确定',
     cancel: '取消',
     loading: '加载中',
+    close: '关闭',
   },
   Calendar: {
     markItems: ['一', '二', '三', '四', '五', '六', '日'],
@@ -19,6 +20,9 @@ const zhCN = mergeLocale(base, {
   },
   Dialog: {
     ok: '我知道了',
+  },
+  DatePicker: {
+    tillNow: '至今',
   },
   ErrorBlock: {
     default: {
@@ -127,6 +131,9 @@ const zhCN = mergeLocale(base, {
   },
   Switch: {
     name: '开关',
+  },
+  Selector: {
+    name: '选择组',
   },
 })
 

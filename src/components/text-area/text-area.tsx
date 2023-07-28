@@ -1,6 +1,7 @@
 import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import type { ReactNode } from 'react'
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import runes from 'runes2'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
@@ -76,6 +77,10 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       )
     }
     const nativeTextAreaRef = useRef<HTMLTextAreaElement>(null)
+    // https://github.com/ant-design/ant-design-mobile/issues/5961
+    const heightRef = useRef<string>('auto')
+    // https://github.com/ant-design/ant-design-mobile/issues/6051
+    const hiddenTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
     useImperativeHandle(ref, () => ({
       clear: () => {
@@ -95,9 +100,11 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     useIsomorphicLayoutEffect(() => {
       if (!autoSize) return
       const textArea = nativeTextAreaRef.current
+      const hiddenTextArea = hiddenTextAreaRef.current
       if (!textArea) return
-      textArea.style.height = 'auto'
-      let height = textArea.scrollHeight
+      textArea.style.height = heightRef.current
+      if (!hiddenTextArea) return
+      let height = hiddenTextArea.scrollHeight
       if (typeof autoSize === 'object') {
         const computedStyle = window.getComputedStyle(textArea)
         const lineHeight = parseFloat(computedStyle.lineHeight)
@@ -108,13 +115,14 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           height = Math.min(height, autoSize.maxRows * lineHeight)
         }
       }
+      heightRef.current = `${height}px`
       textArea.style.height = `${height}px`
     }, [value, autoSize])
 
     const compositingRef = useRef(false)
 
     let count
-    const valueLength = [...value].length
+    const valueLength = runes(value).length
     if (typeof showCount === 'function') {
       count = showCount(valueLength, maxLength)
     } else if (showCount) {
@@ -127,19 +135,29 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       )
     }
 
+    let rows = props.rows
+    if (typeof autoSize === 'object') {
+      if (autoSize.maxRows && rows > autoSize.maxRows) {
+        rows = autoSize.maxRows
+      }
+      if (autoSize.minRows && rows < autoSize.minRows) {
+        rows = autoSize.minRows
+      }
+    }
+
     return withNativeProps(
       props,
       <div className={classPrefix}>
         <textarea
           ref={nativeTextAreaRef}
           className={`${classPrefix}-element`}
-          rows={props.rows}
+          rows={rows}
           value={value}
           placeholder={props.placeholder}
           onChange={e => {
             let v = e.target.value
             if (maxLength && !compositingRef.current) {
-              v = [...v].slice(0, maxLength).join('')
+              v = runes(v).slice(0, maxLength).join('')
             }
             setValue(v)
           }}
@@ -152,7 +170,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             compositingRef.current = false
             if (maxLength) {
               const v = (e.target as HTMLTextAreaElement).value
-              setValue([...v].slice(0, maxLength).join(''))
+              setValue(runes(v).slice(0, maxLength).join(''))
             }
             props.onCompositionEnd?.(e)
           }}
@@ -166,6 +184,17 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onClick={props.onClick}
         />
         {count}
+
+        {autoSize && (
+          <textarea
+            ref={hiddenTextAreaRef}
+            className={`${classPrefix}-element ${classPrefix}-element-hidden`}
+            value={value}
+            rows={rows}
+            aria-hidden
+            readOnly
+          />
+        )}
       </div>
     )
   }

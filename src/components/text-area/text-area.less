@@ -5,7 +5,7 @@
   --disabled-color: var(--adm-color-weak);
   --text-align: left;
   --count-text-align: right;
-
+  position: relative;
   width: 100%;
   max-width: 100%;
   max-height: 100%;
@@ -62,6 +62,14 @@
 
   &[readonly] {
     pointer-events: none;
+  }
+
+  &-hidden {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
   }
 }
 

@@ -12,15 +12,15 @@ You need to click on the picture to view the details and use it with the thumbna
 
 ## ImageViewer
 
-| Name         | Description                                                                                                                 | Type                                       | Default         |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------- |
-| afterClose   | Triggered when it is completely closed                                                                                      | `() => void`                               | -               |
-| getContainer | To get the specified mounted HTML node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `document.body` |
-| image        | The `url` of the image resource                                                                                             | `string`                                   | -               |
-| maxZoom      | The maximum zoom ratio                                                                                                      | `number \| 'auto'`                         | `3`             |
-| onClose      | Triggered when it is closed                                                                                                 | `boolean`                                  | -               |
-| renderFooter | Render extra content on footer                                                                                              | `(image: string) => ReactNode`             | -               |
-| visible      | Whether to show or hide                                                                                                     | `boolean`                                  | `false`         |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| afterClose | Triggered when it is completely closed | `() => void` | - |
+| getContainer | To get the specified mounted HTML node, the default is `null` rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `null` |
+| image | The `url` of the image resource | `string` | - |
+| maxZoom | The maximum zoom ratio | `number \| 'auto'` | `3` |
+| onClose | Triggered when it is closed | `() => void` | - |
+| renderFooter | Render extra content on footer | `(image: string) => ReactNode` | - |
+| visible | Whether to show or hide | `boolean` | `false` |
 
 In addition, the following props of [Image](/components/image) are also supported: `fit` `placeholder` `fallback` `lazy` `crossOrigin`.
 
@@ -28,19 +28,19 @@ In addition, the following props of [Image](/components/image) are also supporte
 
 On the basis of `ImageViewer`, the following props have been added:
 
-| Name          | Description                                 | Type                                          | Default |
-| ------------- | ------------------------------------------- | --------------------------------------------- | ------- |
-| defaultIndex  | Which picture would be displayed by default | `number`                                      | `0`     |
-| images        | Url list of image resources                 | `string[]`                                    | `[]`    |
-| onIndexChange | Triggered when the picture is switched      | `(index: number) => void`                     | -       |
-| renderFooter  | Render extra content on footer              | `(image: string, index: number) => ReactNode` | -       |
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| defaultIndex | Which picture would be displayed by default | `number` | `0` |
+| images | Url list of image resources | `string[]` | - |
+| onIndexChange | Triggered when the picture is switched | `(index: number) => void` | - |
+| renderFooter | Render extra content on footer | `(image: string, index: number) => ReactNode` | - |
 
 At the same time, the `image` prop is removed.
 
 ### Ref
 
-| Name    | Description                   | Type                                          |
-| ------- | ----------------------------- | --------------------------------------------- |
+| Name | Description | Type |
+| --- | --- | --- |
 | swipeTo | Switch to the specified index | `(index: number, immediate: boolean) => void` |
 
 ## Imperative

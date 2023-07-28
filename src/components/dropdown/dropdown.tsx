@@ -9,12 +9,14 @@ import React, {
   useState,
   forwardRef,
   useImperativeHandle,
+  isValidElement,
 } from 'react'
-import Popup from '../popup'
+import Popup, { PopupProps } from '../popup'
 import Item, { ItemChildrenWrap } from './item'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { defaultPopupBaseProps } from '../popup/popup-base-props'
 
 const classPrefix = `adm-dropdown`
 
@@ -24,14 +26,15 @@ export type DropdownProps = {
   closeOnMaskClick?: boolean
   closeOnClickAway?: boolean
   onChange?: (key: string | null) => void
-  // mask?: boolean;
   arrow?: React.ReactNode
+  getContainer?: PopupProps['getContainer']
 } & NativeProps
 
 const defaultProps = {
   defaultActiveKey: null,
   closeOnMaskClick: true,
   closeOnClickAway: false,
+  getContainer: defaultPopupBaseProps['getContainer'],
 }
 
 export type DropdownRef = {
@@ -81,7 +84,7 @@ const Dropdown = forwardRef<
   let popupForceRender = false
   const items: ReactElement<ComponentProps<typeof Item>>[] = []
   const navs = React.Children.map(props.children, child => {
-    if (React.isValidElement(child)) {
+    if (isValidElement<ComponentProps<typeof Item>>(child)) {
       const childProps = {
         ...child.props,
         onClick: () => {
@@ -123,6 +126,7 @@ const Dropdown = forwardRef<
       <Popup
         visible={!!value}
         position='top'
+        getContainer={props.getContainer}
         className={`${classPrefix}-popup`}
         maskClassName={`${classPrefix}-popup-mask`}
         bodyClassName={`${classPrefix}-popup-body`}

@@ -14,11 +14,11 @@
 
 ### 属性
 
-| 属性             | 说明                                             | 类型                    | 默认值             |
-| ---------------- | ------------------------------------------------ | ----------------------- | ------------------ |
-| activeKey        | 当前激活 `tab` 面板的 `key`                      | `string \| null`        | -                  |
-| defaultActiveKey | 初始化选中面板的 `key`，如果没有设置 `activeKey` | `string \| null`        | 第一个面板的 `key` |
-| onChange         | 切换面板的回调                                   | `(key: string) => void` | -                  |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| activeKey | 当前激活 `tab` 面板的 `key` | `string \| null` | - |
+| defaultActiveKey | 初始化选中面板的 `key`，如果没有设置 `activeKey` | `string \| null` | 第一个面板的 `key` |
+| onChange | 切换面板的回调 | `(key: string) => void` | - |
 
 ## CapsuleTabs.Tab
 
@@ -26,7 +26,7 @@
 
 | 属性           | 说明                        | 类型        | 默认值  |
 | -------------- | --------------------------- | ----------- | ------- |
-| destroyOnClose | 不可见时卸载内容            | `boolean`   | `false` |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean`   | `false` |
 | disabled       | 是否禁用                    | `boolean`   | `false` |
 | forceRender    | 被隐藏时是否渲染 `DOM` 结构 | `boolean`   | `false` |
 | key            | 对应 `activeKey`            | `string`    | -       |

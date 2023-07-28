@@ -10,7 +10,7 @@ import SpinLoading from '../spin-loading'
 
 const classPrefix = `adm-picker-view`
 
-export type PickerValue = string | null
+export type PickerValue = string | number | null
 
 export type PickerValueExtend = {
   columns: PickerColumnItem[][]
@@ -19,7 +19,7 @@ export type PickerValueExtend = {
 
 export type PickerColumnItem = {
   label: ReactNode
-  value: string
+  value: string | number
   key?: string | number
 }
 

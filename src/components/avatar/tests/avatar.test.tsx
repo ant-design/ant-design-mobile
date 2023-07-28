@@ -10,8 +10,8 @@ describe('Avatar', () => {
     await testA11y(<Avatar src={demoImage} />)
   })
 
-  test('default image', async () => {
-    render(<Avatar src='' />)
+  test('default image', () => {
+    render(<Avatar src='/404' />)
     expect(document.querySelectorAll('.adm-avatar-fallback')[0]).toBeVisible()
   })
 })

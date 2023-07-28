@@ -59,6 +59,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
     config: {
       tension: 300,
       friction: 30,
+      round: true,
       clamp: true,
     },
   }))
@@ -72,6 +73,20 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
     elementRef.current?.addEventListener('touchmove', () => {})
   }, [])
 
+  const reset = () => {
+    return new Promise<void>(resolve => {
+      api.start({
+        to: {
+          height: 0,
+        },
+        onResolve() {
+          setStatus('pulling')
+          resolve()
+        },
+      })
+    })
+  }
+
   async function doRefresh() {
     api.start({ height: headHeight })
     setStatus('refreshing')
@@ -79,24 +94,13 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       await props.onRefresh()
       setStatus('complete')
     } catch (e) {
-      api.start({
-        to: async next => {
-          await next({ height: 0 })
-          setStatus('pulling')
-        },
-      })
-
+      reset()
       throw e
     }
     if (props.completeDelay > 0) {
       await sleep(props.completeDelay)
     }
-    api.start({
-      to: async next => {
-        await next({ height: 0 })
-        setStatus('pulling')
-      },
-    })
+    reset()
   }
 
   useDrag(
@@ -116,7 +120,9 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       }
 
       const [, y] = state.movement
-      if (state.first && y > 0) {
+      const parsedY = Math.ceil(y)
+
+      if (state.first && parsedY > 0) {
         const target = state.event.target
         if (!target || !(target instanceof Element)) return
         let scrollParent = getScrollParent(target)
@@ -144,7 +150,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       }
       event.stopPropagation()
       const height = Math.max(
-        rubberbandIfOutOfBounds(y, 0, 0, headHeight * 5, 0.5),
+        rubberbandIfOutOfBounds(parsedY, 0, 0, headHeight * 5, 0.5),
         0
       )
       api.start({ height })

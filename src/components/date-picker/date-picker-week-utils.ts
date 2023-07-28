@@ -18,10 +18,6 @@ const precisionRankRecord: Record<WeekPrecision, number> = {
   'week-day': 2,
 }
 
-export function defaultRenderLabel(type: WeekPrecision, data: number) {
-  return data.toString()
-}
-
 export function generateDatePickerColumns(
   selected: string[],
   min: Date,
@@ -81,12 +77,10 @@ export function generateDatePickerColumns(
     const upper = maxYear
     const years = generateColumn(lower, upper, 'year')
     ret.push(
-      years.map(v => {
-        return {
-          label: renderLabel('year', v),
-          value: v.toString(),
-        }
-      })
+      years.map(v => ({
+        label: renderLabel('year', v),
+        value: v.toString(),
+      }))
     )
   }
 
@@ -95,12 +89,10 @@ export function generateDatePickerColumns(
     const upper = isInMaxYear ? maxWeek : selectedYearWeeks
     const weeks = generateColumn(lower, upper, 'week')
     ret.push(
-      weeks.map(v => {
-        return {
-          label: renderLabel('week', v),
-          value: v.toString(),
-        }
-      })
+      weeks.map(v => ({
+        label: renderLabel('week', v),
+        value: v.toString(),
+      }))
     )
   }
   if (rank >= precisionRankRecord['week-day']) {
@@ -108,12 +100,10 @@ export function generateDatePickerColumns(
     const upper = isInMaxWeek ? maxWeekday : 7
     const weeks = generateColumn(lower, upper, 'week-day')
     ret.push(
-      weeks.map(v => {
-        return {
-          label: renderLabel('week-day', v),
-          value: v.toString(),
-        }
-      })
+      weeks.map(v => ({
+        label: renderLabel('week-day', v),
+        value: v.toString(),
+      }))
     )
   }
 
@@ -132,16 +122,16 @@ export function convertDateToStringArray(
   ]
 }
 
-export function convertStringArrayToDate(
-  value: (string | null | undefined)[]
-): Date {
+export function convertStringArrayToDate<
+  T extends string | number | null | undefined
+>(value: T[]): Date {
   const yearString = value[0] ?? '1900'
   const weekString = value[1] ?? '1'
   const weekdayString = value[2] ?? '1'
   const day = dayjs()
-    .year(parseInt(yearString))
-    .isoWeek(parseInt(weekString))
-    .isoWeekday(parseInt(weekdayString))
+    .year(parseInt(yearString as string))
+    .isoWeek(parseInt(weekString as string))
+    .isoWeekday(parseInt(weekdayString as string))
     .hour(0)
     .minute(0)
     .second(0)

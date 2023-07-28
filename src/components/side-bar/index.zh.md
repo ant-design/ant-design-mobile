@@ -20,11 +20,11 @@
 
 ### 属性
 
-| 属性             | 说明                                                 | 类型                    | 默认值                 |
-| ---------------- | ---------------------------------------------------- | ----------------------- | ---------------------- |
-| activeKey        | 当前激活 `item` 的 `key`                             | `string \| null`        | -                      |
-| defaultActiveKey | 初始化选中 `item` 的 `key`，如果没有设置 `activeKey` | `string \| null`        | 第一个 `item` 的 `key` |
-| onChange         | 切换面板的回调                                       | `(key: string) => void` | -                      |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| activeKey | 当前激活 `item` 的 `key` | `string \| null` | - |
+| defaultActiveKey | 初始化选中 `item` 的 `key`，如果没有设置 `activeKey` | `string \| null` | 第一个 `item` 的 `key` |
+| onChange | 切换面板的回调 | `(key: string) => void` | - |
 
 ### CSS 变量
 
@@ -33,7 +33,7 @@
 | --background-color   | 背景颜色             | `#f5f5f5` |
 | --height             | 侧边导航高度         | `100%`    |
 | --item-border-radius | 当前激活`item`的圆角 | `8px`     |
-| --width              | 侧边导航宽度         | `96px`    |
+| --width              | 侧边导航宽度         | `105px`   |
 
 ## SideBar.Item
 
