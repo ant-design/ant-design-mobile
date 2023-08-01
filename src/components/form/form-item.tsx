@@ -100,7 +100,6 @@ type FormItemLayoutProps = Pick<
 
 const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
   const {
-    className,
     style,
     extra,
     label,
@@ -208,15 +207,10 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
       prefix={layout === 'horizontal' && labelElement}
       extra={extra}
       description={description}
-      className={classNames(
-        classPrefix,
-        className,
-        `${classPrefix}-${layout}`,
-        {
-          [`${classPrefix}-hidden`]: hidden,
-          [`${classPrefix}-has-error`]: props.errors.length,
-        }
-      )}
+      className={classNames(classPrefix, `${classPrefix}-${layout}`, {
+        [`${classPrefix}-hidden`]: hidden,
+        [`${classPrefix}-has-error`]: props.errors.length,
+      })}
       disabled={disabled}
       onClick={props.onClick}
       clickable={props.clickable}
@@ -239,7 +233,6 @@ const FormItemLayout: React.FC<FormItemLayoutProps> = props => {
 export const FormItem: FC<FormItemProps> = props => {
   const {
     // 样式相关
-    className,
     style,
     // FormItem 相关
     label,
@@ -335,7 +328,6 @@ export const FormItem: FC<FormItemProps> = props => {
     return withNativeProps(
       props,
       <FormItemLayout
-        className={className}
         style={style}
         label={label}
         extra={extra}
