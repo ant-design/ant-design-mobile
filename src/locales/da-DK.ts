@@ -13,7 +13,7 @@ const daDK = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['ma', 'ti', 'on', 'to', 'fr', 'lø', 'sø'],
-    renderYearAndMonth: (year: number, month: number) => `${month}.${year}`,
+    yearAndMonth: '${month}.${year}',
   },
   Cascader: {
     placeholder: 'Vælger',

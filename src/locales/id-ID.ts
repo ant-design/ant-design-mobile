@@ -12,8 +12,7 @@ const idID = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
-    renderYearAndMonth: (year: number, month: number) =>
-      `${year} Tahun ${month} Bulan`,
+    yearAndMonth: '${year} Tahun ${month} Bulan',
   },
   Cascader: {
     placeholder: 'Silahkan Pilih',

@@ -10,7 +10,7 @@ export const base = {
   },
   Calendar: {
     markItems: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    renderYearAndMonth: (year: number, month: number) => `${year}/${month}`,
+    yearAndMonth: '${year}/${month}',
   },
   Cascader: {
     placeholder: 'Selecting',

@@ -19,7 +19,7 @@ const faIR = mergeLocale(base, {
       'پنج‌نشبه',
       'جمعه',
     ],
-    renderYearAndMonth: (year: number, month: number) => `${year}/${month}`,
+    yearAndMonth: '${year}/${month}',
   },
   Cascader: {
     placeholder: 'انتخاب کنید',
