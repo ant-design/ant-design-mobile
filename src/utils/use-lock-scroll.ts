@@ -64,9 +64,9 @@ export function useLockScroll(
       touch.isVertical() &&
       !(parseInt(status, 2) & parseInt(direction, 2))
     ) {
-      if (event.cancelable) {
+      if (event.cancelable && supportsPassive) {
         // https://github.com/ant-design/ant-design-mobile/issues/6282
-        supportsPassive && event.preventDefault()
+        event.preventDefault()
       }
     }
   }
