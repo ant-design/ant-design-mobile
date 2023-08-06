@@ -27,17 +27,11 @@ export default () => {
       >
         选择单个日期
         <Calendar
-          popupProps={{
-            visible: visible1,
-            onMaskClick: () => {
-              setVisible1(false)
-            },
-            onClose: () => {
-              setVisible1(false)
-            },
-          }}
+          visible={visible1}
           selectionMode='single'
           defaultValue={singleDate}
+          onClose={() => setVisible1(false)}
+          onMaskClick={() => setVisible1(false)}
         />
       </List.Item>
       <List.Item
@@ -47,17 +41,11 @@ export default () => {
       >
         选择日期范围
         <Calendar
+          visible={visible2}
           defaultValue={defaultRange}
           selectionMode='range'
-          popupProps={{
-            visible: visible2,
-            onMaskClick: () => {
-              setVisible2(false)
-            },
-            onClose: () => {
-              setVisible2(false)
-            },
-          }}
+          onClose={() => setVisible2(false)}
+          onMaskClick={() => setVisible2(false)}
           onChange={val => {
             console.log(val)
           }}
@@ -70,17 +58,11 @@ export default () => {
       >
         受控日期选择
         <Calendar
+          visible={visible3}
           selectionMode='range'
           value={val}
-          popupProps={{
-            visible: visible3,
-            onMaskClick: () => {
-              setVisible3(false)
-            },
-            onClose: () => {
-              setVisible3(false)
-            },
-          }}
+          onClose={() => setVisible3(false)}
+          onMaskClick={() => setVisible3(false)}
           onChange={val => {
             setVal(val)
           }}

@@ -25,6 +25,9 @@ export default () => {
       >
         自定义日期顶部信息
         <Calendar
+          visible={visible1}
+          onClose={() => setVisible1(false)}
+          onMaskClick={() => setVisible1(false)}
           renderTop={date => {
             const map = {
               1: '初一',
@@ -38,15 +41,6 @@ export default () => {
               return map[d]
             }
           }}
-          popupProps={{
-            visible: visible1,
-            onMaskClick: () => {
-              setVisible1(false)
-            },
-            onClose: () => {
-              setVisible1(false)
-            },
-          }}
         />
       </List.Item>
       <List.Item
@@ -56,6 +50,9 @@ export default () => {
       >
         自定义日期底部信息
         <Calendar
+          visible={visible2}
+          onClose={() => setVisible2(false)}
+          onMaskClick={() => setVisible2(false)}
           renderBottom={date => {
             const dates = [16, 17, 18, 19]
             const d = dayjs(date).date()
@@ -63,15 +60,6 @@ export default () => {
             if (dates.includes(d)) {
               return '¥100'
             }
-          }}
-          popupProps={{
-            visible: visible2,
-            onMaskClick: () => {
-              setVisible2(false)
-            },
-            onClose: () => {
-              setVisible2(false)
-            },
           }}
         />
       </List.Item>
@@ -82,6 +70,9 @@ export default () => {
       >
         自定义日期渲染
         <Calendar
+          visible={visible3}
+          onClose={() => setVisible3(false)}
+          onMaskClick={() => setVisible3(false)}
           renderDate={date => {
             const dates = [16, 17, 18, 19]
             const d = dayjs(date).date()
@@ -94,15 +85,6 @@ export default () => {
                 {d}
               </div>
             )
-          }}
-          popupProps={{
-            visible: visible3,
-            onMaskClick: () => {
-              setVisible3(false)
-            },
-            onClose: () => {
-              setVisible3(false)
-            },
           }}
         />
       </List.Item>
@@ -119,16 +101,9 @@ export default () => {
           onChange={val => {
             setVal(val)
           }}
-          popupProps={{
-            className: 'calendar-popup-custom',
-            visible: visible4,
-            onMaskClick: () => {
-              setVisible4(false)
-            },
-            onClose: () => {
-              setVisible4(false)
-            },
-          }}
+          visible={visible4}
+          onClose={() => setVisible4(false)}
+          onMaskClick={() => setVisible4(false)}
         />
       </List.Item>
     </List>

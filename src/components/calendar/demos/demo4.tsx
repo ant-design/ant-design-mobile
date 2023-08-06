@@ -12,21 +12,18 @@ export default () => {
       <List.Item
         onClick={() => {
           setVisible1(true)
-          ref1.current?.jumpTo({ year: 2023, month: 8 })
+          ref1.current?.jumpTo(page => ({
+            year: page.year,
+            month: page.month + 3,
+          }))
         }}
       >
         跳转到 3 月后
         <Calendar
           ref={ref1}
-          popupProps={{
-            visible: visible1,
-            onMaskClick: () => {
-              setVisible1(false)
-            },
-            onClose: () => {
-              setVisible1(false)
-            },
-          }}
+          visible={visible1}
+          onClose={() => setVisible1(false)}
+          onMaskClick={() => setVisible1(false)}
         />
       </List.Item>
       <List.Item
@@ -41,15 +38,9 @@ export default () => {
         跳转到 3 年后
         <Calendar
           ref={ref2}
-          popupProps={{
-            visible: visible2,
-            onMaskClick: () => {
-              setVisible2(false)
-            },
-            onClose: () => {
-              setVisible2(false)
-            },
-          }}
+          visible={visible2}
+          onClose={() => setVisible2(false)}
+          onMaskClick={() => setVisible2(false)}
         />
       </List.Item>
     </List>
