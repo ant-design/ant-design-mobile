@@ -1,23 +1,48 @@
-import React, { createRef } from 'react'
-import { render, renderHook } from '@testing-library/react'
+import React, { useRef } from 'react'
+import { render, fireEvent } from 'testing'
 import { useLockScroll } from '../use-lock-scroll'
 
-describe('Lock the scroll element by adding the adm-overflow-hidden class name', () => {
-  test('', async () => {
-    const ref = createRef<HTMLDivElement>()
-    renderHook(() => useLockScroll(ref, true))
+describe('useLockScroll', () => {
+  test('onTouchMove', async () => {
+    const handleTouch = jest.fn()
+    const TestComponent = () => {
+      const divRef = useRef<HTMLDivElement>(null)
 
-    render(
-      <div
-        className='parent'
-        style={{ height: '400px', width: '400px', overflow: 'auto' }}
-      >
-        <div className='child' style={{ height: '800px', width: '400px' }}>
-          Scroll Child
+      useLockScroll(divRef, true)
+
+      return (
+        <div
+          ref={divRef}
+          data-testid='lock'
+          style={{
+            height: 200,
+            overflow: 'scroll',
+            cursor: 'grab',
+            touchAction: 'none',
+          }}
+          onTouchMove={handleTouch}
+        >
+          {new Array(10).fill({}).map((_, i) => (
+            <h1 key={i}> Test component {i}</h1>
+          ))}
         </div>
-      </div>
-    )
+      )
+    }
 
-    expect(document.body).toHaveClass('adm-overflow-hidden')
+    const { getByTestId } = render(<TestComponent />)
+
+    const testEl = getByTestId('lock')
+
+    fireEvent.touchStart(testEl, {
+      touches: [{ clientX: 0, clientY: 0 }],
+    })
+    fireEvent.touchMove(testEl, {
+      touches: [{ clientX: 0, clientY: 200 }],
+    })
+    fireEvent.touchEnd(testEl, {
+      touches: [{ clientX: 0, clientY: 400 }],
+    })
+
+    expect(handleTouch).toHaveBeenCalled()
   })
 })

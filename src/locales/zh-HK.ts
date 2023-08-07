@@ -13,7 +13,7 @@ const zhHK = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['一', '二', '三', '四', '五', '六', '日'],
-    renderYearAndMonth: (year: number, month: number) => `${year}年${month}月`,
+    yearAndMonth: '${year}年${month}月',
   },
   Cascader: {
     placeholder: '請選擇',
