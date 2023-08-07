@@ -55,7 +55,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
 
   function calcEllipsised() {
     const root = rootRef.current
-    if (!root) return
+    if (!root?.offsetParent) return
 
     const originDisplay = root.style.display
     root.style.display = 'block'
