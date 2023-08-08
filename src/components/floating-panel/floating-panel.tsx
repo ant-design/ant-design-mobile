@@ -88,7 +88,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         setPulling(pullingRef.current)
         if (!pullingRef.current) return
         const { event } = state
-        if (event.cancelable) {
+        if (event.cancelable && supportsPassive) {
           event.preventDefault()
         }
         event.stopPropagation()
@@ -109,9 +109,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         from: () => [0, y.get()],
         pointer: { touch: true },
         target: elementRef,
-        eventOptions: supportsPassive
-          ? { passive: false }
-          : (false as unknown as AddEventListenerOptions),
+        eventOptions: supportsPassive ? { passive: false } : undefined,
       }
     )
 
