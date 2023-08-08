@@ -194,34 +194,34 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   ])
 
   const expandActionElement =
-    exceeded && props.expandText
-      ? withStopPropagation(
-          props.stopPropagationForActionButtons,
-          <a
-            ref={expandElRef}
-            onClick={() => {
-              setExpanded(true)
-            }}
-          >
-            {props.expandText}
-          </a>
-        )
-      : null
+    exceeded &&
+    !!props.expandText &&
+    withStopPropagation(
+      props.stopPropagationForActionButtons,
+      <a
+        ref={expandElRef}
+        onClick={() => {
+          setExpanded(true)
+        }}
+      >
+        {props.expandText}
+      </a>
+    )
 
   const collapseActionElement =
-    exceeded && props.collapseText
-      ? withStopPropagation(
-          props.stopPropagationForActionButtons,
-          <a
-            ref={collapseElRef}
-            onClick={() => {
-              setExpanded(false)
-            }}
-          >
-            {props.collapseText}
-          </a>
-        )
-      : null
+    exceeded &&
+    !!props.collapseText &&
+    withStopPropagation(
+      props.stopPropagationForActionButtons,
+      <a
+        ref={collapseElRef}
+        onClick={() => {
+          setExpanded(false)
+        }}
+      >
+        {props.collapseText}
+      </a>
+    )
 
   const renderContent = () => {
     if (!exceeded) return props.content
