@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { render, fireEvent } from 'testing'
+import { render, fireEvent, createEvent, screen } from 'testing'
 import { useLockScroll } from '../use-lock-scroll'
 
 describe('useLockScroll', () => {
@@ -44,26 +44,34 @@ describe('useLockScroll', () => {
     TestComponent = null as any
   })
 
-  test('onTouchMove', async () => {
+  test('use preventDefault when event listener is treated as as passive', () => {
     const handleTouch = jest.fn()
+    const TestComponent = () => {
+      const divRef = useRef<HTMLDivElement>(null)
 
-    const { getByTestId } = render(
-      <TestComponent scrollParams={true} handleTouch={handleTouch} />
-    )
+      useLockScroll(divRef, true)
 
-    const testEl = getByTestId('lock')
+      return (
+        <div ref={divRef} onTouchMove={handleTouch}>
+          div
+        </div>
+      )
+    }
 
-    fireEvent.touchStart(testEl, {
-      touches: [{ clientX: 0, clientY: 0 }],
-    })
-    fireEvent.touchMove(testEl, {
-      touches: [{ clientX: 0, clientY: 200 }],
-    })
-    fireEvent.touchEnd(testEl, {
+    render(<TestComponent />)
+
+    const el = screen.getByText('div')
+    const fn = jest.fn()
+
+    const event = createEvent.touchMove(el, {
       touches: [{ clientX: 0, clientY: 400 }],
     })
+    Object.defineProperty(event, 'preventDefault', {
+      value: fn,
+    })
+    fireEvent(el, event)
 
-    expect(handleTouch).toHaveBeenCalled()
+    expect(fn).toBeCalled()
   })
 
   test('Scroll To Bottom', async () => {
