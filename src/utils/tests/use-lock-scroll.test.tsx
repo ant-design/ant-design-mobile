@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { render, fireEvent, renderHook, createEvent } from 'testing'
+import { render, fireEvent } from 'testing'
 import { useLockScroll } from '../use-lock-scroll'
 
 describe('useLockScroll', () => {
@@ -32,6 +32,10 @@ describe('useLockScroll', () => {
         </div>
       )
     }
+  })
+
+  afterEach(() => {
+    TestComponent = null as any
   })
 
   test('onTouchMove', async () => {
@@ -86,13 +90,14 @@ describe('useLockScroll', () => {
     // 滚动事件正常触发
     expect(triggerTruthy).toBeTruthy()
 
-    // 滚动事件被取消
+    // 滚动高度到 180
     scrollTop.mockImplementationOnce(() => 180)
 
     const triggerFalsy = fireEvent.touchMove(testEl, {
       touches: [{ clientX: 0, clientY: 10 }],
     })
 
+    // 滚动事件被取消
     expect(triggerFalsy).toBeFalsy()
   })
 })
