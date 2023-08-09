@@ -194,7 +194,6 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   ])
 
   const expandActionElement =
-    exceeded &&
     !!props.expandText &&
     withStopPropagation(
       props.stopPropagationForActionButtons,
@@ -209,7 +208,6 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     )
 
   const collapseActionElement =
-    exceeded &&
     !!props.collapseText &&
     withStopPropagation(
       props.stopPropagationForActionButtons,
