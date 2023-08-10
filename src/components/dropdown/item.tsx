@@ -8,12 +8,14 @@ const classPrefix = `adm-dropdown-item`
 
 export type DropdownItemProps = {
   key: string
+  mask?: boolean
   title: React.ReactNode
+  align?: 'left' | 'right'
   active?: boolean
   highlight?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
-  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  onClick?: () => void
   arrow?: React.ReactNode
   children?: React.ReactNode
 } & NativeProps

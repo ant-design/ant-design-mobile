@@ -9,6 +9,15 @@
     border-bottom: 1px solid transparent;
   }
 
+  .@{class-prefix-dropdown}-separated {
+    .@{class-prefix-dropdown-item} {
+      flex: unset;
+    }
+    .@{class-prefix-dropdown-item}-gap {
+      flex: 1;
+    }
+  }
+
   &-open {
     .@{class-prefix-dropdown}-nav {
       border-bottom-color: var(--adm-color-border);
