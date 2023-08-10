@@ -22,7 +22,7 @@ describe('useLockScroll', () => {
           ref={divRef}
           data-testid='lock'
           style={{
-            height: '200px',
+            height: 200,
             overflow: 'scroll',
             cursor: 'grab',
             touchAction: 'none',
@@ -30,8 +30,7 @@ describe('useLockScroll', () => {
           onTouchMove={() => props.handleTouch && props.handleTouch()}
         >
           {new Array(10).fill({}).map((_, i) => (
-            <h1 key={i} style={{ height: '25px' }}>
-              {' '}
+            <h1 key={i} style={{ height: 25 }}>
               Test component {i}
             </h1>
           ))}
