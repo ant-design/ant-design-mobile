@@ -1,9 +1,10 @@
 import React, {
-  FC,
+  forwardRef,
   InputHTMLAttributes,
   useRef,
   useState,
   CSSProperties,
+  useImperativeHandle,
 } from 'react'
 import { AddOutline, CloseOutline } from 'antd-mobile-icons'
 import { mergeProps } from '../../utils/with-default-props'
@@ -69,6 +70,11 @@ export type ImageUploaderProps = {
   ) => React.ReactNode
 } & NativeProps<'--cell-size' | '--gap' | '--gap-vertical' | '--gap-horizontal'>
 
+export interface ImageUploaderInstance {
+  openPhoto: () => void
+  nativeElement: HTMLInputElement | null
+}
+
 const classPrefix = `adm-image-uploader`
 
 const defaultProps = {
@@ -85,7 +91,10 @@ const defaultProps = {
   imageFit: 'cover',
 }
 
-export const ImageUploader: FC<ImageUploaderProps> = p => {
+export const ImageUploader = forwardRef<
+  ImageUploaderInstance,
+  ImageUploaderProps
+>((p, ref) => {
   const { locale } = useConfig()
   const props = mergeProps(defaultProps, p)
   const { columns } = props
@@ -98,6 +107,8 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
   const containerSize = useSize(containerRef)
   const gapMeasureRef = useRef<HTMLDivElement>(null)
   const [cellSize, setCellSize] = useState<number>(80)
+
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useIsomorphicLayoutEffect(() => {
     const gapMeasure = gapMeasureRef.current
@@ -153,6 +164,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
 
   async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.persist()
+    // 这里支持一个 Ref
     const { files: rawFiles } = e.target
     if (!rawFiles) return
     let files = [].slice.call(rawFiles) as File[]
@@ -311,6 +323,7 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
         )}
         {!props.disableUpload && (
           <input
+            ref={inputRef}
             capture={props.capture}
             accept={props.accept}
             multiple={props.multiple}
@@ -323,6 +336,15 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
       </div>
     </>
   )
+
+  useImperativeHandle(ref, () => {
+    return {
+      get nativeElement() {
+        return inputRef.current
+      },
+      openPhoto: () => inputRef.current?.click(),
+    }
+  })
 
   return withNativeProps(
     props,
@@ -339,4 +361,4 @@ export const ImageUploader: FC<ImageUploaderProps> = p => {
       )}
     </div>
   )
-}
+})
