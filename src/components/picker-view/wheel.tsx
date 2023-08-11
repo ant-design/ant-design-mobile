@@ -201,10 +201,7 @@ export const Wheel = memo<Props>(
         axis: 'y',
         from: () => [0, y.get()],
         preventDefault: true,
-        eventOptions:
-          (supportsPassive as unknown as AddEventListenerOptions) && {
-            passive: false,
-          },
+        eventOptions: supportsPassive ? { passive: false } : undefined,
       }
     )
 

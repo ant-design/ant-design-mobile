@@ -14,6 +14,8 @@ import { mergeProps } from '../../utils/with-default-props'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useMemoizedFn } from 'ahooks'
 
+const classPrefix = 'adm-floating-panel'
+
 export type FloatingPanelRef = {
   setHeight: (
     height: number,
@@ -137,22 +139,22 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       props,
       <animated.div
         ref={elementRef}
-        className='adm-floating-panel'
+        className={classPrefix}
         style={{
           height: Math.round(maxHeight),
           translateY: y.to(y => `calc(100% + (${Math.round(y)}px))`),
         }}
       >
         <div
-          className='adm-floating-panel-mask'
+          className={`${classPrefix}-mask`}
           style={{
             display: pulling ? 'block' : 'none',
           }}
         />
-        <div className='adm-floating-panel-header' ref={headerRef}>
-          <div className='adm-floating-panel-bar' />
+        <div className={`${classPrefix}-header`} ref={headerRef}>
+          <div className={`${classPrefix}-bar`} />
         </div>
-        <div className='adm-floating-panel-content' ref={contentRef}>
+        <div className={`${classPrefix}-content`} ref={contentRef}>
           {props.children}
         </div>
       </animated.div>
