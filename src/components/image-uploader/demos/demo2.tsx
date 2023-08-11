@@ -114,7 +114,7 @@ const ManualOpenPhoto: FC = () => {
         </div>
       </ImageUploader>
       <Button onClick={() => onOpen()} style={{ margin: 6 }}>
-        手动吊起相册
+        手动调起相册
       </Button>
     </>
   )
@@ -135,7 +135,7 @@ export default () => {
         <CustomUploadButton />
       </DemoBlock>
 
-      <DemoBlock title='手动吊起相册'>
+      <DemoBlock title='手动调起相册'>
         <ManualOpenPhoto />
       </DemoBlock>
     </>

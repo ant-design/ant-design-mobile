@@ -40,7 +40,7 @@
 
 | 属性          | 说明           | 类型              | 默认值 |
 | ------------- | -------------- | ----------------- | ------ | --- |
-| openPhoto     | 手动吊起相册   | `() => void`      | -      |
+| openPhoto     | 手动调起相册   | `() => void`      | -      |
 | nativeElement | 源生输入框节点 | `HTMLInputElement | null`  | -   |
 
 ### ImageUploadItem
