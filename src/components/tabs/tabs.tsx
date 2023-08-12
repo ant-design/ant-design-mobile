@@ -39,6 +39,7 @@ export type TabsProps = {
   stretch?: boolean
   onChange?: (key: string) => void
   children?: React.ReactNode
+  rtl?: boolean
 } & NativeProps<
   | '--fixed-active-line-width'
   | '--active-line-height'
@@ -52,6 +53,7 @@ export type TabsProps = {
 const defaultProps = {
   activeLineMode: 'auto',
   stretch: true,
+  rtl: false,
 }
 
 export const Tabs: FC<TabsProps> = p => {
@@ -124,6 +126,7 @@ export const Tabs: FC<TabsProps> = p => {
     const activeLine = activeLineRef.current
     if (!activeLine) return
 
+    const isRtl = !!props.rtl
     const activeTabWrapper = container.children.item(
       activeIndex + 1
     ) as HTMLDivElement
@@ -150,6 +153,19 @@ export const Tabs: FC<TabsProps> = p => {
     } else {
       x = activeTabLeft + (activeTabWidth - activeLineWidth) / 2
     }
+
+    if (isRtl) {
+      /**
+       * In RTL mode, x equals the container width minus the x-coordinate of the current tab minus the width of the current tab.
+       * https://github.com/Fog3211/reproduce-codesandbox/blob/f0a3396a114cc00e88a51a67d3be60a746519b30/assets/images/antd_mobile_tabs_rtl_x.jpg?raw=true
+       */
+      const w =
+        props.activeLineMode === 'auto' || props.activeLineMode === 'full'
+          ? width
+          : activeLineWidth
+      x = -(containerWidth - x - w)
+    }
+
     api.start({
       x,
       width,
@@ -159,11 +175,26 @@ export const Tabs: FC<TabsProps> = p => {
     const maxScrollDistance = containerScrollWidth - containerWidth
     if (maxScrollDistance <= 0) return
 
-    const nextScrollLeft = bound(
+    let nextScrollLeft = bound(
       activeTabLeft - (containerWidth - activeTabWidth) / 2,
       0,
-      containerScrollWidth - containerWidth
+      maxScrollDistance
     )
+
+    if (isRtl) {
+      /**
+       * 位移距离等于：activeTab的中心坐标距离容器中心坐标的距离，然后RTL取负数
+       * containerWidth / 2 - (activeTabLeft + (activeTabWidth - activeLineWidth) / 2) - activeLineWidth / 2,
+       */
+      nextScrollLeft = -bound(
+        containerWidth / 2 -
+          activeTabLeft +
+          activeTabWidth / 2 -
+          activeLineWidth,
+        0,
+        maxScrollDistance
+      )
+    }
 
     scrollApi.start({
       scrollLeft: nextScrollLeft,
@@ -225,7 +256,12 @@ export const Tabs: FC<TabsProps> = p => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div
+      className={classPrefix}
+      style={{
+        direction: props.rtl ? 'rtl' : 'ltr',
+      }}
+    >
       <div className={`${classPrefix}-header`}>
         <animated.div
           className={classNames(
