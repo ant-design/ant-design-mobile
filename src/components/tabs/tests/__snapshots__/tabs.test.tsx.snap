@@ -4,6 +4,7 @@ exports[`Tabs \`activeLineMode\` prop 1`] = `
 <div>
   <div
     class="adm-tabs"
+    style="direction: ltr;"
   >
     <div
       class="adm-tabs-header"
@@ -73,6 +74,7 @@ exports[`Tabs \`activeLineMode\` prop 2`] = `
 <div>
   <div
     class="adm-tabs"
+    style="direction: ltr;"
   >
     <div
       class="adm-tabs-header"
