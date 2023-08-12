@@ -29,7 +29,7 @@
 | defaultActiveKey | 初始化选中面板的 `key`，如果没有设置 `activeKey` | `string \| null` | 第一个面板的 `key` |
 | onChange | 切换面板的回调 | `(key: string) => void` | - |
 | stretch | 选项卡头部是否拉伸 | `boolean` | `true` |
-| rtl | 从右到左排版 | `boolean` | `false` |
+| direction | 文档排版方向 | `'ltr' \| 'rtl'` | `'ltr'` |
 
 ### CSS 变量
 

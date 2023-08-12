@@ -29,7 +29,7 @@ The current content needs to be divided into groups of the same hierarchical str
 | defaultActiveKey | The initialized `key` of the selected panel, if the `activeKey` is not set | `string \| null` | the `key` of the 1st pannel |
 | onChange | Callback when switching panel | `(key: string) => void` | - |
 | stretch | Whether stretch the tab header | `boolean` | `true` |
-| rtl | RTL mode | `boolean` | `false` |
+| direction | Document layout direction | `'ltr' \| 'rtl'` | `'ltr'` |
 
 ### CSS Variables
 
