@@ -39,7 +39,7 @@ export type TabsProps = {
   stretch?: boolean
   onChange?: (key: string) => void
   children?: React.ReactNode
-  rtl?: boolean
+  direction?: 'ltr' | 'rtl'
 } & NativeProps<
   | '--fixed-active-line-width'
   | '--active-line-height'
@@ -53,7 +53,7 @@ export type TabsProps = {
 const defaultProps = {
   activeLineMode: 'auto',
   stretch: true,
-  rtl: false,
+  direction: 'ltr',
 }
 
 export const Tabs: FC<TabsProps> = p => {
@@ -126,7 +126,7 @@ export const Tabs: FC<TabsProps> = p => {
     const activeLine = activeLineRef.current
     if (!activeLine) return
 
-    const isRtl = !!props.rtl
+    const isRTL = props.direction === 'rtl'
     const activeTabWrapper = container.children.item(
       activeIndex + 1
     ) as HTMLDivElement
@@ -154,7 +154,7 @@ export const Tabs: FC<TabsProps> = p => {
       x = activeTabLeft + (activeTabWidth - activeLineWidth) / 2
     }
 
-    if (isRtl) {
+    if (isRTL) {
       /**
        * In RTL mode, x equals the container width minus the x-coordinate of the current tab minus the width of the current tab.
        * https://github.com/Fog3211/reproduce-codesandbox/blob/f0a3396a114cc00e88a51a67d3be60a746519b30/assets/images/antd_mobile_tabs_rtl_x.jpg?raw=true
@@ -181,7 +181,7 @@ export const Tabs: FC<TabsProps> = p => {
       maxScrollDistance
     )
 
-    if (isRtl) {
+    if (isRTL) {
       /**
        * 位移距离等于：activeTab的中心坐标距离容器中心坐标的距离，然后RTL取负数
        * containerWidth / 2 - (activeTabLeft + (activeTabWidth - activeLineWidth) / 2) - activeLineWidth / 2,
@@ -259,7 +259,7 @@ export const Tabs: FC<TabsProps> = p => {
     <div
       className={classPrefix}
       style={{
-        direction: props.rtl ? 'rtl' : 'ltr',
+        direction: props.direction,
       }}
     >
       <div className={`${classPrefix}-header`}>
