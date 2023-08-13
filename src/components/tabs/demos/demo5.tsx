@@ -39,7 +39,7 @@ export default () => {
       <Tabs
         defaultActiveKey='1'
         style={{ marginTop: 12 }}
-        rtl={rtl}
+        direction={rtl ? 'rtl' : 'ltr'}
         activeLineMode={activeLineMode}
       >
         <Tabs.Tab title='Espresso' key='1'>
