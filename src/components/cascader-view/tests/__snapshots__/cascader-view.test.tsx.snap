@@ -2486,6 +2486,7 @@ exports[`CascaderView test fieldNames 1`] = `
   >
     <div
       class="adm-tabs adm-cascader-view-tabs"
+      style="direction: ltr;"
     >
       <div
         class="adm-tabs-header"
@@ -2750,6 +2751,7 @@ exports[`CascaderView test fieldNames 2`] = `
   >
     <div
       class="adm-tabs adm-cascader-view-tabs"
+      style="direction: ltr;"
     >
       <div
         class="adm-tabs-header"
@@ -3148,6 +3150,7 @@ exports[`CascaderView test fieldNames 3`] = `
   >
     <div
       class="adm-tabs adm-cascader-view-tabs"
+      style="direction: ltr;"
     >
       <div
         class="adm-tabs-header"
