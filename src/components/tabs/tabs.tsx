@@ -60,6 +60,8 @@ export const Tabs: FC<TabsProps> = p => {
 
   const panes: ReactElement<TabProps>[] = []
 
+  const isRTL = props.direction === 'rtl'
+
   traverseReactNode(props.children, (child, index) => {
     if (!isValidElement<TabProps>(child)) return
 
@@ -121,7 +123,6 @@ export const Tabs: FC<TabsProps> = p => {
     const activeLine = activeLineRef.current
     if (!activeLine) return
 
-    const isRTL = props.direction === 'rtl'
     const activeTabWrapper = container.children.item(
       activeIndex + 1
     ) as HTMLDivElement
@@ -228,9 +229,25 @@ export const Tabs: FC<TabsProps> = p => {
       if (!container) return
 
       const scrollLeft = container.scrollLeft
-      const showLeftMask = scrollLeft > 0
-      const showRightMask =
-        scrollLeft + container.offsetWidth < container.scrollWidth
+
+      let showLeftMask = false
+      let showRightMask = false
+
+      if (isRTL) {
+        /**
+         * RTL模式下，只要滑动过，scrollLeft就再也回不到0（chrome是0.5）
+         * 所以要加round才能终止触发条件
+         * round(443.5) + 375 < 819
+         */
+        showLeftMask =
+          Math.round(-scrollLeft) + container.offsetWidth <
+          container.scrollWidth
+        showRightMask = scrollLeft < 0
+      } else {
+        showLeftMask = scrollLeft > 0
+        showRightMask =
+          scrollLeft + container.offsetWidth < container.scrollWidth
+      }
 
       maskApi.start({
         leftMaskOpacity: showLeftMask ? 1 : 0,
