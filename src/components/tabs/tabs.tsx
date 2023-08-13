@@ -33,7 +33,7 @@ export type TabsProps = {
   activeLineMode?: 'auto' | 'full' | 'fixed'
   stretch?: boolean
   onChange?: (key: string) => void
-  children?: React.ReactNode
+  children?: ReactNode
   direction?: 'ltr' | 'rtl'
 } & NativeProps<
   | '--fixed-active-line-width'
