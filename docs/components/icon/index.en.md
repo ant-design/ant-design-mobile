@@ -8,6 +8,8 @@ npm install --save antd-mobile-icons
 yarn add antd-mobile-icons
 # or
 pnpm add antd-mobile-icons
+# or
+bun add antd-mobile-icons
 ```
 
 Then just import the icons you need from this package:

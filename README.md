@@ -26,6 +26,8 @@ $ npm install --save antd-mobile
 $ yarn add antd-mobile
 # or
 $ pnpm add antd-mobile
+# or
+$ bun add antd-mobile
 ```
 
 - **Fast**: It is carefully optimized for harsh scenes, without configuration, you can have the best package size and ultimate performance.
