@@ -155,10 +155,9 @@ export const Tabs: FC<TabsProps> = p => {
        * In RTL mode, x equals the container width minus the x-coordinate of the current tab minus the width of the current tab.
        * https://github.com/Fog3211/reproduce-codesandbox/blob/f0a3396a114cc00e88a51a67d3be60a746519b30/assets/images/antd_mobile_tabs_rtl_x.jpg?raw=true
        */
-      const w =
-        props.activeLineMode === 'auto' || props.activeLineMode === 'full'
-          ? width
-          : activeLineWidth
+      const w = ['auto', 'full'].includes(props.activeLineMode)
+        ? width
+        : activeLineWidth
       x = -(containerWidth - x - w)
     }
 

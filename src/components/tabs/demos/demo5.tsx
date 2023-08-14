@@ -1,13 +1,15 @@
-import React from 'react'
-import { Tabs, TabsProps, Radio, Space, Divider, Switch } from 'antd-mobile'
+import React, { useState } from 'react'
+import { Tabs, Radio, Space, Divider, Switch } from 'antd-mobile'
+import type { TabsProps } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 const modes = ['auto', 'full', 'fixed'] as const
 
+type ActiveLineMode = TabsProps['activeLineMode']
+
 export default () => {
-  const [rtl, setRtl] = React.useState(true)
-  const [activeLineMode, setActiveLineMode] =
-    React.useState<TabsProps['activeLineMode']>('auto')
+  const [rtl, setRtl] = useState(true)
+  const [activeLineMode, setActiveLineMode] = useState<ActiveLineMode>('auto')
 
   return (
     <DemoBlock title='RTL' padding='0'>
@@ -24,7 +26,7 @@ export default () => {
       <Radio.Group
         value={activeLineMode}
         onChange={v => {
-          setActiveLineMode(v as TabsProps['activeLineMode'])
+          setActiveLineMode(v as ActiveLineMode)
         }}
       >
         <Space>
