@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   render,
   testA11y,
@@ -11,8 +11,9 @@ import {
   act,
   waitForElementToBeRemoved,
 } from 'testing'
-import ImageUploader, { ImageUploadItem } from '..'
+import ImageUploader, { ImageUploadItem, ImageUploaderInstance } from '..'
 import Dialog from '../../dialog'
+import Button from '../../button'
 
 const classPrefix = `adm-image-uploader`
 
@@ -379,5 +380,40 @@ describe('ImageUploader', () => {
     })
     expect(fn).toBeCalledWith([{ id: 0, status: 'success' }])
     expect(fn.mock.lastCall[0]).toMatchObject([])
+  })
+
+  test('task get nativeElement', async () => {
+    const fn = jest.fn()
+
+    const Manually = (props: any) => {
+      const [fileList, setFileList] = useState<ImageUploadItem[]>([
+        {
+          url: demoSrc,
+        },
+      ])
+
+      const imageRef = useRef<ImageUploaderInstance>(null)
+
+      useEffect(() => {
+        props.getNativeElement &&
+          props.getNativeElement(imageRef.current?.nativeElement?.type)
+      }, [])
+
+      return (
+        <>
+          <ImageUploader
+            ref={imageRef}
+            value={fileList}
+            onChange={setFileList}
+            upload={mockUpload}
+            {...props}
+          />
+        </>
+      )
+    }
+
+    render(<Manually upload={mockUpload} getNativeElement={fn} />)
+
+    expect(fn).toBeCalledWith('file')
   })
 })

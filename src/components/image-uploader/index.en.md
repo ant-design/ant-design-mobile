@@ -36,6 +36,12 @@
 | onUploadQueueChange | Triggered when the image upload queue changes | `(tasks: UploadTask[]) => void` |
 | renderItem | Custom item of uploadList | `(originNode: React.ReactElement, file: ImageUploadItem, fileList: ImageUploadItem[] ) => React.ReactNode` | - |
 
+### ImageInstance
+
+| 属性          | 说明                 | 类型              | 默认值 |
+| ------------- | -------------------- | ----------------- | ------ | --- |
+| nativeElement | native input element | `HTMLInputElement | null`  | -   |
+
 ### ImageUploadItem
 
 | Name | Description | Type | Default |

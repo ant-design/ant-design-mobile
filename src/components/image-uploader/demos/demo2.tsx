@@ -1,7 +1,10 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useRef, useState } from 'react'
 import { DemoBlock } from 'demos'
-import { ImageUploadItem } from 'antd-mobile/es/components/image-uploader'
-import { ImageUploader } from 'antd-mobile'
+import {
+  ImageUploadItem,
+  ImageUploaderInstance,
+} from 'antd-mobile/es/components/image-uploader'
+import { ImageUploader, Button } from 'antd-mobile'
 import { PictureOutline } from 'antd-mobile-icons'
 
 import { demoSrc, mockUpload } from './utils'
@@ -74,6 +77,52 @@ const CustomUploadButton: FC = () => {
   )
 }
 
+// 手动调起相册
+const ManualOpenPhoto: FC = () => {
+  const input = useRef<ImageUploaderInstance>(null)
+  const [fileList, setFileList] = useState<ImageUploadItem[]>([
+    {
+      url: demoSrc,
+    },
+  ])
+
+  const onOpen = () => {
+    const nativeInput = input.current?.nativeElement
+    if (nativeInput) {
+      nativeInput.click()
+    }
+  }
+
+  return (
+    <>
+      <ImageUploader
+        ref={input}
+        value={fileList}
+        onChange={setFileList}
+        upload={mockUpload}
+      >
+        <div
+          style={{
+            width: 80,
+            height: 80,
+            borderRadius: 40,
+            backgroundColor: '#f5f5f5',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: '#999999',
+          }}
+        >
+          <PictureOutline style={{ fontSize: 32 }} />
+        </div>
+      </ImageUploader>
+      <Button onClick={onOpen} style={{ margin: 6 }}>
+        手动调起相册
+      </Button>
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -87,6 +136,10 @@ export default () => {
 
       <DemoBlock title='自定义上传按钮'>
         <CustomUploadButton />
+      </DemoBlock>
+
+      <DemoBlock title='手动调起相册'>
+        <ManualOpenPhoto />
       </DemoBlock>
     </>
   )
