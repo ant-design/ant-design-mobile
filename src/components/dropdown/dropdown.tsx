@@ -99,7 +99,7 @@ const Dropdown = forwardRef<
         ...child.props,
         onClick: () => {
           changeActive(child.key as string)
-          child.props.onClick && child.props.onClick()
+          child.props.onClick?.()
         },
         active: child.key === value,
         arrow:

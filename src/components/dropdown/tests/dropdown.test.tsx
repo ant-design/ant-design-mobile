@@ -101,9 +101,6 @@ describe('Dropdown', () => {
       </Dropdown>
     )
 
-    const aa = container.querySelector(`.${classPrefix}-item-gap`)
-    console.log(aa ? getComputedStyle(aa) : 'null')
-
     expect(getByTestId('item1')).toHaveStyle('flex: unset')
     expect(container.querySelector(`.${classPrefix}-nav`)).toHaveClass(
       `${classPrefix}-nav ${classPrefix}-separated`
