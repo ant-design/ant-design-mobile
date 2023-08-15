@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
-import type { FC, MutableRefObject } from 'react'
+import React, { useEffect, useRef } from 'react'
+import type { FC } from 'react'
 import { useSpring, animated } from '@react-spring/web'
-import { useSize } from 'ahooks'
+import { useSize, useInViewport } from 'ahooks'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
 import { bound } from '../../utils/bound'
@@ -10,16 +10,15 @@ import * as mat from '../../utils/matrix'
 
 const classPrefix = `adm-image-viewer`
 
-type Props = {
+type SlideProps = {
   image: string
   maxZoom: number | 'auto'
-  onTap: () => void
+  onTap?: () => void
   onZoomChange?: (zoom: number) => void
-  dragLockRef?: MutableRefObject<boolean>
 }
 
-export const Slide: FC<Props> = props => {
-  const { dragLockRef, maxZoom } = props
+export const Slide: FC<SlideProps> = props => {
+  const { maxZoom } = props
   const controlRef = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
   const [{ matrix }, api] = useSpring(() => ({
@@ -31,6 +30,15 @@ export const Slide: FC<Props> = props => {
   const imgSize = useSize(imgRef)
 
   const pinchLockRef = useRef(false)
+
+  const [inView] = useInViewport(controlRef)
+
+  useEffect(() => {
+    !inView &&
+      api.start({
+        matrix: mat.create(),
+      })
+  }, [inView])
 
   const boundMatrix = (
     nextMatrix: Matrix,
@@ -106,14 +114,12 @@ export const Slide: FC<Props> = props => {
 
         if (state.tap && state.elapsedTime > 0 && state.elapsedTime < 1000) {
           // 判断点击时间>0是为了过滤掉非正常操作，例如用户长按选择图片之后的取消操作（也是一次点击）
-          props.onTap()
+          props?.onTap?.()
           return
         }
 
         const currentZoom = mat.getScaleX(matrix.get())
-        if (dragLockRef) {
-          dragLockRef.current = currentZoom !== 1
-        }
+
         if (!pinchLockRef.current && currentZoom <= 1) {
           api.start({
             matrix: mat.create(),
@@ -164,9 +170,6 @@ export const Slide: FC<Props> = props => {
           api.start({
             matrix: mat.create(),
           })
-          if (dragLockRef) {
-            dragLockRef.current = false
-          }
         } else {
           if (!controlSize) return
 
@@ -187,10 +190,6 @@ export const Slide: FC<Props> = props => {
             matrix: boundMatrix(nextMatrix, 'scale', state.last),
             immediate: !state.last,
           })
-
-          if (dragLockRef) {
-            dragLockRef.current = true
-          }
         }
       },
     },
@@ -211,14 +210,7 @@ export const Slide: FC<Props> = props => {
   )
 
   return (
-    <div
-      className={`${classPrefix}-slide`}
-      onPointerMove={e => {
-        if (mat.getScaleX(matrix.get()) !== 1) {
-          e.stopPropagation()
-        }
-      }}
-    >
+    <div className={`${classPrefix}-slide`}>
       <div className={`${classPrefix}-control`} ref={controlRef}>
         <animated.div
           className={`${classPrefix}-image-wrapper`}

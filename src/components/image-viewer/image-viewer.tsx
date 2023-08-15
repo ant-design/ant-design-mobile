@@ -49,9 +49,7 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
         {props.image && (
           <Slide
             image={props.image}
-            onTap={() => {
-              props.onClose?.()
-            }}
+            onTap={props.onClose}
             maxZoom={props.maxZoom}
           />
         )}
@@ -83,6 +81,7 @@ const multiDefaultProps = {
   ...defaultProps,
   defaultIndex: 0,
 }
+
 export const MultiImageViewer = forwardRef<
   MultiImageViewerRef,
   MultiImageViewerProps
@@ -121,9 +120,7 @@ export const MultiImageViewer = forwardRef<
             defaultIndex={index}
             onIndexChange={onSlideChange}
             images={props.images}
-            onTap={() => {
-              props.onClose?.()
-            }}
+            onTap={props?.onClose}
             maxZoom={props.maxZoom}
           />
         )}
