@@ -36,11 +36,11 @@
 | onUploadQueueChange | 图片上传队列变化时触发 | `(tasks: UploadTask[]) => void` | - |
 | renderItem | 自定义上传列表项 | `(originNode: React.ReactElement, file: ImageUploadItem, fileList: ImageUploadItem[] ) => React.ReactNode` | - |
 
-### ImageInstance
+### Ref
 
 | 属性          | 说明           | 类型              | 默认值 |
 | ------------- | -------------- | ----------------- | ------ | --- |
-| nativeElement | 源生输入框节点 | `HTMLInputElement | null`  | -   |
+| nativeElement | 原生输入框节点 | `HTMLInputElement | null`  | -   |
 
 ### ImageUploadItem
 

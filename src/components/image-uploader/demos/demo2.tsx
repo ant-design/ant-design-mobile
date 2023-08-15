@@ -2,7 +2,7 @@ import React, { FC, useRef, useState } from 'react'
 import { DemoBlock } from 'demos'
 import {
   ImageUploadItem,
-  ImageUploaderInstance,
+  ImageUploaderRef,
 } from 'antd-mobile/es/components/image-uploader'
 import { ImageUploader, Button } from 'antd-mobile'
 import { PictureOutline } from 'antd-mobile-icons'
@@ -79,7 +79,7 @@ const CustomUploadButton: FC = () => {
 
 // 手动调起相册
 const ManualOpenPhoto: FC = () => {
-  const input = useRef<ImageUploaderInstance>(null)
+  const input = useRef<ImageUploaderRef>(null)
   const [fileList, setFileList] = useState<ImageUploadItem[]>([
     {
       url: demoSrc,

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { createRef, forwardRef, useState } from 'react'
 import {
   render,
   testA11y,
@@ -11,9 +11,8 @@ import {
   act,
   waitForElementToBeRemoved,
 } from 'testing'
-import ImageUploader, { ImageUploadItem, ImageUploaderInstance } from '..'
+import ImageUploader, { ImageUploadItem, ImageUploaderRef } from '..'
 import Dialog from '../../dialog'
-import Button from '../../button'
 
 const classPrefix = `adm-image-uploader`
 
@@ -65,7 +64,7 @@ describe('ImageUploader', () => {
     jest.useRealTimers()
   })
 
-  const App = (props: any) => {
+  const App = forwardRef<ImageUploaderRef, any>((props, ref) => {
     const [fileList, setFileList] = useState<ImageUploadItem[]>([
       {
         url: demoSrc,
@@ -74,13 +73,14 @@ describe('ImageUploader', () => {
 
     return (
       <ImageUploader
+        ref={ref}
         value={fileList}
         onChange={setFileList}
         upload={mockUpload}
         {...props}
       />
     )
-  }
+  })
 
   test('a11y', async () => {
     jest.useRealTimers()
@@ -382,38 +382,12 @@ describe('ImageUploader', () => {
     expect(fn.mock.lastCall[0]).toMatchObject([])
   })
 
-  test('task get nativeElement', async () => {
-    const fn = jest.fn()
+  test('task get nativeElement', () => {
+    const ref = createRef<ImageUploaderRef>()
 
-    const Manually = (props: any) => {
-      const [fileList, setFileList] = useState<ImageUploadItem[]>([
-        {
-          url: demoSrc,
-        },
-      ])
-
-      const imageRef = useRef<ImageUploaderInstance>(null)
-
-      useEffect(() => {
-        props.getNativeElement &&
-          props.getNativeElement(imageRef.current?.nativeElement?.type)
-      }, [])
-
-      return (
-        <>
-          <ImageUploader
-            ref={imageRef}
-            value={fileList}
-            onChange={setFileList}
-            upload={mockUpload}
-            {...props}
-          />
-        </>
-      )
-    }
-
-    render(<Manually upload={mockUpload} getNativeElement={fn} />)
-
-    expect(fn).toBeCalledWith('file')
+    render(<App ref={ref} />)
+    expect(ref.current).toBeDefined()
+    console.log(ref.current, 'ref.current')
+    expect(ref.current?.nativeElement).toBeDefined()
   })
 })
