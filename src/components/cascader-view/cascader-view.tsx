@@ -12,15 +12,12 @@ import { optionSkeleton } from './option-skeleton'
 import Skeleton from '../skeleton'
 import { useUpdateEffect } from 'ahooks'
 import { useFieldNames } from '../../hooks'
-import type { FieldNamesType } from '../../hooks'
+import type { FieldNamesType, BaseOptionType } from '../../hooks'
 
 const classPrefix = `adm-cascader-view`
 
 export type CascaderValue = string
 
-type BaseOptionType = {
-  [key: string]: any
-}
 export type CascaderOption = {
   label?: string
   value?: string

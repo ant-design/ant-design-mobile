@@ -21,6 +21,7 @@ Provides multiple options for the user to choose from, typically used in filters
 | columns | Number of the displayed columns (Note that `grid` layout not support in IOS 9) | `number` | - |
 | defaultValue | Selected value by default | `SelectorValue[]` | `[]` |
 | disabled | Whether to disable selecting | `boolean` | `false` |
+| fieldNames | Custom field name for label and value and disabled | `{ label: string, value: string, disabled: string }` | `{ label: 'label', value: 'value',disabled:'disabled' }` |
 | multiple | Whether to allow multiple selections | `boolean` | `false` |
 | onChange | Triggered when the value is changed | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | - |
 | options | Optional selector | `SelectorOption[]` | - |

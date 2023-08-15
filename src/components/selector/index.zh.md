@@ -21,6 +21,7 @@
 | columns | 列数（注意 `grid` 布局在 IOS 9 下不支持） | `number` | - |
 | defaultValue | 默认项 | `SelectorValue[]` | `[]` |
 | disabled | 是否全局禁止选中 | `boolean` | `false` |
+| fieldNames | 自定义 options 中 label value disabled 的字段 | `{ label: string, value: string, disabled: string }` | `{ label: 'label', value: 'value',disabled:'disabled' }` |
 | multiple | 是否允许多选 | `boolean` | `false` |
 | onChange | 选项改变时触发 | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | - |
 | options | 可选项 | `SelectorOption[]` | - |
