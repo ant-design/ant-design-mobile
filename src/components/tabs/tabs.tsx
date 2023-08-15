@@ -170,11 +170,7 @@ export const Tabs: FC<TabsProps> = p => {
     const maxScrollDistance = containerScrollWidth - containerWidth
     if (maxScrollDistance <= 0) return
 
-    let nextScrollLeft = bound(
-      activeTabLeft - (containerWidth - activeTabWidth) / 2,
-      0,
-      maxScrollDistance
-    )
+    let nextScrollLeft = 0
 
     if (isRTL) {
       /**
@@ -186,6 +182,12 @@ export const Tabs: FC<TabsProps> = p => {
           activeTabLeft +
           activeTabWidth / 2 -
           activeLineWidth,
+        0,
+        maxScrollDistance
+      )
+    } else {
+      nextScrollLeft = bound(
+        activeTabLeft - (containerWidth - activeTabWidth) / 2,
         0,
         maxScrollDistance
       )
