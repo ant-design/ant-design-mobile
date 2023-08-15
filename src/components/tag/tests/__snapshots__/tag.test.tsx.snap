@@ -21,13 +21,13 @@ exports[`Tag renders with fill 1`] = `
 <div>
   <span
     class="adm-tag"
-    style="--border-color: #666666; --text-color: #666666; --background-color: transparent;"
+    style="--border-color: var(--adm-color-text-secondary, #666666); --text-color: var(--adm-color-text-secondary, #666666); --background-color: transparent;"
   >
     outline
   </span>
   <span
     class="adm-tag"
-    style="--border-color: #666666; --text-color: #ffffff; --background-color: #666666;"
+    style="--border-color: var(--adm-color-text-secondary, #666666); --text-color: #ffffff; --background-color: var(--adm-color-text-secondary, #666666);"
   >
     solid
   </span>
