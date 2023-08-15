@@ -217,9 +217,9 @@ export const Wheel = memo<Props>(
       const previous = column[previousIndex]
       const next = column[nextIndex]
       return (
-        <div className='adm-picker-view-column-accessible'>
+        <div className={`${classPrefix}-column-accessible`}>
           <div
-            className='adm-picker-view-column-accessible-current'
+            className={`${classPrefix}-column-accessible-current`}
             role='button'
             aria-label={
               current ? `当前选择的是：${current.label}` : '当前未选择'
@@ -228,7 +228,7 @@ export const Wheel = memo<Props>(
             -
           </div>
           <div
-            className='adm-picker-view-column-accessible-button'
+            className={`${classPrefix}-column-accessible-button`}
             onClick={() => {
               if (!previous) return
               scrollSelect(previousIndex)
@@ -241,7 +241,7 @@ export const Wheel = memo<Props>(
             -
           </div>
           <div
-            className='adm-picker-view-column-accessible-button'
+            className={`${classPrefix}-column-accessible-button`}
             onClick={() => {
               if (!next) return
               scrollSelect(nextIndex)
