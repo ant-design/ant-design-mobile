@@ -18,7 +18,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { isPropValueConsecutive } from '../../utils/is-prop-value-consecutive'
 import { defaultPopupBaseProps } from '../popup/popup-base-props'
-import { devWarning } from 'antd-mobile/src/utils/dev-log'
+import { devWarning } from '../../utils/dev-log'
 
 const classPrefix = `adm-dropdown`
 
