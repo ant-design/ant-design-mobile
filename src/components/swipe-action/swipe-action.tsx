@@ -1,11 +1,11 @@
 import React, {
   forwardRef,
-  ReactNode,
   RefObject,
   useEffect,
   useImperativeHandle,
   useRef,
 } from 'react'
+import type { ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
@@ -143,7 +143,6 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
             right: leftWidth,
           }
         },
-        // rubberband: true,
         axis: 'x',
         preventScroll: true,
         pointer: { touch: true },

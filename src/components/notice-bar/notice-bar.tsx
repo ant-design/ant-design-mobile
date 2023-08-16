@@ -1,4 +1,5 @@
 import React, { useState, useRef, memo } from 'react'
+import type { ReactNode } from 'react'
 import classNames from 'classnames'
 import { CloseOutline, SoundOutline } from 'antd-mobile-icons'
 import { useTimeout } from 'ahooks'
@@ -17,7 +18,7 @@ export type NoticeBarProps = {
   /** Scroll speed, unit px/s */
   speed?: number
   /** The content of the NoticeBar */
-  content: React.ReactNode
+  content: ReactNode
   /** Whether it can be closed */
   closeable?: boolean
   /** Callback when closed */
@@ -25,9 +26,9 @@ export type NoticeBarProps = {
   /** Event when click */
   onClick?: () => void
   /** Additional operating area, displayed to the left of the close button */
-  extra?: React.ReactNode
+  extra?: ReactNode
   /** Radio icon on the left */
-  icon?: React.ReactNode
+  icon?: ReactNode
   /** Whether to display multiple lines */
   wrap?: boolean
 } & NativeProps<

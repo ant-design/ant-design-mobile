@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { RadioValue } from '.'
 import { RadioGroupContext } from './group-context'
@@ -9,7 +10,7 @@ export interface RadioGroupProps {
   onChange?: (val: RadioValue) => void
   defaultValue?: RadioValue | null
   disabled?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 const defaultProps = {

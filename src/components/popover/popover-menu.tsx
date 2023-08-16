@@ -5,14 +5,15 @@ import React, {
   useMemo,
   useRef,
 } from 'react'
+import type { ReactNode } from 'react'
 import classNames from 'classnames'
 import { Popover, PopoverProps, PopoverRef } from './popover'
 
 const classPrefix = `adm-popover-menu`
 
 export type Action = {
-  text: React.ReactNode
-  icon?: React.ReactNode
+  text: ReactNode
+  icon?: ReactNode
   disabled?: boolean
   key?: string | number
   onClick?: () => void

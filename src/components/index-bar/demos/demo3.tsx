@@ -49,7 +49,6 @@ export default () => {
               <IndexBar.Panel
                 // 打开下方 index 中的任一个
                 index={title}
-                // index={`区域`}
                 title={`标题${title}`}
                 key={`标题${title}`}
               >

@@ -1,4 +1,5 @@
-import React, { FC, ReactNode, useCallback, useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
+import type { FC, ReactNode } from 'react'
 import PickerView from '../picker-view'
 import type { PickerValue, PickerViewProps } from '../picker-view'
 import { NativeProps, withNativeProps } from '../../utils/native-props'

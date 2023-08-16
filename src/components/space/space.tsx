@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -19,7 +20,7 @@ export type SpaceProps = {
   wrap?: boolean
   block?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<'--gap' | '--gap-vertical' | '--gap-horizontal'>
 
 const defaultProps = {

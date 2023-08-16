@@ -1,4 +1,5 @@
-import React, { FC, useRef } from 'react'
+import React, { useRef } from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -12,7 +13,7 @@ const classPrefix = `adm-rate`
 export type RateProps = {
   allowClear?: boolean
   allowHalf?: boolean
-  character?: React.ReactNode
+  character?: ReactNode
   count?: number
   defaultValue?: number
   readOnly?: boolean

@@ -1,4 +1,5 @@
-import React, { CSSProperties, FC } from 'react'
+import React from 'react'
+import type { FC, CSSProperties, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -6,7 +7,7 @@ const classPrefix = `adm-progress-circle`
 
 export type ProgressCircleProps = {
   percent?: number
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<'--size' | '--track-width' | '--track-color' | '--fill-color'>
 
 export const ProgressCircle: FC<ProgressCircleProps> = p => {

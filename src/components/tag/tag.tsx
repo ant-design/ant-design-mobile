@@ -1,4 +1,5 @@
-import React, { CSSProperties, FC } from 'react'
+import React from 'react'
+import type { FC, CSSProperties, ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
@@ -6,7 +7,7 @@ import classNames from 'classnames'
 const classPrefix = `adm-tag`
 
 const colorRecord: Record<string, string> = {
-  default: '#666666',
+  default: 'var(--adm-color-text-secondary, #666666)',
   primary: 'var(--adm-color-primary, #1677ff)',
   success: 'var(--adm-color-success, #00b578)',
   warning: 'var(--adm-color-warning, #ff8f1f)',
@@ -24,7 +25,7 @@ export type TagProps = {
   fill?: 'solid' | 'outline'
   round?: boolean
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<
   '--border-color' | '--background-color' | '--text-color' | '--border-radius'
 >

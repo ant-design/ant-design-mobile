@@ -1,10 +1,5 @@
-import React, {
-  ReactElement,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react'
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
+import type { ReactElement } from 'react'
 import { renderToBody } from './render-to-body'
 
 type ImperativeProps = {

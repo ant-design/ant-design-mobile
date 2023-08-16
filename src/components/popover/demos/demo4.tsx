@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
+import type { FC } from 'react'
 import { Button, Image, Popover } from 'antd-mobile'
 import { CloseOutline } from 'antd-mobile-icons'
 import { DemoBlock, DemoDescription } from 'demos'

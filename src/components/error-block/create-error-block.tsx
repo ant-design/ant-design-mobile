@@ -1,4 +1,5 @@
-import React, { FC, ReactElement, ReactNode } from 'react'
+import React from 'react'
+import type { FC, ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -13,7 +14,7 @@ export type ErrorBlockProps = {
   image?: string | ReactElement
   description?: ReactNode
   fullPage?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<
   | '--image-height'
   | '--image-height-full-page'

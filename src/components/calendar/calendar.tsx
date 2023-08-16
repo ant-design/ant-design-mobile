@@ -1,10 +1,10 @@
 import React, {
   forwardRef,
-  ReactNode,
   useState,
   useImperativeHandle,
   useMemo,
 } from 'react'
+import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs from 'dayjs'
 import classNames from 'classnames'
@@ -33,14 +33,14 @@ export type CalendarRef = {
 }
 
 export type CalendarProps = {
-  prevMonthButton?: React.ReactNode
-  prevYearButton?: React.ReactNode
-  nextMonthButton?: React.ReactNode
-  nextYearButton?: React.ReactNode
+  prevMonthButton?: ReactNode
+  prevYearButton?: ReactNode
+  nextMonthButton?: ReactNode
+  nextYearButton?: ReactNode
   onPageChange?: (year: number, month: number) => void
   weekStartsOn?: 'Monday' | 'Sunday'
-  renderLabel?: (date: Date) => React.ReactNode
-  renderDate?: (date: Date) => React.ReactNode
+  renderLabel?: (date: Date) => ReactNode
+  renderDate?: (date: Date) => ReactNode
   allowClear?: boolean
   max?: Date
   min?: Date

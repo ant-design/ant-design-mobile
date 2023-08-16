@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { TaskStatus } from './image-uploader'
 import Image from '../image'
@@ -10,7 +11,7 @@ type Props = {
   onClick?: () => void
   onDelete?: () => void
   deletable: boolean
-  deleteIcon: React.ReactNode
+  deleteIcon: ReactNode
   url?: string
   file?: File
   status?: TaskStatus

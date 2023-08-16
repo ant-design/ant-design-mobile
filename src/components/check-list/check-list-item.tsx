@@ -1,4 +1,5 @@
-import React, { FC, useContext } from 'react'
+import React, { useContext } from 'react'
+import type { FC } from 'react'
 import List, { ListItemProps } from '../list'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { CheckListContext } from './context'

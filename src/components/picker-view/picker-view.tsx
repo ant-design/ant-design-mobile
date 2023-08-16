@@ -1,4 +1,5 @@
-import React, { memo, ReactNode, useCallback, useEffect, useState } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
+import type { ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import { Wheel } from './wheel'
 import { useColumnsExtend } from './columns-extend'

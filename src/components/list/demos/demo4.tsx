@@ -1,4 +1,5 @@
-import React, { CSSProperties } from 'react'
+import React from 'react'
+import type { CSSProperties } from 'react'
 import { List, Image } from 'antd-mobile'
 import { List as VirtualizedList, AutoSizer } from 'react-virtualized'
 

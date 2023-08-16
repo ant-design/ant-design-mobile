@@ -1,13 +1,20 @@
 import classNames from 'classnames'
-import React, { FC, useMemo } from 'react'
+import React, { useMemo } from 'react'
+import type { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { useFieldNames } from '../../hooks'
+import type { FieldNamesType } from '../../hooks'
 
 const classPrefix = `adm-tree-select`
 
-export interface TreeSelectOption {
+export type TreeSelectOption = {
+  label?: string
+  value?: string
+  children?: TreeSelectOption[]
+} & {
   [key: string]: any
 }
 
@@ -16,7 +23,7 @@ export type TreeSelectProps = {
   defaultValue?: string[]
   value?: string[]
   onChange?: (value: string[], extend: { options: TreeSelectOption[] }) => void
-  fieldNames?: { label: string; value: string; children: string }
+  fieldNames?: FieldNamesType
 } & NativeProps
 
 const defaultProps = {
@@ -27,10 +34,7 @@ const defaultProps = {
 
 export const TreeSelect: FC<TreeSelectProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const labelName = props.fieldNames.label || 'label'
-  const valueName = props.fieldNames.value || 'value'
-  const childrenName = props.fieldNames.children || 'children'
-
+  const [labelName, valueName, childrenName] = useFieldNames(props.fieldNames)
   const [value, setValue] = usePropsValue({
     value: props.value,
     defaultValue: props.defaultValue,

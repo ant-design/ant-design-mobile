@@ -1,4 +1,5 @@
-import React, { ReactNode, useMemo } from 'react'
+import React, { useMemo } from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { CheckOutline, CloseOutline } from 'antd-mobile-icons'
 import Mask from '../mask'
@@ -17,7 +18,7 @@ export interface ToastProps {
   maskClassName?: string
   maskClickable?: boolean
   content?: ReactNode
-  icon?: 'success' | 'fail' | 'loading' | React.ReactNode
+  icon?: 'success' | 'fail' | 'loading' | ReactNode
   duration?: number
   position?: 'top' | 'bottom' | 'center'
   visible?: boolean
@@ -30,7 +31,7 @@ const defaultProps = {
   stopPropagation: ['click'],
 }
 
-export const InternalToast: React.FC<ToastProps> = p => {
+export const InternalToast: FC<ToastProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { maskClickable, content, icon, position } = props
 

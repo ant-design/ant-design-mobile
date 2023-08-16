@@ -1,4 +1,5 @@
-import React, { FC, useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
+import type { FC, ReactNode } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { mergeProps } from '../../utils/with-default-props'
@@ -12,7 +13,7 @@ export type FloatingBubbleProps = {
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   axis?: 'x' | 'y' | 'xy' | 'lock'
   magnetic?: 'x' | 'y'
-  children?: React.ReactNode
+  children?: ReactNode
   offset?: Offset
   defaultOffset?: Offset
   onOffsetChange?: (offset: Offset) => void
