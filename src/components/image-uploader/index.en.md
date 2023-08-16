@@ -38,9 +38,9 @@
 
 ### Ref
 
-| 属性          | 说明                 | 类型              | 默认值 |
-| ------------- | -------------------- | ----------------- | ------ | --- |
-| nativeElement | native input element | `HTMLInputElement | null`  | -   |
+| Name          | Description          | Type                       | Version |
+| ------------- | -------------------- | -------------------------- | ------- |
+| nativeElement | native input element | `HTMLInputElement \| null` | 5.33.0  |
 
 ### ImageUploadItem
 
