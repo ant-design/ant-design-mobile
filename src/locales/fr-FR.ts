@@ -12,8 +12,7 @@ const frFR = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept'],
-    renderYearAndMonth: (year: number, month: number) =>
-      `${year}Année ${month}Mois`,
+    yearAndMonth: '${year}Année ${month}Mois',
   },
   Cascader: {
     placeholder: 'Veuillez sélectionner',

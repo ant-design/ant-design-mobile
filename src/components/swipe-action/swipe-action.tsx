@@ -19,9 +19,11 @@ import {
 
 const classPrefix = `adm-swipe-action`
 
+type SideType = 'left' | 'right'
+
 export type SwipeActionRef = {
   close: () => void
-  show: (side?: 'left' | 'right') => void
+  show: (side?: SideType) => void
 }
 
 type ActionColor =
@@ -47,7 +49,7 @@ export type SwipeActionProps = {
   closeOnAction?: boolean
   children: ReactNode
   stopPropagation?: PropagationEvent[]
-  onActionsReveal?: (side: 'left' | 'right') => void
+  onActionsReveal?: (side: SideType) => void
 } & NativeProps<'--background'>
 
 const defaultProps = {
@@ -156,7 +158,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
     }
 
     useImperativeHandle(ref, () => ({
-      show: (side: 'left' | 'right' = 'right') => {
+      show: (side: SideType = 'right') => {
         if (side === 'right') {
           api.start({
             x: -getRightWidth(),

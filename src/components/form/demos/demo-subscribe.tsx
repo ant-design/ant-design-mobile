@@ -45,22 +45,20 @@ export default function () {
       </Form.Item>
 
       <Form.Subscribe to={['loginMethod']}>
-        {({ loginMethod }) => {
-          return (
-            <>
-              {loginMethod === 'mobile' && (
-                <Form.Item name='account' label='手机号'>
-                  <Input placeholder='请输入手机号' />
-                </Form.Item>
-              )}
-              {loginMethod === 'email' && (
-                <Form.Item name='account' label='邮箱'>
-                  <Input placeholder='请输入邮箱' />
-                </Form.Item>
-              )}
-            </>
-          )
-        }}
+        {({ loginMethod }) => (
+          <>
+            {loginMethod === 'mobile' && (
+              <Form.Item name='account' label='手机号'>
+                <Input placeholder='请输入手机号' />
+              </Form.Item>
+            )}
+            {loginMethod === 'email' && (
+              <Form.Item name='account' label='邮箱'>
+                <Input placeholder='请输入邮箱' />
+              </Form.Item>
+            )}
+          </>
+        )}
       </Form.Subscribe>
     </Form>
   )

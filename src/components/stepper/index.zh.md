@@ -32,7 +32,7 @@
 | onChange | 变化时的回调 | `(value: number \| null) => void` | - |
 | onFocus | 输入框获得焦点时触发 | `(e: React.FocusEvent<HTMLInputElement>) => void` | - |
 | parser | 将输入解析为对应数字，一般配合 `formatter` 使用 | `(text: string) => number` | - | 5.26.0 |
-| step | 每次改变步数，可以为小数 | `number` | `1` |
+| step | 每次增加或减少的值，可以为小数 | `number` | `1` |
 | stringMode | 字符值模式，开启后支持高精度小数。开启后 `defaultValue`、`value`、`min`、`max`、`onChange` 等都将转换为 `string` 类型 | `boolean` | `false` | 5.27.0 |
 | value | 当前数，受控值 | `number \| null` | - |
 

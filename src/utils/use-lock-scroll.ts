@@ -51,11 +51,12 @@ export function useLockScroll(
     }
 
     const { scrollHeight, offsetHeight, scrollTop } = el
+    const { height } = el.getBoundingClientRect()
     let status = '11'
 
     if (scrollTop === 0) {
       status = offsetHeight >= scrollHeight ? '00' : '01'
-    } else if (scrollTop + offsetHeight >= scrollHeight) {
+    } else if (scrollHeight <= Math.round(height + scrollTop)) {
       status = '10'
     }
 
@@ -64,7 +65,8 @@ export function useLockScroll(
       touch.isVertical() &&
       !(parseInt(status, 2) & parseInt(direction, 2))
     ) {
-      if (event.cancelable) {
+      if (event.cancelable && supportsPassive) {
+        // https://github.com/ant-design/ant-design-mobile/issues/6282
         event.preventDefault()
       }
     }

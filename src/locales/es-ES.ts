@@ -12,7 +12,7 @@ const esES = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],
-    renderYearAndMonth: (year: number, month: number) => `${year}/${month}`,
+    yearAndMonth: '${year}/${month}',
   },
   Cascader: {
     placeholder: 'Seleccionando',

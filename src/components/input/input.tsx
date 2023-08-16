@@ -42,13 +42,13 @@ export type InputProps = Pick<
   | 'onClick'
   | 'step'
   | 'id'
+  | 'placeholder'
+  | 'readOnly'
+  | 'disabled'
 > & {
   value?: string
   defaultValue?: string
   onChange?: (val: string) => void
-  placeholder?: string
-  disabled?: boolean
-  readOnly?: boolean
   clearable?: boolean
   onlyShowClearWhenFocus?: boolean
   onClear?: () => void

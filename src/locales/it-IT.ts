@@ -13,7 +13,7 @@ const itIT = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'],
-    renderYearAndMonth: (year: number, month: number) => `${month}/${year}`,
+    yearAndMonth: '${month}/${year}',
   },
   Cascader: {
     placeholder: 'Si prega di selezionare',

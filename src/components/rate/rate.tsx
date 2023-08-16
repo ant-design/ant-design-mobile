@@ -19,7 +19,12 @@ export type RateProps = {
   readOnly?: boolean
   value?: number
   onChange?: (value: number) => void
-} & NativeProps<'--star-size' | '--active-color' | '--inactive-color'>
+} & NativeProps<
+  | '--star-size'
+  | '--active-color'
+  | '--inactive-color'
+  | '--inactive-color-half'
+>
 
 const defaultProps = {
   count: 5,

@@ -31,9 +31,10 @@ export function createErrorBlock(imageRecord: ImageRecord) {
     const props = mergeProps(defaultProps, p)
     const { locale } = useConfig()
     const contentPack = locale.ErrorBlock[props.status]
-    const des =
+    const desc =
       'description' in props ? props.description : contentPack.description
     const title = 'title' in props ? props.title : contentPack.title
+
     const image: ReactNode = props.image ?? imageRecord[props.status]
     const imageNode =
       typeof image === 'string' ? (
@@ -51,11 +52,12 @@ export function createErrorBlock(imageRecord: ImageRecord) {
       >
         <div className={`${classPrefix}-image`}>{imageNode}</div>
         <div className={`${classPrefix}-description`}>
-          {title && (
+          {![undefined, null].includes(title as null) && (
             <div className={`${classPrefix}-description-title`}>{title}</div>
           )}
-          {des && (
-            <div className={`${classPrefix}-description-subtitle`}>{des}</div>
+
+          {![undefined, null].includes(desc as null) && (
+            <div className={`${classPrefix}-description-subtitle`}>{desc}</div>
           )}
         </div>
 

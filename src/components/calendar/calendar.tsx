@@ -15,6 +15,7 @@ import { useConfig } from '../config-provider'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import { useUpdateEffect } from 'ahooks'
 import { usePropsValue } from '../../utils/use-props-value'
+import { replaceMessage } from '../../utils/replace-message'
 import {
   convertValueToRange,
   convertPageToDayjs,
@@ -171,10 +172,10 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         {props.prevMonthButton}
       </a>
       <div className={`${classPrefix}-title`}>
-        {locale.Calendar.renderYearAndMonth(
-          current.year(),
-          current.month() + 1
-        )}
+        {replaceMessage(locale.Calendar.yearAndMonth, {
+          year: current.year().toString(),
+          month: (current.month() + 1).toString(),
+        })}
       </div>
       <a
         className={classNames(

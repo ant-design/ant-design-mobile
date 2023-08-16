@@ -7,7 +7,7 @@ import classNames from 'classnames'
 const classPrefix = `adm-tag`
 
 const colorRecord: Record<string, string> = {
-  default: '#666666',
+  default: 'var(--adm-color-text-secondary, #666666)',
   primary: 'var(--adm-color-primary, #1677ff)',
   success: 'var(--adm-color-success, #00b578)',
   warning: 'var(--adm-color-warning, #ff8f1f)',
