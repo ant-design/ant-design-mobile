@@ -13,7 +13,7 @@ const nbNO = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'],
-    renderYearAndMonth: (year: number, month: number) => `${month}.${year}`,
+    yearAndMonth: '${month}.${year}',
   },
   Cascader: {
     placeholder: 'Velg',

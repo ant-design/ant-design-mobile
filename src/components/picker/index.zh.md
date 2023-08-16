@@ -155,7 +155,7 @@ type PickerDate = Date & {
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | children | 所选项的渲染函数 | `(value: PickerDate, actions: PickerActions) => ReactNode` | - |
-| defaultValue | 选中值 | `PickerDate` | - |
+| defaultValue | 默认选中值 | `PickerDate` | - |
 | destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | filter | 过滤可供选择的时间 | `DatePickerFilter` | - |
 | forceRender | 强制渲染内容 | `boolean` | `false` |

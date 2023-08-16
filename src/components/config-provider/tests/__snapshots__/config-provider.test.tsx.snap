@@ -8618,7 +8618,7 @@ exports[`ConfigProvider should display the text as ja-JP 1`] = `
       <div
         class="adm-calendar-title"
       >
-         2022年3月
+        2022年3月
       </div>
       <a
         class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"

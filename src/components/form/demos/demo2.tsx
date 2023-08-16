@@ -52,13 +52,9 @@ export default () => {
         </Form.Item>
         <Form.Item
           label='表单联动-字段B'
-          shouldUpdate={(prevValues, curValues) => {
-            return prevValues.b !== curValues.b
-          }}
+          shouldUpdate={(prevValues, curValues) => prevValues.b !== curValues.b}
         >
-          {({ getFieldValue }) => {
-            return JSON.stringify(getFieldValue('b'))
-          }}
+          {({ getFieldValue }) => JSON.stringify(getFieldValue('b'))}
         </Form.Item>
         <DatePickerInputItem />
       </Form>

@@ -3,14 +3,14 @@ import type { FC, ReactNode, MutableRefObject } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
-import type { FieldProps } from 'rc-field-form/lib/Field'
 import FieldContext from 'rc-field-form/lib/FieldContext'
+import type { FieldProps } from 'rc-field-form/lib/Field'
 import type { Meta, InternalNamePath } from 'rc-field-form/lib/interface'
+import type { FormLayout } from './index'
 import { devWarning } from '../../utils/dev-log'
 import { FormContext, NoStyleItemContext } from './context'
 import { toArray, isSafeSetRefComponent } from './utils'
 import List, { ListItemProps } from '../list'
-import type { FormLayout } from './index'
 import Popover from '../popover'
 import { QuestionCircleOutline } from 'antd-mobile-icons'
 import { useConfig } from '../config-provider'
@@ -96,7 +96,6 @@ type FormItemLayoutProps = Pick<
 
 const FormItemLayout: FC<FormItemLayoutProps> = props => {
   const {
-    className,
     style,
     extra,
     label,
@@ -150,7 +149,7 @@ const FormItemLayout: FC<FormItemLayoutProps> = props => {
     }
   })()
 
-  const labelElement = label ? (
+  const labelElement = !!label && (
     <label className={`${classPrefix}-label`} htmlFor={htmlFor}>
       {label}
       {requiredMark}
@@ -167,34 +166,33 @@ const FormItemLayout: FC<FormItemLayoutProps> = props => {
         </Popover>
       )}
     </label>
-  ) : null
+  )
 
-  const description =
-    props.description || hasFeedback ? (
-      <>
-        {props.description}
-        {hasFeedback && (
-          <>
-            {props.errors.map((error, index) => (
-              <div
-                key={`error-${index}`}
-                className={`${classPrefix}-feedback-error`}
-              >
-                {error}
-              </div>
-            ))}
-            {props.warnings.map((warning, index) => (
-              <div
-                key={`warning-${index}`}
-                className={`${classPrefix}-feedback-warning`}
-              >
-                {warning}
-              </div>
-            ))}
-          </>
-        )}
-      </>
-    ) : null
+  const description = (!!props.description || hasFeedback) && (
+    <>
+      {props.description}
+      {hasFeedback && (
+        <>
+          {props.errors.map((error, index) => (
+            <div
+              key={`error-${index}`}
+              className={`${classPrefix}-feedback-error`}
+            >
+              {error}
+            </div>
+          ))}
+          {props.warnings.map((warning, index) => (
+            <div
+              key={`warning-${index}`}
+              className={`${classPrefix}-feedback-warning`}
+            >
+              {warning}
+            </div>
+          ))}
+        </>
+      )}
+    </>
+  )
 
   return withNativeProps(
     props,
@@ -204,15 +202,10 @@ const FormItemLayout: FC<FormItemLayoutProps> = props => {
       prefix={layout === 'horizontal' && labelElement}
       extra={extra}
       description={description}
-      className={classNames(
-        classPrefix,
-        className,
-        `${classPrefix}-${layout}`,
-        {
-          [`${classPrefix}-hidden`]: hidden,
-          [`${classPrefix}-has-error`]: props.errors.length,
-        }
-      )}
+      className={classNames(classPrefix, `${classPrefix}-${layout}`, {
+        [`${classPrefix}-hidden`]: hidden,
+        [`${classPrefix}-has-error`]: props.errors.length,
+      })}
       disabled={disabled}
       onClick={props.onClick}
       clickable={props.clickable}
@@ -235,7 +228,6 @@ const FormItemLayout: FC<FormItemLayoutProps> = props => {
 export const FormItem: FC<FormItemProps> = props => {
   const {
     // 样式相关
-    className,
     style,
     // FormItem 相关
     label,
@@ -331,7 +323,6 @@ export const FormItem: FC<FormItemProps> = props => {
     return withNativeProps(
       props,
       <FormItemLayout
-        className={className}
         style={style}
         label={label}
         extra={extra}

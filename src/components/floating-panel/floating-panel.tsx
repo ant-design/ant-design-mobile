@@ -9,6 +9,8 @@ import { mergeProps } from '../../utils/with-default-props'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useMemoizedFn } from 'ahooks'
 
+const classPrefix = 'adm-floating-panel'
+
 export type FloatingPanelRef = {
   setHeight: (
     height: number,
@@ -83,7 +85,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         setPulling(pullingRef.current)
         if (!pullingRef.current) return
         const { event } = state
-        if (event.cancelable) {
+        if (event.cancelable && supportsPassive) {
           event.preventDefault()
         }
         event.stopPropagation()
@@ -104,9 +106,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         from: () => [0, y.get()],
         pointer: { touch: true },
         target: elementRef,
-        eventOptions: supportsPassive
-          ? { passive: false }
-          : (false as unknown as AddEventListenerOptions),
+        eventOptions: supportsPassive ? { passive: false } : undefined,
       }
     )
 
@@ -134,22 +134,22 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       props,
       <animated.div
         ref={elementRef}
-        className='adm-floating-panel'
+        className={classPrefix}
         style={{
           height: Math.round(maxHeight),
           translateY: y.to(y => `calc(100% + (${Math.round(y)}px))`),
         }}
       >
         <div
-          className='adm-floating-panel-mask'
+          className={`${classPrefix}-mask`}
           style={{
             display: pulling ? 'block' : 'none',
           }}
         />
-        <div className='adm-floating-panel-header' ref={headerRef}>
-          <div className='adm-floating-panel-bar' />
+        <div className={`${classPrefix}-header`} ref={headerRef}>
+          <div className={`${classPrefix}-bar`} />
         </div>
-        <div className='adm-floating-panel-content' ref={contentRef}>
+        <div className={`${classPrefix}-content`} ref={contentRef}>
           {props.children}
         </div>
       </animated.div>

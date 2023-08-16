@@ -17,6 +17,8 @@ import {
   PopupBaseProps,
 } from '../popup/popup-base-props'
 
+const classPrefix = 'adm-center-popup'
+
 export type CenterPopupProps = PopupBaseProps &
   PropsWithChildren<{
     // These props currently are only used internally. They are not exported to users:
@@ -73,7 +75,7 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
 
   const body = (
     <div
-      className={classNames('adm-center-popup-body', props.bodyClassName)}
+      className={classNames(`${classPrefix}-body`, props.bodyClassName)}
       style={props.bodyStyle}
     >
       {props.children}
@@ -85,7 +87,7 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
     withNativeProps(
       props,
       <div
-        className='adm-center-popup'
+        className={classPrefix}
         style={{
           display: active ? undefined : 'none',
           pointerEvents: active ? undefined : 'none',
@@ -103,13 +105,13 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
               }
             }}
             style={props.maskStyle}
-            className={classNames('adm-center-popup-mask', props.maskClassName)}
+            className={classNames(`${classPrefix}-mask`, props.maskClassName)}
             disableBodyScroll={false}
             stopPropagation={props.stopPropagation}
           />
         )}
         <div
-          className='adm-center-popup-wrap'
+          className={`${classPrefix}-wrap`}
           role={props.role}
           aria-label={props['aria-label']}
         >
@@ -117,7 +119,7 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
             {props.showCloseButton && (
               <a
                 className={classNames(
-                  'adm-center-popup-close',
+                  `${classPrefix}-close`,
                   'adm-plain-anchor'
                 )}
                 onClick={() => {
