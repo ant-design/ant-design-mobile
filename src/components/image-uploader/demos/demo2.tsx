@@ -1,10 +1,7 @@
 import React, { FC, useRef, useState } from 'react'
 import { DemoBlock } from 'demos'
-import {
-  ImageUploadItem,
-  ImageUploaderRef,
-} from 'antd-mobile/es/components/image-uploader'
-import { ImageUploader, Button } from 'antd-mobile'
+import type { ImageUploadItem, ImageUploaderRef } from 'antd-mobile'
+import { ImageUploader, Button, Space } from 'antd-mobile'
 import { PictureOutline } from 'antd-mobile-icons'
 
 import { demoSrc, mockUpload } from './utils'
@@ -94,32 +91,15 @@ const ManualOpenPhoto: FC = () => {
   }
 
   return (
-    <>
+    <Space direction='vertical'>
       <ImageUploader
         ref={input}
         value={fileList}
         onChange={setFileList}
         upload={mockUpload}
-      >
-        <div
-          style={{
-            width: 80,
-            height: 80,
-            borderRadius: 40,
-            backgroundColor: '#f5f5f5',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            color: '#999999',
-          }}
-        >
-          <PictureOutline style={{ fontSize: 32 }} />
-        </div>
-      </ImageUploader>
-      <Button onClick={onOpen} style={{ margin: 6 }}>
-        手动调起相册
-      </Button>
-    </>
+      />
+      <Button onClick={onOpen}>手动调起相册</Button>
+    </Space>
   )
 }
 
