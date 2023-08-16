@@ -387,7 +387,6 @@ describe('ImageUploader', () => {
 
     render(<App ref={ref} />)
     expect(ref.current).toBeDefined()
-    console.log(ref.current, 'ref.current')
     expect(ref.current?.nativeElement).toBeDefined()
   })
 })
