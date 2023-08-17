@@ -100,6 +100,7 @@ export { default as ImageUploader } from './components/image-uploader'
 export type {
   ImageUploaderProps,
   ImageUploadItem,
+  ImageUploaderRef,
 } from './components/image-uploader'
 export { default as ImageViewer } from './components/image-viewer'
 export type {

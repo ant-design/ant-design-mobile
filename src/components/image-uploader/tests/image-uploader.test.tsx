@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { createRef, forwardRef, useState } from 'react'
 import {
   render,
   testA11y,
@@ -11,7 +11,7 @@ import {
   act,
   waitForElementToBeRemoved,
 } from 'testing'
-import ImageUploader, { ImageUploadItem } from '..'
+import ImageUploader, { ImageUploadItem, ImageUploaderRef } from '..'
 import Dialog from '../../dialog'
 
 const classPrefix = `adm-image-uploader`
@@ -64,7 +64,7 @@ describe('ImageUploader', () => {
     jest.useRealTimers()
   })
 
-  const App = (props: any) => {
+  const App = forwardRef<ImageUploaderRef, any>((props, ref) => {
     const [fileList, setFileList] = useState<ImageUploadItem[]>([
       {
         url: demoSrc,
@@ -73,13 +73,14 @@ describe('ImageUploader', () => {
 
     return (
       <ImageUploader
+        ref={ref}
         value={fileList}
         onChange={setFileList}
         upload={mockUpload}
         {...props}
       />
     )
-  }
+  })
 
   test('a11y', async () => {
     jest.useRealTimers()
@@ -379,5 +380,13 @@ describe('ImageUploader', () => {
     })
     expect(fn).toBeCalledWith([{ id: 0, status: 'success' }])
     expect(fn.mock.lastCall[0]).toMatchObject([])
+  })
+
+  test('task get nativeElement', () => {
+    const ref = createRef<ImageUploaderRef>()
+
+    render(<App ref={ref} />)
+    expect(ref.current).toBeDefined()
+    expect(ref.current?.nativeElement).toBeDefined()
   })
 })

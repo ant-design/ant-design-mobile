@@ -36,6 +36,12 @@
 | onUploadQueueChange | Triggered when the image upload queue changes | `(tasks: UploadTask[]) => void` |
 | renderItem | Custom item of uploadList | `(originNode: React.ReactElement, file: ImageUploadItem, fileList: ImageUploadItem[] ) => React.ReactNode` | - |
 
+### Ref
+
+| Name          | Description          | Type                       | Version |
+| ------------- | -------------------- | -------------------------- | ------- |
+| nativeElement | native input element | `HTMLInputElement \| null` | 5.33.0  |
+
 ### ImageUploadItem
 
 | Name | Description | Type | Default |
