@@ -131,7 +131,7 @@ export const WaterMark: FC<WaterMarkProps> = p => {
       style={{
         zIndex,
         backgroundSize: `${gapX + width}px`,
-        backgroundImage: `url('${base64Url}')`,
+        backgroundImage: base64Url === '' ? undefined : `url('${base64Url}')`,
       }}
     />
   )
