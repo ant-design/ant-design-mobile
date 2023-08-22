@@ -8,7 +8,7 @@ const classPrefix = `adm-water-mark`
 export type WaterMarkProps = {
   gapX?: number
   gapY?: number
-  zIndex?: number
+  zIndex?: number | 'var(--z-index)'
   width?: number
   height?: number
   rotate?: number
@@ -31,7 +31,7 @@ const defaultProps = {
 export const WaterMark: FC<WaterMarkProps> = p => {
   const props = mergeProps(defaultProps, p)
   const {
-    zIndex = 2000,
+    zIndex = 'var(--z-index)',
     gapX = 24,
     gapY = 48,
     width = 120,
