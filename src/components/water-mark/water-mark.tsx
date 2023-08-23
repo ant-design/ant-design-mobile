@@ -8,7 +8,7 @@ const classPrefix = `adm-water-mark`
 export type WaterMarkProps = {
   gapX?: number
   gapY?: number
-  zIndex?: number | 'var(--z-index)'
+  zIndex?: number
   width?: number
   height?: number
   rotate?: number
