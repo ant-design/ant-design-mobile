@@ -34,6 +34,7 @@ export type TabsProps = {
   stretch?: boolean
   onChange?: (key: string) => void
   children?: ReactNode
+  direction?: 'ltr' | 'rtl'
 } & NativeProps<
   | '--fixed-active-line-width'
   | '--active-line-height'
@@ -47,6 +48,7 @@ export type TabsProps = {
 const defaultProps = {
   activeLineMode: 'auto',
   stretch: true,
+  direction: 'ltr',
 }
 
 export const Tabs: FC<TabsProps> = p => {
@@ -57,6 +59,8 @@ export const Tabs: FC<TabsProps> = p => {
   let firstActiveKey: string | null = null
 
   const panes: ReactElement<TabProps>[] = []
+
+  const isRTL = props.direction === 'rtl'
 
   traverseReactNode(props.children, (child, index) => {
     if (!isValidElement<TabProps>(child)) return
@@ -145,6 +149,18 @@ export const Tabs: FC<TabsProps> = p => {
     } else {
       x = activeTabLeft + (activeTabWidth - activeLineWidth) / 2
     }
+
+    if (isRTL) {
+      /**
+       * In RTL mode, x equals the container width minus the x-coordinate of the current tab minus the width of the current tab.
+       * https://github.com/Fog3211/reproduce-codesandbox/blob/f0a3396a114cc00e88a51a67d3be60a746519b30/assets/images/antd_mobile_tabs_rtl_x.jpg?raw=true
+       */
+      const w = ['auto', 'full'].includes(props.activeLineMode)
+        ? width
+        : activeLineWidth
+      x = -(containerWidth - x - w)
+    }
+
     api.start({
       x,
       width,
@@ -154,11 +170,28 @@ export const Tabs: FC<TabsProps> = p => {
     const maxScrollDistance = containerScrollWidth - containerWidth
     if (maxScrollDistance <= 0) return
 
-    const nextScrollLeft = bound(
-      activeTabLeft - (containerWidth - activeTabWidth) / 2,
-      0,
-      containerScrollWidth - containerWidth
-    )
+    let nextScrollLeft = 0
+
+    if (isRTL) {
+      /**
+       * 位移距离等于：activeTab的中心坐标距离容器中心坐标的距离，然后RTL取负数
+       * containerWidth / 2 - (activeTabLeft + (activeTabWidth - activeLineWidth) / 2) - activeLineWidth / 2,
+       */
+      nextScrollLeft = -bound(
+        containerWidth / 2 -
+          activeTabLeft +
+          activeTabWidth / 2 -
+          activeLineWidth,
+        0,
+        maxScrollDistance
+      )
+    } else {
+      nextScrollLeft = bound(
+        activeTabLeft - (containerWidth - activeTabWidth) / 2,
+        0,
+        maxScrollDistance
+      )
+    }
 
     scrollApi.start({
       scrollLeft: nextScrollLeft,
@@ -197,9 +230,25 @@ export const Tabs: FC<TabsProps> = p => {
       if (!container) return
 
       const scrollLeft = container.scrollLeft
-      const showLeftMask = scrollLeft > 0
-      const showRightMask =
-        scrollLeft + container.offsetWidth < container.scrollWidth
+
+      let showLeftMask = false
+      let showRightMask = false
+
+      if (isRTL) {
+        /**
+         * RTL模式下，只要滑动过，scrollLeft就再也回不到0（chrome是0.5）
+         * 所以要加round才能终止触发条件
+         * round(443.5) + 375 < 819
+         */
+        showLeftMask =
+          Math.round(-scrollLeft) + container.offsetWidth <
+          container.scrollWidth
+        showRightMask = scrollLeft < 0
+      } else {
+        showLeftMask = scrollLeft > 0
+        showRightMask =
+          scrollLeft + container.offsetWidth < container.scrollWidth
+      }
 
       maskApi.start({
         leftMaskOpacity: showLeftMask ? 1 : 0,
@@ -220,7 +269,12 @@ export const Tabs: FC<TabsProps> = p => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div
+      className={classPrefix}
+      style={{
+        direction: props.direction,
+      }}
+    >
       <div className={`${classPrefix}-header`}>
         <animated.div
           className={classNames(

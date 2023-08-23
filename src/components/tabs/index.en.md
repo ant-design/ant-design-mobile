@@ -16,6 +16,8 @@ The current content needs to be divided into groups of the same hierarchical str
 
 <code src="./demos/demo4.tsx"></code>
 
+<code src="./demos/demo5.tsx"></code>
+
 ## Tabs
 
 ### Props
@@ -27,6 +29,7 @@ The current content needs to be divided into groups of the same hierarchical str
 | defaultActiveKey | The initialized `key` of the selected panel, if the `activeKey` is not set | `string \| null` | the `key` of the 1st pannel |
 | onChange | Callback when switching panel | `(key: string) => void` | - |
 | stretch | Whether stretch the tab header | `boolean` | `true` |
+| direction | Document layout direction | `'ltr' \| 'rtl'` | `'ltr'` |
 
 ### CSS Variables
 
