@@ -66,6 +66,9 @@ describe('PasscodeInput', () => {
   })
 
   test('native keyboard should be work', async () => {
+    const originScrollIntoView = window.HTMLElement.prototype.scrollIntoView
+    window.HTMLElement.prototype.scrollIntoView = function () {}
+
     render(<PasscodeInput plain />)
     const input = screen.getByRole('button', { name: '密码输入框' })
     fireEvent.focus(input)
@@ -73,6 +76,8 @@ describe('PasscodeInput', () => {
       await userEvent.keyboard('abc')
     })
     expect(input).toHaveTextContent('abc')
+
+    window.HTMLElement.prototype.scrollIntoView = originScrollIntoView
   })
 
   test('event callbacks should be called', async () => {

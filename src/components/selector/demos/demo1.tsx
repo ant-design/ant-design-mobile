@@ -1,7 +1,7 @@
 import React from 'react'
 import { Selector, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { options } from './options'
+import { options, fieldNamesOptions } from './options'
 
 export default () => {
   return (
@@ -18,7 +18,7 @@ export default () => {
         <Selector
           options={options}
           defaultValue={['2', '3']}
-          multiple={true}
+          multiple
           onChange={(arr, extend) => console.log(arr, extend.items)}
         />
       </DemoBlock>
@@ -28,7 +28,7 @@ export default () => {
           columns={2}
           options={options}
           defaultValue={['2', '3']}
-          multiple={true}
+          multiple
         />
       </DemoBlock>
 
@@ -37,13 +37,13 @@ export default () => {
           columns={3}
           options={options}
           defaultValue={['2', '3']}
-          multiple={true}
+          multiple
         />
       </DemoBlock>
 
       <DemoBlock title='禁用状态'>
         <Space block direction='vertical'>
-          <Selector options={options} defaultValue={['1']} disabled={true} />
+          <Selector options={options} defaultValue={['1']} disabled />
           <Selector
             options={[
               {
@@ -63,6 +63,19 @@ export default () => {
             defaultValue={['3']}
           />
         </Space>
+      </DemoBlock>
+      <DemoBlock title='自定义FieldName'>
+        <Selector
+          options={fieldNamesOptions}
+          fieldNames={{
+            label: 'labelT',
+            value: 'valueT',
+            disabled: 'disabledT',
+          }}
+          defaultValue={['1']}
+          multiple
+          onChange={(arr, extend) => console.log(arr, extend.items)}
+        />
       </DemoBlock>
     </>
   )

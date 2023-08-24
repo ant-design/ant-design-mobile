@@ -22,7 +22,7 @@
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| children | 触发 `popover` 的元素 | `React.ReactElement` | - |
+| children | 触发 `Popover` 的元素 | `React.ReactElement` | - |
 | content | 弹出内容 | `React.ReactNode` | - |
 | defaultVisible | 默认是否显隐 | `boolean` | `false` |
 | destroyOnHide | 隐藏时，是否销毁 `tooltip` 内容 | `boolean` | `false` |

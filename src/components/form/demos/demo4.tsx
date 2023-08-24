@@ -5,7 +5,7 @@ import type { PickerValue } from 'antd-mobile/es/components/picker'
 import { DownOutline } from 'antd-mobile-icons'
 
 interface MobileValue {
-  preValue: string
+  preValue: string | number
   realValue: string
 }
 

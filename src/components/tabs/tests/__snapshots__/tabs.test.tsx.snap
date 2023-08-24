@@ -4,6 +4,7 @@ exports[`Tabs \`activeLineMode\` prop 1`] = `
 <div>
   <div
     class="adm-tabs"
+    style="direction: ltr;"
   >
     <div
       class="adm-tabs-header"
@@ -73,6 +74,7 @@ exports[`Tabs \`activeLineMode\` prop 2`] = `
 <div>
   <div
     class="adm-tabs"
+    style="direction: ltr;"
   >
     <div
       class="adm-tabs-header"
@@ -124,6 +126,65 @@ exports[`Tabs \`activeLineMode\` prop 2`] = `
             role="tab"
           >
             animals
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="adm-tabs-content"
+      style="display: block;"
+    >
+      Apple
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs RTL render component should be rendered correctly in RTL direction 1`] = `
+<div>
+  <div
+    class="adm-tabs"
+    style="direction: rtl;"
+  >
+    <div
+      class="adm-tabs-header"
+    >
+      <div
+        class="adm-tabs-header-mask adm-tabs-header-mask-left"
+        style="opacity: 0;"
+      />
+      <div
+        class="adm-tabs-header-mask adm-tabs-header-mask-right"
+        style="opacity: 0;"
+      />
+      <div
+        class="adm-tabs-tab-list"
+        role="tablist"
+      >
+        <div
+          class="adm-tabs-tab-line"
+          style="width: 0px; transform: none;"
+        />
+        <div
+          class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
+        >
+          <div
+            aria-selected="true"
+            class="adm-tabs-tab adm-tabs-tab-active"
+            role="tab"
+          >
+            fruits
+          </div>
+        </div>
+        <div
+          class="adm-tabs-tab-wrapper adm-tabs-tab-wrapper-stretch"
+        >
+          <div
+            aria-selected="false"
+            class="adm-tabs-tab"
+            role="tab"
+          >
+            vegetables
           </div>
         </div>
       </div>

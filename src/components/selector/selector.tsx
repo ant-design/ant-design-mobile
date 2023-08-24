@@ -8,17 +8,19 @@ import Grid, { GridProps } from '../grid'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckMark } from './check-mark'
 import { useConfig } from '../config-provider'
+import { useFieldNames } from '../../hooks'
+import type { FieldNamesType, BaseOptionType } from '../../hooks'
 
 const classPrefix = `adm-selector`
 
 type SelectorValue = string | number
 
-export interface SelectorOption<V> {
-  label: ReactNode
+export type SelectorOption<V> = {
+  label?: ReactNode
   description?: ReactNode
-  value: V
+  value?: V
   disabled?: boolean
-}
+} & BaseOptionType
 
 export type SelectorProps<V> = {
   options: SelectorOption<V>[]
@@ -29,6 +31,7 @@ export type SelectorProps<V> = {
   value?: V[]
   onChange?: (v: V[], extend: { items: SelectorOption<V>[] }) => void
   showCheckMark?: boolean
+  fieldNames?: FieldNamesType
 } & NativeProps<
   | '--color'
   | '--checked-color'
@@ -51,23 +54,25 @@ const defaultProps = {
 
 export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
   const props = mergeProps(defaultProps, p)
+  const [labelName, valueName, , disabledName] = useFieldNames(props.fieldNames)
   const [value, setValue] = usePropsValue({
     value: props.value,
     defaultValue: props.defaultValue,
     onChange: val => {
       const extend = {
         get items() {
-          return props.options.filter(option => val.includes(option.value))
+          return props.options.filter(option => val.includes(option[valueName]))
         },
       }
       props.onChange?.(val, extend)
     },
   })
+
   const { locale } = useConfig()
 
   const items = props.options.map(option => {
-    const active = (value || []).includes(option.value)
-    const disabled = option.disabled || props.disabled
+    const active = (value || []).includes(option[valueName])
+    const disabled = option[disabledName] || props.disabled
     const itemCls = classNames(`${classPrefix}-item`, {
       [`${classPrefix}-item-active`]: active && !props.multiple,
       [`${classPrefix}-item-multiple-active`]: active && props.multiple,
@@ -76,7 +81,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
 
     return (
       <div
-        key={option.value}
+        key={option[valueName]}
         className={itemCls}
         onClick={() => {
           if (disabled) {
@@ -84,11 +89,11 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
           }
           if (props.multiple) {
             const val = active
-              ? value.filter(v => v !== option.value)
-              : [...value, option.value]
+              ? value.filter(v => v !== option[valueName])
+              : [...value, option[valueName]]
             setValue(val)
           } else {
-            const val = active ? [] : [option.value]
+            const val = active ? [] : [option[valueName]]
             setValue(val)
           }
         }}
@@ -97,7 +102,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
           (active && !props.multiple) || (active && props.multiple)
         }
       >
-        {option.label}
+        {option[labelName]}
         {option.description && (
           <div className={`${classPrefix}-item-description`}>
             {option.description}
@@ -119,8 +124,11 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
       role='listbox'
       aria-label={locale.Selector.name}
     >
-      {!props.columns && <Space wrap>{items}</Space>}
-      {props.columns && <Grid columns={props.columns}>{items}</Grid>}
+      {props.columns ? (
+        <Grid columns={props.columns}>{items}</Grid>
+      ) : (
+        <Space wrap>{items}</Space>
+      )}
     </div>
   )
 }

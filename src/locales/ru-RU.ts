@@ -13,7 +13,7 @@ const ruRU = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
-    renderYearAndMonth: (year: number, month: number) => `${year}/${month}`,
+    yearAndMonth: '${year}/${month}',
   },
   Cascader: {
     placeholder: 'Выбор',

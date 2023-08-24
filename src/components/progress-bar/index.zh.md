@@ -18,7 +18,7 @@
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| percent | 百分比 | `number` | `0` |
+| percent | 进度条百分比 | `number` | `0` |
 | rounded | 是否圆角 | `boolean` | `true` |
 | text | 是否显示进度文字，支持自定义渲染内容 | `boolean \| ReactNode \| ((percent: number) => ReactNode)` | `false` |
 

@@ -12,8 +12,7 @@ const kkKZ = mergeLocale(base, {
   },
   Calendar: {
     markItems: ['Дү', 'Се', 'Сә', 'Бе', 'Жұ', 'Се', 'Же'],
-    renderYearAndMonth: (year: number, month: number) =>
-      `${year}жыл${month}-ші ай`,
+    yearAndMonth: '${year}жыл${month}-ші ай',
   },
   Cascader: {
     placeholder: 'Таңдаңыз',

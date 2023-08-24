@@ -150,11 +150,20 @@ export const CalendarView = forwardRef<CalendarViewRef, CalendarViewProps>(
       while (monthIterator.isSameOrBefore(maxDay, 'month')) {
         const year = monthIterator.year()
         const month = monthIterator.month()
+        const renderMap = {
+          year,
+          month: month + 1,
+        }
 
         cells.push(
           <div key={`${year}-${month}`}>
             <div className={`${classPrefix}-title`}>
-              {locale.Calendar.renderYearAndMonth(year, month + 1)}
+              {locale.Calendar.yearAndMonth?.replace(
+                /\${(.*?)}/g,
+                (_, variable: keyof typeof renderMap) => {
+                  return renderMap[variable]?.toString()
+                }
+              )}
             </div>
             <div className={`${classPrefix}-cells`}>
               {/* 空格填充 */}

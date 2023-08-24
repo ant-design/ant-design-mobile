@@ -16,6 +16,8 @@
 
 <code src="./demos/demo4.tsx"></code>
 
+<code src="./demos/demo5.tsx"></code>
+
 ## Tabs
 
 ### 属性
@@ -27,6 +29,7 @@
 | defaultActiveKey | 初始化选中面板的 `key`，如果没有设置 `activeKey` | `string \| null` | 第一个面板的 `key` |
 | onChange | 切换面板的回调 | `(key: string) => void` | - |
 | stretch | 选项卡头部是否拉伸 | `boolean` | `true` |
+| direction | 文档排版方向 | `'ltr' \| 'rtl'` | `'ltr'` |
 
 ### CSS 变量
 

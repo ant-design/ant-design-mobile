@@ -8,6 +8,8 @@ import Checkbox from '../checkbox'
 import { TreeSelectOption } from '.'
 import { usePropsValue } from '../../utils/use-props-value'
 import { devWarning } from '../../utils/dev-log'
+import { useFieldNames } from '../../hooks'
+import type { FieldNamesType } from '../../hooks'
 
 const classPrefix = `adm-tree-select-multiple`
 
@@ -19,7 +21,7 @@ export type MultipleProps = {
   onChange?: (value: string[], nodes: TreeSelectOption[]) => void
 
   selectAllText?: string[]
-  fieldNames?: { label: string; value: string; children: string }
+  fieldNames?: FieldNamesType
 
   expandKeys?: string[]
   defaultExpandKeys?: string[]
@@ -40,9 +42,7 @@ export const Multiple: FC<MultipleProps> = p => {
   useEffect(() => {
     devWarning('TreeSelect', 'TreeSelect.Multiple has been deprecated.')
   }, [])
-  const labelName = props.fieldNames.label || 'label'
-  const valueName = props.fieldNames.value || 'value'
-  const childrenName = props.fieldNames.children || 'children'
+  const [labelName, valueName, childrenName] = useFieldNames(props.fieldNames)
 
   // 打开的 keys
   const [expandKeys, setExpandKeys] = usePropsValue({

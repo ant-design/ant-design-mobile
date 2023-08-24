@@ -19,10 +19,10 @@ Swipe to reveal hidden function menus.
 | closeOnAction | Whether to return to the position automatically when the operation button is clicked | `boolean` | `true` |
 | closeOnTouchOutside | Whether to return to the position automatically when other areas is clicked | `boolean` | `true` |
 | leftActions | List of operation buttons on the left | `Action[]` | `[]` |
-| onAction | Triggered when operation button is clicked | `(action: Action, e: React.MouseEvent) => void` | - |
 | rightActions | List of operation buttons on the right | `Action[]` | `[]` |
+| onAction | Triggered when operation button is clicked | `(action: Action, e: React.MouseEvent) => void` | - |
 | stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `[]` |
-| onActionsReveal | Triggered when the operation button appears completely | (side: 'left' \| 'right') => void | - |
+| onActionsReveal | Triggered when the operation button appears completely | `(side: 'left' \| 'right') => void` | - |
 
 ### Action
 

@@ -18,7 +18,7 @@ const zhCN = mergeLocale(base, {
     end: '结束',
     today: '今日',
     markItems: ['一', '二', '三', '四', '五', '六', '日'],
-    renderYearAndMonth: (year: number, month: number) => `${year}年${month}月`,
+    yearAndMonth: '${year}年${month}月',
   },
   Cascader: {
     placeholder: '请选择',
