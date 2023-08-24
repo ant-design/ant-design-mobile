@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'testing'
 import MockDate from 'mockdate'
 import ConfigProvider from '..'
-import Calendar from '../../calendar'
+import CalendarView from '../../calendar-view'
 import Cascader from '../../cascader'
 import ErrorBlock from '../../error-block'
 import Form from '../../form'
@@ -59,7 +59,7 @@ describe('ConfigProvider', () => {
 
   const App = () => (
     <>
-      <Calendar selectionMode='single' />
+      <CalendarView selectionMode='single' />
       <Cascader options={[]} visible />
       <ErrorBlock />
       <Form requiredMarkStyle='text-required'>

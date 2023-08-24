@@ -1,42 +1,26 @@
-# Calendar 日历 <Experimental></Experimental>
+# CalendarView 日历 <Experimental></Experimental>
 
 用于选择日期或日期区间。
 
-## 何时使用
-
-当用户需要输入一个日期，可以在弹出的日期面板进行选择。
+CalendarView 是 [Calendar](/zh/components/calendar) 的内容区域。
 
 ## 示例
 
+此处只展示了最简单的内容区域，其他更多用法可以参考 [Calendar](/zh/components/calendar)
+
 <code src="./demos/demo1.tsx"></code>
 
-<code src="./demos/demo2.tsx"></code>
-
-<code src="./demos/demo3.tsx"></code>
-
-<code src="./demos/demo4.tsx"></code>
-
-## Calendar
+## CalendarView
 
 ### 属性
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| visible | 显示隐藏 | `boolean` | `true` |
-| confirmText | 确认按钮文案 | `string` | `确认` |
-| popupClassName | 弹出层类名 | `string` | - |
-| popupStyle | 弹层容器的自定义样式 | `React.CSSProperties` | - |
-| popupBodyStyle | 容器内部自定义样式 | `React.CSSProperties` | - |
-| forceRender | 强制渲染内容，当传递 ref 时，会强制设为 true | `boolean` | `false` |
-| closeOnMaskClick | 点击背景蒙层后是否关闭 | `boolean` | `true` |
-| onClose | 关闭时触发 | `() => void` | - |
-| onMaskClick | 点击背景蒙层时触发 | `() => void` | - |
 | allowClear | 是否允许再次点击后清除 | `boolean` | `true` |
 | defaultValue | 默认选择的日期 | 同 `value` 属性 | - |
 | max | 可选择范围的最大值 | `Date` | - |
 | min | 可选择范围的最小值 | `Date` | - |
 | onChange | 选择日期变化时触发 | 单选模式下为 `(val: Date \| null) => void`，多选模式下为 `(val: [Date, Date] \| null) => void` | - |
-| onConfirm | 点击确认按钮时触发 | 单选模式下为 `(val: Date \| null) => void`，多选模式下为 `(val: [Date, Date] \| null) => void` | - |
 | renderTop | 日期顶部信息的渲染函数 | `(date: Date) => ReactNode \| null \| undefined` | - |
 | renderBottom | 日期底部信息的渲染函数 | `(date: Date) => ReactNode \| null \| undefined` | - |
 | selectionMode | 选择模式，不设置的话表示不支持选择 | `'single' \| 'range'` | - |

@@ -1,52 +1,111 @@
+import classnames from 'classnames'
 import dayjs from 'dayjs'
-import React, { useEffect, useRef } from 'react'
-import { Calendar } from 'antd-mobile'
-import { DemoBlock } from 'demos'
-import { CalendarRef } from 'antd-mobile/es/components/calendar'
-
-const min = new Date()
-min.setDate(5)
-const max = new Date()
-max.setDate(20)
+import React, { useState } from 'react'
+import { Calendar, List } from 'antd-mobile'
+import './demo3.less'
 
 export default () => {
   const today = dayjs()
-  const calendarRef = useRef<CalendarRef>(null)
-  useEffect(() => {
-    if (calendarRef.current) {
-      calendarRef.current.jumpTo({
-        year: 2022,
-        month: 4,
-      })
-    }
-  }, [])
+  const [val, setVal] = useState<[Date, Date] | null>(() => [
+    today.subtract(2, 'day').toDate(),
+    today.add(2, 'day').toDate(),
+  ])
+
+  const [visible1, setVisible1] = useState(false)
+  const [visible2, setVisible2] = useState(false)
+  const [visible3, setVisible3] = useState(false)
+  const [visible4, setVisible4] = useState(false)
+
   return (
-    <>
-      <DemoBlock title='周一作为每周的第一天'>
-        <Calendar weekStartsOn='Monday' />
-      </DemoBlock>
-      <DemoBlock title='给日期添加一些标记'>
+    <List header='自定义样式'>
+      <List.Item
+        onClick={() => {
+          setVisible1(true)
+        }}
+      >
+        自定义日期顶部信息
         <Calendar
-          renderLabel={date => {
-            if (dayjs(date).isSame(today, 'day')) return '今天'
-            if (date.getDay() === 0 || date.getDay() === 6) {
-              return '周末'
+          visible={visible1}
+          onClose={() => setVisible1(false)}
+          onMaskClick={() => setVisible1(false)}
+          renderTop={date => {
+            const map = {
+              1: '初一',
+              2: '初二',
+              3: '初三',
+            }
+            const dates = [1, 2, 3]
+            const d = dayjs(date).date() as keyof typeof map
+
+            if (dates.includes(d)) {
+              return map[d]
             }
           }}
         />
-      </DemoBlock>
-      <DemoBlock title='限制日期范围'>
-        <Calendar min={min} max={max} selectionMode='range' />
-      </DemoBlock>
-      <DemoBlock title='限制可切换的page。 2022-08 至 2022-12'>
+      </List.Item>
+      <List.Item
+        onClick={() => {
+          setVisible2(true)
+        }}
+      >
+        自定义日期底部信息
         <Calendar
-          minPage={{ year: 2022, month: 8 }}
-          maxPage={{ year: 2022, month: 12 }}
+          visible={visible2}
+          onClose={() => setVisible2(false)}
+          onMaskClick={() => setVisible2(false)}
+          renderBottom={date => {
+            const dates = [16, 17, 18, 19]
+            const d = dayjs(date).date()
+
+            if (dates.includes(d)) {
+              return '¥100'
+            }
+          }}
         />
-      </DemoBlock>
-      <DemoBlock title='默认展示 4 月'>
-        <Calendar ref={calendarRef} />
-      </DemoBlock>
-    </>
+      </List.Item>
+      <List.Item
+        onClick={() => {
+          setVisible3(true)
+        }}
+      >
+        自定义日期渲染
+        <Calendar
+          visible={visible3}
+          onClose={() => setVisible3(false)}
+          onMaskClick={() => setVisible3(false)}
+          renderDate={date => {
+            const dates = [16, 17, 18, 19]
+            const d = dayjs(date).date()
+            return (
+              <div
+                className={classnames('custom-cell', {
+                  ['custom-cell-selected']: dates.includes(d),
+                })}
+              >
+                {d}
+              </div>
+            )
+          }}
+        />
+      </List.Item>
+      <List.Item
+        onClick={() => {
+          setVisible4(true)
+        }}
+      >
+        高级自定义样式
+        <Calendar
+          className='calendar-custom'
+          selectionMode='range'
+          value={val}
+          onChange={val => {
+            setVal(val)
+          }}
+          visible={visible4}
+          onClose={() => setVisible4(false)}
+          onMaskClick={() => setVisible4(false)}
+        />
+      </List.Item>
+    </List>
   )
 }
