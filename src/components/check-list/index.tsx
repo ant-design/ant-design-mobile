@@ -6,6 +6,8 @@ import { CheckListItem } from './check-list-item'
 export type { CheckListProps } from './check-list'
 export type { CheckListItemProps } from './check-list-item'
 
+export type CheckListValue = string | number
+
 export default attachPropertiesToComponent(CheckList, {
   Item: CheckListItem,
 })
