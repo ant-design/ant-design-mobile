@@ -246,15 +246,20 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
               }
             }}
           >
-            <animated.div
-              style={{
-                pointerEvents: x.to(v =>
-                  v !== 0 && x.goal !== 0 ? 'none' : 'auto'
-                ),
-              }}
-            >
-              {props.children}
-            </animated.div>
+            {React.useMemo(
+              () => (
+                <animated.div
+                  style={{
+                    pointerEvents: x.to(v =>
+                      v !== 0 && x.goal !== 0 ? 'none' : 'auto'
+                    ),
+                  }}
+                >
+                  {props.children}
+                </animated.div>
+              ),
+              [x, props.children]
+            )}
           </div>
           {withStopPropagation(
             props.stopPropagation,
