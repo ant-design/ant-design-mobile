@@ -5,9 +5,10 @@ import { mergeProps } from '../../utils/with-default-props'
 import { CheckListContext } from './context'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CheckOutline } from 'antd-mobile-icons'
-import { CheckListValue } from './index'
 
 const classPrefix = 'adm-check-list'
+
+export type CheckListValue = string | number
 
 export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
   defaultValue?: CheckListValue[]
