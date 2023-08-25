@@ -31,7 +31,7 @@ const defaultProps = {
 export const WaterMark: FC<WaterMarkProps> = p => {
   const props = mergeProps(defaultProps, p)
   const {
-    zIndex = 2000,
+    zIndex,
     gapX = 24,
     gapY = 48,
     width = 120,
