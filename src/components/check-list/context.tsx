@@ -1,5 +1,5 @@
 import { createContext, ReactNode } from 'react'
-import { CheckListValue } from './index'
+import { CheckListValue } from '.'
 
 export const CheckListContext = createContext<{
   value: CheckListValue[]
