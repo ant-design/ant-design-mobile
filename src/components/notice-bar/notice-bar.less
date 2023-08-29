@@ -1,7 +1,7 @@
 @class-prefix-notice-bar: ~'adm-notice-bar';
 
 .@{class-prefix-notice-bar} {
-  --background-color: #ababab;
+  --background-color: var(--adm-color-weak);
   --border-color: var(--adm-color-weak);
   --text-color: var(--adm-color-text-light-solid);
   --font-size: var(--adm-font-size-7);
@@ -28,10 +28,10 @@
   &.@{class-prefix-notice-bar}-alert {
     --background-color: #fff9ed;
     --border-color: #fff3e9;
-    --text-color: #ff6010;
+    --text-color: var(--adm-color-orange);
   }
   &.@{class-prefix-notice-bar}-error {
-    --background-color: #ff3b30;
+    --background-color: var(--adm-color-danger);
     --border-color: #d9281e;
     --text-color: #ffffff;
   }

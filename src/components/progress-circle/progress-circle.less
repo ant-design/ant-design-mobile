@@ -4,7 +4,10 @@
 .@{class-prefix-progress-circle} {
   --track-width: var(--adm-progress-circle-track-width, 3px);
   --size: var(--adm-progress-circle-size, 50px);
-  --track-color: var(--adm-progress-circle-track-color, #e5e5e5);
+  --track-color: var(
+    --adm-progress-circle-track-color,
+    var(--adm-color-border)
+  );
   --fill-color: var(--adm-progress-circle-fill-color, var(--adm-color-primary));
 
   --percent: 0;

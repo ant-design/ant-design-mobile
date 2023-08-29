@@ -34,7 +34,7 @@ Provides multiple options for the user to choose from, typically used in filters
 | --border | border style | `none` |
 | --border-radius | Border radius of options | `2px` |
 | --checked-border | Border style when checked | `none` |
-| --checked-color | Background color when checked | `#e7f1ff` |
+| --checked-color | Background color when checked | `var(--adm-color-wathet)` |
 | --checked-text-color | Text color when checked | `var(--adm-color-primary)` |
 | --color | Background color | `#f5f5f5` |
 | --padding | Padding of options | `8px 16px` |

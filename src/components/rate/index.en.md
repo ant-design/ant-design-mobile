@@ -29,7 +29,7 @@ Useful for showing things ratings and quick scoring.
 
 | Name | Description | Default |
 | --- | --- | --- |
-| --active-color | Fill color when active. | `#ffd21e` |
+| --active-color | Fill color when active. | `var(--adm-color-yellow)` |
 | --star-size | Star size. | `24px` |
-| --inactive-color | Fill color when inactive. | `#e5e5e5` |
-| --inactive-color-half | Fill color when inactive(half-selected mode - left half). | `#dbdbdb` |
+| --inactive-color | Fill color when inactive. | `var(--adm-color-border)` |
+| --inactive-color-half | Fill color when inactive(half-selected mode - left half). | `var(--adm-color-border)` |

@@ -34,7 +34,7 @@
 | --border | 边框样式 | `none` |
 | --border-radius | 选项的圆角 | `2px` |
 | --checked-border | 选中时的边框样式 | `none` |
-| --checked-color | 选中时的背景色 | `#e7f1ff` |
+| --checked-color | 选中时的背景色 | `var(--adm-color-wathet)` |
 | --checked-text-color | 选中时的文字颜色 | `var(--adm-color-primary)` |
 | --color | 背景色 | `#f5f5f5` |
 | --padding | 选项的 padding | `8px 16px` |

@@ -29,6 +29,6 @@
 | --active-dot-color | 当前页的颜色 | `var(--adm-color-primary)` |
 | --active-dot-size | 当前页的大小 | `13px` |
 | --dot-border-radius | 非当前页的圆角大小 | `1px` |
-| --dot-color | 非当前页的颜色 | `#dddddd` |
+| --dot-color | 非当前页的颜色 | `var(--adm-color-light)` |
 | --dot-size | 非当前页的大小 | `3px` |
 | --dot-spacing | 页码指示器小圆点之间的间距 | `3px` |
