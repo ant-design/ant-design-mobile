@@ -32,7 +32,7 @@
 | 属性               | 说明           | 默认值                  |
 | ------------------ | -------------- | ----------------------- |
 | --background-color | 背景色         | `var(--adm-color-weak)` |
-| --border-color     | 边框颜色       | `#999999`               |
+| --border-color     | 边框颜色       | `var(--adm-color-weak)` |
 | --font-size        | 文字字号       | `15px`                  |
 | --height           | 整体高度       | `40px`                  |
 | --icon-font-size   | 左侧图标的字号 | `18px`                  |
