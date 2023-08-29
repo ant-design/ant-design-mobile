@@ -151,4 +151,22 @@ describe('Ellipsis', () => {
     fireEvent.click(getByText('expand'))
     expect(getByText('collapse')).toBeInTheDocument()
   })
+
+  test('the `whiteSpace` style of the calc container should be the same as Ellipsis', () => {
+    let container: Element | null = null
+    Object.defineProperty(HTMLElement.prototype, 'removeChild', {
+      value: (child: Element) => {
+        container = child
+      },
+    })
+    render(
+      <Ellipsis
+        style={{
+          whiteSpace: 'pre-wrap',
+        }}
+        content={content}
+      />
+    )
+    expect(container).toHaveStyle('white-space: pre-wrap')
+  })
 })

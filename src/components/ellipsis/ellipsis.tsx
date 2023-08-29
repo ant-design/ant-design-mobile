@@ -74,7 +74,6 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     container.style.minHeight = 'auto'
     container.style.maxHeight = 'auto'
     container.style.textOverflow = 'clip'
-    container.style.whiteSpace = 'normal'
     container.style.webkitLineClamp = 'unset'
     container.style.display = 'block'
 
