@@ -152,7 +152,7 @@ export default () => {
           return (
             <React.Fragment key={iconType_}>
               {displayedItems[iconType_].length > 0 && (
-                <h3>{nameDic[iconType_]}</h3>
+                <h3 style={{ margin: '18px 0' }}>{nameDic[iconType_]}</h3>
               )}
               <Grid columns={gridColumns}>
                 {displayedItems[iconType_].map(item => (
