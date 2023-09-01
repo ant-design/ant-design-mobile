@@ -80,6 +80,7 @@ export const components = {
     '/components/number-keyboard',
     '/components/passcode-input',
     '/components/result-page',
+    '/components/text',
     '/components/tree-select',
     '/components/virtual-input',
     // '/components/scroll-mask',
