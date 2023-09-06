@@ -27,9 +27,9 @@
 
 ### CSS 变量
 
-| 属性                  | 说明                            | 默认值    |
-| --------------------- | ------------------------------- | --------- |
-| --active-color        | 填充色                          | `#ffd21e` |
-| --star-size           | star 大小                       | `24px`    |
-| --inactive-color      | 原始填充色                      | `#e5e5e5` |
-| --inactive-color-half | 原始填充色（半选模式 - 左半侧） | `#dbdbdb` |
+| 属性 | 说明 | 默认值 |
+| --- | --- | --- |
+| --active-color | 填充色 | `var(--adm-color-yellow)` |
+| --star-size | star 大小 | `24px` |
+| --inactive-color | 原始填充色 | `var(--adm-color-border)` |
+| --inactive-color-half | 原始填充色（半选模式 - 左半侧） | `var(--adm-color-border)` |
