@@ -26,6 +26,6 @@
 
 | 属性 | 说明 | 默认值 | 全局变量 |
 | --- | --- | --- | --- |
-| --color | 徽标背景色 | `var(--adm-color-danger)` | `--adm-badge-color` |
+| --color | 徽标背景色 | `var(--adm-color-highlight)` | `--adm-badge-color` |
 | --right | 相对于最右边，向左的偏移量 | `0` | - |
 | --top | 相对于最上边，向下的偏移量 | `0` | - |
