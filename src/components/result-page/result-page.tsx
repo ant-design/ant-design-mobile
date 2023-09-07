@@ -81,7 +81,7 @@ export const ResultPage: FC<ResultPageProps> = p => {
         {isNodeWithContent(description) ? (
           <div className={`${classPrefix}-description`}>{description}</div>
         ) : null}
-        {details.length ? (
+        {details?.length ? (
           <div className={`${classPrefix}-details`}>
             {(collapse ? details.slice(0, 3) : details).map((detail, index) => {
               return (
