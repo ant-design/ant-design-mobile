@@ -49,7 +49,7 @@ export type ResultPageProps = {
 
 const defaultProps = {
   status: 'info',
-  details: [] as ResultPageDetails,
+  details: [] as ResultPageDetails | null | undefined,
 }
 
 export const ResultPage: FC<ResultPageProps> = p => {
