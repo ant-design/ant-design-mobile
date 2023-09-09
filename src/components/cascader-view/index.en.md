@@ -1,6 +1,6 @@
 # CascaderView
 
-CascaderView is the content area of [Cascader](/components/cascader).
+`CascaderView` is the content area of [Cascader](/components/cascader).
 
 ## Demos
 
@@ -25,7 +25,7 @@ For the type definition of `CascaderValue` `CascaderOption` `CascaderValueExtend
 
 ### Loading <Experimental></Experimental>
 
-You can pass `CascaderView.optionSkeleton` as `CascaderOption[]` to the `options` property of CascaderView or the `children` of `CascaderOption`. CascaderView will recognize it and display the skeleton screen effect.
+You can pass `CascaderView.optionSkeleton` as `CascaderOption[]` to the `options` property of `CascaderView` or the `children` of `CascaderOption`. `CascaderView` will recognize it and display the skeleton screen effect.
 
 ### CSS Variables
 

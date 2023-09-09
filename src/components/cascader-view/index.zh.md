@@ -1,6 +1,6 @@
 # CascaderView 级联选择视图
 
-CascaderView 是 [Cascader](/zh/components/cascader) 的内容区域。
+`CascaderView` 是 [Cascader](/zh/components/cascader) 的内容区域。
 
 ## 示例
 
@@ -25,7 +25,7 @@ CascaderView 是 [Cascader](/zh/components/cascader) 的内容区域。
 
 ### 加载中 <Experimental></Experimental>
 
-你可以把 `CascaderView.optionSkeleton` 作为 `CascaderOption[]` 传入到 CascaderView 的 `options` 属性或者是 `CascaderOption` 的 `children` 中。CascaderView 会将其识别并显示出骨架屏效果。
+你可以把 `CascaderView.optionSkeleton` 作为 `CascaderOption[]` 传入到 `CascaderView` 的 `options` 属性或者是 `CascaderOption` 的 `children` 中，`CascaderView` 会将其识别并显示出骨架屏效果。
 
 ### CSS 变量
 
