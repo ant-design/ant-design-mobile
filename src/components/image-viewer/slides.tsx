@@ -1,5 +1,6 @@
 import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import { useDrag } from '@use-gesture/react'
+import type { FullGestureState } from '@use-gesture/react'
 import { useSpring, animated } from '@react-spring/web'
 import { Slide } from './slide'
 import { convertPx } from '../../utils/convert-px'
@@ -9,7 +10,7 @@ const classPrefix = `adm-image-viewer`
 
 export type SlidesType = {
   images: string[]
-  onTap: () => void
+  onTap?: () => void
   maxZoom: number
   defaultIndex: number
   onIndexChange?: (index: number) => void
@@ -20,6 +21,7 @@ export type SlidesRef = {
 
 export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
   const slideWidth = window.innerWidth + convertPx(16)
+
   const [{ x }, api] = useSpring(() => ({
     x: props.defaultIndex * slideWidth,
     config: { tension: 250, clamp: true },
@@ -40,16 +42,32 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
     swipeTo,
   }))
 
-  const dragLockRef = useRef(false)
+  const handleGestureState = (
+    state: Omit<FullGestureState<'drag'>, 'event'>
+  ) => {
+    const {
+      last,
+      offset: [offsetX],
+      direction: [direction],
+      velocity: [velocity],
+    } = state
+    return {
+      last,
+      offsetX,
+      direction,
+      velocity,
+    }
+  }
+
   const bind = useDrag(
     state => {
-      if (dragLockRef.current) return
-      const [offsetX] = state.offset
-      if (state.last) {
+      const { last, offsetX, direction, velocity } = handleGestureState(state)
+
+      if (last) {
         const minIndex = Math.floor(offsetX / slideWidth)
         const maxIndex = minIndex + 1
-        const velocityOffset =
-          Math.min(state.velocity[0] * 2000, slideWidth) * state.direction[0]
+        const velocityOffset = Math.min(velocity * 2000, slideWidth) * direction
+
         swipeTo(
           bound(
             Math.round((offsetX + velocityOffset) / slideWidth),
@@ -67,12 +85,10 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
     {
       transform: ([x, y]) => [-x, y],
       from: () => [x.get(), 0],
-      bounds: () => {
-        return {
-          left: 0,
-          right: (count - 1) * slideWidth,
-        }
-      },
+      bounds: () => ({
+        left: 0,
+        right: (count - 1) * slideWidth,
+      }),
       rubberband: true,
       axis: 'x',
       pointer: { touch: true },
@@ -105,7 +121,6 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
                 })
               }
             }}
-            dragLockRef={dragLockRef}
           />
         ))}
       </animated.div>
