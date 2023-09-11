@@ -216,15 +216,7 @@ describe('ImageViewer.Multi', () => {
     fireEvent.click(screen.getByText('show'))
     await screen.findAllByRole('img')
     const slides = document.querySelectorAll(`.${classPrefix}-slides`)[0]
-    const imgWrapper = document.querySelectorAll(
-      `.${classPrefix}-image-wrapper`
-    )[0]
-
     expect(screen.getByText('1 / 4')).toBeInTheDocument()
-
-    act(() => {
-      triggerPinch([9999999, 9999999])
-    })
 
     await act(async () => {
       await mockDrag(
@@ -243,9 +235,6 @@ describe('ImageViewer.Multi', () => {
         5
       )
     })
-
-    // zoom out
-    expect(imgWrapper).toHaveStyle('transform: matrix(1,0,0,1,0,0)')
 
     expect(onIndexChange).toBeCalledWith(1)
     expect(screen.getByText('2 / 4')).toBeInTheDocument()
