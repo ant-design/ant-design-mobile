@@ -1,6 +1,6 @@
 # CascaderView
 
-`CascaderView` is the content area of [Cascader](/components/cascader).
+CascaderView is the content area of [Cascader](/components/cascader).
 
 ## Demos
 
