@@ -22,6 +22,8 @@ You need to click on the picture to view the details and use it with the thumbna
 | renderFooter | Render extra content on footer | `(image: string) => ReactNode` | - |
 | visible | Whether to show or hide | `boolean` | `false` |
 
+In addition, the following props of [Image](/components/image) are also supported: `fit` `placeholder` `fallback` `lazy` `crossOrigin`.
+
 ## ImageViewer.Multi
 
 On the basis of `ImageViewer`, the following props have been added:

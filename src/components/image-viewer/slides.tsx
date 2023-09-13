@@ -4,6 +4,7 @@ import { useSpring, animated } from '@react-spring/web'
 import { Slide } from './slide'
 import { convertPx } from '../../utils/convert-px'
 import { bound } from '../../utils/bound'
+import { ImageProps } from '../image'
 
 const classPrefix = `adm-image-viewer`
 
@@ -13,7 +14,14 @@ export type SlidesType = {
   maxZoom: number
   defaultIndex: number
   onIndexChange?: (index: number) => void
-}
+  onLoad?: (
+    event: React.SyntheticEvent<HTMLImageElement, Event>,
+    index: number
+  ) => void
+} & Pick<
+  ImageProps,
+  'fit' | 'placeholder' | 'fallback' | 'lazy' | 'crossOrigin'
+>
 export type SlidesRef = {
   swipeTo: (index: number, immediate?: boolean) => void
 }
@@ -94,7 +102,14 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
         {props.images.map((image, index) => (
           <Slide
             key={index}
+            index={index}
             image={image}
+            fit={props.fit}
+            placeholder={props.placeholder}
+            fallback={props.fallback}
+            lazy={props.lazy}
+            crossOrigin={props.crossOrigin}
+            onLoad={evt => props.onLoad?.(evt, index)}
             onTap={props.onTap}
             maxZoom={props.maxZoom}
             onZoomChange={zoom => {

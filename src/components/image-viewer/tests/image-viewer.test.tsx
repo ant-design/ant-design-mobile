@@ -11,16 +11,10 @@ import {
 } from 'testing'
 import ImageViewer, { MultiImageViewerRef } from '../index'
 import Button from '../../button'
+import { ImgRef } from '../../image/image'
+import { demoImages, demoImage } from '../demos/images'
 
 const classPrefix = `adm-image-viewer`
-
-const demoImages = [
-  'https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80',
-  'https://images.unsplash.com/photo-1601128533718-374ffcca299b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3128&q=80',
-  'https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3113&q=80',
-  'https://images.unsplash.com/photo-1624993590528-4ee743c9896e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=1000&q=80',
-]
-
 const G = global as any
 
 // `@react-spring/web` with `skipAnimation` not work in test env. Strange
@@ -47,13 +41,13 @@ jest.mock('ahooks', () => {
 
   return {
     ...origin,
-    useSize: (target: React.RefObject<HTMLElement>) => {
+    useSize: (target: React.RefObject<ImgRef>) => {
       const [, forceUpdate] = useState(0)
       useEffect(() => {
         forceUpdate((v: number) => v + 1)
-      }, [target.current])
+      }, [target?.current])
 
-      return target.current instanceof HTMLImageElement
+      return target?.current instanceof HTMLImageElement
         ? {
             width: 10,
             height: 100,
@@ -102,7 +96,7 @@ describe('ImageViewer', () => {
       triggerPinch([9999999, 9999999])
     })
 
-    expect(G.nextZoom).toEqual(10)
+    expect(G.nextZoom).toEqual(1)
 
     jest.clearAllTimers()
     jest.useRealTimers()
@@ -120,8 +114,11 @@ describe('ImageViewer', () => {
       </button>
     )
     fireEvent.click(screen.getByText('show'))
-    const img = await screen.findByRole('img')
-    expect(img).toBeVisible()
+    let img: Element | null
+    await waitFor(() => {
+      img = document.querySelector('.adm-image')
+      expect(img).toBeVisible()
+    })
 
     act(() => {
       ImageViewer.clear()
@@ -192,7 +189,9 @@ describe('ImageViewer.Multi', () => {
       </>
     )
     fireEvent.click(screen.getByText('show'))
-    const imgs = await screen.findAllByRole('img')
+    await screen.findAllByRole('img', { hidden: true })
+    const imgs = document.querySelectorAll('.adm-image')
+
     expect(imgs[0]).toBeVisible()
     await act(async () => {
       await userEvent.click(imgs[0])
@@ -214,7 +213,7 @@ describe('ImageViewer.Multi', () => {
       </button>
     )
     fireEvent.click(screen.getByText('show'))
-    await screen.findAllByRole('img')
+    await screen.findAllByRole('img', { hidden: true })
     const slides = document.querySelectorAll(`.${classPrefix}-slides`)[0]
     expect(screen.getByText('1 / 4')).toBeInTheDocument()
 

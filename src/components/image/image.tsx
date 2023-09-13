@@ -1,7 +1,13 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { ReactNode, useState, useRef, useEffect } from 'react'
+import React, {
+  ReactNode,
+  useState,
+  forwardRef,
+  useRef,
+  useImperativeHandle,
+  useEffect,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { staged } from 'staged-components'
 import { toCSSLength } from '../../utils/to-css-length'
 import { LazyDetector } from './lazy-detector'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
@@ -37,6 +43,10 @@ export type ImageProps = {
     | 'id'
   >
 
+export type ImgRef = {
+  nativeElement: HTMLImageElement | null
+}
+
 const defaultProps = {
   fit: 'fill',
   placeholder: (
@@ -53,12 +63,11 @@ const defaultProps = {
   draggable: false,
 }
 
-export const Image = staged<ImageProps>(p => {
+export const Image = forwardRef<ImgRef, ImageProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
 
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
-
   const ref = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
 
@@ -69,6 +78,12 @@ export const Image = staged<ImageProps>(p => {
 
   src = initialized ? props.src : undefined
   srcSet = initialized ? props.srcSet : undefined
+
+  useImperativeHandle(ref, () => ({
+    get nativeElement() {
+      return imgRef.current
+    },
+  }))
 
   useIsomorphicUpdateLayoutEffect(() => {
     setLoaded(false)
@@ -135,12 +150,7 @@ export const Image = staged<ImageProps>(p => {
   }
   return withNativeProps(
     props,
-    <div
-      ref={ref}
-      className={classPrefix}
-      style={style}
-      onClick={props.onContainerClick}
-    >
+    <div className={classPrefix} style={style} onClick={props.onContainerClick}>
       {props.lazy && !initialized && (
         <LazyDetector
           onActive={() => {

@@ -22,6 +22,8 @@
 | renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |
 | visible | 是否显示 | `boolean` | `false` |
 
+此外，还支持 [Image](/zh/components/image) 组件的 `fit` `placeholder` `fallback` `lazy` `crossOrigin` 属性。
+
 ## ImageViewer.Multi
 
 | 属性 | 说明 | 类型 | 默认值 |
