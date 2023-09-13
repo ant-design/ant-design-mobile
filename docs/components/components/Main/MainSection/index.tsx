@@ -31,7 +31,7 @@ export default (props: { isWidthScreen: boolean }) => {
         <div className={styles.mainSectionDescription}>
           {trans(
             'Research the final experience of mobile',
-            '探索移动端 Web 的体验极限'
+            '探索移动端 Web 的极致体验'
           )}
         </div>
         <div className={styles.mainSectionButtonAction}>
