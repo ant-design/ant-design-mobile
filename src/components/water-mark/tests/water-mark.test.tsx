@@ -45,20 +45,6 @@ describe('WaterMark', () => {
     expect(getByTestId('mask')).not.toHaveClass(`${classPrefix}-full-page`)
   })
 
-  test('throw error when Canvas is not supported', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
-    const mockCanvasContext = jest.spyOn(
-      HTMLCanvasElement.prototype,
-      'getContext'
-    )
-    mockCanvasContext.mockReturnValue(null)
-    expect(() => render(<WaterMark />)).toThrow(
-      'Canvas is not supported in the current environment'
-    )
-    mockCanvasContext.mockRestore()
-    errorSpy.mockRestore()
-  })
-
   test('mount should not set base64Url', () => {
     let exceeded = false
 
@@ -85,5 +71,19 @@ describe('WaterMark', () => {
     render(<Demo />)
 
     expect(exceeded).toBeTruthy()
+  })
+
+  test('throw error when Canvas is not supported', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+    const mockCanvasContext = jest.spyOn(
+      HTMLCanvasElement.prototype,
+      'getContext'
+    )
+    mockCanvasContext.mockReturnValue(null)
+    expect(() => render(<WaterMark />)).toThrow(
+      'Canvas is not supported in the current environment'
+    )
+    mockCanvasContext.mockRestore()
+    errorSpy.mockRestore()
   })
 })
