@@ -58,4 +58,32 @@ describe('WaterMark', () => {
     mockCanvasContext.mockRestore()
     errorSpy.mockRestore()
   })
+
+  test('mount should not set base64Url', () => {
+    let exceeded = false
+
+    const Demo = () => {
+      const divRef = React.useRef<HTMLDivElement>(null)
+
+      React.useLayoutEffect(() => {
+        exceeded = true
+
+        const { style } = divRef.current?.querySelector(
+          '.adm-water-mark'
+        ) as HTMLElement
+
+        expect(style.backgroundImage).toBeFalsy()
+      }, [])
+
+      return (
+        <div ref={divRef}>
+          <WaterMark content='Ant Design Mobile' />
+        </div>
+      )
+    }
+
+    render(<Demo />)
+
+    expect(exceeded).toBeTruthy()
+  })
 })

@@ -131,6 +131,8 @@ export const WaterMark: FC<WaterMarkProps> = p => {
       style={{
         zIndex,
         backgroundSize: `${gapX + width}px`,
+
+        // Not give `url` if its empty. Which will cause 404 error.
         backgroundImage: base64Url === '' ? undefined : `url('${base64Url}')`,
       }}
     />
