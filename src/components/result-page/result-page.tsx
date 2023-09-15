@@ -39,7 +39,7 @@ export type ResultPageProps = {
   title: ReactNode
   description?: ReactNode
   icon?: ReactNode
-  details?: ResultPageDetails
+  details?: ResultPageDetails | null
   children?: ReactNode
   primaryButtonText?: ReactNode
   secondaryButtonText?: ReactNode
@@ -49,7 +49,7 @@ export type ResultPageProps = {
 
 const defaultProps = {
   status: 'info',
-  details: [] as ResultPageDetails | null | undefined,
+  details: [] as ResultPageDetails,
 }
 
 export const ResultPage: FC<ResultPageProps> = p => {
