@@ -216,7 +216,7 @@ export const Slide: FC<Props> = props => {
           if (
             state.last &&
             initialMartix.current.some(i => i) &&
-            getReachBound(x, minX, maxX, 20 * zoom).some(i => i)
+            getReachBound(x, minX, maxX).some(i => i)
           ) {
             if (dragLockRef) {
               dragLockRef.current = false
