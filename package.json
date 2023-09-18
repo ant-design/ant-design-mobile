@@ -1,5 +1,5 @@
 {
-  "name": "antd-mobile",
+  "name": "antd-mobile-test",
   "version": "5.32.4",
   "scripts": {
     "start": "dumi dev",
