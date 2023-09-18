@@ -1,6 +1,6 @@
 {
   "name": "antd-mobile-test",
-  "version": "0.0.1-beta1",
+  "version": "0.0.1",
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
@@ -147,7 +147,7 @@
     "./src/global/index.ts"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npm.alibaba-inc.com"
   },
   "repository": {
     "type": "git",
