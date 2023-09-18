@@ -32,6 +32,9 @@ export const Slide: FC<Props> = props => {
 
   const pinchLockRef = useRef(false)
 
+  /**
+   * Calculate the min and max value of x and y
+   */
   const getMinAndMax = (
     nextMatrix: Matrix
   ): {
@@ -91,6 +94,9 @@ export const Slide: FC<Props> = props => {
     }
   }
 
+  /**
+   * Check if is reach the bound
+   */
   const getReachBound = (
     position: number,
     min: number,
@@ -100,6 +106,9 @@ export const Slide: FC<Props> = props => {
     return [position <= min - buffer, position >= max + buffer]
   }
 
+  /**
+   * Limit the matrix in the bound
+   */
   const boundMatrix = (
     nextMatrix: Matrix,
     type: 'translate' | 'scale',
