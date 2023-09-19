@@ -100,11 +100,12 @@ export const MultiImageViewer = forwardRef<
   }))
 
   const onSlideChange = useCallback(
-    (index: number) => {
-      setIndex(index)
-      props.onIndexChange?.(index)
+    (newIndex: number) => {
+      if (newIndex === index) return
+      setIndex(newIndex)
+      props.onIndexChange?.(newIndex)
     },
-    [props.onIndexChange]
+    [props.onIndexChange, index]
   )
 
   const node = (
