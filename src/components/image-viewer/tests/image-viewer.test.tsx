@@ -87,49 +87,6 @@ jest.mock('../../../utils/use-drag-and-pinch', () => {
   }
 })
 
-describe('ImageViewer', () => {
-  test('a11y', async () => {
-    await testA11y(<ImageViewer image={demoImages[0]} visible={true} />)
-  })
-
-  test('maxZoom support auto', async () => {
-    jest.useFakeTimers()
-
-    render(<ImageViewer image={demoImages[0]} visible maxZoom='auto' />)
-
-    // Pinch to zoom bigger
-    act(() => {
-      triggerPinch([9999999, 9999999])
-    })
-
-    expect(G.nextZoom).toEqual(10)
-
-    jest.clearAllTimers()
-    jest.useRealTimers()
-    jest.restoreAllMocks()
-  })
-
-  test('`ImageViewer.show/ImageViewer.clear` should be work', async () => {
-    render(
-      <button
-        onClick={() => {
-          ImageViewer.show({ image: demoImages[0] })
-        }}
-      >
-        show
-      </button>
-    )
-    fireEvent.click(screen.getByText('show'))
-    const img = await screen.findByRole('img')
-    expect(img).toBeVisible()
-
-    act(() => {
-      ImageViewer.clear()
-    })
-    await waitFor(() => expect(img).not.toBeVisible())
-  })
-})
-
 describe('ImageViewer.Multi', () => {
   test('calling ref.current.swipeTo before initialization', async () => {
     function App() {
@@ -234,5 +191,101 @@ describe('ImageViewer.Multi', () => {
     ])
     await waitFor(() => expect(onIndexChange).toBeCalledWith(1))
     expect(screen.getByText('2 / 4')).toBeInTheDocument()
+  })
+
+  test('slide with pinched should be work', async () => {
+    Object.defineProperty(window, 'innerWidth', {
+      value: 300,
+    })
+    const onIndexChange = jest.fn()
+
+    act(() => {
+      render(
+        <button
+          onClick={() => {
+            ImageViewer.Multi.show({
+              images: demoImages,
+              onIndexChange,
+              defaultIndex: 3,
+            })
+          }}
+        >
+          show
+        </button>
+      )
+    })
+
+    fireEvent.click(screen.getByText('show'))
+    await screen.findAllByRole('img')
+
+    G?.onPinch({
+      origin: [235, 202],
+      offset: [1.94, 0],
+    })
+
+    // need to wait something.
+    await act(() => new Promise(resolve => setTimeout(resolve, 2500)))
+
+    const slides = document.querySelectorAll(`.${classPrefix}-control`)[3]
+
+    expect(screen.getByText('4 / 4')).toBeInTheDocument()
+
+    mockDrag(slides as HTMLElement, [
+      {
+        clientX: 100,
+      },
+      {
+        clientX: 200,
+      },
+      {
+        clientX: 300,
+      },
+    ])
+    await waitFor(() => expect(onIndexChange).toBeCalledTimes(1))
+    await waitFor(() => expect(onIndexChange).toBeCalledWith(2))
+    expect(screen.getByText('3 / 4')).toBeInTheDocument()
+  })
+})
+
+describe('ImageViewer', () => {
+  test('a11y', async () => {
+    await testA11y(<ImageViewer image={demoImages[0]} visible={true} />)
+  })
+
+  test('maxZoom support auto', async () => {
+    jest.useFakeTimers()
+
+    render(<ImageViewer image={demoImages[0]} visible maxZoom='auto' />)
+
+    // Pinch to zoom bigger
+    act(() => {
+      triggerPinch([9999999, 9999999])
+    })
+
+    expect(G.nextZoom).toEqual(10)
+
+    jest.clearAllTimers()
+    jest.useRealTimers()
+    jest.restoreAllMocks()
+  })
+
+  test('`ImageViewer.show/ImageViewer.clear` should be work', async () => {
+    render(
+      <button
+        onClick={() => {
+          ImageViewer.show({ image: demoImages[0] })
+        }}
+      >
+        show
+      </button>
+    )
+    fireEvent.click(screen.getByText('show'))
+    const img = await screen.findByRole('img')
+    expect(img).toBeVisible()
+
+    act(() => {
+      ImageViewer.clear()
+    })
+    await waitFor(() => expect(img).not.toBeVisible())
   })
 })

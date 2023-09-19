@@ -212,7 +212,6 @@ export const Slide: FC<Props> = props => {
           const {
             x: { position: x, minX, maxX },
           } = getMinAndMax(nextMatrix)
-          const zoom = mat.getScaleX(nextMatrix)
           if (
             state.last &&
             initialMartix.current.some(i => i) &&
