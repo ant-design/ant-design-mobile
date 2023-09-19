@@ -55,6 +55,17 @@ export default () => {
           <Button>点我</Button>
         </Popover.Menu>
       </DemoBlock>
+      <DemoBlock title='超过最大数量，隐藏滚动'>
+        <Popover.Menu
+          actions={actions}
+          maxCount={2}
+          onAction={node => Toast.show(`选择了 ${node.text}`)}
+          placement='bottom-start'
+          trigger='click'
+        >
+          <Button>点我</Button>
+        </Popover.Menu>
+      </DemoBlock>
     </>
   )
 }

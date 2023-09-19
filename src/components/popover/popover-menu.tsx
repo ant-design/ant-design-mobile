@@ -21,6 +21,7 @@ export type Action = {
 
 export type PopoverMenuProps = Omit<PopoverProps, 'content'> & {
   actions: Action[]
+  maxCount?: number
   onAction?: (item: Action) => void
 }
 
@@ -41,9 +42,17 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps>(
       [props.onAction]
     )
 
-    const overlay = useMemo(() => {
-      return (
-        <div className={`${classPrefix}-list`}>
+    const overlay = useMemo(
+      () => (
+        <div
+          className={classNames(`${classPrefix}-list`, {
+            [`${classPrefix}-list-scroll`]:
+              props?.maxCount && props.actions.length > props?.maxCount,
+          })}
+          style={{
+            height: props?.maxCount && props?.maxCount * 48,
+          }}
+        >
           <div className={`${classPrefix}-list-inner`}>
             {props.actions.map((action, index) => (
               <a
@@ -69,8 +78,9 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps>(
             ))}
           </div>
         </div>
-      )
-    }, [props.actions, onClick])
+      ),
+      [props.actions, onClick]
+    )
 
     return (
       <Popover
