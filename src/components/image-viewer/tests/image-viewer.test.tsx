@@ -156,48 +156,8 @@ describe('ImageViewer.Multi', () => {
     })
     await waitFor(() => expect(imgs[0]).not.toBeVisible())
   })
-  test('slide should be work', async () => {
-    Object.defineProperty(window, 'innerWidth', {
-      value: 300,
-    })
-    const onIndexChange = jest.fn()
-    render(
-      <button
-        onClick={() => {
-          ImageViewer.Multi.show({ images: demoImages, onIndexChange })
-        }}
-      >
-        show
-      </button>
-    )
-    fireEvent.click(screen.getByText('show'))
-    await screen.findAllByRole('img')
-    const slides = document.querySelectorAll(`.${classPrefix}-slides`)[0]
-    expect(screen.getByText('1 / 4')).toBeInTheDocument()
 
-    await act(async () => {
-      await mockDrag(
-        slides,
-        [
-          {
-            clientX: 300,
-          },
-          {
-            clientX: 200,
-          },
-          {
-            clientX: 100,
-          },
-        ],
-        5
-      )
-    })
-
-    expect(onIndexChange).toBeCalledWith(1)
-    expect(screen.getByText('2 / 4')).toBeInTheDocument()
-  })
-
-  test('slide with pinched should be work', async () => {
+  test('slide and slide with pinched should be work', async () => {
     Object.defineProperty(window, 'innerWidth', {
       value: 300,
     })
@@ -205,21 +165,15 @@ describe('ImageViewer.Multi', () => {
 
     act(() => {
       render(
-        <button
-          onClick={() => {
-            ImageViewer.Multi.show({
-              images: demoImages,
-              onIndexChange,
-              defaultIndex: 3,
-            })
-          }}
-        >
-          show
-        </button>
+        <ImageViewer.Multi
+          visible
+          defaultIndex={3}
+          images={demoImages}
+          onIndexChange={onIndexChange}
+        ></ImageViewer.Multi>
       )
     })
 
-    fireEvent.click(screen.getByText('show'))
     await screen.findAllByRole('img')
 
     G?.onPinch({
@@ -248,6 +202,22 @@ describe('ImageViewer.Multi', () => {
     await waitFor(() => expect(onIndexChange).toBeCalledTimes(1))
     await waitFor(() => expect(onIndexChange).toBeCalledWith(2))
     expect(screen.getByText('3 / 4')).toBeInTheDocument()
+
+    mockDrag(slides as HTMLElement, [
+      {
+        clientX: 300,
+      },
+      {
+        clientX: 200,
+      },
+      {
+        clientX: 100,
+      },
+    ])
+
+    await waitFor(() => expect(onIndexChange).toBeCalledTimes(2))
+    await waitFor(() => expect(onIndexChange).toBeCalledWith(3))
+    expect(screen.getByText('4 / 4')).toBeInTheDocument()
   })
 })
 
