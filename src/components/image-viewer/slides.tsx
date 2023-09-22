@@ -9,7 +9,7 @@ const classPrefix = `adm-image-viewer`
 
 export type SlidesType = {
   images: string[]
-  onTap: () => void
+  onTap?: () => void
   maxZoom: number
   defaultIndex: number
   onIndexChange?: (index: number) => void
@@ -67,12 +67,10 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
     {
       transform: ([x, y]) => [-x, y],
       from: () => [x.get(), 0],
-      bounds: () => {
-        return {
-          left: 0,
-          right: (count - 1) * slideWidth,
-        }
-      },
+      bounds: () => ({
+        left: 0,
+        right: (count - 1) * slideWidth,
+      }),
       rubberband: true,
       axis: 'x',
       pointer: { touch: true },

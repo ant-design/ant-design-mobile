@@ -12,7 +12,7 @@ const classPrefix = `adm-image-viewer`
 type Props = {
   image: string
   maxZoom: number | 'auto'
-  onTap: () => void
+  onTap?: () => void
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
 }
@@ -176,7 +176,7 @@ export const Slide: FC<Props> = props => {
 
         if (state.tap && state.elapsedTime > 0 && state.elapsedTime < 1000) {
           // 判断点击时间>0是为了过滤掉非正常操作，例如用户长按选择图片之后的取消操作（也是一次点击）
-          props.onTap()
+          props.onTap?.()
           return
         }
         const currentZoom = mat.getScaleX(matrix.get())
@@ -281,7 +281,6 @@ export const Slide: FC<Props> = props => {
     {
       target: controlRef,
       drag: {
-        // filterTaps: true,
         from: () => [
           mat.getTranslateX(matrix.get()),
           mat.getTranslateY(matrix.get()),
