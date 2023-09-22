@@ -18,7 +18,7 @@
     "@floating-ui/dom": "^1.4.2",
     "@rc-component/mini-decimal": "^1.1.0",
     "@react-spring/web": "~9.6.1",
-    "@use-gesture/react": "10.2.20",
+    "@use-gesture/react": "10.3.0",
     "ahooks": "^3.7.6",
     "antd-mobile-icons": "^0.3.0",
     "antd-mobile-v5-count": "^1.0.1",
