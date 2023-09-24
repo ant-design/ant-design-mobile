@@ -16021,7 +16021,7 @@ exports[`ConfigProvider should display the text as tr-TR 1`] = `
       <div
         class="adm-calendar-mark-cell"
       >
-        Paz
+        Pzt
       </div>
       <div
         class="adm-calendar-mark-cell"
@@ -16894,11 +16894,11 @@ exports[`ConfigProvider should display the text as tr-TR 1`] = `
         </svg>
       </div>
       <div
-        aria-label="Arama Kutusu"
+        aria-label="Arama Çubuğu"
         class="adm-input adm-search-bar-input"
       >
         <input
-          aria-label="Arama Kutusu"
+          aria-label="Arama Çubuğu"
           class="adm-input-element"
           enterkeyhint="search"
           type="search"

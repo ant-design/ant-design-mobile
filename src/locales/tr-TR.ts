@@ -12,7 +12,7 @@ const trTR = mergeLocale(base, {
     close: 'Kapat',
   },
   Calendar: {
-    markItems: ['Paz', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'],
+    markItems: ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'],
     yearAndMonth: '${year}/${month}',
   },
   Cascader: {
@@ -83,9 +83,9 @@ const trTR = mergeLocale(base, {
         range: '${label} yanlızca ${min}-${max} değer aralığında olabilir',
       },
       array: {
-        len: '${len} ${label} olmalı',
-        min: 'En az ${min} ${label} ',
-        max: 'En fazla ${max} ${label}',
+        len: '${label} ${len} olmalı',
+        min: '${label} en az ${min}',
+        max: '${label} en fazla ${max}',
         range: '${label} miktarı ${min}-${max} arasında olmalıdır',
       },
       pattern: {
@@ -120,7 +120,7 @@ const trTR = mergeLocale(base, {
     complete: 'Yenileme başarılı',
   },
   SearchBar: {
-    name: 'Arama Kutusu',
+    name: 'Arama Çubuğu',
   },
   Slider: {
     name: 'Slider',
