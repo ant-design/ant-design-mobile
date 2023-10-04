@@ -97,7 +97,7 @@
     "lorem-ipsum": "^2.0.8",
     "lz-string": "^1.5.0",
     "mockdate": "^3.0.5",
-    "postcss": "^8.4.23",
+    "postcss": "^8.4.31",
     "postcss-px-multiple": "^0.1.5",
     "postcss-pxtorem": "^6.0.0",
     "prettier": "^2.8.7",
