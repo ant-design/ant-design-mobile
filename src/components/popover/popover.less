@@ -73,4 +73,17 @@
   .adm-popover-arrow {
     color: var(--background);
   }
+
+  &-bottom-arrow {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::after {
+      content: ' ';
+      border: var(--arrow-size) solid transparent;
+      border-color: #fff transparent transparent transparent;
+    }
+  }
 }

@@ -88,6 +88,9 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps>(
         {...props}
         className={classNames(classPrefix, props.className)}
         content={overlay}
+        bottomArrow={
+          !!(props?.maxCount && props.actions.length > props?.maxCount)
+        }
       >
         {props.children}
       </Popover>
