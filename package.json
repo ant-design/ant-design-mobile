@@ -1,6 +1,7 @@
 {
   "name": "antd-mobile",
   "version": "5.32.4",
+  "license": "MIT",
   "scripts": {
     "start": "dumi dev",
     "build": "gulp",
