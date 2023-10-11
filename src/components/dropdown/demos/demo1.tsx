@@ -89,6 +89,7 @@ export default () => {
           </Dropdown.Item>
         </Dropdown>
       </DemoBlock>
+
       <DemoBlock title='自定义arrow' padding={'0'}>
         <Dropdown arrow={<DownOutline />}>
           <Dropdown.Item key='sorter' title='排序'>
@@ -118,6 +119,41 @@ export default () => {
             </div>
           </Dropdown.Item>
           <Dropdown.Item key='more' title='更多筛选'>
+            <div style={{ padding: 12 }}>
+              更多筛选内容
+              <br />
+              更多筛选内容
+              <br />
+            </div>
+          </Dropdown.Item>
+        </Dropdown>
+      </DemoBlock>
+
+      <DemoBlock title='左右布局' padding={'0'}>
+        <Dropdown>
+          <Dropdown.Item key='sorter' title='排序'>
+            <div style={{ padding: 12 }}>
+              排序内容
+              <br />
+              排序内容
+              <br />
+              排序内容
+              <br />
+              排序内容
+              <br />
+            </div>
+          </Dropdown.Item>
+          <Dropdown.Item key='bizop' title='商机筛选'>
+            <div style={{ padding: 12 }}>
+              商机筛选内容
+              <br />
+              商机筛选内容
+              <br />
+              商机筛选内容
+              <br />
+            </div>
+          </Dropdown.Item>
+          <Dropdown.Item key='more' title='更选筛选' align='right'>
             <div style={{ padding: 12 }}>
               更多筛选内容
               <br />

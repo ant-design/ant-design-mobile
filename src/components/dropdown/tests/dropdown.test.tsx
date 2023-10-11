@@ -83,4 +83,27 @@ describe('Dropdown', () => {
     )
     expect(screen.getByText('content')).toBeInTheDocument()
   })
+
+  test('item with align', () => {
+    const { getByTestId, container } = render(
+      <Dropdown data-testid='dropdown'>
+        <Dropdown.Item title='item1' key='item1' data-testid='item1'>
+          content1
+        </Dropdown.Item>
+        <Dropdown.Item
+          title='item2'
+          key='item2'
+          data-testid='item2'
+          align='right'
+        >
+          content2
+        </Dropdown.Item>
+      </Dropdown>
+    )
+
+    expect(getByTestId('item1')).toHaveStyle('flex: unset')
+    expect(container.querySelector(`.${classPrefix}-nav`)).toHaveClass(
+      `${classPrefix}-nav ${classPrefix}-separated`
+    )
+  })
 })

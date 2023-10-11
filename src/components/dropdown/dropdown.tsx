@@ -16,7 +16,9 @@ import Item, { ItemChildrenWrap } from './item'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { isPropValueConsecutive } from '../../utils/is-prop-value-consecutive'
 import { defaultPopupBaseProps } from '../popup/popup-base-props'
+import { devWarning } from '../../utils/dev-log'
 
 const classPrefix = `adm-dropdown`
 
@@ -27,10 +29,12 @@ export type DropdownProps = {
   closeOnClickAway?: boolean
   onChange?: (key: string | null) => void
   arrow?: React.ReactNode
+  mask?: boolean
   getContainer?: PopupProps['getContainer']
 } & NativeProps
 
 const defaultProps = {
+  mask: true,
   defaultActiveKey: null,
   closeOnMaskClick: true,
   closeOnClickAway: false,
@@ -46,6 +50,7 @@ const Dropdown = forwardRef<
   React.PropsWithChildren<DropdownProps>
 >((p, ref) => {
   const props = mergeProps(defaultProps, p)
+  const [showMask, setShowMask] = useState(true)
   const [value, setValue] = usePropsValue({
     value: props.activeKey,
     defaultValue: props.defaultActiveKey,
@@ -78,29 +83,47 @@ const Dropdown = forwardRef<
       setValue(null)
     } else {
       setValue(key)
+      key && setShowMask(maskPopMap[key])
     }
   }
 
   let popupForceRender = false
+  let separated = false
   const items: ReactElement<ComponentProps<typeof Item>>[] = []
-  const navs = React.Children.map(props.children, child => {
+  const leftNavs: React.ReactNode[] = []
+  const rightNavs: React.ReactNode[] = []
+  const maskPopMap: Record<string, boolean> = {}
+  React.Children.forEach(props.children, child => {
     if (isValidElement<ComponentProps<typeof Item>>(child)) {
       const childProps = {
         ...child.props,
         onClick: () => {
           changeActive(child.key as string)
+          child.props.onClick?.()
         },
         active: child.key === value,
         arrow:
           child.props.arrow === undefined ? props.arrow : child.props.arrow,
       }
       items.push(child)
+      if (child.key) {
+        maskPopMap[child.key] =
+          child.props.mask === undefined ? props.mask : child.props.mask
+      }
       if (child.props.forceRender) popupForceRender = true
-      return cloneElement(child, childProps)
+      if (child.props.align) separated = true
+      const cloneChild = cloneElement(child, childProps)
+      child.props.align === 'right'
+        ? rightNavs.push(cloneChild)
+        : leftNavs.push(cloneChild)
     } else {
-      return child
+      leftNavs.push(child)
     }
   })
+
+  if (!isPropValueConsecutive(props.children, 'align')) {
+    devWarning('Dropdown.Item', `'align' prop should be consecutive.`)
+  }
 
   useImperativeHandle(
     ref,
@@ -120,8 +143,15 @@ const Dropdown = forwardRef<
       })}
       ref={containerRef}
     >
-      <div className={`${classPrefix}-nav`} ref={navRef}>
-        {navs}
+      <div
+        className={classNames(`${classPrefix}-nav`, {
+          [`${classPrefix}-separated`]: separated,
+        })}
+        ref={navRef}
+      >
+        {leftNavs}
+        {separated && <div className={`${classPrefix}-item-gap`} role='grid' />}
+        {rightNavs}
       </div>
       <Popup
         visible={!!value}
@@ -131,6 +161,7 @@ const Dropdown = forwardRef<
         maskClassName={`${classPrefix}-popup-mask`}
         bodyClassName={`${classPrefix}-popup-body`}
         style={{ top }}
+        mask={showMask}
         forceRender={popupForceRender}
         onMaskClick={
           props.closeOnMaskClick
