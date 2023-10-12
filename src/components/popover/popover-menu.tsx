@@ -42,18 +42,21 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps>(
       [props.onAction]
     )
 
-    const overlay = useMemo(
-      () => (
-        <div
-          className={classNames(`${classPrefix}-list`, {
-            [`${classPrefix}-list-scroll`]:
-              props?.maxCount && props.actions.length > props?.maxCount,
-          })}
-          style={{
-            height: props?.maxCount && props?.maxCount * 48,
-          }}
-        >
-          <div className={`${classPrefix}-list-inner`}>
+    const overlay = useMemo(() => {
+      const whetherScroll =
+        props?.maxCount && props.actions.length > props?.maxCount
+      const innerHeight = props?.maxCount && props?.maxCount * 48
+
+      return (
+        <div className={`${classPrefix}-list`}>
+          <div
+            className={classNames(`${classPrefix}-list-inner`, {
+              [`${classPrefix}-list-scroll`]: whetherScroll,
+            })}
+            style={{
+              height: innerHeight,
+            }}
+          >
             {props.actions.map((action, index) => (
               <a
                 key={action.key ?? index}
@@ -78,9 +81,8 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps>(
             ))}
           </div>
         </div>
-      ),
-      [props.actions, onClick]
-    )
+      )
+    }, [props.actions, onClick])
 
     return (
       <Popover
@@ -88,9 +90,6 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps>(
         {...props}
         className={classNames(classPrefix, props.className)}
         content={overlay}
-        bottomArrow={
-          !!(props?.maxCount && props.actions.length > props?.maxCount)
-        }
       >
         {props.children}
       </Popover>

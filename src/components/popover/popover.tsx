@@ -50,7 +50,6 @@ export type PopoverProps = {
   placement?: Placement | DeprecatedPlacement
   stopPropagation?: PropagationEvent[]
   content: ReactNode
-  bottomArrow?: boolean
 } & NativeProps<'--z-index' | '--arrow-size'>
 
 export type PopoverRef = {
@@ -109,9 +108,6 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
         <div className={`${classPrefix}-inner`}>
           <div className={`${classPrefix}-inner-content`}>{props.content}</div>
         </div>
-        {props.bottomArrow && (
-          <div className={`${classPrefix}-bottom-arrow`}></div>
-        )}
       </div>
     )
   )
