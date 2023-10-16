@@ -68,6 +68,7 @@ Except for `content`, all other attributes are inherited from `Popover`, the uni
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | actions | Menu list, used when the pop-up content is a standard menu | `Action[]` | - |
+| maxCount | Maximum number of menu lists, if exceeded, hide for scrolling | `number` | - |
 | onAction | Callback of the selected menum, when the menu list is used | `(item: Action) => void` | - |
 
 ### Action
