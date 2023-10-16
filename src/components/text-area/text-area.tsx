@@ -124,7 +124,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     // https://github.com/ant-design/ant-design-mobile/issues/6391
     const maxLengthDataRef = useRef({
       isMaxLength: false,
-      cacheSelectionStart: 0,
+      cacheSelectionEnd: 0,
       cacheValueLength: 0,
     })
 
@@ -168,9 +168,8 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
               if (
                 maxLengthDataRef.current.isMaxLength &&
                 configValue.length > maxLength
-              ) {
+              )
                 return
-              }
               v = configValue.slice(0, maxLength).join('')
               maxLengthDataRef.current.isMaxLength =
                 configValue.length >= maxLength
@@ -180,8 +179,8 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           id={props.id}
           onCompositionStart={e => {
             compositingRef.current = true
-            const { selectionStart, value } = e.target as HTMLTextAreaElement
-            maxLengthDataRef.current.cacheSelectionStart = selectionStart
+            const { selectionEnd, value } = e.target as HTMLTextAreaElement
+            maxLengthDataRef.current.cacheSelectionEnd = selectionEnd
             maxLengthDataRef.current.cacheValueLength = value.length
             props.onCompositionStart?.(e)
           }}
@@ -190,10 +189,10 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             const v = (e.target as HTMLTextAreaElement).value
             const configValue = runes(v)
             if (maxLength && configValue.length > maxLength) {
-              const { cacheSelectionStart, cacheValueLength } =
+              const { cacheSelectionEnd, cacheValueLength } =
                 maxLengthDataRef.current
               configValue.splice(
-                cacheSelectionStart + maxLength - cacheValueLength,
+                cacheSelectionEnd + maxLength - cacheValueLength,
                 configValue.length - maxLength
               )
               setValue(configValue.join(''))
