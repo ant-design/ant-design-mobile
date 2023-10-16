@@ -124,9 +124,7 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                     'adm-plain-anchor',
                     `${classPrefix}-button-item`
                   )}
-                  onClick={() => {
-                    props.onClose?.()
-                  }}
+                  onClick={props.onClose}
                 >
                   <div className={`${classPrefix}-button-item-name`}>
                     {props.cancelText}
