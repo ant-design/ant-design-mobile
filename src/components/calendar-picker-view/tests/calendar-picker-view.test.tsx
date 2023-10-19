@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { render, testA11y, fireEvent } from 'testing'
-import CalendarPickerView, { CalendarViewRef } from '..'
+import CalendarPickerView, { CalendarPickerViewRef } from '..'
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
 
@@ -65,7 +65,7 @@ describe('Calendar', () => {
 
   test('jump to a day', async () => {
     const App = () => {
-      const ref = useRef<CalendarViewRef>(null)
+      const ref = useRef<CalendarPickerViewRef>(null)
       return (
         <>
           <button

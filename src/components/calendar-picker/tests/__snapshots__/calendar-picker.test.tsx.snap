@@ -3,7 +3,7 @@
 exports[`Calendar single mode 1`] = `
 <div>
   <div
-    class="adm-calendar"
+    class="adm-calendar-picker"
   />
 </div>
 `;

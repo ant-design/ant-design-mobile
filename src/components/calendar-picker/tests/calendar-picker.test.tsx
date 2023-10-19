@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, testA11y, fireEvent } from 'testing'
-import Calendar from '..'
+import CalendarPicker from '..'
 import MockDate from 'mockdate'
 
 const classPrefix = `adm-calendar-view`
@@ -14,13 +14,13 @@ const singleDate: Date = new Date('2023-05-03')
 
 describe('Calendar', () => {
   test('a11y', async () => {
-    await testA11y(<Calendar />)
+    await testA11y(<CalendarPicker />)
   })
 
   test('single mode', async () => {
     const fn = jest.fn()
     const { container, getAllByText } = render(
-      <Calendar
+      <CalendarPicker
         visible={true}
         selectionMode='single'
         defaultValue={singleDate}
