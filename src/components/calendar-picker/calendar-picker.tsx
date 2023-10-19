@@ -13,9 +13,9 @@ import CalendarView, {
 
 const classPrefix = 'adm-calendar'
 
-export type CalendarRef = CalendarViewRef
+export type CalendarPickerRef = CalendarViewRef
 
-export type CalendarProps = CalendarViewProps & {
+export type CalendarPickerProps = CalendarViewProps & {
   visible?: boolean
   confirmText?: string
   popupClassName?: string
@@ -48,11 +48,14 @@ const defaultProps = {
   selectionMode: 'single',
 }
 
-export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
+export const CalendarPicker = forwardRef<
+  CalendarPickerRef,
+  CalendarPickerProps
+>((p, ref) => {
   const props = mergeProps(defaultProps, p)
   const { locale } = useConfig()
   const calendarRef = (ref ??
-    useRef<CalendarRef>(null)) as React.RefObject<CalendarRef>
+    useRef<CalendarPickerRef>(null)) as React.RefObject<CalendarPickerRef>
 
   const {
     visible,

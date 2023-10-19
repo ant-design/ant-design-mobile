@@ -15,7 +15,10 @@ export type { ButtonProps, ButtonRef } from './components/button'
 export { default as Calendar } from './components/calendar'
 export type { CalendarProps, CalendarRef } from './components/calendar'
 export { default as CalendarPicker } from './components/calendar-picker'
-export type { CalendarProps, CalendarRef } from './components/calendar-picker'
+export type {
+  CalendarPickerProps,
+  CalendarPickerRef,
+} from './components/calendar-picker'
 export { default as CalendarView } from './components/calendar-picker-view'
 export type {
   CalendarViewProps,

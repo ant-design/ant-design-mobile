@@ -1,5 +1,5 @@
-import { Calendar } from './calendar'
+import { CalendarPicker } from './calendar-picker'
 
-export type { CalendarProps, CalendarRef } from './calendar'
+export type { CalendarPickerProps, CalendarPickerRef } from './calendar-picker'
 
-export default Calendar
+export default CalendarPicker
