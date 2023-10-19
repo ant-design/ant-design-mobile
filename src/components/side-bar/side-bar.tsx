@@ -1,4 +1,5 @@
-import React, { FC, ReactNode, ReactElement, isValidElement } from 'react'
+import React, { isValidElement } from 'react'
+import type { FC, ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import Badge, { BadgeProps } from '../badge'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -23,7 +24,7 @@ export type SideBarProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<
   '--width' | '--height' | '--item-border-radius' | '--background-color'
 >

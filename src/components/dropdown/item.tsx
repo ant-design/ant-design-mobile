@@ -1,5 +1,6 @@
 import classNames from 'classnames'
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/should-render'
 import { DownFill } from 'antd-mobile-icons'
@@ -8,14 +9,14 @@ const classPrefix = `adm-dropdown-item`
 
 export type DropdownItemProps = {
   key: string
-  title: React.ReactNode
+  title: ReactNode
   active?: boolean
   highlight?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
-  arrow?: React.ReactNode
-  children?: React.ReactNode
+  arrow?: ReactNode
+  children?: ReactNode
 } & NativeProps
 
 const Item: FC<DropdownItemProps> = props => {

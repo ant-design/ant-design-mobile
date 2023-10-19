@@ -1,4 +1,10 @@
 import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import type {
+  ReactNode,
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  MouseEventHandler,
+} from 'react'
 import classNames from 'classnames'
 import DotLoading from '../dot-loading'
 import { mergeProps } from '../../utils/with-default-props'
@@ -7,8 +13,8 @@ import { isPromise } from '../../utils/validate'
 
 const classPrefix = `adm-button`
 
-type NativeButtonProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
+type NativeButtonProps = DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 >
 
@@ -19,14 +25,14 @@ export type ButtonProps = {
   block?: boolean
   loading?: boolean | 'auto'
   loadingText?: string
-  loadingIcon?: React.ReactNode
+  loadingIcon?: ReactNode
   disabled?: boolean
   onClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void | Promise<void> | unknown
   type?: 'submit' | 'reset' | 'button'
   shape?: 'default' | 'rounded' | 'rectangular'
-  children?: React.ReactNode
+  children?: ReactNode
 } & Pick<
   NativeButtonProps,
   'onMouseDown' | 'onMouseUp' | 'onTouchStart' | 'onTouchEnd' | 'id'
@@ -68,7 +74,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
     },
   }))
 
-  const handleClick: React.MouseEventHandler<HTMLButtonElement> = async e => {
+  const handleClick: MouseEventHandler<HTMLButtonElement> = async e => {
     if (!props.onClick) return
 
     const promise = props.onClick(e)

@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import { render, unmount as reactUnmount } from './render'
 
 export function renderToBody(element: ReactElement) {

@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import type { StepProps } from './step'
 import { mergeProps } from '../../utils/with-default-props'
@@ -14,7 +15,7 @@ type Direction = 'horizontal' | 'vertical'
 export type StepsProps = {
   current?: number
   direction?: Direction
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<
   | '--title-font-size'
   | '--description-font-size'

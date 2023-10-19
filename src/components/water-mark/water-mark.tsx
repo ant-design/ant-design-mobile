@@ -1,5 +1,6 @@
 import classNames from 'classnames'
-import React, { FC, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import type { FC } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 

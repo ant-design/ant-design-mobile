@@ -1,11 +1,5 @@
-import React, {
-  forwardRef,
-  useRef,
-  useState,
-  useImperativeHandle,
-  ReactElement,
-  ReactNode,
-} from 'react'
+import React, { forwardRef, useRef, useState, useImperativeHandle } from 'react'
+import type { ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useThrottleFn } from 'ahooks'
@@ -21,7 +15,7 @@ const classPrefix = `adm-index-bar`
 export type IndexBarProps = {
   sticky?: boolean
   onIndexChange?: (index: string) => void
-  children?: React.ReactNode
+  children?: ReactNode
 } & NativeProps<'--sticky-offset-top'>
 
 export type IndexBarRef = {

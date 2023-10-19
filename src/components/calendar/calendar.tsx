@@ -4,6 +4,7 @@ import React, {
   useState,
   useImperativeHandle,
   useMemo,
+  useEffect,
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import dayjs from 'dayjs'
@@ -16,6 +17,7 @@ import isoWeek from 'dayjs/plugin/isoWeek'
 import { useUpdateEffect } from 'ahooks'
 import { usePropsValue } from '../../utils/use-props-value'
 import { replaceMessage } from '../../utils/replace-message'
+import { devWarning } from '../../utils/dev-log'
 import {
   convertValueToRange,
   convertPageToDayjs,
@@ -321,6 +323,16 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       ))}
     </div>
   )
+
+  // Dev only warning
+  if (process.env.NODE_ENV !== 'production') {
+    useEffect(() => {
+      devWarning(
+        'Calendar',
+        'Calendar will be removed in the future, please use CalendarPickerView instead.'
+      )
+    }, [])
+  }
 
   return withNativeProps(
     props,

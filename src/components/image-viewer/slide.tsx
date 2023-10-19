@@ -1,4 +1,5 @@
-import React, { FC, MutableRefObject, useRef } from 'react'
+import React, { useRef } from 'react'
+import type { FC, MutableRefObject } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useSize } from 'ahooks'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'

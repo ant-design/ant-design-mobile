@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import * as ReactDOM from 'react-dom'
 import type { Root } from 'react-dom/client'
 

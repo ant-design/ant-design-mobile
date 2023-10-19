@@ -1,4 +1,5 @@
-import React, { ReactNode, useState } from 'react'
+import React, { useState } from 'react'
+import type { ReactNode } from 'react'
 import { Button, SearchBar, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { SearchOutline, SetOutline } from 'antd-mobile-icons'

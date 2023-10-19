@@ -1,12 +1,13 @@
 import { Button, Form, Input, Toast } from 'antd-mobile'
 import { InputRef } from 'antd-mobile/es/components/input'
 import React, { useRef } from 'react'
+import type { ReactNode } from 'react'
 
 class Age extends React.Component {
   log = () => {
     Toast.show('class 组件 Ref 测试')
   }
-  render(): React.ReactNode {
+  render(): ReactNode {
     return <Input {...this.props} />
   }
 }

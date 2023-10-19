@@ -1,11 +1,11 @@
 import React, {
   forwardRef,
-  ReactElement,
   useEffect,
   useImperativeHandle,
   useRef,
   useState,
 } from 'react'
+import type { ReactElement } from 'react'
 import type { InputProps } from '../input'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'

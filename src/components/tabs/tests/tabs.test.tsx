@@ -111,4 +111,18 @@ describe('Tabs', () => {
     fireEvent.click(getByText('vegetables'))
     expect(queryByText('Apple')).not.toBeInTheDocument()
   })
+
+  test('RTL render component should be rendered correctly in RTL direction', async () => {
+    const { container } = render(
+      <Tabs direction='rtl'>
+        <Tabs.Tab title='fruits' key='fruits'>
+          Apple
+        </Tabs.Tab>
+        <Tabs.Tab title='vegetables' key='vegetables'>
+          Tomato
+        </Tabs.Tab>
+      </Tabs>
+    )
+    expect(container).toMatchSnapshot()
+  })
 })

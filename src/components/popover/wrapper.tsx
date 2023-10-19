@@ -1,9 +1,10 @@
 import React from 'react'
+import type { ReactNode } from 'react'
 import { findDOMNode } from 'react-dom'
 
 export class Wrapper extends React.Component<
   {
-    children?: React.ReactNode
+    children?: ReactNode
   },
   {}
 > {

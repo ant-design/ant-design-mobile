@@ -1,4 +1,5 @@
 import React from 'react'
+import type { CSSProperties } from 'react'
 import { GetContainer } from '../../utils/render-to-container'
 import { MaskProps } from '../mask'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
@@ -7,7 +8,7 @@ export type PopupBaseProps = {
   afterClose?: () => void
   afterShow?: () => void
   bodyClassName?: string
-  bodyStyle?: React.CSSProperties
+  bodyStyle?: CSSProperties
   closeOnMaskClick?: boolean
   destroyOnClose?: boolean
   disableBodyScroll?: boolean

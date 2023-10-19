@@ -1,6 +1,5 @@
 import { useInitialized } from './use-initialized'
-import { FC, ReactElement } from 'react'
-
+import type { FC, ReactElement } from 'react'
 interface Props {
   active: boolean
   forceRender?: boolean

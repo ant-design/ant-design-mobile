@@ -1,5 +1,6 @@
 import { mergeProps } from '../../utils/with-default-props'
-import React, { ReactNode, useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { staged } from 'staged-components'
 import { toCSSLength } from '../../utils/to-css-length'
