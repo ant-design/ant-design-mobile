@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import React, { useState } from 'react'
-import { Calendar, List } from 'antd-mobile'
+import { CalendarPicker, List } from 'antd-mobile'
 
 const defaultRange: [Date, Date] = [
   dayjs().toDate(),
@@ -26,7 +26,7 @@ export default () => {
         }}
       >
         选择单个日期
-        <Calendar
+        <CalendarPicker
           visible={visible1}
           selectionMode='single'
           defaultValue={singleDate}
@@ -40,7 +40,7 @@ export default () => {
         }}
       >
         选择日期范围
-        <Calendar
+        <CalendarPicker
           visible={visible2}
           defaultValue={defaultRange}
           selectionMode='range'
@@ -57,7 +57,7 @@ export default () => {
         }}
       >
         受控日期选择
-        <Calendar
+        <CalendarPicker
           visible={visible3}
           selectionMode='range'
           value={val}

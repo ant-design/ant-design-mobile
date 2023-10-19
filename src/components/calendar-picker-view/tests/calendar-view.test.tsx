@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { render, testA11y, fireEvent } from 'testing'
-import CalendarView, { CalendarViewRef } from '..'
+import CalendarPickerView, { CalendarViewRef } from '..'
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
 
@@ -16,13 +16,13 @@ const rangeDate: [Date, Date] = [new Date('2023-05-04'), new Date('2023-05-07')]
 
 describe('Calendar', () => {
   test('a11y', async () => {
-    await testA11y(<CalendarView />)
+    await testA11y(<CalendarPickerView />)
   })
 
   test('single mode', async () => {
     const fn = jest.fn()
     const { container, getAllByText } = render(
-      <CalendarView
+      <CalendarPickerView
         selectionMode='single'
         defaultValue={singleDate}
         min={mixDate}
@@ -41,7 +41,7 @@ describe('Calendar', () => {
   test('range mode', async () => {
     const fn = jest.fn()
     const { container, getByText } = render(
-      <CalendarView
+      <CalendarPickerView
         selectionMode='range'
         min={mixDate}
         max={maxDate}
@@ -82,7 +82,7 @@ describe('Calendar', () => {
           >
             jumpToToday
           </button>
-          <CalendarView selectionMode='single' ref={ref} />
+          <CalendarPickerView selectionMode='single' ref={ref} />
         </>
       )
     }
@@ -97,14 +97,14 @@ describe('Calendar', () => {
 
   test('week start on Monday', async () => {
     const { container } = render(
-      <CalendarView min={mixDate} max={maxDate} weekStartsOn='Monday' />
+      <CalendarPickerView min={mixDate} max={maxDate} weekStartsOn='Monday' />
     )
     expect(container).toMatchSnapshot()
   })
 
   test(`can't allow to clear`, async () => {
     const { getByText } = render(
-      <CalendarView
+      <CalendarPickerView
         selectionMode='single'
         min={mixDate}
         max={maxDate}
@@ -121,7 +121,7 @@ describe('Calendar', () => {
   test('custom top', async () => {
     const today = dayjs()
     const { container } = render(
-      <CalendarView
+      <CalendarPickerView
         min={mixDate}
         max={maxDate}
         renderTop={date => {
@@ -137,7 +137,7 @@ describe('Calendar', () => {
 
   test('custom date', () => {
     render(
-      <CalendarView
+      <CalendarPickerView
         min={mixDate}
         max={maxDate}
         renderDate={date => {
@@ -150,7 +150,7 @@ describe('Calendar', () => {
 
   test('custom bottom', () => {
     render(
-      <CalendarView
+      <CalendarPickerView
         min={mixDate}
         max={maxDate}
         renderDate={date => {

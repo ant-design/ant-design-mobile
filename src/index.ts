@@ -19,11 +19,11 @@ export type {
   CalendarPickerProps,
   CalendarPickerRef,
 } from './components/calendar-picker'
-export { default as CalendarView } from './components/calendar-picker-view'
+export { default as CalendarPickerView } from './components/calendar-picker-view'
 export type {
-  CalendarViewProps,
-  CalendarViewRef,
-} from './components/calendar-view'
+  CalendarPickerViewProps,
+  CalendarPickerViewRef,
+} from './components/calendar-picker-view'
 export { default as CapsuleTabs } from './components/capsule-tabs'
 export type {
   CapsuleTabsProps,

@@ -1,5 +1,9 @@
 # Calendar <Experimental></Experimental>
 
+<Alert type="warning">
+  Calendar will be removed due to design updates. Please use the CalendarPickerView component instead.
+</Alert>
+
 Used to select a date or date range.
 
 ## When to Use

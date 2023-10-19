@@ -6,16 +6,16 @@ import Divider from '../divider'
 import Popup from '../popup'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
-import CalendarView, {
-  CalendarViewProps,
-  CalendarViewRef,
+import CalendarPickerView, {
+  CalendarPickerViewProps,
+  CalendarPickerViewRef,
 } from '../calendar-picker-view'
 
-const classPrefix = 'adm-calendar'
+const classPrefix = 'adm-calendar-picker'
 
-export type CalendarPickerRef = CalendarViewRef
+export type CalendarPickerRef = CalendarPickerViewRef
 
-export type CalendarPickerProps = CalendarViewProps & {
+export type CalendarPickerProps = CalendarPickerViewProps & {
   visible?: boolean
   confirmText?: string
   popupClassName?: string
@@ -118,7 +118,7 @@ export const CalendarPicker = forwardRef<
           }
         }}
       >
-        <CalendarView ref={calendarRef} {...calendarViewProps} />
+        <CalendarPickerView ref={calendarRef} {...calendarViewProps} />
         {footer}
       </Popup>
     </div>

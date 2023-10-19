@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react'
-import { Calendar, List, CalendarRef } from 'antd-mobile'
+import { CalendarPicker, List, CalendarPickerRef } from 'antd-mobile'
 
 export default () => {
-  const ref1 = useRef<CalendarRef>(null)
-  const ref2 = useRef<CalendarRef>(null)
+  const ref1 = useRef<CalendarPickerRef>(null)
+  const ref2 = useRef<CalendarPickerRef>(null)
   const [visible1, setVisible1] = useState(false)
   const [visible2, setVisible2] = useState(false)
 
@@ -19,7 +19,7 @@ export default () => {
         }}
       >
         跳转到 3 月后
-        <Calendar
+        <CalendarPicker
           ref={ref1}
           visible={visible1}
           onClose={() => setVisible1(false)}
@@ -36,7 +36,7 @@ export default () => {
         }}
       >
         跳转到 3 年后
-        <Calendar
+        <CalendarPicker
           ref={ref2}
           visible={visible2}
           onClose={() => setVisible2(false)}

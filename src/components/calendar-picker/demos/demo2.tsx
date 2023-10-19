@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Calendar, List } from 'antd-mobile'
+import { CalendarPicker, List } from 'antd-mobile'
 
 const min = new Date()
 min.setDate(5)
@@ -20,7 +20,7 @@ export default () => {
         }}
       >
         自定义标题
-        <Calendar
+        <CalendarPicker
           title='请选择日期'
           visible={visible1}
           onClose={() => setVisible1(false)}
@@ -33,7 +33,7 @@ export default () => {
         }}
       >
         自定义确认文案
-        <Calendar
+        <CalendarPicker
           confirmText='确认选择'
           visible={visible2}
           onClose={() => setVisible2(false)}
@@ -46,7 +46,7 @@ export default () => {
         }}
       >
         周一作为每周的第一天
-        <Calendar
+        <CalendarPicker
           weekStartsOn='Monday'
           visible={visible3}
           onClose={() => setVisible3(false)}
@@ -59,7 +59,7 @@ export default () => {
         }}
       >
         限制日期范围
-        <Calendar
+        <CalendarPicker
           min={min}
           max={max}
           selectionMode='range'

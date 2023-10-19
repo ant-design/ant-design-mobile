@@ -1,6 +1,9 @@
-import './calendar-view.less'
-import { CalendarView } from './calendar-view'
+import './calendar-picker-view.less'
+import { CalendarPickerView } from './calendar-picker-view'
 
-export type { CalendarViewProps, CalendarViewRef } from './calendar-view'
+export type {
+  CalendarPickerViewProps,
+  CalendarPickerViewRef,
+} from './calendar-picker-view'
 
-export default CalendarView
+export default CalendarPickerView

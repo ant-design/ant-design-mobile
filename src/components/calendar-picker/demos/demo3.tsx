@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import dayjs from 'dayjs'
 import React, { useState } from 'react'
-import { Calendar, List } from 'antd-mobile'
+import { CalendarPicker, List } from 'antd-mobile'
 import './demo3.less'
 
 export default () => {
@@ -24,7 +24,7 @@ export default () => {
         }}
       >
         自定义日期顶部信息
-        <Calendar
+        <CalendarPicker
           visible={visible1}
           onClose={() => setVisible1(false)}
           onMaskClick={() => setVisible1(false)}
@@ -49,7 +49,7 @@ export default () => {
         }}
       >
         自定义日期底部信息
-        <Calendar
+        <CalendarPicker
           visible={visible2}
           onClose={() => setVisible2(false)}
           onMaskClick={() => setVisible2(false)}
@@ -69,7 +69,7 @@ export default () => {
         }}
       >
         自定义日期渲染
-        <Calendar
+        <CalendarPicker
           visible={visible3}
           onClose={() => setVisible3(false)}
           onMaskClick={() => setVisible3(false)}
@@ -94,7 +94,7 @@ export default () => {
         }}
       >
         高级自定义样式
-        <Calendar
+        <CalendarPicker
           className='calendar-custom'
           selectionMode='range'
           value={val}

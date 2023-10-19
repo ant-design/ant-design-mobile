@@ -1,16 +1,16 @@
-# CalendarView 日历 <Experimental></Experimental>
+# CalendarPickerView 日历选择器视图 <Experimental></Experimental>
 
 用于选择日期或日期区间。
 
-CalendarView 是 [Calendar](/zh/components/calendar) 的内容区域。
+CalendarPickerView 是 [CalendarPicker](/zh/components/calendar-picker) 的内容区域。
 
 ## 示例
 
-此处只展示了最简单的内容区域，其他更多用法可以参考 [Calendar](/zh/components/calendar)
+此处只展示了最简单的内容区域，其他更多用法可以参考 [CalendarPicker](/zh/components/calendar-picker)
 
 <code src="./demos/demo1.tsx"></code>
 
-## CalendarView
+## CalendarPickerView
 
 ### 属性
 

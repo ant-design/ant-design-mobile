@@ -1,4 +1,4 @@
-# Calendar 日历 <Experimental></Experimental>
+# CalendarPicker 日历选择器 <Experimental></Experimental>
 
 用于选择日期或日期区间。
 
@@ -16,7 +16,7 @@
 
 <code src="./demos/demo4.tsx"></code>
 
-## Calendar
+## CalendarPicker
 
 ### 属性
 
