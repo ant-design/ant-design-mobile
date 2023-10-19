@@ -2,8 +2,8 @@
 @class-prefix-steps: ~'adm-steps';
 
 .@{class-prefix-step} {
-  --line-to-next-color: #e5e5e5;
-  --icon-color: #e5e5e5;
+  --line-to-next-color: var(--adm-color-border);
+  --icon-color: var(--adm-color-border);
   position: relative;
   // make other brother component are not covered
   z-index: 0;
@@ -36,7 +36,7 @@
   }
 
   &-status-wait {
-    --icon-color: #e5e5e5;
+    --icon-color: var(--adm-color-border);
     .adm-step-title {
       color: var(--adm-color-weak);
     }

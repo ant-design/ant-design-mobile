@@ -14,10 +14,10 @@
 
 ### 属性
 
-| 参数     | 说明       | 类型              | 默认值 |
-| -------- | ---------- | ----------------- | ------ |
-| children | 自定义信息 | `React.ReactNode` | -      |
-| percent  | 百分比     | `number`          | `0`    |
+| 参数     | 说明         | 类型              | 默认值 |
+| -------- | ------------ | ----------------- | ------ |
+| children | 自定义信息   | `React.ReactNode` | -      |
+| percent  | 进度圈百分比 | `number`          | `0`    |
 
 ### CSS 变量
 
@@ -25,7 +25,7 @@
 | --- | --- | --- | --- |
 | --fill-color | 填充部分的颜色 | `var(--adm-color-primary)` | `--adm-progress-circle-fill-color` |
 | --size | 画布的宽高，仅支持 px 单位 | `50px` | `--adm-progress-circle-size` |
-| --track-color | 轨道的颜色 | `#e5e5e5` | `--adm-progress-circle-track-color` |
+| --track-color | 轨道的颜色 | `var(--adm-color-border)` | `--adm-progress-circle-track-color` |
 | --track-width | 线条宽度，仅支持 px 单位 | `3px` | `--adm-progress-circle-track-width` |
 
 ## 常见问题

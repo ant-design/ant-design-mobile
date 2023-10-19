@@ -42,9 +42,9 @@ export const Result: FC<ResultProps> = p => {
     <div className={classNames(classPrefix, `${classPrefix}-${status}`)}>
       <div className={`${classPrefix}-icon`}>{resultIcon}</div>
       <div className={`${classPrefix}-title`}>{title}</div>
-      {description ? (
+      {!!description && (
         <div className={`${classPrefix}-description`}>{description}</div>
-      ) : null}
+      )}
     </div>
   )
 }

@@ -1,6 +1,7 @@
-import { FC } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import React from 'react'
+import type { FC } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+
 import classNames from 'classnames'
 
 const classPrefix = 'adm-safe-area'

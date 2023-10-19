@@ -44,10 +44,10 @@
 
 ### CSS 变量
 
-| 属性            | 说明                                    | 默认值    |
-| --------------- | --------------------------------------- | --------- |
-| --border-color  | 边框颜色                                | `#E5E5E5` |
-| --border-radius | 边框圆角                                | `8px`     |
-| --cell-gap      | 单元格间距，仅在 `seperated` 模式下生效 | `6px`     |
-| --cell-size     | 单元格大小                              | `40px`    |
-| --dot-size      | 密码隐藏时，点的大小                    | `10px`    |
+| 属性 | 说明 | 默认值 |
+| --- | --- | --- |
+| --border-color | 边框颜色 | `var(--adm-color-border)` |
+| --border-radius | 边框圆角 | `8px` |
+| --cell-gap | 单元格间距，仅在 `seperated` 模式下生效 | `6px` |
+| --cell-size | 单元格大小 | `40px` |
+| --dot-size | 密码隐藏时，点的大小 | `10px` |

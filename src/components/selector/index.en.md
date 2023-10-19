@@ -20,7 +20,7 @@ Provides multiple options for the user to choose from, typically used in filters
 | --- | --- | --- | --- |
 | columns | Number of the displayed columns (Note that `grid` layout not support in IOS 9) | `number` | - |
 | defaultValue | Selected value by default | `SelectorValue[]` | `[]` |
-| disabled | Whether to disable selecting | `boolean` | `false` |
+| disabled | Whether to all disable selecting | `boolean` | `false` |
 | multiple | Whether to allow multiple selections | `boolean` | `false` |
 | onChange | Triggered when the value is changed | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | - |
 | options | Optional selector | `SelectorOption[]` | - |
@@ -34,7 +34,7 @@ Provides multiple options for the user to choose from, typically used in filters
 | --border | border style | `none` |
 | --border-radius | Border radius of options | `2px` |
 | --checked-border | Border style when checked | `none` |
-| --checked-color | Background color when checked | `#e7f1ff` |
+| --checked-color | Background color when checked | `var(--adm-color-wathet)` |
 | --checked-text-color | Text color when checked | `var(--adm-color-primary)` |
 | --color | Background color | `#f5f5f5` |
 | --padding | Padding of options | `8px 16px` |

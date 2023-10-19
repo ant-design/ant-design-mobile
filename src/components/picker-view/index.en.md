@@ -69,19 +69,26 @@ DatePickerView is the content area of [DatePicker](/components/picker/#datepicke
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| defaultValue | Default selected options | `Date` | - |
+```typescript
+type PickerDate = Date & {
+  tillNow?: boolean
+}
+```
+
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| defaultValue | Default selected options | `PickerDate` | - |
 | filter | Filter available time | `DatePickerFilter` | - |
-| max | Max value | `Date` | ten years later |
-| min | Minimum value | `Date` | ten years ago |
+| max | Max value | `PickerDate` | ten years later |
+| min | Minimum value | `PickerDate` | ten years ago |
 | mouseWheel | Whether to allow interact with mouse wheel | `boolean` | `false` |
-| onChange | Triggered when the options are changed | `(value: Date) => void` | - |
+| onChange | Triggered when the options are changed | `(value: PickerDate) => void` | - |
 | precision | Precision | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
 | renderLabel | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode` | - |
-| value | Selected options | `Date` | - |
+| value | Selected options | `PickerDate` | - |
 | loading | Should the Picker displays as loading state | `boolean` | `false` |
 | loadingContent | The loading content displayed in loading state | `ReactNode` | `provide a default SpinLoading content` |
+| tillNow | Show till now in list | `boolean` | - | 5.32.0 |
 
 For the type definition and usage of `DatePickerFilter`, please refer to the document of [DatePicker](/components/picker#datepicker).
 

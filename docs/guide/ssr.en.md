@@ -16,6 +16,8 @@ $ npm install --save-dev next-transpile-modules
 $ yarn add -D next-transpile-modules
 # or
 $ pnpm add -D next-transpile-modules
+# or
+$ bun add -D next-transpile-modules
 ```
 
 Then configure it in `next.config.js`:

@@ -51,6 +51,15 @@ export default () => {
           filter={dateFilter}
         />
       </DemoBlock>
+
+      <DemoBlock title='至今' padding='0'>
+        <DatePickerView
+          defaultValue={now}
+          max={now}
+          tillNow
+          onChange={val => console.log(`Till Now: ${!!val.tillNow}`)}
+        />
+      </DemoBlock>
     </>
   )
 }

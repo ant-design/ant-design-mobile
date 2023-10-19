@@ -151,7 +151,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             <CloseCircleFill />
           </div>
         )}
-        {!value && (
+        {[undefined, null, ''].includes(value) && (
           <div className={`${classPrefix}-placeholder`}>
             {props.placeholder}
           </div>

@@ -19,7 +19,7 @@ switch selector.
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| beforeChange | Execute before change | `(val: boolean) => Promise<void>` | - |
+| beforeChange（deprecated） | Execute before change （Deprecated, recommend using the `onChange` attribute.） | `(val: boolean) => Promise<void>` | - |
 | checked | Specify whether it is currently opened | `boolean` | `false` |
 | checkedText | Selected text | `ReactNode` | - |
 | defaultChecked | Whether to open initially | `boolean` | `false` |

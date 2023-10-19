@@ -25,6 +25,7 @@ export type CheckboxProps = {
   id?: string
   icon?: (checked: boolean, indeterminate: boolean) => React.ReactNode
   children?: React.ReactNode
+  onClick?: (event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void
 } & NativeProps<'--icon-size' | '--font-size' | '--gap'>
 
 const defaultProps = {
@@ -110,6 +111,7 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
   return withNativeProps(
     props,
     <label
+      onClick={props.onClick}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked && !props.indeterminate,
         [`${classPrefix}-indeterminate`]: props.indeterminate,

@@ -77,13 +77,11 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
 
   useImperativeHandle(
     ref,
-    () => {
-      return {
-        show: () => setVisible(true),
-        hide: () => setVisible(false),
-        visible,
-      }
-    },
+    () => ({
+      show: () => setVisible(true),
+      hide: () => setVisible(false),
+      visible,
+    }),
     [visible]
   )
 

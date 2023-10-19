@@ -4,7 +4,7 @@ exports[`WaterMark content watermark 1`] = `
 <div>
   <div
     class="adm-water-mark adm-water-mark-full-page"
-    style="z-index: 2000; background-size: 144px; background-image: url(data:image/png;base64,00);"
+    style="background-size: 144px; background-image: url(data:image/png;base64,00);"
   />
 </div>
 `;
@@ -13,7 +13,7 @@ exports[`WaterMark image watermark 1`] = `
 <div>
   <div
     class="adm-water-mark adm-water-mark-full-page"
-    style="z-index: 2000; background-size: 144px; background-image: url(data:image/png;base64,00);"
+    style="background-size: 144px; background-image: url(data:image/png;base64,00);"
   />
 </div>
 `;
@@ -22,7 +22,7 @@ exports[`WaterMark more rows content watermark 1`] = `
 <div>
   <div
     class="adm-water-mark adm-water-mark-full-page"
-    style="z-index: 2000; background-size: 144px; background-image: url(data:image/png;base64,00);"
+    style="background-size: 144px; background-image: url(data:image/png;base64,00);"
   />
 </div>
 `;

@@ -32,7 +32,6 @@ const defaultProps = {
 
 export const Popup: FC<PopupProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const { locale } = useConfig()
 
   const bodyCls = classNames(
     `${classPrefix}-body`,
@@ -40,15 +39,16 @@ export const Popup: FC<PopupProps> = p => {
     `${classPrefix}-body-position-${props.position}`
   )
 
+  const { locale } = useConfig()
   const [active, setActive] = useState(props.visible)
+  const ref = useRef<HTMLDivElement>(null)
+  useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
+
   useIsomorphicLayoutEffect(() => {
     if (props.visible) {
       setActive(true)
     }
   }, [props.visible])
-
-  const ref = useRef<HTMLDivElement>(null)
-  useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
 
   const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({

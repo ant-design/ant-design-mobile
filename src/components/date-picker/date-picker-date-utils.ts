@@ -104,12 +104,10 @@ export function generateDatePickerColumns(
     const upper = maxYear
     const years = generateColumn(lower, upper, 'year')
     ret.push(
-      years.map(v => {
-        return {
-          label: renderLabel('year', v),
-          value: v.toString(),
-        }
-      })
+      years.map(v => ({
+        label: renderLabel('year', v),
+        value: v.toString(),
+      }))
     )
   }
 
@@ -118,12 +116,10 @@ export function generateDatePickerColumns(
     const upper = isInMaxYear ? maxMonth : 12
     const months = generateColumn(lower, upper, 'month')
     ret.push(
-      months.map(v => {
-        return {
-          label: renderLabel('month', v),
-          value: v.toString(),
-        }
-      })
+      months.map(v => ({
+        label: renderLabel('month', v),
+        value: v.toString(),
+      }))
     )
   }
   if (rank >= precisionRankRecord.day) {
@@ -131,12 +127,10 @@ export function generateDatePickerColumns(
     const upper = isInMaxMonth ? maxDay : firstDayInSelectedMonth.daysInMonth()
     const days = generateColumn(lower, upper, 'day')
     ret.push(
-      days.map(v => {
-        return {
-          label: renderLabel('day', v),
-          value: v.toString(),
-        }
-      })
+      days.map(v => ({
+        label: renderLabel('day', v),
+        value: v.toString(),
+      }))
     )
   }
   if (rank >= precisionRankRecord.hour) {
@@ -144,12 +138,10 @@ export function generateDatePickerColumns(
     const upper = isInMaxDay ? maxHour : 23
     const hours = generateColumn(lower, upper, 'hour')
     ret.push(
-      hours.map(v => {
-        return {
-          label: renderLabel('hour', v),
-          value: v.toString(),
-        }
-      })
+      hours.map(v => ({
+        label: renderLabel('hour', v),
+        value: v.toString(),
+      }))
     )
   }
   if (rank >= precisionRankRecord.minute) {
@@ -157,12 +149,10 @@ export function generateDatePickerColumns(
     const upper = isInMaxHour ? maxMinute : 59
     const minutes = generateColumn(lower, upper, 'minute')
     ret.push(
-      minutes.map(v => {
-        return {
-          label: renderLabel('minute', v),
-          value: v.toString(),
-        }
-      })
+      minutes.map(v => ({
+        label: renderLabel('minute', v),
+        value: v.toString(),
+      }))
     )
   }
   if (rank >= precisionRankRecord.second) {
@@ -170,12 +160,10 @@ export function generateDatePickerColumns(
     const upper = isInMaxMinute ? maxSecond : 59
     const seconds = generateColumn(lower, upper, 'second')
     ret.push(
-      seconds.map(v => {
-        return {
-          label: renderLabel('second', v),
-          value: v.toString(),
-        }
-      })
+      seconds.map(v => ({
+        label: renderLabel('second', v),
+        value: v.toString(),
+      }))
     )
   }
 
