@@ -74,6 +74,8 @@ export const components = {
   experimental: [
     '/guide/what-is-experimental',
     '/components/calendar',
+    '/components/calendar-picker',
+    '/components/calendar-picker-view',
     '/components/dropdown',
     '/components/floating-bubble',
     '/components/image-uploader',

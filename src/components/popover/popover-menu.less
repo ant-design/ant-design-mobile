@@ -12,6 +12,20 @@
   &-list-inner {
     margin-top: -1px;
   }
+  &-list-scroll {
+    padding-right: 2px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: auto;
+
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: #ddd;
+    }
+  }
 
   &-item {
     display: flex;

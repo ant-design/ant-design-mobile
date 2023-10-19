@@ -3,6 +3,7 @@ import './image-uploader.less'
 
 export type {
   ImageUploadItem,
+  ImageUploaderRef,
   ImageUploaderProps,
   UploadTask,
 } from './image-uploader'

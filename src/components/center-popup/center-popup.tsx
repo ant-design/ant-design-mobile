@@ -1,4 +1,5 @@
-import React, { FC, PropsWithChildren, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
+import type { FC, PropsWithChildren } from 'react'
 import { renderToContainer } from '../../utils/render-to-container'
 import Mask from '../mask'
 import { withStopPropagation } from '../../utils/with-stop-propagation'

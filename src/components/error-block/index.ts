@@ -1,5 +1,5 @@
 import './error-block.less'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { ErrorBlock } from './error-block'
 
 export { createErrorBlock } from './create-error-block'

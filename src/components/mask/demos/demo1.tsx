@@ -1,4 +1,5 @@
-import React, { useState, FC } from 'react'
+import React, { useState } from 'react'
+import type { FC } from 'react'
 import { Button, Mask, Space } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 

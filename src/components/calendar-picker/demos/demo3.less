@@ -1,0 +1,101 @@
+@prefix: ~'adm-calendar';
+
+.calendar-custom,
+.calendar-popup-custom {
+  .@{prefix}-cell {
+    justify-content: center;
+    height: 38px;
+
+    &-bottom {
+      display: none;
+    }
+
+    &.@{prefix}-cell-selected.@{prefix}-cell.@{prefix}-cell-selected {
+      background: rgba(229, 242, 250, 1);
+
+      .@{prefix}-cell-top {
+        height: 38px;
+        width: 38px;
+        border-radius: 99px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(229, 242, 250, 1);
+        color: var(--adm-color-primary);
+      }
+
+      &.@{prefix}-cell-selected-begin {
+        background: linear-gradient(
+          to right,
+          var(--adm-color-white) 50%,
+          #e5f2fa 51%,
+          #e5f2fa
+        );
+        .@{prefix}-cell-top {
+          height: 38px;
+          width: 38px;
+          border-radius: 99px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: var(--adm-color-primary);
+          color: var(--adm-color-white);
+        }
+
+        &.@{prefix}-cell-selected-row-end {
+          background: transparent;
+        }
+      }
+
+      &.@{prefix}-cell-selected-begin.@{prefix}-cell-selected-end {
+        background: var(--adm-color-white);
+      }
+
+      &.@{prefix}-cell-selected-end {
+        background: linear-gradient(
+          to right,
+          #e5f2fa 50%,
+          var(--adm-color-white) 51%,
+          var(--adm-color-white)
+        );
+        .@{prefix}-cell-top {
+          height: 38px;
+          width: 38px;
+          border-radius: 99px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: var(--adm-color-primary);
+          color: var(--adm-color-white);
+        }
+
+        &.@{prefix}-cell-selected-row-start {
+          background: transparent;
+        }
+      }
+
+      &.@{prefix}-cell-selected-row-begin {
+        border-top-left-radius: 99px;
+        border-bottom-left-radius: 99px;
+      }
+      &.@{prefix}-cell-selected-row-end {
+        border-top-right-radius: 99px;
+        border-bottom-right-radius: 99px;
+      }
+    }
+  }
+}
+
+.custom-cell {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-selected {
+    background: var(--adm-color-primary);
+    color: #fff;
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, testA11y, fireEvent, screen } from 'testing'
 import Selector from '..'
-import { options } from '../demos/options'
+import { options, fieldNamesOptions } from '../demos/options'
 
 const classPrefix = `adm-selector`
 
@@ -9,7 +9,18 @@ describe('Selector', () => {
   test('a11y', async () => {
     await testA11y(<Selector options={options} />)
   })
-
+  test('a11y fieldNames', async () => {
+    await testA11y(
+      <Selector
+        options={fieldNamesOptions}
+        fieldNames={{
+          label: 'labelT',
+          value: 'valueT',
+          disabled: 'disabledT',
+        }}
+      />
+    )
+  })
   test('onChange should be work', () => {
     const onChange = jest.fn()
     render(<Selector options={options} onChange={onChange} />)
@@ -20,7 +31,31 @@ describe('Selector', () => {
     expect(onChange.mock.calls[0][0]).toMatchObject([options[1].value])
     expect(onChange.mock.calls[0][1].items).toMatchObject([options[1]])
   })
+  test('fieldNames onChange  should be work', () => {
+    const onChange = jest.fn()
+    render(
+      <Selector
+        options={fieldNamesOptions}
+        fieldNames={{
+          label: 'labelT',
+          value: 'valueT',
+          disabled: 'disabledT',
+        }}
+        onChange={onChange}
+      />
+    )
 
+    const label = screen.getByText(fieldNamesOptions[1].labelT)
+    fireEvent.click(label)
+
+    expect(label).toHaveClass(`${classPrefix}-item-active`)
+    expect(onChange.mock.calls[0][0]).toMatchObject([
+      fieldNamesOptions[1].valueT,
+    ])
+    expect(onChange.mock.calls[0][1].items).toMatchObject([
+      fieldNamesOptions[1],
+    ])
+  })
   test('disabled should be work', () => {
     const onChange = jest.fn()
     render(

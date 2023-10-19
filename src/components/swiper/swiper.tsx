@@ -1,14 +1,12 @@
 import React, {
   forwardRef,
-  ReactElement,
-  ReactNode,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
   useState,
-  CSSProperties,
 } from 'react'
+import type { ReactNode, CSSProperties, ReactElement } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'

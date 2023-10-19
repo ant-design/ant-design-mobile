@@ -1,12 +1,11 @@
 import React, {
-  FC,
   forwardRef,
   useImperativeHandle,
   useRef,
   useState,
   useCallback,
 } from 'react'
-
+import type { FC, ReactNode } from 'react'
 import { mergeProps } from '../../utils/with-default-props'
 import {
   GetContainer,
@@ -26,7 +25,7 @@ export type ImageViewerProps = {
   visible?: boolean
   onClose?: () => void
   afterClose?: () => void
-  renderFooter?: (image: string) => React.ReactNode
+  renderFooter?: (image: string) => ReactNode
 }
 
 const defaultProps = {
@@ -75,7 +74,7 @@ export type MultiImageViewerProps = Omit<
   images?: string[]
   defaultIndex?: number
   onIndexChange?: (index: number) => void
-  renderFooter?: (image: string, index: number) => React.ReactNode
+  renderFooter?: (image: string, index: number) => ReactNode
 }
 
 const multiDefaultProps = {

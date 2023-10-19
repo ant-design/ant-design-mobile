@@ -1,5 +1,9 @@
 # Calendar 日历 <Experimental></Experimental>
 
+<Alert type="warning">
+  由于设计更新，Calendar 组件将被移除。请使用 CalendarPickerView 组件。
+</Alert>
+
 用于选择日期或日期区间。
 
 ## 何时使用

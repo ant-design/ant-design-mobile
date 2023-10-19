@@ -1,5 +1,6 @@
-import { createContext, ReactNode } from 'react'
 import { CheckListValue } from '.'
+import { createContext } from 'react'
+import type { ReactNode } from 'react'
 
 export const CheckListContext = createContext<{
   value: CheckListValue[]

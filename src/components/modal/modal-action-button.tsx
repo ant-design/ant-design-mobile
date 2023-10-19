@@ -1,4 +1,5 @@
-import React, { FC, ReactNode } from 'react'
+import React from 'react'
+import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import Button from '../button'
 import { NativeProps, withNativeProps } from '../../utils/native-props'

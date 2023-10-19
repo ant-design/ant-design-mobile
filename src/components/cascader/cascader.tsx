@@ -17,6 +17,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import CascaderView from '../cascader-view'
 import { useConfig } from '../config-provider'
 import { useCascaderValueExtend } from '../cascader-view/use-cascader-value-extend'
+import type { FieldNamesType } from '../../hooks'
 
 const classPrefix = `adm-cascader`
 
@@ -47,6 +48,7 @@ export type CascaderProps = {
   ) => ReactNode
   onTabsChange?: (index: number) => void
   activeIcon?: ReactNode
+  fieldNames?: FieldNamesType
 } & Pick<
   PopupProps,
   | 'getContainer'
