@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'testing'
 import MockDate from 'mockdate'
 import ConfigProvider from '..'
+import Calendar from '../../calendar'
 import CalendarPickerView from '../../calendar-picker-view'
 import Cascader from '../../cascader'
 import ErrorBlock from '../../error-block'
@@ -59,6 +60,7 @@ describe('ConfigProvider', () => {
 
   const App = () => (
     <>
+      <Calendar selectionMode='single' />
       <CalendarPickerView selectionMode='single' />
       <Cascader options={[]} visible />
       <ErrorBlock />

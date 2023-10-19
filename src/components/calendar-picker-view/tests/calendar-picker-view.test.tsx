@@ -4,7 +4,7 @@ import CalendarPickerView, { CalendarPickerViewRef } from '..'
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
 
-const classPrefix = `adm-calendar-view`
+const classPrefix = `adm-calendar-picker-view`
 
 // mock today
 MockDate.set(new Date('2023-05-22'))
