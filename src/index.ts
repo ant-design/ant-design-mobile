@@ -14,11 +14,16 @@ export { default as Button } from './components/button'
 export type { ButtonProps, ButtonRef } from './components/button'
 export { default as Calendar } from './components/calendar'
 export type { CalendarProps, CalendarRef } from './components/calendar'
-export { default as CalendarView } from './components/calendar-view'
+export { default as CalendarPicker } from './components/calendar-picker'
 export type {
-  CalendarViewProps,
-  CalendarViewRef,
-} from './components/calendar-view'
+  CalendarPickerProps,
+  CalendarPickerRef,
+} from './components/calendar-picker'
+export { default as CalendarPickerView } from './components/calendar-picker-view'
+export type {
+  CalendarPickerViewProps,
+  CalendarPickerViewRef,
+} from './components/calendar-picker-view'
 export { default as CapsuleTabs } from './components/capsule-tabs'
 export type {
   CapsuleTabsProps,

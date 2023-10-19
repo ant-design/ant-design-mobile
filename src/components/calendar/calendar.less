@@ -1,0 +1,111 @@
+.adm-calendar {
+  & &-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4px;
+    a.adm-calendar-arrow-button {
+      padding: 4px 8px;
+      display: block;
+      flex: none;
+      svg {
+        height: 22px;
+      }
+      &.adm-calendar-arrow-button-right {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .adm-calendar-title {
+      font-size: var(--adm-font-size-10);
+      flex: auto;
+      text-align: center;
+    }
+  }
+  & &-body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &-cells {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 8px 8px 4px;
+  }
+  &-cell {
+    flex: none;
+    box-sizing: border-box;
+    width: calc(100% / 7);
+    height: 48px;
+    margin-bottom: 4px;
+    padding: 2px;
+    color: var(--adm-color-text);
+    cursor: pointer;
+    &&-today {
+      color: var(--adm-color-primary);
+    }
+    &&-disabled {
+      color: var(--adm-color-light);
+      .adm-calendar-cell-bottom {
+        color: var(--adm-color-light);
+      }
+    }
+    &&-selected {
+      && {
+        background: var(--adm-color-primary);
+        color: var(--adm-color-white);
+      }
+      & .adm-calendar-cell-bottom {
+        color: var(--adm-color-white);
+      }
+      &&-begin {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+      &&-end {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+
+    &&-disabled&&-selected {
+      color: var(--adm-color-light);
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    & &-top {
+      flex: none;
+      font-size: var(--adm-font-size-10);
+    }
+    & &-bottom {
+      flex: none;
+      font-size: var(--adm-font-size-4);
+      height: 12px;
+      line-height: 12px;
+      color: var(--adm-color-weak);
+    }
+  }
+
+  &-mark {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: solid 1px var(--adm-color-border);
+    height: 45px;
+    box-sizing: border-box;
+    font-size: var(--adm-font-size-7);
+    padding: 0 8px;
+    & &-cell {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}

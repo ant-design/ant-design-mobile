@@ -1,16 +1,16 @@
-# CalendarView <Experimental></Experimental>
+# CalendarPickerView <Experimental></Experimental>
 
 Used to select a date or date range.
 
-CalendarView is the content area of [Calendar](/components/calendar).
+CalendarPickerView is the content area of [CalendarPicker](/components/calendar-picker).
 
 ## Demos
 
-Only the simplest content area is shown here, and other more usages can be consulted [Calendar](/zh/components/calendar)
+Only the simplest content area is shown here, and other more usages can be consulted [CalendarPicker](/components/calendar-picker)
 
 <code src="./demos/demo1.tsx"></code>
 
-## CalendarView
+## CalendarPickerView
 
 ### Props
 
