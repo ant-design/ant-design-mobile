@@ -23,6 +23,7 @@
 | defaultActiveKey | 默认激活的 `Item` `key` | `string \| null` | `null` |
 | onChange | `activeKey` 变化时触发 | `(activeKey: string \| null)=> void` | - |
 | getContainer | 自定义弹窗的父容器 | `HTMLElement \| (() => HTMLElement) \| null` | `document.body` |
+| popupClassName | `Dropdown` 弹出层类名 | `string` | - |
 
 ### Ref
 

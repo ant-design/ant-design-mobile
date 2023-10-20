@@ -23,6 +23,7 @@ It is suitable for filtering, sorting and changing the display range or order of
 | defaultActiveKey | The default active `Item` key | `string \| null` | `null` |
 | onChange | Triggered when `activeKey` changes | `(activeKey: string \| null)=> void` | - |
 | getContainer | The parent container of the custom popup | `HTMLElement \| (() => HTMLElement) \| null` | `document.body` |
+| popupClassName | `Dropdown` popup class name | `string` | - |
 
 ### Ref
 

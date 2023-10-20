@@ -7,7 +7,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='一列' padding={'0'}>
-        <Dropdown>
+        <Dropdown popupClassName='rm-dropdown-popup'>
           <Dropdown.Item key='sorter' title='排序'>
             <div style={{ padding: 12 }}>
               <Radio.Group defaultValue='default'>

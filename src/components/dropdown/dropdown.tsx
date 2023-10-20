@@ -28,6 +28,7 @@ export type DropdownProps = {
   onChange?: (key: string | null) => void
   arrow?: React.ReactNode
   getContainer?: PopupProps['getContainer']
+  popupClassName?: string
 } & NativeProps
 
 const defaultProps = {
@@ -127,7 +128,7 @@ const Dropdown = forwardRef<
         visible={!!value}
         position='top'
         getContainer={props.getContainer}
-        className={`${classPrefix}-popup`}
+        className={classNames(`${classPrefix}-popup`, props.popupClassName)}
         maskClassName={`${classPrefix}-popup-mask`}
         bodyClassName={`${classPrefix}-popup-body`}
         style={{ top }}
