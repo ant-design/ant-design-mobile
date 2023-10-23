@@ -29,7 +29,7 @@ export type ImageViewerProps = {
   renderFooter?: (image: string) => ReactNode
   classNames?: {
     mask?: string
-    content?: string
+    body?: string
   }
 }
 
@@ -54,7 +54,7 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
       <div
         className={classNames(
           `${classPrefix}-content`,
-          props?.classNames?.content
+          props?.classNames?.body
         )}
       >
         {props.image && (
@@ -129,7 +129,7 @@ export const MultiImageViewer = forwardRef<
       <div
         className={classNames(
           `${classPrefix}-content`,
-          props?.classNames?.content
+          props?.classNames?.body
         )}
       >
         {props.images && (

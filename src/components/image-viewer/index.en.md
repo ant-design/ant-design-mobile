@@ -15,7 +15,7 @@ You need to click on the picture to view the details and use it with the thumbna
 | Name | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Triggered when it is completely closed | `() => void` | - |
-| classNames | Semantic structure class | `{ mask?:string,context?:string }` | - | 5.33.1 |
+| classNames | Semantic structure class | `{ mask?:string,body?:string }` | - | 5.33.1 |
 | getContainer | To get the specified mounted HTML node, the default is `null` rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `null` |
 | image | The `url` of the image resource | `string` | - |
 | maxZoom | The maximum zoom ratio | `number \| 'auto'` | `3` |
@@ -29,7 +29,7 @@ On the basis of `ImageViewer`, the following props have been added:
 
 | Name | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| classNames | Semantic structure class | `{ mask?:string,context?:string }` | - | 5.33.1 |
+| classNames | Semantic structure class | `{ mask?:string,body?:string }` | - | 5.33.1 |
 | defaultIndex | Which picture would be displayed by default | `number` | `0` |
 | images | Url list of image resources | `string[]` | - |
 | onIndexChange | Triggered when the picture is switched | `(index: number) => void` | - |
