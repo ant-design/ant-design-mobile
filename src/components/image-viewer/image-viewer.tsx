@@ -49,7 +49,7 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
       opacity='thick'
       afterClose={props.afterClose}
       destroyOnClose
-      className={classNames(classPrefix, props?.classNames?.mask)}
+      className={props?.classNames?.mask}
     >
       <div
         className={classNames(
@@ -124,7 +124,7 @@ export const MultiImageViewer = forwardRef<
       opacity='thick'
       afterClose={props.afterClose}
       destroyOnClose
-      className={classNames(classPrefix, props?.classNames?.mask)}
+      className={props?.classNames?.mask}
     >
       <div
         className={classNames(
