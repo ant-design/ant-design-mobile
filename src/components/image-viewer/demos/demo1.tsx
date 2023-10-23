@@ -19,7 +19,7 @@ const Single = () => {
       <ImageViewer
         classNames={{
           mask: 'customize-mask',
-          body: 'customize-content',
+          body: 'customize-body',
         }}
         image={demoImage}
         visible={visible}
