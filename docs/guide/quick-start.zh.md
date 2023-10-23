@@ -8,6 +8,8 @@ $ npm install --save antd-mobile
 $ yarn add antd-mobile
 # or
 $ pnpm add antd-mobile
+# or
+$ bun add antd-mobile
 ```
 
 ## 引入

@@ -49,9 +49,7 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
         {props.image && (
           <Slide
             image={props.image}
-            onTap={() => {
-              props.onClose?.()
-            }}
+            onTap={props.onClose}
             maxZoom={props.maxZoom}
           />
         )}
@@ -99,11 +97,12 @@ export const MultiImageViewer = forwardRef<
   }))
 
   const onSlideChange = useCallback(
-    (index: number) => {
-      setIndex(index)
-      props.onIndexChange?.(index)
+    (newIndex: number) => {
+      if (newIndex === index) return
+      setIndex(newIndex)
+      props.onIndexChange?.(newIndex)
     },
-    [props.onIndexChange]
+    [props.onIndexChange, index]
   )
 
   const node = (
@@ -121,9 +120,7 @@ export const MultiImageViewer = forwardRef<
             defaultIndex={index}
             onIndexChange={onSlideChange}
             images={props.images}
-            onTap={() => {
-              props.onClose?.()
-            }}
+            onTap={props.onClose}
             maxZoom={props.maxZoom}
           />
         )}

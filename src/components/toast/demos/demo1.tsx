@@ -14,7 +14,7 @@ export default () => {
         <Button
           onClick={() =>
             Toast.show({
-              content: 'Hello World',
+              content: 'Hello World, This is a long text',
               afterClose: () => {
                 console.log('after')
               },

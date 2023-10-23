@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import Tabs from '../tabs'
-import CheckList from '../check-list'
+import CheckList, { CheckListValue } from '../check-list'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -16,7 +16,7 @@ import type { FieldNamesType, BaseOptionType } from '../../hooks'
 
 const classPrefix = `adm-cascader-view`
 
-export type CascaderValue = string
+export type CascaderValue = CheckListValue
 
 export type CascaderOption = {
   label?: string

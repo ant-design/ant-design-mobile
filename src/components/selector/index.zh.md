@@ -20,7 +20,7 @@
 | --- | --- | --- | --- |
 | columns | 列数（注意 `grid` 布局在 IOS 9 下不支持） | `number` | - |
 | defaultValue | 默认项 | `SelectorValue[]` | `[]` |
-| disabled | 是否全局禁止选中 | `boolean` | `false` |
+| disabled | 是否全部禁止选中 | `boolean` | `false` |
 | fieldNames | 自定义 options 中 label value disabled 的字段 | `{ label: string, value: string, disabled: string }` | `{ label: 'label', value: 'value',disabled:'disabled' }` |
 | multiple | 是否允许多选 | `boolean` | `false` |
 | onChange | 选项改变时触发 | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | - |
@@ -35,7 +35,7 @@
 | --border | 边框样式 | `none` |
 | --border-radius | 选项的圆角 | `2px` |
 | --checked-border | 选中时的边框样式 | `none` |
-| --checked-color | 选中时的背景色 | `#e7f1ff` |
+| --checked-color | 选中时的背景色 | `var(--adm-color-wathet)` |
 | --checked-text-color | 选中时的文字颜色 | `var(--adm-color-primary)` |
 | --color | 背景色 | `#f5f5f5` |
 | --padding | 选项的 padding | `8px 16px` |

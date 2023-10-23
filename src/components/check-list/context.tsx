@@ -1,10 +1,11 @@
+import { CheckListValue } from '.'
 import { createContext } from 'react'
 import type { ReactNode } from 'react'
 
 export const CheckListContext = createContext<{
-  value: string[]
-  check: (val: string) => void
-  uncheck: (val: string) => void
+  value: CheckListValue[]
+  check: (val: CheckListValue) => void
+  uncheck: (val: CheckListValue) => void
   activeIcon?: ReactNode
   extra?: (active: boolean) => ReactNode
   disabled?: boolean

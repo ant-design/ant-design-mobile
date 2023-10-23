@@ -99,8 +99,8 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
       onClick={handleClick}
       className={classNames(
         classPrefix,
-        props.color ? `${classPrefix}-${props.color}` : null,
         {
+          [`${classPrefix}-${props.color}`]: props.color,
           [`${classPrefix}-block`]: props.block,
           [`${classPrefix}-disabled`]: disabled,
           [`${classPrefix}-fill-outline`]: props.fill === 'outline',

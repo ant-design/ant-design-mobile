@@ -13,13 +13,14 @@ const classPrefix = `adm-image-viewer`
 type Props = {
   image: string
   maxZoom: number | 'auto'
-  onTap: () => void
+  onTap?: () => void
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
 }
 
 export const Slide: FC<Props> = props => {
   const { dragLockRef, maxZoom } = props
+  const initialMartix = useRef<boolean[]>([])
   const controlRef = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
   const [{ matrix }, api] = useSpring(() => ({
@@ -32,6 +33,83 @@ export const Slide: FC<Props> = props => {
 
   const pinchLockRef = useRef(false)
 
+  /**
+   * Calculate the min and max value of x and y
+   */
+  const getMinAndMax = (
+    nextMatrix: Matrix
+  ): {
+    x: {
+      position: number
+      minX: number
+      maxX: number
+    }
+    y: {
+      position: number
+      minY: number
+      maxY: number
+    }
+  } => {
+    if (!controlSize || !imgSize)
+      return {
+        x: {
+          position: 0,
+          minX: 0,
+          maxX: 0,
+        },
+        y: {
+          position: 0,
+          minY: 0,
+          maxY: 0,
+        },
+      }
+    const controlLeft = -controlSize.width / 2
+    const controlTop = -controlSize.height / 2
+
+    const imgLeft = -imgSize.width / 2
+    const imgTop = -imgSize.height / 2
+
+    const zoom = mat.getScaleX(nextMatrix)
+    const scaledImgWidth = zoom * imgSize.width
+    const scaledImgHeight = zoom * imgSize.height
+
+    const minX = controlLeft - (scaledImgWidth - controlSize.width)
+    const maxX = controlLeft
+
+    const minY = controlTop - (scaledImgHeight - controlSize.height)
+    const maxY = controlTop
+
+    const [x, y] = mat.apply(nextMatrix, [imgLeft, imgTop])
+
+    return {
+      x: {
+        position: x,
+        minX,
+        maxX,
+      },
+      y: {
+        position: y,
+        minY,
+        maxY,
+      },
+    }
+  }
+
+  /**
+   * Check if is reach the bound
+   */
+  const getReachBound = (
+    position: number,
+    min: number,
+    max: number,
+    buffer = 0
+  ) => {
+    return [position <= min - buffer, position >= max + buffer]
+  }
+
+  /**
+   * Limit the matrix in the bound
+   */
   const boundMatrix = (
     nextMatrix: Matrix,
     type: 'translate' | 'scale',
@@ -39,22 +117,19 @@ export const Slide: FC<Props> = props => {
   ): Matrix => {
     if (!controlSize || !imgSize) return nextMatrix
 
-    const controlLeft = -controlSize.width / 2
-    const controlTop = -controlSize.height / 2
-    const imgLeft = -imgSize.width / 2
-    const imgTop = -imgSize.height / 2
-
     const zoom = mat.getScaleX(nextMatrix)
     const scaledImgWidth = zoom * imgSize.width
     const scaledImgHeight = zoom * imgSize.height
-    const [x, y] = mat.apply(nextMatrix, [imgLeft, imgTop])
+
+    const {
+      x: { position: x, minX, maxX },
+      y: { position: y, minY, maxY },
+    } = getMinAndMax(nextMatrix)
 
     if (type === 'translate') {
       let boundedX = x
       let boundedY = y
       if (scaledImgWidth > controlSize.width) {
-        const minX = controlLeft - (scaledImgWidth - controlSize.width)
-        const maxX = controlLeft
         boundedX = last
           ? bound(x, minX, maxX)
           : rubberbandIfOutOfBounds(x, minX, maxX, zoom * 50)
@@ -63,8 +138,6 @@ export const Slide: FC<Props> = props => {
       }
 
       if (scaledImgHeight > controlSize.height) {
-        const minY = controlTop - (scaledImgHeight - controlSize.height)
-        const maxY = controlTop
         boundedY = last
           ? bound(y, minY, maxY)
           : rubberbandIfOutOfBounds(y, minY, maxY, zoom * 50)
@@ -78,18 +151,10 @@ export const Slide: FC<Props> = props => {
     if (type === 'scale' && last) {
       const [boundedX, boundedY] = [
         scaledImgWidth > controlSize.width
-          ? bound(
-              x,
-              controlLeft - (scaledImgWidth - controlSize.width),
-              controlLeft
-            )
+          ? bound(x, minX, maxX)
           : -scaledImgWidth / 2,
         scaledImgHeight > controlSize.height
-          ? bound(
-              y,
-              controlTop - (scaledImgHeight - controlSize.height),
-              controlTop
-            )
+          ? bound(y, minY, maxY)
           : -scaledImgHeight / 2,
       ]
       return mat.translate(nextMatrix, boundedX - x, boundedY - y)
@@ -101,15 +166,20 @@ export const Slide: FC<Props> = props => {
   useDragAndPinch(
     {
       onDrag: state => {
-        if (state.first) return
+        if (state.first) {
+          const {
+            x: { position: x, minX, maxX },
+          } = getMinAndMax(matrix.get())
+          initialMartix.current = getReachBound(x, minX, maxX)
+          return
+        }
         if (state.pinching) return state.cancel()
 
         if (state.tap && state.elapsedTime > 0 && state.elapsedTime < 1000) {
           // 判断点击时间>0是为了过滤掉非正常操作，例如用户长按选择图片之后的取消操作（也是一次点击）
-          props.onTap()
+          props.onTap?.()
           return
         }
-
         const currentZoom = mat.getScaleX(matrix.get())
         if (dragLockRef) {
           dragLockRef.current = currentZoom !== 1
@@ -139,6 +209,23 @@ export const Slide: FC<Props> = props => {
             matrix: boundMatrix(nextMatrix, 'translate', state.last),
             immediate: !state.last,
           })
+
+          const {
+            x: { position: x, minX, maxX },
+          } = getMinAndMax(nextMatrix)
+          if (
+            state.last &&
+            initialMartix.current.some(i => i) &&
+            getReachBound(x, minX, maxX).some(i => i)
+          ) {
+            if (dragLockRef) {
+              dragLockRef.current = false
+            }
+
+            api.start({
+              matrix: mat.create(),
+            })
+          }
         }
       },
       onPinch: state => {
@@ -182,12 +269,10 @@ export const Slide: FC<Props> = props => {
           )
           nextMatrix = mat.scale(nextMatrix, nextZoom / currentZoom)
           nextMatrix = mat.translate(nextMatrix, originOffsetX, originOffsetY)
-
           api.start({
             matrix: boundMatrix(nextMatrix, 'scale', state.last),
             immediate: !state.last,
           })
-
           if (dragLockRef) {
             dragLockRef.current = true
           }
@@ -211,14 +296,7 @@ export const Slide: FC<Props> = props => {
   )
 
   return (
-    <div
-      className={`${classPrefix}-slide`}
-      onPointerMove={e => {
-        if (mat.getScaleX(matrix.get()) !== 1) {
-          e.stopPropagation()
-        }
-      }}
-    >
+    <div className={`${classPrefix}-slide`}>
       <div className={`${classPrefix}-control`} ref={controlRef}>
         <animated.div
           className={`${classPrefix}-image-wrapper`}

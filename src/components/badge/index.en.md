@@ -26,6 +26,6 @@ It is suitable for reminders of productized new news, new functions, new service
 
 | Name | Description | Default | Global |
 | --- | --- | --- | --- |
-| --color | The background color of the Badge | `#ff411c` | `--adm-badge-color` |
+| --color | The background color of the Badge | `var(--adm-color-highlight)` | `--adm-badge-color` |
 | --right | The offset to the left, relative to the far right | `0` | - |
 | --top | The downward offset, relative to the uppermost edge | `0` | - |

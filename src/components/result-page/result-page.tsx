@@ -41,7 +41,7 @@ export type ResultPageProps = {
   title: ReactNode
   description?: ReactNode
   icon?: ReactNode
-  details?: ResultPageDetails
+  details?: ResultPageDetails | null
   children?: ReactNode
   primaryButtonText?: ReactNode
   secondaryButtonText?: ReactNode
@@ -83,7 +83,7 @@ export const ResultPage: FC<ResultPageProps> = p => {
         {isNodeWithContent(description) ? (
           <div className={`${classPrefix}-description`}>{description}</div>
         ) : null}
-        {details.length ? (
+        {details?.length ? (
           <div className={`${classPrefix}-details`}>
             {(collapse ? details.slice(0, 3) : details).map((detail, index) => {
               return (
@@ -118,35 +118,37 @@ export const ResultPage: FC<ResultPageProps> = p => {
 
       <div className={`${classPrefix}-content`}>{props.children}</div>
 
-      <div className={`${classPrefix}-footer`}>
-        {showSecondaryButton && (
-          <Button
-            block
-            color='default'
-            fill='solid'
-            size='large'
-            onClick={onSecondaryButtonClick}
-            className={`${classPrefix}-footer-btn`}
-          >
-            {secondaryButtonText}
-          </Button>
-        )}
-        {showPrimaryButton && showSecondaryButton && (
-          <div className={`${classPrefix}-footer-space`} />
-        )}
-        {showPrimaryButton && (
-          <Button
-            block
-            color='primary'
-            fill='solid'
-            size='large'
-            onClick={onPrimaryButtonClick}
-            className={`${classPrefix}-footer-btn`}
-          >
-            {primaryButtonText}
-          </Button>
-        )}
-      </div>
+      {(showPrimaryButton || showSecondaryButton) && (
+        <div className={`${classPrefix}-footer`}>
+          {showSecondaryButton && (
+            <Button
+              block
+              color='default'
+              fill='solid'
+              size='large'
+              onClick={onSecondaryButtonClick}
+              className={`${classPrefix}-footer-btn`}
+            >
+              {secondaryButtonText}
+            </Button>
+          )}
+          {showPrimaryButton && showSecondaryButton && (
+            <div className={`${classPrefix}-footer-space`} />
+          )}
+          {showPrimaryButton && (
+            <Button
+              block
+              color='primary'
+              fill='solid'
+              size='large'
+              onClick={onPrimaryButtonClick}
+              className={`${classPrefix}-footer-btn`}
+            >
+              {primaryButtonText}
+            </Button>
+          )}
+        </div>
+      )}
     </div>
   )
 }
