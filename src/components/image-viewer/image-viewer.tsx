@@ -15,6 +15,7 @@ import Mask from '../mask'
 import SafeArea from '../safe-area'
 import { Slide } from './slide'
 import { Slides, SlidesRef } from './slides'
+import classNames from 'classnames'
 
 const classPrefix = `adm-image-viewer`
 
@@ -26,6 +27,10 @@ export type ImageViewerProps = {
   onClose?: () => void
   afterClose?: () => void
   renderFooter?: (image: string) => ReactNode
+  classNames?: {
+    mask?: string
+    content?: string
+  }
 }
 
 const defaultProps = {
@@ -44,8 +49,14 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
       opacity='thick'
       afterClose={props.afterClose}
       destroyOnClose
+      className={classNames(classPrefix, props?.classNames?.mask)}
     >
-      <div className={`${classPrefix}-content`}>
+      <div
+        className={classNames(
+          `${classPrefix}-content`,
+          props?.classNames?.content
+        )}
+      >
         {props.image && (
           <Slide
             image={props.image}
@@ -81,6 +92,7 @@ const multiDefaultProps = {
   ...defaultProps,
   defaultIndex: 0,
 }
+
 export const MultiImageViewer = forwardRef<
   MultiImageViewerRef,
   MultiImageViewerProps
@@ -112,8 +124,14 @@ export const MultiImageViewer = forwardRef<
       opacity='thick'
       afterClose={props.afterClose}
       destroyOnClose
+      className={classNames(classPrefix, props?.classNames?.mask)}
     >
-      <div className={`${classPrefix}-content`}>
+      <div
+        className={classNames(
+          `${classPrefix}-content`,
+          props?.classNames?.content
+        )}
+      >
         {props.images && (
           <Slides
             ref={slidesRef}

@@ -17,6 +17,10 @@ const Single = () => {
         显示图片
       </Button>
       <ImageViewer
+        classNames={{
+          mask: 'customize-mask',
+          content: 'customize-content',
+        }}
         image={demoImage}
         visible={visible}
         onClose={() => {
