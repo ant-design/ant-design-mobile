@@ -63,7 +63,7 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps>(
                 className={classNames(
                   `${classPrefix}-item`,
                   'adm-plain-anchor',
-                  action.disabled && `${classPrefix}-item-disabled`
+                  { [`${classPrefix}-item-disabled`]: action.disabled }
                 )}
                 onClick={() => {
                   if (action.disabled) return
