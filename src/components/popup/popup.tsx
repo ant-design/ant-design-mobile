@@ -125,6 +125,7 @@ export const Popup: FC<PopupProps> = p => {
           className={bodyCls}
           style={{
             ...props.bodyStyle,
+            pointerEvents: percent.to(v => (v === 0 ? 'unset' : 'none')),
             transform: percent.to(v => {
               if (props.position === 'bottom') {
                 return `translate(0, ${v}%)`
