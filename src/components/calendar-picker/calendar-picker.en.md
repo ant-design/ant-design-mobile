@@ -28,6 +28,7 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 | popupStyle | The custom style of the popup | `React.CSSProperties` | - |
 | popupBodyStyle | The custom style of the popup body | `React.CSSProperties` | - |
 | forceRender | Render content forcely，When ref is passed，always be true | `boolean` | `false` |
+| closeOnBack | Whether to close after clicking browser back button or use back swipe guesture | `boolean` | `false` |
 | closeOnMaskClick | Whether to close after clicking the mask layer | `boolean` | `true` |
 | onClose | Triggered when closed | `() => void` | - |
 | onMaskClick | Triggered when the mask is clicked | `() => void` | - |

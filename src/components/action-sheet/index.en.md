@@ -20,6 +20,7 @@ Triggered by user operation, it provides a set of two or more options related to
 | afterClose | Triggered when completely closed | `() => void` | - |
 | cancelText | The text of the cancel button , if it is null, the cancel button would not be displayed | `ReactNode` | - |
 | closeOnAction | Whether to close after clicking the option | `boolean` | `false` |
+| closeOnBack | Whether to close after clicking browser back button or use back swipe guesture | `boolean` | `false` |
 | closeOnMaskClick | Whether to close after clicking the mask layer | `boolean` | `true` |
 | destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | forceRender | Render content forcely | `boolean` | `false` |

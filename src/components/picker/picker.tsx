@@ -46,6 +46,7 @@ export type PickerProps = {
   onConfirm?: (value: PickerValue[], extend: PickerValueExtend) => void
   onCancel?: () => void
   onClose?: () => void
+  closeOnBack?: boolean
   closeOnMaskClick?: boolean
   visible?: boolean
   title?: ReactNode
@@ -78,6 +79,7 @@ export type PickerProps = {
 
 const defaultProps = {
   defaultValue: [],
+  closeOnBack: false,
   closeOnMaskClick: true,
   renderLabel: defaultRenderLabel,
   destroyOnClose: false,
@@ -205,6 +207,7 @@ export const Picker = memo(
           props.onCancel?.()
           setVisible(false)
         }}
+        closeOnBack={props.closeOnBack}
         getContainer={props.getContainer}
         destroyOnClose={props.destroyOnClose}
         afterShow={props.afterShow}

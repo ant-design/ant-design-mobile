@@ -22,6 +22,7 @@ export type CalendarPickerProps = CalendarPickerViewProps & {
   popupStyle?: React.CSSProperties
   popupBodyStyle?: React.CSSProperties
   forceRender?: true
+  closeOnBack?: boolean
   closeOnMaskClick?: boolean
   onClose?: () => void
   onMaskClick?: () => void
@@ -64,6 +65,7 @@ export const CalendarPicker = forwardRef<
     popupStyle,
     popupBodyStyle,
     forceRender,
+    closeOnBack,
     closeOnMaskClick,
     onClose,
     onConfirm,
@@ -117,6 +119,7 @@ export const CalendarPicker = forwardRef<
             onClose?.()
           }
         }}
+        closeOnBack={closeOnBack}
       >
         <CalendarPickerView ref={calendarRef} {...calendarViewProps} />
         {footer}

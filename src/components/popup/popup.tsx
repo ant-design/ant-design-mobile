@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import type { FC, PropsWithChildren } from 'react'
 import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -164,6 +164,21 @@ export const Popup: FC<PopupProps> = p => {
       </div>
     )
   )
+
+  useEffect(() => {
+    if (maskVisible && props.closeOnBack) {
+      const handlePopState = () => {
+        // prevent history back
+        history.go(1)
+        // close popup instead
+        props.onClose?.()
+      }
+      window.addEventListener('popstate', handlePopState)
+      return () => {
+        window.removeEventListener('popstate', handlePopState)
+      }
+    }
+  }, [maskVisible])
 
   return (
     <ShouldRender

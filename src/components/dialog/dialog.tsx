@@ -31,12 +31,14 @@ export type DialogProps = Pick<
   onAction?: (action: Action, index: number) => void | Promise<void>
   onClose?: () => void
   closeOnAction?: boolean
+  closeOnBack?: boolean
   closeOnMaskClick?: boolean
 } & NativeProps
 
 const defaultProps = {
   actions: [] as Action[],
   closeOnAction: false,
+  closeOnBack: false,
   closeOnMaskClick: false,
   getContainer: null,
 }
@@ -109,6 +111,7 @@ export const Dialog: FC<DialogProps> = p => {
             }
           : undefined
       }
+      closeOnBack={props.closeOnBack}
       visible={props.visible}
       getContainer={props.getContainer}
       bodyStyle={props.bodyStyle}

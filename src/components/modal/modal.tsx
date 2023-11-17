@@ -32,6 +32,7 @@ export type ModalProps = Pick<
   onAction?: (action: Action, index: number) => void | Promise<void>
   onClose?: () => void
   closeOnAction?: boolean
+  closeOnBack?: boolean
   closeOnMaskClick?: boolean
   showCloseButton?: boolean
 } & NativeProps
@@ -39,6 +40,7 @@ export type ModalProps = Pick<
 const defaultProps = {
   actions: [] as Action[],
   closeOnAction: false,
+  closeOnBack: false,
   closeOnMaskClick: false,
   getContainer: null,
 }
@@ -99,6 +101,7 @@ export const Modal: FC<ModalProps> = p => {
       afterClose={props.afterClose}
       afterShow={props.afterShow}
       showCloseButton={props.showCloseButton}
+      closeOnBack={props.closeOnBack}
       closeOnMaskClick={props.closeOnMaskClick}
       onClose={props.onClose}
       visible={props.visible}

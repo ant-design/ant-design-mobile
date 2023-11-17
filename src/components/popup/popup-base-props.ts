@@ -9,6 +9,7 @@ export type PopupBaseProps = {
   afterShow?: () => void
   bodyClassName?: string
   bodyStyle?: CSSProperties
+  closeOnBack?: boolean
   closeOnMaskClick?: boolean
   destroyOnClose?: boolean
   disableBodyScroll?: boolean
@@ -26,6 +27,7 @@ export type PopupBaseProps = {
 }
 
 export const defaultPopupBaseProps = {
+  closeOnBack: false,
   closeOnMaskClick: false,
   destroyOnClose: false,
   disableBodyScroll: true,

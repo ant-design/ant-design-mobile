@@ -39,6 +39,7 @@ type PickerValueExtend = {
 | --- | --- | --- | --- |
 | cancelText | Text of the cancel button | `ReactNode` | `'取消'` |
 | children | Render function of the selected options | `(items: PickerColumnItem[], actions: PickerActions) => ReactNode` | - |
+| closeOnBack | Whether to close after clicking browser back button or use back swipe guesture | `boolean` | `false` |
 | closeOnMaskClick | Whether to close after clicking the mask layer | `boolean` | `true` |
 | columns | Options to configure each column | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | - |
 | confirmText | Text of the ok button | `ReactNode` | `'确定'` |

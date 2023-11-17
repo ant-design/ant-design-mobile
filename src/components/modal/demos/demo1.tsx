@@ -120,6 +120,7 @@ export default () => {
               Modal.show({
                 content: '点击遮罩关闭',
                 closeOnMaskClick: true,
+                closeOnBack: true,
               })
             }}
           >

@@ -28,6 +28,7 @@ export type ActionSheetProps = {
   onClose?: () => void
   onMaskClick?: () => void
   closeOnAction?: boolean
+  closeOnBack?: boolean
   closeOnMaskClick?: boolean
   safeArea?: boolean
   popupClassName?: string
@@ -45,6 +46,7 @@ const defaultProps = {
   actions: [],
   cancelText: '',
   closeOnAction: false,
+  closeOnBack: false,
   closeOnMaskClick: true,
   safeArea: true,
   destroyOnClose: false,
@@ -64,6 +66,7 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
           props.onClose?.()
         }
       }}
+      closeOnBack={props.closeOnBack}
       afterClose={props.afterClose}
       className={classNames(`${classPrefix}-popup`, props.popupClassName)}
       style={props.popupStyle}

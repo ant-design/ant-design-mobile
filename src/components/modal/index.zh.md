@@ -26,6 +26,7 @@
 | bodyClassName | `Modal` 内容类名 | `string` | - |
 | bodyStyle | `Modal` 内容样式 | `React.CSSProperties` | - |
 | closeOnAction | 点击操作按钮后后是否关闭 | `boolean` | `false` |
+| closeOnBack | 点击后退按钮或滑动后退手势是否关闭 | `boolean` | `false` |
 | closeOnMaskClick | 是否支持点击遮罩关闭弹窗 | `boolean` | `false` |
 | content | 弹窗内容 | `React.ReactNode` | - |
 | destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |

@@ -23,6 +23,7 @@
 | bodyClassName | 内容区域类名 | `string` | - |
 | bodyStyle | 内容区域样式 | `React.CSSProperties` | - |
 | className | 容器类名 | `string` | - |
+| closeOnBack | 点击后退按钮或滑动后退手势是否关闭 | `boolean` | `false` |
 | closeOnMaskClick | 点击背景蒙层后是否关闭 | `boolean` | `false` |
 | destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | forceRender | 强制渲染内容 | `boolean` | `false` |

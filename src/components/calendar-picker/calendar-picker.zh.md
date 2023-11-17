@@ -28,6 +28,7 @@
 | popupStyle | 弹层容器的自定义样式 | `React.CSSProperties` | - |
 | popupBodyStyle | 容器内部自定义样式 | `React.CSSProperties` | - |
 | forceRender | 强制渲染内容，当传递 ref 时，会强制设为 true | `boolean` | `false` |
+| closeOnBack | 点击后退按钮或滑动后退手势是否关闭 | `boolean` | `false` |
 | closeOnMaskClick | 点击背景蒙层后是否关闭 | `boolean` | `true` |
 | onClose | 关闭时触发 | `() => void` | - |
 | onMaskClick | 点击背景蒙层时触发 | `() => void` | - |
