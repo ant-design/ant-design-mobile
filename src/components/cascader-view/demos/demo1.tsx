@@ -5,7 +5,7 @@ import { DemoBlock } from 'demos'
 import { options, sameValueOptions } from '../../cascader/demos/data'
 
 export default () => {
-  const [value, setValue] = useState<string[]>([])
+  const [value, setValue] = useState<(string | number)[]>([])
 
   return (
     <>
