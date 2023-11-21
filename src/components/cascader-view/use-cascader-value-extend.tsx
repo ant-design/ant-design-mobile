@@ -1,25 +1,28 @@
 import { useMemo } from 'react'
 import memoize from 'lodash/memoize'
-import {
-  CascaderValue,
-  CascaderValueExtend,
-  CascaderOption,
-} from './cascader-view'
+import { CascaderValue, CascaderValueExtend } from './cascader-view'
+import type { CascaderOption } from './cascader-view'
 
-export function useCascaderValueExtend(options: CascaderOption[]) {
+export function useCascaderValueExtend(
+  options: CascaderOption[],
+  fieldNames: CascaderOption
+) {
+  const { valueName, childrenName } = fieldNames
+
   const generateItems = useMemo(() => {
     return memoize(
       (val: CascaderValue[]) => {
         const ret: CascaderOption[] = []
         let currentOptions = options
+
         for (const v of val) {
-          const target = currentOptions.find(option => option.value === v)
+          const target = currentOptions.find(option => option[valueName] === v)
           if (!target) {
             break
           }
           ret.push(target)
-          if (!target.children) break
-          currentOptions = target.children
+          if (!target[childrenName]) break
+          currentOptions = target[childrenName]
         }
 
         return ret
@@ -33,7 +36,9 @@ export function useCascaderValueExtend(options: CascaderOption[]) {
       (val: CascaderValue[]) => {
         const children = val.reduce((currentOptions, v) => {
           return (
-            currentOptions.find(option => option.value === v)?.children || []
+            currentOptions.find(option => option[valueName] === v)?.[
+              childrenName
+            ] || []
           )
         }, options)
 
