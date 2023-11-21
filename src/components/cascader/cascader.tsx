@@ -17,6 +17,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import CascaderView from '../cascader-view'
 import { useConfig } from '../config-provider'
 import { useCascaderValueExtend } from '../cascader-view/use-cascader-value-extend'
+import { useFieldNames } from '../../hooks'
 import type { FieldNamesType } from '../../hooks'
 
 const classPrefix = `adm-cascader`
@@ -110,7 +111,11 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
     },
   })
 
-  const generateValueExtend = useCascaderValueExtend(props.options)
+  const [, valueName, childrenName] = useFieldNames(props.fieldNames)
+  const generateValueExtend = useCascaderValueExtend(props.options, {
+    valueName,
+    childrenName,
+  })
 
   const [innerValue, setInnerValue] = useState<CascaderValue[]>(value)
 
