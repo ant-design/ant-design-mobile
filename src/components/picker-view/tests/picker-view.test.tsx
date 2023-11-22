@@ -89,6 +89,11 @@ describe('PickerView', () => {
     const wheelEl = document.body.querySelectorAll(
       `.${classPrefix}-column-wheel`
     )[0]
+
+    const itemList = document.body.querySelectorAll(
+      `.${classPrefix}-column-item`
+    )
+
     fireEvent.mouseDown(wheelEl, {
       clientY: 0,
       buttons: 1,
@@ -99,6 +104,8 @@ describe('PickerView', () => {
     })
     fireEvent.mouseUp(wheelEl)
     expect(wheelEl).toHaveStyle('transform: translateY(-68px)')
+    // 滚到了第3个item
+    expect(itemList[2]).toHaveClass(`${classPrefix}-column-item-active`)
     fireEvent.click(screen.getByText('change'))
     await waitFor(() => expect(wheelEl).toHaveStyle('transform: none'))
   })
