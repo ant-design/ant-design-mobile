@@ -74,7 +74,7 @@ type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
 | --------- | -------------- | --------------------------------------------- |
 | swipeNext | 切换到下一张   | `() => void`                                  |
 | swipePrev | 切换到上一张   | `() => void`                                  |
-| swipeTo   | 切换到指定索引 | `(index: number, immediate: boolean) => void` |
+| swipeTo   | 切换到指定索引 | `(index: number, immediate?: boolean) => void` |
 
 ## Swiper.Item
 
