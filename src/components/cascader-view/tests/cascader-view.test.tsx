@@ -83,7 +83,13 @@ describe('CascaderView', () => {
 
     expect(onChange).toBeCalledTimes(3)
     expect(onTabsChange).toBeCalledTimes(2)
-    expect(onChange.mock.calls[2][0]).toEqual(['浙江', '杭州', '西湖区'])
+
+    const [value, extend] = onChange.mock.calls[2]
+    const item = extend.items[0]
+
+    expect(value).toEqual(['浙江', '杭州', '西湖区'])
+    expect(item).toHaveProperty('labelT')
+    expect(item).toHaveProperty('valueT')
   })
   test('controlled mode', async () => {
     const { container } = render(
