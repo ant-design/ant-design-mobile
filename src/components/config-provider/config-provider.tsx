@@ -3,7 +3,10 @@ import type { FC, ReactNode } from 'react'
 import { Locale } from '../../locales/base'
 import zhCN from '../../locales/zh-CN'
 
+type DirectionType = 'ltr' | 'rtl' | undefined
+
 type Config = {
+  direction?: DirectionType
   locale: Locale
   children?: ReactNode
 }
