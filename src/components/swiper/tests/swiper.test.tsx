@@ -353,4 +353,29 @@ describe('Swiper', () => {
     expect(onMouseMove).not.toBeCalled()
     expect(onMouseUp).not.toBeCalled()
   })
+
+  test('rtl mode', async () => {
+    const { container } = render(<Swiper docDirection={'rtl'}>{items}</Swiper>)
+
+    console.log(expect(container))
+
+    expect(container).toMatchSnapshot()
+
+    const el = $$(`.${classPrefix}-track`)[0]
+    mockDrag(el, [
+      { clientX: 0, clientY: 0 },
+      {
+        clientX: 200,
+        clientY: 25,
+      },
+      {
+        clientX: 300,
+        clientY: 30,
+      },
+    ])
+
+    console.log(expect(container))
+
+    expect(container).toMatchSnapshot()
+  })
 })

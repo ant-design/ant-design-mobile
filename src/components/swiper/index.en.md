@@ -36,6 +36,10 @@ When you use a vertical Swiper, be sure to set its height through the `--height`
 
 <code src="./demos/demo7.tsx" debug></code>
 
+### rtl support
+
+The RTL (right-to-left) mode is only effective when the direction attribute is set to `horizontal`. <code src="./demos/demo8.tsx"></code>
+
 ## Swiper
 
 ### Props
@@ -56,6 +60,7 @@ When you use a vertical Swiper, be sure to set its height through the `--height`
 | stuckAtBoundary | Whether to stuck at boundary in order to prevent white spaces. Only available when `loop` is `false` and `slideWidth` < 100. | `boolean` | `true` |
 | trackOffset | The track offset in percentage | `number` | `0` |
 | stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `[]` | 5.28.0 |
+| docDirection | The document layout direction，only effective when the direction is set to `horizontal`. | `'ltr' \| 'rtl'` | `'ltr'` |
 
 ```ts
 type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'

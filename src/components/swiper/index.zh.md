@@ -34,6 +34,10 @@
 
 <code src="./demos/demo6.tsx" debug></code> <code src="./demos/demo7.tsx" debug></code>
 
+### rtl 支持
+
+rtl 模式仅在 direction 属性为`horizontal`时生效 <code src="./demos/demo8.tsx"></code>
+
 ## Swiper
 
 ### 属性
@@ -54,6 +58,7 @@
 | stuckAtBoundary | 是否在边界两边卡住，避免出现空白，仅在非 `loop` 模式且 `slideSize` < 100 时生效 | `boolean` | `true` |
 | trackOffset | 滑块轨道整体的偏移量百分比 | `number` | `0` |
 | stopPropagation | 阻止某些事件的冒泡 | `PropagationEvent[]` | `[]` | 5.28.0 |
+| docDirection | 文档排版方向，仅在 direction 为`horizontal`是生效 | `'ltr' \| 'rtl'` | `'ltr'` |
 
 ```ts
 type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
